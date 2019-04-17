@@ -1,0 +1,38 @@
+---
+ms.assetid: 503733f8-be0c-429c-81f0-cd4205e8b118
+title: Elenco di controllo - creazione di regole attestazione per un Provider di attestazioni attendibile
+description: 
+author: billmath
+manager: femila
+ms.date: 05/31/2017
+ms.topic: article
+ms.prod: windows-server-threshold
+ms.technology: identity-adfs
+ms.author: billmath
+ms.openlocfilehash: 6b0ece3274b0e0a2a0d5e18e3c0ebf10ded67ebe
+ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/03/2017
+---
+# <a name="checklist-creating-claim-rules-for-a-claims-provider-trust"></a>Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile
+
+>Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Questo elenco di controllo include attività per la pianificazione, progettazione e distribuzione di regole attestazione che sono associate a un trust del provider di attestazioni in Active Directory Federation Services \(AD FS\).  
+  
+> [!NOTE]  
+> Completare le attività nell'elenco di controllo nell'ordine. Quando un collegamento di riferimento porta a una procedura, tornare a questo argomento dopo aver completato i passaggi in questa procedura in modo che è possibile procedere con le attività rimanenti nell'elenco di controllo.  
+  
+![creazione di regole attestazione](media/2b05dce3-938f-4168-9b8f-1f4398cbdb9b.gif)**elenco di controllo: creazione di una regola attestazione impostato per un trust di provider di attestazioni**  
+  
+||Attività|Riferimento|  
+|-|--------|-------------|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|Rivedere i concetti sulle attestazioni, regole attestazione, set di regole attestazione e richiedere modelli di regole e come sono associati a relazioni di trust federative.|![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[il ruolo di attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[ruolo delle attestazioni regole](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|Rivedere i concetti sul modo in cui un'attestazione attraversa tutte le fasi della pipeline di rilascio delle attestazioni e come regole vengono elaborate dal motore di rilascio delle attestazioni.|![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[ruolo delle Pipeline delle attestazioni](../../ad-fs/technical-reference/The-Role-of-the-Claims-Pipeline.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[The Role of the Claims Engine](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md)|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|Per pianificare e implementare le attestazioni di output che verranno rilasciate su questa attendibilità del provider di attestazioni, determinare se sono necessari uno o più regole attestazione e che le regole, che è consigliabile utilizzare con questa attendibilità del provider di attestazioni.|![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[determinare il tipo di modello di regola attestazione da utilizzare](../../ad-fs/technical-reference/Determine-the-Type-of-Claim-Rule-Template-to-Use.md)|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|Rivedere i concetti su quando creare un'attestazione regola rispetto a un altro e come è possibile utilizzare il linguaggio delle regole attestazione per fornire una logica più complessa rispetto alle regole standard per fornire un risultato desiderato nell'output ideale set di attestazioni.|![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[quando utilizzare un Pass-Through o una regola attestazione filtro](../../ad-fs/technical-reference/When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[quando usare una regola attestazione di trasformazione](../../ad-fs/technical-reference/When-to-Use-a-Transform-Claim-Rule.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[quando utilizzare un inviare attributi LDAP come attestazioni regola](../../ad-fs/technical-reference/When-to-Use-a-Send-LDAP-Attributes-as-Claims-Rule.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[When to Use a Send Group Membership come regola attestazione](../../ad-fs/technical-reference/When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[quando usare una regola attestazione personalizzata](../../ad-fs/technical-reference/When-to-Use-a-Custom-Claim-Rule.md)<br /><br />![creazione di regole attestazione](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[il ruolo del linguaggio di regola attestazione](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md)|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|Una descrizione di attestazione deve essere creata se non ne esiste già che verrà usata per soddisfare le esigenze dell'organizzazione. AD FS viene fornito con un set predefinito di descrizioni di attestazioni che sono esposte in snap-in di gestione di ADFS.|![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[aggiungere una descrizione di attestazione](../../ad-fs/operations/Add-a-Claim-Description.md)|  
+|![creazione di regole attestazione](media/icon_checkboxo.gif)|A seconda delle esigenze dell'organizzazione, creare uno o più regole attestazione per il set di regole di trasformazione accettazione che è associata a questa attendibilità del provider di attestazioni in modo che le attestazioni e verranno generate in modo appropriato.|![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola di Pass-Through o filtrare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per inviare attributi LDAP come attestazioni](../../ad-fs/operations/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per inviare l'appartenenza al gruppo come attestazione](../../ad-fs/operations/Create-a-Rule-to-Send-Group-Membership-as-a-Claim.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per trasformare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per inviare un'attestazione di metodo di autenticazione](../../ad-fs/operations/Create-a-Rule-to-Send-an-Authentication-Method-Claim.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per l'invio di un'istanza di ADFS 1. x attestazione compatibile](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)<br /><br />![creazione di regole attestazione](media/15dd35b6-6cc6-421f-93f8-7109920e7144.gif)[creare una regola per inviare attestazioni mediante una regola personalizzata](../../ad-fs/operations/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule.md)|  
+  
+

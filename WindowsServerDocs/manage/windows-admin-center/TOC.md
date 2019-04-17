@@ -1,0 +1,83 @@
+# [Windows Admin Center](overview.md)
+
+## Esaminare con attenzione
+### [Introduzione a Windows Admin Center](understand/windows-admin-center.md)
+### [Che cos'è Windows Admin Center?](understand/what-is.md)
+### [Domande frequenti](understand/faq.md)
+### [Case study](understand/case-studies.md)
+### [Prodotti di gestione correlati](understand/related-management.md)
+### [Video](understand/videos.md)
+
+## Pianificazione
+### [Che tipo di installazione è adatto alle tue esigenze?](plan/installation-options.md)
+### [Opzioni di accesso dell'utente](plan/user-access-options.md)
+
+## Distribuire
+### [Preparazione dell'ambiente](deploy/prepare-environment.md)
+### [Installare Windows Admin Center](deploy/install.md)
+### [Disponibilità elevata](deploy/high-availability.md)
+
+
+## Configurare
+### [Impostazioni di Windows Admin Center](configure/settings.md)
+### [Autorizzazioni e controllo dell'accesso utente](configure/user-access-control.md)
+### [Uso delle estensioni](configure/using-extensions.md)
+
+## Usare
+### [Informazioni di base](use/get-started.md)
+### [Gestire server](use/manage-servers.md)
+### [Gestire l'infrastruttura iperconvergente](use/manage-hyper-converged.md)
+### [Gestire i cluster di failover](use/manage-failover-clusters.md)
+### [Gestire le macchine virtuali Hyper-V](use/manage-virtual-machines.md)
+### [Registrazione](use/logging.md)
+
+
+## Connessione ad Azure
+### [Servizi di Azure ibrido](azure/index.md)
+#### [Azure Backup](azure/azure-backup.md)
+#### [Azure Site Recovery](azure/azure-site-recovery.md)
+#### [Sincronizzazione di File di Azure](azure/azure-file-sync.md)
+#### [Monitor di Azure](azure/azure-monitor.md)
+#### [Gestione degli aggiornamenti Azure](azure/azure-update-management.md)
+### [Connettersi a Windows Admin Center ad Azure](azure/azure-integration.md)
+### [Distribuire Windows Admin Center in Azure](azure/deploy-wac-in-azure.md)
+### [Gestisci le macchine virtuali di Azure con Windows Admin Center](azure/manage-azure-vms.md)
+
+## Supporto tecnico
+### [Supporto dei criteri](support/index.md)
+### [Passaggi di risoluzione dei problemi comuni](support/troubleshooting.md)
+### [Problemi noti](support/known-issues.md)
+
+
+## Estendere
+### [Panoramica delle estensioni](extend/extensibility-overview.md)
+### [Informazioni sulle estensioni](extend/understand-extensions.md)
+### [Sviluppare un'estensione](extend/developing-extensions.md)
+#### [Preparare l'ambiente di sviluppo](extend/prepare-development-environment.md)
+#### [Sviluppare un'estensione dello strumento](extend/develop-tool.md)
+#### [Sviluppare un'estensione della soluzione](extend/develop-solution.md)
+#### [Sviluppare un plug-in del gateway](extend/develop-gateway-plugin.md)
+#### [Fare riferimento a una versione SDK](extend/target-sdk-version.md)
+### [Guide](extend/guides.md)
+#### [Aggiungere un modulo a un'estensione dello strumento](extend/guides/add-module.md)
+#### [Aggiungere un iFrame a un'estensione dello strumento](extend/guides/add-iFrame.md)
+#### [Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento](extend/guides/use-custom-gateway-plugin.md)
+#### [Creare un provider di connessione](extend/guides/create-connection-provider.md)
+#### [Modificare il comportamento di spostamento principale](extend/guides/modify-root-navigation.md)
+#### [Controllare la visibilità dello strumento](extend/guides/dynamic-tool-display.md)
+#### [Stringhe e localizzazione](extend/guides/strings-localization.md)
+#### [Guida di stile di progettazione e testo dell'interfaccia utente](extend/guides/ui-text-style-guide.md)
+#### [Utilizzo di PowerShell nell'estensione](extend/guides/powershell.md)
+#### [Guida dell'icona CSS](extend/guides/cssicons.md)
+#### [Eseguire la migrazione per il SDK più recente](extend/guides/migration-guide-0_1-1_0.md)
+#### [Abilitare il banner di individuazione di estensione](extend/guides/extension-discovery-banner.md)
+### [Pubblicazione delle estensioni](extend/publish-extensions.md)
+### Case study
+#### [DataON](extend/case-studies/dataon.md)
+#### [Fujitsu](extend/case-studies/fujitsu.md)
+#### [Lenovo](extend/case-studies/lenovo.md)
+#### [NEC](extend/case-studies/nec.md)
+#### [Pure Storage](extend/case-studies/purestorage.md)
+#### [Squared Up](extend/case-studies/squared-up.md)
+
+
