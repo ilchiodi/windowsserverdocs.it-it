@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
-title: Dynamic Access Control Overview
-description: 
+title: Panoramica del controllo dinamico degli accessi
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,124 +10,125 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 5cf74042c9b511abb1fbeb88224dea0c7f2c8706
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812052"
 ---
-# <a name="dynamic-access-control-overview"></a>Dynamic Access Control Overview
+# <a name="dynamic-access-control-overview"></a>Panoramica del controllo dinamico degli accessi
 
 >Si applica a: Windows Server 2012 R2, Windows Server 2012
 
-This overview topic for the IT professional describes Dynamic Access Control and its associated elements, which were introduced in  Windows Server 2012  and Windows 8.  
+Questa panoramica, dedicata ai professionisti IT, descrive il controllo dinamico degli accessi e gli elementi associati, introdotti in Windows Server 2012 e Windows 8.  
   
-Domain-based Dynamic Access Control enables administrators to apply access-control permissions and restrictions based on well-defined rules that can include the sensitivity of the resources, the job or role of the user, and the configuration of the device that is used to access these resources.  
+Il controllo dinamico degli accessi basato sul dominio consente agli amministratori di applicare autorizzazioni e limitazioni al controllo degli accessi, seguendo regole ben definite che possono includere sensibilità delle risorse, mansione o ruolo dell'utente e configurazione del dispositivo utilizzato per accedere alle risorse.  
   
-For example, a user might have different permissions when they access a resource from their office computer versus when they are using a portable computer over a virtual private network. Or access may be allowed only if a device meets the security requirements that are defined by the network administrators. When Dynamic Access Control is used, a user's permissions change dynamically without additional administrator intervention if the user's job or role changes (resulting in changes to the user's account attributes in AD DS).  
+È possibile, ad esempio, concedere a un utente autorizzazioni diverse a seconda che acceda a una risorsa dal computer dell'ufficio oppure da un computer portatile tramite una rete privata virtuale. È anche possibile consentire l'accesso solo se il dispositivo usato è conforme ai requisiti di sicurezza definiti dagli amministratori della rete. Quando viene utilizzato controllo dinamico degli accessi, le autorizzazioni modificate in modo dinamico senza l'intervento dell'amministratore aggiuntivo se mansione o il ruolo dell'utente cambia (risultante nelle modifiche agli attributi di account dell'utente in Active Directory Domain Services).  
   
-Dynamic Access Control is not supported in Windows operating systems prior to  Windows Server 2012  and Windows 8. When Dynamic Access Control is configured in environments with supported and non-supported versions of Windows, only the supported versions will implement the changes.  
+Il controllo dinamico degli accessi non è supportato nei sistemi operativi Windows precedenti a Windows Server 2012 e Windows 8. Se il controllo dinamico degli accessi è configurato all'interno di ambienti che comprendono sia versioni supportate che non supportate di Windows, le modifiche verranno implementate solo per le versioni supportate.  
   
-Features and concepts associated with Dynamic Access Control include:  
+Le funzionalità e i concetti associati al controllo dinamico degli accessi includono:  
   
--   [Central access rules](#BKMK_Rules)  
+-   [Regole di accesso centrale](#BKMK_Rules)  
   
--   [Central access policies](#BKMK_Policies)  
+-   [Criteri di accesso centrale](#BKMK_Policies)  
   
--   [Claims](#BKMK_Claims)  
+-   [attestazioni](#BKMK_Claims)  
   
 -   [Espressioni](#BKMK_Expressions2)  
   
--   [Proposed permissions](#BKMK_Permissions2)  
+-   [Autorizzazioni proposte](#BKMK_Permissions2)  
   
-### <a name="BKMK_Rules"></a>Central access rules  
-A central access rule is an expression of authorization rules that can include one or more conditions involving user groups, user claims, device claims, and resource properties. Multiple central access rules can be combined into a central access policy.  
+### <a name="BKMK_Rules"></a>Regole di accesso centrale  
+Una regola di accesso centrale è un'espressione delle regole di autorizzazione, che possono includere una o più condizioni riguardanti gruppi di utenti, attestazioni di utenti e dispositivi e proprietà delle risorse. Combinando più regole di accesso centrale è possibile definire un criterio di accesso centrale.  
   
-If one or more central access rules have been defined for a domain, file share administrators can match specific rules to specific resources and business requirements.  
+Se per un dominio sono state definite una o più regole di accesso centrale, gli amministratori di condivisioni file possono associare regole specifiche a risorse e requisiti aziendali specifici.  
   
-### <a name="BKMK_Policies"></a>Central access policies  
-Central access policies are authorization policies that include conditional expressions. For example, let's say an organization has a business requirement to restrict access to personally identifiable information (PII) in files to only the file owner and members of the human resources (HR) department who are allowed to view PII information. This represents an organization-wide policy that applies to PII files wherever they are located on file servers across the organization. To implement this policy, an organization needs to be able to:  
+### <a name="BKMK_Policies"></a>Criteri di accesso centrale  
+I criteri di accesso centrale sono criteri di autorizzazione che includono espressioni condizionali. Ad esempio supponga che un'organizzazione ha come requisito aziendale per limitare l'accesso alle informazioni personali (PII) nei file al solo proprietario dei file e i membri del reparto risorse umane (HR) autorizzati a visualizzare informazioni personali. Questo costituisce un criterio a livello dell'organizzazione valido per i file contenenti informazioni personali, ovunque si trovino i file server dell'organizzazione che contengono tali file. Per applicare questo criterio, un'organizzazione deve essere in grado di:  
   
--   Identify and mark the files that contain the PII.  
+-   Identificare e contrassegnare i file che contengono le informazioni personali.  
   
--   Identify the group of HR members who are allowed to view the PII information.  
+-   Identificare il gruppo di utenti del reparto risorse umane ai quali è consentita la visualizzazione delle informazioni personali.  
   
--   Add the central access policy to a central access rule, and apply the central access rule to all files that contain the PII, wherever they are located amongst the file servers across the organization.  
+-   Aggiungere i criteri di accesso centrale a una regola di accesso centrale e applicare quest'ultima a tutti i file che contengono informazioni personali, qualunque sia la posizione di questi file nei vari file server all'interno dell'organizzazione.  
   
-Central access policies act as security umbrellas that an organization applies across its servers. These policies are in addition to (but do not replace) the local access policies or discretionary access control lists (DACLs) that are applied to files and folders.  
+I criteri di accesso centrale sono una sorta di ombrello di protezione che un'organizzazione predispone per i propri server. Questi criteri non intendono sostituire, ma vanno a sommarsi ai criteri di accesso locale o agli elenchi di controllo di accesso discrezionale (DACL) che vengono applicati ai file e alle cartelle.  
   
-### <a name="BKMK_Claims"></a>Claims  
-A claim is a unique piece of information about a user, device, or resource that has been published by a domain controller. The user's title, the department classification of a file, or the health state of a computer are valid examples of a claim. An entity can involve more than one claim, and any combination of claims can be used to authorize access to resources. The following types of claims are available in the supported versions of Windows:  
+### <a name="BKMK_Claims"></a>attestazioni  
+Un'attestazione è un'informazione univoca riguardante un utente, un dispositivo o una risorsa che viene pubblicata da un controller di dominio. Titolo dell'utente, la classificazione di reparto di un file o lo stato di integrità di un computer sono esempi validi di un'attestazione. Per un'entità possono esistere più attestazioni ed è possibile utilizzare qualsiasi combinazione di attestazioni per autorizzare l'accesso alle risorse. Nelle versioni supportate di Windows sono disponibili i tipi di attestazioni seguenti:  
   
--   **User claims** Active Directory attributes that are associated with a specific user.  
+-   **Attestazioni utente** Attributi Active Directory associati a un utente specifico.  
   
--   **Device claims** Active Directory attributes that are associated with a specific computer object.  
+-   **Attestazioni dispositivo** Attributi Active Directory associati a un oggetto computer specifico.  
   
--   **Resource attributes** Global resource properties that are marked for use in authorization decisions and published in Active Directory.  
+-   **Attributi risorsa** Proprietà globali delle risorse, destinate all'uso per le decisioni relative alle autorizzazioni e pubblicate in Active Directory.  
   
-Claims make it possible for administrators to make precise organization- or enterprise-wide statements about users, devices, and resources that can be incorporated in expressions, rules, and policies.  
+Le attestazioni consentono agli amministratori di fare affermazioni precise, nell'ambito dell'organizzazione o dell'impresa, per quanto riguarda gli utenti, i dispositivi e le risorse che possono essere incorporati in espressioni, regole e criteri.  
   
-### <a name="BKMK_Expressions2"></a>Expressions  
-Conditional expressions are an enhancement to access control management that allow or deny access to resources only when certain conditions are met, for example, group membership, location, or the security state of the device. Expressions are managed through the Advanced Security Settings dialog box of the ACL Editor or the Central Access Rule Editor in the Active Directory Administrative Center (ADAC).  
+### <a name="BKMK_Expressions2"></a>Espressioni  
+Le espressioni condizionali rappresentano un progresso nella gestione del controllo dell'accesso, in quanto consentono di concedere o negare l'accesso alle risorse in presenza di determinate condizioni, ad esempio l'appartenenza a un gruppo, il percorso o lo stato di sicurezza del dispositivo. Le espressioni possono essere gestite mediante la finestra di dialogo Impostazioni di protezione avanzate dell'Editor ACL o mediante l'Editor delle regole di accesso centrale in Centro di amministrazione di Active Directory.  
   
-Expressions help administrators manage access to sensitive resources with flexible conditions in increasingly complex business environments.  
+Le espressioni consentono agli amministratori di gestire l'accesso alle risorse sensibili con condizioni flessibili in ambienti aziendali sempre più complessi.  
   
-### <a name="BKMK_Permissions2"></a>Proposed permissions  
-Proposed permissions enable an administrator to more accurately model the impact of potential changes to access control settings without actually changing them.  
+### <a name="BKMK_Permissions2"></a>Autorizzazioni proposte  
+Le autorizzazioni proposte consentono agli amministratori di analizzare in modo più accurato l'impatto dei potenziali cambiamenti delle impostazioni di controllo dell'accesso senza cambiare realmente le impostazioni.  
   
-Predicting the effective access to a resource helps you plan and configure permissions for those resources before implementing those changes.  
+La possibilità di prevedere di poter effettivamente accedere a una risorsa consente di pianificare e configurare le autorizzazioni per le risorse prima di implementare concretamente tali modifiche.  
   
-## <a name="additional-changes"></a>Additional changes  
-Additional enhancements in the supported versions of Windows that support Dynamic Access Control include:  
+## <a name="additional-changes"></a>Ulteriori modifiche  
+Altri miglioramenti delle versioni di Windows supportate che supportano il controllo dinamico degli accessi:  
   
-### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Support in the Kerberos authentication protocol to reliably provide user claims, device claims, and device groups.  
-By default, devices running any of the supported versions of Windows are able to process Dynamic Access Control-related Kerberos tickets, which include data needed for compound authentication. Domain controllers are able to issue and respond to Kerberos tickets with compound authentication-related information. When a domain is configured to recognize Dynamic Access Control, devices receive claims from domain controllers during initial authentication, and they receive compound authentication tickets when submitting service ticket requests. Compound authentication results in an access token that includes the identity of the user and the device on the resources that recognize Dynamic Access Control.  
+### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Supporto del protocollo di autenticazione Kerberos per fornire in modo affidabile attestazioni di utenti, dispositivi e gruppi di dispositivi.  
+Per impostazione predefinita, i dispositivi che eseguono una delle versioni di Windows supportate sono in grado di elaborare i ticket Kerberos correlati al controllo dinamico degli accessi, che contengono i dati necessari per l'autenticazione composta. I controller di dominio sono in grado di emettere ticket Kerberos e di rispondere ad essi con informazioni correlate all'autenticazione composta. Quando un dominio è configurato in modo da riconoscere il controllo dinamico degli accessi, i dispositivi ricevono le attestazioni dai controller di dominio nella fase di autenticazione iniziale e ricevono i ticket di autenticazione composta durante l'invio delle richieste di ticket di servizio. L'autenticazione composta genera un token di accesso, che include l'identità dell'utente e il dispositivo, nelle risorse che riconoscono il controllo dinamico degli accessi.  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Support for using the Key Distribution Center (KDC) Group Policy setting to enable Dynamic Access Control for a domain.  
-Every domain controller needs to have the same Administrative Template policy setting, which is located at **Computer Configuration\Policies\Administrative Templates\System\KDC\Support Dynamic Access Control and Kerberos armoring**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Supporto dell'impostazione Criterio di gruppo del Centro distribuzione chiavi (KDC) per consentire il controllo dinamico degli accessi per un dominio.  
+Ogni controller di dominio deve avere la stessa impostazione dei criteri Modelli amministrativi corrispondente a **Configurazione computer\Criteri\Modelli amministrativi\Sistema\KDC\Supporta controllo dinamico degli accessi e blindatura Kerberos**.  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Support for using the Key Distribution Center (KDC) Group Policy setting to enable Dynamic Access Control for a domain.  
-Every domain controller needs to have the same Administrative Template policy setting, which is located at **Computer Configuration\Policies\Administrative Templates\System\KDC\Support Dynamic Access Control and Kerberos armoring**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Supporto dell'impostazione Criterio di gruppo del Centro distribuzione chiavi (KDC) per consentire il controllo dinamico degli accessi per un dominio.  
+Ogni controller di dominio deve avere la stessa impostazione dei criteri Modelli amministrativi corrispondente a **Configurazione computer\Criteri\Modelli amministrativi\Sistema\KDC\Supporta controllo dinamico degli accessi e blindatura Kerberos**.  
   
-### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Support in Active Directory to store user and device claims, resource properties, and central access policy objects.  
+### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Supporto di Active Directory per l'archiviazione di attestazioni utente e dispositivo, proprietà risorse e oggetti criteri di accesso centrale.  
   
-### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Support for using Group Policy to deploy central access policy objects.  
-The following Group Policy setting enables you to deploy central access policy objects to file servers in your organization: **Computer Configuration\Policies\ Windows Settings\Security Settings\File System\Central Access Policy**.  
+### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Supporto dell'uso dei criteri di gruppo per la distribuzione degli oggetti criteri di accesso centrale.  
+L'impostazione di criteri di gruppo seguente consente di distribuire gli oggetti Criteri di accesso centrale ai file server all'interno dell'organizzazione: **Criteri di accesso di computer configurazione Windows Windows\Impostazioni sicurezza\file System\Central**.  
   
-### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Support for claims-based file authorization and auditing for file systems by using Group Policy and Global Object Access Auditing  
-You must enable staged central access policy auditing to audit the effective access of central access policy by using proposed permissions. You configure this setting for the computer under **Advanced Audit Policy Configuration** in the **Security Settings** of a Group Policy Object (GPO). After you configure the security setting in the GPO, you can deploy the GPO to computers in your network.  
+### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Supporto di autorizzazione e controllo dei file basato sulle attestazioni per i file system tramite Criteri di gruppo e Controllo di accesso agli oggetti globale  
+È necessario abilitare il controllo dei criteri di accesso centrale con installazione di appoggio allo scopo di verificare l'effettivo accesso dei criteri di accesso centrale utilizzando le autorizzazioni proposte. È possibile configurare questa impostazione per il computer in **Configurazione avanzata dei criteri di controllo** nelle **Impostazioni di protezione** di un oggetto Criteri di gruppo. Dopo aver configurato l'impostazione di protezione nell'oggetto Criteri di gruppo, è possibile distribuire l'oggetto Criteri di gruppo nei computer della rete.  
   
-### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Support for transforming or filtering claim policy objects that traverse Active Directory forest trusts  
-You can filter or transform incoming and outgoing claims that traverse a forest trust. There are three basic scenarios for filtering and transforming claims:  
+### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Supporto per la trasformazione o il filtraggio degli oggetti criteri di attestazione che attraversano i trust tra foreste Active Directory.  
+È possibile filtrare o trasformare le attestazioni in entrata o in uscita che attraversano un trust tra foreste. Gli scenari di base per filtrare e trasformare le attestazioni sono tre:  
   
--   **Value-based filtering** Filters can be based on the value of a claim. This allows the trusted forest to prevent claims with certain values from being sent to the trusting forest. Domain controllers in trusting forests can use value-based filtering to guard against an elevation-of-privilege attack by filtering the incoming claims with specific values from the trusted forest.  
+-   **Filtraggio basato su valore** I filtri usati si basano sul valore dell'attestazione. In questo modo la foresta trusted può impedire l'invio di attestazioni con determinati valori alla foresta trusting. I controller di dominio nelle foreste trusting possono usare il filtraggio basato su valore per difendersi dagli attacchi di elevazione dei privilegi, semplicemente filtrando le attestazioni in entrata in base a valori specifici dalla foresta trusted.  
   
--   **Claim type-based filtering** Filters are based on the type of claim, rather than the value of the claim. You identify the claim type by the name of the claim. You use claim type-based filtering in the trusted forest, and it prevents Windows from sending claims that disclose information to the trusting forest.  
+-   **Filtraggio basato sul tipo di attestazione**I filtri usati si basano sul tipo dell'attestazione e non sul valore di questa. Il tipo dell'attestazione è identificabile in base al nome dell'attestazione stessa. Il filtraggio basato sul tipo di attestazione viene usato nella foresta trusted e impedisce a Windows di inviare attestazioni che rivelano informazioni alla foresta trusting.  
   
--   **Claim type-based transformation** Manipulates a claim before sending it to the intended target. You use claim type-based transformation in the trusted forest to generalize a known claim that contains specific information. You can use transformations to generalize the claim-type, the claim value, or both.  
+-   **Trasformazione basata sul tipo di attestazione**Manipola un'attestazione prima di inviarla alla destinazione prevista. È possibile utilizzare la trasformazione basata sul tipo di attestazione nella foresta trusted per generalizzare un'attestazione nota che contiene informazioni specifiche. Le trasformazioni possono essere utilizzate per generalizzare il tipo e/o il valore dell'attestazione.  
   
 ## <a name="software-requirements"></a>Requisiti software  
-Because claims and compound authentication for Dynamic Access Control require Kerberos authentication extensions, any domain that supports Dynamic Access Control must have enough domain controllers running the supported versions of Windows to support authentication from Dynamic Access Control-aware Kerberos clients. By default, devices must use domain controllers in other sites. If no such domain controllers are available, authentication will fail. Therefore, you must support one of the following conditions:  
+Dal momento che le attestazioni e l'autenticazione composta per il controllo dinamico degli accessi richiedono le estensioni di autenticazione Kerberos, qualsiasi dominio che supporta il controllo dinamico degli accessi deve necessariamente avere un numero sufficiente di controller che eseguono le versioni di Windows supportate per supportare l'autenticazione dai client Kerberos compatibili con il controllo dinamico degli accessi. Per impostazione predefinita, i dispositivi devono usare controller di dominio in altri siti. Se non sono disponibili tali controller di dominio, l'autenticazione non verrà portata a termine correttamente. Di conseguenza deve verificarsi una delle condizioni seguenti:  
   
--   Every domain that supports Dynamic Access Control must have enough domain controllers running the supported versions of Windows Server to support authentication from all devices running the supported versions of Windows or Windows Server.  
+-   Ogni dominio che supporta il controllo dinamico degli accessi deve avere un numero sufficiente di controller di dominio che eseguono le versioni di Windows Server supportate per supportare l'autenticazione da tutti i dispositivi che eseguono le versioni di Windows o Windows Server supportate.  
   
--   Devices running the supported versions of Windows or that do not protect resources by using claims or compound identity, should disable Kerberos protocol support for Dynamic Access Control.  
+-   I dispositivi che eseguono le versioni di Windows supportate e che non proteggono le risorse mediante attestazioni o identità composta dovranno disabilitare il supporto del protocollo Kerberos per il controllo dinamico degli accessi.  
   
-For domains that support user claims, every domain controller running the supported versions of Windows server must be configured with the appropriate setting to support claims and compound authentication, and to provide Kerberos armoring. Configure settings in the KDC Administrative Template policy as follows:  
+Per i domini che supportano le attestazioni utente, è necessario configurare tutti i controller di dominio che eseguono le versioni di Windows Server supportate con l'impostazione appropriata per supportare le attestazioni e l'autenticazione composta e assicurare la blindatura Kerberos. Configurare le impostazioni nei criteri Modelli amministrativi KDC nel modo seguente:  
   
--   **Always provide claims** Use this setting if all domain controllers are running the supported versions of Windows Server. In addition, set the domain functional level to  Windows Server 2012  or higher.  
+-   **Fornisci sempre attestazioni** Usare questa impostazione se tutti i controller di dominio eseguono le versioni di Windows Server supportate. Il livello di funzionalità del dominio,poi, deve essere impostato su Windows Server 2012 o versione successiva.  
   
--   **Supported** When you use this setting, monitor domain controllers to ensure that the number of domain controllers running the supported versions of Windows Server is sufficient for the number of client computers that need to access resources protected by Dynamic Access Control.  
+-   **Supportati**Quando si usa questa impostazione, è necessario monitorare i controller di dominio per assicurarsi che il numero di controller di dominio che eseguono le versioni di Windows Server supportate sia sufficiente in rapporto al numero di computer client che devono accedere alle risorse protette tramite il controllo dinamico degli accessi.  
   
-If the user domain and file server domain are in different forests, all domain controllers in the file server's forest root must be set at the  Windows Server 2012  or higher functional level.  
+Se il dominio utente e file server si trovano in foreste diverse, è necessario impostare tutti i controller di dominio nella radice della foresta del file server a livello funzionale versioni successiva o Windows Server 2012.  
   
-If clients do not recognize Dynamic Access Control, there must be a two-way trust relationship between the two forests.  
+Se i client non riconoscono il controllo dinamico degli accessi, deve esistere una relazione di trust bidirezionale tra le due foreste.  
   
-If claims are transformed when they leave a forest, all domain controllers in the user's forest root must be set at the  Windows Server 2012  or higher functional level.  
+Se le attestazioni vengono trasformate quando escono dalla foresta, è necessario impostare tutti i controller di dominio nella radice della foresta dell'utente a livello funzionale versioni successiva o Windows Server 2012.  
   
-A file server running  Windows Server 2012  or  Windows Server 2012 R2  must have a Group Policy setting that specifies whether it needs to get user claims for user tokens that do not carry claims. This setting is set by default to **Automatic**, which results in this Group Policy setting to be turned **On** if there is a central policy that contains user or device claims for that file server. If the file server contains discretionary ACLs that include user claims, you need to set this Group Policy to **On** so that the server knows to request claims on behalf of users that do not provide claims when they access the server.  
+Un file server che esegue Windows Server 2012 o Windows Server 2012 R2 deve avere un'impostazione dei Criteri di gruppo che stabilisca se è necessario ottenere le attestazioni utente per i token utente che non hanno attestazioni. L'impostazione predefinita è **Automatico**, pertanto l'impostazione dei Criteri di gruppo viene **attivata** se esiste un criterio centrale che contiene le attestazioni utente o le attestazioni dispositivo per tale file server. Se il file server contiene elenchi di controllo di accesso discrezionali che includono attestazioni utente, è necessario rendere **attiva** questa impostazione dei Criteri di gruppo in modo tale che il server richieda le attestazioni per conto degli utenti che forniscono attestazioni quando accedono al server.  
   
-## <a name="additional-resource"></a>Additional resource  
-For information about implementing solutions based on this technology, see [Dynamic Access Control: Scenario Overview](Dynamic-Access-Control--Scenario-Overview.md).  
+## <a name="additional-resource"></a>Risorse aggiuntive  
+Per informazioni sull'implementazione di soluzioni basate su questa tecnologia, vedere [controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 

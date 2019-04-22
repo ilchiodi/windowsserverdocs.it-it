@@ -12,11 +12,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 8a19082121e2d859bc4694fd3f7332e9d0d0b3b9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082265"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812262"
 ---
 # <a name="powershell-on-nano-server"></a>PowerShell in Nano Server
 
@@ -29,8 +29,8 @@ ms.locfileid: "2082265"
   
 A partire dalla versione 5.1, PowerShell è disponibile in diverse edizioni che indicano diversi set di funzionalità e compatibilità della piattaforma.  
   
-- **Desktop Edition:** basata su .NET Framework, fornisce la compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni a impatto completo di Windows, ad esempio Server Core e Windows Desktop.  
-- **Core Edition:** basata su .NET Core, fornisce la compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni a impatto ridotto di Windows, ad esempio Nano Server e Windows IoT.  
+- **Desktop Edition:** Basato su .NET Framework e fornisce compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni footprint complete di Windows, ad esempio Server Core e Windows Desktop.  
+- **Core Edition:** Basata su .NET Core e fornisce compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni footprint ridotte di Windows, ad esempio Nano Server e Windows IoT.  
   
 L'edizione di PowerShell in esecuzione viene visualizzata nella proprietà PSEdition di $PSVersionTable.  
 ```powershell  
@@ -123,7 +123,7 @@ PowerShell Core è incluso, per impostazione predefinita, in tutte le installazi
 * Cmdlet, moduli e infrastruttura del flusso di lavoro di PowerShell   
 * Out-Printer   
 * Update-List   
-* Cmdlet WMI versione 1: Get-WmiObject, Invoke-WmiMethod, Register-WmiEvent, Remove-WmiObject, Set-WmiInstance (usare in alternativa il cmdlet CimCmdlet)   
+* Cmdlet WMI v1: Get-WmiObject, Invoke-WmiMethod, Register-WmiEvent, Remove-WmiObject, Set-WmiInstance (usare modulo CimCmdlets.)   
   
 ## <a name="using-windows-powershell-desired-state-configuration-with-nano-server"></a>Uso del servizio di configurazione dello stato desiderato di Windows PowerShell con Nano Server  
   

@@ -1,10 +1,11 @@
 ---
 redirect_url: /windows-server/windows-server
-ms.openlocfilehash: aa1bc1d94f91a2b9584f72398385575d22db33a9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 6f6e0d21fdf43ce3cf9f713d5731cfea5bb069de
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812272"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -13,7 +14,7 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
 > [!Note] 
 > La versione successiva di Windows Server sta cambiando. È possibile trovare informazioni dettagliate sulle novità all'orizzonte visitando [Panoramica del Canale semestrale di Windows Server](./get-started/semi-annual-channel-overview.md). 
 
-[![WVideo introduttivo su Windows Server 2016](media/front-page-video.png)](https://www.youtube.com/embed/V8oF0JpDzaM)
+[![Video di panoramica di Windows Server 2016](media/front-page-video.png)](https://www.youtube-nocookie.com/embed/V8oF0JpDzaM)
 
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
@@ -25,7 +26,7 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
     <td align='center' style="width:25%; border:0;">
       <a href="/windows-server/get-started/server-basics">
         <img height=145 src="media/1-getstarted.png" alt="get started icon" title="Informazioni di base su Windows Server 16" /></a>
-      <br/>Informazioni di base </td>
+      <br/>Introduzione </td>
     <td align='center' style="width:25%; border:0;">
       <a href="/windows-server/administration/index">
         <img height=145 src="media/8-management.png" alt="administer icon" title="Amministrare Windows Server" /></a>
@@ -74,21 +75,21 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
 <br/>
 
 > [!Note] 
-> Per provare le nuove funzioni e funzionalità disponibili in Windows Server 2016, è possibile scaricare una versione di valutazione dalla pagina [Versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). 
+> Per sperimentare le nuove caratteristiche e funzionalità disponibili in Windows Server 2016, è possibile scaricare una versione di valutazione visitando il sito delle [versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). 
 
 
 ## <a name="windows-server-2016-editions"></a>Edizioni di Windows Server 2016
 
-Windows Server 2016 è disponibile nelle edizioni Standard, Datacenter ed Essentials. Windows Server 2016 Datacenter include diritti di virtualizzazione illimitati e nuove funzionalità per creare un centro dati software–defined. Windows Server 2016 Standard offre funzionalità di livello aziendale con diritti di virtualizzazione limitati. Windows Server Essentials è un primo server ideale connesso al cloud. Per questo server è disponibile un'[ampia documentazione](http://go.microsoft.com/fwlink/?LinkID=827171). Il contenuto di questa sezione è incentrato sulle edizioni Standard e Datacenter. La tabella seguente illustra sinteticamente le differenze principali tra le edizioni Standard e Datacenter:
+Windows Server 2016 è disponibile nelle edizioni Standard, Datacenter ed Essentials. Windows Server 2016 Datacenter include diritti di virtualizzazione illimitati e nuove funzionalità per creare un centro dati software–defined. Windows Server 2016 Standard offre funzionalità di livello aziendale con diritti di virtualizzazione limitati. Windows Server Essentials è un primo server ideale connesso al cloud. Per questo server è disponibile un'[ampia documentazione](https://go.microsoft.com/fwlink/?LinkID=827171). Il contenuto di questa sezione è incentrato sulle edizioni Standard e Datacenter. La tabella seguente illustra sinteticamente le differenze principali tra le edizioni Standard e Datacenter:
 
 |Funzionalità|Datacenter|Standard|  
 |-------------------|----------|-----------------------|  
 |Funzionalità principali di Windows Server| sì| sì|
-|Contenitori OSE/Hyper-V|Illimitati|   2|
-|Contenitori di Windows Server|Illimitati|   Illimitati|
+|Contenitori OSE/Hyper–V|Nessun limite|   2|
+|Contenitori di Windows Server|Nessun limite|   Nessun limite|
 |Servizio Sorveglianza host| sì| sì|
 |Opzione di installazione Nano Server| sì| sì|
-|Funzionalità di archiviazione inclusi Spazi di archiviazione diretta e Replica archiviazione| sì| no|
+|Funzionalità di archiviazione inclusi Spazi di archiviazione diretta e Replica di archiviazione| sì| no|
 |Macchine virtuali schermate| sì| no|
 |Infrastruttura di rete software-defined (Controller di rete, Bilanciamento del carico software e Gateway multi-tenant)| sì| no|
 
@@ -98,15 +99,15 @@ Per altre informazioni, vedere [Pricing and licensing for Windows Server 2016](h
 
 Entrambe le edizioni Standard e Datacenter offrono tre opzioni di installazione:
 
-- **Server Core:** riduce lo spazio su disco necessario, la potenziale superficie di attacco e soprattutto i requisiti di manutenzione. Questa è l'opzione **consigliata** a meno che non si abbia una particolare necessità di elementi dell'interfaccia utente e strumenti di gestione grafica aggiuntivi.
+- **Server Core:** riduce lo spazio su disco necessario, la superficie soggetta a possibili attacchi e soprattutto i requisiti di manutenzione. Questa è l'opzione **consigliata** a meno che non si abbia una particolare necessità di elementi dell'interfaccia utente e strumenti di gestione grafica aggiuntivi.
 - **Server con Esperienza desktop:** installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi.
-- **Nano Server:** è un sistema operativo server amministrato da postazione remota e ottimizzato per centri dati e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco, viene configurato molto più velocemente e richiede meno operazioni di aggiornamento e riavvio rispetto alle altre opzioni di installazione.
+- **Nano Server:** è un sistema operativo server amministrato da postazione remota e ottimizzato per data center e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco, viene configurato molto più velocemente e richiede meno operazioni di aggiornamento e riavvio rispetto alle altre opzioni di installazione.
 
 >[!Note]
 > Diversamente da alcune versioni precedenti di Windows Server, non puoi eseguire la conversione tra Server Core e la versione Server con Esperienza desktop dopo l'installazione. Ad esempio, se installi Server Core e successivamente decidi di usare la versione Server con Esperienza desktop, devi eseguire un'installazione pulita (e viceversa).
 
 
-Una volta identificate l'edizione e l'opzione di installazione adatte alle tue esigenze, fai clic di seguito per iniziare a usare Windows Server 2016.
+Una volta identificate l'edizione e l'opzione di installazione adatte alle proprie esigenze, fare clic di seguito per iniziare a usare Windows Server 2016.
 <br/>
 <br/>
 
@@ -129,9 +130,7 @@ Le tecnologie virtualizzate di archiviazione, rete, sicurezza e gestione sono le
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:10%; border:0;"></td>
-    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Data center software-defined per Windows Server (SDDC)" /><br/>Data center software-defined per Windows Server (SDDC)</a></td>
+    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Data center software-defined per Windows Server (SDDC)" /><br/>Windows Server, Software-Defined Datacenter (SDDC)</a></td>
     <td align='center' style="width:10%; border:0;"></td>
   </tr>
 </table>
-
-Non hai trovato il contenuto desiderato? Se sei un utente di Windows 10, dicci cosa desideri nell'[Hub di Feedback](feedback-hub://?referrer=techDocsUcPage&tabid=2&contextid=898&newFeedback=true&topic=Windows-Server-2016.md). 

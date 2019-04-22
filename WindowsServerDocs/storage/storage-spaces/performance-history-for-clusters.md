@@ -1,36 +1,36 @@
 ---
-title: Cronologia delle prestazioni per i gruppi
+title: Cronologia delle prestazioni per i cluster
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Storage Spaces Direct
+Keywords: Spazi di archiviazione diretta
 ms.localizationpriority: medium
 ms.openlocfilehash: 68596cbdcf8593cd3017c8ae5d0836891c78229c
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1894320"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59818772"
 ---
-# <a name="performance-history-for-clusters"></a>Cronologia delle prestazioni per i gruppi
+# <a name="performance-history-for-clusters"></a>Cronologia delle prestazioni per i cluster
 
-> Si applica a: Windows Server persona interna Preview
+> Si applica a: Anteprima Windows Server Insider
 
-Secondaria di [cronologia delle prestazioni di archiviazione spazi diretta](performance-history.md) viene descritta la cronologia delle prestazioni raccolta per i gruppi.
+Questo argomento secondario di [cronologia delle prestazioni per spazi di archiviazione diretta](performance-history.md) descrive la cronologia delle prestazioni raccolta per i cluster.
 
-Non esistono nessuna serie che hanno origine a livello di cluster. In realtà, serie di server, ad esempio `clusternode.cpu.usage`, vengono aggregati per tutti i server del cluster. Serie di volume, ad esempio `volume.iops.total`, vengono aggregati per tutti i volumi del cluster. E unità serie, ad esempio `physicaldisk.size.total`, vengono aggregati per tutte le unità del cluster.
+Non esistono alcuna serie originate al livello del cluster. Al contrario, serie di server, ad esempio `clusternode.cpu.usage`, vengono aggregati per tutti i server del cluster. Serie di volume, ad esempio `volume.iops.total`, aggregate per tutti i volumi del cluster. E incrementa le serie, ad esempio `physicaldisk.size.total`, vengono aggregati per tutte le unità nel cluster.
 
-## <a name="usage-in-powershell"></a>Utilizzo di PowerShell
+## <a name="usage-in-powershell"></a>Utilizzo in PowerShell
 
-Utilizzare il cmdlet [Get-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/get-cluster) :
+Usare la [Get-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/get-cluster) cmdlet:
 
 ```PowerShell
 Get-Cluster | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-- [Cronologia delle prestazioni di archiviazione spazi diretto](performance-history.md)
+- [Cronologia delle prestazioni per spazi di archiviazione diretta](performance-history.md)

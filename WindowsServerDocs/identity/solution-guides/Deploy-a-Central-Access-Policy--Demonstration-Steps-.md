@@ -1,7 +1,7 @@
 ---
 ms.assetid: 8738c03d-6ae8-49a7-8b0c-bef7eab81057
-title: Distribuire un criterio di accesso centrale (procedura dimostrativa)
-description: 
+title: Distribuire i criteri di accesso centrale (procedura dimostrativa)
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,83 +10,84 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 16973b32407985ffc3f66bf5ac579384a756b5d0
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817142"
 ---
-# <a name="deploy-a-central-access-policy-demonstration-steps"></a>Distribuire un criterio di accesso centrale (procedura dimostrativa)
+# <a name="deploy-a-central-access-policy-demonstration-steps"></a>Distribuire i criteri di accesso centrale (procedura dimostrativa)
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo scenario, le operazioni di protezione del reparto finanziario collabora con sicurezza centrale delle informazioni per specificare l'esigenza di un criterio di accesso centrale in modo da permettere di proteggere le informazioni finanziarie archiviate nei file server. Le informazioni finanziarie archiviate per ogni paese sono accessibili in sola lettura da dipendenti del reparto finanziario dello stesso paese. Un gruppo di amministratori finanziari centrali può accedere alle informazioni finanziarie da tutti i paesi.  
+In questo scenario, i responsabili della sicurezza del reparto finanziario collaborano con i responsabili della sicurezza centrale delle informazioni per specificare l'esigenza di un criterio di accesso centrale, in modo da permettere di proteggere le informazioni finanziarie archiviate nei file server. Le informazioni finanziarie archiviate per ogni paese sono accessibili in sola lettura dai dipendenti del reparto finanziario dello stesso paese. Un gruppo di amministratori finanziari centrali può accedere alle informazioni finanziarie di tutti i paesi.  
   
-La distribuzione di criteri di accesso centrale include le fasi seguenti:  
+La distribuzione di un criterio di accesso centrale include le fasi seguenti:  
   
 |Fase|Descrizione  
 |---------|---------------  
-|[Pianificazione: Identificare la necessità di criteri e la configurazione necessaria per la distribuzione](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Identificare la necessità di un criterio e la configurazione necessaria per la distribuzione. 
-|[Implementare: Configurare i componenti e i criteri](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.3)|Configurare i componenti e i criteri.  
-|[Distribuire il criterio di accesso centrale](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Distribuire il criterio.  
-|[Gestisci: Modificare e gestire i criteri](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Le modifiche dei criteri e gestione temporanea. 
+|[Piano: Identificare la necessità di criterio e la configurazione necessaria per la distribuzione](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Identificare la necessità di un criterio e la configurazione necessaria per la distribuzione. 
+|[Implementazione: Configurare i componenti e dei criteri](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.3)|Configurare i componenti e i criteri.  
+|[Distribuire il criterio di accesso centrale](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Distribuire i criteri.  
+|[Effettuare la manutenzione: Modificare e gestire in modo temporaneo il criterio](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Modifiche ai criteri e gestione temporanea. 
   
 ## <a name="BKMK_1.1"></a>Configurare un ambiente di test  
-Prima di iniziare, è necessario impostare laboratorio di test di questo scenario. I passaggi per configurare il lab sono spiegati in dettaglio in [appendice b: Setting Up the Test Environment ](Appendix-B--Setting-Up-the-Test-Environment.md).  
+Prima di iniziare, è necessario configurare un ambiente di testing per lo scenario. I passaggi per la configurazione del lab sono illustrati in dettaglio in [appendice b: Configurazione dell'ambiente di Test](Appendix-B--Setting-Up-the-Test-Environment.md).  
   
-## <a name="BKMK_1.2"></a>Pianificazione: Identificare la necessità di criteri e la configurazione necessaria per la distribuzione  
-Questa sezione fornisce ad alto livello serie di passaggi che semplificano la fase di pianificazione della distribuzione.  
+## <a name="BKMK_1.2"></a>Piano: identificare la necessità di un criterio e la configurazione necessaria per la distribuzione  
+In questa sezione sono disponibili le procedure generali che semplificano la fase di pianificazione della distribuzione.  
   
 ||Passaggio|Esempio|  
 |-|--------|-----------|  
-|1.1|Business determina che è necessario un criterio di accesso centrale|Per proteggere le informazioni finanziarie archiviate nei file server, le operazioni di protezione del reparto finanziario collabora con sicurezza centrale delle informazioni per specificare l'esigenza di un criterio di accesso centrale.|  
-|1.2|Esprimere il criterio di accesso|I documenti finanziari devono essere letti solo dai membri del reparto finanziario. I membri del reparto finanziario devono accedere solo ai documenti relativi al proprio paese. L'accesso in scrittura deve essere solo agli amministratori di Finanza. Potrà essere un'eccezione per i membri del gruppo FinanceException. Questo gruppo sarà assegnato l'accesso in lettura.|  
-|1.3|Esprimere il criterio di accesso in costrutti di Windows Server 2012|Destinazione:<br /><br />-Resource.Department contiene Finanza<br /><br />Regole di accesso:<br /><br />-Consente di lettura User.Country=Resource.Country e User.department = Resource.Department<br />-Controllo completo User.MemberOf(FinanceAdmin)<br /><br />Eccezione:<br /><br />Consenti memberOf(FinanceException) lettura|  
-|1.4|Determinare le proprietà di file necessari per i criteri|Contrassegnare i file con:<br /><br />-Reparto<br />-Paese|  
-|1.5|Determinare i tipi di attestazione e i gruppi necessari per i criteri|Tipi di attestazione:<br /><br />-Paese<br />-Reparto<br /><br />Gruppi di utenti:<br /><br />-FinanceAdmin<br />-FinanceException|  
-|1.6|Determinare i server a cui applicare questo criterio|Applicare il criterio finanziario tutti i file server.|  
+|1.1|Un'azienda stabilisce che è necessario definire un criterio di accesso centrale|Per proteggere le informazioni finanziarie archiviate nei file server, i responsabili della sicurezza del reparto finanziario collaborano con i responsabili della sicurezza centrale delle informazioni per specificare l'esigenza di un criterio di accesso centrale.|  
+|1.2|Esprimere il criterio di accesso|I documenti finanziari devono essere letti solo dai membri del reparto finanziario. I membri del reparto finanziario devono accedere solo ai documenti relativi al proprio paese. L'accesso in scrittura deve essere concesso solo agli amministratori del reparto finanziario. Sarà permessa un'eccezione per i membri del gruppo FinanceException. A questo gruppo sarà assegnato l'accesso in lettura.|  
+|1.3|I criteri di accesso in costrutti di Windows Server 2012 Express|Destinazione:<br /><br />-Resource.Department contiene Finance<br /><br />Regole di accesso:<br /><br />-Consenti lettura User.Country=Resource.Country e User. Department = Resource.Department<br />-Consentire il controllo completo User.MemberOf(FinanceAdmin)<br /><br />Eccezione:<br /><br />Allow read memberOf(FinanceException)|  
+|1.4|Determinare le proprietà di file necessarie per il criterio|Assegnare tag ai file con:<br /><br />-Department<br />-Paese|  
+|1.5|Determinare i tipi di attestazioni e i gruppi necessari per i criteri|Tipi di attestazione:<br /><br />-Paese<br />-Department<br /><br />Gruppi di utenti:<br /><br />-FinanceAdmin<br />-FinanceException|  
+|1.6|Determinare i server a cui applicare il criterio|Applicare il criterio a tutti i file server del reparto finanziario.|  
   
-## <a name="BKMK_1.3"></a>Implementare: Configurare i componenti e i criteri  
-In questa sezione offre un esempio che consente di distribuire un criterio di accesso centrale per documenti finanziari.  
+## <a name="BKMK_1.3"></a>Implementazione: Configurare i componenti e i criteri  
+In questa sezione è disponibile un esempio di distribuzione di un criterio di accesso centrale per documenti finanziari.  
   
 |No|Passaggio|Esempio|  
 |------|--------|-----------|  
-|2.1|Creare tipi di attestazioni|Creare i tipi di attestazione seguenti:<br /><br />-Reparto<br />-Paese|  
-|2.2|Creare proprietà delle risorse|Creare e abilitare le proprietà delle risorse seguenti:<br /><br />-Reparto<br />-Paese|  
+|2.1|Creare tipi di attestazioni|Creare i tipi di attestazioni seguenti:<br /><br />-Department<br />-Paese|  
+|2.2|Creare proprietà delle risorse|Creare e abilitare le proprietà seguenti delle risorse:<br /><br />-Department<br />-Paese|  
 |2.3|Configurare una regola di accesso centrale|Creare una regola Finance Documents che include il criterio definito nella sezione precedente.|  
-|2.4|Configurare un criterio di accesso centrale (CAP)|Creare un criterio di autorizzazione connessioni denominato Finance Policy e aggiungervi la regola Finance Documents che Criteri di autorizzazione connessioni.|  
-|2.5|Criteri di accesso centrale ai file server di destinazione|Pubblicare i file server di accesso centrale Finance Policy.|  
-|2.6|Abilitare il supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos.|Abilitare il supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos per contoso.com.|  
+|2.4|Configurare un criterio di accesso centrale|Creare un criterio di accesso centrale denominato Finance Policy e aggiungervi la regola Finance Documents.|  
+|2.5|Specificare i file server come destinazione del criterio di accesso centrale|Pubblicare il criterio di accesso centrale Finance Policy nei file server.|  
+|2.6|Abilitare il supporto KDC di attestazioni, autenticazione composta e blindatura Kerberos.|Abilitare il supporto KDC di attestazioni, autenticazione composta e blindatura Kerberos per contoso.com.|  
   
-Nella procedura seguente creare due tipi di attestazione: Country e Department.  
+Nella procedura seguente saranno creati due tipi di attestazioni: l'attestazione relativa al paese e quella relativa al reparto.  
   
-#### <a name="to-create-claim-types"></a>Per creare tipi di attestazione  
+#### <a name="to-create-claim-types"></a>Per creare tipi di attestazioni  
   
-1.  Aprire Server DC1 nella gestione di Hyper-V e accedere come contoso\administrator, con la password **pass@word1**.  
+1.  Aprire Server DC1 nella console di gestione Hyper-V e accedere come contoso\administrator, con la password **pass@word1**.  
   
-2.  Aprire Centro di amministrazione di Active Directory.  
+2.  Apri Centro di amministrazione di Active Directory.  
   
-3.  Fare clic su di **icona di visualizzazione albero**, espandere **controllo dinamico degli accessi**e quindi seleziona **tipi di attestazione **.  
+3.  Fare clic sull'**icona di visualizzazione albero**, espandere **Controllo dinamico degli accessi**, quindi selezionare **Tipi di attestazione**.  
   
-    Fare doppio clic su **tipi di attestazione**, fare clic su **New**, quindi fare clic su **tipo di attestazione **.  
+    Fare clic con il pulsante destro del mouse su **Tipi di attestazione**, scegliere **Nuovo**,quindi fare clic su **Tipo attestazione**.  
   
     > [!TIP]  
-    > È anche possibile aprire un **Crea tipo di attestazione:** finestra il **attività** riquadro. Nel **attività** riquadro, fare clic su **New**, quindi fare clic su **tipo di attestazione **.  
+    > È anche possibile aprire una finestra **Crea Tipo attestazione** dal riquadro **Attività**. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Tipo attestazione**.  
   
-4.  Nel **attributo di origine** scorrere verso il basso l'elenco di attributi e fare clic **reparto**. Sarà inserito il **nome visualizzato** campo **reparto**. Fare clic su **OK**.  
+4.  Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic su **department**. Nel campo **Nome visualizzato** sarà inserito il valore **department**. Fare clic su **OK**.  
   
-5.  In **attività** riquadro, fare clic su **New**, quindi fare clic su **tipo di attestazione**.  
+5.  Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Tipo attestazione**.  
   
-6.  Nel **attributo di origine** elenco, scorrere verso il basso l'elenco di attributi e quindi fare clic su di **c** attributo (Country-Name). Nel **nome visualizzato** digitare **paese**.  
+6.  Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic sull'attributo **(Country-Name).** Nel campo **Nome visualizzato** digitare **country**.  
   
-7.  Nel **valori suggeriti** selezionare **i valori suggeriti:**, quindi fare clic su **Aggiungi**.  
+7.  Nella sezione **Valori suggeriti** selezionare **Valori suggeriti**, quindi fare clic su **Aggiungi**.  
   
-8.  Nel **valore** e **nome visualizzato** campi, digitare **degli Stati Uniti**, quindi fare clic su **OK**.  
+8.  Nei campi **Valore** e **Nome visualizzato** digitare **US**, quindi fare clic su **OK**.  
   
-9. Ripetere il passaggio precedente. Nel **Aggiungi valore suggerito** la finestra di dialogo, digitare **JP** nel **valore** e **nome visualizzato** campi, quindi fare clic su **OK**.  
+9. Ripetere il passaggio precedente. Nella finestra di dialogo **Aggiungi valore suggerito** digitare **JP** nei campi **Valore** e **Nome visualizzato**, quindi fare clic su **OK**.  
   
 ![Guide alle soluzioni](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
   
-Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet su una singola riga, anche se può sembrare che siano divisi su più righe a causa dei limiti di formattazione.  
+Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
  
     New-ADClaimType country -SourceAttribute c -SuggestedValues:@((New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("US","US","")), (New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("JP","JP","")))  
@@ -95,34 +96,34 @@ Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione de
  
   
 > [!TIP]  
-> È possibile utilizzare il Visualizzatore della cronologia di Windows PowerShell nel centro di amministrazione di Active Directory per cercare i cmdlet di Windows PowerShell per ogni procedura eseguita nel centro di amministrazione di Active Directory. Per ulteriori informazioni, vedere [Visualizzatore della cronologia di Windows PowerShell](https://technet.microsoft.com/library/hh831702)  
+> È possibile usare il Visualizzatore della cronologia di Windows PowerShell nel Centro di amministrazione di Active Directory per cercare i cmdlet di Windows PowerShell per ogni procedura eseguita nel Centro di amministrazione di Active Directory. Per altre informazioni, vedere [Visualizzatore della cronologia di Windows PowerShell](https://technet.microsoft.com/library/hh831702).  
   
-Il passaggio successivo consiste nel creare proprietà delle risorse. Nella procedura seguente creare una proprietà della risorsa che viene automaticamente aggiunto all'elenco di proprietà delle risorse globali nel controller di dominio, in modo che sia disponibile per il file server.  
+Il passaggio successivo consiste nel creare le proprietà delle risorse. Nella procedura seguente sarà creata una proprietà della risorsa che sarà aggiunta automaticamente all'elenco di proprietà di risorse globali nel controller di dominio, in modo da risultare disponibile per il file server.  
   
-#### <a name="to-create-and-enable-pre-created-resource-properties"></a>Per creare e abilitare le proprietà delle risorse create in precedenza  
+#### <a name="to-create-and-enable-pre-created-resource-properties"></a>Per creare e abilitare proprietà delle risorse create in precedenza  
   
-1.  Nel riquadro sinistro del centro di amministrazione di Active Directory, fare clic su **visualizzazione albero**. Espandere **controllo dinamico degli accessi**e quindi seleziona **le proprietà delle risorse**.  
+1.  Nel riquadro sinistro del Centro di amministrazione di Active Directory fare clic su **Visualizzazione albero**. Espandere **Controllo dinamico degli accessi**, quindi selezionare **Proprietà risorsa**.  
   
-2.  Fare doppio clic su **le proprietà delle risorse**, fare clic su **New**, quindi fare clic su **proprietà risorsa di riferimento**.  
+2.  Fare clic con il pulsante destro del mouse su **Proprietà risorsa**, scegliere **Nuovo**, quindi fare clic su **Proprietà risorsa di riferimento**.  
   
     > [!TIP]  
-    > È inoltre possibile scegliere una proprietà della risorsa dal **attività** riquadro. Fare clic su **New** e quindi fare clic su **proprietà risorsa di riferimento**.  
+    > È possibile scegliere anche una proprietà di risorsa dal riquadro **Attività**. Fare clic su **Nuovo**, quindi su **Proprietà risorsa di riferimento**.  
   
-3.  In **selezionare viene suggerito un tipo di attestazione di condividerlo in valori di elenco**, fare clic su **paese**.  
+3.  In **Selezionare un tipo di attestazione di cui condividere i valori suggeriti** fare clic su **country**.  
   
-4.  Nel **nome visualizzato** digitare **paese**, quindi fare clic su **OK**.  
+4.  Nel campo **Nome visualizzato** digitare **country**, quindi fare clic su **OK**.  
   
-5.  Fare doppio clic il **le proprietà delle risorse** elenco, scorrere verso il basso il **reparto** proprietà della risorsa. Pulsante destro del mouse e quindi fare clic su **abilitare**. In questo modo sarà predefinito **reparto** proprietà della risorsa.  
+5.  Fare doppio clic sull'elenco **Proprietà risorsa**, quindi scorrere verso il basso fino alla proprietà **Department** della risorsa. Fare clic con il pulsante destro del mouse, quindi scegliere **Abilita**. La proprietà predefinita **Department** della risorsa sarà abilitata.  
   
-6.  Nel **le proprietà delle risorse** elenco nel riquadro di spostamento del centro di amministrazione di Active Directory, saranno disponibili due proprietà abilitate delle risorse:  
+6.  Nell'elenco **Proprietà risorsa** nel pannello di navigazione del Centro di amministrazione di Active Directory saranno disponibili due proprietà abilitate delle risorse:  
   
-    -   Paese  
+    -   Country  
   
     -   Reparto  
   
 ![Guide alle soluzioni](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
   
-Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet su una singola riga, anche se può sembrare che siano divisi su più righe a causa dei limiti di formattazione.  
+Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
 ```  
 New-ADResourceProperty Country -IsSecured $true -ResourcePropertyValueType MS-DS-MultivaluedChoice -SharesValuesWith country  
@@ -132,98 +133,98 @@ Add-ADResourcePropertyListMember "Global Resource Property List" -Members Depart
   
 ```  
   
-Il passaggio successivo consiste nel creare regole di accesso centrale che definiscono chi possono accedere alle risorse. In questo scenario le regole business sono:  
+Il passaggio successivo consiste nel creare regole di accesso centrale per definire gli utenti autorizzati ad accedere alle risorse. Di seguito sono riportate le regola di business di questo scenario:  
   
 -   I documenti finanziari possono essere letti solo dai membri del reparto finanziario.  
   
 -   I membri del reparto finanziario possono accedere solo ai documenti relativi al proprio paese.  
   
--   Solo gli amministratori finanziari possono avere accesso in scrittura.  
+-   L'accesso in scrittura può essere concesso solo agli amministratori del reparto finanziario.  
   
--   Sarà permessa un'eccezione per i membri del gruppo FinanceException. Questo gruppo sarà assegnato l'accesso in lettura.  
+-   Sarà permessa un'eccezione per i membri del gruppo FinanceException. A questo gruppo sarà assegnato l'accesso in lettura.  
   
--   L'amministratore e il proprietario del documento continueranno ad avere accesso completo.  
+-   L'amministratore e il proprietario del documento disporranno comunque di accesso completo.  
   
 O per esprimere le regole con costrutti di Windows Server 2012:  
   
-Destinazione: Resource.Department contiene Finanza  
+Destinazione: Resource.Department Contains Finance  
   
 Regole di accesso:  
   
--   Consenti lettura User.Country=Resource.Country e User.department = Resource.Department  
+-   Allow Read User.Country=Resource.Country AND User.department = Resource.Department  
   
--   Consentire il controllo completo User.MemberOf(FinanceAdmin)  
+-   Allow Full control User.MemberOf(FinanceAdmin)  
   
--   Consenti User.MemberOf(FinanceException) lettura  
+-   Allow Read User.MemberOf(FinanceException)  
   
 #### <a name="to-create-a-central-access-rule"></a>Per creare una regola di accesso centrale  
   
-1.  Nel riquadro a sinistra di centro di amministrazione di Active Directory, fare clic su **visualizzazione albero**selezionare **controllo dinamico degli accessi**, quindi fare clic su **regole di accesso centrale**.  
+1.  Nel riquadro sinistro del Centro di amministrazione di Active Directory fare clic su **Visualizzazione albero**, selezionare **Controllo dinamico degli accessi**, quindi fare clic su **Regole di accesso centrale**.  
   
-2.  Fare doppio clic su **regole di accesso centrale**, fare clic su **New**, quindi fare clic su **regola di accesso centrale**.  
+2.  Fare clic con il pulsante destro del mouse su **Regole di accesso centrale**, scegliere **Nuovo**, quindi fare clic su **Regola di accesso centrale**.  
   
-3.  Nel **nome** digitare **Finance Documents Rule**.  
+3.  Nel campo **Nome** digitare **Finance Documents Rule**.  
   
-4.  Nel **risorse di destinazione** fare clic su **modifica**e nel **regola di accesso centrale** la finestra di dialogo, fare clic su **aggiungere una condizione**. Aggiungere la condizione seguente:   
-    [**Risorse**] [**Reparto**] [**è uguale a**] [**Value**] [**Finance**], quindi fare clic su **OK**.  
+4.  Nella sezione **Risorse di destinazione** fare clic su **Modifica** e nella finestra di dialogo **Regola di accesso centrale** fare clic su **Aggiungi condizione**. Aggiungere la condizione seguente:   
+    [**Resource**] [**Department**] [**Equals**] [**Value**] [**Finance**], quindi fare clic su **OK**.  
   
-5.  Nel **autorizzazioni** selezionare **utilizzare le seguenti autorizzazioni come correnti**, fare clic su **modifica**e il **impostazioni di sicurezza avanzate per autorizzazioni** finestra di dialogo fare clic su **Aggiungi**.  
+5.  Nella sezione **Autorizzazioni** selezionare **Usa queste autorizzazioni come correnti**, quindi fare clic su **Modifica** e nella finestra di dialogo **Impostazioni di sicurezza avanzate per Autorizzazioni** fare clic su **Aggiungi**.  
   
     > [!NOTE]  
-    > **Usa queste autorizzazioni come proposte** opzione consente di creare il criterio in gestione temporanea. Per ulteriori informazioni su come eseguire questa operazione consultare la sezione: modifica e fase la sezione relativa ai criteri in questo argomento.  
+    > **L'opzione** Usa queste autorizzazioni come proposte permette di creare il criterio in gestione temporanea. Per altre informazioni su questa procedura, vedere la sezione Gestione: Modificare e gestire in modo temporaneo il criterio.  
   
-6.  Nel **voce autorizzazione per autorizzazioni** la finestra di dialogo, fare clic su **seleziona un'entità**, tipo **Authenticated Users**, quindi fare clic su **OK**.  
+6.  Nella finestra di dialogo **Voce autorizzazione per Autorizzazioni** fare clic su **Seleziona un'entità**, digitare **Authenticated Users**, quindi fare clic su **OK**.  
   
-7.  Nel **voce autorizzazione per autorizzazioni** la finestra di dialogo, fare clic su **aggiungere una condizione**e aggiungere le condizioni seguenti:   
-    [**User**] [**paese**] [**Any of**] [**Risorse**] [**paese**]   
-     Fare clic su **aggiungere una condizione**.   
+7.  Nella finestra di dialogo **Voce autorizzazione per Autorizzazioni** fare clic su **Aggiungi condizione**, quindi aggiungere le condizioni seguenti:   
+    [**Utente**] [**country**] [**uno qualsiasi dei**] [**risorsa**] [**paese**]   
+     Fai clic su **Aggiungi condizione**.   
      [**And**]   
-    Fare clic su [**utente**] [**reparto**] [**uno qualsiasi dei**] [**risorse**] [**reparto**]. Impostare il **autorizzazioni** a **lettura**.  
+    Fare clic su [**utente**] [**reparto**] [**uno qualsiasi dei**] [**risorsa**] [**reparto**]. Impostare le **Autorizzazioni** su **Lettura**.  
   
-8.  Fare clic su **OK**, quindi fare clic su **Aggiungi**. Fare clic su **seleziona un'entità**, tipo **FinanceAdmin**, quindi fare clic su **OK**.  
+8.  Fare clic su **OK** e quindi su **Aggiungi**. Fare clic su **Seleziona un'entità**, digitare **FinanceAdmin**, quindi fare clic su **OK**.  
   
-9. Selezionare il **modifica, lettura ed esecuzione, lettura, scrittura** autorizzazioni, quindi fare clic su **OK**.  
+9. Selezionare le autorizzazioni **Modifica, Lettura/esecuzione, Lettura, Scrittura** e quindi fare clic su **OK**.  
   
-10. Fare clic su **Aggiungi**, fare clic su **seleziona un'entità**, tipo **FinanceException**, quindi fare clic su **OK**. Selezionare le autorizzazioni per essere **lettura** e **lettura ed esecuzione**.  
+10. Fare clic su **Aggiungi**, quindi su **Seleziona un'entità**, digitare **FinanceException** e infine fare clic su **OK**. Selezionare le autorizzazioni da impostare su **Lettura** e **Lettura/esecuzione**.  
   
-11. Fare clic su **OK** tre volte per completare e tornare al centro di amministrazione di Active Directory.  
+11. Fare tre volte clic su **OK** per completare la procedura, quindi tornare al Centro di amministrazione di Active Directory.  
   
     ![Guide alle soluzioni](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
   
-    Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet su una singola riga, anche se può sembrare che siano divisi su più righe a causa dei limiti di formattazione.  
+    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
  
-    $countryClaimType = Get-ADClaimType paese  
-    $departmentClaimType = Get-ADClaimType reparto  
-    $countryResourceProperty = Get-ADResourceProperty paese  
-    $departmentResourceProperty = Get-ADResourceProperty reparto  
-    $currentAcl = "O:SYG:SYD:AR(A;; FA;; O W) (A; FA;; BA) (A; 0 x1200a9;; S-1-5-21-1787166779-1215870801-2157059049-1113) (A; 0 x1301bf;; S-1-5-21-1787166779-1215870801-2157059049-1112) (A; FA;; SY) (XA; 0 x1200a9;; AU;((@USER." + $countryClaimType.Name + "Any_of @RESOURCE." + $countryResourceProperty.Name + ") & & (@USER." + $departmentClaimType.Name + "Any_of @RESOURCE." + $departmentResourceProperty.Name + ")))"  
-    $resourceCondition = "(@RESOURCE." + $departmentResourceProperty.Name + "Contains {`"Finance`"}) "  
-    New-ADCentralAccessRule "Finance Documents Rule" - CurrentAcl $currentAcl - ResourceCondition $resourceCondition  
+    $countryClaimType = Get-ADClaimType country  
+    $departmentClaimType = Get-ADClaimType department  
+    $countryResourceProperty = Get-ADResourceProperty Country  
+    $departmentResourceProperty = Get-ADResourceProperty Department  
+    $currentAcl = "O:SYG:SYD:AR(A;; FA;; O W) (A; FA;; BA) (A; 0 x1200a9;; S-1-5-21-1787166779-1215870801-2157059049-1113) (A; 0 x1301bf;; S-1-5-21-1787166779-1215870801-2157059049-1112) (A; FA;; SY) (XA; 0 x1200a9;; AU ;((@USER. " + $countryClaimType.Name + " Any_of @RESOURCE." + $countryResourceProperty.Name + ") && (@USER." + $departmentClaimType.Name + " Any_of @RESOURCE." + $departmentResourceProperty.Name + ")))"  
+    $resourceCondition = "(@RESOURCE." $departmentResourceProperty.Name + + "contiene {`"Finance`"}) "  
+    Nuovo ADCentralAccessRule "Finance Documents Rule" - CurrentAcl $currentAcl - ResourceCondition $resourceCondition  
 
   
 > [!IMPORTANT]  
-> Nell'esempio precedente, cmdlet di identificatori di sicurezza (SID) per il gruppo FinanceAdmin e gli utenti è determinato al momento della creazione e saranno diversi nell'esempio. Ad esempio, il SID valore fornito (S-1-5-21-1787166779-1215870801-2157059049-1113) per FinanceAdmins deve essere sostituito con il SID effettivo per il gruppo FinanceAdmin da creare nella distribuzione. È possibile utilizzare Windows PowerShell per cercare il valore del SID del gruppo, assegnare il valore a una variabile e quindi utilizzare tale variabile qui. Per ulteriori informazioni, vedere [suggerimento per Windows PowerShell: uso dei SID](https://go.microsoft.com/fwlink/?LinkId=253545).  
+> Nel cmdlet di esempio precedente gli ID di sicurezza (SID, Security Identifier) per il gruppo FinanceAdmin e gli utenti sono determinati al momento della creazione e saranno diversi nell'esempio eseguito in computer diversi. Ad esempio, il valore SID specificato (S-1-5-21-1787166779-1215870801-2157059049-1113) per FinanceAdmins deve essere sostituito con il valore SID effettivo per il gruppo FinanceAdmin da creare nella distribuzione in uso. È possibile utilizzare Windows PowerShell per cercare il valore di SID del gruppo, assegnare tale valore a una variabile e quindi usare la variabile di seguito. Per altre informazioni, vedere [suggerimento per Windows PowerShell: Uso dei SID](https://go.microsoft.com/fwlink/?LinkId=253545).  
   
-È ora una regola di accesso centrale che permette agli utenti di accedere a documenti dello stesso paese e dello stesso reparto. La regola permette al gruppo FinanceAdmin di modificare i documenti e consente al gruppo FinanceException di leggere i documenti. Questa regola è relativa solo ai documenti classificati come Finance.  
+Dovrebbe essere ora disponibile una regola di accesso centrale che permette agli utenti di accedere a documenti dello stesso paese e dello stesso reparto. La regola permette al gruppo FinanceAdmin di modificare i documenti e al gruppo FinanceException di leggere i documenti. Questa regola è relativa solo ai documenti classificati come Finance.  
   
 #### <a name="to-add-a-central-access-rule-to-a-central-access-policy"></a>Per aggiungere una regola di accesso centrale a un criterio di accesso centrale  
   
-1.  Nel riquadro a sinistra di centro di amministrazione di Active Directory, fare clic su **controllo dinamico degli accessi**, quindi fare clic su **criteri di accesso centrale**.  
+1.  Nel riquadro sinistro del Centro di amministrazione di Active Directory fare clic su **Controllo dinamico degli accessi**, quindi su **Criteri di accesso centrale**.  
   
-2.  Nel **attività** riquadro, fare clic su **New**, quindi fare clic su **criteri di accesso centrale**.  
+2.  Nel riquadro **Attività** fare clic su **Nuovo**, quindi su **Criterio di accesso centrale**.  
   
-3.  In **creare criteri di accesso centrale:**, tipo **Finance Policy** nel **nome** casella.  
+3.  In **Crea criteri di accesso centrale** digitare **Finance Policy** nella casella **Nome**.  
   
-4.  In **regole di accesso centrale membri**, fare clic su **Aggiungi**.  
+4.  In **Regole di accesso centrale membri** fare clic su **Aggiungi**.  
   
-5.  Fare doppio clic il **Finance Documents Rule** per l'aggiunta per il **aggiungere le regole di accesso centrale seguenti** elenco e quindi fare clic su **OK **.  
+5.  Fare doppio clic su **Finance Documents Rule** per aggiungerla all'elenco **Aggiungere le regole di accesso centrale seguenti**, quindi fare clic su **OK**.  
   
-6.  Fare clic su **OK** per terminare. È ora un criterio di accesso centrale denominato Finance Policy.  
+6.  Fare clic su **OK** per completare la procedura. Dovrebbe essere disponibile un criterio di accesso centrale denominato Finance Policy.  
   
     ![Guide alle soluzioni](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
   
-    Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet su una singola riga, anche se può sembrare che siano divisi su più righe a causa dei limiti di formattazione.  
+    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
     ```  
     New-ADCentralAccessPolicy "Finance Policy" Add-ADCentralAccessPolicyMember   
@@ -232,49 +233,49 @@ Regole di accesso:
   
     ```  
   
-#### <a name="to-apply-the-central-access-policy-across-file-servers-by-using-group-policy"></a>Per applicare i criteri di accesso centrale nei file server utilizzando criteri di gruppo  
+#### <a name="to-apply-the-central-access-policy-across-file-servers-by-using-group-policy"></a>Per applicare il criterio di accesso centrale nei file server usando Criteri di gruppo  
   
-1.  Nel **Start** schermata il **ricerca** digitare **Gestione criteri di gruppo **. Fare doppio clic su **Gestione criteri di gruppo **.  
-  
-    > [!TIP]  
-    > Se il **Mostra strumenti di amministrazione** impostazione è disabilitata, la **strumenti di amministrazione** cartella e il relativo contenuto non verrà visualizzati nel **impostazioni** risultati.  
+1.  Nella schermata **Start** digitare **Gestione criteri di gruppo** nella casella **Cerca**. Fare doppio clic su **Gestione Criteri di gruppo**.  
   
     > [!TIP]  
-    > Nell'ambiente di produzione, si deve creare un File Server unità Organizzativa e aggiungere tutti i file server per l'unità organizzativa specifica, in cui si desidera applicare questo criterio. Puoi quindi creare un criterio di gruppo e aggiungervi questa unità Organizzativa a tale criterio.  
+    > Se l'impostazione **Mostra strumenti di amministrazione** è disabilitata, la cartella **Strumenti di amministrazione** e il relativo contenuto non verranno visualizzati nei risultati di **Impostazioni**.  
   
-2.  In questo passaggio si modifica l'oggetto Criteri di gruppo creato in [Build il controller di dominio](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) sezione nell'ambiente di testing per includere il criterio di accesso centrale creato. In Editor Gestione criteri di gruppo, individuare e selezionare l'unità organizzativa nel dominio (contoso.com in questo esempio): **Gestione criteri di gruppo**, **foresta: contoso.com**, **domini**, **contoso.com**, **Contoso**, **FileServerOU **.  
+    > [!TIP]  
+    > Nell'ambiente di produzione creare un'unità organizzativa File Server e aggiungervi tutti i file server a cui applicare il criterio. È quindi possibile creare un criterio di gruppo e aggiungervi questa unità organizzativa.  
   
-3.  Fare doppio clic su **FlexibleAccessGPO**, quindi fare clic su **modifica **.  
+2.  In questo passaggio si modifica l'oggetto Criteri di gruppo creato nella sezione relativa alla [creazione del controller di dominio](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) nell'ambiente di testing per includere il criterio di accesso centrale creato. Nell'Editor Gestione Criteri di gruppo passare all'unità organizzativa nel dominio e selezionarla (in questo esempio, contoso.com): **Gestione Criteri di gruppo**, **Foresta: contoso.com**, **Domini**, **contoso.com**, **Contoso**, **FileServerOU**.  
   
-4.  Nella finestra Editor Gestione criteri di gruppo, passare a **configurazione Computer**, espandere **criteri**, espandere **le impostazioni di Windows**e fare clic su **le impostazioni di sicurezza **.  
+3.  Fare clic con il pulsante destro del mouse su **FlexibleAccessGPO**, quindi scegliere **Modifica**.  
   
-5.  Espandere **File System**, fare doppio clic su **criteri di accesso centrale**, quindi fare clic su **criteri di accesso centrale gestire**.  
+4.  Nella finestra dell'Editor Gestione Criteri di gruppo passare a **Configurazione computer**, espandere **Criteri**, espandere **Impostazioni di Windows**, quindi fare clic su **Impostazioni sicurezza**.  
   
-6.  Nel **configurazione di criteri di accesso centrale** finestra di dialogo, aggiungere **Finance Policy**, quindi fare clic su **OK **.  
+5.  Espandere **File system**, fare clic con il pulsante destro del mouse su **Central Access Policy** e quindi scegliere **Gestisci criteri di accesso centrale**.  
   
-7.  Scorrere verso il basso **configurazione avanzata dei criteri di controllo**ed espanderlo.  
+6.  Nella finestra di dialogo **Configurazione criteri di accesso centrale** aggiungere **Finance Policy**, quindi fare clic su **OK**.  
   
-8.  Espandere **criteri di controllo**e seleziona **accesso agli oggetti **.  
+7.  Scorrere verso il basso fino a **Configurazione avanzata dei criteri di controllo** ed espanderlo.  
   
-9. Fare doppio clic su **Controlla gestione temporanea criteri di accesso centrale **. Selezionare tutte e tre le caselle di controllo e quindi fare clic su **OK **. Questo passaggio consente al sistema di ricevere eventi di controllo relativi ai criteri di gestione temporanea di accesso centrale.  
+8.  Espandere **Criteri di controllo** e selezionare **Accesso agli oggetti**.  
   
-10. Fare doppio clic su **controllo proprietà File System **. Selezionare tutte e tre le caselle di controllo, quindi fare clic su **OK **.  
+9. Fare doppio clic su **Controlla Gestione temporanea Criteri di accesso centrale**. Selezionare tutte e tre le caselle di controllo, quindi fare clic su **OK**. Questo passaggio permette al sistema di ricevere eventi di controllo correlati a Gestione temporanea Criteri di accesso.  
   
-11. Chiudere Editor Gestione criteri di gruppo. È stato incluso in Criteri di accesso centrale per i criteri di gruppo.  
+10. Fare doppio clic su **Controllo Proprietà File system**. Selezionare tutte e tre le caselle di controllo, quindi fare clic su **OK**.  
   
-Per i controller di dominio del dominio offrire attestazioni o dati di autorizzazione dispositivo, è necessario configurare per controllo dinamico degli accessi di supportare i controller di dominio.  
+11. Chiudi l'Editor Gestione Criteri di gruppo. Il criterio di accesso centrale è stato incluso in Criteri di gruppo.  
   
-#### <a name="to-enable-support-for-claims-and-compound-authentication-for-contosocom"></a>Per abilitare il supporto per le attestazioni e autenticazione composta per contoso.com  
+Per i controller di dominio di un dominio forniscano attestazioni o dati di autorizzazione dispositivo, i controller di dominio devono essere configurata per supportare controllo dinamico degli accessi.  
   
-1.  Aprire Gestione criteri di gruppo, fare clic su **contoso.com**, quindi fare clic su **i controller di dominio **.  
+#### <a name="to-enable-support-for-claims-and-compound-authentication-for-contosocom"></a>Per abilitare il supporto per le attestazioni e l'autenticazione composta per contoso.com  
   
-2.  Fare doppio clic su **criterio controller di dominio predefiniti**, quindi fare clic su **modifica**.  
+1.  Aprire Gestione criteri di gruppo, fare clic su **contoso.com**, quindi su **Controller di dominio**.  
   
-3.  Nella finestra Editor Gestione criteri di gruppo, fare doppio clic su **configurazione Computer**, fare doppio clic su **criteri**, fare doppio clic su **modelli amministrativi**, fare doppio clic su **sistema**e quindi fare doppio clic su **KDC**.  
+2.  Fare clic con il pulsante destro del mouse su **Criterio controller di dominio predefiniti**, quindi scegliere **Modifica**.  
   
-4.  Fare doppio clic su **supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos **. Nel **supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos** la finestra di dialogo, fare clic su **abilitato** e seleziona **supportati** dal **opzioni** elenco a discesa. (È necessario abilitare questa impostazione usare le attestazioni utente in Criteri di accesso centrale).  
+3.  Nella finestra Editor Gestione Criteri di gruppo fare doppio clic su **Configurazione computer**, quindi su **Criteri**, **Modelli amministrativi**, **Sistema** e infine su **KDC**.  
   
-5.  Chiudi **Gestione criteri di gruppo**.  
+4.  Fare doppio clic su **Supporto KDC di attestazioni, autenticazione composta e blindatura Kerberos**. Nella finestra di dialogo **Supporto KDC di attestazioni, autenticazione composta e blindatura Kerberos** fare clic su **Abilitato**, quindi scegliere **Supportato** dall'elenco a discesa **Opzioni**. È necessario abilitare questa impostazione per usare le attestazioni utente nei criteri di accesso centrale.  
+  
+5.  Chiudere **Gestione Criteri di gruppo**.  
   
 6.  Aprire un prompt dei comandi e digitare `gpupdate /force`.  
   
@@ -282,126 +283,126 @@ Per i controller di dominio del dominio offrire attestazioni o dati di autorizza
   
 ||Passaggio|Esempio|  
 |-|--------|-----------|  
-|3.1|Assegnare i criteri di autorizzazione connessioni alle cartelle condivise appropriate sul file server.|Assegnare il criterio di accesso centrale alla cartella condivisa appropriata sul file server.|  
-|3.2|Verificare che l'accesso è configurato correttamente.|Controllare l'accesso per gli utenti da diversi paesi e reparti.|  
+|3.1|Assegnare il criterio di accesso centrale alle cartelle condivise appropriate sul file server.|Assegnare il criterio di accesso centrale alla cartella condivisa appropriata sul file server.|  
+|3.2|Verificare che l'accesso sia stato configurato correttamente.|Verificare l'accesso per utenti di diversi paesi e reparti.|  
   
-In questo passaggio si assegnerà il criterio di accesso centrale a un file server. Accedere a un file server che riceve i criteri di accesso centrale creato i passaggi precedenti e assegnare i criteri in una cartella condivisa.  
+In questo passaggio il criterio di accesso centrale sarà assegnato a un file server. Si eseguirà l'accesso a un file server che riceve il criterio di accesso centrale creato nei passaggi precedenti e si assegnerà il criterio a una cartella condivisa.  
   
 #### <a name="to-assign-a-central-access-policy-to-a-file-server"></a>Per assegnare un criterio di accesso centrale a un file server  
   
-1.  Nella console di gestione Hyper-V connettersi al server FILE1. Accedere al server usando contoso\administrator con la password:**pass@word1**.  
+1.  Nella Console di gestione di Hyper-V connettersi al server FILE1. Accedere al server usando contoso\administrator con la password: **pass@word1**.  
   
-2.  Aprire un prompt dei comandi con privilegi elevati e digitare: **gpupdate /force**. Ciò garantisce che le modifiche di criteri di gruppo vengono applicate al server.  
+2.  Aprire un prompt dei comandi con privilegi elevati e digitare: **gpupdate /force**. In questo modo, le modifiche a Criteri di gruppo saranno applicate al server.  
   
-3.  È anche necessario aggiornare le proprietà delle risorse globali da Active Directory. Aprire una finestra di Windows PowerShell con privilegi elevati e digitare `Update-FSRMClassificationpropertyDefinition`. Fare clic su invio e quindi chiudere Windows PowerShell.  
+3.  È anche necessario aggiornare le proprietà delle risorse globali da Active Directory. Aprire una finestra di Windows PowerShell con privilegi elevati e digitare `Update-FSRMClassificationpropertyDefinition`. Fare clic su INVIO, quindi chiudere Windows PowerShell.  
   
     > [!TIP]  
-    > È inoltre possibile aggiornare le proprietà delle risorse globali accedendo al file server. Per aggiornare le proprietà delle risorse globali dal file server, eseguire le operazioni seguenti  
+    > È anche possibile aggiornare le proprietà delle risorse globali accedendo al file server. Per aggiornare le proprietà delle risorse globali dal file server, eseguire la procedura seguente:  
     >   
-    > 1.  Accesso al File Server FILE1 come contoso\administrator, usando la password **pass@word1**.  
-    > 2.  Aprire Gestione risorse File Server. Per aprire Gestione risorse File Server, fare clic su **Start**, tipo **Gestione risorse file server**, quindi fare clic su **Gestione risorse File Server**.  
-    > 3.  In Gestione risorse File Server, fare clic su **gestione classificazione File**, fare doppio clic su **le proprietà di classificazione** e quindi fare clic su **aggiornare **.  
+    > 1.  Accedere al File Server FILE1 come contoso\administrator, usando la password **pass@word1**.  
+    > 2.  Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+    > 3.  In Gestione risorse file server fare clic su **Gestione classificazione file** , fare clic con il pulsante destro del mouse su **Proprietà classificazione** e quindi scegliere **Aggiorna**.  
   
-4.  Aprire Esplora risorse e nel riquadro a sinistra, fare clic su unità D. fare doppio clic su di **Finance Documents** cartella e scegliere **proprietà **.  
+4.  Aprire Esplora risorse e nel riquadro sinistro fare clic sull'unità D. Fare clic con il pulsante destro del mouse sulla cartella **Finance Documents**, quindi scegliere **Proprietà**.  
   
-5.  Fare clic su di **classificazione** scheda, fare clic su **paese**e quindi seleziona **degli Stati Uniti** nel **valore** campo.  
+5.  Fare clic sulla scheda **Classificazione**, quindi su **Country**, e infine selezionare **US** nel campo **Valore**.  
   
-6.  Fare clic su **reparto**e quindi seleziona **Finance** nel **valore** campo e quindi fare clic su **applica **.  
+6.  Fare clic su **Department**, quindi selezionare **Finance** nel campo **Valore** e infine fare clic su **Applica**.  
   
     > [!NOTE]  
-    > Tenere presente che è stato configurato il criterio di accesso centrale ai file di destinazione per il reparto finanziario. I passaggi precedenti contrassegno tutti i documenti nella cartella con gli attributi Country e Department.  
+    > Come si potrà ricordare, il criterio di accesso centrale è stato configurato in modo da interessare i file per il reparto finanziario. I passaggi precedenti permettono di contrassegnare tutti i documenti nella cartella con gli attributi Country e Department.  
   
-7.  Fare clic su di **sicurezza** scheda e quindi fare clic su **avanzate **. Fare clic su di **criteri centrali** scheda.  
+7.  Fare clic sulla scheda **Sicurezza** e quindi su **Avanzate**. Fare clic sulla scheda **Criteri centrali**.  
   
-8.  Fare clic su **modifica**selezionare **Finance Policy** dal menu a discesa e quindi fare clic su **applica **. È possibile visualizzare il **Finance Documents Rule** elencato nei criteri. Espandere l'elemento per visualizzare tutte le autorizzazioni impostate durante la creazione della regola in Active Directory.  
+8.  Fare clic su **Modifica**, selezionare **Finance Policy** dal menu a discesa, quindi fare clic su **Applica**. Nel criterio è disponibile la regola **Finance Documents Rule**. Espandere l'elemento per visualizzare tutte le autorizzazioni impostate durante la creazione della regola in Active Directory.  
   
-9. Fare clic su **OK** per tornare a Windows Explorer.  
+9. Fare clic su **OK** per tornare a Esplora risorse.  
   
-Nel passaggio successivo, assicurarsi che l'accesso è configurato correttamente.  Gli account utente, devi avere il set di attributo Department appropriato (impostata questa utilizzando il centro di amministrazione di Active Directory). Il modo più semplice per visualizzare i risultati effettivi del nuovo criterio consiste nell'usare il **accesso valido** scheda in Esplora risorse. Il **accesso valido** scheda Mostra i diritti di accesso per un determinato account utente.  
+Nel passaggio successivo, assicurarsi che l'acceso sia configurato correttamente.  L'attributo Department appropriato deve essere impostato negli account utente. Eseguire questa operazione nel Centro di amministrazione di Active Directory. Il modo più semplice per verificare i risultati effettivi del nuovo criterio consiste nell'usare la scheda **Accesso valido** in Esplora risorse. Nella scheda **Accesso valido** sono mostrati i diritti di accesso per un determinato account utente.  
   
 #### <a name="to-examine-the-access-for-various-users"></a>Per esaminare l'accesso per i diversi utenti  
   
-1.  Nella console di gestione Hyper-V connettersi al server FILE1. Accedere al server usando contoso\administrator. Passare a D:\ in Esplora risorse. Fare doppio clic su di **Finance Documents** cartella, quindi fare clic su **proprietà **.  
+1.  Nella Console di gestione di Hyper-V connettersi al server FILE1. Accedere al server usando contoso\administrator. Passare a D:\ in Esplora risorse. Fare clic con il pulsante destro del mouse sulla cartella **Finance Documents**, quindi scegliere **Proprietà**.  
   
-2.  Fare clic sul **sicurezza** scheda, fare clic su **avanzate**, quindi fare clic sul **accesso valido** scheda.  
+2.  Fare clic sulla scheda **Sicurezza**, quindi su **Avanzate** e infine su **Accesso valido**.  
   
-3.  Per esaminare le autorizzazioni per un utente, fare clic su **selezionare un utente**, digitare il nome dell'utente e quindi fare clic su **Visualizza accesso valido** per visualizzare i diritti di accesso valido. Per esempio:  
+3.  Per esaminare le autorizzazioni per un utente, fare clic su **selezionare un utente**, digitare il nome dell'utente e quindi fare clic su **Visualizza accesso valido** per visualizzare i diritti di accesso valido. Ad esempio:  
   
-    -   Myriam Delesalle (MDelesalle) sia nel reparto finanziario e deve disporre di accesso in lettura alla cartella.  
+    -   Myriam Delesalle (MDelesalle) lavora nel reparto finanziario e deve disporre di accesso in lettura alla cartella.  
   
-    -   Miles Reid (MReid) è un membro del gruppo FinanceAdmin e deve disporre di modifica accesso alla cartella.  
+    -   Miles Reid (MReid) è un membro del gruppo FinanceAdmin e deve disporre di accesso di tipo Modifica alla cartella.  
   
-    -   Esther Valle (EValle) non è presente nel reparto finanziario; Tuttavia, è un membro del gruppo FinanceException e deve avere accesso in lettura.  
+    -   Esther Valle (EValle) non lavora nel reparto finanziario, ma è un membro del gruppo FinanceException e deve disporre di accesso in lettura.  
   
-    -   Maira Wenzel (MWenzel) non è presente nel reparto finanziario e non è un membro di uno il gruppo FinanceAdmin o FinanceException. Utente non deve avere accesso alla cartella.  
+    -   Maira Wenzel (MWenzel) non lavora nel reparto finanziario e non è un membro dei gruppi FinanceAdmin o FinanceException. Non deve disporre di accesso alla cartella.  
   
-    Si noti che l'ultima colonna denominata **limitato l'accesso** nella finestra di accesso valido. In questa colonna indica i gate che compromettono le autorizzazioni di una persona. In questo caso, le autorizzazioni di condivisione e NTFS consentono tutti gli utenti il controllo completo. Tuttavia, i criteri di accesso centrale limitano l'accesso in base alle regole configurate in precedenza.  
+    Si noti l'ultima colonna denominata **Accesso limitato da** nella finestra relativa all'accesso valido. Questa colonna indica gate che compromettono le autorizzazioni dell'utente. In questo caso, le autorizzazioni Condivisione e NTFS permettono agli utenti di disporre di controllo completo. Il criterio di accesso centrale, tuttavia, limita l'accesso in base alle regole configurate in precedenza.  
   
-## <a name="BKMK_1.5"></a>Gestisci: Modificare e gestire i criteri  
+## <a name="BKMK_1.5"></a>Effettuare la manutenzione: Modificare e gestire in modo temporaneo il criterio  
   
 ||||  
 |-|-|-|  
 |Numero|Passaggio|Esempio|  
-|4.1|Configurare le attestazioni dispositivo per i client|Impostazione di criteri di gruppo per abilitare le attestazioni dispositivo|  
-|4.2|Abilitare una richiesta diritti per i dispositivi.|Abilitare il tipo di attestazione paese per i dispositivi.|  
-|4.3|Aggiungere un criterio di gestione temporanea alla regola di accesso centrale esistente che si desidera modificare.|Modificare Finance Documents Rule per aggiungere un criterio di gestione temporanea.|  
-|4.4|Visualizzare i risultati del criterio di gestione temporanea.|La verifica delle autorizzazioni di Ester Velle.|  
+|4.1|Configurare le richieste diritti da dispositivo per i client|Configurare le impostazioni di Criteri di gruppo per abilitare le richieste diritti da dispositivo|  
+|4.2|Abilitare una richiesta diritti per i dispositivi.|Abilitare la richiesta diritti di tipo country per i dispositivi.|  
+|4.3|Aggiungere un criterio di gestione temporanea alla regola di accesso centrale esistente da modificare.|Modificare la regola Finance Documents Rule per aggiungere un criterio di gestione temporanea.|  
+|4.4|Visualizzare i risultati del criterio di gestione temporanea.|Controllare le autorizzazioni di Ester Velle.|  
   
-#### <a name="to-set-up-group-policy-setting-to-enable-claims-for-devices"></a>Per impostare i criteri di gruppo di impostazione per abilitare attestazioni per i dispositivi  
+#### <a name="to-set-up-group-policy-setting-to-enable-claims-for-devices"></a>Per configurare le impostazioni di Criteri di gruppo per abilitare le richieste diritti per i dispositivi  
   
-1.  Accedere a DC1, aprire Gestione criteri di gruppo, fare clic su **contoso.com**, fare clic su **criterio dominio predefinito**del mouse e scegliere **modifica **.  
+1.  Accedere a DC1, aprire Gestione Criteri di gruppo, fare clic su **contoso.com**, quindi su **Criterio dominio predefinito**, infine fare clic con il pulsante destro del mouse e scegliere **Modifica**.  
   
-2.  Nella finestra Editor Gestione criteri di gruppo, passare a **configurazione Computer**, **criteri**, **modelli amministrativi**, **sistema**, **Kerberos **.  
+2.  Nella finestra Editor Gestione Criteri di gruppo passare a **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Sistema**, **Kerberos**.  
   
-3.  Selezionare **supporto client Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** e fare clic su **abilitare **.  
+3.  Selezionare **Supporto KDC di attestazioni, autenticazione composta e blindatura Kerberos**, quindi fare clic su **Abilita**.  
   
-#### <a name="to-enable-a-claim-for-devices"></a>Per abilitare un'attestazione per i dispositivi  
+#### <a name="to-enable-a-claim-for-devices"></a>Per abilitare una richiesta diritti per i dispositivi  
   
-1.  Aprire Server DC1 nella gestione di Hyper-V e accedere come contoso\Administrator, con la password **pass@word1**.  
+1.  Aprire Server DC1 nella console di gestione Hyper-V e accedere come contoso\Administrator, con la password **pass@word1**.  
   
-2.  Dal **strumenti** menu, aprire Centro di amministrazione di Active Directory.  
+2.  Dal menu **Strumenti** aprire il Centro di amministrazione di Active Directory.  
   
-3.  Fare clic su **visualizzazione albero**, espandere **controllo dinamico degli accessi**, fare doppio clic su **tipi di attestazione**, fare doppio clic su di **paese** attestazione.  
+3.  Fare clic su **Visualizzazione albero**, espandere **Controllo dinamico degli accessi**, fare doppio clic su **Tipi di attestazione** e infine fare doppio clic sull'attestazione **country**.  
   
-4.  In **attestazioni di questo tipo possono essere emessi per le classi seguenti**, selezionare il **Computer** casella di controllo. Fare clic su **OK**.   
-    Entrambi **utente** e **Computer** dovrebbero essere selezionate le caselle di controllo. L'attestazione country può ora essere usato con i dispositivi, oltre agli utenti.  
+4.  In **Le attestazioni di questo tipo possono essere emesse per le classi seguenti** selezionare la casella di controllo **Computer**. Fare clic su **OK**.   
+    Entrambe le caselle di controllo **User** e **Computer** dovrebbero essere selezionate. È ora possibile usare l'attestazione country con i dispositivi, oltre che con gli utenti.  
   
-Il passaggio successivo consiste nel creare una regola dei criteri di gestione temporanea. Criteri di gestione temporanea consente di monitorare gli effetti di una nuova voce di criterio prima di abilitarla. Nel passaggio seguente, si crea una voce di criterio di gestione temporanea e monitorare l'effetto sulla cartella condivisa.  
+Il passaggio successivo consiste nel creare un criterio di gestione temporanea. I criteri di gestione temporanea possono essere usati per monitorare gli effetti di una nuova voce di criterio prima di abilitarla. Nel passaggio successivo sarà creata una voce di criterio di gestione temporanea e ne saranno monitorati gli effetti sulla cartella condivisa.  
   
-#### <a name="to-create-a-staging-policy-rule-and-add-it-to-the-central-access-policy"></a>Per creare una regola dei criteri di gestione temporanea e aggiungerla al criterio di accesso centrale  
+#### <a name="to-create-a-staging-policy-rule-and-add-it-to-the-central-access-policy"></a>Per creare una regola di criterio di gestione temporanea e aggiungerla al criterio di accesso centrale  
   
-1.  Aprire Server DC1 nella gestione di Hyper-V e accedere come contoso\Administrator, con la password **pass@word1**.  
+1.  Aprire Server DC1 nella console di gestione Hyper-V e accedere come contoso\Administrator, con la password **pass@word1**.  
   
-2.  Aprire Centro di amministrazione di Active Directory.  
+2.  Apri Centro di amministrazione di Active Directory.  
   
-3.  Fare clic su **visualizzazione albero**, espandere **controllo dinamico degli accessi**e seleziona **regole di accesso centrale **.  
+3.  Fare clic su **Visualizzazione albero**, espandere **Controllo dinamico degli accessi**, quindi selezionare **Regole di accesso centrale**.  
   
-4.  Fare doppio clic su **Finance Documents Rule**, quindi fare clic su **proprietà **.  
+4.  Fare clic con il pulsante destro del mouse su **Finance Documents Rule**, quindi scegliere **Proprietà**.  
   
-5.  Nel **autorizzazioni proposte** selezionare il **autorizzazione Abilita configurazione di gestione temporanea** casella di controllo, fare clic su **modifica**, quindi fare clic su **Aggiungi **. Nel **voce autorizzazione per autorizzazioni proposte** finestra, fare clic sul **seleziona un'entità** collegamento, digitare **Authenticated Users**, quindi fare clic su **OK **.  
+5.  Nella sezione **Autorizzazioni proposte** selezionare la casella di controllo **Abilita configurazione di gestione temporanea delle autorizzazioni**, quindi fare clic su **Modifica** e infine su **Aggiungi**. Nella finestra di dialogo **Voce autorizzazione per Autorizzazioni proposte** fare clic sul collegamento **Seleziona un'entità**, digitare **Authenticated Users**, quindi fare clic su **OK**.  
   
-6.  Fare clic su di **aggiungere una condizione** collegare e aggiungere la condizione seguente:   
-     [**User**] [**paese**] [**Any of**] [**Risorse**] [**Paese**].  
+6.  Fare clic sul collegamento **Aggiungi condizione** e aggiungere la condizione seguente:   
+     [**User**] [**country**] [**Any of**] [**Resource**] [**Country**].  
   
-7.  Fare clic su **aggiungere una condizione** nuovamente e aggiungere la condizione seguente:  
+7.  Fare di nuovo clic su **Aggiungi condizione** e aggiungere la condizione seguente:  
     [**And**]   
-     [**Dispositivo**] [**paese**] [**Any of**] [**Risorse**] [**Paese**]  
+     [**Device**] [**country**] [**Any of**] [**Resource**] [**Country**]  
   
-8.  Fare clic su **aggiungere una condizione** nuovamente e aggiungere la condizione seguente.  
+8.  Fare di nuovo clic su **Aggiungi condizione** e aggiungere la condizione seguente.  
     [E]   
-     [**User**] [**Group**] [**Membro di qualsiasi**] [**Valore**] \ (**FinanceException**)  
+     [**Utente**] [**gruppo**] [**membro di alcun**] [**valore**]\(**FinanceException**)  
   
-9. Per impostare il FinanceException, fare clic su **aggiungere elementi** e il **Seleziona utente, Computer, Account servizio o gruppo** finestra, digitare **FinanceException **.  
+9. Per configurare il gruppo FinanceException, fare clic su **Aggiungi elementi** e nella finestra **Seleziona utente, computer, account del servizio o gruppo** digitare **FinanceException**.  
   
-10. Fare clic su **autorizzazioni**selezionare **controllo completo**e fare clic su **OK **.  
+10. Fare clic su **Autorizzazioni**, selezionare **Controllo completo** e infine fare clic su **OK**.  
   
-11. Nelle impostazioni di sicurezza avanzate per autorizzazioni proposte selezionare **FinanceException** e fare clic su **rimuovere **.  
+11. Nella finestra Impostazioni di sicurezza avanzate per Autorizzazioni proposte selezionare **FinanceException** e fare clic su **Rimuovi**.  
   
-12. Fare clic su **OK** due volte per completare.  
+12. Fare due volte clic su **OK** per completare la procedura.  
   
 ![Guide alle soluzioni](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
   
-Il file o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet su una singola riga, anche se può sembrare che siano divisi su più righe a causa dei limiti di formattazione.  
+Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
 ```  
 Set-ADCentralAccessRule  
@@ -412,25 +413,25 @@ Set-ADCentralAccessRule
 ```  
   
 > [!NOTE]  
-> Nell'esempio precedente cmdlet, il valore Server riflette il Server nell'ambiente di laboratorio di test. È possibile utilizzare il Visualizzatore della cronologia di Windows PowerShell per cercare i cmdlet di Windows PowerShell per ogni procedura eseguita nel centro di amministrazione di Active Directory. Per ulteriori informazioni, vedere [Visualizzatore della cronologia di Windows PowerShell](https://technet.microsoft.com/library/hh831702)  
+> Nell'esempio di cmdlet precedente il valore Server riflette il Server nell'ambiente di testing. È possibile usare il Visualizzatore della cronologia di Windows PowerShell per cercare i cmdlet di Windows PowerShell per ogni procedura eseguita nel Centro di amministrazione di Active Directory. Per altre informazioni, vedere [Visualizzatore della cronologia di Windows PowerShell](https://technet.microsoft.com/library/hh831702).  
   
-In questo set di autorizzazioni proposto i membri del gruppo FinanceException avrà accesso completo ai file del proprio paese quando accedono ai loro tramite un dispositivo dallo stesso paese il documento. Le voci di controllo sono disponibili nei server di File di registro di protezione quando un utente del reparto finanziario tenta di accedere ai file. Tuttavia, le impostazioni di sicurezza non vengono applicate fino a quando non la promozione del criterio dalla gestione temporanea.  
+Nel set di autorizzazioni proposto i membri del gruppo FinanceException disporranno di Accesso completo ai file del proprio paese quando vi accedono tramite un dispositivo dallo stesso paese in cui si trova il documento. Le voci di controllo sono disponibili nel registro di protezione dei file server quando un utente del reparto finanziario prova ad accedere ai file. Le impostazioni di sicurezza, tuttavia, saranno applicate solo dopo la promozione del criterio dalla gestione temporanea.  
   
-Nella procedura successiva, verificare i risultati del criterio di gestione temporanea. Accedere alla cartella condivisa con un nome utente che dispone delle autorizzazioni in base alla regola corrente. Esther Valle (EValle) è un membro del gruppo FinanceException e attualmente dispone di diritti di lettura. In base al criterio di gestione temporanea, EValle non deve avere i diritti.  
+Nella procedura seguente saranno verificati i risultati del criterio di gestione temporanea. Accedere alla cartella condivisa con un nome utente che dispone di autorizzazioni in base alla regola corrente. Esther Valle (EValle) è un membro del gruppo FinanceException e attualmente dispone di diritti di lettura. In base al criterio di gestione temporanea, EValle non deve disporre di alcun diritto.  
   
 #### <a name="to-verify-the-results-of-the-staging-policy"></a>Per verificare i risultati del criterio di gestione temporanea  
   
-1.  Connettersi al File Server FILE1 nella gestione di Hyper-V e accedere come contoso\administrator, con la password **pass@word1**.  
+1.  Connettersi al File Server FILE1 nella console di gestione Hyper-V e accedere come contoso\administrator, con la password **pass@word1**.  
   
-2.  Aprire una finestra del prompt dei comandi e digitare **gpupdate /force **. Ciò garantisce che le modifiche di criteri di gruppo saranno applicate al server.  
+2.  Aprire una finestra del prompt dei comandi e digitare **gpupdate /force**. In questo modo, le modifiche a Criteri di gruppo saranno applicate al server.  
   
-3.  Nella console di gestione Hyper-V connettersi al server CLIENT1. Disconnettere l'utente attualmente connesso. Riavviare la macchina virtuale, CLIENT1. Accedere quindi al computer usando contoso\EValle pass@word1.  
+3.  Nella Console di gestione di Hyper-V connettersi al server CLIENT1. Disconnettere l'utente attualmente connesso. Riavviare la macchina virtuale, CLIENT1. Accedere quindi al computer usando contoso\EValle pass@word1.  
   
-4.  Fare doppio clic sul collegamento sul desktop ai documenti \\\FILE1\Finance. EValle dovrebbe disporre ancora accesso ai file. Tornare a FILE1.  
+4.  Fare doppio clic sul collegamento sul desktop a \\\FILE1\Finance documenti. EValle dovrebbe disporre ancora di accesso ai file. Tornare a FILE1.  
   
-5.  Apri **Visualizzatore eventi** dal collegamento sul desktop. Espandere **registri di Windows**e quindi seleziona **sicurezza **. Aprire le voci con **Event ID 4818**sotto il **gestione temporanea criteri di accesso centrale** categoria di attività. Si noterà che EValle è stato concesso l'accesso. Tuttavia, in base al criterio di gestione temporaneo, l'utente sarebbe stato negato l'accesso.  
+5.  Aprire il **Visualizzatore eventi** dal collegamento sul desktop. Espandere **Registri di Windows**, quindi selezionare **Sicurezza**. Aprire le voci con **Event ID 4818**sotto il **gestione temporanea criteri di accesso centrale** categoria attività. Come si può notare, a EValle è stato concesso l'accesso. In base al criterio di gestione temporanea, tuttavia, questo utente non dovrebbe essere autorizzato all'accesso.  
   
 ## <a name="next-steps"></a>Passaggi successivi  
-Se si dispone di un sistema di gestione centrale di server, ad esempio System Center Operations Manager, puoi anche configurare il monitoraggio degli eventi. Ciò consente agli amministratori di monitorare gli effetti dei criteri di accesso centrale prima di applicarle.  
+Se si usa un sistema di gestione centrale dei server, ad esempio System Center Operations Manager, sarà anche possibile configurare il monitoraggio degli eventi. Ciò permette agli amministratori di monitorare gli effetti dei criteri di accesso centrale prima di applicarli.  
   
 

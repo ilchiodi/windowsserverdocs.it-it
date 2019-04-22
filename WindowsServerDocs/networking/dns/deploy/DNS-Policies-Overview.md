@@ -1,6 +1,6 @@
 ---
-title: Cenni preliminari sui criteri DNS
-description: In questo argomento fa parte di DNS criteri Scenario Guide per Windows Server 2016
+title: Informazioni generali sui criteri QoS
+description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,122 +8,123 @@ ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 06086bbd7edc2fa489805eb5075062332e002ab4
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: ad8fa904f43bb51871e5063eaddedd0762d54d95
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814302"
 ---
-# <a name="dns-policies-overview"></a>Cenni preliminari sui criteri DNS
+# <a name="dns-policies-overview"></a>Informazioni generali sui criteri QoS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-You can use this topic to learn about DNS Policy, which is new in Windows Server 2016. È possibile utilizzare criteri DNS per la gestione del traffico basato su posizione geografica, risposte DNS basate sull'ora del giorno, per gestire un singolo server DNS configurato per la distribuzione "split Brain", l'applicazione di filtri query DNS e altro ancora. Gli elementi seguenti forniscono altri dettagli su queste funzionalità.
+È possibile utilizzare questo argomento per informazioni sui criteri DNS, che rappresenta una novità in Windows Server 2016. È possibile utilizzare criteri DNS per posizione geografica basato su gestione traffico, risposte DNS intelligente basate sull'ora del giorno, per gestire un singolo server DNS configurato per la suddivisione\-distribuzione cervello, applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono altri dettagli su queste funzionalità.
 
--   **Bilanciamento carico di applicazioni.** Quando si distribuiscono più istanze di un'applicazione in posizioni diverse, è possibile utilizzare criteri DNS per bilanciare il carico del traffico tra le istanze di applicazioni diverso, allocazione dinamica il carico del traffico per l'applicazione.
+-   **Bilanciamento del carico dell'applicazione.** Quando si distribuiscono più istanze di un'applicazione in posizioni diverse, è possibile utilizzare criteri DNS per bilanciare il carico del traffico tra le istanze di applicazione diversi, allocare dinamicamente il carico del traffico per l'applicazione.
 
--   **Gestione del traffico basata sulla Geo\-Location.** È possibile utilizzare criteri DNS per consentire ai server DNS primari e secondari rispondere alle query client DNS in base alla posizione geografica del client e la risorsa a cui il client sta tentando di connettersi, fornendo il client con l'indirizzo IP della risorsa più vicina. 
+-   **Geografica\-Location Based di gestione traffico.** È possibile utilizzare criteri DNS per consentire ai server DNS primario e secondario rispondere alle query client DNS in base alla posizione geografica del client e la risorsa a cui il client sta provando a connettersi, fornendo il client con l'indirizzo IP di quello più vicino risorsa. 
 
--   **Dividere cervello DNS.** Con DNS "split Brain", i record DNS sono suddivisi in diversi ambiti di zona nello stesso server DNS e client DNS ricevano una risposta basata sul fatto che i client si trovano i client interni o esterni. È possibile configurare DNS "split Brain" per le zone integrate con Active Directory o per le zone in server DNS autonomi.
+-   **Dividere cervello DNS.** Divisione\-brain DNS, i record DNS vengono suddivise in diversi ambiti di zona nello stesso server DNS e i client DNS ricevano una risposta basata sul fatto che i client trovano i client interni o esterni. È possibile configurare la suddivisione\-brain DNS per le zone integrate con Active Directory o per le zone sui server DNS autonomi.
 
--   **Il filtro.** È possibile configurare criteri DNS per creare i filtri di query basate su criteri specificati. Filtri di query in Criteri di DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e client DNS che invia la query DNS. 
--   **Analisi forense.** È possibile utilizzare criteri DNS per reindirizzare i client DNS non autorizzati a un indirizzo IP esistente anziché al computer che stanno tentando di raggiungere.
+-   **Filtering.** È possibile configurare criteri DNS per creare filtri per query sono basati su criteri che viene fornito. Filtri di query in Criteri di DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e client DNS che invia la query DNS. 
+-   **Analisi scientifiche.** È possibile utilizzare criteri DNS per reindirizzare i client DNS non autorizzati a non\-indirizzo IP esistente anziché indirizzare li al computer che sta provando a raggiungere.
 
--   **Ora del giorno in base reindirizzamento.** È possibile utilizzare criteri DNS per distribuire il traffico dell'applicazione tra diverse istanze distribuite geograficamente di un'applicazione utilizzando i criteri DNS basate sull'ora del giorno.
+-   **Ora del giorno in base reindirizzamento.** È possibile utilizzare criteri DNS per distribuire il traffico dell'applicazione tra diverse istanze distribuite geograficamente di un'applicazione usando i criteri DNS che si basano sull'ora del giorno.
 
-## <a name="new-concepts"></a>New Concepts  
-In order to create policies to support the scenarios listed above, it is necessary to be able to identify groups of records in a zone, groups of clients on a network, among other elements. These elements are represented by the following new DNS objects:  
+## <a name="new-concepts"></a>Nuovi concetti  
+Per creare i criteri per supportare gli scenari elencati in precedenza, è necessario essere in grado di identificare i gruppi di record in una zona, gruppi di client in una rete, tra gli altri elementi. Questi elementi sono rappresentati dai nuovi oggetti DNS seguenti:  
 
-- **Client subnet:** a client subnet object represents an IPv4 or IPv6 subnet from which queries are submitted to a DNS server. You can create subnets to later define policies to be applied based on what subnet the requests come from. For instance, in a split brain DNS scenario, the request for resolution for a name such as *www.microsoft.com* can be answered with an internal IP address to clients from internal subnets, and a different IP address to clients in external subnets.
+- **Subnet del client:** un oggetto della subnet client rappresenta una subnet IPv4 o IPv6 da cui le query vengono inviate a un server DNS. È possibile creare le subnet per definire in seguito i criteri da applicare in base alle quali subnet provengono le richieste. Ad esempio, in un scenario di split brain DNS, la richiesta per la risoluzione per un nome, ad esempio *www.microsoft.com* è possibile rispondere con un indirizzo IP interno per i client dalla subnet interne e un indirizzo IP diverso per i client esterni subnet.
 
-- **Recursion scope:** recursion scopes are unique instances of a group of settings that control recursion on a DNS server. Un ambito di ricorsione contiene un elenco di server d'inoltro e specifica se è abilitata la ricorsione. Un server DNS può avere molti gli ambiti di ricorsione. DNS server recursion policies allow you to choose a recursion scope for a set of queries. If the DNS server is not authoritative for certain queries, DNS server recursion policies allow you to control how to resolve those queries. You can specify which forwarders to use and whether to use recursion.
+- **Ambito di ricorsione:** gli ambiti di ricorsione sono istanze univoche di un gruppo di impostazioni che controllano la ricorsione in un server DNS. Un ambito di ricorsione contiene un elenco di server d'inoltro e specifica se è abilitata la ricorsione. Un server DNS può avere molti ambiti di ricorsione. Criteri di ricorsione dei server DNS consentono di scegliere un ambito di ricorsione per un set di query. Se il server DNS non autorevole per determinate query, i criteri di ricorsione server DNS consentono di controllare come risolvere le query. È possibile specificare quali server d'inoltro da utilizzare e se usare la ricorsione.
 
-- **Zone scopes:** a DNS zone can have multiple zone scopes, with each zone scope containing their own set of DNS records. The same record can be present in multiple scopes, with different IP addresses. Also, zone transfers are done at the zone scope level. That means that records from a zone scope in a primary zone will be transferred to the same zone scope in a secondary zone.
+- **Gli ambiti di zona:** una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene il proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con indirizzi IP diversi. Inoltre, i trasferimenti di zona vengono eseguiti a livello di ambito di zona. Ciò significa che i record da un ambito di zona in zona primaria verranno trasferiti allo stesso ambito di zona in un'area secondaria.
 
-## <a name="types-of-policy"></a>Types of Policy
+## <a name="types-of-policy"></a>Tipi di criteri
 
-DNS Policies are divided by level and type. You can use Query Resolution Policies to define how queries are processed, and Zone Transfer Policies to define how zone transfers occur. You can apply Each policy type at the server level or the zone level.
+I criteri di DNS sono suddivisi per livello e tipo. È possibile usare i criteri di risoluzione di Query per definire la modalità di elaborazione delle query e i criteri di trasferimento di zona per definire la modalità in cui si verificano trasferimenti di zona. È possibile applicare ogni tipo di criteri a livello di server o il livello di zona.
   
-### <a name="query-resolution-policies"></a>Query Resolution Policies
+### <a name="query-resolution-policies"></a>Criteri di risoluzione di query
 
-You can use DNS Query Resolution Policies to specify how incoming resolution queries are handled by a DNS server. Every DNS Query Resolution Policy contains the following elements:  
+È possibile utilizzare criteri di risoluzione di Query DNS per specificare la risoluzione in ingresso come le query vengono gestite da un server DNS. Ogni criterio di risoluzione di Query DNS contiene gli elementi seguenti:  
   
-|Field|Descrizione|Possible values|  
+|Campo|Descrizione|Valori possibili|  
 |---------|---------------|-------------------|  
-|**Nome**|Policy name|-   Up to 256 characters<br />-   Can contain any character valid for a file name|  
-|**State**|Policy state|-   Enable (default)<br />-   Disabled|  
-|**Level**|Policy level|-   Server<br />-   Zone|  
-|**Processing order**|Once a query is classified by level and applies on, the server finds the first policy for which the query matches the criteria and applies it to query|-   Numeric value<br />-   Unique value per policy containing the same level and applies on value|  
-|**Azione**|Action to be performed by DNS server|-   Allow (default for zone level)<br />-   Deny (default on server level)<br />-   Ignore|  
-|**Criteria**|Policy condition (AND/OR) and list of criterion to be met for policy to be applied|-   Condition operator (AND/OR)<br />-   List of criteria (see the criterion table below)|  
-|**Ambito**|List of zone scopes and weighted values per scope. Weighted values are used for load balancing distribution. For instance, if this list includes datacenter1 with a weight of 3 and datacenter2 with a weight of 5 the server will respond with a record from datacentre1 three times out of eight requests|-   List of zone scopes (by name) and weights|  
+|**Name**|Nome criterio|-Fino a 256 caratteri<br />-Può contenere qualsiasi carattere valido per un nome di file|  
+|**Stato**|Stato dei criteri|-Abilitare (valore predefinito)<br />-Disabilitato|  
+|**Livello**|Livello di criteri|-   Server<br />-Zona|  
+|**Ordine di elaborazione**|Una volta che viene classificata dal livello e si applica a una query, il server rileva il primo criterio per il quale la query corrisponde ai criteri e li applica per eseguire una query|: Valore numerico<br />: Valore univoco per ogni criterio che contiene lo stesso livello e si applica al valore|  
+|**Azione**|Azione da eseguire dal server DNS|-Consentire (impostazione predefinita per il livello di zona)<br />-Deny (impostazione predefinita nel livello di server)<br />-Ignorare|  
+|**Criteri**|Condizione dei criteri (e/o) e un elenco di criteri che devono essere soddisfatti per l'applicazione dei criteri|-Operatore condition (e/o)<br />-Elenco dei criteri (vedere la tabella di criterio seguente)|  
+|**Ambito**|Elenco di ambiti di zona e valori ponderati per ogni ambito. Valori ponderati vengono usati per la distribuzione di bilanciamento del carico. Ad esempio, se questo elenco include datacenter1 con un peso pari a 3 e datacenter2 con un peso pari a 5 server risponderà con un record da datacentre1 tre volte all'esterno di otto richieste|-Elenco di ambiti di zona (individuato tramite nome) e pesi|  
 
 > [!NOTE]
-> Server level policies can only have the values **Deny** or **Ignore** as an action.
+> I criteri a livello di server possono avere solo i valori **Deny** oppure **Ignore** come azione.
 
-The DNS policy criteria field is composed of two elements:
+Il campo ai criteri DNS dei criteri è composto da due elementi:
 
-|Nome|Descrizione|Sample values|
+|Nome|Descrizione|Valori di esempio|
 |--------|---------------|-----------------|
-|**Subnet del client**|Il trasporto di protocollo utilizzato nella query. Possible entries are **UDP** and **TCP**|-   **EQ,Spain,France** - resolves to true if the subnet is identified as either Spain or France<br />-   **NE,Canada,Mexico** - resolves to true if the client subnet is any subnet other than Canada and Mexico|  
-|**Protocollo di trasporto**|Il trasporto di protocollo utilizzato nella query. Possible entries are **UDP** and **TCP**|-   **EQ,TCP**<br />-   **EQ,UDP**|  
-|**Protocollo Internet**|Protocollo di rete utilizzato nella query. Possible entries are **IPv4** and **IPv6**|-   **EQ,IPv4**<br />-   **EQ,IPv6**|  
-|**Indirizzo IP dell'interfaccia del server**|IP address for the incoming DNS server network interface|-   **EQ,10.0.0.1**<br />-   **EQ,192.168.1.1**|  
-|**NOME DI DOMINIO COMPLETO**|FQDN of record in the query, with the possibility of using a wild card|-   **EQ,www.contoso.com** - resolves tot rue only the if the query is trying to resolve the *www.contoso.com* FQDN<br />-   **EQ,\*.contoso.com,\*.woodgrove.com** - resolves to true if the query is for any record ending in *contoso.com***OR***woodgrove.com*|  
-|**Tipo di query**|Type of record being queried (A, SVR, TXT)|-   **EQ,TXT,SRV** - resolves tot rue if the query is requesting a TXT **OR** SRV record<br />-   **EQ,MX** - resolves tot rue if the query is requesting an MX record|  
-|**Ora del giorno**|Time of day the query is received|-   **EQ,10:00-12:00,22:00-23:00** - resolves tot rue if the query is received between 10 AM and noon, **OR** between 10PM and 11PM|  
+|**Subnet del client**|Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata.|-   **EQ, Spagna, Francia** -risolve su true se la subnet viene identificata come Spagna o Francia<br />-   **NE, Canada, Messico** -risolve su true se la subnet del client è qualsiasi subnet diverso da in Canada e Messico|  
+|**Protocollo di trasporto**|Il trasporto di protocollo utilizzato nella query. Sono possibili voci **UDP** e **TCP**|-   **EQ,TCP**<br />-   **EQ,UDP**|  
+|**Internet Protocol**|Protocollo di rete utilizzato nella query. Sono possibili voci **IPv4** e **IPv6**|-   **EQ,IPv4**<br />-   **EQ,IPv6**|  
+|**Indirizzo IP dell'interfaccia del server**|Indirizzo IP per l'interfaccia di rete di server DNS in ingresso|-   **EQ,10.0.0.1**<br />-   **EQ,192.168.1.1**|  
+|**FQDN**|Nome di dominio completo del record nella query, con la possibilità di usare un carattere jolly|-   **EQ, www.contoso.com** -risoluzione: messaggi accodati rue solo se la query sta tentando di risolvere le *www.contoso.com* FQDN<br />-   **EQ,\*. contoso.com\*. woodgrove.com** -risolve su true se la query è per tutti i record che terminano con *contoso.com***o***woodgrove.com*|  
+|**Tipo di query**|Tipo di record sottoposto a query (A, SVR, TXT)|-   **EQ, TXT, SRV** -viene risolto in true se la query sta richiedendo un TXT **o** record SRV<br />-   **EQ, MX** -risolve su true se la query sta richiedendo un record MX|  
+|**Ora del giorno**|Ora del giorno che viene ricevuta la query|-   **EQ, 10.00-12:00: 22:00-23.00** -viene risolto in true se la query non viene ricevuta tra mezzogiorno e alle 10 **o** tra PM di 10 e 11 PM|  
   
-Using the table above as a starting point, the table below could be used to define a criterion that is used to match queries for any type of records but SRV records in the contoso.com domain coming from a client in the 10.0.0.0/24 subnet via TCP between 8 and 10 PM through interface 10.0.0.3:  
+Utilizzando la tabella sopra come punto di partenza, nella tabella seguente può essere usata per definire un criterio che consente di far corrispondere le query per qualsiasi tipo di record, ma i record SRV nel dominio contoso.com provenienti da un client nella subnet 10.0.0.0/24 tramite TCP compreso tra 8 e 10 PM attraverso i interfaccia 10.0.0.3:  
   
-|Nome|Valore|  
+|Nome|Value|  
 |--------|---------|  
 |Subnet del client|EQ,10.0.0.0/24|  
-|Protocollo di trasporto|EQ,TCP|  
+|Protocollo di trasporto|EQ, TCP|  
 |Indirizzo IP dell'interfaccia del server|EQ,10.0.0.3|  
-|NOME DI DOMINIO COMPLETO|EQ,*.contoso.com|  
-|Tipo di query|NE,SRV|  
+|FQDN|EQ,*.contoso.com|  
+|Tipo di query|NE, SRV|  
 |Ora del giorno|EQ,20:00-22:00|  
   
-You can create multiple query resolution policies of the same level, as long as they have a different value for the processing order. When multiple policies are available, the DNS server processes incoming queries in the following manner:  
+È possibile creare query più criteri di risoluzione dello stesso livello, come purché abbiano un valore diverso per l'ordine di elaborazione. Quando sono disponibili più criteri, il server DNS elabora le query in ingresso nel modo seguente:  
   
-![DNS policy processing](../../media/DNS-Policies-Overview/DNSQueryResolutionPolicyFlowchart.png)  
+![Elaborazione dei criteri DNS](../../media/DNS-Policies-Overview/DNSQueryResolutionPolicyFlowchart.png)  
   
-### <a name="recursion-policies"></a>Recursion Policies  
-Recursion policies are a special **type** of server level policies. Recursion policies control how the DNS server performs recursion for a query. Recursion policies apply only when query processing reaches the recursion path. You can choose a value of DENY or IGNORE for recursion for a set of queries. Alternatively, you can choose a set of forwarders for a set of queries.  
+### <a name="recursion-policies"></a>Criteri di ricorsione  
+I criteri di ricorsione sono uno speciale **tipo** dei criteri a livello di server. I criteri di ricorsione controllano la modalità con cui il server DNS esegue la ricorsione per una query. I criteri di ricorsione si applicano solo quando l'elaborazione delle query raggiunge il percorso di ricorsione. È possibile scegliere un valore di nega o IGNORE provést kontrolu rekurze per un set di query. In alternativa, è possibile scegliere un set di server d'inoltro per un set di query.  
   
-You can use recursion policies to implement a Split-brain DNS configuration. In this configuration, the DNS server performs recursion for a set of clients for a query, while the DNS server does not perform recursion for other clients for that query.  
+È possibile usare i criteri di ricorsione per implementare una configurazione DNS Split-brain. In questa configurazione, il server DNS esegue la ricorsione per un set di client per una query, mentre il server DNS non esegue la ricorsione per altri client per tale query.  
   
-Recursion policies contains the same elements a regular DNS query resolution policy contains, along with the elements in the table below:  
+I criteri di ricorsione contiene gli stessi elementi contiene un criterio di risoluzione di query DNS regolare, insieme a elementi nella tabella seguente:  
   
 |Nome|Descrizione|  
 |--------|---------------|  
-|**Apply on recursion**|Specifies that this policy should only be used for recursion.|  
-|**Recursion Scope**|Name of the recursion scope.|  
+|**Applicare la ricorsione**|Specifica che questo criterio deve essere utilizzato solo per la ricorsione.|  
+|**Ambito di ricorsione**|Nome dell'ambito di ricorsione.|  
   
 > [!NOTE]  
-> Recursion policies can only be created at the server level.  
+> I criteri di ricorsione possono essere creati solo a livello di server.  
   
-### <a name="zone-transfer-policies"></a>Zone Transfer Policies  
-Zone transfer policies control whether a zone transfer is allowed or not by your DNS server. You can create policies for zone transfer at either the server level or the zone level. Server level policies apply on every zone transfer query that occurs on the DNS server. Zone level policies apply only on the queries on a zone hosted on the DNS server. The most common use for zone level policies is to implement blocked or safe lists.  
+### <a name="zone-transfer-policies"></a>Criteri di trasferimento zona  
+I criteri di trasferimento di zona controllano se un trasferimento di zona è consentito o meno, il server DNS. È possibile creare criteri per il trasferimento di zona a livello di server oppure a livello di zona. I criteri a livello di server si applicano a ogni query di trasferimento di zona che si verifica nel server DNS. I criteri a livello di zona si applicano solo alle query in una zona ospitata nel server DNS. L'uso più comune per i criteri a livello di zona consiste nell'implementare elenchi provvisoria o bloccati.  
   
 > [!NOTE]  
-> Zone transfer policies can only use DENY or IGNORE as actions.  
+> I criteri di trasferimento di zona possono usare solo DENY o IGNORE come azioni.  
   
-You can use the server level zone transfer policy below to deny a zone transfer for the contoso.com domain from a given subnet:  
+È possibile usare i seguenti di criteri di trasferimento zona a livello server per negare un trasferimento di zona per il dominio contoso.com da una determinata subnet:  
   
 ```  
-Add-DnsServerZoneTransferPolicy -Name DenyTransferOfCOnsotostoFabrikam -Zone contoso.com -Action DENY -ClientSubnet "EQ,192.168.1.0/24"  
+Add-DnsServerZoneTransferPolicy -Name DenyTransferOfContosoToFabrikam -Zone contoso.com -Action DENY -ClientSubnet "EQ,192.168.1.0/24"  
 ```  
   
-You can create multiple zone transfer policies of the same level, as long as they have a different value for the processing order. When multiple policies are available, the DNS server processes incoming queries in the following manner:  
+È possibile creare il trasferimento di zona più criteri allo stesso livello, come purché abbiano un valore diverso per l'ordine di elaborazione. Quando sono disponibili più criteri, il server DNS elabora le query in ingresso nel modo seguente:  
   
-![DNS process for multiple zone transfer policies](../../media/DNS-Policies-Overview/DNSPolicyZone.png)  
+![Processo di DNS per più criteri di trasferimento zona](../../media/DNS-Policies-Overview/DNSPolicyZone.png)  
   
-## <a name="managing-dns-policies"></a>Managing DNS Policies  
-You can create and manage DNS Policies by using PowerShell. The examples below go through different sample scenarios that you can configure through DNS Policies:  
+## <a name="managing-dns-policies"></a>Gestione dei criteri DNS  
+È possibile creare e gestire i criteri di DNS con PowerShell. Gli esempi seguenti passare attraverso scenari di esempio diversi che è possibile configurare tramite i criteri DNS:  
   
-### <a name="traffic-management"></a>Traffic Management  
-You can direct traffic based on an FQDN to different servers depending on the location of the DNS client. The example below shows how to create traffic management policies to direct the customers from a certain subnet to a North American datacenter and from another subnet to a European datacenter.  
+### <a name="traffic-management"></a>Gestione traffico  
+È possibile indirizzare il traffico in base a un nome di dominio completo in server diversi a seconda della posizione del client DNS. L'esempio seguente viene illustrato come creare i criteri di gestione per indirizzare i clienti da una determinata subnet in un datacenter nordamericano e da un'altra subnet per un Data Center dell'Europa il traffico.  
   
 ```  
 Add-DnsServerClientSubnet -Name "NorthAmericaSubnet" -IPv4Subnet "172.21.33.0/24"  
@@ -136,25 +137,25 @@ Add-DnsServerQueryResolutionPolicy -Name "NorthAmericaPolicy" -Action ALLOW -Cli
 Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSubnet "eq,EuropeSubnet" -ZoneScope "EuropeZoneScope,1" -ZoneName contoso.com  
 ```  
   
-The first two lines of the script create client subnet objects for North America and Europe. The two lines after that create a zone scope within the contoso.com domain, one for each region. The two lines after that create a record in each zone that associates ww.contoso.com to different IP address, one for Europe, another one for North America. Finally, the last lines of the script create two DNS Query Resolution Policies, one to be applied to the North America subnet, another to the Europe subnet.  
+Le prime due righe dello script di creano client oggetti di subnet per America del Nord ed Europa. Le due righe in seguito creano un ambito di zona nel dominio contoso.com, uno per ogni area. Le due righe in seguito creano un record in ogni zona che associa ww.contoso.com per indirizzo IP diverso, uno per l'Europa, un altro per l'America del Nord. Infine, le ultime righe dello script di creano due i criteri di risoluzione, Query DNS uno da applicare alla subnet America del Nord, un altro alla subnet Europa.  
   
-### <a name="block-queries-for-a-domain"></a>Block queries for a domain  
-You can use a DNS Query Resolution Policy to block queries to a domain. The example below blocks all queries to treyresearch.net:  
+### <a name="block-queries-for-a-domain"></a>Query di blocco per un dominio  
+È possibile usare un criterio di risoluzione di Query DNS alle query di blocco a un dominio. L'esempio seguente consente di bloccare tutte le query treyresearch.net:  
   
 ```  
 Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicy" -Action IGNORE -FQDN "EQ,*.treyresearch.com"  
 ```  
   
-### <a name="block-queries-from-a-subnet"></a>Block queries from a subnet  
-You can also block queries coming from a specific subnet. The script below creates a subnet for 172.0.33.0/24 and then creates a policy to ignore all queries coming from that subnet:  
+### <a name="block-queries-from-a-subnet"></a>Query di blocco da una subnet  
+È inoltre possibile bloccare le query provenienti da una subnet specifica. Lo script seguente crea una subnet per 172.0.33.0/24 e quindi crea un criterio per ignorare tutte le query provenienti da tale subnet:  
   
 ```  
 Add-DnsServerClientSubnet -Name "MaliciousSubnet06" -IPv4Subnet 172.0.33.0/24  
 Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicyMalicious06" -Action IGNORE -ClientSubnet  "EQ,MaliciousSubnet06"  
 ```  
   
-### <a name="allow-recursion-for-internal-clients"></a>Allow recursion for internal clients  
-È possibile controllare la ricorsione utilizzando un criterio di risoluzione di Query DNS. L'esempio seguente consente di abilitare la ricorsione per i client interni, disattivarlo per i client esterni in uno scenario di cervello split.  
+### <a name="allow-recursion-for-internal-clients"></a>Consenti la ricorsione per i client interni  
+È possibile controllare la ricorsione tramite un criterio di risoluzione di Query DNS. L'esempio seguente è utilizzabile per abilitare la ricorsione per i client interni, durante la sua disabilitazione per i client esterni in un scenario di split brain.  
   
 ```  
 Set-DnsServerRecursionScope -Name . -EnableRecursion $False   
@@ -162,37 +163,39 @@ Add-DnsServerRecursionScope -Name "InternalClients" -EnableRecursion $True
 Add-DnsServerQueryResolutionPolicy -Name "SplitBrainPolicy" -Action ALLOW -ApplyOnRecursion -RecursionScope "InternalClients" -ServerInterfaceIP  "EQ,10.0.0.34"  
 ```  
   
-La prima riga nello script modifica l'ambito di ricorsione predefinito, denominato semplicemente come "." (punto) per disattivare la ricorsione. La seconda riga crea un ambito di ricorsione denominato *InternalClients* con ricorsione abilitata. E la terza riga crea un criterio per applicare l'appena creare l'ambito di ricorsione per le query in entrata tramite un'interfaccia di server che ha 10.0.0.34 come un indirizzo IP.  
+La prima riga nello script viene modificato l'ambito di ricorsione predefinito, denominato semplicemente come "." (punto) per disabilitare la ricorsione. La seconda riga crea un ambito di ricorsione denominato *InternalClients* con abilitata la ricorsione. E la terza riga crea un criterio per applicare l'appena creato con ambito di ricorsione per tutte le query che passano attraverso un'interfaccia di server che ha 10.0.0.34 come indirizzo IP.  
   
-### <a name="create-a-server-level-zone-transfer-policy"></a>Creare un criterio di trasferimento di zona livello di server  
-È possibile controllare il trasferimento di zona in un formato più granulare tramite criteri di trasferimento di zona DNS. Per consentire i trasferimenti di zona per qualsiasi server in una determinata subnet, è possibile utilizzare lo script di esempio seguente:  
+### <a name="create-a-server-level-zone-transfer-policy"></a>Creare un criterio di trasferimento di zona a livello di server  
+È possibile controllare il trasferimento di zona in un formato più granulare usando i criteri di trasferimento di zona DNS. Lo script di esempio riportato di seguito è utilizzabile per consentire i trasferimenti di zona per qualsiasi server in una determinata subnet:  
   
 ```  
 Add-DnsServerClientSubnet -Name "AllowedSubnet" -IPv4Subnet 172.21.33.0/24  
 Add-DnsServerZoneTransferPolicy -Name "NorthAmericaPolicy" -Action IGNORE -ClientSubnet "ne,AllowedSubnet"  
 ```  
   
-La prima riga nello script crea un oggetto subnet denominato *AllowedSubnet* con l'IP bloccare 172.21.33.0/24. La seconda riga crea un criterio di trasferimento di zona per consentire i trasferimenti di zona per qualsiasi server DNS nella subnet creato in precedenza.  
+La prima riga nello script crea un oggetto di subnet denominato *AllowedSubnet* con l'indirizzo IP bloccato 172.21.33.0/24. La seconda riga crea un criterio di trasferimento di zona per consentire i trasferimenti di zona a qualsiasi server DNS nella subnet creata in precedenza.  
   
-### <a name="create-a-zone-level-zone-transfer-policy"></a>Creare un criterio di trasferimento zona livello di zona  
-È inoltre possibile creare criteri di trasferimento di zona livello di zona. L'esempio seguente ignora qualsiasi richiesta per un trasferimento di zona per contoso.com provenienti da un'interfaccia di server che dispone di un indirizzo IP di 10.0.0.33:  
+### <a name="create-a-zone-level-zone-transfer-policy"></a>Creare un criterio di trasferimento di zona a livello di zona  
+È anche possibile creare criteri di trasferimento di zona a livello di zona. L'esempio seguente ignora qualsiasi richiesta per un trasferimento di zona per contoso.com provenienti da un'interfaccia di server che abbia un indirizzo IP di 10.0.0.33:  
   
 ```  
 Add-DnsServerZoneTransferPolicy -Name "InternalTransfers" -Action IGNORE -ServerInterfaceIP "ne,10.0.0.33" -PassThru -ZoneName "contoso.com"  
 ```  
   
-## <a name="dns-policy-scenarios"></a>Scenari di criteri DNS
+## <a name="dns-policy-scenarios"></a>Scenari relativi ai criteri DNS
 
 Per informazioni su come usare i criteri DNS per scenari specifici, vedere gli argomenti seguenti in questa Guida.
 
-- [Usare i criteri DNS per posizione geografica basato su gestione del traffico con i server primari](primary-geo-location.md)  
-- [Usare i criteri DNS per posizione geografica basato su gestione del traffico con distribuzioni primario secondario](primary-secondary-geo-location.md)  
-- [Use DNS Policy for Intelligent DNS Responses Based on the Time of Day](dns-tod-intelligent.md)
-- [DNS Responses Based on Time of Day with an Azure Cloud App Server](dns-tod-azure-cloud-app-server.md)
+- [Usare i criteri DNS per posizione geografica basato su gestione traffico con i server primari](primary-geo-location.md)  
+- [Usare i criteri DNS per posizione geografica basato su gestione traffico con distribuzioni primario secondario](primary-secondary-geo-location.md)  
+- [Usare i criteri DNS per risposte DNS intelligente basate sull'ora del giorno](dns-tod-intelligent.md)
+- [Server di App Cloud risposte DNS basate sull'ora del giorno con un'istanza di Azure](dns-tod-azure-cloud-app-server.md)
 - [Usare i criteri DNS per la distribuzione DNS "split Brain"](split-brain-DNS-deployment.md)
 - [Usare i criteri DNS per DNS "split Brain" in Active Directory](dns-sb-with-ad.md)
 - [Usare i criteri DNS per l'applicazione di filtri alle query DNS](apply-filters-on-dns-queries.md)
-- [Usare i criteri DNS per Bilanciamento carico di applicazioni](app-lb.md)
-- [Usare i criteri DNS per l'applicazione bilanciamento del carico con la consapevolezza della posizione geografica](app-lb-geo.md)
+- [Usare i criteri DNS per bilanciamento del carico dell'applicazione](app-lb.md)
+- [Usare i criteri DNS per applicazione bilanciamento del carico con la consapevolezza della posizione geografica](app-lb-geo.md)
 
+## <a name="using-dns-policy-on-read-only-domain-controllers"></a>Utilizzando criteri DNS nei controller di dominio di sola lettura
 
+Criteri DNS è compatibili con i controller di dominio di sola lettura. Si noti che il riavvio del servizio Server DNS è obbligatorio per i nuovi criteri di DNS devono essere caricati nei controller di dominio di sola lettura. Non è necessario nei controller di dominio scrivibile.

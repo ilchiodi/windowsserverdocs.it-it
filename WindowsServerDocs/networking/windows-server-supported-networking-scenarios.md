@@ -1,6 +1,6 @@
 ---
-title: Scenari di rete di Windows Server supportati
-description: Questo argomento fornisce informazioni sulle nuove funzionalità di rete gli scenari supportati in Windows Server 2016 e versioni successive
+title: Scenari di rete supportati in Windows Server
+description: Questo argomento vengono fornite informazioni sulle nuove funzionalità di rete gli scenari supportati in Windows Server 2016 e versioni successive
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -9,25 +9,26 @@ ms.date: ''
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 70198f97c4ec39de4b78de28ab196dc3e86a684c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 85f73f1f7caf833d23d3d693c0d754f52c4aa27d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812232"
 ---
-# <a name="windows-server-supported-networking-scenarios"></a>Scenari di rete di Windows Server supportati
+# <a name="windows-server-supported-networking-scenarios"></a>Scenari di rete supportati in Windows Server
 
->Si applica a: Windows Server \(Semi-Annual Channel\), Windows Server 2016
+>Si applica a: Windows Server \(canale semestrale\), Windows Server 2016
 
-Questo argomento fornisce informazioni sugli scenari supportati e non supportati che è possibile o non può eseguire con questa versione di Windows Server 2016.  
+In questo argomento vengono fornite informazioni sugli scenari supportati e non supportati che è possibile o non è possibile eseguire con questa versione di Windows Server 2016.  
 >[!IMPORTANT]
->Per tutti gli scenari di produzione, utilizzare i driver più recente firmato hardware dal produttore \(OEM\) o fornitore di hardware indipendenti \(IHV\).
+>Per tutti gli scenari di produzione, usare i driver più recente di hardware firmato dall'original equipment manufacturer \(OEM\) o un fornitore di hardware indipendenti \(IHV\).
   
 ## <a name="bkmk_supp"></a>Scenari di rete supportate
 
-In questa sezione include informazioni sugli scenari di rete supportati per Windows Server 2016 e include le seguenti categorie di scenario.  
+In questa sezione include informazioni sugli scenari di rete supportate per Windows Server 2016 e include le seguenti categorie di scenario.  
   
--   [Scenari di software definito reti SDN)](#bkmk_sdn)  
+-   [Scenari di software Defined Networking (SDN)](#bkmk_sdn)  
   
 -   [Scenari di piattaforma di rete](#bkmk_netp)  
   
@@ -37,123 +38,123 @@ In questa sezione include informazioni sugli scenari di rete supportati per Wind
   
 -   [Scenari di gruppo NIC](#bkmk_nicteam)
 
-- [Scenari di switch Embedded Teaming \(SET\)](#bkmk_set)
+- [Switch Embedded Teaming \(impostare\) scenari](#bkmk_set)
   
-### <a name="bkmk_sdn"></a>Scenari di software definito reti SDN)
+### <a name="bkmk_sdn"></a>Scenari di software Defined Networking (SDN)
  
-È possibile utilizzare la seguente documentazione per distribuire gli scenari di SDN con Windows Server 2016.  
+È possibile usare la documentazione seguente per distribuire gli scenari di rete SDN con Windows Server 2016.  
   
   
--   [Distribuire un'infrastruttura Software Defined Network usando gli script](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
+-   [Distribuire un'infrastruttura Software Defined Networking tramite script](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
   
-Per ulteriori informazioni, vedere [rete definita dal Software & #40; SDN & #41;](sdn/software-defined-networking.md).  
+Per altre informazioni, vedere [Software Defined Networking &#40;SDN&#41;](sdn/software-defined-networking.md).  
   
 #### <a name="bkmk_netc"></a>Scenari di Controller di rete
 
 Gli scenari di Controller di rete consentono di:  
   
--   Distribuire e gestire un'istanza di più nodi di Controller di rete. Per ulteriori informazioni, vedere [distribuire Controller di rete tramite Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+-   Distribuire e gestire un'istanza di più nodi di Controller di rete. Per altre informazioni, vedere [distribuire Controller di rete tramite Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
--   Utilizzare Controller di rete a livello di codice definire criteri di rete usando l'API Northbound del resto.  
+-   Usare Controller di rete a livello di codice definire criteri di rete usando l'API Northbound del resto.  
   
--   Per creare e gestire le reti virtuali con virtualizzazione rete Hyper-V - utilizzando incapsulamento NVGRE o VXLAN, utilizzare Controller di rete.  
+-   Usare Controller di rete per creare e gestire le reti virtuali con virtualizzazione rete Hyper-V - utilizzando incapsulamento NVGRE o VXLAN.  
   
-Per ulteriori informazioni, vedere [Controller di rete](sdn/technologies/network-controller/Network-Controller.md).  
+Per altre informazioni, vedere [Controller di rete](sdn/technologies/network-controller/Network-Controller.md).  
   
 #### <a name="bkmk_netf"></a>Scenari di funzione virtualizzazione (NFV) di rete  
 Gli scenari NFV consentono di:  
   
--   Distribuire e utilizzare un servizio di bilanciamento del carico software per distribuire il traffico northbound sia southbound.  
+-   Distribuire e usare un servizio di bilanciamento del carico software per distribuire il traffico northbound sia southbound.  
   
--   Distribuire e utilizzare un servizio di bilanciamento del carico software per distribuire il traffico sull'e westbound per le reti virtuali creati con virtualizzazione rete Hyper-V.  
+-   Distribuire e usare un servizio di bilanciamento del carico software per distribuire il traffico sull'e westbound per le reti virtuali create con virtualizzazione rete Hyper-V.  
   
--   Distribuire e utilizzare un bilanciamento del carico software NAT per le reti virtuali create con virtualizzazione rete Hyper-V.  
+-   Distribuire e usare un bilanciamento del carico software NAT per le reti virtuali create con virtualizzazione rete Hyper-V.  
   
--   Distribuire e utilizzare un gateway di inoltro di livello 3  
+-   Distribuire e usare un gateway di inoltro di livello 3  
   
--   Distribuire e utilizzare un gateway di rete privata virtuale (VPN) per i tunnel IPsec (IKEv2) site-to-site  
+-   Distribuire e usare un gateway di rete privata virtuale (VPN) per i tunnel IPsec (IKEv2) site-to-site  
   
--   Distribuire e utilizzare un gateway Generic Routing Encapsulation (GRE).  
+-   Distribuire e usare un gateway Generic Routing Encapsulation (GRE).  
   
--   Distribuire e configurare il routing dinamico e il routing di transito tra siti mediante protocollo BGP (Border Gateway).  
+-   Distribuire e configurare il routing dinamico e il routing di transito tra siti tramite protocollo BGP (Border Gateway).  
   
 -   Configurare la ridondanza N + M per livello 3 e i gateway da sito a sito e per il routing BGP.  
   
--   Utilizzare Controller di rete per specificare gli ACL in reti virtuali e le interfacce di rete.  
+-   Usare Controller di rete per specificare gli ACL in reti virtuali e le interfacce di rete.  
   
 Per ulteriori informazioni, vedere [virtualizzazione delle funzioni di rete](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
   
 ### <a name="bkmk_netp"></a>Scenari di piattaforma di rete
 
-Per gli scenari descritti in questa sezione, la rete di Windows Server team supporta l'utilizzo di qualsiasi driver certificati di Windows Server 2016. Contattare il produttore \(NIC\) della scheda interfaccia di rete per assicurarsi di disporre gli aggiornamenti dei driver più recente.
+Per gli scenari in questa sezione di Windows Server Networking team supporta l'utilizzo di qualsiasi driver certificati di Windows Server 2016. Verificare con la scheda di interfaccia di rete \(NIC\) produttore per assicurarsi di aver gli aggiornamenti dei driver più recenti.
   
 Gli scenari di piattaforma di rete consentono di:  
   
--   Utilizzare una scheda di rete convergente per combinare il traffico sia RDMA ed Ethernet tramite una singola scheda di rete.  
+-   Usare un'interfaccia di rete convergente per combinare il traffico RDMA sia Ethernet con una sola scheda di rete.  
   
--   Creare un percorso dati a bassa latenza utilizzando pacchetti diretti, abilitato nel commutatore virtuale Hyper-V e una sola scheda di rete.  
+-   Creare un percorso dati con bassa latenza usando Packet Direct, abilitata nel commutatore virtuale Hyper-V e una sola scheda di rete.  
   
--   Configurare insieme per distribuire i flussi di traffico SMB diretto e RDMA tra fino a due schede di rete.  
+-   Configurare il SET di distribuire i flussi di traffico SMB diretto e RDMA tra fino a due schede di rete.  
   
-Per ulteriori informazioni, vedere [Remote Direct Memory Access & #40; RDMA & #41; e passare gruppo incorporato & #40; Imposta & #41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Per ulteriori informazioni, vedere [Remote Direct Memory Access & #40; RDMA & #41; e passare al gruppo incorporato & #40; IMP & #41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
 #### <a name="bkmk_switch"></a>Scenari di commutatore virtuale Hyper-V
 
 Gli scenari di commutatore virtuale Hyper-V consentono di:  
   
--   Creare un commutatore virtuale Hyper-V con una scheda di rete diretta accesso memoria remota (RDMA)  
+-   Creare un commutatore virtuale Hyper-V con una scheda vNIC Direct accesso memoria remota (RDMA)  
   
--   Creare un commutatore virtuale Hyper-V con Switch Embedded Teaming (SET) e RDMA  
+-   Creare un commutatore virtuale Hyper-V con Vnic RDMA e Switch Embedded Teaming (SET)  
   
--   Creare un gruppo SET nel commutatore virtuale Hyper-V  
+-   Creare un SET di gruppo nel commutatore virtuale Hyper-V  
   
--   Gestire un SET di gruppo utilizzando i comandi di Windows PowerShell  
+-   Gestire un SET di team usando i comandi di Windows PowerShell  
   
-Per ulteriori informazioni, vedere [Remote Direct Memory Access & #40; RDMA & #41; e passare gruppo incorporato & #40; Imposta & #41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
+Per altre informazioni, vedere [Remote Direct Memory Access &#40;RDMA&#41; e Switch Embedded Teaming &#40;SET&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
   
 ### <a name="bkmk_dns"></a>Scenari di Server DNS
 
 Scenari di Server DNS consentono di:  
   
--   Specificare la posizione geografica basato su gestione del traffico tramite i criteri DNS  
+-   Specificare la posizione geografica basato su gestione traffico usando i criteri di DNS  
   
--   Configurare DNS "split Brain" utilizzando criteri DNS  
+-   Configurare DNS "split Brain" usando i criteri di DNS  
   
--   Applicare filtri alle query DNS utilizzando criteri DNS  
+-   Applicare filtri alle query DNS tramite i criteri DNS  
   
--   Configurare Bilanciamento carico di applicazioni tramite criteri di DNS  
+-   Configurare Bilanciamento del carico dell'applicazione usando i criteri di DNS  
   
--   Specificare che le risposte DNS intelligente in base all'ora del giorno  
+-   Specificare che le risposte DNS intelligente basate sull'ora del giorno  
   
 -   Configurare i criteri di trasferimento di zona DNS  
   
--   Configurare le zone criteri su servizi di dominio Active Directory (AD DS) integrati di server DNS  
+-   Configurare zone DNS di server dei criteri integrati in Active Directory Domain Services (AD DS)  
   
 -   Configurare la velocità di risposta limitazione  
   
 -   Specificare l'autenticazione basata su DNS di entità denominate (DANE)  
   
--   Configurare il supporto per i record sconosciuti in DNS  
+-   Configurare il supporto per record sconosciuti in DNS  
   
-Per ulteriori informazioni, vedere gli argomenti [novità di Client DNS in Windows Server 2016](dns/What-s-New-in-DNS-Client.md) e [What's New in Server DNS in Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
+Per altre informazioni, vedere gli argomenti [What ' s New in Client DNS in Windows Server 2016](dns/What-s-New-in-DNS-Client.md) e [What ' s New in Server DNS in Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
   
 ### <a name="bkmk_ipam"></a>Scenari di gestione indirizzi IP con DHCP e DNS
 
 Gli scenari di gestione indirizzi IP consentono di:  
   
--   Individuare e amministrare i server DNS e DHCP e gli indirizzi IP in più foreste di Active Directory federati  
+-   Individuare e amministrare i server DNS e DHCP e gli indirizzi IP in più foreste di Active Directory federative  
   
--   Utilizzare Gestione indirizzi IP per la gestione centralizzata delle proprietà DNS, tra cui le zone e record di risorse.  
+-   Usare Gestione indirizzi IP per la gestione centralizzata delle proprietà DNS, tra cui zone e record di risorse.  
   
--   Definire i criteri di controllo granulare di accesso in base al ruolo e delegare agli utenti di gestione indirizzi IP o gruppi di utenti per gestire il set di proprietà DNS specificato.  
+-   Definire i criteri di controllo di accesso in base al ruolo granulare e delegare utenti gestione indirizzi IP o i gruppi di utenti per gestire il set di proprietà DNS specificato.  
   
--   Utilizzare i comandi di Windows PowerShell per gestione indirizzi IP per automatizzare la configurazione di controllo di accesso per server DHCP e DNS.  
+-   Usare i comandi di Windows PowerShell per gestione indirizzi IP per automatizzare la configurazione del controllo di accesso per server DHCP e DNS.  
   
-    Per ulteriori informazioni, vedere [gestire gestione indirizzi IP](technologies/ipam/Manage-IPAM.md).  
+    Per altre informazioni, vedere [gestire gestione indirizzi IP](technologies/ipam/Manage-IPAM.md).  
   
 ### <a name="bkmk_nicteam"></a>Scenari di gruppo NIC
 
-Gli scenari con gruppo NIC consentono di:  
+Gli scenari di gruppo NIC consentono di:  
   
 -   Creare un gruppo NIC in una configurazione supportata  
   
@@ -161,27 +162,27 @@ Gli scenari con gruppo NIC consentono di:
   
 -   Aggiungere schede di rete al gruppo NIC in una configurazione supportata  
   
--   Rimuovere le schede di rete dal gruppo NIC  
+-   Rimuovere le schede di rete dal team di interfaccia di rete  
   
 > [!NOTE]  
-> In Windows Server 2016, è possibile utilizzare gruppo NIC in Hyper-V, ma in alcuni casi le code di macchine virtuali (VMQ) potrebbe non attivare automaticamente alle schede di rete sottostante quando si crea un gruppo NIC. In questo caso, è possibile utilizzare il comando di Windows PowerShell seguente per verificare che sia abilitato coda macchine Virtuali nelle schede membro del team NIC: `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
+> In Windows Server 2016, è possibile usare gruppo NIC in Hyper-V, ma in alcuni casi le code di macchine virtuali (VMQ) potrebbe non attivare automaticamente alle schede di rete sottostante quando si crea un gruppo NIC. In questo caso, è possibile utilizzare il comando Windows PowerShell seguente per assicurarsi che coda macchine Virtuali sono abilitata sulle schede di interfaccia di rete team membro: `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
 
-Per ulteriori informazioni, vedere [gruppo NIC](technologies/nic-teaming/NIC-Teaming.md). 
+Per altre informazioni, vedere [NIC Teaming](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Scenari di switch Embedded Teaming \(SET\)
+### <a name="bkmk_set"></a>Switch Embedded Teaming \(impostare\) scenari
 
-SET è una soluzione alternativa gruppo NIC che è possibile utilizzare in ambienti che includono Hyper-V e lo stack di rete SDN (Software Defined) in Windows Server 2016. SET di alcune funzionalità gruppo NIC si integra il commutatore virtuale Hyper-V. 
+SET è una soluzione alternativa gruppo NIC che è possibile usare in ambienti che includono Hyper-V e lo stack di rete SDN (Software Defined) in Windows Server 2016. SET integra alcune funzionalità gruppo NIC nel commutatore virtuale Hyper-V. 
 
-Per ulteriori informazioni, vedere [diretta accesso memoria remota (RDMA) e Switch Embedded Teaming (SET)](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
+Per altre informazioni, vedere [Direct accesso memoria remota (RDMA) e Switch Embedded Teaming (SET)](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
   
  
   
 ## <a name="bkmk_unsupp"></a>Scenari di rete non supportata  
-I seguenti scenari di rete non sono supportati in Windows Server 2016.  
+Gli scenari di rete seguenti non sono supportati in Windows Server 2016.  
   
 -   Reti virtuali tenant basata su VLAN.  
   
--   IPv6 non è supportato nel Metti sotto o sovrimpressione.  
+-   IPv6 non è supportato in Metti sotto o di sovrapposizione.  
   
 
 

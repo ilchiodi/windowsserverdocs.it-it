@@ -1,7 +1,7 @@
 ---
 ms.assetid: 80b5335b-fa02-4944-900c-5fe4f5c6111d
-title: "Interoperabilità migliorata con SAML 2.0"
-description: 
+title: Interoperabilità migliorata con SAML 2.0
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,10 +10,11 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 4f55eaacec8ee0eb41e1980f1aa15c6256f8b979
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59818732"
 ---
 # <a name="improved-interoperability-with-saml-20"></a>Interoperabilità migliorata con SAML 2.0
 
@@ -22,13 +23,13 @@ ms.lasthandoff: 07/03/2017
   
 ADFS in Windows Server 2016 contiene supporto del protocollo SAML aggiuntivo, incluso il supporto per l'importazione di relazioni di trust in base ai metadati che contiene più entità.  Ciò consente di configurare ADFS per partecipare confederations come Federation InCommon e altre implementazioni conformi al eGov 2.0 standard.   
   
-La nuova funzionalità si basa su gruppi di relying party o provider di attestazioni. Ogni gruppo è un elemento EntitiesDescriptor (< md:EntitiesDescriptor >), come specificato nei eGov 2.0 profilo, contenente uno o più elementi EntityDescriptor.  I gruppi sono comuni regole di autorizzazione e tutte le altre proprietà possono essere modificate come oggetti singoli trust.  
+La nuova funzionalità si basa su gruppi di relying party o trust di provider di attestazioni. Ogni gruppo è un elemento di EntitiesDescriptor (< md:EntitiesDescriptor >) come specificato nei eGov 2.0 profilo, che contiene uno o più elementi EntityDescriptor.  I gruppi hanno regole di autorizzazione più comuni e tutte le altre proprietà può essere modificato, ad esempio gli oggetti attendibilità singoli.  
   
-Una volta i gruppi di trust vengono importati in ADFS, ADFS Aggiorna automaticamente le relazioni di trust come un gruppo in base al documento di metadati.  
+Dopo aver importati i gruppi di trust in AD FS, ADFS Aggiorna automaticamente le relazioni di trust come un gruppo basato sul documento di metadati.  
   
-L'abilitazione di questi scenari è semplice come l'uso di tale oggetti aggiungere e rimuovere AdfsClaimsProviderTrustsGroup e AdfsRelyingPartyTrustsGroup i nuovi cmdlet di PowerShell. Questa operazione può essere eseguita tramite un URL dei metadati o un file, come illustrato negli esempi seguenti.  
+L'abilitazione di questi scenari è semplice come l'utilizzo di nuovi cmdlet di PowerShell che aggiungere e rimuovere AdfsClaimsProviderTrustsGroup e AdfsRelyingPartyTrustsGroup oggetti. Questa operazione può essere eseguita usando un URL di metadati o un file, come illustrato negli esempi seguenti.  
   
-Inoltre, AD FS 2016 fornisce supporto per il parametro dell'ambito come descritto nella sezione 3.4.1.2 specifica di SAML dei componenti di base. Questo elemento consente relying parti per specificare uno o più provider di identità per l'autenticazione richiesta.  
+Inoltre, AD FS 2016 offre supporto per il parametro di ambito, come descritto nella specifica SAML, sezione 3.4.1.2. Questo elemento consente relying parti per specificare uno o più provider di identità per l'autenticazione richiesta.  
   
 ## <a name="examples"></a>Esempi  
   
@@ -44,8 +45,8 @@ Add-AdfsClaimsProviderTrustsGroup -MetadataFile "C:\metadata.xml"
   
 ## <a name="references"></a>Riferimenti  
   
-Il profilo eGov 2.0 è reperibile [qui.](https://kantarainitiative.org/confluence/download/attachments/60817482/kantara-report-egov-saml2-profile-2.0.pdf?version=1&modificationDate=1345580916000&api=v2)  
+Il profilo eGov 2.0 sono reperibili [qui.](https://kantarainitiative.org/confluence/download/attachments/60817482/kantara-report-egov-saml2-profile-2.0.pdf?version=1&modificationDate=1345580916000&api=v2)  
   
-La specifica dei componenti di base SAML è reperibile [qui.](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)   
+La specifica SAML Core è reperibile [qui.](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)   
 
 

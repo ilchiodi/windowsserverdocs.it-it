@@ -8,17 +8,18 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e8210a6abede3a8ee5317e5b6b2a90bd17013fc4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: e6bd7a018a7f3a245581b5a9c63494048c7187a2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812132"
 ---
 # <a name="using-inherited-permissions-with-access-based-enumeration"></a>Uso delle autorizzazioni ereditate con enumerazione basata sull'accesso
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Per impostazione predefinita, le autorizzazioni usate per una cartella DFS vengono ereditate dal file system locale del server dello spazio dei nomi. Le autorizzazioni sono ereditate dalla radice dell'unità di sistema e concedono le autorizzazioni di lettura del gruppo DOMAIN\\Users. Di conseguenza, anche dopo l'abilitazione dell'enumerazione basata sull'accesso, tutte le cartelle dello spazio dei nomi rimangano visibili a tutti gli utenti del dominio.
+Per impostazione predefinita, le autorizzazioni usate per una cartella DFS vengono ereditate dal file system locale del server dello spazio dei nomi. Le autorizzazioni vengono ereditate dalla directory radice dell'unità di sistema e concedere al dominio\\utenti gruppo le autorizzazioni di lettura. Di conseguenza, anche dopo l'abilitazione dell'enumerazione basata sull'accesso, tutte le cartelle dello spazio dei nomi rimangano visibili a tutti gli utenti del dominio.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Vantaggi e limitazioni delle autorizzazioni ereditate
 
@@ -41,7 +42,7 @@ Nonostante i vantaggi, le autorizzazioni ereditate in Spazi dei nomi DFS present
 
 Per limitare gli utenti che possono visualizzare una cartella DFS, devi eseguire una delle operazioni seguenti:
 
--   **Impostare autorizzazioni esplicite per la cartella, disabilitando l'ereditarietà.** Per impostare le autorizzazioni esplicite in una cartella con destinazioni (collegamento) tramite Gestione DFS o il comando **Dfsutil**, vedi [Attivare l'enumerazione basata sull'accesso in uno spazio dei nomi](enable-access-based-enumeration-on-a-namespace.md).
+-   **Impostare le autorizzazioni esplicite per la cartella, la disabilitazione dell'ereditarietà.** Per impostare le autorizzazioni esplicite in una cartella con destinazioni (collegamento) tramite Gestione DFS o il comando **Dfsutil**, vedi [Attivare l'enumerazione basata sull'accesso in uno spazio dei nomi](enable-access-based-enumeration-on-a-namespace.md).
 -   **Modificare le autorizzazioni ereditate nell'elemento padre nel file system locale**. Per modificare le autorizzazioni ereditate da una cartella con destinazioni, se hai già impostato le autorizzazioni esplicite per la cartella passa alle autorizzazioni ereditate da autorizzazioni esplicite, come descritto nella procedura seguente. Usa quindi Esplora risorse o il comando **Icacls** per modificare le autorizzazioni della cartella da cui la cartella con destinazioni eredita le relative autorizzazioni.
 
 > [!NOTE]
@@ -51,12 +52,12 @@ Per limitare gli utenti che possono visualizzare una cartella DFS, devi eseguire
 
 1.  Nel nodo **Spazio dei nomi** nell'albero della consolo individua la cartella con destinazioni di cui controllare la visibilità, fai clic con il pulsante destro del mouse sulla cartella, quindi scegli **Proprietà**.
 
-2.  Fai clic sulla scheda **Avanzate**.
+2.  Fare clic sulla scheda **Avanzate**.
 
 3.  Fai clic su **Usa autorizzazioni ereditate dal file system locale**, quindi fai clic su **OK** nella finestra di dialogo **Conferma utilizzo di autorizzazioni ereditate**. Questa operazione rimuove tutte le autorizzazioni impostate in modo esplicito sulla cartella, ripristinando le autorizzazioni NTFS ereditate dal file system locale del server dello spazio dei nomi.
 
 4.  Per modificare le autorizzazioni ereditate per cartelle o radici dello spazio dei nomi in uno spazio dei nomi DFS, usa Esplora risorse o il comando **ICacls**.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
--   [Creare uno spazio dei nomi DFS](create-a-dfs-namespace.md)
+-   [Creare un Namespace DFS](create-a-dfs-namespace.md)

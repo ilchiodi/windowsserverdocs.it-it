@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: bc1930b681621d4d34c85414dbc2f97df257af20
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082272"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817162"
 ---
 # <a name="developing-for-nano-server"></a>Sviluppo per Nano Server
 
@@ -35,7 +35,7 @@ Questi argomenti illustrano importanti differenze relative a PowerShell in Nano 
 Per gestire Nano Server con la comunicazione remota di Windows PowerShell, è necessario aggiungere l'indirizzo IP di Nano Server all'elenco dei computer di gestione degli host attendibili, aggiungere l'account in uso agli amministratori di Nano Server e abilitare CredSSP, se si prevede di usare tale funzionalità.  
 
  >[!NOTE]  
-    > Se l'istanza di Nano Server di destinazione e il computer di gestione sono nella stessa foresta di Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere l'istanza di Nano Server all'elenco di host attendibili. È possibile connettersi a Nano Server usando il nome di dominio completo, ad esempio: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+    > Se la destinazione Nano Server e computer di gestione sono nella stessa foresta Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere Nano Server all'elenco di host attendibili, è possibile connettersi a Nano Server usando il nome di dominio completo Per esempio: PS C:\> Con Enter-PSSession - ComputerName nanoserver.contoso.com-Credential (Get-Credential)
   
   
 Per aggiungere Nano Server all'elenco di host attendibili, eseguire questo comando a un prompt di Windows PowerShell con privilegi elevati:  

@@ -1,6 +1,6 @@
 ---
 title: Scelta di una progettazione di BranchCache
-description: In questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
+description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,17 +8,18 @@ ms.topic: get-started-article
 ms.assetid: 86c1ccad-2aa4-40fe-84c1-f77c49eb1216
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4fe40b3d9ece771a46af8ecc70297b8713d65875
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 330dcbee26f52ff69cd85ef8dc78d2e161b943d1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59811912"
 ---
 # <a name="choosing-a-branchcache-design"></a>Scelta di una progettazione di BranchCache
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni sulle modalità di BranchCache e per selezionare le modalità migliori per la distribuzione.  
+Per informazioni sulle modalità di BranchCache e per selezionare le modalità migliori per la distribuzione, è possibile utilizzare questo argomento.  
   
 È possibile utilizzare questa Guida alla distribuzione di BranchCache nelle modalità seguenti e combinazioni di modalità.  
   
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/28/2018
   
 -   Alcune succursali sono configurati per la modalità cache distribuita e alcune succursali dispone di un server cache ospitata nel sito e sono configurati per la modalità cache ospitata.  
   
-La figura seguente illustra un'installazione in modalità doppia, con una succursale configurato per la modalità cache distribuita e una succursale configurato per la modalità cache ospitata.  
+Nella figura seguente viene illustrata un'installazione in modalità doppia, con un ramo configurato per la modalità cache distribuita e una succursale configurato per la modalità cache ospitata.  
   
 ![Scelta di una progettazione di BranchCache](../../media/Choosing-a-BranchCache-Design/bc_new_modes.jpg)  
   

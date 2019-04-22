@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 93d2be926437b65ed8eb84a828ea0d7da6a51086
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59818862"
 ---
 # <a name="connect-to-a-remote-computer"></a>Connettersi a un computer remoto 
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Per gestire le risorse di archiviazione su un computer remoto, è possibile connettersi al computer da Gestione risorse file server. Mentre si è connessi, Gestione risorse file server consente di gestire le quote, eseguire lo screening dei file, gestire le classificazioni, pianificare le attività di gestione dei file e generare rapporti con tali risorse remote.
 
@@ -46,4 +47,4 @@ Per gestire risorse remote con Gestione risorse file server:
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)
+-   [La gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)

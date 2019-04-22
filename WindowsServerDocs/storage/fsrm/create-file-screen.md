@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59815922"
 ---
 # <a name="create-a-file-screen"></a>Creare uno screening dei file
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Quando si crea un nuovo screening dei file, è possibile salvare un modello di screening dei file basato sulle proprietà dello screening dei file personalizzato definito dall'utente. Il vantaggio è che viene mantenuto un collegamento tra gli screening dei file e il modello che viene utilizzato per crearli, in modo che in futuro modifiche apportate al modello possano essere applicate a tutti gli screening dei file derivanti da tale modello. Si tratta di una funzionalità che semplifica l'implementazione delle modifiche ai criteri di archiviazione offrendo un'unica posizione centrale in cui eseguire tutti gli aggiornamenti.
 
@@ -38,7 +39,7 @@ Quando si crea un nuovo screening dei file, è possibile salvare un modello di s
 
 7.  In **Gruppi di file**, selezionare ogni gruppo di file che si desidera includere nello screening dei file. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
 
-    Se si desidera visualizzare i tipi di file che un gruppo di file include ed esclude, fare clic sull'etichetta del gruppo di file e fare clic su **Modifica**. Per creare un nuovo gruppo di file, fare clic su **Crea**.
+    Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Create**.
 
 8.  Inoltre, è possibile configurare **Gestione risorse file server** per generare una o più notifiche impostando le opzioni seguenti nelle schede **Messaggio posta elettronica**, **Registro eventi**, **Comando** e **Report**. Per ulteriori informazioni sulle opzioni di notifica dello screening dei file, vedere [Creare un modello di screening dei file](create-file-screen-template.md).
 
@@ -55,9 +56,9 @@ Quando si crea un nuovo screening dei file, è possibile salvare un modello di s
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione screening dei file](file-screening-management.md)
--   [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)
--   [Creare un modello di screening dei file](create-file-screen-template.md)
--   [Modificare le proprietà dei modelli di screening dei file](edit-file-screen-template-properties.md)
+-   [Gestione di screening dei file](file-screening-management.md)
+-   [Definire gruppi di File per Screening](define-file-groups-for-screening.md)
+-   [Creare un modello di schermata del File](create-file-screen-template.md)
+-   [Modifica proprietà modello di schermata](edit-file-screen-template-properties.md)
 
 
