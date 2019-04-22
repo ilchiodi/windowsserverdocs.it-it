@@ -1,6 +1,6 @@
 ---
-title: Single log-out for OpenID Connect with AD FS
-description: 
+title: Disconnessione singola per OpenID Connect con AD FS
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +9,20 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 3af10ec139edbc72e75bf80f544ac5b4f1cf9222
-ms.sourcegitcommit: c16a2bf1b8a48ff267e71ff29f18b5e5cda003e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59825772"
 ---
-#  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Single log-out for OpenID Connect with AD FS
+#  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Disconnessione singola per OpenID Connect con AD FS
 
 ## <a name="overview"></a>Panoramica
-Building on the initial Oauth support in AD FS in Windows Server 2012 R2, AD FS 2016 introduced the support for OpenId Connect sign-on. With [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801), AD FS 2016 now supports single log-out for OpenId Connect scenarios. This article provides an overview of the single log-out for OpenId Connect scenario and provides guidance on how to use it for your OpenId Connect applications in AD FS.
+Compila il supporto Oauth iniziale in ADFS in Windows Server 2012 R2, AD FS 2016 ha introdotto il supporto per OpenId Connect sign-on. Con [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801), AD FS 2016 supporta ora single log-out per gli scenari di OpenId Connect. Questo articolo viene fornita una panoramica di single log-out per lo scenario di OpenId Connect e fornisce indicazioni su come usarlo per le applicazioni di OpenId Connect in AD FS.
 
 
-## <a name="discovery-doc"></a>Discovery doc
-OpenID Connect uses a JSON document called a "Discovery document" to provide details about configuration.  This includes URIs of the authentication, token, userinfo, and public-endpoints.  The following is an example of the discovery doc.
+## <a name="discovery-doc"></a>Documento di individuazione
+OpenID Connect Usa un documento JSON definito un "documento di individuazione" per fornire informazioni dettagliate sulla configurazione.  Ciò include l'URI dell'autenticazione, token, userinfo e pubblico-endpoints.  Di seguito è riportato un esempio di documento di individuazione.
 
 ```
 {
@@ -56,28 +57,28 @@ OpenID Connect uses a JSON document called a "Discovery document" to provide det
 
 
 
-The following additional values will be available in the discovery doc to indicate support for Front Channel Logout:
+I seguenti valori aggiuntivi saranno disponibili nel documento di individuazione per indicare il supporto per front-disconnessione del canale:
 
-- frontchannel_logout_supported: value will be 'true'
-- frontchannel_logout_session_supported: value will be 'true'.
-- end_session_endpoint: si tratta della disconnessione OAuth URI che il client può utilizzare per avviare la disconnessione sul server.
+- frontchannel_logout_supported: valore sarà 'true'
+- frontchannel_logout_session_supported: valore sarà 'true'.
+- end_session_endpoint: questo è l'URI che il client può usare per avviare disconnessione nel server di disconnessione di OAuth.
 
 
-## <a name="ad-fs-server-configuration"></a>AD FS server configuration
-The AD FS property EnableOAuthLogout will be enabled by default.  This property tells the AD FS server to browse for the URL (LogoutURI) with the SID to initiate logout on the client. If you do not have [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) installed you can use the following PowerShell command:
+## <a name="ad-fs-server-configuration"></a>Configurazione del server AD FS
+La proprietà di AD FS EnableOAuthLogout verrà abilitata per impostazione predefinita.  Questa proprietà indica al server AD FS per cercare l'URL (LogoutURI) con il SID per avviare la disconnessione del client. Se non hai [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) installato è possibile usare il comando PowerShell seguente:
 
 ```PowerShell
 Set-ADFSProperties -EnableOAuthLogout $true
 ```
 
 >[!NOTE]
-> `EnableOAuthLogout` parameter will be marked as obsolete after installing [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801). `EnableOAUthLogout` will always be true and will have no impact on the logout functionality.
+> `EnableOAuthLogout` verrà contrassegnato come obsoleto parametro dopo l'installazione [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801). `EnableOAUthLogout` sarà sempre true e non avrà alcun impatto sulla funzionalità di disconnessione.
 
 >[!NOTE]
->frontchannel_logout is supported **only** after installtion of [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
+>è supportato frontchannel_logout **soltanto** dopo l'installazione non di [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
 
-## <a name="client-configuration"></a>Client configuration
-Client needs to implement a url which 'logs off' the logged in user. Administrator can configure the LogoutUri in the client configuration using the following PowerShell cmdlets. 
+## <a name="client-configuration"></a>Configurazione del client
+Client deve implementare un url quale "si disconnette' usato per l'accesso utente. Amministratore può configurare il LogoutUri nella configurazione del client usando i cmdlet di PowerShell seguenti. 
 
 
 - `(Add | Set)-AdfsNativeApplication`
@@ -88,25 +89,25 @@ Client needs to implement a url which 'logs off' the logged in user. Administrat
 Set-AdfsClient -LogoutUri <url>
 ```
 
-The `LogoutUri` is the url used by AF FS to "log off" the user. For implementing the `LogoutUri`, the client needs to ensure it clears the authentication state of the user in the application, for example, dropping the authentication tokens that it has. AD FS will browse to that URL, with the SID as the query parameter, signaling the relying party / application to log off the user. 
+Il `LogoutUri` è l'url usato dagli FS AF "disconnettersi" l'utente. Per l'implementazione di `LogoutUri`, le esigenze di client per assicurarsi che cancella lo stato di autenticazione dell'utente nell'applicazione, ad esempio, eliminando l'autenticazione dei token che possa. ADFS viene esplorato a tale URL, con il SID del parametro di query, la segnalazione di relying party / applicazione per disconnettere l'utente. 
 
 ![](media/ad-fs-logout-openid-connect/adfs_single_logout2.png)
 
 
-1.  **OAuth token with session ID**: AD FS includes session id in the OAuth token at the time of id_token token issuance. This will be used later by AD FS to identify the relevant SSO cookies to be cleaned up for the user.
-2.  **User initiates logout on App1**: The user can initiate a logout from any of the logged in applications. In this example scenario, a user initiates a logout from App1.
-3.  **Application sends logout request to AD FS**: After the user initiates logout, the application sends a GET request to end_session_endpoint of AD FS. The application can optionally include id_token_hint as a parameter to this request. If id_token_hint is present, AD FS will use it in conjunction with session ID to figure out which URI the client should be redirected to after logout (post_logout_redirect_uri).  The post_logout_redirect_uri should be a valid uri registered with AD FS using the RedirectUris parameter.
-4.  **AD FS sends sign-out to logged-in clients**: AD FS uses the session identifier value to find the relevant clients the user is logged in to. The identified clients are sent request on the LogoutUri registered with AD FS to initiate a logout on the client side.
+1.  **Token OAuth con ID di sessione**: ADFS include l'id di sessione nel token OAuth al momento del rilascio dei token id_token. Questo sarà utilizzabile in un secondo momento da AD FS per identificare i cookie SSO rilevanti per la pulizia per l'utente.
+2.  **Disconnessione in App1 avviata dall'utente**: L'utente può avviare una disconnessione da qualsiasi applicazione ha effettuato l'accesso. In questo scenario di esempio, un utente avvia una disconnessione dalla App1.
+3.  **Applicazione invia una richiesta di disconnessione a AD FS**: Dopo che l'utente avvia la disconnessione, l'applicazione invia una richiesta GET a end_session_endpoint di AD FS. L'applicazione può includere facoltativamente id_token_hint come parametro a questa richiesta. Se id_token_hint è presente, ADFS utilizzerà in combinazione con l'ID di sessione per individuare out quali URI il client deve essere reindirizzato a dopo la disconnessione (post_logout_redirect_uri).  Il post_logout_redirect_uri deve essere un uri valido, registrato con AD FS con il parametro RedirectUris.
+4.  **AD FS invia disconnessione ha eseguito l'accesso client**: ADFS utilizza il valore dell'identificatore di sessione per trovare l'utente è connesso a client pertinenti. I client identificati vengono inviati richiesta sul LogoutUri registrato con AD FS per avviare una disconnessione sul lato client.
 
-## <a name="faqs"></a>FAQs
-**Q:** I do not see the frontchannel_logout_supported and frontchannel_logout_session_supported parameters in the discovery doc.</br>
-**A:** Ensure that you have [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) installed on all the AD FS servers. Refer to Single log-out in Server 2016 with [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
+## <a name="faqs"></a>Domande frequenti
+**Q:** Non è possibile visualizzare i parametri frontchannel_logout_supported e frontchannel_logout_session_supported nel documento di individuazione.</br>
+**R:** Assicurarsi di aver [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) installato in tutti i server AD FS. Fare riferimento a Single log-out in Server 2016 con [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
 
-**Q:** I have configured single logout as directed, but user stays logged-in on other clients.</br>
-**A:** Ensure that `LogoutUri` is set for all the clients where the user is logged-in. Also, AD FS does a best-case attempt to send the sign-out request on the registered `LogoutUri`. Client must implement logic to handle the request and take action to sign-out the user from application.</br>
+**Q:** Ho configurato di disconnessione singolo come indicato, ma rimane registrano in data altri client.</br>
+**R:** Assicurarsi che `LogoutUri` è impostato per tutti i client in cui l'utente ha eseguito l'accesso. ADFS non, inoltre, un tentativo migliore per inviare la richiesta di disconnessione su registrato `LogoutUri`. Client deve implementare la logica per gestire la richiesta ed esegue azioni per la disconnessione l'utente dall'applicazione.</br>
 
-**Q:** If after logout, one of the clients goes back to AD FS with a valid refresh token, will AD FS issue an access token?</br>
-**A:** Yes. It is the responsibility of the client application to drop all authenticated artifacts after a sign-out request was received at the registered `LogoutUri`.
+**Q:** Se dopo la disconnessione, uno dei client torna ad AD FS con un token di aggiornamento valido, AD FS rilascerà un token di accesso?</br>
+**R:** Sì. È responsabilità dell'applicazione client per eliminare elementi tutti autenticati dopo che è stata ricevuta una richiesta di disconnessione a registrato `LogoutUri`.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

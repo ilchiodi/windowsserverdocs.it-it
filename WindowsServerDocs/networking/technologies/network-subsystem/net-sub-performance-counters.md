@@ -1,6 +1,6 @@
 ---
 title: Contatori delle prestazioni di rete
-description: Questo argomento fa parte della Guida di ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
+description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete di Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,55 +8,56 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33551dfd4f76bc13ba69863b782ddae279e0ad16
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824352"
 ---
 # <a name="network-related-performance-counters"></a>Contatori delle prestazioni di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-In questo argomento elenca i contatori che sono rilevanti per la gestione delle prestazioni di rete e contiene le sezioni seguenti.  
+In questo argomento sono elencati i contatori sono rilevanti per la gestione delle prestazioni di rete e include le sezioni seguenti.  
   
 -   [Utilizzo delle risorse](#bkmk_ru)  
   
 -   [Potenziali problemi di rete](#bkmk_np)  
   
--   [Ottenere prestazioni Side Coalescing (RSC)](#bkmk_rsc)  
+-   [Ricezione prestazioni Side Coalescing (RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a>Utilizzo delle risorse  
+##  <a name="bkmk_ru"></a> Utilizzo delle risorse  
 
-I seguenti contatori delle prestazioni sono rilevanti per l'utilizzo delle risorse di rete.  
+Contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risorse di rete.  
   
 -   IPv4, IPv6  
   
-    -   Datagrammi ricevuti al secondo  
+    -   Datagrammi ricevuti/sec  
   
-    -   Datagrammi inviati al secondo  
+    -   Datagrammi inviati/sec  
   
 -   TCPv4, TCPv6  
   
-    -   Segmenti ricevuti al secondo  
+    -   Segmenti ricevuti/sec  
   
-    -   Segmenti inviati al secondo  
+    -   Segmenti inviati/sec  
   
-    -   Segmenti ritrasmesso al secondo  
+    -   Segmenti ritrasmesso/sec  
   
--   Rete Interface(*), Adapter(\*) di rete  
+-   Interface(*) di rete, scheda di rete (\*)  
   
-    -   Byte ricevuti al secondo  
+    -   Byte ricevuti/sec  
   
-    -   Byte inviati al secondo  
+    -   Byte inviati/sec  
   
-    -   Pacchetti ricevuti/sec  
+    -   I pacchetti ricevuti/sec  
   
-    -   I pacchetti inviati al secondo  
+    -   I pacchetti inviati/sec  
   
     -   Lunghezza coda di output  
   
-     Questo contatore è l'intervallo del \(in packets\) coda pacchetto output. Se questo è supera a 2, si verificano ritardi. È necessario individuare il collo di bottiglia ed eliminarla se possibile. Poiché NDIS code le richieste, questa lunghezza deve sempre essere 0.  
+     Questo contatore è la lunghezza della coda di pacchetti di output \(nei pacchetti\). Se si tratta più di 2, si verifichino ritardi. È necessario individuare il collo di bottiglia ed eliminarlo se possibile. Poiché NDIS mette in coda le richieste, la lunghezza deve essere sempre 0.  
   
 -   Informazioni sul processore  
   
@@ -66,47 +67,47 @@ I seguenti contatori delle prestazioni sono rilevanti per l'utilizzo delle risor
   
     -   Le DPC accodati/sec  
   
-     Questo contatore è una frequenza media, in cui le DPC sono stati aggiunti alla coda DPC del processore logico. Ogni processore logico è una coda DPC. Questo contatore misura la frequenza con cui le DPC vengono aggiunti alla coda, non il numero di DPC nella coda. Visualizza la differenza tra i valori che sono stati rilevati negli ultimi due esempi, divisi per la durata dell'intervallo di campionamento.  
+     Questo contatore è un tasso medio in corrispondenza del quale le DPC sono stati aggiunti alla coda DPC del processore logico. Ogni processore logico ha la propria coda DPC. Questo contatore misura la frequenza con cui le DPC vengono aggiunte alla coda, non il numero di DPC nella coda. Visualizza la differenza tra i valori osservati negli ultimi due esempi divisi per la durata dell'intervallo di campionamento.  
   
-##  <a name="bkmk_np"></a>Potenziali problemi di rete  
+##  <a name="bkmk_np"></a> Potenziali problemi di rete  
 
-I seguenti contatori delle prestazioni sono rilevanti per eventuali problemi di rete.  
+Contatori delle prestazioni seguenti sono rilevanti per potenziali problemi di rete.  
   
--   Rete Interface(*), Adapter(\*) di rete  
+-   Interface(*) di rete, scheda di rete (\*)  
   
     -   Pacchetti ricevuti scartati  
   
-    -   Pacchetti ricevuti errori  
+    -   Errori pacchetti ricevuti  
   
-    -   Pacchetti in uscita eliminati  
+    -   Pacchetti scartati in uscita  
   
-    -   Errori di pacchetti in uscita  
+    -   Errori pacchetti in uscita  
   
 -   WFPv4, WFPv6  
   
-    -   I pacchetti ignorati al secondo
+    -   Pacchetti scartati/sec
 
 -   UDPv4, UDPv6
 
-    -   Errori ricevuti datagrammi  
+    -   Datagrammi ricevuti errori  
   
 -   TCPv4, TCPv6  
   
     -   Errori di connessione  
   
-    -   Reimpostazione di connessioni  
+    -   Connessioni ripristinate  
   
 -   Criteri di QoS di rete  
   
-    -   Pacchetti scartati  
+    -   Pacchetti eliminati  
   
-    -   I pacchetti ignorati al secondo  
+    -   I pacchetti eliminati/sec  
   
--   Per ogni attività scheda interfaccia di rete del processore  
+-   Per ogni attività di scheda di interfaccia di rete del processore  
   
-    -   Risorse insufficienti ricevuti indicazioni/sec  
+    -   Risorse insufficienti ricevere indicazioni/sec  
   
-    -   Risorse insufficienti ricevuti pacchetti al secondo  
+    -   Risorse insufficienti ricevuti pacchetti/sec  
   
 -   Microsoft Winsock base Service Provider  
   
@@ -118,18 +119,18 @@ I seguenti contatori delle prestazioni sono rilevanti per eventuali problemi di 
   
     -   Connessioni rifiutate al secondo  
   
-##  <a name="bkmk_rsc"></a>Ottenere prestazioni Side Coalescing (RSC)  
+##  <a name="bkmk_rsc"></a> Ricezione prestazioni Side Coalescing (RSC)  
 
-I seguenti contatori delle prestazioni sono rilevanti per le prestazioni di RSC.  
+Contatori delle prestazioni seguenti sono rilevanti per le prestazioni di RSC.  
   
--   Rete Adapter(*)  
+-   Scheda di rete  
   
     -   Connessioni TCP attive RSC  
   
-    -   Dimensioni del pacchetto Media RSC TCP  
+    -   Dimensione media dei pacchetti RSC TCP  
   
-    -   RSC TCP fuse pacchetti al secondo  
+    -   RSC TCP fuse pacchetti/sec  
   
-    -   RSC TCP eccezioni al secondo
+    -   RSC TCP. eccezioni/sec
 
-Per i collegamenti a tutti gli argomenti in questa Guida, vedere [ottimizzazione delle prestazioni del sottosistema di rete](net-sub-performance-top.md).
+Per collegamenti a tutti gli argomenti in questa Guida, vedere [ottimizzazione delle prestazioni di rete sottosistema](net-sub-performance-top.md).

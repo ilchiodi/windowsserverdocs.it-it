@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59820352"
 ---
 # <a name="configure-e-mail-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Quando si creano quote e screening dei file, è possibile inviare notifiche tramite posta elettronica agli utenti quando stanno per raggiungere il limite di quota o quando tentano di salvare un file bloccato. Quando si generano i rapporti di archiviazione, è possibile inviare i rapporti a destinatari specifici tramite posta elettronica. Se si vuole avvisare regolarmente alcuni amministratori in merito a eventi di quota e screening dei file o inviare rapporti di archiviazione, è possibile configurare uno o più destinatari predefiniti.
 
@@ -41,4 +42,4 @@ Per inviare queste notifiche e i rapporti di archiviazione, è necessario specif
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)

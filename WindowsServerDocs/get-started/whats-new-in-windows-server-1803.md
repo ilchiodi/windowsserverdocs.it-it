@@ -9,17 +9,17 @@ ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
 ms.openlocfilehash: c4f80b668b91e65b6c8bc528e14f52a1d117a3c9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2061471"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823092"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Novità di Windows Server, versione 1803
 
 >Si applica a: Windows Server (Canale semestrale)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Questa sezione illustra le funzionalità nuove e modificate di WindowsServer, versione 1803. Le nuove funzionalità e le modifiche elencate di seguito sono quelle che più probabilmente avranno maggiore impatto sull'uso di questa versione. Vedi anche l'articolo relativo all'[aggiornamento del Canale semestrale di Windows Server](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1803. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedi anche l'articolo relativo all'[aggiornamento del Canale semestrale di Windows Server](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
 ## <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -44,9 +44,9 @@ Gli scenari specifici indicati per il Canale semestrale e il Long-Term Servicing
 | Scenari consigliati     | File server per utilizzo generico, carichi di lavoro proprietari e di terze parti, app tradizionali, ruoli di infrastruttura, data center software-defined e infrastruttura iperconvergente  | Applicazioni in contenitori, host contenitore e scenari di applicazioni che traggono vantaggio da un'innovazione più rapida |
 | Nuove versioni  | Ogni 2-3 anni  | Ogni 6 mesi |
 | Supporto  | 5 anni di supporto Mainstream + 5 anni di supporto "Extended"  | 18 mesi |
-| Edizioni  | Tutte le edizioni di Windows Server disponibili  | Edizioni Standard e Datacenter |
-| Chi può utilizzarli  | Tutti i clienti attraverso qualsiasi canale | Solo i clienti Software Assurance e cloud |
-| Opzioni di installazione  | Server Core e Server con Esperienza Desktop  | Server Core per host contenitore, immagine del contenitore e immagine del contenitore Nano Server |
+| Edizioni  | Tutte le edizioni di Windows Server disponibili  | Edizione standard e Datacenter |
+| Chi può utilizzare  | Tutti i clienti attraverso tutti i canali | Software Assurance e cloud i clienti |
+| Opzioni di installazione  | Server Core e Server con esperienza Desktop  | Server Core per host contenitore, immagine del contenitore e immagine del contenitore Nano Server |
 
 ## <a name="application-platform-and-containers"></a>Piattaforma e contenitori per le applicazioni
 
@@ -54,17 +54,17 @@ Gli scenari specifici indicati per il Canale semestrale e il Long-Term Servicing
     - La dimensione dell'immagine di base del contenitore Server Core è stata ridotta del 30% rispetto a Windows Server, versione 1709. 
     - La compatibilità delle applicazioni è stata migliorata per supportare più efficacemente la containerizzazione delle applicazioni tradizionali.
     - Anche le prestazioni di avvio e in fase di esecuzione dei contenitori sono state migliorate tramite l'implementazione di varie correzioni e ottimizzazioni.
-- Rete di contenitori: è stato aggiunto il supporto per localhost e proxy http e sono stati migliorati i tempi di avvio e la scalabilità dei contenitori.
-- Strumenti: è stato migliorato il supporto per Curl.exe, Tar.exe e SSH a integrazione dell'utilizzo di PowerShell negli scenari di compilazione e di debug.
+- Rete di contenitori: È stato aggiunto il supporto di proxy localhost e http, e ora di avvio e la scalabilità del contenitore è stata migliorata.
+- Strumenti: Supporto per Curl.exe Tar.exe e SSH è stato migliorato per integrare PowerShell per la compilazione e gli scenari di debug.
 
 ### <a name="server-core-container-image"></a>Immagine del contenitore Server Core
 
 È ora disponibile un contenitore Server Core più piccolo e caratterizzato da una migliore compatibilità delle applicazioni. Informazioni dettagliate sono disponibili [qui](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/).
 
 - Le funzionalità e i ruoli facoltativi inutilizzati sono stati rimossi. Per altre info, vedi l'articolo relativo a [ruoli, servizi ruolo e funzionalità non inclusi nei contenitori Server Core](../administration/server-core/server-core-container-removed-roles.md).
-    - La dimensione del download (1,58GB) è stata ridotta del 30% rispetto a Windows Server, versione 1709.
-    - La dimensione su disco (3,61GB) è stata ridotta del 20% rispetto a Windows Server, versione 1709.
-- L'immagine del contenitore Nano Server è inferiore a 100MB.
+    - La dimensione del download (1,58 GB) è stata ridotta del 30% rispetto a Windows Server, versione 1709.
+    - La dimensione su disco (3,61 GB) è stata ridotta del 20% rispetto a Windows Server, versione 1709.
+- L'immagine del contenitore Nano Server è inferiore a 100 MB.
 
 ### <a name="windows-subsystem-for-linux-wsl"></a>Sottosistema di Windows per Linux (WSL)
 
@@ -75,9 +75,9 @@ WSL consente agli amministratori di server di utilizzare gli strumenti e gli scr
 Kubernetes (comunemente denominato K8s) è un sistema open source sviluppato sotto la guida della [Cloud Native Computing Foundation](https://www.cncf.io), che consente di automatizzare la distribuzione, il ridimensionamento e la gestione delle applicazioni in contenitori. 
 
 In Windows Server, versione 1709, gli utenti potevano sfruttare i vantaggi di Kubernetes per le funzionalità di rete di Windows, tra cui:
-- Raggruppamenti di pod condivisi: i pod di lavoro e infrastruttura ora condividono un raggruppamento di rete (analogo a uno spazio dei nomi di Linux).
-- Ottimizzazione dell'endpoint: grazie alla condivisione dei raggruppamenti, risulta almeno dimezzato il numero degli endpoint di cui i servizi contenitore devono tenere traccia.
-- Ottimizzazione del percorso dati: i miglioramenti apportati a Virtual Filtering Platform e al servizio rete host consentono il bilanciamento del carico basato su kernel.
+- Condividere i raggruppamenti di pod: Ora i POD dell'infrastruttura e di lavoro condividono un raggruppamento di rete (analogo a uno spazio dei nomi di Linux).
+- Ottimizzazione dell'endpoint: Grazie al raggruppamento di condivisione, necessario tenere traccia almeno pari alla metà endpoint tanti servizi contenitore.
+- Ottimizzazione di percorso dati: Miglioramenti per la piattaforma filtro virtuale e il servizio di rete Host consentono basata sul kernel bilanciamento del carico.
 
 Con il rilascio di Windows Server, versione 1803, saranno disponibili ulteriori funzionalità per le prossime versioni di Kubernetes: 
 - [Plug-in di archiviazione](https://github.com/Microsoft/K8s-Storage-Plugins) per i contenitori di Windows orchestrati da Kubernetes.
@@ -108,7 +108,7 @@ Puoi utilizzare il seguente comando di Windows PowerShell per abilitare il servi
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Informazioni sulle versioni di Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
-[Novità nei contenuti per i professionisti IT di Windows 10, versione 1803](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)
+[Informazioni sulla versione di Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
+[Novità in Windows 10, contenuti per professionisti IT versione 1803](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

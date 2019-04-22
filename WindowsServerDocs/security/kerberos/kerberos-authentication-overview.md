@@ -1,6 +1,6 @@
 ---
 title: Panoramica dell'autenticazione Kerberos
-description: Protezione di Windows Server
+description: Sicurezza di Windows Server
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,44 +14,45 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 9f8878fb959c34663b1e1f3858fa7e0b6e7b6105
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824112"
 ---
 # <a name="kerberos-authentication-overview"></a>Panoramica dell'autenticazione Kerberos
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Kerberos è un protocollo di autenticazione che viene utilizzato per verificare l'identità di un utente o un host. Questo argomento contiene informazioni relative all'autenticazione Kerberos in Windows Server 2012 e Windows 8.
+Kerberos è un protocollo di autenticazione usato per verificare l'identità di un utente o un host. In questo argomento contiene informazioni relative all'autenticazione Kerberos in Windows Server 2012 e Windows 8.
 
-## <a name="BKMK_OVER"></a>Descrizione delle funzionalità
-The Windows Server operating systems implement the Kerberos version 5 authentication protocol and extensions for public key authentication, transporting authorization data, and delegation. Il client di autenticazione Kerberos viene implementato come security support provider \(SSP\) e sono accessibili tramite l'interfaccia del Provider supporto sicurezza \(SSPI\). Autenticazione iniziale degli utenti è integrato con l'architettura single Winlogon accesso-on.
+## <a name="BKMK_OVER"></a>Descrizione funzionalità
+I sistemi operativi Windows Server implementano il protocollo e le estensioni Kerberos versione 5 per l'autenticazione con chiave pubblica, il trasporto dei dati di autorizzazione e la delega. Il client di autenticazione Kerberos viene implementato come un provider supporto sicurezza \(SSP\), e sono accessibili tramite l'interfaccia SSPI \(SSPI\). Autenticazione iniziale degli utenti è integrato con il single sign-Winlogon\-sull'architettura.
 
-The Kerberos Key Distribution Center \(KDC\) is integrated with other Windows Server security services that run on the domain controller. Il KDC utilizza il database di servizi di dominio Active Directory del dominio come database degli account di sicurezza. Servizi di dominio Active Directory è necessario per le implementazioni Kerberos predefinite nel dominio o nella foresta.
+Il centro distribuzione chiavi Kerberos \(KDC\) è integrato con altri servizi di sicurezza di Windows Server eseguiti nel controller di dominio. Il KDC utilizza il database di Active Directory Domain Services del dominio come database degli account di sicurezza. Le implementazioni Kerberos predefinite nel dominio o nella foresta richiedono Servizi di dominio Active Directory.
 
 ## <a name="kerb_tr_Kerb_Benefits"></a>Applicazioni pratiche
-I benefici derivanti dall'uso di Kerberos per l'autenticazione basata su domain \ sono:
+I vantaggi offerti dai Kerberos per dominio\-sono l'autenticazione basata su:
 
 -   **Autenticazione delegata.**
 
-    I servizi eseguiti nei sistemi operativi Windows possono rappresentare un computer client quando accedono alle risorse per conto del client. In molti casi, un servizio può completare il proprio lavoro per il client accedendo alle risorse del computer locale. Quando un computer client esegue l'autenticazione al servizio, il protocollo NTLM e Kerberos forniscono le informazioni di autorizzazione che un servizio deve rappresentare il computer client in locale. Tuttavia, alcune applicazioni distribuite sono progettate in modo che un servizio front\-end deve usare l'identità del computer client quando si connette ai servizi back\-end in altri computer. L'autenticazione Kerberos supporta un meccanismo di delega che consente a un servizio di agire per conto proprio client durante la connessione ad altri servizi.
+    Servizi che eseguono sistemi operativi Windows possono rappresentare un computer client quando accedono alle risorse per conto del client. In molti casi, un servizio può completare il proprio lavoro per il client accedendo alle risorse nel computer locale. Quando un computer client esegue l'autenticazione per il servizio, il protocollo NTLM e Kerberos forniscono le informazioni di autorizzazione necessarie al servizio per rappresentare il computer client in locale. Tuttavia, alcune applicazioni distribuite sono progettate in modo che un front\-servizio end deve usare identità del computer client quando si connette per eseguire il backup\-terminare i servizi in altri computer. L'autenticazione Kerberos supporta un meccanismo di delega che consente a un servizio di agire per conto del relativo client quando si connette ad altri servizi.
 
 -   **Single sign-on.**
 
-    Autenticazione in un dominio o in una foresta con Kerberos consente l'utente o il service l'accesso alle risorse autorizzate dagli amministratori senza più richieste le credenziali. Dopo l'accesso iniziale al dominio tramite Winlogon, Kerberos gestisce le credenziali in tutta la foresta ogni volta che viene tentato l'accesso alle risorse.
+    L'autenticazione Kerberos in un dominio o in una foresta consente all'utente o al servizio di accedere alle risorse autorizzate dagli amministratori senza più richieste per le credenziali. Dopo l'accesso iniziale al dominio tramite Winlogon, Kerberos gestisce le credenziali in tutta la foresta ogni volta che si prova ad accedere alle risorse.
 
--   **Interoperabilità.**
+-   **Interoperability.**
 
-    L'implementazione del protocollo Kerberos V5 da parte di Microsoft si basa sulle specifiche standards\ traccia consigliati per il \(IETF\) Internet Engineering Task Force. Di conseguenza, nei sistemi operativi Windows, il protocollo Kerberos è alla base dell'interoperabilità con altre reti in cui viene usato il protocollo Kerberos per l'autenticazione. Inoltre, Microsoft pubblica documentazione dei protocolli Windows per l'implementazione del protocollo Kerberos. La documentazione contiene i requisiti tecnici, limitazioni, le dipendenze e comportamento del protocollo specifico di Windows per l'implementazione Microsoft del protocollo Kerberos.
+    L'implementazione del protocollo Kerberos V5 da Microsoft si basa sugli standard\-tenere traccia delle specifiche che sono consigliate per l'Internet Engineering Task Force \(IETF\). Di conseguenza, nei sistemi operativi Windows, il protocollo Kerberos è alla base dell'interoperabilità con altre reti in cui viene usato il protocollo Kerberos per l'autenticazione. Inoltre, Microsoft pubblica la documentazione dei protocolli Windows per l'implementazione del protocollo Kerberos. La documentazione contiene i requisiti tecnici, le limitazioni, le dipendenze e Windows\-comportamento del protocollo specifico per l'implementazione Microsoft del protocollo Kerberos.
 
--   **Autenticazione più efficace per server.**
+-   **Autenticazione più efficace per i server.**
 
-    Prima di Kerberos, può essere utilizzata l'autenticazione NTLM, che richiede un server di applicazioni per connettersi a un controller di dominio per autenticare ogni computer client o un servizio. Con il protocollo Kerberos ticket di sessione rinnovabili sostituiscono pass\-tramite l'autenticazione. Il server non è necessario per passare a un controller di dominio \ (a meno che non sia necessario convalidare un \(PAC\)\) certificato attributi privilegi. Il server può invece autenticare il computer client esaminando le credenziali presentate dal client. Computer client possono ottenere le credenziali per un particolare server una sola volta e quindi riusare tali credenziali durante una sessione di accesso di rete.
+    Prima di Kerberos, veniva usata l'autenticazione NTLM, con cui un server applicazioni deve connettersi a un controller di dominio per autenticare ogni computer client o servizio. Con il protocollo Kerberos, i ticket di sessione rinnovabili sostituire pass\-tramite l'autenticazione. Il server non è necessario per passare a un controller di dominio \(a meno che non sia necessario convalidare un certificato attributi privilegi \(PAC\)\). Il server può invece autenticare il computer client esaminando le credenziali presentate dal client. I computer client possono ottenere le credenziali per un particolare server una sola volta e quindi riusare tali credenziali durante tutta la sessione di accesso alla rete.
 
 -   **Autenticazione reciproca.**
 
-    Utilizzando il protocollo Kerberos, un soggetto alle estremità di una connessione di rete può verificare che la parte a altra estremità è l'entità che asserisce di essere. NTLM non consente ai client di verificare l'identità del server o un server di verificare l'identità di un altro server. L'autenticazione NTLM è stato progettato per un ambiente di rete in cui i server si presuppone che siano autentici. Il protocollo Kerberos non deduce tali.
+    Con il protocollo Kerberos, una parte a una delle due estremità di una connessione di rete può verificare che la parte all'altra estremità è l'entità che asserisce di essere. NTLM non consente ai client di verificare l'identità del server o un server di verificare l'identità di un altro server. L'autenticazione NTLM è stata progettata per un ambiente di rete in cui si presuppone che i server siano autentici. Il protocollo Kerberos non si basa su tale supposizione.
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica di autenticazione di Windows](../windows-authentication/windows-authentication-overview.md)

@@ -1,5 +1,5 @@
 >[!IMPORTANT]
->Qualsiasi altro combinazione di angolo in alto o minuscole per "true" i tag seguenti risultati in una configurazione del profilo VPN parziale:
+>Qualsiasi altro combinazione di maiuscole o minuscole di 'true' nel tag seguente produce una configurazione parziale del profilo VPN:
 >
->\ < AlwaysOn\ >**true**\ < / AlwaysOn ><br>
->\ < RememberCredentials\ >**true**\ < / RememberCredentials >
+>\<AlwaysOn\>**true**\</AlwaysOn><br>
+>\<RememberCredentials\>**true**\</RememberCredentials >

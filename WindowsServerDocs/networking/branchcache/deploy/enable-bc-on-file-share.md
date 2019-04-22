@@ -1,6 +1,6 @@
 ---
-title: Abilitare BranchCache su una condivisione di File (facoltativa)
-description: In questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
+title: Abilitare BranchCache in una condivisione di file (facoltativo)
+description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,38 +13,39 @@ ms.topic: get-started-article
 ms.assetid: 9c465a9e-c504-44ec-9ebc-4e06ba54db30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33ed40ef91d9389bb7940dcf928cba43f0c9dbd2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 36d8379378529a94874c82e0aa90a6440f0281b2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822232"
 ---
-# <a name="enable-branchcache-on-a-file-share-optional"></a>Abilitare BranchCache su una condivisione di File (facoltativa)
+# <a name="enable-branchcache-on-a-file-share-optional"></a>Abilitare BranchCache in una condivisione di file (facoltativo)
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-You can use this procedure to enable BranchCache on a file share.  
+È possibile utilizzare questa procedura per abilitare BranchCache su una condivisione file.  
   
 > [!IMPORTANT]  
-> You do not need to perform this procedure if you configure the hash publication setting with the value **Allow hash publication for all shared folders**.  
+> Non è necessaria eseguire questa procedura se si configura l'impostazione di pubblicazione di hash con il valore **Consenti pubblicazione hash per tutte le cartelle condivise**.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
   
-### <a name="to-enable-branchcache-on-a-file-share"></a>To enable BranchCache on a file share  
+### <a name="to-enable-branchcache-on-a-file-share"></a>Per abilitare BranchCache su una condivisione file  
   
-1.  Aprire Windows PowerShell, digitare **mmc**, quindi premere INVIO. Verrà visualizzata la finestra di Microsoft Management Console (MMC).  
+1.  Aprire Windows PowerShell, digitare **mmc**e quindi premere INVIO. Verrà aperto Microsoft Management Console (MMC).  
   
-2.  In MMC nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**. Il **Aggiungi o Rimuovi Snap-in** apre la finestra di dialogo.  
+2.  In MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**. Il **Aggiungi o Rimuovi Snap-in** viene visualizzata la finestra di dialogo.  
   
-3.  In **Add or Remove Snap-ins**, in **Available snap-ins**, double-click **Shared Folders**. The Shared Folders Wizard opens with the Local Computer object selected. Configure the View that you prefer, click **Finish**, and then click **OK**.  
+3.  In **Aggiungi o Rimuovi Snap-in**, in **snap-in disponibili**, fare doppio clic su **cartelle condivise**. Verrà visualizzata la procedura guidata cartelle condivise con l'oggetto Computer locale selezionato. Configurare la visualizzazione che si preferisce, fare clic su **Fine**, quindi fare clic su **OK**.  
   
-4.  Double-click **Shared Folders (Local)**, and then click **Shares**.  
+4.  Fare doppio clic su **cartelle condivise (locale)**, quindi fare clic su **condivisioni**.  
   
-5.  In the details pane, right-click a share, and then click **Properties**. The share's **Properties** dialog box opens.  
+5.  Nel riquadro dei dettagli, fare doppio clic su una condivisione e quindi fare clic su **proprietà**. La condivisione **proprietà** verrà visualizzata la finestra di dialogo.  
   
-6.  In the **Properties** dialog box, on the **General** tab, click **Offline Settings**. The **Offline Settings** dialog box opens.  
+6.  Nel **proprietà** della finestra di dialogo di **Generale** scheda, fare clic su **impostazioni non in linea**. Il **Impostazioni Offline** verrà visualizzata la finestra di dialogo.  
   
-7.  Ensure that **Only the files and programs that users specify are available offline** is selected, and then click **Enable BranchCache**.  
+7.  Assicurarsi che **solo i file e programmi specificati dall'utente sono disponibili offline** sia selezionata e quindi fare clic su **Abilita BranchCache**.  
   
 8.  Fare clic su **OK** due volte.  
   

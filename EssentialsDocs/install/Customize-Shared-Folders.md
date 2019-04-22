@@ -12,51 +12,52 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bcdd43183512bb225dd4afa916f2782c6eb79d7e
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823472"
 ---
 # <a name="customize-shared-folders"></a>Personalizzazione delle cartelle condivise
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Per impostazione predefinita, le cartelle del server vengono create nella partizione dati più grande sul disco 0. I partner possono personalizzare il percorso e specificare altre cartelle server utilizzando la procedura seguente:  
+Per impostazione predefinita, le cartelle server vengono create sulla partizione dati più grande sul Disco 0. I partner possono personalizzare il percorso e specificare altre cartelle server utilizzando la seguente procedura:  
   
-1.  Usando una configurazione di partizioni personalizzata, creare l'immagine produttore computer e quindi creare una nuova chiave del Registro di sistema di archiviazione prima di utilizzare sysprep. Durante la configurazione iniziale, l'attività di archiviazione IC controlla per questa chiave del Registro di sistema. Se è presente, vengono create le cartelle server predefinite nella directory c:\serverfolders..  
+1.  Utilizzando una configurazione di partizioni personalizzata, creare l'immagine produttore computer e la nuova chiave Storage del Registro di sistema prima di utilizzare sysprep. Durante la configurazione iniziale, l'attività di configurazione iniziale relativa all'archiviazione verifica la presenza di questa chiave del Registro di sistema. Se è presente, vengono create le cartelle server predefinite nella directory C:\ServerFolders.  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>Per creare una nuova chiave del Registro di sistema di archiviazione  
+    #### <a name="to-create-a-new-storage-registry-key"></a>Creazione di una nuova chiave Storage del Registro di sistema  
   
-    1.  Nel server, sposta il mouse nell'angolo superiore destro dello schermo e fare clic su **ricerca**.  
+    1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
   
-    2.  Nella casella di ricerca, digitare **regedit**, quindi fare clic su di **Regedit** applicazione.  
+    2.  Nella casella di ricerca digitare **regedit**e quindi fare clic sull'applicazione **Regedit** .  
   
-    3.  Nel riquadro di spostamento, espandere **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, quindi espandere **Microsoft**.  
+    3.  Nel riquadro di spostamento, espandere **HKEY_LOCAL_MACHINE**, poi espandere **SOFTWARE**, quindi espandere **Microsoft**.  
   
-    4.  Fare doppio clic su **Windows Server**, fare clic su **New**, quindi fare clic su **chiave**.  
+    4.  Fare clic con il pulsante destro del mouse su **Windows Server**, fare clic su **Nuovo**, quindi fare clic su **Chiave**.  
   
-    5.  Nome della chiave **archiviazione**.  
+    5.  Assegnare alla chiave il nome **Storage**.  
   
-    6.  Nel riquadro di spostamento, fare doppio clic su Nuovo Storage del Registro di sistema, fare clic **New**, quindi fare clic su **valore DWORD (32 bit)**.  
+    6.  Nel riquadro di spostamento, fare clic con il pulsante destro del mouse sulla nuova chiave di registro Storage, fare clic su **Nuovo**, quindi fare clic su **Valore DWORD (32 bit)**.  
   
-    7.  Nome della stringa **CreateFoldersOnSystem**.  
+    7.  Assegnare alla stringa il nome **CreateFoldersOnSystem**.  
   
-    8.  Fare doppio clic su **CreateFoldersOnSystem**, quindi fare clic su **modifica**. Il **Modifica stringa** viene visualizzata la finestra di dialogo.  
+    8.  Fare clic con il pulsante destro del mouse su **CreateFoldersOnSystem**, quindi fare clic su **Modifica**. Verrà visualizzata la finestra di dialogo **Modifica stringa**.  
   
     9. Impostare il valore della nuova chiave su **1**, quindi fare clic su **OK**.  
   
-2.  Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [esempio 1: creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da PostIC.cmd utilizzando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2.  Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da postic. cmd usando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3.  Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [esempio 2: creare una cartella personalizzata e spostare una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3.  Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 2: Creare una cartella personalizzata e spostamento di una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
   
- Facoltativamente, i partner possono lasciare le cartelle di dati nell'unità C. In questo modo l'utente finale o al rivenditore di stabilire il layout delle cartelle dati sulle unità dati.  
+ Facoltativamente, i partner possono lasciare le cartelle dati sull'unità C. In questo modo si permette all'utente finale o al rivenditore di stabilire il layout delle cartelle dati sulle unità dati.  
   
-###  <a name="BKMK_Example1"></a>Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da PostIC.cmd utilizzando Windows PowerShell  
+###  <a name="BKMK_Example1"></a> Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da PostIC.cmd usando Windows PowerShell  
   
-1.  Creare un file PostIC.cmd per eseguire le successive attività di configurazione iniziale come descritto in dettaglio nel [creare il File PostIC.cmd in esecuzione registrazione attività di configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) sezione.  
+1.  Creare un file PostIC.cmd per eseguire le attività successive alla configurazione iniziale come illustrato nella sezione [Creazione del file PostIC.cmd per eseguire le attività successive alla configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md).  
   
-2.  Utilizzando blocco note, creare un file denominato **customizefolders.ps1** nella cartella C:\Windows\Setup\Scripts e quindi incollare Windows PowerShell® i seguenti comandi nel file (deselezionando le righe appropriate in base al comportamento desiderato).  
+2.  Con Blocco note, creare un file denominato **customizefolders.ps1** nella cartella C:\Windows\Setup\Scripts, quindi incollare nel file i seguenti comandi di Windows PowerShell® (deselezionando le righe appropriate in base al comportamento desiderato).  
   
     ```  
     # Move the Documents folder to D:\ServerFolders  
@@ -83,7 +84,7 @@ Per impostazione predefinita, le cartelle del server vengono create nella partiz
     exit 0  
     ```  
   
-3.  Aggiungere la riga seguente nel file PostIC.cmd per eseguire lo script.  
+3.  Aggiungere la seguente riga nel file PostIC.cmd per eseguire lo script.  
   
     ```  
     REM Lower the execution policy  
@@ -93,13 +94,13 @@ Per impostazione predefinita, le cartelle del server vengono create nella partiz
     "%programfiles%\Windows Server\bin\WssPowershell.exe" -NoProfile -Noninteractive -command ". %windir%\setup\scripts\customizefolders.ps1;exit $LASTEXITCODE"  
     Set error_level=%ERRORLEVEL%  
   
-    REM Restore the execution policy to deafult  
+    REM Restore the execution policy to default  
     "%programfiles%\Windows Server\bin\WssPowershell.exe" "Set-ExecutionPolicy Restricted"  
     Set ERRORLEVEL=%error_level%  
     ```  
   
-###  <a name="BKMK_Example2"></a>Esempio 2: Creare una cartella personalizzata e spostare una cartella esistente utilizzando Windows Server Solutions SDK  
- Il codice creato può essere compilato come eseguibile e quindi chiamato dal file PostIC.cmd o direttamente da un componente aggiuntivo installato.  
+###  <a name="BKMK_Example2"></a> Esempio 2: Creare una cartella personalizzata e spostare una cartella esistente usando Windows Server Solutions SDK  
+ Il codice creato può essere compilato come eseguibile e quindi richiamato dal file PostIC.cmd oppure direttamente da un componente aggiuntivo installato.  
   
 ```  
 static void Main(string[] args)  
@@ -144,6 +145,6 @@ static void Main(string[] args)
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 89592a9e1f61374d2d909678a91dc4a06e0b1972
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824472"
 ---
 # <a name="configure-file-screen-audit"></a>Configurare il rapporto screening dei file
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Utilizzando Gestione risorse file server, è possibile registrare l'attività di screening dei file in un database di controllo. Le informazioni salvate in questo database vengono utilizzate per generare il rapporto screening dei file.
 
@@ -33,5 +34,5 @@ Utilizzando Gestione risorse file server, è possibile registrare l'attività di
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
--   [Gestione rapporti di archiviazione](storage-reports-management.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti archiviazione](storage-reports-management.md)

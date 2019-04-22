@@ -9,21 +9,22 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: dba5b3b3c8b651935ec3c69695583d04087b7f2d
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826312"
 ---
 # <a name="configure-notification-limits"></a>Configurare i limiti delle notifiche
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Per ridurre il numero di notifiche accumulate a causa del ripetuto superamento del limite di quota o del tentativo di salvare un file non autorizzato, Gestione risorse file server applica limiti di tempo ai seguenti tipi di notifica:
 
 -   Posta elettronica
 -   Registro eventi
 -   Comando
--   Rapporto
+-   Report
 
 Ogni limite specifica un periodo di tempo prima che un'altra notifica configurata dello stesso tipo venga generata per un problema identico.
 
@@ -42,5 +43,5 @@ Un limite di 60 minuti predefinito è impostato per ogni tipo di notifica, ma è
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
 -   [Strumenti da riga di comando](command-line-tools.md)

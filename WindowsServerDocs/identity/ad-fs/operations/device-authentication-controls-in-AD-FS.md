@@ -1,6 +1,6 @@
 ---
-title: Device Authentication controls in AD FS
-description: This document describes how to enable device authentication in AD FS for Windows Server 2016 and 2012 R2
+title: Controlli di autenticazione dispositivo in AD FS
+description: Questo documento descrive come abilitare l'autenticazione del dispositivo in AD FS per Windows Server 2016 e 2012 R2
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,18 +9,19 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: d66cfde20060229844c34abeea85dd83b802ddad
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822822"
 ---
-# <a name="device-authentication-controls-in-ad-fs"></a>Device authentication controls in AD FS
-The following document shows how to enable device authentication controls in Windows Server 2016 and 2012 R2.
+# <a name="device-authentication-controls-in-ad-fs"></a>Controlli di autenticazione dispositivo in AD FS
+Il documento seguente illustra come abilitare i controlli di autenticazione dispositivo in Windows Server 2016 e 2012 R2.
 
-## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>Device Authentication controls in AD FS 2012 R2
-Originally in AD FS 2012 R2 there was one global authentication property called `DeviceAuthenticationEnabled` that controlled device authentication.
+## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>Controlli di autenticazione dispositivo in AD FS 2012 R2
+Originariamente in AD FS 2012 R2 era presente una proprietà di autenticazione globali chiamata `DeviceAuthenticationEnabled` che l'autenticazione dei dispositivi controllate.
 
-To configure the setting, the `Set-AdfsGlobalAuthenticationPolicy` cmdlet was used as shown below:
+Per configurare l'impostazione di `Set-AdfsGlobalAuthenticationPolicy` cmdlet è stato usato come illustrato di seguito:
 
 
 ``` powershell
@@ -29,51 +30,51 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 
 
 
-To disable device authentication, the same cmdlet was used to set the value to $false.
+Per disabilitare l'autenticazione del dispositivo, è stato usato lo stesso cmdlet per impostare il valore su $false false per.
 
-## <a name="device-authentication-controls-in-ad-fs-2016"></a>Device Authentication controls in AD FS 2016
-The only type of device authentication supported in 2012 R2 was clientTLS.  In AD FS 2016, in addition to clientTLS there are two new types of device authentication for modern devices authentication.  These are:
+## <a name="device-authentication-controls-in-ad-fs-2016"></a>Controlli di autenticazione dispositivo in AD FS 2016
+L'unico tipo di autenticazione dei dispositivi supportati in 2012 R2 era clientTLS.  In AD FS 2016, oltre a clientTLS esistono due nuovi tipi di autenticazione del dispositivo per l'autenticazione i dispositivi moderni.  Questi sono:
 - PKeyAuth
 - PRT
 
-To control the new behavior, the `DeviceAuthenticationEnabled` property is used in combination with a new property called `DeviceAuthenticationMethod`.  
+Per controllare il comportamento di nuovo, il `DeviceAuthenticationEnabled` proprietà viene utilizzata in combinazione con una nuova proprietà denominata `DeviceAuthenticationMethod`.  
 
-The device authentication method determines the type of device authentication that will be done: PRT, PKeyAuth, clientTLS, or some combination.
-It has the following values:
- - SignedToken: PRT only
+Il metodo di autenticazione dispositivo determina il tipo di autenticazione del dispositivo che verrà completato: PRT PKeyAuth, clientTLS o una combinazione.
+Include i valori seguenti:
+ - SignedToken: Solo PRT
  - PKeyAuth: PRT + PKeyAuth
  - ClientTLS: PRT + clientTLS 
- - All: All of the above
+ - All: Tutti gli elementi elencati sopra
 
-As you can see, PRT is part of all device authentication methods, making it in effect the default method that is always enabled when `DeviceAuthenticationEnabled` is set to `$true`.
+Come può notare, PRT fa parte di tutti i metodi di autenticazione dispositivo, rendendolo attivo il metodo predefinito che è sempre abilitata quando `DeviceAuthenticationEnabled` è impostata su `$true`.
 
-Example: To configure the method(s), use the DeviceAuthenticationEnabled cmdlet as above, along with new property:
+Esempio: Per configurare i metodi, usare il cmdlet DeviceAuthenticationEnabled come sopra, insieme a proprietà nuove:
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ```
 >[!NOTE]
-> Enabling device authentication (setting `DeviceAuthenticationEnabled` to `$true`) means the `DeviceAuthenticationMethod` is implicitly set to `SignedToken`, which equates to **PRT**.
+> Abilitare l'autenticazione del dispositivo (impostazione `DeviceAuthenticationEnabled` al `$true`) significa che il `DeviceAuthenticationMethod` in modo implicito è impostata su `SignedToken`, che equivale a **PRT**.
 
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationMethod All
 ```
 >[!NOTE]
->The default device authentication method is `SignedToken`.  Other values are **PKeyAuth,****ClientTLS,** and **All**.
+>Il metodo di autenticazione del dispositivo predefinita è `SignedToken`.  Altri valori sono **PKeyAuth, * * *, ClientTLS** e **tutte**.
 
-The meanings of the `DeviceAuthenticationMethod` values have changed slightly since AD FS 2016 was released.  See the table below for the meaning of each value, depending on the update level:
+I significati del `DeviceAuthenticationMethod` valori sono stati modificati leggermente dopo il rilascio di AD FS 2016.  Vedere la tabella seguente per il significato di ogni valore, a seconda del livello di aggiornamento:
 
 
-|AD FS version|DeviceAuthenticationMethod value|Significa|
+|Versione di AD FS|Valore DeviceAuthenticationMethod|Significa che|
 | ----- | ----- | ----- |
 |2016 RTM|SignedToken|PRT + PkeyAuth|
 ||clientTLS|clientTLS|
-||Tutti|PRT + PkeyAuth + clientTLS|
-|2016 RTM + up to date with Windows Update|SignedToken (changed meaning)|PRT (only)|
-||PkeyAuth (new)|PRT + PkeyAuth|
+||Tutte|PRT + PkeyAuth clientTLS|
+|2016 RTM + fino alla data con Windows Update|SignedToken (ovvero modificato)|PRT (solo)|
+||PkeyAuth (nuovo)|PRT + PkeyAuth|
 ||clientTLS|PRT + clientTLS|
-||Tutti|PRT + PkeyAuth + clientTLS|
+||Tutte|PRT + PkeyAuth clientTLS|
 
 ## <a name="see-also"></a>Vedere anche
-[Operazioni di ADFS](../../ad-fs/AD-FS-2016-Operations.md)
+[Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md)

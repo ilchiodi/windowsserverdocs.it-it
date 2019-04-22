@@ -1,5 +1,5 @@
 ---
-title: Gestire le Zone DNS
+title: Gestione delle zone DNS
 description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
@@ -13,29 +13,30 @@ ms.topic: article
 ms.assetid: de3dc14b-164a-49f1-8a57-b9e788046c23
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4185dd07c56ae2f0949bcf076b7ca658a439acf4
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 188de3884a31e1da977257fde6c5f8be905891f2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824892"
 ---
-# <a name="dns-zone-management"></a>Gestire le Zone DNS
+# <a name="dns-zone-management"></a>Gestione delle zone DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-This topic provides information about managing DNS zones by using the IPAM client console.  
+In questo argomento vengono fornite informazioni sulla gestione delle zone DNS usando la console di gestione indirizzi IP client.  
   
 > [!NOTE]  
-> In addition to this topic, the following IPAM DNS zone management topics are available in this section.  
+> Oltre a questo argomento, i seguenti argomenti relativi alla gestione di zona DNS IPAM sono disponibili in questa sezione.  
 >   
 > -   [Creare una zona DNS](../../technologies/ipam/Create-a-DNS-Zone.md)  
 > -   [Modificare una zona DNS](../../technologies/ipam/Edit-a-DNS-Zone.md)  
-> -   [Visualizzare i record di risorse DNS per una zona DNS](../../technologies/ipam/View-DNS-Resource-Records-for-a-DNS-Zone.md)  
+> -   [Visualizzare i record risorsa DNS per una zona DNS](../../technologies/ipam/View-DNS-Resource-Records-for-a-DNS-Zone.md)  
 > -   [Visualizzare le zone DNS](../../technologies/ipam/View-DNS-Zones.md)  
   
-When you deploy IPAM in  Windows Server 2016, you can use IPAM to manage DNS zones.  
+Quando si distribuisce gestione indirizzi IP in Windows Server 2016, è possibile utilizzare Gestione indirizzi IP per gestire le zone DNS.  
   
-In the IPAM console, you can view DNS resource records for a specific DNS zone, and filter the records based on type, IP address, resource record data, and other filtering options. In addition, you can edit DNS resource records for specific zones  
+Nella console di gestione indirizzi IP, è possibile visualizzare i record risorsa DNS per una zona DNS specifico e filtrare i record in base a tipo, indirizzo IP, i dati di record di risorse e altre opzioni di filtro. Inoltre, è possibile modificare i record risorsa DNS per aree specifiche  
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestire gestione indirizzi IP](Manage-IPAM.md)  

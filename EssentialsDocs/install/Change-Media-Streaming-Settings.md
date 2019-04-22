@@ -1,5 +1,5 @@
 ---
-title: Modifica le impostazioni dei flussi multimediali
+title: Modifica delle impostazioni dei flussi multimediali
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,48 +13,49 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d34d60e792fcda4d71a4509fe3d1b95fc6e74d0e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823402"
 ---
-# <a name="change-media-streaming-settings"></a>Modifica le impostazioni dei flussi multimediali
+# <a name="change-media-streaming-settings"></a>Modifica delle impostazioni dei flussi multimediali
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Più opzioni sono disponibili per la modifica delle impostazioni dei flussi multimediali. Sono disponibili le opzioni seguenti:  
+Per modificare le impostazioni dei flussi multimediali sono disponibili diverse opzioni Sono disponibili le seguenti opzioni:  
   
--   [Nascondere aggiuntivo di flussi multimediali remoti](Change-Media-Streaming-Settings.md#BKMK_DisableRemote)  
+-   [Componente aggiuntivo flussi multimediali remoti nascosto](Change-Media-Streaming-Settings.md#BKMK_DisableRemote)  
   
 -   [Impostare il nome della Raccolta multimediale](Change-Media-Streaming-Settings.md#BKMK_LibraryName)  
   
 -   [Impostare la qualità di streaming video](Change-Media-Streaming-Settings.md#BKMK_StreamingQuality)  
   
--   [A livello di programmazione di attivare o disattivare i flussi multimediali](Change-Media-Streaming-Settings.md#BKMK_Program)  
+-   [Attivare o disattivare i flussi multimediali a livello di codice](Change-Media-Streaming-Settings.md#BKMK_Program)  
   
-##  <a name="BKMK_DisableRemote"></a>Nascondere aggiuntivo di flussi multimediali remoti  
- È possibile nascondere i flussi multimediali remoti aggiungere-aggiungendo una voce nel Registro di sistema.  
+##  <a name="BKMK_DisableRemote"></a> Componente aggiuntivo flussi multimediali remoti nascosto  
+ È possibile nascondere il componente aggiuntivo per i flussi multimediali remoti aggiungendo una voce al Registro di sistema.  
   
-#### <a name="to-hide-the-remote-media-streaming-add-in"></a>Per nascondere i componenti aggiuntivi flussi multimediali remoti  
+#### <a name="to-hide-the-remote-media-streaming-add-in"></a>Per nascondere il componente aggiuntivo per i flussi multimediali remoti  
   
-1.  Nel server, sposta il mouse nell'angolo superiore destro dello schermo e fare clic su **ricerca**.  
+1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
   
-2.  Nel **ricerca** digitare **regedit**, quindi fare clic sul **Regedit** applicazione.  
+2.  Nella casella di **ricerca** digitare **regedit** e quindi fare clic sull'applicazione **Regedit**.  
   
-3.  Nel riquadro sinistro, espandere la voce del Registro di sistema seguente:  
+3.  Nel riquadro di sinistra espandere la seguente voce del Registro di sistema:  
   
      **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\RemoteAccess\DisabledAddIns**  
   
-4.  Fare doppio clic su **DisabledAddIns**, scegliere **New**, quindi fare clic su **valore DWORD**.  
+4.  Fare clic con il tasto destro su **DisabledAddIns**, selezionare **Nuovo** e quindi fare clic su **Valore DWORD**.  
   
-5.  Per il nuovo valore, digitare **497796c6-9cc7-43be-aa26-4e6b5695370d**, che è l'identificatore per i componenti aggiuntivi flussi multimediali remoti e quindi premere **invio**.  
+5.  Come nuovo valore, digitare **497796c6-9cc7-43be-aa26-4e6b5695370d**, che corrisponde all'identificatore del componente aggiuntivo per i flussi multimediali remoti, quindi premere **Enter**.  
   
-6.  Fare clic con il pulsante destro il valore, quindi fare clic su **modifica**.  
+6.  Fare clic con il tasto destro sul valore, quindi selezionare **Modifica**.  
   
-7.  Tipo **1** per i dati valore e quindi fare clic su **OK**.  
+7.  Immettere il valore **1** nel campo Dati valore e quindi fare clic su **OK**.  
   
-##  <a name="BKMK_LibraryName"></a>Impostare il nome della Raccolta multimediale  
- È possibile utilizzare una classe in Windows Server Solutions SDK per impostare il nome del catalogo multimediale. Per impostare il nome del catalogo multimediale, è possibile utilizzare il **SetMediaLibraryName** metodo il **MediaStreamingManager** classe il **MediaStreaming** dello spazio dei nomi. L'esempio seguente viene illustrato come impostare il nome della Raccolta multimediale:  
+##  <a name="BKMK_LibraryName"></a> Impostare il nome della Raccolta multimediale  
+ Per impostare il nome della raccolta multimediale, è possibile utilizzare una classe delle Soluzioni Windows Server SDK. Per impostare il nome della raccolta multimediale, è possibile utilizzare il metodo **SetMediaLibraryName** della classe **MediaStreamingManager** all'interno dello spazio dei nomi **Microsoft.WindowsServerSolutions.MediaStreaming** . L'esempio seguente mostra come impostare il nome per la raccolta multimediale:  
   
 ```c#  
   
@@ -64,13 +65,13 @@ mediaStreamingManager.SetMediaLibraryName(mediaLibraryName);
   
 ```  
   
- Per ulteriori informazioni, vedere [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
+ Per altre informazioni, vedere [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
   
-##  <a name="BKMK_StreamingQuality"></a>Impostare la qualità di streaming video  
- Puoi impostare il qualità dello streaming video come ottenere il punteggio WinSAT CPU e quindi creando e installando il file XML che contiene le informazioni sul punteggio WinSAT. Se il file XML che contiene le informazioni sul punteggio WinSAT è stato installato prima che venga eseguita la configurazione iniziale, l'interfaccia utente per l'impostazione della qualità video non verrà visualizzati al cliente. Per ulteriori informazioni, vedere [impostazione del punteggio WinSAT sul Server](Set-the-WinSAT-Score-on-the-Server.md).  
+##  <a name="BKMK_StreamingQuality"></a> Impostare la qualità di streaming video  
+ È possibile impostare la qualità dello streaming video ricavando il punteggio WinSAT CPU, quindi creando e installando il file .xml contenente le informazioni sul punteggio WinSAT. Se il file .xml contenente le informazioni sul punteggio WinSAT è stato installato prima dell'esecuzione della configurazione iniziale, l'interfaccia utente per l'impostazione della qualità video non viene visualizzata dal cliente. Per ulteriori informazioni, vedere [Impostazione del punteggio WinSAT sul server](Set-the-WinSAT-Score-on-the-Server.md).  
   
-##  <a name="BKMK_Program"></a>A livello di programmazione di attivare o disattivare i flussi multimediali  
- È possibile utilizzare una classe in Windows Server Solutions SDK a livello di codice attivare o disattivare i flussi multimediali. Per attivare o disattivare i flussi multimediali, è possibile utilizzare il **SetMediaStreamingEnabled** metodo il **MediaStreamingManager** classe il **MediaStreaming** dello spazio dei nomi. Esempio di codice seguente viene illustrato come attivare i flussi multimediali:  
+##  <a name="BKMK_Program"></a> Attivare o disattivare i flussi multimediali a livello di codice  
+ Per attivare e disattivare i flussi multimediali a livello di programmazione, è possibile utilizzare una classe delle Soluzioni Windows Server SDK. Per attivare e disattivare i flussi multimediali, è possibile utilizzare il metodo **SetMediaStreamingEnabled** della classe **MediaStreamingManager** all'interno dello spazio dei nomi **Microsoft.WindowsServerSolutions.MediaStreaming**. Nell'esempio di codice riportato di seguito viene illustrato come attivare i flussi multimediali:  
   
 ```c#  
   
@@ -79,7 +80,7 @@ mediaStreamingManager.SetMediaStreamingEnabled(true);
   
 ```  
   
- Esempio di codice seguente viene illustrato come disattivare i flussi multimediali:  
+ Nell'esempio di codice riportato di seguito viene illustrato come disattivare i flussi multimediali:  
   
 ```c#  
   
@@ -89,6 +90,6 @@ mediaStreamingManager.SetMediaStreamingEnabled(false);
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
