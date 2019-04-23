@@ -10,24 +10,24 @@ ms.date: 12/5/2017
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9cf87597-b15d-4f43-8aa1-91e60367f011
-ms.openlocfilehash: a2da7b8437a9dc7f44fc83837e3ebad93b7fe3ab
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.openlocfilehash: 96f098457b9bac4541421c7889aefb030e3d8804
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "1410401"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59868802"
 ---
 # <a name="introducing-windows-server-version-1709"></a>Introduzione a Windows Server, versione 1709
 
 >Si applica a: Windows Server (Canale semestrale)
 
-**Windows Server, versione 1709 è la prima versione del nuovo Canale semestrale.** 
+**Windows Server, versione 1709 è il primo rilascio nel canale semestrale di nuovo.** 
 
 ## <a name="what-the-semi-annual-channel-is--and-isnt"></a>Informazioni sul Canale semestrale
-Come prima versione rilasciata in questo nuovo canale, Windows Server, versione 1709 *non* è un "aggiornamento" né "Service Pack" di Windows Server 2016. È la prima delle versioni semestrali del server in un **nuovo programma di rilascio** progettato per i clienti che si stanno muovendo verso una "cadenza cloud", ad esempio quelli con cicli di sviluppo rapidi o i provider di servizi di hosting che desiderano tenere il passo con gli investimenti in Hyper-V più recenti. Ogni versione rilasciata nell'ambito di questo programma è supportata per 18 mesi a partire dal rilascio iniziale. Per ulteriori informazioni sul Canale semestrale e **suggerimenti per decidere a quale prendere parte** (o quale mantenere) vedere [Panoramica del Canale semestrale](semi-annual-channel-overview.md).
+Come prima versione rilasciata in questo nuovo canale, Windows Server, versione 1709 *non* è un "aggiornamento" né "Service Pack" di Windows Server 2016. È la prima delle versioni semestrali del server in un **nuovo programma di rilascio** progettato per i clienti che si stanno muovendo verso una "cadenza cloud", ad esempio quelli con cicli di sviluppo rapidi o i provider di servizi di hosting che desiderano tenere il passo con gli investimenti in Hyper-V più recenti. Ogni versione rilasciata nell'ambito di questo programma è supportata per 18 mesi a partire dal rilascio iniziale. Per ulteriori informazioni sul Canale semestrale e **suggerimenti per decidere a quale prendere parte** (o quale mantenere) vedi [Panoramica del Canale semestrale](semi-annual-channel-overview.md).
 
 
-**La versione corrente del Long-Term Servicing Channel (LTSC) è Windows Server 2016**. LTSC è ideale se hai bisogno di stabilità e prevedibilità a lungo termine nel sistema operativo server, al fine di supportare applicazioni e carichi di lavoro tradizionali. Se desideri mantenere il canale LTSC, devi installare (o continuare a usare) Windows Server 2016, che può essere installato in modalità Server Core o Server con la modalità Esperienza desktop. Vedere [Introduzione a Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics) per informazioni dettagliate.
+**La versione corrente del Long-Term Servicing Channel (LTSC) è Windows Server 2016**. Il Canale di manutenzione a lungo termine è ideale se hai bisogno di stabilità e prevedibilità a lungo termine nel sistema operativo del server, al fine di supportare applicazioni e carichi di lavoro tradizionali. Se desideri mantenere il canale LTSC, devi installare (o continuare a usare) Windows Server 2016, che può essere installato in modalità Server Core o Server con la modalità Esperienza desktop. Vedi [Introduzione a Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics) per informazioni dettagliate.
 
 
 ## <a name="whats-different-about-1709"></a>Differenze nella versione 1709.
@@ -56,11 +56,11 @@ Per ottenere una panoramica completa degli aspetti chiave su Windows Server, ver
 
 Questa versione deve essere installata con un'installazione pulita.
 
-- VLSC: i clienti che dispongono di contratti multilicenza con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) possono ottenere questa versione dal [Centro servizi per contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx) e facendo clic su **Accedi**. Quindi possono fare clic su **Download e chiavi** e cercare questa versione. 
+- VLSC: I clienti con contratto multilicenza con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) può ottenere questa versione visitando il [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) e fare clic su **Accedi**. Quindi possono fare clic su **Download e chiavi** e cercare questa versione. 
 
 - Windows Server, versione 1709 è disponibile anche in [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview).
 
-- I partecipanti al programma **Sottoscrizioni di Visual Studio** possono ottenere Windows Server, versione 1709 accedendo alla [pagina di download del Sottoscrittore di Visual Studio](https://my.visualstudio.com/downloads?pid=2347) e completare il download ivi disponibile. Se non si è già un sottoscrittore, passare a [Sottoscrizioni di Visual Studio](https://www.visualstudio.com/subscriptions/) per registrarsi e quindi visitare la [pagina di download del Sottoscrittore di Visual Studio](https://my.visualstudio.com/downloads?pid=2347) come indicato in precedenza. Le versioni ottenute tramite Sottoscrizioni di Visual Studio sono esclusivamente a scopo di sviluppo e test.
+- I partecipanti a **sottoscrizioni di Visual Studio:** Se si partecipa già sottoscrizioni di Visual Studio, è possibile ottenere Windows Server, versione 1709 visitando la [pagina di download di sottoscrittore di Visual Studio](https://my.visualstudio.com/downloads?pid=2347) e aver completato i download disponibili non esiste. Se non si è già un sottoscrittore, passare a [Sottoscrizioni di Visual Studio](https://www.visualstudio.com/subscriptions/) per registrarsi e quindi visitare la [pagina di download del Sottoscrittore di Visual Studio](https://my.visualstudio.com/downloads?pid=2347) come indicato in precedenza. Le versioni ottenute tramite le sottoscrizioni di Visual Studio sono esclusivamente a scopo di sviluppo e test.
 
 
 

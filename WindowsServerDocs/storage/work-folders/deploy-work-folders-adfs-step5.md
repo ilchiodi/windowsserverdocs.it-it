@@ -1,5 +1,5 @@
 ---
-title: 'Distribuire Cartelle di lavoro con AD FS e Proxy dell''applicazione Web: passaggio 5, configurare i client'
+title: "Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 5, configurare i client"
 ms.prod: windows-server-threshold
 ms.technology: storage-work-folders
 ms.topic: article
@@ -9,26 +9,27 @@ author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
 ms.openlocfilehash: fa8b2b15ff411a59b28308a329d7ca2341ef0886
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871942"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 5, configurare i client
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurazione client
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 Questo argomento descrive il quinto passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 3, configurare Cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 4, configurare Proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
   
 Utilizzare le procedure seguenti per configurare i client Windows aggiunti al dominio e non appartenenti a un dominio. È possibile utilizzare questi client per verificare se i file si sincronizzano correttamente tra Cartelle di lavoro dei client.  
   
@@ -45,17 +46,17 @@ Per installare i certificati, effettuare le seguenti operazioni:
   
 2.  Tipo **MMC**.  
   
-3.  Fai clic su **Aggiungi/Rimuovi snap-in** dal menu **File**.  
+3.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
-4.  Nella lista **Snap-in disponibili**, seleziona **Certificati**, quindi fai clic su **Aggiungi**. Verrà avviata la procedura guidata Snap-in certificati.  
+4.  Nella lista **Snap-in disponibili**, seleziona **Certificati**, quindi fai clic su **Aggiungi**. Verrà avviata la procedura guidata Snap\-in certificati.  
   
-5.  Seleziona **Account del computer** e quindi fai clic su **Avanti**.  
+5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
 6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
   
-7.  Fai clic su **OK**.  
+7.  Fare clic su **OK**.  
   
-8.  Expand the folder Console Root\Certificates\(Local Computer)\Personal\Certificates.  
+8.  Espandi la cartella Radice della console\Certificati\(Computer locale)\Personale\Certificati.  
   
 9. Fai clic con il pulsante destro del mouse su **Certificati**, fai clic su **Tutte le attività**, quindi fai clic su **Importa**.  
   
@@ -63,7 +64,7 @@ Per installare i certificati, effettuare le seguenti operazioni:
   
 11. Ripetere i passaggi 9 e 10, questa volta individuando il certificato di Cartelle di lavoro e importandolo.  
   
-12. Espandi la cartella Console Root\Certificates\(Local Computer)\Trusted Root Certification Authorities\Certificates.  
+12. Espandere la cartella Radice della console\Certificati\(Computer locale)\Autorità di certificazione radice attendibili\Certificati.  
   
 13. Fai clic con il pulsante destro del mouse su **Certificati**, fai clic su **Tutte le attività**, quindi fai clic su **Importa**.  
   
@@ -78,15 +79,15 @@ Per configurare cartelle di lavoro sul computer client, procedere come segue:
   
 2.  Fare clic su **Installa Cartelle di lavoro**.  
   
-3.  Nella pagina **Immettere l'indirizzo di posta elettronica di lavoro** immetti (ad esempio, user@contoso.com) o l'URL di Cartelle di lavoro (nell'esempio di test, https://workfolders.contoso.com), quindi fai clic su **Avanti**.  
+3.  Nel **immettere l'indirizzo di posta elettronica di lavoro** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test https://workfolders.contoso.com)e quindi fare clic su **successivo**.  
   
 4.  Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
   
-5.  In seguito all'autenticazione, viene visualizzata la pagina **Introduzione a Cartelle di lavoro**, in cui è possibile modificare facoltativamente il percorso della directory di Cartelle di lavoro. Fai clic su **Avanti**.  
+5.  In seguito all'autenticazione, viene visualizzata la pagina **Introduzione a Cartelle di lavoro**, in cui è possibile modificare facoltativamente il percorso della directory di Cartelle di lavoro. Fare clic su **Avanti**.  
   
-6.  Nella pagina **Criteri di sicurezza** vengono elencati i criteri di sicurezza configurati per Cartelle di lavoro. Fai clic su **Avanti**.  
+6.  Nella pagina **Criteri di sicurezza** vengono elencati i criteri di sicurezza configurati per Cartelle di lavoro. Fare clic su **Avanti**.  
   
-7.  Viene visualizzato un messaggio che informa che Cartelle di lavoro ha iniziata la sincronizzazione con il PC. Fai clic su **Chiudi**.  
+7.  Viene visualizzato un messaggio che informa che Cartelle di lavoro ha iniziata la sincronizzazione con il PC. Fare clic su **Chiudi**.  
   
 8.  La pagina **Gestisci Cartelle di lavoro** mostra lo spazio disponibile sul server, lo stato di sincronizzazione e così via. Se necessario, qui è possibile immettere nuovamente le credenziali. Chiudere la finestra.  
   
@@ -110,7 +111,7 @@ Il file host nel client non appartenente a un dominio deve essere aggiornato per
   
 Nell'esempio di test, usare questi valori:  
   
--  **10.0.0.10 cartellelavoro.contoso.com**  
+-  **10.0.0.10 workfolders.contoso.com**  
   
 -  **10.0.0.10 blueadfs.contoso.com**  
   
@@ -124,6 +125,6 @@ Quando si apre la nuova cartella di Cartelle di lavoro in questo client, è poss
 La procedura di distribuzione di Cartelle di lavoro, AD FS e Proxy applicazione Web tramite l'Interfaccia utente di Windows Server è conclusa.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Panoramica di Cartelle di lavoro](Work-Folders-Overview.md)  
+[Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
   
 

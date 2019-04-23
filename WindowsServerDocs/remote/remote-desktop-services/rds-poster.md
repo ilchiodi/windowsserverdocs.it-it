@@ -15,15 +15,15 @@ ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
 ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783633"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874142"
 ---
-# Poster di pianificazione per Servizi Desktop remoto
+# <a name="remote-desktop-services---planning-poster"></a>Poster di pianificazione per Servizi Desktop remoto
 
-## Servizi Desktop remoto in Windows Server
+## <a name="remote-desktop-services-in-windows-server"></a>Servizi Desktop remoto in Windows Server
 
 Il team di Servizi Desktop remoto ha creato un poster per aiutarti a pianificare, compilare ed eseguire il tuo ambiente Servizi desktop remoto.
 
@@ -31,12 +31,12 @@ Il team di Servizi Desktop remoto ha creato un poster per aiutarti a pianificare
 
 Puoi ottenere una copia del poster facendo clic con il pulsante destro del mouse sull'immagine e salvandola nel sistema locale.
 
-Vedi gli argomenti seguenti per altre informazioni sulla pianificazione:
+Consultare gli argomenti seguenti per altre informazioni sulla pianificazione:
 
-- [Pianificare e progettare la distribuzione di Servizi Desktop remoto](rds-plan-and-design.md)
-- [Compilare e distribuire Servizi Desktop remoto](rds-build-and-deploy.md)
-- [Eseguire e ottimizzare l'ambiente Servizi Desktop remoto](rds-run-and-tune.md)
+- [Pianificare e progettare la distribuzione di servizi desktop remoto](rds-plan-and-design.md)
+- [Compilare e distribuire servizi desktop remoto](rds-build-and-deploy.md)
+- [Eseguire e ottimizzare l'ambiente di servizi desktop remoto](rds-run-and-tune.md)
 
-## Windows Desktop virtuale
+## <a name="windows-virtual-desktop"></a>Desktop virtuale Windows
 
-Si potrebbe avere sentito parlare ci parleremo di una nuova "infrastruttura moderna" per Desktop remoto. Forse ascoltato ci Usa la frase "anche RDmi". La frase che devi conoscere è "Windows Virtual Desktop". Informazioni sulla virtualizzazione nuovo rendendo disponibile in [Microsoft 365 aggiunge moderna desktop in Azure](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) e la [presentazione di Ignite 2018 in Windows Desktop virtuali](https://www.youtube.com/watch?v=_7G37PFYVe4). Windows Desktop virtuale è attualmente in anteprima privata.
+Si è già stati uniti parlare di una nuova "moderna infrastruttura" per il Desktop remoto. Forse si è sentito parlare us usa la frase "RDmi." La frase che è necessario conoscere è "Windows Virtual Desktop". Informazioni su questo nuovo virtualization offerta nella [Microsoft 365 aggiunge desktop moderno in Azure](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) e il [presentazione di Ignite 2018 nel Desktop virtuale Windows](https://www.youtube.com/watch?v=_7G37PFYVe4). Desktop virtuale Windows è attualmente in anteprima privata.

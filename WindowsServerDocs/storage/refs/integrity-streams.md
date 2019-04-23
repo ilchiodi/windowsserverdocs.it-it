@@ -1,32 +1,33 @@
 ---
-title: "Flussi di integrità ReFS"
-description: 
+title: Flussi di integrità ReFS
+description: ''
 author: gawatu
 ms.author: jgerend
 manager: dmoss
-ms.date: 11/14/2016
+ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: d9e14e74591b341048316e9c2e69a312062c3304
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871342"
 ---
 # <a name="refs-integrity-streams"></a>Flussi di integrità ReFS
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale), Windows 10
 
 I flussi di integrità sono una funzionalità facoltativa di ReFS che convalida e mantiene l'integrità dei dati mediante l'uso di checksum. Anche se usa sempre checksum per i metadati, per impostazione predefinita ReFS non genera o convalida checksum per i dati di file. I flussi di integrità rappresentano una funzionalità opzionale che consente agli utenti di utilizzare i checksum per i dati dei file. Quando i flussi di integrità sono abilitati, ReFS può determinare chiaramente se i dati sono validi o danneggiati. Inoltre, ReFS e Spazi di archiviazione possono correggere congiuntamente i dati e i metadati danneggiati in modo automatico.
 
-## <a name="how-it-works"></a>Funzionamento 
+## <a name="how-it-works"></a>Come funziona 
 
 I flussi di integrità possono essere abilitati per file e directory individuali o per l'intero volume e le impostazioni di tali flussi possono essere attivate e disattivate in qualsiasi momento. Inoltre, le impostazioni dei flussi di integrità di file e directory vengono ereditate dalle directory padre. 
 
 Una volta abilitati i flussi di integrità, ReFS crea e gestisce un checksum per i file specificati nei metadati dei file stessi. Questo checksum permette a ReFS di convalidare l'integrità dei dati prima di accedervi. Prima di restituire dati per cui sono abilitati i flussi di integrità, ReFS ne calcola prima di tutto il checksum:
 
-<img src=media/compute-checksum.gif alt="Compute checksum for file data"/>
+![Il calcolo del checksum per i dati dei file](media/compute-checksum.gif)
 
 Questo checksum viene quindi confrontato con il checksum contenuto nei metadati dei file. Se i checksum corrispondono, i dati vengono contrassegnati come validi e restituiti all'utente. Se i checksum non corrispondono, i dati sono danneggiati. La resilienza del volume determina il modo in cui ReFS risponde alla situazione di danno.
 
@@ -37,7 +38,7 @@ Questo checksum viene quindi confrontato con il checksum contenuto nei metadati 
 
 ReFS registra tutti i danneggiamenti nel registro eventi di sistema, in cui viene indicato anche se i problemi sono stati corretti. 
 
-<img src=media/corrective-write.gif alt="Corrective write restores data integrity."/>
+![Scrittura di correzione Ripristina l'integrità dei dati](media/corrective-write.gif)
 
 ## <a name="performance"></a>Prestazioni 
 
@@ -92,8 +93,8 @@ PS C:\> Set-FileIntegrity H:\ -Enable $True
 PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
--   [Panoramica di ReFS](refs-overview.md)
--   [Clonazione dei blocchi ReFS](block-cloning.md)
--   [Panoramica di Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Cenni preliminari su reFS](refs-overview.md)
+-   [Clonazione dei blocchi reFS](block-cloning.md)
+-   [Panoramica di spazi diretti di archiviazione](../storage-spaces/storage-spaces-direct-overview.md)

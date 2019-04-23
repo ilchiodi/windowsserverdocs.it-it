@@ -1,0 +1,71 @@
+---
+title: flattemp
+description: 'Argomento i comandi di Windows per * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 059a0960-1fd9-4382-87fe-a85d5dccdaea
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 3fc14a6fe1a355f7c20c130fba3fb1f17e49b6f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872932"
+---
+# <a name="flattemp"></a>flattemp
+
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Abilita o disabilita le cartelle temporanee.
+Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+
+> [!NOTE]
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [novità in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+
+## <a name="syntax"></a>Sintassi
+```
+flattemp {/query | /enable | /disable}
+```
+
+## <a name="parameters"></a>Parametri
+|Parametro|Descrizione|
+|-------|--------|
+|/query|Richiede l'impostazione corrente.|
+|/Enable|Abilita cartelle temporanee. Gli utenti condivideranno la cartella temporanea, a meno che la cartella temporanea si trova nella home directory utente s.|
+|/Disable|Disabilita cartelle temporanee. Ogni cartella temporanea utente risiederà in una cartella separata (determinata dall'utente s ID sessione).|
+|/?|Visualizza la guida al prompt dei comandi.|
+
+## <a name="remarks"></a>Note
+-   Il **flattemp** comando è disponibile solo dopo aver installato il servizio ruolo Terminal Server in un computer che esegue Windows Server 2008 o il servizio ruolo Host sessione Desktop remoto in un computer che esegue Windows Server 2008 R2.
+-   È necessario disporre di credenziali amministrative per eseguire **flattemp**.
+-   Dopo ogni utente dispone di una cartella temporanea univoca, utilizzare **flattemp /enable** per abilitare le cartelle temporanee.
+-   Il metodo predefinito per la creazione di cartelle temporanee per più utenti (in genere indicate dalle variabili di ambiente TEMP e TMP) consiste nel creare sottocartelle di **\Temp** cartella, utilizzando l'ID di accesso come il nome della sottocartella. Ad esempio, se la variabile di ambiente TEMP punta a C:\Temp, la cartella temporanea assegnata per l'ID di accesso utente 4 è c:\Temp\4. Utilizzando **flattemp**, è possibile puntare direttamente alla cartella \Temp e impedire che le sottocartelle che compongono. Ciò è utile quando si desidera che le cartelle temporanee utente per essere contenuta nella home directory, in un'unità locale del server Host sessione Desktop remoto o in un'unità di rete condivisa. Si consiglia di utilizzare il **flattemp /enable** comando solo quando ogni utente dispone di una cartella temporanea separata.
+-   Se la cartella temporanea dell'utente è un'unità di rete, potrebbero verificarsi errori dell'applicazione. Ciò si verifica quando l'unità di rete condivise diventa temporaneamente inaccessibile in rete. Poiché i file temporanei dell'applicazione sono inaccessibili o all'esterno di sincronizzazione, il servizio risponde come se il disco è stato arrestato. Non è consigliabile spostare la cartella temporanea in un'unità di rete. Il valore predefinito è di mantenere le cartelle temporanee sul disco rigido locale. Se si verificano comportamenti imprevisti o errori di danneggiamento del disco con determinate applicazioni, stabilizzare la rete o riportare le cartelle temporanee per il disco rigido locale.
+-   Se si utilizzano cartelle temporanee per sessione, **flattemp** le impostazioni vengono ignorate. Questa opzione è impostata nello strumento di configurazione di Servizi Desktop remoto.
+
+## <a name="BKMK_examples"></a>Esempi
+-   Per visualizzare l'impostazione corrente per le cartelle temporanee, digitare:
+    ```
+    flattemp /query
+    ```
+-   Per abilitare le cartelle temporanee, digitare:
+    ```
+    flattemp /enable
+    ```
+-   Per disattivare le cartelle temporanee, digitare:
+    ```
+    flattemp /disable
+    ```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+
+[Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)

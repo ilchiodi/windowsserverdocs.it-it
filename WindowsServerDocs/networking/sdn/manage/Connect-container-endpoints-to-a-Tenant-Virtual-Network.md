@@ -1,6 +1,6 @@
 ---
-title: Contenitori di connettersi a una rete virtuale
-description: Questo argomento fa parte della Guida alla rete definita dal Software su come gestire carichi di lavoro Tenant e reti virtuali in Windows Server 2016.
+title: Connettere gli endpoint del contenitore a una rete virtuale del tenant
+description: In questo argomento viene illustrato come connettere gli endpoint del contenitore a una rete virtuale tenant esistente creata tramite SDN. Si utilizza il l2bridge (e facoltativamente l2tunnel) driver di rete disponibili con il plug-in di Windows libnetwork per Docker per creare una rete di contenitori nella macchina virtuale tenant.
 manager: ravirao
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,55 +12,63 @@ ms.topic: article
 ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
-ms.openlocfilehash: 801cf4b8f71935eb72d820d47e523a310fa64562
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/24/2018
+ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872742"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connettere gli endpoint del contenitore a una rete virtuale del tenant
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-In questo argomento Mostra come connettere gli endpoint del contenitore a una rete virtuale del tenant esistenti creata attraverso lo stack di Microsoft di rete SDN (Software Defined). Useremo il *l2bridge* (ed eventualmente *l2tunnel*) driver di rete disponibili con il plug-in di Windows libnetwork per Docker di creare una rete contenitore nella macchina virtuale (tenant) host contenitore.
+In questo argomento viene illustrato come connettere gli endpoint del contenitore a una rete virtuale tenant esistente creata tramite SDN. Si utilizza il *l2bridge* (e facoltativamente *l2tunnel*) driver di rete disponibili con il plug-in di Windows libnetwork per Docker per creare una rete di contenitori nella macchina virtuale tenant.
 
-Come descritto nel [rete contenitore](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking) argomento in MSDN, più driver di rete sono disponibili tramite Docker in Windows. I driver più adatti per SDN sono *l2bridge* e *l2tunnel *. Per entrambi i driver, ogni endpoint del contenitore è nella stessa subnet virtuale della macchina virtuale di contenitore host (tenant). Gli indirizzi IP per gli endpoint del contenitore vengono assegnati in modo dinamico per l'Host di rete servizio (SNPP) tramite il plug-in di cloud privato. Gli endpoint del contenitore dispongono di indirizzi IP univoci ma condividono lo stesso indirizzo MAC della macchina virtuale (tenant) host contenitore a causa di conversione dell'indirizzo di livello 2. Criteri di rete (ad esempio: incapsulamento, gli ACL e QoS) per questi endpoint del contenitore vengono imposte nell'host fisico Hyper-V come ricevute dal Controller di rete e definiti in sistemi di gestione di livello superiore. Esiste una leggera differenza tra il *l2bridge* e *l2tunnel* driver descritto di seguito.
+Nel [i driver di rete di contenitori](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) argomento discussa più driver di rete sono disponibili tramite Docker in Windows. Per la rete SDN, usare il *l2bridge* e *l2tunnel* driver. Per entrambi i driver, ogni endpoint del contenitore è nella stessa subnet virtuale come macchina virtuale (tenant) di host contenitore. 
 
-- **Bridge L2** -gli endpoint del contenitore che si trovano nella stessa macchina virtuale host contenitore e sono nella stessa subnet avere tutto il traffico di rete con bridging all'interno del commutatore virtuale Hyper-V. Gli endpoint del contenitore che si trovano in diversi host contenitore macchine virtuali o che sono in subnet diverse hanno il loro traffico inoltrato all'host fisico Hyper-V. Poiché il traffico di rete tra i contenitori nello stesso host e nella stessa subnet non vengono trasmessi all'host fisico, non viene applicato alcun criterio di rete. Criterio viene applicato solo per il traffico di rete tra host o tra subnet del contenitore.  
- 
-- **Tunnel L2** - *tutti* viene inoltrato il traffico di rete tra due endpoint contenitore all'host fisico Hyper-V indipendentemente dall'host o subnet. Criteri di rete viene applicato per il traffico di rete tra subnet e cross-host.   
+L'Host di rete Service (HNS), tramite il plug-in di cloud privato, assegna in modo dinamico gli indirizzi IP per gli endpoint del contenitore. Gli endpoint del contenitore hanno indirizzi IP univoci, ma condividono lo stesso indirizzo MAC della macchina virtuale (tenant) di host contenitore a causa di conversione degli indirizzi di livello 2. 
+
+Criteri di rete (ACL, l'incapsulamento e QoS) per questi endpoint contenitore sono applicati nell'host Hyper-V fisico come ricevuto dal Controller di rete e definiti nei sistemi di gestione di livello superiore. 
+
+La differenza tra il *l2bridge* e *l2tunnel* driver sono:
+
+| l2bridge | l2tunnel |
+| --- | --- |
+|Endpoint del contenitore che si trovano in: <ul><li>Lo stesso contenitore host macchina virtuale e nella stessa subnet ha tutto il traffico di rete con bridging nel commutatore virtuale Hyper-V. </li><li>Contenitore diverso ospitare le macchine virtuali o in subnet diverse hanno il traffico inoltrato all'host Hyper-V fisico. </li></ul>Criteri di rete non ottenere applicato poiché il traffico di rete tra i contenitori nello stesso host e nella stessa subnet non vengono indirizzate all'host fisico. Criteri di rete si applicano il traffico di rete di contenitori solo su cross-host o tra subnet. | *Tutti i* viene inoltrato il traffico di rete tra due endpoint di contenitore nell'host Hyper-V fisici indipendentemente dall'host o la subnet. Criteri di rete si applicano al traffico di rete tra subnet e cross-host. |
+---
 
 >[!NOTE]
->Tali modalità di rete non funzionano per gli endpoint del contenitore windows connessione a una rete virtuale tenant in Azure cloud pubblico
+>Queste modalità di rete non funzionano per gli endpoint del contenitore windows che si connette a una rete virtuale tenant nel cloud pubblico di Azure.
 
-## <a name="prerequistes"></a>Prerequisiti
- * È stata distribuita un'infrastruttura SDN con il Controller di rete
- * È stata creata una rete virtuale del tenant
- * Una macchina virtuale tenant è stata distribuita con la funzionalità contenitore di Windows abilitata, Docker installato e funzionalità di Hyper-V abilitato
+
+## <a name="prerequisites"></a>Prerequisiti
+-  Un'infrastruttura SDN distribuita con il Controller di rete.
+-  Una rete virtuale del tenant è stata creata.
+-  Una macchina virtuale tenant distribuito con la funzionalità contenitore di Windows abilitato, Docker installato e funzionalità di Hyper-V abilitato. La funzionalità di Hyper-V è necessaria installare i file binari diversi per le reti l2bridge e l2tunnel.
+
+   ```powershell
+   # To install HyperV feature without checks for nested virtualization
+   dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All 
+   ```
 
 >[!Note]
->[La virtualizzazione nidificata](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting) e l'esposizione di estensioni di virtualizzazione non è obbligatorio a meno che non è necessario per installare i file binari diverse per reti l2bridge e l2tunnel utilizzare funzionalità HyperV di contenitori di Hyper-V
+>[La virtualizzazione annidata](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) e che espone le estensioni di virtualizzazione non è obbligatorio a meno che non usano i contenitori di Hyper-V. 
 
-```powershell
-# To install HyperV feature without checks for nested virtualization
-dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All 
-```
-
- 
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-1. [Aggiungere più configurazioni IP a una risorsa VM NIC esistente tramite Controller di rete](#Add) (Host Hyper-V)
-2. [Abilitare il proxy di rete nell'host per allocare indirizzi IP CA per gli endpoint del contenitore](#Enable) (Host Hyper-V) 
-3. [Installare il plug-in per assegnare gli indirizzi IP CA per gli endpoint del contenitore del cloud privato](#Install) (macchina virtuale Host contenitore) 
-4. [Creare un *l2bridge* o *l2tunnel* rete usando docker](#Create) (macchina virtuale Host contenitore) 
+[1. Aggiungere più configurazioni IP a una risorsa NIC VM esistente tramite il Controller di rete (Host Hyper-V)](#1-add-multiple-ip-configurations)
+[2. Abilitare il proxy di rete nell'host per allocare indirizzi IP CA per gli endpoint del contenitore (Host Hyper-V) ](#2-enable-the-network-proxy) 
+ [3. Installare il plug-in per assegnare gli indirizzi IP CA agli endpoint del contenitore (macchina virtuale Host contenitore) di cloud privato ](#3-install-the-private-cloud-plug-in) 
+ [4. Creare un *l2bridge* oppure *l2tunnel* rete usando docker (macchina virtuale Host contenitore) ](#4-create-an-l2bridge-container-network)
  
 >[!NOTE]
->Più configurazioni di IP non è supportato in risorse NIC VM create tramite System Center Virtual Machine Manager. È consigliabile per questi tipi di distribuzioni che si crea la risorsa VM NIC fuori banda utilizzando PowerShell Controller di rete.
+>Più configurazioni IP non è supportato sulle risorse di VM NIC create tramite System Center Virtual Machine Manager. È consigliabile per questi tipi di distribuzioni che si crea la risorsa VM NIC fuori banda tramite PowerShell di Controller di rete.
 
-### <a name="Add"></a>1. aggiungere più configurazioni IP
-
-Per questo esempio, partiamo dal presupposto che la scheda NIC VM della macchina virtuale tenant è una configurazione IP con indirizzo IP del 192.168.1.9 già ed è collegata a un ID di risorsa di rete virtuale di 'VNet1' e delle risorse di Subnet VM di subnet '1' nella subnet IP 192.168.1.0/24. Verrà aggiunto da 192.168.1.101 - 192.168.1.110 10 indirizzi IP per i contenitori.
+### <a name="1-add-multiple-ip-configurations"></a>1. Aggiungere più configurazioni IP
+In questo passaggio si presuppone che la VM NIC della macchina virtuale tenant ha una configurazione IP con l'indirizzo IP di 192.168.1.9 e collegata a un ID risorsa della rete virtuale "VNet1" e risorsa VM Subnet "Subnet1" nella subnet IP 192.168.1.0/24. Aggiungiamo 10 indirizzi IP per i contenitori da 192.168.1.101 - 192.168.1.110.
 
 ```powershell
 Import-Module NetworkController
@@ -110,29 +118,27 @@ foreach ($i in 1..10)
 New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties $vmnic.Properties -ConnectionUri $uri
 ```
 
-### <a name="Enable"></a>2. abilitare il Proxy di rete
+### <a name="2-enable-the-network-proxy"></a>2. Abilitare il proxy di rete
+In questo passaggio si abilita il proxy di rete allocare più indirizzi IP per la macchina virtuale host contenitore. 
 
-[ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1>)
-
-Eseguire lo script al **Host Hyper-V** che ospita la macchina virtuale di contenitore host (tenant) per abilitare il proxy di rete allocare più indirizzi IP per la macchina virtuale host contenitore.
+Per abilitare il proxy di rete, eseguire la [ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) script il **Host Hyper-V** ospita la macchina virtuale host (tenant) di contenitore.
 
 ```powershell
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="Install"></a>3. installare plug-in Cloud privato
+### <a name="3-install-the-private-cloud-plug-in"></a>3. Installare il plug-in Cloud privato
+In questo passaggio si installa un plug-in per consentire il HNS comunicare con il proxy di rete nell'Host Hyper-V.
 
-[InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1)
+Per installare il plug-in, eseguire la [InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) script all'interno di **macchina virtuale host (tenant) del contenitore**.
 
-Eseguire lo script all'interno di **macchina virtuale host (tenant) di contenitore** per consentire il servizio di rete Host (SNPP) per comunicare con il proxy di rete nell'Host Hyper-V.
 
 ```powershell
 PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
-### <a name="Create"></a>4. creare un *l2bridge* rete contenitore
-
-Nel **macchina virtuale host (tenant) di contenitore** utilizzare il `docker network create`comando per creare una rete l2bridge
+### <a name="4-create-an-l2bridge-container-network"></a>4. Creare un *l2bridge* rete di contenitori
+In questo passaggio, Usa la `docker network create` comando il **macchina virtuale host (tenant) del contenitore** per creare una rete l2bridge. 
 
 ```powershell
 # Create the container network
@@ -143,8 +149,8 @@ C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 ```
 
 >[!NOTE]
->Assegnazione di IP statico non è supportato con *l2bridge* o *l2tunnel* contenitore reti quando si utilizza lo Stack di SDN Microsoft.
+>Assegnazione IP statico non è supportata con *l2bridge* oppure *l2tunnel* contenitore reti quando usato con lo Stack SDN di Microsoft.
 
 ## <a name="more-information"></a>Altre informazioni
-Per ulteriori infortation sulla distribuzione di un'infrastruttura SDN, vedere [distribuire un'infrastruttura di rete Software definito](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
+Per altre informazioni sulla distribuzione di un'infrastruttura SDN, vedere [distribuire un'infrastruttura Software Defined Network](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
 

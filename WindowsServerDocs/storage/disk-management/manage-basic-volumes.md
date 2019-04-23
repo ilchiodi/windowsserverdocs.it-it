@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: c75d887a6427673319999522b890d523f4276871
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870962"
 ---
 # <a name="manage-basic-volumes"></a>Gestire volumi di base
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un disco di base è un disco fisico contenente partizioni primarie, partizioni estese o unità logiche. Le partizioni e le unità logiche nei dischi di base sono note come volumi di base. È possibile creare volumi di base solo su dischi di base.
 
@@ -24,6 +25,6 @@ Un disco di base è un disco fisico contenente partizioni primarie, partizioni e
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Assegnare un percorso di cartella del punto di montaggio a un'unità](assign-a-mount-point-folder-path-to-a-drive.md)
--   [Estendere un volume di base](extend-a-basic-volume.md)
--   [Ridurre un volume di base](shrink-a-basic-volume.md)
+-   [Assegnare un percorso cartella del punto di montaggio in un'unità](assign-a-mount-point-folder-path-to-a-drive.md)
+-   [Estendere un Volume di base](extend-a-basic-volume.md)
+-   [Compattazione di un Volume di base](shrink-a-basic-volume.md)

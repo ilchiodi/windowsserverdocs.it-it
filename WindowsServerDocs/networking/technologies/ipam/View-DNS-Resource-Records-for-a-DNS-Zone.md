@@ -13,25 +13,26 @@ ms.topic: article
 ms.assetid: 375feefc-949e-47c3-9e61-35b79e021966
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 786c1ee8fd673bd17465ab9586dd1e0bcfd7971c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 9cd1184c9f9d603b82ac43829d4c8f7946f26561
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867982"
 ---
 # <a name="view-dns-resource-records-for-a-dns-zone"></a>Visualizzare i record di risorse DNS per una zona DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per visualizzare i record di risorse DNS per una zona DNS nella console del client di gestione indirizzi IP.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
 ### <a name="to-view-dns-resource-records-for-a-zone"></a>Per visualizzare i record di risorse DNS per una zona  
   
-1.  In Server Manager, fare clic su **gestione indirizzi IP**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager, fare clic su  **Gestione indirizzi IP**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **monitoraggio e gestione**, fare clic su **zone DNS**.  Riquadro di spostamento divide in un riquadro di spostamento superiore e un riquadro di spostamento inferiore.  
+2.  Nel riquadro di spostamento, in **MONITORAGGIO e GESTIONE**, fare clic su **zone DNS**.  Riquadro di spostamento viene suddivisa in un riquadro di spostamento superiore e un riquadro di navigazione inferiore.  
   
 3.  Nel riquadro di spostamento inferiore, fare clic su **ricerca diretta**, quindi espandere l'elenco di dominio e fuso orario per individuare e selezionare l'area in cui si desidera visualizzare. Ad esempio, se si dispone di una zona denominata Dublino, fare clic su **dublin**.  
   

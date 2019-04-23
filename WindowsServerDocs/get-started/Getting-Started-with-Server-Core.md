@@ -1,6 +1,6 @@
 ---
-title: Installare Server Core
-description: Come ottenere e installare un'installazione Server Core in Windows Server 2019, Windows Server 2016 o Windows Server (canale semestrale).
+title: Installare la versione Server Core
+description: Come ottenere e installare un'installazione Server Core in Windows Server (canale semestrale), Windows Server 2016 o Windows Server 2019.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,17 +15,17 @@ ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: d99cd0b028d08d5c3247541ce3a868676b60693d
-ms.sourcegitcommit: 7fc7271745e40f110c54918b55624cadd0d7ff98
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "8991798"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869022"
 ---
-# Installare Server Core
+# <a name="install-server-core"></a>Installare la versione Server Core
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
   
-Quando si installa Windows Server per la prima volta, sono disponibili le seguenti opzioni di installazione:
+Quando si installa Windows Server per la prima volta, sono disponibili le opzioni di installazione seguenti:
 
 >[!NOTE]
 > Nell'elenco seguente, le edizioni senza "Esperienza Desktop" sono le opzioni di installazione Server Core
@@ -35,7 +35,7 @@ Quando si installa Windows Server per la prima volta, sono disponibili le seguen
 -   Windows Server Datacenter
 -   Windows Server Datacenter con Esperienza desktop
 
-Quando si installa Windows Server (canale semestrale), incluse le versioni 1709 e 1803 1809, sono disponibili le seguenti opzioni di installazione:
+Quando si installa Windows Server (canale semestrale), incluse le versioni 1709 1803 e 1809, sono disponibili le opzioni di installazione seguenti:
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -52,17 +52,17 @@ Con l'opzione Server Core, l'interfaccia utente standard (Esperienza Desktop) no
 
 **Installare, configurare, disinstallare ruoli server in locale:** un prompt dei comandi con Windows PowerShell.
 
-**Installare, configurare, disinstallare ruoli server in modalità remota da un computer client Windows (o un server con esperienza Desktop installata):** con Server Manager, strumenti di amministrazione remota Server (RSAT), Windows PowerShell o Windows Admin Center.
+**Installare, configurare, disinstallare ruoli server in modalità remota da un computer client Windows (o un server con esperienza Desktop installato):** con Server Manager, strumenti di amministrazione remota Server (RSAT), Windows PowerShell o Windows Admin Center .
 
 >[!NOTE]
 >
->Per Strumenti di amministrazione remota del server è necessario usare la versione Windows 10.
+>Per gli Strumenti di amministrazione remota del server (RSAT), è necessario usare la versione di Windows 10.
 >Microsoft Management Console non è disponibile localmente.
 
 **Ruoli server di esempio disponibili:**
 
 - Servizi certificati Active Directory
-- Active Directory Domain Services
+- Servizi di dominio di Active Directory
 - Server DHCP
 - Server DNS
 - Servizi file (incluso Gestione risorse file server)
@@ -79,22 +79,22 @@ Con l'opzione Server Core, l'interfaccia utente standard (Esperienza Desktop) no
 - Virtualizzazione
 - Servizi di attivazione contratti multilicenza
 
-Per i ruoli non inclusi nel Server Core, vedi [ruoli, servizi ruolo e funzionalità non in Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
+Per i ruoli non inclusi in Server Core, vedere [ruoli, servizi ruolo e funzionalità non in Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
 
-## L'installazione in Windows Server 2019 o Windows Server 2016
+## <a name="installing-on-windows-server-2019-or-windows-server-2016"></a>Installazione in Windows Server 2016 o Windows Server 2019
 
-Per i passaggi generali di installazione e le opzioni per Windows Server (Long Term Servicing Channel), vedi [l'aggiornamento e installazione di Windows Server](installation-and-upgrade.md).
+Per passaggi di installazione generale e le opzioni per Windows Server (canale di manutenzione di lungo termine), vedere [installazione di Windows Server e di aggiornamento](installation-and-upgrade.md).
 
-## Installazione su Windows Server (canale semestrale)
+## <a name="installing-on-windows-server-semi-annual-channel"></a>Installazione in Windows Server (canale semestrale)
 
-Passaggi di installazione per Windows Server (canale semestrale) sono gli stessi come l'installazione delle versioni precedenti di Windows Server (da un. Immagine ISO), con le eccezioni seguenti:
+Passaggi di installazione per Windows Server (canale semestrale) sono le stesse di installazione di versioni precedenti di Windows Server (da una. Immagine ISO), con le eccezioni seguenti:
 - Non sono supportati aggiornamenti da versioni precedenti di Windows Server a Windows Server, versione 1709. Una nuova installazione è sempre obbligatoria.
-   Ciò significa che quando si esegue setup.exe dal desktop di un computer Windows, l'esperienza di installazione non consente l'opzione di aggiornamento (è disponibile).
-- Non esiste alcuna versione di valutazione per Windows Server (canale semestrale)
-- Non esiste alcun OEM o una versione definitiva. Windows Server (canale semestrale) può essere concesso in licenza solo mediante programmi Software Assurance o fedeltà.
+   Ciò significa che quando si esegue setup.exe dal desktop di un computer Windows, l'esperienza di installazione non supporta l'opzione di aggiornamento (disabilitato).
+- Nessuna versione di valutazione per Windows Server (canale semestrale)
+- Non esiste alcun OEM o una versione definitiva. Windows Server (canale semestrale) possono solo avere la licenza tramite Software Assurance o la fedeltà dei programmi.
 
 Per ottenere Windows Server versione 1709, vedere [Introduzione a Windows Server, versione 1709](get-started-with-1709.md).
 
 Per ottenere Windows Server versione 1803, vedere [Introduzione a Windows Server, versione 1803](get-started-with-1803.md).
 
-Per novità in Windows Server, versione 1809, vedi [Novità in Windows Server versione 1809](whats-new-in-windows-server-1809.md)
+Per informazioni su quali sono le novità in Windows Server, versione 1809, vedere [What ' s New in Windows Server versione 1809](whats-new-in-windows-server-1809.md)

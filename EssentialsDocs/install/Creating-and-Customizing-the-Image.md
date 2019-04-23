@@ -13,18 +13,19 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 5d1ec05a5164bf2a870cb5bfb083561a8b23f55f
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869952"
 ---
 # <a name="creating-and-customizing-the-image"></a>Creazione e personalizzazione dell'immagine
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Questa sezione descrive alcuni aspetti del processo di personalizzazione che sono specifici di Windows Server Essentials. È in genere eseguire queste procedure nel computer di riferimento con un file di risposte, prima di acquisire l'immagine per la distribuzione finale.  
+In questa sezione descrive gli aspetti del processo di personalizzazione specifici di Windows Server Essentials. Solitamente queste procedure vengono eseguite sul computer di riferimento con un file di risposte, prima di catturare l'immagine per la distribuzione finale.  
   
- In questa sezione include gli argomenti seguenti:  
+ Questa sezione include gli argomenti seguenti:  
   
 
 -   [Creare un'immagine personalizzata semplice](Create-a-Simple-Customized-Image.md)  
