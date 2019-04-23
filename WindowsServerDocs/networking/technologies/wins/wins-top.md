@@ -1,6 +1,6 @@
 ---
 title: Windows Internet Name Service (WINS)
-description: In questo argomento fornisce informazioni sulla rimozione delle autorizzazioni WINS e l'utilizzo di DNS per i servizi di risoluzione dei nomi nella rete.
+description: In questo argomento vengono fornite informazioni sulla rimozione delle autorizzazioni WINS e l'uso di DNS per i servizi di risoluzione dei nomi nella rete.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,20 +8,21 @@ ms.topic: article
 ms.assetid: 32eabe7d-1130-4001-a79a-8ddb31993e5b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5a3d132ada7b1ede83b046499058399a9da12190
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: bbc1871d29021aa3c99f14368a4711dac63f4cee
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843632"
 ---
 #  <a name="windows-internet-name-service-wins"></a>Windows Internet Name Service (WINS)
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Windows Internet Name Service (WINS) è un computer legacy nome risoluzione e registrazione del servizio che esegue il mapping di nomi computer NetBIOS in indirizzi IP.
+WINS (Windows Internet Name Service) è un servizio legacy di registrazione e risoluzione dei nomi di computer che esegue il mapping dei nomi NetBIOS dei computer a indirizzi IP.
 
-Se non si dispone già di WINS distribuito nella rete, non distribuire WINS, invece, distribuire \(DNS\) Domain Name System. DNS anche fornisce servizi di registrazione e risoluzione dei nomi di computer e include molti altri vantaggi tramite WINS, ad esempio l'integrazione con servizi di dominio Active Directory.
+Se non hai già WINS distribuito nella rete, non distribuiscono WINS, in alternativa, distribuire Domain Name System \(DNS\). DNS inoltre fornisce servizi di registrazione e risoluzione dei nomi di computer e include molti altri vantaggi su WINS, come l'integrazione con Active Directory Domain Services.
 
-Per ulteriori informazioni, vedere [sistema DNS (Domain Name)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+Per altre informazioni, vedere [sistema DNS (Domain Name)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
-Se è già stato distribuito WINS nella rete, è consigliabile distribuire DNS e quindi rimuovere WINS.
+Se è già stata distribuita WINS sulla rete, si consiglia di DNS di distribuzione e quindi rimuovere le autorizzazioni WINS.

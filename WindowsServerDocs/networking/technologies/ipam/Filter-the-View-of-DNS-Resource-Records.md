@@ -13,54 +13,55 @@ ms.topic: article
 ms.assetid: 5b80294a-7325-476b-84eb-69f0d051e8b2
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 35c0e822daa9f2c8c49ae7e6f2f40ec0411cb6fa
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: fed5e1f923d3560b91f514d1e59d79b847557c8b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847802"
 ---
 # <a name="filter-the-view-of-dns-resource-records"></a>Filtrare la visualizzazione dei record di risorse DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per filtrare la visualizzazione di record di risorse DNS nella console del client di gestione indirizzi IP.  
+È possibile utilizzare questo argomento per filtrare la visualizzazione di record di risorse DNS nella console di gestione indirizzi IP client.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
-### <a name="to-filter-the-view-of-dns-resource-records"></a>Per filtrare la visualizzazione dei record di risorse DNS  
+### <a name="to-filter-the-view-of-dns-resource-records"></a>Per filtrare la visualizzazione di record di risorse DNS  
   
-1.  In Server Manager, fare clic su **gestione indirizzi IP**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager, fare clic su  **Gestione indirizzi IP**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **monitoraggio e gestione**, fare clic su **zone DNS**.  Riquadro di spostamento divide in un riquadro di spostamento superiore e un riquadro di spostamento inferiore.  
+2.  Nel riquadro di spostamento, in **MONITORAGGIO e GESTIONE**, fare clic su **zone DNS**.  Riquadro di spostamento viene suddivisa in un riquadro di spostamento superiore e un riquadro di navigazione inferiore.  
   
-3.  Nel riquadro di spostamento inferiore, fare clic su **ricerca diretta**. Tutti gestiti da Gestione indirizzi IP DNS zone di ricerca diretta vengono visualizzate nei risultati della ricerca del riquadro visualizzato.  
+3.  Nel riquadro di spostamento inferiore, fare clic su **ricerca diretta**. Tutti gestito tramite Gestione indirizzi IP DNS zone di ricerca diretta vengono visualizzate nei risultati della ricerca del riquadro visualizzato.  
   
-4.  Fare clic sulla zona cui si desidera visualizzare e filtrare i record.  
+4.  Fare clic sulla zona di cui si desidera visualizzare e filtrare i record.  
   
-5.  Nel riquadro informazioni fare clic su **visualizzazione corrente**, quindi fare clic su **record di risorse**. I record di risorse per la zona vengono visualizzati nel riquadro di visualizzazione.  
+5.  Nel riquadro informazioni fare clic su **visualizzazione corrente**, quindi fare clic su **record di risorse**. I record di risorse per la zona vengono visualizzati nel riquadro informazioni.  
   
-6.  Nel riquadro informazioni fare clic su **aggiungere criteri**.  
+6.  Nel riquadro informazioni fare clic su **Aggiungi criteri**.  
   
-    ![Aggiungere criteri](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_01.jpg)  
+    ![Aggiungi criteri](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_01.jpg)  
   
-7.  Selezionare un criterio dall'elenco a discesa. Ad esempio, se si desidera visualizzare un tipo di record specifici, fare clic su **tipo di Record**.  
+7.  Seleziona un criterio dall'elenco a discesa. Ad esempio, se si desidera visualizzare un tipo di record specifici, fare clic su **tipo di Record**.  
   
-    ![Selezionare un criterio](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_02.jpg)  
+    ![Seleziona un criterio](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_02.jpg)  
   
-8.  Fare clic su **aggiungere**.  
+8.  Fai clic su **Aggiungi**.  
   
     ![Aggiungere i criteri](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_03.jpg)  
   
-9. **Tipo di record** viene aggiunto come parametro di ricerca. Immettere il testo per il tipo di record che si desidera trovare. Ad esempio, se si desidera visualizzare solo i record SRV, digitare **SRV**.  
+9. **Tipo di record** viene aggiunto come un parametro di ricerca. Immettere il testo per il tipo di record che si desidera trovare. Ad esempio, se si desidera visualizzare solo i record SRV, digitare **SRV**.  
   
     ![Specificare il tipo di record che si desidera trovare](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_04.jpg)  
   
-10. Premere INVIO. I record di risorse DNS vengono filtrati in base ai criteri e cercare la frase specificata.  
+10. Premere INVIO. I record risorsa DNS sono filtrati in base ai criteri e cercare una frase che è stato specificato.  
   
     ![Eseguire il filtro](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_05.jpg)  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestione Record di risorse DNS](DNS-Resource-Record-Management.md)  
+[Gestione dei Record risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire gestione indirizzi IP](Manage-IPAM.md)  
   
 

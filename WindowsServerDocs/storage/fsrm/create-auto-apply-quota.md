@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847922"
 ---
 # <a name="create-an-auto-apply-quota"></a>Creare una quota automatica
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Utilizzando le quote automatiche, è possibile assegnare un modello quota a un volume o cartella padre. Quindi Gestione risorse file server genera automaticamente le quote basate su tale modello. Le quote vengono generate per tutte le sottocartelle esistenti e per le sottocartelle che verranno create in futuro.
 
@@ -34,12 +35,12 @@ Ad esempio, è possibile definire una quota automatica per le sottocartelle crea
 
 5.  In **Deriva proprietà dal modello quota seguente**, selezionare il modello quota che si desidera applicare dall'elenco a discesa. Si noti che vengono visualizzate le proprietà di ciascun modello in **Riepilogo proprietà quota**.
 
-6.  Fai clic su **Crea**.
+6.  Fare clic su **Crea**.
 
 > [!Note]
 > È possibile verificare tutte le quote generate automaticamente selezionando il nodo **Quote** e quindi selezionando **Aggiorna**. Vengono elencate una singola quota per ogni sottocartella e il profilo della quota automatica nel volume o nella cartella padre.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle quote](quota-management.md)
--   [Modificare le proprietà delle quote automatiche](edit-auto-apply-quota-properties.md)
+-   [Quota Management](quota-management.md)
+-   [Modifica automaticamente le proprietà delle quote](edit-auto-apply-quota-properties.md)

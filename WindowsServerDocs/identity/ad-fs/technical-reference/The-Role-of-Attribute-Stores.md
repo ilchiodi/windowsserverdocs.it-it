@@ -1,7 +1,7 @@
 ---
 ms.assetid: 4ddb927d-d65e-491d-840a-16049c083d13
-title: Il ruolo degli archivi attributi
-description: 
+title: Ruolo degli archivi attributi
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,36 +10,37 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 730411ed7efbb9cf0db3d7e94a486cec4c363849
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860412"
 ---
  >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-# <a name="the-role-of-attribute-stores"></a>Il ruolo degli archivi attributi
-Active Directory Federation Services viene utilizzato il termine "archivio attributi" per fare riferimento a una directory o i database che un'organizzazione Usa per archiviare gli account utente e i relativi valori di attributo associato. Dopo che è configurato in un'organizzazione di provider di identità, ADFS recupera questi valori di attributo dall'archivio e crea attestazioni in base a tali informazioni in modo che un'applicazione Web o un servizio ospitato in un'organizzazione con relying party possa prendere le decisioni di autorizzazione appropriata ogni volta che un utente federato \ (un utente il cui account è archiviato in organization\ di provider di identità) tenta di accedere all'applicazione o servizio.  
+# <a name="the-role-of-attribute-stores"></a>Ruolo degli archivi attributi
+Active Directory Federation Services viene utilizzato il termine "archivio attributi" per fare riferimento alla directory o i database usati da un'organizzazione per archiviare gli account utente e i relativi valori di attributo associati. Dopo averlo configurato in un'organizzazione di provider di identità, AD FS recupera i valori degli attributi dall'archivio e crea attestazioni basate su tali informazioni in modo che un'applicazione Web o un servizio ospitato in un'organizzazione relying party possa prendere appropriato le decisioni di autorizzazione ogni volta che un utente federato \(un utente il cui account è archiviato nell'organizzazione del provider di identità\) tenta di accedere all'applicazione o servizio.  
   
-Per ulteriori informazioni su come vengono generate le attestazioni, vedere [il ruolo di attestazioni](The-Role-of-Claims.md).  
+Per altre informazioni su come vengono generate le attestazioni, vedere [The Role of Claims](The-Role-of-Claims.md).  
   
-## <a name="how-attribute-stores-fit-in-with-your-ad-fs-deployment-goals"></a>Come gli archivi attributi rispondono gli obiettivi di distribuzione di ADFS  
-Il percorso dell'archivio attributi utente e la posizione da cui gli utenti si autenticano determinano come progettare ADFS per supportare le identità utente. A seconda di dove si trova l'archivio di attributi e in cui gli utenti potranno accedere all'applicazione \ (una intranet o l'Internet), è possibile utilizzare uno degli obiettivi di distribuzione seguenti:  
+## <a name="how-attribute-stores-fit-in-with-your-ad-fs-deployment-goals"></a>Come gli archivi attributi rispondono agli obiettivi di distribuzione di AD FS  
+Il percorso dell'archivio attributi utente e la posizione da cui eseguire l'autenticazione degli utenti determinano la modalità di progettazione di ADFS per supportare le identità utente. A seconda di dove si trova l'archivio di attributi e in cui gli utenti accedono all'applicazione \(in una rete intranet o Internet\), è possibile usare uno degli obiettivi di distribuzione seguenti:  
   
--   [Fornire l'accesso ad Active Directory gli utenti a Your Claims-Aware Applications and Services](https://technet.microsoft.com/library/dd807071.aspx): In questo obiettivo gli utenti dell'organizzazione accedono a un'applicazione protetta con ADFS di Active Directory o un servizio \ (la propria applicazione o servizio o un partner applicazione o Service \) quando gli utenti sono connessi ad Active Directory nella intranet aziendale.  
+-   [Fornire l'accesso ad Active Directory gli utenti ai servizi e Your Claims-Aware Applications](https://technet.microsoft.com/library/dd807071.aspx): In questo obiettivo gli utenti dell'organizzazione accedere a un'applicazione AD protetta con ADFS o un servizio \(le proprie applicazioni o servizi o un oggetto applicazione o un servizio del partner\) quando gli utenti sono connessi ad Active Directory nella intranet aziendale.  
   
--   [Fornire l'accesso ad Active Directory gli utenti per le applicazioni e servizi di altre organizzazioni](https://technet.microsoft.com/library/dd807123.aspx): In questo obiettivo gli utenti dell'organizzazione accedono a un'applicazione protetta con ADFS di Active Directory o un servizio \ (la propria applicazione o servizio o un partner applicazione o Service \) quando gli utenti sono connessi a un archivio attributi nella intranet aziendale e quando effettuano l'accesso remoto da Internet.  
+-   [Fornire l'accesso ad Active Directory gli utenti alle applicazioni e servizi di altre organizzazioni](https://technet.microsoft.com/library/dd807123.aspx): In questo obiettivo gli utenti dell'organizzazione accedere a un'applicazione AD protetta con ADFS o un servizio \(le proprie applicazioni o servizi o un oggetto applicazione o un servizio del partner\) quando gli utenti sono connessi a un archivio attributi nella intranet aziendale e quando effettuano l'accesso remoto da Internet.  
   
--   [Fornire agli utenti in un'altra organizzazione l'accesso a servizi e delle applicazioni in grado di riconoscere attestazioni](https://technet.microsoft.com/library/dd807099.aspx): In questo obiettivo gli account utente in un'altra organizzazione che si trovano in un archivio attributi nella intranet aziendale dell'organizzazione che devono accedere a un'applicazione protetta con ADFS nell'organizzazione. Questo obiettivo funziona anche quando è necessario specificare gli account utente basati su consumer\ che si trovano in un archivio attributi nella rete perimetrale dell'organizzazione con accesso a un'applicazione protetta con ADFS nell'organizzazione Active Directory.  
+-   [Fornire agli utenti in un'altra organizzazione l'accesso ai servizi e Your Claims-Aware Applications](https://technet.microsoft.com/library/dd807099.aspx): In questo obiettivo, gli account utente in un'altra organizzazione che si trovano in un archivio attributi nella intranet aziendale dell'organizzazione devono accedere a un AD FS: protetti dell'applicazione all'interno dell'organizzazione. Questo obiettivo funziona anche quando consumer\-è necessario specificare gli account utente in base che si trovano in un archivio attributi nella rete perimetrale dell'organizzazione con accesso a un'istanza di AD applicazione protetta con ADFS nell'organizzazione.  
   
-A seconda della posizione dell'archivio attributi e altri requisiti dell'organizzazione, è possibile combinare più obiettivi di distribuzione per completare la progettazione della distribuzione di ADFS.  
+A seconda della posizione dell'archivio attributi e altri requisiti dell'organizzazione, è possibile combinare più obiettivi di distribuzione per completare la progettazione della distribuzione di AD FS.  
   
-## <a name="attribute-stores-that-are-supported-by-ad-fs"></a>Sono supportati da AD FS archivi attributi  
-ADFS supporta un'ampia gamma di directory e database archivia che è possibile utilizzare per l'estrazione degli attributi definiti dal administrator\ e popolare le attestazioni con tali valori. ADFS supporta le seguenti directory o database come gli archivi di attributi:  
+## <a name="attribute-stores-that-are-supported-by-ad-fs"></a>Archivi attributi supportati da AD FS  
+ADFS supporta un'ampia gamma di directory e database sono archiviati che è possibile usare per l'estrazione amministratore\-definiti i valori di attributo e popolare le attestazioni con tali valori. ADFS supporta le directory seguenti o i database come archivi attributi:  
   
--   Active Directory in Windows Server 2003, Active Directory Domain Services \(AD DS\) in Windows Server 2008, servizi di dominio Active Directory in Windows Server 2012 e 2012 R2 e Windows Server 2016. 
+-   Active Directory in Windows Server 2003, Active Directory Domain Services \(Active Directory Domain Services\) in Windows Server 2008, Active Directory Domain Services in Windows Server 2012 e 2012 R2 e Windows Server 2016. 
   
 -   Tutte le edizioni di Microsoft SQL Server 2005, SQL Server 2008, SQL Server 2012, SQL Server 2014 e SQL Server 2016  
   
--   Archivi di attributi personalizzati  
+-   Archivi attributi personalizzati  
   
 

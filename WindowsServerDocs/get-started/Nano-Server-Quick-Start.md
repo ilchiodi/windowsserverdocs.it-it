@@ -12,11 +12,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 488d0bed661cf2078d20e491a8c68b2a29a42b73
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082278"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859522"
 ---
 # <a name="nano-server-quick-start"></a>Avvio rapido di Nano Server
 
@@ -37,15 +37,15 @@ Per creare un VHD Nano Server che verrà eseguito in una macchina virtuale, segu
   
 1.  Copiare la cartella *NanoServerImageGenerator* dalla cartella \NanoServer dell'immagine ISO di Windows Server 2016 in una cartella presente sul disco rigido.  
   
-2.  Avviare Windows PowerShell come amministratore, passare alla cartella in cui è stata posizionata la cartella NanoServerImageGenerator e quindi importare il modulo con `Import-Module .\NanoServerImageGenerator -Verbose`  
+2.  Avviare Windows PowerShell come amministratore, passare alla directory alla cartella in cui si hanno effettuato la cartella NanoServerImageGenerator e quindi importare il modulo con `Import-Module .\NanoServerImageGenerator -Verbose`  
 >[!NOTE]  
 >Può essere necessario modificare i criteri di esecuzione di Windows PowerShell. `Set-ExecutionPolicy RemoteSigned` dovrebbe funzionare correttamente.  
   
 3.  Creare un VHD per l'edizione Standard che imposti un nome di computer e includa i **driver guest** Hyper-V eseguendo il comando riportato di seguito. Tale comando richiederà una password amministratore per il nuovo VHD:  
   
-    `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerVM\NanoServerVM.vhd -ComputerName <computer name>` dove  
+    `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerVM\NanoServerVM.vhd -ComputerName <computer name>` In cui  
   
-    -   **-MediaPath <percorso della radice dei supporti\>** specifica un percorso della radice del contenuto dell'immagine ISO di Windows Server 2016. Se ad esempio i contenuti dell'immagine ISO sono stati copiati in d:\TP5ISO, è necessario usare tale percorso.  
+    -   **-MediaPath <path to root of media\>** specifica un percorso alla radice del contenuto dell'immagine ISO di Windows Server 2016. Se ad esempio i contenuti dell'immagine ISO sono stati copiati in d:\TP5ISO, è necessario usare tale percorso.  
   
     -   **-BasePath**: (facoltativo) specifica una cartella in cui verranno copiati il file WIM e i pacchetti di Nano Server.  
   
@@ -78,16 +78,16 @@ Per creare un VHD Nano Server che verrà eseguito in una macchina virtuale, segu
   
 1.  Copiare la cartella *NanoServerImageGenerator* dalla cartella \NanoServer dell'immagine ISO di Windows Server 2016 in una cartella presente sul disco rigido.  
   
-2.  Avviare Windows PowerShell come amministratore, passare alla cartella in cui è stata posizionata la cartella NanoServerImageGenerator e quindi importare il modulo con `Import-Module .\NanoServerImageGenerator -Verbose`  
+2.  Avviare Windows PowerShell come amministratore, passare alla directory alla cartella in cui si hanno effettuato la cartella NanoServerImageGenerator e quindi importare il modulo con `Import-Module .\NanoServerImageGenerator -Verbose`  
   
 >[!NOTE]  
 >Può essere necessario modificare i criteri di esecuzione di Windows PowerShell. `Set-ExecutionPolicy RemoteSigned` dovrebbe funzionare correttamente.  
   
 3.  Creare un VHD che imposti un nome di computer e includa i driver OEM e Hyper-V eseguendo il comando riportato di seguito. Tale comando richiederà una password amministratore per il nuovo VHD:  
   
-    `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.vhd -ComputerName <computer name> -OEMDrivers -Compute -Clustering` dove  
+    `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.vhd -ComputerName <computer name> -OEMDrivers -Compute -Clustering` In cui  
   
-    -   **-MediaPath <percorso della radice dei supporti\>** specifica un percorso della radice del contenuto dell'immagine ISO di Windows Server 2016. Se ad esempio i contenuti dell'immagine ISO sono stati copiati in d:\TP5ISO, è necessario usare tale percorso.  
+    -   **-MediaPath <path to root of media\>** specifica un percorso alla radice del contenuto dell'immagine ISO di Windows Server 2016. Se ad esempio i contenuti dell'immagine ISO sono stati copiati in d:\TP5ISO, è necessario usare tale percorso.  
   
     -   **BasePath**: specifica una cartella in cui verranno copiati il file WIM e i pacchetti di Nano Server WIM. Questo parametro è facoltativo.  
   

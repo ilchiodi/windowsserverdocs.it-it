@@ -13,27 +13,28 @@ ms.topic: article
 ms.assetid: a35164e1-11ad-47c8-9843-580d30c70d07
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3e7cc75017c2b59293a042d4af0a677d3eda46c0
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b632203289c3affd16735026e0c553be09c5e9e6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847442"
 ---
 # <a name="edit-a-dns-zone"></a>Modificare una zona DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-You can use this topic to edit a DNS zone in the IPAM client console.  
+È possibile utilizzare questo argomento per modificare una zona DNS nella console di gestione indirizzi IP client.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
-### <a name="to-edit-a-dns-zone"></a>To edit a DNS zone  
+### <a name="to-edit-a-dns-zone"></a>Per modificare una zona DNS  
   
-1.  In Server Manager, click **IPAM**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager fare clic su **IPAM**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **monitoraggio e gestione**, fare clic su **zone DNS**. Riquadro di spostamento divide in un riquadro di spostamento superiore e un riquadro di spostamento inferiore.  
+2.  Nel riquadro di spostamento, in **MONITORAGGIO e GESTIONE**, fare clic su **zone DNS**. Riquadro di spostamento viene suddivisa in un riquadro di spostamento superiore e un riquadro di navigazione inferiore.  
   
-3.  Nel riquadro di spostamento inferiore, effettuare una delle opzioni seguenti:  
+3.  Nel riquadro di spostamento inferiore, apportare una delle seguenti selezioni:  
   
     -   Ricerca diretta  
   
@@ -41,23 +42,23 @@ Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo 
   
     -   Ricerca inversa IPv6  
   
-4.  For example, select IPv4 Reverse Lookup.  
+4.  Ad esempio, selezionare una ricerca inversa IPv4.  
   
-    ![Select a zone type](../../media/Edit-a-DNS-Zone/ipam_EditZone_01.jpg)  
+    ![Selezionare un tipo di zona](../../media/Edit-a-DNS-Zone/ipam_EditZone_01.jpg)  
   
-5.  In the display pane, right-click the zone that you want to edit, and then click **Edit DNS Zone**.  
+5.  Nel riquadro di visualizzazione, pulsante destro del mouse la zona che si desidera modificare e quindi fare clic su **zona di DNS modifica**.  
   
-    ![Edit DNS Zone](../../media/Edit-a-DNS-Zone/ipam_EditZone_02.jpg)  
+    ![Zona di DNS di modifica](../../media/Edit-a-DNS-Zone/ipam_EditZone_02.jpg)  
   
-6.  The **Edit DNS Zone** dialog box opens with the **General** page selected. If needed, edit the General zone properties: **DNS server**, **Zone category**, and **Zone type**, and then click **Apply** or, if your edits are complete, **OK**.  
+6.  Il **zona di DNS di modifica** verrà visualizzata la finestra di dialogo con la **generali** pagina selezionata. Se necessario, modificare le proprietà generali della zona: **Server DNS**, **categoria zona**, e **tipo di zona**, quindi fare clic su **applica** oppure, se sono state completate, tutte le modifiche **OK**.  
   
-    ![Edit zone properties and save](../../media/Edit-a-DNS-Zone/ipam_EditZone_03a.jpg)  
+    ![Modificare le proprietà di zona e salvare](../../media/Edit-a-DNS-Zone/ipam_EditZone_03a.jpg)  
   
-7.  In the **Edit DNS Zone** dialog box, click **Advanced**. The **Advanced** zone properties page opens. If needed, edit the properties that you want to change, and then click **Apply** or, if your edits are complete, **OK**.  
+7.  Nel **zona di DNS di modifica** finestra di dialogo, fare clic su **avanzate**. Il **avanzate** verrà visualizzata la pagina delle proprietà delle zone. Se necessario, modificare le proprietà che si desidera modificare e quindi fare clic su **Apply** oppure, se sono state completate, tutte le modifiche **OK**.  
   
-    ![Edit advanced zone properties](../../media/Edit-a-DNS-Zone/ipam_EditZone_04a.jpg)  
+    ![Modificare le proprietà avanzate di zona](../../media/Edit-a-DNS-Zone/ipam_EditZone_04a.jpg)  
   
-8.  If needed, select the additional zone properties page names (Name Servers, SOA, Zone Transfers), make your edits, and click **Apply** or **OK**. To review all of your zone edits, click **Summary**, and then click **OK**.  
+8.  Se necessario, selezionare i nomi di pagina delle proprietà di zona aggiuntive (server dei nomi, SOA, i trasferimenti di zona), apportare le modifiche desiderate e fare clic su **Apply** oppure **OK**. Per esaminare tutte le modifiche desiderate fuso, fare clic su **Summary**, quindi fare clic su **OK**.  
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestire le Zone DNS](DNS-Zone-Management.md)  

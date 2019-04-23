@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure and SDN
-description: È possibile utilizzare questo argomento contiene informazioni sulle tecnologie di rete SDN (Software Defined) che sono disponibili in Microsoft Azure.
+title: Microsoft Azure e SDN
+description: È possibile utilizzare questo argomento per apprendere le tecnologie di rete SDN (Software Defined) che sono disponibili in Microsoft Azure.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,20 +12,21 @@ ms.topic: article
 ms.assetid: 79e87013-7f27-4031-8383-288bcb291731
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5edca4e83fd919562e6864c18da1e01ac87879cb
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 4988285ab19d8d3a5e2880a75386ead7eef8b731
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59864832"
 ---
 # <a name="microsoft-azure-and-software-defined-networking"></a>Microsoft Azure e Software Defined Networking
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Microsoft Azure è la piattaforma cloud di Microsoft: una raccolta crescente di servizi integrati - calcolo, archiviazione, dati, rete e app - che consentono di spostare più velocemente, lavorare di più e risparmiare denaro.  
+Microsoft Azure è una piattaforma cloud Microsoft: una raccolta in continua crescita di servizi integrati - calcolo, archiviazione, dati, rete e app, che consentono essere più veloce, maggiore produttività e risparmiare denaro.  
   
-Approccio di Microsoft a software definito networking include progettazione, compilazione e gestione di reti di Data Center su scala globale per servizi come Microsoft Azure. Data Center globali di Microsoft Azure eseguire decine di migliaia di modifiche alla rete ogni giorno, che è possibile solo grazie a funzionalità di rete definite da software.  
+L'approccio di Microsoft a software definito networking include progettazione, compilazione e gestione di reti di Data Center su scala globale per servizi come Microsoft Azure. I data center globali di Microsoft Azure apportano ogni giorno decine di migliaia di modifiche alla rete e questo è possibile solo grazie a Software Defined Networking.  
   
-Microsoft Azure viene eseguito nel Server Windows stesso e piattaforma Hyper-V incluse in Windows Server. Windows Server e System Center includono miglioramenti e le procedure consigliate dell'esperienza di Microsoft nella gestione di reti di Data Center su scala globale come Microsoft Azure per l'utente in modo che quando si utilizza software progettato tecnologie di rete, è possibile distribuire le stesse tecnologie flessibilità, automazione e controllo.  
+Microsoft Azure viene eseguito sulle stesse piattaforme Windows Server e Hyper-V incluse in Windows Server. Windows Server e System Center includono miglioramenti e le procedure consigliate di esperienza Microsoft nella gestione di reti di Data Center su scala globale come Microsoft Azure per l'utente in modo da poter distribuire le stesse tecnologie per la flessibilità, automazione e controllo Quando si usano tecnologie di rete software progettato.  
   
-For more information, see [What is Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/?WT.mc_id=azurebg_us_sem_bing_br_nontest_whatisazure_whatisazure&WT.srch=1).  
+Per altre informazioni, vedere [cos'è Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/?WT.mc_id=azurebg_us_sem_bing_br_nontest_whatisazure_whatisazure&WT.srch=1).  

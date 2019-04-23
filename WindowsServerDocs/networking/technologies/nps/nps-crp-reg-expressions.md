@@ -1,6 +1,6 @@
 ---
-title: Usare le espressioni regolari in Criteri di rete
-description: Questo argomento illustra l'uso delle espressioni regolari di corrispondenze in Criteri di rete in Windows Server 2016. È possibile utilizzare questa sintassi per specificare le condizioni di attributi di criteri di rete e le aree di autenticazione RADIUS.
+title: Usare espressioni regolari nel Server dei criteri di rete
+description: Questo argomento viene illustrato l'utilizzo delle espressioni regolari per criteri di ricerca in Criteri di rete in Windows Server 2016. È possibile usare questa sintassi per specificare le condizioni di attributi di criteri di rete e le aree di autenticazione RADIUS.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,59 +8,60 @@ ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f84173f1f51be9fd44995dc41f759bbea4fb3539
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: a985df9fea31e5ee180caef4e69899ae8468ff71
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59865262"
 ---
-# <a name="use-regular-expressions-in-nps"></a>Usare le espressioni regolari in Criteri di rete
+# <a name="use-regular-expressions-in-nps"></a>Usare espressioni regolari nel Server dei criteri di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Questo argomento illustra l'uso delle espressioni regolari di corrispondenze in Criteri di rete in Windows Server 2016. È possibile utilizzare questa sintassi per specificare le condizioni di attributi di criteri di rete e le aree di autenticazione RADIUS.
+Questo argomento viene illustrato l'utilizzo delle espressioni regolari per criteri di ricerca in Criteri di rete in Windows Server 2016. È possibile usare questa sintassi per specificare le condizioni di attributi di criteri di rete e le aree di autenticazione RADIUS.
 
-## <a name="pattern-matching-reference"></a>Corrispondenza di riferimento
+## <a name="pattern-matching-reference"></a>Riferimento criteri di ricerca
 
-È possibile utilizzare la tabella seguente come origine riferimento durante la creazione di espressioni regolari con caratteri jolly.
+È possibile utilizzare la tabella seguente come un'origine di riferimento durante la creazione di espressioni regolari con caratteri jolly.
 
 |Carattere|Descrizione|Esempio|
 |---------|-----------|-------|
-|`\`  |Contrassegna il carattere successivo come carattere per trovare la corrispondenza. |`/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`  |
-|`^`  |Corrisponde all'inizio di una riga o di input. | &nbsp; |
-|`$`  |Corrisponde alla fine di una riga o di input. | &nbsp; |
+|`\`  |Contrassegna il carattere successivo come un carattere in modo che corrispondano. |`/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`  |
+|`^`  |Corrisponde all'inizio dell'input o della riga. | &nbsp; |
+|`$`  |Corrisponde alla fine dell'input o della riga. | &nbsp; |
 |`*`  |Corrisponde al carattere precedente zero o più volte. |`/zo*/ matches either "z" or "zoo."` |
 |`+`  |Corrisponde al carattere precedente una o più volte. |`/zo+/ matches "zoo" but not "z."` |
-|`?`  |Corrispondenze precedente caratteri o meno uno. |`/a?ve?/ matches the "ve" in "never."` |
+|`?`  |Corrisponde a volte il carattere zero o uno precedente. |`/a?ve?/ matches the "ve" in "never."` |
 |`.`  |Corrisponde a qualsiasi carattere singolo ad eccezione di un carattere di nuova riga.  | &nbsp; |
-|`( pattern )`  |Corrisponde a "modello" e memorizza la corrispondenza.   |`To match ( ) (parentheses), use "\(" or "\)".`  |
-|' x | Y '  |Corrisponde a x e y.  |' /z|Food? / corrisponde a "zoo" o "food". ` |
-|`{ n } `  |Esattamente n corrispondenze \ (n è un integer\ negativo).  |`/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`  |
-|`{ n ,}`  |Almeno n corrispondenze \ (n è un integer\ negativo).  |`/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.`  |
-|`{ n , m }`  |Corrispondenze almeno n e al massimo m \ (m e n sono integers\ negativo).  |`/o{1,3}/ matches the first three instances of the letter o in "fooooood."`  |
-|`[ xyz ]`  |Corrisponde a uno qualsiasi dei caratteri racchiusi \(a character set\).  |`/[abc]/ matches the "a" in "plain."`  |
-|`[^ xyz ]`  |Corrisponde a tutti i caratteri non sono racchiuse \ (un set di caratteri negativo).  |`/[^abc]/ matches the "p" in "plain."`  |
-|`\b`  |Corrisponde a un limite di word \ (ad esempio, space\).  |`/ea*r\b/ matches the "er" in "never early."`  |
-|`\B`  |Corrisponde a una parola.  |`/ea*r\B/ matches the "ear" in "never early."`  |
-|`\d`  |Corrisponde a una cifra \ (equivalente a cifre da 0 a 9 \).  | &nbsp; |
-|`\D`  |Corrisponde a un carattere diverso da cifra \ (equivalente a `[^0-9]`\).  | &nbsp; |
-|`\f`  |Corrispondenze un carattere di avanzamento.  | &nbsp; |
-|`\n`  |Corrispondenze avanzamento riga.  | &nbsp; |
-|`\r`  |Corrisponde a un ritorno a capo.  | &nbsp; |
-|`\s`  |Corrisponde a qualsiasi carattere spazio vuoto tra spazio, scheda e avanzamento modulo \ (equivalente a `[ \f\n\r\t\v]`\).  | &nbsp; |
-|`\S`  |Corrisponde a qualsiasi carattere diverso dallo spazio \ (equivalente a `[^ \f\n\r\t\v]`\).  | &nbsp; |
+|`(pattern)`  |Corrisponde a "criterio" e memorizza la corrispondenza.<br />In modo che corrispondano ai caratteri letterali `(` e `)` (parentesi), usare `\(` o `\)`.   | &nbsp;  |
+|`x|y `  |Corrisponde a x o y.  |`/z|food?/ matches "zoo" or "food."` |
+|`{n} `  |Trova la corrispondenza esatta n volte \(n è non\-numero intero negativo\).  |`/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`  |
+|`{n,}`  |Trova la corrispondenza almeno n volte \(n è non\-numero intero negativo\).  |`/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.`  |
+|`{n,m}`  |Trova la corrispondenza almeno n e al massimo m volte \(m e n siano non\-numeri interi negativi\).  |`/o{1,3}/ matches the first three instances of the letter o in "fooooood."`  |
+|`[xyz]`  |Corrisponde a uno qualsiasi dei caratteri racchiusi \(un set di caratteri\).  |`/[abc]/ matches the "a" in "plain."`  |
+|`[^xyz]`  |Corrisponde a qualsiasi carattere che non sono racchiusi \(un set di caratteri negativi\).  |`/[^abc]/ matches the "p" in "plain."`  |
+|`\b`  |Corrisponde a un confine di parola \(ad esempio, uno spazio\).  |`/ea*r\b/ matches the "er" in "never early."`  |
+|`\B`  |Corrisponde a un limite non alfabetico.  |`/ea*r\B/ matches the "ear" in "never early."`  |
+|`\d`  |Corrisponde a un carattere di cifra \(equivalenti a cifre da 0 a 9\).  | &nbsp; |
+|`\D`  |Corrisponde a un carattere non numerico \(equivalente a `[^0-9]` \).  | &nbsp; |
+|`\f`  |Corrisponde a un carattere di avanzamento.  | &nbsp; |
+|`\n`  |Corrisponde a una riga di carattere di avanzamento.  | &nbsp; |
+|`\r`  |Corrisponde a un carattere di ritorno a capo.  | &nbsp; |
+|`\s`  |Corrisponde a qualsiasi carattere di spazio vuoto incluso lo spazio, scheda e avanzamento carta \(equivalente a `[ \f\n\r\t\v]` \).  | &nbsp; |
+|`\S`  |Corrisponde a qualsiasi carattere diverso da spazi vuoti \(equivalente a `[^ \f\n\r\t\v]` \).  | &nbsp; |
 |`\t`  |Corrisponde a un carattere di tabulazione.  | &nbsp; |
-|`\v`  |Corrisponde a un carattere tabulazione verticale.  | &nbsp; |
-|`\w`  |Corrisponde a qualsiasi carattere, tra cui carattere di sottolineatura \ (equivalente a `[A-Za-z0-9_]`\).  | &nbsp; |
-|`\W`  |Corrisponde a qualsiasi carattere word, l'esclusione di carattere di sottolineatura \ (equivalente a `[^A-Za-z0-9_]`\).  | &nbsp; |
-|`\ num`  |Si riferisce a corrispondenze ricordate \ (`?num`, dove num è un integer\ positivi).  Questa opzione può essere utilizzata solo nel **sostituire** casella di testo quando si configura la manipolazione degli attributi.| `\1` Sostituisce quello presente nella prima corrispondenza da ricordare.  |
-|`/ n / `  |Consente l'inserimento di codici ASCII nelle espressioni regolari \ (`?n`, dove n è un value\ escape ottale, decimale o esadecimale).  | &nbsp; |
+|`\v`  |Corrisponde a un carattere di tabulazione verticale.  | &nbsp; |
+|`\w`  |Corrisponde a qualsiasi carattere alfanumerico, incluso un carattere di sottolineatura \(equivalente a `[A-Za-z0-9_]` \).  | &nbsp; |
+|`\W`  |Corrisponde a qualsiasi diverso da\-carattere alfanumerico, esclusione di un carattere di sottolineatura \(equivale a `[^A-Za-z0-9_]` \).  | &nbsp; |
+|`\num`  |Si riferisce alle corrispondenze memorizzate \( `?num`, dove Bloc num è un numero intero positivo\).  Questa opzione può essere utilizzata solo nel **sostituire** casella di testo quando si configura la manipolazione degli attributi.| `\1` sostituisce quello presente nella prima corrispondenza memorizzata.  |
+|`/n/ `  |Consente l'inserimento dei codici ASCII all'interno di espressioni regolari \( `?n`, dove n è un valore di escape ottali, esadecimali o decimali\).  | &nbsp; |
 
-## <a name="examples-for-network-policy-attributes"></a>Esempi per gli attributi dei criteri di rete
+## <a name="examples-for-network-policy-attributes"></a>Esempi per gli attributi di criteri di rete
 
-Gli esempi seguenti viene descritto l'utilizzo di caratteri jolly per specificare gli attributi dei criteri di rete:
+Negli esempi seguenti viene descritto l'utilizzo della sintassi di corrispondenza dei modelli per specificare gli attributi di criteri di rete:
 
-- Per specificare i numeri di telefono all'interno di indicativo di località 899, la sintassi è:
+- Per specificare tutti i numeri di telefono all'interno di indicativo di località 899, la sintassi è:
 
      `899.*`
 
@@ -68,19 +69,19 @@ Gli esempi seguenti viene descritto l'utilizzo di caratteri jolly per specificar
 
     `192\.168\.1\..+`
 
-## <a name="examples-for-manipulation-of-the-realm-name-in-the-user-name-attribute"></a>Esempi per la modifica del nome dell'area di autenticazione nell'attributo di nome utente
+## <a name="examples-for-manipulation-of-the-realm-name-in-the-user-name-attribute"></a>Esempi per la modifica del nome dell'area di autenticazione nell'attributo nome utente
 
-Gli esempi seguenti viene descritto l'utilizzo della sintassi per modificare i nomi dell'area di autenticazione per l'attributo di nome utente, che si trova in corrispondenza di **attributo** scheda delle proprietà di un criterio di richiesta di connessione.
+Negli esempi seguenti viene descritto l'utilizzo della sintassi per modificare i nomi dell'area di autenticazione per l'attributo nome utente, che si trova in corrispondenza di **attributo** scheda nelle proprietà di un criterio di richiesta di connessione.
 
-**Per rimuovere la parte dell'area di autenticazione dell'attributo del nome utente**
+**Per rimuovere la parte dell'area di autenticazione dell'attributo nome utente**
 
-In uno scenario di connessione remota in outsourcing, in cui una Internet service provider \(ISP\) route richieste di connessione a un server dei criteri di rete dell'organizzazione, il proxy RADIUS ISP potrebbe richiedere un nome dell'area di autenticazione per indirizzare la richiesta di autenticazione. Tuttavia, il server dei criteri di rete potrebbe non riconoscere la parte del nome dell'area di autenticazione del nome utente. Di conseguenza, il nome dell'area di autenticazione deve essere rimossa dal proxy RADIUS ISP prima che venga inoltrato al server dei criteri di rete dell'organizzazione.
+In uno scenario di connessione remota in outsourcing in cui un Internet service provider \(ISP\) instrada le richieste di connessione a un'organizzazione dei criteri di rete, il proxy RADIUS ISP potrebbe richiedere un nome dell'area di autenticazione per instradare la richiesta di autenticazione. Tuttavia, i criteri di rete potrebbero non riconoscere la parte del nome dell'area di autenticazione del nome utente. Pertanto, il nome dell'area di autenticazione deve essere rimosso dal proxy RADIUS ISP prima che venga inoltrata a criteri di rete dell'organizzazione.
 
-- Trovare:@microsoft\.com
+- Trova: @microsoft \.com
 
-- Sostituire:
+- Sostituisci:
 
-**Per sostituire *user@example.microsoft.com*con *example.microsoft.com\user n.***
+**Per sostituire *user@example.microsoft.com* con *example.microsoft.com\user***
 
 - Trovare:`(.*)@(.*)`
 
@@ -96,26 +97,26 @@ In uno scenario di connessione remota in outsourcing, in cui una Internet servic
 
 
 
-**Per sostituire *utente* con*user@specific_domain***
+**Per sostituire *utente* con *user@specific_domain***
 
 - Trovare:`$`
 
 - Sostituisci: @*dominio_specifico*
 
-## <a name="example-for-radius-message-forwarding-by-a-proxy-server"></a>Esempio di inoltro dei messaggi da un server proxy RADIUS
+## <a name="example-for-radius-message-forwarding-by-a-proxy-server"></a>Esempio per l'inoltro dei messaggi da un server proxy RADIUS
 
-È possibile creare regole di routing per l'inoltro di messaggi RADIUS con un nome dell'area di autenticazione specificato a un set di server RADIUS quando criteri di rete viene usato come proxy RADIUS. Di seguito è una sintassi consigliata per il routing delle richieste in base al nome dell'area di autenticazione.
+È possibile creare le regole di routing che inoltrano i messaggi RADIUS con un nome specificato dell'area di autenticazione a un set di server RADIUS quando NPS viene usato come proxy RADIUS. Di seguito è una sintassi consigliata per il routing delle richieste basata sul nome dell'area di autenticazione.
 
-- **Nome NetBIOS **: `WCOAST`
-- **Modello **:      `^wcoast\\`
+- **Nome NetBIOS**: `WCOAST`
+- **Modello**:      `^wcoast\\`
 
-Nell'esempio seguente, wcoast.microsoft.com è un suffisso di nome dell'entità (UPN) utente univoco per il dominio di Active Directory o DNS wcoast.microsoft.com. Utilizzando il modello fornito, il proxy di criteri di rete può instradare messaggi in base al nome NetBIOS del dominio o il suffisso UPN.
+Nell'esempio seguente, wcoast.microsoft.com è un suffisso di nome principale (UPN) utente univoco per il wcoast.microsoft.com di dominio Active Directory o DNS. Usando il modello fornito, il proxy NPS possibile instradare i messaggi in base al nome NetBIOS del dominio o il suffisso UPN.
 
-- **Nome NetBIOS **: `WCOAST`
-- **Suffisso UPN **:   `wcoast.microsoft.com`
-- **Modello **:      `^wcoast\\|@wcoast\.microsoft\.com$`
+- **Nome NetBIOS**: `WCOAST`
+- **Suffisso UPN**:   `wcoast.microsoft.com`
+- **Modello**:      `^wcoast\\|@wcoast\.microsoft\.com$`
 
 
-Per ulteriori informazioni sulla gestione dei criteri di rete, vedere [gestire Server dei criteri di rete](nps-manage-top.md).
+Per altre informazioni sulla gestione dei criteri di rete, vedere [gestire i Server dei criteri di rete](nps-manage-top.md).
 
-Per ulteriori informazioni sui criteri di rete, vedere [Server dei criteri di rete (NPS)](nps-top.md).
+Per altre informazioni sui criteri di rete, vedere [Strumentazione gestione Windows (NPS, Network Policy Server)](nps-top.md).

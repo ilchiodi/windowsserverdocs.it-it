@@ -1,6 +1,6 @@
 ---
-title: Creare la chiave radice di distribuzione di chiavi servizi KDS
-description: Protezione di Windows Server
+title: Creare la chiave radice KDS dei servizi distribuzione chiavi
+description: Sicurezza di Windows Server
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,55 +13,56 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 30075e56f3ca8e90a0655508efeacfcf2aaa0337
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 3d5f7b46b28e6a2fbfafb664b69aebc8d34886fe
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867212"
 ---
-# <a name="create-the-key-distribution-services-kds-root-key"></a>Creare la chiave radice di distribuzione di chiavi servizi KDS
+# <a name="create-the-key-distribution-services-kds-root-key"></a>Creare la chiave radice KDS dei servizi distribuzione chiavi
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-This topic for the IT professional describes how to create a Microsoft Key Distribution Service (kdssvc.dll) root key on the domain controller using Windows PowerShell to generate group Managed Service Account passwords in Windows Server 2012.
+In questo argomento destinato ai professionisti IT descrive come creare una chiave radice del servizio distribuzione chiavi Microsoft (kdssvc. dll) sul controller di dominio tramite Windows PowerShell per generare le password Account del servizio gestito di gruppo in Windows Server 2012.
 
- Windows Server 2012 controller di dominio (DC) richiedono una chiave radice per avviare la generazione di password gestito. I controller di dominio attenderà fino a 10 ore dal momento della creazione per permettere a tutti i controller di dominio far convergere la replica di Active Directory prima di consentire la creazione di un account. 10 ore è una misura di sicurezza per evitare la generazione di password prima che tutti i controller di dominio nell'ambiente sono in grado di rispondere alle richieste gestito.  Se si tenta di utilizzare un gMSA troppo presto la chiave potrebbe non essere stata replicata i controller di dominio di tutti Windows Server 2012 e pertanto il recupero della password potrebbe non riuscire se l'host gestito tenta di recuperare la password. Errori di recupero password gestito possono inoltre verificarsi quando si utilizzano i controller di dominio con pianificazioni di replica limitate o se esiste un problema di replica.
+ Windows Server 2012 controller di dominio (DC) richiedono una chiave radice per avviare la generazione di password gMSA. I controller di dominio aspetteranno fino a 10 ore dal momento della creazione per permettere a tutti i controller di dominio di far convergere le repliche di Active Directory, prima di consentire la creazione di un account del servizio gestito del gruppo. L'intervallo di 10 ore è una misura di sicurezza che impedisce la generazione di password prima che tutti i controller di dominio nell'ambiente siano in grado di rispondere alle richieste di account del servizio gestito del gruppo.  Se si prova a usare un account gMSA troppo presto la chiave potrebbe non essere stata replicata i controller di dominio di tutti i Windows Server 2012 e pertanto il recupero della password potrebbe avere esito negativo quando l'host gMSA tenta di recuperare la password. errori di recupero di password gMSA possono verificarsi anche quando si usano controller di dominio con pianificazioni di replica limitate o se si verifica un problema di replica.
 
-Appartenenza al gruppo di **Domain Admins** o **Enterprise Admins** gruppi, o equivalente è il requisito minimo necessario per completare questa procedura. For detailed information about using the appropriate accounts and group memberships, see [Local and Domain Default Groups](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
+Per eseguire questa procedura, è richiesta almeno l'appartenenza al gruppo **Domain Admins** o **Enterprise Admins** oppure a un gruppo equivalente. Per altre informazioni sull'uso degli account appropriati e sull'appartenenza a gruppi, vedere [Gruppi predefiniti locali e di dominio](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
 
 > [!NOTE]
-> Un'architettura a 64 bit è necessario per eseguire i comandi di Windows PowerShell che vengono utilizzati per amministrare account del servizio gestito del gruppo.
+> Per eseguire i comandi di Windows PowerShell necessari per amministrare account del servizio gestito del gruppo, è richiesta un'architettura a 64 bit.
 
-#### <a name="to-create-the-kds-root-key-using-the-new-kdsrootkey-cmdlet"></a>Per creare una chiave radice utilizzando il cmdlet New-KdsRootKey
+#### <a name="to-create-the-kds-root-key-using-the-add-kdsrootkey-cmdlet"></a>Per creare la chiave radice KDS usando il cmdlet Add-KdsRootKey
 
-1.  Nel controller di dominio di Windows Server 2012, eseguire Windows PowerShell dalla barra delle applicazioni.
+1.  Nel controller di dominio di Windows Server 2012, eseguire il comando di Windows PowerShell dalla barra delle applicazioni.
 
-2.  Al prompt dei comandi per il modulo Active Directory per Windows PowerShell, digitare i comandi seguenti e quindi premere INVIO:
+2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Add-KdsRootKey -EffectiveImmediately**
+    **Aggiungere-KdsRootKey - EffectiveImmediately**
 
     > [!TIP]
-    > Il parametro tempo efficace utilizzabile per dare tempo per le chiavi saranno propagate a tutti i controller di dominio prima dell'uso. Using Add-KdsRootKey -EffectiveImmediately will add a root key to the target DC which will be used by the KDS service immediately. Tuttavia, altri controller di dominio di Windows Server 2012 non sarà in grado di utilizzare la chiave radice finché la replica ha esito positivo.
+    > È possibile usare il parametro Tempo di validità per consentire la propagazione delle chiavi a tutti i controller di dominio prima dell'uso. Con Add-KdsRootKey - EffectiveImmediately aggiungerà una chiave radice alla destinazione controller di dominio che verrà usata immediatamente dal servizio distribuzione CHIAVI. Tuttavia, altri controller di dominio di Windows Server 2012 non sarà in grado di usare la chiave radice fino a quando la replica ha esito positivo.
 
-Negli ambienti di test con un solo controller di dominio, è possibile creare un'una chiave radice e impostare l'ora di inizio in passato per evitare l'attesa per la generazione di chiavi utilizzando la procedura seguente. Convalida che è stato registrato un evento 4004 nel registro eventi kds.
+Negli ambienti di test con un solo controller di dominio, è possibile creare una chiave radice del Servizio distribuzione chiavi e impostare un'ora di avvio già superata per evitare l'attesa dovuta alla generazione della chiave, applicando la procedura seguente. Convalidare la registrazione di un evento 4004 nel registro eventi del Servizio distribuzione chiavi.
 
-#### <a name="to-create-the-kds-root-key-in-a-test-environment-for-immediate-effectiveness"></a>Per creare una chiave radice in un ambiente di test per l'uso
+#### <a name="to-create-the-kds-root-key-in-a-test-environment-for-immediate-effectiveness"></a>Per creare una chiave radice del Servizio distribuzione chiavi pronta per l'uso in un ambiente di test
 
-1.  Nel controller di dominio di Windows Server 2012, eseguire Windows PowerShell dalla barra delle applicazioni.
+1.  Nel controller di dominio di Windows Server 2012, eseguire il comando di Windows PowerShell dalla barra delle applicazioni.
 
-2.  Al prompt dei comandi per il modulo Active Directory per Windows PowerShell, digitare i comandi seguenti e quindi premere INVIO:
+2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **$un = Get-Date**
+    **$a=Get-Date**
 
     **$b=$a.AddHours(-10)**
 
     **Add-KdsRootKey -EffectiveTime $b**
 
-    Oppure utilizzare un singolo comando
+    Oppure usare un singolo comando
 
     **Add-KdsRootKey -EffectiveTime ((get-date).addhours(-10))**
 
 ## <a name="see-also"></a>Vedere anche
-[Guida introduttiva a gruppo di account dei servizi gestiti](getting-started-with-group-managed-service-accounts.md)
+[Introduzione a gruppo di account del servizio gestiti](getting-started-with-group-managed-service-accounts.md)
 
 
