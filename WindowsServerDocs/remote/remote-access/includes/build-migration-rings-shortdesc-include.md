@@ -1,0 +1,1 @@
+**Creare gli anelli di migrazione.** Come la maggior parte delle altre migrazioni di sistema, come destinazione le migrazioni di client in fasi successive per identificare eventuali problemi prima che possano danneggiare l'intera organizzazione. La prima parte della migrazione VPN Always On non è diversa.

@@ -11,24 +11,24 @@ ms.technology: storage-failover-clustering
 ms.date: 03/08/2019
 ms.localizationpriority: high
 ms.openlocfilehash: 445de065ff5b68b83481ee5bd83ebf18fdd180a7
-ms.sourcegitcommit: b0fece76b871da3fa9d6a996798a5008756f486b
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "9178602"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848652"
 ---
-# Clustering di failover in Windows Server
+# <a name="failover-clustering-in-windows-server"></a>Clustering di failover in Windows Server
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare informazioni specifiche nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 <hr />
 
-Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra loro per migliorare la disponibilità e la scalabilità dei ruoli cluster, noti in precedenza come servizi e applicazioni nel cluster. I server inclusi nel cluster (detti nodi) sono connessi mediante cavi fisici e software. Se in uno o più nodi del cluster si verifica un errore, il servizio verrà garantito dagli altri nodi (un processo noto come failover). I ruoli del cluster, inoltre, vengono monitorati in modo proattivo per verificare che funzionino correttamente. Se non funzionano, vengono riavviati o spostati in un altro nodo.
+Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra di loro per migliorare la disponibilità e la scalabilità dei ruoli cluster, noti in precedenza come servizi e applicazioni nel cluster. I server inclusi nel cluster (detti nodi) sono connessi mediante cavi fisici e software. Se in uno o più nodi del cluster si verifica un errore, il servizio verrà garantito dagli altri nodi (un processo noto come failover). I ruoli cluster, inoltre, vengono monitorati in modo proattivo per verificare che funzionino correttamente. Se non funzionano, vengono riavviati o spostati in un altro nodo.
 
-I cluster di failover includono inoltre la funzionalità Volume condiviso cluster, che fornisce uno spazio dei nomi uniforme e distribuito che può essere utilizzato dai ruoli del cluster per accedere allo spazio di archiviazione condiviso da tutti i nodi. Con la funzionalità Clustering di failover, per gli utenti l'interruzione del servizio risulterà minima.
+I cluster di failover includono inoltre la funzionalità Volume condiviso del cluster, che fornisce uno spazio dei nomi uniforme e distribuito che può essere utilizzato dai ruoli del cluster per accedere allo spazio di archiviazione condiviso da tutti i nodi. Con la funzionalità Clustering di failover, per gli utenti l'interruzione del servizio risulterà minima.
 
 Clustering di failover offre numerose applicazioni pratiche, tra cui:
 * Archiviazione su condivisione file con disponibilità continua ed elevata per applicazioni come Microsoft SQL Server e macchine virtuali Hyper-V
@@ -47,7 +47,7 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h2><a href="whats-new-in-failover-clustering.md">Novità del clustering di failover</a></h2>
+                                        <h2><a href="whats-new-in-failover-clustering.md">Quali sono le novità nel Clustering di Failover</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -71,19 +71,19 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                         <div class="cardText">
                                         <h3>Esaminare con attenzione</h3>
 <HR />
-                                        <p><a href="sofs-overview.md">File server di scalabilità orizzontale per i dati applicazione</a></p>
+                                        <p><a href="sofs-overview.md">File Server di scalabilità orizzontale per dati di applicazioni</a></p>
 <HR />
-                                        <p><a href="../storage/storage-spaces/understand-quorum.md">Quorum di cluster e pool</a></p>
+                                        <p><a href="../storage/storage-spaces/understand-quorum.md">Quorum del cluster e pool</a></p>
 <HR />
-                                        <p><a href="fault-domains.md">Informazioni sulla presenza di domini di errore</a></p>
+                                        <p><a href="fault-domains.md">Consapevolezza di dominio di errore</a></p>
 <HR />
-                                        <p><a href="smb-multichannel.md">SMB multicanale semplificato e reti di cluster Multi-NIC</a></p>
+                                        <p><a href="smb-multichannel.md">Reti di cluster di SMB multicanale e multi-NIC semplificate</a></p>
 <HR />
                                         <p><a href="vm-load-balancing-overview.md">Bilanciamento del carico della macchina virtuale</a></p>
 <HR />
                                         <p><a href="../storage/storage-spaces/cluster-sets.md">Set di cluster</a></p>
 <HR />
-                                        <p><a href="cluster-affinity.md">Affinità del cluster</a></p>
+                                        <p><a href="cluster-affinity.md">Affinità di cluster</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,11 +103,11 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                         <div class="cardText">
                                         <h3>Pianificazione</h3>
 <HR />
-                                        <p><a href="clustering-requirements.md">Requisiti hardware per il clustering di failover e opzioni di archiviazione</a></p>
+                                        <p><a href="clustering-requirements.md">Requisiti Hardware di Clustering di failover e opzioni di archiviazione</a></p>
 <HR />
-                                        <p><a href="failover-cluster-csvs.md">Usare Volumi condivisi cluster</a></p>               
+                                        <p><a href="failover-cluster-csvs.md">Volumi condivisi del Cluster di utilizzo</a></p>               
 <HR />
-                                        <p><a href="../storage/storage-spaces/storage-spaces-direct-in-vm.md">Utilizzo dei cluster di macchina virtuale guest con Spazi di archiviazione diretta</a></p>
+                                        <p><a href="../storage/storage-spaces/storage-spaces-direct-in-vm.md">Uso di cluster di macchine virtuali guest con spazi di archiviazione diretta</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,23 +126,23 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                         <div class="cardText">
                                         <h3>Distribuzione</a></h3> 
 <HR />
-                                        <p><a href="prestage-cluster-adds.md">Pre-installare oggetti computer del cluster in Active Directory Domain Services</a></p>
+                                        <p><a href="prestage-cluster-adds.md">Pre-installare oggetti Computer del Cluster in servizi di dominio Active Directory</a></p>
 <HR />
-                                        <p><a href="create-failover-cluster.md">Creazione di un cluster di failover</a></p> 
+                                        <p><a href="create-failover-cluster.md">Creazione di un Cluster di Failover</a></p> 
 <HR />
-                                        <p><a href="deploy-two-node-clustered-file-server.md">Distribuire un server file a due nodi</a></p> 
+                                        <p><a href="deploy-two-node-clustered-file-server.md">Distribuire un server di file di due nodi</a></p> 
 <HR />
-                                        <p><a href="manage-cluster-quorum.md">Gestire quorum e testimoni</a></p> 
+                                        <p><a href="manage-cluster-quorum.md">Gestire il quorum e i server di controllo</a></p> 
 <HR />
                                         <p><a href="deploy-cloud-witness.md">Distribuire un cloud di controllo</a></p>
 <HR />
-                                        <p><a href="file-share-witness.md">Distribuire una condivisione di controllo dei file</a></p>
+                                        <p><a href="file-share-witness.md">Distribuire una condivisione file di controllo</a></p>
 <HR />
-                                        <p><a href="cluster-operating-system-rolling-upgrade.md">Aggiornamenti in sequenza del sistema operativo cluster</a></p> 
+                                        <p><a href="cluster-operating-system-rolling-upgrade.md">Aggiornamenti in sequenza del sistema operativo del cluster</a></p> 
 <HR />
-                                        <p><a href="upgrade-option-same-hardware.md">L'aggiornamento di un cluster di failover nello stesso hardware</a></p>
+                                        <p><a href="upgrade-option-same-hardware.md">Aggiornamento di un cluster di failover sullo stesso hardware</a></p>
 <HR />
-                                        <p><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\)">Distribuire un cluster scollegato da Active Directory</a></p>
+                                        <p><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\)">Distribuire un Cluster scollegato Active Directory</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -162,15 +162,15 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3>Gestire</h3>
+                                        <h3>Gestisci</h3>
 <HR />
                                         <p><a href="cluster-aware-updating.md">Aggiornamento compatibile con cluster</a></p> 
 <HR />
                                         <p><a href="health-service-overview.md">Servizio integrità</a></p>
 <HR />
-                                        <p><a href="cluster-domain-migration.md">Migrazione del dominio del cluster</a></p>
+                                        <p><a href="cluster-domain-migration.md">Migrazione di cluster di dominio</a></p>
 <HR />
-                                        <p><a href="troubleshooting-using-wer-reports.md">Risoluzione dei problemi con Segnalazione errori Windows</a></p> 
+                                        <p><a href="troubleshooting-using-wer-reports.md">Risoluzione dei problemi tramite segnalazione errori Windows</a></p> 
                                         </div>
                                     </div>
                                 </div>
@@ -189,9 +189,9 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
                                         <div class="cardText">
                                         <h3>Strumenti e impostazioni</a></h3>
 <HR />
-                                        <p><a href="https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps">Cmdlet di PowerShell per Clustering di failover</a></p> 
+                                        <p><a href="https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps">Cmdlet di PowerShell di Clustering di failover</a></p> 
 <HR />
-                                        <p><a href="https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps">Cmdlet di PowerShell per Aggiornamento compatibile con cluster</a></p> 
+                                        <p><a href="https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps">Cmdlet di PowerShell ad aggiornamento compatibile con cluster</a></p> 
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
 <HR />
                                         <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=230641">Forum dedicato alla disponibilità elevata (clustering)</a></p> 
 <HR />
-                                        <p><a href="http://blogs.msdn.com/b/clustering/">Blog del team di Clustering di failover e Bilanciamento carico di rete</a></p> 
+                                        <p><a href="http://blogs.msdn.com/b/clustering/">Clustering di failover e carico di rete blog del Team di bilanciamento del carico</a></p> 
                                         </div>
                                     </div>
                                 </div>

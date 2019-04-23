@@ -13,34 +13,35 @@ ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 41ab1baa01cd54ccc84bffdb8d44da9b99f675d4
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 8f0840cc6e87b2a4c087b889ec939242dae9343b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59845822"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>Visualizzare i record di risorse DNS per un indirizzo IP specifico
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per visualizzare i record di risorse DNS associati con l'indirizzo IP che preferisci.  
+Per visualizzare i record risorsa DNS associati con l'indirizzo IP che si sceglie, è possibile utilizzare questo argomento.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
 ### <a name="to-view-resource-records-for-an-ip-address"></a>Per visualizzare i record di risorse per un indirizzo IP  
   
-1.  In Server Manager, fare clic su **gestione indirizzi IP**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager, fare clic su  **Gestione indirizzi IP**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **spazio degli indirizzi IP**, fare clic su **inventario degli indirizzi IP**. Nel riquadro di spostamento inferiore, fare clic su **IPv4** o **IPv6**. Inventario degli indirizzi IP viene visualizzato nel riquadro Visualizzazione ricerca del. Individuare e selezionare l'indirizzo IP, il cui record di risorse DNS che si desidera visualizzare.  
+2.  Nel riquadro di spostamento, in **spazio degli indirizzi IP**, fare clic su **inventario degli indirizzi IP**. Nel riquadro di spostamento inferiore, fare clic su uno **IPv4** oppure **IPv6**. Inventario degli indirizzi IP viene visualizzato nella visualizzazione ricerca del riquadro informazioni. Individuare e selezionare l'indirizzo IP, i cui record risorsa DNS si desidera visualizzare.  
   
-    ![Inventario degli indirizzi IP di visualizzazione](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_01.jpg)  
+    ![Inventario degli indirizzi IP Visualizza](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_01.jpg)  
   
-3.  Nel riquadro di visualizzazione **visualizzazione dettagli**, fare clic su **record di risorse DNS**. Vengono visualizzati i record di risorse che sono associati con l'indirizzo IP selezionato.  
+3.  Nel riquadroinformazioni **visualizzazione dettagli**, fare clic su **i record risorsa DNS**. Vengono visualizzati i record di risorse associati con l'indirizzo IP selezionato.  
   
-    ![Visualizzare i record di risorse DNS](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
+    ![Visualizzare i record risorsa DNS](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestione Record di risorse DNS](DNS-Resource-Record-Management.md)  
+[Gestione dei Record risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire gestione indirizzi IP](Manage-IPAM.md)  
   
 

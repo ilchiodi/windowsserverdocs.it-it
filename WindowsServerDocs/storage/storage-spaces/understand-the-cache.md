@@ -10,13 +10,13 @@ author: cosmosdarwin
 ms.date: 07/18/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678620"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855512"
 ---
-# Informazioni sulla cache in Spazi di archiviazione diretta
+# <a name="understanding-the-cache-in-storage-spaces-direct"></a>Informazioni sulla cache in Spazi di archiviazione diretta
 
 >Si applica a: Windows Server 2019, Windows Server 2016
 
@@ -25,10 +25,10 @@ Il funzionamento della cache dipende dai tipi di unità presenti.
 
 Il video seguente descrive dettagliatamente il funzionamento della memorizzazione nella cache per Spazi di archiviazione diretta e fornisce altre considerazioni sulla progettazione.
 
-<strong>Considerazioni sulla progettazione di Spazi di archiviazione diretta</strong><br>(20 minuti)<br>
+<strong>Considerazioni sulla progettazione diretto di spazi di archiviazione</strong><br>(20 minuti)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## Tipi di unità e opzioni di distribuzione
+## <a name="drive-types-and-deployment-options"></a>Tipi di unità e opzioni di distribuzione
 
 Attualmente, Spazi di archiviazione diretta è utilizzabile con tre tipi di dispositivi di archiviazione:
 
@@ -61,19 +61,19 @@ Attualmente, Spazi di archiviazione diretta è utilizzabile con tre tipi di disp
 
 Tali unità possono essere combinate in sei modi, raggruppati in due categorie: "all-flash" e "ibride".
 
-### Possibilità di distribuzione all-flash
+### <a name="all-flash-deployment-possibilities"></a>Possibilità di distribuzione all-flash
 
 Lo scopo delle distribuzioni all-flash è di ottimizzare le prestazioni di archiviazione. Questo tipo di distribuzioni non include le unità disco rigido rotazionali.
 
 ![All-Flash-Deployment-Possibilities](media/understand-the-cache/All-Flash-Deployment-Possibilities.png)
 
-### Possibilità di distribuzione ibrida
+### <a name="hybrid-deployment-possibilities"></a>Possibilità di distribuzione ibrida
 
 Lo scopo delle distribuzioni ibride è di bilanciare le prestazioni e la capacità oppure ottimizzare. Questo tipo di distribuzioni include le unità disco rigido rotazionali.
 
 ![Hybrid-Deployment-Possibilities](media/understand-the-cache/Hybrid-Deployment-Possibilities.png)
 
-## Le unità cache vengono selezionate automaticamente
+## <a name="cache-drives-are-selected-automatically"></a>Le unità cache vengono selezionate automaticamente
 
 Nelle distribuzioni con più tipi di unità, Spazi di archiviazione diretta utilizza automaticamente tutte le unità del tipo "più rapido" per l'inserimento nella cache. Le unità rimanenti vengono utilizzate per la capacità.
 
@@ -93,13 +93,13 @@ Se tutte le unità sono dello stesso tipo, nessuna cache viene configurata autom
    >[!TIP]
    > Nelle distribuzioni in cui sono presenti tutte unità NVMe oppure tutte unità SSD, specialmente su scala molto ridotta, l'assenza di unità destinate alla cache può migliorare l'efficienza dell'archiviazione in modo significativo.
 
-## Il comportamento della cache viene impostato automaticamente
+## <a name="cache-behavior-is-set-automatically"></a>Il comportamento della cache viene impostato automaticamente
 
 Il comportamento della cache è determinato automaticamente in base ai tipi di unità che vengono utilizzati per fungere da cache. Se la cache è utilizzata per le unità SSD (ad esempio se le unità NVMe fungono da cache per le unità SSD), all'interno della cache vengono memorizzate solo le scritture. Se la cache è utilizzata per le unità disco rigido (ad esempio, se le unità SSD fungono da cache per le unità disco rigido), nella cache vengono memorizzate sia le letture che le scritture.
 
 ![Cache-Read-Write-Behavior](media/understand-the-cache/Cache-Read-Write-Behavior.png)
 
-### Cache in sola scrittura per le distribuzioni all-flash
+### <a name="write-only-caching-for-all-flash-deployments"></a>Cache in sola scrittura per le distribuzioni all-flash
 
 Se la cache è utilizzata per le unità SSD (NVMe o unità SSD), nella cache vengono memorizzate solo le scritture. In tal modo, l'usura delle unità di capacità viene ridotta, in quanto la cache consente di unire un gran numero di scritture e riscritture per poi essere eliminate in caso di necessità, riducendo il traffico cumulativo alle unità di capacità e prolungandone la durata. Per questa ragione, è consigliabile selezionare unità [a maggiore resistenza, ottimizzate per la scrittura](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) per la cache. Le unità di capacità possono ragionevolmente disporre di una minore resistenza in scrittura.
 
@@ -107,17 +107,17 @@ Poiché le letture non influiscono in modo significativo sulla durata del flash 
 
 Di conseguenza, le caratteristiche di scrittura quali la latenza, sono determinate dalle unità cache, mentre le caratteristiche di lettura sono determinate dalle unità di capacità. Entrambe sono coerenti, prevedibili e uniformi.
 
-### Memorizzazione nella cache di lettura/scrittura per le distribuzioni ibride
+### <a name="readwrite-caching-for-hybrid-deployments"></a>Memorizzazione nella cache di lettura/scrittura per le distribuzioni ibride
 
-Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido (a causa dei ritardi rotazionali, la latenza e il tempo perso correlati all'accesso casuale a un'unità disco rigido sono significativi). Le scritture vengono memorizzate nella cache per assorbire i picchi e, come in precedenza, per unire scritture e riscritture e ridurre al minimo il traffico cumulativo alle unità di capacità.
+Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido (A causa di ritardi rotazionali seek e Index, la latenza e perdita di tempo sostenuti durante l'accesso casuale a un disco rigido è significativo). Scrive vengono memorizzati nella cache per assorbire burst e, come in precedenza, per unire scrive e riscrive e ridurre al minimo il traffico cumulativo per le unità di capacità.
 
 Spazi di archiviazione diretta implementa un algoritmo che annulla la generazione casuale delle scritture prima di rimuoverle dalla cache, per emulare un modello di I/O al disco che sembri sequenziale persino se l'attuale I/O proveniente dal carico di lavoro (ad esempio le macchine virtuali) è casuale. In tal modo IOPS e velocità effettiva alle unità disco rigido vengono ottimizzate.
 
-### Memorizzazione nella cache delle distribuzioni con unità di tutti e tre i tipi
+### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>Memorizzazione nella cache delle distribuzioni con unità di tutti e tre i tipi
 
 Se sono presenti unità di tutti e tre i tipi, le unità NVMe forniscono la memorizzazione nella cache sia per le unità SSD che per le unità disco rigido. Il comportamento è quello descritto in precedenza: per le unità SSD solo le scritture vengono memorizzate nella cache, mentre per le unità disco rigido vengono memorizzate sia le letture che le scritture. L'onere della memorizzazione nella cache per le unità disco rigido viene distribuito in modo equo tra le unità della cache. 
 
-## Riepilogo
+## <a name="summary"></a>Riepilogo
 
 Questa tabella riepiloga le unità utilizzate per la memorizzazione nella cache, quelle utilizzate per la capacità e il comportamento di memorizzazione nella cache relativo a ciascuna possibilità di distribuzione.
 
@@ -130,7 +130,7 @@ Questa tabella riepiloga le unità utilizzate per la memorizzazione nella cache,
 | Unità SSD + unità disco rigido        | SSD                                 | Unità disco rigido             | Lettura + scrittura                              |
 | Unità NVMe + SSD + HDD | NVMe                                | Unità SSD + unità disco rigido       | Lettura + scrittura per unità disco rigido, sola scrittura per unità SSD  |
 
-## Architettura lato server
+## <a name="server-side-architecture"></a>Architettura lato server
 
 La cache è implementata a livello di unità: le singole unità cache all'interno di un server sono associate a una o molte unità di capacità all'interno dello stesso server.
 
@@ -142,7 +142,7 @@ Dato che la resilienza in Spazi di archiviazione diretta è almeno a livello ser
 
 Ad esempio, quando si utilizza il mirroring a tre vie, tre copie di tutti i dati vengono scritte su server diversi, all'interno della cache. A prescindere dall'eventualità che vengano rimossi o meno dalla cache successivamente, esisteranno sempre tre copie.
 
-## Le associazioni di dati sono dinamiche
+## <a name="drive-bindings-are-dynamic"></a>Le associazioni di dati sono dinamiche
 
 Il rapporto tra unità cache e unità di capacità nell'ambito dell'associazione può variare da 1:1 fino a 1:12 e oltre. Tale rapporto si regola dinamicamente ogni volta che si aggiungono o si rimuovono le unità, ad esempio durante un aumento o dopo i guasti. Ciò significa che è possibile aggiungere unità cache o unità di capacità in modo indipendente, ogni volta che si desidera.
 
@@ -150,7 +150,7 @@ Il rapporto tra unità cache e unità di capacità nell'ambito dell'associazione
 
 È consigliabile che il numero delle unità di capacità sia un multiplo del numero delle unità cache, per simmetria. Ad esempio, con quattro unità cache, le prestazioni risulteranno più uniformi con otto unità di capacità (rapporto 1:2) che con 7 o 9.
 
-## Gestione degli errori delle unità cache
+## <a name="handling-cache-drive-failures"></a>Gestione degli errori delle unità cache
 
 In caso di errore di un'unità cache, le scritture non ancora rimosse dalla cache vengono perse *nel server locale*, pertanto esistono solo nelle altre copie (negli altri server). Come accade dopo qualsiasi altro errore di unità, Spazi di archiviazione può eseguire il ripristino automatico, consultando le copie sopravvissute, ed è proprio questa l'operazione che viene eseguita.
 
@@ -165,7 +165,7 @@ L'unità cache può essere sostituita come qualsiasi altra unità.
    >[!NOTE]
    > Per sostituire in sicurezza NVMe con fattore di forma Add-In Card (AIC) o M.2 potrebbe essere necessario spegnere il computer.
 
-## Rapporti con le altre cache
+## <a name="relationship-to-other-caches"></a>Rapporti con le altre cache
 
 Nello stack dell'archiviazione definita da software di Windows sono presenti varie altre cache non correlate. Tra gli esempi sono incluse la cache write-back Spazi di archiviazione e la cache di lettura in memoria Volume condiviso cluster.
 
@@ -177,7 +177,7 @@ Se lo si desidera, è possibile scegliere di utilizzare la cache Volume condivis
 
 Per la maggior parte delle implementazioni non è richiesta la configurazione manuale. Nel caso in cui sia necessaria, continuare a leggere.
 
-### Specificare il modello di unità cache
+### <a name="specify-cache-drive-model"></a>Specificare il modello di unità cache
 
 Nelle distribuzioni in cui tutte le unità sono dello stesso tipo, ad esempio tutte NVMe o tutte SSD, non viene configurata alcuna cache, in quanto Windows non è in grado di distinguere automaticamente caratteristiche quali la resistenza in scrittura tra unità dello stesso tipo.
 
@@ -186,7 +186,7 @@ Per utilizzare le unità a maggiore resistenza come cache per le unità a minore
    >[!TIP]
    > Accertarsi di utilizzare la stessa stringa di modello che appare nell'output di **Get-PhysicalDisk**.
 
-####  Esempio
+####  <a name="example"></a>Esempio
 
 ```
 PS C:\> Get-PhysicalDisk | Group Model -NoElement
@@ -201,13 +201,13 @@ PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 È possibile verificare che per la memorizzazione nella cache siano utilizzate le unità desiderate eseguendo **Get-PhysicalDisk** in PowerShell e verificando che il valore della proprietà **Usage** sia **"Journal"**.
 
-### Possibilità di distribuzione manuale
+### <a name="manual-deployment-possibilities"></a>Possibilità di distribuzione manuale
 
 La configurazione manuale consente le seguenti possibilità di distribuzione.
 
 ![Exotic-Deployment-Possibilities](media/understand-the-cache/Exotic-Deployment-Possibilities.png)
 
-### Impostare il comportamento della cache
+### <a name="set-cache-behavior"></a>Impostare il comportamento della cache
 
 È possibile eseguire l'override del comportamento predefinito della cache. Ad esempio, è possibile impostarlo in modo che la cache effettui le letture persino nella distribuzione all-flash. Non è consigliabile modificare il comportamento se non si è certi che l'impostazione predefinita non sia indicata per il proprio carico di lavoro.
 
@@ -215,7 +215,7 @@ Per eseguire l'override del comportamento, utilizzare il cmdlet **Set-ClusterS2D
 
 È possibile utilizzare **Get-ClusterS2D** per verificare che il comportamento sia impostato.
 
-#### Esempio
+#### <a name="example"></a>Esempio
 
 ```
 PS C:\> Get-ClusterS2D
@@ -233,7 +233,7 @@ CacheModeSSD : ReadWrite
 ...
 ```
 
-## Ridimensionamento della cache
+## <a name="sizing-the-cache"></a>Ridimensionamento della cache
 
 Le dimensioni della cache dovrebbero essere tali da accogliere il working set (i dati che vengono letti o scritti attivamente in ogni dato momento) delle applicazioni e dei carichi di lavoro.
 
@@ -247,8 +247,8 @@ Ad esempio, 2 unità cache associate a 4 unità di capacità generano 4 istanze 
 
 Non esiste una regola universale, tuttavia, se il numero di mancati riscontri della cache è eccessivo, le dimensioni potrebbero essere insufficienti e sarà necessario prendere in considerazione l'aggiunta di unità cache per espandere la cache. È possibile aggiungere unità cache o unità di capacità in modo indipendente, ogni volta che si desidera.
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 
-- [Scelta di unità e tipi di resilienza](choosing-drives.md)
-- [Tolleranza di errore ed efficienza dell'archiviazione](storage-spaces-fault-tolerance.md)
-- [Requisiti hardware di Spazi di archiviazione diretta](storage-spaces-direct-hardware-requirements.md)
+- [Scelta unità e tipi di resilienza](choosing-drives.md)
+- [Efficienza di archiviazione e la tolleranza di errore](storage-spaces-fault-tolerance.md)
+- [Requisiti hardware diretto di spazi di archiviazione](storage-spaces-direct-hardware-requirements.md)

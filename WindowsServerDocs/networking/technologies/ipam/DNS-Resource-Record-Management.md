@@ -1,5 +1,5 @@
 ---
-title: Gestione Record di risorse DNS
+title: Gestione di record di risorse DNS
 description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
@@ -13,43 +13,44 @@ ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5ed781ef37243b80ea9da8aad27a29046b8dc8c9
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 2edf0fef80cfcfb2c754cacd53df3b38c3881733
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844612"
 ---
-# <a name="dns-resource-record-management"></a>Gestione Record di risorse DNS
+# <a name="dns-resource-record-management"></a>Gestione di record di risorse DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-This topic provides information about managing DNS resource records by using IPAM.  
+In questo argomento vengono fornite informazioni sulla gestione dei record di risorse con gestione indirizzi IP.  
   
 > [!NOTE]  
-> In addition to this topic, the following DNS resource record management topics are available in this section.  
+> Oltre a questo argomento, sono disponibili i seguenti argomenti di gestione dei record risorsa DNS in questa sezione.  
 >   
 > -   [Aggiungere un Record di risorse DNS](../../technologies/ipam/Add-a-DNS-Resource-Record.md)  
-> -   [Eliminare i record di risorse DNS](../../technologies/ipam/Delete-DNS-Resource-Records.md)  
+> -   [Eliminare i record risorsa DNS](../../technologies/ipam/Delete-DNS-Resource-Records.md)  
 > -   [Filtrare la visualizzazione dei record di risorse DNS](../../technologies/ipam/Filter-the-View-of-DNS-Resource-Records.md)  
-> -   [Visualizzare i record di risorse DNS per un indirizzo IP specifico](../../technologies/ipam/View-DNS-Resource-Records-for-a-Specific-IP-Address.md)  
+> -   [Visualizzare i record risorsa DNS per un indirizzo IP specifico](../../technologies/ipam/View-DNS-Resource-Records-for-a-Specific-IP-Address.md)  
   
-## <a name="resource-record-management-overview"></a>Resource record management overview  
-When you deploy IPAM in  Windows Server 2016, you can perform server discovery to add DHCP and DNS servers to the IPAM server management console. The IPAM server then dynamically collects DNS data every six hours from the DNS servers that it is configured to manage. IPAM maintains a local database where it stores this DNS data. IPAM provides you with notification of the day and time that the server data was collected, as well as telling you the next day and time when data collection from DNS servers will occur.  
+## <a name="resource-record-management-overview"></a>Cenni preliminari sulla gestione dei record di risorse  
+Quando si distribuisce gestione indirizzi IP in Windows Server 2016, è possibile eseguire l'individuazione del server per aggiungere i server DHCP e DNS per la console di gestione di server di gestione indirizzi IP. Il server di gestione indirizzi IP in modo dinamico raccoglie quindi i dati DNS ogni sei ore dal server DNS è configurato per la gestione. Gestione indirizzi IP contiene un database locale in cui archivia i dati DNS. Gestione indirizzi IP offre la notifica del giorno e ora in cui è stato raccolto i dati del server, nonché indicante il giorno successivo e ora in cui verrà effettuata la raccolta dei dati dai server DNS.  
   
-The yellow status bar in the following illustration shows the user interface location of IPAM notifications.  
+La barra di stato gialla nella figura seguente mostra la posizione di interfaccia utente delle notifiche di gestione indirizzi IP.  
   
-![IPAM notifications](../../media/DNS-Resource-Record-Management/ipam_DataCollection_01.jpg)  
+![Notifiche di Gestione indirizzi IP](../../media/DNS-Resource-Record-Management/ipam_DataCollection_01.jpg)  
   
-The DNS data that is collected includes DNS zone and resource record information. You can configure IPAM to collect zone information from your preferred DNS server.  IPAM collects both file-based and Active Directory zones.  
+I dati DNS che vengono raccolti includono informazioni su record di risorse e di zona DNS. È possibile configurare Gestione indirizzi IP per raccogliere le informazioni sulla zona dal server DNS preferito.  Gestione indirizzi IP raccoglie le zone di Directory basata su file sia attivo.  
   
 > [!NOTE]  
-> IPAM collects data solely from domain-joined Microsoft DNS servers. Third party DNS servers and non-domain joined servers are not supported by IPAM.  
+> Gestione indirizzi IP raccoglie i dati esclusivamente dal server DNS Microsoft aggiunti al dominio. I server DNS di terze parti e i server unita in join non di dominio non sono supportati da Gestione indirizzi IP.  
   
-Following is a list of DNS resource record types that are collected by IPAM.  
+Seguito è riportato un elenco di tipi di record risorse DNS che vengono raccolti da Gestione indirizzi IP.  
   
--   AFS database  
+-   Database AFS  
   
--   ATM Address  
+-   Indirizzo ATM  
   
 -   CNAME  
   
@@ -57,31 +58,31 @@ Following is a list of DNS resource record types that are collected by IPAM.
   
 -   DNAME  
   
--   Host A or AAAA  
+-   Host A o AAAA  
   
--   Host Information  
+-   Informazioni sull'host  
   
 -   ISDN  
   
 -   MX  
   
--   Name Servers  
+-   Server dei nomi  
   
--   Pointer (PTR)  
+-   Puntatore (PTR)  
   
--   Responsible person  
+-   Persona responsabile  
   
--   Route Through  
+-   Indirizzamento tramite  
   
--   Service Location  
+-   Posizione del servizio  
   
 -   SOA  
   
 -   SRV  
   
--   Text  
+-   Testo  
   
--   Well Known Services  
+-   Servizi noti  
   
 -   WINS  
   
@@ -89,29 +90,29 @@ Following is a list of DNS resource record types that are collected by IPAM.
   
 -   X.25  
   
-In  Windows Server 2016, IPAM provides integration between IP address inventory, DNS Zones, and DNS resource records:  
+In Windows Server 2016, gestione indirizzi IP offre l'integrazione tra inventario degli indirizzi IP DNS zone e record di risorse:  
   
--   You can use IPAM to automatically build an IP address inventory from DNS resource records.  
+-   È possibile usare Gestione indirizzi IP per compilare automaticamente un inventario degli indirizzi IP da record di risorse.  
   
--   You can manually create an IP address inventory from DNS A and AAAA resource records.  
+-   È possibile creare manualmente un inventario degli indirizzi IP da record di risorse AAAA e A DNS.  
   
--   You can view DNS resource records for a specific DNS zone, and filter the records based on type, IP address, resource record data, and other filtering options.  
+-   È possibile visualizzare i record risorsa DNS per una zona DNS specifico e filtrare i record in base a tipo, indirizzo IP, i dati di record di risorse e altre opzioni di filtro.  
   
--   IPAM automatically creates a mapping between IP address ranges and DNS Reverse Look-up Zones.  
+-   Gestione indirizzi IP viene automaticamente creato un mapping tra gli intervalli di indirizzi IP e le zone di ricerca inversa DNS.  
   
--   IPAM creates IP addresses for the PTR records that are present in the reverse look-up zone and which are included in that IP address range. You can also manually modify this mapping if needed.  
+-   Gestione indirizzi IP consente di creare gli indirizzi IP per i record PTR che siano presenti nella zona di ricerca inversa e che sono inclusi in tale intervallo di indirizzi IP. Se necessario, è possibile modificare manualmente questo mapping.  
   
-IPAM allows you to perform the following operations on resource records from the IPAM console.  
+Gestione indirizzi IP consente di eseguire le operazioni seguenti nel record di risorse dalla console di gestione indirizzi IP.  
   
--   Create DNS resource records  
+-   Creare record di risorse DNS  
   
--   Edit DNS resource records  
+-   Modificare i record risorsa DNS  
   
--   Delete DNS resource records  
+-   Eliminare i record di risorse DNS  
   
--   Create associated resource records  
+-   Creare record di risorse associato  
   
-IPAM automatically logs all DNS configuration changes that you make using the IPAM console.  
+Gestione indirizzi IP registra automaticamente tutte le modifiche di configurazione DNS che vengono apportate utilizzando la console di gestione indirizzi IP.  
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestire gestione indirizzi IP](Manage-IPAM.md)  

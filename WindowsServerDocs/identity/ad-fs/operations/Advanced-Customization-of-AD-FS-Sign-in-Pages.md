@@ -1,70 +1,79 @@
 ---
 ms.assetid: 882abec8-0189-4f73-99c5-792987168080
 title: Personalizzazione di AD FS Sign-in Pages avanzata
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 06/13/2017
+ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ea01d0ff2a38c4fef2f68091608d777d8412e91b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: ef30df61c28eb8302c94cf756ba8c8a7b5849520
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850772"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione di AD FS Sign-in Pages avanzata
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2
   
-## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione avanzata di pagine di accesso di ADFS AD  
-ADFS in Windows Server 2012 R2 supporta predefinita per personalizzare l'esperienza di accesso. Per la maggior parte di questi scenari, i cmdlet di Windows PowerShell predefinita sono sono necessari.  È consigliabile utilizzare i comandi di Windows PowerShell predefinita per personalizzare elementi standard per AD FS accesso esperienza quando possibile.  Vedere [personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md) per ulteriori informazioni.  
+## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione di AD FS Sign avanzata\-nelle pagine  
+ADFS in Windows Server 2012 R2 fornisce compilato\-in modalità di supporto per la personalizzazione di accesso\-nell'esperienza. Per la maggior parte di questi scenari, incorporati\-in Windows PowerShell cmdlet sono tutto ciò che è obbligatorio.  È consigliabile usare incorporato\-nei comandi di Windows PowerShell per personalizzare gli elementi standard per AD FS firma\-nell'esperienza laddove possibile.  Visualizzare [personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md) per altre informazioni.  
   
-In alcuni casi, gli amministratori di ADFS potrebbero voler offrire esperienze di accesso aggiuntive che non sono disponibili tramite i comandi di PowerShell esistenti forniti attive-box con AD FS. In alcuni casi, è possibile \ (all'interno di below\ le indicazioni fornite) per gli amministratori di personalizzare l'accesso esperienza ulteriormente aggiungendo logica aggiuntiva per **onload.js** che viene fornito da ADFS e verrà eseguito in tutte le pagine di ADFS.  
+In alcuni casi, gli amministratori di AD FS potrebbe essere necessario fornire accesso aggiuntivo\-esperienze che non sono possibili tramite esistente comandi di PowerShell forniti in\-casella con AD FS. In alcuni casi, è possibile \(entro le linee guida riportate di seguito\) agli amministratori di personalizzare il segno\-esperienza ulteriormente tramite l'aggiunta di logica aggiuntiva per **OnLoad** che viene fornito da AD FS e verrà eseguito su tutte le pagine di AD FS.  
   
 ## <a name="things-to-know-before-you-start"></a>Cose da sapere prima di iniziare  
   
--   Qualsiasi modifica che influisce sui flussi di reindirizzamento o modifica i parametri di protocollo utilizzabile con ADFS non è supportato.
+-   Qualsiasi modifica che influisce su flussi di reindirizzamento o modifica i parametri di protocollo utilizzabile con AD FS non è supportato.
   
--   Il onload.js originale, quello che viene fornita con il tema web predefinito, il codice che gestisce il rendering della pagina per diversi fattori di forma. È consigliabile non modificare il contenuto originale onload.js ma solo di aggiungere il codice di onload.js esistente che gestisce la logica personalizzata.  
+-   L'OnLoad originale, quella fornita con il tema web predefinito, il codice che gestisce il rendering della pagina per diversi fattori di forma. È consigliabile non modificare il contenuto di OnLoad originale, ma solo aggiungere codice per l'OnLoad esistente che gestisce la logica personalizzata.  
   
--   ADFS viene fornito con un tema web predefinita che viene chiamato predefinito. È possibile modificare il onload.js del tema web predefinito. Per aggiornare onload.js, è necessario creare e usare un tema web personalizzato per pagine di accesso AD ADFS.  Vedere [personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md) per informazioni su come creare un tema web personalizzato.  
+-   AD FS viene fornito con incorporata\-tema web denominato predefinito. Non è possibile modificare l'OnLoad del tema web predefinito. Per aggiornare OnLoad, è necessario creare e usare un tema web personalizzato per l'accesso di AD FS\-nelle pagine.  Visualizzare [personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md) per informazioni su come creare un tema web personalizzato.  
   
--   Consente di eseguire la stessa onload.js in tutti i \(ex. pagine ADFS pagina di accesso basata su moduli, pagina di individuazione dell'area di autenticazione e così via. \). È necessario assicurarsi che venga eseguito solo il codice nello script come viene utilizzata e non vengono eseguita in modo imprevisto.  
+-   La stessa OnLoad verrà eseguita in tutte le pagine di ad FS \(es. Form\-basati su pagina di accesso, la pagina di individuazione dell'area di autenticazione e così via\). È necessario assicurarsi che il codice nello script viene eseguito solo perché è stato progettato e non venga eseguito in modo imprevisto.  
   
--   Quando si fa riferimento qualsiasi elemento HTML, assicurarsi che sempre verificare l'esistenza dell'elemento prima di agire per l'elemento. Questo offre affidabilità e garantisce che la logica personalizzata non verrà eseguita nelle pagine che non contengono questo elemento. È possibile visualizzare semplicemente il codice HTML nelle pagine di accesso di ADFS per visualizzare gli elementi esistenti.  
+-   Quando si fa riferimento a qualsiasi elemento HTML, assicurarsi che sempre verificare l'esistenza dell'elemento prima che agisce sull'elemento. Questo garantisce affidabilità e assicura che la logica personalizzata potrebbe non essere eseguita nelle pagine che non contengono questo elemento. È possibile visualizzare l'origine HTML semplicemente di accesso di AD FS\-nelle pagine per visualizzare gli elementi esistenti.  
   
--   Si consiglia di convalidare le personalizzazioni in un ambiente alternativo e testarli prima di distribuirlo out in produzione server AD FS. Ciò riduce le probabilità che agli utenti finali esposti a queste personalizzazioni prima di convalida.  
+-   È consigliabile convalidare le personalizzazioni in un ambiente alternativo e testarli prima di eseguirne il rollback out nell'ambiente di produzione i server AD FS. In questo modo si riduce le possibilità che gli utenti finali viene esposti a queste personalizzazioni prima della convalida.  
   
-## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Personalizzazione dell'esperienza di accesso AD ADFS tramite onload.js  
-Quando si personalizza l'onload.js per il servizio ADFS, utilizzare la procedura seguente.  
+## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Personalizzazione di accesso di AD FS\-nell'esperienza tramite OnLoad  
+Usare i passaggi seguenti quando si personalizza l'OnLoad per il servizio AD FS.  
   
-#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>Personalizzazione onload.js per il servizio ADFS  
+#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>Personalizzazione di OnLoad per il servizio ADFS  
   
-1.  Per aggiungere la logica personalizzata per onload.js, devi prima creare un tema web personalizzato. Il tema è spedito out-of\-the\-box è denominato Default. È possibile esportare il tema predefinito e usarlo in modo che è possibile avviare rapidamente. Il cmdlet seguente crea un tema web personalizzato duplicando il tema web predefinito:  
+1.  Per aggiungere la logica personalizzata a OnLoad, è necessario innanzitutto creare un tema web personalizzato. Il tema è spedito\-di\-di\-casella è denominata Default. Si può esportare il tema predefinito e usarlo come base per iniziare rapidamente. Il cmdlet seguente crea un tema web personalizzato duplicando il tema web predefinito:  
   
     ```  
     New-AdfsWebTheme –Name custom –SourceName default  
   
     ```  
   
-2.  È quindi possibile esportare personalizzato o predefinito tema web per ottenere file onload.js. Per esportare un tema web, usare il cmdlet seguente:  
+2.  È quindi possibile esportare l'oggetto personalizzato o predefinito di tema web per ottenere il file OnLoad. Per esportare un tema web, usare il cmdlet seguente:  
   
     ```  
     Export-AdfsWebTheme –Name default –DirectoryPath c:\theme  
   
     ```  
   
-    Troverai onload.js sotto la cartella di script nella directory specificate nel cmdlet export precedente e aggiungere la logica personalizzata per lo script \ (vedere casi di utilizzo di below\ sezione esempio).  
+    Si noterà OnLoad sotto la cartella dello script nella directory specificati nel cmdlet esportazione precedente e aggiungere logica personalizzata per lo script \(vedere casi d'uso nella sezione di esempio riportato di seguito\).  
   
-3.  Apportare le modifiche necessarie per personalizzare onload.js in base alle esigenze.  
+3.  Apportare la modifica necessaria per personalizzare OnLoad in base alle proprie esigenze.  
   
-4.  Aggiornare il tema con il onload.js modificato. Per applicare l'aggiornamento onload.js tema web personalizzato, usare il cmdlet seguente:  
-  
+4.  Aggiornare il tema con gli OnLoad modificato. Per applicare l'aggiornamento di OnLoad a tema web personalizzato, usare il cmdlet seguente:  
+
+     Per AD FS in Windows Server 2012 R2:  
+
     ```  
     Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’/adfs/portal/script/onload.js’;path="c:\theme\script\onload.js"}  
+  
+    ```  
+    Per AD FS in Windows Server 2016:
+
+     ```  
+    Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\ADFStheme\script\onload.js"   
   
     ```  
   
@@ -74,13 +83,13 @@ Quando si personalizza l'onload.js per il servizio ADFS, utilizzare la procedura
     Set-AdfsWebConfig -ActiveThemeName custom  
     ```  
   
-## <a name="additional-customization-examples"></a>Esempi di personalizzazione aggiuntive  
-Di seguito sono esempi di codice personalizzato aggiunto a onload.js per scopi diversi fine\-tune. Quando si aggiunge il codice personalizzato, per aggiungere sempre il codice personalizzato a fondo il onload.js.  
+## <a name="additional-customization-examples"></a>Esempi di personalizzazione aggiuntivi  
+Di seguito sono gli esempi di codice personalizzato aggiunto a OnLoad per diversa granularità\-a scopo di ottimizzazione. Quando si aggiunge codice personalizzato, aggiungere sempre il codice personalizzato in fondo l'OnLoad.  
   
-### <a name="example-1-change-sign-in-with-organizational-account-string"></a>Esempio 1: modificare la stringa "Accedi con l'account aziendale"  
-L'impostazione predefinita, AD FS basata su moduli della pagina di accesso dispone di un titolo di "Accedi con l'account dell'organizzazione" sopra le caselle di input dell'utente.  
+### <a name="example-1-change-sign-in-with-organizational-account-string"></a>Esempio 1: modificare la stringa "Accesso con account aziendale"  
+Il valore predefinito il formato di AD FS\-accesso basato su\-nella pagina è disponibile un titolo di "Accedi con l'account aziendale" di sopra di caselle di input utente.  
   
-Se si desidera sostituire questa stringa con la stringa personalizzata, è possibile aggiungere il codice seguente per onload.js.  
+Se si desidera sostituire la stringa con una stringa personalizzata, è possibile aggiungere il codice seguente a OnLoad.  
   
 ```  
 // Sample code to change “Sign in with organizational account” string.  
@@ -95,40 +104,40 @@ if (loginMessage)
   
 ```  
   
-### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Esempio 2: accettare il nome di account SAM\ come formato di accesso in un ADFS basata su moduli della pagina di accesso  
-Il valore predefinito ADFS basata su moduli della pagina di accesso supporta accesso formato dei nomi dell'entità utente \(UPNs\) \(for example, ** johndoe@contoso.com **\) o dominio qualificato i nomi degli account di sam\ \ (**contoso\\johndoe** o **contoso.com\\johndoe**\). Nel caso in cui tutti gli utenti provenienti dallo stesso dominio e sappiano solo sui nomi degli account di sam\, si desidera supportare lo scenario in cui gli utenti possono eseguire l'accesso a inviare solo i nomi degli account di sam\. È possibile aggiungere il codice seguente per onload.js per supportare questo scenario, è necessario sostituire solo il dominio "contoso.com" nell'esempio riportato di seguito con il dominio che si desidera utilizzare.  
+### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Esempio 2: accettare SAM\-nome dell'account come un formato di account di accesso in un form di AD FS\-accesso basato su\-nella pagina  
+Form di AD FS predefinito\-accesso basato su\-supporta il formato di account di accesso dei nomi dell'entità utente nella pagina \(UPN\) \(ad esempio **johndoe@contoso.com** \) o di dominio completo di sam\-nomi di account \( **contoso\\mariorossi** oppure **contoso.com\\mariorossi**\). Nel caso in cui tutti gli utenti provengono dallo stesso dominio e informarli solo in merito sam\-i nomi degli account, è possibile supportare lo scenario in cui gli utenti possono accedere usando li sam\-solo i nomi di account. È possibile aggiungere il codice seguente a OnLoad per supportare questo scenario, sostituire semplicemente il dominio "contoso.com" nell'esempio riportato di seguito con il dominio in cui si desidera utilizzare.  
   
 ```  
 if (typeof Login != 'undefined'){  
-    Login.submitLoginRequest = function () {   
-    var u = new InputUtil();  
-    var e = new LoginErrors();  
-    var userName = document.getElementById(Login.userNameInput);  
-    var password = document.getElementById(Login.passwordInput);  
-    if (userName.value && !userName.value.match('[@\\\\]'))   
-    {  
-        var userNameValue = 'contoso.com\\' + userName.value;  
-        document.forms['loginForm'].UserName.value = userNameValue;  
-    }  
+    Login.submitLoginRequest = function () {   
+    var u = new InputUtil();  
+    var e = new LoginErrors();  
+    var userName = document.getElementById(Login.userNameInput);  
+    var password = document.getElementById(Login.passwordInput);  
+    if (userName.value && !userName.value.match('[@\\\\]'))   
+    {  
+        var userNameValue = 'contoso.com\\' + userName.value;  
+        document.forms['loginForm'].UserName.value = userNameValue;  
+    }  
   
-    if (!userName.value) {  
-       u.setError(userName, e.userNameFormatError);  
-       return false;  
-    }  
+    if (!userName.value) {  
+       u.setError(userName, e.userNameFormatError);  
+       return false;  
+    }  
   
-    if (!password.value)   
-    {  
-        u.setError(password, e.passwordEmpty);  
-        return false;  
-    }  
-    document.forms['loginForm'].submit();  
-    return false;  
+    if (!password.value)   
+    {  
+        u.setError(password, e.passwordEmpty);  
+        return false;  
+    }  
+    document.forms['loginForm'].submit();  
+    return false;  
 };  
 }  
   
 ```  
   
-## <a name="additional-references"></a>Riferimenti aggiuntivi 
-[AD FS Sign-personalizzazione utente](AD-FS-user-sign-in-customization.md)  
+## <a name="additional-references"></a>Altri riferimenti 
+[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)  
   
 

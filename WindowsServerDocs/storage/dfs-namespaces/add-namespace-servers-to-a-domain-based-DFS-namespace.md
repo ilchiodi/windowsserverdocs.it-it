@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 70ab3cac71f5766bc572015c6b23c0937e5252f0
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: bb3b98e1ea687b68bbb87d0da413f9624d336370
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853332"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Aggiungere server dello spazio dei nomi a uno spazio dei nomi DFS basato su dominio
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Puoi aumentare la disponibilità di uno spazio dei nomi basati su dominio specificando i server dello spazio dei nomi aggiuntivi per ospitare lo spazio dei nomi.
 
@@ -24,7 +25,7 @@ Puoi aumentare la disponibilità di uno spazio dei nomi basati su dominio specif
 
 Per aggiungere un server dello spazio dei nomi a uno spazio di nomi basato su dominio usando Gestione DFS, esegui questa procedura:
 
-1.  Fai clic sul pulsante **Start**, scegli **Strumenti di amministrazione**, quindi fai clic su **Gestione DFS**.
+1.  Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione**, quindi fare clic su **Gestione DFS**.
 
 2.  Nell'albero della console fai clic con il pulsante destro del mouse su uno spazio dei nomi basato su dominio nel nodo **Spazi dei nomi**, quindi scegli **Aggiungi server dello spazio dei nomi**.
 
@@ -37,10 +38,10 @@ Per aggiungere un server dello spazio dei nomi a uno spazio di nomi basato su do
 > [!TIP]
 > Per aggiungere un server dello spazio dei nomi tramite Windows PowerShell, usa il cmdlet [New-DfsnRootTarget](https://docs.microsoft.com/powershell/module/dfsn/set-dfsnroottarget). Il modulo Windows PowerShell per Spazio dei nomi DFS è stato introdotto in Windows Server 2012.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
--   [Distribuzione di Spazi dei nomi DFS](deploying-dfs-namespaces.md)
--   [Esaminare i requisiti del server di Spazi dei nomi DFS](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
--   [Creare uno spazio dei nomi DFS](create-a-dfs-namespace.md)
--   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Distribuzione di spazi dei nomi DFS](deploying-dfs-namespaces.md)
+-   [Esaminare i requisiti del Server di spazi dei nomi DFS](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
+-   [Creare un Namespace DFS](create-a-dfs-namespace.md)
+-   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
 

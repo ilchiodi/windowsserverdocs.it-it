@@ -1,6 +1,6 @@
 ---
 title: Autorizzazione di accesso
-description: In questo argomento viene fornita una panoramica dell'autorizzazione di accesso di criteri di rete per Server dei criteri di rete in Windows Server 2016.
+description: In questo argomento viene fornita una panoramica di rete dei criteri di autorizzazione di accesso per il Server dei criteri di rete in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,66 +8,67 @@ ms.topic: article
 ms.assetid: d6d1ca5e-bde0-4509-9e14-dc3fa9ff447e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: aeacfaeb159598d2e53bac29fb09ffc3e7739476
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: cdec41fb7925061bb8c8402634e1d9b1625bf301
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849492"
 ---
 # <a name="access-permission"></a>Autorizzazione di accesso
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Autorizzazione di accesso viene configurata sul **Panoramica** scheda ogni dei criteri di rete in Server dei criteri di rete (NPS). 
+L'autorizzazione di accesso è configurato sul **Panoramica** scheda ogni dei criteri di rete in Strumentazione gestione Windows (NPS, Network Policy Server). 
 
-Questa impostazione consente di configurare i criteri per concedere o negare l'accesso agli utenti se sono soddisfatte le condizioni e i vincoli di criteri di rete per la richiesta di connessione. 
+Questa impostazione consente di configurare i criteri per concedere o negare l'accesso agli utenti se vengono soddisfatte le condizioni e vincoli dei criteri di rete per la richiesta di connessione. 
 
-Impostazioni autorizzazione di accesso effetti:
+Impostazioni delle autorizzazioni di accesso hanno l'effetto seguente:
 
-- **Concedere l'accesso**. Accesso viene concesso se la richiesta di connessione corrispondente le condizioni e vincoli configurati nei criteri.
-- **Negare l'accesso**. Se la richiesta di connessione soddisfa le condizioni e vincoli configurati nei criteri di accesso negato.
+- **Concedere l'accesso**. L'accesso viene concesso se la richiesta di connessione soddisfa le condizioni e vincoli che sono configurati nel criterio.
+- **Negare l'accesso**. Se la richiesta di connessione soddisfa le condizioni e vincoli che sono configurati nel criterio di accesso negato.
 
-Autorizzazione di accesso concesso o negato anche in base alla configurazione delle proprietà dial-in di ogni account utente.
-
->[!NOTE]
->Gli account utente e le relative proprietà, ad esempio delle proprietà di connessione remota, sono configurate in uno dei due utenti di Active Directory e i computer o il utenti locali e gruppi di Microsoft Management Console \(MMC\) snap-in, a seconda che tu abbia Active Directory&reg; servizi di dominio (AD DS) installato.
-
-L'impostazione dell'account utente **autorizzazione di accesso alla rete**, che è configurato nelle proprietà dial-in di account utente, sostituzioni impostazione di autorizzazione di accesso i criteri di rete. Quando un account utente di autorizzazione di accesso rete è impostato sul **controllare l'accesso tramite criteri di rete NPS** opzione, l'impostazione di autorizzazione accesso criteri di rete determina se l'utente viene concesso o negato l'accesso.
+L'autorizzazione di accesso viene anche concesso o negato in base alla configurazione delle proprietà dial-in di ogni account utente.
 
 >[!NOTE]
->In Windows Server 2016, il valore predefinito di **autorizzazione di accesso alla rete** in servizi di dominio Active Directory dial-in di proprietà dell'account utente è **controllare l'accesso tramite criteri di rete NPS**.
+>Gli account utente e le relative proprietà, ad esempio proprietà di connessione remota, sono configurati in Active Directory Users e computer o di utenti locali e i gruppi di Microsoft Management Console \(MMC\) snap-in, a seconda del Active Directory&reg; Domain Services (AD DS) installato.
 
-Quando Criteri di rete valuta le richieste di connessione da criteri di rete configurate, esegue le azioni seguenti:
+L'impostazione di account utente **l'autorizzazione di accesso rete**, cui viene configurato nelle proprietà dial-degli account utente, gli override dell'impostazione delle autorizzazioni di accesso i criteri di rete. Quando è impostata l'autorizzazione di accesso di rete in un account utente il **controllare l'accesso tramite criteri di rete NPS** opzione, l'impostazione di autorizzazione l'accesso di rete dei criteri determina se l'utente viene concesso o negato l'accesso.
 
-- Se le condizioni del primo criterio non corrispondono, dei criteri di rete valuta i criteri avanti e continua questo processo fino a quando non viene trovata una corrispondenza o tutti i criteri sono stati valutati per una corrispondenza.
-- Se sono soddisfatte le condizioni e limitazioni di un criterio, dei criteri di rete concede o nega l'accesso, a seconda del valore dell'impostazione nel criterio di autorizzazione di accesso.
-- Se le condizioni di un criterio corrispondente, ma i vincoli nei criteri non corrispondono, dei criteri di rete rifiuta la richiesta di connessione.
-- Se le condizioni di tutti i criteri non corrispondono, dei criteri di rete rifiuta la richiesta di connessione.
+>[!NOTE]
+>In Windows Server 2016, il valore predefinito **l'autorizzazione di accesso di rete** in Active Directory Domain Services dial-in di proprietà dell'account utente viene **controllare l'accesso tramite criteri di rete NPS**.
 
-## <a name="ignore-user-account-dial-in-properties"></a>Ignorare dial-in di proprietà dell'account utente
+Quando Criteri di rete valuta le richieste di connessione in base ai criteri di rete configurate, esegue le azioni seguenti:
 
-È possibile configurare criteri di rete dei criteri di rete per ignorare la proprietà di connessione remota degli account utente selezionando o deselezionando la **dial-in di proprietà dell'account utente di ignorare** casella di controllo di **Panoramica** scheda di un criterio di rete. 
+- Se non sono soddisfatte le condizioni dei criteri prima, dei criteri di rete valuta i criteri successivo e continua questo processo finché non viene trovata una corrispondenza o tutti i criteri sono stati valutati per trovare una corrispondenza.
+- Se sono soddisfatte le condizioni e i vincoli di un criterio, NPS concede o nega l'accesso, a seconda del valore dell'impostazione di autorizzazione di accesso nei criteri.
+- Se non corrispondono alle condizioni di una corrispondenza di criteri, ma i vincoli nel criterio, NPS rifiuta la richiesta di connessione.
+- Se non corrispondono alle condizioni di tutti i criteri, criteri di rete rifiuta la richiesta di connessione.
 
-In genere quando criteri di rete esegue l'autorizzazione di una richiesta di connessione, controlla la proprietà di connessione remota dell'account utente, in cui l'autorizzazione di accesso di rete impostazione valore può influire sulla se l'utente è autorizzato a connettersi alla rete. Quando si configura criteri di rete per ignorare la proprietà di connessione remota degli account utente durante l'autorizzazione, le impostazioni di criteri di rete è possibile determinare se l'utente viene concesso l'accesso alla rete.
+## <a name="ignore-user-account-dial-in-properties"></a>Ignora dial-in di proprietà dell'account utente
+
+È possibile configurare criteri di rete NPS per ignorare le proprietà di connessione remota degli account utente, selezionando o deselezionando le **dial-in di proprietà dell'account utente di ignorare** casella di controllo la **Panoramica** scheda di rete criteri. 
+
+In genere quando NPS esegue l'autorizzazione di una richiesta di connessione, controlla le proprietà di connessione remota dell'account utente, in cui l'autorizzazione di accesso di rete l'impostazione di valore può influire sulle se l'utente è autorizzato a connettersi alla rete. Quando si configurano criteri di rete per ignorare le proprietà di connessione remota degli account utente durante l'autorizzazione, le impostazioni dei criteri di rete determinano se l'utente viene concesso l'accesso alla rete.
 
 La proprietà di connessione remota degli account utente contenere quanto segue:
 
-- Autorizzazione di accesso alla rete
+- Autorizzazione di accesso di rete
 - ID chiamante
-- Opzioni di richiamata
+- Opzioni di callback
 - Indirizzo IP statico
 - Route statiche
 
-Per supportare più tipi di connessioni per il quale dei criteri di rete fornisce l'autenticazione e autorizzazione, potrebbe essere necessario disabilitare l'elaborazione delle proprietà di connessione account utente. Questa operazione può essere eseguita per supportare scenari in cui non sono necessari specifiche proprietà di connessione remota.
+Per supportare più tipi di connessioni per il quale NPS fornisce autenticazione e autorizzazione, potrebbe essere necessario disabilitare l'elaborazione di chiamate in ingresso proprietà dell'account utente. Questa operazione può essere eseguita per supportare scenari in cui non sono necessarie le proprietà di connessione specifiche.
 
-Ad esempio, l'ID chiamante, callback, indirizzo IP statico e route statiche proprietà sono progettate per un client che si connette a un server di accesso di rete \(NAS\), non per i client che si connettono all'accesso wireless punti. Un punto di accesso wireless che riceve queste impostazioni in un messaggio RADIUS da server dei criteri potrebbe non essere in grado di elaborare, che può provocare il client wireless deve essere disconnessa.
+Ad esempio, l'ID chiamante, il callback, indirizzo IP statico e le proprietà di route statiche sono progettate per un client che effettua chiamate a un server di accesso di rete \(NAS\), non per i client che si connettono ai punti di accesso wireless. Un punto di accesso wireless riceve queste impostazioni in un messaggio RADIUS da NPS potrebbe non essere in grado di elaborarli, che può causare il client senza fili venga considerata disconnessa.
 
-Quando Criteri di rete fornisce l'autenticazione e autorizzazione per gli utenti con accesso remoto e l'accesso di rete dell'organizzazione tramite punti di accesso wireless, è necessario configurare le proprietà di connessione remota per il supporto di entrambe le connessioni in ingresso \ (per impostazione chiamate in ingresso properties\) o connessioni wireless \ (impostando non properties\ dial-in).
+Quando Criteri di rete fornisce autenticazione e autorizzazione per gli utenti accesso remoto e l'accesso di rete dell'organizzazione tramite punti di accesso wireless, è necessario configurare le proprietà di connessione remota per supportare entrambe le connessioni in ingresso \(da impostazione proprietà di connessione remota\) o le connessioni senza fili \(non impostando le proprietà di connessione remota\).
 
-È possibile utilizzare criteri di rete per abilitare la proprietà di connessione remota per l'account utente in alcuni scenari di elaborazione \ (ad esempio connessioni attive) e disabilitare una proprietà di connessione remota in altri scenari di elaborazione \ (ad esempio 802.1 X wireless e di autenticazione switch\).
+È possibile usare criteri di rete per abilitare la proprietà di connessione remota per l'account utente in alcuni scenari di elaborazione \(ad esempio chiamate in ingresso\) e per disabilitare la proprietà di connessione remota in altri scenari di elaborazione \(ad esempio 802.1x wireless e l'opzione di autenticazione\).
 
-È inoltre possibile utilizzare **dial-in di proprietà dell'account utente di ignorare** per gestire il controllo di accesso di rete tramite gruppi e le autorizzazioni di accesso nei criteri di rete. Quando si seleziona il **dial-in di proprietà dell'account utente di ignorare** casella di controllo autorizzazione di accesso di rete per l'account utente viene ignorato.
+È anche possibile usare **dial-in di proprietà dell'account utente di ignorare** per gestire il controllo di accesso alla rete tramite gruppi e l'impostazione di autorizzazione di accesso nei criteri di rete. Quando si seleziona il **dial-in di proprietà dell'account utente di ignorare** casella di controllo, autorizzazione di accesso di rete per l'account utente viene ignorato.
 
-L'unico svantaggio di questa configurazione è che non è possibile utilizzare altre proprietà dell'account utente dial-in di ID chiamante, callback, indirizzo IP statico e route statiche.
+L'unico svantaggio di questa configurazione è che è possibile utilizzare altre proprietà dell'account utente dial-dell'ID chiamante, il callback, indirizzo IP statico e route statiche.
 
-Per ulteriori informazioni sui criteri di rete, vedere [Server dei criteri di rete (NPS)](nps-top.md).
+Per altre informazioni sui criteri di rete, vedere [Strumentazione gestione Windows (NPS, Network Policy Server)](nps-top.md).

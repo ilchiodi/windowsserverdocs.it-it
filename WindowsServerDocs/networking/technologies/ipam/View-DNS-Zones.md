@@ -13,27 +13,28 @@ ms.topic: article
 ms.assetid: 2cfe4e40-ec6d-4541-baa9-d772409fe27c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4279a15f885758e59b6f5c30b2feddd50962f0d5
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 18a593a82a9b9fd0d8f2e59d1bb9da971856ad17
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59841522"
 ---
 # <a name="view-dns-zones"></a>Visualizzare le zone DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per visualizzare le zone DNS nella console del client di gestione indirizzi IP.  
+È possibile utilizzare questo argomento per visualizzare le zone DNS nella console di gestione indirizzi IP client.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
-### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>Per visualizzare le zone DNS nella console del client di gestione indirizzi IP  
+### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>Per visualizzare le zone DNS nella console di gestione indirizzi IP client  
   
-1.  In Server Manager, fare clic su **gestione indirizzi IP**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager, fare clic su  **Gestione indirizzi IP**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **monitoraggio e gestione**, fare clic su **zone DNS**.  Riquadro di spostamento divide in un riquadro di spostamento superiore e un riquadro di spostamento inferiore.  
+2.  Nel riquadro di spostamento, in **MONITORAGGIO e GESTIONE**, fare clic su **zone DNS**.  Riquadro di spostamento viene suddivisa in un riquadro di spostamento superiore e un riquadro di navigazione inferiore.  
   
-3.  Nel riquadro di spostamento inferiore, effettuare una delle opzioni seguenti:  
+3.  Nel riquadro di spostamento inferiore, apportare una delle seguenti selezioni:  
   
     -   Ricerca diretta  
   

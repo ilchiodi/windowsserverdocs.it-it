@@ -10,98 +10,98 @@ author: eldenchristensen
 ms.date: 04/12/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 515b4fd5c40fcbae0e12a2c30090384533972353
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "8232530"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849322"
 ---
-# Requisiti hardware di Spazi di archiviazione diretta
+# <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
 > Si applica a: Windows Server 2016, Windows Server Insider Preview
 
 Questo argomento descrive i requisiti hardware minimi per spazi di archiviazione diretta.
 
-Per la produzione, Microsoft consiglia di queste offerte hardware/software di [Windows Server Software-Defined](https://microsoft.com/wssd) dai nostri partner, che includono le procedure e strumenti di distribuzione. Sono progettate, assemblati e convalidati sulla base delle nostra architettura di riferimento per garantire la compatibilità e affidabilità, in modo che ottenere fino e diventare subito operativi. Altre informazioni consultando [https://microsoft.com/wssd](https://microsoft.com/wssd).
+Per la produzione, Microsoft consiglia queste [Windows Server Software-Defined](https://microsoft.com/wssd) offre hardware e software dei partner, tra cui strumenti di distribuzione e procedure. Sono progettate, assemblati e convalidare l'architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Altre informazioni, vedi [ https://microsoft.com/wssd ](https://microsoft.com/wssd).
 
 ![logo dei nostri partner di Windows Server Software Defined](media/hardware-requirements/wssd-partners.png)
 
    > [!TIP]
-   > Vuole valutare spazi di archiviazione diretta, ma non dispone di hardware? Usare Hyper-V o macchine virtuali di Azure come descritto in [Con spazi di archiviazione diretta in cluster di macchina virtuale guest](storage-spaces-direct-in-vm.md).
+   > Vuole valutare spazi di archiviazione diretta, ma non dispone di hardware? Usare macchine virtuali di Azure o Hyper-V come descritto in [usando spazi di archiviazione diretta in cluster di macchine virtuali guest](storage-spaces-direct-in-vm.md).
 
-## Requisiti di base
+## <a name="base-requirements"></a>Requisiti di base
 
-I sistemi, componenti, dispositivi e driver deve essere **Certificazione di Windows Server 2016** per ogni [Catalogo di Windows Server](https://www.windowsservercatalog.com). Inoltre, è consigliabile schede di rete, unità, schede bus host e i server di **Standard Software-Defined Data Center (SDDC)** e/o **Premium Software-Defined Data Center (SDDC)** requisiti aggiuntivi (ricerca avanzata), come illustrato nella figura di seguito. Ci sono componenti oltre 1.000 con la ricerca avanzata SDDC.
+I sistemi, componenti, dispositivi e driver deve essere **certificate di Windows Server 2016** per il [catalogo di Windows Server](https://www.windowsservercatalog.com). Inoltre, è consigliabile che i server, le unità, schede bus host e le schede di rete abbiano la **definita dal software Data Center (SDDC) Standard** e/o **definita dal software Data Center (SDDC) Premium** qualificazione aggiuntive (AQs), come illustrata di seguito. Sono disponibili oltre 1.000 componenti con la AQs SDDC.
 
-![screenshot del catalogo di Windows Server che mostra la ricerca avanzata SDDC](media/hardware-requirements/sddc-aqs.png)
+![screenshot del catalogo di Windows Server che mostra il AQs SDDC](media/hardware-requirements/sddc-aqs.png)
 
-Il cluster completamente configurato (server, rete e archiviazione) deve superare tutti i [test di convalida del cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) per la procedura guidata in Gestione Cluster di Failover o con il `Test-Cluster` [cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) di PowerShell.
+Il cluster configurazione completa (server, rete e archiviazione) deve superare tutti [test di convalida cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) per la procedura guidata in Gestione Cluster di Failover o con il `Test-Cluster` [cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell.
 
 Inoltre, si applicano i requisiti seguenti:
 
-## Server
+## <a name="servers"></a>Server
 
 - Minimo due server, massimo 16
 - Consigliabile che tutti i server sia lo stesso produttore e modello
 
-## CPU
+## <a name="cpu"></a>CPU
 
-- Processore Intel Nehalem o versione successiva compatibile; o
-- In un secondo momento processore compatibile o AMD EPYC
+- Nehalem Intel o processore compatibile in un secondo momento; o
+- AMD EPYC o in un secondo momento processore compatibile
 
-## Memoria
+## <a name="memory"></a>Memoria
 
-- Memoria per Windows Server, le macchine virtuali e altre App o carichi di lavoro; Plus
-- 4 GB di RAM per terabyte (TB) di capacità di unità cache su ciascun server, per i metadati di spazi di archiviazione diretta
+- Memoria per Windows Server, le macchine virtuali e altre App o i carichi di lavoro; segno più
+- 4 GB di RAM per ogni terabyte (TB) di capacità di unità di cache in ogni server, per i metadati di spazi di archiviazione diretta
 
-## Avvio
+## <a name="boot"></a>Avvio
 
-- Qualsiasi dispositivo di avvio supportato da Windows Server, che [include ora SATADOM](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
-- RAID 1 mirroring è **non** necessari, ma è supportata per l'avvio
-- Consigliato: dimensione minima di 200 GB
+- Qualsiasi dispositivo di avvio supportato da Windows Server, quali [include ora SATADOM](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
+- RAID 1 è mirror **non** necessari, ma è supportato per l'avvio
+- Consigliato: Dimensioni minime pari a 200 GB
 
-## Reti
+## <a name="networking"></a>Rete
 
-Importo minimo (per il nodo di piccole dimensioni di scala 2-3)
-- Interfaccia di rete di 10 Gbps
-- Connessione diretta (switchless) è supportato con 2-nodi
+Valore minimo (per node su scala ridotta 2 e 3)
+- Interfaccia di rete 10 Gbps
+- Connessione diretta (switchless) è supportato con 2 nodi
 
-Consigliato (ad alte prestazioni, la scala o le distribuzioni di 4 + nodi)
-- Schede NIC che sono accesso diretto a memoria remota (RDMA) in grado, (scelta consigliata) iWARP o RoCE
+Consigliato (ad alte prestazioni, scalabilità o distribuzioni di nodi 4 +)
+- Schede di rete che sono l'accesso diretto a memoria remota (RDMA) in grado di supportare, iWARP (scelta consigliata) o RoCE
 - Due o più schede di rete per la ridondanza e prestazioni
-- Interfaccia di rete 25 Gbps o superiore
+- Interfaccia di rete di 25 Gbps o versione successiva
 
-## Unità
+## <a name="drives"></a>Unità
 
-Spazi di archiviazione diretta interagisce con collegate SATA, SAS o NVMe unità che sono fisicamente associate a un solo server. Per ulteriori suggerimenti sulla scelta di unità, vedi l'argomento [Scelta delle unità](choosing-drives.md).
+Spazi di archiviazione diretta è compatibile con collegamento diretto SATA, SAS o NVMe unità fisicamente collegati a un solo server. Per ulteriori suggerimenti sulla scelta di unità, vedi l'argomento [Scelta delle unità](choosing-drives.md).
 
-- Le unità SAS, SATA e NVMe (M.2 U.2 e Add-In-Card) tutti supportate
-- 512n, 512 e unità nativo 4K tutti supportate
-- Le unità SSD devono fornire [protezione interruzioni dell'alimentazione](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
-- Stesso numero e dei tipi di unità in ogni server, vedere [Considerazioni simmetria di unità](drive-symmetry-considerations.md)
-- NVMe driver è integrato Microsoft o NVMe driver aggiornato.
-- Consigliato: Numero di unità di capacità sia un multiplo del numero di unità cache intero
-- Consigliato: Unità Cache deve essere minore resistenza in scrittura elevata: almeno 3 drive-writes-per-day (dwpd drive) o almeno 4 terabyte scritti (Terabytes) al giorno-Vedi unità conoscenza [scrive al giorno dwpd (drive), terabyte scritti (Terabytes) e il valore minimo consigliato per l'archiviazione Spazi diretta](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
+- Le unità SAS, SATA e NVMe (M.2 U.2 e Add-In-Card) sono supportate
+- sono supportate 512n, 512e e unità native a 4 KB
+- È necessario fornire le unità SSD [protezione contro la perdita dell'alimentazione](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
+- Stesso numero e tipi di unità in ogni server – vedere [unità considerazioni simmetria](drive-symmetry-considerations.md)
+- NVMe driver di Microsoft nella casella o NVMe driver aggiornato.
+- Consigliato: Numero di unità di capacità è un multiplo intero del numero di unità di cache
+- Consigliato: Le unità di cache devono avere resistenza scrittura elevata: almeno 3 unità di operazioni di scrittura-al giorno (DWPD) o almeno 4 terabyte scritti (TBW) al giorno: vedere [unità Understanding scrive al giorno (DWPD), terabyte scritto (TBW) e il valore minimo consigliato per l'archiviazione Gli spazi diretti](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
-Ecco come unità possono essere connessi spazi di archiviazione diretta:
+Ecco come le unità possono essere connesse per spazi di archiviazione diretta:
 
-1. Unità SATA collegate
-2. Unità NVMe collegate
-3. Scheda SAS bus host (HBA) con le unità SAS
-4. Scheda SAS bus host (HBA) con unità SATA
-5. **Non supportato:** RAID schede controller o SAN (Fibre Channel, iSCSI, FCoE) archiviazione. Bus host (HBA) schede devono implementare la modalità semplice pass-through.
+1. Direct-attached unità SATA
+2. Unità NVMe collegato direttamente
+3. Scheda di firma di accesso condiviso bus host (HBA) con unità SAS
+4. Scheda di firma di accesso condiviso bus host (HBA) con unità SATA
+5. **NON È SUPPORTATO:** RAID schede dei controller o SAN (Fibre Channel, iSCSI, FCoE) archiviazione. Bus host (HBA) schede devono implementare una semplice modalità pass-through.
 
-![diagramma di lavoro supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-1.png)
+![diagramma dell'unità supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-1.png)
 
-Le unità possono essere interne al server o in un allegato esterno che è connesso a un solo server. Servizi SES (SCSI Enclosure Services) è necessaria per l'identificazione e mapping slot. Ciascuna enclosure esterna deve presentare un identificatore univoco (ID univoco).
+Le unità possono essere interne al server o in un dispositivo esterno che è connesso a un solo server. I servizi SES (SCSI Enclosure) è obbligatorio per l'identificazione e mapping degli slot. Ciascun alloggiamento esterno deve presentare un identificatore univoco (ID univoco).
 
-1. Unità interne al server
-2. Le unità in un enclosure esterna ("JBOD") collegata a un server
-3. **Non supportato:** Alloggiamenti SAS condivisi è connesso a più server o qualsiasi forma di Multipath i/o (MPIO) in cui sono accessibili da più percorsi di unità.
+1. Unità interna al server
+2. Le unità in un dispositivo esterno "JBOD (") connesso a un server
+3. **NON È SUPPORTATO:** Enclosure SAS condivisi connesso a più server o qualsiasi forma di Multipath i/o (MPIO) in cui le unità sono accessibili da più percorsi.
 
-![diagramma di lavoro supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-2.png)
+![diagramma dell'unità supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-2.png)
 
-### Numero minimo di unità (esclude l'unità di avvio)
+### <a name="minimum-number-of-drives-excludes-boot-drive"></a>Numero minimo di unità (unità di avvio esclusi)
 
 - Se ci sono delle unità utilizzate come cache, ce ne devono essere almeno due per server
 - Ci devono essere almeno 4 unità di capacità (non cache) per server
@@ -111,14 +111,14 @@ Le unità possono essere interne al server o in un allegato esterno che è conne
 | Tutte le unità NVMe (stesso modello) | 4 NVMe                  |
 | Tutte le unità SSD (stesso modello)  | 4 SSD                   |
 | Unità NVMe + SSD            | Due unità NVMe + quattro SSD          |
-| Unità NVMe + HDD            | Due NVMe + quattro HDD          |
-| SSD + HDD             | Due SSD + quattro HDD           |
-| NVMe + SSD + HDD      | Due NVMe + quattro altre       |
+| Unità NVMe + HDD            | Due unità NVMe + quattro HDD          |
+| Unità SSD + unità disco rigido             | Due unità SSD + quattro unità HDD           |
+| Unità NVMe + SSD + HDD      | Due unità NVMe + quattro altre       |
 
    >[!NOTE]
-   > Questa tabella fornisce il valore minimo per le distribuzioni di hardware. Se eseguire la distribuzione con le macchine virtuali e virtualizzate di archiviazione, ad esempio in Microsoft Azure, vedere [Con spazi di archiviazione diretta in cluster di macchina virtuale guest](storage-spaces-direct-in-vm.md).
+   > Questa tabella presenta il valore minimo per le distribuzioni di hardware. Se si è virtualizzato e distribuzione con macchine virtuali di archiviazione, ad esempio in Microsoft Azure, vedere [usando spazi di archiviazione diretta in cluster di macchine virtuali guest](storage-spaces-direct-in-vm.md).
 
-### Capacità massima
+### <a name="maximum-capacity"></a>Capacità massima
 
-- Consigliato: Capacità di archiviazione non elaborato di massimo 100 terabyte (TB) per ogni server
-- Massimo 1 petabyte (1000 TB) non elaborati la capacità nel pool di archiviazione
+- Consigliato: Capacità massima di archiviazione non elaborato 100 terabyte (TB) per ogni server
+- 1 petabyte (1.000 TB) non elaborati capacità massima del pool di archiviazione

@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9feb65903be589e6f6a9cc6c3b8738d858a70f30
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849512"
 ---
 # <a name="manage-microsoft-online-services-in-windows-server-essentials"></a>Gestire Microsoft Online Services in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Gli argomenti seguenti forniscono informazioni sui metodi che è possibile utilizzare per gestire i servizi online per la tua organizzazione:  
+Gli argomenti seguenti includono informazioni sui metodi che possono essere usati per gestire i servizi online per l'organizzazione:  
   
 -   [Gestire Office 365](Manage-Office-365-in-Windows-Server-Essentials.md)   
   
 -   [Gestire il Backup Online](Manage-Online-Backup-in-Windows-Server-Essentials.md)  
   
--   [Gestire SharePoint Online](Manage-SharePoint-Online-in-Windows-Server-Essentials.md)  
+-   [Manage SharePoint Online](Manage-SharePoint-Online-in-Windows-Server-Essentials.md)  
   
 ## <a name="see-also"></a>Vedere anche  
   

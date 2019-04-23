@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7be1f2cb-02d5-4209-ba79-edf496a88f47
 title: Scenario di File di controllo dell'accesso
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,72 +10,73 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 93d78bbefce38173198f991543fb3a06d145b373
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867682"
 ---
-# <a name="scenario-file-access-auditing"></a>Scenario: File di controllo dell'accesso
+# <a name="scenario-file-access-auditing"></a>Scenario: Controllo dell'accesso ai file
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-I controlli di sicurezza sono uno degli strumenti più potenti per garantire la protezione di un'azienda. One of the key goals of security audits is regulatory compliance. Standard di settore come Sarbanes Oxley, Health Insurance Portability and Accountability Act (HIPAA) e del settore PCI (Payment Card) sono tenute a seguire una serie di regole relative alla privacy e sicurezza dei dati precise. Controlli di sicurezza consentono stabilire la presenza di tali criteri e confermare la conformità con questi standard. Inoltre, i controlli di sicurezza rilevare comportamenti anomali, identificare e ridurre eventuali lacune nei criteri di sicurezza e scoraggiare confronti di comportamenti irresponsabili tramite la creazione di una traccia delle attività dell'utente che può essere utilizzato per l'analisi forense.  
+I controlli di sicurezza sono tra gli strumenti più potenti per garantire la sicurezza di un'organizzazione. Uno degli obiettivi principali dei controlli di sicurezza è la conformità ai requisiti. In base a standard di settore come Sarbanes Oxley, HIPAA (Health Insurance Portability and Accountability Act) e PCI (Payment Card Industry), le organizzazioni sono tenute a seguire una serie di regole precise in materia di sicurezza dei dati e privacy. I controlli di sicurezza consentono di verificare l'esistenza di tali criteri e confermare la conformità agli standard. I controlli di sicurezza contribuiscono a intercettare comportamenti anomali e a identificare e ridurre eventuali lacune nei criteri di sicurezza, inoltre svolgono un'azione deterrente nei confronti di comportamenti irresponsabili tramite la creazione di una traccia delle attività dell'utente che può essere utilizzata in un'analisi forense.  
   
-Requisiti dei criteri di controllo sono in genere applicati ai livelli seguenti:  
+I requisiti dei criteri di controllo sono in genere applicati ai livelli seguenti:  
   
--   **Protezione delle informazioni.** Gli itinerari di controllo di accesso file vengono spesso usati per il rilevamento delle intrusioni e di analisi forense. La possibilità di generare eventi mirati relativi all'accesso alle informazioni di alto valore supponiamo le organizzazioni possono migliorano la precisione di tempo e analisi di risposta.  
+-   **Sicurezza delle informazioni.** Gli audit trail di accesso ai file vengono usati spesso per l'analisi forense e il rilevamento delle intrusioni. Essendo in grado di generare eventi mirati relativi all'accesso a informazioni di alto valore, le organizzazioni possono migliorare il tempo di risposta e l'accuratezza dell'analisi in modo significativo.  
   
--   **Criteri dell'organizzazione.** Ad esempio, le organizzazioni regolamentate tramite standard PCI potrebbero avere un criterio centrale per monitorare l'accesso a tutti i file che sono contrassegnati come contenente informazioni della carta di credito e informazioni personali (PII).  
+-   **Criteri dell'organizzazione.** Ad esempio, le organizzazioni regolamentate tramite standard PCI possono avere un criterio centrale per monitorare l'accesso a tutti i file contenenti informazioni sulle carte di credito e le informazioni personali.  
   
--   **Criteri del reparto.** Ad esempio, il reparto finanziario richieda la possibilità di modifica di documenti delicati (ad esempio, un report trimestrale) essere limitato al reparto finanziario, che quindi decidere di monitorare tutti gli altri tentativi di modifica di questi documenti.  
+-   **Criteri del reparto.** Un reparto Finanze potrebbe decidere, ad esempio, di consentire la modifica di determinati documenti, come i rendiconti trimestrali degli utili, soltanto ai membri del reparto stesso e richiedere quindi che vengano monitorati tutti gli altri tentativi di modifica di questi documenti.  
   
--   **Criteri aziendali.** I proprietari aziendali, ad esempio, potrebbero voler monitorare tutti i tentativi non autorizzati di visualizzazione di dati riguardanti i loro progetti.  
+-   **Criteri aziendali.** I proprietari di un'azienda potrebbero decidere, ad esempio, di monitorare tutti i tentativi non autorizzati di visualizzazione di dati riguardanti i loro progetti.  
   
-Inoltre, un reparto conformità potrebbe decidere di monitorare tutte le modifiche ai criteri di autorizzazione centrale e costrutti di criteri, ad esempio utenti, computer e gli attributi delle risorse.  
+Un reparto conformità potrebbe inoltre decidere di monitorare tutte le modifiche dei criteri centrali di autorizzazione e le strutture dei criteri, ad esempio gli attributi di utente, computer e risorse.  
   
-Una delle considerazioni più importanti dei controlli di sicurezza è il costo della raccolta, l'archiviazione e l'analisi degli eventi di controllo. Se i criteri di controllo sono troppo generosi, aumenta il volume di eventi di controllo raccolti e i costi lievitano. Se i criteri di controllo sono troppo limitati, si rischia di trascurare eventi importanti.  
+Una delle considerazioni più importanti per quanto riguarda i controlli di sicurezza è la valutazione dei costi connessi alla raccolta, all'archiviazione e all'analisi degli eventi di controllo. Se i criteri di controllo sono troppo generosi, il volume di eventi di controllo da raccogliere aumenta e i costi lievitano. Se i criteri di controllo sono troppo limitati, il rischio è quello di trascurare eventi importanti.  
   
-Con Windows Server 2012, è possibile creare criteri di controllo tramite attestazioni e proprietà delle risorse. Si presentano pertanto dei criteri di controllo più completo, più mirato e più semplice da gestire. Consente l'orizzonte a scenari finora inimmaginabili o difficilmente realizzabili. Di seguito è riportati esempi dei criteri di controllo che gli amministratori possono creare:  
+Con Windows Server 2012, è possibile creare criteri di controllo utilizzando le attestazioni e le proprietà delle risorse. In tal modo è possibile definire criteri di controllo più mirati e facili da gestire. Si apre così l'orizzonte a scenari finora inimmaginabili o difficilmente realizzabili. Di seguito sono riportati esempi dei criteri di controllo che gli amministratori possono creare:  
   
--   Controllare tutti coloro che non dispone di un nulla osta sicurezza elevata e tenta di accedere a un documento ad alto impatto aziendale. Ad esempio, Audit | Tutti gli utenti | All-Access | Businessimpact e User.  
+-   Controllare tutti coloro che non hanno un Nulla Osta Sicurezza di livello elevato e tentano di accedere a un documento ad alto impatto aziendale. Ad esempio, Audit | Everyone | All-Access | Resource.BusinessImpact=HBI AND User.SecurityClearance!=High.  
   
--   Controllare tutti i fornitori quando tentano di accedere a documenti correlati ai progetti che non funzionano in. Ad esempio, Audit | Tutti gli utenti | All-Access | User e Project Not_AnyOf Resource.Project.  
+-   Controllare tutti i fornitori quando tentano di accedere a documenti di progetti nei quali non sono coinvolti. Ad esempio, Audit | Everyone | All-Access | User.EmploymentStatus=Vendor AND User.Project Not_AnyOf Resource.Project.  
   
-Questi criteri contribuiscono a definire il volume di eventi di controllo e a limitare tali solo i dati più importanti o gli utenti.  
+Questi criteri contribuiscono a definire il volume degli eventi di controllo e a limitare tali eventi ai soli dati o utenti significativi.  
   
-Dopo che gli amministratori hanno creato e applicato i criteri di controllo, il successivo corrispettivo è gleaning informazioni significative dagli eventi di controllo raccolti. Eventi di controllo basati su espressioni consentono di ridurre il volume dei controlli. Tuttavia, gli utenti devono poter eseguire ricerche in questi eventi per trovare informazioni significative e porre domande, ad esempio, "chi sta accedendo ai dati HBI?" O "Era presente un tentativo non autorizzato di accedere a dati sensibili?"  
+Dopo avere creato e applicato i criteri di controllo, gli amministratori devono riflettere su come ottenere informazioni significative dagli eventi di controllo raccolti. Gli eventi di controllo basati sulle espressioni sono utili per ridurre il volume dei controlli. Tuttavia, gli utenti hanno bisogno di eseguire query su questi eventi per trovare informazioni significative e porre domande, ad esempio, "chi accede a dati HBI?" o "Era presente un tentativo non autorizzato di accedere ai dati sensibili?"  
   
- Windows Server 2012 migliora eventi di accesso dati esistenti con le attestazioni utente, computer e risorse. Questi eventi vengono generati in base al server. Per offrire una visualizzazione completa degli eventi all'interno dell'organizzazione, Microsoft sta lavorando con i partner per fornire la raccolta di eventi e gli strumenti di analisi, ad esempio Audit Collection Services in System Center Operation Manager.  
+ Windows Server 2012 migliora eventi di accesso ai dati esistenti con le attestazioni utente, computer e risorse. Questi eventi vengono generati per i singoli server. Per offrire una visualizzazione completa degli eventi di tutta l'organizzazione, Microsoft e i relativi partner sono impegnati nella creazione di strumenti di raccolta e analisi degli eventi, ad esempio i servizi Raccolta controlli in System Center Operation Manager.  
   
-Figura 4 mostra una panoramica di un criterio di controllo centrale.  
+Nella figura 4 è illustrata una panoramica di un criterio di controllo centrale.  
   
 ![Guide alle soluzioni](media/Scenario--File-Access-Auditing/DynamicAccessControl_RevGuide_4.JPG)  
   
-**Figura 4** esperienze di controllo centrale  
+**Figura 4** Esperienze di controllo centrale  
   
-Impostare e utilizzare i controlli di sicurezza in genere prevede i passaggi generali seguenti:  
+Per impostare e utilizzare i controlli di sicurezza è in genere necessario:  
   
 1.  Identificare il corretto insieme di dati e utenti da monitorare  
   
-2.  Creare e applicare criteri di controllo appropriati  
+2.  Creare e applicare i criteri di controllo appropriati  
   
 3.  Raccogliere e analizzare gli eventi di controllo  
   
-4.  Gestire e monitorare i criteri che sono stati creati  
+4.  Gestire e monitorare i criteri creati  
   
 ## <a name="in-this-scenario"></a>In questo scenario  
-Gli argomenti seguenti forniscono informazioni aggiuntive per questo scenario:  
+Negli argomenti seguenti sono disponibili ulteriori informazioni su questo scenario:  
   
 -   [Pianificare per File di controllo dell'accesso](Plan-for-File-Access-Auditing.md)  
   
--   [Deploy Security Auditing with Central Audit Policies &#40;Demonstration Steps&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
+-   [Distribuire il controllo della protezione con criteri di controllo centrale &#40;passaggi dimostrativi&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
   
 ## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
-Nella tabella seguente elenca i ruoli e funzionalità che fanno parte di questo scenario e descrive la modalità di supporto.  
+Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
-|Ruolo o funzionalità|Modalità di supporto in questo scenario|  
+|Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |-----------------|---------------------------------|  
-|Ruolo di Active Directory servizi di dominio|Dominio di Active Directory in Windows Server 2012 offre una piattaforma di autorizzazione basata sulle attestazioni che consente di creare attestazioni utente e richieste diritti da dispositivo, identità composte, (attestazioni utente più dispositivo), nuovo modello di accesso centrale criteri e l'utilizzo delle informazioni di classificazione file nelle decisioni di autorizzazione.|  
+|Ruolo Servizi di dominio Active Directory|Dominio di Active Directory in Windows Server 2012 offre una piattaforma di autorizzazione basata sulle attestazioni che consente la creazione di attestazioni utente e richieste diritti da dispositivo, identità composte, (attestazioni utente più dispositivo), nuovo modello di accesso centrale criteri e l'utilizzo delle informazioni di classificazione file nelle decisioni di autorizzazione.|  
 |Ruolo Servizi file e archiviazione|File server in Windows Server 2012 forniscono un'interfaccia utente in cui gli amministratori possono visualizzare le autorizzazioni valide per gli utenti per un file o cartella e risolvere i problemi di accesso e concedere l'accesso in base alle esigenze.|  
   
 

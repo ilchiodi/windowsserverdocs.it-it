@@ -1,5 +1,5 @@
 ---
-title: Requisiti hardware clustering di failover e le opzioni di archiviazione
+title: Requisiti hardware di clustering failover e opzioni di archiviazione
 description: Requisiti hardware e le opzioni di archiviazione per la creazione di un cluster di failover.
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,70 +9,70 @@ ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082291"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848172"
 ---
-# <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Requisiti hardware clustering di failover e le opzioni di archiviazione
+# <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Requisiti hardware di clustering failover e opzioni di archiviazione
 
 Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
 
-È necessario l'hardware per creare un cluster di failover. Per essere supportata da Microsoft, deve essere certificate tutti i componenti hardware per la versione di Windows Server in esecuzione e la soluzione di cluster di failover completo deve superare tutti i test in Convalida configurazione guidata. Per ulteriori informazioni sulla convalida di un cluster di failover, vedere [Convalida Hardware per un Cluster di Failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
+Per creare un cluster di failover, è necessario disporre dell'hardware seguente. Per essere supportato da Microsoft, tutto l'hardware deve essere certificato per la versione di Windows Server in esecuzione e la soluzione completa del cluster di failover deve superare tutti i test della Convalida guidata configurazione. Per altre informazioni sulla convalida del cluster di failover, vedere [Convalidare l'hardware per un cluster di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 
-- **Server**: È consigliabile utilizzare un insieme di computer che contengono componenti uguali o simili.
-- **Schede di rete e cavo (per le comunicazioni di rete)**: se si usa iSCSI, ogni scheda di rete deve essere dedicato per le comunicazioni di rete o iSCSI, non entrambi.
+- **Server**: è consigliabile utilizzare un insieme di computer corrispondenti che contengono gli stessi componenti o componenti simili.
+- **Cavo e adattatori di rete (per comunicazione di rete)**: In caso di uso di iSCSI, ogni scheda di rete deve essere dedicata alle comunicazioni di rete o a iSCSI, non a entrambi.
 
-    Nell'infrastruttura di rete che connette i nodi del cluster, evitare di singoli punti di errore. Ad esempio, è possibile connettere i nodi del cluster utilizzando più reti distinte. In alternativa, è possibile connettere i nodi del cluster con una rete che viene creata con schede di rete ridondanti, commutatori ridondanti, router ridondanti o hardware simile che rimuove i singoli punti di errore.
-
-    >[!NOTE]
-    >Se ci si connettono i nodi del cluster con un'unica rete, la rete passerà i requisiti di ridondanza in Convalida configurazione guidata. Tuttavia, un avviso indicante che la rete non dovrebbe includere singoli punti di errore da includere nel report dalla procedura guidata.
-
-- **Controller di dispositivi o schede appropriate per l'archiviazione**:
-
-  - **Serial Attached SCSI o Fibre Channel**: se si utilizza Serial Attached SCSI o Fibre Channel, in tutti i cluster di server, tutti gli elementi dello stack di archiviazione devono essere identici. È necessario che il software dei / o (MPIO) più percorsi siano identiche e che il software specifico modulo DSM (Device) essere identici. È consigliabile che i controller di periferica di memorizzazione, ovvero l'host del bus scheda (HBA), driver HBA e firmware HBA, che devono essere collegati alla archiviazione cluster essere identici. Se si utilizzano HBA diversi, è consigliabile verificare con il fornitore di archiviazione che si siano seguendo le configurazioni supportate o consigliati.
-  - **iSCSI**: se si utilizza iSCSI, ogni server del cluster deve disporre di uno o più schede di rete o HBA dedicati all'archiviazione cluster. La rete utilizzata per iSCSI non deve essere utilizzata per le comunicazioni di rete. Nel server di tutti i cluster, le schede di rete utilizzate per la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.
-- **Archiviazione**: È necessario utilizzare [Spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) o condivisi archiviazione compatibile con Windows Server 2012 R2 o Windows Server 2012. È possibile utilizzare un'archiviazione condivisa collegato ed è inoltre possibile utilizzare le condivisioni di file SMB 3.0 come un'archiviazione condivisa per i server che esegue Hyper-V configurate in un cluster di failover. Per ulteriori informazioni, vedere [Distribuzione di Hyper-V su SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
-
-    Nella maggior parte dei casi, archiviazione collegate deve contenere più, separare i dischi (numeri di unità logica o LUN) che vengono configurati a livello hardware. Per alcuni cluster, un disco funziona come server di controllo del disco (descritto alla fine della presente sottosezione). Altri dischi contengono i file necessari per i ruoli del cluster (precedentemente denominati applicazioni o servizi del cluster). Requisiti di archiviazione includono:
-
-  - Per utilizzare il supporto nativo disco incluso nel Clustering di Failover, utilizzare dischi di base, i dischi non dinamici.
-  - È consigliabile formattare le partizioni con NTFS. Se si utilizza Cluster condiviso volumi (con estensione CSV), la partizione per ognuna di esse deve essere NTFS.
+    Evitare singoli punti di errore nell'infrastruttura di rete utilizzata per la connessione dei nodi del cluster. È ad esempio possibile connettere i nodi del cluster con più reti distinte. In alternativa, è possibile connettere i nodi del cluster con una rete che viene costruita con schede di rete, commutatori ridondanti, router ridondanti o hardware simile che rimuova singoli punti di errore.
 
     >[!NOTE]
-    >Se si dispone di un controllo su disco per la configurazione di quorum, è possibile formattare il disco con NTFS o resiliente File System (ReFS).
+    >Se si connettono nodi cluster con una sola rete, la rete supererà il requisito di ridondanza nella Convalida configurazione guidata. Il rapporto della procedura guidata includerà tuttavia un avviso a indicare che la rete deve essere priva di singoli punti di errore.
 
-  - Per lo stile di partizione del disco, è possibile utilizzare record avvio principale () o tabella di partizione GUID (GPT).
+- **Controller di dispositivi o adattatori appropriati per l'archiviazione**:
 
-    Un controllo del mirroring del disco è un disco nell'archivio cluster che ha designato per mantenere una copia del database di configurazione del cluster. Un cluster di failover è un'istanza di controllo su disco solo se viene specificato come parte della configurazione del quorum. Per ulteriori informazioni, vedere [Understanding Quorum in spazi di archiviazione diretta](../storage/storage-spaces/understand-quorum.md).
+  - **SAS o Fibre Channel**: se si usa SAS o Fibre Channel, in tutti i server del cluster, è preferibile che tutti gli elementi dello stack di archiviazione siano identici. È necessario che il software multipath i/o (MPIO) siano identiche e che il software del modulo specifico dispositivo (DSM) siano identici. È consigliabile che i controller del dispositivo di archiviazione di massa, host bus adapter (HBA), i relativi driver e firmware, collegati all'archiviazione cluster siano identici. Se si utilizzano schede HBA diverse, è opportuno verificare con il fornitore dell'archiviazione che vengano eseguite le configurazioni supportate o consigliate.
+  - **iSCSI**: se si usa iSCSI, ogni server del cluster deve disporre di una o più schede di rete o HBA dedicate all'archiviazione cluster. La rete utilizzata per i dispositivi iSCSI non deve essere utilizzata per la comunicazione di rete. In tutti i server del cluster, le schede di rete utilizzate per eseguire la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.
+- **Archiviazione**: È necessario utilizzare [spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) o condiviso di archiviazione compatibile con Windows Server 2012 R2 o Windows Server 2012. È possibile usare l'archiviazione condivisa associata ed è anche possibile usare condivisioni file SMB 3.0 come archiviazione condivisa per i server che eseguono Hyper-V configurati in un cluster di failover. Per altre informazioni, vedere [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
+
+    Nella maggior parte dei casi, l'archiviazione collegata deve contenere più dischi separati (LUN, Logical Unit Number) configurati a livello hardware. Per alcuni cluster, un disco viene utilizzato come disco di controllo (descritto alla fine di questa sottosezione). Altri dischi contengono i file necessari per i ruoli del cluster (in precedenza denominati servizi o applicazioni del cluster). Di seguito sono elencati i requisiti di archiviazione:
+
+  - Per usare il supporto del disco nativo incluso nel clustering di failover, usare dischi di base, non dinamici.
+  - È consigliabile formattare le partizioni con NTFS. Se si usano volumi condivisi (CSV,Cluster Shared Volumes) del cluster, la partizione per ogni disco deve essere NTFS.
+
+    >[!NOTE]
+    >Se si usa un disco di controllo per la configurazione quorum, sarà possibile formattare il disco con NTFS o ReFS (Resilient File System).
+
+  - È possibile utilizzare MBR (Record di avvio principale, Master Boot Record) o GPT (Tabella di partizione GUID, GUID Partition Table) come stile di partizione del disco.
+
+    Un disco di controllo è un disco nell'archiviazione del cluster che è progettato per contenere una copia del database di configurazione del cluster. Un cluster di failover dispone di un disco di controllo solo se tale funzionalità è stata specificata durante la configurazione quorum. Per altre informazioni, vedere [Quorum comprensione in spazi di archiviazione diretta](../storage/storage-spaces/understand-quorum.md).
 
 ## <a name="hardware-requirements-for-hyper-v"></a>Requisiti hardware per Hyper-V
 
-Se si sta creando un cluster di failover che include le macchine virtuali in cluster, i server del cluster devono supportare i requisiti hardware per il ruolo Hyper-V. Hyper-V è necessario un processore a 64 bit che include le operazioni seguenti:
+Se si crea un cluster di failover che include macchine virtuali in cluster, è necessario che i server del cluster supportino i requisiti hardware per il ruolo Hyper-V. Hyper-V richiede un processore a 64 bit che include quanto indicato di seguito:
 
-- Virtualizzazione basata su hardware. Questa opzione è disponibile nei processori che includono un'opzione di virtualizzazione, nello specifico i processori Intel Virtualization Technology (Intel VT) o tecnologia AMD Virtualization (AMD-V).
-- Applicata da hardware esecuzione programmi (DEP, Data) deve essere disponibile e abilitata. In particolare, è necessario attivare Intel XD bit (execute disable bit) o AMD NX bit (no execute).
+- Virtualizzazione assistita mediante hardware. Disponibile nei processori che includono un'opzione di virtualizzazione, in particolare i processori con tecnologia di virtualizzazione Intel (Intel VT) o la virtualizzazione AMD (AMD-V).
+- È necessario rendere disponibile e abilitare Protezione esecuzione programmi applicata a livello di hardware. In particolare, è necessario abilitare Intel XD Bit (eXecute Disable Bit) o AMD NX Bit (No eXecute Bit).
 
-Per ulteriori informazioni sul ruolo Hyper-V, vedere [Panoramica di Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v%3dws.11)>).
+Per altre informazioni sul ruolo Hyper-V, vedere [Panoramica di Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v%3dws.11)>).
 
-## <a name="deploying-storage-area-networks-with-failover-clusters"></a>Distribuzione di reti di archiviazione con i cluster di failover
+## <a name="deploying-storage-area-networks-with-failover-clusters"></a>Distribuzione di reti SAN con cluster di failover
 
-Quando si distribuisce una rete di archiviazione (SAN) con un cluster di failover, seguire queste linee guida:
+In fase di distribuzione di una rete SAN con un cluster di failover, attenersi alle linee guida seguenti:
 
-- **Verificare la compatibilità dello spazio di archiviazione**: conferma con produttori e dai fornitori di archiviazione, inclusi i driver, firmware e software utilizzato per l'archiviazione, sono compatibili con i cluster di failover nella versione di Windows Server in esecuzione.
-- **Isolare i dispositivi di archiviazione, un cluster per dispositivo**: server dal cluster diversi non deve essere in grado di accedere ai dispositivi di archiviazione stesso. Nella maggior parte dei casi, un LUN utilizzato da un insieme di server cluster deve essere isolato da tutti gli altri server tramite LUN per il mascheramento o zoning.
-- **Si consiglia di utilizzare percorsi multipli i/o software o collaborato schede di rete**: In un'infrastruttura di archiviazione a disponibilità elevata, è possibile distribuire i cluster di failover con più schede bus host mediante un software dei / o più percorsi o raggruppamento delle schede (acronimo di carico di rete bilanciamento del carico e failover o LBFO). In tal modo il livello massimo di ridondanza e disponibilità. Per Windows Server 2012 R2 o Windows Server 2012, la soluzione più percorsi deve essere basata su Microsoft percorsi multipli i/o (MPIO). Il fornitore dell'hardware in genere fornirà un modulo specifici del dispositivo MPIO (DSM) per l'hardware, anche se Windows Server include uno o più DSM come parte del sistema operativo.
+- **Confermare la compatibilità della soluzione di archiviazione**: verificare con i produttori e i fornitori che la soluzione di archiviazione, inclusi driver, firmware e software utilizzati per l'archiviazione, siano compatibili con i cluster di failover nella versione di Windows Server in esecuzione.
+- **Isolare i dispositivi di archiviazione, un cluster per dispositivo**: i server di cluster diversi non devono essere in grado di accedere agli stessi dispositivi di archiviazione. Nella maggior parte dei casi, è consigliabile isolare un LUN utilizzato da un insieme di server del cluster da tutti gli altri server mediante il mascheramento dei LUN o la suddivisione in zone.
+- **Valutare l'uso di software Multipath I/O o di gruppi di schede di rete**: in un fabric di archiviazione a disponibilità elevata è possibile distribuire cluster di failover con più schede bus host usando software Multipath I/O o un gruppo di schede di rete (detto anche bilanciamento del carico e failover). In questo modo viene fornito il livello più elevato di ridondanza e disponibilità. Per Windows Server 2012 R2 o Windows Server 2012, la soluzione a percorsi multipli deve essere basata su Microsoft Multipath i/o (MPIO). Il fornitore dell'hardware offre in genere un modulo DSM MPIO per l'hardware, sebbene Windows Server includa uno o più moduli DSM all'interno del sistema operativo.
 
-    Per ulteriori informazioni su LBFO, vedere [Panoramica della scheda di rete che si integra](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming) nella raccolta di documentazione tecnica di Windows Server.
+    Per altre informazioni sulle LBFO, vedere [Panoramica di gruppo NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming) nella libreria tecnica di Windows Server.
 
     >[!IMPORTANT]
-    >Software dei / o più percorsi e delle schede bus host può essere molto versione riservati. Se si stanno implementando una soluzione più percorsi per il cluster, lavorano con il fornitore dell'hardware per scegliere le schede corrette, firmware e software per la versione di Windows Server in esecuzione.
+    >Le schede HBA e il software Multipath I/O possono variare significativamente in base alle versioni. In caso di implementazione di una soluzione a percorsi multipli per il cluster, è opportuno scegliere attentamente con il fornitore dell'hardware le schede, il firmware e il software corretti per la versione di Windows Server in esecuzione.
 
-- **Si consiglia di utilizzare spazi di archiviazione**: se si prevede di distribuire seriale archiviazione collegate SCSI (SAS) cluster configurato con spazi di archiviazione, vedere [Distribuire cluster spazi di archiviazione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) per i requisiti.
+- **Valutare l'uso di Spazi di archiviazione**: Se si prevede di distribuire serie collegata di archiviazione SCSI (SAS) in cluster configurata in modo usando spazi di archiviazione, vedere [distribuire spazi di archiviazione in cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) per soddisfare i requisiti.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 - [Clustering di failover](failover-clustering.md)
 - [Spazi di archiviazione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831739(v%3dws.11)>)
-- [Utilizzo del clustering guest per la disponibilità elevata](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)
+- [Uso di cluster Guest per la disponibilità elevata](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)

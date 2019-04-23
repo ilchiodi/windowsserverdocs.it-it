@@ -1,5 +1,5 @@
 ---
-title: Servizi Desktop per remoto in Windows Server 2016
+title: Benvenuti in Remote Desktop Services in Windows Server 2016
 description: Viene fornita una panoramica di Servizi Desktop remoto
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -15,38 +15,38 @@ author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
 ms.openlocfilehash: cd00f92254f9e55f83442f5e68e344e0aa7579a2
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1708530"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855502"
 ---
-# <a name="welcome-to-remote-desktop-services"></a>Servizi Desktop remoto per 
+# <a name="welcome-to-remote-desktop-services"></a>Introduzione a Servizi Desktop remoto 
 
-Servizi Desktop remoto (RDS) è la piattaforma ideale per lo sviluppo di soluzioni di virtualizzazione per tutte le esigenze di analisi end, tra cui fornitura singole applicazioni virtualizzate, fornisce l'accesso mobile e remota desktop protetta e fornire agli utenti finali di possibilità di eseguire le applicazioni e desktop dal cloud.
+Servizi Desktop remoto (RDS) è la piattaforma ideale per la creazione di soluzioni di virtualizzazione per ogni esigenza dei clienti finali, tra cui la distribuzione di applicazioni virtualizzate singoli, che fornisce l'accesso desktop remoto e per dispositivi mobile sicura e fornire agli utenti finali di possibilità di eseguire le applicazioni e i desktop dal cloud.
 
-![Cenni preliminari su Servizi Desktop remoto](.\media\rds-overview.png)
+![Panoramica di Servizi Desktop remoto](.\media\rds-overview.png)
 
-RDS offre la flessibilità di distribuzione, costo efficienza ed estendibilità, ovvero fruibile tramite un'ampia gamma di opzioni di distribuzione, tra cui Windows Server 2016 per le distribuzioni locali, Microsoft Azure per le distribuzioni cloud e un array affidabile di partner soluzioni.
+Servizi Desktop remoto offre flessibilità nella distribuzione, l'efficienza e l'estendibilità dei costi, ovvero fruibile attraverso un'ampia gamma di opzioni di distribuzione, tra cui Windows Server 2016 per le distribuzioni locali, Microsoft Azure per distribuzioni cloud e una matrice di partner affidabile soluzioni.
 
-In base all'ambiente e preferenze, è possibile configurare la soluzione di servizi desktop remoto per la virtualizzazione basata sulla sessione, come un'infrastruttura virtuale desktop (VDI) o una combinazione delle due configurazioni:
+A seconda dell'ambiente e le preferenze, è possibile impostare la soluzione di servizi desktop remoto per la virtualizzazione basata sulla sessione, come una virtual desktop infrastructure (VDI) o come una combinazione dei due:
 
-- **La virtualizzazione basata sulla sessione**: sfruttare la potenza di elaborazione di Windows Server per fornire un ambiente di sessione a più conveniente per guidare carichi di lavoro quotidiano degli utenti
-- **VDI**: client Windows sfruttare fornire ad alte prestazioni, compatibilità delle applicazioni e conoscere i concetti che gli utenti aspettano dell'esperienza desktop di Windows.
+- **Virtualizzazione basata su sessione**: Sfruttare la potenza di calcolo di Windows Server per fornire un ambiente di sessione a più conveniente per guidare i carichi di lavoro quotidiane degli utenti
+- **VDI**: Usare client Windows per fornire l'ad alte prestazioni, compatibilità tra app e la conoscenza che gli utenti hanno aspettano della propria esperienza desktop di Windows.
 
-In questi ambienti di virtualizzazione, è necessario maggiore flessibilità di pubblicare per gli utenti:
+In questi ambienti di virtualizzazione, sono disponibili una maggiore flessibilità di pubblicare per gli utenti:
 
-- **Desktop**: consentire agli utenti un'esperienza desktop completa con un'ampia gamma di installare e gestire le applicazioni. Ideale per gli utenti che si basano su questi computer come workstation principale o che sono provenienti da thin client, ad esempio con i servizi MultiPoint.
-- **Su macchine virtuali**: specificare le singole applicazioni che sono ospitati ed esecuzione nella macchina virtuale, ma vengono visualizzati come se è in esecuzione sul desktop dell'utente come applicazioni locali. App contenere i propri voce sulla barra delle applicazioni e possono essere ridimensionate e spostate su monitor. Ideale per la distribuzione e gestione delle principali applicazioni nell'ambiente protetto in modalità remota consentendo agli utenti di lavorare da e personalizzare i propri desktop.
+- **Desktop**: Offrire agli utenti un'esperienza desktop completa con un'ampia gamma di applicazioni a cui si installa e gestire. Ideale per gli utenti che si basano su questi computer come proprie workstation principale o che provengono da thin client, ad esempio con MultiPoint Services.
+- **RemoteApps**: Specificare singole applicazioni che sono ospitati/esecuzione nella macchina virtuale, ma vengono visualizzati come se eseguono sul desktop dell'utente, ad esempio le applicazioni locali. Le app hanno la propria voce della barra delle applicazioni e possono essere ridimensionate e spostate su più monitor. Ideale per la distribuzione e la gestione di applicazioni chiave nell'ambiente sicuro e remoto, consentendo agli utenti di lavorare dalla e personalizzare i propri desktop.
 
-Per ambienti in cui è fondamentale convenienza e si desidera estendere i vantaggi della distribuzione desktop completo in un ambiente con la virtualizzazione basata sulla sessione, è possibile utilizzare [I servizi multipunto](../multipoint-services/multipoint-services.md) per fornire il valore ottimale. 
+Per gli ambienti in cui rapporto costi/benefici sono essenziale e si vuole estendere i vantaggi della distribuzione desktop completo in un ambiente di virtualizzazione basata sulla sessione, è possibile usare [MultiPoint Services](../multipoint-services/multipoint-services.md) per offrire la soluzione migliore. 
 
-Con queste opzioni e le configurazioni, è necessario la flessibilità necessaria per distribuire le applicazioni che necessarie agli utenti in un remoto, sicuro e in modo economico e desktop.
+Con queste opzioni e le configurazioni, hai la flessibilità di distribuire il desktop e applicazioni che necessarie agli utenti in un remoto, sicura e prezzo conveniente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ecco alcuni passaggi successivi per ottenere una migliore comprensione di RDS e anche iniziare a distribuire il proprio ambiente:
--   Acquisire familiarità con le [configurazioni supportate](rds-supported-config.md) per RDS con diverse versioni di Windows e Windows Server
--   [Pianificare e progettare](rds-plan-and-design.md) un ambiente Servizi Desktop remoto per gestire requisiti diversi, ad esempio la disponibilità elevata e l'autenticazione a più fattori.
--   Esaminare i [modelli di architettura di Servizi Desktop remoto](desktop-hosting-logical-architecture.md) migliori per l'ambiente desiderato.
--   Iniziare a [distribuire l'ambiente di RDS con ARM e Azure Marketplace](rds-in-azure.md).
+Di seguito sono riportati alcuni passaggi che consentono di ottenere una migliore comprensione di servizi desktop remoto e persino iniziare a distribuire il proprio ambiente:
+-   Comprendere le [configurazioni supportate](rds-supported-config.md) per Servizi Desktop remoto con le versioni diverse di Windows e Windows Server
+-   [Pianificare e progettare](rds-plan-and-design.md) un ambiente di servizi desktop remoto in base ai requisiti diversi, ad esempio la disponibilità elevata e multi-factor authentication.
+-   Rivedere le [modelli di architettura di Servizi Desktop remoto](desktop-hosting-logical-architecture.md) che funzionano meglio per l'ambiente desiderato.
+-   Avviare la [distribuire l'ambiente di servizi desktop remoto con Azure Marketplace e ARM](rds-in-azure.md).
