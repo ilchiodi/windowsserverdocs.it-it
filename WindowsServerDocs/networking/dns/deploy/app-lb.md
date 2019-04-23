@@ -1,6 +1,6 @@
 ---
-title: Usare i criteri DNS per Bilanciamento carico di applicazioni
-description: In questo argomento fa parte di DNS criteri Scenario Guide per Windows Server 2016
+title: Usare i criteri DNS per l'applicazione del bilanciamento del carico
+description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,65 +8,66 @@ ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d156c258b971c45bf1c4c20739440bd5cc9e239f
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 1bb3e6695a7ec8fc7d950873403df023b4def3d8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59881612"
 ---
-# <a name="use-dns-policy-for-application-load-balancing"></a>Usare i criteri DNS per Bilanciamento carico di applicazioni
+# <a name="use-dns-policy-for-application-load-balancing"></a>Usare i criteri DNS per l'applicazione del bilanciamento del carico
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su come configurare criteri DNS per eseguire il bilanciamento del carico di applicazioni.
+È possibile utilizzare questo argomento per informazioni su come configurare criteri DNS per eseguire il bilanciamento del carico dell'applicazione.
 
-Le versioni precedenti di Windows Server DNS fornito solo bilanciamento del carico usando le risposte round robin. ma con DNS in Windows Server 2016, è possibile configurare criteri DNS per il bilanciamento del carico di applicazioni.
+Le versioni precedenti di Windows Server DNS fornivano solo il bilanciamento del carico con le risposte di round robin ma con il servizio DNS in Windows Server 2016, è possibile configurare criteri DNS per il bilanciamento del carico dell'applicazione.
 
-Quando si distribuiscono più istanze di un'applicazione, è possibile utilizzare criteri DNS per bilanciare il carico del traffico tra le istanze di applicazioni diverso, allocazione dinamica in tal modo il carico del traffico per l'applicazione.
+Quando si distribuiscono più istanze di un'applicazione, è possibile utilizzare criteri DNS per bilanciare il carico del traffico tra le istanze dell'applicazione diversi, in tal modo dinamicamente allocando il carico del traffico per l'applicazione.
 
-## <a name="example-of-application-load-balancing"></a>Esempio di bilanciamento del carico di applicazioni
+## <a name="example-of-application-load-balancing"></a>Esempio di bilanciamento del carico dell'applicazione
 
 Ecco un esempio di come è possibile utilizzare criteri DNS per il bilanciamento del carico dell'applicazione.
 
-Questo esempio Usa una società fittizia - servizi regalo Contoso - che fornisce servizi gifing online e che dispone di un sito Web denominato **contosogiftservices.com**.
+In questo esempio viene utilizzata una società fittizia - servizi regalo Contoso - che fornisce servizi gifing online e che dispone di un sito Web denominato **contosogiftservices.com**.
 
-Il sito Web contosogiftservices.com è ospitato in più centri dati che dispongono di indirizzi IP diversi.
+Il sito Web contosogiftservices.com è ospitato in più Data Center che dispongono di indirizzi IP diversi.
 
-In America del Nord, ovvero il mercato primario per servizi regalo Contoso, il sito Web è ospitato in centri tre dati: Chicago, IL, Roma, Italia e Seattle, Washington.
+In America del Nord, ovvero il mercato primario per servizi regalo Contoso, il sito Web è ospitato in tre Data Center: Chicago, IL, Dallas, Texas e Seattle, WA.
 
-Il server Web di Seattle è la migliore configurazione hardware e gestione doppio del carico come i due siti. Servizi regalo Contoso desidera il traffico delle applicazioni indicato nel modo seguente.
+Il server Web di Seattle è la migliore configurazione hardware e può gestire due volte la quantità di carico come gli altri due siti. Servizi regalo Contoso desidera che il traffico delle applicazioni indirizzato nel modo seguente.
 
-- Poiché il server Web di Seattle include altre risorse, metà del client dell'applicazione vengono indirizzate a questo server
-- Un quarto dei client dell'applicazione vengono indirizzate al Data Center Roma, Italia
-- Un quarto dei client dell'applicazione vengono indirizzati a Chicago, IL Data Center
+- Poiché il server Web di Seattle include più risorse, la metà dei client dell'applicazione vengono indirizzata a questo server
+- Un quarto del client dell'applicazione vengono indirizzati al Data Center di Dallas, Texas
+- Un quarto del client dell'applicazione vengono indirizzate a Chicago, IL Data Center
 
 Nella figura seguente viene illustrato questo scenario.
 
 ![DNS applicazione bilanciamento del carico con i criteri DNS](../../media/Dns-App-Lb/dns-app-lb.jpg)
 
 
-### <a name="how-application-load-balancing-works"></a>Applicazione come bilanciamento del carico Works
+### <a name="how-application-load-balancing-works"></a>Applicazione come il bilanciamento del carico Works
 
-Dopo aver configurato il server DNS con i criteri DNS per l'applicazione carico bilanciamento del carico usando questo scenario di esempio, il server DNS risponde 50% del tempo con l'indirizzo del server Web di Seattle, 25% del tempo con l'indirizzo del server Web di Roma e 25% del tempo con l'indirizzo del server Web a Chicago.
+Dopo aver configurato il server DNS con i criteri DNS per applicazione carico bilanciamento del carico con questo scenario di esempio, il server DNS risponde 50% del tempo con l'indirizzo del server Web di Seattle, 25% del tempo con l'indirizzo del server Web di Dallas e il 25% del tempo con l'indirizzo del server Web a Chicago.
 
-Di conseguenza per ogni quattro query che il server DNS riceve, risponde con due risposte per Seattle e uno per Roma e Chicago.
+In questo modo per tutte le quattro query che il server DNS riceve, risponde con due risposte per Seattle e una per Chicago e Dallas.
 
-Un possibile problema con il bilanciamento del carico con i criteri DNS è la memorizzazione nella cache di record DNS per il client DNS e il resolver/LDNS, che può interferire con il bilanciamento del carico in quanto i resolver client invia una query al server DNS.
+Un possibile problema con il bilanciamento del carico con i criteri di DNS è la memorizzazione nella cache di record DNS per il client DNS e il resolver/LDNS, che può interferire con il bilanciamento del carico perché il client o il sistema di risoluzione non inviare una query al server DNS.
 
-Consente di ridurre l'effetto di questo comportamento usando un valore basso \(TTL\) trascorso-da destra a in tempo reale per i record DNS che devono essere con carico bilanciato.
+È possibile ridurre l'effetto di questo comportamento usando un oraria bassa\-al\-Live \(durata (TTL)\) valore per i record DNS che deve essere con carico bilanciato.
 
-### <a name="how-to-configure-application-load-balancing"></a>Come configurare Bilanciamento carico di applicazioni
+### <a name="how-to-configure-application-load-balancing"></a>Come configurare Bilanciamento del carico dell'applicazione
 
-Le sezioni seguenti illustrano come configurare criteri DNS per il bilanciamento del carico di applicazioni.
+Le sezioni seguenti illustrano come configurare criteri DNS per il bilanciamento del carico dell'applicazione.
 
 #### <a name="create-the-zone-scopes"></a>Creare gli ambiti di zona
 
-È innanzitutto necessario creare gli ambiti di contosogiftservices.com di zona per i centri dati in cui sono ospitati.
+È innanzitutto necessario creare gli ambiti di contosogiftservices.com la zona per i Data Center in cui sono ospitati.
 
-Un ambito di zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con indirizzi IP diversi o gli stessi indirizzi IP.
+Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con diversi indirizzi IP o gli stessi indirizzi IP.
 
 >[!NOTE]
->Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. Questo ambito di zona con lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito.
+>Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito.
 
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare ambiti di zona.
     
@@ -76,17 +77,17 @@ Un ambito di zona è un'istanza univoca della zona. Una zona DNS può avere più
     
     Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "ChicagoZoneScope"
 
-Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://technet.microsoft.com/library/mt126267.aspx)
+Per altre informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-####<a name="bkmk_records"></a>Aggiungere record per gli ambiti di zona
+####<a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona
 
-Ora è necessario aggiungere i record che rappresenta l'host del server web negli ambiti di zona.
+A questo punto è necessario aggiungere i record che rappresenta l'host del server web negli ambiti di zona.
 
-In **SeattleZoneScope**, è possibile aggiungere il record www.contosogiftservices.com con indirizzo IP 192.0.0.1, che si trova nel datacenter di Seattle.
+Nelle **SeattleZoneScope**, è possibile aggiungere il record www.contosogiftservices.com con indirizzo IP 192.0.0.1, che si trova nel datacenter di Seattle.
 
-In **ChicagoZoneScope**, è possibile aggiungere la stessa \(www.contosogiftservices.com\) record con indirizzo IP 182.0.0.1 nel Data Center Chicago.
+Nelle **ChicagoZoneScope**, è possibile aggiungere lo stesso record \(www.contosogiftservices.com\) con indirizzo IP 182.0.0.1 nel Data Center a Chicago.
 
-Allo stesso modo in **DallasZoneScope**, è possibile aggiungere un record \(www.contosogiftservices.com\) con indirizzo IP 162.0.0.1 nel Data Center Chicago.
+In modo analogo in **DallasZoneScope**, è possibile aggiungere un record \(www.contosogiftservices.com\) con indirizzo IP 162.0.0.1 nel Data Center a Chicago.
 
 È possibile utilizzare i seguenti comandi di Windows PowerShell per aggiungere record per gli ambiti di zona.
     
@@ -97,22 +98,22 @@ Allo stesso modo in **DallasZoneScope**, è possibile aggiungere un record \(www
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "162.0.0.1" -ZoneScope "DallasZoneScope"
     
 
-Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://technet.microsoft.com/library/jj649925.aspx).
+Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 ####<a name="bkmk_policies"></a>Creare i criteri DNS
 
-Dopo aver creato le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri DNS che distribuiscono le query in ingresso tra questi ambiti in modo da 50% delle query per contosogiftservices.com ha risposto a con l'indirizzo IP del server Web nel datacenter di Seattle e il resto vengono distribuite equamente tra il Data Center a Chicago e Roma.
+Dopo aver creato le partizioni (ambiti zona) e aver aggiunto i record, è necessario creare criteri DNS che distribuiscono le query in ingresso tra questi ambiti, in modo da 50% delle query per contosogiftservices.com riceve una risposta con l'indirizzo IP per il Web Server nel datacenter di Seattle e gli altri vengono distribuite equamente tra i Data Center a Chicago e Dallas.
 
-È possibile utilizzare i seguenti comandi di Windows PowerShell per creare un criterio DNS per bilanciare il traffico delle applicazioni in questi tre datacenter.
+È possibile usare i comandi di Windows PowerShell seguenti per creare un criterio DNS che bilancia il traffico dell'applicazione tra questi tre Data Center.
 
 >[!NOTE]
->Nell'esempio di comando sotto, l'espressione – ZoneScope "SeattleZoneScope, 2. ChicagoZoneScope, 1. DallasZoneScope, 1" consente di configurare il server DNS con una matrice che include la combinazione di parametro \ < ZoneScope\, > \ < weight\ >.
+>Nell'esempio di comando seguente, l'espressione – ZoneScope "SeattleZoneScope, 2. ChicagoZoneScope, 1; DallasZoneScope, 1" Configura il server DNS con una matrice che include la combinazione di parametri \<ZoneScope\>,\<peso\>.
     
-    Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW – -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
+    Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
     
 
-Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://technet.microsoft.com/library/mt126273.aspx).  
+Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
-Hai ora creato correttamente un criterio DNS che offre applicazioni bilanciamento del carico tra i server Web in tre diversi Data Center.
+È stato correttamente creato un criterio DNS che fornisce applicazioni bilanciamento del carico tra i server Web in tre Data Center diversi.
 
-È possibile creare migliaia di criteri DNS in base del traffico di gestione, e tutti i nuovi criteri vengono applicati in modo dinamico, senza il riavvio del server DNS, su query in ingresso.
+È possibile creare migliaia di criteri DNS in base del traffico di gestione e tutti i nuovi criteri vengono applicati in modo dinamico, senza il riavvio del server DNS, per le query in ingresso.

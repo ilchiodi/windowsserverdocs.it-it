@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 29f861b6d6f115dc1a1d2cab3ae04f566da90d8f
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879832"
 ---
 # <a name="install-windows-server-essentials"></a>Installare Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-I seguenti documenti forniscono istruzioni dettagliate per l'installazione e configurazione di Windows Server Essentials e Windows Server Essentials, inclusi l'attività di preinstallazione e le informazioni sui requisiti di sistema.   
+I seguenti documenti forniscono istruzioni dettagliate per l'installazione e configurazione di Windows Server Essentials e Windows Server Essentials, compresi le attività di preinstallazione e le informazioni sui requisiti di sistema.   
   
 -   [Prima di installare Windows Server Essentials](Before-You-Install-Windows-Server-Essentials.md)  
   
@@ -40,18 +41,18 @@ I seguenti documenti forniscono istruzioni dettagliate per l'installazione e con
   
 -   [Aggiungere Windows Server Essentials come Server membro](Add-Windows-Server-Essentials-as-a-Member-Server.md)  
   
--   [Esperienza di hosting di Windows Server Essentials in Windows macchine virtuali di Azure](https://msdn.microsoft.com/library/dn520828.aspx) (MSDN)  
+-   [Hosting di Esperienza Windows Server Essentials in macchine virtuali di Azure](https://msdn.microsoft.com/library/dn520828.aspx) (MSDN)  
   
 -   [Personalizzare e distribuire Windows Server Essentials](Customize-and-Deploy-Windows-Server-Essentials.md)  
 
   
-## <a name="end-to-end-solution-guides"></a>Guide alle soluzioni End-to-end  
+## <a name="end-to-end-solution-guides"></a>Guide end-to-end per la soluzione  
   
--    Per informazioni su come centralizzare l'archiviazione dei dati, limitare le autorizzazioni di accesso, il backup dei dati sia in locale e nel cloud, vedere [protezione dei dati nelle piccole e medie imprese](https://technet.microsoft.com/library/dn582043.aspx).  
+-    Per informazioni su come centralizzare l'archiviazione dei dati, limitare le autorizzazioni di accesso ed eseguire il backup dei dati in locale e nel cloud, vedere [Fornire protezione per i dati nelle piccole e medie imprese](https://technet.microsoft.com/library/dn582043.aspx).  
   
--    Per informazioni su come accedere in modo sicuro i dati aziendali in qualsiasi dispositivo connesso a Internet da qualsiasi posizione, vedere [accesso remoto sicuro nelle piccole e medie imprese](https://technet.microsoft.com/library/dn629457.aspx).  
+-    Per informazioni su come accedere in modo sicuro ai dati aziendali in qualsiasi dispositivo connesso a Internet, ovunque ci si trovi, vedere [Accesso remoto sicuro nelle piccole e medie imprese](https://technet.microsoft.com/library/dn629457.aspx).  
   
--    Per informazioni su come collaborare in modo sicuro con partner e fornitori, vedere [migliorare la collaborazione nelle piccole e medie imprese](https://technet.microsoft.com/library/dn747893.aspx).  
+-    Per informazioni su come collaborare in modo sicuro con partner e fornitori, vedere [Migliorare la collaborazione nelle piccole e medie imprese](https://technet.microsoft.com/library/dn747893.aspx).  
   
 ## <a name="see-also"></a>Vedere anche  
     

@@ -1,6 +1,6 @@
 ---
-title: "Creare una proprietà di classificazione"
-description: "Questo articolo descrive le proprietà di classificazione, utilizzate per assegnare i valori per i file all'interno di una cartella o un volume specificati."
+title: Creare una proprietà di classificazione
+description: Questo articolo descrive le proprietà di classificazione, utilizzate per assegnare i valori per i file all'interno di una cartella o un volume specificati.
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880652"
 ---
 # <a name="create-a-classification-property"></a>Creare una proprietà di classificazione
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Le proprietà di classificazione vengono utilizzate per assegnare i valori per i file all'interno di una cartella o un volume specificati. Esistono molti tipi di proprietà tra cui è possibile scegliere in base alle esigenze. Nella tabella seguente vengono definiti i tipi di proprietà disponibili.
 
@@ -44,11 +45,11 @@ La seguente procedura descrive il processo di creazione di una proprietà di cla
 
 4.  Nella casella di testo **Descrizione** aggiungere una descrizione opzionale per la proprietà.
 
-5.  Nel menu a discesa **Tipo proprietà** selezionare un tipo di proprietà dall'elenco.
+5.  Nel menu a discesa **Tipo proprietà** selezionare un tipo di proprietà.
 
 6.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Creare una regola di classificazione automatica](create-automatic-classification-rule.md)
--   [Gestione delle classificazioni](classification-management.md)
+-   [Gestione classificazioni](classification-management.md)

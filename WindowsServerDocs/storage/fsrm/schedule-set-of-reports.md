@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 15b69e723af3a30375beae73782ab122c68f8880
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879722"
 ---
 # <a name="schedule-a-set-of-reports"></a>Pianificare una serie di rapporti
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Per generare una serie di rapporti in una pianificazione regolare, è necessario pianificare un'*attività rapporto*. L'attività rapporto consente di specificare i rapporti da generare e i parametri da utilizzare, i volumi e le cartelle su cui eseguire rapporti, la frequenza con cui tali rapporti devono essere generati e i formati di file in cui verranno salvati.
 
@@ -46,7 +47,7 @@ I rapporti pianificati vengono salvati in un percorso predefinito, che è possib
     -   Fare clic sull'etichetta del rapporto, quindi fare clic su **Modifica parametri**.
     -   Nella finestra di dialogo **Parametri rapporto** modificare i parametri in base alle esigenze e fare clic su **OK**.
 
-    -   Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**. Quindi fare clic su **Chiudi**.
+    -   Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**. e quindi fare clic su **Chiudi**.
 
 5.  Per specificare i formati in cui salvare i rapporti:
 
@@ -55,11 +56,11 @@ I rapporti pianificati vengono salvati in un percorso predefinito, che è possib
 6.  Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
 
     - Nella scheda **Recapito** selezionare la casella di controllo **Invia rapporti agli amministratori seguenti**, quindi immettere i nomi degli account amministrativi a cui verranno inviati i rapporti. 
-    - Usare il formato *account@domain* e separare più account con punto e virgola.
+    - Usare il formato *account@domain* e separare gli account con un punto e virgola.
 
 7.  Per pianificare i rapporti:
 
-    Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09.00, la quale potrà, tuttavia, essere modificata secondo necessità.
+    Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla.
 
     -   Per specificare una frequenza di generazione dei rapporti, selezionare un intervallo dall'elenco a discesa **Attività pianificazione**.
         È possibile pianificare rapporti giornalmente, settimanalmente o mensilmente oppure generarli una sola volta. I rapporti possono essere generati anche all'avvio del sistema o al momento dell'accesso oppure dopo che il computer è rimasto inattivo per un periodo di tempo specificato.
@@ -78,7 +79,7 @@ Inoltre, è possibile visualizzare lo stato corrente del rapporto, indipendentem
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione rapporti di archiviazione](storage-reports-management.md)
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti archiviazione](storage-reports-management.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
 
 

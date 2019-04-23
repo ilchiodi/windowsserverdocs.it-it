@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: ffbf87ccb8ee29efa62bd9c45db172db7aa59269
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875322"
 ---
 # <a name="release-documentation-for-windows-server-essentials"></a>Documentazione sulla versione di Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials
 
-Benvenuti nella documentazione sulla versione per il software server di Windows Server 2016 Essentials. In questo argomento contiene informazioni sui problemi che possono verificarsi quando si installano ed eseguono il software del server Windows 2016 Server Essentials. Leggere questo argomento prima di installare ed eseguire Windows Server 2016 Essentials nella rete.  
+Benvenuti nella documentazione sulla versione per il software server di Windows Server 2016 Essentials. In questo argomento contiene informazioni sui problemi che potrebbero verificarsi quando si installano ed esecuzione il software del server Windows 2016 Server Essentials. È consigliabile leggere questo argomento prima di installare ed eseguire Windows Server 2016 Essentials nella rete.  
   
 ## <a name="client-computers"></a>Computer client  
   
-### <a name="install-all-available-critical-and-security-updates-from-windows-update"></a>Installare tutti gli aggiornamenti critici e di sicurezza disponibili da Windows Update  
+### <a name="install-all-available-critical-and-security-updates-from-windows-update"></a>Installare tutti gli aggiornamenti della sicurezza critici e disponibili da Windows Update  
 
-Prima di connettere un computer client al server, assicurati di aprire Windows Update nel computer client e installare tutti gli aggiornamenti critici e protezione disponibili.  
+Prima di connettere un computer client al server, assicurarsi di aprire Windows Update nel computer client e installare tutti gli aggiornamenti critici e di sicurezza disponibili.  
   
 ### <a name="client-computer-restore-may-not-succeed-after-migration-to-windows-10"></a>Ripristino del computer client potrebbe non riuscire dopo la migrazione a Windows 10  
- Dopo aver aggiornato un computer client da Windows 8.1 a Windows 10, il ripristino del computer client potrebbe non funzionare correttamente. Dovrai quindi riconnettersi al client di Windows Server 2016 Essentials. 
+ Dopo aver aggiornato un computer client da Windows 8.1 a Windows 10, il ripristino del computer client potrebbe non funzionare correttamente. È necessario ristabilire la connessione al client di Windows Server 2016 Essentials. 

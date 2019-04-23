@@ -15,11 +15,11 @@ ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 8d14ccf734d5242301030bbb6e3c2489e1a0266a
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082296"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876352"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server - Contenuti per gli amministratori IT relativi alle versioni correnti e precedenti
 
@@ -32,37 +32,37 @@ Usa i collegamenti seguenti per visualizzare contenuti tecnici per professioni I
 
 > Le informazioni seguenti sono relative *solo* a Windows **Server**.
 
-## <a name="windows-server-2016"></a>WindowsServer 2016
+## <a name="windows-server-2016"></a>Windows Server 2016
 
 [Contenuti tecnici di Windows Server 2016](windows-server-2016.md)
 
 ## <a name="windows-server-2012-r2-and-windows-server-2012"></a>Windows Server 2012 R2 e Windows Server 2012
 
-[Raccolta di documentazione tecnica di Windows Server 2012 R2 e Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/) 
+[Raccolta di documentazione tecnica di Windows Server 2012 e Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/) 
 
-[Raccolta di documentazione per sviluppatori di Windows Server 2012 R2 su MSDN](https://msdn.microsoft.com/library/dn609939(v=vs.85).aspx) 
+[Raccolta di Windows Server 2012 R2 per gli sviluppatori su MSDN](https://msdn.microsoft.com/library/dn609939(v=vs.85).aspx) 
 
 ## <a name="windows-server-2008-r2-and-windows-server-2008"></a>Windows Server 2008 R2 e Windows Server 2008
 
-[Raccolta di documentazione tecnica di Windows Server 2008 R2 e Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008)
+[Raccolta di documentazione tecnica di Windows Server 2008 e Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008)
  
-[Raccolta di documentazione per sviluppatori di Windows Server 2008 su MSDN](https://msdn.microsoft.com/library/hh738539.aspx) 
+[Raccolta di Windows Server 2008 per gli sviluppatori su MSDN](https://msdn.microsoft.com/library/hh738539.aspx) 
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 
 [Raccolta di documentazione tecnica di Windows Server 2003:](https://www.microsoft.com/download/details.aspx?id=53314) scaricare una versione PDF dei contenuti archiviati
 
-[Raccolta di documentazione per sviluppatori di Windows Server 2003 su MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
+[Raccolta di Windows Server 2003 per gli sviluppatori su MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
 
 
 ## <a name="product-evaluations"></a>Valutazioni del prodotto
 
-[Download della valutazione di Windows Server 2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
+[Download di valutazione di Windows Server 2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
 
-[Download della versione di valutazione di Windows Server 2012 R2](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
+[Scaricare una versione di valutazione di Windows Server 2012 R2](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 
 
-## <a name="related-links"></a>Link correlati
+## <a name="related-links"></a>Collegamenti correlati
 [Informazioni sul prodotto Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) 
 
 <br>

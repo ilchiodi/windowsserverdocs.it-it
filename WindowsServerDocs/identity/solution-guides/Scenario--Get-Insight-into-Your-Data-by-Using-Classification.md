@@ -1,7 +1,7 @@
 ---
 ms.assetid: ad3f0480-99f7-428a-ab33-6d165a440840
-title: Scenario Get comprendere i dati mediante la classificazione
-description: 
+title: Scenario Get approfondite sui dati mediante la classificazione
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,45 +10,46 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 2e5248b5fd5e20b7436de9f796367c018d8ef16e
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59881482"
 ---
-# <a name="scenario-get-insight-into-your-data-by-using-classification"></a>Scenario: Ottenere comprendere i dati mediante la classificazione
+# <a name="scenario-get-insight-into-your-data-by-using-classification"></a>Scenario: comprendere i dati mediante la classificazione
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Reliance on data and storage resources has continued to grow in importance for most organizations. Gli amministratori IT affrontano la sfida di supervisione di infrastrutture di archiviazione più grandi e complesse, contemporaneamente, con la responsabilità di garantire il costo totale di-proprietà è rimanga entro limiti accettabili. La gestione delle risorse di archiviazione è non solo sul volume o la disponibilità dei dati. è anche sull'applicazione dei criteri aziendali e sapere come spazio di archiviazione, per consentire un utilizzo efficace e garantire la conformità, mitigando i rischi. File Classification Infrastructure provides insight into your data by automating classification processes so that you can manage your data more effectively. Sono disponibili con l'infrastruttura di classificazione File i seguenti metodi di classificazione: manuale, programmatico e automatico. In questo argomento è incentrato sul metodo di classificazione dei file automatico.  
+L'affidabilità delle risorse di archiviazione e dei dati continua ad acquisire sempre maggiore importanza per la maggior parte delle organizzazioni. Gli amministratori IT si trovano ad affrontare la sfida legata alla supervisione di infrastrutture di archiviazione sempre più grandi e complesse e, contemporaneamente, la responsabilità di garantire che il costo totale di proprietà rimanga entro limiti accettabili. La gestione delle risorse di archiviazione non riguarda più solo il volume o la disponibilità dei dati, ma implica anche l'applicazione dei criteri aziendali e la conoscenza delle modalità di utilizzo dello spazio di archiviazione, per consentire un utilizzo efficace e garantire la conformità, mitigando i rischi. L'Infrastruttura di classificazione file offre una comprensione dei dati automatizzando il processo di classificazione in modo da consentire una gestione più efficace dei dati stessi. Nell'Infrastruttura di classificazione file sono disponibili i metodi di classificazione manuale, programmatico e automatico. Questo argomento è incentrato sul metodo di classificazione dei file automatico.  
   
 ## <a name="BKMK_OVER"></a>Descrizione dello scenario  
-Infrastruttura di classificazione file Usa le regole di classificazione per analizzare i file e classificarli in base al contenuto del file automaticamente. Proprietà di classificazione sono definite a livello centrale in Active Directory in modo che tali definizioni possono essere condivisi nei vari file server nell'organizzazione. È possibile creare regole di classificazione che analizzano i file di una stringa standard o per una stringa che corrisponde a un modello (espressione regolare). Quando un parametro di classificazione configurato viene trovato in un file, il file viene classificato come configurato nella regola di classificazione. Alcuni esempi di regole di classificazione:  
+L'Infrastruttura di classificazione file usa le regole di classificazione per analizzare automaticamente i file e classificarli in base al relativo contenuto. Le proprietà di classificazione sono definite a livello centrale in Active Directory, in modo che le relative definizioni possano essere condivise nei diversi file server dell'organizzazione. È possibile creare regole di classificazione che analizzano i file in cerca di una stringa standard o di una stringa corrispondente a un determinato schema (espressione regolare). Quando un parametro di classificazione configurato viene trovato in un file, il file viene classificato come configurato nella regola di classificazione. Ecco alcuni esempi di regole di classificazione:  
   
 -   Classificare un file che contiene la stringa "Contoso Confidential" come ad alto impatto aziendale  
   
--   Classificare un file che contiene almeno 10 codici fiscali come contenente informazioni personali  
+-   Classificare un file che contiene almeno 10 codici fiscali come file con informazioni personali.  
   
-Quando un file è classificato, è possibile utilizzare un file di attività di gestione di intervenire su tutti i file che sono classificati in modo specifico. Le azioni in un'attività di gestione file includono la protezione dei diritti associati al file, il file per scadere e l'esecuzione di un'azione personalizzata (ad esempio, l'inserimento di informazioni a un servizio web).  
+Quando un file è classificato, è possibile usare un'attività di gestione dei file per eseguire le operazioni necessarie sui file classificati in un modo specifico. Le azioni eseguibili in un'attività di gestione dei file includono la protezione dei diritti associati al file, l'impostazione di una scadenza per il file e l'esecuzione di un'azione personalizzata (come l'inserimento di informazioni in un servizio Web).  
   
-È possibile trovare informazioni sulla configurazione di classificazione file automatica in [pianificare la classificazione automatica dei File](assetId:///e3c3bb4b-3034-42b7-b391-8ef5f5851955).  
+Per informazioni sulla configurazione della classificazione automatica dei file, vedere [Pianificare la classificazione automatica dei file](assetId:///e3c3bb4b-3034-42b7-b391-8ef5f5851955).  
   
-È possibile trovare passaggi per la classificazione automatica dei file in [distribuire classificazione automatica dei File & #40; passaggi & #41;](Deploy-Automatic-File-Classification--Demonstration-Steps-.md).  
+È possibile trovare ulteriori informazioni su come classificare automaticamente i file in [distribuzione di classificazione File automatica &#40;passaggi&#41;](Deploy-Automatic-File-Classification--Demonstration-Steps-.md).  
   
 ## <a name="in-this-scenario"></a>In questo scenario  
-Questo scenario fa parte dello scenario controllo dinamico degli accessi. Per ulteriori informazioni su controllo dinamico degli accessi, vedere:  
+Questo scenario fa parte dello scenario Controllo dinamico degli accessi. Per altre informazioni su Controllo dinamico degli accessi, vedere:  
   
--   [Controllo dinamico degli accessi: Panoramica dello Scenario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 ## <a name="BKMK_APP"></a>Applicazioni pratiche  
-Infrastruttura di classificazione dei file in Windows Server 2012 contribuisce al controllo dinamico degli accessi proprietari di dati aziendali facilmente classificazione e l'etichettatura dei dati. Le informazioni di classificazione archiviate nei criteri di accesso centrale consentono di definire criteri di accesso per classi di dati che sono cruciali per l'azienda.  
+Infrastruttura di classificazione file in Windows Server 2012 supporta controllo dinamico degli accessi semplificando ai proprietari di dati aziendali di classificazione e l'etichettatura dei dati. Le informazioni di classificazione archiviate nei criteri di accesso centrale consentono di definire criteri di accesso per classi di dati cruciali per l'azienda.  
   
 ## <a name="BKMK_NEW"></a>Funzionalità incluse in questo scenario  
-Nella tabella seguente sono elencate le funzionalità che fanno parte di questo scenario e descrive la modalità di supporto.  
+Nella tabella che segue sono elencate le funzionalità che fanno parte di questo scenario e viene descritto in che modo lo supportano.  
   
-|Funzionalità|Modalità di supporto in questo scenario|  
+|Funzionalità|Modalità di supporto dello scenario|  
 |-----------|---------------------------------|  
-|[Panoramica di gestione risorse file Server](https://technet.microsoft.com/library/hh831701.aspx)|Infrastruttura di classificazione file è una funzionalità inclusa in Gestione risorse File Server.|  
-|[Panoramica di servizi di archiviazione e file](https://technet.microsoft.com/library/hh831487.aspx)|Gestione risorse file Server è una funzionalità inclusa con il ruolo server Servizi File.|  
+|[Panoramica di gestione risorse file Server](https://technet.microsoft.com/library/hh831701.aspx)|Infrastruttura di classificazione file è una funzionalità inclusa in Gestione risorse file server.|  
+|[Panoramica di servizi di archiviazione e file](https://technet.microsoft.com/library/hh831487.aspx)|Gestione risorse file server è una funzionalità inclusa nel ruolo del server Servizi file.|  
   
 
 

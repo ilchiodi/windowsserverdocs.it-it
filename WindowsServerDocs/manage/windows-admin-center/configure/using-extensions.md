@@ -1,90 +1,93 @@
 ---
 title: Installare e gestire le estensioni
-description: Installare e gestire le estensioni di Windows Admin Center (Project Honolulu)
+description: Installare e gestire le estensioni di Windows Admin Center (progetto Honolulu)
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: 6091edd7aa7f790f6029ca6b6ae402bf1b7e61ca
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296703"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877022"
 ---
-# Installare e gestire le estensioni
+# <a name="install-and-manage-extensions"></a>Installare e gestire le estensioni
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-Windows Admin Center è creato come una piattaforma estensibile in cui ogni tipo di connessione e lo strumento è un'estensione che è possibile installare, disinstallare e aggiornare singolarmente. È possibile cercare le nuove estensioni pubblicate da Microsoft e di altri sviluppatori e installare e aggiornare singolarmente senza la necessità di aggiornare l'intera installazione di Windows Admin Center. È anche possibile configurare un feed NuGet separato o condivisione file e distribuire le estensioni di usare internamente all'interno dell'organizzazione.
+Windows Admin Center viene compilato come una piattaforma estensibile in cui ogni tipo di connessione e lo strumento è un'estensione che è possibile installare, disinstallare e aggiornare singolarmente. È possibile eseguire la ricerca di nuove estensioni pubblicate da Microsoft e altri sviluppatori e installare e aggiornare singolarmente senza dover aggiornare l'intera installazione di Windows Admin Center. È anche possibile configurare un feed NuGet separato o condivisione file e distribuire estensioni per uso interno all'interno dell'organizzazione.
 
-## L'installazione di un'estensione
+## <a name="installing-an-extension"></a>Installazione di un'estensione
 
-Windows Admin Center ti mostrerà le estensioni disponibili da di NuGet specificato feed. Per impostazione predefinita, Windows Admin Center punta al NuGet ufficiali Microsoft feed che ospita estensioni pubblicate da Microsoft e di altri sviluppatori.
+Windows Admin Center visualizzerà le estensioni disponibili da feed NuGet specificato. Per impostazione predefinita, Windows Admin Center punta al feed di NuGet ufficiale di Microsoft che ospita le estensioni pubblicate da Microsoft e altri sviluppatori.
 
-1. Fare clic sul pulsante **Impostazioni** di gt _ superiore destro nel riquadro sinistro, fai clic su **estensioni**. 
-2. Scheda **Estensioni disponibili** verrà elencate le estensioni del feed disponibili per l'installazione.
-3. Fai clic su un'estensione per visualizzare la descrizione dell'estensione, versione, autore e altre informazioni nel riquadro dei **Dettagli** .
-4. Fai clic su **Installa** per installare un'estensione. Se il gateway deve essere eseguite in modalità con privilegi elevati per rendere questa modifica, verrà visualizzata con una richiesta di elevazione dei privilegi di controllo dell'account utente. Dopo l'installazione è stata completata, verrà aggiornato automaticamente il browser e verrà ricaricato Windows Admin Center con la nuova estensione installata. Se l'estensione che si sta tentando di installare un aggiornamento di un'estensione precedentemente installata, puoi fare clic sul pulsante di **aggiornamento alla versione più recente** per installare l'aggiornamento. Anche passare alla scheda **Estensioni installate** per visualizzare le estensioni installate e verificare se un aggiornamento è disponibile nella colonna **stato** .
+1. Scegliere il **impostazioni** pulsante in alto a destra > nel riquadro sinistro, fare clic su **estensioni**. 
+2. Il **estensioni disponibili** scheda elencherà le estensioni nel feed che è disponibile per l'installazione.
+3. Fare clic su un'estensione per visualizzare la descrizione dell'estensione, versione, editore e altre informazioni nel **dettagli** riquadro.
+4. Fare clic su **installare** installare un'estensione. Se il gateway deve essere eseguito con privilegi elevati per apportare questa modifica, verrà visualizzato con una richiesta di elevazione dei privilegi di controllo dell'account utente. Al termine dell'installazione, verrà aggiornato automaticamente il browser e verrà ricaricato Windows Admin Center con la nuova estensione installata. Se l'estensione si sta tentando di installare è un aggiornamento di un'estensione installata in precedenza, è possibile scegliere il **aggiornare alla versione più recente** pulsante per installare l'aggiornamento. È anche possibile passare al **estensioni installate** scheda per visualizzare installato le estensioni e vedere se è disponibile in un aggiornamento di **stato** colonna.
 
-## Installazione delle estensioni da un feed diverso
+## <a name="installing-extensions-from-a-different-feed"></a>Installazione di estensioni di un feed diverso
 
-Windows Admin Center supporta più feed e puoi visualizzare e gestire i pacchetti da uno o più feed alla volta. Qualsiasi NuGet feed che supporta le API V2 NuGet o una condivisione file possa essere aggiunti a Windows Admin Center per l'installazione di estensioni da.
+Windows Admin Center supporta più feed di ed è possibile visualizzare e gestire i pacchetti da più di un feed in un momento. Qualsiasi NuGet feed che supporta le API V2 di NuGet o una condivisione file può essere aggiunto a Windows Admin Center per l'installazione di estensioni da.
 
-1. Fare clic sul pulsante **Impostazioni** di gt _ superiore destro nel riquadro sinistro, fai clic su **estensioni**.
-2. Nel riquadro di destra, fare clic sulla scheda **feed** .
-3. Fai clic sul pulsante **Aggiungi** per aggiungere un altro feed. Per un feed NuGet, Immetti il V2 NuGet l'URL del feed. Provider di feed di NuGet o amministratore deve essere in grado di fornire le informazioni sull'URL. Per una condivisione di file, Immetti il percorso completo del file di condividere in cui sono archiviati i file di pacchetto di estensione (.nupkg).
-4. Fai clic su **Aggiungi**. Se il gateway deve essere eseguite in modalità con privilegi elevati per rendere questa modifica, verrà visualizzata con una richiesta di elevazione dei privilegi di controllo dell'account utente.
+1. Scegliere il **impostazioni** pulsante in alto a destra > nel riquadro sinistro, fare clic su **estensioni**.
+2. Nel riquadro destro, scegliere il **feed** scheda.
+3. Scegliere il **Add** pulsante per aggiungere un altro feed. Per un feed NuGet, immettere l'URL del feed di V2 di NuGet. Provider di feed di NuGet o l'amministratore deve essere in grado di fornire le informazioni sull'URL. Per una condivisione file, immettere il percorso completo del file di condivisione in cui sono archiviati i file di pacchetto di estensione (con estensione nupkg).
+4. Fai clic su **Aggiungi**. Se il gateway deve essere eseguito con privilegi elevati per apportare questa modifica, verrà visualizzato con una richiesta di elevazione dei privilegi di controllo dell'account utente.
 
-L'elenco di **Estensioni disponibili** mostrerà le estensioni da tutti i feed registrati. Puoi controllare quali feed ogni estensione è da utilizzando la colonna **Pacchetto Feed** .
+Il **estensioni disponibili** elenco verranno visualizzati le estensioni da tutti i feed registrati. È possibile controllare il feed ogni estensione è da tramite il **Feed di pacchetti** colonna.
 
-## Disinstallazione di un'estensione
+## <a name="uninstalling-an-extension"></a>Disinstallazione di un'estensione
 
-Puoi disinstallare tutte le estensioni che hanno installato in precedenza o anche disinstallare gli strumenti che sono stati pre-installati come parte dell'installazione di Windows Admin Center.
+È possibile disinstallare le estensioni che è già stata installata, o persino disinstallare gli strumenti che sono stati preinstallati come parte dell'installazione di Windows Admin Center.
 
-1. Fare clic sul pulsante **Impostazioni** di gt _ superiore destro nel riquadro sinistro, fai clic su **estensioni**. 
-2. Fare clic sulla scheda **Estensioni installate** per visualizzare le estensioni installate tutti.
-3. Scegli un'estensione per disinstallare e quindi fai clic su **disinstallazione**.
+1. Scegliere il **impostazioni** pulsante in alto a destra > nel riquadro sinistro, fare clic su **estensioni**. 
+2. Scegliere il **estensioni installate** scheda per visualizzare tutte le estensioni installate.
+3. Scegliere un'estensione da disinstallare, quindi fare clic su **Disinstalla**.
 
-Dopo la disinstallazione è completato, verrà aggiornato automaticamente il browser e verrà ricaricato Windows Admin Center con l'estensione rimosso. Se è stato disinstallato uno strumento che è stato pre-installato come parte di Windows Admin Center, lo strumento sarà disponibile per la reinstallazione nella scheda **Estensioni disponibili** .
+Dopo la disinstallazione è completata, verrà aggiornato automaticamente il browser e verrà ricaricato Windows Admin Center con l'estensione rimosso. Se è stato disinstallato uno strumento che è stato pre-installato come parte del Windows Admin Center, lo strumento saranno disponibile per la reinstallazione dopo il **estensioni disponibili** scheda.
 
-## Installazione delle estensioni in un computer senza connettività internet
+## <a name="installing-extensions-on-a-computer-without-internet-connectivity"></a>Installazione delle estensioni in un computer senza connettività internet
 
-Se è installato Windows Admin Center in un computer che non è connesso a internet o si trova dietro un proxy, potrebbe non essere in grado di accedere e installare le estensioni di Windows Admin Center feed. Puoi scaricare pacchetti di estensioni manualmente o con uno script di PowerShell e configurare Windows Admin Center per recuperare i pacchetti da una condivisione file o un'unità locale.
+Se Windows Admin Center viene installato in un computer che non è connesso a internet o si trova dietro un proxy, potrebbe non essere in grado di accedere e installare le estensioni dal Windows Admin Center feed. È possibile scaricare i pacchetti di estensione manualmente o tramite uno script di PowerShell e configurare Windows Admin Center per recuperare i pacchetti da una condivisione file o un'unità locale.
 
-### Download manuale di pacchetti di estensione
+### <a name="manually-downloading-extension-packages"></a>Scaricare manualmente i pacchetti di estensione
 
-1. In un altro computer che dispone di connettività internet, Apri un web browser e passa all'URL seguente:[https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
+1. Un altro computer con connettività internet, aprire un web browser e passare all'URL seguente: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-  * Potrebbe essere necessario creare un account nel msft sme.myget.org ed eseguire l'accesso per visualizzare i pacchetti di estensione.
+  * Potrebbe essere necessario creare un account sul msft-sme.myget.org ed eseguire l'accesso per visualizzare i pacchetti di estensione.
 
-2. Fai clic sul nome del pacchetto che vuoi installare per visualizzare la pagina dei dettagli del pacchetto.
-3. Fai clic sul collegamento **Download** nel riquadro di destra della pagina dei dettagli del pacchetto e scaricare il file .nupkg per l'estensione.
-4. Ripeti i passaggi 2 e 3 per tutti i pacchetti da scaricare.
-5. Copia i file del pacchetto in una condivisione file accessibile dal computer in cui è installato Windows Admin Center, o da disco locale del computer.
-6. [Segui le istruzioni per installare le estensioni da un feed diverso](#installing-extensions-from-a-different-feed).
+2. Fare clic sul nome del pacchetto da installare per visualizzare la pagina dei dettagli del pacchetto.
+3. Fare clic sui **scaricare** collegamento nel riquadro di destra della pagina dei dettagli del pacchetto e scaricare il file di pacchetto. nupkg per l'estensione.
+4. Ripetere i passaggi 2 e 3 per tutti i pacchetti di cui che si desidera scaricare.
+5. Copiare i file del pacchetto in una condivisione file accessibile dal computer in che cui è installato Windows Admin Center o nel disco locale del computer.
+6. [Seguire le istruzioni per installare le estensioni da un feed diverso](#installing-extensions-from-a-different-feed).
 
-### Download di pacchetti con uno script di PowerShell
+### <a name="downloading-packages-with-a-powershell-script"></a>Download di pacchetti con uno script di PowerShell
 
-Sono disponibili molti script in Internet per il download dei pacchetti NuGet da un feed di NuGet. Usiamo il [script forniti dal DOM Galloway](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), Microsoft Senior Program Manager.
+Sono disponibili molti script in Internet per scaricare i pacchetti NuGet da un feed NuGet. Si userà il [script forniti di Jon Galloway](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), Senior Program Manager presso Microsoft.
 
-1. Come descritto nel [post di blog](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), installare lo script come un pacchetto NuGet o copia e Incolla lo script in PowerShell ISE.
-2. Modifica che la prima riga dello script alla tua NuGet feed's v2 URL. Se scarichi i pacchetti da Windows Admin Center ufficiale feed, Usa l'URL di seguito.
+1. Come descritto nel [post di blog](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), installare lo script come pacchetto NuGet, o copiare e incollare lo script in PowerShell ISE.
+2. Modifica che la prima riga dello script da NuGet feed URL di v2 del. Se si scaricano i pacchetti dal Windows Admin Center ufficiale del feed, usare l'URL seguente.
 
 ```powershell
 $feedUrlBase = "https://aka.ms/sme-extension-feed"
 ```
 
-3. Esegui lo script e verrà scaricati tutti i pacchetti NuGet dal feed alla cartella locale seguente: %USERPROFILE%\Documents\NuGetLocal
-4. [Segui le istruzioni per installare le estensioni da un feed diverso](#installing-extensions-from-a-different-feed).
+3. Eseguire lo script e scaricherà tutti i pacchetti NuGet dal feed nella seguente cartella locale: %USERPROFILE%\Documents\NuGetLocal
+4. [Seguire le istruzioni per installare le estensioni da un feed diverso](#installing-extensions-from-a-different-feed).
 
-## Gestire le estensioni con PowerShell
+## <a name="manage-extensions-with-powershell"></a>Gestire le estensioni con PowerShell
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
 Windows Admin Center Preview include un modulo di PowerShell per gestire le estensioni di gateway.
+
+>[!IMPORTANT]
+>Gestione delle estensioni di gateway con il modulo PowerShell è supportata solo quando Windows Admin Center viene distribuito come servizio gateway in Windows Server.
 
 ```powershell
 # Add the module to the current session
@@ -119,4 +122,4 @@ Uninstall-Extension "https://wac.contoso.com" "msft.sme.containers"
 Update-Extension "https://wac.contoso.com" "msft.sme.containers"
 ```
 
-### [Ulteriori informazioni sulla creazione di un'estensione con Windows Admin Center SDK](../extend/extensibility-overview.md).
+### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[Altre informazioni sulla creazione di un'estensione con il SDK di Windows Admin Center](../extend/extensibility-overview.md).

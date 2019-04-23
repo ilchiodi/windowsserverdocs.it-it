@@ -1,6 +1,6 @@
 ---
 ms.assetid: d11acbc2-40c6-4ab2-9514-2bc3ad81499a
-title: "Novità di Deduplicazione dati"
+title: Novità di Deduplicazione dati
 ms.technology: storage-deduplication
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,14 +9,15 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 4a69221548d9defff5a45413ccfe824f9788755a
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876452"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Novità di Deduplicazione dati
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 [Deduplicazione dati](overview.md) in Windows Server 2016 è stata ottimizzata per essere estremamente efficiente, flessibile e gestibile a livello di cloud privato. Per altre informazioni sullo stack dell'archiviazione definita da software in Windows Server 2016, vedere [Novità nell'archiviazione in Windows Server 2016](../whats-new-in-storage.md).
 
@@ -26,9 +27,9 @@ Deduplicazione dati include i seguenti miglioramenti in Windows Server 2016:
 |---------------|----------------|-------------|
 | [Supporto per volumi di grandi dimensioni](whats-new.md#large-volume-support) | Aggiornamento | Prima di Windows Server 2016, i volumi dovevano essere ridimensionati in modo specifico per la varianza prevista e i volumi di dimensioni superiori a 10 TB non erano buoni candidati per la deduplicazione. In Windows Server 2016 Deduplicazione dati supporta dimensioni di volume fino a 64 TB. |
 | [Supporto per file di grandi dimensioni](whats-new.md#large-file-support) | Aggiornamento | Prima di Windows Server 2016 i file che raggiungevano 1 TB non erano buoni candidati per la deduplicazione. In Windows Server 2016 i file fino a 1 TB sono completamente supportati. |
-| [Supporto per Nano Server](whats-new.md#nano-server-support) | Nuovo | La deduplicazione dati è disponibile e completamente supportata nella nuova opzione di distribuzione Nano Server per Windows Server 2016. |
-| [Supporto del backup semplificato](whats-new.md#simple-backup-support) | Nuovo | In Windows Server 2012 R2 le applicazioni di backup virtualizzato come [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) di Microsoft erano supportate grazie a una serie di passaggi di configurazione manuale. In Windows Server 2016 è stato aggiunto il nuovo tipo di utilizzo predefinito "Backup", per una distribuzione semplice di Deduplicazione dati per le applicazioni di backup virtualizzato.|
-| [Supporto per l'aggiornamento in sequenza del sistema operativo cluster](whats-new.md#cluster-upgrade-support) | Nuovo | La deduplicazione dati supporta la nuova funzionalità [Aggiornamento in sequenza del sistema operativo cluster](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md) di Windows Server 2016. |
+| [Supporto per Nano Server](whats-new.md#nano-server-support) | Nuova | La deduplicazione dati è disponibile e completamente supportata nella nuova opzione di distribuzione Nano Server per Windows Server 2016. |
+| [Supporto del backup semplificato](whats-new.md#simple-backup-support) | Nuova | In Windows Server 2012 R2 le applicazioni di backup virtualizzato come [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) di Microsoft erano supportate grazie a una serie di passaggi di configurazione manuale. In Windows Server 2016 è stato aggiunto il nuovo tipo di utilizzo predefinito "Backup", per una distribuzione semplice di Deduplicazione dati per le applicazioni di backup virtualizzato.|
+| [Supporto per l'aggiornamento in sequenza del sistema operativo cluster](whats-new.md#cluster-upgrade-support) | Nuova | La deduplicazione dati supporta la nuova funzionalità [Aggiornamento in sequenza del sistema operativo cluster](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md) di Windows Server 2016. |
 
 ## <a name="large-volume-support"></a>Supporto per volumi di grandi dimensioni
 

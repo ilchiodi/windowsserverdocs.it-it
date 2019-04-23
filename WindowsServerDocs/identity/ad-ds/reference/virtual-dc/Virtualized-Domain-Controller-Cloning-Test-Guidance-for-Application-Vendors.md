@@ -1,83 +1,84 @@
 ---
 ms.assetid: fde99b44-cb9f-49bf-b888-edaeabe6b88d
-title: Indicazioni sui Test per i fornitori di applicazioni di clonazione del Controller di dominio virtualizzati
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Indicazioni sui test di clonazione dei controller di dominio virtualizzati per fornitori di applicazioni
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 72c4e818f82d3252c45776b26fb59e095893f2c7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 0b2303bc837cdaf9f6e7ebd4b3ccbf6c66aa7ad2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879342"
 ---
-# <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Indicazioni sui Test per i fornitori di applicazioni di clonazione del Controller di dominio virtualizzati
+# <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Indicazioni sui test di clonazione dei controller di dominio virtualizzati per fornitori di applicazioni
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Questo argomento illustra cosa è necessario considerare i fornitori di applicazioni per garantire che la loro applicazione continua a funzionare come previsto dopo completamento del processo di clonazione di controller di dominio virtualizzato (DC). Descrive gli aspetti del processo di clonazione di fornitori di applicazioni di interesse e gli scenari che possono giustificare ulteriori verifiche. I fornitori di applicazioni che hanno convalidato che la loro applicazione funziona su controller di dominio virtualizzati duplicati sono invitati a elencare il nome dell'applicazione nel contenuto Community nella parte inferiore di questo argomento, insieme a un collegamento al sito web dell'organizzazione in cui gli utenti per altre informazioni sulla convalida.  
+Questo argomento viene illustrato ciò che i fornitori di applicazioni devono prendere in considerazione per garantire la che propria applicazione continui a funzionare come previsto al termine del processo di clonazione di controller di dominio virtualizzato (DC). Vengono descritti gli aspetti del processo di clonazione tale fornitori di applicazioni di interesse e gli scenari che possono richiedere ulteriori test. I fornitori di applicazioni che sono convalidati che l'applicazione funzioni nei controller di dominio virtualizzati clonati sono invitati a elencare il nome dell'applicazione nei contenuti della Community nella parte inferiore di questo argomento, insieme a un collegamento per il sito web dell'organizzazione in cui gli utenti come descritto in dettaglio la convalida.  
   
-## <a name="overview-of-virtualized-dc-cloning"></a>Panoramica di clonazione di controller di dominio virtualizzati  
-Processo di clonazione di controller di dominio virtualizzato è descritto in dettaglio in [Introduzione alla virtualizzazione di servizi di dominio Active Directory (AD DS) (livello 100)](https://technet.microsoft.com/library/hh831734.aspx) e [virtualizzato Controller di documentazione tecnica su dominio (livello 300)](https://technet.microsoft.com/library/jj574214.aspx). Dal punto di vista di un fornitore applicazione, ecco alcune considerazioni da tenere in considerazione quando valutare l'impatto della clonazione all'applicazione:  
+## <a name="overview-of-virtualized-dc-cloning"></a>Panoramica della clonazione di controller di dominio virtualizzati  
+Processo di clonazione di controller di dominio virtualizzato è descritto dettagliatamente [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](https://technet.microsoft.com/library/hh831734.aspx) e [virtualizzato tecnico Controller di dominio Riferimento (livello 300)](https://technet.microsoft.com/library/jj574214.aspx). Dal punto di vista del fornitore dell'applicazione, queste sono alcune considerazioni da tenere conto quando si valuta l'impatto della clonazione all'applicazione:  
   
--   Il computer originale non viene eliminato. Rimane nella rete, interagire con i client. A differenza di un'operazione di ridenominazione in cui vengono rimossi i record DNS del computer originale, i record per il controller di dominio di origine originali rimangano.  
+-   Il computer originale non viene eliminato. Il messaggio rimane in rete, l'interazione con i client. A differenza di un'operazione di ridenominazione in cui vengono rimossi i record DNS del computer originale, i record per il controller di dominio di origine originali rimangono.  
   
--   Durante il processo di clonazione, il nuovo computer è inizialmente in esecuzione per un breve periodo di tempo in base all'identità del vecchio computer finché il processo di clonazione viene avviato e apporta le modifiche necessarie. Applicazioni che creano record sull'host è necessario assicurarsi che il computer clonato non sovrascriva record sull'host originale durante il processo di clonazione.  
+-   Durante il processo di clonazione, il nuovo computer è inizialmente in esecuzione per un breve periodo di tempo in base all'identità del computer precedente fino a quando il processo di clonazione viene avviato e apporta le modifiche necessarie. Le applicazioni che creano record sull'host è necessario assicurarsi che il computer clonato non sovrascriva record sull'host originale durante il processo di clonazione.  
   
--   La clonazione è una funzionalità di distribuzione specifico per i controller di dominio virtualizzati solo, non un'estensione generica per clonare altri ruoli del server. Alcuni ruoli del server in modo specifico non sono supportati per la clonazione:  
+-   La clonazione è una funzionalità di distribuzione specifici per i controller di dominio virtualizzato unico, non un'estensione di utilizzo generico per clonare altri ruoli del server. Alcuni ruoli del server in particolare non sono supportati per la clonazione:  
   
     -   Dynamic Host Configuration Protocol (DHCP)  
   
-    -   Servizi certificati Active Directory (AD CS)  
+    -   Servizi certificati Active Directory  
   
-    -   Active Directory Lightweight Directory Services (AD LDS)  
+    -   Active Directory Lightweight Directory Services  
   
--   Come parte del processo di clonazione, viene copiato l'intera macchina virtuale che rappresenta il controller di dominio originale, in modo che qualsiasi stato dell'applicazione nella macchina virtuale viene inoltre copiato. Verificare che l'applicazione si adatti a questa modifica stato dell'host locale sul controller di dominio clonato, o se sono necessari, come ad esempio un riavvio del servizio siano richiesti interventi.  
+-   Come parte del processo di clonazione, viene copiato l'intera macchina virtuale che rappresenta il controller di dominio originale, in modo che qualsiasi stato dell'applicazione su tale macchina virtuale viene copiato anche. Verificare che l'applicazione si adatta a questa modifica nello stato dell'host locale nel controller di dominio clonato, o se è richiesto, ad esempio un riavvio del servizio alcun intervento.  
   
--   Durante la clonazione, il nuovo controller di dominio ottiene una nuova identità macchina ed effettua il provisioning se stesso come un controller di dominio di replica nella topologia. Stabilire se l'applicazione dipende dall'identità macchina, ad esempio nome, account, SID e così via. Adatteranno automaticamente per la modifica dell'identità macchina nel clone? Se tale applicazione memorizza nella cache i dati, assicurarsi che non si basa sui dati di identità macchina che possono essere memorizzate nella cache.  
+-   Durante la clonazione, il nuovo controller di dominio ottiene una nuova identità del computer ed esegue il provisioning se stesso come replica controller di dominio nella topologia. Verificare se l'applicazione dipende dall'identità macchina, ad esempio nome, account, SID e così via. Adattano automaticamente per la modifica dell'identità del computer nel clone? Se quell'applicazione memorizza nella cache dei dati, assicurarsi che non si basa sui dati di identità macchina che possono essere memorizzato nella cache.  
   
-## <a name="what-is-interesting-for-application-vendors"></a>Che cos'è interessante per fornitori di applicazioni?  
+## <a name="what-is-interesting-for-application-vendors"></a>Che cos'è interessante per i fornitori di applicazioni?  
   
 ### <a name="customdccloneallowlistxml"></a>CustomDCCloneAllowList.xml  
-Un controller di dominio che esegue l'applicazione o il servizio non può essere clonato finché l'applicazione o servizio è:  
+Non è possibile clonare un controller di dominio che esegue l'applicazione o il servizio finché l'applicazione o servizio è:  
   
--   Aggiunti al file CustomDCCloneAllowList.xml usando il cmdlet Get-ADDCCloningExcludedApplicationList Windows PowerShell  
+-   Aggiunto al file customdccloneallowlist. XML usando il cmdlet Get-ADDCCloningExcludedApplicationList Windows PowerShell  
   
-- O -  
+-Oppure-  
   
--   Rimossi dal controller di dominio  
+-   Rimosso dal controller di dominio  
   
-La prima volta che l'utente esegue il cmdlet Get-ADDCCloningExcludedApplicationList, restituisce un elenco di servizi e applicazioni che sono in esecuzione sul controller di dominio ma non sono nell'elenco predefinito di servizi e applicazioni che sono supportate per la clonazione. Per impostazione predefinita, il servizio o l'applicazione non verrà visualizzata. Per aggiungere il servizio o applicazione all'elenco di applicazioni e servizi che possono essere tranquillamente duplicato, il cmdlet Get-ADDCCloningExcludedApplicationList nuovamente con l'opzione - GenerateXML per aggiungerlo a CustomDCCloneAllowList.xml file venga eseguita l'utente. Per ulteriori informazioni, vedere [passaggio 2: il cmdlet Get-ADDCCloningExcludedApplicationList eseguire](https://technet.microsoft.com/library/hh831734.aspx#bkmk6_run_get_addccloningexcludedapplicationlist_cmdlet).  
+La prima volta che l'utente esegue il cmdlet Get-ADDCCloningExcludedApplicationList, restituisce un elenco di servizi e applicazioni che sono in esecuzione nel controller di dominio, ma non sono presenti nell'elenco predefinito dei servizi e applicazioni supportate per la clonazione. Per impostazione predefinita, il servizio o l'applicazione non sarà elencata. Per aggiungere il servizio o l'applicazione all'elenco di applicazioni e servizi che possono essere tranquillamente clonato, le esecuzioni di utente cmdlet Get-ADDCCloningExcludedApplicationList nuovamente con l'opzione - GenerateXML per aggiungerla al customdccloneallowlist. XML file. Per altre informazioni, vedere [passaggio 2: Eseguire il cmdlet Get-ADDCCloningExcludedApplicationList](https://technet.microsoft.com/library/hh831734.aspx#bkmk6_run_get_addccloningexcludedapplicationlist_cmdlet).  
   
-### <a name="distributed-system-interactions"></a>Interazioni di sistema distribuita  
-In genere servizi identificati nel computer locale superato o non superato durante la clonazione. Servizi distribuiti necessario preoccuparsi due istanze di computer host nella rete contemporaneamente per un breve periodo di tempo. Questo potrebbe manifesto come un'istanza del servizio tenta di recuperare informazioni dal sistema partner in cui il clone è registrato come nuovo fornitore dell'identità. O entrambe le istanze del servizio possono eseguire il push informazioni nel database di Active Directory nello stesso momento con risultati diversi. Ad esempio, non è deterministico computer a cui verrà comunicato con quando due computer che dispongono del servizio Windows test tecnologie (WTT) si trovano sulla rete con il controller di dominio.  
+### <a name="distributed-system-interactions"></a>Interazioni di sistemi distribuiti  
+In genere servizi isolati nel computer locale passano o non riuscire quando che fanno parte di clonazione. Servizi distribuiti sono necessario preoccuparsi di presenza di due istanze di computer host nella rete contemporaneamente per un breve periodo di tempo. Questo può risolversi in un'istanza del servizio tenta di estrarre informazioni da un sistema di partner in cui il clone sia registrato come nuovo fornitore dell'identità. O entrambe le istanze del servizio possono eseguire il push informazioni nel database di Active Directory Domain Services in contemporanea con risultati diversi. Ad esempio, non è deterministica computer a cui verrà comunicato insieme quando due computer che dispone di servizio Windows test tecnologie (WTT) si trovano sulla rete con il controller di dominio.  
   
-Per il servizio Server DNS distribuito, il processo di clonazione attentamente sovrascritto i record DNS del controller di dominio di origine quando il controller di dominio clone viene avviato con un nuovo indirizzo IP.  
+Per il servizio Server DNS distribuito, il processo di clonazione attentamente evita sovrascrivere i record DNS del controller di dominio di origine quando il controller di dominio clone viene avviato con un nuovo indirizzo IP.  
   
-Non basarsi sul computer per rimuovere tutta l'identità precedente fino al termine della clonazione. Quando il nuovo controller di dominio viene promosso nel nuovo contesto, selezionare Sysprep per pulire lo stato del computer aggiuntivo vengono eseguiti i provider. Ad esempio, è a questo punto vengono rimossi i certificati del computer precedenti e vengono modificati i segreti di crittografia che il computer può accedere.  
+È consigliabile non fare affidamento sul computer da cui rimuovere tutte le identità precedente fino al termine della clonazione. Quando il nuovo controller di dominio viene promosso all'interno del contesto di nuovo, selezionare i provider vengono eseguiti per pulire lo stato del computer aggiuntivo Sysprep. Ad esempio, è a questo punto i certificati del computer precedenti vengono rimossi e vengono modificati i segreti di crittografia che il computer possa accedere.  
   
-Il fattore più importante che varia la tempistica della clonazione è il numero di oggetti per la replica dal controller di dominio primario. Supporti aumentano il tempo necessario per la clonazione completata.  
+Il fattore maggiore che variano i tempi della clonazione è il numero di oggetti è per la replica dal controller di dominio primario. Supporti precedenti aumentano il tempo necessario per la clonazione completata.  
   
-Poiché il servizio o l'applicazione è sconosciuto, resterà in esecuzione. Il processo di clonazione non modifica lo stato dei servizi non Windows.  
+Poiché il servizio o l'applicazione è sconosciuto, rimarrà in esecuzione. Il processo di clonazione non modifica lo stato dei servizi non Windows.  
   
-Inoltre, il nuovo computer ha un indirizzo IP diverso da quello del computer originale. Questi comportamenti potrebbe effetti collaterali per il servizio o l'applicazione a seconda di come si comporta il servizio o applicazione in questo ambiente.  
+Inoltre, il nuovo computer ha un indirizzo IP diverso rispetto al computer originale. Questi comportamenti possono causare effetti collaterali al servizio o all'applicazione a seconda del modo in cui il servizio o l'applicazione si comporta in questo ambiente.  
   
 ## <a name="additional-scenarios-suggested-for-testing"></a>Altri scenari suggeriti per i test  
   
-### <a name="cloning-failure"></a>Errore di clonazione  
-Fornitori di servizi necessario testare questo scenario, perché quando si clona ha esito negativo il computer viene avviato in modalità servizi Directory riparazione (DSRM), un modulo della modalità provvisoria. A questo punto il computer non ha completato la clonazione. Alcuni stati sia stato modificato e alcuni Stati possono rimanere dal controller di dominio originale. Questo scenario per comprendere l'impatto che può avere sull'applicazione di test.  
+### <a name="cloning-failure"></a>Errori di clonazione  
+Fornitori di servizi devono testare questo scenario perché nel caso della clonazione ha esito negativo il computer viene avviato in modalità servizi Directory Repair (DSRM), un form della modalità provvisoria. A questo punto il computer non ha completato la clonazione. Alcuni stati sia stato modificato e uno stato può rimanere dal controller di dominio originale. Testare questo scenario per comprendere quale impatto può avere sull'applicazione.  
   
-Per forzare un errore di clonazione, provare a clonare un controller di dominio senza concedergli l'autorizzazione per la clonazione. In questo caso, il computer sarà solo cambiato gli indirizzi IP e avere comunque la maggior parte dello stato dal controller di dominio originale. Per ulteriori informazioni su come concedere un'autorizzazione di controller di dominio per la clonazione, vedere [passaggio 1: concedere l'autorizzazione per la clonazione di controller di dominio virtualizzati](https://technet.microsoft.com/library/hh831734.aspx#bkmk4_grant_source).  
+Per causare un errore di clonazione, cerca di clonare un controller di dominio senza concedergli l'autorizzazione per la clonazione. In questo caso, il computer verrà sono solo stati modificati gli indirizzi IP e la maggior parte del relativo stato dal controller di dominio originale è ancora presente. Per altre informazioni sulla concessione dell'autorizzazione per un controller di dominio da clonare, vedere [passaggio 1: Concedere l'autorizzazione per la clonazione di controller di dominio virtualizzato di origine](https://technet.microsoft.com/library/hh831734.aspx#bkmk4_grant_source).  
   
 ### <a name="pdc-emulator-cloning"></a>Emulatore PDC la clonazione  
-Fornitori di servizi e applicazioni necessario testare questo scenario, perché non esiste un ulteriore riavvio quando l'emulatore PDC è duplicato. Inoltre, la maggior parte di clonazione viene eseguita in un'identità temporanea per consentire al nuovo clone interagire con l'emulatore PDC durante il processo di clonazione.  
+I fornitori di servizio e di applicazione devono testare questo scenario poiché è presente un ulteriore riavvio quando l'emulatore PDC viene clonato. Inoltre, la maggior parte della clonazione viene eseguita con un'identità temporanea per consentire al nuovo clone di interagire con l'emulatore PDC durante il processo di clonazione.  
   
-### <a name="writable-versus-read-only-domain-controllers"></a>Scrivibile e i controller di dominio di sola lettura  
-I fornitori di servizi e testare la clonazione utilizzando lo stesso tipo di controller di dominio (ovvero, in un controller di dominio di sola lettura o scrivibile) che servizio è pianificato per l'esecuzione in.  
+### <a name="writable-versus-read-only-domain-controllers"></a>Accessibile in scrittura e i controller di dominio di sola lettura  
+I fornitori di servizio e di applicazione è consigliabile testare la clonazione tramite lo stesso tipo di controller di dominio (vale a dire, in un controller di dominio di sola lettura o scrivibili) che servizio è pianificato per l'esecuzione.  
   
 
 

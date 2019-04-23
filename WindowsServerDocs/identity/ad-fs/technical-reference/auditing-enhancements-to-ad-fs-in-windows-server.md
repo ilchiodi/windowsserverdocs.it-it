@@ -1,7 +1,7 @@
 ---
 ms.assetid: 208928eb-bb17-4984-a312-23fff43133e3
 title: Controllo dei miglioramenti di AD FS in Windows Server 2016
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,51 +10,52 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 3d622686a3cc34316f0cf5187839785195c2f104
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880232"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Controllo dei miglioramenti di AD FS in Windows Server 2016
 
 >Si applica a: Windows Server 2016
 
 Attualmente, in AD FS per Windows Server 2012 R2 sono generati per una singola richiesta e le informazioni relative a un registro in numerosi eventi di controllo o attività di rilascio dei token è assente (in alcune versioni di AD FS) o suddiviso in più eventi di controllo. Per impostazione predefinita, ADFS gli eventi di controllo sono disattivati per loro natura dettagliato.  
-    Con il rilascio di AD FS in Windows Server 2016, il controllo è diventato più semplice e meno dettagliato.  
+    Con il rilascio di ADFS in Windows Server 2016, il controllo è diventato più semplice e meno dettagliato.  
   
 ## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Livelli di controllo in AD FS per Windows Server 2016  
-Per impostazione predefinita, ADFS in Windows Server 2016 ha il controllo di base abilitata.  Con il controllo di base, gli amministratori vedranno gli eventi di 5 o meno per una singola richiesta.  In questo modo una riduzione significativa del numero di eventi, gli amministratori hanno esaminati, per poter visualizzare una singola richiesta.   Il livello di controllo può essere generato o ridotto utilizzando il cmdlet PowerShell: Set-AdfsProperties - AuditLevel.  Nella tabella seguente vengono illustrati i livelli di controllo disponibili.  
+Per impostazione predefinita, ADFS in Windows Server 2016 ha il controllo di base abilitata.  Con il controllo di base, gli amministratori noteranno minore o uguale a 5 eventi per una singola richiesta.  In questo modo contrassegnato una diminuzione significativa nel numero di eventi gli amministratori dispongono di esaminare, in modo da visualizzare una singola richiesta.   Il livello di controllo può essere aumentato o abbassata usando il cmdlet di PowerShell:  Set-AdfsProperties - AuditLevel.  La tabella seguente illustra i livelli di controllo disponibili.  
   
 ||||  
 |-|-|-|  
 |Livello di controllo|Sintassi di PowerShell|Descrizione|  
-|Nessuno|Set-AdfsProperties - AuditLevel nessuno|Il controllo è disabilitato e gli eventi non verranno registrati.|  
-|Basic (impostazione predefinita)|Set-AdfsProperties - AuditLevel Basic|Per una singola richiesta verranno registrati eventi non più di 5|  
-|Verbose|Set-AdfsProperties - Verbose AuditLevel|Tutti gli eventi verranno registrati.  Registra una notevole quantità di informazioni per ogni richiesta.|  
+|Nessuno|Set-AdfsProperties - AuditLevel None|Il controllo è disabilitato e non verrà registrato alcun evento.|  
+|Basic (impostazione predefinita)|Set-AdfsProperties - AuditLevel Basic|Verranno registrati non più di 5 eventi per una singola richiesta|  
+|Verbose|Set-AdfsProperties - AuditLevel dettagliato|Verranno registrati tutti gli eventi.  Registra una quantità significativa di informazioni per ogni richiesta.|  
   
-Per visualizzare il livello di controllo corrente, è possibile utilizzare il cmdlet PowerShell: Get-AdfsProperties.  
+Per visualizzare il livello di controllo corrente, è possibile usare il cmdlet di PowerShell:  Get-AdfsProperties.  
   
 ![miglioramenti di controllo](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
   
-Il livello di controllo può essere generato o ridotto utilizzando il cmdlet PowerShell: Set-AdfsProperties - AuditLevel.  
+Il livello di controllo può essere aumentato o abbassata usando il cmdlet di PowerShell:  Set-AdfsProperties - AuditLevel.  
   
 ![miglioramenti di controllo](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
   
 ## <a name="types-of-audit-events"></a>Tipi di eventi di controllo  
-Eventi di controllo di AD FS può essere di tipo diverso, in base a diversi tipi di richieste elaborate da ADFS. Ogni tipo di evento di controllo include dati specifici associati.  Il tipo di eventi di controllo può essere distinti tra le richieste di accesso (ad esempio, le richieste di token) e le richieste di sistema (chiamate al server a server tra cui il recupero delle informazioni di configurazione).    
-  Nella tabella seguente descrive i tipi di eventi di controllo di base.  
+Gli eventi di controllo di AD FS può essere di tipi diversi, in base ai tipi diversi di richieste elaborate da AD FS. Ogni tipo di evento Audit ha dati specifici associati.  Il tipo di eventi di controllo può essere differenziato tra le richieste di accesso (ad esempio le richieste di token) e le richieste di sistema (chiamate di un server inclusi il recupero di informazioni di configurazione).    
+  La tabella seguente descrive i tipi di base degli eventi di controllo.  
   
 ||||  
 |-|-|-|  
-|Tipo di eventi di controllo|ID evento|Descrizione|  
-|Credenziali nuova convalida riuscita|1202|Una richiesta in cui le credenziali vengono convalidate correttamente dal servizio federativo. Questo include WS-Trust, WS-Federation, SAML-P (primo segmento per generare SSO) e gli endpoint di autorizzare OAuth.|  
-|Errore di convalida le credenziali|1203|Una richiesta in cui la convalida delle credenziali nuova non riuscita del servizio federativo. Questo include WS-Trust, WS-Fed, SAML-P (primo segmento per generare SSO) e gli endpoint di autorizzare OAuth.|  
-|Operazione riuscita Token dell'applicazione|1200|Una richiesta in un token di sicurezza viene emesso correttamente dal servizio federativo. Per WS-Federation, SAML-P questo evento viene registrato quando la richiesta viene elaborata con l'artefatto SSO. (ad esempio, il cookie SSO).|  
-|Errore nel Token dell'applicazione|1201|Una richiesta di rilascio di token di sicurezza non riuscito nel servizio federativo. Per WS-Federation, SAML-P questo evento viene registrato quando la richiesta è stata elaborata con l'artefatto SSO. (ad esempio, il cookie SSO).|  
-|Operazione riuscita richiesta di modifica password|1204|Una transazione di richiesta di modifica della password in cui è stata elaborata correttamente dal servizio federativo.|  
-|Errore di richiesta di modifica password|1205|Una transazione in cui richiesta di modifica della password non è riuscito a essere elaborate dal servizio federativo.| 
-|Disconnetti operazione riuscita|1206|Descrive una richiesta di disconnessione riuscita.|  
-|Eseguire l'accesso in uscita non riuscito|1207|Descrive una richiesta di disconnessione non riuscita.|  
+|Tipo di evento audit|ID evento|Descrizione|  
+|Credenziale aggiornata convalida riuscita|1202|Una richiesta in cui nuove credenziali vengono convalidate correttamente dal servizio federativo. Ciò include WS-Trust, WS-Federation, SAML-P (prima parte per generare l'accesso SSO) e gli endpoint di autorizzazione OAuth.|  
+|Errore di convalida delle credenziali aggiornato|1203|Una richiesta in cui non è riuscita la convalida delle credenziali aggiornato nel servizio federativo. Ciò include WS-Trust, WS-Fed, SAML-P (prima parte per generare l'accesso SSO) e gli endpoint di autorizzazione OAuth.|  
+|Esito positivo di Token di applicazione|1200|Una richiesta in cui un token di sicurezza viene rilasciato correttamente dal servizio federativo. Per WS-Federation, SAML-P viene registrato quando la richiesta viene elaborata con l'elemento SSO. (ad esempio, il cookie SSO).|  
+|Errore di Token dell'applicazione|1201|Una richiesta in cui emissione di token di sicurezza non riuscita nel servizio federativo. Per WS-Federation, SAML-P viene registrato quando l'elaborazione della richiesta con l'elemento SSO. (ad esempio, il cookie SSO).|  
+|Richiesta di modifica password riuscita|1204|Una transazione di richiesta di modifica della password in cui è stata elaborata correttamente dal servizio federativo.|  
+|Errore di richiesta di modifica password|1205|Una transazione in cui la modifica della password richiesta non riuscita essere elaborato dal servizio federativo.| 
+|Disconnettersi da operazione riuscita|1206|Descrive una richiesta di disconnessione ha esito positivo.|  
+|L'accesso in uscita non riuscito|1207|Descrive una richiesta di disconnessione non riuscita.|  
 
   
 

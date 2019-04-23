@@ -1,5 +1,5 @@
 ---
-title: "Personalizzazione dell'accesso per attività di Microsoft Online Backup Service"
+title: Personalizzare l'accesso per l'attività Servizio di backup online Microsoft
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,25 +13,26 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: cd148e0e58cd80dbff7f7884ead95dc1e46b6257
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879932"
 ---
-# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Personalizzazione dell'accesso per attività di Microsoft Online Backup Service
+# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Personalizzare l'accesso per l'attività Servizio di backup online Microsoft
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Per impostazione predefinita, il **iscriversi a Microsoft Online Backup Service** attività sul **dispositivi** il sito Web Microsoft Online Backup Service viene visualizzata la scheda del Dashboard. Il sito Web fornisce informazioni sul servizio e consente di eseguire la sottoscrizione al servizio e scaricare il software necessario.  
+Per impostazione predefinita, l'attività **Registrazione per Microsoft Online Backup Service** sulla scheda **DISPOSITIVI** del dashboard determina l'apertura dell sito Web Microsoft Online Backup Service. Il sito Web fornisce informazioni sul servizio e consente di registrasi al servizio e scaricare il software necessario.  
   
- È possibile personalizzare il **iscriversi a Microsoft Online Backup Service** attività in due modi:  
+ È possibile personalizzare l'attività **Registrazione per Microsoft Online Backup Service** in due diversi modi:  
   
--   È possibile sostituire l'URL per il sito Web predefinito con un URL che rappresenta un'esperienza utente personalizzati. Per sostituire l'URL predefinito, aprire l'Editor del Registro di sistema, creare la chiave del Registro di sistema: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**, quindi assegnare l'URL personalizzato come valore della chiave.  
+-   È possibile sostituire l'URL per il sito Web predefinito con un URL personalizzato. Per sostituire l'URL predefinito, aprire l'editor del Registro di sistema, creare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl** e quindi assegnare l'URL personalizzato come valore della chiave.  
   
--   È possibile nascondere l'attività. Per nascondere l'attività, aprire l'Editor del Registro di sistema e creare la chiave del Registro di sistema: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled **.  
+-   È possibile nascondere l'attività. Per nascondere l'attività, aprire l'editor del Registro di sistema e creare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled**.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

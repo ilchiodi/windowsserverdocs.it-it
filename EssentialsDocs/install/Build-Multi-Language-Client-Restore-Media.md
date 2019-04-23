@@ -1,5 +1,5 @@
 ---
-title: Creazione di un supporto di ripristino Client multilingua
+title: Creare un supporto di ripristino client multilingue
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,62 +13,63 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 1ad934d297c3092050bd6adbb6bb0f50d1ec6f36
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879872"
 ---
-# <a name="build-multi-language-client-restore-media"></a>Creazione di un supporto di ripristino Client multilingua
+# <a name="build-multi-language-client-restore-media"></a>Creare un supporto di ripristino client multilingue
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 > [!NOTE]
->  È innanzitutto necessario creare un'immagine multilingue di Windows come descritto nel [procedura dettagliata: creazione di immagini multilingue Windows](https://technet.microsoft.com/library/jj126995) prima di aggiungere il language pack di Windows Server Essentials in install.wim.  
+>  È innanzitutto necessario creare un'immagine multilingue di Windows come descritto nel [procedura dettagliata: La creazione di immagini multilingue di Windows](https://technet.microsoft.com/library/jj126995) prima di aggiungere il language pack di Windows Server Essentials in Install. wim.  
   
- Quando si crea il DVD di installazione server multilingua, i language pack verrà installato per install.wim del Server. Le risorse localizzate per il ripristino guidato vengono installate come parte del language pack.  
+ Quando si crea un DVD per l'installazione del server multilingua, i Language Pack vengono installati per install.wim del server. Le risorse localizzate per il ripristino guidato vengono installate come parte del Language Pack.  
   
-### <a name="to-build-a-multi-language-client-restore-media"></a>Per creare un client multilingua supporto di ripristino  
+### <a name="to-build-a-multi-language-client-restore-media"></a>Per creare un supporto di ripristino client multilingua  
   
-1.  Montare install.wim in c:\mount chiamiamo cartella di c:\mount\Program Files\Windows Server\bin\ClientRestore come radice del supporto di ripristino client: [Radicesupportoripristino] di seguito:  
+1.  Montare install.wim in c:\mount e poi definire la cartella c:\mount\Program Files\Windows Server\bin\ClientRestore come radice del supporto di ripristino client [RadiceSupportoRipristino] di seguito:  
   
     ```  
     dism /mount-wim /wimfile:install.wim /index:1 /mountdir:c:\mount  
     ```  
   
-2.  Montare il file WIM di ripristino client in [RestoreMediaRoot]\Sources\Boot.wim (stessi passaggi devono essere eseguite anche per boot_x86.wim). La riga di comando è:  
+2.  Montare il file WIM per il ripristino client in [RadiceSupportoRipristino]\Sources\Boot.wim (seguire la stessa procedura per boot_x86.wim). La riga di comando è:  
   
     ```  
     dism /mount-wim /wimfile:boot.wim /index:1 /mountdir:c:\mountRestore  
     ```  
   
-3.  Aggiungi pacchetto WinPE-Setup.cab al supporto di ripristino, eseguendo:  
+3.  Aggiungere il pacchetto WinPE-Setup.cab al supporto di ripristino eseguendo:  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:WinPE-Setup.cab  
     ```  
   
-4.  Utilizzare Blocco note per modificare c:\mountRestore\windows\system32\winpeshl.ini, compilare con il contenuto seguente:  
+4.  Utilizzare Blocco note per modificare c:\mountRestore\windows\system32\winpeshl.ini inserendo il seguente contenuto:  
   
     ```  
     [LaunchApp]  
     AppPath = %SYSTEMDRIVE%\sources\SelectLanguage.exe  
     ```  
   
-5.  Aggiungere i language pack per il supporto di ripristino. Aggiungere i language pack può essere eseguita seguente comando:  
+5.  Aggiungere i Language Pack al supporto di ripristino. Per aggiungere i Language Pack, utilizzare il seguente comando:  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:[language pack path]  
     ```  
   
-     È necessario aggiungere i seguenti language pack:  
+     Non è necessario aggiungere i seguenti Language Pack:  
   
-    1.  Language pack di WinPE (lp.cab)  
+    1.  Language Pack di WinPE (lp.cab)  
   
-    2.  Language pack di WinPE-Setup (WinPE-Setup _ [lingua]. cab, ad esempio, WinPE WinPE-setup_en-US.cab)  
+    2.  Language Pack di WinPE-Setup (WinPE-Setup_[lingua].cab, ad esempio, WinPE-Setup_en-us.cab)  
   
-    3.  Per i caratteri asiatici, inclusi zh-cn, zh-tw, zh-hk, ko-kr, ja-jp, è necessario installare ulteriore font pack (winpe - fontsupport-[lang]. cab, ad esempio, winpe-fontsupport-WinPE-fontsupport-zh-CN.cab)  
+    3.  Per i caratteri asiatici, inclusi zh-cn, zh-tw, zh-hk, ko-kr, ja-jp, è necessario installare un ulteriore Font Pack (winpe-fontsupport-[lang].cab, ad esempio, winpe-fontsupport-zh-cn.cab)  
   
-6.  Generare nuovo Lang.ini file eseguendo:  
+6.  Generare il nuovo file Lang.ini file eseguendo:  
   
     ```  
     dism /image:c:\mountRestore /Gen-LangINI /distribution:mount  
@@ -80,7 +81,7 @@ ms.lasthandoff: 12/12/2017
     dism /unmount-wim /mountdir:c:\mountRestore /commit  
     ```  
   
-8.  Ripetere il passaggio 2 con il passaggio 7 per [RestoreMediaroot]\Sources\Boot_x86.wim] \sources\boot_x86.wim.  
+8.  Ripetere i passi da 2 a 7 per [RadiceSupportoRipristino]\Sources\Boot_x86.wim.  
   
 9. Eseguire il commit e smontare l'immagine eseguendo:  
   
@@ -91,12 +92,12 @@ ms.lasthandoff: 12/12/2017
 ## <a name="see-also"></a>Vedere anche  
 
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
 
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](../install/Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](../install/Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](../install/Testing-the-Customer-Experience.md)
 

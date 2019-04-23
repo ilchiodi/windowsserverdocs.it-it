@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: f74382c4a5e2c0a8636edbd4f9cfe2227cd6334a
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875872"
 ---
 # <a name="create-a-quota-template"></a>Creare un modello quota
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 In un *modello quota* vengono definiti il limite di spazio, il tipo di quota (rigida o flessibile) e facoltativamente un insieme di notifiche da generare automaticamente quando vengono raggiunti i limiti di soglia per l'utilizzo delle quote.
 
@@ -28,7 +29,7 @@ Se le quote vengono create esclusivamente in base a modelli, è possibile gestir
 
 2.  Fare clic con il pulsante destro del mouse su **Modelli quote** e scegliere **Crea modello quota** oppure selezionare **Crea modello quota** nel riquadro **Azioni**. Verrà visualizzata la finestra di dialogo **Crea modello quota**.
 
-3.  Se si desidera copiare le proprietà di un modello esistente da utilizzare come base per il nuovo modello, selezionare un modello nell'elenco a discesa **Copia le proprietà dal modello quota**, quindi, fare clic su **Copia**.
+3.  Se si desidera copiare le proprietà di un modello esistente da utilizzare come base per il nuovo modello, selezionare un modello nell'elenco a discesa **Copia le proprietà dal modello quota**, Quindi, fare clic su **Copia**.
 
     Indipendentemente dal fatto che si sia scelto di utilizzare le proprietà di un modello esistente o si crei un nuovo modello, modificare o impostare i valori seguenti nella scheda **Impostazioni**:
 
@@ -52,21 +53,21 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 > [!Important]
 > Per inviare notifiche tramite posta elettronica e configurare i report di archiviazione con i parametri appropriati per l'ambiente server, è innanzitutto necessario impostare le opzioni di Gestione risorse file server generali. Per ulteriori informazioni, vedere [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 
-**Per configurare le notifiche che verranno generate da Gestione risorse file server a una soglia di quota**
+**Per configurare le notifiche che Gestione risorse File Server consentono di generare a una soglia di quota**
 
 1.  Nella finestra di dialogo **Crea modello quota** in **Soglie notifiche**, fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo **Aggiungi soglia**.
 
 2.  Per impostare una percentuale del limite di quota che genererà una notifica:
 
-    Nella casella di testo **Genera notifiche quando l'utilizzo raggiunge (%)**, immettere una percentuale del limite di quota per la soglia di notifica. (La percentuale predefinita per la prima soglia di notifica è 85%).
+    Nella casella di testo **Genera notifiche quando l'utilizzo raggiunge (%)**, immettere una percentuale del limite di quota per la soglia di notifica. (La percentuale predefinita per la prima soglia di notifica è l'85%).
 
 3.  Per configurare le notifiche tramite posta elettronica:
 
     Nella scheda **Messaggio posta elettronica** specificare le opzioni seguenti:
 
-    -   Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account@domain* e separare più account con un punto e virgola.
+    -   Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account@domain* e separare gli account con un punto e virgola.
     -   Per inviare messaggi di posta elettronica alla persona che ha salvato il file che ha raggiunto la soglia di quota, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente che ha superato la soglia**.
-    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, la variabile **\[Source Io Owner\]** inserisce il nome dell'utente che ha salvato il file che ha raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[proprietario dell'origine Io\]** variabile inserisce il nome dell'utente che ha stato salvato il file che raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
     -   Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.
 
 4.  Per registrare un evento:
@@ -89,9 +90,9 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle quote](quota-management.md)
--    [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
--   [Modificare le proprietà dei modelli quota](edit-quota-template-properties.md)
+-   [Quota Management](quota-management.md)
+-    [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Modifica proprietà modello di Quota](edit-quota-template-properties.md)
 -   [Strumenti da riga di comando](command-line-tools.md)
 
 

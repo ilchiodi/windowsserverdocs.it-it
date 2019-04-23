@@ -1,6 +1,6 @@
 ---
-title: "Modificare le proprietà delle quote automatiche"
-description: "Questo articolo descrive come modificare le proprietà delle quote automatiche"
+title: Modificare le proprietà delle quote automatiche
+description: Questo articolo descrive come modificare le proprietà delle quote automatiche
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878062"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Modificare le proprietà delle quote automatiche
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Quando si apportano modifiche a una quota automatica, si ha la possibilità di estenderle anche alle quote esistenti nel percorso della quota automatica. È possibile scegliere di modificare solo le quote che ancora corrispondono alla quota automatica originale o tutte le quote nel percorso della quota automatica, indipendentemente dalle modifiche apportate alle quote dal momento della loro creazione. Questa funzionalità semplifica il processo di aggiornamento delle proprietà di quote derivate da una quota automatica in quanto offre un'unica posizione centrale da cui è possibile apportare tutte le modifiche.
 
@@ -43,7 +44,7 @@ Quando si apportano modifiche a una quota automatica, si ha la possibilità di e
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle quote](quota-management.md)
--   [Creare una quota automatica](create-auto-apply-quota.md)
+-   [Quota Management](quota-management.md)
+-   [Creare un'Auto della Quota di applicazione](create-auto-apply-quota.md)
 
 

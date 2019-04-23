@@ -1,6 +1,6 @@
 ---
 title: Criteri di restrizione software
-description: Protezione di Windows Server
+description: Sicurezza di Windows Server
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,87 +14,88 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: ab44013b947d33adc12c54b527415bf16c46a4c6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875822"
 ---
 # <a name="software-restriction-policies"></a>Criteri di restrizione software
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Questo argomento, destinato ai professionisti IT descrive criteri (restrizione Software) in Windows Server 2012 e Windows 8 e vengono forniti collegamenti alle informazioni tecniche su inizio criteri di restrizione software con Windows Server 2003.
+In questo argomento destinato ai professionisti IT descrive criteri di restrizione Software (SRP) in Windows Server 2012 e Windows 8 e vengono forniti collegamenti alle informazioni tecniche su criteri di restrizione software a partire Windows Server 2003.
 
-Per procedure e suggerimenti sulla risoluzione dei problemi, vedere [amministrare i criteri di restrizione Software](administer-software-restriction-policies.md) e [risoluzione dei problemi di criteri di restrizione Software](troubleshoot-software-restriction-policies.md).
+Per le procedure e suggerimenti sulla risoluzione dei problemi, vedere [amministrare i criteri di restrizione Software](administer-software-restriction-policies.md) e [risolvere i problemi di criteri di restrizione Software](troubleshoot-software-restriction-policies.md).
 
 ## <a name="BKMK_OVER"></a>Descrizione di criteri di restrizione software
-Software di criteri di restrizione è una funzionalità basata su criteri di gruppo che identifica i programmi software in esecuzione nel computer in un dominio e controlla la possibilità di eseguire tali programmi. Criteri di restrizione software fanno parte di Microsoft security strategia di gestione e per aiutare le aziende ad aumentare l'affidabilità, integrità e la gestibilità dei computer.
+I criteri di restrizione software sono una funzionalità basata su Criteri di gruppo che identifica i programmi software in esecuzione nei computer di un dominio e controlla la possibilità di tali programmi di essere eseguiti. I criteri di restrizione software fanno parte della strategia di sicurezza e gestione Microsoft per aiutare le aziende ad aumentare l'affidabilità, l'integrità e la gestibilità dei propri computer.
 
-È inoltre possibile utilizzare criteri di restrizione software per creare una configurazione molto restrittiva per i computer, in cui consentire l'esecuzione solo di applicazioni specifiche identificate eseguire. Criteri di restrizione software sono integrati in Microsoft Active Directory e criteri di gruppo. È inoltre possibile creare criteri di restrizione software in computer autonomi. Criteri di restrizione software sono criteri di attendibilità, ovvero normative configurate dall'amministratore per limitare gli script e altro codice che non è completamente attendibile in esecuzione.
+È possibile usare i criteri di restrizione software anche per creare una configurazione molto restrittiva per i computer, in cui consentire l'esecuzione solo di applicazioni specifiche identificate. I criteri di restrizione software sono integrati in Microsoft Active Directory e nei Criteri di gruppo. È anche possibile creare criteri di restrizione software in computer autonomi. I criteri di restrizione software sono criteri di attendibilità, ovvero normative configurate dall'amministratore per limitare gli script e altro codice la cui esecuzione non è completamente attendibile.
 
-È possibile definire questi criteri con l'estensione di criteri di restrizione Software dell'Editor criteri di gruppo locali o lo snap-in Criteri di sicurezza locali di Microsoft Management Console (MMC).
+È possibile definire questi criteri con l'estensione Criteri di restrizione software dell'Editor Criteri di gruppo locali o con lo snap-in Criteri di sicurezza locali in Microsoft Management Console (MMC).
 
-Per informazioni dettagliate su criteri di restrizione software, vedere il [Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md).
+Per informazioni dettagliate su Criteri di restrizione software, vedere [Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md).
 
 ## <a name="BKMK_APP"></a>Applicazioni pratiche
-Gli amministratori possono utilizzare criteri di restrizione software per le attività seguenti:
+Gli amministratori possono usare i criteri di restrizione software per le attività seguenti:
 
 -   Definire il codice attendibile
 
--   Progettazione di criteri di gruppo flessibili per definire script, file eseguibili e controlli ActiveX
+-   Progettare Criteri di gruppo flessibili per definire script, file eseguibili e controlli ActiveX
 
-Criteri di restrizione software vengono applicati dal sistema operativo e dalle applicazioni (ad esempio applicazioni di scripting) conformi ai criteri di restrizione software.
+I criteri di restrizione software vengono imposti dal sistema operativo e dalle applicazioni (ad esempio, le applicazioni di scripting) conformi ai criteri di restrizione software.
 
-In particolare, gli amministratori possono utilizzare criteri di restrizione software per gli scopi seguenti:
+In particolare, gli amministratori possono usare i criteri di restrizione software per gli scopi seguenti:
 
--   Specificare il tipo di software (file eseguibili) possono essere eseguiti nei client
+-   Specificare il software (file eseguibili) che può essere eseguito nei client
 
 -   Impedire agli utenti di eseguire determinati programmi nei computer condivisi
 
--   Specificare chi può aggiungere autori attendibili ai client
+-   Specificare chi può aggiungere entità di pubblicazione attendibili ai client
 
 -   Impostare l'ambito dei criteri di restrizione software (specificare se i criteri interessano tutti gli utenti o solo un sottoinsieme di utenti nei client)
 
--   Impedire che i file eseguibili in esecuzione nel computer locale, unità organizzativa (OU), sito o dominio. Questa funzionalità è utile quando non si utilizza criteri di restrizione software per risolvere i problemi potenziali a utenti malintenzionati.
+-   Impedire l'esecuzione dei file eseguibili nel computer locale, nell'unità organizzativa, nel sito o nel dominio. Questa funzionalità è utile quando non si usano i criteri di restrizione software per risolvere i potenziali problemi relativi a utenti malintenzionati.
 
 ## <a name="BKMK_NEW"></a>Funzionalità nuove e modificate
-Sono state apportate modifiche delle funzionalità di criteri restrizione Software.
+Non sono state apportate modifiche alla funzionalità di Criteri di restrizione software.
 
 ## <a name="BKMK_DEP"></a>Funzionalità rimosse o deprecate
-Non esiste alcuna funzionalità rimosse o deprecate per criteri di restrizione Software.
+Nessuna funzionalità di Criteri di restrizione software è stata rimossa o deprecata.
 
 ## <a name="BKMK_SOFT"></a>Requisiti software
-L'estensione di criteri di restrizione Software a Editor criteri di gruppo locali sono accessibili tramite la console MMC.
+L'accesso all'estensione Criteri di restrizione software nell'Editor Criteri di gruppo locali può essere eseguito con MMC.
 
-Per creare e gestire criteri di restrizione software nel computer locale sono necessarie le seguenti funzionalità:
+Le funzionalità seguenti sono necessarie per creare e gestire i criteri di restrizione software nel computer locale:
 
--   Editor criteri di gruppo locali
+-   Editor Criteri di gruppo locali
 
 -   Windows Installer
 
 -   Authenticode e WinVerifyTrust
 
-Se si progettano chiamate per la distribuzione di dominio di questi criteri, oltre a sopra elencati, sono necessarie le seguenti funzionalità:
+Se si progettano chiamate per la distribuzione di dominio di questi criteri, sono richieste le funzionalità seguenti, oltre a quelle elencate precedentemente:
 
--   Servizi di dominio Active Directory
+-   Servizi di dominio di Active Directory
 
 -   Criteri di gruppo
 
 ## <a name="BKMK_INSTALL"></a>Informazioni su Server Manager
-Criteri di restrizione software è un'estensione dell'Editor criteri di gruppo locali e non viene installato tramite Server Manager, Aggiungi ruoli e funzionalità.
+Criteri di restrizione software è un'estensione dell'Editor Criteri di gruppo locali e non viene installato da Server Manager, Aggiungi ruoli e funzionalità.
 
 ## <a name="BKMK_LINKS"></a>Vedere anche
-Nella tabella seguente vengono forniti collegamenti a risorse utili per comprendere e usare criteri di restrizione software.
+La tabella seguente fornisce collegamenti a risorse utili per comprendere e usare Criteri di restrizione software.
 
 |Tipo di contenuto|Riferimenti|
 |--------|-------|
 |**Valutazione del prodotto**|[Blocco dell'applicazione con criteri di restrizione Software](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
-|**Pianificazione**|[Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md) (Windows Server 2012)<br /><br />[Riferimento tecnico criteri di restrizione software](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
+|**Pianificazione**|[Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md) (Windows Server 2012)<br /><br />[Guida di riferimento tecnico di Criteri di restrizione software](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
 |**Distribuzione**|Nessuna risorsa disponibile.|
-|**Operazioni**|[Amministrare i criteri di restrizione Software](administer-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Guida del prodotto criteri restrizione software](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
-|**Risoluzione dei problemi**|[Risolvere i problemi relativi a criteri di restrizione Software](troubleshoot-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Risoluzione dei problemi di criteri di restrizione software](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows Server 2003)|
-|**Protezione**|[Minacce e contromisure per restrizione Software criteri](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx) (Windows Server 2008)<br /><br />[Minacce e contromisure per restrizione Software criteri](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx) (Windows Server 2008 R2)|
-|**Strumenti e impostazioni**|[Criteri di restrizione software strumenti e impostazioni](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx) (Windows Server 2003)|
+|**Operazioni**|[Amministrare criteri di restrizione Software](administer-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Guida del prodotto Criteri di restrizione software](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
+|**Risoluzione dei problemi**|[Risolvere i problemi di criteri di restrizione Software](troubleshoot-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Risoluzione dei problemi di Criteri di restrizione software](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows Server 2003)|
+|**Sicurezza**|[Minacce e contromisure per Criteri di restrizione software](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx) (Windows Server 2008)<br /><br />[Minacce e contromisure per Criteri di restrizione software](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx) (Windows Server 2008 R2)|
+|**Strumenti e impostazioni**|[Strumenti e impostazioni di Criteri di restrizione software](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx) (Windows Server 2003)|
 |**Risorse della community**|[Blocco dell'applicazione con criteri di restrizione Software](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
 
 
