@@ -1,145 +1,145 @@
 ---
-title: Considerazioni sulla simmetria unità per spazi di archiviazione diretta
+title: Considerazioni di simmetria di unità per spazi di archiviazione diretta
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
-Keywords: Storage Spaces Direct
+Keywords: Spazi di archiviazione diretta
 ms.localizationpriority: medium
 ms.openlocfilehash: 629e49a0c1919286d8e4f418b3e99d69e720f4fd
-ms.sourcegitcommit: f2ef58003da6de049c7c4b578f789a97e0a0f512
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "5591847"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59866882"
 ---
-# Considerazioni sulla simmetria unità per spazi di archiviazione diretta 
+# <a name="drive-symmetry-considerations-for-storage-spaces-direct"></a>Considerazioni di simmetria di unità per spazi di archiviazione diretta 
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-[Spazi di archiviazione diretta](storage-spaces-direct-overview.md) funziona meglio quando ogni server dispone di esattamente la stessa unità.
+[Spazi di archiviazione diretta](storage-spaces-direct-overview.md) funziona meglio quando ogni server dispone di esattamente le stesse unità.
 
-In realtà, ci rendiamo conto questo non è sempre pratico: spazi di archiviazione diretta è progettato per funzionare per anni e scale come incrementare le esigenze dell'organizzazione. Oggi, puoi acquistare spazioso 3 TB unità disco rigida. anno successivo, può diventare Impossibile trovate quelle che piccole. Di conseguenza, alcuni quantità di missaggio e corrispondenza è supportato.
+In realtà, è possibile riconoscere che questo non è sempre pratico: Spazi di archiviazione diretta è progettato per l'esecuzione da anni e per la scalabilità man mano che aumentano le esigenze della propria organizzazione. Oggi, si potrebbe acquistare spazioso 3 TB unità disco rigido; anno successivo, può risultare impossibile da trovare quelle così piccolo. Di conseguenza, alcune quantità di combinazione di versioni diverse è supportato.
 
-Questo argomento illustra i vincoli e fornisce esempi di configurazioni supportate e non supportate.
+Questo argomento illustra i vincoli e vengono forniti esempi di configurazioni supportate e non supportati.
 
-## Vincoli
+## <a name="constraints"></a>Vincoli
 
-### Tipo
+### <a name="type"></a>Tipo
 
-Tutti i server devono avere gli stessi [tipi di unità](choosing-drives.md#drive-types).
+Tutti i server devono avere la stessa [tipi di unità](choosing-drives.md#drive-types).
 
 Ad esempio, se un server ha NVMe, dovrebbe *tutti* hanno NVMe.
 
-### Numero
+### <a name="number"></a>Numero
 
 Tutti i server devono avere lo stesso numero di unità di ogni tipo.
 
-Ad esempio, se un server ha sei unità SSD, dovrebbero *tutti* hanno sei unità SSD.
+Ad esempio, se un server dispone di sei unità SSD, si dovrebbe *tutti* dispone di sei unità SSD.
 
    > [!NOTE]
-   > È accettabile per il numero di unità in base alle diverse temporaneamente durante gli errori o durante l'aggiunta o la rimozione di unità.
+   > È accettabile per il numero di unità diversa temporaneamente durante errori o durante l'aggiunta o rimozione di unità.
 
-### Modello
+### <a name="model"></a>Modello
 
-Ti consigliamo di usare le unità dello stesso modello e versione del firmware, se possibile. Se non è possibile, selezionare con attenzione le unità che sono il più possibile simili. Ti sconsigliamo di missaggio e corrispondenza unità dello stesso tipo con le caratteristiche delle prestazioni o di una resistenza drasticamente diversi (a meno che una cache e l'altro è capacità) perché spazi di archiviazione diretta distribuisce in modo uniforme i/o e non distinguere in base a modelli .
+È consigliabile usare unità dello stesso modello e versione del firmware, laddove possibile. Se non è possibile, scegliere con attenzione le unità che sono il più possibile simili. Se ne sconsiglia l'unità di combinazione di versioni diverse dello stesso tipo con caratteristiche di prestazioni o resistenza nettamente diverse (a meno che una cache e l'altra capacità) perché spazi di archiviazione diretta consente di distribuire uniformemente i/o e non discriminare basato su modello .
 
    > [!NOTE]
-   > È accettabile alle unità SATA e SAS simili mix e corrispondenza.
+   > È accettabile per unità SATA e SAS simili e combinare.
 
-### Dimensioni
+### <a name="size"></a>Dimensione
 
-Ti consigliamo di usare le unità delle stesse dimensioni di ogni volta che è possibile. Uso di unità di capacità di dimensioni diverse potrebbe causare capacità inutilizzabili e con unità cache di dimensioni diverse potrebbero non migliorare le prestazioni della cache. Vedi la sezione successiva per informazioni dettagliate.
+È consigliabile usare le unità delle dimensioni dello stesso, laddove possibile. Utilizzo di unità di capacità di dimensioni diverse può comportare alcune capacità inutilizzabile e tramite unità di cache di dimensioni diverse potrebbero non migliorare le prestazioni della cache. Vedere la sezione successiva per informazioni dettagliate.
 
    > [!WARNING]
-   > Capacità può comportare differenti dimensioni delle unità di capacità tra server.
+   > Dimensioni unità di capacità diversi tra i server potrebbero capacità abbandonate.
 
-## Comprendere: squilibrio capacità
+## <a name="understand-capacity-imbalance"></a>Comprendere: lo sbilanciamento delle capacità
 
-Spazi di archiviazione diretta è affidabili per squilibrio capacità tra unità e tra server. Anche se lo squilibrio grave, tutti gli elementi continueranno a funzionare. Tuttavia, a seconda di diversi fattori, capacità non disponibile in ogni server potrebbe non essere utilizzabile.
+Spazi di archiviazione diretta è efficace per lo sbilanciamento delle capacità tra le unità e tra server. Anche se è grave sbilanciamento, tutto ciò che continueranno a funzionare. Tuttavia, in base a diversi fattori, capacità di cui non è disponibile in ogni server potrebbe non essere utilizzabile.
 
-Per vedere perché in questo caso, Prendi in considerazione la figura semplificata riportato di seguito. Ogni casella colorato rappresenta una copia dei dati con mirroring. Ad esempio, le caselle di controllo contrassegnata come A, A' e un pollici sono tre copie degli stessi dati. In modo da rispettare tolleranza di errore server, queste copie *devono* essere archiviati in server diversi.
+Per visualizzare il motivo per cui in questo caso, prendere in considerazione l'illustrazione semplificata seguente. Ogni casella colorata rappresenta una copia di dati con mirroring. Ad esempio, le caselle contrassegnato A, oggetto ' e un ' sono tre copie degli stessi dati. Per rispettare tolleranza di errore di server, queste copie *necessario* essere archiviati in server diversi.
 
-### Capacità
+### <a name="stranded-capacity"></a>Capacità abbandonate
 
-Quando viene disegnato, Server 1 (10 TB) e Server 2 (10 TB) sono completo. Server 3 dispone di unità più grandi, pertanto la capacità totale è più grande (15 TB). Tuttavia, per archiviare i dati di mirroring a tre vie altre su Server 3 richiederebbe copie sul Server 1 e 2 Server troppo, che sono già completo. Il 5 TB di capacità rimanenti su Server 3 non può essere usato, ma *"bloccata"* capacità.
+Quando viene disegnato, Server 1 (10 TB) e Server 2 (10 TB) sono pieni. Server 3 include unità più grande, pertanto la capacità totale è più grande (15 TB). Tuttavia, per archiviare più dati di tre vie su Server 3 richiederebbe copie nel Server 1 e 2 Server, che sono già pieni. Non è possibile usare la capacità di 5 TB rimanente nel Server 3 – si tratta *"bloccata"* capacità.
 
-![Mirroring a tre vie, tre server, bloccata capacità](media/drive-symmetry-considerations/Size-Asymmetry-3N-Stranded.png)
+![Tre vie, tre server, nei guai capacità](media/drive-symmetry-considerations/Size-Asymmetry-3N-Stranded.png)
 
-### Posizionamento ottimale
+### <a name="optimal-placement"></a>Posizionamento ottima
 
-Al contrario, con quattro server di 10 TB, 10 TB, 10 TB e 15 TB di capacità e la resilienza con mirroring a tre vie, *è* possibile inserire copie validamente concesse in modo che usa tutta la capacità disponibile, come disegnato. Ogni volta che ciò è possibile, allocatore di spazi di archiviazione diretta verrà trovare e usare la posizione ottimale, non lasciare alcuna capacità.
+Al contrario, con quattro server di 10 TB, 10 TB, 10 TB e 15 TB di capacità e resilienza mirror a tre vie, si *è* possibili collocare una copia munita in modo che utilizzi tutta la capacità disponibile, come disegnata. Ogni volta che è possibile, l'allocatore di spazi di archiviazione diretta verrà Trova e Usa il posizionamento ottima, non lasciando alcuna capacità abbandonati.
 
-![Mirroring a tre vie, quattro server, nessun capacità](media/drive-symmetry-considerations/Size-Asymmetry-4N-No-Stranded.png)
+![Tre vie, quattro server, alcuna capacità abbandonati](media/drive-symmetry-considerations/Size-Asymmetry-4N-No-Stranded.png)
 
-Influisce sulla capacità è il numero di server, la resilienza, la gravità di sbilanciamento capacità e altri fattori. **La regola generale più prudente è presumere che sia possibile è garantita sola capacità disponibili in ogni server.**
+Il numero di server, la resilienza, la gravità dello sbilanciamento di capacità e di altri fattori influisce sulla capacità abbandonati. **La regola generale più prudente consiste nel presupporre che solo la capacità disponibile in ogni server è garantito che sia utilizzabile.**
 
-## Comprendere: squilibrio cache
+## <a name="understand-cache-imbalance"></a>Informazioni: lo sbilanciamento delle cache
 
-Spazi di archiviazione diretta è affidabili per squilibrio cache tra unità e tra server. Anche se lo squilibrio grave, tutti gli elementi continueranno a funzionare. Inoltre, spazi di archiviazione diretta Usa sempre tutte le cache disponibile appieno le funzionalità.
+Spazi di archiviazione diretta è efficace per lo sbilanciamento delle cache in unità e tra server. Anche se è grave sbilanciamento, tutto ciò che continueranno a funzionare. Inoltre, spazi di archiviazione diretta Usa sempre tutte le cache disponibili appieno le funzionalità.
 
-Tuttavia, con unità cache di dimensioni diverse potrebbero non migliorare le prestazioni della cache in modo uniforme o prevedibile: solo operazioni i/o [le associazioni](understand-the-cache.md#server-side-architecture) con unità cache più grande potrebbe essere visualizzato un miglioramento delle prestazioni. Spazi di archiviazione diretta distribuisce i/o in modo uniforme tra i binding e non distinguere in base a rapporto alla capacità di cache.
+Tuttavia, utilizzando le unità di cache di dimensioni diverse potrà non migliorare le prestazioni della cache in modo uniforme o in modo prevedibile: solo i/o al [drive associazioni](understand-the-cache.md#server-side-architecture) con cache più grande unità potrebbe essere visualizzato miglioramento delle prestazioni. Spazi di archiviazione diretta distribuisce i/o in modo uniforme tra le associazioni e non discriminare in base alle proporzioni alla capacità della cache.
 
-![Squilibrio cache](media/drive-symmetry-considerations/Cache-Asymmetry.png)
+![Sbilanciamento delle cache](media/drive-symmetry-considerations/Cache-Asymmetry.png)
 
    > [!TIP]
-   > Visualizzare [informazioni sulla cache](understand-the-cache.md) per ottenere altre informazioni sulle associazioni di cache.
+   > Visualizzare [informazioni sulla cache](understand-the-cache.md) per altre informazioni sulle associazioni di cache.
 
-## Configurazioni di esempio
+## <a name="example-configurations"></a>Configurazioni di esempio
 
-Ecco alcune configurazioni supportate e non supportati:
+Ecco alcune configurazioni supportati e non supportati:
 
-### ![supportato](media/drive-symmetry-considerations/supported.png) Supportato: modelli diversi tra i server
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-models-between-servers"></a>![supportata](media/drive-symmetry-considerations/supported.png) Supportati: diversi modelli tra server
 
-I primi due server usa il modello di unità NVMe "X", ma il terzo server usa il modello di unità NVMe "Z", che è molto simile.
+I primi due server usare il modello NVMe "X", ma il terzo server usa il modello di NVMe "Z", che è molto simile.
 
 | Server 1                    | Server 2                    | Server 3                    |
 |-----------------------------|-----------------------------|-----------------------------|
-| 2 x NVMe modello X (cache)    | 2 x NVMe modello X (cache)    | 2 x NVMe modello Z (cache)    |
-| 10 x SSD modello Y (capacità) | 10 x SSD modello Y (capacità) | 10 x SSD modello Y (capacità) |
+| 2 x modello NVMe X (cache)    | 2 x modello NVMe X (cache)    | 2 x NVMe modello Z (cache)    |
+| 10 volte il modello di unità SSD Y (capacità) | 10 volte il modello di unità SSD Y (capacità) | 10 volte il modello di unità SSD Y (capacità) |
 
-Questo è supportato.
+Questa è supportata.
 
-### ![supportato](media/drive-symmetry-considerations/supported.png) Supportato: diversi modelli all'interno di server
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-models-within-server"></a>![supportata](media/drive-symmetry-considerations/supported.png) Supportati: modelli diversi all'interno di server
 
-Ogni server utilizza alcuni tipi diversi di modelli HDD "Y" e "Z", che sono molto simili. Ogni server dispone di 10 unità disco rigido totale.
+Ogni server utilizza alcune diversa combinazione di modelli di unità disco rigido "Y" e "Z", che sono molto simili. Ogni server dispone di 10 unità HDD totali.
 
 | Server 1                   | Server 2                   | Server 3                   |
 |----------------------------|----------------------------|----------------------------|
-| 2 x SSD modello X (cache)    | 2 x SSD modello X (cache)    | 2 x SSD modello X (cache)    |
-| 7 x HDD modello Y (capacità) | 5 x HDD modello Y (capacità) | 1 x HDD modello Y (capacità) |
-| 3 x HDD modello Z (capacità) | 5 x HDD modello Z (capacità) | 9 x HDD modello Z (capacità) |
+| 2 x modello SSD X (cache)    | 2 x modello SSD X (cache)    | 2 x modello SSD X (cache)    |
+| 7 giorni su HDD modello Y (capacità) | 5 x unità HDD modello Y (capacità) | 1 x unità HDD modello Y (capacità) |
+| 3x HDD modello Z (capacità) | 5 x unità HDD modello Z (capacità) | 9 x unità HDD modello Z (capacità) |
 
-Questo è supportato.
+Questa è supportata.
 
-### ![supportato](media/drive-symmetry-considerations/supported.png) Supportato: dimensioni diverse tra server
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-sizes-across-servers"></a>![supportata](media/drive-symmetry-considerations/supported.png) Supportati: dimensioni diverse tra server
 
-I primi due server usare HDD da 4 TB, ma il terzo server usa molto simile 6 TB HDD.
+I primi due server usano HDD da 4 TB, ma il terzo server utilizzato molto simili 6 TB del disco rigido.
 
 | Server 1                | Server 2                | Server 3                |
 |-------------------------|-------------------------|-------------------------|
 | 2 x 800 GB NVMe (cache) | 2 x 800 GB NVMe (cache) | 2 x 800 GB NVMe (cache) |
-| 4 x 4 TB (capacità) HDD | 4 x 4 TB (capacità) HDD | 4 x 6 TB (capacità) HDD |
+| 4 x 4 TB (capacità) di unità disco rigido | 4 x 4 TB (capacità) di unità disco rigido | 4 x 6 TB (capacità) di unità disco rigido |
 
-Questo è supportato, anche se il risultato sarà capacità.
+Questa è supportata, anche se si verificherà capacità abbandonate.
 
-### ![supportato](media/drive-symmetry-considerations/supported.png) Supportato: dimensioni diverse all'interno di server
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-sizes-within-server"></a>![supportata](media/drive-symmetry-considerations/supported.png) Supportati: dimensioni diverse all'interno di server
 
-Ogni server utilizza alcuni tipi diversi di TB 1.2 e molto simile 1,6 TB SSD. Ogni server dispone di 4 unità SSD totale.
+Ogni server utilizza alcune diversa combinazione di 1,2 TB e molto simile 1,6 TB unità SSD. Ogni server dispone di 4 unità SSD totali.
 
 | Server 1                 | Server 2                 | Server 3                 |
 |--------------------------|--------------------------|--------------------------|
-| 1.2 x 3 TB unità SSD (cache)   | 1.2 x 2 TB unità SSD (cache)   | 4 x 1.2 TB unità SSD (cache)   |
-| 1 x 1,6 TB unità SSD (cache)   | da 2 x 1,6 TB unità SSD (cache)   | -                        |
-| 20 x 4 TB (capacità) HDD | 20 x 4 TB (capacità) HDD | 20 x 4 TB (capacità) HDD |
+| 3 x 1,2 TB unità SSD (cache)   | 2 x 1,2 TB unità SSD (cache)   | 4 x 1,2 TB unità SSD (cache)   |
+| 1,6 1 TB, unità SSD (cache)   | TB di 1,6 2 unità SSD (cache)   | -                        |
+| 20 x 4 TB (capacità) di unità disco rigido | 20 x 4 TB (capacità) di unità disco rigido | 20 x 4 TB (capacità) di unità disco rigido |
 
-Questo è supportato.
+Questa è supportata.
 
-### ![non supportato](media/drive-symmetry-considerations/unsupported.png) Non supportato: diversi tipi di unità tra server
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-different-types-of-drives-across-servers"></a>![non supportato](media/drive-symmetry-considerations/unsupported.png) Non è supportato: tipi diversi di unità tra server
 
-1 server ha NVMe, ma non gli altri.
+Server 1 dispone NVMe ma non gli altri.
 
 | Server 1            | Server 2            | Server 3            |
 |---------------------|---------------------|---------------------|
@@ -147,41 +147,41 @@ Questo è supportato.
 | -                   | 6 x SSD (cache)     | 6 x SSD (cache)     |
 | 18 x HDD (capacità) | 18 x HDD (capacità) | 18 x HDD (capacità) |
 
-Questo non è supportato. I tipi di unità devono essere lo stesso in ogni server.
+Non è supportato. I tipi di unità devono essere identico in ogni server.
 
-### ![non supportato](media/drive-symmetry-considerations/unsupported.png) Non supportato: numero diverso di ogni tipo tra server
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-different-number-of-each-type-across-servers"></a>![non supportato](media/drive-symmetry-considerations/unsupported.png) Non è supportato: un numero diverso di ogni tipo tra server
 
-Server 3 ha altre unità rispetto agli altri.
+Server 3 include più unità rispetto agli altri.
 
 | Server 1            | Server 2            | Server 3            |
 |---------------------|---------------------|---------------------|
 | 2 x NVMe (cache)    | 2 x NVMe (cache)    | 4 x NVMe (cache)    |
 | 10 x HDD (capacità) | 10 x HDD (capacità) | 20 x HDD (capacità) |
 
-Questo non è supportato. Il numero delle unità di ogni tipo di debba essere identici in ogni server.
+Non è supportato. Il numero di unità di ogni tipo deve essere identico in ogni server.
 
-### ![non supportato](media/drive-symmetry-considerations/unsupported.png) Non supportato: solo unità HDD
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-only-hdd-drives"></a>![non supportato](media/drive-symmetry-considerations/unsupported.png) Non è supportato: solo le unità HDD
 
-Tutti i server hanno solo unità HDD connessa.
+Tutti i server hanno solo le unità HDD connessi.
 
 |Server 1|Server 2|Server 3|
 |-|-|-| 
 |18 x HDD (capacità) |18 x HDD (capacità)|18 x HDD (capacità)|
 
-Questo non è supportato. Devi aggiungere almeno due unità di cache (NvME o SSD) associati a ogni server.
+Non è supportato. È necessario aggiungere almeno due unità di cache (NvME o unità SSD) collegati a ogni server.
 
-## Riepilogo
+## <a name="summary"></a>Riepilogo
 
-Per riassumere, tutti i server del cluster deve avere gli stessi tipi di unità e lo stesso numero di ogni tipo. È supportato per unità mix-and-match modelli e le dimensioni delle unità in base alle esigenze, con le considerazioni sopra.
+Ricapitolando, ogni server del cluster deve avere gli stessi tipi di unità e lo stesso numero di ogni tipo. È supportata per i modelli e combinare unità e le dimensioni delle unità in base alle esigenze, tenendo presente quanto riportato sopra.
 
 | Vincolo                               |               |
 |------------------------------------------|---------------|
 | Stessi tipi di unità in ogni server     | **Obbligatorio**  |
-| Stesso numero di ogni tipo in ogni server | **Obbligatorio**  |
-| Stesso modelli di unità in ogni server        | Consigliato   |
-| Stesse dimensioni di unità in ogni server         | Consigliato   |
+| Lo stesso numero di ogni tipo in tutti i server | **Obbligatorio**  |
+| Modelli di unità stessa in tutti i server        | Consigliato   |
+| Dimensioni delle unità stessa in tutti i server         | Consigliato   |
 
-## Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-- [Requisiti hardware di Spazi di archiviazione diretta](storage-spaces-direct-hardware-requirements.md)
-- [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
+- [Requisiti hardware diretto di spazi di archiviazione](storage-spaces-direct-hardware-requirements.md)
+- [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
