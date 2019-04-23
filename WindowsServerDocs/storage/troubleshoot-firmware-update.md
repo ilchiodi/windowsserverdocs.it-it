@@ -1,6 +1,6 @@
 ---
 ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
-title: "Risoluzione dei problemi degli aggiornamenti del firmware delle unità"
+title: Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: masriniv
@@ -9,21 +9,22 @@ ms.topic: article
 author: toklima
 ms.date: 04/18/2017
 ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884162"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 
->Si applica a: Windows 10, Windows Server (Canale semestrale),
+>Si applica a: Windows 10, Windows Server (canale semestrale),
 
 Windows 10, versione 1703 e successive e Windows Server (Canale semestrale) includono la possibilità di aggiornare il firmware delle unità disco rigido e delle unità SSD che sono state certificate con Firmware Upgradeable AQ (Additional Qualifier) tramite PowerShell.
 
 Puoi trovare altre informazioni su questa funzionalità qui:
 
-- [Aggiornamento del firmware delle unità in Windows Server 2016](update-firmware.md)
-- [Aggiornamento del firmware dell'unità senza tempo di inattività in Spazi di archiviazione diretta](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Aggiornamento del firmware delle unità di Windows Server 2016](update-firmware.md)
+- [Aggiornare il Firmware dell'unità senza tempi di inattività in spazi di archiviazione diretta](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 Gli aggiornamenti del firmware potrebbero non riuscire per vari motivi. Lo scopo di questo articolo è la risoluzione avanzata dei problemi.
 
@@ -63,7 +64,7 @@ Il campo SupportsUpdate segnalerà sempre "True" per i dispositivi collegati a S
 
 Per verificare se un dispositivo SAS supporta il set di comandi necessario esistono due opzioni:
 1.  Provare tramite il cmdlet Update-StorageFirmware con un'immagine del firmware appropriato o
-2.  Consultare Windows Server Catalogue per identificare quali dispositivi SAS hanno acquisito FW Update AQ (https://www.windowsservercatalog.com/)
+2.  Catalogo di Server Windows per identificare quali dispositivi SAS completata abbia avuto il (AQ Update firewall, consultare https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Opzioni di correzione
 Se un determinato dispositivo sottoposto a test non supporta il set di comandi appropriato, esegui una query al fornitore per vedere se è disponibile un firmware aggiornato che fornisce il set di comandi necessario o consulta Windows Server Catalogue per identificare i dispositivi per l'approvvigionamento che implementano il set di comandi appropriato.
@@ -141,7 +142,7 @@ I registri di diagnostica non vengono visualizzati per impostazione predefinita 
 
 Per raccogliere queste voci di log avanzate, abilitare il log, riprodurre l'errore di aggiornamento del firmware e salvare il log di diagnostica.
 
-Ecco un esempio di aggiornamento del firmware in un dispositivo SATA che ha esito negativo perché l'immagine da scaricare non era valida (ID evento: 258):
+Di seguito è riportato un esempio di un aggiornamento del firmware in un errore di dispositivi SATA, perché il download dell'immagine non è valida (ID evento: 258):
 
 ``` 
 EventData
@@ -173,11 +174,11 @@ Parameter8Value 0
 ```
 
 L'evento precedente contiene informazioni dettagliate sul dispositivo nei valori di parametro da 2 a 6. Qui stiamo osservando diversi valori di registro ATA. La specifica di ACS ATA può essere utilizzata per decodificare i valori di seguito per l'errore di un comando download microcodice:
-- Codice restituito: 0 (0000 0000) (N/D: senza significato in quanto non è stato trasferito alcun payload)
-- Funzionalità: 15 (0000 1111) (Bit 1 è impostato su "1" e indica "interruzione")
-- SectorCount: 0 (0000 0000) (N/D)
-- DriveHead: 160 (1010 0000) (N/D: sono impostati solo i bit obsoleti)
-- Comando: 146 (1001 0010) (1 Bit è impostato su "1", che indica la disponibilità di sensore dati)
+- Codice restituito: 0 (0000 0000) (n/d - privo di significato perché è stato trasferito alcun payload)
+- Funzionalità: 15 (0000 1111) (bit 1 è impostata su '1' e indica "Interrompi")
+- SectorCount: 0 (0000 0000) (N/A)
+- DriveHead: 160 (1010 0000) (n/d, solo obsoleto bit sono impostati)
+- Comando: 146 (1001 0010) (1 bit è impostato su '1', che indica la disponibilità dei dati di rilevamento)
 
 Ciò indica che l'operazione di aggiornamento del firmware è stata interrotta dal dispositivo.
 

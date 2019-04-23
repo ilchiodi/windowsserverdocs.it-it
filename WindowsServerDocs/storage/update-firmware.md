@@ -1,6 +1,6 @@
 ---
 ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
-title: "Aggiornamento del firmware delle unità in Windows Server 2016"
+title: Aggiornamento del firmware delle unità in Windows Server 2016
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: dmoss
@@ -8,14 +8,15 @@ ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 90019ed8425d72d30059be5d47458785cac34c73
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 50291bd4da05d9c2736c84443b444b9a43f46344
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884782"
 ---
 # <a name="updating-drive-firmware-in-windows-server-2016"></a>Aggiornamento del firmware delle unità in Windows Server 2016
->Si applica a: Windows 10, Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows 10, Windows Server (canale semestrale), Windows Server 2016
 
 L'aggiornamento del firmware per le unità è sempre stata un'attività complessa che può causare un certo tempo di inattività. Per tale motivo si stanno apportando miglioramenti a Spazi di archiviazione, Windows Server, Windows 10, versione 1703 e successive. Se si dispone di unità che supportano il nuovo meccanismo di aggiornamento del firmware incluso in Windows, è possibile aggiornare il firmware delle unità nell'ambiente di produzione senza tempo di inattività. Tuttavia, prima di aggiornare il firmware di un'unità di produzione, assicurarsi di leggere i suggerimenti su come ridurre al minimo il rischio durante l'uso di questa nuova funzionalità avanzata.
 
@@ -29,11 +30,11 @@ Per aggiornare il firmware delle unità con Windows Server, è necessario che le
 Per informazioni sulla compatibilità dell'hardware in uso con l'aggiornamento del firmware delle unità da parte di Windows, contattare il fornitore della soluzione.
 Di seguito sono riportati i collegamenti relativi ai diversi requisiti:
 
--   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata), nella sezione **[Se implementato\] Download e attivazione del firmware**
+-   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) - in di **[Se implementato\] Firmware Download & Activate** sezione
     
--   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas), nella sezione **[Se implementato\] Download e attivazione del firmware**
+-   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) - in di **[Se implementato\] Firmware Download & Activate** sezione
 
--   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme), nelle sezioni **5.7** e **5.8**.
+-   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) : nelle sezioni **5.7** e **5.8**.
 
 ## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 
@@ -42,7 +43,7 @@ I due cmdlet aggiunti a Windows sono:
 -   Get–StorageFirmwareInformation
 -   Update–StorageFirmware
 
-Il primo cmdlet offre informazioni dettagliate sulle funzionalità del dispositivo, le immagini del firmware e le revisioni. In questo caso il computer contiene solo un singolo SSD SATA con uno slot del firmware. Ecco un esempio:
+Il primo cmdlet offre informazioni dettagliate sulle funzionalità del dispositivo, le immagini del firmware e le revisioni. In questo caso il computer contiene solo un singolo SSD SATA con uno slot del firmware. Di seguito è riportato un esempio:
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -104,7 +105,7 @@ Dopo l'inserimento del server nell'ambiente di produzione, è consigliabile appo
 
 1. Esaminare le note sulla versione del firmware e verificare che l'aggiornamento risolva problemi che potrebbero influire sull'ambiente in uso e che il firmware non contenga problemi noti che potrebbero influire negativamente sull'ambiente stesso.
 
-2. Installare il firmware nell'ambiente lab in un server che dispone di unità identiche (comprese tutte le revisioni delle unità, se sono presenti più revisioni della stessa unità) e testare l'unità in condizioni di carico con il nuovo firmware. Per informazioni su come eseguire un test di carico sintetico, vedere [Testare le prestazioni di Spazi di archiviazione usando carichi di lavoro sintetici in Windows Server](https://technet.microsoft.com/en-us/library/dn894707.aspx).
+2. Installare il firmware nell'ambiente lab in un server che dispone di unità identiche (comprese tutte le revisioni delle unità, se sono presenti più revisioni della stessa unità) e testare l'unità in condizioni di carico con il nuovo firmware. Per informazioni su come eseguire un test di carico sintetico, vedere [Testare le prestazioni di Spazi di archiviazione usando carichi di lavoro sintetici in Windows Server](https://technet.microsoft.com/library/dn894707.aspx).
 
 ## <a name="automated-firmware-updates-with-storage-spaces-direct"></a>Aggiornamenti del firmware automatizzati con Spazi di archiviazione diretta
 
@@ -150,7 +151,7 @@ Per avviare l'implementazione del nuovo firmware nel cluster di Spazi di archivi
 ```powershell
 $SpacesDirect = Get-StorageSubSystem Clus*
 
-$CurrentDoc = $SpacesDirect | Get-StorageHealtHealth Service etting -Name "System.Storage.SupportedComponents.Document"
+$CurrentDoc = $SpacesDirect | Get-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document"
 
 $CurrentDoc.Value | Out-File <Path>
 ```
@@ -163,7 +164,7 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-Se si vuole vedere Servizio integrità in azione e per altre informazioni sul meccanismo di implementazione, guardare questo video: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+Se si desidera visualizzare il servizio integrità in azione e altre informazioni su un meccanismo di implementazione, da uno sguardo a questo video: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -194,9 +195,9 @@ In Windows Server 2016 con Servizio integrità distribuito in Spazi di archiviaz
 
 ### <a name="what-happens-if-the-update-fails"></a>Cosa accade se l'aggiornamento non riesce?
 
-L'aggiornamento potrebbe non riuscire per vari motivi, ad esempio: 1) L'unità non supporta i comandi che consentono a Windows di aggiornare il firmware dell'unità stessa. In questo caso, la nuova immagine del firmware non viene mai attivata e l'unità continua a funzionare con l'immagine precedente. 2) Non è possibile scaricare l'immagine o applicarla all'unità (versione non corrispondente, immagine danneggiata e così via). In questo caso l'unità non riesce a eseguire il comando di attivazione. Anche in questo caso, continuerà a funzionare l'immagine del firmware precedente.
+L'aggiornamento potrebbe non riuscire per vari motivi, alcuni di essi sono: 1) l'unità non supporta i comandi che consentono a Windows di aggiornare il firmware. In questo caso, la nuova immagine del firmware non viene mai attivata e l'unità continua a funzionare con l'immagine precedente. 2) Non è possibile scaricare l'immagine o applicarla all'unità (versione non corrispondente, immagine danneggiata e così via). In questo caso l'unità non riesce a eseguire il comando di attivazione. Anche in questo caso, continuerà a funzionare l'immagine del firmware precedente.
 
-Se dopo l'aggiornamento del firmware l'unità non risponde più, la causa probabile è un bug del firmware stesso. Testare tutti gli aggiornamenti del firmware in un ambiente lab prima di applicarli nell'ambiente di produzione. L'unica correzione potrebbe consistere nel sostituire l'unità.
+Se dopo l'aggiornamento del firmware l'unità non risponde più, la causa probabile è un bug del firmware stesso. Testare tutti gli aggiornamenti del firmware in un ambiente lab prima di applicarli nell'ambiente di produzione. L'unica correzione potrebbe essere di sostituire l'unità.
 
 Per altre informazioni, vedere [Risoluzione dei problemi degli aggiornamenti del firmware delle unità](troubleshoot-firmware-update.md).
 

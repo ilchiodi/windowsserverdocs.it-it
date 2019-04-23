@@ -1,6 +1,6 @@
 ---
 title: Creare un provider di connessione per un'estensione della soluzione
-description: "Sviluppare un'estensione della soluzione Windows Admin Center SDK (Project Honolulu): creare un provider di connessione"
+description: Sviluppare un'estensione di soluzioni Windows Admin Center SDK (progetto Honolulu) - creare un provider di connessione
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,40 +9,40 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 883fba96fcb71cb1c6e8162c1564d66924c4e24d
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081138"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885652"
 ---
-# Creare un provider di connessione per un'estensione della soluzione
+# <a name="create-a-connection-provider-for-a-solution-extension"></a>Creare un provider di connessione per un'estensione della soluzione
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-Provider di connessione svolgere un ruolo importante nel modo in cui Windows Admin Center definisce e comunica con oggetti collegabili o destinazioni. Soprattutto, un Provider di connessione esegue azioni mentre è stata effettuata una connessione, ad esempio verificando che la destinazione online e disponibile e anche garantire che l'utente connessione abbia l'autorizzazione per accedere alla destinazione.
+Provider di connessioni svolgono un ruolo importante nel modo in cui Windows Admin Center definisce e comunica con gli oggetti collegabili, o le destinazioni. In primo luogo, un Provider di connessione esegue azioni quando è stata effettuata una connessione, ad esempio assicurandosi che la destinazione sia online e disponibili e garantire al contempo che l'utente che esegue la connessione disponga dell'autorizzazione di accesso di destinazione.
 
 Per impostazione predefinita, Windows Admin Center viene fornito con i provider di connessione seguenti:
 
 * Server
-* Client di Windows
+* Client Windows
 * Cluster di failover
-* Cluster HCI
+* HCL Cluster
 
-Per creare un Provider personalizzato di connessione, segui questi passaggi:
+Per creare un Provider personalizzato di connessione, seguire questa procedura:
 
-* Aggiungere i dettagli di Provider di connessione a ```manifest.json```
-* Definire il Provider di stato della connessione
-* Implementare i Provider di connessione nel livello di applicazione
+* Aggiungere i dettagli del Provider di connessione per ```manifest.json```
+* Definire il Provider di stato di connessione
+* Implementare il Provider di connessione nel livello applicazione
 
-## Aggiungere i dettagli di connessione Provider manifest.json
+## <a name="add-connection-provider-details-to-manifestjson"></a>Aggiungere dettagli di connessione Provider manifest
 
-Ora verranno illustrati ciò che devi conoscere per definire un Provider di connessione del progetto ```manifest.json``` file.
+A questo punto si esamineranno quello che devi sapere per definire un Provider di connessione del progetto ```manifest.json``` file.
 
-### Creare movimento in manifest.json
+### <a name="create-entry-in-manifestjson"></a>Creare una voce in manifest
 
-Il ```manifest.json``` file si trova nella cartella \src e contiene, tra le altre cose, le definizioni dei punti di ingresso nel progetto. Tipi di punti di ingresso includono gli strumenti, le soluzioni e provider di connessione. Ti verrà definire un Provider di connessione.
+Il ```manifest.json``` file si trova nella cartella \src. e include, tra le altre cose, le definizioni dei punti di ingresso nel progetto. Tipi di punti di ingresso includono strumenti, soluzioni e i provider di connessione. Si verrà definito un Provider di connessione.
 
-Di seguito viene riportato un esempio di una voce di Provider di connessione in manifest.json:
+Un esempio di una voce di Provider di connessione in manifest è di sotto:
 
 ``` json
     {
@@ -71,35 +71,35 @@ Di seguito viene riportato un esempio di una voce di Provider di connessione in 
     },
 ```
 
-Un punto di ingresso di tipo "connnectionProvider" indica alla shell di Windows Admin Center che l'elemento da configurare è un provider che verrà utilizzato da una soluzione per convalidare uno stato di connessione. Punti di ingresso di connessione Provider contiene un numero di proprietà importanti, definito di seguito:
+Un punto di ingresso di tipo "connnectionProvider" indica che l'elemento in corso di configurazione è un provider che verrà usato da una soluzione per convalidare uno stato di connessione per la shell di Windows Admin Center. I punti di ingresso di connessione del Provider contiene numerose proprietà importanti, definito di seguito:
 
 | Proprietà | Descrizione |
 | -------- | ----------- |
-| entryPointType | Questa è una proprietà richiesta. Esistono tre valori validi: "strumento", "soluzione" e "connectionProvider". | 
-| name | Identifica il Provider di connessione nell'ambito di una soluzione. Questo valore deve essere univoco all'interno di un'istanza di Windows Admin Center completa (non solo una soluzione). |
-| path | Rappresenta il percorso dell'URL per la "Aggiungi connessione" dell'interfaccia utente, se verrà configurato per la soluzione. Questo valore deve eseguire il mapping di un itinerario configurato nel file di app-routing.module.ts. Quando il punto di ingresso soluzione è configurato per utilizzare il rootNavigationBehavior le connessioni, la route caricherà il modulo che viene usato dalla Shell per visualizzare l'interfaccia utente di aggiungere connessione. Altre informazioni disponibili nella sezione sulle rootNavigationBehavior. |
-| displayName | Il valore immesso viene visualizzato sul lato destro della shell, sotto la barra di Windows Admin Center nera quando un utente carica pagina connessioni della soluzione. |
-| icon | Rappresenta l'icona nel menu a discesa soluzioni utilizzata per rappresentare la soluzione. |
-| description | Immetti una breve descrizione del punto di ingresso. |
-| connectionType | Rappresenta il tipo di connessione che verrà caricato il provider. Verrà inoltre utilizzato il valore immesso nel punto di ingresso soluzione per specificare che la soluzione può caricare le connessioni. Il valore immesso verrà anche essere usato in punti di ingresso lo strumento per indicare che lo strumento sia compatibile con questo tipo. Questo valore immesso verrà utilizzato anche nell'oggetto di connessione che viene inviata a RPC chiamare sulla "Aggiungi finestra", il passaggio di implementazione di livello di applicazione. |
-| connectionTypeName | Utilizzato nella tabella delle connessioni per rappresentare una connessione che utilizza il Provider di connessione. È previsto che il nome plurale del tipo. |
-| connectionTypeUrlName | Usato nella creazione l'URL per rappresentare la soluzione caricata, dopo che Windows Admin Center è connesso a un'istanza. Questa voce viene usata dopo le connessioni e prima della destinazione. In questo esempio, "connectionexample" è in cui questo valore viene visualizzato nell'URL:http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
-| connectionTypeDefaultSolution | Rappresenta il componente predefinito che deve essere caricato dal Provider di connessione. Questo valore è una combinazione di: [un] il nome del pacchetto dell'estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome del punto di ingresso di soluzione.    Per un progetto con nome "msft.sme.mySample-estensione" e un punto di ingresso soluzione con nome "example", questo valore sarà "msft.sme.solutionExample estensione! esempio". |
-| connectionTypeDefaultTool | Rappresenta il valore predefinito dello strumento che deve essere caricato su una connessione ha esito positiva. Il valore della proprietà è costituito da due parti, simile al connectionTypeDefaultSolution. Questo valore è una combinazione di: [un] il nome del pacchetto dell'estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome di punto di ingresso lo strumento per lo strumento che deve essere caricato inizialmente. Per un progetto con nome "msft.sme.solutionExample-estensione" e un punto di ingresso soluzione con nome "example", questo valore sarà "msft.sme.solutionExample estensione! esempio". |
-| connectionStatusProvider | Vedi la sezione "Definire Provider lo stato di connessione" |
+| entryPointType | Si tratta di una proprietà obbligatoria. Esistono tre valori validi: "strumento", "soluzione" e "connectionProvider". | 
+| name | Identifica il Provider di connessioni all'interno dell'ambito di una soluzione. Questo valore deve essere univoco all'interno di un'istanza completa di Windows Admin Center (non solo una soluzione). |
+| path | Rappresenta il percorso dell'URL per il "aggiungere" interfaccia utente di connessione, se viene configurato dalla soluzione. Questo valore deve corrispondere a una route che è configurata nel file app routing.module.ts. Quando il punto di ingresso della soluzione è configurato per usare le connessioni rootNavigationBehavior, questa route caricherà il modulo che viene usato dalla Shell per visualizzare l'interfaccia utente di connessione aggiunta. Altre informazioni disponibili nella sezione rootNavigationBehavior. |
+| displayName | Il valore immesso viene visualizzato sul lato destro della shell, sotto la barra nera Windows Admin Center quando un utente carica pagina connessioni della soluzione. |
+| icona | Rappresenta l'icona nel menu a discesa soluzioni utilizzata per rappresentare la soluzione. |
+| description | Immettere una breve descrizione del punto di ingresso. |
+| connectionType | Rappresenta il tipo di connessione che il provider verrà caricato. Il valore immesso in questo caso verrà anche utilizzabile per specificare che la soluzione possa caricare tali connessioni nel punto di ingresso di soluzione. Il valore immesso in questo caso verrà anche utilizzabile per indicare che lo strumento è compatibile con questo tipo in punti di ingresso dello strumento. Questo valore immesso verrà anche essere utilizzato l'oggetto di connessione che viene inviato a RPC chiamare su "Aggiungi finestra" nel passaggio di implementazione di livello applicazione. |
+| connectionTypeName | Utilizzato nella tabella connessioni per rappresentare una connessione che utilizza il Provider di connessione. È previsto il nome plurale del tipo. |
+| connectionTypeUrlName | Usato nella creazione di URL per rappresentare la soluzione caricata, dopo che Windows Admin Center è connesso a un'istanza. Questa voce viene utilizzata dopo le connessioni e prima della destinazione. In questo esempio, "connectionexample" è in cui questo valore viene visualizzato nell'URL: http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
+| connectionTypeDefaultSolution | Rappresenta il componente predefinito che deve essere caricato dal Provider di connessione. Questo valore è una combinazione di: [a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome del punto di ingresso di soluzione.    Per un progetto con nome "msft.sme.mySample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
+| connectionTypeDefaultTool | Rappresenta il valore predefinito dello strumento che deve essere caricato in una connessione ha esito positivo. Valore di questa proprietà è costituito da due parti, simile al connectionTypeDefaultSolution. Questo valore è una combinazione di: [a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome di punto di ingresso dello strumento per lo strumento che deve essere caricato inizialmente. Per un progetto con nome "msft.sme.solutionExample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
+| connectionStatusProvider | Vedere la sezione "Definiscono il Provider di stato di connessione" |
 
-## Definire il Provider di stato della connessione
+## <a name="define-connection-status-provider"></a>Definire il Provider di stato di connessione
 
-Provider di stato della connessione è il meccanismo con cui una destinazione viene convalidata per essere online e disponibile, anche garantire che l'utente connessione abbia l'autorizzazione per accedere alla destinazione. Attualmente esistono due tipi di provider di stato della connessione: PowerShell e RelativeGatewayUrl.
+Il Provider di stato di connessione è il meccanismo mediante il quale una destinazione viene convalidata per essere online e disponibile, anche verificare che l'utente che esegue la connessione abbia le autorizzazioni di accesso di destinazione. Esistono attualmente due tipi di provider di stato di connessione:  PowerShell e RelativeGatewayUrl.
 
-*   Provider di stato della connessione di PowerShell
-    *   Determina se la destinazione è online e accessibili con uno script di PowerShell. Il risultato deve essere restituito un oggetto con una singola proprietà "status", definita di seguito.
-*   Provider di stato della connessione RelativeGatewayUrl
-    *   Determina se una destinazione online e accessibili con una chiamata per il resto. Il risultato deve essere restituito un oggetto con una singola proprietà "status", definita di seguito.
+*   Provider di stato connessione PowerShell
+    *   Determina se una destinazione sia online e accessibile con uno script di PowerShell. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
+*   Provider di stato connessione RelativeGatewayUrl
+    *   Determina se una destinazione sia online e accessibile con una chiamata rest. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
 
-### Definire lo stato
+### <a name="define-status"></a>Definire lo stato
 
-I provider di stato della connessione sono necessari per restituire un oggetto con una singola proprietà ```status``` che è conforme nel formato seguente:
+I provider di stato di connessione sono necessari per restituire un oggetto con una singola proprietà ```status``` conforme al formato seguente:
 
 ``` json
 {
@@ -114,28 +114,28 @@ I provider di stato della connessione sono necessari per restituire un oggetto c
 Proprietà di stato:
 
 * Label
-    * Un'etichetta che descrive il tipo restituito lo stato. Nota: i valori di etichetta possono essere mappati in fase di esecuzione. Vedere di seguito per i valori di mapping in fase di esecuzione.
+    * Tipo restituito di un'etichetta che descrive lo stato. Si noti che i valori per etichetta possono essere mappati in fase di esecuzione. Per vedere la voce sotto i valori di mapping in fase di esecuzione.
 
 * Tipo
-    * Il tipo restituito di stato. Tipo di ha i seguenti valori di enumerazione. Per qualsiasi valore 2 o versione successiva, la piattaforma non passeranno a oggetto connesso e verrà visualizzato un errore nell'interfaccia utente.
+    * Il tipo restituito di stato. Tipo presenta i seguenti valori di enumerazione. Per qualsiasi valore 2 o versione successiva, la piattaforma non passerà a oggetto connesso e verrà visualizzato un errore nell'interfaccia utente.
 
-Tipi di:
+Tipi:
 
-| Valore | Descrizione |
+| Value | Descrizione |
 | ----- | ----------- |
 | 0 | Online |
-| 1 | Warning |
-| 2 | Autorizzazione negata |
+| 1 | Avviso |
+| 2 | Non autorizzato |
 | 3 | Errore |
-| 4 | Irreversibile |
-| 5 | Sconosciuto |
+| 4 | Errore irreversibile |
+| 5 | Sconosciuta |
 
 * Dettagli
-    * Dettagli aggiuntivi che descrive lo stato del tipo restituiscono.
+    * Tipo restituiscono che descrive lo stato di dettagli aggiuntivi.
 
-### Script di PowerShell Provider lo stato della connessione
+### <a name="powershell-connection-status-provider-script"></a>Script di PowerShell Provider dello stato della connessione
 
-Lo script di PowerShell del Provider di stato della connessione determina se una destinazione online e accessibili con uno script di PowerShell. Il risultato deve essere restituito un oggetto con una singola proprietà "status". Di seguito è riportato un esempio di script.
+Lo script di PowerShell di Provider dello stato di connessione determina se una destinazione sia online e accessibile con uno script di PowerShell. Il risultato deve essere restituito in un oggetto con una singola proprietà "status". Seguito è riportato un esempio di script.
 
 Script di PowerShell di esempio:
 
@@ -165,9 +165,9 @@ function Get-Status()
 Get-Status
 ```
 
-### Definire il metodo di Provider di stato della connessione RelativeGatewayUrl
+### <a name="define-relativegatewayurl-connection-status-provider-method"></a>Definire il Provider di stato connessione RelativeGatewayUrl metodo
 
-Il Provider di stato della connessione ```RelativeGatewayUrl``` metodo chiama un'API per determinare se una destinazione è online e accessibili per il resto. Il risultato deve essere restituito un oggetto con una singola proprietà "status". Di seguito è riportato un esempio voce del Provider di connessione nel manifest.json di un RelativeGatewayUrl.
+Il Provider di stato di connessione ```RelativeGatewayUrl``` metodo chiama un rest API per determinare se una destinazione sia online e accessibile. Il risultato deve essere restituito in un oggetto con una singola proprietà "status". Un esempio di voce di Provider di connessione nel manifest di un RelativeGatewayUrl è illustrato di seguito.
 
 ``` json
     {
@@ -196,33 +196,33 @@ Il Provider di stato della connessione ```RelativeGatewayUrl``` metodo chiama un
 
 Note sull'utilizzo RelativeGatewayUrl:
 
-* "relativeGatewayUrl" Specifica la posizione ottenere lo stato di connessione da un URL di gateway. Questo URI è relativo da /api. Se viene trovato $connectionName nell'URL, verrà sostituito con il nome della connessione.
-* Tutte le proprietà relativeGatewayUrl devono essere eseguite in di gateway host, che possono essere eseguiti tramite la creazione di un'estensione di gateway
+* "relativeGatewayUrl" specifica dove ottenere lo stato della connessione da un URL del gateway. Questo URI è relativo rispetto/API. Se viene trovato $connectionName nell'URL, questo verrà sostituito con il nome della connessione.
+* Tutte le proprietà relativeGatewayUrl devono essere eseguite sul gateway host, che possono essere eseguite tramite la creazione di un'estensione di gateway
 
-### Mappare i valori di runtime
+### <a name="map-values-in-runtime"></a>Eseguire il mapping di valori in fase di esecuzione
 
-I valori di etichetta e i dettagli di stato restituito oggetto può essere formattato ottimizzare tempo includendo chiavi e i valori nella proprietà "defaultValueMap" del provider.
+I valori di etichetta e i dettagli di stato oggetto di ritorno può essere formattato l'ottimizzazione di tempo includendo le chiavi e valori nella proprietà "defaultValueMap" del provider.
 
-Ad esempio, se si aggiunge il valore di seguito, ogni volta che è stato rilevato come valore per l'etichetta o dettagli, Windows Admin Center verrà automaticamente "defaultConnection_test" sostituire la chiave con il valore di stringa della risorsa configurato.
+Ad esempio, se si aggiunge il valore riportato di seguito, ogni volta che tale "defaultConnection_test" bussato come valore per l'etichetta o informazioni dettagliate, Windows Admin Center sostituirà automaticamente la chiave con il valore di stringa di risorse configurati.
 
 ``` json
     "defaultConnection_test": "resources:strings:addServer_status_defaultConnection_label"
 ```
 
-## Implementare i Provider di connessione nel livello di applicazione
+## <a name="implement-connection-provider-in-application-layer"></a>Implementare il Provider di connessione nel livello applicazione
 
-Ora aggiungeremo per implementare il Provider di connessione nel livello di applicazione, creando una classe TypeScript che implementa OnInit. La classe ha le funzioni seguenti:
+A questo punto verranno per implementare il Provider di connessioni nel livello dell'applicazione, creando una classe di TypeScript che implementa OnInit. La classe presenta le seguenti funzioni:
 
 | Funzione | Descrizione |
 | -------- | ----------- |
-| costruttore (appContextService privato: AppContextService, route privato: ActivatedRoute) |  |
-| ngOnInit() pubblica |  |
-| onSubmit() pubblica | Contiene la logica per aggiornare shell quando viene eseguito un tentativo di connessione Aggiungi |
-| onCancel() pubblica | Contiene la logica per aggiornare shell quando viene annullato un tentativo di connessione Aggiungi |
+| constructor(Private appContextService: AppContextService, route privata: ActivatedRoute) |  |
+| public ngOnInit() |  |
+| public onSubmit() | Contiene la logica per aggiornare shell quando viene effettuato un tentativo di connessione di componenti |
+| public onCancel() | Contiene la logica per aggiornare shell quando viene annullato un tentativo di connessione di componenti |
 
-### Definire onSubmit
+### <a name="define-onsubmit"></a>Definire onSubmit
 
-```onSubmit``` problemi di un RPC richiamerà al contesto dell'app per notificare all'utente la shell di un "Aggiungi connessione". La chiamata di base Usa "updateData" come segue:
+```onSubmit``` problemi di una chiamata RPC richiamare il contesto di app per notificare la shell di un "Aggiungi connessione". La chiamata di base Usa "updateData" simile al seguente:
 
 ``` ts
 this.appContextService.rpc.updateData(
@@ -237,7 +237,7 @@ this.appContextService.rpc.updateData(
 );
 ```
 
-Il risultato è una proprietà di connessione, ovvero una matrice di oggetti conformi alla struttura seguente:
+Il risultato è una proprietà di connessione, che è una matrice di oggetti conformi alla struttura seguente:
 
 ``` ts
 
@@ -306,17 +306,17 @@ export const connectionTypeConstants = {
 };
 ```
 
-### Definire onCancel
+### <a name="define-oncancel"></a>Definire onCancel
 
-```onCancel``` Annulla un tentativo di "Aggiungi connessione" passando una matrice di connessioni vuota:
+```onCancel``` Annulla un tentativo di "Aggiungi connessione" passando una matrice vuota di connessioni:
 
 ``` ts
 this.appContextService.rpc.updateData(EnvironmentModule.nameOfShell, '##', <RpcUpdateData>{ results: { connections: [] } });
 ```
 
-## Esempio di Provider di connessione
+## <a name="connection-provider-example"></a>Esempio di Provider di connessione
 
-La classe TypeScript completa per l'implementazione di un provider di connessione è seguito. Nota che la stringa "connectionType" corrisponde al "connectionType come definito nel provider di connessione a manifest.json.
+La classe di TypeScript completa per l'implementazione di un provider di connessione è di sotto. Si noti che la stringa "connectionType" corrisponde il "connectionType come definito nel provider di connessione in manifest.
 
 ``` ts
 import { Component, OnInit } from '@angular/core';

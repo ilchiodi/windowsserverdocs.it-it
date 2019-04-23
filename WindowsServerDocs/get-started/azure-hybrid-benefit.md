@@ -9,17 +9,17 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.openlocfilehash: 62821abc6c9eec660fa6af832bb1aba151708021
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783673"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884082"
 ---
-# Vantaggio Azure Hybrid per Windows Server
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 
 >Si applica a: Windows Server
 
-## Descrizione del vantaggio, regole e casi d'uso
+## <a name="benefit-description-rules-and-use-cases"></a>Descrizione del vantaggio, regole e casi d'uso
 
 Il Vantaggio Azure Hybrid per Windows Server ti consente di risparmiare fino al 40% sulle macchine virtuali di Windows Server in Azure utilizzando le licenze per le istanze locali di Windows Server con Software Assurance.  Con questo vantaggio, i clienti devono pagare solo i costi infrastrutturali della macchina virtuale, poiché la gestione delle licenze per Windows Server è coperta dal vantaggio di Software Assurance.  Il vantaggio è applicabile alle edizioni Standard e Datacenter di Windows Server per le versioni 2008R2, 2012, 2012R2 e 2016  ed è disponibile in tutte le aree geografiche e i cloud sovrani.
 
@@ -37,7 +37,7 @@ Ogni licenza per 2 processori di Windows Server con SA/sottoscrizione e ogni set
 
 Le macchine virtuali che utilizzano il Vantaggio Azure Hybrid possono essere eseguite in Azure solo durante il periodo di validità della copertura SA/sottoscrizione. In prossimità della scadenza della copertura SA/sottoscrizione, il cliente può rinnovare la copertura SA/sottoscrizione, disattivare le funzionalità del Vantaggio Azure Hybrid per la macchina virtuale o effettuare il deprovisioning della macchina virtuale che usa tale vantaggio. 
 
-### Esempi di risparmio 
+### <a name="savings-examples"></a>Esempi di risparmio 
 
 ![immagine 2](media/ahb02.png)
  
@@ -51,13 +51,13 @@ Il Vantaggio Azure Hybrid per Windows Server offre inoltre la flessibilità di e
 
 Configurazioni di esempio per varie posizioni di licenza:
 
-![immagine 4](media/ahb04.png)
+![Figura 4](media/ahb04.png)
 ![immagine 5](media/ahb05.png)
 
  
 Per ulteriori informazioni sul Vantaggio Azure Hybrid per Windows Server, accedi al sito Web Vantaggio Azure Hybrid.
 
-## Come garantire la conformità
+## <a name="how-to-maintain-compliance"></a>Come garantire la conformità
 
 I clienti che desiderano applicare il Vantaggio Azure Hybrid alle macchine virtuali di Windows Server in uso devono verificare il numero di licenze idonee e il periodo di copertura del programma SA/delle sottoscrizioni a esse associati prima dell'attivazione di questo vantaggio e attenersi alle linee guida precedenti per una distribuzione del numero corretto di macchine virtuali con il vantaggio. Se già disponi di macchine virtuali in esecuzione con il Vantaggio Azure Hybrid, devi eseguire un inventario del numero di unità in esecuzione e verificare quante sono le licenze di SA attive disponibili.  Contatta uno specialista di gestione delle licenze Microsoft Enterprise Agreement per convalidare la posizione delle licenze di SA.
 Per visualizzare e contare tutte le macchine virtuali distribuite con il Vantaggio Azure Hybrid per Windows Server in una sottoscrizione, effettua le seguenti operazioni:
@@ -84,7 +84,7 @@ Puoi quindi inserire i risultati nello **strumento per il conteggio delle licenz
 
 Assicurati di eseguire un inventario per ogni sottoscrizione di tua proprietà per generare una visualizzazione completa della posizione delle licenze.
 
-[Strumento per il conteggio delle licenze di SA per il Vantaggio Azure Hybrid per Windows Server](http://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
+[Strumento di conteggio WS vantaggio Hybrid Azure](http://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
 
 Se hai eseguito le operazioni precedenti e verificato di disporre di tutte le licenze necessarie per il numero di istanze del Vantaggio Azure Hybrid in esecuzione, non devi effettuare ulteriori azioni. Se pensi che il vantaggio possa coprire macchine virtuali incrementali, puoi ottimizzare ulteriormente i costi passando all'esecuzione delle istanze mediante il vantaggio, anziché al costo completo.
 
@@ -92,14 +92,14 @@ Se non disponi di un numero di licenze per Windows Server idonee sufficiente per
 
 La copertura Software Assurance e/o le sottoscrizioni per Windows Server sono disponibili per l'acquisto tramite una combinazione dei seguenti canali di gestione delle licenze Microsoft:
 
-| Canale                      | Open     | OVS      | Select/ Select Plus  | MPSA       | EA/EAS   |
+| Canale                      | Apri     | OVS      | Select/ Select Plus  | MPSA       | EA/EAS   |
 |------------------------------|----------|----------|-----------------------|-----------|----------|
 | Dimensioni tipiche (n. di dispositivi)  | 5-250    | 5-250    | >250                  | >250      | >500     |
-| SA/sottoscrizione            | Facoltativa | Inclusa | Facoltativa              | Facoltativa  | Inclusa |
+| SA/sottoscrizione            | Facoltativo | Inclusa | Facoltativo              | Facoltativo  | Inclusa |
 
 Microsoft si riserva il diritto di controllare il cliente finale in qualsiasi momento per verificare l'idoneità all'utilizzo del Vantaggio Azure Hybrid. 
 
-## Guida alla distribuzione 
+## <a name="deployment-guidance"></a>Guida alla distribuzione 
 
 Abbiamo garantito la disponibilità di immagini della raccolta predefinite per tutti i clienti con licenze idonee, indipendentemente dal luogo di acquisto, e abbiamo consentito ai partner di eseguire le distribuzioni per conto dei clienti. 
 

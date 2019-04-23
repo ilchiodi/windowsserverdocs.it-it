@@ -1,6 +1,6 @@
 ---
-title: "Modificare le proprietà dei modelli quota"
-description: "In questo articolo viene descritto come modificare le proprietà del modello quota per estendere le modifiche apportate alle quote create dal modello quota originale"
+title: Modificare le proprietà dei modelli quota
+description: In questo articolo viene descritto come modificare le proprietà del modello quota per estendere le modifiche apportate alle quote create dal modello quota originale
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 0362b30e16dacb354220c770899195240f3e19ee
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885782"
 ---
 # <a name="edit-quota-template-properties"></a>Modificare le proprietà dei modelli quota
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Quando si apportano modifiche a un modello quota, si ha la possibilità di estenderle alle quote create dal modello quota originale. È possibile scegliere di modificare solo le quote che ancora corrispondono al modello originale o tutte le quote derivate dal modello originale, indipendentemente da eventuali modifiche apportate alle quote fin dalla loro creazione. Questa funzionalità semplifica il processo di aggiornamento delle proprietà delle quote offrendo un'unica posizione centrale da cui è possibile apportare tutte le modifiche.
 
@@ -43,7 +44,7 @@ Quando si apportano modifiche a un modello quota, si ha la possibilità di esten
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle quote](quota-management.md)
--   [Creare un modello quota](create-quota-template.md)
+-   [Quota Management](quota-management.md)
+-   [Creare un modello Quota](create-quota-template.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Panoramica delle reti contenitore
-description: In questo argomento viene fornita una panoramica dello stack di rete per i contenitori di Windows e include collegamenti a ulteriori istruzioni sulla creazione, configurazione e la gestione delle reti di contenitore.
+title: Panoramica della rete di contenitori
+description: In questo argomento viene fornita una panoramica dello stack di rete per i contenitori Windows e include collegamenti a indicazioni aggiuntive sulla creazione, configurazione e gestione delle reti di contenitori.
 manager: ravirao
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,24 +12,33 @@ ms.topic: article
 ms.assetid: 318659e5-e4a5-4e46-99d6-211dfc46f6b8
 ms.author: pashort
 author: jmesser81
-ms.openlocfilehash: fd2f022948208d4aacce2994ff053e77384b28fc
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/04/2018
+ms.openlocfilehash: 72b1ac739d9012ac7b90e97abe22e5f321ddba63
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886142"
 ---
-# <a name="container-networking-overview"></a>Panoramica delle reti contenitore
+# <a name="container-networking-overview"></a>Panoramica della rete di contenitori
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-In questo argomento viene fornita una panoramica dello stack di rete per i contenitori di Windows e include collegamenti a ulteriori istruzioni sulla creazione, configurazione e la gestione delle reti di contenitore.
+In questo argomento, Microsoft fornisce una panoramica dello stack di rete per i contenitori Windows e sono inclusi collegamenti a indicazioni aggiuntive sulla creazione, configurazione e gestione delle reti di contenitori.
 
-Contenitori di Windows Server sono un metodo di virtualizzazione del sistema operativo leggero usato per separare applicazioni o servizi da altri servizi in esecuzione nello stesso host contenitore. A tale scopo, ogni contenitore dispone di una propria vista del sistema operativo, i processi, file system, del Registro di sistema e gli indirizzi IP.
+Contenitori di Windows Server sono un metodo di virtualizzazione del sistema operativo leggero che separa le applicazioni o servizi da altri servizi eseguiti nello stesso host contenitore. Funzione di contenitori Windows in modo analogo alle macchine virtuali. Quando abilitata, ogni contenitore dispone di una visualizzazione separata del sistema operativo, processi, file system, Registro di sistema e indirizzi IP, che è possibile connettersi alle reti virtuali. 
 
-Contenitori di Windows funzionano in modo analogo alle macchine virtuali in merito alla rete. Ogni contenitore dispone di una scheda di rete virtuale connessa a un commutatore virtuale, in cui viene inoltrato il traffico in entrata e in uscita. Per applicare l'isolamento tra i contenitori nell'host stesso, viene creato un raggruppamento di rete per ogni Server di Windows e il contenitore di Hyper-V in cui è installata la scheda di rete per il contenitore. Contenitori di Windows Server utilizzano una scheda di rete Host per associare al commutatore virtuale. Contenitori di Hyper-V, utilizzare una scheda di rete VM sintetica (non esposte alla macchina virtuale di utilità) per associare al commutatore virtuale. 
+Un contenitore Windows condivide un kernel con l'host contenitore e tutti i contenitori in esecuzione nell'host. Poiché lo spazio kernel è condiviso, è necessario che questi contenitori abbiano la stessa versione di kernel e la stessa configurazione. I contenitori offrono l'isolamento dell'applicazione tramite la tecnologia di isolamento dei processi e dello spazio dei nomi.
 
-Gli endpoint del contenitore possono essere collegati a una rete dell'host locale (ad esempio NAT), la rete fisica o una rete virtuale sovrimpressione creato attraverso lo stack di Microsoft di rete SDN (Software Defined). 
+>[!IMPORTANT]
+>I contenitori di Windows non forniscono un limite di sicurezza potenzialmente ostile e non devono essere utilizzati per isolare il codice non attendibile. 
 
-Per ulteriori informazioni sulla creazione e la gestione delle reti contenitore per le distribuzioni sovrimpressione/SDN, vedere il [rete contenitore Windows](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking) Guida su MSDN.
+Con i contenitori di Windows, è possibile distribuire un host Hyper-V, in cui si creano uno o più macchine virtuali negli host macchina virtuale. All'interno di host macchina virtuale, vengono creati i contenitori e l'accesso di rete avviene tramite un commutatore virtuale in esecuzione nella macchina virtuale. È possibile utilizzare riutilizzabili immagini archiviate in un repository per distribuire il sistema operativo e i servizi in contenitori. Ogni contenitore dispone di una scheda di rete virtuale che si connette a un commutatore virtuale, inoltrare il traffico in ingresso e in uscita. È possibile collegare gli endpoint del contenitore a una rete dell'host locale (ad esempio NAT), la rete fisica o rete virtuale di sovrapposizione create tramite lo stack SDN.
 
-Per ulteriori informazioni sulla creazione e la gestione delle reti contenitore per le reti virtuali con SDN sovrimpressione, fare riferimento a [connettere gli endpoint del contenitore a una rete virtuale tenant ](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md). 
+Per applicare l'isolamento tra contenitori nello stesso host, si crea un raggruppamento di rete per ogni contenitore di Windows Server e Hyper-V. I contenitori di Windows Server usano una scheda vNIC host per il collegamento al commutatore virtuale. I contenitori di Hyper-V usano una scheda NIC VM sintetica, non visibile alla VM delle utilità, per il collegamento al commutatore virtuale. 
+
+## <a name="related-topics"></a>Argomenti correlati 
+
+- [Rete di contenitori Windows](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): Informazioni su come creare e gestire le reti di contenitori per le distribuzioni non SDN-overlay /.
+
+- [Connettere gli endpoint del contenitore a una rete virtuale tenant](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): Informazioni su come creare e gestire le reti di contenitori per le reti virtuali di sovrapposizione con SDN. 

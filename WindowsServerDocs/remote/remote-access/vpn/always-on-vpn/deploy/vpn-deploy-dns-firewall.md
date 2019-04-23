@@ -1,6 +1,6 @@
 ---
 title: Configurare le impostazioni di firewall e DNS
-description: Questo argomento fornisce istruzioni dettagliate per la distribuzione di VPN Always On in Windows Server 2016.
+description: In questo argomento vengono fornite istruzioni dettagliate per la distribuzione VPN Always On in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -10,81 +10,81 @@ ms.author: pashort
 author: shortpatti
 ms.date: 06/11/2018
 ms.openlocfilehash: f57bfa005ef1af2556e4bd1cbb90ef8d3cfd22e3
-ms.sourcegitcommit: 4893d79345cea85db427224bb106fc1bf88ffdbc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "6067318"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886252"
 ---
-# Passaggio 5. Configurare le impostazioni DNS e firewall
+# <a name="step-5-configure-dns-and-firewall-settings"></a>Passaggio 5. Configurare le impostazioni DNS e firewall
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-& #171;  [ **Precedente:** passaggio 4. Installare e configurare il Server dei criteri di rete](vpn-deploy-nps.md)<br>
-& #187;  [ **Successivo:** passaggio 6. Configurare i Client di Windows 10 sempre per le connessioni VPN](vpn-deploy-client-vpn-connections.md)
+&#171;  [**Precedente:** Passaggio 4. Installare e configurare il Server dei criteri di rete](vpn-deploy-nps.md)<br>
+&#187;  [**Next:** Passaggio 6. Configurare sempre i Client Windows 10 su connessioni VPN](vpn-deploy-client-vpn-connections.md)
 
-In questo passaggio, configurare DNS e Firewall le impostazioni per la connettività VPN.
+In questo passaggio si configurare DNS e del Firewall delle impostazioni per la connettività VPN.
 
-## Configurare la risoluzione dei nomi DNS
+## <a name="configure-dns-name-resolution"></a>Configurare la risoluzione dei nomi DNS
 
-Quando i client VPN remoti si connettono, usano gli stessi server DNS che usano i client interni, consentendo loro di risolvere i nomi nello stesso modo nel resto della tua workstation interne. 
+Quando si connettono i client VPN remoti, usano gli stessi server DNS utilizzati dai client interni, che consente loro di risolvere i nomi esattamente come il resto della workstation di interno. 
 
-Per questo motivo, devi assicurarti che il nome del computer che usano client esterni per connettersi al server VPN corrisponda al nome alternativo del soggetto definito nei certificati rilasciati al server VPN.
+Per questo motivo, è necessario assicurarsi che il nome del computer usata dai client esterni di connettersi al server VPN corrisponda al nome alternativo oggetto definito nei certificati rilasciati per il server VPN.
 
-Per garantire che i client remoti possono connettersi al server VPN, è possibile creare un record A DNS (Host) nella tua zona DNS esterna. Il record deve usare il nome alternativo del soggetto del certificato per il server VPN.
+Per garantire che i client remoti possono connettersi al server VPN, è possibile creare un record DNS A (Host) nella zona DNS esterna. Il record deve usare il nome alternativo del soggetto certificato per il server VPN.
 
 
-### Per aggiungere un host \ (A o AAAA\) record di risorse a un'area
+### <a name="to-add-a-host-a-or-aaaa-resource-record-to-a-zone"></a>Per aggiungere un host \(A o AAAA\) record di risorse a una zona
 
-1. In un server DNS, in Server Manager, **Strumenti**e quindi fai clic su **DNS**. Apre il sito Gestore DNS.
-2. Nell'albero della console di gestione DNS, fare clic sul server che si desidera gestire.
-3. Nel riquadro dei dettagli, nel **nome**, double\-click **Zone di ricerca** per espandere la visualizzazione.
-4. Dettagli **Zone di ricerca** , right\-click zona di ricerca diretta a cui vuoi aggiungere un record e quindi fai clic su **Nuovo Host \(A or AAAA\)**. Verrà visualizzata la finestra di dialogo **Nuovo Host** .
-5. Nel **Nuovo Host**, nel **nome**, digita il nome alternativo del soggetto del certificato per il server VPN.
-6. Nella casella Indirizzo IP, digita l'indirizzo IP per il server VPN. Puoi digitare l'indirizzo IP (IPv4) versione 4 per aggiungere un record di risorse \(A\) host o IP versione 6 \(IPv6\) formato per aggiungere un record di risorse \(AAAA\) host.
-7. Se hai creato una zona di ricerca inversa per un intervallo di indirizzi IP, incluso l'indirizzo IP che hai immesso, quindi seleziona la casella di controllo **Crea record puntatore (PTR) associato** .  Questa opzione Crea un record di risorse aggiuntive del puntatore \(PTR\) in un'area inversa per questo host, in base alle informazioni inserite nel **nome** e **indirizzo IP**.
-8. Fai clic su **Aggiungi host**.
+1. In un server DNS, in Server Manager fare clic su **degli strumenti**, quindi fare clic su **DNS**. Consente di aprire Gestore DNS.
+2. Nell'albero della console Gestore DNS, fare clic sul server che si desidera gestire.
+3. Nel riquadro dei dettagli, in **Name**, double\-fare clic su **zone di ricerca diretta** per espandere la visualizzazione.
+4. Nelle **zone di ricerca diretta** illustra in dettaglio, a destra\-fare clic sulla zona di ricerca diretta a cui si desidera aggiungere un record e quindi fare clic su **nuovo Host \(A o AAAA\)**. Il **nuovo Host** verrà visualizzata la finestra di dialogo.
+5. Nelle **nuovo Host**, nel **nome**, digitare il nome alternativo del soggetto certificato per il server VPN.
+6. In indirizzo IP, digitare l'indirizzo IP per il server VPN. È possibile digitare l'indirizzo IP versione 4 (IPv4) in formato per aggiungere un host \(un'\) record di risorse o IP versione 6 \(IPv6\) formato per aggiungere un host \(AAAA\) record di risorse.
+7. Se è stata creata una zona di ricerca inversa per un intervallo di indirizzi IP, incluso l'indirizzo IP che è stato digitato, quindi selezionare il **Crea record di puntatore (PTR) associato** casella di controllo.  Se si seleziona questa opzione Crea un puntatore supplementare \(PTR\) record di risorse in un ordine inverso di zona per questo host, sulla base delle informazioni sono stati immessi **Name** e **indirizzo IP**.
+8. Fare clic su **Aggiungi host**.
 
-## Configurare il Firewall di Edge
+## <a name="configure-the-edge-firewall"></a>Configurare il Firewall di confine
 
-Il Firewall Edge separa la rete perimetrale esterna dalla rete Internet pubblica. Per una rappresentazione visiva di questa separazione, vedi la figura nell'argomento [Sempre su VPN Panoramica della tecnologia](../always-on-vpn-technology-overview.md).
+Firewall di confine separa la rete perimetrale esterna dalla rete Internet pubblica. Per una rappresentazione visiva di questa separazione, vedere la figura dell'argomento [sempre su VPN Cenni preliminari sulla tecnologia](../always-on-vpn-technology-overview.md).
 
-Il Firewall Edge deve consentire e inoltrare porte specifiche al server VPN. Se si utilizza Network Address Translation \(NAT\) sul firewall edge, devi abilitare il port forwarding per User Datagram Protocol \(UDP\) ports500 e 4500. Inoltrare queste porte all'indirizzo IP assegnato all'interfaccia esterna del server VPN.
+Il Firewall di confine deve consentire e inoltrare specifiche porte nel server VPN. Se si usa Network Address Translation \(NAT\) sul firewall perimetrale, potrebbe essere necessario abilitare l'inoltro alla porta per User Datagram Protocol \(UDP\) porte 500 e 4500. Inoltrare queste porte per l'indirizzo IP assegnato all'interfaccia esterna del server VPN.
 
-Se si distribuiscono il traffico in ingresso ed eseguono NAT uguale o dietro il server VPN, quindi è necessario aprire le regole del firewall per consentire ports500 UDP e 4500 in ingresso all'indirizzo IP esterno applicato all'interfaccia pubblica il server VPN.
+Se si esegue il routing del traffico in ingresso ed eseguire NAT alla o dietro il server VPN, quindi è necessario aprire le regole del firewall per consentire UDP 500 e 4500 le porte in ingresso verso l'indirizzo IP esterno applicato all'interfaccia pubblica del server VPN.
 
-In entrambi i casi, se il firewall supporta un'ispezione approfondita dei pacchetti e hanno difficoltà a stabilire le connessioni client, tentare di ridurre o disabilitare un'ispezione approfondita dei pacchetti per le sessioni di IKE.
+In entrambi i casi, se il firewall supporta l'analisi approfondita dei pacchetti e si ha difficoltà a stabilire le connessioni client, è consigliabile tentare ridurre o disabilitare l'analisi approfondita dei pacchetti per le sessioni di IKE.
 
-Per informazioni su come rendere queste modifiche di configurazione, vedi la documentazione del firewall.
+Per informazioni su come apportare queste modifiche alla configurazione, vedere la documentazione del firewall.
 
-## Configurare il Firewall di rete perimetrale interna
+## <a name="configure-the-internal-perimeter-network-firewall"></a>Configurare il Firewall di rete perimetrale interna
 
-Il Firewall di rete perimetrale interno separa la rete dell'organizzazione/aziendali dalla rete perimetrale interna. Per una rappresentazione visiva di questa separazione, vedi la figura nell'argomento [Sempre su VPN Panoramica della tecnologia](../always-on-vpn-technology-overview.md).
+Il Firewall della rete perimetrale interna separa la rete dell'organizzazione/aziendale dalla rete perimetrale interna. Per una rappresentazione visiva di questa separazione, vedere la figura dell'argomento [sempre su VPN Cenni preliminari sulla tecnologia](../always-on-vpn-technology-overview.md).
 
-In questa distribuzione, il server di accesso remoto VPN sulla rete perimetrale è configurato come client RADIUS.  Il server VPN invia il traffico RADIUS a NPS nella rete aziendale e riceve anche il traffico RADIUS dal server dei criteri.
+In questa distribuzione, il server di accesso remoto VPN nella rete perimetrale è configurato come client RADIUS.  Il server VPN invia il traffico RADIUS ai criteri di rete nella rete aziendale e riceve anche il traffico RADIUS da NPS.
 
-Configurare il firewall per consentire il traffico RADIUS al flusso in entrambe le direzioni.
+Configurare il firewall per consentire il flusso in entrambe le direzioni del traffico RADIUS.
 
 
 >[!NOTE]
->Il server dei criteri di rete le funzioni di rete aziendale o dell'organizzazione come Server RADIUS per il Server VPN, ovvero un Client RADIUS. Per altre informazioni sull'infrastruttura di raggio, vedi [Server dei criteri di rete (NPS)](../../../../../networking/technologies/nps/nps-top.md).
+>Il server dei criteri di rete nella rete dell'organizzazione/aziendale funziona come un Server RADIUS per il Server VPN, ovvero un Client RADIUS. Per altre informazioni sull'infrastruttura RADIUS, vedere [Strumentazione gestione Windows (NPS, Network Policy Server)](../../../../../networking/technologies/nps/nps-top.md).
 
-### Porte il traffico RADIUS nel Server dei criteri di rete e Server VPN
+### <a name="radius-traffic-ports-on-the-vpn-server-and-nps-server"></a>Porte di traffico RADIUS sul Server VPN e il Server dei criteri di rete
 
-Per impostazione predefinita, in ascolto dei criteri di rete e la rete VPN per il traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 su tutte le schede di rete installate. Se si abilita Windows Firewall con protezione avanzata durante l'installazione dei criteri di rete, le eccezioni del firewall per queste porte vengono create automaticamente durante il processo di installazione per il traffico IPv6 e IPv4.
+Per impostazione predefinita, criteri di rete e VPN sono in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 in tutte le schede di rete installate. Se si abilita Windows Firewall con sicurezza avanzata quando si installa NPS, eccezioni del firewall per queste porte ottengano create automaticamente durante il processo di installazione per il traffico sia IPv4 che IPv6.
 
 >[!IMPORTANT]
->Se i server di accesso di rete sono configurati per inviare il traffico RADIUS attraverso le porte diverso da queste impostazioni predefinite, rimuovere le eccezioni in Windows Firewall con protezione avanzata create durante l'installazione dei criteri di rete e creare eccezioni per le porte da utilizzare per Traffico RADIUS.
+>Se i server di accesso di rete sono configurati per l'invio di traffico RADIUS su porte diverse da quelle predefinite, rimuovere le eccezioni create durante l'installazione dei criteri di RETE in Windows Firewall con sicurezza avanzata e creare eccezioni per le porte utilizzate per il traffico RADIUS.
 
-### Usare le stesse porte raggio per la configurazione del Firewall rete perimetrale interna
+### <a name="use-the-same-radius-ports-for-the-internal-perimeter-network-firewall-configuration"></a>Usare le stesse porte RADIUS per la configurazione del Firewall di rete perimetrale interna
 
-Se si utilizza la configurazione predefinita della porta RADIUS sul Server VPN e il Server dei criteri di rete, assicurati che si apre le porte del firewall di rete perimetrale interni seguenti:
+Se si usa la configurazione della porta raggio predefinito nel Server VPN e il Server dei criteri di rete, assicurarsi di aprire le porte nel Firewall della rete perimetrale interno seguenti:
 
 - Porte UDP1812, UDP1813, UDP1645 e UDP1646
 
-Se non usi le porte RADIUS predefinite nella distribuzione dei criteri di rete, è necessario configurare il firewall per consentire il traffico RADIUS sulle porte che stai usando. Per altre informazioni, vedi [Configurare i firewall per il traffico RADIUS](../../../../../networking/technologies/nps/nps-firewalls-configure.md).
+Se non si usa le porte RADIUS predefinito nella distribuzione dei criteri di rete, è necessario configurare il firewall per consentire il traffico RADIUS sulle porte che si siano utilizzando. Per altre informazioni, vedere [configurare i firewall per il traffico RADIUS](../../../../../networking/technologies/nps/nps-firewalls-configure.md).
 
-## Passaggio successivo
-[Passaggio 6. Configurare Windows 10 Client sempre su connessioni VPN](vpn-deploy-client-vpn-connections.md): In questo passaggio, configurare i computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN. È possibile utilizzare varie tecnologie per configurare i client VPN di Windows 10, incluso Windows PowerShell, System Center Configuration Manager e Intune. Tutti e tre richiedono un profilo VPN di XML per configurare le impostazioni VPN appropriate. 
+## <a name="next-step"></a>Passaggio successivo
+[Passaggio 6. Configurare sempre i Client Windows 10 su connessioni VPN](vpn-deploy-client-vpn-connections.md): In questo passaggio si configura il computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN. È possibile utilizzare diverse tecnologie per configurare i client VPN di Windows 10, tra cui Windows PowerShell, System Center Configuration Manager e Intune. Tutte e tre richiedono un profilo VPN XML per configurare le impostazioni VPN appropriate. 
 
 ---

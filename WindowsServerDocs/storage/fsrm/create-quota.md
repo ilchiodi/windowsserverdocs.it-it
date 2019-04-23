@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: f3c677f5ebf7dda44f4b99a64d0fbf8d2c72b92e
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883192"
 ---
 # <a name="create-a-quota"></a>Creare una quota
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Le quote possono essere create da un modello o con le proprietà personalizzate. La procedura seguente descrive come creare una quota che si basa su un modello (scelta consigliata). Se è necessario creare una quota con proprietà personalizzate, è possibile salvare queste proprietà come un modello da riutilizzare in un secondo momento.
 
@@ -50,8 +51,8 @@ Quando si crea una quota, è possibile scegliere un percorso di quota, ovvero un
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle quote](quota-management.md)
--   [Creare una quota automatica](create-auto-apply-quota.md)
--   [Creare un modello quota](create-quota-template.md)
+-   [Quota Management](quota-management.md)
+-   [Creare un'Auto della Quota di applicazione](create-auto-apply-quota.md)
+-   [Creare un modello Quota](create-quota-template.md)
 
 

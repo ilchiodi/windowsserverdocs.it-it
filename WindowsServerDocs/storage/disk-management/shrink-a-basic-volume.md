@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e54632b78fd67a65b51147323565130881d8d81b
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885332"
 ---
 # <a name="shrink-a-basic-volume"></a>Ridurre un volume di base
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile diminuire lo spazio utilizzato da unità logiche e partizioni primarie riducendole nello spazio contiguo adiacente sullo stesso disco. Se ad esempio si individua l'esigenza di una partizione aggiuntiva, ma non si dispone di dischi aggiuntivi, è possibile ridurre la partizione esistente dalla fine del volume in modo da creare nuovo spazio non allocato utilizzabile per una nuova partizione. L'operazione di riduzione può essere bloccata dalla presenza di determinati tipi di file. Per altre informazioni, vedi [Considerazioni aggiuntive](#addcon) 
 
@@ -50,7 +51,7 @@ Quando si riduce una partizione, tutti i file ordinari vengono rilocati automati
 <a id="BKMK_CMD"></a>
 #### <a name="to-shrink-a-basic-volume-using-a-command-line"></a>Per ridurre un volume di base tramite la riga di comando
 
-1.  Apri un prompt dei comandi e digita `diskpart`.
+1.  Aprire un prompt dei comandi e digitare `diskpart`.
 
 2.  Al prompt **DISKPART** digita `list volume`. Prendi nota del numero del volume semplice che desideri ridurre.
 
@@ -60,10 +61,10 @@ Quando si riduce una partizione, tutti i file ordinari vengono rilocati automati
 
 <br />
 
-| Valore | Descrizione|
+| Value | Descrizione|
 |---|---|
-| <p>**list volume**</p> | <p>Visualizza un elenco di volumi di base e dinamici su tutti i dischi.</p>|
-| <p>**select volume**</p> | <p>Seleziona il volume specificato, dove <em>volumenumber</em> è il numero del volume, assegnandogli lo stato attivo. Se non è specificato alcun volume, il comando **select** visualizza un elenco di volumi correnti con stato attivo. È possibile specificare il volume in base al numero, alla lettera di unità o al percorso del punto di montaggio. Su un disco di base la selezione di un volume imposta anche lo stato attivo della partizione corrispondente.</p> |
+| <p>**volume di elenco**</p> | <p>Visualizza un elenco di volumi di base e dinamici su tutti i dischi.</p>|
+| <p>**Selezionare volume**</p> | <p>Seleziona il volume specificato, dove <em>volumenumber</em> è il numero del volume, assegnandogli lo stato attivo. Se non è specificato alcun volume, il comando **select** visualizza un elenco di volumi correnti con stato attivo. È possibile specificare il volume in base al numero, alla lettera di unità o al percorso del punto di montaggio. Su un disco di base la selezione di un volume imposta anche lo stato attivo della partizione corrispondente.</p> |
 | <p>**shrink**</p> | <p>Riduce il volume con lo stato attivo per creare spazio non allocato. Non si verifica alcuna perdita di dati. Se la partizione include file fissi (ad esempio, il file di paging o l'area di archiviazione della copia shadow), il volume verrà ridotto fino al punto in cui si trovano i file fissi. |
 | <p>**desired=** <em>desiredsize</em></p> | <p>La quantità di spazio, in megabyte, da recuperare per la partizione corrente.</p> |
 | <p>**minimum=** <em>minimumsize</em></p> | <p>La quantità di spazio minima, in megabyte, da recuperare per la partizione corrente. Se non si specifica una dimensione minima o desiderata, il comando recupererà la quantità massima di spazio possibile.</p> 
@@ -79,6 +80,6 @@ In alcuni casi, puoi rilocare il file temporaneamente. Ad esempio, se devi ridur
 
 -   Puoi ridurre le partizioni primarie e le unità logiche in partizioni non elaborate (senza file system) o in partizioni con file system NTFS.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 -   [Gestire volumi di base](manage-basic-volumes.md)

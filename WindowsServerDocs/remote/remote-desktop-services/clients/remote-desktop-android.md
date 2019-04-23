@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Desktop remoto in Android
-description: Basic consente di impostare i passaggi per il client Desktop remoto per Android.
+description: Installazione di base i passaggi per il client Desktop remoto per Android.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,188 +14,188 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 42b4b4ffb73bd9d5d1397d32bd36c41d7e404dd7
-ms.sourcegitcommit: d3f73936160505a40633ad8dd5931ac5fe3eccdb
-ms.translationtype: MT
+ms.openlocfilehash: 41f8b511453143bb6239de6cdb369ebe8a307aec
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9297430"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885852"
 ---
-# Introduzione a Desktop remoto in Android
+# <a name="get-started-with-remote-desktop-on-android"></a>Introduzione a Desktop remoto in Android
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
 
-È possibile utilizzare il client Desktop remoto per Android per lavorare con i desktop e le app di Windows direttamente dal tuo dispositivo Android.
+Uso di desktop e App di Windows direttamente da un dispositivo Android, è possibile usare il client Desktop remoto per Android.
 
-Usa le informazioni seguenti per informazioni di base. Assicurati di consulta le [domande frequenti](remote-desktop-client-faq.md) , se hai domande.
+Usare le informazioni seguenti per iniziare. Assicurarsi di consultare il [domande frequenti su](remote-desktop-client-faq.md) se hai domande.
 
 > [!NOTE]
-> - Le nuove versioni del client Android di saperlo? Consulta [Novità per Desktop remoto in Android?](android-whatsnew.md)
-> È possibile eseguire il client su 4.1 Android e i dispositivi più recenti nonché su Chromebook con 53 ChromeOS installato. Altre informazioni sulle applicazioni Android in Chrome [qui](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
+> - Conoscere le nuove versioni per il client Android? Scopri [novità di Desktop remoto in Android?](android-whatsnew.md)
+> È possibile eseguire il client Android 4.1 e dispositivi più recenti che nei dispositivi Chromebooks con 53 ChromeOS installato. Altre informazioni sulle applicazioni Android su Chrome [qui](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
 
-## Ottenere il client desktop remoto e iniziare a usarlo
+## <a name="get-the-rd-client-and-start-using-it"></a>Ottenere il client desktop remoto e iniziare a usarlo
 
-Segui questi passaggi per iniziare con Desktop remoto nel dispositivo Android:
+Seguire questi passaggi per iniziare a usare Desktop remoto nel dispositivo Android:
 
-1. Scaricare il client Desktop remoto da [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android). 
+1. Scaricare il client Desktop remoto dalla [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android). 
 2. [Configurare il PC per accettare le connessioni remote](remote-desktop-allow-access.md).
-3. Aggiungere una connessione Desktop remoto o una risorsa remota. Usare una connessione di connettersi direttamente a un PC Windows e una risorsa remota per usare un programma RemoteApp, basata su sessione desktop o desktop virtuale pubblicata in locale. 
-4. Creare un widget può essere rapidamente per Desktop remoto.
+3. Aggiungere una connessione Desktop remoto o una risorsa remota. Si usa una connessione per connettersi direttamente a un PC Windows e una risorsa remota. utilizzare un programma RemoteApp, desktop basati su sessione o desktop virtuali pubblicato locale. 
+4. Creazione di un widget è possibile ottenere rapidamente a Desktop remoto.
 
 > [!NOTE]
-> Se si vuole della versione di anteprima nuove funzionalità in precedenza, ti consigliamo di scaricare l'applicazione della [Versione Beta di Desktop remoto Microsoft](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) dall'archivio di Google Play. 
+> Se si vuole distribuire nuove funzionalità in precedenza, è consigliabile scaricare nostri [Microsoft Remote Desktop Beta](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) applicazione dallo store Google Play. 
 
-### Aggiungere una connessione Desktop remoto
+### <a name="add-a-remote-desktop-connection"></a>Aggiungere una connessione Desktop remoto
 
 Per creare una connessione Desktop remoto:
 
-1. Nel tocco di connessione Center **+** e quindi tocca **Desktop**.
-2. Immetti le informazioni seguenti per il computer che si desidera connettersi:
-  - **Nome del PC** : il nome del computer. Può trattarsi di un nome di computer di Windows, un nome di dominio Internet o un indirizzo IP. Puoi anche aggiungere le informazioni sulla porta per il nome del PC (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-  - **Nome utente** : il nome utente da usare per accedere al PC remoto. Puoi usare i formati seguenti: *nome_utente*, *DOMINIO\nome_utente.* o *user_name@domain.com*. È inoltre possibile specificare se di richiedere un nome utente e password.
-3. Puoi anche impostare le opzioni aggiuntive seguenti:
-  - **Nome descrittivo** : un nome per il PC si connette a facile da ricordare. È possibile utilizzare qualsiasi stringa, ma se non specifichi un nome descrittivo, viene visualizzato il nome del PC.
-  - **Gateway** -gateway di Desktop remoto che vuoi usare per connettersi a desktop virtuali, i programmi RemoteApp e desktop basati su sessione in una rete aziendale interna. Ottenere le informazioni sul gateway dall'amministratore di sistema.
+1. Nella scelta dei Centro connessioni **+**, e quindi toccare **Desktop**.
+2. Immettere le informazioni seguenti per il computer si desidera connettersi:
+  - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
+  - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. È possibile usare i seguenti formati: *user_name*, *DOMINIO\nome_utente.*, o *user_name@domain.com*. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
+3. È inoltre possibile impostare le opzioni aggiuntive seguenti:
+  - **Nome descrittivo** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
+  - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
     È necessario configurare un Gateway Desktop remoto?
-  - **Audio** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. Scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto, o affatto.
-  - **Personalizza la risoluzione** - impostare una risoluzione personalizzata per una connessione attivando questa impostazione. Quando viene applicato disattivare la risoluzione di cui hai definito in impostazioni globali dell'app.
-  - **Pulsanti del mouse scambio** : Usa questa opzione per il mouse a sinistra di scambio funzioni dei pulsanti per il pulsante destro del mouse. (Questo è particolarmente utile se il PC remoto è configurato per un utente sinistrorso, ma usare un mouse destrorso.)
-  - **Connetti all'amministratore sessione** - Usa questa opzione per connettersi a una sessione della console per amministrare i Windows server.
-  - **Reindirizzare l'archiviazione locale** – consente di montare l'archiviazione locale come un file system remoto nel PC remoto.
-4. Tocca **salvare**.
+  - **Suono** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto oppure non funziona.
+  - **Personalizzare risoluzione dello schermo** -impostare una soluzione personalizzata per una connessione attivando questa impostazione. Quando viene applicato disattivato la risoluzione che sono definite nelle impostazioni globali dell'app.
+  - **Scambia i pulsanti del mouse** : utilizzare questa opzione per invertire il puntatore del mouse a sinistra pulsante funzioni per il pulsante destro del mouse. (Ciò è particolarmente utile se sul computer remoto è configurato per un utente da ma si utilizza un mouse da destra.)
+  - **Connettersi alla sessione di amministrazione** -usare questa opzione per connettersi a una sessione di console per amministrare un server di Windows.
+  - **Reindirizzare l'archiviazione locale** – Collega l'archiviazione locale come un file system remoto nel computer remoto.
+4. Toccare **salvare**.
 
-Devi modificare queste impostazioni? Tocca il menu di overflow (**...**) accanto al nome del desktop e quindi tocca **modificare**.
+È necessario modificare queste impostazioni? Toccare il menu di overflow (**...**) accanto al nome del desktop e quindi toccare **modificare**.
 
-Vuoi eliminare la connessione? Anche in questo caso, tocca il menu di overflow (**...**) e quindi tocca **rimuovere**.
+Se si desidera eliminare la connessione? Nuovamente, toccare il menu di overflow (**...**), quindi toccare **rimuovere**.
 
 >[!TIP]
-> Se ricevi l'errore 0xf07 password errate ("che non si connettono al PC remoto perché la password associata all'account utente è scaduto"), modificare la password e riprova.
+> Se viene visualizzato errore 0xf07 una password errata ("è stato possibile connettersi al computer remoto perché la password associata all'account utente è scaduto"), modificare la password e riprovare.
 
-### Aggiungere una risorsa remota
-Risorse remote sono programmi RemoteApp, basata su sessione desktop e desktop virtuali pubblicato con connessione RemoteApp e Desktop.
+### <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota.
+Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop virtuali pubblicati tramite connessione RemoteApp e Desktop.
 
 Per aggiungere una risorsa remota:
 
-1. Nella schermata di connessione Center, tocca **+** e quindi tocca **Feed risorse Remote**. 
+1. Nella schermata connessione Center toccare **+**, e quindi toccare **Feed risorse Remote**. 
 2. Immettere le informazioni per la risorsa remota:
-   - **Messaggio di posta elettronica o URL** - l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendali in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
-   - **Nome utente** - il nome utente da utilizzare per il server di accesso Web desktop remoto a che si connette.
-   - **Password** : password da usare per il server di accesso Web desktop remoto a che si connette.
-3. Tocca **salvare**.
+   - **Messaggio di posta elettronica o URL** -l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendale in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
+   - **Nome utente** -il nome utente da utilizzare per il server Accesso Web desktop remoto si è connessi.
+   - **Password** -la password da utilizzare per il server Accesso Web desktop remoto si è connessi.
+3. Toccare **salvare**.
 
-Le risorse remote verranno visualizzate al centro di connessione.
+Verranno visualizzate nel Centro connessioni di risorse remote.
 
 
 Per eliminare le risorse remote:
 
-1. Al centro di connessione, tocca il menu di overflow (**...**) accanto alla risorsa remota.
-2. Tocca **rimuovere**.
+1. Nel Centro connessioni, toccare il menu di overflow (**...**) accanto alla risorsa remota.
+2. Toccare **rimuovere**.
 3. Confermare l'eliminazione.
 
-### Widget-aggiungere un desktop salvato alla schermata home
+### <a name="widgets--pin-a-saved-desktop-to-your-home-screen"></a>Widget – Pin un desktop salvato nella schermata iniziale
 
-Le applicazioni Desktop remoto supportano le connessioni associazione alla schermata home utilizzando la funzionalità widget Android. Il modo di aggiungere un widget dipende dal tipo di dispositivo Android che usi e il sistema operativo. Ecco il modo più comune per aggiungere un widget: 
+Le applicazioni Desktop remoto supportano le connessioni di blocco nella schermata iniziale utilizzando la funzionalità di widget Android. La procedura per aggiungere un widget dipende dal tipo di dispositivo Android in uso e al sistema operativo. Ecco il modo più comune per aggiungere un widget: 
 
-1. Toccare **le app** per avviare il menu di App.
-2. Tocca **widget**.
-3. Scorrere rapidamente tramite i widget e Cerca l'icona di Desktop remoto con la descrizione "Pin di Desktop remoto".
-4. Tocca e tieni premuto tale widget Desktop remoto e spostarlo alla schermata iniziale.
-5. Quando si rilascia l'icona, vedrai il funzionamento dei desktop remoti salvata. Scegliere la connessione che si desidera salvare alla schermata home.
+1. Toccare **app** per avviare il menu di applicazioni.
+2. Toccare **widget**.
+3. Scorrere tramite i widget e cercare l'icona del Desktop remoto con la descrizione "Pin di Desktop remoto".
+4. Tenendo premuta widget Desktop remoto e spostarlo sullo schermo principale.
+5. Quando si rilascia l'icona, verrà visualizzato il desktop remoto salvato. Scegliere la connessione che si desidera salvare nella schermata iniziale.
 
-Ora puoi iniziare la connessione desktop remoto direttamente dalla tua schermata home toccando.
+Ora è possibile avviare la connessione desktop remoto direttamente dalla schermata iniziale per selezionarlo.
 
 > [!NOTE]
-> Se si rinomina la connessione desktop nell'applicazione Desktop remoto, l'etichetta di questo aggiunte desktop remoto non sarà aggiornati.
+> Se si rinomina la connessione di desktop nell'applicazione Desktop remoto, non si aggiornerà l'etichetta di questo bloccati desktop remoto.
 
-## Connettersi a un Gateway Desktop remoto per accedere alle risorse interne
+## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a un Gateway Desktop remoto per accedere alle risorse interne
 
-Un Gateway Desktop remoto (Gateway Desktop remoto) consente di connettersi a un computer remoto in una rete aziendale da qualsiasi posizione su Internet. Puoi creare e gestire il gateway tramite il client Desktop remoto.
+Gateway Desktop remoto (Gateway Desktop remoto) consente di connettersi a un computer remoto in una rete aziendale da qualsiasi posizione su Internet. È possibile creare e gestire il gateway tramite il client Desktop remoto.
 
-Per configurare un nuovo gateway:
+Per impostare un nuovo gateway:
 
-1. Al centro di connessione, toccare **Impostazioni gt _ gateway**. Tocca **+** per aggiungere un nuovo gateway.
-2. Immetti le informazioni seguenti:
-  - **Nome del server** : il nome del computer che vuoi usare come gateway. Può trattarsi di un nome di computer di Windows, un nome di dominio Internet o un indirizzo IP. Puoi anche aggiungere le informazioni sulla porta per il nome del server (ad esempio: **RDGateway:443** o **10.0.0.1:443**).
-  - **Nome utente** - il nome utente e password da usare per il Gateway Desktop remoto si connette a. Puoi anche selezionare **usare account utente desktop** per usare le stesse credenziali come quelli usati per la connessione desktop remota.
+1. Nel Centro connessioni, toccare **Impostazioni > gateway**. Toccare **+** per aggiungere un nuovo gateway.
+2. Immettere le informazioni seguenti:
+  - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+  - **Nome utente** -il nome utente e la password da utilizzare per il Gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare account utente desktop** per utilizzare le stesse credenziali utilizzate per la connessione desktop remoto.
 
-## Gestire gli account utente
+## <a name="manage-your-user-accounts"></a>Gestire gli account utente
 
-Quando ti Connetti a un desktop o remoto risorse, è possibile salvare gli account utente di selezionare da nuovamente. È anche possibile definire gli account utente nel client, anziché il salvataggio dei dati utente quando ci si connette a un desktop.
+Quando ci si connette a una risorsa remota o desktop, è possibile salvare gli account utente per selezionare nuovamente. È inoltre possibile definire gli account utente nel client, anziché salvare i dati utente quando ci si connette a un desktop.
 
 Per creare un nuovo account utente:
 
-1. Al centro di connessione, toccare **le impostazioni**e quindi toccare **gli account utente**.
-2. Tocca **+** per aggiungere un nuovo account utente.
-3. Immetti le informazioni seguenti:
-   - **Nome utente** - il nome dell'utente di salvare per l'uso con una connessione remota. Puoi immettere il nome utente in una qualsiasi delle seguenti formati: nome_utente, DOMINIO\nome_utente., o user_name@domain.com.
-   - **Password** : la password per l'utente specificato. Ogni account utente che si desidera salvare per usare per le connessioni remote deve avere una password è associata.
-4. Tocca **salvare**.
+1. Nel Centro connessioni, toccare **impostazioni**, e quindi toccare **gli account utente**.
+2. Toccare **+** per aggiungere un nuovo account utente.
+3. Immettere le informazioni seguenti:
+   - **Nome utente** -il nome dell'utente da salvare per l'utilizzo con una connessione remota. È possibile immettere il nome utente in uno dei seguenti formati: nome_utente, DOMINIO\nome_utente., o user_name@domain.com.
+   - **Password** -la password per l'utente specificato. Ogni account utente che si desidera salvare da utilizzare per le connessioni remote deve avere una password associata.
+4. Toccare **salvare**.
 
 Per eliminare un account utente:
 
-1. Al centro di connessione, toccare **gli account utente gt _ impostazioni**.
-2. Tocca e tieni premuto un account utente nell'elenco per selezionarlo. Puoi selezionare più utenti.
-3. Tocca il Cestino per eliminare l'utente selezionato.
+1. Nel Centro connessioni, toccare **Impostazioni > account utente**.
+2. Toccare e tenere un account utente nell'elenco per selezionarlo. È possibile selezionare più utenti.
+3. Toccare il Cestino per eliminare l'utente selezionato.
 
-## Passa la sessione Desktop remoto
-Quando si avvia una connessione desktop remoto, sono disponibili strumenti disponibili che è possibile utilizzare per passare la sessione.
+## <a name="navigate-the-remote-desktop-session"></a>Passare la sessione Desktop remoto
+Quando si avvia una connessione desktop remoto, sono disponibili strumenti che è possibile utilizzare per passare la sessione.
 
-### Avviare una connessione Desktop remoto
+### <a name="start-a-remote-desktop-connection"></a>Avviare una connessione Desktop remoto
 
-1. Tocca la connessione Desktop remoto per avviare la sessione. 
-2. Se viene richiesto di verificare il certificato per il desktop remoto, toccare **Connect**. Puoi anche selezionare sempre accetta il certificato **non Richiedi nuovamente per le connessioni a questo computer** .
+1. Toccare la connessione Desktop remoto per avviare la sessione. 
+2. Se viene chiesto di verificare il certificato per il desktop remoto, toccare **Connect**. È inoltre possibile selezionare **non visualizzare più questo messaggio per le connessioni al computer** sempre accettare il certificato.
 
-### Gestire le impostazioni dell'app globale
+### <a name="manage-global-app-settings"></a>Gestire le impostazioni dell'app globale
 
-Puoi impostare le seguenti impostazioni globale nel client Android:
+È possibile impostare le impostazioni globali seguenti nel client Android:
 
-- **Visualizzare le anteprime Desktop** - ti consente di visualizzare un'anteprima di un desktop al centro della connessione prima di connettersi a esso. Per impostazione predefinita, questo è impostato su **on**.
-- **Avvicinamento delle dita per eseguire lo Zoom** - consente di usare i movimenti di avvicinamento delle dita di zoom. Se l'app usi tramite Desktop remoto supporta Multi-touch (introdotto in Windows 8), attivare questa impostazione **disattivata**.
-- **Contribuire a migliorare Desktop remoto** - dati anonimi Invia a Microsoft. Questi dati vengono utilizzati per migliorare il client. Per altre informazioni su come trattiamo questi dati anonimi, privati, vedere l' [Informativa sulla Privacy di Client Desktop remoto](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Per impostazione predefinita, questa impostazione è **attivata**.
-- **Visualizzare** - ci sono due impostazioni globali dello schermo:
-   - **Orientamento** - imposta l'orientamento preferita (orizzontale o verticale) per la sessione. 
+- **Mostra le anteprime Desktop** -consente di visualizzare un'anteprima del desktop nel Centro connessioni prima di connettersi a esso. Per impostazione predefinita, questo è impostato **su**.
+- **Avvicinare le dita per eseguire lo Zoom** -consente di usare i movimenti zoom con avvicinamento delle dita. Se l'app in uso tramite Desktop remoto supporta Multi-touch (introdotta in Windows 8), disabilitare questa impostazione **disattivata**.
+- **Guida per migliorare Desktop remoto** -invia dati anonimi a Microsoft. Usiamo i dati per migliorare il client. È possibile altre informazioni su come vengono gestiti questi dati anonimi, privati, vedere la [informativa sulla Privacy di Remote Desktop Client](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Per impostazione predefinita, questa impostazione è **su**.
+- **Visualizzare** -sono disponibili due impostazioni globali per la visualizzazione:
+   - **Orientamento** -imposta l'orientamento preferito (orizzontale o verticale) per la sessione. 
    >[!NOTE]
-   > Se si connette a un PC che eseguono Windows 8 o una versione precedente di Windows, la sessione non vengono ridimensionate correttamente. Il metodo migliore consiste nel scollegare dal PC e poi ricollegare nell'orientamento che vuoi usare. Un'opzione migliore consiste nell'aggiornare almeno il PC per Windows 8.1.
+   > Se ci si connette a un PC che eseguono Windows 8 o una versione precedente di Windows, la sessione non scala correttamente. La soluzione migliore consiste nel disconnettersi dal PC e quindi riconnettere l'orientamento da usare. Un'opzione migliore consiste nell'aggiornare il PC per almeno di Windows 8.1.
 
-   - **Risoluzione** - imposta la risoluzione si desidera utilizzare per le connessioni desktop a livello globale. Se hai già impostato una risoluzione personalizzata per un'app singola o una connessione, questa impostazione non cambierà che.
+   - **Risoluzione** -imposta la risoluzione da usare per le connessioni desktop a livello globale. Se è già stata impostata una risoluzione personalizzata per una singola app o la connessione, questa impostazione non verrà modificato che.
    >[!NOTE]
-   >Quando modifichi una delle impostazioni di visualizzazione, essi si applicano solo a nuove connessioni da quel punto su. Per visualizzare la modifica in una sessione di che sei già connesso per scollegare e quindi connettersi nuovamente.
+   >Quando si modifica una delle impostazioni di visualizzazione, sono applicabili unicamente alle nuove connessioni da quel punto in. Per visualizzare le modifiche in una sessione di cui che si è già connessi per disconnettersi e quindi connettersi nuovamente.
 
-### Barra di connessione
+### <a name="connection-bar"></a>Barra delle connessioni
 
-Consente di barra di connessione che accedere ai controlli di spostamento aggiuntivi. Per impostazione predefinita, la barra di connessione viene posizionata centrale nella parte superiore dello schermo. Doppio tocco e trascinare la barra a sinistra o a destra per spostarlo.
+Consente di barra di connessione di accedere ai controlli di spostamento aggiuntive. Per impostazione predefinita, la barra delle connessioni viene posizionata al centro nella parte superiore della schermata. Un doppio tocco e trascinare la barra verso sinistra o a destra per spostarlo.
 
-- **Controllo di panning**: il controllo pan Abilita schermo per essere ingrandita e spostate. Tieni presente che è disponibile tramite tocco diretto solo controllo pan.
-   - Abilitare / disabilitare il controllo pan: toccare l'icona di panoramica nella barra di connessione per visualizzare il controllo di panoramica e zoom lo schermo. Toccare l'icona di panoramica nella barra di connessione nuovamente per nascondere il controllo e restituire lo schermo alla sua risoluzione originale.
-   - Usare il controllo pan: tocco e attesa della panoramica di controllo e quindi trascinare nella direzione che si desidera spostare lo schermo.
-   - Spostare il controllo pan: Usa il doppio tocco e contenere il controllo di zoom per spostare il controllo sullo schermo.
-- **Opzioni aggiuntive**: toccare l'icona di opzioni aggiuntive per visualizzare la selezione di sessione barra e comando della barra (vedi di seguito).
-- **Tastiera**: toccare l'icona della tastiera per visualizzare o nascondere la tastiera. Il controllo zoom viene visualizzato automaticamente quando viene visualizzata la tastiera.
-- **Spostare la barra di connessione**: tocco e la barra di connessione, pressione prolungata e quindi trascina e rilascia in una nuova posizione nella parte superiore dello schermo.
-
-
-### Barra dei comandi
-
-Toccare la barra di connessione per visualizzare la barra dei comandi sul lato destro dello schermo. Puoi passare tra le modalità mouse (tocco diretto e del puntatore del Mouse). Usa il pulsante home per tornare al Centro connessione della barra dei comandi. In alternativa è possibile utilizzare il pulsante Indietro per la stessa azione. La sessione attiva non verrà disconnesso. 
+- **Pan in controllo**: Il controllo zoom consente la schermata di ingrandimento e spostati. Si noti che il controllo zoom è disponibile esclusivamente tramite tocco diretto.
+   - Abilitare / disabilitare il controllo dettaglio: Toccare l'icona Zoom nella barra di connessione per visualizzare il controllo di panoramica e zoom schermata. Toccare l'icona Zoom nella barra di connessione per nascondere il controllo e restituire la schermata per la risoluzione originale.
+   - Usare il controllo dettaglio: Toccare e tenere premuto il controllo dettaglio e quindi trascinare nella direzione per spostare la schermata.
+   - Spostare il controllo dettaglio: Doppie toccare e tenere premuto il controllo dettaglio per spostare il controllo sullo schermo.
+- **Opzioni aggiuntive**: Toccare l'icona delle opzioni aggiuntive per visualizzare la selezione di sessione a barre e comando della barra (vedere sotto).
+- **Tastiera**: Toccare l'icona di tastiera per visualizzare o nascondere la tastiera. Il controllo dettaglio viene visualizzato automaticamente quando viene visualizzata la tastiera.
+- **Spostare la barra delle connessioni**: Toccare e tenere premuto la barra delle connessioni, quindi trascinare e rilasciare una nuova posizione nella parte superiore della schermata.
 
 
-### Utilizzo diretto movimenti di tocco e le modalità mouse in una sessione remota
+### <a name="command-bar"></a>Barra dei comandi
 
-Il client Usa movimenti di tocco standard. Puoi anche usare movimenti di tocco per replicare le azioni del mouse sul desktop remoto. La modalità mouse disponibili sono definite nella tabella seguente.
+Toccare la barra delle connessioni per visualizzare la barra dei comandi sul lato destro dello schermo. È possibile passare tra le modalità del mouse (tocco diretto e il puntatore del Mouse). Utilizzare il pulsante home per tornare al centro di connessione nella barra dei comandi. In alternativa è possibile utilizzare il pulsante Indietro per la stessa azione. La sessione attiva non verrà disconnesso. 
+
+
+### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Utilizzo diretto touch movimenti e le modalità del mouse in una sessione remota
+
+Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i movimenti tocco per replicare le azioni del mouse sul desktop remoto. Le modalità mouse disponibili sono definite nella tabella seguente.
 
 > [!NOTE]
-> Interazione con Windows 8 o versione successiva i movimenti di tocco native sono supportati in modalità tocco diretto. 
+> Interazione con Windows 8 o versioni successive i movimenti di tocco nativo sono supportati in modalità tocco diretto. 
 
 | Modalità mouse    | Operazione con il mouse      | Movimento                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|
-| Tocco diretto  | Pulsante sinistro           | tocco con 1 dita                                                          |
-| Tocco diretto  | Fare clic con il pulsante destro del mouse          | 1 tocco delle dita e pressione prolungata                                                 |
-| Puntatore del mouse | Zoom                 | Usare 2 DITA e avvicinamento delle dita per eseguire lo zoom avanti o spostare tra di loro dita per lo zoom indietro. |
-| Puntatore del mouse | Pulsante sinistro           | tocco con 1 dita                                                          |
-| Puntatore del mouse | Fare clic con il tasto sinistro del mouse e trascinare  | tocca due volte 1 DITA e pressione prolungata, quindi trascinare.                               |
-| Puntatore del mouse | Fare clic con il pulsante destro del mouse          | tocca il dito 2                                                          |
-| Puntatore del mouse | Fare clic con il tasto destro del mouse e trascinare | 2 doppio tocco DITA e pressione prolungata, quindi trascinare.                               |
-| Puntatore del mouse | Rotellina del mouse          | 2 dito tocca e tieni premuto, quindi trascinare verso l'alto o verso il basso                           |
+| Tocco diretto con  | A sinistra fare clic su           | scelta di un 1 dito                                                          |
+| Tocco diretto con  | Fare clic          | 1 tap dito e tenere premuto                                                 |
+| Puntatore del mouse | Zoom                 | Utilizzare le 2 DITA e avvicinare le dita per eseguire lo zoom avanti o spostare divide in due dita per eseguire lo zoom indietro. |
+| Puntatore del mouse | A sinistra fare clic su           | scelta di un 1 dito                                                          |
+| Puntatore del mouse | Fare clic e trascinare  | 1 dito doppie toccare e tenere premuto, quindi trascinare.                               |
+| Puntatore del mouse | Fare clic          | scelta di un dito 2                                                          |
+| Puntatore del mouse | Fare clic e trascinare | 2 il doppio tocco con un dito e tenere premuto, quindi trascinare.                               |
+| Puntatore del mouse | Rotellina del mouse          | 2 dito toccare e tenere premuto, quindi trascinare verso l'alto o verso il basso                           |
 
 > [!TIP]
-> Domande e i commenti sono sempre iniziale. Tuttavia, non è possibile inviare una richiesta di risoluzione dei problemi utilizzando la funzionalità di commento alla fine di questo articolo. Al contrario, Vai al [forum di client Desktop remoto](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) e avviare un nuovo thread. Hai un suggerimento di funzionalità? Facci sapere nel [forum di voce utente client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
+> Domande e commenti sono sempre Benvenuti. Tuttavia, NON inviare una richiesta di risoluzione dei problemi utilizzando la funzionalità di commento alla fine di questo articolo. Al contrario, andare alla [forum su client di Desktop remoto](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) e avviare un nuovo thread. Avete suggerimenti funzionalità? Comunicaci nel [forum dedicato agli utenti di client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).

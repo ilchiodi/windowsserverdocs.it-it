@@ -6,36 +6,37 @@ ms.topic: article
 manager: klaasl
 ms.author: jeffpatt
 author: JeffPatt24
-ms.date: 4/5/2017
+ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: 4a8a044ad6a8ec5275f5be4b949a2ab58d16da61
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883032"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 1, configurare AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 Questo argomento descrive il primo passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 3, configurare Cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 4, configurare Proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Per configurare AD FS per l'uso con le Cartelle di lavoro, utilizza le seguenti procedure.  
   
-## <a name="pre-installment-work"></a>Operazione di preinstallazione  
+## <a name="pre-installment-work"></a>Operazione di pre\-installazione  
 Se desideri convertire l'ambiente di test che stai configurando con queste istruzioni per la produzione, ci sono due operazioni che potresti voler eseguire prima di iniziare:  
   
 -   Configurare un account amministratore di dominio Active Directory da utilizzare per eseguire il servizio AD FS.
@@ -44,16 +45,16 @@ Se desideri convertire l'ambiente di test che stai configurando con queste istru
   
 Ottenere questi elementi può richiedere del tempo, a seconda delle norme della propria azienda, quindi può essere utile avviare il processo di richiesta per gli elementi prima di iniziare a creare l'ambiente di test.  
   
-Esistono molte autorità di certificazione commerciali (CA) da cui è possibile acquistare il certificato. È possibile trovare un elenco delle autorità di certificazione considerate attendibili da Microsoft nell' [articolo della Knowledge Base 931125](http://support.microsoft.com/kb/931125). In alternativa, è possibile ottenere un certificato da una CA dell'organizzazione (enterprise) della propria azienda.  
+Esistono molte autorità di certificazione commerciali (CA) da cui è possibile acquistare il certificato. È possibile trovare un elenco delle autorità di certificazione considerate attendibili da Microsoft nell' [articolo della Knowledge Base 931125](https://support.microsoft.com/kb/931125). In alternativa, è possibile ottenere un certificato da una CA dell'organizzazione (enterprise) della propria azienda.  
   
 Per l'ambiente di test, utilizzerai un certificato autofirmato creato da uno degli script forniti.  
   
 > [!NOTE]  
-> AD FS non supporta i certificati Cryptography Next Generation (CNG), ovvero non è possibile creare il certificato autofirmato utilizzando il cmdlet New-SelfSignedCertificate di Windows PowerShell. Tuttavia, è possibile usare lo script makecert.ps1 incluso nel post di blog [Distribuire Cartelle di lavoro con Active Directory Federation Services e Proxy applicazione Web](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap). Questo script crea un certificato autofirmato che funziona con AD FS e richiede i nomi alternativi del soggetto (SAN) che saranno necessari per creare il certificato.  
+> AD FS non supporta i certificati Cryptography Next Generation (CNG), ovvero non è possibile creare il certificato autofirmato utilizzando il cmdlet New-SelfSignedCertificate di Windows PowerShell. Tuttavia, è possibile usare lo script makecert.ps1 incluso nel post di blog [Distribuire Cartelle di lavoro con Active Directory Federation Services e Proxy applicazione Web](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap). Questo script crea un certificato auto\-firmato che funziona con AD FS e richiede i nomi alternativi del soggetto (SAN) che saranno necessari per creare il certificato.  
   
 Successivamente, esegui l'operazione aggiuntiva di pre-installazione descritta nelle sezioni seguenti.  
   
-### <a name="create-an-ad-fs-self-signed-certificate"></a>Creare un certificato AD FS autofirmato  
+### <a name="create-an-ad-fs-self-signed-certificate"></a>Creare un certificato AD FS auto\-firmato  
 Per creare un certificato AD FS autofirmato, segui questi passaggi:  
   
 1.  Scarica gli script forniti nel post di blog [Distribuzione di Cartelle di lavoro con Active Directory Federation Services e Proxy dell'applicazione Web](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap) e quindi copia il file makecert.ps1 sul computer AD FS.  
@@ -63,7 +64,7 @@ Per creare un certificato AD FS autofirmato, segui questi passaggi:
 3.  Imposta i criteri di esecuzione su senza restrizioni:  
   
     ```powershell  
-    PS C:\temp\scripts> .\makecert.ps1 C:\temp\scripts> Set-ExecutionPolicy –ExecutionPolicy Unrestricted   
+    Set-ExecutionPolicy –ExecutionPolicy Unrestricted   
     ```  
   
 4.  Passa alla directory in cui è stato copiato lo script.  
@@ -71,7 +72,7 @@ Per creare un certificato AD FS autofirmato, segui questi passaggi:
 5.  Esegui lo script makecert:  
   
     ```powershell  
-    PS C:\temp\scripts> .\makecert.ps1  
+    .\makecert.ps1  
     ```  
   
 6.  Quando viene richiesto di cambiare il certificato soggetto, immetti il nuovo valore per il soggetto. In questo esempio, il valore è **blueadfs.contoso.com**.  
@@ -103,7 +104,7 @@ Nell'esempio di test, i valori sono:
 La SAN enterpriseregistration è necessaria per Workplace Join.  
   
 ### <a name="set-the-server-ip-address"></a>Imposta l'indirizzo IP del server  
-Modifica l'indirizzo IP del server in un indirizzo IP statico. Nell'esempio di test, utilizza la classe IP A, ovvero 192.168.0.160 / subnet mask: 255.255.0.0 / Gateway predefinito: 192.168.0.1 / DNS preferito: 192.168.0.150 (l'indirizzo IP del tuo controller di dominio).  
+Modifica l'indirizzo IP del server in un indirizzo IP statico. Nell'esempio di test, usare IP classe A, ovvero 192.168.0.160 / la subnet mask: 255.255.0.0 / Gateway predefinito: 192.168.0.1 / preferita DNS: 192.168.0.150 (l'indirizzo IP del controller di dominio\).  
   
 ## <a name="install-the-ad-fs-role-service"></a>Installare il servizio ruolo AD FS  
 Per installare AD FS, esegui le seguenti operazioni:  
@@ -112,7 +113,7 @@ Per installare AD FS, esegui le seguenti operazioni:
   
 2.  Nella pagina **Ruoli server** seleziona il ruolo **Active Directory Federation Services** e quindi fai clic su **Avanti**.  
   
-3.  Nella pagina **Active Directory Federation Services (AD FS)**, verrà visualizzato un messaggio in cui è indicato che il ruolo Proxy dell'applicazione Web non può essere installato nello stesso computer di AD FS. Fai clic su **Avanti**.  
+3.  Nella pagina **Active Directory Federation Services (AD FS)**, verrà visualizzato un messaggio in cui è indicato che il ruolo Proxy dell'applicazione Web non può essere installato nello stesso computer di AD FS. Fare clic su **Avanti**.  
   
 4.  Fai clic su **Installa** nella pagina di conferma.  
   
@@ -120,16 +121,16 @@ Per eseguire l'installazione equivalente di AD FS tramite Windows PowerShell, us
   
 ```powershell  
 Add-WindowsFeature RSAT-AD-Tools  
-Add-WindowsFeature AD FS-Federation –IncludeManagementTools  
+Add-WindowsFeature ADFS-Federation –IncludeManagementTools  
 ```  
   
-## <a name="configure-ad-fs"></a>Configurare AD FS  
+## <a name="configure-ad-fs"></a>Configurare ADFS  
 Successivamente, configura AD FS utilizzando Server Manager o Windows PowerShell.  
   
 ### <a name="configure-ad-fs-by-using-server-manager"></a>Configurare AD FS utilizzando Server Manager  
 Per configurare AD FS utilizzando Server Manager, segui questi passaggi:  
   
-1.  Apri Server Manager.  
+1.  Aprire Server Manager.  
   
 2.  Fai clic sul flag **Notifiche** nella parte superiore della finestra di Server Manager e quindi fai clic su **Configurare il servizio federativo nel server**.  
   
@@ -142,11 +143,11 @@ Per configurare AD FS utilizzando Server Manager, segui questi passaggi:
     > [!NOTE]  
     > Il nome servizio federativo non deve utilizzare il nome di un server esistente nell'ambiente. Se utilizzi il nome di un server esistente, l'installazione di AD FS avrà esito negativo e dovrà essere riavviata.  
   
-6.  Nella pagina **Impostazione account servizio**, immetti il nome che desideri utilizzare per l'account del servizio gestito. Per l'esempio di test, seleziona **Creare un account del servizio gestito del gruppo**e in **Nome account**, immetti **ADFSService**. Fai clic su **Avanti**.  
+6.  Nella pagina **Impostazione account servizio**, immetti il nome che desideri utilizzare per l'account del servizio gestito. Per l'esempio di test, seleziona **Creare un account del servizio gestito del gruppo**e in **Nome account**, immetti **ADFSService**. Fare clic su **Avanti**.  
   
 7.  Nella pagina **Impostazione database di configurazione**, seleziona **Creare un database nel server mediante il database interno di Windows** e fai clic su **Avanti**.  
   
-8.  La pagina **Verifica opzioni** mostra una panoramica delle opzioni selezionate. Fai clic su **Avanti**.  
+8.  La pagina **Verifica opzioni** mostra una panoramica delle opzioni selezionate. Fare clic su **Avanti**.  
   
 9. La pagina **Controlli dei prerequisiti** indica se tutti i controlli dei prerequisiti sono riusciti. Se non sono presenti problemi, fai clic su **Configurazione**.  
   
@@ -176,14 +177,14 @@ Dopo aver configurato AD FS, è necessario impostare una farm AD FS utilizzando 
 Per impostare una farm AD FS:  
   
 ```powershell  
-$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match blueadfs.contoso.com} | sort $_.NotAfter -Descending | select -first 1    
+$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match blueadfs.contoso.com} | sort $_.NotAfter -Descending | select -first 1    
 $thumbprint = $cert.Thumbprint  
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-Passaggio successivo: [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
+Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
   
-## <a name="see-also"></a>Vedi anche  
-[Panoramica di Cartelle di lavoro](Work-Folders-Overview.md)  
+## <a name="see-also"></a>Vedere anche  
+[Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
   
 

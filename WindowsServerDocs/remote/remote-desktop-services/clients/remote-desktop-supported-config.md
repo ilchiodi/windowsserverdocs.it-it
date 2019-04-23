@@ -1,6 +1,6 @@
 ---
 title: Client Desktop remoto - configurazione supportata
-description: Informazioni su quali PC è possibile accedere utilizzando i client Desktop remoto
+description: Informazioni su dei PC che è possibile accedere tramite i client Desktop remoto
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,60 +15,60 @@ ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: d38008b6387385917ad21ce7e169b8ff3f4d18ba
-ms.sourcegitcommit: 96e968bbe8dc50ebb1535ae1c8ce92fa73c83171
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1978048"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884692"
 ---
 # <a name="remote-desktop-client---supported-configuration"></a>Client Desktop remoto - configurazione supportata
 
 ## <a name="supported-pcs"></a>PC supportati
-È possibile connettersi al computer che eseguono sistemi operativi Windows seguenti:
-- Windows10 Pro
+È possibile connettersi ai computer che eseguono sistemi operativi Windows seguenti:
+- Windows 10 Pro
 - Windows 10 Enterprise
 - Windows 8 Enterprise
 - Windows 8 Professional
-- Windows7 Professional
-- Windows7 Enterprise
-- Windows7 Ultimate
-- Windows7 Ultimate
+- Windows 7 Professional
+- Windows 7 Enterprise
+- Windows 7 Ultimate
+- Windows 7 Ultimate
 - Windows Server 2008
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
-- WindowsServer 2016
-- Windows Server multipunto 2011
-- Multipunto Windows Server 2012
+- Windows Server 2016
+- Windows Multipoint Server 2011
+- Windows Multipoint Server 2012
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
 
-I computer seguenti possono essere eseguito il gateway di Desktop remoto:
+I seguenti computer possono eseguire il gateway Desktop remoto:
 
 - Windows Server 2008
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
-- WindowsServer 2016
+- Windows Server 2016
 - Windows Small Business Server 2011
 
-Accesso Web desktop remoto o RemoteApp server può fungere da sistemi operativi seguenti:
+I sistemi operativi seguenti può essere utilizzato come server Accesso Web desktop remoto o RemoteApp:
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
-- WindowsServer 2016
+- Windows Server 2016
 
-## <a name="unsupported-windows-versions-and-editions"></a>Edizioni e versioni di Windows non supportati
+## <a name="unsupported-windows-versions-and-editions"></a>Edizioni e versioni di Windows non supportata
 
-Il client Desktop remoto non si connetterà per le versioni di Windows ed edizioni:
+Il client Desktop remoto non consentono di connettersi a queste versioni di Windows e le edizioni:
 
-- Windows7 Starter
+- Windows 7 Starter
 - Home page di Windows 7
-- Home page di Windows 8
+- Windows 8 Home
 - Home page di Windows 8.1
-- Windows10 Home
+- Windows 10 Home
 
-Se si desidera accedere ai computer con una di queste versioni di Windows installate, è consigliabile che aggiornare a una versione di Windows che supporta il protocollo RDP.
+Se si desidera accedere ai computer che dispongono di una di queste versioni di Windows installate, è consigliabile che l'aggiornamento a una versione di Windows che supporta il protocollo RDP.
 
-## <a name="rd-gateway-messaging-is-not-supported"></a>Messaggistica Gateway Desktop remoto non è supportata.
-Client Desktop remoto non supporta la messaggistica Gateway Desktop remoto. Verificare che il Desktop risorse criteri di accesso remoto (criteri di accesso remoto RD) per il server Gateway Desktop remoto non è specificata **consentire solo i computer con il supporto per la messaggistica Gateway Desktop remoto** oppure non sarà in grado di connettersi.
+## <a name="rd-gateway-messaging-is-not-supported"></a>La messaggistica Gateway Desktop remoto non è supportata.
+Il Client Desktop remoto non supporta la messaggistica Gateway Desktop remoto. Verificare che il Desktop risorsa criteri di accesso remoto (criterio di autorizzazione RISORSE desktop remoto) per il server Gateway Desktop remoto non è specificato **consentire solo ai computer con il supporto per la messaggistica Gateway Desktop remoto** o non sarà in grado di connettersi.

@@ -1,0 +1,57 @@
+---
+title: regsvr32
+description: 'Argomento i comandi di Windows per * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 3345e964-7d3e-42b8-abeb-42ed6edfe2b2
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 87d9291755ddb4484e85248cb01ad78b01a25965
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889992"
+---
+# <a name="regsvr32"></a>regsvr32
+
+
+
+Registra i file DLL come componenti di un comando nel Registro di sistema.
+
+Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
+## <a name="syntax"></a>Sintassi
+
+```
+regsvr32 [/u] [/s] [/n] [/i[:cmdline]] <DllName>
+```
+
+## <a name="parameters"></a>Parametri
+
+|Parametro|Descrizione|
+|---------|-----------|
+|/u|Annulla la registrazione di server.|
+|/s|Esecuzioni **Regsvr32** senza visualizzare i messaggi.|
+|/n|Esecuzioni **Regsvr32** senza chiamare **DllRegisterServer**. (Richiede il **/i** parametro.)|
+|/i:\<cmdline>|Passa una stringa della riga di comando facoltativa (*cmdline*) a **DllInstall**. Se si utilizza questo parametro in combinazione con il **/u** parametro, chiama **DllUninstall**.|
+|\<DllName >|Il nome del file DLL che verrà registrato.|
+|/?|Visualizza la guida al prompt dei comandi.|
+
+## <a name="BKMK_examples"></a>Esempi
+
+Per registrare la DLL dello Schema di Active Directory, digitare:
+```
+regsvr32 schmmgmt.dll
+```
+
+#### <a name="additional-references"></a>Altri riferimenti
+
+[Chiave sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,5 +1,5 @@
 ---
-title: Automazione dell'installazione di componenti aggiuntivi durante l'installazione
+title: Automazione dell’installazione di componenti aggiuntivi durante l’installazione
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,17 +13,18 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884622"
 ---
-# <a name="automate-installation-of-add-ins-during-setup"></a>Automazione dell'installazione di componenti aggiuntivi durante l'installazione
+# <a name="automate-installation-of-add-ins-during-setup"></a>Automazione dell’installazione di componenti aggiuntivi durante l’installazione
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_AddIns"></a>Automatizzare l'installazione di componenti aggiuntivi durante l'installazione  
- Per installare i componenti aggiuntivi durante l'installazione, utilizzare il metodo PostIC.cmd descritto nel [creare il PostIC.cmd File per esegue attività di configurazione iniziale di Post](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) sezione di questo documento.  
+##  <a name="BKMK_AddIns"></a> Automatizzare l'installazione di componenti aggiuntivi durante l'installazione  
+ Per installare i componenti aggiuntivi durante l'installazione, usare il metodo PostIC.cmd descritto nella sezione [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) di questo documento.  
   
  Aggiungere la seguente voce al proprio PostIC.cmd:  
   
@@ -31,12 +32,12 @@ ms.lasthandoff: 12/12/2017
 C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q  
 ```  
   
- Il componente aggiuntivo supporta ora i passaggi di pre-installazione e disinstallazione personalizzata.  
+ Ora il componente aggiuntivo supporta le operazioni di preinstallazione e disinstallazione personalizzata.  
   
- L'operazione di preinstallazione viene eseguita prima di installare tutti **msi** file specificati in addin.xml. Quando esegue in modalità interattiva, la finestra di dialogo di avanzamento sarà visualizzata ma senza modificare lo stato di avanzamento. Il pulsante di annullamento è disabilitato durante la fase di pre-installazione. Per implementare l'operazione di preinstallazione, aggiungere il seguente contenuto nel file addin.xml (direttamente in Package):  
+ L'operazione di preinstallazione viene eseguita prima di installare tutti i file **.msi** specificati in addin.xml. Quando si lavora in modalità interattiva, viene visualizzata la finestra di avanzamento che però non mostra alcun progresso. Il pulsante di annullamento è disabilitato durante la fase di preinstallazione. Per implementare l'operazione di preinstallazione, aggiungere il seguente contenuto nel file addin.xml (direttamente in Package):  
   
 > [!NOTE]
->  Lo schema xml deve essere esattamente come quello riportato di seguito:  
+>  Lo schema xml deve essere esattamente come il seguente:  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -64,13 +65,13 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 <¦>  
 ```  
   
- Wherein **exefile** il file eseguibile nel pacchetto di componente aggiuntivo per eseguire l'operazione di preinstallazione e deve essere specificato. **NormalArgs** specifica gli argomenti da passare a exefile nella riga di comando quando interattivo modalità viene utilizzato. In questa modalità, exefile può visualizzare alcune finestre di dialogo per l'interazione dell'utente. **SilentArgs** specifica gli argomenti da inviare a exefile in modalità riga di comando quando viene utilizzato (-q viene specificato quando si richiama installaddin.exe). L'EXEFile non visualizzerà tutte le finestre in questa modalità. Se **IgnoreExitCode** è specificato con true, l'operazione di preinstallazione viene sempre considerata riuscita, in caso contrario, il codice di uscita 0 indica l'esito positivo, 1 è stata annullata e altri valori indicano un errore. Tag **NormalArgs**, **SilentArgs**, e **IgnoreExitCode** sono facoltativi.  
+ **exefile** è il file eseguibile nel pacchetto del componente aggiuntivo che consente di eseguire l'operazione di preinstallazione e deve quindi essere specificato. **NormalArgs** specifica gli argomenti da inviare a exefile nella riga di comando quando si utilizza la modalità interattiva. In questa modalità, exefile può visualizzare alcune finestre di dialogo per l'interazione utente. **SilentArgs** specifica gli argomenti da inviare a exefile nella riga di comando quando si utilizza la modalità non interattiva (-q viene specificato quando si richiama installaddin.exe). In questa modalità, exefile non visualizzerà alcuna finestra. Se si imposta **IgnoreExitCode** su true, l'operazione di preinstallazione viene sempre considerata riuscita, altrimenti il codice di uscita 0 indica che l'operazione è stata completata, 1 che è stata annullata e altri valori che non è riuscita. I tag **NormalArgs**, **SilentArgs** e **IgnoreExitCode** sono facoltativi.  
   
- Operazione di disinstallazione personalizzata può essere utilizzato per le seguenti:  
+ È possibile utilizzare l'operazione di disinstallazione personalizzata per:  
   
 -   Sostituire la finestra di dialogo di conferma predefinita.  
   
--   Popolare le finestre di dialogo personalizzate prima della disinstallazione.  
+-   Inserire i dati nelle finestre di dialogo personalizzare prima della disinstallazione.  
   
 -   Eseguire alcune attività prima della disinstallazione.  
   
@@ -98,26 +99,26 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 </Package>  
 ```  
   
- Wherein **full-path-to-exefile** indica l'exefile già installato nel sistema. **Argomenti** è facoltativo e specifica gli argomenti della riga di comando per l'exefile. L'exefile viene richiamato prima di disinstallazione conferma visualizzata la finestra di.  
+ **full-path-to-exefile** indica l'exefile già installato sul sistema. **Arguments** è facoltativo e specifica gli argomenti della riga di comando per l'exefile. L'exefile viene richiamato prima che venga visualizzata la finestra di conferma della disinstallazione.  
   
- L'exefile può fare quanto segue in questa fase:  
+ In questa fase, l'exefile può fare quanto segue:  
   
--   Verrà visualizzata in alcune finestre di dialogo per l'interazione dell'utente.  
+-   Visualizzare alcune finestre di dialogo per consentire l'interazione utente.  
   
 -   Eseguire alcune attività in background.  
   
- Il codice di uscita del file exe determina come il processo di disinstallazione si sposta in avanti:  
+ Dal codice di uscita del file exe dipende l'andamento del processo di disinstallazione:  
   
--   0: il processo di disinstallazione prosegue senza popolare la finestra di dialogo di conferma predefinita, come già confermato dall'utente. (questo approccio può essere utilizzato per sostituire la finestra di dialogo di conferma predefinita);  
+-   0: il processo di disinstallazione prosegue senza inserire i dati nella finestra di conferma predefinita, come già confermato dall'utente. Questo approccio può essere utilizzato per ignorare la finestra di conferma predefinita;  
   
--   1: il processo di disinstallazione viene annullato e infine verrà visualizzato un messaggio all'utente. Nulla cambia;  
+-   1: il processo di disinstallazione viene annullato e visualizza un messaggio per informare l'utente. Nulla cambia;  
   
--   Altro: il processo di disinstallazione prosegue con finestra di dialogo di conferma predefinita, come l'operazione di disinstallazione personalizzata non è presente.  
+-   Altro: il processo di disinstallazione prosegue con la finestra di conferma predefinita, come se l'operazione di disinstallazione personalizzata non fosse presente.  
   
- Qualsiasi errore mentre viene richiamato exefile provoca lo stesso risultato quando exefile restituisce un codice diverso da 0 o 1.  
+ Qualsiasi errore che si verifica mentre viene richiamato exefile provoca lo stesso risultato che si ottiene quando exefile restituisce un codice diverso da 0 o 1.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

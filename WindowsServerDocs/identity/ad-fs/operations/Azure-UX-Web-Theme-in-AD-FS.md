@@ -1,6 +1,6 @@
 ---
-title: Azure AD UX Web Theme in AD FS
-description: The following document describes how to change the AD FS forms sign-in so that it resembles the Azure AD user experience.
+title: Tema Web dell'esperienza utente di Azure AD in AD FS
+description: Il documento seguente viene descritto come modificare lo sign-in form di AD FS in modo che somigli l'esperienza utente di Azure AD.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,45 +8,49 @@ ms.date: 10/24/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e7bac1db17eb4facc7643fe0db0ccf00c119a45d
-ms.sourcegitcommit: 9278435cbfa8dbeb30d0557ed0d27832b154edd2
+ms.openlocfilehash: 8d6afd7829c92382815e95b8c43a054b000359e2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887882"
 ---
-# <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>Using an Azure AD UX Web Theme in Active Directory Federation Services
-The AD FS forms sign in currently does not mirror the Azure/O365 sign-in experience.  To provide a more uniform and seamless experience for end-users, we have released the follow cascading style sheet web theme which can be applied to your AD FS servers.  Currently, the forms sign-in for AD FS on Windows Server 2016 looks like following:
+# <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>Utilizzo di un tema Web dell'esperienza utente di Azure AD in Active Directory Federation Services
+Form di AD FS sign in attualmente non rispecchia l'esperienza di accesso di Azure/Office 365.  Per fornire un'esperienza più uniforme e trasparente per gli utenti finali, Microsoft ha rilasciato il follow a cascata tema foglio di stile web che può essere applicato ai server AD FS.  Attualmente, il form Accedi per AD FS in Windows Server 2016 simile al seguente:
 
-![Current sign-in](media/Azure-UX-Web-Theme-in-AD-FS/one.png)
-
-
-With the new style sheet, the user experience will look more like the Azure and Office 365 sign-in experiences.
-
-## <a name="download-the-css-style-sheet"></a>Download the CSS style sheet
-You can download the web theme from the following Github [location](https://github.com/Microsoft/adfsWebCustomization/tree/master/centeredUi).
+![Accedi corrente](media/Azure-UX-Web-Theme-in-AD-FS/one.png)
 
 
-## <a name="enabling-the-new-web-theme"></a>Enabling the new web theme
-To enable the new web theme use the following procedure:
+Con il nuovo foglio di stile, l'esperienza utente avrà un aspetto più simile di Azure e Office 365 esperienze di accesso.
 
-### <a name="to-enable-the-new-azure-ad-ux-web-theme-in-ad-fs"></a>To enable the new Azure AD UX web theme in AD FS
-1.  Start PowerShell as an Administrator
-2.  Create a new web theme using PowerShell:  `New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
-3.  Set the new theme as the active theme using PowerShell:  `Set-AdfsWebConfig -ActiveThemeName custom`
+## <a name="download-the-css-style-sheet"></a>Scaricare il foglio di stile CSS
+È possibile scaricare il tema web da Github seguente [posizione](https://github.com/Microsoft/adfsWebCustomization/tree/master/centeredUi).
+
+
+## <a name="enabling-the-new-web-theme"></a>Abilitare il nuovo tema web
+Per abilitare il nuovo tema web usare la procedura seguente:
+
+### <a name="to-enable-the-new-azure-ad-ux-web-theme-in-ad-fs"></a>Per abilitare il nuovo tema web dell'esperienza utente di Azure AD in AD FS
+1.  Avviare PowerShell come amministratore
+2.  Creare un nuovo tema web usando PowerShell:  `New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
+3.  Impostare il nuovo tema come il tema attivo usando PowerShell:  `Set-AdfsWebConfig -ActiveThemeName custom`
 ![PowerShell](media/Azure-UX-Web-Theme-in-AD-FS/two.png)
-4.  Test the sign-in by going to https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![Sign-on](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
+4.  Testare l'accesso, passare a https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![Sign-on](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
 
->![NOTE] You need to ensure that idpinitiatedsignon has been enabled.  It is not enabled by default.  To enable idpinitiatedsignon use the following PowerShell command:  `Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
+> ! [NOTA] È necessario assicurarsi che tale idpinitiatedsignon è stata abilitata.  Non è abilitato per impostazione predefinita.  Per abilitare idpinitiatedsignon usare il comando PowerShell seguente:  `Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
 
-## <a name="image-recommendations"></a>Image Recommendations
-The following are the size recommendations for the background image and the logo image:
+## <a name="image-recommendations"></a>Consigli di immagine
+Abilitazione dell'interfaccia utente centrato consente di usare le stesse immagini per sfondi e logo che se si dispone già di branding aziendale Azure Active Directory. In genere, si applicano le stesse raccomandazioni per le dimensioni, rapporto e il formato.
 
 ### <a name="logo"></a>Logo
-- size 24px height, 256px max width
-- Do not add any padding around the logo within the asset.  Ensure that the asset background is transparent.
+Descrizione | Vincoli | Consigli
+------- | ------- | ----------
+Il logo viene visualizzato nella parte superiore del Pannello di accesso. | JPG o PNG trasparente<br>Altezza massima: 36 px<br>Larghezza massima: 245 px | Usare il logo dell'organizzazione.<br>Usare un'immagine trasparente. Non dare per scontato che lo sfondo sarà bianco.<br>Non aggiungere spaziatura interna intorno al logo nell'immagine o il logo apparirà sproporzionatamente piccolo.
 
-### <a name="background"></a>Sfondo
-- size 1024 x 1080 pixels with a file size of no greater than 200KB.  You should use the highest resolution possible with aspect ratio 16:9/16:10 that keeps the image size under the restriction.
+### <a name="background"></a>Informazioni
+Descrizione | Vincoli | Consigli
+------- | ------- | ----------
+Questa opzione viene visualizzata sullo sfondo della pagina di accesso, è ancorata al centro dell'area visualizzabile e viene ridimensionata e ritagliata per riempire la finestra del browser.    <br>Negli schermi stretti, come telefoni cellulari, questa immagine non viene visualizzata.<br>Una maschera nera con opacità 0,55 viene applicata su questa immagine viene caricata la pagina. | JPG o PNG<br>Dimensioni dell'immagine: 1920 x 1080 pixel<br>Dimensioni del file: &lt; 300 KB | <br>Usare le immagini in cui non è un argomento sicuro specifico. Il modulo di accesso opaco viene visualizzato sopra il centro di questa immagine e può coprire qualsiasi parte dell'immagine, a seconda delle dimensioni della finestra del browser.<br>Mantenere le dimensioni del file piccole per garantire tempi di caricamento rapidi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Personalizzazione di AD FS in Windows Server 2016](AD-FS-Customization-in-Windows-Server-2016.md)

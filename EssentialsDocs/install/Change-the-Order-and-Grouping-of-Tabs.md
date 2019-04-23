@@ -1,5 +1,5 @@
 ---
-title: Modifica dell'ordine e il raggruppamento delle schede
+title: Modifica dell'ordine e del raggruppamento delle schede
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,67 +13,68 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 578c5619cfdf076bb2735254494f393d56d35713
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887762"
 ---
-# <a name="change-the-order-and-grouping-of-tabs"></a>Modifica dell'ordine e il raggruppamento delle schede
+# <a name="change-the-order-and-grouping-of-tabs"></a>Modifica dell'ordine e del raggruppamento delle schede
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È possibile modificare l'ordine delle schede nel Dashboard in modo che la scheda è la prima (a sinistra) nella riga delle schede. A tale scopo aggiungere una voce al Registro di sistema. È inoltre possibile modificare il raggruppamento delle schede aggiungendo voci al Registro di sistema. L'ordine delle schede può essere la scheda principale seguita dalle schede predefinite Microsoft, seguita da eventuali schede aggiuntive dell'utente e infine dalle schede di terze parti.  
+È possibile modificare l'ordine delle schede nel dashboard in modo tale che la propria scheda risulti la prima (a sinistra) nell'apposita riga. A tale scopo, è necessario aggiungere una voce al Registro di sistema. È inoltre possibile modificare il raggruppamento delle schede aggiungendo voci al Registro di sistema. L'ordine delle schede può essere: per prima la scheda principale dell'utente seguita dalle schede predefinite Microsoft, seguite a loro volta da eventuali schede aggiuntive dell'utente e infine dalle schede di terze parti.  
   
-## <a name="change-the-order-of-the-tabs-in-the-dashboard"></a>Modificare l'ordine delle schede nel Dashboard di  
- È necessario aggiungere l'identificatore del componente aggiuntivo che visualizza la propria scheda nel Registro di sistema per definire l'ordine.  
+## <a name="change-the-order-of-the-tabs-in-the-dashboard"></a>Modifica dell'ordine delle schede nel dashboard  
+ Per definire l'ordine, è necessario aggiungere nel Registro di sistema l'identificare del componente aggiuntivo che visualizza la propria scheda.  
   
-#### <a name="to-display-your-tab-first-in-the-list-of-tabs"></a>Per visualizzare la propria scheda prima nell'elenco delle schede  
+#### <a name="to-display-your-tab-first-in-the-list-of-tabs"></a>Per visualizzare la propria scheda per prima nell'apposito elenco  
   
-1.  Nel computer di riferimento, fare clic su **Start**, immettere **regedit**, quindi premere **invio**.  
+1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit**e quindi premere **INVIO**.  
   
-2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, espandere **Microsoft**, quindi espandere **Windows Server**. Se il **OEM** chiave non esiste, è necessario completare i passaggi seguenti per crearla:  
+2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**. Se la chiave **OEM** non esiste, è necessario effettuare le seguenti operazioni per crearla:  
   
-    1.  Fare doppio clic su **Windows Server**, scegliere **New**, quindi fare clic su **chiave**.  
+    1.  Fare clic con il pulsante destro del mouse su **Windows Server**, scegliere **Nuovo**, quindi fare clic su **Chiave**.  
   
-    2.  Tipo **OEM** per il nome della chiave.  
+    2.  Digitare **OEM** come nome della chiave.  
   
-3.  Fare doppio clic su **OEM**, scegliere **New**, quindi fare clic su **valore stringa**.  
+3.  Fare clic con il pulsante destro del mouse su **OEM**, scegliere **Nuovo**, quindi fare clic su **Valore stringa**.  
   
-4.  Tipo **DashboardMainTabID** come nome della stringa, quindi premere **invio**.  
+4.  Digitare **DashboardMainTabID** come nome della stringa, quindi premere **Invio**.  
   
-5.  Fare clic sulla nuova stringa nel riquadro di destra, quindi fare clic su **modifica**.  
+5.  Fare clic con il pulsante destro del mouse sulla nuova stringa nel riquadro a destra, quindi fare clic su **Modifica**.  
   
-6.  Digitare il GUID definito per la scheda di livello superiore e quindi premere **invio**.  
+6.  Digitare il GUID definito per la scheda di livello superiore, quindi premere **Invio**.  
   
-     Per ulteriori informazioni sulla creazione e l'identificazione delle schede di livello superiore, vedere [creare una scheda di livello superiore](https://msdn.microsoft.com/library/gg513957) in Windows Server Solutions SDK.  
+     Per altre informazioni sulla creazione e sull'identificazione delle schede di livello superiore, vedere [Creare una scheda di livello superiore](https://msdn.microsoft.com/library/gg513957) in Windows Server Solutions SDK.  
   
-7.  Salvare le modifiche al Registro di sistema.  
+7.  Salvare le modifiche apportate al Registro di sistema.  
   
-8.  È inoltre necessario includere il GUID per la scheda principale di livello superiore nell'elenco degli identificatori per il raggruppamento delle schede. A tale scopo, eseguire i passaggi elencati in **modifica del raggruppamento delle schede nel Dashboard**.  
+8.  È inoltre necessario includere il GUID della scheda principale di livello superiore nell'elenco degli identificatori per il raggruppamento delle schede. A tale scopo, effettuare i passaggi elencati nella sezione **Modifica del raggruppamento delle schede nel dashboard**.  
   
-## <a name="change-the-grouping-of-tabs-in-the-dashboard"></a>Modifica del raggruppamento delle schede nel Dashboard  
- È possibile garantire che le schede siano raggruppate e incluso nell'elenco delle schede predefinite Microsoft aggiungendo gli identificatori al Registro di sistema.  
+## <a name="change-the-grouping-of-tabs-in-the-dashboard"></a>Modifica del raggruppamento delle schede nel dashboard  
+ È possibile fare in modo che le schede dell'utente siano raggruppate assieme e incluse nell'elenco delle schede predefinite Microsoft aggiungendo gli identificatori al Registro di sistema.  
   
 #### <a name="to-change-the-grouping-of-tabs"></a>Per modificare il raggruppamento delle schede  
   
-1.  Se regedit non è aperta, fare clic su **Start**, immettere **regedit**, quindi premere **invio**.  
+1.  Se regedit non è aperto, fare clic su **Start**, immettere **regedit** e quindi premere **INVIO**.  
   
-2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, espandere **Microsoft**, quindi espandere **Windows Server**.  
+2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**.  
   
-3.  Fare doppio clic su **OEM**, scegliere **New**, quindi fare clic su **chiave**.  
+3.  Fare clic con il pulsante destro del mouse su **OEM**, scegliere **Nuovo**, quindi fare clic su **Chiave**.  
   
-4.  Tipo **DashboardAddins** come nome della chiave, quindi premere **invio**.  
+4.  Digitare **DashboardAddins** come nome della chiave, quindi premere **Invio**.  
   
-5.  Fare doppio clic su **DashboardAddins**, scegliere **New**, quindi fare clic su **valore stringa**.  
+5.  Fare clic con il pulsante destro del mouse su **DashboardAddins**, scegliere **Nuovo**, quindi fare clic su **Valore stringa**.  
   
-6.  Digitare l'identificatore GUID della propria scheda come nome della stringa. Un valore non è necessaria.  
+6.  Digitare l'identificatore GUID della propria scheda come nome della stringa. Non è necessario immettere un valore.  
   
 7.  Ripetere i passaggi 5 e 6 per ciascuna delle schede e sottoschede.  
   
-8.  Salvare le modifiche del Registro di sistema.  
+8.  Salvare le modifiche apportate al Registro di sistema.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
