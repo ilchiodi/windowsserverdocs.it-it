@@ -1,75 +1,77 @@
 ---
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
-title: Supporto per l'utilizzo di Replica Hyper-V per controller di dominio virtualizzati
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Supporto per l'uso della replica Hyper-V per controller di dominio virtualizzati
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0444198196ed08a22aba92a0f59cc6e7a2518a2e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 0203c6de55a4e691d7c484351a3280c49891f317
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59866282"
 ---
-# <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Supporto per l'utilizzo di Replica Hyper-V per controller di dominio virtualizzati
+# <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Supporto per l'uso della replica Hyper-V per controller di dominio virtualizzati
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Questo argomento illustra il supporto dell'uso della Replica Hyper-V per replicare una macchina virtuale (VM) che viene eseguito come un controller di dominio (DC). Replica Hyper-V è una nuova funzionalità di a partire da Windows Server 2012 che offre un meccanismo di replica incorporato a livello di macchina virtuale Hyper-V.  
+Questo argomento illustra il supporto previsto per l'uso della replica Hyper-V per replicare una macchina virtuale (VM) eseguita come controller di dominio. La replica Hyper-V è una nuova funzionalità di Hyper-V, disponibile a partire da Windows Server 2012, che fornisce un meccanismo di replica incorporato a livello di VM.  
   
-Replica Hyper-V replica in modo asincrono determinate VM da un host Hyper-V primario in un host Hyper-V replica tramite LAN o collegamenti WAN. Una volta completata la replica iniziale, le successive modifiche vengono replicate a un intervallo definito dall'amministratore.  
+Replica in modo asincrono determinate VM di un host Hyper-V primario in un host Hyper-V di replica attraverso collegamenti LAN o WAN. Dopo il completamento della replica iniziale, le successive modifiche vengono replicate a un intervallo definito dall'amministratore.  
   
-Failover può essere pianificato o non pianificato. Un failover pianificato viene avviato da un amministratore della VM primaria ed eventuali modifiche non replicate vengono copiate nella VM per evitare perdite di dati di replica. Un failover non pianificato viene avviato nella VM di replica in risposta a un errore imprevisto della VM primaria. Perdita di dati è possibile perché esiste la possibilità di trasmettere le modifiche della VM primaria che potrebbero non essere state ancora replicate.  
+Il failover può essere pianificato o non pianificato. Un failover pianificato viene avviato da un amministratore nella VM primaria ed eventuali modifiche non replicate vengono copiate nella VM di replica per evitare la perdita di dati. Un failover non pianificato viene avviato nella VM di replica in risposta a un errore imprevisto della VM primaria. È possibile che si verifichi una perdita di dati perché non esiste la possibilità di trasmettere le modifiche della VM primaria che potrebbero non essere ancora state replicate.  
   
-Per ulteriori informazioni sulla Replica Hyper-V, vedere [Panoramica della Replica Hyper-V](https://technet.microsoft.com/library/jj134172.aspx) e [distribuire la Replica Hyper-V](https://technet.microsoft.com/library/jj134207.aspx).  
-  
-> [!NOTE]  
-> Replica Hyper-V può essere eseguita solo in Windows Server Hyper-V, non la versione di Hyper-V che viene eseguito in Windows 8.  
-  
-## <a name="windows-server-2012-domain-controllers-required"></a>Controller di dominio Windows Server 2012 necessari  
-Windows Server 2012 Hyper-V introduce anche l'ID di generazione VM (VMGenID). Che fornisce un mezzo per l'hypervisor comunicare con il sistema operativo guest quando si verificano modifiche significative. Ad esempio, l'hypervisor può comunicare con un controller di dominio virtualizzati che si sia verificato un ripristino dello snapshot (tecnologia Hyper-V snapshot ripristino, non ripristino di backup). Dominio di Active Directory in Windows Server 2012 è a conoscenza della tecnologia delle VM VMGenID e lo usa per rilevare quando vengono eseguite operazioni dell'hypervisor, ad esempio il ripristino dello snapshot, che consente una migliore protezione stesso.  
+Per altre informazioni sulla Replica Hyper-V, vedere [Panoramica della Replica Hyper-V](https://technet.microsoft.com/library/jj134172.aspx) e [distribuire la Replica Hyper-V](https://technet.microsoft.com/library/jj134207.aspx).  
   
 > [!NOTE]  
-> Per rafforzare questo punto, solo di dominio Active Directory nei controller di dominio di Windows Server 2012 offre queste misure di sicurezza derivanti da VMGenID; I controller di dominio che eseguono tutte le versioni precedenti di Windows Server sono soggetti a problemi come il rollback degli USN che possono verificarsi quando un controller di dominio virtualizzato viene ripristinato utilizzando un meccanismo non supportato, ad esempio ripristino dello snapshot. Per ulteriori informazioni su queste misure di sicurezza e quando vengono attivate, vedere [architettura di Controller di dominio virtualizzati](https://technet.microsoft.com/library/jj574118.aspx).  
+> La replica Hyper-V può essere eseguita solo in Hyper-V di Windows Server, non nelle versioni eseguite in Windows 8.  
   
-Quando (pianificato o non pianificato), si verifica un failover di replica Hyper-V, Windows Server 2012 virtualizzato controller di dominio rileva un ripristino di VMGenID, attivando le suddette funzionalità di sicurezza. Operazioni di Active Directory procedono quindi normalmente. La replica macchina virtuale viene eseguita al posto della VM primaria.  
+## <a name="windows-server-2012-or-newer-domain-controllers-required"></a>Windows Server 2012 o versioni successive controller di dominio obbligati
+
+Windows Server 2012 Hyper-V ha introdotto l'ID di generazione VM (VMGenID). che fornisce un mezzo di comunicazione tra l'hypervisor e il sistema operativo guest quando si verificano modifiche significative. Ad esempio, l'hypervisor può comunicare con un controller di dominio virtualizzato generato dal ripristino di uno snapshot (tecnologia di ripristino di snapshot Hyper-V, non ripristino di backup). Dominio di Active Directory di Windows Server 2012 e versioni successive è a conoscenza della tecnologia delle VM VMGenID e lo usa per rilevare quando vengono eseguite operazioni dell'hypervisor, ad esempio ripristino di snapshot, che consente di migliorare la protezione stessa.  
   
-> [!NOTE]  
-> Dato che ora sono ora due istanze della stessa identità di controller di dominio, esiste la possibilità che sia l'istanza primaria che quella replicata per l'esecuzione. Durante la Replica Hyper-V prevede meccanismi per garantire primario e macchine virtuali di replica non vengono eseguite contemporaneamente, è possibile che possono essere eseguiti nello stesso momento nel caso in cui il collegamento tra di essi non riesce dopo la replica della macchina virtuale. In caso di questa condizione improbabile, controller di dominio virtualizzati che eseguono Windows Server 2012 hanno misure di sicurezza per proteggere i servizi di dominio Active Directory, mentre quelli che eseguono versioni precedenti di Windows Server non.  
+> [!NOTE]
+> Solo AD DS nei controller di dominio di Windows Server 2012 o versioni successive forniscono queste misure di sicurezza derivanti da VMGenID; I controller di dominio che eseguono tutte le versioni precedenti di Windows Server sono soggetti a problemi come il rollback degli USN che possono verificarsi quando un controller di dominio virtualizzato viene ripristinato utilizzando un meccanismo non supportato, ad esempio ripristino di snapshot. Per altre informazioni su queste misure di sicurezza e quando vengono attivate, vedere [architettura di Controller di dominio virtualizzati](https://technet.microsoft.com/library/jj574118.aspx).  
   
-Quando si utilizza la Replica Hyper-V, assicurarsi di seguire le procedure consigliate per [l'esecuzione di controller di dominio virtuale in Hyper-V](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=WS.10).aspx). Vengono riportati, ad esempio, consigli per l'archiviazione dei file di Active Directory in dischi SCSI virtuali, che offrono maggiori garanzie di durabilità dei dati.  
-  
-## <a name="supported-and-unsupported-scenarios"></a>Scenari supportati e non supportati  
-Solo le macchine virtuali che eseguono Windows Server 2012 sono supportate per il failover non pianificato e per i test di failover. Anche per il failover pianificato, Windows Server 2012 è consigliata per il controller di dominio virtualizzati per ridurre i rischi nel caso in cui un amministratore avvii inavvertitamente sia la VM primaria che quella replicata contemporaneamente.  
-  
-Le macchine virtuali che eseguono versioni precedenti di Windows Server sono supportate per il failover pianificato, ma non supportate per il failover non pianificato a causa di potenziale rollback degli USN. Per ulteriori informazioni sul rollback degli USN, vedere [USN e Rollback degli USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).  
+Quando si verifica un failover di replica di Hyper-V (pianificato o non pianificato), il controller di dominio virtualizzato rileva un ripristino di VMGenID, attivando le suddette funzionalità di sicurezza. Le operazioni di Active Directory procedono quindi normalmente. La VM di replica viene eseguita al posto della VM primaria.  
   
 > [!NOTE]  
-> Non sono previsti requisiti a livello funzionali per il dominio o un insieme di strutture. Esistono solo requisiti del sistema operativo per i controller di dominio eseguiti come VM che vengono replicate con la Replica Hyper-V. Le macchine virtuali possono essere distribuite in una foresta che contiene altri controller di dominio fisici o virtuali che eseguono versioni precedenti di Windows Server e che possono o potrebbe non essere replicati con la Replica Hyper-V.  
+> Considerando che a questo punto ci sono due istanze della stessa identità di controller di dominio, esiste la possibilità che vengano eseguite sia l'istanza primaria che quella replicata. Anche se la replica Hyper-V prevede meccanismi di sicurezza per evitarlo, è possibile che le VM primaria e di replica vengano eseguite simultaneamente nel caso in cui si verifichino errori di collegamento tra le due dopo la replica della VM. Nell'eventualità improbabile che si verifichi questo scenario, i controller di dominio virtualizzati che eseguono Windows Server 2012 hanno misure di sicurezza per proteggere Servizi di dominio Active Directory, a differenza di quelli che eseguono versioni precedenti di Windows Server.  
   
-Questa affermazione sul supporto si basa su test eseguiti in una foresta a singolo dominio, anche se sono supportate anche configurazioni di foreste multidominio. Per questi test, controller di dominio virtualizzati DC1 e DC2 sono partner di nello stesso sito, Active Directory replica ospitato in un server che esegue Hyper-V in Windows Server 2012. Il guest della macchina virtuale che esegue DC2 è abilitata la Replica Hyper-V. Il server di Replica è ospitato in un altro Data Center geograficamente distante. Per illustrare i processi dei test case descritti di seguito, la macchina virtuale in esecuzione nel server di replica è detta DC2-Rec (anche se in pratica conserva lo stesso nome della VM originale).  
+Quando si usa la Replica Hyper-V, assicurarsi di seguire le procedure consigliate per [esecuzione di controller di dominio virtuale in Hyper-V](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=WS.10).aspx). Vengono riportati, ad esempio, suggerimenti per l'archiviazione di file di Active Directory in dischi SCSI virtuali, che offrono maggiori garanzie di durabilità dei dati.  
   
-### <a name="windows-server-2012"></a>Windows Server 2012  
-Nella tabella seguente illustra il supporto per controller di dominio virtualizzati che eseguono Windows Server 2012 e i test case.  
+## <a name="supported-and-unsupported-scenarios"></a>Scenari supportati e non supportati
+
+Solo le macchine virtuali che esecuzione Windows Server 2012 o versioni successive sono supportati per il failover non pianificato e per il failover di test. Anche per il failover pianificato, Windows Server 2012 o versioni successive è consigliato per il controller di dominio virtualizzati per ridurre i rischi nel caso in cui un amministratore avvii inavvertitamente sia la macchina virtuale primaria e la macchina virtuale replicata contemporaneamente.  
+  
+Le VM che eseguono versioni precedenti di Windows Server sono supportate per il failover pianificato, ma non per quello non pianificato, a causa di un potenziale rollback degli USN. Per altre informazioni sul rollback degli USN, vedere [USN e Rollback degli USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).  
+  
+> [!NOTE]  
+> Non sono previsti requisiti a livello funzionale per il dominio o per la foresta. Esistono solo requisiti del sistema operativo per i controller di dominio eseguiti come VM che vengono replicati con la replica Hyper-V. Le VM possono essere distribuite in una foresta che contiene altri controller di dominio fisici o virtuali con versioni precedenti di Windows Server e che possono o meno essere replicati con la replica Hyper-V.  
+  
+Questa affermazione sul supporto si basa su test eseguiti in una foresta a singolo dominio, sebbene siano supportate anche configurazioni di foreste multidominio. Per questi test, i controller di dominio DC1 e DC2 sono partner di replica di Active Directory nello stesso sito, ospitati in un server che esegue Hyper-V in Windows Server 2012. Per la VM guest che esegue DC2 è abilitata la replica Hyper-V. Il server di replica viene ospitato in un altro data center geograficamente distante. Per illustrare i processi dei test case descritti di seguito, la VM in esecuzione nel server di replica viene identificata come DC2-Rec (anche se in pratica conserva lo stesso nome della VM originale).  
+  
+### <a name="windows-server-2012"></a>Windows Server 2012
+
+La tabella seguente illustra il supporto per controller di dominio virtualizzati che eseguono Windows Server 2012 e i test case.  
   
 |||  
 |-|-|  
 |Failover pianificato|Failover non pianificato|  
-|È supportato|È supportato|  
-|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2012.<br /><br />-DC2 viene arrestato e viene eseguito un failover in DC2-Rec. Il failover può essere pianificato o non pianificato.<br /><br />-Dopo il riavvio, DC2-Rec verifica se il valore di VMGenID presente nel proprio database è uguale al valore del driver della macchina virtuale salvato dal server di Replica Hyper-V.<br /><br />-Di conseguenza, DC2-Rec attiva le misure di sicurezza della virtualizzazione; in altri termini, reimposta l'ID di chiamata, rimuove il pool di RID e imposta un requisito di sincronizzazione iniziale prima che assuma un ruolo di master operazioni. Per ulteriori informazioni sui requisiti per la sincronizzazione iniziale, vedere.<br /><br />-DC2-Rec quindi Salva il nuovo valore di VMGenID nel proprio database ed esegue il commit di tutti i successivi aggiornamenti nel contesto del nuovo ID di chiamata.<br /><br />-Come risultato del ripristino di ID di chiamata, DC1 convergerà su tutte le modifiche di Active Directory introdotte da DC2-Rec, anche se è stato eseguito il rollback nel tempo, vale a dire eventuali aggiornamenti di Active Directory eseguiti in DC2-Rec dopo il failover convergeranno correttamente|Il test case è uguale a quella inviata a un failover pianificato, con le seguenti eccezioni:<br /><br />-Qualsiasi AD aggiornamenti ricevuti in DC2 ma non ancora replicati da Active Directory per un partner di replica prima dell'evento di failover andranno perso.<br /><br />-Aggiornamenti di Active Directory ricevuti in DC2 dopo l'ora del punto di ripristino che sono stati replicati da Active Directory in DC1 verrà replicato da DC1 a DC2-Rec.|  
+|Supportato|Supportato|  
+|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2012.<br /><br />-DC2 viene arrestato e viene eseguito un failover in DC2-Rec. Il failover può essere pianificato o non pianificato.<br /><br />-Dopo DC2-REC, controlla se il valore di VMGenID presente in un database è identico al valore del driver della macchina virtuale salvato dal server di Replica Hyper-V.<br /><br />-Di conseguenza, DC2-Rec attiva le misure di sicurezza; in altre parole, reimposta l'ID di chiamata, rimuove il pool di RID e imposta un requisito della sincronizzazione iniziale prima che assuma un ruolo di master operazioni. Per altre informazioni sul requisito di sincronizzazione iniziale, vedere .<br /><br />-DC2-Rec Salva il nuovo valore di VMGenID nel proprio database quindi esegue il commit di tutti i successivi aggiornamenti nel contesto del nuovo ID di chiamata.<br /><br />-Come risultato di reimpostazione del valore di InvocationID, DC1 convergerà su tutte le modifiche di Active Directory introdotte da DC2-Rec, anche se ne è stato il rollback nel tempo, vale a dire eventuali aggiornamenti di Active Directory eseguiti in DC2-Rec dopo il failover convergeranno.|Il test case è identico a quello del failover pianificato, con le eccezioni seguenti:<br /><br />-Qualsiasi AD aggiornamenti ricevuti in DC2 ma non ancora replicati da Active Directory a un partner di replica prima che l'evento di failover andranno perso.<br /><br />-Aggiornamenti di Active Directory ricevuti in DC2 dopo l'ora del punto di ripristino che sono stati replicati da Active Directory in DC1 verrà replicato da DC1 a DC2-Rec.|  
   
-### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 e versioni precedenti  
-Nella tabella seguente illustra il supporto per controller di dominio virtualizzati che eseguono Windows Server 2008 R2 e versioni precedenti.  
+### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 e versioni precedenti
+
+La tabella seguente illustra il supporto per controller di dominio virtualizzati che eseguono Windows Server 2008 R2 e versioni precedenti.  
   
 |||  
 |-|-|  
 |Failover pianificato|Failover non pianificato|  
-|Supportato ma non consigliato perché i controller di dominio che eseguono queste versioni di Windows Server non supportano VMGenID né utilizzare misure di sicurezza della virtualizzazione associate. Conseguenza, sono soggetti al rischio di rollback degli USN. Per ulteriori informazioni, vedere [USN e Rollback degli USN](https://technet.microsoft.com/en-us/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Non è supportato **Nota:** failover non pianificato sarebbe supportato in cui il rollback degli USN non è un rischio, ad esempio un singolo controller di dominio nella foresta (una configurazione non consigliata).|  
-|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2008 R2.<br /><br />-DC2 viene arrestato e viene eseguito un failover pianificato in DC2-Rec. Tutti i dati in DC2 vengono replicati in DC2-Rec prima dell'arresto.<br /><br />-Dopo il riavvio, DC2-Rec riprende la replica con DC1 utilizzando l'ID di chiamata stesso come DC2.|N/D|  
-  
-
-
+|Supportato ma non consigliato, perché i controller di dominio che eseguono queste versioni di Windows Server non supportano VMGenID né usano le misure di sicurezza della virtualizzazione associate. Di conseguenza, sono soggetti al rischio di un rollback degli USN. Per altre informazioni, vedere [USN e Rollback degli USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Non è supportato **Nota:** Il failover non pianificato sarebbe supportato se non esistesse il rischio di rollback degli USN, ad esempio con un singolo controller di dominio nella foresta (una configurazione non consigliata).|  
+|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2008 R2.<br /><br />-DC2 viene arrestato e viene eseguito un failover pianificato in DC2-Rec. Tutti i dati di DC2 vengono replicati in DC2-Rec prima dell'arresto.<br /><br />: Dopo l'avvio, DC2-Rec riprende la replica con DC1 usando l'attributo invocationID stesso come DC2.|N/D|  

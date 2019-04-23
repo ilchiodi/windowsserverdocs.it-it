@@ -1,6 +1,6 @@
 ---
-title: Schede di rete di ottimizzazione delle prestazioni
-description: Questo argomento fa parte della Guida di ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
+title: Ottimizzazione delle prestazioni delle schede di rete
+description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete di Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,123 +8,124 @@ ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1c6d36966ce6e2d407b6568e16946745256ee69b
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: d6d54f33108d1cdb936b02fc556acca1e5518b9b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861532"
 ---
-# <a name="performance-tuning-network-adapters"></a>Schede di rete di ottimizzazione delle prestazioni
+# <a name="performance-tuning-network-adapters"></a>Ottimizzazione delle prestazioni delle schede di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per schede di rete consente di ottimizzare le prestazioni sono installati in computer che eseguono Windows Server 2016.
+È possibile usare questo argomento per schede di rete di ottimizzazione delle prestazioni che vengono installati nei computer che eseguono Windows Server 2016.
 
-Determinare le impostazioni di ottimizzazione corrette per la scheda di rete dipendono le seguenti variabili:
+La determinazione delle impostazioni di ottimizzazione corrette per la scheda di rete dipende dalle variabili seguenti:
 
-- La scheda di rete e la relativa serie di funzionalità  
+- La scheda di rete e il relativo set di funzionalità  
 
 - Il tipo di carico di lavoro eseguito dal server  
 
 - Le risorse hardware e software del server  
 
-- Gli obiettivi di prestazioni per il server  
+- Gli obiettivi in termini di prestazioni del server  
 
-Se la scheda di rete offre opzioni di ottimizzazione, è possibile ottimizzare l'utilizzo della velocità effettiva e risorse di rete per ottenere una velocità effettiva ottimale sulla base dei parametri descritti in precedenza.  
+Se la scheda di rete offre opzioni di ottimizzazione, è possibile ottimizzare la velocità effettiva della rete e l'uso delle risorse per raggiungere una velocità effettiva ottimale sulla base dei parametri descritti in precedenza.  
 
-Le sezioni seguenti vengono descritte alcune delle opzioni di ottimizzazione.  
+Nelle sezioni seguenti vengono illustrate alcune delle opzioni di ottimizzazione disponibili.  
 
-##  <a name="bkmk_offload"></a>Abilitare le funzionalità di Offload
+##  <a name="bkmk_offload"></a> Abilitazione delle funzionalità di Offload
 
-Attivando la funzionalità di offload scheda di rete è in genere utile. In alcuni casi, tuttavia, la scheda di rete non è sufficientemente potente da gestire le funzionalità di offload con una velocità effettiva elevata.
+Di norma è utile attivare l'offload della scheda di rete. Talvolta, tuttavia, la scheda di rete non è sufficientemente potente da gestire le funzionalità di offload con una velocità effettiva elevata.
 
 >[!IMPORTANT]
->Non usare le funzionalità di offload **Offload attività IPsec** o **TCP Chimney Offload **. Queste tecnologie sono deprecate in Windows Server 2016 e potrebbero influire negativamente server e le prestazioni della rete. Inoltre, queste tecnologie potrebbero non essere supportate da Microsoft in futuro.
+>Non usare le funzionalità di offload **Offload attività IPsec** oppure **TCP Chimney Offload**. Queste tecnologie sono deprecate in Windows Server 2016 e potrebbero influire negativamente sulle server e le prestazioni della rete. Inoltre, queste tecnologie potrebbero non essere supportate da Microsoft in futuro.
 
-Ad esempio, l'offload di segmentazione abilitazione può ridurre la velocità effettiva massima sostenibile in alcune schede di rete a causa di risorse hardware limitate. Tuttavia, se la velocità effettiva ridotta non è prevista una limitazione, è necessario abilitare funzionalità di offload anche per questo tipo di scheda di rete.
+Ad esempio, specificando l'offload di segmentazione è possibile che in alcune schede di rete la velocità effettiva massima sostenibile si riduca a causa delle risorse hardware limitate. Se tuttavia la velocità effettiva ridotta non viene considerata una limitazione, è opportuno abilitare le funzionalità di offload anche per schede di rete di questo tipo.
 
 >[!NOTE]
-> Alcune schede di rete richiedono funzionalità di offload in modo indipendente da abilitare per inviare e ricevere i percorsi.
+> Per alcune schede di rete è necessario abilitare le funzionalità di offload in modo indipendente per percorsi di invio e ricezione.
 
-##  <a name="bkmk_rss_web"></a>Abilitazione di Receive Side Scaling (RSS) per i server Web
+##  <a name="bkmk_rss_web"></a> Abilitazione di Receive Side Scaling (RSS) per i server Web
 
-RSS è possibile migliorare scalabilità e prestazioni web quando sono presenti un minor numero di schede di rete processori logici nel server. Quando tutto il traffico web passa attraverso le schede di rete che supportano RSS, richieste web provenienti da diverse connessioni possono essere elaborate simultaneamente diverse CPU.
+Con RSS è possibile migliorare scalabilità e prestazioni Web se il server dispone di un numero di schede di rete inferiore al numero di processori logici. Quando l'intero traffico Web passa attraverso le schede di rete che supportano RSS, le richieste Web in arrivo da diverse connessioni possono essere elaborate simultaneamente da diverse CPU.
 
-È importante notare che a causa della logica di RSS e Hypertext Transfer Protocol \(HTTP\) per la distribuzione del carico, le prestazioni potrebbero essere gravemente danneggiata se una scheda di rete che non supporta RSS accetta traffico web in un server che dispone di uno o più schede di rete che supportano RSS. In questo caso, sarà necessario utilizzare schede di rete che supportano RSS o disabilitare RSS nella finestra delle proprietà della scheda di rete **proprietà avanzate** scheda. Per determinare se una scheda di rete è in grado di supportare RSS, è possibile visualizzare le informazioni di RSS in proprietà della scheda di rete **proprietà avanzate** scheda.
+È importante notare che a causa della logica di RSS e Hypertext Transfer Protocol \(HTTP\) per la distribuzione del carico, le prestazioni potrebbero essere gravemente ridotte se una scheda di rete che non supporta RSS accetta traffico web in un server che dispone di uno o più schede di rete che supportano RSS. In questo caso, sarà necessario usare schede di rete che supportano RSS oppure disabilitare RSS nella scheda **Proprietà avanzate** delle proprietà della scheda di rete. Per stabilire se una scheda di rete supporta RSS, è possibile visualizzare le informazioni su RSS nella scheda **Proprietà avanzate** delle proprietà della scheda di rete.
 
 ### <a name="rss-profiles-and-rss-queues"></a>Profili RSS e code RSS
 
-Il profilo RSS predefiniti predefinito è NUMA statico e modifica il comportamento predefinito rispetto alle versioni precedenti del sistema operativo. Per iniziare con i profili RSS, è possibile esaminare i profili disponibili per capire quando sono vantaggiosi e come si applicano all'ambiente di rete e hardware.
+Il profilo RSS predefiniti predefinito è NUMA statico, che modifica il comportamento predefinito rispetto alle versioni precedenti del sistema operativo. Per iniziare a usare i profili RSS, è possibile esaminare i profili disponibili per capire quando sono vantaggiosi e come si applicano all'ambiente di rete e all'hardware.
 
-Ad esempio, se si apre Gestione attività e si esaminano i processori logici nel server e questi sembrano sottoutilizzati per la ricezione del traffico, è possibile provare ad aumentare il numero di code RSS dal valore predefinito di 2 al massimo supportato dalla scheda di rete. Opzioni per modificare il numero di code RSS come parte del driver potrebbe essere la scheda di rete.
+Se ad esempio si apre Gestione attività, si esaminano i processori logici nel server e questi sembrano sottoutilizzati per la ricezione del traffico, è possibile aumentare il numero di code RSS dal numero predefinito di 2 al massimo supportato dalla scheda di rete. Nella scheda di rete, le opzioni per modificare il numero di code RSS potrebbero essere parte del driver.
 
-##  <a name="bkmk_resources"></a>Aumentare le risorse della scheda di rete
+##  <a name="bkmk_resources"></a> Aumentare le risorse della scheda di rete
 
-Per le schede di rete che consentono la configurazione manuale delle risorse, ad esempio riceveranno e inviano i buffer, è necessario aumentare le risorse allocate. 
+Nelle schede di rete che consentono la configurazione manuale delle risorse, come buffer di ricezione e di invio, è necessario aumentare le risorse allocate. 
 
-Alcune schede di rete impostano i buffer di ricezione basso per risparmiare memoria allocata dall'host. Un valore basso comporta pacchetti ignorati e una riduzione delle prestazioni. Pertanto, per la ricezione intensiva, è consigliabile aumentare il valore del buffer di ricezione al massimo.
-
->[!NOTE]
->Se una scheda di rete non espone la configurazione manuale delle risorse, effettuata in modo dinamico le risorse o le risorse viene impostato su un valore fisso che non può essere modificato.
-
-### <a name="enabling-interrupt-moderation"></a>Abilitazione di regolazione di Interrupt
-
-Per controllare la regolazione di interrupt, alcune schede di rete espongono livelli di regolazione di interrupt diversi, buffer parametri di aggregazione (a volte separatamente per inviare e ricevere buffer), o entrambi.
-
-Prendere in considerazione la regolazione di interrupt per carichi di lavoro associato alla CPU e valutare il compromesso tra risparmio della CPU host e latenza maggiore risparmio della CPU host a causa di maggior numero di interrupt e una latenza inferiore. Se la scheda di rete non esegue la regolazione di interrupt, ma espone l'aggregazione dei buffer, aumentando il numero di buffer fuse consente più buffer per invio o ricezione, che migliora le prestazioni.
-
-##  <a name="bkmk_low"></a>Ottimizzazione delle prestazioni per l'elaborazione di pacchetti a bassa latenza
-
-Molte schede di rete offrono opzioni di ottimizzazione della latenza indotta dal sistema operativo. La latenza è il tempo trascorso tra il driver di rete l'elaborazione di un pacchetto in ingresso e il driver di rete restituzione del pacchetto. Questo tempo è normalmente misurato in microsecondi. Per il confronto, il tempo di trasmissione per trasmissione di pacchetti a grande distanza viene in genere misurato in millisecondi \ (un ordine di grandezza larger\). Questa ottimizzazione non consente di ridurre il tempo impiegato per un pacchetto in transito.
-
-Ecco alcuni suggerimenti per microsecondi l'ottimizzazione delle prestazioni.
-
-- Impostare il BIOS del computer **ad alte prestazioni**, con C-state disattivati. Si noti tuttavia che si tratta di sistema e dipende dal BIOS e alcuni sistemi forniranno prestazioni più elevate se il sistema operativo controlla risparmio energia. È possibile controllare e modificare le impostazioni di risparmio energia da **impostazioni** o tramite il **powercfg** comando. Per ulteriori informazioni, vedere [opzioni della riga di comando di Powercfg](https://technet.microsoft.com/library/cc748940.aspx)
-
-- Impostare il profilo del risparmio energia del sistema operativo **sistema a prestazioni elevate**. Si noti che questo non funzionerà correttamente se il BIOS di sistema è stato impostato per disabilitare il controllo del sistema operativo di gestione dell'alimentazione.
-
-- Abilitare offload statici, ad esempio, checksum UDP, checksum e inviare Offload grandi dimensioni (LSO).
-
-- Abilitare RSS se il traffico è multiflusso, ad esempio ricezione multicast a volume elevato.
-
--   Disabilitare il **regolazione di Interrupt** impostazione per i driver di scheda di rete che richiedono la minor latenza possibile. Tieni presente che questo può utilizzare più tempo della CPU e rappresenta un buon compromesso.
-
-- Gestire interrupt di schede di rete e le DPC su un processore core che condivide cache CPU con il core usato dal programma (thread utente) che gestisce il pacchetto. Ottimizzazione dell'affinità CPU può essere utilizzato per indirizzare un processo verso determinati processori logici in combinazione con una configurazione di RSS per questo scopo. Usando lo stesso core per il thread modalità utente interrupt e DPC le prestazioni peggiorano con aumento del carico, perché il ISR DPC e thread competono per l'uso del core.
-
-##  <a name="bkmk_smi"></a>System Management interrupt
-
-Molti sistemi hardware usano System Management interrupt \(SMI\) per un'ampia gamma di funzioni di manutenzione, tra cui segnalazione degli errori di memoria \(ECC\) di codice di errore correzione, risparmio energia controllato dal BIOS, il controllo della ventola e compatibilità USB legacy. 
-
-SMI è l'interrupt con la priorità più alta nel sistema e posiziona la CPU in modalità di gestione, anticipando così tutte le altre attività mentre esegue una routine di servizio interrupt, normalmente contenuta nel BIOS.
-
-Sfortunatamente, questo può comportare picchi di latenza di 100 microsecondi o più. 
-
-Se devi latenza più bassa, è consigliabile richiedere una versione del BIOS del fornitore dell'hardware che riduca gli SMI il livello minimo possibile. Questi sono spesso detta "BIOS a bassa latenza" o "SMI free BIOS". In alcuni casi, non è possibile per una piattaforma hardware eliminare completamente l'attività SMI perché viene usata per controllare funzioni essenziali (ad esempio ventole di raffreddamento).
+Alcune schede di rete impostano i buffer di ricezione su un valore basso per risparmiare memoria allocata dall'host. In presenza di un valore basso, alcuni pacchetti vengono scartati e le prestazioni calano. Di conseguenza, in caso di carichi di lavoro con attività di ricezione intensiva, è consigliabile portare al massimo il valore del buffer di ricezione.
 
 >[!NOTE]
->Il sistema operativo non può esercitare alcun controllo sugli SMI, perché il processore logico è in esecuzione in una speciale modalità di manutenzione che impedisce l'intervento del sistema operativo.
+>Se una scheda di rete non consente la configurazione manuale delle risorse, tale configurazione viene effettuata in modo dinamico oppure per le risorse viene impostato un valore fisso che non può essere modificato.
 
-##  <a name="bkmk_tcp"></a>Ottimizzazione delle prestazioni TCP
+### <a name="enabling-interrupt-moderation"></a>Abilitazione della regolazione di interrupt
+
+Per controllare la regolazione di interrupt, alcune schede di rete espongono diversi livelli di regolazione di interrupt o parametri di aggregazione dei buffer (a volte separatamente per buffer di invio e di ricezione) entrambi.
+
+È opportuno prendere in considerazione la regolazione di interrupt per carichi di lavoro basati su CPU e il compromesso tra risparmio e latenza della CPU host da un lato e maggiore risparmio della CPU host dovuto a un maggior numero di interrupt e una latenza inferiore. Se la scheda di rete non esegue la regolazione di interrupt, ma espone l'aggregazione dei buffer, l'aumento dei buffer aggregati equivale a un maggior numero di buffer per invio o ricezione e a un miglioramento delle prestazioni.
+
+##  <a name="bkmk_low"></a> Ottimizzazione delle prestazioni per l'elaborazione dei pacchetti a bassa latenza
+
+Molte schede di rete offrono opzioni di ottimizzazione della latenza indotta dal sistema operativo. La latenza è il tempo trascorso tra l'elaborazione di un pacchetto in arrivo da parte dell'unità di rete e la restituzione del pacchetto da parte dell'unità di rete. Questo intervallo di tempo è normalmente misurato in microsecondi. Per il confronto, il tempo di trasmissione per trasmissione di pacchetti su lunghe distanze viene in genere misurato in millisecondi \(un ordine di grandezza maggiore\). Questa ottimizzazione non accelererà il trasferimento dei pacchetti.
+
+Seguono alcuni suggerimenti utili per l'ottimizzazione delle prestazioni di schede che rilevano i microsecondi.
+
+- Impostare il BIOS del computer su **Prestazioni elevate**, con i C-state disattivati. Si noti tuttavia che questa operazione dipende dal sistema e dal BIOS e che alcuni sistemi forniranno prestazioni più elevate se il sistema operativo controlla il risparmio energia. È possibile controllare e modificare le impostazioni di risparmio energia da **le impostazioni** oppure usando la **powercfg** comando. Per altre informazioni, vedere [opzioni della riga di comando Powercfg](https://technet.microsoft.com/library/cc748940.aspx)
+
+- Impostare il profilo del risparmio energia del sistema operativo su **Sistema a prestazioni elevate**. Si noti che questa opzione non funzionerà correttamente se le impostazioni del BIOS del sistema prevedono la disattivazione del controllo del risparmio energia da parte del sistema operativo.
+
+- Abilitare offload statici, ad esempio checksum UDP, checksum e Offload invio di grandi dimensioni (LSO).
+
+- Abilitare RSS se il traffico è multiflusso, come nel caso di ricezione multicast a volume elevato.
+
+-   Disabilitare l'impostazione **Regolazione di interrupt** per driver di schede di rete che richiedono la minor latenza possibile. È importante ricordare che questo può comportare un maggiore utilizzo di tempo di CPU e rappresenta una soluzione di compromesso.
+
+- Gestire interrupt di schede di rete e chiamate di procedura differita su un processore core che condivide cache CPU con il core usato dal programma (thread utente) che gestisce il pacchetto. A tale scopo, è possibile usare l'ottimizzazione dell'affinità CPU per indirizzare un processo verso determinati processori logici insieme alla configurazione di RSS. Usando lo stesso core per l'interrupt, chiamata di procedura differita e thread modalità utente thread le prestazioni peggiorano con l'aumentare del carico, perché IRS, chiamata di procedura differita e thread competono per l'uso del core.
+
+##  <a name="bkmk_smi"></a> System Management interrupt
+
+Molti sistemi hardware usano System Management interrupt \(SMI\) per un'ampia gamma di funzioni di manutenzione, tra cui la segnalazione di codice di errore correzione \(ECC\) gli errori di memoria, compatibilità USB legacy, ventola risparmio energia controllato dal controllo e BIOS. 
+
+SMI è l'interrupt con la priorità più elevata nel sistema e posiziona la CPU in modalità di gestione, anticipando così tutte le altre attività mentre esegue una routine di servizio interrupt, normalmente contenuta nel BIOS.
+
+In questo modo si possono però verificare picchi di latenza di 100 microsecondi o più. 
+
+Se è necessario ridurre al minimo la latenza, è opportuno richiedere al provider hardware una versione BIOS che riduca gli SMI il più possibile. Spesso sono definiti "BIOS a bassa latenza" o "SMI free BIOS". In alcuni casi, non è possibile per una piattaforma hardware eliminare del tutto l'attività SMI, che viene usata per controllare funzioni essenziali (come le ventole di raffreddamento).
+
+>[!NOTE]
+>Il sistema operativo non può esercitare alcun controllo sugli SMI, perché il processore logico viene eseguito in una speciale modalità di manutenzione che impedisce l'intervento del sistema operativo.
+
+##  <a name="bkmk_tcp"></a> Ottimizzazione delle prestazioni TCP
 
  È possibile ottimizzare le prestazioni TCP usando gli elementi seguenti.
 
-###  <a name="bkmk_tcp_params"></a>Ottimizzazione automatica della finestra di ricezione TCP
+###  <a name="bkmk_tcp_params"></a>  Ottimizzazione automatica della finestra di ricezione TCP
 
-Prima di Windows Server 2008, lo stack di rete utilizza una finestra del receive-side (65.535 byte) di dimensioni fisse limitata la velocità effettiva potenziale complessiva per le connessioni. Una delle modifiche più significative allo stack TCP è TCP ricevere ottimizzazione automatica della finestra. 
+Prima di Windows Server 2008, lo stack di rete utilizzata una finestra di ricezione di dimensione fissa (65.535 byte) che limitava la velocità effettiva potenziale complessiva per le connessioni. Uno dei cambiamenti più significativi apportati allo stack TCP consiste nell'ottimizzazione automatica della finestra di ricezione TCP. 
 
 È possibile calcolare la velocità effettiva totale di una singola connessione quando si usa una dimensione fissa come finestra di ricezione TCP:
 
-**Velocità effettiva totale raggiungibile in byte = TCP ricevere dimensioni della finestra in byte \ * (1 / latenza della connessione in secondi)**
+**Velocità effettiva totale raggiungibile in byte = TCP dimensioni della finestra di ricezione in byte \* (1 / latenza della connessione in secondi)**
 
-Ad esempio, la velocità effettiva totale raggiungibile è solo 51 Mbps in una connessione con latenza di 10 ms \ (un valore ragionevole per infrastructure\ una rete aziendale di grandi dimensioni). 
+Ad esempio, la velocità effettiva totale raggiungibile è solo 51 Mbps in una connessione con latenza di 10 ms \(un valore ragionevole per un'infrastruttura di rete aziendali di grandi dimensioni\). 
 
-Con ottimizzazione automatica, tuttavia, la finestra di receive-side è regolabile, e può aumentare da soddisfare la domanda del mittente. È possibile per una connessione a raggiungere una velocità completa di una connessione di 1 Gbps. Scenari di utilizzo della rete che potrebbero sono stati limitati in passato tramite la velocità effettiva totale raggiungibile delle connessioni TCP possono ora utilizzare completamente la rete.
+L'ottimizzazione automatica consente tuttavia la regolazione della finestra di ricezione, che può raggiungere dimensioni tali da soddisfare la domanda del mittente. È possibile che una connessione ottenere una velocità completa di una connessione di 1 Gbps. Gli scenari di utilizzo della rete che presentavano in passato limiti dovuti alla velocità effettiva totale raggiungibile delle connessioni TCP sono stati superati.
 
-#### <a name="deprecated-tcp-parameters"></a>Parametri TCP deprecati
+#### <a name="deprecated-tcp-parameters"></a>Deprecati i parametri TCP
 
 Le seguenti impostazioni del Registro di sistema da Windows Server 2003 non sono più supportate e vengono ignorate nelle versioni successive.
 
-Tutte queste impostazioni erano disponibili nel percorso del Registro di sistema seguente:
+Tutte queste impostazioni ha il percorso del Registro di sistema seguente:
 
     ```  
     HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters  
@@ -138,12 +139,12 @@ Tutte queste impostazioni erano disponibili nel percorso del Registro di sistema
 
 
 
-###  <a name="bkmk_wfp"></a>Piattaforma filtro Windows
+###  <a name="bkmk_wfp"></a> Piattaforma filtro Windows
 
-Il Windows Filtering Platform (WFP) introdotta in Windows Vista e Windows Server 2008 offre API a fornitori non Microsoft di software indipendenti (ISV) per creare pacchetti filtri di elaborazione. Esempi di software antivirus e firewall.
+Il Windows Filtering Platform (WFP) introdotta in Windows Vista e Windows Server 2008 offre API a fornitori non Microsoft di software indipendenti (ISV) per creare filtri di elaborazione dei pacchetti. Ne sono esempi i software per firewall e antivirus.
 
 >[!NOTE]
->Un filtro piattaforma filtro Windows non scritto può ridurre notevolmente le prestazioni di rete del server. Per ulteriori informazioni, vedere [-elaborazione di conversione dei pacchetti driver e App alla piattaforma filtro Windows](https://msdn.microsoft.com/windows/hardware/gg463267.aspx) in Windows Dev Center.
+>Un filtro Piattaforma filtro Windows non scritto in modo corretto può ridurre in misura significativa le prestazioni di rete di un server. Per altre informazioni, vedere [l'elaborazione di conversione dei pacchetti driver e le App per piattaforma filtro Windows](https://msdn.microsoft.com/windows/hardware/gg463267.aspx) in Windows Dev Center.
 
 
-Per i collegamenti a tutti gli argomenti in questa Guida, vedere [ottimizzazione delle prestazioni del sottosistema di rete](net-sub-performance-top.md).
+Per collegamenti a tutti gli argomenti in questa Guida, vedere [ottimizzazione delle prestazioni di rete sottosistema](net-sub-performance-top.md).

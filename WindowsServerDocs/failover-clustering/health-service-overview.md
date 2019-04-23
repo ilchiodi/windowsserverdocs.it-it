@@ -1,5 +1,5 @@
 ---
-title: "Servizio di integrità in Windows Server 2016"
+title: Integrità dei servizi in Windows Server
 ms.prod: windows-server-threshold
 manager: eldenc
 ms.author: cosdar
@@ -7,103 +7,105 @@ ms.technology: storage-health-service
 ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
-ms.date: 08/14/2017
-ms.openlocfilehash: 834fcfb749e89e4768dce3f229564feea550a432
-ms.sourcegitcommit: 30fcae929ce7b611f5d3a5f8fee64b0299272110
+ms.date: 02/09/2018
+ms.openlocfilehash: 5afb64dcf0c59697ed55d7cf51ef1bc36e7e0e36
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863812"
 ---
-# <a name="health-service-in-windows-server-2016"></a>Servizio di integrità in Windows Server 2016
+# <a name="health-service-in-windows-server"></a>Integrità dei servizi in Windows Server
+
 > Si applica a Windows Server 2016
 
-Il servizio integrità è una nuova funzionalità di Windows Server 2016 che consente di migliorare il monitoraggio e l'esperienza per i cluster che eseguono spazi di archiviazione diretta.
+Il servizio integrità è una nuova funzionalità di Windows Server 2016 che consente di migliorare il monitoraggio quotidiano e l'esperienza operativa per i cluster che esegue spazi di archiviazione diretta.
 
 ## <a name="prerequisites"></a>Prerequisiti  
 
-Il servizio integrità è abilitato per impostazione predefinita con spazi di archiviazione diretta. Non è necessaria alcuna azione aggiuntiva per configurarlo o avviarlo. Per ulteriori informazioni su spazi di archiviazione diretta, vedere [spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
+Servizio integrità è abilitato per impostazione predefinita con Spazi di archiviazione diretta. Non è necessario alcuna azione aggiuntiva per configurarlo o avviarlo. Per altre informazioni su spazi di archiviazione diretta, vedere [spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
-## <a name="reports"></a>Report
+## <a name="reports"></a>Rapporti
 
-Vedere [servizio integrità invia report](health-service-reports.md).
+Visualizzare [servizio integrità invia report](health-service-reports.md).
 
 ## <a name="faults"></a>Errori
 
-Vedere [errori servizio integrità](health-service-faults.md).
+Visualizzare [gli errori di integrità servizio](health-service-faults.md).
 
 ## <a name="actions"></a>Azioni
 
-Vedere [azioni servizio integrità](health-service-actions.md).
+Visualizzare [azioni del servizio integrità](health-service-actions.md).
 
 ## <a name="automation"></a>Automazione  
 
-Questa sezione descrive i flussi di lavoro che vengono automatizzati da servizio integrità nel ciclo di vita del disco.  
+La sezione seguente descrive i flussi di lavoro che vengono automatizzati da Servizio integrità nel ciclo di vita del disco.  
 
 ### <a name="disk-lifecycle"></a>Ciclo di vita del disco   
 
-Il servizio integrità consente di automatizzare la maggior parte delle fasi del ciclo di vita del disco fisico. Si supponga che lo stato della distribuzione iniziale è in stato perfetto, ovvero che, tutti i dischi fisici funzionino correttamente.  
+Servizio integrità consente di automatizzare la maggior parte delle fasi del ciclo di vita del disco fisico. Si supponga che lo stato iniziale della distribuzione sia in stato perfetto, ovvero che tutti i dischi fisici funzionino correttamente.  
 
-#### <a name="retirement"></a>Ritiro  
+#### <a name="retirement"></a>Disconnessione  
 
-I dischi fisici vengono disconnessi automaticamente quando viene generato un errore corrispondente e non può più essere utilizzate. Esistono diversi casi:  
+I dischi fisici vengono disconnessi automaticamente quando non possono più essere usati e viene generato un errore corrispondente. Esistono diversi casi:  
 
--   Errore dei supporti: il disco fisico è definitivamente non è riuscito o interrotto e deve essere sostituito.  
+-   Errore dei supporti: il disco fisico è definitivamente guasto e non può più essere sostituito.  
 
 -   Perdita di comunicazione: il disco fisico ha perso la connettività per oltre 15 minuti consecutivi.  
 
--   Mancata risposta: il disco fisico è stata rilevata una latenza di oltre 5,0 secondi tre o più volte entro un'ora.  
+-   Mancata risposta: è stata rilevata una latenza per il disco fisico di oltre 5,0 secondi tre o più volte all'interno di un'ora.  
 
 >[!NOTE]
-> Se si perde la connettività di diversi dischi fisici in una sola volta, o per un intero nodo o alloggiamento di archiviazione, il servizio integrità *non* disconnette tali dischi poiché è improbabile che sia il problema principale.  
+> Se si perde la connettività di diversi dischi fisici in una sola volta, o di un intero nodo o alloggiamento di archiviazione, Servizio integrità *non* disconnette tali dischi poiché è improbabile che costituiscano la causa radice del problema.  
 
-Se il disco disconnesso fungeva da cache per molti altri dischi fisici, questi verranno automaticamente riassegnati a un altro disco cache se è disponibile. È richiesta alcuna azione utente speciale.  
+Se il disco disconnesso fungeva da cache per molti altri dischi fisici, questi verranno automaticamente riassegnati a un altro disco cache disponibile. Non è richiesta alcuna azione specifica da parte dell'utente.  
 
 #### <a name="restoring-resiliency"></a>Ripristino della resilienza  
 
-Una volta che un disco fisico è stato disattivato, il servizio integrità inizia immediatamente a copiarne i dati nei dischi fisici rimanenti, per ripristinare la resilienza completa. Una volta completata questa operazione, i dati sono totalmente protetti e a tolleranza d'errore.  
+Una volta che un disco fisico è stato disattivato, Servizio integrità inizia immediatamente a copiarne i dati nei dischi fisici rimanenti, per ripristinare la resilienza completa. Una volta completata questa operazione, i dati sono totalmente protetti e a tolleranza d’errore.  
 
 >[!NOTE]
 > Il ripristino immediato richiede una capacità sufficiente disponibile tra i dischi fisici rimanenti.  
 
 #### <a name="blinking-the-indicator-light"></a>Lampeggiamento della spia  
 
-Se possibile, il servizio integrità inizierà a far lampeggiare la luce della spia del disco fisico disconnesso o dello slot corrispondente. Continuerà per un tempo indefinito, finché non viene sostituito il disco disconnesso.  
+Se possibile, Servizio integrità inizierà a far lampeggiare la luce della spia del disco fisico disconnesso o dello slot corrispondente. La spia continuerà a lampeggiare per un tempo indefinito, finché il disco non verrà sostituito.  
 
 >[!NOTE]
-> In alcuni casi, il disco potrebbe non essere riuscita in modo da preclude persino il lampeggiamento chiaro il funzionamento, ad esempio, un'interruzione dell'alimentazione totale.  
+> In alcuni casi il guasto del disco potrebbe precludere persino il lampeggiamento della spia, ad esempio in caso di mancanza totale di alimentazione elettrica.  
 
 #### <a name="physical-replacement"></a>Sostituzione disco fisico  
 
-È necessario sostituire il disco fisico disconnesso quando possibile. In genere costituito un caldo - ad esempio Spegnere l'enclosure di archiviazione o del nodo non è obbligatorio. L'errore per la posizione utile e parte informazioni, vedere.  
+È necessario sostituire il disco fisico disconnesso quando possibile. In genere, si tratta di una hot swap - vale a dire lo spegnimento dell'enclosure di archiviazione o di nodo non è obbligatorio. Vedere i dettagli dell'errore per le informazioni sulla posizione e sulla parte.  
 
 #### <a name="verification"></a>Verifica
 
-Quando viene inserito il disco sostitutivo, verrà verificato contro il documento dei componenti supportati (vedere la sezione successiva).
+Quando viene inserito il disco sostitutivo, verrà verificato per il documento dei componenti supportati (vedere la sezione successiva).
 
-#### <a name="pooling"></a>Il pool  
+#### <a name="pooling"></a>Inserimento nel pool  
 
-Se è consentito, il disco sostitutivo verrà sostituito automaticamente nel pool del suo predecessore, immettere l'uso. A questo punto, il sistema è tornato allo stato iniziale di integrità perfetta e quindi l'errore scompare.  
+Se autorizzato, il disco sostitutivo verrà sostituito automaticamente nel pool del disco precedente per iniziare a essere usato. A questo punto, il sistema è tornato allo stato iniziale di integrità perfetta e quindi l'errore scompare.  
 
-## <a name="supported-components-document"></a>Documento componenti supportati  
+## <a name="supported-components-document"></a>Documento dei componenti supportati  
 
-Il servizio integrità offre un meccanismo di imposizione per limitare i componenti usati da spazi di archiviazione diretta a quelli inclusi in un documento di componenti supportati fornito dall'amministratore o fornitore della soluzione. Questo consente di evitare che insorgano usi hardware non supportato dallo sviluppatore o da altri utenti, che consentano di conformità contratto garanzia o supporto. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, tra cui unità SSD, HDD, e unità NVMe. Limitare il documento di componenti è supportato nel modello, produttore (facoltativo) e del firmware versione (facoltativa).
+Il servizio di integrità fornisce un meccanismo di imposizione per limitare i componenti usati per spazi di archiviazione diretta per quelle in un documento dei componenti supportati fornito dall'amministratore o fornitore della soluzione. In questo modo si evita che l’utente usi hardware non supportato e che insorgano problemi di garanzia o di conformità con il contratto di assistenza. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, tra cui unità HDD, SSD e unità NVMe. Il documento dei componenti supportati possono limitare in versione di modello, produttore (facoltativo) e del firmware (facoltativa).
 
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
 
-Il documento dei componenti supportati Usa una sintassi XML. Ti consigliamo di usare un editor di testo, ad esempio Visual Studio Code (disponibile gratuitamente [qui](http://code.visualstudio.com/)) o blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
+Il documento dei componenti supportati Usa una sintassi XML. È consigliabile usare un editor di testo, ad esempio la versione gratuita [Visual Studio Code](http://code.visualstudio.com/) o blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
 
 #### <a name="sections"></a>Sezioni
 
-Il documento contiene due sezioni indipendenti: **dischi** e **Cache**.
+Il documento contiene due sezioni indipendenti: `Disks` e `Cache`.
 
-Se il **dischi** sezione viene fornita, sono consentite solo le unità elencate aggiunto ai pool. Qualsiasi unità non in elenco non possono aggiungersi ai pool, che quindi in modo efficace il loro uso nell'ambiente di produzione. Se in questa sezione viene lasciata vuota, qualsiasi unità potrà essere aggiunto ai pool.
+Se il `Disks` sezione viene fornito, solo le unità elencati (come `Disk`) sono autorizzati ad aggiungere i pool. Tutte le unità non in elenco vengono impedite di aggiungersi ai pool, precluso loro uso in produzione. Se in questa sezione viene lasciata vuota, qualsiasi unità potrà essere aggiunto ai pool.
 
-Se il **Cache** sezione viene fornita, verranno utilizzate per la memorizzazione nella cache solo le unità elencate. Se in questa sezione viene lasciata vuota, spazi di archiviazione diretta tenterà di indovinare in base a tipo di supporto e tipo di bus. Ad esempio, se la distribuzione Usa unità SSD (SSD) e unità disco rigido (HDD), il primo viene automaticamente scelto per la memorizzazione nella cache; Tuttavia, se la distribuzione Usa all-flash, si potrebbe essere necessario specificare i dispositivi di resistenza superiore che si desidera utilizzare per la memorizzazione nella cache qui.
+Se il `Cache` sezione viene fornito, solo le unità elencati (come `CacheDisk`) vengono usati per la memorizzazione nella cache. Se in questa sezione viene lasciata vuota, spazi di archiviazione diretta tenta [ipotesi basati sul tipo di supporti e tipo di bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Le unità elencate di seguito devono essere elencate anche in `Disks`.
 
 >[!IMPORTANT]
-> Il documento dei componenti supportati non vale in modo retroattivo per le unità già in pool e in uso.  
+> Il documento dei componenti supportati non si applica retroattivamente alle unità già in pool e in uso.  
 
-#### <a name="example"></a>Esempio  
+#### <a name="example"></a>Esempio
 
 ```XML
 <Components>
@@ -119,41 +121,46 @@ Se il **Cache** sezione viene fornita, verranno utilizzate per la memorizzazione
       </AllowedFirmware>
       <TargetFirmware>
         <Version>2.1</Version>
-        <BinaryPath>\\path\to\image.bin</BinaryPath>
+        <BinaryPath>C:\ClusterStorage\path\to\image.bin</BinaryPath>
       </TargetFirmware>
     </Disk>
-  </Disks>
-
-  <Cache>
     <Disk>
       <Manufacturer>Fabrikam</Manufacturer>
       <Model>QRSTUV</Model>
     </Disk>
+  </Disks>
+
+  <Cache>
+    <CacheDisk>
+      <Manufacturer>Fabrikam</Manufacturer>
+      <Model>QRSTUV</Model>
+    </CacheDisk>
   </Cache>
 
 </Components>
 
 ```
 
-Per visualizzare un elenco più unità, aggiungere semplicemente altri ** &lt;disco&gt; ** tag all'interno di una delle due sezioni.
+Per elencare più unità, è sufficiente aggiungere ulteriori `<Disk>` o `<CacheDisk>` tag.
 
-Per inserire il codice XML durante la distribuzione di spazi di archiviazione diretta, utilizzare il **- XML** flag:
+Per inserire il codice XML durante la distribuzione di spazi di archiviazione diretta, usare il `-XML` parametro:
 
 ```PowerShell
-Enable-ClusterS2D -XML <MyXML>
+$MyXML = Get-Content <Filepath> | Out-String  
+Enable-ClusterS2D -XML $MyXML
 ```
 
-Per impostare o modificare il documento di componenti supportati quando spazi di archiviazione diretta è stato distribuito (ad esempio, una volta che è già in esecuzione il servizio integrità), utilizzare il cmdlet PowerShell seguente:
+Per impostare o modificare il documento dei componenti supportati spazi di archiviazione diretta è già stato distribuito:
 
 ```PowerShell
-$MyXML = Get-Content <\\path\to\file.xml> | Out-String  
+$MyXML = Get-Content <Filepath> | Out-String  
 Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $MyXML  
 ```
 
 >[!NOTE]
->Il modello, produttore e le proprietà di versione del firmware devono corrispondere esattamente ai valori che si ottengano usando il **Get-PhysicalDisk** cmdlet. Questo può essere diverso dal tuo previsione "buon senso", a seconda di implementazione del proprio fornitore. Ad esempio, il produttore potrebbe essere "CONTOSO LTD" invece di "Contoso", oppure può essere vuoto mentre il modello è "Contoso-XZY9000".  
+>Il modello, il produttore e le proprietà della versione del firmware devono corrispondere esattamente ai valori che si ottengano usando il cmdlet **Get-PhysicalDisk**. Il risultato può essere diverso da quanto ci si aspetterebbe ma dipende dall’implementazione del proprio fornitore. Ad esempio, il produttore potrebbe essere "CONTOSO LTD" invece di "Contoso", oppure il campo potrebbe essere vuoto mentre il modello è "Contoso-XZY9000".  
 
-È possibile verificare tramite il cmdlet PowerShell seguente:  
+Per verificare, usare il cmdlet PowerShell seguente:  
 
 ```PowerShell
 Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion  
@@ -161,11 +168,11 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 ## <a name="settings"></a>Impostazioni
 
-Vedere [le impostazioni del servizio integrità](health-service-settings.md).
+Visualizzare [le impostazioni del servizio integrità](health-service-settings.md).
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Servizio integrità invia report](health-service-reports.md)
+- [Report sull'integrità del servizio](health-service-reports.md)
 - [Errori del servizio integrità](health-service-faults.md)
 - [Azioni del servizio integrità](health-service-actions.md)
 - [Impostazioni del servizio integrità](health-service-settings.md)

@@ -1,7 +1,7 @@
 ---
 ms.assetid: c81b8291-fba5-4b30-a43d-7feb2f4b66be
-title: Guida alla progettazione di ADFS in Windows Server 2012 R2
-description: 
+title: Guida alla progettazione di AD FS in Windows Server 2012 R2
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,88 +10,89 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: f618add4c4803142b3bd7278908834a412f30999
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59862572"
 ---
-# <a name="identify-your-ad-fs-deployment-goals"></a>Identificare gli obiettivi di distribuzione AD FS
+# <a name="identify-your-ad-fs-deployment-goals"></a>Identificare gli obiettivi di distribuzione di ADFS
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2
 
-Identificazione corretta degli obiettivi di distribuzione di Active Directory Federation Services \(AD FS\) è essenziale per il successo del tuo progetto di progettazione di ADFS. Definire la priorità e, se possibile, combinare gli obiettivi di distribuzione in modo che sia possibile progettare e distribuire ADFS utilizzando un approccio iterativo. Possono sfruttare esistenti, documentati e predefiniti AD FS gli obiettivi di distribuzione sono rilevanti per i progetti di ADFS e sviluppano una soluzione appropriata per la situazione specifica.  
+Identificazione corretta di Active Directory Federation Services \(ADFS\) degli obiettivi di distribuzione è essenziale per il successo del progetto di progettazione di AD FS. Definire le priorità e, se possibile, combinare gli obiettivi di distribuzione in modo che sia possibile progettare e distribuire AD FS con un approccio iterativo. È possibile sfruttare i vantaggi esistenti, documentati e predefiniti degli obiettivi di distribuzione di AD FS che sono rilevanti per le progettazioni di AD FS e sviluppano una soluzione appropriata per la situazione specifica.  
   
-Le versioni precedenti di ADFS sono state distribuite più comunemente per ottenere quanto segue:  
+Le versioni precedenti di AD FS sono state distribuite più comunemente per ottenere quanto segue:  
   
--   Fornire ai dipendenti o ai clienti con una basata sul Web, esperienza SSO quando accedono alle applicazioni basate su claims\ all'interno dell'azienda.  
+-   Fornire ai dipendenti o i clienti con un sito web\-base, esperienza SSO quando l'accesso alle attestazioni\-basato su applicazioni all'interno dell'azienda.  
   
--   Fornire ai dipendenti o ai clienti un'esperienza SSO basata sul Web, per accedere alle risorse in qualsiasi organizzazione partner federativo.  
+-   Fornire ai dipendenti o i clienti con un web\-esperienza basata su, l'accesso SSO per accedere alle risorse in qualsiasi organizzazione partner federativo.  
   
--   Fornire ai dipendenti o ai clienti con una basata sul Web, esperienza SSO quando internamente l'accesso remoto ospitato siti Web o servizi.  
+-   Fornire ai dipendenti o i clienti con un Web\-basato, esperienza SSO internamente l'accesso remoto ospitato siti Web o servizi.  
   
--   Fornire ai dipendenti o ai clienti un'esperienza SSO basata sul Web, quando si accede a risorse o ai servizi nel cloud.  
+-   Fornire ai dipendenti o i clienti con un web\-basato, esperienza SSO quando si accede a risorse o servizi nel cloud.  
   
-Oltre a questi elementi, AD FS in Windows Server® 2012 R2 aggiunge funzionalità che consentono di ottenere quanto segue:  
+Oltre a queste, ADFS in Windows Server® 2012 R2 consente di aggiungere funzionalità che consentono di ottenere quanto segue:  
   
--   Aggiunta alla rete aziendale di dispositivo per SSO e trasparente secondo autenticazione fattori. In questo modo le organizzazioni consentire l'accesso dai dispositivi personali dell'utente e gestire i rischi quando viene fornito l'accesso.  
+-   Aggiunta dei dispositivi all'area di lavoro per l'accesso SSO e l'autenticazione a due fattori trasparente. In questo modo le organizzazioni possono consentire l'accesso dai dispositivi personali dell'utente e gestire i rischi correlati quando si fornisce l'accesso.  
   
--   Gestione dei rischi con il controllo di accesso più fattori. AD FS fornisce un elevato livello di autorizzazione che controlla chi ha accesso a quali applicazioni. Questo può essere basato su attributi di utente \ (UPN, posta elettronica, l'appartenenza al gruppo di sicurezza, complessità dell'autenticazione e così via \), gli attributi dei dispositivi \ (se il dispositivo è joined\ all'area di lavoro) o richiedere gli attributi \ (rete percorso, l'indirizzo IP o agent\. utente).  
+-   Gestione dei rischi con più\-fattore di controllo di accesso. AD FS fornisce un elevato livello di autorizzazioni per controllare a chi viene concesso l'accesso e per quali applicazioni. Ciò può essere basata su attributi utente \(UPN, posta elettronica, l'appartenenza al gruppo di sicurezza, livello di autenticazione e così via\), gli attributi del dispositivo \(se il dispositivo è aggiunto all'area di lavoro\) o richiedere gli attributi \(percorso di rete, indirizzo IP o agente utente\).  
   
--   Gestione dei rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni sensibili. ADFS consente di controllare i criteri per richiedere l'autenticazione a più fattori a livello globale o in ogni applicazione. Inoltre, AD FS fornisce dei punti di estendibilità per qualsiasi fornitore a più fattori per l'integrazione in profondità per un'esperienza di fattori più sicuro e trasparente per gli utenti finali.  
+-   Gestione dei rischi con più aggiuntive\-factor authentication per le applicazioni sensibili. ADFS consente di controllare i criteri per richiedere multi\-fattore di autenticazione a livello globale o in ogni singola applicazione. Inoltre, ADFS fornisce punti di estendibilità per qualsiasi multi\-fornitore factor integrare profondamente per una più sicuro e trasparente\-fattore per gli utenti finali.  
   
--   Fornire funzionalità di autenticazione e autorizzazione per accedere alle risorse web dalla rete extranet protette da Proxy applicazione Web.  
+-   Fornendo funzionalità di autenticazione e autorizzazione per accedere alle risorse web dalla rete extranet protette da Proxy applicazione Web.  
   
-Per riassumere, è possibile distribuire ADFS in Windows Server 2012 R2 per raggiungere gli obiettivi seguenti nell'organizzazione:  
+Per riepilogare, è possibile distribuire ADFS in Windows Server 2012 R2 per realizzare gli obiettivi seguenti all'interno dell'organizzazione:  
   
-### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>Consentire agli utenti di accedere alle risorse nei loro dispositivi personali da qualsiasi posizione  
+### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>Abilitare gli utenti per accedere alle risorse dai dispositivi personali da qualsiasi posizione  
   
--   Aggiunta alla rete aziendale che consente agli utenti di aggiungere i dispositivi personali ad Active Directory aziendale e ottenere di conseguenza l'accesso e un'esperienza trasparente quando accedono alle risorse aziendali da tali dispositivi.  
+-   Aggiunta all'area di lavoro che consente agli utenti di aggiungere i propri dispositivi personali ad Active Directory dell'azienda e, di conseguenza, ottenere l'accesso e un'esperienza trasparente quando accedono alle risorse aziendali da tali dispositivi.  
   
--   Pre-autenticazione delle risorse all'interno della rete azienda protette da proxy applicazione Web e accessibile da internet.  
+-   Pre\-autenticazione delle risorse all'interno della rete azienda che sono protette da proxy applicazione Web e accessibili da internet.  
   
--   Modifica della password per consentire agli utenti di modificare la password da qualsiasi dispositivo aggiunto all'area di lavoro quando la password è scaduto in modo che possono continuare ad accedere alle risorse.  
+-   Modifica della password per consentire agli utenti di modificare la password alla scadenza da qualsiasi dispositivo aggiunto all'area di lavoro così da poter continuare ad accedere alle risorse.  
   
 ### <a name="enhance-your-access-control-risk-management-tools"></a>Migliorare gli strumenti di gestione dei rischi di controllo di accesso  
-Gestione dei rischi è un aspetto importante della governance e conformità di ogni organizzazione IT. Sono disponibili numerosi il controllo degli accessi rischio gestione miglioramenti in ADFS in Windows Server® 2012 R2, inclusi i seguenti:  
+La gestione dei rischi è un aspetto importante della governance e della conformità di ogni organizzazione IT. Sono disponibili numerosi accesso controllo rischio miglioramenti di gestione in ADFS in Windows Server® 2012 R2, inclusi i seguenti:  
   
--   Controlli flessibili in base al percorso di rete per definire la modalità di autenticazione dell'utente per accedere a un'applicazione protetta FS\ Active Directory.  
+-   Controlli flessibili in basano alla posizione di rete per definire la modalità di autenticazione di un utente per accedere a un'istanza di ADFS\-applicazione protetta.  
   
--   Criteri flessibili per determinare se un utente deve eseguire l'autenticazione a più fattori in base ai dati dell'utente, dati sul dispositivo e percorso di rete.  
+-   Criteri flessibili per determinare se un utente deve eseguire multi\-l'autenticazione a fattore basato su dati dell'utente, i dati del dispositivo e percorso di rete.  
   
--   Controllo delle applicazioni di Per\ per ignorare SSO e richiedere all'utente di fornire le credenziali ogni volta che accede a un'applicazione riservata.  
+-   Per ogni\-controllo delle applicazioni di ignorare SSO e richiedere all'utente di fornire credenziali ogni volta che accedono a un'applicazione riservata.  
   
--   Criteri di accesso flessibile per applicazione per\ in base ai dati utente, dati del dispositivo o percorso di rete.  
+-   Flessibile per\-criteri di accesso delle applicazioni basano sui dati dell'utente, i dati del dispositivo o il percorso di rete.  
   
--   AD FS Extranet Lockout, che consente agli amministratori di proteggere gli account di Active Directory da attacchi di forza bruta da internet.  
+-   Il blocco della Extranet di AD FS consente agli amministratori di proteggere gli account di Active Directory da attacchi di forza bruta da Internet.  
   
 -   Revoca dell'accesso per qualsiasi dispositivo aggiunto all'area di lavoro disabilitato o eliminato in Active Directory.  
   
-### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>Utilizzo di ADFS per migliorare l'esperienza di accesso  
-Di seguito sono nuove funzionalità di ADFS in Windows Server® 2012 R2 che consentono all'amministratore di personalizzare e migliorare l'esperienza di accesso:  
+### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>Usare AD FS per migliorare il segno\-nell'esperienza  
+Di seguito sono nuove funzionalità di AD FS in Windows Server® 2012 R2 che consentono di personalizzare e migliorare l'accesso amministratore\-nell'esperienza:  
   
--   Personalizzazione unificata del servizio ADFS, in cui le modifiche sono apportate una sola volta e quindi propagate automaticamente al resto dei server federativi AD FS in una specifica farm.  
+-   Personalizzazione unificata del servizio AD FS, in cui le modifiche vengono apportate una sola volta, quindi propagate automaticamente al resto dei server federativi AD FS in una specifica farm.  
   
--   Accesso pagine aggiornate che aspetto moderno che soddisfano automaticamente a diversi fattori di forma.  
+-   Aggiornato sign\-nelle pagine che aspetto moderno che soddisfano automaticamente a diversi fattori di forma.  
   
--   Supporto per il fallback automatico per l'autenticazione basata su forms\ per i dispositivi che non appartengono al dominio aziendale, ma ancora usati generare richieste di accesso dall'interno di \(intranet\) la rete aziendale.  
+-   Supporto per il fallback automatico a un form\-basato su autenticazione per i dispositivi non aggiunti al dominio aziendale, ma sono ancora usati generano richieste di accesso dall'interno della rete aziendale \(intranet\).  
   
--   Controlli semplici per personalizzare il logo della società, l'immagine di illustrazione, i collegamenti standard per il supporto IT, pagina iniziale, privacy e così via.  
+-   Controlli semplici per personalizzare il logo dell'azienda, l'immagine di illustrazione, i collegamenti standard per il supporto IT, la home page, la privacy e così via.  
   
--   Personalizzazione dei messaggi di descrizione delle pagine di accesso.  
+-   Personalizzazione della descrizione dei messaggi di accesso\-nelle pagine.  
   
--   Personalizzazione dei temi web.  
+-   Personalizzazione dei temi Web.  
   
 -   Home Realm Discovery \(HRD\) basata sul suffisso aziendale dell'utente per una privacy avanzata dei partner aziendali.  
   
--   Filtro HRD in una singola applicazione per\ per individuare automaticamente un'area di autenticazione in base all'applicazione.  
+-   Filtro HRD in una per ogni\-base all'applicazione per individuare automaticamente un'area di autenticazione in base all'applicazione.  
   
--   Fare clic su base segnalazione errori per semplici IT la risoluzione dei problemi.  
+-   Uno\-fare clic su segnalazione errori per più facilmente IT la risoluzione dei problemi.  
   
 -   Messaggi di errore personalizzabili.  
   
--   Scelta dell'autenticazione utente quando è disponibile più di un provider di autenticazione.  
+-   Scelta dell'autenticazione utente quando sono disponibili più provider di autenticazione.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Guida alla progettazione di ADFS in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Guida alla progettazione di AD FS in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

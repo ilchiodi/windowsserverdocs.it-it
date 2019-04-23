@@ -1,6 +1,6 @@
 ---
 title: Configurare il client Web di Desktop remoto per gli utenti
-description: Descrive come un amministratore può configurare il client web di Desktop remoto.
+description: Viene descritto come un amministratore può configurare il client di web Desktop remoto.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -9,118 +9,118 @@ ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
 ms.openlocfilehash: 2cb819a7f91646c61b84c3ee70550af6033ba340
-ms.sourcegitcommit: 491c94b25501732c4a4abda533cc62b8bd278ed2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "9099184"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59865972"
 ---
-# Configurare il client Web di Desktop remoto per gli utenti
+# <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web di Desktop remoto per gli utenti
 
-Il client web di Desktop remoto consente agli utenti di accedere l'infrastruttura dell'organizzazione Desktop remoto tramite un browser compatibile. Sarà in grado di interagire con le app remote o desktop come farebbero con un PC locale indipendentemente da dove si trovano. Dopo aver configurato il client web di Desktop remoto, tutti gli utenti necessitano per iniziare a è l'URL in cui poter accedere il client, le proprie credenziali e un browser web supportati.
+Il client di web Desktop remoto consente agli utenti di accedere a infrastruttura di Desktop remoto dell'organizzazione tramite un web browser compatibile con. Si sarà in grado di interagire con le app remote o desktop come si farebbe con un PC locale ovunque si trovino. Dopo aver impostato il client di web Desktop remoto, tutti gli utenti necessari per iniziare a è l'URL in cui accedono i client, le proprie credenziali e un web browser supportato.
 
 >[!IMPORTANT]
->Il client web non supporta attualmente l'utilizzo di Proxy applicazione di Azure e Proxy dell'applicazione Web non supporta affatto. Per informazioni dettagliate, vedere [Tramite Servizi Desktop remoto con servizi di proxy dell'applicazione](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services) .
+>Il client del web non supporta attualmente Usa il Proxy di applicazione di Azure e non supporta Proxy applicazione Web affatto. Visualizzare [tramite Servizi Desktop remoto con servizi proxy dell'applicazione](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services) per informazioni dettagliate.
 
-## Cosa è necessario configurare il client web
+## <a name="what-youll-need-to-set-up-the-web-client"></a>Che cosa è necessario configurare il client web
 
-Prima di iniziare, tieni presente le seguenti operazioni::
+Prima di iniziare, tenere presente quanto segue:
 
-* Assicurati che la [distribuzione di Desktop remoto](../rds-deploy-infrastructure.md) include un Gateway Desktop remoto, un gestore connessione desktop remoto e accesso Web desktop remoto in esecuzione su Windows Server 2016 o 2019.
-* Assicurati che la distribuzione è configurata per [licenze di accesso per ogni singolo utente client](../rds-client-access-license.md) (CAL) invece di per ogni dispositivo, in caso contrario, che verranno utilizzate tutte le licenze.
-* Installare l' [aggiornamento di Windows 10 KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) sul Gateway Desktop remoto. In un secondo momento aggiornamenti cumulativi potrebbe contiene già questo KB.
-* Assicurati che i certificati attendibili pubblici sono configurati per i ruoli di Gateway Desktop remoto e accesso Web desktop remoto.
-* Assicurati che tutti i computer che si connetteranno gli utenti siano in esecuzione una delle versioni del sistema operativo seguenti:
-  * Windows10
+* Assicurarsi che il [distribuzione di Desktop remoto](../rds-deploy-infrastructure.md) dispone di un Gateway Desktop remoto, un gestore connessione desktop remoto e accesso Web desktop remoto in esecuzione in Windows Server 2016 o 2019.
+* Assicurarsi che la distribuzione è configurata per [licenze CAL per utente](../rds-client-access-license.md) (CAL) anziché per ogni dispositivo, in caso contrario, tutte le licenze verranno utilizzate.
+* Installare il [aggiornamento di Windows 10 KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) su Gateway Desktop remoto. In un secondo momento gli aggiornamenti cumulativi potrebbe contiene già questa Knowledge Base.
+* Assicurarsi che i certificati pubblici attendibili sono configurati per i ruoli del servizio Gateway Desktop remoto e accesso Web desktop remoto.
+* Assicurarsi che tutti gli utenti si connetteranno per i computer siano in esecuzione una delle versioni del sistema operativo seguenti:
+  * Windows 10
   * Windows Server 2008 R2 o versione successiva
 
-Gli utenti vedranno migliori prestazioni connessione a Windows Server 2016 (o versioni successive) e Windows 10 (versione 1611 o versione successiva).
+Gli utenti visualizzeranno migliori prestazioni, ci si connette a Windows Server 2016 (o versione successiva) e Windows 10 (versione 1611 o versione successiva).
 
 >[!IMPORTANT]
->Se si utilizza il client web durante il periodo di anteprima e installato una versione precedente 1.0.0, è necessario disinstallare il client precedente prima di passare alla nuova versione. Se ricevi un errore che indica "il client web è stato installato tramite una versione precedente di RDWebClientManagement e deve essere rimossa prima di tutto prima di distribuire la nuova versione", segui questi passaggi:
+>Se si utilizza il client web durante il periodo di anteprima e installata una versione precedente alla 1.0.0, è prima di tutto necessario disinstallare il client precedente prima di passare alla nuova versione. Se si riceve un errore con la dicitura "il client web è stato installato con una versione precedente di RDWebClientManagement e deve essere rimosso prima di distribuire la nuova versione", seguire questa procedura:
 >
->1. Apri un prompt di PowerShell con privilegi elevato.
->2. Eseguire **RDWebClientManagement modulo di disinstallazione** per disinstallare il modulo di nuovo.
+>1. Aprire un prompt di PowerShell con privilegi elevato.
+>2. Eseguire **Uninstall-Module RDWebClientManagement** per disinstallare il nuovo modulo.
 >3. Chiudere e riaprire il prompt di PowerShell con privilegi elevati.
->4. Eseguire **version> \<old parametri-RequiredVersion RDWebClientManagement modulo di installazione per installare il modulo precedente.**
->5. Eseguire **RDWebClient di disinstallazione** per disinstallare il client web precedente.
->6. Eseguire **RDWebClientManagement modulo di disinstallazione** per disinstallare il modulo precedente.
+>4. Eseguire **RDWebClientManagement Install-Module - RequiredVersion \<vecchia versione > per installare il modulo precedente.**
+>5. Eseguire **Disinstalla RDWebClient** per disinstallare il client web precedente.
+>6. Eseguire **Uninstall-Module RDWebClientManagement** per disinstallare il modulo precedente.
 >7. Chiudere e riaprire il prompt di PowerShell con privilegi elevati.
->8. Procedi con la procedura di installazione normale come indicato di seguito.
+>8. Procedere come indicato di seguito con i passaggi di installazione normale.
 
-## Come pubblicare il client web di Desktop remoto
+## <a name="how-to-publish-the-remote-desktop-web-client"></a>Come pubblicare il client di web Desktop remoto
 
-Per installare il client web per la prima volta, segui questi passaggi:
+Per installare il client web per la prima volta, seguire questa procedura:
 
-1. Nel server Gestore connessione desktop remoto, ottenere il certificato usato per le connessioni Desktop remoto e lo esportate come file con estensione cer. Copia il file con estensione cer dal Gestore connessione desktop remoto per il server che esegue il ruolo Web desktop remoto.
-2. Nel server di accesso Web desktop remoto, Apri un prompt di PowerShell con privilegi elevato.
-3. In Windows Server 2016, aggiorna il modulo PowerShellGet poiché la versione della posta in arrivo non supporta l'installazione del modulo di gestione client web. Per aggiornare PowerShellGet, eseguire il cmdlet seguente:
+1. Nel server Gestore connessione desktop remoto, ottenere il certificato utilizzato per le connessioni Desktop remoto ed esportarlo come file con estensione cer. Copiare il file con estensione cer da Gestore connessione desktop remoto nel server che esegue il ruolo Web desktop remoto.
+2. Nel server Accesso Web desktop remoto, aprire un prompt di PowerShell con privilegi elevato.
+3. In Windows Server 2016, aggiornare il modulo PowerShellGet, poiché la versione della posta in arrivo non supporta l'installazione del modulo di gestione di client web. Per aggiornare PowerShellGet, eseguire il cmdlet seguente:
     ```PowerShell
     Install-Module -Name PowerShellGet -Force
     ```
 
     >[!IMPORTANT]
-    >Dovrai riavviare PowerShell per l'aggiornamento può rendere effettive, in caso contrario, che il modulo potrebbe non funzionare.
+    >È necessario riavviare PowerShell, l'aggiornamento per rendere effettive, in caso contrario, che il modulo potrebbe non funzionare.
 
-4. Installare il modulo PowerShell di gestione client di web di Desktop remoto da PowerShell gallery con questo cmdlet:
+4. Installare il modulo PowerShell di gestione di Desktop remoto web client da PowerShell gallery con questo cmdlet:
     ```PowerShell
     Install-Module -Name RDWebClientManagement
     ```
 
-5. Dopo questa operazione, Esegui il cmdlet seguente per scaricare la versione più recente del client web di Desktop remoto:
+5. Successivamente, eseguire il cmdlet seguente per scaricare la versione più recente del client web Desktop remoto:
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-6. Successivamente, Esegui questo cmdlet con il valore racchiuso tra parentesi quadre sostituito con il percorso del file con estensione cer che hai copiato dal gestore desktop remoto:
+6. Successivamente, eseguire questo cmdlet con il valore tra parentesi quadre sostituito con il percorso del file con estensione cer che è stato copiato dal Broker desktop remoto:
     ```PowerShell
     Import-RDWebClientBrokerCert <.cer file path>
     ```
 
-7. Infine, Esegui questo cmdlet per pubblicare il client web di Desktop remoto:
+7. Infine, eseguire questo cmdlet per pubblicare il client di web Desktop remoto:
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
-    Assicurati che il client web l'URL del client web accessibili con il nome del server, formattato come <https://server_FQDN/RDWeb/webclient/index.html>. È importante usare il nome del server che corrisponda al certificato pubblico accesso Web desktop remoto nell'URL (in genere il server FQDN).
+    Assicurarsi che il client web presso l'URL di client web è possibile accedere con il nome del server, nel formato <https://server_FQDN/RDWeb/webclient/index.html>. È importante usare il nome del server corrispondente al certificato pubblico di accesso Web desktop remoto nell'URL (in genere il server FQDN).
 
     >[!NOTE]
-    >Quando si esegue il cmdlet **Pubblica-RDWebClientPackage** , potresti vedere un avviso che indica le licenze CAL per ogni dispositivo che non sono supportati, anche se la distribuzione è configurata per licenze CAL per ogni utente. Se la distribuzione Usa licenze CAL per ogni singolo utente, è possibile ignorare questo avviso. Verrà visualizzata per essere certo grado di riconoscere la limitazione di configurazione.
-8. Quando sei pronto agli utenti di accedere al client web, è sufficiente inviare loro l'URL del client web è stato creato.
+    >Quando si esegue la **Publish-RDWebClientPackage** cmdlet, è possibile notare un avviso per segnalare le licenze CAL per dispositivo che non sono supportati, anche se la distribuzione è configurata per le licenze CAL per utente. Se la distribuzione Usa licenze CAL per utente, è possibile ignorare questo avviso. Verrà visualizzata per assicurarsi che si verifica il limite di configurazione.
+8. Quando si è pronti per gli utenti accedere al client web, semplicemente inviare l'URL del client web è stato creato.
 
 >[!NOTE]
->Per visualizzare un elenco di tutti i cmdlet supportati per il modulo RDWebClientManagement, Esegui il seguente cmdlet di PowerShell:
+>Per visualizzare un elenco di tutti i cmdlet supportati per il modulo RDWebClientManagement, eseguire il cmdlet seguente in PowerShell:
 >```PowerShell
 >Get-Command -Module RDWebClientManagement
 >```
 
-## Come aggiornare il client web di Desktop remoto
+## <a name="how-to-update-the-remote-desktop-web-client"></a>Come aggiornare il client di web Desktop remoto
 
-Quando è disponibile una nuova versione del client web di Desktop remoto, segui questi passaggi per la distribuzione degli aggiornamenti con il nuovo client:
+Quando è disponibile una nuova versione del client web Desktop remoto, seguire questi passaggi per aggiornare la distribuzione con il nuovo client:
 
-1. Apri un prompt di PowerShell con privilegi elevato nel server di accesso Web desktop remoto ed Esegui il cmdlet seguente per scaricare la versione più recente del client web:
+1. Aprire un prompt di PowerShell con privilegi elevati nel server di accesso Web desktop remoto ed eseguire il cmdlet seguente per scaricare la versione più recente del client web:
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-2. Facoltativamente, puoi pubblicare il client per il test prima del rilascio ufficiale eseguendo questo cmdlet:
+2. Facoltativamente, è possibile pubblicare il client per i test prima del rilascio ufficiale, eseguire questo cmdlet:
     ```PowerShell
     Publish-RDWebClientPackage -Type Test -Latest
     ```
 
-    Il client deve essere visualizzato nell'URL test che corrisponde all'URL del client web (ad esempio, <https://server_FQDN/RDWeb/webclient-test/index.html>).
-3. Pubblicare il client per gli utenti eseguendo il cmdlet seguente:
+    Il client deve essere visualizzato nell'URL di test che corrisponde all'URL di client web (ad esempio, <https://server_FQDN/RDWeb/webclient-test/index.html>).
+3. Pubblicare il client per gli utenti, eseguire il cmdlet seguente:
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
 
-    Questo sostituirà il client per tutti gli utenti quando vengono riavviare la pagina web.
+    Il client per tutti gli utenti verranno sostituite quando si riavvia la pagina web.
 
-## Come disinstallare il client web di Desktop remoto
+## <a name="how-to-uninstall-the-remote-desktop-web-client"></a>Come disinstallare il client di web Desktop remoto
 
-Per rimuovere tutte le tracce del client web, segui questi passaggi:
+Per rimuovere tutte le tracce del client web, seguire questa procedura:
 
-1. Nel server di accesso Web desktop remoto, Apri un prompt di PowerShell con privilegi elevato.
-2. Annullare la pubblicazione i client di Test e produzione, disinstallare tutti i pacchetti locali e rimuovere le impostazioni client web:
+1. Nel server Accesso Web desktop remoto, aprire un prompt di PowerShell con privilegi elevato.
+2. Annullare la pubblicazione il client di Test e produzione, disinstallare tutti i pacchetti locali e rimuovere le impostazioni del client web:
 
    ```PowerShell
    Uninstall-RDWebClient
@@ -132,159 +132,159 @@ Per rimuovere tutte le tracce del client web, segui questi passaggi:
    Uninstall-Module -Name RDWebClientManagement
    ```
 
-## Come installare il client web di Desktop remoto senza una connessione internet
+## <a name="how-to-install-the-remote-desktop-web-client-without-an-internet-connection"></a>Come installare il client di web Desktop remoto senza una connessione internet
 
-Segui questi passaggi per distribuire il client web a un server di accesso Web desktop remoto che non dispone di una connessione internet.
-
-> [!NOTE]
-> L'installazione senza una connessione internet è disponibile nella versione 1.0.1 e di sopra del modulo RDWebClientManagement PowerShell.
+Seguire questi passaggi per distribuire il client web a un server Accesso Web desktop remoto che non ha una connessione a internet.
 
 > [!NOTE]
-> Devi comunque un amministratore di PC con accesso a internet per scaricare i file necessari prima del trasferimento al server offline.
+> Installazione senza una connessione internet non è disponibile nella versione 1.0.1 e versioni successive del modulo RDWebClientManagement PowerShell.
 
 > [!NOTE]
-> Il PC degli utenti finali richiede una connessione internet per il momento. Questo verrà risolto in una versione futura del client per fornire uno scenario offline completo.
+> È comunque necessario un amministratore PC con l'accesso a internet per scaricare i file necessari prima di trasferirli nel server offline.
 
-### Da un dispositivo con accesso a internet
+> [!NOTE]
+> I PC degli utenti finali richiede una connessione internet per il momento. Questo verrà risolto in una versione futura del client per fornire uno scenario offline completo.
 
-1. Apri un prompt di PowerShell.
+### <a name="from-a-device-with-internet-access"></a>Da un dispositivo con accesso a internet
+
+1. Aprire un prompt di PowerShell.
 
 2. Importa il modulo PowerShell di gestione client di web Desktop remoto da PowerShell gallery:
     ```PowerShell
     Import-Module -Name RDWebClientManagement
     ```
 
-3. Scarica la versione più recente del client web di Desktop remoto per l'installazione su un altro dispositivo:
+3. Scaricare la versione più recente del client web Desktop remoto per l'installazione in un altro dispositivo:
     ```PowerShell
     Save-RDWebClientPackage "C:\WebClient\"
     ```
 
-4. Scarica la versione più recente del modulo RDWebClientManagement PowerShell:
+4. Scaricare la versione più recente del modulo RDWebClientManagement PowerShell:
     ```PowerShell
     Find-Module -Name "RDWebClientManagement" -Repository "PSGallery" | Save-Module -Path "C:\WebClient\"
     ```
 
-5. Copia il contenuto della "C:\WebClient\" al server di accesso Web desktop remoto.
+5. Copiare il contenuto di "C:\WebClient\" al server Accesso Web desktop remoto.
 
-### Dal server di accesso Web desktop remoto
+### <a name="from-the-rd-web-access-server"></a>Dal server di accesso Web desktop remoto
 
-Segui le istruzioni in [come pubblicare il client web di Desktop remoto](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), sostituendo i passaggi 4 e 5 con il seguente.
+Seguire le istruzioni riportate sotto [come pubblicare il client di web Desktop remoto](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), sostituendo i passaggi 4 e 5 con il codice seguente.
 
 4. Importa il modulo PowerShell di gestione client di web Desktop remoto dalla cartella locale:
     ```PowerShell
     Import-Module -Name "C:\WebClient\"
     ```
 
-5. Distribuire la versione più recente del client web di Desktop remoto dalla cartella locale (sostituzione con il file zip appropriato):
+5. Distribuire la versione più recente del client web Desktop remoto dalla cartella locale (sostituire con il file zip appropriato):
     ```PowerShell
     Install-RDWebClientPackage -Source "C:\WebClient\rdwebclient-1.0.1.zip"
     ```
 
-## La connessione al gestore di desktop remoto senza Gateway Desktop remoto in Windows Server 2019
-Questa sezione descrive come abilitare una connessione client web di un gestore di desktop remoto senza Gateway Desktop remoto in Windows Server 2019.
+## <a name="connecting-to-rd-broker-without-rd-gateway-in-windows-server-2019"></a>La connessione a desktop remoto senza Gateway Desktop remoto in Windows Server 2019
+Questa sezione descrive come abilitare una connessione di client web a un gestore di desktop remoto senza un Gateway Desktop remoto in Windows Server 2019.
 
-### La configurazione del server di desktop remoto
+### <a name="setting-up-the-rd-broker-server"></a>Configurazione del server Broker di desktop remoto
 
-#### Segui questi passaggi se non è presente alcun certificato associato al server di desktop remoto
+#### <a name="follow-these-steps-if-there-is-no-certificate-bound-to-the-rd-broker-server"></a>Seguire questa procedura se non è presente un certificato associato al server di desktop remoto
 
-1. Apri **Server Manager** > **Servizi Desktop remoto**.
+1. Aprire **Server Manager** > **Servizi Desktop remoto**.
 
-2. Nella sezione **Cenni preliminari sulla distribuzione** , seleziona il menu a discesa di **attività** .
+2. Nelle **Cenni preliminari sulla distribuzione** selezionare la **attività** menu a discesa.
 
-3. Verrà aperta seleziona **Modificare le proprietà di distribuzione**, una nuova finestra intitolata **Proprietà di distribuzione** .
+3. Selezionare **modificare le proprietà di distribuzione**, una nuova finestra intitolata **delle proprietà di distribuzione** verrà aperto.
 
-4. Nella finestra **Proprietà di distribuzione** , seleziona **i certificati** nel menu a sinistra.
+4. Nel **le proprietà di distribuzione** finestra, seleziona **certificati** nel menu a sinistra.
 
-5. Nell'elenco dei livelli di certificato, seleziona **Gestore connessione desktop remoto - abilitare Single Sign-On**. Hai due opzioni: (1) creare un nuovo certificato o (2) un certificato esistente.
+5. Nell'elenco dei livelli di certificato, selezionare **Gestore connessione desktop remoto - Attiva Single Sign-On**. Sono disponibili due opzioni: (1) creare un nuovo certificato o (2) un certificato esistente.
 
-#### Segui questi passaggi se è presente un certificato in precedenza associato al server di desktop remoto
+#### <a name="follow-these-steps-if-there-is-a-certificate-previously-bound-to-the-rd-broker-server"></a>Seguire questa procedura se è presente un certificato precedentemente associato al server di desktop remoto
 
-1. Apri il certificato associato al gestore e copia il valore di **identificazione personale** .
+1. Aprire il certificato associato per il Broker e copiare il **identificazione personale** valore.
 
-2. Per associare il certificato alla porta sicura 3392, Apri una finestra di PowerShell con privilegi elevata ed Esegui il comando seguente, sostituendo **lt identificazione personale gt _"** con il valore copiato dal passaggio precedente:
+2. Per associare il certificato alla porta sicura 3392, aprire una finestra di PowerShell con privilegi elevata ed eseguire il seguente comando, sostituendo **"< identificazione personale >"** con il valore copiato nel passaggio precedente:
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" certstorename="Remote Desktop" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Per controllare se il certificato è stato associato correttamente, Esegui il comando seguente:
+    > Per controllare se il certificato è stato associato correttamente, eseguire il comando seguente:
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > Nell'elenco dei binding certificato SSL, assicurati che il certificato corretto viene associato alla porta 3392.
+    > Nell'elenco di associazioni certificato SSL, assicurarsi che il certificato corretto è associato alla porta 3392.
 
-3. Apri il Registro di sistema (regedit) e nagivate a ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` e individua la chiave **WebSocketURI**. Il valore deve essere impostato su **https://+:3392/rdp/**.
+3. Aprire il Registro di sistema di Windows (regedit) e a nagivate ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` e individuare la chiave **WebSocketURI**. Il valore deve essere impostato su **https://+:3392/rdp/**.
 
-### Configurazione di Host sessione Desktop remoto
-Se il server Host sessione Desktop remoto è diverso dal server di desktop remoto, segui questi passaggi:
+### <a name="setting-up-the-rd-session-host"></a>Configurazione di Host sessione Desktop remoto
+Il server Host sessione Desktop remoto è diverso dal server Broker di desktop remoto, seguire questa procedura:
 
-1. Creare un certificato per il computer Host sessione Desktop remoto, aprilo e copia il valore di **identificazione personale** .
+1. Creare un certificato per la macchina Host sessione Desktop remoto, aprire e copiare il **identificazione personale** valore.
 
-2. Per associare il certificato alla porta sicura 3392, Apri una finestra di PowerShell con privilegi elevata ed Esegui il comando seguente, sostituendo **lt identificazione personale gt _"** con il valore copiato dal passaggio precedente:
+2. Per associare il certificato alla porta sicura 3392, aprire una finestra di PowerShell con privilegi elevata ed eseguire il seguente comando, sostituendo **"< identificazione personale >"** con il valore copiato nel passaggio precedente:
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Per controllare se il certificato è stato associato correttamente, Esegui il comando seguente:
+    > Per controllare se il certificato è stato associato correttamente, eseguire il comando seguente:
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > Nell'elenco dei binding certificato SSL, assicurati che il certificato corretto viene associato alla porta 3392.
+    > Nell'elenco di associazioni certificato SSL, assicurarsi che il certificato corretto è associato alla porta 3392.
 
-3. Apri il Registro di sistema (regedit) e nagivate a ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` e individua la chiave **WebSocketURI**. Il valore deve essere impostato su **https://+:3392/rdp/**.
+3. Aprire il Registro di sistema di Windows (regedit) e a nagivate ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` e individuare la chiave **WebSocketURI**. Il valore deve essere impostato su **https://+:3392/rdp/**.
 
-### Osservazioni generali
+### <a name="general-observations"></a>Osservazioni generali
 
-* Assicurati che il server Host sessione Desktop remoto sia desktop sono in esecuzione Windows Server 2019.
+* Assicurarsi che i server Host sessione Desktop remoto e di desktop remoto eseguano Windows Server 2019.
 
-* Assicurati che pubblica attendibili i certificati sono configurati per server Host sessione Desktop remoto e di desktop remoto.
+* Verificare che tali pubblici attendibili i certificati sono configurati per il server Host sessione Desktop remoto sia il desktop remoto.
     > [!NOTE]
-    > Se l'Host sessione Desktop remoto sia il server gestore desktop remoto condividono lo stesso computer, imposta solo il certificato del server gestore desktop remoto. Se il server Host sessione Desktop remoto e desktop Usa computer diversi, entrambi deve essere configurati con certificati univoci.
+    > Se l'Host sessione Desktop remoto sia sul server di desktop remoto condividono lo stesso computer, impostare solo il certificato del server Broker di desktop remoto. Se il server Host sessione Desktop remoto e Broker di desktop remoto utilizza computer diversi, entrambi deve essere configurati con certificati univoci.
 
-* Il **Nome alternativo del soggetto (SAN)** per ogni certificato deve essere impostata su del computer **Completamente dominio nome completo (FQDN)**. Il **Nome comune (CN)** deve corrispondere alla SAN per ogni certificato.
+* Il **nome alternativo soggetto (SAN)** di ogni certificato deve essere impostato per la macchina **completamente dominio nome completo (FQDN)**. Il **nome comune (CN)** deve corrispondere la rete SAN per ogni certificato.
 
-## Risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se un utente segnala eventuali problemi seguenti all'apertura del client web per la prima volta, le sezioni seguenti indicherà che cosa fare per risolverli.
+Se un utente segnala i problemi seguenti quando si apre il client web per la prima volta, le sezioni seguenti indicherà quali operazioni eseguire per correggerli.
 
-### Cosa fare se il browser dell'utente viene visualizzato un avviso di sicurezza quando si tenta di accedere al client web
+### <a name="what-to-do-if-the-users-browser-shows-a-security-warning-when-they-try-to-access-the-web-client"></a>Cosa fare se il browser dell'utente viene visualizzato un avviso di sicurezza quando si prova ad accedere al client web
 
-Il ruolo di accesso Web desktop remoto possa non essere con un certificato attendibile. Assicurati che il ruolo di accesso Web desktop remoto è configurato con un certificato attendibile pubblicamente.
+Il ruolo Accesso Web desktop remoto non in uso da un certificato attendibile. Assicurarsi che il ruolo Accesso Web desktop remoto è configurato con un certificato attendibile pubblicamente.
 
-Se il problema persiste, il nome del server nel web URL client potrebbe non corrispondere al nome fornito dal certificato di Web desktop remoto. Assicurati che l'URL Usa il nome FQDN del server che ospita il ruolo Web desktop remoto.
+Se il problema persiste, il nome del server del Web URL client potrebbero non corrispondere al nome fornito per il certificato di Web desktop remoto. Assicurarsi che l'URL Usa il nome FQDN del server che ospita il ruolo Web desktop remoto.
 
-### Cosa fare se l'utente non può connettersi a una risorsa con il client web, anche se possono vedere gli elementi in tutte le risorse
+### <a name="what-to-do-if-the-user-cant-connect-to-a-resource-with-the-web-client-even-though-they-can-see-the-items-under-all-resources"></a>Cosa fare se l'utente non può connettersi a una risorsa con il client web, anche se è possibile visualizzare gli elementi in tutte le risorse
 
-Se l'utente segnala che non può connettersi con il client web anche se possono vedere le risorse elencate, verificare quanto segue:
+Se l'utente che non possono connettersi con il client web anche se possono vedere le risorse elencate, verificare quanto segue:
 
-* Il ruolo di Gateway Desktop remoto è configurato correttamente per l'uso di un certificato attendibile pubblico?
-* Il server Gateway Desktop remoto avere installato gli aggiornamenti necessari? Assicurati che il server disponga di [aggiornare il KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) installato.
+* Il ruolo Gateway Desktop remoto è configurato correttamente per usare un certificato pubblico attendibile?
+* Il server Gateway Desktop remoto ha gli aggiornamenti richiesti installati? Assicurarsi che il server abbia [KB4025334 aggiornamento](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) installato.
 
-Se l'utente riceve un errore "è stata ricevuta certificato di autenticazione server imprevisto" messaggio quando tentano di connettersi, quindi viene visualizzato il messaggio identificazione personale del certificato. Cerca in Gestione certificati del server gestore desktop remoto con tale identificazione personale per trovare il certificato corretto. Verificare che il certificato è configurato per essere usato per il ruolo di desktop remoto nella pagina delle proprietà di distribuzione di Desktop remoto. Dopo verificando che il certificato non è scaduto, copiare il certificato nel formato di file con estensione cer al server di accesso Web desktop remoto ed eseguire il comando seguente nel server di accesso Web desktop remoto con il valore racchiuso tra parentesi quadre sostituito dal percorso del file del certificato:
+Se l'utente riceve un errore "è stato ricevuto il certificato di autenticazione server imprevisto" del messaggio quando provano a connettersi, quindi il messaggio verrà visualizzato l'identificazione personale del certificato. Cerca il gestore di certificati del server Broker di desktop remoto utilizzando tale identificazione digitale per trovare il certificato appropriato. Verificare che il certificato sia configurato per essere utilizzato per il ruolo del Broker di desktop remoto nella pagina delle proprietà di distribuzione di Desktop remoto. Dopo assicurandosi che il certificato non è ancora scaduto, copiare il certificato nel formato file CER per il server Accesso Web desktop remoto ed eseguire il comando seguente nel server di accesso Web desktop remoto con il valore tra parentesi quadre sostituito dal percorso del file del certificato:
 
 ```PowerShell
 Import-RDWebClientBrokerCert <certificate file path>
 ```
 
-### Diagnosticare i problemi con il log di console
+### <a name="diagnose-issues-with-the-console-log"></a>Diagnosticare i problemi con il log della console
 
-Se non è possibile risolvere il problema in base alle istruzioni risoluzione dei problemi in questo articolo, puoi provare a diagnosticare l'origine del problema osservando la console di log nel browser. Il client web offre un metodo per la registrazione dell'attività di log del browser console durante l'uso del client web per facilitare la diagnosi di problemi.
+Se è possibile risolvere il problema di base alle istruzioni sulla risoluzione dei problemi in questo articolo, è possibile provare a diagnosticare l'origine del problema osservando la console di accesso nel browser. Il client web fornisce un metodo per registrare l'attività di log di console del browser quando si usa il client web per facilitare la diagnosi di problemi.
 
-* Seleziona i puntini di sospensione nell'angolo superiore destro e passare alla pagina **** nel menu a discesa.
-* Selezionare il pulsante di **avviare la registrazione di** **informazioni sul supporto di acquisizione** .
-* Eseguire le operazioni nel client web che ha generato il problema che si sta tentando di diagnosticare.
-* Passa alla pagina **su** e seleziona **interrompere la registrazione**.
-* Il browser scaricherà automaticamente un file con estensione txt intitolato **Logs.txt Console desktop remoto**. Questo file conterrà l'attività di log console completo generato durante la riproduzione il problema di destinazione.
+* Selezionare i puntini di sospensione nell'angolo superiore destro e passare per il **sulle** pagina nel menu a discesa.
+* Sotto **le informazioni di supporto di acquisizione** selezionare la **avviare la registrazione** pulsante.
+* Eseguire le operazioni nel client web che ha generato il problema che si sta tentando di diagnosi.
+* Passare il **sulle** pagina e selezionare **Arresta registrazione**.
+* Il browser scaricherà automaticamente un file con estensione txt intitolato **desktop remoto Console Logs**. Questo file conterrà l'attività di log di console completo generato durante la riproduzione del problema di destinazione.
 
-È possibile accedere direttamente tramite il browser anche la console. La console in genere si trova sotto gli strumenti di sviluppo. Ad esempio, è possibile accedere il registro in Microsoft Edge, premendo il tasto **F12** o selezionando i puntini di sospensione, quindi passare a **ulteriori strumenti** > **Strumenti di sviluppo**.
+La console è inoltre accessibile direttamente tramite il browser. La console è in genere si trova sotto gli strumenti di sviluppo. Ad esempio, è possibile accedere il log in Microsoft Edge premendo la **F12** importanti o selezionando i puntini di sospensione, quindi passando alla **più strumenti** > **glistrumentidisviluppo**.
 
-## Ottenere assistenza con il client web
+## <a name="get-help-with-the-web-client"></a>Ottieni assistenza per il client web
 
-Se si è verificato un problema che non può essere risolto tramite le informazioni contenute in questo articolo, è possibile [inviare un'e-mail](mailto:rdwbclnt@microsoft.com) per segnalare. È anche possibile richiedere o votare nuove funzionalità al nostro [casella di suggerimento](https://aka.ms/rdwebfbk).
+Se si è verificato un problema che non può essere risolto tramite le informazioni contenute in questo articolo, è possibile [messaggio di posta elettronica](mailto:rdwbclnt@microsoft.com) per segnalarla. È anche possibile richiedere o votare per nuove funzionalità al nostro [finestra di suggerimento](https://aka.ms/rdwebfbk).

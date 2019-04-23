@@ -1,6 +1,6 @@
 ---
-title: Abilitare la pubblicazione di Hash per File server
-description: In questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
+title: Abilitare la pubblicazione di hash per i file server
+description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,24 +8,25 @@ ms.topic: get-started-article
 ms.assetid: 5697aefe-1dd2-4ff9-82a9-da0afc182cb3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e64f4a8bdd254550b0d19474bb499783efd89aba
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 6f7d9c286f80b8c1ad4fb2370389f1afcd16dff8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859742"
 ---
-# <a name="enable-hash-publication-for-file-servers"></a>Abilitare la pubblicazione di Hash per File server
+# <a name="enable-hash-publication-for-file-servers"></a>Abilitare la pubblicazione di hash per i file server
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-You can enable BranchCache hash publication on one file server or on multiple file servers.  
+È possibile abilitare la pubblicazione di hash di BranchCache su uno o più file server.  
   
--   To enable hash publication on one file server using local computer Group Policy, see [Enable Hash Publication for Non-Domain Member File Servers](../../branchcache/deploy/Enable-Hash-Publication-for-Non-Domain-Member-File-Servers.md).  
+-   Per abilitare la pubblicazione di hash su un file server utilizzando criteri di gruppo del computer locali, vedere [abilitare la pubblicazione di Hash per File server membri Non di dominio](../../branchcache/deploy/Enable-Hash-Publication-for-Non-Domain-Member-File-Servers.md).  
   
--   To enable hash publication on multiple file servers using domain Group Policy, see [Enable Hash Publication for Domain Member File Servers](../../branchcache/deploy/Enable-Hash-Publication-for-Domain-Member-File-Servers.md).  
+-   Per abilitare la pubblicazione di hash su più file server utilizzando criteri di gruppo, vedere [abilitare la pubblicazione di Hash per File server membri del dominio](../../branchcache/deploy/Enable-Hash-Publication-for-Domain-Member-File-Servers.md).  
   
 > [!NOTE]  
-> If you have multiple file servers and you want to enable hash publication per share, rather than enabling hash publication for all shares, you can use the instructions in the topic [Enable Hash Publication for Non-Domain Member File Servers](Enable-Hash-Publication-for-Non-Domain-Member-File-Servers.md).  
+> Se si dispone di più file server e si desidera abilitare la pubblicazione di hash per condivisione anziché consentire pubblicazione hash per tutte le condivisioni, è possibile utilizzare le istruzioni riportate nell'argomento [abilitare la pubblicazione di Hash per File server membri Non di dominio](Enable-Hash-Publication-for-Non-Domain-Member-File-Servers.md).  
   
 
 

@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7d36a30ca65ae88afdc11e516968c6f9900a5ae6
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 9b31c133b0ee4382b5b9aeded9b3852c7230d2d8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858442"
 ---
 # <a name="file-server-resource-manager-command-line-tools"></a>Strumenti da riga di comando Gestione risorse file server:
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Gestione risorse file server viene installa i cmdlet di PowerShell [FileServerResourceManager](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) e i seguenti strumenti da riga di comando:
 
@@ -26,9 +27,9 @@ Gestione risorse file server viene installa i cmdlet di PowerShell [FileServerRe
 
 È possibile utilizzare questi strumenti per gestire risorse di archiviazione in un computer locale o un computer remoto. Per ulteriori informazioni su questi strumenti da riga di comando, vedere i seguenti riferimenti:
 
--   **Dirquota**: <http://go.microsoft.com/fwlink/?LinkId=92741>
--   **Filescrn**: <http://go.microsoft.com/fwlink/?LinkId=92742>
--   **Storrept**: <http://go.microsoft.com/fwlink/?LinkId=92743>
+-   **Dirquota**: <https://go.microsoft.com/fwlink/?LinkId=92741>
+-   **Filescrn**: <https://go.microsoft.com/fwlink/?LinkId=92742>
+-   **Storrept**: <https://go.microsoft.com/fwlink/?LinkId=92743>
 
 
 > [!Note]
@@ -58,4 +59,4 @@ Per gestire le risorse remote con gli strumenti da riga di comando:
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)
+-   [La gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)

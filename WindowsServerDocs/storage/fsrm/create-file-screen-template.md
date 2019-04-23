@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: b06597bce0b88ed5a2e98ad45d0cbc355d1b13fc
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858352"
 ---
 # <a name="create-a-file-screen-template"></a>Creare un modello di screening dei file
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Un *modello di screening dei file* definisce un set di gruppi di file di cui eseguire lo screening, il tipo di screening da eseguire (attivo o passivo) e, facoltativamente, un set di notifiche che verranno generate automaticamente quando un utente salva o tenta di salvare un file non autorizzato.
 
@@ -45,7 +46,7 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
     In **Gruppi di file**, selezionare ogni gruppo di file che si desidera includere. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
 
-    Se si desidera visualizzare i tipi di file che un gruppo di file include ed esclude, fare clic sull'etichetta del gruppo di file e fare clic su **Modifica**. Per creare un nuovo gruppo di file, fare clic su **Crea**.
+    Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Create**.
 
     Inoltre, è possibile configurare Gestione risorse file server per generare una o più notifiche impostando le opzioni seguenti nelle schede **Messaggio posta elettronica**, **Registro eventi**, **Comando** e **Report**.
 
@@ -55,7 +56,7 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
     -   Per inviare notifiche agli amministratori quando un utente o applicazione tenta di salvare un file non autorizzato, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account*@*domain* e separare più account con un punto e virgola.
     -   Per inviare messaggi e-mail all'utente che ha tentato di salvare il file, selezionare la casella di controllo **Invia posta elettronica all'utente che ha cercato di salvare un file non autorizzato**.
-    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di screening dei file che ha generato la notifica. Ad esempio, la variabile \[**Source Io Owner**\] inserisce il nome dell'utente che ha tentato di salvare un file non autorizzato. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di screening dei file che ha generato la notifica. Ad esempio, il \[ **proprietario dell'origine Io** \] variabile inserisce il nome dell'utente che ha tentato di salvare un file non autorizzato. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
     -   Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.
 
 8.  Per registrare un errore nel registro eventi quando un utente tenta di salvare un file non autorizzato:
@@ -70,13 +71,13 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
     Nella scheda **Rapporto**, selezionare la casella di controllo **Genera rapporti** e quindi selezionare i rapporti da generare. (Puoi scegliere uno o più destinatari di posta elettronica amministrativi per il rapporto o inviare il rapporto tramite posta elettronica all'utente che ha tentato di salvare il file).
 
-    Il rapporto verrà salvato nel percorso predefinito dei rapporti di operazioni non consentite, che può essere modificato nella finestra di dialogo **Opzioni di Gestione risorse file server**.
+    Il rapporto verrà salvato nel percorso predefinito dei rapporti di operazioni non consentite, che può essere modificato nella finestra di dialogo **Opzioni Gestione risorse file server**.
 
 11. Dopo aver selezionato tutte le proprietà del modello di file che si desidera utilizzare, fare clic su **OK** per salvare il modello.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione screening dei file](file-screening-management.md)
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
--   [Modificare le proprietà dei modelli di screening dei file](edit-file-screen-template-properties.md)
+-   [Gestione di screening dei file](file-screening-management.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Modifica proprietà modello di schermata](edit-file-screen-template-properties.md)
 

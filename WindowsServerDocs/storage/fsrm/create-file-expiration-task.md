@@ -1,6 +1,6 @@
 ---
-title: "Creare un'attività di gestione dei file in scadenza"
-description: "Questo articolo descrive il processo di creazione di un'attività di gestione dei file prossimi alla scadenza"
+title: Creare un'attività di scadenza dei file
+description: Questo articolo descrive il processo di creazione di un'attività di gestione dei file prossimi alla scadenza
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,20 +9,21 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: b3aa535128786d0de5c1a5ef7186e26aa62b478d
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859302"
 ---
-# <a name="create-a-file-expiration-task"></a>Creare un'attività di gestione dei file in scadenza
+# <a name="create-a-file-expiration-task"></a>Creare un'attività di scadenza dei file
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 La procedura indicata di seguito illustra il processo di creazione di un'attività di gestione dei file in scadenza. Le attività di gestione dei file in scadenza consentono di spostare tutti i file corrispondenti a determinati criteri in una directory di scadenza specificata, in cui un amministratore può quindi eseguire il backup di questi file ed eliminarli.
 
 Quando viene eseguita un'attività di gestione dei file in scadenza, viene creata una nuova directory nella directory dei file in scadenza, raggruppata in base al nome del server sul quale è stata eseguita l'attività.
 
-Il nome della nuova directory è basato sul nome dell'attività di gestione dei file e sull'ora in cui è stata eseguita. Quando si trova un file scaduto, viene spostato nella nuova directory, preservando la struttura originale della directory.
+Il nome della nuova directory è basato sul nome dell'attività di gestione dei file e sull'ora in cui è stata eseguita. Quando si trova un file scaduto, viene spostato nella nuova directory, preservando la struttura originale della directory.
 
 ## <a name="to-create-a-file-expiration-task"></a>Per creare un'attività di gestione dei file in scadenza
 
@@ -47,7 +48,7 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
      > [!Warning]
      > Non selezionare una directory nell'ambito dell'attività, in base a quanto definito nel passaggio precedente, altrimenti potrebbe verificarsi un ciclo iterativo con il rischio di instabilità del sistema e perdita di dati.
 
-5.  Facoltativamente, nella scheda **Notifica** fare clic su **Aggiungi** per inviare notifiche tramite posta elettronica, registrare un evento o eseguire un comando o uno script per un numero minimo di giorni specificato prima che l'attività esegua un'azione su un file.
+5.  Facoltativamente, nella scheda **Notifica** fare clic su **Aggiungi** per inviare notifiche per posta elettronica, registrare un evento o eseguire un comando o uno script per un numero minimo di giorni specificato prima che l'attività esegua un'azione su un file.
 
     -   Nella casella combinata **Giorni prima di eseguire l'attività per l'invio della notifica**, digitare o selezionare un valore per specificare il numero minimo di giorni prima di eseguire su un file l'attività di invio della notifica.
 
@@ -56,15 +57,15 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
     -   Per configurare le notifiche tramite posta elettronica, fare clic sulla scheda **Messaggio posta elettronica** e immettere le informazioni seguenti:
 
-        -   Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account@domain* e separare più account con un punto e virgola.  
+        -   Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account@domain* e separare gli account con un punto e virgola.  
 
         -   Per inviare un messaggio di posta elettronica all'utente i cui file stanno per scadere, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file stanno per scadere**.
 
-        -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, la variabile **\[Source File Owner\]** inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+        -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[Source File Owner\]** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
 
         -   Per allegare un elenco dei file che stanno per scadere, fare clic su **Allega a elenco di file inviati per posta elettronica su cui verrà eseguita l'azione** e digitare o selezionare un valore per **Numero massimo di file nell'elenco**.
 
-        -   Per configurare intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.  
+        -   Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.  
 
     -   Per registrare un evento, fare clic sulla scheda **Registro eventi** e selezionare la casella di controllo **Invia avviso al registro eventi** e quindi modificare la voce di registro predefinita.  
 
@@ -93,9 +94,9 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
     -   **Effettivo a partire dal giorno**. Impostare la data in cui questa attività di gestione dei file deve iniziare l'elaborazione dei file. Questa opzione è utile per posticipare l'attività fino a quando non sarà possibile inviare notifiche agli utenti o effettuare altre attività preliminari di preparazione.
 
-8.  Nella scheda **Pianificazione**, fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla. Al termine della configurazione della pianificazione, fare clic su **OK** e quindi fare clic nuovamente su **OK**.
+8.  Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla. Al termine della configurazione della pianificazione, fare clic su **OK** e quindi fare clic nuovamente su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione delle classificazioni](classification-management.md)
+-   [Gestione classificazioni](classification-management.md)
 -   [Attività di gestione file](file-management-tasks.md)

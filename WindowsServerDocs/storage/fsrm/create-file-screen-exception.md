@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 1f0e93cb2535862b9259d438de00c3b769c2282c
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59866302"
 ---
 # <a name="create-a-file-screen-exception"></a>Creare un'eccezione screening dei file
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 In alcuni casi, è necessario consentire le eccezioni screening dei file. Ad esempio, si potrebbe decidere di bloccare i file video da un file server, ma è necessario consentire al gruppo di formazione di salvare i file video per i corsi su computer. Per consentire l'utilizzo di file bloccati da altri screening file, creare un'*eccezione per screening dei file*.
 
@@ -39,14 +40,14 @@ Assegnare gruppi di file per determinare quali tipi di file saranno consentiti n
 4.  Per specificare i file da escludere dallo screening dei file:
 
     -   In **Gruppi di file**, selezionare ogni gruppo di file che si desidera escludere dallo screening dei file. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
-    -   Se si desidera visualizzare i tipi di file che un gruppo di file include ed esclude, fare clic sull'etichetta del gruppo di file e fare clic su **Modifica**.
+    -   Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e fare clic su **modifica**.
     -   Per creare un nuovo gruppo di file, fare clic su **Crea**.
 
 5.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione screening dei file](file-screening-management.md)
--   [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)
+-   [Gestione di screening dei file](file-screening-management.md)
+-   [Definire gruppi di File per Screening](define-file-groups-for-screening.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Interfaccia di amministrazione di Windows SDK Case Study - quadrato
-description: Interfaccia di amministrazione di Windows SDK Case Study - quadrato
+title: Windows Admin Center SDK Case Study - quadrato
+description: Windows Admin Center SDK Case Study - quadrato
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -9,48 +9,48 @@ ms.date: 05/23/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: ab0a7bdcf2388ffc867763c04e183b7388fd13e9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2052545"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863942"
 ---
-# <a name="squared-up-extension"></a>Estensione quadrati backup
+# <a name="squared-up-extension"></a>Quadrato di estensione
 
-## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Portare basate su SCOM monitoraggio, la visibilità di dipendenza server e sui concetti di dati esterni nell'interfaccia di amministrazione di Windows
+## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Offre monitoraggio basato su SCOM, la visibilità delle dipendenze di server e informazioni dettagliate sui dati esterni in Windows Admin Center
 
-Quadrato backup è stata fonda con la visione dell'utilizzo di visualizzazione dei dati per la risoluzione dei problemi riscontrati durante la complessità IT dell'organizzazione. Lightweight univoco, del quadrato backup software solo dell'interfaccia utente si basa su Microsoft potente piattaforma di System Center Operations Manager, nonché l'integrazione con origini dati aggiuntive - da Azure registro Analitica, sui concetti di applicazioni e del sistema di Microsoft Allinea al Centro gestione servizi ai prodotti di terze parti come ServiceNow, Splunk e molte altre - per fornire la visibilità all'organizzazione di grandi dimensioni estates dell'infrastruttura e applicazioni, sia in locale e in ambienti basati su cloud ibrida.
+Quadrato backup fu fondata con la visione dell'utilizzo di visualizzazione dei dati per aiutare a risolvere le problematiche delle complessità IT dell'organizzazione. Univoco, leggero del quadrato backup, software solo di interfaccia utente si basa su Microsoft potente piattaforma System Center Operations Manager, nonché l'integrazione con altre origini dati - da Analitica di Log di Azure, Application Insights e sistema di Microsoft Center Service Manager per i prodotti di terze parti, ad esempio ServiceNow, Splunk e molto altro, per fornire visibilità nell'enterprise su larga scala gruppi infrastruttura e applicazione, sia in locale e in ambienti cloud ibridi.
 
-> <cite>"È stata stato fortemente che utilizzano Windows Admin Center in tutto il relativo Technical Preview è stato già, un enorme riscontro realmente come consentire soluzione delle problematiche correlate come i tecnici ottenere accesso semplificato ai laboratori configurazione e si intende rendere il nostro gestione principale console una volta che accede a versione completa. È sempre utile la possibilità di integrazione con quadrato backup e la possibilità di identificare tutti i dati in un'unica posizione."</cite>
+> <cite>"È stata ampiamente utilizza Windows Admin Center in tutto il Technical Preview è stato già fatto, un enorme hit davvero aiuta ad affrontare sfide, ad esempio i tecnici del recupero di accedere facilmente ai nostri laboratori, configurazione e si prevede di renderlo ai responsabili di gestione primario console quando raggiunge la versione completa. Abbiamo love le potenzialità dell'integrazione con elevato al quadrato backup e la possibilità di tutti i dati in un'unica posizione della superficie di attacco".</cite>
 >
-> -David Acevedo, è possibile / S specialista NuStar energia L.P.
+> -David Acevedo, ho / S specialista all'energia NuStar L.P.
 
-Client del quadrato backup Gestione centinaia, spesso migliaia, di Windows Server e l'applicazione diverso portfolio distribuiti tramite e al quadrato backup sia Microsoft sono impegnata a portare in primo piano team IT migliore in web moderno, fast, interfaccia utente per fornire le informazioni necessarie. Di conseguenza, il team di quadrato backup avanzati immediatamente un tipo di allineamento entusiasmante con interfaccia di amministrazione di Windows che permette di utilizzare questi stessi valori e le entità di prossima generazione di amministrazione di Windows Server. In particolare, il team ritenuti che i dati relativi alle prestazioni a lungo termine, sui concetti di dipendenza server in tempo reale e contesto dell'applicazione viene rilevata dal quadrato backup sarebbe completano con i dati in tempo reale, eleganti e funzionalità di gestione server fornita da Interfaccia di amministrazione di Windows.
+Client del quadrato backup gestire centinaia, migliaia spesso, di Windows Server e dell'applicazione diverso portfolio recapitati e sia elevato al quadrato backup che Microsoft si trovano in una missione di creare i team IT le migliori in web moderno, fast, dell'interfaccia utente per fornire le informazioni dettagliate necessarie. Di conseguenza, il team all'indirizzo elevato al quadrato di visto immediatamente un allineamento interessante con Windows Admin Center che visualizza questi stessi valori e le entità per la prossima generazione di amministrazione di Windows Server. In particolare, il team che si ritiene che i dati sulle prestazioni a lungo termine, insights delle dipendenze in tempo reale server e contesto dell'applicazione presentato dall'elevato al quadrato di sarebbe completano con i dati di eleganti e in tempo reale e funzionalità di gestione server fornita da Windows Admin Center.
 
-![Estensione quadrati backup](../../media/extend-case-study-squared-up/squared-up-1.png)
+![Quadrato di estensione](../../media/extend-case-study-squared-up/squared-up-1.png)
 
-> <cite>"Come un'organizzazione di gestione di un server su larga scala del patrimonio immobiliare, quadrato backup / integrazione di interfaccia di amministrazione di Windows è perfetto personale dei nostri strumentazione localizzato e centralizzata e aspetti come essere in grado di generare un server direttamente in modalità manutenzione dall'interno Interfaccia di amministrazione di Windows sono wins poche attività principali per noi"</cite>
+> <cite>"Come un'organizzazione che gestisce un'estate server su vasta scala, elevato al quadrato backup / integrazione Windows Admin Center sia del matrimonio perfetto dei nostri strumenti localizzato e centralizzato e operazioni come in corso in grado di generare un server direttamente in modalità di manutenzione dall'interno Windows Admin Center sono wins little ideale per noi"</cite>
 >
-> --Granson Kip-Laos, amministratore di sistemi di virtualizzazione Purdue University
+> --Granson gnora, amministratore di sistema di virtualizzazione Purdue University
 
-Grazie a una visione chiara volontà di presentare tali dati senza problemi nell'interfaccia di amministrazione di Windows, al quadrato backup ha collaborato con la precedente versione di anteprima privata di Windows Admin Center SDK e hanno sempre trovato semplice, documentati e flessibile.
+Grazie a una visione chiara delle vogliono presentare tali dati senza problemi all'interno di Windows Admin Center, elevato al quadrato backup ha collaborato con la versione di anteprima privata anticipata di Windows Admin Center SDK e ha rilevato che semplice, ben documentata e flessibile.
 
-Utilizzando Windows Admin Center SDK, quadrato backup è stato in grado di creare un'estensione che incorpora dinamicamente rilevanti al quadrato backup esperienza visualizzazioni nell'interfaccia di amministrazione di Windows. Ad esempio, all'interno di un server specifico o cluster quadrato di visualizzazioni vengono incorporate automaticamente a fornito visibilità estesa. Visualizzazioni includono tendenze cronologiche di prestazioni chiave e la metrica di capacità (ad esempio CPU, memoria e dischi), dello stack (cloud piattaforma o datacenter virtualizzazione), componenti dell'applicazione, ad esempio i database SQL e servizi di hosting e anche analitica registro basata sul cloud Data e ITSM.
+Usa il SDK di Windows Admin Center, elevato al quadrato backup è stato in grado di compilare un'estensione che consente di incorporare dinamicamente pertinenti al quadrato di viste all'interno di Windows Admin Center esperienza. Ad esempio, nel contesto di un server specifico o un cluster, elevato al quadrato di viste vengono incorporate automaticamente a fornito visibilità estesa. Viste predefinite includono le tendenze cronologiche di prestazioni chiave e le metriche di capacità (ad esempio CPU, memoria e disco), con stack (Data Center o piattaforma di virtualizzazione nel cloud), i componenti dell'applicazione, ad esempio database SQL e ai servizi, nonché analitica log basato su cloud e i dati ITSM.
 
-![Estensione quadrati backup](../../media/extend-case-study-squared-up/squared-up-2.png)
+![Quadrato di estensione](../../media/extend-case-study-squared-up/squared-up-2.png)
 
-Quadrato backup e l'interfaccia di amministrazione di Windows condividono un web moderno architettura e progettazione saperne, che ha attivato una semplice integrazione tecnica sia un'esperienza utente assolutamente integrata. Con basate sul web di amministrazione diventando sempre più la norma si ritiene che questo metodo dell'integrazione tra sistemi diversi è essenziale per lo sblocco un'esperienza di amministrazione moderno e unificata.
+Quadrato Up and Windows Admin Center condividono un moderno web architettura e progettazione etica, che ha attivato una semplice integrazione tecnica sia un'esperienza utente. Con l'amministrazione basata sul web sempre più diventando la norma, riteniamo che questo metodo di integrazione tra sistemi diversi è essenziale per lo sblocco di un'esperienza di amministrazione moderne e unificato.
 
-> <cite>"È vedere interfaccia di amministrazione di Windows come all'avanguardia di amministrazione di Windows Server moderno, in modo che sia stato una grande esperienza per noi a in modo lavorano con il team e il fatto che lavorano con tale velocità, interesse, flessibilità e all'interno di tale fondamentalmente modelli di sviluppo moderno ha rese un'ottima soluzione al modo in cui, come una società di sviluppo software snella, agile, rapida evoluzione, lavoro ammetterlo. "</cite>
+> <cite>"Abbiamo vedere Windows Admin Center come all'avanguardia di amministrazione di Windows Server moderna, pertanto è stato una straordinaria esperienza di operare così strettamente con il team e il fatto che funzionano con tali velocità, entusiasmo così flessibilità e all'interno di tale fondamentalmente paradigmi di sviluppo moderna è stati creati un candidato ideale al modo in cui, come una società di sviluppo software snella, agile e veloce, lavoriamo noi. "</cite>
 >
-> -Richard Benwell, architetto di prodotto in quadrato
+> -Richard Benwell, Architect di prodotto al quadrato
 
-Da questo allineamento naturale, il team di sviluppo quadrato backup è stato in grado per passare rapidamente a un'integrazione prototipo visualizzazione quadrato backup in modo nativo all'interno dell'esperienza di interfaccia di amministrazione di Windows e per ottenere che alle persone i propri dei primi, tecnici visualizzare in anteprima i client. Da reazioni dei clienti, era immediatamente chiaro che il brano è stato confermato.
+Da questo allineamento naturale, il team di sviluppo al quadrato backup è stato in grado di passare rapidamente a un'integrazione prototipo visualizzazione al quadrato backup in modo nativo all'interno di un Windows Admin Center e ottenere che in tutti i vantaggi del proprio iniziali, tecnici i client di anteprima. Da effetti collaterali del cliente, era chiaro che la storia è stata vincitore.
 
-> <cite>"Uno dei principali problemi di gestione di servizio in sospeso in ambiente dei server oltre 3.500 è unificare i vari orizzontale della gestione e monitoraggio degli strumenti, quindi l'integrazione tra quadrato backup e Windows Admin Center - permette di utilizzare tra dati così elevati, provenienti da origini diverse numerose eccessivo, in un'unica console – sono enormi per noi."</cite>
+> <cite>"Una delle principali sfide di gestione di servizio in sospeso nel nostro ambiente server più di 3.500 è unificare i diversi panorama applicativo di gestione e monitoraggio di strumenti e pertanto l'integrazione tra elevato al quadrato Up and Windows Admin Center, che introduce insieme grande quantità di dati, da origini diverse così tante, in una singola console – è enorme per noi."</cite>
 >
-> -Martin Ehrnst, responsabile tecnico per Azure in Intility/s
+> -Ehrnst Martin, responsabile tecnico di Azure a Intility/s
 
-Con questo tipo di interesse da quadrato dei client già e con una serie di nuove funzionalità comunque uscirà all'interfaccia di amministrazione di Windows, al quadrato backup è estremamente suscitare futuro di questa integrazione e la possibilità di amici viene aperta per i client e le relative journey di una true singolo-riquadro-di-di ingrandimento per la gestione di operazioni IT.
+Con questo tipo di entusiasmo dal quadrato dei client già e con una serie di nuove funzionalità eccezionali comunque per passare a Windows Admin Center, elevato al quadrato backup è estremamente lieto sul futuro di questa integrazione e le possibilità straordinaria viene visualizzata per i client e i relativi viaggio verso un true single-Pannello-di-controllo per la gestione di operazioni IT.
 
-Quadrato backup / integrazione di interfaccia di amministrazione di Windows è in fase di Beta; Se si desidera accedere, estrarre [quadrato backup della pagina dedicato](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) per ulteriori informazioni. Se l'organizzazione utilizza Microsoft System Center Operations Manager e non è ancora quadrato verso l'alto (che è essenziale per l'estensione per il funzionamento), è possibile ottenere anche mano in complete, 30 giorni versione di valutazione gratuita dallo stesso percorso. 
+Quadrato backup / integrazione Windows Admin Center è attualmente in versione Beta; Se si desidera accedere, consulta [pagina dedicata della quadrato backup](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) per altri dettagli. Se l'organizzazione Usa Microsoft System Center Operations Manager e non hai ancora al quadrato verso l'alto (che è essenziale per il funzionamento dell'estensione), è anche possibile ottenere subito a usare un con funzionalità complete, di 30 giorni versione di valutazione gratuita dalla stessa posizione. 

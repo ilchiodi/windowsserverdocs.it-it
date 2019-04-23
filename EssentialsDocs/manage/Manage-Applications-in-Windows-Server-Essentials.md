@@ -13,23 +13,24 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860172"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Gestire le applicazioni in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Il Dashboard del server in Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato consente di eseguire comuni attività amministrative. Per eseguire queste attività, vedere gli argomenti seguenti:  
+ Il Dashboard del server in Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato rende possibile eseguire attività amministrative comuni. Per eseguire queste attività, vedere gli argomenti seguenti:  
   
--   [Attività di gestione dell'applicazione nel Dashboard di](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Attività di gestione dell'applicazione nel Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Installare o rimuovere i componenti aggiuntivi tramite il Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Installare o rimuovere componenti aggiuntivi tramite il Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
   
-##  <a name="BKMK_1"></a>Attività di gestione dell'applicazione nel Dashboard di  
- Il **applicazioni** gestione pagina del Dashboard contiene:  
+##  <a name="BKMK_1"></a> Attività di gestione dell'applicazione nel Dashboard  
+ La pagina di gestione **Applicazioni** del dashboard contiene:  
   
 -   Un elenco di componenti aggiuntivi installati, che visualizza:  
   
@@ -37,68 +38,68 @@ ms.lasthandoff: 07/03/2017
   
     -   Lo stato di aggiornamento del componente aggiuntivo  
   
-    -   Stato della sottoscrizione del componente aggiuntivo  
+    -   Lo stato della sottoscrizione del componente aggiuntivo  
   
-    -   Il nome della società o entità di pubblicazione che rende il componente aggiuntivo disponibile  
+    -   Il nome della società o dell'entità di pubblicazione che rende disponibile il componente aggiuntivo  
   
 -   Un riquadro attività che include una serie di attività per la gestione di un componente aggiuntivo selezionato  
   
--   Un elenco di componenti aggiuntivi disponibili scaricare e installare in Microsoft Pinpoint  
+-   Un elenco di componenti aggiuntivi disponibili per il download e l'installazione in Microsoft Pinpoint  
   
- La tabella seguente descrive le varie attività di Gestione componenti aggiuntivi disponibili nel Dashboard del server. Alcune delle attività sono specifiche del componente aggiuntivo, in modo sono visibili solo quando si seleziona un componente aggiuntivo nell'elenco.  
+ La tabella seguente descrive le varie attività di gestione dei componenti aggiuntivi disponibili nel dashboard del server. Alcune attività sono specifiche del componente aggiuntivo, quindi sono visibili solo se si seleziona un componente aggiuntivo nell'elenco.  
   
 |Nome attività|Descrizione|  
 |---------------|-----------------|  
-|Rimuovere il componente aggiuntivo|Rimuove il componente aggiuntivo selezionato dal server e da tutti gli altri computer nella rete.|  
-|Installare il componente aggiuntivo nel computer di rete|Consente di pianificare l'installazione del componente aggiuntivo selezionato in tutti gli altri computer nella rete.|  
-|Ottenere assistenza per il componente aggiuntivo|Apre il browser Internet in un sito Web da cui si possono cercare le soluzioni ai problemi e ulteriori informazioni su un componente aggiuntivo selezionato.|  
-|Aggiornare il componente aggiuntivo|Consente di scaricare e installare gli aggiornamenti per i componenti aggiuntivi installati nel computer server e rete.|  
-|Rinnovare la sottoscrizione del componente aggiuntivo|Apre il browser Internet in un sito Web da cui è possibile rinnovare la sottoscrizione del componente aggiuntivo.|  
-|Leggere l'informativa sulla privacy per il componente aggiuntivo|Apre il browser Internet in un sito Web da cui è possibile visualizzare l'informativa sulla privacy.|  
-|Come installare o rimuovere i componenti aggiuntivi?|Apre il browser Internet in una pagina web che visualizza l'argomento della Guida.|  
+|Rimuovi il componente aggiuntivo|Rimuove il componente aggiuntivo selezionato dal server e da tutti gli altri computer della rete.|  
+|Installa il componente aggiuntivo sui computer della rete|Consente di pianificare l'installazione del componente aggiuntivo selezionato in tutti i computer della rete.|  
+|Ottieni assistenza per il componente aggiuntivo|Apre il browser Internet in un sito Web in cui è possibile cercare le soluzioni ai problemi e acquisire altre informazioni su un componente aggiuntivo selezionato.|  
+|Aggiorna componente aggiuntivo|Consente di scaricare e installare aggiornamenti per i componenti aggiuntivi installati nel server e nei computer della rete.|  
+|Rinnova la sottoscrizione del componente aggiuntivo|Apre il browser Internet in un sito Web in cui è possibile rinnovare la sottoscrizione del componente aggiuntivo.|  
+|Leggere l'informativa sulla privacy per il componente aggiuntivo|Apre il browser Internet in un sito Web in cui è possibile visualizzare l'informativa sulla privacy.|  
+|Installazione o rimozione dei componenti aggiuntivi|Apre il browser Internet in una pagina Web che visualizza l'argomento della Guida appropriato.|  
   
-##  <a name="BKMK_2"></a>Installare o rimuovere i componenti aggiuntivi tramite il Dashboard  
- Un componente aggiuntivo è un'applicazione software che fornisce funzionalità e caratteristiche aggiuntive per il server. Un numero crescente di componenti aggiuntivi è disponibile da Microsoft e altri fornitori di Software indipendenti (ISV).  
+##  <a name="BKMK_2"></a> Installare o rimuovere componenti aggiuntivi tramite il Dashboard  
+ Un componente aggiuntivo è un'applicazione software che fornisce funzionalità e caratteristiche aggiuntive per il server. È disponibile un numero crescente di componenti aggiuntivi di Microsoft e di altri fornitori di software indipendenti (ISV).  
   
- Prima di trarre vantaggio dalle funzionalità estese che un componente aggiuntivo offre, è necessario prima installare il componente aggiuntivo nel server.  
+ Per trarre vantaggio dalle funzionalità estese offerte da un componente aggiuntivo, è necessario prima installarlo nel server.  
   
 #### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>Per installare un componente aggiuntivo da Microsoft Pinpoint  
   
-1.  Nel Dashboard del server, fare clic su **applicazioni**, quindi fare clic su di **Microsoft Pinpoint** scheda.  Viene visualizzato un elenco dei componenti aggiuntivi disponibili.  
+1.  Nel dashboard del server fare clic su **Applicazioni** e quindi sulla scheda **Microsoft Pinpoint**.  Verrà visualizzato l'elenco di componenti aggiuntivi disponibili.  
   
-2.  Scegliere il componente aggiuntivo che si desidera installare. Viene visualizzata la pagina di informazioni di componente aggiuntivo.  
+2.  Fare clic sul componente aggiuntivo da installare. Verrà visualizzata la pagina di informazioni sul componente aggiuntivo.  
   
-3.  Nella pagina delle informazioni di componente aggiuntivo, fare clic su Download e seguire le istruzioni visualizzate per scaricare e installare il componente aggiuntivo.  
+3.  In questa pagina fare clic su Download e seguire le istruzioni visualizzate per scaricare e installare il componente aggiuntivo.  
   
 4.  Seguire le istruzioni della procedura guidata per installare il componente aggiuntivo.  
   
-5.  Al termine dell'installazione, riavviare il Dashboard, aprire il **applicazioni** pagina del Dashboard del server e verificare che il componente aggiuntivo viene visualizzato nella visualizzazione elenco.  
+5.  Al termine dell'installazione, riavviare il dashboard, aprire la pagina **Applicazioni** del dashboard del server e verificare se il componente aggiuntivo è riportato nella visualizzazione elenco.  
   
-#### <a name="to-install-an-add-in-from-another-provider"></a>Per installare un componente aggiuntivo da un altro provider  
+#### <a name="to-install-an-add-in-from-another-provider"></a>Per installare un componente aggiuntivo di un altro fornitore  
   
-1.  Aprire Esplora risorse e passare al percorso del file di installazione di componenti.  
+1.  Aprire Esplora risorse e individuare il percorso del file di installazione del componente aggiuntivo.  
   
 2.  Fare doppio clic sul file per eseguire l'installazione guidata.  
   
 3.  Seguire le istruzioni della procedura guidata per installare il componente aggiuntivo.  
   
-4.  Al termine dell'installazione, riavviare il Dashboard, aprire il **applicazioni** pagina e quindi verificare che il componente aggiuntivo viene visualizzato nella visualizzazione elenco.  
+4.  Al termine dell'installazione, riavviare il dashboard, aprire la pagina **Applicazioni** e verificare se il componente aggiuntivo è riportato nella visualizzazione elenco.  
   
 #### <a name="to-remove-an-add-in"></a>Per rimuovere un componente aggiuntivo  
   
-1.  Aprire il Dashboard del server.  
+1.  Aprire il dashboard del server.  
   
-2.  Fare clic su di **applicazioni** scheda.  
+2.  Fare clic sulla scheda **Applicazioni**.  
   
-3.  Nel **componenti aggiuntivi** scheda, selezionare il componente aggiuntivo che si desidera rimuovere, quindi fare clic su **rimuovere il componente aggiuntivo**.  
+3.  Nella scheda **Componenti aggiuntivi** selezionare il componente aggiuntivo da rimuovere e quindi fare clic su **Rimuovi il componente aggiuntivo**.  
   
-4.  Nel **rimuovere componenti** finestra, fare clic su **rimuovere**.  
+4.  Nella finestra **Rimuovi il componente aggiuntivo** fare clic su **Rimuovi**.  
   
     > [!NOTE]
-    >  Si potrebbe essere necessario riavviare il Dashboard per rimuovere completamente il componente aggiuntivo.  
+    >  Può essere necessario riavviare il dashboard per rimuovere completamente il componente aggiuntivo.  
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Panoramica del dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
+-   [Informazioni generali sul dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)
