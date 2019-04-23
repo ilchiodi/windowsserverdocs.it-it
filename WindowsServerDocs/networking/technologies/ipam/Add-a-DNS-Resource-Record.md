@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un Record di risorse DNS
+title: Aggiungere un record di risorse DNS
 description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
@@ -13,35 +13,36 @@ ms.topic: article
 ms.assetid: 5379373f-a3d9-4f51-b6fc-bf0f6df1d244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e14a59e9f172b20e85a34d2299e3733a796adafc
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 868b27a2a2b2005c3cf54d544d2534ae66ae0d98
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849482"
 ---
-# <a name="add-a-dns-resource-record"></a>Aggiungere un Record di risorse DNS
+# <a name="add-a-dns-resource-record"></a>Aggiungere un record di risorse DNS
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per aggiungere uno o più record di risorse DNS nuovo tramite la console client di gestione indirizzi IP.  
+Per aggiungere uno o più nuovi record di risorse utilizzando la console di gestione indirizzi IP client, è possibile utilizzare questo argomento.  
   
-Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
   
 ### <a name="to-add-a-dns-resource-record"></a>Per aggiungere un record di risorse DNS  
   
-1.  In Server Manager, fare clic su **gestione indirizzi IP**. Verrà visualizzata la console del client gestione indirizzi IP.  
+1.  In Server Manager, fare clic su  **Gestione indirizzi IP**. Verrà visualizzata la console di gestione indirizzi IP client.  
   
-2.  Nel riquadro di spostamento, in **monitoraggio e gestione**, fare clic su **zone DNS**.  Riquadro di spostamento divide in un riquadro di spostamento superiore e un riquadro di spostamento inferiore.  
+2.  Nel riquadro di spostamento, in **MONITORAGGIO e GESTIONE**, fare clic su **zone DNS**.  Riquadro di spostamento viene suddivisa in un riquadro di spostamento superiore e un riquadro di navigazione inferiore.  
   
-3.  Nel riquadro di spostamento inferiore, fare clic su **ricerca diretta**. Tutti gestiti da Gestione indirizzi IP DNS zone di ricerca diretta vengono visualizzate nei risultati della ricerca del riquadro visualizzato. Pulsante destro del mouse la zona in cui si desidera aggiungere un record di risorse e quindi fare clic su **record di risorse DNS aggiungere**.  
+3.  Nel riquadro di spostamento inferiore, fare clic su **ricerca diretta**. Tutti gestito tramite Gestione indirizzi IP DNS zone di ricerca diretta vengono visualizzate nei risultati della ricerca del riquadro visualizzato. Pulsante destro del mouse la zona in cui si desidera aggiungere un record di risorse e quindi fare clic su **record di risorse DNS aggiungere**.  
   
     ![Aggiungere record di risorse DNS](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_01.jpg)
   
-4.  Il **aggiungere record di risorse DNS** apre la finestra di dialogo. In **proprietà dei record di risorse**, fare clic su **server DNS** e selezionare il server DNS in cui si desidera aggiungere uno o più nuovi record di risorse. In **record di risorse DNS configurare**, fare clic su **New**.  
+4.  Il **aggiungere record di risorse DNS** verrà visualizzata la finestra di dialogo. In **proprietà dei record di risorse**, fare clic su **server DNS** e selezionare il server DNS in cui si desidera aggiungere uno o più nuovi record di risorse. In **record di risorse DNS configurare**, fare clic su **nuovo**.  
   
-    ![Configurare i record di risorse DNS](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_02.jpg)  
+    ![Configurare i record DNS](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_02.jpg)  
   
-5.  Nella finestra di dialogo si espande per mostrare **nuovo Record di risorse**. Fare clic su **tipo record di risorse**.  
+5.  Nella finestra di dialogo si espande per mostrare **Nuovo Record di risorse**. Fare clic su **tipo di record di risorse**.  
   
     ![Tipo di record di risorse](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_03.jpg)  
   
@@ -49,21 +50,21 @@ Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo 
   
     ![Selezionare tipo di record da aggiungere](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_04.jpg)  
   
-7.  In **nuovo Record di risorse,** in **nome**, digitare il nome di un record di risorse. In **indirizzo IP**, digitare un indirizzo IP e quindi selezionare le proprietà di record di risorse che sono appropriate per la distribuzione. Fare clic su **aggiungere Record di risorse**.  
+7.  In **Nuovo Record di risorse,** in **nome**, digitare il nome di un record di risorse. In **indirizzo IP**, digitare un indirizzo IP e quindi selezionare le proprietà di record di risorse appropriate per la distribuzione. Fare clic su **aggiungere Record di risorse**.  
   
     ![Aggiungere Record di risorse](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_06.jpg)  
   
-8.  Se non si desidera creare nuovi record di risorse aggiuntive, fare clic su **OK**. Se si desidera creare nuovi record di risorse aggiuntive, fare clic su **New**.  
+8.  Se non si desidera creare nuovi record di risorse aggiuntive, fare clic su **OK**. Se si desidera creare nuovi record di risorse aggiuntive, fare clic su **nuovo**.  
   
     ![Fare clic su OK o nuovi](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_01.jpg)
   
-9. Nella finestra di dialogo si espande per mostrare **nuovo Record di risorse**. Fare clic su **tipo record di risorse**. Viene visualizzato l'elenco dei tipi di record di risorse. Fare clic sul tipo di record di risorse che si desidera aggiungere.  
+9. Nella finestra di dialogo si espande per mostrare **Nuovo Record di risorse**. Fare clic su **tipo di record di risorse**. Viene visualizzato l'elenco dei tipi di record di risorse. Fare clic sul tipo di record di risorse che si desidera aggiungere.  
   
-10. In **nuovo Record di risorse,** in **nome**, digitare il nome di un record di risorse. In **indirizzo IP**, digitare un indirizzo IP e quindi selezionare le proprietà di record di risorse che sono appropriate per la distribuzione. Fare clic su **aggiungere Record di risorse**.  
+10. In **Nuovo Record di risorse,** in **nome**, digitare il nome di un record di risorse. In **indirizzo IP**, digitare un indirizzo IP e quindi selezionare le proprietà di record di risorse appropriate per la distribuzione. Fare clic su **aggiungere Record di risorse**.  
   
     ![Aggiungere Record di risorse](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_02.jpg)  
   
-11. Se si desidera aggiungere altri record di risorse, ripetere il processo per la creazione di record. Dopo aver creare nuovi record di risorse, fare clic su **applica**.  
+11. Se si desidera aggiungere altri record di risorse, ripetere il processo per la creazione di record. Dopo aver finito di creare nuovi record di risorse, fare clic su **Applica**.  
   
     ![Creazione di record di risorsa completo](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_03.jpg)  
   
@@ -74,7 +75,7 @@ Appartenenza al gruppo **amministratori**, o equivalente è il requisito minimo 
 13. Fare clic su **OK**.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestione Record di risorse DNS](DNS-Resource-Record-Management.md)  
+[Gestione dei Record risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire gestione indirizzi IP](Manage-IPAM.md)  
   
 

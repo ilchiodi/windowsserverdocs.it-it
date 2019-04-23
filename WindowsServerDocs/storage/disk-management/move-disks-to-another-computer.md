@@ -9,19 +9,20 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6b235ce8e5b936940629d5977a17bbc729efbe82
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854002"
 ---
 # <a name="move-disks-to-another-computer"></a>Spostare dischi in un altro computer
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Questa sezione descrive i passaggi da eseguire per spostare dischi in un altro computer e le relative considerazioni. È consigliabile stampare questa procedura o scriverne i passaggi prima di tentare di spostare dischi da un computer a un altro.
 
 > [!NOTE]
-> Per completare questi passaggi, è necessario essere membri almeno del gruppo **Backup Operators** o **Administrators**.
+> Per completare questi passaggi, devi essere un membro del gruppo **Backup Operators** o **Administrators**.
 
 ## <a name="verify-volume-health"></a>Verificare l'integrità del volume
 

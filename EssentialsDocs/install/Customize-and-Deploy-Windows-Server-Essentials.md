@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: a02c624efa452b76fc404d58c25b94c310b93628
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854932"
 ---
 # <a name="customize-and-deploy-windows-server-essentials"></a>Personalizzare e distribuire Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- Per personalizzare e distribuire Windows Server Essentials, utilizzare le informazioni presenti il [Windows Assessment and Deployment Kit (Windows ADK)](https://www.microsoft.com/download/details.aspx?id=39982) e [personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
+ Per personalizzare e distribuire Windows Server Essentials, usare le informazioni disponibili in [Windows Assessment and Deployment Kit (Windows ADK)](https://www.microsoft.com/download/details.aspx?id=39982) e in [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
 ## <a name="see-also"></a>Vedere anche  
   

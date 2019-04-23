@@ -1,6 +1,6 @@
 ---
-title: Pianificare i Server dei criteri di rete
-description: In questo argomento vengono forniti collegamenti a informazioni sulla pianificazione della distribuzione di server RADIUS di Server dei criteri di rete di pianificazione in Windows Server 2016.
+title: Pianificare il server dei criteri di rete
+description: In questo argomento vengono forniti collegamenti alle informazioni sulla pianificazione della distribuzione server RADIUS di Server dei criteri di rete relativa alla pianificazione in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,25 +8,26 @@ ms.topic: article
 ms.assetid: cd6fc1b8-26b0-47a4-b27d-f6fa9da0d447
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b1af698e640ec2be9a6ce62c5032419b8dd96171
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 1e2fa9d199b060bd26a5b804afaea562e41cebdc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59852752"
 ---
-# <a name="plan-network-policy-server"></a>Pianificare i Server dei criteri di rete
+# <a name="plan-network-policy-server"></a>Pianificare il server dei criteri di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-In questo argomento vengono forniti collegamenti a informazioni sulla pianificazione delle distribuzioni di proxy e server dei criteri di rete.
+In questo argomento vengono forniti collegamenti a informazioni sulla pianificazione delle distribuzioni dei criteri di rete e del proxy.
 
 >[!NOTE]
->Per ulteriore documentazione di Server dei criteri di rete, è possibile utilizzare le sezioni seguenti di libreria. 
+>Per ulteriore documentazione di Server dei criteri di rete, è possibile usare le sezioni seguenti di libreria. 
 > - [Introduzione a Server dei criteri di rete](nps-getstart-top.md)
 > - [Distribuire Server dei criteri di rete](nps-deploy.md)
-> - [Gestire Server dei criteri di rete](nps-manage-top.md)
+> - [Gestire i Server dei criteri di rete](nps-manage-top.md)
 
-In questa sezione include gli argomenti seguenti.
+Questa sezione include gli argomenti seguenti.
 
 - [Pianificare i criteri di rete come server RADIUS](nps-plan-server.md)
 - [Pianificare i criteri di rete come proxy RADIUS](nps-plan-proxy.md)

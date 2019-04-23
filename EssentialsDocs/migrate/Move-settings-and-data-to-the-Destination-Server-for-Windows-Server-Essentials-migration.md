@@ -1,5 +1,5 @@
 ---
-title: Spostare dati e impostazioni per la migrazione di Server di destinazione per Windows Server Essentials
+title: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 97a9f7ec7a9710b66236d8eca05dea2432df04ba
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59857482"
 ---
-# <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni per la migrazione di Server di destinazione per Windows Server Essentials
+# <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Spostare dati e impostazioni nel Server di destinazione come indicato di seguito:  
+Spostare impostazioni e dati nel server di destinazione nel modo seguente:  
   
 
 1.  [Copiare i dati nel Server di destinazione](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
@@ -31,69 +32,69 @@ Spostare dati e impostazioni nel Server di destinazione come indicato di seguito
   
 3.  [Mappare i computer autorizzati agli account utente](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
  
-##  <a name="BKMK_CopyData"></a>Copiare i dati nel Server di destinazione  
- Prima di copiare i dati dal Server di origine al Server di destinazione, eseguire le attività seguenti:  
+##  <a name="BKMK_CopyData"></a> Copiare i dati nel Server di destinazione  
+ Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti:  
   
--   Esaminare l'elenco di cartelle condivise nel Server di origine, incluse le autorizzazioni per ogni cartella. Creare o personalizzare le cartelle nel Server di destinazione per trovare la corrispondenza la struttura di cartelle che si esegue la migrazione dal Server di origine.  
+-   Esaminare l'elenco di cartelle condivise sul server di origine, incluse le autorizzazioni per ogni cartella. Creare o personalizzare le cartelle sul server di destinazione in modo che corrispondano alla struttura di cartelle di cui si sta eseguendo la migrazione dal server di origine.  
   
--   Esaminare la dimensione di ogni cartella e assicurarsi che il Server di destinazione disponga di sufficiente spazio di archiviazione.  
+-   Esaminare la dimensione di ogni cartella e verificare che lo spazio di archiviazione sul server di destinazione sia sufficiente.  
   
--   Impostare le cartelle condivise nel Server di origine Read-only per inserire tutti gli utenti in modo scrittura nell'unità mentre si copiano i file nel Server di destinazione.  
+-   Impostare le cartelle condivise sul server di origine come di sola lettura per tutti gli utenti per impedire operazioni di scrittura nell'unità durante la copia dei file nel server di destinazione.  
   
-#### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Per copiare i dati dal Server di origine al Server di destinazione  
+#### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Per copiare i dati dal server di origine a quello di destinazione  
   
-1.  Accedere al Server di destinazione come amministratore di dominio e quindi aprire una finestra di comando.  
+1.  Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra di comando.  
   
-2.  Al prompt dei comandi, digitare il comando seguente e quindi premere INVIO:  
+2.  Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
   
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`  
   
      Dove:
-     - \ < SourceServerName\ > è il nome del Server di origine
-     - \ < SharedSourceFolderName\ > è il nome della cartella condivisa nel Server di origine
-     - \ < DestinationServerName\ > è il nome del Server di destinazione,
-     - \ < SharedDestinationFolderName\ > è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati.  
+     - \<SourceServerName\> è il nome del Server di origine
+     - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine
+     - \<NomeServerDestinazione\> è il nome del Server di destinazione,
+     - \<SharedDestinationFolderName\> è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati.  
   
-3.  Ripetere il passaggio precedente per ogni cartella condivisa che si esegue la migrazione dal Server di origine.  
+3.  Ripetere il passaggio precedente per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.  
   
-##  <a name="BKMK_Network"></a>Configurare la rete  
- Dopo aver spostato il ruolo DHCP nel router, configurare le impostazioni di rete nel Server di destinazione.  
+##  <a name="BKMK_Network"></a> Configurare la rete  
+ Dopo aver spostato il ruolo DHCP nel router, configurare le impostazioni di rete sul server di destinazione.  
   
 #### <a name="to-configure-the-network"></a>Per configurare la rete  
   
-1.  Nel Server di destinazione, aprire il Dashboard.  
+1.  Nel server di destinazione aprire il dashboard.  
   
-2.  Nel Dashboard **Home** pagina, fare clic su **installazione**, fare clic su **configurare accesso remoto via Internet**e quindi scegli il **fare clic per configurare accesso remoto via Internet** opzione.  
+2.  Nella pagina **Home** del dashboard fare clic su **CONFIGURA**, fare clic su **Configura Accesso remoto via Internet** e scegliere l'opzione **Fare clic per configurare Accesso remoto via Internet**.  
   
 3.  Completare le istruzioni della procedura guidata per configurare il router e i nomi di dominio.  
   
- Se il router non supporta il framework UPnP o se il framework UPnP è disabilitato, accanto al nome del router può verrà visualizzata un'icona di avviso gialla. Assicurarsi che le porte seguenti siano aperte e impostate per l'indirizzo IP del Server di destinazione:  
+ Se il router non supporta il framework UPnP o se il framework UPnP è disabilitato, accanto al nome del router verrà visualizzata un'icona di avviso gialla. Verificare che le seguenti porte siano aperte e impostate sull'indirizzo IP del server di destinazione:  
   
--   Porta 80: Traffico HTTP Web  
+-   Porta 80: Traffico Web HTTP  
   
 -   Porta 443: Traffico Web HTTPS  
   
-##  <a name="BKMK_MapPermittedComputers"></a>Mappare i computer autorizzati agli account utente  
- Ogni account utente che viene eseguita la migrazione dal Server di origine deve essere mappato a uno o più computer.  
+##  <a name="BKMK_MapPermittedComputers"></a> Mappare i computer autorizzati agli account utente  
+ Ogni account utente di cui è stata eseguita la migrazione dal server di origine deve essere mappato a uno o più computer.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>Per mappare gli account utente ai computer  
   
 1.  Aprire il Dashboard di Windows Server Essentials.  
   
-2.  Nella barra di spostamento, fare clic su **utenti**.  
+2.  Sulla barra di spostamento fare clic su **Utenti**.  
   
-3.  Nell'elenco di account utente, fare doppio clic su un account utente, quindi fare clic su **Visualizza proprietà account**.  
+3.  Nell'elenco di account utente fare clic con il pulsante destro del mouse su un account utente e quindi scegliere **Visualizza proprietà account**.  
   
-4.  Fare clic su di **accesso remoto via Internet** scheda e quindi fare clic su **Consenti accesso Web remoto e Accedi ai servizi Web.**.  
+4.  Fare clic sulla scheda **Accesso remoto via Internet** e quindi fare clic su **Consenti Accesso Web remoto e accedi ai servizi Web**.  
   
-5.  Selezionare **cartelle condivise**selezionare **computer**selezionare **home page-collegamenti**, quindi fare clic su **applica**.  
+5.  Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti**e quindi fare clic su **Applica**.  
   
-6.  Fare clic su di **accesso Computer** scheda e quindi fare clic sul nome del computer in cui si desidera consentire l'accesso.  
+6.  Fare clic sulla scheda **Accesso computer** e quindi fare clic sul nome del computer a cui si vuole consentire l'accesso.  
   
 7.  Ripetere i passaggi 3, 4, 5 e 6 per ogni account utente.  
   
 > [!NOTE]
->  Non devi modificare la configurazione del computer client. Viene configurato automaticamente.  
+>  Non è necessario cambiare la configurazione del computer client. Viene configurato automaticamente.  
   
 > [!NOTE]
->  Dopo aver completato la migrazione, se si verifica un problema quando si crea il primo nuovo account utente nel Server di destinazione, rimuovere l'account utente che è stato aggiunto e crearne uno nuovo.
+>  Dopo aver completato la migrazione, se si verificano problemi durante la creazione del primo nuovo account utente sul server di destinazione, rimuovere l'account utente aggiunto e quindi ricrearlo.

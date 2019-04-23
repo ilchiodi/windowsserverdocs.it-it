@@ -8,23 +8,24 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 83954552b50f5f89c8b192405744836c53581d23
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 159ed05717cbd0743e5b96215515293025352569
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849632"
 ---
 # <a name="storage-quality-of-service"></a>QoS di archiviazione
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 QoS di archiviazione (Storage Quality of Service) di Windows Server 2016 consente di monitorare e gestire centralmente le prestazioni di archiviazione delle macchine virtuali usando Hyper-V e i ruoli del File server di scalabilità orizzontale. La funzionalità migliora automaticamente l'equità delle risorse di archiviazione tra più macchine virtuali che usano lo stesso cluster di file server e consente di configurare obiettivi di prestazione minimi e massimi basati su criteri in unità di IOPS normalizzate.  
 
 È possibile usare QoS di archiviazione in Windows Server 2016 per eseguire le operazioni seguenti:  
 
--   **Limitare i problemi dei vicini fastidiosi.** Per impostazione predefinita, QoS di archiviazione garantisce che una singola macchina virtuale non possa usare tutte le risorse di archiviazione e privare altre macchine virtuali della larghezza di banda di archiviazione.  
+-   **Mitigare i problemi dei vicini fastidiosi.** Per impostazione predefinita, QoS di archiviazione garantisce che una singola macchina virtuale non possa usare tutte le risorse di archiviazione e privare altre macchine virtuali della larghezza di banda di archiviazione.  
 
--   **Monitorare le prestazioni dell'archiviazione end-to-end.** Non appena vengono avviate le macchine virtuali archiviate in un File server di scalabilità orizzontale, le prestazioni sono monitorate. I dettagli sulle prestazioni di tutte le macchine virtuali in esecuzione e la configurazione del cluster del File server di scalabilità orizzontale possono essere visualizzate da un'unica posizione  
+-   **Monitorare le prestazioni di archiviazione end-to-end.** Non appena vengono avviate le macchine virtuali archiviate in un File server di scalabilità orizzontale, le prestazioni sono monitorate. I dettagli sulle prestazioni di tutte le macchine virtuali in esecuzione e la configurazione del cluster del File server di scalabilità orizzontale possono essere visualizzate da un'unica posizione  
 
 -   **Gestire le operazioni di I/O di archiviazione in base alle esigenze aziendali del carico di lavoro** I criteri di QoS di archiviazione definiscono i valori minimi e massimi di prestazione per le macchine virtuali e assicurano che vengano soddisfatti. Questo garantisce prestazioni coerenti delle macchine virtuali, anche in ambienti ad alta densità e con provisioning eccessivo. Se non è possibile soddisfare i criteri, sono disponibili avvisi per monitorare quando le macchine virtuali non si allineano con i criteri o i relativi criteri assegnati non sono validi.  
 
@@ -33,7 +34,7 @@ Questo documento descrive come le aziende possono trarre vantaggio dalla nuova f
 ## <a name="BKMK_Overview"></a>Panoramica  
 Questa sezione descrive i requisiti per l'uso di QoS di archiviazione, informazioni generali su una soluzione definita da software con QoS di archiviazione e un elenco di termini correlati con QoS di archiviazione.  
 
-### <a name="BKMK_Requirements"></a>Requisiti di QoS di archiviazione  
+### <a name="BKMK_Requirements"></a>Requisiti QoS di archiviazione  
 QoS di archiviazione supporta due scenari di distribuzione:  
 
 -   **Hyper-V con File server di scalabilità orizzontale** Questo scenario richiede entrambi gli elementi seguenti:  
@@ -44,9 +45,9 @@ QoS di archiviazione supporta due scenari di distribuzione:
 
     Per QoS di archiviazione è necessario che il cluster di failover sia presente nei server di archiviazione, ma i server di calcolo non devono per forza trovarsi in un cluster di failover. Tutti i server (usati sia per l'archiviazione che per il calcolo) devono eseguire Windows Server 2016.  
 
-    Se non si dispone di un File server di scalabilità orizzontale distribuito per scopi di valutazione, istruzioni dettagliate per crearne uno usando server esistenti o macchine virtuali sono riportate in [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) (Archiviazione di Windows Server 2012 R2: dettagli su Spazi di archiviazione, SMB di scalabilità orizzontale e VHDX condiviso (fisico)).  
+    Se non si dispone di un cluster di File Server di scalabilità orizzontale distribuito per scopi di valutazione, per istruzioni dettagliate per crearne uno usando server esistenti o macchine virtuali, vedere [risorse di archiviazione di Windows Server 2012 R2: Procedura dettagliata con spazi di archiviazione, SMB Scale-Out e condivisa VHDX (Physical)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
 
--   **Hyper-V con Volumi condivisi cluster.** Questo scenario richiede entrambi gli elementi seguenti:  
+-   **Hyper-V usando volumi condivisi del Cluster.** Questo scenario richiede entrambi gli elementi seguenti:  
 
     -   Cluster di calcolo con il ruolo Hyper-V abilitato  
 
@@ -54,12 +55,12 @@ QoS di archiviazione supporta due scenari di distribuzione:
 
 È richiesto il cluster di failover. Tutti i server devono eseguire la stessa versione di Windows Server 2016.  
 
-### <a name="BKMK_SolutionOverview"></a>Uso di QoS di archiviazione in una soluzione di archiviazione definita da software  
+### <a name="BKMK_SolutionOverview"></a>Uso di QoS di archiviazione in una soluzione di archiviazione software-defined  
 La funzionalità QoS di archiviazione è incorporata nella soluzione di archiviazione definita da software Microsoft fornita da File server di scalabilità orizzontale e Hyper-V. Il File server di scalabilità orizzontale espone le condivisioni di file ai server Hyper-V usando il protocollo SMB3. È stato aggiunto un nuovo strumento di gestione dei criteri al cluster di file server, il quale garantisce il monitoraggio delle prestazioni dell'archiviazione centrale.  
 
 ![File server di scalabilità orizzontale e QoS di archiviazione](media/overview-Clustering_SOFSStorageQoS.png)  
 
-**Figura 1: Uso di QoS di archiviazione in una soluzione di archiviazione definita da software in File server di scalabilità orizzontale**  
+**Figura 1: Uso di QoS di archiviazione in una soluzione di archiviazione software-defined in Scale-Out File Server**  
 
 Quando i server Hyper-V avviano le macchine virtuali, vengono controllati dallo strumento di gestione dei criteri. Lo strumento di gestione dei criteri comunica i criteri di QoS di archiviazione e i relativi limiti o prenotazioni al server Hyper-V, che controlla le prestazioni della macchina virtuale se necessario.  
 
@@ -67,23 +68,23 @@ Quando le macchine virtuali apportano modifiche ai criteri di QoS di archiviazio
 
 ### <a name="BKMK_Glossary"></a>Glossario  
 
-|Termine|Descrizione|  
+|Nome|Descrizione|  
 |--------|---------------|  
 |Operazioni di I/O normalizzate|Tutto l'uso della memoria è misurato in "Operazioni di I/O normalizzate".  Si tratta di un conteggio delle operazioni di input/output di archiviazione al secondo.  Tutte le operazioni di I/O minori a 8 KB vengono considerate come un'unica operazione di /O normalizzata.  Tutte le operazioni di I/O maggiori a 8 KB vengono considerate operazioni di I/O multiple normalizzate. Ad esempio, una richiesta di 256 KB viene considerata come 32 operazioni di I/O normalizzate.<br /><br />Windows Server 2016 include la possibilità di specificare la dimensione usata per normalizzare le operazioni di I/O.  Nel cluster di archiviazione è possibile specificare le dimensioni normalizzate che hanno effetto a livello del cluster di calcolo di normalizzazione.  Il valore predefinito rimane 8 KB.|  
 |Flusso|Ogni handle di file aperto da un server Hyper-V in un file VHD o VHDX viene considerato un "flusso". Se una macchina virtuale ha due dischi rigidi virtuali collegati, disporrà di 1 flusso al cluster di server per ogni file. Se un file VHDX è condiviso con più macchine virtuali, avrà 1 flusso per ogni macchina virtuale.|  
 |InitiatorName|Nome della macchina virtuale che viene segnalata al File server di scalabilità orizzontale per ogni flusso.|  
 |InitiatorID|Un identificatore che corrisponde all'ID della macchina virtuale.  Può essere usato sempre per identificare i flussi singoli delle macchine virtuali anche se le macchine virtuali hanno lo stesso InitiatorName.|  
-|Criteri di|I criteri di QoS di archiviazione vengono archiviati nel database del cluster e presentano le proprietà seguenti: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
+|Condizione|Criteri QoS di archiviazione vengono archiviati nel database del cluster e hanno le proprietà seguenti: Valore PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
 |PolicyId|Identificatore univoco per un criterio.  Viene generato per impostazione predefinita, ma può essere specificato se lo si preferisce.|  
 |MinimumIOPS|Numero minimo di operazioni di I/O normalizzate che verrà fornito da un criterio.  Noto anche come "Prenotazione".|  
 |MaximumIOPS|Numero massimo di operazioni di I/O normalizzate che verrà posto come limite da un criterio.  Noto anche come "Limite".|  
 |Aggregated |Un tipo di criteri in cui i valori MinimumIOPS & MaximumIOPS specificati e la larghezza di banda vengono condivisi tra tutti i flussi assegnati al criterio. Tutti i dischi rigidi virtuali che hanno assegnato il criterio in tale sistema di archiviazione dispongono di un'allocazione singola della larghezza di banda delle operazioni di I/O da condividere.|  
 |Dedicated|Un tipo di criteri in cui i valori MinimumIOPs & MaximumIOPs specificati e la larghezza di banda vengono gestiti per singoli file VHD/VHDx.|  
 
-## <a name="BKMK_SetUpQoS"></a>Configurare QoS di archiviazione e monitorare le prestazioni di base  
+## <a name="BKMK_SetUpQoS"></a>Come configurare QoS di archiviazione e monitorare le prestazioni di base  
 Questa sezione descrive come abilitare la nuova funzionalità QoS di archiviazione e come monitorare le prestazioni di archiviazione senza applicare criteri personalizzati.  
 
-### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurare QoS di archiviazione in un cluster di archiviazione  
+### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurare QoS di archiviazione in un Cluster di archiviazione  
 Questa sezione descrive come abilitare QoS di archiviazione su un cluster di failover nuovo o esistente o su un file server di scalabilità orizzontale che esegue Windows Server 2016.  
 
 #### <a name="set-up-storage-qos-on-a-new-installation"></a>Configurare QoS di archiviazione in una nuova installazione  
@@ -94,7 +95,7 @@ Dopo aver creato un cluster di failover e aver configurato un disco del volume c
 
 ![Risorsa QoS di archiviazione visualizzata in Risorse principali del cluster](media/overview-Clustering_StorageQoSFCM.png)  
 
-**Figura 2: Risorsa QoS di archiviazione visualizzata come una risorsa di base del cluster in Gestione cluster di failover**  
+**Figura 2: Risorsa QoS di archiviazione visualizzata come una risorse principali del Cluster in Gestione Cluster di Failover**  
 
 Usare il seguente cmdlet di PowerShell per visualizzare lo stato della risorsa QoS di archiviazione.  
 
@@ -106,7 +107,7 @@ Name                   State      OwnerGroup        ResourceType
 Storage Qos Resource   Online     Cluster Group     Storage QoS Policy Manager  
 ```  
 
-### <a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurare QoS di archiviazione in un cluster di calcolo  
+### <a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurare QoS di archiviazione in un Cluster di calcolo  
 Il ruolo Hyper-V in Windows Server 2016 include il supporto incorporato per QoS di archiviazione e viene abilitato per impostazione predefinita.  
 
 #### <a name="install-remote-administration-tools-to-manage-storage-qos-policies-from-remote-computers"></a>Installare gli strumenti di amministrazione remota per gestire i criteri di QoS di archiviazione da computer remoti  
@@ -114,14 +115,14 @@ Il ruolo Hyper-V in Windows Server 2016 include il supporto incorporato per QoS 
 
 La funzionalità facoltativa **RSAT-Clustering** include il modulo Windows PowerShell per la gestione remota del clustering di failover, inclusa QoS di archiviazione.  
 
--   Windows PowerShell: Add-WindowsFeature RSAT-Clustering  
+-   Windows PowerShell: Aggiungere-WindowsFeature RSAT-Clustering  
 
 La funzionalità facoltativa **RSAT-Hyper-V-Tools** include il modulo Windows PowerShell per la gestione remota di Hyper-V.  
 
 -   Windows PowerShell: Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Distribuire le macchine virtuali che eseguono carichi di lavoro a scopo test  
-Sarà necessario disporre di alcune macchine virtuali archiviate nel File server di scalabilità orizzontale con carichi di lavoro pertinenti.  Per alcuni suggerimenti su come simulare il carico ed eseguire alcuni test di stress, vedere la pagina seguente in cui vengono illustrati uno strumento consigliato (DiskSpd) e alcuni usi di esempio: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx) (DiskSpd, PowerShell e prestazioni di archiviazione: misurazione delle operazioni di I/O, della velocità effettiva e della latenza per i dischi locali e le condivisioni di file SMB).  
+Sarà necessario disporre di alcune macchine virtuali archiviate nel File server di scalabilità orizzontale con carichi di lavoro pertinenti.  Per alcuni suggerimenti su come simulare il carico ed eseguire alcuni test di stress, vedere la pagina seguente per uno strumento consigliato (DiskSpd) e un esempio di utilizzo: [Le prestazioni di DiskSpd, PowerShell e archiviazione: misurazione di IOP, velocità effettiva e latenza per dischi locali e SMB condivisioni file.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
 
 Gli scenari di esempio illustrati in questa guida includono cinque macchine virtuali. BuildVM1, BuildVM2, BuildVM3 e BuildVM4 eseguono un carico di lavoro desktop con domanda di archiviazione da bassa a moderata. TestVm1 esegue un benchmark di elaborazione di transazioni online con una domanda di archiviazione elevata.  
 
@@ -288,7 +289,7 @@ MaximumIops    : 0
 MinimumIops    : 781  
 ```  
 
-## <a name="BKMK_CreateQoSPolicies"></a>Creare e monitorare i criteri di QoS di archiviazione  
+## <a name="BKMK_CreateQoSPolicies"></a>Come creare e monitorare i criteri QoS di archiviazione  
 Questa sezione descrive come creare criteri di QoS di archiviazione, come applicare questi criteri alle macchine virtuali e come monitorare un cluster di archiviazione dopo l'applicazione dei criteri.  
 
 ### <a name="create-storage-qos-policies"></a>Creare i criteri di QoS di archiviazione  
@@ -305,7 +306,9 @@ Ad esempio, se si crea un criterio Aggregated con un minimo di 300 operazioni di
 
 Tuttavia, se si crea un criterio Dedicated con limiti simili e lo si applica ai file VHD/VHDx su 5 macchine virtuali diverse, ogni macchina virtuale otterrà almeno 300 operazioni di I/O e non più di 500. Se le macchine virtuali hanno una domanda elevata simile di operazioni di I/O e il sistema di archiviazione è in grado di gestirla,ogni macchina virtuale otterrà circa 500 operazioni di I/O. .  Se una delle macchine virtuali dispone di più file VHD/VHDx con lo stesso criterio MulitInstance configurato, esse condivideranno il limite in modo che il numero totale di operazioni di I/O della macchina virtuale dai file con tale criterio non superi i limiti.  
 
-Di conseguenza, se si dispone di un gruppo di file VHD/VHDx che deve presentare le stesse caratteristiche di prestazioni e non si desidera creare più criteri simili, è possibile usare un singolo criterio Dedicated e applicarlo ai file di ogni macchina virtuale.  
+Di conseguenza, se si dispone di un gruppo di file VHD/VHDx che deve presentare le stesse caratteristiche di prestazioni e non si desidera creare più criteri simili, è possibile usare un singolo criterio Dedicated e applicarlo ai file di ogni macchina virtuale.
+
+Mantenere il numero di file VHD/VHDx assegnato a un singolo criterio Aggregated a 20 o meno.  Questo tipo di criteri è stato pensato per eseguire operazioni di aggregazione con alcune macchine virtuali in un cluster.
 
 ### <a name="create-and-apply-a-dedicated-policy"></a>Creare e applicare un criterio Dedicated  
 In primo luogo, usare il cmdlet `New-StorageQosPolicy` per creare un criterio nel File server di scalabilità orizzontale, come illustrato nell'esempio seguente:  
@@ -383,7 +386,7 @@ IsDeleted                     : False
 ```  
 
 ### <a name="query-for-storage-qos-policies"></a>Eseguire una query per i criteri di QoS di archiviazione  
-`Get-StorageQosPolicy` elenca tutti i criteri configurati e il relativo stato in un File server di scalabilità orizzontale.  
+`Get-StorageQosPolicy` Elenca tutti i criteri configurati e il relativo stato in un File Server di scalabilità orizzontale.  
 
 ```PowerShell
 PS C:\> Get-StorageQosPolicy  
@@ -528,7 +531,7 @@ WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        1500         250      
 WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        6000        1000            4507  
 ```  
 
-## <a name="BKMK_KnownIssues"></a>Identificare e risolvere i problemi comuni  
+## <a name="BKMK_KnownIssues"></a>Come identificare e risolvere i problemi comuni  
 Questa sezione descrive come individuare le macchine virtuali con criteri di QoS di archiviazione non validi, come ricreare criteri corrispondenti, come rimuovere un criterio da una macchina virtuale e come identificare le macchine virtuali che non soddisfano i requisiti dei criteri di QoS di archiviazione.  
 
 ### <a name="BKMK_FindingVMsWithInvalidPolicies"></a>Identificare le macchine virtuali con criteri non validi  
@@ -626,7 +629,7 @@ TR20-VMM          Ok          33         666              10     Ok BOOT.VHDX
 WinOltp1          Ok          25         500               0     Ok 9914.0.AMD64FRE.WINMA...  
 ```  
 
-#### <a name="BKMK_RemovePolicyFromVM"></a>Rimuovere i criteri di QoS di archiviazione  
+#### <a name="BKMK_RemovePolicyFromVM"></a>Rimuovere i criteri QoS di archiviazione  
 
 Se il criterio è stato rimosso intenzionalmente, o se è stata importata una macchina virtuale con un criterio non necessario, è possibile rimuovere tale criterio.  
 
@@ -664,7 +667,7 @@ WinOltp1                0           0            1811     Ok IOMETER.VHDX
 WinOltp1                0           0               0     Ok BOOT.VHDX  
 ```  
 
-### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Individuare le macchine virtuali che non rispettano i criteri di QoS di archiviazione  
+### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Individuare le macchine virtuali che non rispettano i criteri QoS di archiviazione  
 Lo stato **InsufficientThroughput** è assegnato a tutti i flussi che:  
 
 -   Dispongono di un numero minimo di operazioni di I/O definito dal criterio;  
@@ -820,7 +823,7 @@ System Center Virtual Machine Manager consente di applicare criteri a più clust
 
 Se si dispone di un flusso che raggiunge il valore massimo di un criterio e si modificano i criteri che consentono di aumentarlo o ridurlo, quindi si determina immediatamente la latenza/le operazioni di I/O/la larghezza di banda dei flussi tramite i cmdlet di PowerShell, occorreranno fino a 5 minuti per visualizzare gli effetti completi della modifica dei criteri sui flussi.  I nuovi limiti verranno applicati entro pochi secondi, ma il cmdlet di PowerShell **Get-StorgeQoSFlow** usa una media di ogni contatore tramite una finestra temporale scorrevole di 5 minuti.  In caso contrario, se è stato visualizzato un valore corrente e il cmdlet di PowerShell è stato eseguito più volte, si possono visualizzare valori molto diversi perché i valori delle operazioni di I/O e delle latenze possono variare notevolmente da un secondo all'altro.
 
-### <a name="BKMK_Updates"></a>Quali nuove funzionalità sono state aggiunte in Windows Server 2016?
+### <a name="BKMK_Updates"></a>Nuove funzionalità è stata aggiunta in Windows Server 2016
 
 In Windows Server 2016 i tipi di criteri di QoS di archiviazione sono stati rinominati.  Il criterio **Multi-instance** è stato rinominato in **Dedicated** mentre **Single-instance** è stato rinominato in **Aggregated**. È stato inoltre modificato il comportamento di gestione dei criteri Dedicated; i file VHD/VHDX all'interno della stessa macchina virtuale che presentano lo stesso criterio **Dedicated** applicato non condivideranno le allocazioni delle operazioni di I/O.  
 
@@ -831,13 +834,13 @@ In Windows Server 2016 sono disponibili due nuove funzionalità QoS di archiviaz
     QoS di archiviazione di Windows Server 2016 introduce la possibilità di specificare la larghezza di banda massima che i flussi assegnati al criterio possono utilizzare.  Il parametro, quando specificato nei cmdlet **StorageQosPolicy**, è **MaximumIOBandwidth** e l'output viene espresso in byte al secondo.  
     Se in un criterio sono impostati i parametri **MaximimIops** e **MaximumIOBandwidth**, entrambi saranno efficaci e il primo a essere raggiunto dai flussi limiterà le operazioni di I/O dei flussi.  
 
--   **La normalizzazione delle operazioni di I/O è configurabile**  
+-   **Normalizzazione di IOPS è configurabile**  
 
     QoS di archiviazione usa la normalizzazione delle operazioni di I/O.  Il valore predefinito è una dimensione di normalizzazione di 8 KB.  QoS di archiviazione di Windows Server 2016 introduce la possibilità di specificare una dimensione di normalizzazione diversa per il cluster di archiviazione.  Questa dimensione di normalizzazione interessa tutti i flussi nel cluster di archiviazione e le relative modifiche hanno effetto immediato (entro pochi secondi).  Il valore minimo è 1 KB e il valore massimo è 4 GB (è consigliabile non impostare più di 4 MB poiché è insolito disporre di operazioni di I/O maggiori di 4 MB).  
 
     Un aspetto da considerare è che lo stesso modello/la stessa velocità effettiva delle operazioni di I/O viene visualizzato con un numero di operazioni di I/O diverso nell'output di QoS di archiviazione quando si modifica la normalizzazione delle operazioni di I/O, a causa di modifiche nel calcolo di normalizzazione.  Se si confrontano le operazioni di I/O tra i cluster di archiviazione è inoltre necessario verificare il valore di normalizzazione usato da ognuna, dal momento che questo influenzerà le operazioni di I/O normalizzate segnalate.    
 
-#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Esempio 1: Creazione di un nuovo criterio e visualizzazione della larghezza di banda massima nel cluster di archiviazione  
+#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Esempio 1: Crea un nuovo criterio e visualizzazione di larghezza di banda massima nel cluster di archiviazione  
 In PowerShell è possibile specificare le unità con cui viene espresso un numero.  Nell'esempio seguente 10 MB viene usato come valore di larghezza di banda massimo.  QoS di archiviazione lo convertirà e lo salverà come byte al secondo. Pertanto, 10 MB viene convertito in 10485760 byte al secondo.  
 
 ```PowerShell
@@ -863,7 +866,7 @@ InitiatorLatency   : 1.5455
 InitiatorBandwidth : 37888  
 ```  
 
-#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Esempio 2: Impostazioni di normalizzazione delle operazioni di I/O e specificazione di un nuovo valore  
+#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Esempio 2: Ottenere le impostazioni di normalizzazione di IOPS e specificare un nuovo valore  
 
 L'esempio seguente illustra come ottenere le impostazioni di normalizzazione delle operazioni di I/O nei cluster di archiviazione (impostazione predefinita 8 KB), quindi come impostarle su 32 KB e come visualizzarle nuovamente.  Si noti che, in questo esempio, vengono specificati "32 KB" poiché PowerShell consente di specificare l'unità anziché richiedere la conversione in byte.   L'output mostra il valore in byte al secondo.  
 

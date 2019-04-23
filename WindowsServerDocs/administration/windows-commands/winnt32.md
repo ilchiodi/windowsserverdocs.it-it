@@ -1,0 +1,78 @@
+---
+title: winnt32
+description: 'Argomento i comandi di Windows per * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 5a0a6fb3-ba4e-4ace-8984-7f6d3875560e
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 28675ac6d5a1f1a7f56a9b72ef11a3e99e4ed130
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851262"
+---
+# <a name="winnt32"></a>winnt32
+
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Esegue un'installazione o l'aggiornamento a un prodotto in Windows Server 2003. È possibile eseguire **winnt32** al prompt dei comandi in un computer che eseguono Windows 95, Windows 98, Windows Millennium edition, Windows NT, Windows 2000, Windows XP o un prodotto in Windows Server 2003. Se si esegue **winnt32** in un computer che eseguono Windows NT versione 4.0, è necessario innanzitutto applicare Service Pack 5 o versione successivo.
+## <a name="syntax"></a>Sintassi
+```
+winnt32 [/checkupgradeonly] [/cmd: <CommandLine>] [/cmdcons] [/copydir:{i386|ia64}\<FolderName>] [/copysource: <FolderName>] [/debug[<Level>]:[ <FileName>]] [/dudisable] [/duprepare: <pathName>] [/dushare: <pathName>] [/emsport:{com1|com2|usebiossettings|off}] [/emsbaudrate: <BaudRate>] [/m: <FolderName>]  [/makelocalsource] [/noreboot] [/s: <Sourcepath>] [/syspart: <DriveLetter>] [/tempdrive: <DriveLetter>] [/udf: <ID>[,<UDB_File>]] [/unattend[<Num>]:[ <AnswerFile>]]
+```
+### <a name="parameters"></a>Parametri
+|Parametro|Descrizione|
+|-------|--------|
+|/checkupgradeonly|Verifica del computer per la compatibilità dell'aggiornamento con i prodotti Windows Server 2003.<br /><br />Se si usa questa opzione con **/Unattend**, non è necessario alcun input dell'utente.  In caso contrario, i risultati vengono visualizzati sullo schermo ed è possibile salvarli sotto il nome file specificato. Il nome file predefinito è **Upgrade** nella cartella systemroot.|
+|/cmd|Consente di eseguire un comando specifico prima che la fase finale del programma di installazione. Ciò si verifica dopo il riavvio del computer e dopo che sono state raccolte le informazioni necessarie per la configurazione, ma prima dell'installazione è stata completata.|
+|\<CommandLine>|Specifica la riga di comando da eseguire prima la fase finale dell'installazione.|
+|/cmdcons|In un computer basato su x86, installa la Console di ripristino come opzione di avvio.  La Console di ripristino è un'interfaccia della riga di comando da cui è possibile eseguire attività come l'avvio e arresto di servizi e accedere all'unità locale (incluse le unità formattate con NTFS). È possibile usare solo il **/cmdcons** opzione dopo aver completato il programma di installazione.|
+|/copydir|Crea una cartella aggiuntiva all'interno della cartella in cui vengono installati file del sistema operativo.  ad esempio, per computer basati su x64 e x86, è possibile creare una cartella denominata *Driver_privati* all'interno della cartella di origine i386 per l'installazione e salvare i file di driver nella cartella. tipo di **/copydir:i386\\* * * Driver_privati* copiare tale cartella nel computer appena installato, rendendo il nuovo percorso della cartella di installazione **systemroot** \\*Driver_privati *.<br /><br />-   **i386** specifica i386<br />-   **IA64** specifica ia64<br /><br />È possibile usare **/copydir** per creare ulteriori cartelle desiderate.|
+|\<FolderName>|Specifica la cartella creata per la memorizzazione delle modifiche per il sito.|
+|/copysource|Crea una cartella aggiuntiva all'interno della cartella in cui vengono installati file del sistema operativo. È possibile usare **/copysource** per creare ulteriori cartelle desiderate.<br /><br />A differenza delle cartelle **/copydir** consente di creare, **/copysource** cartelle vengono eliminate al termine dell'installazione.|
+|/debug|Crea un log di debug al livello specificato, ad esempio, **/debug4**.  Il file di log predefinito è **C:\ systemroot\winnt32.log**, e|
+|\<level>|Il livello di valori e descrizioni<br /><br />-   0: Errori gravi<br />-   1: Errori<br />-   2: Livello predefinito. Avvisi<br />-   3: Informazioni<br />-4: informazioni dettagliate per il debug<br /><br />Ogni livello include i livelli sottostanti.|
+|/dudisable|Impedisce l'esecuzione di aggiornamento dinamico. Senza aggiornamento dinamico, il programma di installazione viene eseguita solo con i file di installazione originale. Questa opzione verrà disabilitare aggiornamento dinamico, anche se si usa un file di risposte e specificare le opzioni di aggiornamento dinamico in tale file.|
+|/duprepare|Esegue le operazioni di preparazione in una condivisione di installazione in modo che può essere utilizzato con i file di aggiornamento dinamico che è stato scaricato dal sito Web di Windows Update. La condivisione è quindi utilizzabile per l'installazione di Windows XP per più client.|
+|\<pathName>|Specifica nome e percorso completo.|
+|/dushare|Specifica una condivisione in cui è stato scaricato in precedenza il file di aggiornamento dinamico (file di aggiornamento per l'uso con il programma di installazione) dal sito Web di Windows Update e in cui è stato eseguito **/duprepare: * * * < percorso >*. Quando eseguita in un client, specifica che l'installazione del client dovrà usare i file aggiornati per la condivisione specificata <pathName>.|
+|/emsport|Abilita o disabilita Emergency Management Services durante l'installazione e dopo aver installato il sistema operativo server. Con servizi di gestione emergenze, è possibile gestire in remoto un server in situazioni di emergenza che in genere richiederebbe un locale della tastiera, mouse e monitoraggio, ad esempio quando non è disponibile nella rete o il server non funziona correttamente. Utilizzo dei servizi EMS presenta specifici requisiti hardware ed è disponibile solo per i prodotti in Windows Server 2003.<br /><br />-   **COM1** è applicabile solo per i computer basati su x86 (non architettura-computer basati su Itanium).<br />-   **COM2**è applicabile solo per i computer basati su x86 (non architettura-computer basati su Itanium).<br />-Per impostazione predefinita. Utilizza l'impostazione specificata nel BIOS seriale porta Console il reindirizzamento della tabella relativa, o, in Itanium architettura Itanium, tramite il percorso del dispositivo console EFI. Se si specifica **usebiossettings** ed è presente alcuna tabella SPCR o il percorso del dispositivo appropriato EFI console, Emergency Management based non verrà abilitato.<br />-   **disattivare** Disabilita Emergency Management Services. È possibile abilitarlo in un secondo momento modificando le impostazioni di avvio.|
+|/emsbaudrate|per i computer basati su x86, specifica la velocità in baud per servizi di gestione emergenze. (L'opzione non applicabile per i computer basati su architettura Itanium). Deve essere usato con **/emsport: COM1** oppure **/emsport: COM2** (in caso contrario, **/emsbaudrate** viene ignorato).|
+|\<BaudRate>|Specifica la velocità in baud di 9600, 19200, 57600 o 115200. 9600 è quello predefinito.|
+|/m|Specifica che l'installazione copia i file di sostituzione da una posizione alternativa.  Indica al programma di installazione cerca innanzitutto nella posizione alternativa e, se i file sono presenti, per usarli anziché i file dal percorso predefinito.|
+|/makelocalsource|Consente di copiare tutti i file di origine di installazione per il disco rigido locale.  Uso **/makelocalsource** durante l'installazione da un cd per fornire i file di installazione quando il recapito continuo non è disponibile in un secondo momento durante l'installazione.|
+|/noreboot|Indica di non riavviare il computer dopo la fase di copia dei file del programma di installazione viene completata in modo che sia possibile eseguire un altro comando.|
+|/s|Specifica il percorso di origine dei file per l'installazione. Per copiare i file contemporaneamente da più server, digitare il **/s:**\<Sourcepath > opzione più volte (con un massimo di otto). Se si digita, l'opzione più volte, il primo server specificato deve essere disponibile o il programma di installazione avrà esito negativo.|
+|\<Sourcepath>|Specifica il nome di percorso di origine completo.|
+|/syspart|In un computer basato su x86, specifica che è possibile copiare i file di avvio installazione da un disco rigido, contrassegna il disco come attiva e quindi installare il disco in un altro computer. Quando si avvia tale computer, viene avviato automaticamente con la fase successiva del programma di installazione.<br /><br />È necessario utilizzare sempre il **/tempdrive** parametro con il **/syspart** parametro.<br /><br />È possibile avviare **winnt32** con il **/syspart** opzione in un computer basato su x86 che esegue Windows NT 4.0, Windows 2000, Windows XP o un prodotto in Windows Server 2003. Se il computer è in esecuzione Windows NT versione 4.0, è necessario Service Pack 5 o versione successivo. Il computer non può essere in esecuzione Windows 95, Windows 98 o Windows Millennium edition.|
+|\<DriveLetter>|Specifica la lettera di unità.|
+|/tempdrive|Consente l'installazione in cui inserire file temporanei nella partizione specificata.<br /><br />per una nuova installazione, il sistema operativo server verrà anche installato nella partizione specificata.<br /><br />per un aggiornamento, il **/tempdrive** opzione riguarda il posizionamento dei file temporanei solo; verrà aggiornato il sistema operativo della partizione da cui si esegue **winnt32**.|
+|/udf|Indica un identificatore (\<ID >) dal programma di installazione utilizzato per specificare come un file di univocità Database (UDB) modifica un file di risposte (vedere la **/Unattend** opzione).  Le UDF sostituisce i valori nel file di risposte e l'identificatore determina i valori nel file UDB utilizzati. Ad esempio, **utente_RAS** sostituisce le impostazioni specificate per l'identificativo nel file di azienda. Se nessun \<file_UDB > viene specificato, viene richiesto all'utente di inserire un disco che contiene il **$Unique$ UDB** file.|
+|\<ID>|Indica un identificatore usato per specificare la modalità di modifica un file di risposte un file di univocità Database (UDB).|
+|\<UDB_file>|Specifica un file di univocità Database (UDB).|
+|/unattend|In un computer basato su x86, viene aggiornata la versione precedente di Windows NT 4.0 Server (con Service Pack 5 o versione successiva) o Windows 2000 in modalità di installazione automatica. Tutte le impostazioni utente provengono dall'installazione precedente, pertanto non è richiesto alcun intervento dell'utente durante l'installazione.|
+|\<num>|Specifica il numero di secondi tra l'ora dal programma di installazione viene completata la copia i file e il riavvio del computer. È possibile usare \<Num > in qualsiasi computer che esegue Windows 98, Windows Millennium edition, Windows NT, Windows 2000, Windows XP o un prodotto in Windows Server 2003. Se il computer è in esecuzione Windows NT versione 4.0, è necessario Service Pack 5 o versione successivo.|
+|\<AnswerFile>|Fornisce il programma di installazione con impostazioni personalizzate|
+|/?|Visualizza la guida al prompt dei comandi.|
+
+## <a name="remarks"></a>Note
+Se si distribuisce Windows XP nei computer client, è possibile usare la versione di winnt32.exe fornito con Windows XP. Un altro modo per distribuire Windows XP consiste nell'utilizzare Winnt32. msi, che funziona tramite Windows Installer, parte di IntelliMirror set di tecnologie. Per altre informazioni sulle distribuzioni client, vedere Windows Server 2003 Deployment Kit, che è descritti [usando la distribuzione di Windows e Windows Resource Kit](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx).
+
+Un computer basati su Itanium **winnt32** può essere eseguito dall'interfaccia EFI (Extensible Firmware) o da Windows Server 2003 Enterprise, Windows Server 2003 R2 Enterprise, Windows Server 2003 R2 Datacenter o Windows Server 2003 Data Center. Inoltre, in un computer basato su architettura Itanium **/cmdcons** e **/syspart** non sono disponibili e le opzioni relative agli aggiornamenti non sono disponibili.
+per altre informazioni sulla compatibilità dell'hardware, vedere [compatibilità Hardware](https://technet.microsoft.com/library/cc757927(v=ws.10).aspx).
+Per ulteriori informazioni sull'utilizzo di aggiornamento dinamico e l'installazione di più client, vedere Windows Server 2003 Deployment Kit, che è descritti [usando la distribuzione di Windows e Windows Resource Kit](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx).
+Per informazioni sulla modifica delle impostazioni di avvio, vedere la distribuzione di Windows e Resource Kit per Windows Server 2003. Per altre informazioni, vedere [usando la distribuzione di Windows e Windows Resource Kit](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx).
+Usando il **/Unattend** modalità automatica di opzione della riga di comando per automatizzare l'installazione di avere letto e accettato il contratto di licenza Microsoft per Windows Server 2003. Prima di usare questa opzione della riga di comando per installare Windows Server 2003 per conto di un'organizzazione diverso dal proprio, è necessario confermare che l'utente finale (se un singolo utente, o una singola entità) ha ricevuto, letto e accettato le condizioni di Microsoft License Contratto per il prodotto.  Gli OEM non specificare questa chiave per destinate agli utenti finali.
+
+## <a name="additional-references"></a>Altri riferimenti
+-   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+

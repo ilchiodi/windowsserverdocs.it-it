@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 1461f3e3266d77d2510aba37208347253a8f78e7
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082302"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851622"
 ---
 # <a name="iis-on-nano-server"></a>IIS in Nano Server
 
@@ -65,7 +65,7 @@ In questa versione di Nano Server sono disponibili le funzionalità IIS seguenti
 |**Strumenti di gestione**||  
 |Modulo di amministrazione IIS per Windows PowerShell|x|  
 
-Una serie di articoli in altre configurazioni di IIS (ad esempio, l'utilizzo di ASP.NET, PHP e Java), nonché altri correlati contenuto viene pubblicato con [http://iis.net/learn](http://iis.net/learn).  
+Una serie di articoli su altre configurazioni di IIS (ad esempio usando ASP.NET, PHP e Java), nonché altri correlati contenuto venga pubblicato nel [ http://iis.net/learn ](http://iis.net/learn).  
 
 ## <a name="installing-iis-on-nano-server"></a>Installazione di IIS in Nano Server  
 È possibile installare questo ruolo server sia offline, con Nano Server disattivato, sia online, con Nano Server in esecuzione. L'installazione offline è l'opzione consigliata.  
@@ -122,19 +122,19 @@ Anche se l'installazione offline di questo ruolo server è l'opzione consigliata
 
 4.  Passare alla directory contenente il file XML appena creato ed eseguire quanto segue:  
 
-    **dism /online /apply-unattend:.\unattend.xml**  
+    **DISM /online /Enable-feature /apply-unattend:.\unattend.xml**  
 
 
 5.  Confermare che il pacchetto IIS e il Language Pack associato siano installati correttamente eseguendo quanto segue:  
 
-    **dism /online /get-packages**  
+    **DISM /online /get-packages**  
 
-    "Package Identity : Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~~10.0.14393.1000" viene elencato due volte, una per Tipo di versione Language Pack e una per Tipo di versione Feature Pack.  
+    Dovrebbe vedere "Package Identity: Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000" elencato due volte, una per tipo di versione: Language Pack e una per Release Type: Feature Pack.  
 
 6.  Avviare il servizio W3SVC con **net start w3svc** oppure riavviando Nano Server.  
 
 ## <a name="starting-iis"></a>Avvio di IIS  
-Una volta installato e in esecuzione, IIS è pronto per l'elaborazione delle richieste Web. Verificare che IIS sia in esecuzione esaminando la pagina Web IIS predefinita all'indirizzo http://\<Indirizzo IP di Nano Server>. In un computer fisico è possibile determinare l'indirizzo IP usando la Console di ripristino di emergenza. In una macchina virtuale è possibile ottenere l'indirizzo IP usando un prompt di Windows PowerShell ed eseguendo quanto segue:  
+Una volta installato e in esecuzione, IIS è pronto per l'elaborazione delle richieste Web. Verificare che IIS sia in esecuzione esaminando la pagina Web IIS predefinita http://\<indirizzo IP di Nano Server>. In un computer fisico è possibile determinare l'indirizzo IP usando la Console di ripristino di emergenza. In una macchina virtuale è possibile ottenere l'indirizzo IP usando un prompt di Windows PowerShell ed eseguendo quanto segue:  
 
 `Get-VM -name <VM name> | Select -ExpandProperty networkadapters | select IPAddresses`  
 
@@ -185,7 +185,7 @@ Usare il cmdlet seguente:
 
 Sarà quindi possibile eseguire `Get-IISSite` per verificare lo stato del sito. Vengono restituiti il nome, l'ID, lo stato, il percorso fisico e le associazioni del sito Web.  
 
-**Eliminazione di siti Web**  
+**Eliminazione di siti web**  
 
 Eseguire `Remove-IISSite -Name TestSite -Confirm:$false`.  
 
@@ -242,7 +242,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
     $sm.CommitChanges()  
     ```  
 
-    È anche possibile usare SNI (Server Name Indication) con un nome host specifico mediante la sintassi seguente: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    È anche possibile usare indicazione nome Server (SNI) con un nome host specifico con questa sintassi: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Appendice 1: Elenco di funzionalità secondarie di IIS
 
@@ -280,7 +280,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
 - IIS-HttpTracing
 - IIS-CustomLogging
 
-## <a name="appendix-2-elements-of-http-features"></a>Appendice 2: Elementi delle funzionalità HTTP  
+## <a name="appendix-2-elements-of-http-features"></a>Appendice 2: Elementi della funzionalità HTTP  
 Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazione. Questa appendice elenca gli elementi di configurazione di tutte le funzionalità di questa versione di Nano Server  
 
 ### <a name="common-http-features"></a>Funzionalità HTTP comuni  
@@ -295,7 +295,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 È possibile che la voce `StaticFile <handlers>` sia già presente. In questo caso, aggiungere semplicemente "DefaultDocumentModule" all'attributo \<modules> usando la virgola come separatore.  
 
-**Esplorazione directory**  
+**esplorazione directory**  
 
 |Sezione|Elementi di configurazione|  
 |----------------|--------------------------|   
@@ -347,7 +347,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 |`<globalModules>`|`<add name="CustomLoggingModule" image="%windir%\System32\inetsrv\logcust.dll" />`|  
 |`<modules>`|`<add name="CustomLoggingModule" lockItem="true" />`|  
 
-**Monitor richieste**  
+**Monitoraggio richieste**  
 
 |Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
@@ -419,7 +419,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 |`<modules>`|`<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>`|  
 |`<clientCertificateMappingAuthentication>`|`<clientCertificateMappingAuthentication enabled="false" />`|  
 
-**Restrizioni indirizzi IP e di dominio**  
+**Restrizioni IP e di dominio**  
 
 |Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
@@ -474,7 +474,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 |`<globalModules>`|`<add name="IsapiFilterModule" image="%windir%\System32\inetsrv\filter.dll" />`|  
 |`<modules>`|`<add name="IsapiFilterModule" lockItem="true" />`|  
 
-**Server-Side Include**  
+**Server-side include**  
 
 |Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  

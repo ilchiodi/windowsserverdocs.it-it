@@ -1,7 +1,7 @@
 ---
 ms.assetid: e831f781-3c45-4d44-b411-160d121d1324
 title: Linguaggio delle regole di trasformazione delle attestazioni
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,50 +10,51 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 4a6b378bc4aef180ebedd260008febaa2f2a76ae
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856212"
 ---
 # <a name="claims-transformation-rules-language"></a>Linguaggio delle regole di trasformazione delle attestazioni
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-La foresta in attestazioni trasformazione funzionalità consente di bridge attestazioni per controllo dinamico degli accessi tra i limiti delle foreste mediante l'impostazione di criteri di trasformazione delle attestazioni sul trust tra foreste. Il componente principale di tutti i criteri è regole che vengono scritti nel linguaggio delle regole di trasformazione delle attestazioni. In questo argomento vengono fornite informazioni dettagliate su questa lingua e vengono fornite indicazioni sulla creazione di regole di trasformazione delle attestazioni.  
+La foresta in attestazioni consente di funzionalità di trasformazione per controllo dinamico degli accessi limiti delle foreste di bridge di attestazioni per l'impostazione di criteri di trasformazione delle attestazioni nel trust tra foreste. Il componente principale di tutti i criteri è regole che vengono scritti nel linguaggio delle regole di trasformazione delle attestazioni. Questo argomento vengono fornite informazioni dettagliate su questo linguaggio e vengono fornite informazioni aggiuntive sulla creazione di regole di trasformazione delle attestazioni.  
   
-I cmdlet di Windows PowerShell per criteri di trasformazione su tra foreste considera attendibili sono opzioni per impostare i criteri semplici che sono necessari in comune gli scenari. Questi cmdlet tradurre l'input dell'utente in criteri e regole nel linguaggio delle regole di trasformazione delle attestazioni e quindi archiviarli in Active Directory in formato previsto. Per ulteriori informazioni sui cmdlet per la trasformazione delle attestazioni, vedere il [cmdlet di Active Directory per controllo dinamico degli accessi](https://go.microsoft.com/fwlink/?LinkId=243150).  
+I cmdlet di Windows PowerShell per i criteri di trasformazione su tra foreste e trust di avranno opzioni per impostare criteri semplici che sono necessarie in comune scenari. Questi cmdlet convertire l'input dell'utente in criteri e regole nel linguaggio delle regole di trasformazione attestazioni e quindi archiviano in Active Directory nel formato previsto. Per altre informazioni sui cmdlet per la trasformazione delle attestazioni, vedere la [cmdlet di Active Directory per controllo dinamico degli accessi](https://go.microsoft.com/fwlink/?LinkId=243150).  
   
-A seconda della configurazione di attestazioni e i requisiti inseriti nella relazione di trust tra foreste le foreste di Active Directory, i criteri di trasformazione delle attestazioni potrebbero dover essere più complesse rispetto ai criteri supportati tramite i cmdlet di Windows PowerShell per Active Directory. Per creare in modo efficace tali criteri, è essenziale per comprendere la sintassi del linguaggio delle regole attestazioni trasformazione e semantica. Questa attestazioni linguaggio delle regole di trasformazione ("la lingua") in Active Directory è un sottoinsieme del linguaggio che viene utilizzato da [Active Directory Federation Services](https://go.microsoft.com/fwlink/?LinkId=243982) simile e scopi, è una sintassi e semantica molto simili. Tuttavia, esistono meno operazioni consentite e restrizioni di sintassi aggiuntive vengono inserite nella versione di Active Directory della lingua.  
+A seconda della configurazione di attestazioni e i requisiti inseriti nella relazione di trust tra foreste in foreste di Active Directory, i criteri di trasformazione delle attestazioni debba risultare più complesse che i criteri supportati dai cmdlet di Windows PowerShell per Active Directory. Per creare in modo efficiente tali criteri, è essenziale per comprendere la sintassi del linguaggio delle regole di trasformazione attestazioni e la semantica. Questa attestazioni il linguaggio delle regole di trasformazione ("language") in Active Directory è un subset del linguaggio che viene utilizzato dagli [Active Directory Federation Services](https://go.microsoft.com/fwlink/?LinkId=243982) per simile a scopo e si ha una sintassi e semantica molto simili. Tuttavia, esistono un minor numero di operazioni consentite e nella versione di Active Directory del linguaggio vengono applicate restrizioni di sintassi aggiuntiva.  
   
-Questo argomento descrive brevemente la sintassi e semantica del linguaggio delle regole di trasformazione delle attestazioni in Active Directory e considerazioni per essere apportate durante la creazione di criteri. Fornisce diversi set di regole di esempio per iniziare ed esempi di sintassi non corretta e i messaggi che vengano generati, che consentono di decifrare messaggi di errore quando si creano le regole.  
+In questo argomento viene illustrato brevemente la sintassi e semantica del linguaggio delle regole di trasformazione delle attestazioni in Active Directory e le considerazioni da prendere durante la creazione di criteri. Fornisce diversi insiemi di regole di esempio per iniziare a usare ed esempi di sintassi non corretta e i messaggi che generano, che consentono di decrittografare i messaggi di errore quando si creano le regole.  
   
 ## <a name="tools-for-authoring-claims-transformation-policies"></a>Strumenti per la creazione di criteri di trasformazione delle attestazioni  
-**Cmdlet di Windows PowerShell per Active Directory**: questo è il modo preferito e consigliato per creare e impostare i criteri di trasformazione delle attestazioni. Questi cmdlet forniscono opzioni per i criteri semplici e verificare regole impostate per i criteri più complessi.  
+**I cmdlet di Windows PowerShell per Active Directory**: Questo è il modo preferito e consigliato per creare e impostare criteri di trasformazione delle attestazioni. Questi cmdlet forniscono opzioni per i criteri semplici e verificare le regole impostate per i criteri più complessi.  
   
-**LDAP**: è possibile modificare i criteri di trasformazione delle attestazioni in Active Directory Lightweight Directory Access Protocol (LDAP). Tuttavia, questa operazione è sconsigliata perché i criteri hanno diversi componenti complessi e strumenti da utilizzare potrebbero non convalidare i criteri prima della scrittura per Active Directory. Successivamente, questo può richiedere una notevole quantità di tempo per diagnosticare i problemi.  
+**LDAP**: Criteri di trasformazione delle attestazioni possono essere modificati in Active Directory Lightweight Directory Access Protocol (LDAP). Tuttavia, questa operazione è sconsigliata perché i criteri hanno diversi componenti complessi, e gli strumenti che usi il criterio non venga convalidato prima della scrittura su Active Directory. Successivamente, ciò può richiedere una notevole quantità di tempo per diagnosticare i problemi.  
   
-## <a name="active-directory-claims-transformation-rules-language"></a>Il linguaggio delle regole di trasformazione di attestazioni di Active Directory  
+## <a name="active-directory-claims-transformation-rules-language"></a>Linguaggio delle regole di trasformazione di attestazioni di Active Directory  
   
-### <a name="syntax-overview"></a>Panoramica di sintassi  
+### <a name="syntax-overview"></a>Panoramica della sintassi  
 Ecco una breve panoramica della sintassi e semantica del linguaggio:  
   
--   Il set di regole di trasformazione delle attestazioni è costituito da zero o più regole. Ogni regola è suddivisa in due parti active: **selezionare condizione** e **azione della regola**. Se il **selezionare condizione** restituisce TRUE, viene eseguito l'azione della regola corrispondente.  
+-   Il set di regole di trasformazione delle attestazioni è costituito da zero o più regole. Ogni regola è costituita da due parti attive: **Selezionare elenco condizioni** e **Rule Action**. Se il **Select List condizione** restituisce TRUE, viene eseguita l'azione di regola corrispondente.  
   
--   **Selezionare elenco condizione** è zero o più **selezionare condizioni**. Tutti i **selezionare condizioni** deve restituire TRUE per il **selezionare condizione** in modo che restituisca TRUE.  
+-   **Selezionare elenco condizioni** dispone di zero o più **seleziona condizioni**. Tutti i **seleziona condizioni** devono restituire TRUE per il **selezionare Elenco condizioni** restituisca TRUE.  
   
--   Ogni **selezionare condizione** include un set di zero o più **condizioni di corrispondenza**. Tutti i **condizioni di corrispondenza** deve restituire TRUE per la condizione selezionare in modo che restituisca TRUE. Tutte queste condizioni vengono valutate da una singola attestazione. Un'attestazione che corrisponde a un **selezionare condizione** possono essere contrassegnate da un **identificatore** e in cui il **azione della regola**.  
+-   Ciascuna **Seleziona condizione** dispone di un insieme di zero o più **condizioni di corrispondenza**. Tutti i **condizioni di corrispondenza** devono restituire TRUE per la condizione di selezionare in modo che restituisca TRUE. Tutte queste condizioni vengono valutate a fronte di una singola attestazione. Un'attestazione che corrisponde a un **Seleziona condizione** può essere contrassegnata da un **identificatore** e fa riferimento nel **Rule Action**.  
   
--   Ogni **condizione di corrispondenza** specifica la condizione per trovare la corrispondenza di **tipo** o **valore** o **ValueType** di un'attestazione con diversi **operatori condizione** e **stringhe letterali**.  
+-   Ogni **condizione di corrispondenza** specifica la condizione in modo che corrisponda il **tipo** oppure **valore** o **ValueType** di un'attestazione con diverso **Gli operatori della condizione** e **valori letterali stringa**.  
   
-    -   Quando si specifica un **condizione di corrispondenza** per un **valore**, è necessario specificare anche un **condizione di corrispondenza** per uno specifico **ValueType** e viceversa. Queste condizioni devono essere uno accanto a altro nella sintassi.  
+    -   Quando si specifica un **condizione di corrispondenza** per una **valore**, è necessario specificare anche un **condizione di corrispondenza** per uno specifico **ValueType** e viceversa. Queste condizioni devono essere uno accanto a altro nella sintassi.  
   
-    -   **ValueType** corrispondenti condizioni deve usare specifico **ValueType** solo i valori letterali.  
+    -   **ValueType** condizioni di corrispondenza devono usare specifici **ValueType** solo valori letterali.  
   
--   Un **azione della regola** possibile copiare un'attestazione che viene contrassegnata con un **identificatore** o rilasciare un'attestazione in base a un'attestazione che viene contrassegnata con un identificatore e/o assegnato stringhe letterali.  
+-   Oggetto **Rule Action** possibile copiare un'attestazione che viene contrassegnata con un **identificatore** o rilasciare un'attestazione basata su un'attestazione che viene contrassegnata con un identificatore e/o specificato i valori letterali stringa.  
   
 **Regola di esempio**  
   
-Questo esempio mostra una regola che può essere usata per convertire il tipo di attestazioni tra due foreste, condizione che possano usare le attestazioni stesso ValueType e avere la stesse interpretazioni per attestazioni, i valori per questo tipo. La regola ha una condizione corrispondente e un'istruzione di problema che utilizza le stringhe letterali e un riferimento di attestazioni corrispondente.  
+In questo esempio illustra una regola che può essere utilizzata per tradurre le attestazioni di tipo tra due foreste, condizione che utilizzano le stesse attestazioni ValueType e avere la stesse interpretazioni per attestazioni, i valori per questo tipo. La regola ha una condizione di corrispondenza e un'istruzione di problema che utilizza i valori letterali stringa e un riferimento di attestazioni corrispondente.  
   
 ```  
 C1: [TYPE=="EmployeeType"]    
@@ -64,35 +65,35 @@ ISSUE (TYPE= "EmpType", VALUE = C1.VALUE, VALUETYPE = C1.VALUETYPE) == Rule Acti
 ```  
   
 ### <a name="runtime-operation"></a>Operazione di runtime  
-È importante comprendere il funzionamento di runtime di trasformazioni di attestazioni per creare le regole in modo efficace. L'operazione di runtime utilizza tre set di attestazioni:  
+È importante comprendere il funzionamento del runtime di trasformazioni di attestazioni per creare le regole in modo efficace. L'operazione di runtime Usa tre set di attestazioni:  
   
-1.  **Set di attestazioni di input**: il set di attestazioni che viene assegnato all'operazione di trasformazione di attestazioni di input.  
+1.  **Set di attestazioni in ingresso**: Set di attestazioni che vengono concesse per l'operazione di trasformazione delle attestazioni di input.  
   
-2.  **Working set di attestazioni**: intermedio attestazioni che sono di lettura e scritte a durante la trasformazione di attestazioni.  
+2.  **Utilizzo di set di attestazioni**: Attestazioni intermedi che vengono letti da e scritte durante la trasformazione delle attestazioni.  
   
 3.  **Set di attestazioni di output**: Output dell'operazione di trasformazione delle attestazioni.  
   
-Ecco una breve panoramica dell'operazione di trasformazione di attestazioni di runtime:  
+Ecco una breve panoramica dell'operazione di trasformazione delle attestazioni di runtime:  
   
-1.  Le attestazioni di input per la trasformazione di attestazioni vengono utilizzate per inizializzare il working set di attestazioni.  
+1.  Le attestazioni di input per la trasformazione delle attestazioni vengono utilizzate per inizializzare il working set di attestazioni.  
   
-    1.  Durante l'elaborazione di ogni regola, viene utilizzato il working set di attestazioni per le attestazioni di input.  
+    1.  Durante l'elaborazione di ogni regola, il working set di attestazioni viene utilizzato per le attestazioni di input.  
   
-    2.  Elenco di condizioni di selezione in una regola viene confrontato con tutti i possibili set di attestazioni nel set di attestazioni di lavoro.  
+    2.  L'elenco di condizioni di selezione in una regola vengono confrontato con tutti i possibili set di attestazioni dal working set di attestazioni.  
   
     3.  Ogni set di attestazioni corrispondenti viene utilizzato per eseguire l'azione in tale regola.  
   
-    4.  Esecuzione di una regola i risultati dell'azione in un'attestazione, che viene aggiunto all'output attestazioni set e il working set di attestazioni. Pertanto, l'output di una regola viene utilizzata come input per le regole successive nel set di regole.  
+    4.  Esecuzione di una regola i risultati dell'azione in un'attestazione, che viene aggiunto all'output attestazioni set e set di attestazioni di lavoro. Pertanto, l'output di una regola viene utilizzata come input per le regole successive nel set di regole.  
   
-2.  Le regole nel set di regole vengono elaborate in ordine sequenziale a partire dalla prima regola.  
+2.  Le regole nel set di regole vengono elaborate in ordine sequenziale inizia con la prima regola.  
   
-3.  Durante l'elaborazione del set di regole intero set di attestazioni di output viene elaborato per rimuovere attestazioni duplicate e per altri problemi di protezione. Le attestazioni risultante sono l'output del processo di trasformazione delle attestazioni.  
+3.  Quando il set di regole intera viene elaborato, il set di attestazioni di output viene elaborato per rimuovere attestazioni duplicate e per altri problemi di sicurezza. Le attestazioni risultante sono l'output del processo di trasformazione delle attestazioni.  
   
-È possibile scrivere le trasformazioni di attestazioni complesse in base al comportamento di runtime precedente.  
+È possibile scrivere trasformazioni di attestazioni complesse basate sul comportamento di runtime precedente.  
   
-**Esempio: Operazione di Runtime**  
+**Esempio: Operazione di runtime**  
   
-Questo esempio illustra il funzionamento di runtime di una trasformazione di attestazioni che usa due regole.  
+In questo esempio viene illustrato il funzionamento di runtime di una trasformazione di attestazioni che usa due regole.  
   
 ```  
   
@@ -127,14 +128,14 @@ Final Output:
   
 ```  
   
-### <a name="special-rules-semantics"></a>Semantica di regole speciali  
-Sintassi speciale per le regole sono i seguenti:  
+### <a name="special-rules-semantics"></a>Semantica delle regole speciali  
+Di seguito sono una sintassi speciale per le regole:  
   
-1.  Svuotare i Set di regole = = non attestazioni di Output  
+1.  Set di regole vuoto nessuna attestazione di Output di = =  
   
-2.  Svuotare selezionare condizione = = ogni attestazione corrispondenze elenco selezionare condizione  
+2.  Svuotare selezionare Elenco condizioni = = corrispondenze di ogni attestazione l'elenco di condizioni selezionate  
   
-    **Esempio: Elenco vuoto selezionare condizione**  
+    **Esempio: Elenco selezionare la condizione vuota**  
   
     La regola seguente corrisponde a ogni attestazione nel working set.  
   
@@ -142,49 +143,49 @@ Sintassi speciale per le regole sono i seguenti:
     => Issue (Type = "UserType", Value = "External", ValueType = "string")  
     ```  
   
-3.  Svuotare selezionare elenco corrispondenza = = corrispondenze ogni attestazione elenco selezionare condizione  
+3.  Svuotare selezionare elenco corrispondente = = tutte le corrispondenze di attestazione l'elenco di condizioni selezionate  
   
-    **Esempio: Condizioni di corrispondenza vuoto**  
+    **Esempio: Condizioni di corrispondenza vuota**  
   
-    La regola seguente corrisponde a ogni attestazione nel working set. Si tratta della regola "Consenti a tutti" base se viene utilizzato da solo.  
+    La regola seguente corrisponde a ogni attestazione nel working set. Si tratta della regola di base "Allow-all" Se viene usato da solo.  
   
     ```  
     C1:[] => Issule (claim = C1);  
     ```  
   
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza  
-**Attestazioni che Immetti un insieme di strutture**  
+**Attestazioni che immettono una foresta**  
   
-Le attestazioni presentate dall'entità che sono in ingresso a una foresta devono essere controllati attentamente per garantire che abbiamo consentire o rilasciare solo le attestazioni corrette. Attestazioni non corrette possono compromettere la sicurezza della foresta, e questo deve essere una considerazione superiore durante la creazione dei criteri di trasformazione di attestazioni che Immetti un insieme di strutture.  
+Le attestazioni presentate dal entità che sono in arrivo a una foresta dovranno essere controllati attentamente per assicurarsi che è consentire o rilasciare solo le attestazioni corrette. Attestazioni non corrette possono compromettere la sicurezza dell'insieme di strutture e deve essere di importanza fondamentale durante la creazione di criteri di trasformazione di attestazioni che immette un insieme di strutture.  
   
-Active Directory include le funzionalità seguenti per evitare errori di configurazione di attestazioni che Immetti un insieme di strutture:  
+Active Directory ha le seguenti funzionalità per evitare errori di configurazione di attestazioni che immette un insieme di strutture:  
   
--   Se nessun criterio di trasformazione delle attestazioni impostare per le attestazioni che Immetti un insieme di strutture, per motivi di sicurezza, dispone di un trust tra foreste Active Directory elimina tutte le attestazioni dell'entità immettere l'insieme di strutture.  
+-   Se nessun criterio di trasformazione delle attestazioni impostato per le attestazioni che immettono una foresta, per motivi di sicurezza, dispone di un trust tra foreste Active Directory elimina tutte le attestazioni dell'entità immettere l'insieme di strutture.  
   
--   Se la regola impostata su attestazioni che passa i risultati un insieme di strutture nelle attestazioni che non sono definite nella foresta è in esecuzione, le attestazioni non definite vengono eliminate dalle attestazioni di output.  
+-   Se in esecuzione la regola impostata su attestazioni che passa i risultati di una foresta nelle attestazioni che non sono definite nella foresta, vengono eliminate le attestazioni non definite dalle attestazioni di output.  
   
-**Attestazioni che lasciare un insieme di strutture**  
+**Attestazioni che lasciano una foresta**  
   
-Le attestazioni che lasciare un insieme di strutture presentano una minore protezione per la foresta più importante le attestazioni che immettere l'insieme di strutture. Le attestazioni sono autorizzate a lasciare alla foresta-anche quando non esiste nessuna attestazione corrispondente criteri di trasformazione in posizione. È inoltre possibile emettere attestazioni che non sono definite nella foresta come parte della trasformazione di attestazioni che lasciano l'insieme di strutture. Questo serve a configurare facilmente le relazioni di trust tra foreste con attestazioni. Un amministratore può determinare se le attestazioni che Immetti la foresta devono essere trasformato e impostare i criteri appropriati. Ad esempio, un amministratore può impostare un criterio se è necessario per nascondere un'attestazione per impedire la divulgazione di informazioni.  
+Le attestazioni che lasciano una foresta di presentano una questione di sicurezza minori per la foresta più le attestazioni che immettono l'insieme di strutture. Le attestazioni possono lasciare alla foresta, anche quando non sono disponibile nessuna attestazione corrispondente dei criteri di trasformazione. È inoltre possibile rilasciare attestazioni che non sono definite nell'insieme di strutture come parte della trasformazione delle attestazioni che lasciano l'insieme di strutture. Si tratta di impostare facilmente le relazioni di trust tra foreste con attestazioni. Un amministratore può stabilire se le attestazioni che immettono l'insieme di strutture devono essere trasformati e configurare i criteri appropriati. Ad esempio, un amministratore può impostare un criterio se è necessario nascondere un'attestazione per impedire la divulgazione di informazioni.  
   
-**Errori di sintassi in regole di trasformazione delle attestazioni**  
+**Errori di sintassi nelle regole di trasformazione delle attestazioni**  
   
-Se un criterio di trasformazione di attestazioni specifico ha un set di regole che è errato o se sono presenti altri problemi di sintassi o di archiviazione, il criterio è considerato non valido. Questo è gestito in modo diverso rispetto alle condizioni predefinito indicate in precedenza.  
+Se un criterio di trasformazione delle attestazioni specificato dispone di un set di regole che è sintatticamente errato o se sono presenti altri problemi di sintassi o di archiviazione, il criterio viene considerato non valido. Ciò viene considerato in modo diverso rispetto alle condizioni di predefinito indicate in precedenza.  
   
-Active Directory è in grado di determinare l'intento in questo caso e passa a una modalità provvisoria, in cui non attestazioni di output generate in tale trust + direzione di scorrimento. Per risolvere il problema, è necessario l'intervento dell'amministratore. Questo problema può verificarsi se LDAP viene utilizzato per modificare i criteri di trasformazione delle attestazioni. Cmdlet di Windows PowerShell per Active Directory utilizza una convalida di impedire la scrittura di un criterio con problemi di sintassi.  
+Active Directory è in grado di determinare in questo caso la finalità e passa alla modalità di alternativo, in cui nessuna attestazione di output vengono generata su tale trust + direzione di attraversamento. Per risolvere il problema, è necessario l'intervento dell'amministratore. Questo problema può verificarsi se LDAP è possibile modificare i criteri di trasformazione delle attestazioni. I cmdlet di Windows PowerShell per Active Directory hanno la convalida in modo da evitare la scrittura di un criterio con problemi di sintassi.  
   
-## <a name="other-language-considerations"></a>Altre considerazioni sulla lingua  
+## <a name="other-language-considerations"></a>Altre considerazioni sul linguaggio  
   
-1.  Esistono diverse parole chiave o i caratteri speciali in tale lingua (detta terminali). Questi sono presentati nel [terminali lingua](Claims-Transformation-Rules-Language.md#BKMK_LT) tabella più avanti in questo argomento. I messaggi di errore di usare i tag per questi terminali per la rimozione di ambiguità.  
+1.  Esistono diverse parole chiave o i caratteri speciali in questa lingua (detta terminali). Questi vengono presentati nel [terminali Language](Claims-Transformation-Rules-Language.md#BKMK_LT) tabella più avanti in questo argomento. I messaggi di errore utilizzano i tag per questi terminali per la risoluzione dell'ambiguità.  
   
-2.  Terminali a volte possono essere usati come stringhe letterali. Tuttavia, tale utilizzo potrebbe in conflitto con la definizione della lingua o hanno conseguenze indesiderate. Questo tipo di utilizzo non è consigliato.  
+2.  I terminali in alcuni casi sono utilizzabile come valori letterali stringa. Tuttavia, tale utilizzo può entrare in conflitto con la definizione del linguaggio o avere conseguenze impreviste. Questo tipo di utilizzo non è consigliato.  
   
-3.  L'azione della regola non può eseguire conversioni di tipi sui valori di attestazione e un set di regole che contiene tale azione regola è considerato non valido. Ciò potrebbe causare un errore di runtime, e non vengono eseguite attestazioni di output.  
+3.  L'azione della regola non è possibile eseguire conversioni di tipi in valori di attestazione e un set di regole contenente tale azione regola viene considerato non valido. Ciò provocherebbe un errore di runtime e nessuna attestazione di output vengono generata.  
   
-4.  Se un'azione della regola fa riferimento a un identificatore che non è stato utilizzato nella parte selezionare condizione della regola, è un utilizzo non valido. Ciò potrebbe causare un errore di sintassi.  
+4.  Se un'azione di regola fa riferimento a un identificatore che non è stato usato nella parte Select List condizione della regola, è un utilizzo non valido. Ciò provocherebbe un errore di sintassi.  
   
-    **Esempio: Riferimento identificatore errato**  
-    La regola seguente illustra un identificatore errato utilizzato in azione della regola.  
+    **Esempio: Riferimento non corretto di identificatore**  
+    La regola seguente illustra un identificatore non corretta utilizzato nell'azione della regola.  
   
     ```  
     C1:[] => Issue (claim = C2);  
@@ -192,7 +193,7 @@ Active Directory è in grado di determinare l'intento in questo caso e passa a u
   
 ## <a name="sample-transformation-rules"></a>Regole di trasformazione di esempio  
   
--   **Consentire a tutte le richieste di un certo tipo**  
+-   **Consenti tutte le attestazioni di un determinato tipo**  
   
     Tipo esatto  
   
@@ -200,29 +201,29 @@ Active Directory è in grado di determinare l'intento in questo caso e passa a u
     C1:[type=="XYZ"] => Issue (claim = C1);  
     ```  
   
-    Uso delle espressioni regolari  
+    Uso di Regex  
   
     ```  
     C1: [type =~ "XYZ*"] => Issue (claim = C1);  
     ```  
   
--   **Non consentire a un determinato tipo di attestazione**  
+-   **Non consentire un certo tipo di attestazione**  
     Tipo esatto  
   
     ```  
     C1:[type != "XYZ"] => Issue (claim=C1);  
     ```  
   
-    Uso delle espressioni regolari  
+    Uso di Regex  
   
     ```  
     C1:[Type !~ "XYZ?"] => Issue (claim=C1);  
     ```  
   
 ## <a name="examples-of-rules-parser-errors"></a>Esempi di errori del parser di regole  
-Regole di trasformazione delle attestazioni vengono analizzate da un parser personalizzato per controllare gli errori di sintassi. Il parser viene eseguito dal cmdlet Windows PowerShell correlati prima di archiviare le regole in Active Directory. Eventuali errori di analisi le regole, compresi gli errori di sintassi, vengono stampati nella console. Controller di dominio eseguono anche il parser prima di utilizzare le regole per la trasformazione di attestazioni e accedono errori nel registro eventi (aggiungere numeri registro eventi).  
+Regole di trasformazione delle attestazioni vengono analizzate da un parser personalizzato per verificare la presenza di errori di sintassi. Questo parser viene eseguito dal cmdlet di Windows PowerShell correlati prima di archiviare le regole in Active Directory. Gli eventuali errori durante l'analisi le regole, compresi gli errori di sintassi, vengono stampati sulla console. Controller di dominio eseguono inoltre il parser prima di usare le regole di trasformazione delle attestazioni e accedono gli errori nel registro eventi (aggiungere numeri di evento log).  
   
-In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti con sintassi non corretta e la sintassi corrispondente gli errori generati dal parser.  
+In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti gli errori generati dal parser con sintassi non corretta e la sintassi corrispondente.  
   
 1.  Esempio:  
   
@@ -230,11 +231,11 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
     c1;[]=>Issue(claim=c1);  
     ```  
   
-    Questo esempio ha un punto e virgola erroneamente usato al posto di due punti.   
+    Questo esempio è presente un punto e virgola in modo non corretto usato al posto di un carattere due punti.   
     **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: 2, errore token:;. Riga: ' c1; [] = > Issue(claim=c1);'.*  
-    *Errore del parser: ' POLICY0030: errore di sintassi, imprevisto ';', previsto uno dei seguenti: ':'.'*  
+    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+    *Numero di riga: 1, numero di colonna: Token di 2, errore:;. Riga: ' c1; [] = > Issue(claim=c1);'.*  
+    *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto ';', era previsto uno dei seguenti: ':'.'*  
   
 2.  Esempio:  
   
@@ -242,9 +243,9 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
     c1:[]=>Issue(claim=c2);  
     ```  
   
-    In questo esempio, il tag di identificazione nell'istruzione di rilascio copia è definito.   
+    In questo esempio, il tag di identificazione nell'istruzione di rilascio di copia non è definito.   
     **Messaggio di errore**:   
-    *POLICY0011: Alcuna condizione della regola attestazione non corrispondano al tag di condizione specificato il CopyIssuanceStatement: 'c2'.*  
+    *POLICY0011: Nessuna condizione nella regola di attestazione corrispondono al tag di condizione specificato nel CopyIssuanceStatement: 'c2'.*  
   
 3.  Esempio:  
   
@@ -252,11 +253,11 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
     c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
     ```  
   
-    "bool" non è un terminale nella lingua e non è un tipo di valore valido. Nel messaggio di errore seguente sono elencati terminali validi.   
+    "bool" non è un terminale nel linguaggio e non è un tipo valore valido. I terminali validi sono elencati nel messaggio di errore seguente.   
     **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare dati dei criteri.*  
-    Numero di riga: 1, numero di colonna: 39, token di errore: "bool". Riga: ' c1: [tipo = = "x1", valore = = "1", valuetype = = "bool"] = > Issue(claim=c1);'.   
-    *Errore del parser: ' POLICY0030: errore di sintassi, imprevisto 'STRING', previsto uno dei seguenti: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'Identificatore'*  
+    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+    Numero di riga: 1, numero di colonna: Token di 39, errore: "bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
+    *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto 'STRING', è previsto uno dei seguenti: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
   
 4.  Esempio:  
   
@@ -264,10 +265,10 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
     c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
     ```  
   
-    Il numero **1** in questo esempio non è un token valido nel linguaggio di e non è consentito l'utilizzo in una condizione corrispondente. Deve essere racchiuso tra virgolette doppie per rendere una stringa.   
+    Il numerale **1** in questo esempio non è un token valido nel linguaggio e tale utilizzo non è consentita in una condizione di corrispondenza. Deve essere racchiuso tra virgolette doppie per renderla una stringa.   
     **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: 23, errore token: 1. riga: ' c1: [tipo = = "x1", valore = = 1, valuetype = = "bool"] = > Issue(claim=c1);'. * *Errore del parser: ' POLICY0029: input imprevisto.*  
+    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+    *Numero di riga: 1, numero di colonna: 23, token di errore: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.**Parser error: 'POLICY0029: Input imprevisto.*  
   
 5.  Esempio:  
   
@@ -277,12 +278,12 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
          Issue(type = c1.type, value="0", valuetype == "boolean");  
     ```  
   
-    In questo esempio viene utilizzato un doppio segno di uguale (= =) invece di un unico segno di uguale (=).   
+    In questo esempio viene utilizzato un segno di uguale doppio (= =) anziché un solo segno di uguale (=).   
     **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: 91, errore token: = =. Riga: ' c1: [tipo = = "x1", valore = = "1",*  
-    *ValueType = = "boolean"] = > problema (type=c1.type, valore = "0", valuetype = = "boolean");'.*  
-    *Errore del parser: ' POLICY0030: errore di sintassi, imprevisto '= =' previsto uno dei seguenti: '='*  
+    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+    *Numero di riga: 1, numero di colonna: Errore 91, il token: = =. Line: 'c1:[type=="x1", value=="1",*  
+    *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
+    *Errore del parser: 'POLICY0030: Errore di sintassi, non previsto '= =', è previsto uno dei seguenti: '='*  
   
 6.  Esempio:  
   
@@ -292,18 +293,18 @@ In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti
           Issue(type=c1.type, value=c1.value, valuetype = "string");  
     ```  
   
-    Questo esempio è sintatticamente e livello semantico corretto. Tuttavia, l'utilizzo "boolean" come creare confusione è associato un valore di stringa, e deve essere evitato. Come indicato in precedenza, utilizzando terminali lingua, come i valori delle attestazioni devono essere evitati laddove possibile.  
+    In questo esempio è sintatticamente e semanticamente corretto. Tuttavia, l'utilizzo di "boolean" come valore stringa è associato a generare confusione e si consiglia di evitarlo. Come accennato in precedenza, usando i terminali di linguaggio come valori delle attestazioni devono essere evitati laddove possibile.  
   
-## <a name="BKMK_LT"></a>Terminali lingua  
-La tabella seguente elenca il set completo di stringhe terminale e i terminali associate a una lingua che vengono utilizzati nel linguaggio delle regole di trasformazione delle attestazioni. Queste definizioni di usano stringhe UTF-16 tra maiuscole e minuscole.  
+## <a name="BKMK_LT"></a>Terminali di linguaggio  
+La tabella seguente elenca il set completo di stringhe terminale e i terminali associate a una lingua che vengono usati nel linguaggio delle regole di trasformazione attestazioni. Queste definizioni usino le stringhe UTF-16 tra maiuscole e minuscole.  
   
-|Stringa|Terminal|  
+|Stringa|Terminale|  
 |----------|------------|  
 |"=>"|IMPLICA|  
-|";"|PUNTO E VIRGOLA|  
-|":"|I DUE PUNTI|  
-|","|ELENCO DELIMITATO DA|  
-|"."|PUNTO|  
+|";"|SEMICOLON|  
+|":"|COLON|  
+|","|COMMA|  
+|"."|DOT|  
 |"["|O_SQ_BRACKET|  
 |"]"|C_SQ_BRACKET|  
 |"("|O_BRACKET|  
@@ -312,13 +313,13 @@ La tabella seguente elenca il set completo di stringhe terminale e i terminali a
 |"!="|NEQ|  
 |"=~"|REGEXP_MATCH|  
 |"!~"|REGEXP_NOT_MATCH|  
-|"="|ASSEGNARE|  
+|"="|ASSIGN|  
 |"&&"|E|  
-|"problema"|PROBLEMA|  
-|"tipo"|TIPO|  
-|"value"|VALORE|  
+|"issue"|PROBLEMA|  
+|"type"|TYPE|  
+|"valore"|VALORE|  
 |"valuetype"|VALUE_TYPE|  
-|"reclamo"|ATTESTAZIONE|  
+|"attestazione"|RICHIESTA|  
 |"[_A-Za-z][_A-Za-z0-9]*"|IDENTIFICATORE|  
 |"\\"[^\\"\n]*\\""|STRINGA|  
 |"uint64"|UINT64_TYPE|  
@@ -327,7 +328,7 @@ La tabella seguente elenca il set completo di stringhe terminale e i terminali a
 |"boolean"|BOOLEAN_TYPE|  
   
 ## <a name="language-syntax"></a>Sintassi del linguaggio  
-Il linguaggio delle regole di trasformazione delle attestazioni seguenti viene specificato nel formato ABNF. Questa definizione Usa terminali sono specificate nella tabella precedente oltre la produzione ABNF qui definite. Le regole devono essere codificate in UTF-16 e devono essere trattati i confronti di stringhe tra maiuscole e minuscole.  
+Il linguaggio delle regole di trasformazione delle attestazioni seguente viene specificato usando ABNF. Questa definizione Usa i terminali specificate nella tabella precedente oltre le produzioni ABNF definiti qui. Le regole devono essere codificate in UTF-16 e i confronti tra stringhe deve essere trattato come maiuscole e minuscole.  
   
 ```  
 Rule_set        = ;/*Empty*/  

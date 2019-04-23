@@ -1,7 +1,7 @@
 ---
 title: Personalizzare il riquadro di spostamento di centro di amministrazione di Active Directory
 ms.prod: windows-server-threshold
-description: Protezione di Windows Server
+description: Sicurezza di Windows Server
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
@@ -12,41 +12,42 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: e7b1128d93912f724225905bedd38131f8aab0b2
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854842"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Personalizzare il riquadro di spostamento di centro di amministrazione di Active Directory
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-  You can browse through the Active Directory Administrative Center navigation pane by using the tree view, which is similar to the Active Directory Users and Computers console tree, or by using the list view.
+  È possibile esplorare il riquadro di spostamento di centro di amministrazione di Active Directory utilizzando la visualizzazione struttura ad albero, che è simile alla struttura della console Active Directory Users and Computers, oppure utilizzando la visualizzazione elenco.
 
- Whether you use the tree view or the list view, you can customize your Active Directory Administrative Center navigation pane anytime by adding various containers from the local domain or any foreign domain \(that is, a domain other than the local domain that has an established trust with the local domain\) to the navigation pane as separate nodes. Customizing the Active Directory Administrative Center navigation pane can provide quicker access to Active Directory objects. Per ulteriori informazioni, vedere [gestire domini diversi in Centro di amministrazione di Active Directory ](manage-different-domains-in-active-directory-administrative-center.md).
+ Se si usa la visualizzazione struttura ad albero o della visualizzazione elenco, è possibile personalizzare in qualsiasi momento il riquadro di spostamento di centro di amministrazione di Active Directory mediante l'aggiunta di diversi contenitori dal dominio locale o di qualsiasi dominio esterno \(, ovvero un dominio diverso dal dominio locale che ha una relazione di trust stabilita con il dominio locale\) al riquadro di spostamento come nodi separati. Personalizzazione del riquadro di spostamento di centro di amministrazione di Active Directory, è possibile fornire un accesso più rapido per gli oggetti Active Directory. Per altre informazioni, vedere [gestire domini diversi nel centro di amministrazione di Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
- Inoltre, per personalizzare ulteriormente il riquadro di spostamento, è possibile rinominare o rimuovere questi nodi riquadro di spostamento aggiunti manualmente, creare duplicati di tali nodi oppure spostarli verso l'alto o verso il basso nel riquadro di spostamento.
+ Per personalizzare ulteriormente il riquadro di spostamento, è inoltre possibile rinominare o rimuovere i nodi aggiunti manualmente al riquadro di spostamento, creare duplicati di tali nodi oppure spostarli verso l'alto o verso il basso nel riquadro di spostamento.
 
 > [!NOTE]
->  Non è possibile personalizzare il nodo di dominio locale predefinito.
+>  Non è possibile personalizzare il nodo del dominio locale predefinito.
 
-### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>To customize the Active Directory Administrative Center navigation pane
+### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Per personalizzare il riquadro di spostamento di centro di amministrazione di Active Directory
 
-1.  In the Active Directory Administrative Center navigation pane, right\-click the node that you want to modify. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del.
+1.  Nel riquadro di spostamento di centro di amministrazione di Active Directory, con il pulsante destro\-fare clic sul nodo che si desidera modificare. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del nodo.
 
 2.  Fare clic su uno dei seguenti comandi:
 
-    -   **Rinominare**
+    -   **Rinomina**
 
     -   **Crea nodo duplicato**
 
-    -   **Rimuovere**
+    -   **Rimuovi**
 
     -   **Spostare verso l'alto**
 
-    -   **Spostare verso il basso**
+    -   **Sposta giù**
 
- Utilizzando la visualizzazione elenco, è possibile sfruttare l'elenco MRU \(MRU\). L'elenco viene visualizzato automaticamente sotto il nodo di spostamento quando si visita almeno un contenitore in tale nodo di spostamento. You can also view the current MRU list by expanding the breadcrumb bar at the top of the Active Directory Administrative Center window. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un determinato nodo di spostamento. Ogni volta che si seleziona un determinato contenitore, questo contenitore viene aggiunto all'inizio dell'elenco di recente e l'ultimo contenitore visualizzato nell'elenco MRU viene rimosso dall'elenco.
+ Utilizzando la visualizzazione elenco, è possibile sfruttare l'usati di recente \(MRU\) elenco. L'elenco viene visualizzato automaticamente sotto un nodo di navigazione quando si visita almeno un contenitore in questo nodo di navigazione. È anche possibile visualizzare l'elenco MRU corrente espandendo la barra di navigazione nella parte superiore della finestra di centro di amministrazione di Active Directory. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un determinato nodo di spostamento. Ogni volta che si seleziona un determinato contenitore, tale contenitore viene aggiunto al primo posto dell'elenco dei contenitori utilizzati più di recente e l'ultimo contenitore visualizzato nell'elenco viene rimosso dall'elenco.
 
   
 

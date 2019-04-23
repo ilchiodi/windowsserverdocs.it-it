@@ -1,6 +1,6 @@
 ---
-title: Software Load Balancing (SLB) per SDN
-description: È possibile utilizzare questo argomento per apprendere il bilanciamento del carico Software per la rete definita dal Software in Windows Server 2016.
+title: Bilanciamento del carico software (SLB) per SDN
+description: È possibile utilizzare questo argomento per scoprire il bilanciamento del carico Software per Software Defined Networking di Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,216 +12,217 @@ ms.topic: article
 ms.assetid: 97abf182-4725-4026-801c-122db96964ed
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5e08afddde9c7be8d955a0cfdaf44f0fc31b8155
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 26fb4aa21e80618c4c63bd9edbf8731bf886db62
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853762"
 ---
-# <a name="software-load-balancing-slb-for-sdn"></a>Software bilanciamento del carico \(SLB\) per SDN
+# <a name="software-load-balancing-slb-for-sdn"></a>Software Load Balancing \(SLB\) per SDN
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per apprendere il bilanciamento del carico Software per la rete definita dal Software in Windows Server 2016.  
+È possibile utilizzare questo argomento per scoprire il bilanciamento del carico Software per Software Defined Networking di Windows Server 2016.  
 
-Provider di servizi cloud (CSP) e le aziende che distribuiscono reti SDN (Software Defined) in Windows Server 2016 è possono utilizzare Software Load Balancing (SLB) per distribuire uniformemente il traffico di rete cliente tenant tra le risorse di rete virtuale e tenant. Windows Server SLB consente più server ospitare stesso carico di lavoro, offrendo disponibilità e scalabilità elevate.
+Provider di servizi cloud (CSP) e le aziende che distribuiscono reti SDN (Software Defined) in Windows Server 2016 è possono usare il bilanciamento del carico Software (SLB) per distribuire uniformemente il traffico di rete cliente tenant tra le risorse della rete virtuale e del tenant. Windows Server SLB consente di abilitare più server per l'hosting dello stesso carico di lavoro, offrendo disponibilità e scalabilità elevate.
   
-Windows Server SLB include le funzionalità seguenti.  
+Bilanciamento del carico software di Windows Server include le funzionalità seguenti.  
   
--   Livello 4 (L4) caricare i servizi di bilanciamento del carico per il traffico TCP/UDP 'Ovest orientale' e 'Nord-Sud'.  
+-   Servizi di bilanciamento del carico per il traffico TCP/UDP 'East-West' e 'Nord-Sud' carico di livello 4 (L4).  
   
--   Pubblica e interni bilanciamento carico di traffico di rete.  
+-   Pubblici e interni di bilanciamento del carico del traffico di rete.  
   
--   Supporta gli indirizzi IP dinamici (DIP) su reti locali virtuali (VLAN) e sulle reti virtuali create mediante virtualizzazione rete Hyper-V.  
+-   Supporta gli indirizzi IP dinamici (DIP) in reti locali virtuali (VLAN) e nelle reti virtuali create mediante virtualizzazione rete Hyper-V.  
   
--   Supporto di probe dello stato.  
+-   Supporto di probe di integrità.  
   
--   Pronto per la scalabilità cloud, tra cui la funzionalità di scalabilità orizzontale e applicare la scalabilità verticale funzionalità per multiplexer e gli agenti Host.  
+-   Pronti per la scalabilità cloud, tra cui funzionalità di scalabilità orizzontale e aumentare la funzionalità per multiplexer e gli agenti Host.  
   
-Per ulteriori informazioni, vedere [funzionalità di bilanciamento del carico Software](#bkmk_features) in questo argomento.  
+Per altre informazioni, vedere [funzionalità di bilanciamento del carico Software](#bkmk_features) in questo argomento.  
   
 > [!NOTE]  
-> Multi-tenancy per le VLAN non è supportato dal Controller di rete, tuttavia è possibile utilizzare le VLAN con SLB per provider di servizi gestiti carichi di lavoro, ad esempio server Web ad alta densità e infrastruttura di Data Center.  
+> Multi-tenancy per le VLAN non è supportata dal Controller di rete, tuttavia è possibile usare reti VLAN con bilanciamento del carico software per provider di servizi gestiti i carichi di lavoro, ad esempio l'infrastruttura del Data Center e i server Web ad alta densità.  
   
-Con Windows Server SLB, è possibile scalare orizzontalmente con macchine virtuali SLB sugli stessi server di calcolo Hyper-V che usi per altri carichi di lavoro VM funzionalità di bilanciamento del carico. Per questo motivo, SLB supporta la creazione rapida e l'eliminazione di bilanciamento del carico endpoint che è richiesto per operazioni di CSP. Inoltre, Windows Server SLB supporta decine di GB per ogni cluster, fornisce un modello di provisioning semplice e facile scale-out e in.  
+Usa bilanciamento del carico software di Windows Server, è possibile scalare orizzontalmente le funzionalità usando le macchine virtuali SLB negli stessi server di calcolo Hyper-V che utilizzano per altri carichi di lavoro della macchina virtuale di bilanciamento del carico. Per questo motivo, bilanciamento del carico software supporta la creazione rapida e l'eliminazione dell'endpoint di bilanciamento del carico che è necessaria per operazioni di CSP. Inoltre, SLB di Windows Server supporta decine di GB per ogni cluster, fornisce un semplice modello di provisioning ed è semplice applicare la scalabilità orizzontale.  
   
-**Come funziona SLB**  
+**Funzionamento del bilanciamento del carico software**  
   
-SLB funziona eseguendo il mapping di indirizzi IP virtuali (VIP) per gli indirizzi IP dinamici (DIP) che fanno parte di un set di servizi cloud di risorse nel Data Center.  
+Bilanciamento del carico software funziona eseguendo il mapping di indirizzi IP virtuali (VIP) per gli indirizzi IP dinamici (DIP) che fanno parte di un set di servizi cloud di risorse nel Data Center.  
   
-Gli indirizzi VIP sono singoli indirizzi IP che forniscono l'accesso pubblico a un pool di carico bilanciato macchine virtuali. Ad esempio, gli indirizzi VIP sono indirizzi IP che vengono esposte su Internet in modo che i tenant e i clienti tenant possono connettersi alle risorse tenant nel data center cloud.  
+Gli indirizzi VIP sono singoli indirizzi IP che forniscono l'accesso pubblico a un pool di carico bilanciato le macchine virtuali. Ad esempio, gli indirizzi VIP sono indirizzi IP che sono esposte in Internet in modo che i tenant e i clienti tenant possono connettersi alle risorse del tenant nel data center cloud.  
   
-DIP sono gli indirizzi IP di macchine virtuali di un pool di bilanciamento del carico dietro l'indirizzo VIP il membro. All'interno dell'infrastruttura cloud per le risorse del tenant vengono assegnati DIP.  
+DIP sono gli indirizzi IP delle macchine virtuali di un pool con carico bilanciato dietro l'indirizzo VIP del membro. Dedicati vengono assegnati all'interno dell'infrastruttura cloud per le risorse del tenant.  
   
-Gli indirizzi VIP si trovano in SLB Multiplexer (MUX).  MUX è costituito da uno o più macchine virtuali (VM).  Controller di rete rappresenta ogni MUX con ogni indirizzo VIP e ogni MUX per annunciare ogni VIP ai router sulla rete fisica come una subnet /32 a sua volta utilizza protocollo BGP (Border Gateway) route.  BGP consente il router di rete fisica per:  
+Indirizzi IP virtuali si trovano nel Multiplexer (MUX SLB).  Il MUX è costituito da uno o più macchine virtuali (VM).  Controller di rete offre ogni MUX con ogni indirizzo IP virtuale e ogni MUX per annunciare ogni indirizzo IP virtuale per i router sulla rete fisica come/32 equivale a sua volta utilizza protocollo BGP (Border Gateway) route.  BGP consente i router di rete fisica per:  
   
--   Scopri che un indirizzo VIP è disponibile in ogni MUX, anche se il MUXes si trovano in subnet diverse in una rete di livello 3.  
+-   Informazioni che un indirizzo VIP è disponibile in ogni MUX, anche se i MUX si trovano in subnet diverse in una rete di livello 3.  
   
--   Distribuire il carico per ogni indirizzo VIP tra tutti MUXes disponibili con uguale costo Multi-Path ECMP () di routing.  
+-   Distribuire il carico per ogni indirizzo IP virtuale tra tutti i MUX disponibili con uguale costo percorsi multipli ECMP () di routing.  
   
--   Rileva un errore MUX o la rimozione e interrompere l'invio del traffico a MUX non riuscito automaticamente.  
+-   Automaticamente di MUX guasto o rimozione di rilevare e arrestare l'invio di traffico per il MUX non riuscito.  
   
--   Distribuire il carico dal MUX rimosso o non riuscita tra il MUXes integro.  
+-   Dividere il carico dal MUX non riuscito o rimosso tra i MUX integro.  
   
-Quando arriva traffico pubblico da Internet, MUX SLB esamina il traffico, che contiene l'indirizzo VIP come una destinazione, mappe e ricrea il traffico in modo che arriveranno un DIP singoli. Per il traffico di rete in ingresso, l'operazione viene eseguita in un processo in due passaggi che è suddivisa tra le macchine virtuali MUX (VM) e l'host Hyper-V in cui si trova la destinazione DIP:  
+Quando si riceve il traffico pubblico da Internet, il MUX SLB esamina il traffico, che contiene l'indirizzo VIP come destinazione e viene eseguito il mapping e riscrive il traffico in modo che arriverà a un DIP singoli. Per il traffico di rete in ingresso, questa transazione viene eseguita in un processo in due passaggi che è suddiviso tra le macchine virtuali MUX (VM) e l'host Hyper-V in cui si trova il DIP di destinazione:  
   
--   Bilanciamento del carico - l'indirizzo VIP per selezionare un DIP, viene utilizzato il MUX incapsula il pacchetto e inoltra il traffico all'host Hyper-V in cui si trova il DIP.  
+-   Il bilanciamento del carico - l'indirizzo VIP per selezionare un DIP, viene utilizzato il MUX incapsula il pacchetto e inoltra il traffico all'host Hyper-V in cui si trova il DIP.  
   
--   Network Address Translation (NAT) - l'host Hyper-V rimuove incapsulamento dal pacchetto, converte l'indirizzo VIP a un DIP, esegue un nuovo mapping delle porte e inoltra il pacchetto per la macchina virtuale DIP.  
+-   Network Address Translation (NAT): l'host Hyper-V rimuove incapsulamento dal pacchetto, converte l'indirizzo VIP a un DIP, esegue un nuovo mapping di porte e inoltra il pacchetto per il DIP della macchina virtuale.  
   
-MUX sa come eseguire il mapping di indirizzi VIP per il DIP corretto a causa di criteri che è possibile definire utilizzando i Controller di rete di bilanciamento del carico. Queste regole sono protocollo, porta front-end, porta di Back-end e algoritmo di distribuzione (2, 3 o 5 tuple).  
+Il MUX sa come eseguire il mapping di indirizzi VIP per il DIP corrette a causa di criteri che definiscono usando Controller di rete di bilanciamento del carico. Queste regole includono protocollo, porta front-end, porta Back-end e l'algoritmo di distribuzione (2, 3 o 5 tuple).  
   
-Quando rispondono macchine virtuali tenant e in uscita invia il traffico di rete a Internet o percorsi remoti tenant, perché NAT viene eseguita dall'host di Hyper-V, il traffico ignora il MUX e passa direttamente al router perimetrale dall'host Hyper-V. Questo processo bypass MUX viene chiamato diretta Server restituire DSR ().  
+Quando rispondono macchine virtuali tenant e trasmissione in uscita il traffico di rete alla Internet o posizioni remote tenant, perché viene eseguito il NAT dall'host Hyper-V, il traffico ignora il MUX e passa direttamente al router perimetrale dall'host Hyper-V. Questo processo di bypass MUX è denominato Direct Server Return (DSR).  
   
-E, dopo aver stabilito il flusso di traffico di rete iniziale, il traffico di rete in entrata Ignora MUX SLB completamente.  
+E dopo aver stabilito il flusso del traffico di rete iniziale, il traffico di rete in ingresso ignora completamente il MUX SLB.  
   
-Nella figura seguente, un computer client esegue una query DNS per l'indirizzo IP di un società sito di Sharepoint - in questo caso, una società fittizia denominato Contoso. Si verifica quanto segue.  
+Nella figura seguente, un computer client esegue una query DNS per l'indirizzo IP di un società sito di SharePoint: in questo caso, una società fittizia denominata Contoso. Si verifica quanto segue.  
   
 -   Il server DNS restituisce l'indirizzo VIP 107.105.47.60 al client.  
   
 -   Il client invia una richiesta HTTP all'indirizzo VIP.  
   
--   La rete fisica è disponibile per raggiungere l'indirizzo VIP in qualsiasi MUX più percorsi.  Ogni router lungo il percorso utilizza ECMP per selezionare il segmento successivo del percorso fino a quando non raggiunge la richiesta di un MUX.  
+-   La rete fisica dispone di più percorsi disponibili per raggiungere l'indirizzo VIP che si trova in qualsiasi MUX.  Ogni router lungo il percorso Usa ECMP per prelevare il segmento successivo del percorso fino a quando la richiesta arriva un MUX.  
   
--   Controlla i criteri configurati MUX che riceve la richiesta e vede sono presenti due DIP disponibile, 10.10.10.5 e 10.10.20.5, in una rete virtuale per gestire la richiesta all'indirizzo VIP 107.105.47.60  
+-   Controlla i criteri configurati, il MUX che riceve la richiesta e vede che non vi siano due flessioni disponibili, 10.10.10.5 e 10.10.20.5, in una rete virtuale per gestire la richiesta all'indirizzo VIP 107.105.47.60  
   
--   MUX seleziona il DIP 10.10.10.5 e incapsula i pacchetti utilizzando VXLAN, pertanto è possibile inviarlo a host contenente l'indirizzo DIP con gli host indirizzo di rete fisica.  
+-   Il MUX seleziona il DIP 10.10.10.5 e incapsula i pacchetti utilizzando VXLAN, pertanto è possibile inviarlo all'host che contiene il DIP usando gli host indirizzo di rete fisica.  
   
--   L'host riceve il pacchetto incapsulato e la esamina.  Rimuove l'incapsulamento e ricrea il pacchetto in modo che la destinazione è ora il DIP 10.10.10.5 anziché l'indirizzo VIP e invia il traffico di macchina virtuale DIP.  
+-   L'host riceve il pacchetto incapsulato e si controlla.  Rimuove l'incapsulamento e riscrive il pacchetto in modo che la destinazione è ora il DIP 10.10.10.5 anziché l'indirizzo VIP e invia il traffico al DIP della macchina virtuale.  
   
--   La richiesta ora ha raggiunto il sito di Contoso Sharepoint nella Server Farm 2. Il server genera una risposta e lo invia al client, utilizzando il proprio indirizzo IP come origine.  
+-   La richiesta ha raggiunto ora il sito Contoso SharePoint nella Server Farm 2. Il server genera una risposta e lo invia al client, usando il proprio indirizzo IP come origine.  
   
--   L'host intercetta il pacchetto in uscita nel commutatore virtuale che ricorda che il client, ora di destinazione ha effettuato la richiesta originale all'indirizzo VIP.  L'host riscrive l'origine del pacchetto sia l'indirizzo VIP, in modo che il client non visualizzare l'indirizzo DIP.  
+-   L'host intercetta il pacchetto in uscita nel commutatore virtuale che ricorda che il client, a questo punto, la destinazione ha effettuato la richiesta originale all'indirizzo VIP.  L'host riscrive l'origine del pacchetto sia l'indirizzo VIP, in modo che il client non vede l'indirizzo DIP.  
   
--   L'host invia il pacchetto direttamente al gateway predefinito per la rete fisica che usa la tabella di routing standard per inoltrare il pacchetto al client che alla fine riceve la risposta.  
+-   L'host inoltra direttamente il pacchetto del gateway predefinito per la rete fisica che usa la tabella di routing standard per inoltrare il pacchetto al client che viene ricevuta la risposta alla fine.  
   
 ![Processo di bilanciamento del carico software](../../../media/Software-Load-Balancing--SLB--for-SDN/slb_process.jpg)  
   
-**Il carico del traffico datacenter interna**  
+**Il carico del traffico interno Data Center**  
   
-Quando carico del traffico di rete interno per il Data Center, ad esempio tra le risorse di tenant che sono in esecuzione in server diversi e sono membri della stessa rete virtuale, il commutatore virtuale Hyper-V in cui le macchine virtuali connessi esegue NAT.  
+Quando il carico del traffico di rete interno al Data Center, ad esempio tra risorse del tenant in esecuzione in server diversi e sono membri della stessa rete virtuale, il commutatore virtuale Hyper-V in cui le macchine virtuali sono connesse esegue NAT.  
   
-Con bilanciamento del carico di traffico interna, la prima richiesta viene inviata al ed elaborata MUX, che seleziona il DIP appropriato e lo instrada il traffico per il DIP. Da quel punto, il flusso di traffico stabilita Ignora MUX e passa direttamente dalla macchina virtuale a macchina virtuale.  
+Con il bilanciamento del carico di traffico interno, la prima richiesta viene inviata a ed elaborata dal MUX, che seleziona il DIP appropriato e lo indirizza il traffico verso il DIP. In questo modo, il flusso del traffico stabiliti ignora il MUX e passa direttamente dalla macchina virtuale alla macchina virtuale.  
   
-**Probe dello stato**  
+**Probe di integrità**  
   
-SLB include controlli di integrità per convalidare l'integrità dell'infrastruttura di rete, inclusi i seguenti.  
+Bilanciamento del carico software include i probe di integrità per convalidare l'integrità dell'infrastruttura di rete, inclusi i seguenti.  
   
 -   Probe TCP alla porta  
   
 -   Probe HTTP alla porta e URL  
   
-A differenza di un accessorio di bilanciamento del carico tradizionale in cui il probe ha il dispositivo e passa attraverso la rete per il DIP il probe SLB ha origine nell'host in cui si trova il DIP e passa direttamente dall'agente host SLB a DIP, distribuendo ulteriormente le attività tra gli host.  
+A differenza di un accessorio bilanciamento del carico tradizionale in cui il probe ha origine nell'appliance e viaggia attraverso la rete per il DIP, il probe di bilanciamento del carico software ha origine nell'host in cui si trova il DIP e si svolge direttamente tra l'agente host di bilanciamento del carico software per il DIP, ulteriormente la distribuzione di funziona tra gli host.  
   
 ## <a name="bkmk_infrastructure"></a>Infrastruttura di bilanciamento del carico software  
-Per distribuire Windows Server SLB, è necessario distribuire Controller di rete in Windows Server 2016 e uno o più macchine virtuali MUX SLB.  
+Per distribuire SLB di Windows Server, è necessario distribuire Controller di rete in Windows Server 2016 e uno o più macchine virtuali MUX SLB.  
   
-Inoltre, è necessario configurare gli host Hyper-V con il commutatore virtuale Hyper-V abilitato SDN e assicurarsi che sia in esecuzione l'agente Host SLB.  I router che servono gli host devono supportare il routing di costo uguale multipath (ECMP) e protocollo BGP (Border Gateway) e devono essere configurati per accettare le richieste di peering BGP dal MUXes SLB.  
+Inoltre, è necessario configurare gli host Hyper-V con il commutatore virtuale Hyper-V abilitato SDN e assicurarsi che l'agente Host di bilanciamento del carico software è in esecuzione.  I router che servono l'host devono supportare il routing di costo uguale multipath (ECMP) e protocollo BGP (Border Gateway) e devono essere configurati per accettare richieste di peering BGP dalle istanze MUX SLB.  
   
-Di seguito è fornita una panoramica dell'infrastruttura SLB.  
+Di seguito è fornita una panoramica dell'infrastruttura di bilanciamento del carico software.  
 
 ![Infrastruttura di bilanciamento del carico software](../../../media/Software-Load-Balancing--SLB--for-SDN/slb_overview1.png)  
   
-Le sezioni seguenti forniscono ulteriori informazioni su questi elementi dell'infrastruttura SLB.  
+Le sezioni seguenti forniscono altre informazioni su questi elementi dell'infrastruttura di bilanciamento del carico software.  
   
 ### <a name="scvmm"></a>SCVMM  
-Con System Center 2016, è possibile configurare i Controller di rete in Windows Server 2016, incluse le SLB Manager e il monitoraggio dello stato. È anche possibile utilizzare System Center SLB MUXs di distribuire e installare gli agenti Host SLB nei computer che eseguono Hyper-V e Windows Server 2016.  
+Con System Center 2016, è possibile configurare i Controller di rete in Windows Server 2016, tra cui gestione SLB e monitoraggio dell'integrità. È anche possibile usare System Center per distribuire SLB MUXs e per installare gli agenti Host di bilanciamento del carico software nei computer che eseguono Hyper-V e Windows Server 2016.  
   
-Per ulteriori informazioni su System Center 2016, vedere [System Center 2016](https://www.microsoft.com/en-us/server-cloud/products/system-center-2016/).  
+Per altre informazioni su System Center 2016, vedere [System Center 2016](https://www.microsoft.com/server-cloud/products/system-center-2016/).  
   
 > [!NOTE]  
-> Se non si desidera utilizzare System Center 2016, è possibile utilizzare Windows PowerShell o un'altra applicazione di gestione per installare e configurare i Controller di rete e un'altra infrastruttura SLB. Per ulteriori informazioni, vedere [distribuire Controller di rete tramite Windows PowerShell](../../../sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+> Se non vuoi usare System Center 2016, è possibile usare Windows PowerShell o un'altra applicazione di gestione per installare e configurare Controller di rete e altra infrastruttura di bilanciamento del carico software. Per altre informazioni, vedere [distribuire Controller di rete tramite Windows PowerShell](../../../sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
 ### <a name="network-controller"></a>Controller di rete  
-Controller di rete ospita il servizio di gestione SLB ed esegue le azioni seguenti per SLB.  
+Controller di rete ospita il gestore bilanciamento del carico software ed esegue le azioni seguenti per SLB.  
   
--   Elabora i comandi SLB fornite in tramite l'API Northbound da System Center, Windows PowerShell o un'altra applicazione di gestione di rete.  
+-   Elabora i comandi di bilanciamento del carico software tramite l'API Northbound provengono da System Center, Windows PowerShell o un'altra applicazione di gestione di rete.  
   
--   Calcola i criteri per la distribuzione di host Hyper-V e SLB MUXes.  
+-   Calcola i criteri per la distribuzione di host Hyper-V e le istanze MUX SLB.  
   
--   Fornisce lo stato di integrità dell'infrastruttura SLB.  
+-   Fornisce lo stato di integrità dell'infrastruttura di bilanciamento del carico software.  
   
-### <a name="slb-mux"></a>MUX SLB  
-MUX SLB elabora il traffico di rete in ingresso ed esegue il mapping di indirizzi VIP a DIP, quindi inoltra il traffico per il DIP corretto. Ogni MUX Usa anche il protocollo BGP per pubblicare le route VIP router perimetrali. BGP Keep-Alive MUXes notifica quando un MUX ha esito negativo, che consente di MUXes active ridistribuire il carico in caso di errore MUX - essenzialmente che fornisce il bilanciamento del carico per servizi di bilanciamento del carico.  
+### <a name="slb-mux"></a>SLB MUX  
+Il MUX SLB elabora il traffico di rete in ingresso ed esegue il mapping di indirizzi VIP in DIP, quindi inoltra il traffico per il DIP corretto. Ogni MUX Usa anche il protocollo BGP per pubblicare le route di VIP per i router perimetrali. BGP Keep-Alive i MUX di notifica quando un MUX ha esito negativo, che consente i MUX active ridistribuire il carico in caso di errore MUX - essenzialmente fornendo bilanciamento del carico per servizi di bilanciamento del carico.  
   
 ### <a name="hosts-that-are-running-hyper-v"></a>Host che eseguono Hyper-V  
-È possibile utilizzare SLB con i computer che eseguono Hyper-V e Windows Server 2016. Le macchine virtuali nell'host Hyper-V è possono eseguire qualsiasi sistema operativo supportato da Hyper-V.  
+È possibile usare SLB con i computer che eseguono Hyper-V e Windows Server 2016. Le macchine virtuali nell'host Hyper-V possono eseguire qualsiasi sistema operativo supportato da Hyper-V.  
   
-### <a name="slb-host-agent"></a>Agente Host SLB  
-Quando si distribuisce SLB, è necessario utilizzare System Center, Windows PowerShell o un'altra applicazione di gestione per distribuire l'agente Host SLB su ogni computer host Hyper-V. È possibile installare l'agente Host SLB in tutte le versioni di Windows Server 2016 che forniscono il supporto di Hyper-V, tra cui Nano Server.  
+### <a name="slb-host-agent"></a>Agente Host di bilanciamento del carico software  
+Quando si distribuisce SLB, è necessario utilizzare System Center, Windows PowerShell o un'altra applicazione di gestione per distribuire l'agente Host di bilanciamento del carico software in ogni computer host Hyper-V. È possibile installare l'agente Host di bilanciamento del carico software su tutte le versioni di Windows Server 2016 che forniscono il supporto di Hyper-V, inclusi Nano Server.  
   
-L'agente Host SLB rimane in ascolto per gli aggiornamenti dei criteri SLB dal Controller di rete. Inoltre, l'agente host programmi regole per SLB nei commutatori virtuali Hyper-V abilitato SDN configurati nel computer locale.  
+L'agente Host di bilanciamento del carico software è in ascolto per gli aggiornamenti dei criteri di bilanciamento del carico software dal Controller di rete. Inoltre, l'agente host programmi regole di bilanciamento del carico software nei commutatori virtuali Hyper-V SDN abilitato che sono configurati nel computer locale.  
   
 ### <a name="sdn-enabled-hyper-v-virtual-switch"></a>SDN abilitato commutatore virtuale Hyper-V  
-Per un commutatore virtuale essere compatibile con SLB, è necessario utilizzare comandi gestione commutatori virtuali Hyper-V o Windows PowerShell per creare il commutatore e quindi è necessario abilitare virtuale filtro piattaforma (VFP) per il commutatore virtuale.  
+Per un commutatore virtuale sia compatibile con bilanciamento del carico software, è necessario usare i comandi di gestione commutatori virtuali Hyper-V o Windows PowerShell per creare il commutatore e quindi è necessario abilitare virtuale filtro piattaforma (VFP) per il commutatore virtuale.  
   
-Per informazioni sull'abilitazione VFP in commutatori virtuali, vedere i comandi di Windows PowerShell [Get-VMSystemSwitchExtension](https://technet.microsoft.com/en-us/library/hh848603.aspx) e [Enable-VMSwitchExtension](https://technet.microsoft.com/en-us/library/hh848541.aspx?f=255&MSPPError=-2147217396).  
+Per informazioni su come abilitare VFP affidano ai commutatori virtuali, vedere i comandi di Windows PowerShell [Get-VMSystemSwitchExtension](https://technet.microsoft.com/library/hh848603.aspx) e [Enable-VMSwitchExtension](https://technet.microsoft.com/library/hh848541.aspx?f=255&MSPPError=-2147217396).  
   
-Il SDN abilitato commutatore virtuale Hyper-V esegue le azioni seguenti per SLB.  
+SDN abilitato commutatore virtuale Hyper-V esegue le azioni seguenti per SLB.  
   
--   Elabora il percorso dati per SLB.  
+-   Elabora il percorso dei dati per SLB.  
   
--   Riceve il traffico di rete in ingresso da MUX.  
+-   Riceve il traffico di rete in ingresso dal MUX.  
   
--   Ignora il MUX per il traffico di rete in uscita, inviarlo al router utilizzando DSR.  
+-   Consente di ignorare il MUX per il traffico di rete in uscita, inviarlo al router utilizzando DSR.  
   
 -   Viene eseguito sulle istanze di Nano Server di Hyper-V.  
   
-### <a name="bgp-enabled-router"></a>Il protocollo BGP abilitato Router  
+### <a name="bgp-enabled-router"></a>BGP abilitato Router  
 Il router BGP esegue le azioni seguenti per SLB.  
   
--   Route il traffico in ingresso con ECMP MUX.  
+-   Instrada il traffico in ingresso per il MUX con ECMP.  
   
 -   Per il traffico di rete in uscita, viene utilizzata la route fornita dall'host.  
   
--   È in ascolto per gli aggiornamenti delle route per gli indirizzi VIP da SLB MUX.  
+-   È in ascolto per gli aggiornamenti delle route per gli indirizzi VIP da MUX SLB.  
   
--   Rimuove SLB MUXes dalla rotazione SLB in caso di errore Keep-Alive.  
+-   Rimuove le istanze MUX SLB dalla rotazione del bilanciamento del carico software se non riesce Keep-Alive.  
   
 ## <a name="bkmk_features"></a>Funzionalità di bilanciamento del carico software  
-Di seguito sono alcune delle funzionalità e capacità di SLB.  
+Di seguito sono alcune delle funzionalità e le funzionalità di bilanciamento del carico software.  
   
 **Funzionalità di base**  
   
--   SLB fornisce Layer 4 bilanciamento del carico servizi per il traffico TCP/UDP 'Ovest orientale' e 'Nord-Sud'  
+-   Bilanciamento del carico software fornisce servizi per il traffico TCP/UDP 'East-West' e 'Nord-Sud' di bilanciamento del carico di livello 4  
   
--   È possibile utilizzare SLB in una rete basata su virtualizzazione rete Hyper-V  
+-   È possibile utilizzare Bilanciamento del carico software in una rete basata su virtualizzazione rete Hyper-V  
   
--   È possibile utilizzare SLB con una rete basata su VLAN per le macchine virtuali DIP connesso a un SDN abilitato Hyper-V commutatore virtuale.  
+-   È possibile usare SLB con una rete basata su VLAN per le macchine virtuali DIP connesso a una rete SDN abilitato Hyper-V Virtual Switch.  
   
--   Un'istanza SLB può gestire più tenant  
+-   Un'istanza di bilanciamento del carico software può gestire più tenant  
   
--   SLB e DIP supportano un percorso restituito scalabile e bassa latenza, come implementato da diretta Server restituire DSR)  
+-   Bilanciamento del carico software e DIP supporta un percorso di ritorno scalabile e a bassa latenza, come implementato dalla Direct Server Return (DSR)  
   
--   Funzioni SLB quando si utilizza anche Switch Embedded Teaming (SET) o Single Root Input/Output Virtualization (SR-IOV)  
+-   Funzioni di bilanciamento del carico software quando si usa anche Switch Embedded Teaming (SET) o Single Root Input/Output Virtualization (SR-IOV)  
   
--   SLB include protocollo Internet versione 4 (IPv4) supportano  
+-   Bilanciamento del carico software include protocollo Internet versione 4 (IPv4) supportano  
   
--   Per gli scenari di gateway da sito a sito, SLB offre funzionalità NAT per abilitare tutte le connessioni da sito a sito utilizzare un singolo indirizzo IP pubblico  
+-   Per gli scenari di gateway da sito a sito, bilanciamento del carico software fornisce la funzionalità NAT per abilitare tutte le connessioni site-to-site utilizzare un singolo indirizzo IP pubblico  
   
--   È possibile installare SLB, tra cui l'agente Host e MUX, in Windows Server 2016, completo dei componenti di base e installazione di Nano.  
+-   È possibile installare Bilanciamento del carico software, tra cui l'agente Host e i MUX, in Windows Server 2016, Full, Core e installazione di Nano.  
   
 **Scalabilità e prestazioni**  
   
--   Pronto per la scalabilità cloud, tra cui la funzionalità di scalabilità orizzontale e applicare la scalabilità verticale funzionalità per MUXes e gli agenti Host.  
+-   Pronti per la scalabilità cloud, tra cui funzionalità di scalabilità orizzontale e aumentare la funzionalità per gli agenti Host e i MUX.  
   
--   Un modulo di Controller di rete SLB Manager attivo può supportare istanze MUX 8  
+-   Uno dei moduli Controller di rete di gestione SLB active può supportare 8 istanze MUX  
   
-**Disponibilità elevata**  
+**disponibilità elevata**  
   
--   È possibile distribuire SLB in più di 2 nodi in una configurazione attivo/attivo  
+-   È possibile distribuire SLB a più di 2 nodi in una configurazione attivo/attivo  
   
--   MUXes possono essere aggiunti e rimossi dal pool di MUX senza alcun impatto il servizio SLB. Questo consente di mantenere la disponibilità SLB quando   
-    MUXes singoli sono viene corretto.  
+-   I MUX possono essere aggiunti e rimossi dal pool di MUX senza conseguenze per il servizio di bilanciamento del carico software. Questo consente di mantenere la disponibilità SLB quando   
+    i singoli MUX sono in corso patch.  
   
--   Le singole istanze MUX hanno un tempo di attività del 99%  
+-   Le istanze MUX singole hanno un tempo di attività del 99%  
   
--   Dati di monitoraggio dello stato è disponibile per le entità di gestione  
+-   È disponibile per le entità di gestione dati di monitoraggio dell'integrità  
   
 **Allineamento**  
   
 -   È possibile distribuire e configurare SLB con SCVMM  
   
--   SLB fornisce un bordo unificato multi-tenant grazie alla perfetta integrazione con accessori Microsoft come Gateway multi-tenant RAS, il Firewall del centro dati e riflettore delle Route.  
+-   Bilanciamento del carico software offre un margine unificato multi-tenant grazie alla perfetta integrazione con le Appliance di Microsoft, ad esempio il Gateway multi-tenant RAS Firewall del centro dati e riflettore delle Route.  
   
 

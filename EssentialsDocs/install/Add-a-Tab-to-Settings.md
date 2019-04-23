@@ -1,5 +1,5 @@
 ---
-title: Aggiungere una scheda a impostazioni
+title: Aggiungere una scheda a Impostazioni
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,39 +13,40 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9eaa1aa5a9c5e8d4c2e36f2000e0adecc83245d9
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854982"
 ---
-# <a name="add-a-tab-to-settings"></a>Aggiungere una scheda a impostazioni
+# <a name="add-a-tab-to-settings"></a>Aggiungere una scheda a Impostazioni
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È possibile aggiungere una scheda a impostazioni nel Dashboard creando e installando un assembly di codice che viene utilizzato da Gestione impostazioni nel sistema operativo.  
+È possibile aggiungere una scheda a Impostazioni nel dashboard creando e installando un assembly del codice utilizzato da Gestione impostazioni nel sistema operativo.  
   
-## <a name="add-a-tab-to-settings"></a>Aggiungere una scheda a impostazioni  
- Aggiungere una scheda a impostazioni eseguendo le operazioni seguenti:  
+## <a name="add-a-tab-to-settings"></a>Aggiunta di una scheda a Impostazioni  
+ È possibile aggiungere una scheda a Impostazioni facendo quanto segue:  
   
--   [Aggiunta di un'implementazione dell'interfaccia ISettingsData all'assembly](Add-a-Tab-to-Settings.md#BKMK_ISettingsData).  
+-   [Aggiungere un'implementazione dell'interfaccia ISettingsData all'assembly](Add-a-Tab-to-Settings.md#BKMK_ISettingsData).  
   
--   [La firma dell'assembly con una firma Authenticode](Add-a-Tab-to-Settings.md#BKMK_SignAssembly).  
+-   [Sign the assembly with an Authenticode signature](Add-a-Tab-to-Settings.md#BKMK_SignAssembly).  
   
 -   [Installare l'assembly nel computer di riferimento](Add-a-Tab-to-Settings.md#BKMK_InstallAssembly).  
   
-###  <a name="BKMK_ISettingsData"></a>Aggiunta di un'implementazione dell'interfaccia ISettingsData all'assembly  
- L'interfaccia ISettingsData è inclusa nello spazio dei nomi Microsoft dell'assembly AdminCommon.dll che si trova in \Program Files\Windows Server\Bin..  
+###  <a name="BKMK_ISettingsData"></a> Aggiungere un'implementazione dell'interfaccia ISettingsData all'assembly  
+ L'interfaccia ISettingsData è inclusa nello spazio dei nomi Microsoft.WindowsServerSolutions.Settings dell'assembly AdminCommon.dll, situato in \Program Files\Windows Server\Bin.  
   
 ##### <a name="to-add-the-isettingsdata-code-to-the-assembly"></a>Per aggiungere il codice ISettingsData all'assembly  
   
-1.  Aprire Visual Studio 2010 come amministratore facendo clic con il programma di **Start** menu e selezionando **Esegui come amministratore**.  
+1.  Accedere a Visual Studio 2010 come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu **Start**, quindi selezionando **Esegui come amministratore**.  
   
-2.  Fare clic su **File**, fare clic su **New**, quindi fare clic su **progetto**.  
+2.  Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
   
-3.  Nel **nuovo progetto** la finestra di dialogo, fare clic su **Visual c#**, fare clic su **libreria di classi**, immettere **DashboardSettingsPage** per il nome per la soluzione, quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** e poi su **Libreria di classi**, immettere **DashboardSettingsPage** come nome della soluzione e quindi fare clic su **OK**.  
   
     > [!IMPORTANT]
-    >  L'assembly installato sul server deve chiamarsi DashboardSettingsPage.dll e quindi copia il file dll in %ProgramFiles%\Windows server\bin\OEM..  
+    >  L'assembly installato sul server deve chiamarsi DashboardSettingsPage.dll e deve essere copiato in %ProgramFiles%\Windows Server\Bin\OEM.  
   
 4.  Creare il controllo che si desidera utilizzare nella scheda. In questo esempio il controllo delle impostazioni è denominato MySettingsControl.  
   
@@ -59,7 +60,7 @@ ms.lasthandoff: 12/12/2017
     using Microsoft.WindowsServerSolutions.Settings;  
     ```  
   
-8.  Modificare lo spazio dei nomi e l'intestazione della classe in base all'esempio seguente:  
+8.  Modificare lo spazio dei nomi e l'intestazione della classe in modo tale che corrispondano all'esempio seguente:  
   
     ```  
   
@@ -72,13 +73,13 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-9. Creare un'istanza del controllo creato per la scheda. Per esempio:  
+9. Creare un'istanza del controllo creato per la scheda. Ad esempio:   
   
     ```c#  
     private MySettingsControl tab;  
     ```  
   
-10. Aggiungere il costruttore per la classe. L'esempio di codice seguente mostra il costruttore:  
+10. Aggiungere il costruttore per la classe. Nell'esempio di codice riportato di seguito viene illustrato il costruttore:  
   
     ```  
   
@@ -88,7 +89,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-11. Aggiungere il metodo Commit, che invia le modifiche alle impostazioni. L'esempio di codice seguente mostra il metodo Commit:  
+11. Aggiungere il metodo Commit, che invia le modifiche apportate alle impostazioni. Nell'esempio di codice riportato di seguito viene illustrato il metodo Commit:  
   
     ```  
   
@@ -98,7 +99,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-12. Aggiungere il metodo TabControl, che identifica il controllo per la scheda. L'esempio di codice seguente mostra il metodo TabControl:  
+12. Aggiungere il metodo TabControl, che identifica il controllo per la scheda. Nell'esempio di codice riportato di seguito viene illustrato il metodo TabControl:  
   
     ```  
   
@@ -108,7 +109,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-13. Aggiungere il metodo TabId, che fornisce un identificatore univoco per la scheda. L'esempio di codice seguente mostra il metodo TabId:  
+13. Aggiungere il metodo TabId, che fornisce un identificatore univoco per la scheda. Nell'esempio di codice riportato di seguito viene illustrato il metodo TabId:  
   
     ```  
   
@@ -120,7 +121,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-14. Aggiungere il metodo TabOrder, che restituisce l'ordine della scheda. L'esempio di codice seguente mostra il metodo TabOrder:  
+14. Aggiungere il metodo TabOrder, che restituisce l'ordine della scheda. Nell'esempio di codice riportato di seguito viene illustrato il metodo TabOrder:  
   
     ```  
   
@@ -131,9 +132,9 @@ ms.lasthandoff: 12/12/2017
     ```  
   
     > [!NOTE]
-    >  L'ordine di tabulazione è definito utilizzando i numeri a partire da 0. Le schede di impostazioni predefinite Microsoft vengono visualizzate per primi e quindi le schede visualizzate in base l'ordine di tabulazione definiti. Ad esempio, se si dispone di tre schede di impostazioni, specificare l'ordine di tabulazione come 0, 1 e 2 in base all'ordine che si desidera che le schede da visualizzare.  
+    >  L'ordine delle schede viene definito utilizzando i numeri a partire da 0. Le schede delle impostazioni predefinite Microsoft vengono visualizzate per prime, seguite poi dalle schede dell'utente visualizzate in base all'ordine da questo definito. Ad esempio, se esistono tre schede di impostazioni, l'utente specifica il numero d'ordine delle schede come 0, 1 e 2 in base all'ordine di visualizzazione desiderato.  
   
-15. Aggiungere il metodo TabTitle, che fornisce il titolo della scheda. L'esempio di codice seguente mostra il metodo TabTitle:  
+15. Aggiungere il metodo TabTitle, che fornisce il titolo della scheda. Nell'esempio di codice riportato di seguito viene illustrato il metodo TabTitle:  
   
     ```  
   
@@ -144,20 +145,20 @@ ms.lasthandoff: 12/12/2017
     ```  
   
     > [!NOTE]
-    >  Il testo del titolo può inoltre provenire da un file di risorse in base alle esigenze di localizzazione.  
+    >  Il testo del titolo può inoltre provenire da un file di risorse per rispondere alle esigenze di localizzazione.  
   
 16. Salvare e generare la soluzione.  
   
-###  <a name="BKMK_SignAssembly"></a>Una firma Authenticode all'assembly  
- È necessario applicarvi una firma Authenticode all'assembly per poter essere utilizzato nel sistema operativo. Per ulteriori informazioni sulla firma dell'assembly, vedere [firma e il controllo del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
+###  <a name="BKMK_SignAssembly"></a> Firmare l'assembly con una firma Authenticode  
+ Per poter utilizzare l'assembly nel sistema operativo, è necessario applicarvi una firma Authenticode. Per altre informazioni sulla firma dell'assembly, vedere [Firma e verifica del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a>Installare l'assembly nel computer di riferimento  
- Dopo la corretta compilazione della soluzione, inserire una copia del file DashboardSettingsPage.dll nella seguente cartella sul computer di riferimento:  
+###  <a name="BKMK_InstallAssembly"></a> Installare l'assembly nel computer di riferimento  
+ Una volta generata la soluzione, copiare il file DashboardSettingsPage.dll nella seguente cartella sul computer di riferimento:  
   
- **%ProgramFiles%\Windows server\bin\OEM.**  
+ **%ProgramFiles%\Windows server\bin\oem.**  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

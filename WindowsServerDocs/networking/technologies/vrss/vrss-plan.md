@@ -1,6 +1,6 @@
 ---
 title: Pianificare l'uso di vRSS
-description: È possibile utilizzare questo argomento per preparare la macchina virtuale e l'host Hyper-V per uso vRSS in Windows Server 2016.
+description: È possibile utilizzare questo argomento per preparare la macchina virtuale e un host Hyper-V per l'uso di vRSS in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -11,41 +11,41 @@ ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
 ms.openlocfilehash: e6558b00e87721d8ab81c84946a14745c4faa812
-ms.sourcegitcommit: e84e328c13a701e8039b16a4824a6e58a6e59b0b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2018
-ms.locfileid: "4133387"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850442"
 ---
-# Pianificare l'uso di vRSS
+# <a name="plan-the-use-of-vrss"></a>Pianificare l'uso di vRSS
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-In Windows Server 2016, vRSS è abilitata per impostazione predefinita, tuttavia devi preparare l'ambiente per consentire vRSS a funzionare correttamente in una macchina virtuale \(VM\) o su un \(vNIC\) scheda virtuale host. In Windows Server 2012 R2, vRSS è stata disabilitata per impostazione predefinita.
+In Windows Server 2016, vRSS è abilitato per impostazione predefinita, tuttavia, è necessario preparare l'ambiente per consentire di vRSS funzionare correttamente in una macchina virtuale \(VM\) o in una scheda virtuale host \(vNIC\). In Windows Server 2012 R2, vRSS è stata disabilitata per impostazione predefinita.
 
-Quando si pianifica e prepara l'uso di vRSS, verifica che:
+Quando si pianifica e prepara l'uso di vRSS, verificare quanto segue:
 
-- La scheda di rete fisica è compatibile con \(VMQ\) coda di macchina virtuale e ha una velocità di collegamento di 10 Gbps o più.
-- VMQ è abilitato nella scheda di rete fisica e sulla porta commutatore virtuale Hyper-V
-- Non esiste alcun \(SR\-IOV\) singolo radice Input\-Output virtualizzazione configurati per la macchina virtuale.
-- GRUPPO NIC è configurato correttamente.
-- La macchina virtuale ha più processori logici \(LPs\).
+- Scheda di rete fisica è compatibile con coda macchine virtuali \(VMQ\) e ha una velocità di collegamento pari a 10 Gbps o più.
+- Coda macchine Virtuali sono abilitata l'interfaccia di rete fisica e di Hyper\-porta del commutatore virtuale V
+- Non vi è alcun Single Root Input\-Output Virtualization \(SR\-IOV\) configurato per la macchina virtuale.
+- Gruppo NIC sia configurato correttamente.
+- La macchina virtuale con più processori logici \(LPs\).
 
 >[!NOTE]
->vRSS anche è abilitata per impostazione predefinita per qualsiasi vnic dell'host che hanno RSS abilitata.
+>vRSS è abilitata per impostazione predefinita per qualsiasi Vnic dell'host che è abilitato RSS.
 
 Di seguito è informazioni aggiuntive necessarie per completare questi passaggi di preparazione.
   
-1. **Capacità della scheda di rete**. Verifica che la scheda di rete è compatibile con \(VMQ\) coda di macchina virtuale e ha una velocità di collegamento di 10 Gbps o più. Se la velocità del collegamento è minore di 10 Gbps, il commutatore virtuale Hyper-V Disabilita VMQ per impostazione predefinita, anche se viene ancora VMQ abilitato nei risultati del comando Windows PowerShell **Get-NetAdapterVmq**. Un metodo che puoi usare per verificare che VMQ è abilitato o disabilitato consiste nell'usare il comando **Get-NetAdapterVmqQueue**.  Se VMQ è disabilitato, i risultati di questo comando indicano che non vi sia alcun QueueID assegnato alla scheda di rete virtuale della macchina virtuale o host. 
+1. **Capacità della scheda di rete**. Verificare che la scheda di rete sia compatibile con coda macchine virtuali \(VMQ\) e ha una velocità di collegamento pari a 10 Gbps o più. Se la velocità di collegamento è inferiore a 10 Gbps, l'Hyper\-commutatore virtuale V disabilita la funzionalità coda macchine Virtuali per impostazione predefinita, anche se risulta ancora VMQ abilitato nei risultati del comando Windows PowerShell **Get-NetAdapterVmq**. Un metodo è possibile usare per verificare se coda macchine Virtuali sono abilitato o disabilitato consiste nell'usare il comando **Get-NetAdapterVmqQueue**.  Se tale funzionalità è disabilitata, i risultati di questo comando mostrano che non vi sia alcun ID coda assegnato alla scheda di rete virtuale host o macchina virtuale. 
   
-2. **Abilitare VMQ**. Verificare che VMQ sia abilitata nel computer host. vRSS non funziona se l'host non supporta VMQ. È possibile verificare che VMQ è abilitata per l'esecuzione di **Get-VMSwitch** e trovare la scheda che utilizza il commutatore virtuale. Successivamente, eseguire **Get-NetAdapterVmq** e garantire che la scheda viene visualizzata nei risultati e ha abilitato VMQ.
+2. **Abilitare VMQ**. Verificare che la funzionalità Coda macchine virtuali sia abilitata nel computer host. vRSS non funziona se l'host non la supporta. È possibile verificare che coda macchine Virtuali sia abilitata eseguendo **Get-VMSwitch** e trovando la scheda che utilizza il commutatore virtuale. Eseguire quindi **Get-NetAdapterVmq** e controllare che la scheda venga visualizzata nei risultati e abbia Coda macchine virtuali abilitata.
   
-3. **Assenza di SR\-IOV**. Verificare che un singolo radice Input\-Output virtualizzazione \(SR\-IOV\) \(VF\) funzione virtuale driver non è collegato all'interfaccia di rete della macchina virtuale. È possibile verificare ciò usando il comando di **Get-NetAdapterSriov** . Se un driver VF viene caricato, RSS Usa le impostazioni di ridimensionamento da questo driver invece di quelli configurato tramite vRSS. Se il driver VF non supporta RSS, vRSS è disabilitato.
+3. **Assenza di SR\-IOV**. Verificare che un solo nodo radice di Input\-Output Virtualization \(SR\-IOV\) funzione virtuale \(VF\) driver non è associato all'interfaccia di rete della macchina virtuale. È possibile verificarlo utilizzando il **Get-NetAdapterSriov** comando. Se viene caricato un driver VF, RSS utilizza le impostazioni di scalabilità di tale driver invece di quelle configurate da vRSS. Se il driver VF non supporta RSS, vRSS è disabilitato.
   
-4. **Gruppo NIC configurazione**. Se usi gruppo NIC, è importante che configurare correttamente VMQ per lavorare con le impostazioni di gruppo NIC. Per informazioni dettagliate sulla gestione e distribuzione gruppo NIC, vedi [Gruppo NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+4. **Configurazione gruppo NIC**. Se si Usa gruppo NIC, è importante configurare correttamente VMQ per lavorare con le impostazioni del gruppo NIC. Per informazioni dettagliate sulla gestione e distribuzione di gruppo NIC, vedere [NIC Teaming](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
 
-5. **Numero di analisi periodica limitata**. Verificare che la macchina virtuale ha più processori logici \(LP\). vRSS si basa su RSS nella macchina virtuale o nell'host Hyper-V per caricare il traffico saldo ricevuto più logici per l'elaborazione parallela. È possibile osservare quante analisi periodica limitata la macchina virtuale ha eseguendo il comando Windows PowerShell **Get-VMProcessor** nell'host. Dopo aver eseguito il comando, è possibile osservare il movimento di colonna conteggio del numero di analisi periodica limitata.
+5. **Numero di LPs**. Verificare che la macchina virtuale ha più di un processore logico \(LP\). vRSS si basa su RSS nella VM o nell'host Hyper-V ricevuto bilanciare il carico per più LPs per l'elaborazione parallela. È possibile osservare LPs quanti dispone di una macchina virtuale eseguendo il comando di Windows PowerShell **Get-VMProcessor** nell'host. Dopo aver eseguito il comando, è possibile osservare la voce di colonna conteggio per il numero di LPs.
 
-VNIC host sempre l'accesso a tutti i processori fisici; Per configurare vNIC host per l'uso di un determinato numero di processori, Usa le impostazioni **- BaseProcessorNumber** e **-MaxProcessors** quando Esegui il comando Windows PowerShell **Set-NetAdapterRss** .
+VNIC host può sempre accedere a tutti i processori fisici; Per configurare vNIC host per usare un numero specifico di processori, usare le impostazioni **- BaseProcessorNumber** e **- MaxProcessors** quando si esegue la **Set-NetAdapterRss** Comando di Windows PowerShell.
 
 ---
