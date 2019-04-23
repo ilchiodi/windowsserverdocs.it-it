@@ -1,7 +1,7 @@
 ---
-title: Gestire domini diversi in Centro di amministrazione di Active Directory
+title: Gestire domini diversi nel centro di amministrazione di Active Directory
 ms.prod: windows-server-threshold
-description: Protezione di Windows Server
+description: Sicurezza di Windows Server
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
@@ -12,84 +12,85 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 5f253bd4952d8a347e97eafdb38d86fa98024b8d
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839942"
 ---
-# <a name="manage-different-domains-in-active-directory-administrative-center"></a>Gestire domini diversi in Centro di amministrazione di Active Directory
+# <a name="manage-different-domains-in-active-directory-administrative-center"></a>Gestire domini diversi nel centro di amministrazione di Active Directory
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-  When you open Active Directory Administrative, the domain that you are currently logged on to on this computer \(the local domain\) appears in the Active Directory Administrative Center navigation pane \(the left pane\). Depending on the rights of your current set of logon credentials, you can view or manage the Active Directory objects in this local domain.
+  Quando si apre amministrativi di Active Directory, il dominio che attualmente connessi al computer \(il dominio locale\) viene visualizzato nel riquadro di spostamento di centro di amministrazione di Active Directory \(riquadroasinistra\). In base ai diritti relativi all'insieme attivo di credenziali di accesso, è possibile visualizzare o gestire gli oggetti di Active Directory in tale dominio locale.
 
- You can also use the same set of logon credentials and the same instance of Active Directory Administrative Center to view or manage Active Directory objects in any other domain in the same forest, or a domain in another forest that has an established trust with the local domain. Sono supportati entrambi base-trust bidirezionali e forma-trust bidirezionali.
+ È anche possibile usare lo stesso insieme di credenziali di accesso e la stessa istanza del centro di amministrazione di Active Directory per visualizzare o gestire oggetti Active Directory in qualsiasi altro dominio nella stessa foresta o in un dominio in un'altra foresta che abbia una relazione di trust esistente con locale dominio. Entrambi uno\-relazioni di trust bidirezionali e due\-relazioni di trust bidirezionali sono supportati.
 
 > [!NOTE]
->  If there is a one\-way trust between Domain A and Domain B through which users in Domain A can access resources in Domain B but users in Domain B cannot access resources in Domain A, if you are running Active Directory Administrative Center on the computer where Domain A is your local domain, you can connect to Domain B with the current set of logon credentials and in the same instance of Active Directory Administrative Center. But if you are running Active Directory Administrative Center on the computer where Domain B is your local domain, you cannot connect to Domain A with the same set of credentials in the same instance of the Active Directory Administrative Center.
+>  Se è una\-di trust bidirezionale tra il dominio e il dominio B tramite il quale gli utenti nel dominio A possono accedere alle risorse nel dominio B ma gli utenti nel dominio B non possono accedere alle risorse del dominio, se si esegue Centro di amministrazione di Active Directory nel computer dove il dominio è il dominio locale, è possibile connettersi al dominio B con il set di credenziali di accesso e nella stessa istanza del centro di amministrazione di Active Directory corrente. Ma se si esegue il centro di amministrazione di Active Directory nel computer in cui il dominio B costituisce il dominio locale, è possibile connettersi al dominio con lo stesso insieme di credenziali nella stessa istanza del centro di amministrazione di Active Directory.
 
- Non è necessario per completare questa procedura appartenenza ad alcun gruppo.
+ Per eseguire questa procedura, non è richiesta l'appartenenza ad alcun gruppo.
 
-### <a name="windows-server-2012-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2012: To manage a foreign domain in the selected instance of Active Directory Administrative Center using the current set of logon credentials
+### <a name="windows-server-2012-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2012: Per gestire un dominio esterno nell'istanza selezionata del centro di amministrazione di Active Directory utilizzando l'insieme attivo di credenziali di accesso
 
-1.  To open Active Directory Administrative Center, in **Server Manager**, click **Tools**, and then click **Active Directory Administrative Center**.
+1.  Per aprire Centro di amministrazione di Active Directory, in **Server Manager**, fare clic su **Tools**, quindi fare clic su **centro di amministrazione di Active Directory**.
 
     > [!NOTE]
-    >  Another way to open Active Directory Administrative Center is to click **Start**, and then type **dsac.exe**.
+    >  Un altro modo per aprire Centro di amministrazione di Active Directory è necessario fare clic su **avviare**, quindi digitare **dsac.exe**.
 
 2.  Per aprire **Aggiungi nodi di spostamento**, fare clic su **Gestisci**, quindi fare clic su **Aggiungi nodi di spostamento** come illustrato nella figura seguente.
 
-     ![Screenshot che mostra * * aggiungere spostamento nodi * * dell'interfaccia utente](media/ADDS_ADACAddNavNode.gif)
+     ![Screenshot che mostra * * Aggiungi navigazione nodi * * dell'interfaccia utente](media/ADDS_ADACAddNavNode.gif)
 
-3.  In **Aggiungi nodi di spostamento**, fare clic su **Connetti ad altri domini** come illustrato nella figura seguente.
+3.  Nelle **Aggiungi nodi di spostamento**, fare clic su **Connetti ad altri domini** come illustrato nella figura seguente.
 
-     ![Screenshot che mostra * * aggiungere spostamento nodi * * dell'interfaccia utente](media/ADDS_ADACConnectToDomain.gif)
+     ![Screenshot che mostra * * Aggiungi navigazione nodi * * dell'interfaccia utente](media/ADDS_ADACConnectToDomain.gif)
 
-4.  In **connettersi**, digitare il nome del dominio esterno che si desidera gestire \ (ad esempio, **contoso.com**\), quindi fare clic su **OK**.
+4.  Nella **connettersi a**, digitare il nome del dominio esterno che si desidera gestire \(ad esempio, **contoso.com**\), quindi fare clic su **OK**.
 
-5.  When you are successfully connected to the foreign domain, browse through the columns in the **Add Navigation Nodes** window, select the container or containers to add to your Active Directory Administrative Center navigation pane, and then click **OK**.
+5.  Quando si è connessi correttamente al dominio esterno, esplorare le colonne nel **Aggiungi nodi di spostamento** finestra, selezionare il contenitore o contenitori da aggiungere al riquadro di spostamento di centro di amministrazione di Active Directory, e quindi fare clic su **OK**.
 
-### <a name="windows-server-2008-r2-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2008 R2: To manage a foreign domain in the selected instance of Active Directory Administrative Center using the current set of logon credentials
+### <a name="windows-server-2008-r2-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2008 R2: Per gestire un dominio esterno nell'istanza selezionata del centro di amministrazione di Active Directory utilizzando l'insieme attivo di credenziali di accesso
 
-1.  To open Active Directory Administrative Center, click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
-
-    > [!NOTE]
-    >  Another way to open Active Directory Administrative Center is to click **Start**, click **Run**, and then type **dsac.exe**.
-
-2.  To open **Add Navigation Nodes**, near the top of the Active Directory Administrative Center window, click **Add Navigation Nodes** as shown in the following illustration.
-
-     ![Screenshot che mostra * * aggiungere spostamento nodi * * dell'interfaccia utente](media/click_add_nav_nodes.gif)
+1.  Per aprire Centro di amministrazione di Active Directory, fare clic su **avviare**, fare clic su **strumenti di amministrazione**, quindi fare clic su **centro di amministrazione di Active Directory**.
 
     > [!NOTE]
-    >  Another way to open **Add Navigation Nodes** is to right\-click anywhere in the empty space in the Active Directory Administrative Center navigation pane, and then click **Add Navigation Nodes**.
+    >  Un altro modo per aprire Centro di amministrazione di Active Directory è necessario fare clic su **avviare**, fare clic su **eseguito**, quindi digitare **dsac.exe**.
 
-3.  In **Aggiungi nodi di spostamento**, fare clic su **Connetti ad altri domini** come illustrato nella figura seguente.
+2.  Per aprire **Aggiungi nodi di spostamento**, nella parte superiore della finestra di centro di amministrazione di Active Directory, fare clic su **Aggiungi nodi di spostamento** come illustrato nella figura seguente.
 
-     ![Screenshot che mostra * * aggiungere spostamento nodi * * * * connessione di altri domini * * dell'interfaccia utente](media/add_nav_nodes.gif)
+     ![Screenshot che mostra * * Aggiungi navigazione nodi * * dell'interfaccia utente](media/click_add_nav_nodes.gif)
 
-4.  In **connettersi**, digitare il nome del dominio esterno che si desidera gestire \ (ad esempio, **contoso.com**\), quindi fare clic su **OK**.
+    > [!NOTE]
+    >  Un altro modo per aprire **Aggiungi nodi di spostamento** è a destra\-fare clic in qualsiasi punto nello spazio vuoto nel riquadro di spostamento di centro di amministrazione di Active Directory e quindi fare clic su **Aggiungi nodi di spostamento**.
 
-5.  When you are successfully connected to the foreign domain, browse through the columns in the **Add Navigation Nodes** window, select the container or containers to add to your Active Directory Administrative Center navigation pane, and then click **OK**.
+3.  Nelle **Aggiungi nodi di spostamento**, fare clic su **Connetti ad altri domini** come illustrato nella figura seguente.
 
- For more information about customizing the Active Directory Administrative Center navigation pane, see [Customize the Active Directory Administrative Center Navigation Pane](customize-the-active-directory-administrative-center-navigation-pane.md).
+     ![Screenshot che mostra * * Aggiungi navigazione nodi * * * * Connetti a altri domini * * dell'interfaccia utente](media/add_nav_nodes.gif)
 
- You can also open Active Directory Administrative Center by using a set of logon credentials that is different from your current set of logon credentials. The command in the following procedure can be useful if you are logged on to the computer that is running Active Directory Administrative Center with normal user credentials, but you want to use Active Directory Administrative Center on this computer to manage your local domain as an administrator. \(This command can also be useful if you want to use Active Directory Administrative Center to remotely manage a foreign domain that is different from your local domain with a set of credentials that is different from your current set of logon credentials. Tuttavia, il dominio esterno deve avere una relazione di trust esistente con il dominio locale. \)
+4.  Nella **connettersi a**, digitare il nome del dominio esterno che si desidera gestire \(ad esempio, **contoso.com**\), quindi fare clic su **OK**.
 
- Non è necessario per completare questa procedura appartenenza ad alcun gruppo.
+5.  Quando si è connessi correttamente al dominio esterno, esplorare le colonne nel **Aggiungi nodi di spostamento** finestra, selezionare il contenitore o contenitori da aggiungere al riquadro di spostamento di centro di amministrazione di Active Directory, e quindi fare clic su **OK**.
+
+ Per altre informazioni sulla personalizzazione del riquadro di spostamento di centro di amministrazione di Active Directory, vedere [personalizzare Active Directory amministrativi centro riquadro di spostamento](customize-the-active-directory-administrative-center-navigation-pane.md).
+
+ È anche possibile aprire Centro di amministrazione di Active Directory utilizzando un insieme di credenziali di accesso diverso dall'insieme attivo di credenziali di accesso. Il comando nella procedura seguente può essere utile se si è connessi al computer che esegue il centro di amministrazione di Active Directory con le credenziali dell'utente normale, ma si vuole usare il centro di amministrazione di Active Directory nel computer per la gestione di dominio locale come amministratore. \(Questo comando può anche essere utile se si desidera utilizzare il centro di amministrazione di Active Directory per gestire in remoto un dominio esterno che è diverso dal dominio locale con un insieme di credenziali diverso dall'insieme attivo di credenziali di accesso. Tuttavia, il dominio esterno deve avere una relazione di trust stabilita con il dominio locale.\)
+
+ Per eseguire questa procedura, non è richiesta l'appartenenza ad alcun gruppo.
 
 ### <a name="to-manage-a-domain-using-logon-credentials-that-are-different-from-the-current-set-of-logon-credentials"></a>Per gestire un dominio utilizzando credenziali di accesso diverse dall'insieme attivo di credenziali di accesso
 
-1.  To open Active Directory Administrative Center, at a command prompt, type the following command, and then press ENTER:
+1.  Per aprire Centro di amministrazione di Active Directory, un prompt dei comandi, digitare il comando seguente e quindi premere INVIO:
 
      `runas /user:<domain\user> dsac`
 
-     Where `<domain\user>` is the set of credentials that you want to open Active Directory Administrative Center with and `dsac` is the Active Directory Administrative Center executable file name \(Dsac.exe\).
+     In cui `<domain\user>` è un insieme di credenziali che si desidera aprire Centro di amministrazione di Active Directory con e `dsac` è il nome di file eseguibile del centro di amministrazione di Active Directory \(Dsac.exe\).
 
-     Ad esempio, digitare il comando seguente e quindi premere INVIO:
+     Digitare ad esempio il comando seguente e quindi premere INVIO:
 
      `runas /user:contoso\administrator dsac`
 
-2.  When Active Directory Administrative Center is open, browse through the navigation pane to view or manage your Active Directory domain.
+2.  Quando il centro di amministrazione di Active Directory è aperto, esplorare il riquadro di spostamento per visualizzare o gestire il dominio di Active Directory.
 
   
 

@@ -1,5 +1,5 @@
 ---
-title: Uso di spazi di archiviazione diretta in una macchina virtuale
+title: Utilizzo di spazi di archiviazione diretta in una macchina virtuale
 ms.prod: windows-server-threshold
 ms.author: eldenc
 ms.manager: eldenc
@@ -7,78 +7,78 @@ ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
-description: Come distribuire spazi di archiviazione diretta in un cluster di macchina virtuale guest, ad esempio, in Microsoft Azure.
+description: Come distribuire spazi di archiviazione diretta in un cluster guest di macchina virtuale, ad esempio, in Microsoft Azure.
 ms.localizationpriority: medium
 ms.openlocfilehash: a741475d09ab7f7ab29f158ef55378ca9a37beac
-ms.sourcegitcommit: 52883945fd6e6bb5c24bd81944ca4bc0c5e6a216
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "8964613"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59841022"
 ---
-# Uso di spazi di archiviazione diretta in cluster di macchina virtuale guest
+# <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilizzo di spazi di archiviazione diretta in cluster di macchine virtuali guest
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-È possibile distribuire spazi di archiviazione diretta in un cluster di server fisici o nei cluster guest macchina virtuale come illustrato in questo argomento. Questo tipo di distribuzione offre virtuale archiviazione condivisa tra un set di macchine virtuali sopra un cloud privato o pubblico, in modo che le soluzioni di disponibilità elevata di applicazione possono essere usate per aumentare la disponibilità delle applicazioni.
+È possibile distribuire spazi di archiviazione diretta in un cluster di server fisici o in cluster guest di macchina virtuale come descritto in questo argomento. Questo tipo di distribuzione offre archiviazione condivisa virtuale in un set di macchine virtuali all'inizio di un cloud privato o pubblico soluzioni a disponibilità elevata dell'applicazione possono essere usati per migliorare la disponibilità delle applicazioni.
 
 ![](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
 
-## Distribuzione di cluster guest della macchina virtuale di Azure Iaas
+## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>Distribuzione in cluster guest di VM Iaas di Azure
 
-[Modelli di Azure](https://github.com/robotechredmond/301-storage-spaces-direct-md) sono state pubblicate riduzione della complessità, configurare meglio procedure consigliate e la velocità delle distribuzioni di spazi di archiviazione diretta in una macchina virtuale di Azure Iaas. Questa è la soluzione consigliata per la distribuzione in Azure.
+[I modelli di Azure](https://github.com/robotechredmond/301-storage-spaces-direct-md) è stati pubblicati riduzione della complessità, configurare migliori procedure consigliate e velocità delle distribuzioni di spazi di archiviazione diretta in una macchina virtuale Iaas di Azure. Questa è la soluzione consigliata per la distribuzione in Azure.
 
 <iframe src="https://channel9.msdn.com/Series/Microsoft-Hybrid-Cloud-Best-Practices-for-IT-Pros/Step-by-Step-Deploy-Windows-Server-2016-Storage-Spaces-Direct-S2D-Cluster-in-Microsoft-Azure/player" width="960" height="540" allowfullscreen></iframe>
 
-## Requisiti
+## <a name="requirements"></a>Requisiti
 
-Le considerazioni seguenti si applicano durante la distribuzione di spazi di archiviazione diretta in un ambiente virtualizzato.
+Le considerazioni seguenti riguardano la distribuzione di spazi di archiviazione diretta in un ambiente virtualizzato.
 
 > [!TIP]
-> Modelli di Azure automaticamente Configura le seguenti considerazioni per te e sono la soluzione consigliata durante la distribuzione in macchine virtuali di Azure IaaS.
+> I modelli di Azure configura automaticamente le seguenti considerazioni per l'utente e sono la soluzione consigliata per la distribuzione in macchine virtuali IaaS di Azure.
 
--   Almeno 2 nodi e massimo di 3 nodi
+-   Almeno 2 nodi e un massimo di 3 nodi
 
--   le distribuzioni di 2 nodi devono configurare un controllo (controllo di condivisione File o un controllo Cloud)
+-   le distribuzioni di 2 nodi devono configurare un server di controllo (Cloud di controllo o controllo di condivisione File)
 
--   le distribuzioni di 3 nodi possono tollerare 1 nodo verso il basso e la perdita di 1 o più dischi in un altro nodo.  Se 2 nodi sono arresto quindi i dischi virtuali, essere offline fino a quando non restituisce uno dei nodi.  
+-   le distribuzioni di 3 nodi in grado di tollerare 1 nodo verso il basso e la perdita di 1 o più dischi in un altro nodo.  Se 2 nodi vengono arrestati quindi i dischi virtuali sarà offline fino a quando non restituisce uno dei nodi.  
 
--   Configurare le macchine virtuali per essere distribuito in domini di errore
+-   Configurare le macchine virtuali da distribuire nei domini di errore
 
     -   Azure-configurare il Set di disponibilità
 
-    -   Hyper-V: Configura AntiAffinityClassNames su macchine virtuali per separare le macchine virtuali tra i nodi
+    -   Hyper-V: Configura AntiAffinityClassNames nelle VM per separare le macchine virtuali tra nodi
 
-    -   VMware – regola Configura macchina anti-affinità creando una Rule DRS di tipo ' Separate le macchine virtuali "per separare le macchine virtuali tra host ESX. I dischi presentati da usare con spazi di archiviazione diretta devono Usa la scheda Paravirtual SCSI (PVSCSI). Per il supporto PVSCSI con Windows Server, consultare https://kb.vmware.com/s/article/1010398.
+    -   VMware – regola Configura anti-affinità delle macchine Virtuali della macchina virtuale creando una Rule DRS di tipo ' macchine virtuali Separate "per separare le macchine virtuali tra host ESX. Dischi presentati per l'uso con spazi di archiviazione diretta devono utilizzare l'adapter Paravirtual SCSI (PVSCSI). Per il supporto PVSCSI con Windows Server, consultare https://kb.vmware.com/s/article/1010398.
 
--   Sfruttare a bassa latenza / archiviazione ad alte prestazioni - archiviazione Premium di Azure gestiti i dischi sono necessari
+-   Sfruttare la bassa latenza / archiviazione ad alte prestazioni, archiviazione Premium di Azure managed disks sono necessari
 
--   Distribuire una struttura di archiviazione flat con senza memorizzazione nella cache i dispositivi configurati
+-   Distribuire una progettazione di archiviazione semplice senza dispositivi di memorizzazione nella cache configurata
 
--   Minimo di 2 dischi di dati virtuale presentati per ogni macchina virtuale (VHD / VHDX / VMDK)
+-   Minimo 2 dischi di dati virtuale presentati a ogni macchina virtuale (VHD / VHDX / VMDK)
 
-    Questo numero è diverso rispetto alle distribuzioni bare metal perché i dischi virtuali possono essere implementati come file che non sono soggetti a errori fisici.
+    Questo numero è diverso rispetto alle distribuzioni bare metal perché i dischi virtuali possono essere implementati come i file che non sono soggetti a errori di fisici.
 
--   Disabilitare le funzionalità sostituzione dell'unità automatica nel servizio integrità eseguendo il cmdlet PowerShell seguente:
+-   Disabilitare le funzionalità di sostituzione automatica dell'unità del servizio integrità eseguendo il cmdlet di PowerShell seguente:
 
     ```powershell
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Non supportato: ospitare livello disco virtuale snapshot/ripristino
+-   Non supportati: Snapshot del disco virtuale a livello di host/ripristino
 
-    Usare invece soluzioni di backup livello guest tradizionale per il backup e ripristinare i dati nei volumi spazi di archiviazione diretta.
+    Per eseguire il backup e ripristinare i dati nei volumi di spazi di archiviazione diretta, utilizzare soluzioni di backup a livello di guest tradizionale.
 
--   Per dare maggiore resilienza a possibili VHD / VHDX / latenza di archiviazione VMDK in cluster guest, aumentare il valore di timeout dei / o spazi di archiviazione:
+-   Per consentire maggiore resilienza alle possibili VHD / VHDX / latenza di archiviazione di file VMDK in cluster guest, aumentare il valore di timeout dei / o spazi di archiviazione:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    L'equivalente decimale di 7530 esadecimale è 30000, che è di 30 secondi. Tieni presente che il valore predefinito è 1770 6000 o esadecimale decimale, ovvero 6 secondi.
+    L'equivalente decimale 7530 esadecimale è 30000, ovvero 30 secondi. Si noti che il valore predefinito è 1770 esadecimale o 6000 decimale, ovvero 6 secondi.
 
-## Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Modelli aggiuntivi Azure Iaas VM per distribuire spazi di archiviazione diretta, video e guide dettagliate](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+[Modelli di macchina virtuale Iaas di Azure aggiuntivi per la distribuzione di spazi di archiviazione diretta, video e guide dettagliate](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
 
-[Spazi di archiviazione aggiuntivi diretta Panoramica] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Spazi di archiviazione aggiuntivi diretta Overview] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

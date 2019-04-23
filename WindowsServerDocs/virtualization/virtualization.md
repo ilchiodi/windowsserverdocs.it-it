@@ -11,13 +11,13 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
 ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 9ed4c9fe04ebf3ef488170503c9a354c992b6fde
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4339459"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59840062"
 ---
-# Virtualizzazione
+# <a name="virtualization"></a>Virtualizzazione
 
 >[!TIP]
 > Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
@@ -39,9 +39,9 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Infrastruttura sorvegliata e VM schermate</h3>
+                        <h3>Infrastruttura protetta e VM schermate</h3>
 <HR />
-                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un Servizio Sorveglianza host (Host Guardian Service - HGS), in genere, un cluster di tre nodi, oltre a uno o più host sorvegliati e un set di macchine virtuali schermate (VM).</p>
+                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio di sorveglianza Host \(HGS\) -in genere, un cluster di tre nodi - più di uno o più host sorvegliati e un set di macchine virtuali schermate.</p>
                      </div>
                   </div>
               </div>
@@ -61,7 +61,7 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
 <HR />
-                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. Puoi eseguire più macchine virtuali contemporaneamente, nonché crearle ed eliminarle secondo necessità.</p>
+                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze.</p>
                      </div>
                   </div>
               </div>
@@ -99,9 +99,9 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
                         </div>
                     </div>
                     <div class="cardText">
-                       <h3>Windows 10 per l'azienda: modalità di utilizzo di dispositivi per lavoro</h3>
+                       <h3>Windows 10 per le aziende: Modalità d'uso di dispositivi di lavoro</h3>
 <HR />
-                       <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. Puoi eseguire più macchine virtuali contemporaneamente e crearle ed eliminarle secondo necessità.</p>
+                       <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze.</p>
                      </div>
                   </div>
               </div>
@@ -127,7 +127,7 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
 <HR />
                         <p>Il commutatore virtuale Hyper-V include funzionalità estendibili e gestibili a livello di programmazione che consentono la connessione delle macchine virtuali alle reti virtuali e alla rete fisica.</p>
 <HR />
-                        <p>Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, isolamento e livelli di servizio.</p>
+                        <p>Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, l'isolamento e i livelli di servizio.</p>
                      </div>
                   </div>
               </div>
@@ -138,9 +138,9 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
 
 ---
 
-### Informazioni correlate
+### <a name="related"></a>Risorse correlate
 
-- Hyper-V richiede hardware specifico per creare l'ambiente di virtualizzazione. Per informazioni dettagliate, vedi [Requisiti di sistema per Hyper-V in Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
+- Hyper-V richiede hardware specifico per creare l'ambiente di virtualizzazione. Per informazioni dettagliate, vedere [requisiti di sistema per Hyper-V in Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 
 - Per ulteriori informazioni su Hyper-V in Windows 10, vedi [Hyper-V in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows).
 
