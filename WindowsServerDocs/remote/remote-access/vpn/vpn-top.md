@@ -1,6 +1,6 @@
 ---
 title: Rete privata virtuale (VPN)
-description: È possibile utilizzare questo argomento per informazioni sulle caratteristiche e funzionalità VPN di Windows 10 e Windows Server 2016.
+description: È possibile utilizzare questo argomento per apprendere le funzionalità VPN di Windows 10 e Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -10,46 +10,46 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.openlocfilehash: bf38995f0a2b396044d1f45b45eff8c3c2de329d
-ms.sourcegitcommit: 4893d79345cea85db427224bb106fc1bf88ffdbc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "6067302"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59891072"
 ---
-# \(VPN\) di rete privata virtuale
+# <a name="virtual-private-networking-vpn"></a>Rete privata virtuale \(VPN\)
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10
 
-## Gateway RAS come Server VPN singolo Tenant
+## <a name="ras-gateway-as-a-single-tenant-vpn-server"></a>Gateway RAS come Server VPN Single-Tenant
 
-In Windows Server 2016, il ruolo del server Accesso remoto è un raggruppamento logico di tecnologie di accesso della rete correlati seguenti.
+In Windows Server 2016, il ruolo server Accesso remoto è un raggruppamento logico delle tecnologie di accesso di rete correlate seguenti.
 
-- Servizio di accesso remoto (RAS)
+- Remote Access Service (RAS)
 - Routing
 - Proxy applicazione Web
 
 Queste tecnologie sono i servizi ruolo del ruolo del server Accesso remoto.
 
-Quando si installa il ruolo del server Accesso remoto con Aggiungi ruoli e funzionalità della procedura guidata Windows PowerShell, è possibile installare uno o più di questi tre servizi ruolo.
+Quando si installa il ruolo server Accesso remoto con l'aggiunta guidata ruoli e funzionalità o Windows PowerShell, è possibile installare uno o più di questi servizi tre ruolo.
 
-Quando installi il servizio ruolo **DirectAccess e VPN (RAS)** , stai distribuendo il Gateway di servizio di accesso remoto \ (**Gateway RAS**\). È possibile distribuire Gateway RAS come un server singolo tenant Gateway RAS virtual private network \(VPN\) che offre molte funzionalità avanzate e funzionalità avanzate.
+Quando si installa il **DirectAccess e VPN (RAS)** servizio ruolo, si sta distribuendo il Gateway di servizi di accesso remoto \( **Gateway RAS**\). È possibile distribuire una rete privata virtuale single-tenant RAS Gateway RAS Gateway \(VPN\) server che offre molte funzionalità avanzate e funzionalità più avanzate.
 
 >[!NOTE]
->Puoi anche distribuire Gateway RAS come server VPN multi-tenant per l'uso con Software Defined Networking \(SDN\) o come un server DirectAccess. Per altre informazioni, vedi [Gateway RAS](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway), [DirectAccess](https://docs.microsoft.com/windows-server/remote/remote-access/directaccess/directaccess)e [Rete SDN (Software Defined)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking).
+>È anche possibile distribuire Gateway RAS come server VPN multi-tenant per l'utilizzo con Software Defined Networking \(SDN\), o come server DirectAccess. Per altre informazioni, vedere [Gateway RAS](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway), [reti SDN (Software Defined)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking), e [DirectAccess](https://docs.microsoft.com/windows-server/remote/remote-access/directaccess/directaccess).
 
-## Argomenti correlati
-- [Caratteristiche e funzionalità VPN always On](vpn-map-da.md): In questo argomento, scoprire le funzionalità di VPN Always On. 
+## <a name="related-topics"></a>Argomenti correlati
+- [Le funzionalità di VPN Always On](vpn-map-da.md): In questo argomento illustra le funzionalità di VPN Always On. 
 
-- [Configurare i tunnel dispositivo VPN in Windows 10](vpn-device-tunnel-config.md): VPN Always On offre la possibilità di creare un profilo VPN dedicato per dispositivo o un computer. Le connessioni VPN Always On includono due tipi di tunnel: _tunnel dei dispositivi_ e _utenti tunnel_. Tunnel dei dispositivi viene utilizzato per scopi di gestione dispositivi e scenari di connettività di pre-accesso. Tunnel utente consente agli utenti di accedere a risorse dell'organizzazione tramite server VPN.
+- [Configurare il tunnel di dispositivo VPN in Windows 10](vpn-device-tunnel-config.md): VPN Always On offre la possibilità di creare un profilo VPN dedicato per computer o dispositivo. Le connessioni VPN Always On includono due tipi di tunnel: _tunnel periferica_ e _utente tunnel_. Tunnel di dispositivo viene usato per gli scenari di pre-logon connettività e gestione dei dispositivi. Tunnel utente consente agli utenti di accedere alle risorse dell'organizzazione tramite i server VPN.
 
-- [Sempre in VPN distribuzione per Windows Server 2016 e Windows 10](always-on-vpn/deploy/always-on-vpn-deploy.md): fornisce istruzioni sulla distribuzione di accesso remoto come un singolo tenant di Gateway RAS VPN per le connessioni VPN point\-to\-sito che consentono ai dipendenti remoti di connettersi alla tua organizzazione rete con connessioni VPN Always On. Si consiglia di esaminare le guide alla distribuzione e progettazione per ciascuna delle tecnologie che vengono utilizzate durante la distribuzione.
+- [Sempre nella distribuzione VPN per Windows Server 2016 e Windows 10](always-on-vpn/deploy/always-on-vpn-deploy.md): Fornisce istruzioni sulla distribuzione di accesso remoto come un singolo tenant VPN RAS Gateway per il punto\-a\-sito connessioni VPN da consentono ai dipendenti remoti per connettersi alla rete dell'organizzazione con le connessioni VPN Always On. È consigliabile rivedere la progettazione e alla distribuzione per ognuna delle tecnologie che vengono usate in questa distribuzione.
 
-- [Guida tecnica alle reti VPN Windows 10](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): illustra le decisioni da prendere per i client Windows 10 nella tua soluzione VPN aziendale e su come configurare la distribuzione. Puoi trovare i riferimenti a VPNv2 Configuration Service Provider (CSP) e offre le istruzioni di configurazione (MDM) con Microsoft Intune e il modello di profilo VPN per Windows 10 mobile device management.
+- [Guida tecnica di Windows 10 VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): Illustra in dettaglio le scelte effettuate per i client Windows 10 nell'azienda soluzione VPN e come configurare la distribuzione. È possibile trovare i riferimenti a VPNv2 Configuration Service Provider (CSP) e fornisce la gestione dei dispositivi mobili le istruzioni di configurazione (MDM) con Microsoft Intune e il modello di profilo VPN per Windows 10.
 
-- [Come i profili VPN di creare in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles): In questo argomento, scopriremo come creare profili VPN in System Center Configuration Manager (SCCM).
+- [Come creare profili VPN in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles): In questo argomento descrive come creare profili VPN in System Center Configuration Manager (SCCM).
 
-- [Configurare Windows 10 Client sempre su connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections): in questo argomento descrive il ProfileXML opzioni e lo schema e come creare la VPN ProfileXML. Dopo aver configurato l'infrastruttura di server, è necessario configurare i computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN. 
+- [Configurare sempre i Client Windows 10 su connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections): Questo argomento viene descritto il ProfileXML opzioni e dello schema e come creare la VPN ProfileXML. Dopo aver configurato l'infrastruttura di server, è necessario configurare i computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN. 
 
-- [Opzioni del profilo VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options): in questo argomento descrive le impostazioni del profilo VPN in Windows 10 e Scopri come configurare i profili VPN con Intune o SCCM. È possibile configurare tutte le impostazioni VPN in Windows 10 tramite il nodo ProfileXML nel CSP VPNv2.
+- [Opzioni del profilo VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options): Questo argomento descrive le impostazioni del profilo VPN in Windows 10 e informazioni su come configurare i profili VPN tramite SCCM o Intune. È possibile configurare tutte le impostazioni VPN in Windows 10 tramite il nodo ProfileXML in VPNv2 CSP.
 
 ---

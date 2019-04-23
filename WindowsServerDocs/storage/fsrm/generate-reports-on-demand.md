@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e91bfbc306d1d2712f7b35ec48114b3a8a84ec83
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890992"
 ---
 # <a name="generate-reports-on-demand"></a>Generare rapporti su richiesta
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Durante le operazioni quotidiane, è possibile utilizzare l'opzione **Genera rapporti** per generare uno o più rapporti su richiesta. Con questi rapporti è possibile analizzare diversi aspetti dell'utilizzo del disco corrente sul server. I dati correnti vengono raccolti prima della generazione dei rapporti.
 
@@ -31,10 +32,10 @@ Quando si generano rapporti su richiesta, questi vengono salvati in un percorso 
 
 2.  Fare clic con il pulsante destro del mouse su **Gestione rapporti di archiviazione**, quindi scegliere **Genera rapporti** (o selezionare **Genera rapporti** nel riquadro **Azioni**). Verrà visualizzata la finestra di dialogo **Proprietà attività rapporto archiviazione**.
 
-3.  Per selezionare volumi o cartelle su cui generare rapporti:
+3.  Per selezionare volumi o cartelle su cui si desidera generare rapporti:
 
     -   In **Ambito** fare clic su **Aggiungi**.
-    -   Visualizzare il volume o la cartella su cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
+    -   Visualizzare il volume o la cartella in cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
     -   Aggiungere tutti i volumi o tutte le cartelle che si desidera includere nei rapporti. Per rimuovere un volume o una cartella, fare clic sul percorso, quindi fare clic su **Rimuovi**.
 
 4.  Per specificare i rapporti da generare:
@@ -49,7 +50,7 @@ Quando si generano rapporti su richiesta, questi vengono salvati in un percorso 
  
 5.  Per specificare i formati in cui salvare i rapporti:
 
-    -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in Dynamic HTML (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito per i rapporti su richiesta.
+    -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in HTML dinamico (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito per i rapporti su richiesta.
 
 6.  Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
 
@@ -67,6 +68,6 @@ Quando si generano rapporti su richiesta, questi vengono salvati in un percorso 
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione rapporti di archiviazione](storage-reports-management.md)
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti archiviazione](storage-reports-management.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
 
