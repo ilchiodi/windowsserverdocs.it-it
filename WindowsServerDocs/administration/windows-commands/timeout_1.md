@@ -1,0 +1,68 @@
+---
+title: timeout
+description: 'Argomento i comandi di Windows per * * *- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: e26b4a84-0e30-46e1-aa10-0667b7d3cb4c
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 3997399b732c494050797c83a0a52938574986bd
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830172"
+---
+# <a name="timeout"></a>timeout
+
+
+
+Sospende il processore dei comandi per il numero di secondi specificato.
+
+Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
+## <a name="syntax"></a>Sintassi
+
+```
+timeout /t <TimeoutInSeconds> [/nobreak] 
+```
+
+## <a name="parameters"></a>Parametri
+
+|Parametro|Descrizione|
+|---------|-----------|
+|/t \<TimeoutInSeconds>|Specifica il numero decimale di secondi compreso tra -1 e 99999, di attesa prima che il processore dei comandi continua l'elaborazione. Il valore -1, il computer per un'attesa indefinita per una sequenza di tasti.|
+|/NOBREAK|Specifica per ignorare le pressioni di tasti utente.|
+|/?|Visualizza la guida al prompt dei comandi.|
+
+## <a name="remarks"></a>Note
+
+-   Il **timeout** comando viene in genere utilizzato nei file batch.
+-   Un utente preme un tasto riprende l'esecuzione del comando processore immediatamente, anche se non è scaduto il periodo di timeout.
+-   Quando utilizzato in combinazione con il **sospensione** comando **timeout** è simile al **sospendere** comando.
+
+## <a name="BKMK_examples"></a>Esempi
+
+Per sospendere il processore dei comandi per dieci secondi, digitare:
+```
+timeout /t 10
+```
+Per sospendere il processore dei comandi per 100 secondi e ignorare qualsiasi sequenza di tasti, digitare:
+```
+timeout /t 100 /nobreak
+```
+Per sospendere il processore dei comandi in modo indefinito finché non viene premuto un tasto, digitare:
+```
+timeout /t -1
+```
+
+#### <a name="additional-references"></a>Altri riferimenti
+
+[Chiave sintassi della riga di comando](command-line-syntax-key.md)

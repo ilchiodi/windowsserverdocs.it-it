@@ -1,5 +1,5 @@
 ---
-title: "Aggiunta di avvisi di integrità"
+title: Aggiunta di avvisi di integrità
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,43 +13,44 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: cf0c062b92c687f5f7b33b419eafdca2dd3bbbfc
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828512"
 ---
 # <a name="add-health-alerts"></a>Aggiunta di avvisi di integrità
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Un componente aggiuntivo di stato fornisce le definizioni per avvisi, controlli di integrità e correzioni per problemi di rete. Un componente aggiuntivo di integrità costituito da file xml che annotano il codice o i dati utilizzati per valutare le informazioni sull'integrità per una funzionalità specifica. Componenti aggiuntivi di integrità sono creati dagli sviluppatori e installati nel computer server e client dall'amministratore.  
+Un componente aggiuntivo per lo stato del sistema fornisce le definizioni di avvisi, controlli di integrità e soluzioni ai problemi di rete. Tale componente aggiuntivo è composto da file XML che annotano il codice o i dati utilizzati per valutare le informazioni sulle condizioni di una specifica funzione. I componenti aggiuntivi per lo stato del sistema vengono creati dagli sviluppatori, quindi installati nel server e nei computer client dall'amministratore.  
   
- Consultare il [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648) per informazioni dettagliate sulla creazione di un componente aggiuntivo di integrità.  
+ Per altre informazioni sulla creazione di un componente aggiuntivo per l'integrità del sistema, fare riferimento a [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648) .  
   
-## <a name="installing-health-add-in-files"></a>Installazione dello stato dei file di componenti aggiuntivi  
- Dopo che lo sviluppatore ha creato i file xml, è necessario inserire una copia dei file nella posizione appropriata nel server e i computer client.  
+## <a name="installing-health-add-in-files"></a>Installazione dei file del componente aggiuntivo per lo stato del sistema  
+ Dopo che lo sviluppatore ha creato i file XML, è necessario copiare tali file nella posizione appropriata sul server e sui computer client.  
   
-#### <a name="to-install-the-xml-files-on-the-server"></a>Per installare i file xml nel server di  
+#### <a name="to-install-the-xml-files-on-the-server"></a>Per installare i file XML nel server  
   
-1.  Nel **%ProgramFiles%\Windows definizioni myhealthaddin** cartella, creare una nuova cartella denominata **Server\bin\feature**. È possibile assegnare a questa cartella qualsiasi nome. È consigliabile che il nome della cartella di essere lo stesso nome della funzione.  
+1.  Creare una nuova cartella denominata **MyHealthAddIn** nella cartella **%ProgramFiles%\Windows Server\Bin\Feature Definitions**. È possibile assegnare a tale cartella un nome qualsiasi. Si consiglia di denominare la cartella utilizzando lo stesso nome della funzione.  
   
-2.  Copiare il Definition.xml e i file Definition.xml. config nella nuova cartella.  
+2.  Copiare i file Definition.xml e Definition.xml.config nella nuova cartella.  
   
-3.  Se hai creato un file binari per condizioni o azioni, è inoltre necessario copiare tali file disponibili per **%ProgramFiles%\Windows Server\Bin**.  
+3.  Se sono stati creati file binari per condizioni o azioni, è inoltre necessario copiare tali file in **%ProgramFiles%\Windows Server\Bin**.  
   
- I computer client eseguono un'attività pianificata ogni 6 ore che inserisce i file XML nella posizione appropriata. È possibile forzare la sincronizzazione tra il computer client e il server eseguendo manualmente l'attività.  
+ I computer client eseguono ogni 6 ore un'attività pianificata che inserisce i file XML nella posizione appropriata. È possibile forzare la sincronizzazione tra il computer client e il server eseguendo manualmente l'attività.  
   
-#### <a name="to-install-the-xml-files-on-the-client-computer"></a>Per installare i file xml nel computer client  
+#### <a name="to-install-the-xml-files-on-the-client-computer"></a>Per installare i file XML nel computer client  
   
-1.  Aprire l'utilità di pianificazione.  
+1.  Aprire l'Utilità di pianificazione.  
   
-2.  Eseguire il **HealthDefintionUpdateTask** nell'utilità di pianificazione.  
+2.  Eseguire **HealthDefintionUpdateTask** nell'Utilità di pianificazione.  
   
     > [!NOTE]
-    >  Questa attività non installa i file binari. È necessario copiare manualmente i file binari di **%ProgramFiles%\Windows Server\Bin** cartella nel computer client.  
+    >  Tale attività non esegue l'installazione dei file binari. È necessario copiare manualmente i file binari nella cartella **%ProgramFiles%\Windows Server\Bin** sul computer client.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

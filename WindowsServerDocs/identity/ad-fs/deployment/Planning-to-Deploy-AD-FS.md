@@ -1,7 +1,7 @@
 ---
 ms.assetid: c87dc32d-ab33-44d2-a46f-f9f878b4e5b4
-title: Pianificazione della distribuzione di ADFS
-description: 
+title: Pianificazione della distribuzione di AD FS
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,31 +10,32 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: ca9e53d7d98f3ae5e6b7b329e52d4979e8c10215
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831692"
 ---
-# <a name="planning-to-deploy-ad-fs"></a>Pianificazione della distribuzione di ADFS
+# <a name="planning-to-deploy-ad-fs"></a>Pianificazione della distribuzione di AD FS
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-Dopo aver raccolto informazioni sull'ambiente e aver scelto una progettazione di Active Directory Federation Services \(AD FS\) seguendo le indicazioni fornite nel [Guida alla progettazione di AD FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx), è possibile iniziare a pianificare la distribuzione della progettazione di AD FS dell'organizzazione. Con il progetto completato e le informazioni contenute in questo argomento, è possibile determinare quali attività eseguire per distribuire ADFS nell'organizzazione.  
+Dopo aver raccolto informazioni sull'ambiente e aver scelto un Active Directory Federation Services \(ADFS\) seguendo le indicazioni fornite nel [Guida alla progettazione di AD FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx), è possibile iniziare a pianificare la distribuzione della progettazione di AD FS dell'organizzazione. Con il progetto completato e le informazioni contenute in questo argomento, è possibile determinare quali attività eseguire per distribuire AD FS nell'organizzazione.  
   
-## <a name="reviewing-your-ad-fs-design"></a>Revisione della progettazione di ADFS  
-Se il team di progettazione che ha realizzato ADFS originale di progettazione per l'organizzazione è diverso dal team di distribuzione che verranno effettivamente implementare la distribuzione, assicurarsi che il team rivedano insieme tutto il progetto definitivo con il team di progettazione. Rivedere i punti seguenti del progetto:  
+## <a name="reviewing-your-ad-fs-design"></a>Revisione del progetto di ADFS  
+Se il team di progettazione ADFS originale nella costruzione di progettazione per l'organizzazione è diverso dal team di distribuzione che verrà effettivamente implementerà la distribuzione, assicurarsi che il team di distribuzione esamina il progetto finale con il team di progettazione. Rivedere i punti seguenti del progetto:  
   
--   Strategia del team di progettazione per determinare la topologia fisica ottimale per il posizionamento dei server federativi nella rete aziendale o rete perimetrale. Il team di distribuzione è possibile fare riferimento alla documentazione su questo tema consultando gli argomenti seguenti nella Guida alla progettazione di ADFS:  
+-   La strategia del team di progettazione per determinare la topologia fisica ottimale per il posizionamento dei server federativi nella rete aziendale o in quella perimetrale. Il team di distribuzione è possibile fare riferimento alla documentazione su questo tema consultando gli argomenti seguenti nella Guida alla progettazione di AD FS:  
   
-    -   [Il ruolo del Database di configurazione di ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
+    -   [Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
   
     -   [Pianificazione del posizionamento del Server federativo](https://technet.microsoft.com/library/dd807069.aspx)  
   
     -   [Pianificazione del posizionamento del Proxy Server federativo](https://technet.microsoft.com/library/dd807130.aspx)  
   
-    È possibile che il team di progettazione abbia lasciato la definizione del server federativo o del posizionamento del proxy server federativo al team di distribuzione. Il team di distribuzione è quindi responsabile della documentazione e implementazione della topologia fisica dei server.  
+    È possibile che il team di progettazione abbia lasciato la definizione del posizionamento del server federativo o del proxy server federativo al team di distribuzione. Il team di distribuzione è quindi responsabile della documentazione e dell'implementazione della topologia fisica dei server.  
   
--   I motivi aziendali per la designazione dell'organizzazione come un provider di attestazioni, relying party o entrambi, nell'ambito del progetto di ADFS documentato. Assicurarsi che i membri del team di distribuzione conoscano i motivi per cui viene distribuito AD FS e altre società o organizzazioni sono coinvolte nella partnership di federazione. Assicurarsi che i membri del team di distribuzione conoscano inoltre i vincoli esistenti per altre società o organizzazioni \ (limitata di hardware, nessun ambiente extranet e in tal caso forth\) che potrebbero limitare l'ambito del progetto in qualche modo. Per ulteriori informazioni sulle organizzazioni partner, vedere [pianificazione della distribuzione](https://technet.microsoft.com/library/dd807083.aspx).  
+-   I motivi aziendali per la designazione dell'organizzazione come provider di attestazioni, relying party o entrambi, nell'ambito del progetto di ADFS documentato. Assicurarsi che i membri del team di distribuzione conoscano i motivi per cui viene distribuito AD FS e altre società o organizzazioni sono coinvolte nella partnership di federazione. Assicurarsi che i membri del team di distribuzione conoscano anche i vincoli esistenti per le altre società o organizzazioni \(limitata di hardware, nessun ambiente extranet e così via\) che potrebbe limitare l'ambito della progettazione in qualche modo. Per altre informazioni sulle organizzazioni partner, vedere [Pianificazione della distribuzione](https://technet.microsoft.com/library/dd807083.aspx).  
   
-Dopo la progettazione team e il team di distribuzione trovato un accordo su questi problemi, potranno procedere con la distribuzione della progettazione di ADFS. Per ulteriori informazioni, vedere [implementazione del piano di progettazione di AD FS](Implementing-Your-AD-FS-Design-Plan.md).  
+Dopo il progetto team e team di distribuzione concordare questi problemi, potranno procedere con la distribuzione della progettazione di AD FS. Per altre informazioni, vedere [Implementazione del piano di progetto di ADFS](Implementing-Your-AD-FS-Design-Plan.md).  

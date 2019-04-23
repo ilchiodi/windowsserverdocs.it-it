@@ -13,20 +13,21 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9333e539ec3f03bb1ef8ac3bac73ae3f9963349b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828732"
 ---
 # <a name="manage-email-service-integration-in-windows-server-essentials"></a>Gestire l'integrazione del servizio di posta elettronica in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Utilizzare l'argomento seguente per impostare una soluzione di posta elettronica dell'organizzazione.  
+Usare l'argomento seguente per configurare una soluzione di posta elettronica per l'organizzazione.  
   
--   [Integrazione di un Server di Exchange in locale con Windows Server Essentials](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md)  
+-   [Integrare un Server di Exchange in locale con Windows Server Essentials](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md)  
   
-     Fornisce informazioni e istruzioni di base che consentono di configurare e integrare un server locale che esegue Exchange Server con un server che esegue Windows Server Essentials.  
+     Include informazioni e istruzioni di base per semplificare la configurazione e l'integrazione di un server locale che esegue Exchange Server con un server che esegue Windows Server Essentials.  
   
 ## <a name="see-also"></a>Vedere anche  
   

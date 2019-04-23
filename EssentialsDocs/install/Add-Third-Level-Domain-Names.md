@@ -1,5 +1,5 @@
 ---
-title: Aggiungere nomi di dominio di terzo livello
+title: Aggiunta dei nomi di dominio di terzo livello
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,46 +13,47 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833322"
 ---
-# <a name="add-third-level-domain-names"></a>Aggiungere nomi di dominio di terzo livello
+# <a name="add-third-level-domain-names"></a>Aggiunta dei nomi di dominio di terzo livello
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È possibile aggiungere la possibilità per gli utenti di richiedere nomi di dominio di terzo livello nella configurazione guidata nome dominio. Farlo creando e installando un assembly di codice che viene utilizzato da Gestione dominio nel sistema operativo.  
+È possibile aggiungere la possibilità per gli utenti di richiedere nomi di dominio di terzo livello nella procedura guidata per l'impostazione dei nomi di dominio. A tale scopo, creare e installare un assembly di codice utilizzato da Gestione dominio nel sistema operativo.  
   
-## <a name="create-a-provider-of-third-level-domain-names"></a>Creare un provider di nomi di dominio di terzo livello  
- È possibile rendere disponibili nomi di dominio di terzo livello creando e installando un assembly di codice che fornisce i nomi di dominio per la procedura guidata. A tale scopo, completare le attività seguenti:  
+## <a name="create-a-provider-of-third-level-domain-names"></a>Creazione di un provider dei nomi di dominio di terzo livello  
+ È possibile rendere disponibili nomi di dominio di terzo livello attraverso la creazione e l'installazione di un assembly di codice che fornisce i nomi di dominio alla procedura guidata. A tale scopo, completare le seguenti attività:  
   
--   [Aggiunta di un'implementazione dell'interfaccia IDomainSignupProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
+-   [Aggiungere un'implementazione dell'interfaccia IDomainSignupProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
   
--   [Aggiunta di un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
+-   [Aggiungere un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
   
--   [Una firma Authenticode all'assembly](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
+-   [Firmare l'assembly con una firma Authenticode](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
   
 -   [Installare l'assembly nel computer di riferimento](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
   
--   [Riavviare il servizio di gestione nome di dominio di Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
+-   [Riavviare il servizio di gestione nome dominio di Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
   
-###  <a name="BKMK_DomainSignup"></a>Aggiunta di un'implementazione dell'interfaccia IDomainSignupProvider all'assembly  
- L'interfaccia IDomainSignupProvider viene utilizzato per aggiungere offerte di domini alla procedura guidata.  
+###  <a name="BKMK_DomainSignup"></a> Aggiungere un'implementazione dell'interfaccia IDomainSignupProvider all'assembly  
+ L'interfaccia IDomainSignupProvider viene utilizzata per aggiungere offerte di domini alla procedura guidata.  
   
 ##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>Per aggiungere il codice IDomainSignupProvider all'assembly  
   
-1.  Aprire Visual Studio 2008 come amministratore facendo clic con il programma di **Start** menu e selezionando **Esegui come amministratore**.  
+1.  Accedere a Visual Studio 2008 come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu **Start**, quindi selezionando **Esegui come amministratore**.  
   
-2.  Fare clic su **File**, fare clic su **New**, quindi fare clic su **progetto**.  
+2.  Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
   
-3.  Nel **nuovo progetto** la finestra di dialogo, fare clic su **Visual c#**, fare clic su **libreria di classi**, immettere un nome per la soluzione e quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo **Nuovo progetto** , fare clic su **Visual C#**, quindi su **Libreria di classi**, infine immettere un nome per la soluzione e fare clic su **OK**.  
   
-4.  Rinominare il file Class1.cs. Ad esempio, MyDomainNameProvider.cs  
+4.  Rinominare il file Class1.cs. Ad esempio, MyDomainNameProvider.cs.  
   
-5.  Aggiungi i riferimenti ai file Wssg.Web.DomainManagerObjectModel.dll, CertManaged.dll, WssgCertMgmt.dll e WssgCommon.dll.  
+5.  Aggiungere i riferimenti ai file Wssg.Web.DomainManagerObjectModel.dll, CertManaged.dll, WssgCertMgmt.dll e WssgCommon.dll.  
   
-6.  Aggiungere le seguenti istruzioni using.  
+6.  Aggiungere i seguenti elementi utilizzando le istruzioni.  
   
     ```c#  
   
@@ -65,7 +66,7 @@ ms.lasthandoff: 12/12/2017
     using Microsoft.Win32;  
     ```  
   
-7.  Modificare lo spazio dei nomi e l'intestazione della classe in base all'esempio seguente.  
+7.  Modificare lo spazio dei nomi e l'intestazione della classe in modo che corrispondano a quelli del seguente esempio.  
   
     ```c#  
     namespace Microsoft.WindowsServerSolutions.RemoteAccess.Domains  
@@ -76,12 +77,12 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-8.  Aggiungere il metodo Initialize e le variabili richieste alla classe che definisce le offerte presentate nella procedura guidata.  
+8.  Aggiungere il metodo Initialize e le variabili richieste alla classe per definire le offerte presentate nella procedura guidata.  
   
     > [!NOTE]
-    >  Il metodo Initialize definisce un identificatore per il provider di dominio che deve essere univoco. Un metodo tipico per eseguire questa operazione consiste nel definire un GUID come identificatore. Per ulteriori informazioni sulla creazione di un GUID, vedere [crea Guid (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).  
+    >  Il metodo Initialize definisce per il provider del dominio un identificatore che deve essere univoco. Solitamente, a tale scopo occorre specificare un GUID come identificatore. Per altre informazioni sulla creazione di un GUID, vedere [Crea GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).  
   
-     Esempio di codice seguente mostra il metodo Initialize.  
+     Il seguente esempio di codice mostra il metodo Initialize.  
   
     ```c#  
   
@@ -109,7 +110,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-9. Aggiungere il metodo GetOfferings, che restituisce l'elenco di offerte inizializzato nel passaggio precedente. Esempio di codice seguente mostra il metodo GetOfferings.  
+9. Aggiungere il metodo GetOfferings, che restituisce l'elenco di offerte inizializzato al passaggio precedente. Il seguente esempio di codice mostra il metodo GetOfferings.  
   
     ```c#  
   
@@ -119,7 +120,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-10. Aggiungere il metodo FindOfferingForDomain, che restituisce l'offerta dall'elenco. Esempio di codice seguente mostra il metodo FindOfferingForDomain.  
+10. Aggiungere il metodo FindOfferingForDomain, che restituisce l'offerta dall'elenco. Il seguente esempio di codice mostra il metodo FindOfferingForDomain.  
   
     ```  
   
@@ -131,7 +132,7 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-11. Aggiungere il metodo SetCredentials, che definisce le credenziali necessarie per accedere alle offerte. Esempio di codice seguente mostra il metodo SetCredentials.  
+11. Aggiungere il metodo SetCredentials, che definisce le credenziali richieste per accedere alle offerte. Il seguente esempio di codice mostra il metodo SetCredentials.  
   
     ```c#  
   
@@ -152,7 +153,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-12. Aggiungere il metodo ValidateCredentials, che convalida le credenziali definite da SetCredentials. Esempio di codice seguente mostra il metodo ValidateCredentials.  
+12. Aggiungere il metodo ValidateCredentials, che convalida le credenziali definite da SetCredentials. Il seguente esempio di codice mostra il metodo ValidateCredentials.  
   
     ```c#  
   
@@ -173,7 +174,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-13. Aggiungere il metodo GetAvailableDomainRoots, che restituisce l'elenco di nomi di dominio radice supportati dall'offerta specificata nella richiesta. Questo elenco di nomi di dominio radice non deve essere vuoto. Esempio di codice seguente mostra il metodo GetAvailableDomainRoots.  
+13. Aggiungere il metodo GetAvailableDomainRoots, che restituisce l'elenco dei nomi di dominio radice supportati dall'offerta specificata nella richiesta. Questo elenco dei nomi di dominio radice non deve essere vuoto. Il seguente codice di esempio mostra il metodo GetAvailableDomainRoots.  
   
     ```c#  
   
@@ -187,7 +188,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-14. Aggiungere il metodo GetUserDomainNames, che restituisce un elenco di nomi di dominio che appartiene l'utente corrente già, relazione all'offerta corrente. Questo elenco può essere vuoto. Esempio di codice seguente mostra il metodo GetUserDomainNames.  
+14. Aggiungere il metodo GetUserDomainNames, che restituisce un elenco dei nomi di dominio già di proprietà dell'utente corrente, in relazione all'offerta corrente. Questo elenco può essere vuoto. Il seguente codice di esempio mostra il metodo GetUserDomainNames.  
   
     ```c#  
   
@@ -206,7 +207,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-15. Aggiungere il metodo GetUserDomainQuota, che restituisce il numero massimo di domini che consente di offerta specificata. Se non è applicabile un massimo, questo metodo deve restituire 0. L'esempio seguente mostra il metodo GetUserDomainQuota.  
+15. Aggiungere il metodo GetUserDomainQuota, che restituisce il numero massimo di domini consentito dall'offerta specificata. Se non è applicabile un massimo,il metodo restituisce 0. Il seguente codice di esempio mostra il metodo GetUserDomainQuota.  
   
     ```c#  
   
@@ -216,7 +217,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-16. Aggiungere il metodo CheckDomainAvailability, che verifica la disponibilità del nome di dominio richiesto e può restituire un elenco di suggerimenti. Esempio di codice seguente mostra il metodo CheckDomainAvailability.  
+16. Aggiungere il metodo CheckDomainAvailability, che verifica la disponibilità del nome di dominio richiesto e può restituire un elenco di suggerimenti. Il seguente codice di esempio mostra il metodo CheckDomainAvailability.  
   
     ```c#  
   
@@ -229,7 +230,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-17. Aggiungere il metodo CommitDomain, che conferma il nome di dominio richiesto. Completamento di questo metodo implica che il nome di dominio è associato l'account utente, il provider di manutenzione verrà chiamato immediatamente per recuperare il certificato se lo stato è completamente operativo e il provider e dell'offerta. Esempio di codice seguente mostra il metodo CommitDomain.  
+17. Aggiungere il metodo CommitDomain, che conferma il nome di dominio richiesto. Il corretto completamento di questo metodo implica l'associazione del nome di dominio all'account utente, la chiamata immediata al provider dei servizi di manutenzione per recuperare il certificato se lo stato è completamente operativo, nonché l'attivazione del provider e dell'offerta. Il seguente codice di esempio mostra il metodo CommitDomain.  
   
     ```c#  
   
@@ -245,7 +246,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-18. Aggiungere il metodo ReleaseDomain, che informa il provider che l'utente vuole rilasciare il nome di dominio. Esempio di codice seguente mostra il metodo ReleaseDomain.  
+18. Aggiungere il metodo ReleaseDomain, che notifica al provider l'intenzione da parte dell'utente di rilasciare il nome di dominio. Il seguente codice di esempio mostra il metodo ReleaseDomain.  
   
     ```c#  
   
@@ -255,7 +256,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-19. Aggiungere il metodo GetProviderLandingUrl, che restituisce l'URL per la pagina di destinazione nel flusso di lavoro dominio. Esempio di codice seguente mostra il metodo GetProviderLandingUrl.  
+19. Aggiungere il metodo GetProviderLandingUrl, che restituisce l'URL per la pagina di destinazione nel flusso di lavoro di accesso al dominio. Il seguente codice di esempio mostra il metodo GetProviderLandingUrl.  
   
     ```c#  
   
@@ -265,7 +266,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-20. Aggiungere il metodo GetDomainMaintenanceProvider, che restituisce un'istanza di IDomainMaintenanceProvider utilizzata per attività di manutenzione del dominio. Questo metodo viene chiamato dopo il completamento del metodo CommitDomain e all'avvio il gestore di dominio. Esempio di codice seguente mostra il metodo GetDomainMaintenanceProvider.  
+20. Aggiungere il metodo GetDomainMaintenanceProvider, che restituisce un'istanza di IDomainMaintenanceProvider utilizzata per le attività di manutenzione del dominio. Questo metodo viene richiamato dopo il corretto completamento del metodo CommitDomain e all'avvio di Gestione dominio. Il seguente codice di esempio mostra il metodo GetDomainMaintenanceProvider.  
   
     ```c#  
   
@@ -275,14 +276,14 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-21. Salvare il progetto e chiuderlo, poiché aggiungerà la procedura successiva. Non sarà in grado di creare il progetto per completare la procedura successiva.  
+21. Salvare il progetto senza chiuderlo, poiché la procedura successiva prevede un'aggiunta ad esso. Fino a che la procedura successiva non sarà stata completata, non sarà possibile generare il progetto.  
   
-###  <a name="BKMK_DomainMaintenance"></a>Aggiunta di un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly  
+###  <a name="BKMK_DomainMaintenance"></a> Aggiungere un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly  
  IDomainMaintenanceProvider viene utilizzato per gestire il dominio dopo averlo creato.  
   
 ##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>Per aggiungere il codice IDomainMaintenanceProvider all'assembly  
   
-1.  Aggiungere l'intestazione della classe per il provider di manutenzione del dominio. Assicurarsi che il nome definito per il provider corrisponda al nome nel metodo GetDomainMaintenanceProvider precedentemente definito.  
+1.  Aggiungere l'intestazione della classe per il provider dei servizi di manutenzione del dominio. Verificare che il nome definito dall'utente per il provider corrisponda al nome nel metodo GetDomainMaintenanceProvider precedentemente definito.  
   
     ```c#  
   
@@ -291,7 +292,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-2.  Aggiungere il metodo Activate, che imposta il provider attivo. Esempio di codice seguente mostra il metodo Activate.  
+2.  Aggiungere il metodo Activate, che imposta il provider attivo. Il seguente codice di esempio mostra il metodo Activate.  
   
     ```c#  
   
@@ -307,7 +308,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-3.  Aggiungere il metodo Deactivate, che consente di disattivare tutte le azioni. Esempio di codice seguente mostra il metodo Deactivate.  
+3.  Aggiungere il metodo Deactivate, che consente di disattivare tutte le azioni. Il seguente codice di esempio mostra il metodo Deactivate.  
   
     ```  
   
@@ -318,7 +319,7 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-4.  Aggiungere il metodo SetCredentials, che aggiorna le credenziali dell'utente. Ad esempio, questo metodo può essere chiamato per aggiornare le credenziali che non sono più valide. Esempio di codice seguente mostra il metodo SetCredentials.  
+4.  Aggiungere il metodo SetCredentials, che aggiorna le credenziali dell'utente. Ad esempio, questo metodo può essere richiamato per aggiornare credenziali non più valide. Il seguente esempio di codice mostra il metodo SetCredentials.  
   
     ```c#  
   
@@ -332,7 +333,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-5.  Aggiungere il metodo ValidateCredentials, che convalida le credenziali specificate. Esempio di codice seguente mostra il metodo ValidateCredentials.  
+5.  Aggiungere il metodo ValidateCredentials, che convalida le credenziali specificate. Il seguente esempio di codice mostra il metodo ValidateCredentials.  
   
     ```c#  
   
@@ -351,7 +352,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-6.  Aggiungere il metodo GetPublicAddress, che restituisce l'indirizzo IP esterno del server. Esempio di codice seguente mostra il metodo GetPublicAddress.  
+6.  Aggiungere il metodo GetPublicAddress, che restituisce l'indirizzo IP esterno del server. Il seguente codice di esempio mostra il metodo GetPublicAddress.  
   
     ```c#  
   
@@ -387,7 +388,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-7.  Aggiungere il metodo SubmitCertificateRequest, che invia la richiesta di certificato per il nome di dominio attualmente configurato.  
+7.  Aggiungere il metodo SubmitCertificateRequest, che invia la richiesta del certificato per il nome di dominio attualmente configurato.  
   
     ```c#  
   
@@ -403,7 +404,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-8.  Aggiungere il metodo GetCertificateResponse, che restituisce la risposta di certificato se lo stato del dominio è completamente operativo. Questo metodo viene chiamato per entrambe le nuove richieste di certificato e per le richieste di rinnovo certificato. Esempio di codice seguente mostra il metodo GetCertificateResponse.  
+8.  Aggiungere il metodo GetCertificateResponse, che restituisce la risposta di certificato se lo stato del dominio è completamente operativo. Questo metodo viene richiamato sia per le richieste di nuovi certificati che per le richieste di rinnovo dei certificati. Il seguente codice di esempio mostra il metodo GetCertificateResponse.  
   
     ```c#  
   
@@ -413,7 +414,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-9. Aggiungere il metodo SubmitRenewCertificateRequest, che elabora il rinnovo del certificato. Esempio di codice seguente mostra il metodo SubmitRenewCertificateRequest.  
+9. Aggiungere il metodo SubmitRenewCertificateRequest, che elabora il rinnovo del certificato. Il seguente codice di esempio mostra il metodo SubmitRenewCertificateRequest.  
   
     ```c#  
   
@@ -423,7 +424,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-10. Aggiungere il metodo UpdateDNSRecords, che aggiorna i record DNS archiviati dal provider. Esempio di codice seguente mostra il metodo UpdateDNS.  
+10. Aggiungere il metodo UpdateDNSRecords, che aggiorna i record DNS archiviati dal provider. Il seguente codice di esempio mostra il metodo UpdateDNS.  
   
     ```c#  
   
@@ -440,7 +441,7 @@ ms.lasthandoff: 12/12/2017
   
     ```  
   
-11. Aggiungere il metodo TestConnection, che tenta di stabilire una connessione al servizio back-end. Se questo metodo richiede l'autenticazione, deve essere generata un'eccezione appropriata. Esempio di codice seguente mostra il metodo TestConnection.  
+11. Aggiungere il metodo TestConnection, che tenta di stabilire una connessione al servizio back-end. Se questo metodo richiede l'autenticazione, occorre generare un'eccezione appropriata. Il seguente codice di esempio mostra il metodo TestConnection.  
   
     ```c#  
   
@@ -452,7 +453,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-12. Aggiungere il metodo GetDomainState, che restituisce lo stato corrente del dominio. Esempio di codice seguente mostra il metodo GetDomainState.  
+12. Aggiungere il metodo GetDomainState, che restituisce lo stato corrente del dominio. Il seguente codice di esempio mostra il metodo GetDomainState.  
   
     ```c#  
   
@@ -504,7 +505,7 @@ ms.lasthandoff: 12/12/2017
     }  
     ```  
   
-13. Aggiungere il metodo GetCertificateState, che restituisce lo stato corrente del certificato. Esempio di codice seguente mostra il metodo GetCertificateState.  
+13. Aggiungere il metodo GetCertificateState, che restituisce lo stato corrente del certificato. Il seguente codice di esempio mostra il metodo GetCertificateState.  
   
     ```c#  
   
@@ -516,70 +517,70 @@ ms.lasthandoff: 12/12/2017
   
 14. Salvare e generare la soluzione.  
   
-###  <a name="BKMK_SignAssembly"></a>Una firma Authenticode all'assembly  
- È necessario applicarvi una firma Authenticode all'assembly per poter essere utilizzato nel sistema operativo. Per ulteriori informazioni sulla firma dell'assembly, vedere [firma e il controllo del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
+###  <a name="BKMK_SignAssembly"></a> Firmare l'assembly con una firma Authenticode  
+ Per poter utilizzare l'assembly nel sistema operativo, è necessario applicarvi una firma Authenticode. Per altre informazioni sulla firma dell'assembly, vedere [Firma e verifica del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a>Installare l'assembly nel computer di riferimento  
- Collocare l'assembly in una cartella nel computer di riferimento. Prendere nota del percorso della cartella, dal momento che dovrà essere immesso nel Registro di sistema nel passaggio successivo.  
+###  <a name="BKMK_InstallAssembly"></a> Installare l'assembly nel computer di riferimento  
+ Collocare l'assembly in una cartella nel computer di riferimento. Annotare il percorso della cartella, dal momento che dovrà essere immesso nel Registro di sistema al passaggio successivo.  
   
-### <a name="add-a-key-to-the-registry"></a>Aggiungere una chiave del Registro di sistema  
- Aggiungere una voce del Registro di sistema per definire le caratteristiche e la posizione dell'assembly.  
+### <a name="add-a-key-to-the-registry"></a>Aggiunta di una chiave al Registro di sistema  
+ L'aggiunta di una voce al Registro di sistema consente di definire le caratteristiche e la posizione dell'assembly.  
   
 ##### <a name="to-add-a-key-to-the-registry"></a>Per aggiungere una chiave al Registro di sistema  
   
-1.  Nel computer di riferimento, fare clic su **Start**, immettere **regedit**, quindi premere **invio**.  
+1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit**e quindi premere **INVIO**.  
   
-2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, espandere **Microsoft**, espandere **Windows Server**, espandere **Gestione dominio**, quindi espandere **provider**.  
+2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**, **Gestione dominio** e infine **Provider**.  
   
-3.  Fare doppio clic su **provider**, scegliere **New**, quindi fare clic su **chiave**.  
+3.  Fare clic con il pulsante destro del mouse su **Provider**, scegliere **Nuovo**, quindi fare clic su **Chiave**.  
   
-4.  Digitare l'identificatore per il provider come nome della chiave. L'identificatore è il GUID definito per il provider nel passaggio 8 di [aggiunta di un'implementazione dell'interfaccia IDomainSignupProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup).  
+4.  Digitare l'identificatore per il provider come nome della chiave. L'identificatore è il GUID definito per il provider al passaggio 8 della procedura [Aggiunta di un'implementazione dell'interfaccia IDomainSignupProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup).  
   
-5.  Fare clic sulla chiave appena creato, quindi fare clic su **valore stringa**.  
+5.  Fare clic con il pulsante destro del mouse sulla chiave appena creata, quindi fare clic su **Valore stringa**.  
   
-6.  Tipo **Assembly** per il nome della stringa e quindi premere **invio**.  
+6.  Digitare **Assembly** per il nome della stringa, quindi premere **Invio**.  
   
-7.  Fare doppio clic su nuovo **Assembly** stringa nel riquadro di destra, quindi fare clic su **modifica**.  
+7.  Fare clic con il pulsante destro del mouse sulla nuova stringa **Assembly** nel riquadro destro, quindi fare clic su **Modifica**.  
   
-8.  Digitare il percorso completo del file di assembly precedentemente creato e quindi fare clic su **OK**.  
+8.  Digitare il percorso completo del file di assembly precedentemente creato, quindi fare clic su **OK**.  
   
-9. Fare doppio clic su chiave nuovo, quindi fare clic su **valore stringa**.  
+9. Fare di nuovo clic con il pulsante destro del mouse sulla chiave, quindi fare clic su **Valore stringa**.  
   
-10. Tipo **abilitato** per il nome della stringa e quindi premere **invio**.  
+10. Digitare **Abilitata** per il nome della stringa, quindi premere **Invio**.  
   
-11. Fare doppio clic su nuovo **abilitato** stringa nel riquadro di destra, quindi fare clic su **modifica**.  
+11. Fare clic con il pulsante destro del mouse sulla nuova stringa **Enabled** nel riquadro destro, quindi fare clic su **Modifica**.  
   
-12. Tipo **True**, quindi fare clic su **OK**.  
+12. Digitare **True**e quindi fare clic su **OK**.  
   
-13. Fare doppio clic su chiave nuovo, quindi fare clic su **valore stringa**.  
+13. Fare di nuovo clic con il pulsante destro del mouse sulla chiave, quindi fare clic su **Valore stringa**.  
   
-14. Tipo **tipo** per il nome della stringa e quindi premere **invio**.  
+14. Digitare **Tipo** per il nome della stringa, quindi premere **Invio**.  
   
-15. Fare doppio clic su nuovo **tipo** stringa nel riquadro di destra, quindi fare clic su **modifica**.  
+15. Fare clic con il pulsante destro del mouse sulla nuova stringa **Type** nel riquadro destro, quindi fare clic su **Modifica**.  
   
 16. Digitare il nome completo della classe del provider definito nell'assembly, quindi fare clic su **OK**.  
   
-###  <a name="BKMK_RestartService"></a>Riavviare il servizio di gestione nome di dominio di Windows Server  
- È necessario riavviare il servizio di gestione di dominio di Windows Server per il provider diventi disponibile per il sistema operativo.  
+###  <a name="BKMK_RestartService"></a> Riavviare il servizio di gestione nome dominio di Windows Server  
+ È necessario riavviare il servizio di gestione dei domini di Windows Server affinché il provider diventi disponibile per il sistema operativo.  
   
-##### <a name="restart-the-service"></a>Riavviare il servizio  
+##### <a name="restart-the-service"></a>Riavvio del servizio  
   
-1.  Fare clic su **Start**, tipo **mmc**, quindi premere **invio**.  
+1.  Fare clic su **Start**, digitare **mmc**e quindi premere **INVIO**.  
   
-2.  Se lo snap-in servizi non è elencato nella console, aggiungerlo completando i passaggi seguenti:  
+2.  Se lo snap-in Servizi non è elencato nella console, aggiungerlo completando i seguenti passaggi:  
   
-    1.  Fare clic su **File**, quindi fare clic su **Aggiungi/Rimuovi Snap-in**.  
+    1.  Fare clic su **Aggiungi/Rimuovi snap-in** nel menu **File**.  
   
-    2.  Nel **snap-in disponibili** elenco, fare clic su **servizi**, quindi fare clic su **Aggiungi**.  
+    2.  Nell'elenco **Snap-in disponibili** , fare clic su **Servizi**, quindi su **Aggiungi**.  
   
-    3.  Nel **servizi** finestra di dialogo, verificare che **computer locale** sia selezionata e quindi fare clic su **fine**.  
+    3.  Nella finestra di dialogo **Servizi**, verificare che il **computer locale** sia selezionato, quindi fare clic su **Fine**.  
   
-    4.  Fare clic su **OK** per chiudere la **Aggiungi/Rimuovi snap-in** la finestra di dialogo.  
+    4.  Fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi/Rimuovi snap-in**.  
   
-3.  Fare doppio clic su **servizi**, scorrere verso il basso e selezionare **Gestione dominio di Windows Server**, quindi fare clic su **riavviare il servizio**.  
+3.  Fare doppio clic su **Servizi**, scorrere verso il basso, quindi selezionare **Windows Server Domain Management**, infine fare clic su **Riavvia il servizio**.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

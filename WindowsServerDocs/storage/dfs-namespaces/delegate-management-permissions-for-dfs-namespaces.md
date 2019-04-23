@@ -1,6 +1,6 @@
 ---
 title: Delegare le autorizzazioni di gestione per Spazi dei nomi DFS
-description: "Questo articolo descrive come delegare le autorizzazioni di gestione per Spazi dei nomi DFS e indica i gruppi che possono eseguire attività di spazio dei nomi per impostazione predefinita"
+description: Questo articolo descrive come delegare le autorizzazioni di gestione per Spazi dei nomi DFS e indica i gruppi che possono eseguire attività di spazio dei nomi per impostazione predefinita
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e584b49639a83e4ab1da142a999741ae4ac7ff84
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 7895432ca16dd13c6425d966f99104fc03db100d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829492"
 ---
 # <a name="delegate-management-permissions-for-dfs-namespaces"></a>Delegare le autorizzazioni di gestione per Spazi dei nomi DFS
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Nella tabella seguente vengono descritti i gruppi che possono eseguire attività di base dello spazio dei nomi per impostazione predefinita e il metodo per delegare la possibilità di eseguire queste attività:
 
@@ -31,4 +32,4 @@ Nella tabella seguente vengono descritti i gruppi che possono eseguire attività
 
 <br />
 
-\*La delega di autorizzazioni di gestione per gestire uno spazio dei nomi autonomo non concede all'utente la possibilità di visualizzare e gestire la sicurezza tramite la scheda **Delega** a meno che l'utente non sia membro del gruppo Administrators locale nel server dello spazio dei nomi. Questo problema si verifica perché lo snap-in Gestione DFS non può recuperare gli elenchi di controllo di accesso discrezionali (DACL) per lo spazio dei nomi autonomo dal Registro di sistema. Per abilitare lo snap-in per la visualizzazione delle informazioni sulla delega, devi eseguire la procedura presente nell'articolo della Knowledge Base di Microsoft<sup>®</sup>: [KB314837: Gestione dell'accesso remoto al Registro di sistema](http://go.microsoft.com/fwlink?linkid=46803)
+\*Delega delle autorizzazioni di gestione per gestire uno spazio dei nomi autonomo non concede all'utente la possibilità di visualizzare e gestire la sicurezza tramite il **delega** scheda a meno che l'utente sia un membro del gruppo Administrators locale sul server dello spazio dei nomi. Questo problema si verifica perché lo snap-in Gestione DFS non può recuperare gli elenchi di controllo di accesso discrezionali (DACL) per lo spazio dei nomi autonomo dal Registro di sistema. Per abilitare lo snap-in visualizzare informazioni sulla delega, è necessario seguire i passaggi in Microsoft<sup>®</sup> articolo della Knowledge Base: [KB314837: Come gestire l'accesso remoto al Registro di sistema](https://go.microsoft.com/fwlink?linkid=46803)

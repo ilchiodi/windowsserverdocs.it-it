@@ -1,120 +1,142 @@
 ---
-title: Installazione e i requisiti di preparazione per la distribuzione di Controller di rete
-description: Per preparare il Data Center per la distribuzione di Controller di rete, è possibile utilizzare questo argomento.
-manager: brianlic
+title: Requisiti per la distribuzione di Controller di rete
+description: Preparare il tuo Data Center per la distribuzione del Controller di rete, che richiede uno o più computer o macchine virtuali e un solo computer o macchina virtuale. Prima di distribuire Controller di rete, è necessario configurare i gruppi di sicurezza, percorsi dei file di log (se necessario) e la registrazione dinamica DNS.
+manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c50a2167a894871ea76fb96523c19531100648ce
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/10/2018
+ms.openlocfilehash: 9db7609f6f1273c46cba1dd29f81c297bb26f94b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829862"
 ---
-# <a name="installation-and-preparation-requirements-for-deploying-network-controller"></a>Installazione e i requisiti di preparazione per la distribuzione di Controller di rete
+# <a name="requirements-for-deploying-network-controller"></a>Requisiti per la distribuzione di Controller di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Per preparare il Data Center per la distribuzione di Controller di rete, è possibile utilizzare questo argomento.  
+Preparare il tuo Data Center per la distribuzione del Controller di rete, che richiede uno o più computer o macchine virtuali e un solo computer o macchina virtuale. Prima di distribuire Controller di rete, è necessario configurare i gruppi di sicurezza, percorsi dei file di log (se necessario) e la registrazione dinamica DNS.
+
+
+## <a name="network-controller-requirements"></a>Requisiti del Controller di rete
+
+Distribuzione del Controller di rete richiede uno o più computer o macchine virtuali che fungono dal Controller di rete e un computer o macchina virtuale da usare come un client di gestione per il Controller di rete. 
+
+- Tutte le macchine virtuali e computer pianificato come nodi di Controller di rete deve essere in esecuzione Windows Server 2016 Datacenter edition. 
+- Qualsiasi computer o macchina virtuale (VM) su cui si installa il Controller di rete deve essere in esecuzione l'edizione Datacenter di Windows Server 2016. 
+- Gestione client computer o macchina virtuale per il Controller di rete deve essere in esecuzione Windows 10. 
+
   
-> [!NOTE]  
-> Oltre a questo argomento, è disponibile la documentazione seguente Controller di rete.  
-> 
-> - [Controller di rete](../technologies/network-controller/Network-Controller.md)
-> - [Disponibilità elevata del Controller di rete](../technologies/network-controller/network-controller-high-availability.md)
-> - [Distribuire Controller di rete tramite Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)  
-> - [Installare il ruolo server di Controller di rete con Server Manager](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)  
+## <a name="configuration-requirements"></a>Requisiti di configurazione
 
-Di seguito sono i passaggi di installazione, e altri requisiti software e preparazione che è necessario eseguire prima di distribuire Controller di rete.
-
-## <a name="installation-requirements"></a>Requisiti di installazione
-
-Di seguito sono i requisiti di installazione per il Controller di rete.
-
-- Per le distribuzioni di Windows Server 2016, è possibile distribuire Controller di rete in uno o più computer, uno o più macchine virtuali o una combinazione di computer e le macchine virtuali. Tutti i computer pianificati come nodi di Controller di rete e le macchine virtuali deve essere in esecuzione Windows Server 2016 Datacenter edition.
-
-## <a name="software-requirements"></a>Requisiti software
-
-Distribuzione del Controller di rete richiede uno o più computer o macchine virtuali che verranno utilizzato come il Controller di rete e un computer o macchina virtuale da usare come un client di gestione per il Controller di rete. Questi computer o macchine virtuali è necessario eseguire i seguenti sistemi operativi.  
-
-- Qualsiasi computer o macchina virtuale (VM) su cui si installa il Controller di rete deve essere in esecuzione l'edizione Datacenter di Windows Server 2016.  
+Prima di distribuire Controller di rete, è necessario configurare i gruppi di sicurezza, percorsi dei file di log (se necessario) e la registrazione dinamica DNS.
   
-- Il computer client di gestione o di una macchina virtuale per Controller di rete deve essere in esecuzione Windows 8, Windows 8.1 o Windows 10.  
+### <a name="step-1-configure-your-security-groups"></a>Passaggio 1. Configurare i gruppi di sicurezza
   
-## <a name="additional-requirements"></a>Requisiti aggiuntivi
+La prima operazione da eseguire è creare due gruppi di sicurezza per l'autenticazione Kerberos. 
 
-Di seguito sono passaggi aggiuntivi, è necessario eseguire prima di distribuire Controller di rete.
-  
-### <a name="configure-security-groups"></a>Configurare gruppi di sicurezza
-  
-Se il computer o macchine virtuali per i Controller di rete e il client di gestione vengono aggiunti al dominio, configurare i seguenti gruppi di sicurezza per l'autenticazione Kerberos.
+Creare gruppi per gli utenti che dispongono dell'autorizzazione per: 
 
-- Creare un gruppo di sicurezza e aggiungere tutti gli utenti che dispongono dell'autorizzazione per configurare i Controller di rete. Ad esempio, creare un gruppo denominato **gli amministratori di Controller di rete **. Anche tutti gli utenti aggiunti a questo gruppo devono essere membri del **Domain Users** gruppo in Active Directory Users and Computers.  
-  
-    > [!NOTE]  
-    > Per ulteriori informazioni sulla creazione di un gruppo in Active Directory Users and Computers, vedere [creare un nuovo gruppo ](https://technet.microsoft.com/en-us/library/cc783256(v=ws.10).aspx).  
-
-- Creare un gruppo di sicurezza e aggiungere tutti gli utenti che dispongono dell'autorizzazione per configurare e gestire la rete con i Controller di rete.  Ad esempio, creare un nuovo gruppo denominato **gli utenti di Controller di rete **. Anche tutti gli utenti aggiunti al nuovo gruppo devono essere membri del **Domain Users** gruppo in Active Directory Users and Computers. Tutti gestione e configurazione di Controller di rete viene eseguita utilizzando Representational State Transfer \(REST\).
-
-### <a name="configure-log-file-locations-if-needed"></a>Configurare i percorsi di file registro se necessario
-
-È possibile archiviare i registri di debug di Controller di rete nel computer Controller di rete o macchina virtuale, o in una condivisione file remota. Se si desidera archiviare i log in una condivisione file remota, assicurarsi che la condivisione sia accessibile dal Controller di rete.
-
-### <a name="configure-dynamic-dns-registration-for-network-controller"></a>Configurare la registrazione DNS dinamica per Controller di rete
-  
-È possibile distribuire i nodi del cluster Controller di rete nella stessa subnet o in subnet diverse. 
+1. Configurare Controller di rete<p>È possibile denominare questo gruppo di amministratori del Controller di rete, ad esempio. 
+2.  Configurare e gestire la rete dal controller di rete<p>Ad esempio, è possibile denominare questo gruppo Users, Controller di rete. Usare Representational State Transfer (REST) per configurare e gestire i Controller di rete.
 
 >[!NOTE]
->Se i nodi di Controller di rete sono nella stessa subnet, è necessario fornire l'indirizzo IP di altri Controller di rete quando si configura la registrazione DNS dinamica per Controller di rete. Se i nodi in subnet diverse, è necessario fornire il nome DNS di altri Controller di rete quando si configura la registrazione DNS dinamica.
+>Tutti gli utenti che si aggiungono devono essere membri del gruppo Domain Users in Active Directory Users and Computers.
 
-Se i nodi di Controller di rete in subnet diverse, è necessario eseguire la configurazione DNS aggiuntiva seguenti:
+### <a name="step-2-configure-log-file-locations-if-needed"></a>Passaggio 2. Configurare i percorsi dei file di log se necessario
 
-- Creare un nome DNS per i Controller di rete durante il processo di distribuzione
+La prossima cosa che si vuole fare è configurare i percorsi dei file per archiviare i log di debug di Controller di rete nel computer Controller di rete o macchina virtuale o in una condivisione file remota. 
 
-- Configurare gli aggiornamenti dinamici DNS per il nome DNS di Controller di rete nel server DNS
+>[!NOTE]
+>Se si archiviano i log in una condivisione file remota, assicurarsi che la condivisione sia accessibile dal Controller di rete.
 
-- Limitare gli aggiornamenti dinamici DNS solo i nodi di Controller di rete
 
-È possibile utilizzare le procedure seguenti per configurare gli aggiornamenti dinamici DNS e di limitare l'aggiornamento dinamico del record di nome Controller di rete.
+### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Passaggio 3. Configurare la registrazione dinamica DNS per il Controller di rete
+  
+Infine, l'operazione successiva da eseguire è distribuire nodi di cluster di Controller di rete nella stessa subnet o subnet diverse. 
+
+|Se...  |Quindi...  |
+|---------|---------|
+|Nella stessa subnet, |È necessario fornire l'indirizzo IP REST Controller di rete. |
+|In subnet diverse, |È necessario fornire il nome DNS REST Controller di rete, che si crea durante il processo di distribuzione. È anche necessario eseguire quanto segue:<ul><li>Configurare gli aggiornamenti dinamici DNS per il nome DNS di Controller di rete nel server DNS.</li><li>Limitare gli aggiornamenti dinamici DNS verso solo i nodi di Controller di rete.</li></ul> |
+---
 
 > [!NOTE]
-> Appartenenza al gruppo **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire queste procedure.
+> L'appartenenza al **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire queste procedure.
   
-#### <a name="to-allow-dns-dynamic-updates-for-a-zone"></a>Per consentire aggiornamenti dinamici DNS per una zona
+1. Consentire gli aggiornamenti dinamici DNS per una zona.
 
-1. Aprire Gestore DNS.
+   a. Aprire Gestore DNS e nell'albero della console, fare doppio clic sulla zona e quindi fare clic su **proprietà**. 
+      
+   b. Nel **generale** scheda, verificare che il tipo di zona sia impostato **primario** oppure **integrate in Active Directory**.
 
-2. Nell'albero della console, fare doppio clic sulla zona, quindi fare clic su **proprietà **. La zona **proprietà** apre la finestra di dialogo.
+   c. Nelle **gli aggiornamenti dinamici**, verificare che **proteggere solo** sia selezionata e quindi fare clic su **OK**.
 
-3. Nel **generale** scheda, verificare che il tipo di zona è **primario** o **integrate in Active Directory **.
+2. Configurare le autorizzazioni di sicurezza di zona DNS per i nodi di Controller di rete
 
-4. In **gli aggiornamenti dinamici**, verificare che **solo protetti** sia selezionata. Se non è selezionata, modificare il valore di **gli aggiornamenti dinamici** a **solo protetti**, quindi fare clic su **OK **.
+   a.  Fare clic sulla scheda **Sicurezza** e quindi su **Avanzate**. 
 
-#### <a name="to-configure-dns-zone-security-permissions-for-network-controller-nodes"></a>Per configurare le autorizzazioni di protezione di zona DNS per i nodi di Controller di rete
-
-1.  Aprire Gestore DNS.
-
-2.  Nell'albero della console, fare doppio clic sulla zona, quindi fare clic su **proprietà **. La zona **proprietà** apre la finestra di dialogo.
-
-3.  Fare clic su di **sicurezza** scheda e quindi fare clic su **avanzate **. Il **impostazioni di sicurezza avanzate** apre la finestra di dialogo.
-
-4. In **impostazioni di sicurezza avanzate**, fare clic su **Aggiungi **. Il **voce autorizzazione** apre la finestra di dialogo.
+   b. Nelle **impostazioni di sicurezza avanzate**, fare clic su **Add**. 
   
-5. Fare clic su **seleziona un'entità **. Il **Seleziona utente, Computer, Account servizio o gruppo** apre la finestra di dialogo.
+   c. Fai clic su **Seleziona un'entità**. 
 
-6. Nel **Seleziona utente, Computer, Account servizio o gruppo** la finestra di dialogo, fare clic su **tipi di oggetto **. Il **tipi di oggetto** apre la finestra di dialogo. 
+   d. Nel **Seleziona utenti, Computer, Account del servizio o gruppo** finestra di dialogo, fare clic su **i tipi di oggetto**. 
 
-7. In **tipi di oggetto**selezionare **computer**, quindi fare clic su **OK **.
+   e. Nelle **tipi di oggetti**, selezionare **computer**, quindi fare clic su **OK**.
 
-8. Nel **Seleziona utente, Computer, Account servizio o gruppo** la finestra di dialogo, digitare il nome NetBIOS di uno dei nodi del Controller di rete nella distribuzione e quindi fare clic su **OK**.
+   f. Nel **Seleziona utenti, Computer, Account del servizio o gruppo** della finestra di dialogo digitare il nome NetBIOS di uno dei nodi del Controller di rete nella distribuzione e quindi fare clic su **OK**.
 
-9. In **voce autorizzazione**, assicurarsi che il valore di **tipo** è **Consenti**e il valore di **si applica a** è **questo oggetto e tutti i discendenti**.
+   g. Nelle **voce di autorizzazione**, verificare i valori seguenti:
+
+      - **Tipo** = consentire
+      - **Si applica a** = questo oggetto e tutti i discendenti
   
-10. In autorizzazioni selezionare **Scrivi tutte le proprietà** e **eliminare**, quindi fare clic su **OK**.
+   h. Nella **le autorizzazioni**, selezionare **Scrivi tutte le proprietà** e **Elimina**, quindi fare clic su **OK**.
 
-11. Ripetere i passaggi **5** tramite **10** per tutti i computer e le macchine virtuali del cluster di Controller di rete.
+3. Ripetere per tutti i computer e macchine virtuali del cluster di Controller di rete.
 
-Per ulteriori informazioni, vedere [pianificare un'infrastruttura di rete Software definito](https://technet.microsoft.com/windows-server-docs/networking/sdn/plan/plan-a-software-defined-network-infrastructure).
+### <a name="step-4-configure-service-principal-name-if-using-kerberos-based-authentication"></a>Passaggio 4. Se l'autenticazione tramite Kerberos basata su configurare nome dell'entità servizio
+
+Se il Controller di rete utilizza l'autenticazione basata su Kerberos per la comunicazione con i client di gestione, è necessario configurare un nome dell'entità servizio (SPN) per il Controller di rete in Active Directory. Il Controller di rete configura automaticamente il nome SPN. È sufficiente eseguire consiste nel fornire le autorizzazioni per le macchine di Controller di rete registrare e modificare il nome SPN. Per altre informazioni, vedere [configurare principale nomi servizio (SPN)](https://docs.microsoft.com/windows-server/networking/sdn/security/kerberos-with-spn#configure-service-principal-names-spn).
+
+## <a name="deployment-options"></a>Opzioni di distribuzione
+
+### <a name="network-controller-deployment"></a>Distribuzione del Controller di rete
+
+Il programma di installazione è a disponibilità elevata con tre nodi di Controller di rete configurati in macchine virtuali. Viene inoltre illustrato due tenant con la rete virtuale del Tenant 2 suddivisa in due subnet virtuali per simulare un livello web e un livello di database.  
+
+![Pianificazione di controller di rete SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-NC-Planning.png)
+
+### <a name="network-controller-and-software-load-balancer-deployment"></a>Software e controller di rete di distribuzione del bilanciamento del carico
+
+Per ottenere una disponibilità elevata, sono disponibili due o più nodi SLB/MUX.
+   
+![Pianificazione di controller di rete SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-SLB-Deployment.png)
+  
+### <a name="network-controller-software-load-balancer-and-ras-gateway-deployment"></a>Distribuzione di Controller di rete, bilanciamento del carico Software e Gateway RAS
+
+Esistono tre macchine virtuali gateway; due sono attivi e uno è ridondante.
+
+![Pianificazione di controller di rete SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
+  
+  
+  
+Automatizzare la distribuzione basata su TP5, Active Directory deve essere disponibile e raggiungibile da queste subnet. Per altre informazioni su Active Directory, vedere [Panoramica di Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).  
+  
+>[!IMPORTANT] 
+>Se si distribuisce tramite VMM, verificare che le macchine virtuali dell'infrastruttura (Server VMM, AD/DNS, SQL Server, e così via) non sono ospitati in uno qualsiasi dei quattro host illustrato nei diagrammi.  
+
+
+## <a name="next-steps"></a>Passaggi successivi
+[Piano di un Software Defined Network Infrastructure](https://technet.microsoft.com/windows-server-docs/networking/sdn/plan/plan-a-software-defined-network-infrastructure).
+
+## <a name="related-topics"></a>Argomenti correlati
+- [Controller di rete](../technologies/network-controller/Network-Controller.md) 
+- [Disponibilità elevata di Controller di rete](../technologies/network-controller/network-controller-high-availability.md) 
+- [Distribuire Controller di rete tramite Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
+- [Installare il ruolo del server Controller di rete con Server Manager](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   

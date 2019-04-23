@@ -8,27 +8,28 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 2a07f31e3040f63edfb8c73d454b6301aad46583
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 87fdcf06c601d3362488eaf6a83e4f88ad191305
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828232"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 2, lavoro post-configurazione di AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
 Questo argomento descrive il secondo passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 3, configurare Cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 4, configurare Proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
   
--   [Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
+-   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -66,13 +67,13 @@ Per creare i record di A e CNAME per AD FS, segui questi passaggi:
     > [!IMPORTANT]  
     > Quando si configura AD FS utilizzando l'interfaccia utente di Windows Server invece di Windows PowerShell, è necessario creare un record di A anziché un record di CNAME per AD FS. Il motivo è che il nome dell'entità servizio (SPN) creato tramite l'interfaccia utente contiene solo l'alias utilizzato per configurare il servizio AD FS come host.  
     >   
-4.  Nell' **indirizzo IP**, immetti l'indirizzo IP per il server AD FS. Nell'esempio di test, si tratta di **192.168.0.160**. Fai clic su **Aggiungi host**.  
+4.  Nell' **indirizzo IP**, immetti l'indirizzo IP per il server AD FS. Nell'esempio di test, si tratta di **192.168.0.160**. Fare clic su **Aggiungi host**.  
   
 5.  Nella cartella Zone di ricerca diretta, fai clic col tasto destro del mouse nuovamente sul tuo dominio e seleziona **Nuovo alias (CNAME)**.  
   
 6.  Nella finestra **Nuovo Record di risorse**, aggiungi il nome dell'alias **enterpriseregistration** e immetti il FQDN per il server AD FS. Questo alias viene utilizzato per l'aggiunta del dispositivo e deve essere chiamato **enterpriseregistration**.
   
-7.  Fai clic su **OK**.  
+7.  Fare clic su **OK**.  
   
 Per eseguire i passaggi equivalenti tramite Windows PowerShell, usa il seguente comando. Il comando deve essere eseguito sul controller di dominio.  
   
@@ -100,11 +101,11 @@ Per configurare il trust della relying party:
   
 7.  Nella pagina **Configura URL**, fai clic su **Avanti**.  
   
-8. Nel pagina **Configura identificatori**, aggiungi il seguente identificatore: **https://windows-server-work-folders/V1**. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fai clic su **Avanti**.  
+8. Nel **Configura identificatori** pagina, aggiungere il seguente identificatore: **https://windows-server-work-folders/V1**. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fare clic su **Avanti**.  
   
 9. Nella pagina Scegliere Criteri di controllo di accesso, seleziona **Consenti tutti gli utenti** quindi fai clic su **Avanti**.  
   
-10. Nella pagina **Aggiunta attendibilità** fai clic su **Avanti**.  
+10. Nella pagina **Aggiunta attendibilità** fare clic su **Avanti**.  
   
 11. Dopo aver completato la configurazione, l'ultima pagina della procedura guidata indica che la configurazione è stata completata correttamente. Seleziona la casella di controllo per la modifica delle regole di attestazione e fai clic su **Chiudi**.  
   
@@ -124,11 +125,11 @@ Per configurare il trust della relying party:
   
     -   Nome visualizzato: Nome  
   
-    -   Cognome: Cognome  
+    -   Cognome: Surname  
   
-    -   Nome (di battesimo): Nome (di battesimo)  
+    -   Specificato nome: Nome (di battesimo)  
   
-18. Fai clic su **Fine**. Potrai visualizzare la regola WorkFolders elencata nella Scheda Regole di trasformazione rilascio e fai clic su **OK**.  
+18. Scegliere **Fine**. Potrai visualizzare la regola WorkFolders elencata nella Scheda Regole di trasformazione rilascio e fai clic su **OK**.  
   
 ### <a name="set-relying-part-trust-options"></a>Impostare le opzioni dell'attendibilità componente  
 Dopo che è stata configurata l'attendibilità della relying party per AD FS, è necessario completare la configurazione eseguendo i cinque comandi in Windows PowerShell. Questi comandi impostano le opzioni necessarie per Cartelle di lavoro per comunicare correttamente con AD FS e non possono essere impostate tramite l'interfaccia utente. Le opzioni sono:  
@@ -137,7 +138,7 @@ Dopo che è stata configurata l'attendibilità della relying party per AD FS, è
   
 -   Disabilitare le attestazioni crittografate  
   
--   Attivare l'aggiornamento automatico  
+-   Attivare l'\-aggiornamento automatico  
   
 -   Impostare l'emissione di token di aggiornamento OAuth a tutti i dispositivi.  
 
@@ -146,11 +147,11 @@ Dopo che è stata configurata l'attendibilità della relying party per AD FS, è
 Per impostare queste opzioni, utilizza i comandi seguenti:  
   
 ```powershell  
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -EnableJWT $true   
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -Encryptclaims $false   
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -EnableJWT $true   
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -Encryptclaims $false   
 Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -AutoupdateEnabled $true   
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -IssueOAuthRefreshTokensTo AllDevices
-Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://Windows-Server-Work-Folders/V1" -AllowAllRegisteredClients  
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -IssueOAuthRefreshTokensTo AllDevices
+Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://windows-server-work-folders/V1" -AllowAllRegisteredClients -ScopeNames openid,profile  
 ```  
   
 ## <a name="enable-workplace-join"></a>Abilitare Workplace Join  
@@ -165,7 +166,7 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
 ```  
   
 ## <a name="export-the-ad-fs-certificate"></a>Esportare il certificato AD FS  
-Successivamente, esporta il certificato AD FS autofirmato in modo che possa essere installato nei seguenti computer nell'ambiente di test:  
+Successivamente, esporta il certificato AD FS auto\-firmato in modo che possa essere installato nei seguenti computer nell'ambiente di test:  
   
 -   Il server utilizzato per Cartelle di lavoro  
   
@@ -177,21 +178,21 @@ Successivamente, esporta il certificato AD FS autofirmato in modo che possa esse
   
 Per esportare il certificato, segui questi passaggi:  
   
-1.  Fai clic su **Start**, quindi fai clic su **Esegui**.  
+1.  Fare clic su **Start**, quindi scegliere **Esegui**.  
   
 2.  Tipo **MMC**.  
   
-3.  Fai clic su **Aggiungi/Rimuovi snap-in** dal menu **File**.  
+3.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
 4.  Nella lista **Snap-in disponibili**, seleziona **Certificati**, quindi fai clic su **Aggiungi**. Verrà avviata la procedura guidata Snap-in certificati.  
   
-5.  Seleziona **Account del computer** quindi fai clic su **Avanti**.  
+5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
 6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
   
-7.  Fai clic su **OK**.  
+7.  Fare clic su **OK**.  
   
-8.  Espandi la cartella **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
+8.  Espandi la cartella **Console Root\Certificates\(Local Computer) \Personal\Certificates**.  
   
 9.  Fai clic con il pulsante destro del mouse sul **certificato AD FS**, fai clic su **Tutte le attività**, quindi fai clic su **Esporta...**.  
   
@@ -199,7 +200,7 @@ Per esportare il certificato, segui questi passaggi:
   
 11. Nella pagina **Formato file di esportazione**, lascia selezionate le opzioni predefinite e fai clic su **Avanti**.  
   
-12. Creare una password per il certificato. Questa è la password che verrà usata in seguito quando si importerà il certificato in altri dispositivi. Fai clic su **Avanti**.  
+12. Creare una password per il certificato. Questa è la password che verrà usata in seguito quando si importerà il certificato in altri dispositivi. Fare clic su **Avanti**.  
   
 13. Immetti un percorso e nome per il certificato, quindi fai clic su **Fine**.  
   
@@ -208,21 +209,21 @@ L'installazione del certificato viene descritta in seguito nella procedura di di
 ## <a name="manage-the-private-key-setting"></a>Gestisci l'impostazione della chiave privata  
 È necessario assegnare l'autorizzazione dell'account di servizio AD FS per accedere alla chiave privata del nuovo certificato. È necessario concedere nuovamente questa autorizzazione quando si sostituisce il certificato di comunicazione dopo la scadenza. Per concedere l'autorizzazione, segui questi passaggi:  
   
-1.  Fai clic su **Start**, quindi fai clic su **Esegui**.  
+1.  Fare clic su **Start**, quindi scegliere **Esegui**.  
   
 2.  Tipo **MMC**.  
   
-3.  Fai clic su **Aggiungi/Rimuovi snap-in** dal menu **File**.  
+3.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
 4.  Nella lista **Snap-in disponibili**, seleziona **Certificati**, quindi fai clic su **Aggiungi**. Verrà avviata la procedura guidata Snap-in certificati.  
   
-5.  Seleziona **Account del computer** quindi fai clic su **Avanti**.  
+5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
 6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
   
-7.  Fai clic su **OK**.  
+7.  Fare clic su **OK**.  
   
-8.  Espandi la cartella **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
+8.  Espandi la cartella **Console Root\Certificates\(Local Computer) \Personal\Certificates**.  
   
 9.  Fai clic con il pulsante destro del mouse su **certificato AD FS**, fai clic su **Tutte le attività**, quindi fai clic su **Gestisci chiavi private**.  
   
@@ -230,20 +231,20 @@ L'installazione del certificato viene descritta in seguito nella procedura di di
   
 11. Nella finestra **Tipi di oggetto**, seleziona **Account servizio**, quindi fai clic su **OK**.  
   
-12. Digita il nome dell'account che esegue AD FS. Nell'esempio di test, si tratta di ADFSService. Fai clic su **OK**.  
+12. Digita il nome dell'account che esegue AD FS. Nell'esempio di test, si tratta di ADFSService. Fare clic su **OK**.  
   
 13. Nella finestra **Autorizzazioni**, assegna all'account almeno le autorizzazioni di lettura e fai clic su **OK**.  
   
-Se non hai l'opzione per gestire le chiavi private, potresti dover eseguire il comando seguente: `certutil -repairstore my *`  
+Se non si ha la possibilità di gestire le chiavi private, è necessario eseguire il comando seguente: `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>Verificare che AD FS sia operativo  
-Per verificare che AD FS sia operativo, apri una finestra del browser e passa a https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
+Per verificare che ADFS sia operativo, aprire una finestra del browser e passare a https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
   
 I metadati del server federativo verranno visualizzati nella finestra del browser senza alcuna formattazione. Se è possibile visualizzare i dati senza errori o avvisi SSL, il server federativo è operativo.  
   
-Prossimo passaggio: [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 3, configurare Cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
-## <a name="see-also"></a>Vedi anche  
-[Panoramica di Cartelle di lavoro](Work-Folders-Overview.md)  
+## <a name="see-also"></a>Vedere anche  
+[Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
   
 

@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 60436f12e07b8a3f16312829d53a2885c98f30ed
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: febcd6ab0744a7fddd024e1f0afdb93711e8939a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829542"
 ---
 # <a name="quota-management"></a>Gestione delle quote
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Nel nodo **Gestione quote** dello snap-in Microsoft<sup>®</sup> Management Console (MMC) Gestione risorse file server, è possibile eseguire le attività seguenti:
 
@@ -24,25 +25,25 @@ Nel nodo **Gestione quote** dello snap-in Microsoft<sup>®</sup> Management Cons
 -   Generare quote automatiche applicabili a tutte le sottocartelle esistenti in un volume o in una cartella e alle eventuali sottocartelle create in futuro.
 -   Definire i modelli di quota che possono essere facilmente applicati a nuovi volumi o a nuove cartelle e utilizzati all'interno dell'organizzazione.
 
-Ad esempio, è possibile:
+Ad esempio, puoi:
 
--   Impostare un limite di 200 megabyte (MB) per le cartelle server personali degli utenti, con una notifica di posta elettronica inviata all'amministratore e all'utente quando vengono superati 180 MB di spazio di archiviazione.
--   Impostare una quota flessibile di 500 MB su una cartella condivisa di un gruppo. Quando viene raggiunto il limite di archiviazione impostato, tutti gli utenti del gruppo ricevono una notifica tramite posta elettronica che li informa della temporanea estensione del limite a 520 MB, in modo che possano eliminare i file non necessari e uniformarsi al criterio di quota predefinito di 500 MB.
+-   Imporre alcun limite di 200 megabyte (MB) alle cartelle del server personale degli utenti, con una notifica di posta elettronica inviata all'utente e l'utente quando viene superata 180 MB di spazio di archiviazione.
+-   Impostare una quota di 500 MB flessibile su una cartella condivisa di un gruppo. Quando viene raggiunto il limite di archiviazione, tutti gli utenti del gruppo ricevono una notifica tramite posta elettronica che la quota di archiviazione è stato esteso temporaneamente a 520 MB, in modo che possano eliminare i file non necessari e rispettare i criteri di quota predefinito di 500 MB.
 -   Ricevere una notifica quando una cartella temporanea raggiunge 2 gigabyte (GB) di utilizzo, senza limitare la quota della cartella in quanto è necessaria per un servizio in esecuzione sul server.
 
-In questa sezione sono inclusi gli argomenti seguenti:
+Questa sezione include gli argomenti seguenti:
 
--   [Creare una quota](create-quota.md)
--   [Creare una quota automatica](create-auto-apply-quota.md)
--   [Creare un modello quota](create-quota-template.md)
--   [Modificare le proprietà dei modelli quota](edit-quota-template-properties.md)
--   [Modificare le proprietà delle quote automatiche](edit-auto-apply-quota-properties.md)
+-   [Creare una Quota](create-quota.md)
+-   [Creare un'Auto della Quota di applicazione](create-auto-apply-quota.md)
+-   [Creare un modello Quota](create-quota-template.md)
+-   [Modifica proprietà modello di Quota](edit-quota-template-properties.md)
+-   [Modifica automaticamente le proprietà delle quote](edit-auto-apply-quota-properties.md)
 
 > [!Note]
 > Per impostare notifiche tramite posta elettronica e funzionalità di creazione di rapporti, è innanzitutto necessario configurare le opzioni generali di Gestione risorse file server.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
 
 

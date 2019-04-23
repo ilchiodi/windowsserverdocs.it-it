@@ -1,55 +1,60 @@
 ---
-title: Configurazione di commutatore fisico per scheda di rete convergente
-description: In questo argomento fa parte di convergenza NIC Configuration Guide per Windows Server 2016.
+title: Configurazione di commutatore fisico di interfaccia di rete convergente
+description: In questo argomento, Microsoft fornisce le linee guida per la configurazione dei commutatori fisici.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
-manager: brianlic
+manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 98a2e249aea38bd4d07dc1bcbc9b1ca98b98b6d6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/14/2018
+ms.openlocfilehash: e31d7b83fee84d9055d938f77b49389205786244
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829402"
 ---
-# <a name="physical-switch-configuration-for-converged-nic"></a>Configurazione di commutatore fisico per scheda di rete convergente
+# <a name="physical-switch-configuration-for-converged-nic"></a>Configurazione di commutatore fisico di interfaccia di rete convergente
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-È possibile utilizzare le sezioni seguenti come linee guida per configurare i commutatori fisici.
+In questo argomento, Microsoft fornisce le linee guida per la configurazione dei commutatori fisici. 
 
-Questi sono solo i comandi e dei relativi utilizzi; è necessario determinare le porte a cui le schede NIC sono connesse nell'ambiente in uso. 
+
+Si tratta solo i comandi e il relativo utilizzo; è necessario determinare le porte a cui sono connesse le schede di rete nell'ambiente in uso. 
 
 >[!IMPORTANT]
->Assicurarsi che la VLAN e i criteri non rilascio è impostata per la priorità su cui è configurato SMB.
+>Verificare che la VLAN e i criteri di non trascinamento è impostato per la priorità su cui è configurato SMB.
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutatore arista \ (dcs\ 7050s\-64, EOS\-4.13.7M\)
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutatore arista \(controller di dominio\-7050s\-EOS 64,\-4.13.7M\)
 
-1.  En \ (passare alla modalità di amministrazione, in genere richiede un password\)
-2.  Configurazione \ (a stipulare mode\ configurazione)
-3.  Mostra esecuzione \ (Mostra corrente in esecuzione configurazione)
-4.  Scopri porte del commutatore a cui le schede di rete connessi. Questo esempio, sono 14/1,15/1,16/1,17/1.
-5.  Int alfabeto 14/1,15/1,16/1,17/1 \ (immettere in modalità di configurazione per questi ports\)
-6.  Modalità dcbx ieee
-7.  Modalità di controllo di flusso prioritario in
-8.  Switchport trunk vlan nativa 225
-9.  Switchport trunk vlan 100-225 consentito
-10. Trunk modalità switchport
-11. Controllo di flusso prioritario priorità 3 non trascinamento
-12. QoS trust CO
-13. Mostra esecuzione \ (verificare che la configurazione è impostata correttamente sul ports\)
-14. WR \ (per verificare le impostazioni viene mantenuta in commutatore reboot\)
+1.  en \(passare alla modalità di amministrazione, in genere richiede una password\)
+2.  configurazione \(immettere in modalità di configurazione\)
+3.  Visualizza esecuzione \(Visualizza configurazione corrente in esecuzione\)
+4.  informazioni su porte di commutazione a cui le schede di rete connessi. In questi esempio, sono 14/1,15/1,16/1,17/1.
+5.  int eth 14/1,15/1,16/1,17/1 \(immettere in modalità di configurazione per queste porte\)
+6.  modalità dcbx ieee
+7.  modalità di controllo di flusso prioritario a
+8.  switchport trunk vlan nativa 225
+9.  switchport trunk vlan. 100 e 225 è consentita
+10. trunk modalità switchport
+11. controllo di flusso prioritario con priorità 3 non rilascio
+12. QoS trust cos
+13. Visualizza esecuzione \(verificare che la configurazione sia impostata correttamente su porte\)
+14. WR \(per configurare le impostazioni vengono mantenute per switch riavvio\)
 
 ### <a name="tips"></a>Suggerimenti:
-1.  Nessun command # # e l'annullamento di un comando
-2.  Come aggiungere un nuovo VLAN: vlan int 100 \ (se rete di archiviazione in 100\ VLAN)
+1.  Nessun command # # Annulla un comando
+2.  Come aggiungere una nuovo VLAN: vlan int 100 \(se rete di archiviazione si trova in 100 VLAN\)
 3.  Come controllare le VLAN esistente: Mostra vlan
-4.  Per ulteriori informazioni sulla configurazione di commutatore Arista, cercare online: Arista manuale di fine del flusso
-5.  Utilizzare questo comando per verificare le impostazioni di base alla priorità: visualizzare i contatori di controllo di flusso prioritario dettagli
+4.  Per altre informazioni sulla configurazione di commutatore Arista, eseguire una ricerca online: Arista EOS manuale
+5.  Usare questo comando per verificare le impostazioni di base alla priorità: mostrare i dettagli dei contatori di controllo di flusso prioritario
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Commutatore Dell \ (S4810, FTOS 9.9 \(0.0\)\)
+--- 
+
+## <a name="dell-switch-s4810-ftos-99-00"></a>Commutatore Dell \(S4810, 9.9 FTOS \(0,0\)\)
 
     
     !
@@ -67,8 +72,9 @@ Questi sono solo i comandi e dei relativi utilizzi; è necessario determinare le
     dcb-map dcb-smb
     exit
     
+--- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutatore Cisco \ (Nexus 3132, versione 6.0\(2\)U6\(1\)\)
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutatore Cisco \(Nexus 3132, versione 6.0\(2\)U6\(1\)\)
 
 ### <a name="global"></a>Globale
     
@@ -99,7 +105,7 @@ Questi sono solo i comandi e dei relativi utilizzi; è necessario determinare le
     service-policy type network-qos QOS_NETWORK
     
 
-### <a name="port-specific"></a>Porte specifiche
+### <a name="port-specific"></a>Porta specifica
 
     
     switchport mode trunk
@@ -111,12 +117,12 @@ Questi sono solo i comandi e dei relativi utilizzi; è necessario determinare le
     no shutdown
     priority-flow-control mode on
     
+--- 
 
-## <a name="all-topics-in-this-guide"></a>Tutti gli argomenti in questa Guida
+## <a name="related-topics"></a>Argomenti correlati
 
-Questa guida contiene gli argomenti seguenti.
+- [Configurazione scheda di rete convergente con una sola scheda di rete](cnic-single.md)
+- [Configurazione di interfaccia di rete convergente le NIC](cnic-datacenter.md)
+- [Risoluzione dei problemi di configurazioni di interfaccia di rete convergente](cnic-app-troubleshoot.md)
 
-- [Configurazione di rete convergente con una sola scheda di rete](cnic-single.md)
-- [Configurazione di rete convergente le NIC combinate](cnic-datacenter.md)
-- [Configurazione di commutatore fisico per scheda di rete convergente](cnic-app-switch-config.md)
-- [Risoluzione dei problemi convergente configurazioni NIC](cnic-app-troubleshoot.md)
+--- 

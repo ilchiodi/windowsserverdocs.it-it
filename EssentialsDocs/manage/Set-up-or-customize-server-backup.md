@@ -13,130 +13,131 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 727dd74e4bddc52f735969f216914b9d76d1f413
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831932"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurare o personalizzare un backup del server
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- Backup del server non viene configurato automaticamente durante l'installazione. È consigliabile proteggere automaticamente il server e i relativi dati pianificando backup giornalieri. È consigliabile mantenere un piano di backup giornaliero poiché la maggior parte delle organizzazioni non può permettersi di perdere i dati che sono stati creati in diversi giorni.  
+ Il backup dei server non è configurato automaticamente durante l'installazione. È consigliabile proteggere automaticamente il server e i relativi dati pianificando backup giornalieri. Si consiglia di mantenere un piano di backup giornaliero poiché la maggior parte delle organizzazioni non può permettersi di perdere i dati creati in diversi giorni.  
   
- Vedere le sezioni seguenti per configurare o personalizzare un backup del server:  
+ Vedere le sezioni seguenti per impostare o personalizzare il backup del server:  
   
--   [Consente di impostare o modificare le impostazioni di backup server](Set-up-or-customize-server-backup.md#BKMK_1)  
+-   [Consente di impostare o modificare le impostazioni di backup di server](Set-up-or-customize-server-backup.md#BKMK_1)  
   
--   [Pianificazione di backup server](Set-up-or-customize-server-backup.md#BKMK_2)  
+-   [Pianificazione del backup server](Set-up-or-customize-server-backup.md#BKMK_2)  
   
--   [Unità di destinazione del backup](Set-up-or-customize-server-backup.md#BKMK_Target)  
+-   [Unità di destinazione di backup](Set-up-or-customize-server-backup.md#BKMK_Target)  
   
--   [Elementi per il backup](Set-up-or-customize-server-backup.md#BKMK_4)  
+-   [Elementi da sottoporre a backup](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a>Consente di impostare o modificare le impostazioni di backup server  
+##  <a name="BKMK_1"></a> Consente di impostare o modificare le impostazioni di backup di server  
   
-#### <a name="to-set-up-or-change-server-backup-settings"></a>Per impostare o modificare le impostazioni di backup server  
+#### <a name="to-set-up-or-change-server-backup-settings"></a>Per configurare o modificare le impostazioni del backup del server  
   
-1.  Aprire il **Dashboard**, quindi fare clic sul **dispositivi** scheda.  
+1.  Aprire il **Dashboard**, quindi fare clic sulla scheda **Dispositivi** .  
   
-2.  Nella visualizzazione elenco, fare clic su server per selezionarlo.  
+2.  Nella visualizzazione elenco fare clic sul server per selezionarlo.  
   
-3.  Nel riquadro attività fare clic su **imposta backup del server**.  
-  
-    > [!NOTE]
-    >  Se si desidera modificare le impostazioni di backup esistenti, fare clic su **Personalizza Backup del server**.  
-  
-4.  Seguire le istruzioni della procedura guidata.  
+3.  Nel riquadro attività fare clic su **Imposta backup del server**.  
   
     > [!NOTE]
-    >  Se si avvia la procedura guidata prima di collegare il disco rigido esterno al server, fare clic su **Aggiorna elenco** nel **selezionare la destinazione di backup** pagina dopo aver collegato il disco rigido.  
+    >  Per modificare le impostazioni di backup esistenti, fare clic su **Personalizza backup del server**.  
+  
+4.  Seguire le istruzioni contenute nella procedura guidata.  
+  
+    > [!NOTE]
+    >  Se si avvia la procedura guidata prima di collegare il disco rigido esterno al server, fare clic su **Aggiorna elenco** nella pagina **Seleziona la destinazione di backup** dopo aver collegato il disco rigido.  
   
 > [!NOTE]
->  Nell'installazione predefinita di Windows Server Essentials, il server è configurato per eseguire automaticamente una deframmentazione una volta alla settimana. Questo può comportare maggiori di backup normali se si utilizza software di imaging non Microsoft. Se non è necessario deframmentare il server regolarmente, è possibile eseguire la procedura per disattivare la pianificazione della deframmentazione:  
+>  Nell'installazione predefinita di Windows Server Essentials, il server è configurato per eseguire automaticamente una deframmentazione una volta alla settimana. Ciò può generare backup di dimensioni superiori al normale, se si usa un software di imaging non Microsoft. Se non è necessario deframmentare il server regolarmente, è possibile eseguire questa procedura per disattivare la pianificazione della deframmentazione:  
 >   
->  1.  Premere il tasto Windows + W per aprire **ricerca**.  
-> 2.  Nella casella di testo di ricerca, digitare **Deframmenta**.  
-> 3.  Nella sezione dei risultati, fare clic su **deframmenta e ottimizza unità**.  
-> 4.  Nel **Ottimizza unità** pagina, selezionare l'unità e quindi fare clic su **modificare le impostazioni**.  
-> 5.  Nel **pianificazione ottimizzazione** finestra, deseleziona il **eseguire una pianificazione (scelta consigliata)** casella di controllo, quindi fare clic su **OK** per salvare le modifiche.  
+>  1.  Premere il tasto WINDOWS+W per aprire la **Ricerca**.  
+> 2.  Nella casella di testo di ricerca digitare **Defragment**.  
+> 3.  Nella sezione dei risultati fare clic su **Deframmenta e ottimizza unità**.  
+> 4.  Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
+> 5.  Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
   
-##  <a name="BKMK_2"></a>Pianificazione di backup server  
- Quando si utilizza la configurazione guidata Backup Server o la procedura guidata personalizzare Backup Server, è possibile scegliere di eseguire il backup dei dati del server più volte nel corso della giornata. Poiché le procedure guidate pianificano i backup incrementale, i backup eseguiti rapidamente e non sono interessata in modo significativo sulle prestazioni del server. Per impostazione predefinita, le procedure guidate di pianificano un backup da eseguire ogni giorno alle 12:00 e 11:00 PM. Tuttavia, è possibile modificare la pianificazione di backup in base alle esigenze dell'organizzazione. In alcuni casi si deve valutare l'efficacia del piano di backup e modifica il piano in base alle esigenze.  
+##  <a name="BKMK_2"></a> Pianificazione del backup server  
+ Quando si usa la procedura guidata Configura backup server o Personalizza Backup server, è possibile scegliere di eseguire il backup dei dati del server più volte al giorno. Dato che i backup pianificati dalle procedure guidate sono di tipo incrementale, vengono eseguiti rapidamente e non influiscono in modo significativo sulle prestazioni del server. Per impostazione predefinita, le procedure guidate pianificano l'esecuzione di un backup ogni giorno alle 12:00 e alle 23:00. È tuttavia possibile modificare la pianificazione dei backup in base alle esigenze dell'organizzazione. È consigliabile rivalutare periodicamente l'efficacia del piano di backup adottato ed eventualmente modificarlo in base alla necessità.  
   
-##  <a name="BKMK_Target"></a>Unità di destinazione del backup  
- È possibile utilizzare più unità di archiviazione esterna per i backup e alternare le unità tra percorsi di archiviazione in sede e fuori sede. Ciò può migliorare l'emergenza pianificazione grazie alla possibilità di ripristinare i dati in caso di danni fisici per l'hardware in sede.  
+##  <a name="BKMK_Target"></a> Unità di destinazione di backup  
+ È possibile usare più unità di archiviazione esterne per i backup e alternare le unità tra percorsi di archiviazione in sede e fuori sede. Ciò può migliorare la pianificazione della preparazione alle emergenze, semplificando il recupero dei dati in caso di danni fisici all'hardware in sede.  
   
- Quando si sceglie un'unità di archiviazione per il backup dei server, considerare quanto segue:  
+ Quando si sceglie un'unità di archiviazione per il backup dei server, occorre considerare quanto segue:  
   
--   Scegliere un'unità che include spazio sufficiente per archiviare i dati. Le unità di archiviazione devono contenere almeno 2,5 volte la capacità di archiviazione dei dati che si desidera eseguire il backup. L'unità devono essere anche dimensioni sufficienti per adeguarsi alla crescita futura dei dati del server.  
+-   Scegliere un'unità che include spazio sufficiente per l'archiviazione dei dati. Le unità di archiviazione devono includere almeno 2,5 volte la capacità di archiviazione dei dati di cui si deve eseguire il backup. Le unità devono essere anche di dimensioni sufficienti per adeguarsi alla crescita futura dei dati del server.  
   
--   Quando si utilizza un'unità di archiviazione esterna, assicurarsi che l'unità sia vuota o che includa solo dati non è necessario.  
+-   Se si usa un'unità di archiviazione esterna, assicurarsi che l'unità sia vuota o che includa solo dati non necessari.  
   
     > [!CAUTION]
-    >  La configurazione Server Backup guidata formatta le unità di archiviazione quando le configura per il backup.  
+    >  La procedura guidata Configura backup server formatta le unità di archiviazione quando le configura per il backup.  
   
 -   Se l'unità di destinazione del backup include unità offline, la configurazione del backup avrà esito negativo. Per completare la configurazione, quando si seleziona la destinazione del backup, deselezionare la casella di controllo per escludere le unità offline.  
   
--   Se si sceglie un'unità che include backup precedenti come destinazione di backup, la procedura guidata permetterà di scegliere se si desidera conservare i backup precedenti. Se si conservano i backup, la procedura guidata non formattare l'unità.  
+-   Se si sceglie un'unità che include backup precedenti come destinazione del backup, la procedura guidata permetterà di scegliere se conservare i backup precedenti. Se si conservano i backup, l'unità non viene formattata.  
   
 -   È consigliabile visitare il sito Web del produttore dell'unità di archiviazione esterna per assicurarsi che l'unità di backup sia supportata nei computer che eseguono Windows Server Essentials.  
   
--   L'unità non può contenere una partizione di sistema interfaccia EFI (Extensible Firmware Interface). Se una partizione EFI è presente in un'unità USB, si presuppone che il disco è un disco di avvio. Se si è certi che non è necessario t i dati sul disco, è possibile riformattare il disco e usarlo per i backup.  
+-   L'unità non può contenere una partizione di sistema EFI (Extensible Firmware Interface). Se in un'unità USB è presente una partizione EFI, il disco è considerato un disco di avvio. Se si è certi che non si necessità di t i dati sul disco, è possibile riformattare il disco e usarlo per i backup.  
   
     > [!CAUTION]
-    >  Quando si riformatta il disco verranno eliminati tutti i dati.  
+    >  Tutti i dati vengono eliminati quando si riformatta il disco.  
   
     #### <a name="to-remove-an-efi-system-partition-from-a-usb-disk"></a>Per rimuovere una partizione di sistema EFI da un disco USB  
   
-    1.  Nel Pannello di controllo, aprire **sistema e sicurezza**.  
+    1.  Nel Panello di controllo aprire **Sistema e sicurezza**.  
   
-    2.  In **strumenti di amministrazione**, fare clic su **creare e formattare le partizioni del disco rigido**.  
+    2.  In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
   
-    3.  Eliminare tutti i volumi nel disco USB oppure eliminare semplicemente la partizione EFI. La configurazione guidata Backup Server elimina tutti i volumi.  
+    3.  Eliminare tutti i volumi nel disco USB oppure eliminare semplicemente la partizione EFI. La procedura guidata Configura backup server elimina tutti i volumi.  
   
--   L'unità non può contenere cartelle condivise del server. Prima di poter utilizzare il disco come unità di destinazione del backup, è necessario interrompere la condivisione in cartelle condivise del server. È possibile interrompere la condivisione dal Dashboard o in Esplora File.  
+-   L'unità non può contenere cartelle condivise del server. Per poter usare il disco come unità di destinazione di backup, è necessario interrompere la condivisione delle cartelle condivise del server. È possibile interrompere la condivisione dal dashboard o in Esplora file.  
   
-    #### <a name="to-stop-sharing-on-a-server-folder-from-the-dashboard"></a>Per interrompere la condivisione in una cartella del server dal Dashboard  
+    #### <a name="to-stop-sharing-on-a-server-folder-from-the-dashboard"></a>Per interrompere la condivisione in una cartella del server dal dashboard  
   
-    1.  Nel Dashboard, fare clic su **archiviazione**, quindi fare clic su **cartelle Server**.  
+    1.  Nel dashboard fare clic su **Archiviazione**, quindi su **Cartelle server**.  
   
-    2.  Selezionare la cartella che si desidera interrompere la condivisione e quindi nel riquadro attività fare clic su **arrestare**.  
+    2.  Selezionare la cartella di cui si vuole interrompere la condivisione, quindi fare clic su **Interrompi** nel riquadro attività.  
   
 > [!NOTE]
->  Se un backup non riesce perché l'unità di backup è insufficiente, la lettera di unità per l'unità di destinazione del backup viene rimosso dal database di Windows Server Essentials e Dashboard visualizza l'unità. Se si desidera utilizzare l'unità di backup in futuro, è necessario riassegnare la lettera di unità con uno strumento nativo.  
+>  Se un backup non riesce perché l'unità di backup è disponibile spazio sufficiente, la lettera di unità per l'unità di destinazione di backup viene rimosso dal database di Windows Server Essentials e il Dashboard non viene visualizzata l'unità. Per usare l'unità di backup in futuro, è necessario riassegnare la lettera di unità con uno strumento nativo.  
 >   
 >  **Per riassegnare una lettera di unità per un volume esistente**  
 >   
->  1.  Nel Pannello di controllo, aprire **sistema e sicurezza**.  
-> 2.  In **strumenti di amministrazione**, fare clic su **creare e formattare le partizioni del disco rigido**.  
-> 3.  L'unità di mouse e scegliere **Cambia lettera di unità e percorso**.  
-> 4.  Fare clic su **aggiungere**.  
-> 5.  Nella finestra di dialogo Aggiungi lettera o percorso unità, selezionare una lettera di unità da assegnare. (È possibile riassegnare la stessa lettera di unità). Fare clic su **OK**.  
+>  1.  Nel Panello di controllo aprire **Sistema e sicurezza**.  
+> 2.  In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
+> 3.  Fare clic con il pulsante destro del mouse sull'unità e scegliere **Cambia lettera e percorso di unità**.  
+> 4.  Fai clic su **Aggiungi**.  
+> 5.  Nella finestra di dialogo Aggiungi lettera o percorso di unità, selezionare una lettera di unità da assegnare (è possibile riassegnare la stessa lettera di unità). Fare quindi clic su **OK**.  
 >   
->      L'unità verrà visualizzata immediatamente nel Dashboard.  
+>      L'unità verrà visualizzata immediatamente nel dashboard.  
   
-##  <a name="BKMK_4"></a>Elementi per il backup  
- È possibile scegliere di eseguire il backup di tutte le unità, file e cartelle nel server oppure selezionare solo singole unità, file o cartelle al backup.  
+##  <a name="BKMK_4"></a> Elementi da sottoporre a backup  
+ È possibile scegliere di eseguire il backup di tutte le unità, i file e le cartelle sul server oppure selezionare solo singole unità, file o cartelle di cui eseguire il backup.  
   
- Quando si aggiungere o rimuovere un'unità, oppure aggiungere o rimuovere i file e cartelle condivise, è consigliabile rivedere la configurazione di backup del server per assicurarsi che questi elementi vengono aggiunti o rimossi dalla configurazione del backup. Per aggiungere o rimuovere gli elementi per il backup, eseguire una delle operazioni seguenti:  
+ Quando si aggiunge o rimuove un'unità oppure file e cartelle condivise, è consigliabile rivedere la configurazione di backup del server per assicurarsi che questi elementi vengono aggiunti o rimossi dalla configurazione del backup. Per aggiungere o rimuovere elementi per il backup, eseguire una delle operazioni seguenti:  
   
 -   Per includere un'unità dati nel backup del server, selezionare la casella di controllo adiacente.  
   
 -   Per escludere un'unità dati dal backup del server, deselezionare la casella di controllo adiacente.  
   
     > [!NOTE]
-    >  Se si desidera escludere il **del sistema operativo** elemento dal backup, è innanzitutto necessario deselezionare il **Backup del sistema (scelta consigliata)** casella di controllo.  
+    >  Se si vuole escludere l'elemento **Sistema operativo** dal backup, è prima di tutto necessario deselezionare la casella di controllo **Backup del sistema (scelta consigliata)** .  
   
- Per ridurre al minimo la quantità di memoria nel server che utilizzano i backup del server, è consigliabile escludere eventuali cartelle contenenti file non considerati utili o particolarmente importanti.  
+ Per ridurre al minimo la quantità di spazio di archiviazione server usata per i backup del server, è possibile escludere eventuali cartelle contenenti file non considerati utili o particolarmente importanti.  
   
- Ad esempio, potrebbe essere una cartella contenente programmi televisivi registrati che usa una quantità elevata di spazio su disco rigido. È possibile scegliere di non eseguire il backup di questi file, perché in genere eliminati dopo la visualizzazione comunque. Oppure potrebbe essere una cartella che contiene i file temporanei che non si intende conservare.  
+ Ad esempio, è possibile che sia presente una cartella contenente programmi televisivi registrati che usa una quantità elevata di spazio su disco rigido. Si può scegliere di non eseguire il backup di questi file, perché comunque verranno in genere eliminati dopo la visualizzazione. È anche possibile che sia presente una cartella contenente file temporanei che non si intende conservare.  
   
 ## <a name="see-also"></a>Vedere anche  
   
 -   [Gestire il Backup dei Server](Manage-Server-Backup-in-Windows-Server-Essentials.md)  
   
--   [Gestire Backup e ripristino](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
+-   [Gestire il Backup e ripristino](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

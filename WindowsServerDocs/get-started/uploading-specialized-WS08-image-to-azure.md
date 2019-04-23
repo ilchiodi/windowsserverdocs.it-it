@@ -1,5 +1,5 @@
 ---
-title: Carica un'immagine specializzata Windows Server 2008/2008 R2 su Azure.
+title: Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure
 description: Si avvicina la fine del supporto per Windows Server 2008 e Windows Server 2008 R2. Scopri come effettuare la rilocazione ad Azure eseguendo l'hosting di Windows Server nel cloud.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: f7113ccc8b664494f664cd4b100dcac06eef5654
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "7012075"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827812"
 ---
-# Carica un'immagine specializzata Windows Server 2008/2008 R2 su Azure. 
+# <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure 
 
 ![Banner che introduce l'argomento dell'immagine WS08](media/WS08-image-banner-large.png)
 
 Ora è possibile eseguire una macchina virtuale Windows Server 2008/2008 R2 nel cloud con Azure. 
 
-## Prepara l'immagine specializzata Windows Server 2008/2008 R2
+## <a name="prep-the-windows-server-20082008-r2-specialized-image"></a>Prepara l'immagine specializzata Windows Server 2008/2008 R2
 Prima di caricare un'immagine, apporta le modifiche seguenti:
 
 - Scarica e installa Windows Server 2008 Service Pack 2 (SP2) se non è già installato sull'immagine.
@@ -43,8 +43,8 @@ Prima di caricare un'immagine, apporta le modifiche seguenti:
 - Configura le impostazioni di Windows Firewall.   
    1. Nel prompt dei comandi in Modalità amministratore, immetti "**wf.msc**" per Windows Firewall e le impostazioni avanzate di sicurezza.   
    2. Ordina i risultati per **Porte**, seleziona **porta 3389**.   
-     ![Screenshot delle regole in entrata delle impostazioni Windows Firewall.](media/3b_inboundrules.png)   
-   3. Abilita Desktop remoto (TCP-IN) per i profili: **Dominio**, **Privato** e **Pubblico** (mostrati sopra).
+     ![Regole in ingresso delle impostazioni screenshot di WIndows Firewall.](media/3b_inboundrules.png)   
+   3. Abilitare Desktop remoto (TCP-IN) per i profili: **Dominio**, **privati**, e **pubblica** (illustrato in precedenza).
 
 - Salva tutte le impostazioni e arresta l'immagine.   
 - Se stai utilizzando Hyper-V, assicurati che l'AVHD figlio sia unito al VHD genitore per modifiche persistenti.
@@ -55,10 +55,10 @@ A causa di un attuale bug noto, la password dell'amministratore sull'immagine ca
 2. Digita **lusrmgr.msc**
 3. Seleziona **Utenti** sotto Utenti e Gruppi locali
 4. Fai clic con il pulsante destro del mouse **Amministratore** e seleziona **Proprietà**
-5. Seleziona **nessuna scadenza password** e seleziona **OK**
-![Screenshot delle proprietà dell'amministratore.](media/6_adminprops.png)
+5. Selezionare **Nessuna scadenza password** e selezionare **OK**
+![Screenshot delle proprietà di amministratore.](media/6_adminprops.png)
 
-## Caricamento del VHD dell'immagine.
+## <a name="uploading-the-image-vhd"></a>Caricamento del VHD dell'immagine.
 È possibile usare lo script sottostante per caricare il VHD. Prima sarà necessario il file di impostazioni di pubblicazione per l'account Azure. Ottieni [le impostazioni dei file Azure](https://azure.microsoft.com/downloads/).
 
 Ecco lo script:
@@ -80,7 +80,7 @@ Login-AzureRmAccount
       $urlOfUploadedImageVhd = "<BlobUrl>/<NameForVHD>.vhd"
       Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath "<FilePath>"  
 ```
-## Distribuisci l'immagine in Azure
+## <a name="deploy-the-image-in-azure"></a>Distribuisci l'immagine in Azure
 In questa sezione, verrà distribuito il VHD dell'immagine in Azure. 
 
 > [!IMPORTANT]
@@ -95,8 +95,8 @@ In questa sezione, verrà distribuito il VHD dell'immagine in Azure.
      a. Vai a Dischi, fai clic su **Aggiungi**.  
      b. Immetti un nome per il disco. Seleziona l'abbonamento da utilizzare, imposta la regione e scegli il tipo di account.   
      c. Per il tipo di origine, seleziona archiviazione. Individua la location del VHD del blob creata utilizzando lo script.  
-     d. Seleziona tipo del sistema operativo Windows e dimensione (predefinita: 1023).   
-     e. Fai clic su **Crea**.   
+     d. Selezionare il tipo di sistema operativo Windows e le dimensioni (impostazione predefinita: 1023).   
+     e. Fare clic su **Crea**.   
 
 7.  Vai a Disco creato, fai clic su **Crea macchina virtuale**.   
      a. Nome della macchina virtuale.   
@@ -105,7 +105,7 @@ In questa sezione, verrà distribuito il VHD dell'immagine in Azure.
      d. Seleziona un'interfaccia di rete nella pagina delle impostazioni. Assicurati che l'interfaccia di rete abbia le seguenti regole specificate:
  
         PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
-     e. Fai clic su **Crea**.
+     e. Fare clic su **Crea**.
 
 
 

@@ -7,38 +7,38 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d941e9884dced40ce750645b662d8df73503bc41
-ms.sourcegitcommit: 475292afc919c6d17569f05007a97bc6b92dd225
+ms.openlocfilehash: e23d02fd8da96392f44874ad6ea4d6c40e2be940
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "9267777"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828202"
 ---
-# Windows Admin Center
+# <a name="windows-admin-center"></a>Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
 Benvenuti in Windows Admin Center!
 
-**Windows Admin Center** (nome in codice **Project Honolulu**) è un'evoluzione degli strumenti di gestione inclusi in Windows Server; è un singolo riquadro interfaccia che consolida tutti gli aspetti della gestione dei server locali e remoti. In quanto esperienza di gestione basata su browser e distribuita localmente, non sono necessari una connessione Internet e Azure. Windows Admin Center offre il controllo completo di tutti gli aspetti della distribuzione, incluse le reti private che non sono connesse a Internet.
+**Windows Admin Center** (nome in codice **Honolulu progetto**) è un'evoluzione di Windows Server nella finestra di strumenti di gestione; è un singolo riquadro che consente di consolidare tutti gli aspetti della gestione dei server locali e remoti. In quanto esperienza di gestione basata su browser e distribuita localmente, non sono necessari una connessione Internet e Azure. Windows Admin Center ti offre il controllo completo di tutti gli aspetti della distribuzione, incluse le reti private non connesse a Internet.
 
-## Introduzione
+## <a name="introduction"></a>Introduzione
 
 >[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
 
 ![Infografica di Windows Admin Center](media/WAC1809Poster_thumb.PNG)
 
-[Scarica il PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
+[Scaricare il file PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
 
-## Avvio rapido
+## <a name="quick-start"></a>Avvio rapido
 
 Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
 
 1. [Download](https://aka.ms/windowsadmincenter)
-2. [Installare](deploy/install.md)
-3. [Informazioni di base](use/get-started.md)
+2. [Installa](deploy/install.md)
+3. [Per iniziare](use/get-started.md)
 
-## Contenuti in breve
+## <a name="contents-at-a-glance"></a>Contenuto in modo immediato
 
 <table>
     <tr></tr>
@@ -47,18 +47,18 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <h3>Esaminare con attenzione</h3>
             <ul>
             <li><a href="understand/what-is.md">Che cos'è Windows Admin Center?</a>
-            <li><a href="understand/faq.md">Domande frequenti</a>
+            <li><a href="understand/faq.md">DOMANDE FREQUENTI</a>
             <li><a href="understand/case-studies.md">Case study</a>
-            <li><a href="understand/related-management.md">Prodotti di gestione correlati</a>
+            <li><a href="understand/related-management.md">Prodotti di gestione correlate</a>
             <li><a href="understand/videos.md">Video</a>
             </ul>
         </td>
         <td style="vertical-align: top;">
             <h3>Pianificazione</h3>
             <ul>
-            <li><a href="plan/installation-options.md">Che tipo di installazione è adatto alle tue esigenze?</a>
-            <li><a href="plan/user-access-options.md">Opzioni di accesso dell'utente</a>
-            <li><a href="plan/azure-integration-options.md">Quali opzioni di integrazione Azure sono incluse?</a>
+            <li><a href="plan/installation-options.md">Il tipo di installazione è adatto a te?</a>
+            <li><a href="plan/user-access-options.md">Opzioni di accesso utente</a>
+            <li><a href="plan/azure-integration-options.md">Quali opzioni di integrazione di Azure sono disponibili?</a>
             <br>
             </ul>
         </td>
@@ -67,32 +67,32 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
         <td style="vertical-align: top;">
             <h3>Distribuisci</h3>
             <ul>
-            <li><a href="deploy/prepare-environment.md">Preparazione dell'ambiente</a>
+            <li><a href="deploy/prepare-environment.md">Preparare l'ambiente</a>
             <li><a href="deploy/install.md">Installare Windows Admin Center</a>
-            <li><a href="deploy/high-availability.md">Offrire una disponibilità elevata</a>
+            <li><a href="deploy/high-availability.md">Abilitare la disponibilità elevata</a>
          </ul>
         </td>
         <td style="vertical-align: top;">
-            <h3>Configurare</h3>
+            <h3>Configura</h3>
             <ul>
             <li><a href="configure/settings.md">Impostazioni di Windows Admin Center</a>
-            <li><a href="configure/user-access-control.md">Autorizzazioni e controllo dell'accesso utente</a>
+            <li><a href="configure/user-access-control.md">Le autorizzazioni e controllo di accesso utente</a>
             <li><a href="configure/using-extensions.md">Estensioni</a>
-            <li><a href="configure/azure-integration.md">Integrazione con Azure</a>
-            <li><a href="configure/manage-azure-vms.md">Gestisci le macchine virtuali di Azure con Windows Admin Center</a>
+            <li><a href="configure/azure-integration.md">Integrare con Azure</a>
+            <li><a href="configure/manage-azure-vms.md">Gestire macchine virtuali di Azure con Windows Admin Center</a>
             </ul>
         </td>
     </tr>
     <tr>
         <td style="vertical-align: top;">
-            <h3>Usare</h3>
+            <h3>Uso</h3>
             <ul>
-            <li><a href="use/get-started.md">Avvio & aggiungere connessioni</a>
-            <li><a href="use/manage-servers.md">Gestire server</a>
+            <li><a href="use/get-started.md">Avvia & aggiungere connessioni</a>
+            <li><a href="use/manage-servers.md">Gestire i server</a>
             <li><a href="use/manage-hyper-converged.md">Gestire l'infrastruttura iperconvergente</a>
             <li><a href="use/manage-failover-clusters.md">Gestire i cluster di failover</a>
             <li><a href="use/manage-virtual-machines.md">Gestire le macchine virtuali</a>
-            <li><a href="use/azure-services.md">Utilizzare i servizi di Azure</a>
+            <li><a href="use/azure-services.md">Sfruttare servizi di Azure</a>
             <li><a href="use/troubleshooting.md">Passaggi di risoluzione dei problemi comuni</a>
             <li><a href="use/logging.md">Registrazione</a>
             <li><a href="use/known-issues.md">Problemi noti</a>
@@ -102,22 +102,21 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <h3>Estendere</h3>
             <ul>
             <li><a href="extend/extensibility-overview.md">Panoramica delle estensioni</a>
-            <li><a href="extend/understand-extensions.md">Informazioni sulle estensioni</a>
+            <li><a href="extend/understand-extensions.md">Estensioni di comprensione</a>
             <li><a href="extend/developing-extensions.md">Sviluppare un'estensione</a>
             <li><a href="extend/publish-extensions.md">Guide</a>
-            <li><a href="extend/publish-extensions.md">Pubblicazione delle estensioni</a>
+            <li><a href="extend/publish-extensions.md">Pubblicazione di estensioni</a>
             </ul>
         </td>
     </tr>
 
 </table>
 
-## Cronologia delle versioni
+## <a name="release-history"></a>Cronologia versioni
 
 Informazioni sulle ultime funzionalità rilasciate:
 
-- Versione [1903] (https://aka.ms/wac1903) vengono visualizzate le notifiche di posta elettronica di Monitoraggio di Azure, è possibile aggiungere connessioni server o PC da Active Directory e sono disponibili nuovi strumenti per la gestione di Active Directory, DHCP e DNS.
-- Versione [1902] (https://aka.ms/wac1902) miglioramenti & elenco connessione condivisa per la gestione della rete (SDN) software-definito, inclusi i nuovi strumenti SDN per gestire gli ACL, le connessioni gateway e reti logiche.
+- Versione [1902] (https://aka.ms/wac1902) aggiunto un elenco di connessioni condivise e i miglioramenti alla gestione di rete (SDN) software definito, tra cui nuovi strumenti SDN per gestire gli ACL, le connessioni del gateway e reti logiche.
 - Versione [1812](https://aka.ms/wac1812) aggiunto tema scuro (in anteprima), le impostazioni di configurazione di risparmio energia, info BMC e il supporto di PowerShell per gestire [le estensioni](./configure/using-extensions.md#manage-extensions-with-powershell) e [le connessioni](./use/get-started.md#use-powershell-to-import-or-export-your-connections-with-tags).
 - Versione [1809.5](https://aka.ms/wac1809.5) è un aggiornamento cumulativo GA che include vari qualità e funzionali miglioramenti e correzioni di bug in tutta la piattaforma e alcune nuove funzionalità della soluzione di gestione dell'infrastruttura iperconvergente.
 - Versione [1809](https://cloudblogs.microsoft.com/windowsserver/2018/09/20/windows-admin-center-1809-and-sdk-now-generally-available/) era una versione GA che lo ha portato funzionalità che sono state in precedenza nell'anteprima al canale GA.
@@ -132,8 +131,8 @@ Informazioni sulle ultime funzionalità rilasciate:
 - La versione [1711](https://cloudblogs.microsoft.com/windowsserver/2017/12/01/1711-update-to-project-honolulu-technical-preview-is-now-available/) ha aggiunto strumenti a lungo attesi (Desktop remoto e PowerShell) e altri miglioramenti.
 - La versione [1709](https://cloudblogs.microsoft.com/windowsserver/2017/09/22/project-honolulu-technical-preview-is-now-available-for-download/) è stata lanciata come prima versione di anteprima pubblica.
 
-## Mantieniti aggiornato
+## <a name="stay-updated"></a>Resta sempre aggiornato
 
 <a target="_blank" class="mscom-link twitter-follow-link" title="Seguici su Twitter" aria-label="Follow us on Twitter" data-info="Twitter" href="https://twitter.com/servermgmt"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" alt="Follow us on Twitter" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR"></picture></a>
  | 
-<a target="_blank" class="mscom-link blogs-follow-link" title="Leggi il blog" aria-label="Visit our Blogs" data-info="Blogs" href="https://blogs.technet.microsoft.com/servermanagement/"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" alt="Follow us on Blogs" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw"></picture></a>
+<a target="_blank" class="mscom-link blogs-follow-link" title="Leggere il blog" aria-label="Visit our Blogs" data-info="Blogs" href="https://blogs.technet.microsoft.com/servermanagement/"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" alt="Follow us on Blogs" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw"></picture></a>

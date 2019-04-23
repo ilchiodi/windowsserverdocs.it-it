@@ -13,49 +13,50 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e7eb1b7bed780b41f1a87589add4ab015f41624a
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828722"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Prima di installare Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_BeforeYouBegin"></a>Prima di iniziare l'installazione di Windows Server Essentials, eseguire le attività seguenti:  
+##  <a name="BKMK_BeforeYouBegin"></a> Prima di iniziare l'installazione di Windows Server Essentials, eseguire le attività seguenti:  
 
--   **Assicurarsi che il computer soddisfi i requisiti hardware minimi**. Ciò include stabilire se sono necessari ulteriori componenti hardware e verificare che i driver per l'hardware siano supportati da Windows Server Essentials. Per ulteriori informazioni, vedere [requisiti di sistema per Windows Server Essentials](../get-started/system-requirements.md).   
+-   **Verificare che il computer soddisfi i requisiti hardware minimi**. Ciò include stabilire se sono necessari ulteriori componenti hardware e verificare che i driver per l'hardware siano supportati da Windows Server Essentials. Per altre informazioni, vedere [requisiti di sistema per Windows Server Essentials](../get-started/system-requirements.md).   
 
   
     > [!IMPORTANT]
-    >  Prima di installare Windows Server Essentials in un computer preesistente, è consigliabile formattare completamente e ripartizionare i dischi rigidi del computer esistenti. La formattazione e ripartizionare i dischi rigidi, si rimuove la possibilità che i dischi rigidi restano partizioni nascoste.  
+    >  Prima di installare Windows Server Essentials in un computer preesistente, è consigliabile di formattare completamente e ripartizionare i dischi rigidi del computer pre-esistenti. La formattazione e la ripartizione delle unità disco rigido evitano che sui dischi rigidi restino delle partizioni nascoste.  
   
 -   **Preparare la rete** per preparare la rete per installare Windows Server Essentials, eseguire le operazioni seguenti:  
     
   
-    -   **Aggiornare il sistema operativo nei computer client** Windows Server Essentials supporta i seguenti sistemi operativi: Windows 8, Windows 7, Windows 10 e Macintosh OS X Lion o versioni successive. Questi sistemi operativi forniscono le funzionalità di sicurezza necessarie, affidabilità, prestazioni e funzionalità per la rete locale.  
+    -   **Eseguire l'aggiornamento del sistema operativo nei computer client** Windows Server Essentials supporta i sistemi operativi seguenti:  Windows 8, Windows 7, Windows 10 e Macintosh OS X Lion o versioni successive. Questi sistemi operativi forniscono le funzionalità di sicurezza e i livelli di affidabilità, prestazioni e funzionalità necessari per la rete locale.  
   
-    -   **Configurare il router** verificare che il router sia configurato come segue:  
+    -   **Configurare il router** Verificare che il router sia configurato nel seguente modo:  
   
-        -   Il framework UPnP è abilitato nel router.  
+        -   Sul router è abilitato il framework UPnP.  
   
-        -   Il servizio Server Dynamic Host Configuration Protocol (DHCP) per la rete LAN può essere attivato o disattivato.  Windows Server Essentials garantisce che DHCP non è in esecuzione nel router sia il server? Quando DHCP è abilitato sul router, DHCP non è abilitato sul server durante l'installazione.  
+        -   Il servizio server DHCP (Dynamic Host Configuration Protocol) per la rete LAN può essere abilitato o disabilitato.  Windows Server Essentials assicura che DHCP non è in esecuzione nel router sia nel server? Quando DHCP è abilitato sul router, non è abilitato nel server durante l'installazione.  
   
-        -   Hai un indirizzo IP per l'interfaccia esterna del router fornito dal provider di servizi Internet (ISP). È necessario configurare manualmente un indirizzo IP statico tramite la console di gestione del router o l'indirizzo IP può essere assegnato dinamicamente dal servizio Server DHCP dell'ISP.  
+        -   Si dispone di un indirizzo IP per l'interfaccia esterna del router fornito dal provider di servizi Internet. L'indirizzo IP può essere assegnato dinamicamente dal servizio server DHCP presso il provider di servizi Internet oppure è necessario configurare manualmente un indirizzo IP statico usando la console di gestione del router.  
   
-        -   Se la connessione Internet richiede un nome utente e password, chiamata anche-to-Point Protocol over Ethernet (PPPoE), queste impostazioni vengono configurate sul router, anche se il dispositivo supporta il framework UPnP.  
+        -   Se la connessione Internet richiede un nome utente e una password, collettivamente indicati come Point-to-Point Protocol over Ethernet (PPPoE), queste impostazioni vengono configurate sul router, anche se il dispositivo supporta il framework UPnP.  
   
-        -   Il router è connesso alla LAN e a Internet, sia acceso e funzioni correttamente.  
+        -   Il router è connesso a una rete LAN e Internet, è accesso e funzionante.  
   
-     Se il router non supporta il framework UPnP o se il router non può essere configurato durante l'installazione, è necessario configurarlo manualmente con le impostazioni per la rete. Assicurarsi che le porte seguenti siano aperte e che facciano riferimento all'indirizzo IP del Server di destinazione:  
+     Se il router non supporta il framework UPnP o se non può essere configurato durante l'installazione, è necessario configurarlo manualmente con le impostazioni della rete. Assicurarsi che le porte seguenti siano aperte e che facciano riferimento all'indirizzo IP del server di destinazione:  
   
     |Numero di porta|Applicazione|  
     |-----------------|-----------------|  
-    |Porta 80|Traffico HTTP Web|  
+    |Porta 80|Traffico Web HTTP|  
     |Porta 443|Traffico Web HTTPS|  
   
 
--   **Leggere documentazione sulla versione di Windows Server Essentials**. Documentazione sulla versione contiene le informazioni più aggiornate che potrebbero essere fondamentali per installare e configurare Windows Server Essentials correttamente. Per visualizzare e stampare la documentazione relativa alla versione, vedere [rilasciare la documentazione per Windows Server Essentials](../get-started/release-notes.md).  
+-   **Leggere documentazione sulla versione di Windows Server Essentials**. Documentazione sulla versione contiene le informazioni più recenti che potrebbero essere fondamentali per l'installazione e configurazione di Windows Server Essentials in modo corretto. Per visualizzare e stampare la documentazione sulla versione, vedere [Release Documentation for Windows Server Essentials](../get-started/release-notes.md).  
   
 ## <a name="see-also"></a>Vedere anche  
   

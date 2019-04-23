@@ -1,6 +1,6 @@
 ---
 title: Sviluppare un'estensione per Windows Admin Center
-description: Sviluppare un'estensione per Windows Admin Center SDK (Project Honolulu)
+description: Sviluppare un'estensione per Windows Admin Center SDK (progetto Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,22 +9,22 @@ ms.date: 09/19/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 53000b6a8391667768069f24658df28f8e271357
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4080938"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829592"
 ---
-# Sviluppare un'estensione per Windows Admin Center
+# <a name="develop-an-extension-for-windows-admin-center"></a>Sviluppare un'estensione per Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-Windows Admin Center supporta tre tipi di estensioni - estensioni dello strumento, estensioni della soluzione e plug-in gateway. il SDK contiene il contenuto e gli esempi consentono di creare i diversi tipi di estensioni/plug-in.
+Windows Admin Center supporta tre tipi di estensioni, le estensioni di strumenti, estensioni di soluzione e i plug-in gateway. il SDK contiene contenuto ed esempi per ottenere istruzioni utili nella creazione di diversi tipi di estensioni/plug-in.
 
 > [!NOTE]
-> Non hanno familiarità con i tipi di estensione diversa? Altre informazioni sui [tipi di architettura e l'estensione di estendibilità](understand-extensions.md).
+> Non hanno familiarità con i tipi di estensione diversi? Altre informazioni sul [tipi di architettura e l'estensione di estendibilità](understand-extensions.md).
 
-## Sviluppo dettagliato
+## <a name="development-step-by-step"></a>Sviluppo dettagliato
 
 - [Preparare](prepare-development-environment.md) l'ambiente di sviluppo
 - Creare un'estensione dello [strumento](develop-tool.md)
@@ -32,6 +32,6 @@ Windows Admin Center supporta tre tipi di estensioni - estensioni dello strument
 - Creare un [plug-in gateway](develop-gateway-plugin.md)
 - Ulteriori informazioni nelle [Guide](guides.md)
 
-## Toolkit di progettazione SDK
+## <a name="sdk-design-toolkit"></a>Toolkit di progettazione SDK
 
-Guarda il nostro Windows Admin Center [SDK toolkit di progettazione](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Il toolkit è progettato per aiutarti a simulazione rapidamente le estensioni PowerPoint usando stili Windows Admin Center, controlli e modelli di pagina. Vedi l'estensione l'aspetto in Windows Admin Center prima di iniziare a scrivere codice!
+Consultare il Windows Admin Center [toolkit progettazione SDK](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Questo toolkit è progettato per aiutarti a simulare rapidamente le estensioni in PowerPoint con stili di Windows Admin Center, controlli e modelli di pagina. Vedere l'estensione può come appaiono nel Windows Admin Center prima di iniziare a scrivere codice!

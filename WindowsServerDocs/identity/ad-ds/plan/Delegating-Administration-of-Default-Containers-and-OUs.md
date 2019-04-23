@@ -1,62 +1,63 @@
 ---
 ms.assetid: ac6604b0-7459-4ff3-af1c-4936897f5d14
-title: "Delega dell'amministrazione di unità organizzative e contenitori predefiniti"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Delega dell'amministrazione di unità organizzative e contenitori predefiniti
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 2504208210c03193451d19478f3bc8c98ec98f23
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 9d482854fd82b4bf0d0e61315d36e6222470ca55
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830892"
 ---
 # <a name="delegating-administration-of-default-containers-and-ous"></a>Delega dell'amministrazione di unità organizzative e contenitori predefiniti
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ogni dominio di Active Directory contiene un set standard di contenitori e unità organizzative (OU) che vengono create durante l'installazione di servizi di dominio Active Directory (AD DS). Queste includono quanto segue:  
+Ogni dominio di Active Directory contiene un set standard di contenitori e unità organizzative (OU) che vengono create durante l'installazione di Active Directory Domain Services (AD DS). tra cui:  
   
--   Contenitore di dominio, che funge da contenitore principale nella gerarchia di  
+-   Contenitore di dominio, che funge da contenitore radice nella gerarchia di  
   
 -   Contenitore predefinito, che contiene il valore predefinito di account amministratore del servizio  
   
--   Contenitore di utenti, che è il percorso predefinito per i nuovi account utente e gruppi creati nel dominio  
+-   Contenitore di utenti, ovvero il percorso predefinito per nuovi account utente e i gruppi creati nel dominio  
   
--   Contenitore di computer, che è il percorso predefinito per i nuovi account computer creato nel dominio  
+-   Contenitore di computer, ovvero il percorso predefinito per nuovi account computer creato nel dominio  
   
--   Unità Organizzativa controller di dominio, che è il percorso predefinito per gli account computer per gli account computer controller di dominio  
+-   Unità Organizzativa controller di dominio, ovvero il percorso predefinito per gli account computer per gli account computer controller di dominio  
   
 Il proprietario della foresta controlla questi contenitori predefiniti e unità organizzative.  
   
 ## <a name="domain-container"></a>Contenitore di dominio  
-Il contenitore di dominio è il contenitore radice della gerarchia di un dominio. Le modifiche ai criteri o elenco di controllo di accesso (ACL) nel contenitore possono potenzialmente influire a livello di dominio. Non delegare il controllo di questo contenitore. si devono essere controllato dagli amministratori del servizio.  
+Il contenitore di dominio è il contenitore radice della gerarchia di un dominio. Modifiche ai criteri o l'elenco di controllo di accesso (ACL) in questo contenitore possono potenzialmente influire a livello di dominio. Non delegare il controllo di questo contenitore. deve essere controllato dagli amministratori del servizio.  
   
 ## <a name="users-and-computers-containers"></a>Utenti e computer di contenitori  
-Quando si esegue un aggiornamento sul posto da Windows Server 2003 a Windows Server 2008, gli utenti e computer esistenti vengono inseriti automaticamente in utenti e i contenitori di computer. Se si sta creando un nuovi contenitori di dominio, utenti e computer di Active Directory sono i percorsi predefiniti per tutti i nuovi account utente e account computer non-controller di dominio nel dominio.  
+Quando si esegue un aggiornamento sul posto dominio da Windows Server 2003 a Windows Server 2008, gli utenti e computer esistenti vengono automaticamente inseriti nei contenitori i computer e gli utenti. Se si sta creando un nuovi contenitori di dominio, utenti e computer di Active Directory sono i percorsi predefiniti per tutti i nuovi account utente e gli account computer non rappresentano controller di dominio nel dominio.  
   
 > [!IMPORTANT]  
-> Se si desidera delegare il controllo su utenti o computer, non modificare le impostazioni predefinite in utenti e computer di contenitori. Al contrario, creare nuove unità organizzative (in base alle esigenze) e spostare gli oggetti utente e computer dal loro contenitori predefiniti e nelle nuove unità organizzative. Delegare il controllo tramite le nuove unità organizzative, in base alle esigenze. È consigliabile non modificare che controlla i contenitori predefiniti.  
+> Se è necessario delegare il controllo su utenti o computer, non modificare le impostazioni predefinite nei computer degli utenti e i contenitori. In alternativa, creare nuove unità organizzative (se necessario) e spostare gli oggetti utente e computer dai relativi contenitori predefiniti e nelle nuove unità organizzative. Delegare il controllo di nuove unità organizzative, in base alle esigenze. È consigliabile non modificare chi controlla contenitori predefiniti.  
   
 Inoltre, non è possibile applicare le impostazioni di criteri di gruppo ai computer e utenti predefiniti dei contenitori. Per applicare criteri di gruppo a utenti e computer, creare nuove unità organizzative e spostare gli oggetti utente e computer in tali unità organizzative. Applicare le impostazioni di criteri di gruppo per le nuove unità organizzative.  
   
-Facoltativamente, è possibile reindirizzare la creazione di oggetti che si trovano nei contenitori predefiniti da inserire in contenitori di tua scelta.  
+Facoltativamente, è possibile reindirizzare la creazione di oggetti che vengono inseriti nei contenitori predefiniti da inserire nei contenitori di propria scelta.  
   
-## <a name="well-known-users-and-groups-and-built-in-accounts"></a>Utenti noti e gruppi e account predefiniti  
-Per impostazione predefinita, i diversi utenti noti e gruppi e account predefiniti vengono creati in un nuovo dominio. È consigliabile che rimanga sotto il controllo degli amministratori del servizio di gestione di questi account. Non delegare la gestione di questi account a un singolo che non sia un amministratore del servizio. La tabella seguente elenca i noto agli utenti e gruppi e account predefiniti che devono restare sotto il controllo degli amministratori del servizio.  
+## <a name="well-known-users-and-groups-and-built-in-accounts"></a>Well-Known utenti e gruppi e account predefiniti  
+Per impostazione predefinita, vengono creati diversi noto agli utenti e gruppi e account predefiniti in un nuovo dominio. È consigliabile che la gestione di questi account rimane sotto il controllo degli amministratori del servizio. Non delegare la gestione di questi account a un singolo utente che non sia un amministratore del servizio. La tabella seguente elenca i ben noti agli utenti e gruppi e agli account predefiniti devono essere mantenuti sotto il controllo degli amministratori del servizio.  
   
-|Utenti noti e gruppi|Account predefiniti|  
+|Well-Known utenti e gruppi|Account predefiniti|  
 |--------------------------------|----------------------|  
-|Cert Publishers<br /><br />Controller di dominio<br /><br />Proprietari autori criteri di gruppo<br /><br />KRBTGT<br /><br />Domain Guests<br /><br />Amministratore<br /><br />Domain Admins<br /><br />Schema Admins (solo dominio radice della foresta)<br /><br />Enterprise Admins (solo dominio radice della foresta)<br /><br />Utenti del dominio|Amministratore<br /><br />Guest<br /><br />Utenti guest<br /><br />Account Operators<br /><br />Amministratori<br /><br />Gruppo Backup Operators<br /><br />In ingresso Forest Trust Builders<br /><br />Operatori di stampa<br /><br />Accesso compatibile precedente a Windows 2000<br /><br />Server Operators<br /><br />Utenti|  
+|Cert Publishers<br /><br />Controller di dominio<br /><br />Proprietari autori criteri di gruppo<br /><br />KRBTGT<br /><br />Domain Guests<br /><br />Administrator<br /><br />Domain Admins<br /><br />Schema Admins (solo dominio radice della foresta)<br /><br />Enterprise Admins (solo dominio radice della foresta)<br /><br />Domain Users|Administrator<br /><br />Guest<br /><br />Guests<br /><br />Account Operators<br /><br />Administrators<br /><br />Backup Operators<br /><br />In ingresso Forest Trust Builders<br /><br />Print Operators<br /><br />Compatibile con l'accesso a Windows 2000<br /><br />Server Operators<br /><br />Utenti|  
   
 ## <a name="domain-controller-ou"></a>Unità Organizzativa Controller di dominio  
-Quando i controller di dominio vengono aggiunti al dominio, gli oggetti computer vengono aggiunti automaticamente all'unità Organizzativa Controller di dominio. Questa unità Organizzativa include un set predefinito di criteri applicati a essa. Per garantire che i criteri vengono applicati in modo uniforme a tutti i controller di dominio, è consigliabile non spostare gli oggetti computer del controller di dominio da questa unità Organizzativa. Impossibile applicare i criteri predefiniti può causare un controller di dominio funzionare correttamente.  
+Quando i controller di dominio vengono aggiunti al dominio, vengono aggiunti automaticamente i relativi oggetti computer nell'unità organizzativa Controller di dominio. Questa unità Organizzativa ha un set predefinito di criteri applicati a essa. Per garantire che questi criteri vengono applicati in modo uniforme a tutti i controller di dominio, è consigliabile non spostare gli oggetti computer del controller di dominio all'esterno di questa unità Organizzativa. Tentativo di applicare i criteri predefiniti può causare un controller di dominio a non funzionare correttamente.  
   
-Per impostazione predefinita, gli amministratori del servizio di controllano l'unità organizzativa specifica. Non delegare il controllo di questa unità Organizzativa a singoli utenti diversi di amministratori del servizio.  
+Per impostazione predefinita, gli amministratori del servizio di controllo in questa unità Organizzativa. Non delegare il controllo di questa unità Organizzativa a singoli utenti diversi da amministratori del servizio.  
   
 
 

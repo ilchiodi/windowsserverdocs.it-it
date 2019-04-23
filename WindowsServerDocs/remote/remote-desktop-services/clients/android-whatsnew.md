@@ -1,6 +1,6 @@
 ---
-title: Novità per Desktop remoto in Android?
-description: Informazioni sulle modifiche recenti al client Desktop remoto per Android
+title: Novità di Desktop remoto in Android?
+description: Informazioni sulle modifiche recenti per il client Desktop remoto per Android
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,41 +11,26 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/28/2019
+ms.date: 07/06/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 220aeddfd98ec99c018404f6c76a9e196c85cd37
-ms.sourcegitcommit: 49424aa8b4c1e43bba44fa899c13bf6516c18ee2
-ms.translationtype: MT
+ms.openlocfilehash: 0722ee739a9e2ed429018d3a311cceeeb4ec2d9b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "9272486"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827302"
 ---
-# Novità per i client Desktop remoto in Android?
+# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Che cosa sono le novità per il client Desktop remoto in Android?
 
-Aggiorniamo regolarmente il [client Desktop remoto per Android](remote-desktop-android.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti seguenti.
+Viene aggiornato regolarmente le [client Desktop remoto per Android](remote-desktop-android.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
 
-## Aggiornamenti per la versione 8.1.67
-*Data di pubblicazione: 03/28/2019*
+## <a name="updates-for-version-8161"></a>Aggiornamenti per la versione 8.1.61
+*Data di pubblicazione: 07/05/2018*
 
-- Risolto un problema in cui sono state ripetute pressioni dei tasti durante la digitazione in una sessione remota.
+- Aggiunta del supporto iniziale per Samsung DeX (Android 8.0 +).
 
-## Aggiornamenti per la versione 8.1.66
-*Data di pubblicazione: 03/19/2019*
+## <a name="updates-for-version-8160"></a>Aggiornamenti per la versione 8.1.60
+*Data di pubblicazione: 04/30/2018*
 
-- Aggiunta del supporto iniziale per [Windows Desktop virtuali](https://aka.ms/wvd).
-- È stato risolto un problema che ha causato un'area di nera essere visualizzato nella parte inferiore dello schermo in alcuni scenari di Qwest e dispositivi Chromebook.
-- Aggiunto il supporto modalità coinvolgente per Qwest Samsung, nascondere la barra delle applicazioni nella parte inferiore.
-- Aggiunta del supporto per l'invio di metadati e Alt dalla tastiera fisica alla sessione remota per Qwest Samsung.
-- Gli aggiornamenti ora del puntatore del mouse in base al contenuto della sessione remota (Android 7.0 e)
-- Correzioni di bug aggiuntive.
-
-## Aggiornamenti per la versione 8.1.61
-*Data di pubblicazione: 05/07/2018*
-
-- Aggiunta del supporto iniziale per Qwest Samsung (Android 8.0 +).
-
-## Aggiornamenti per la versione 8.1.60
-*Data di pubblicazione: 30/04/2018*
-
-- Aggiornamenti per soddisfare le correzioni di oracle crittografia CredSSP descritto in CVE-2018-0886.
-- Fissa un arresto anomalo del sistema quando l'avvio di connessioni effettuate da una versione precedente.
+- Aggiornamenti per risolvere descritto in CVE-2018-0886 monitoraggio e aggiornamento di crittografia oracle CredSSP.
+- Correzione di un arresto anomalo del sistema durante l'avvio di connessioni trasferito da una versione precedente.

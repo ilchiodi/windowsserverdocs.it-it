@@ -1,6 +1,6 @@
 ---
-title: Use DNS Policy for Intelligent DNS Responses Based on the Time of Day
-description: In questo argomento fa parte di DNS criteri Scenario Guide per Windows Server 2016
+title: Usare i criteri DNS per risposte DNS intelligenti basate sull'ora del giorno
+description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,68 +8,69 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 46821daff4a0046bf78d7f56dc7c5deabcc437e4
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 33fd9447a79346127714a5e5e73977611eba483c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829472"
 ---
-# <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Use DNS Policy for Intelligent DNS Responses Based on the Time of Day
+# <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Usare i criteri DNS per risposte DNS intelligenti basate sull'ora del giorno
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-You can use this topic to learn how to distribute application traffic across different geographically distributed instances of an application by using DNS policies that are based on the time of day.  
+È possibile utilizzare questo argomento per informazioni su come distribuire il traffico dell'applicazione tra diverse istanze distribuite geograficamente di un'applicazione utilizzando i criteri DNS che si basano sull'ora del giorno.  
   
-This scenario is useful in situations where you want to direct traffic in one time zone to alternate application servers, such as Web servers, that are located in another time zone. This allows you to load balance traffic across application instances during peak time periods when your primary servers are overloaded with traffic.   
+Questo scenario è utile nelle situazioni in cui si desidera indirizzare il traffico in un fuso orario per il server di applicazioni alternativo, ad esempio server Web, che si trovano in un altro fuso orario. Ciò consente di bilanciare il carico tra le istanze dell'applicazione durante il picco quando il server primario sono sottoposti a overload con traffico periodi di tempo.   
   
-### <a name="bkmk_example1"></a>Example of Intelligent DNS Responses Based on the Time of Day  
-Following is an example of how you can use DNS policy to balance application traffic based on the time of day.  
+### <a name="bkmk_example1"></a>Esempio delle risposte DNS intelligente basate sull'ora del giorno  
+Seguito è riportato un esempio di come è possibile utilizzare criteri DNS per bilanciare il traffico dell'applicazione in base all'ora del giorno.  
   
-This example uses one fictional company, Contoso Gift Services, which provides online gifting solutions across the globe through their Web site, contosogiftservices.com.   
+Questo esempio viene utilizzata una società fittizia, Contoso regalo servizi, che fornisce soluzioni gifting online in tutto il mondo tramite il sito Web, contosogiftservices.com.   
   
-The contosogiftservices.com Web site is hosted in two datacenters, one in Seattle (North America) and another in Dublin (Europe). The DNS servers are configured for sending geo-location aware responses using DNS policy. With a recent surge in business, contosogiftservices.com has a higher number of visitors every day, and some of the customers have reported service availability issues.  
+Il sito Web contosogiftservices.com è ospitato in due Data Center, uno in Seattle (America del Nord) e altro Dublino (Europa). I server DNS sono configurati per l'invio di risposte consapevoli utilizzando criteri DNS posizione geografica. Con un picco recenti nel settore, contosogiftservices.com ha un numero elevato di visitatori ogni giorno e alcuni utenti hanno segnalato problemi di disponibilità del servizio.  
   
-Contoso Gift Services performs a site analysis, and discovers that every evening between 6 PM and 9 PM local time, there is a surge in the traffic to the Web servers. The Web servers cannot scale to handle the increased traffic at these peak hours, resulting in denial of service to customers. The same peak hour traffic overload happens in both the European and American datacenters. At other times of day, the servers handle traffic volumes that are well below their maximum capability.  
+Servizi regalo Contoso esegue un'analisi del sito e consente di individuare ogni sera tra ora locale PM 6 e 9 PM, implica che è un picco di traffico ai server Web. I server Web non sono scalabile per gestire l'aumento del traffico le ore di picco, causando un attacco denial of service ai clienti. L'overload di traffico ora punta stesso si verifica in entrambi i data center dell'Europa e americano. In altri momenti della giornata, il server di gestire i volumi di traffico che sono ben di sotto la capacità massima.  
   
-To ensure that contosogiftservices.com customers get a responsive experience from the Web site, Contoso Gift Services wants to redirect some Dublin traffic to the Seattle application servers between 6 PM and 9 PM in Dublin; and they want to redirect some Seattle traffic to the Dublin application servers between 6 PM and 9 PM in Seattle.  
+Per garantire che i clienti contosogiftservices.com ottenere prestazioni ottimali dal sito Web, servizi regalo Contoso desidera reindirizzare il traffico alcuni Dublino ai server applicazioni Seattle tra PM 6 e 9 PM Dublino; e che si desidera reindirizzare il traffico alcuni Seattle ai server applicazioni Dublino tra PM 6 e 9 PM di Seattle.  
   
 Nella figura seguente viene illustrato questo scenario.  
   
-![Time of Day DNS Policy example](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
+![Tempo di esempio di criterio DNS giorno](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
   
-### <a name="bkmk_works1"></a>How Intelligent DNS Responses Based on Time of Day Works  
+### <a name="bkmk_works1"></a>Funzionamento delle risposte DNS basate sull'ora del giorno Works  
   
-When the DNS server is configured with time of day DNS policy, between 6 PM and 9 PM at each geographical location, the DNS server does the following.  
+Quando il server DNS è configurato con un tempo di criteri DNS giorno, tra PM 6 e 9 PM in ogni posizione geografica, il server DNS esegue le operazioni seguenti.  
   
-- Answers the first four queries it receives with the IP address of the Web server in the local datacenter.  
-- Answers the fifth query it receives with the IP address of the Web server in the remote datacenter.   
+- Le risposte le prime quattro query ricevute con l'indirizzo IP del server Web nel data center locale.  
+- Risposta alla query quinta che riceve con l'indirizzo IP del server Web nel centro dati remoto.   
   
-This policy-based behavior offloads twenty per cent of the local Web server's traffic load to the remote Web server, easing the strain on the local application server and improving site performance for customers.  
+Questo comportamento basata su criteri, gli offload venti per cento del carico del traffico del server Web locale al server Web remoto, semplificando al contempo il server applicazioni locale e migliorare le prestazioni del sito per i clienti.  
   
-During off-peak hours, the DNS servers perform normal geo-locations based traffic management. In addition, DNS clients that send queries from locations other than North America or Europe, the DNS server load balances the traffic across the Seattle and Dublin datacenters.  
+Durante gli orari, i server DNS di eseguono la gestione del traffico normale posizioni geografiche in base. Inoltre, i client DNS che inviano query da percorsi diversi da America del Nord o Europa, il carico del server DNS bilancia il traffico tra i Data Center a Seattle e New York.  
   
-When multiple DNS policies are configured in DNS, they are an ordered set of rules, and they are processed by DNS from highest priority to lowest priority. DNS uses the first policy that matches the circumstances, including time of day. For this reason, more specific policies should have higher priority. If you create time of day policies and give them high priority in the list of policies, DNS processes and uses these policies first if they match the parameters of the DNS client query and the criteria defined in the policy. If they don't match, DNS moves down the list of policies to process the default policies until it finds a match.  
+Quando sono configurati più criteri DNS in DNS, sono un set ordinato di regole e vengono elaborati da DNS dalla priorità più alta alla priorità più bassa. DNS viene utilizzato il primo criterio che corrisponde a circostanze, tra l'ora del giorno. Per questo motivo, i criteri più specifici devono avranno la priorità. Se si crea ora dei criteri di giorno e assegnando una priorità alta nell'elenco dei criteri, DNS elabora e utilizza questi criteri innanzitutto se corrispondano ai parametri di query client DNS e i criteri definiti nei criteri. Se non corrispondono, DNS si sposta verso il basso l'elenco dei criteri per elaborare i criteri predefiniti fino a quando non viene trovata una corrispondenza.  
   
-For more information about policy types and criteria, see [DNS Policies Overview](../../dns/deploy/DNS-Policies-Overview.md).  
+Per ulteriori informazioni sui tipi di criteri e i criteri, vedere [Cenni preliminari sui criteri DNS](../../dns/deploy/DNS-Policies-Overview.md).  
   
-### <a name="bkmk_how1"></a>How to Configure DNS Policy for Intelligent DNS Responses Based on Time of Day  
-To configure DNS policy for time of day application load balancing based query responses, you must perform the following steps.  
+### <a name="bkmk_how1"></a>Come configurare criteri DNS per risposte DNS intelligente basate sull'ora del giorno  
+Per configurare criteri DNS per le risposte di ora del giorno applicazione bilanciamento del carico basato su query, è necessario eseguire la procedura seguente.  
   
 - [Creare la subnet del Client DNS](#bkmk_subnets)  
 - [Creare gli ambiti di zona](#bkmk_zscopes)  
-- [Aggiungere record per gli ambiti di zona](#bkmk_records)  
+- [Aggiungere i record per gli ambiti di zona](#bkmk_records)  
 - [Creare i criteri DNS](#bkmk_policies)  
   
 >[!NOTE]
->È necessario eseguire questi passaggi nel server DNS autorevole per la zona in cui che si desidera configurare. Appartenenza al gruppo **DnsAdmins**, o equivalente, è necessario eseguire le procedure seguenti.  
+>È necessario eseguire questi passaggi nel server DNS autorevole per la zona in cui che si desidera configurare. L'appartenenza a **DnsAdmins**, o equivalente, è necessario per eseguire le procedure seguenti.  
   
-Le sezioni seguenti forniscono istruzioni dettagliate di configurazione.  
+Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.  
   
 >[!IMPORTANT]
->Le sezioni seguenti includono esempi di comandi Windows PowerShell che contengono i valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
+>Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
   
 #### <a name="bkmk_subnets"></a>Creare la subnet del Client DNS  
-Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP delle aree per cui si desidera reindirizzare il traffico. Ad esempio, se si desidera reindirizzare il traffico per Stati Uniti ed Europa, è necessario identificare la subnet o spazi degli indirizzi IP di queste aree.  
+Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP delle aree per cui si desidera reindirizzare il traffico. Ad esempio, se si desidera reindirizzare il traffico per Stati Uniti e in Europa, è necessario identificare la subnet o spazi di indirizzi IP di queste aree.  
   
 È possibile ottenere queste informazioni da mappe Geo-IP. In base a queste distribuzioni geografica IP, è necessario creare "DNS Client subnet". Una Subnet del Client DNS è un raggruppamento logico di subnet IPv4 o IPv6 da cui le query vengono inviate a un server DNS.  
   
@@ -84,14 +85,14 @@ Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.
 Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
 #### <a name="bkmk_zscopes"></a>Creare gli ambiti di zona  
-Dopo avere configurata la subnet del client, è necessario partizionare la zona il cui traffico che si desidera reindirizzare in due ambiti fuso diverso, un ambito per ogni subnet Client DNS che è stato configurato.  
+Dopo aver configurata la subnet del client, è necessario partizionare la zona il cui traffico che si desidera reindirizzare in due ambiti fuso diverso, un ambito per ogni subnet Client DNS configurato.  
   
-For example, if you want to redirect traffic for the DNS name www.contosogiftservices.com, you must create two different zone scopes in the contosogiftservices.com zone, one for the U.S. and one for Europe.  
+Ad esempio, se si desidera reindirizzare il traffico per www.contosogiftservices.com il nome DNS, è necessario creare due ambiti diversi zona in zona contosogiftservices.com, uno per gli Stati Uniti e uno per l'Europa.  
   
-Un ambito di zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con indirizzi IP diversi o gli stessi indirizzi IP.  
+Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con diversi indirizzi IP o gli stessi indirizzi IP.  
   
 >[!NOTE]
->Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. Questo ambito di zona con lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito.  
+>Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito.  
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare ambiti di zona.  
   
@@ -103,10 +104,10 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 ```  
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-#### <a name="bkmk_records"></a>Aggiungere record per gli ambiti di zona  
-Ora è necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.  
+#### <a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona  
+È ora necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.  
   
-For example, in **SeattleZoneScope**, the record **www.contosogiftservices.com** is added with IP address 192.0.0.1, which is located in a Seattle datacenter. Similarly, in **DublinZoneScope**, the record **www.contosogiftservices.com** is added with IP address 141.1.0.3 in the Dublin datacenter  
+Ad esempio, in **SeattleZoneScope**, il record **www.contosogiftservices.com** viene aggiunto con l'indirizzo IP 192.0.0.1, che si trova in un datacenter di Seattle. Analogamente, nel **DublinZoneScope**, il record **www.contosogiftservices.com** viene aggiunto con l'indirizzo IP 141.1.0.3 nel Data Center Dublino  
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per aggiungere record per gli ambiti di zona.  
   
@@ -116,26 +117,26 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "141.1.0.3" -ZoneScope "DublinZoneScope"  
   
 ```  
-The ZoneScope parameter is not included when you add a record in the default scope. Questo è uguale all'aggiunta di record per una zona DNS standard.  
+Il parametro ZoneScope non è incluso quando si aggiunge un record nell'ambito predefinito. Questo è uguale all'aggiunta di record per una zona DNS standard.  
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
 #### <a name="bkmk_policies"></a>Creare i criteri DNS  
-Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e partizioni, in modo che quando una query provenga da un'origine in una subnet client DNS, la risposta alla query viene restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping di ambito predefinito zona.  
+Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e le partizioni, in modo che quando una query provenga da un'origine in una delle subnet dei client DNS, la risposta alla query verrà restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping tra l'ambito di orario predefinito.  
   
-After you configure these DNS policies, the DNS server behavior is as follows:  
+Dopo aver configurato i criteri DNS, il comportamento del server DNS è il seguente:  
   
-1. European DNS clients receive the IP address of the Web server in the Dublin datacenter in their DNS query response.  
-2. American DNS clients receive the IP address of the Web server in the Seattle datacenter in their DNS query response.  
-3. Between 6 PM and 9 PM in Dublin, 20% of the queries from European clients receive the IP address of the Web server in the Seattle datacenter in their DNS query response.  
-4. Between 6 PM and 9 PM in Seattle, 20% of the queries from the American clients receive the IP address of the Web server in the Dublin datacenter in their DNS query response.  
-5. Half of the queries from the rest of the world receive the IP address of the Seattle datacenter and the other half receive the IP address of the Dublin datacenter.  
+1. I client DNS europee ricevono l'indirizzo IP del server Web nel Data Center Dublin nella risposta query DNS.  
+2. I client DNS American ricevono l'indirizzo IP del server Web nel datacenter di Seattle nella risposta query DNS.  
+3. Tra PM 6 e 9 PM Dublino, 20% delle query dai client europei ricevere l'indirizzo IP del server Web in Data Center di Seattle in loro risposta alla query DNS.  
+4. Tra PM 6 e 9 PM di Seattle, 20% delle query dai client American ricevere l'indirizzo IP del server Web nel Data Center Dublin nella risposta query DNS.  
+5. Metà delle query dal resto del mondo ricevere l'indirizzo IP del datacenter di Seattle e l'altra metà ricevere l'indirizzo IP del Data Center Dublin.  
   
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare un criterio DNS che collega la subnet del Client DNS e gli ambiti di zona.  
   
 >[!NOTE]
->In this example, the DNS server is in the GMT time zone, so the peak hour time periods must be expressed in the equivalent GMT time.  
+>In questo esempio, il server DNS sia nel fuso orario GMT, pertanto l'ora di punta periodi di tempo devono essere espressi in ora GMT equivalente.  
   
 ```  
 Add-DnsServerQueryResolutionPolicy -Name "America6To9Policy" -Action ALLOW -ClientSubnet "eq,AmericaSubnet" -ZoneScope "SeattleZoneScope,4;DublinZoneScope,1" -TimeOfDay "EQ,01:00-04:00" -ZoneName "contosogiftservices.com" -ProcessingOrder 1  
@@ -151,10 +152,10 @@ Add-DnsServerQueryResolutionPolicy -Name "RestOfWorldPolicy" -Action ALLOW --Zon
 ```  
 Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
   
-Now the DNS server is configured with the required DNS policies to redirect traffic based on geo-location and time of day.  
+Ora il server DNS è configurato con i criteri necessari DNS per reindirizzare il traffico in base a posizione geografica e ora del giorno.  
   
-Quando il server DNS riceve una query di risoluzione dei nomi, il server DNS valuta i campi nella richiesta DNS con i criteri DNS configurati. Se l'indirizzo IP di origine nella richiesta di risoluzione nome corrisponde a uno qualsiasi dei criteri, l'ambito delle zone associati verrà utilizzato per rispondere alla query e l'utente viene indirizzato alla risorsa che geograficamente più vicino.  
+Quando il server DNS riceve richieste di risoluzione dei nomi, il server DNS valuta i campi nella richiesta DNS con i criteri del DNS configurato. Se l'indirizzo IP di origine nella richiesta di risoluzione nome corrisponde a uno qualsiasi dei criteri, l'ambito delle zone associati verrà utilizzato per rispondere alla query e l'utente viene indirizzato alla risorsa che geograficamente più vicino.  
   
-È possibile creare migliaia di criteri DNS in base del traffico di gestione, e tutti i nuovi criteri vengono applicati in modo dinamico, senza il riavvio del server DNS, su query in ingresso.
+È possibile creare migliaia di criteri DNS in base del traffico di gestione e tutti i nuovi criteri vengono applicati in modo dinamico, senza il riavvio del server DNS, per le query in ingresso.
 
 

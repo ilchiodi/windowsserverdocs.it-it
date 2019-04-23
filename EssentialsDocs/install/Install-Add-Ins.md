@@ -1,5 +1,5 @@
 ---
-title: Installare Add-Ins
+title: Installare i componenti aggiuntivi
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,34 +13,35 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d00cb6886e812ee2b780ad79e1fba44442e279ad
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833072"
 ---
-# <a name="install-add-ins"></a>Installare Add-Ins
+# <a name="install-add-ins"></a>Installare i componenti aggiuntivi
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È possibile includere componenti aggiuntivi su tutti i server o computer client installandoli prima di creare un'immagine. Questi componenti aggiuntivi quindi verranno inclusi automaticamente in tutti i computer replicati utilizzando tale immagine. È possibile installare un componente aggiuntivo eseguendo il file. wssx oppure è possibile installare i singoli file componente aggiuntivo seguendo le indicazioni fornite nel [documentazione del SDK](https://go.microsoft.com/fwlink/?LinkID=248648)per ogni tipo di componente aggiuntivo. Se si installa utilizzando un file. wssx, il componente aggiuntivo può essere disinstallato tramite Gestione componenti aggiuntivi. Se si installano i singoli file, il componente aggiuntivo non è gestito da Gestione componenti aggiuntivi.  
+È possibile includere componenti aggiuntivi su tutti i computer server o client installandoli prima di creare un'immagine. Questi componenti verranno quindi inclusi automaticamente su tutti i computer replicati utilizzando tale immagine. È possibile installare un componente aggiuntivo eseguendo il file WSSX oppure si possono installare i singoli del componente aggiuntivo seguendo le istruzioni riportate nella [documentazione di SDK](https://go.microsoft.com/fwlink/?LinkID=248648)per ciascun tipo di componente aggiuntivo. Se l'installazione viene effettuata tramite il file wssx, il componente aggiuntivo può essere disinstallato utilizzando Gestione componenti aggiuntivi. Se l'installazione viene effettuata tramite file singoli, il componente aggiuntivo non potrà essere gestito da Gestione componenti aggiuntivi.  
   
 > [!NOTE]
->  Qualsiasi software installato o scaricato sul server (inclusi schede del Dashboard e le notifiche di integrità) deve avere un'interfaccia localizzata che corrisponde alla lingua del sistema operativo installato nel server.  
+>  È necessario che l'interfaccia localizzata di tutti i prodotti software installati o scaricati sul server (incluse le schede del dashboard e le notifiche di integrità) corrisponda alla lingua del sistema operativo installato sul server.  
   
 #### <a name="to-install-an-add-in"></a>Per installare un componente aggiuntivo  
   
-1.  (Facoltativo) Se si installa il componente aggiuntivo usando un file. wssx, completare i passaggi seguenti:  
+1.  (Facoltativo) Se il componente aggiuntivo viene installato utilizzando un file .wssx file, effettuare le operazioni seguenti:  
   
-    1.  Salvare il file. wssx < AddinName\ > nel computer di riferimento.  
+    1.  Salvare il < Nomecompaggiuntivo\>. wssx nel computer di riferimento.  
   
-    2.  Fare doppio clic sul file. wssx per aprire la procedura guidata installazione componente aggiuntivo.  
+    2.  Fare doppio clic sul file .wssx per aprire la procedura guidata di installazione del componente aggiuntivo.  
   
     3.  Seguire le istruzioni della procedura guidata per completare l'installazione.  
   
-2.  (Facoltativo) Installare i singoli file nelle posizioni appropriate, come definito nel SDK di ogni tipo di componente aggiuntivo.  
+2.  (Facoltativo) Installare i singoli file del componente aggiuntivo nelle posizioni appropriate, come specificato nell'SDK di ogni tipo di componente.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)

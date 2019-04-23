@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 8973302fc8a0c6bdb5b19f9296e711dcc6465589
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082307"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826802"
 ---
 # <a name="manage-nano-server"></a>Gestire Nano Server
 
@@ -34,13 +34,13 @@ Per usare uno strumento di gestione remota è probabile che sia necessario conos
   
 -   Collegare un cavo seriale al computer e usare EMS.  
   
--   Usando il nome computer assegnato a Nano Server durante la configurazione, è possibile ottenere l'indirizzo IP con il comando ping. Ad esempio, `ping NanoServer-PC /4`  
+-   Usando il nome computer assegnato a Nano Server durante la configurazione, è possibile ottenere l'indirizzo IP con il comando ping. Ad esempio `ping NanoServer-PC /4`.  
   
 ## <a name="using-windows-powershell-remoting"></a>Uso della comunicazione remota di Windows PowerShell  
 Per gestire Nano Server con la comunicazione remota di Windows PowerShell, è necessario aggiungere l'indirizzo IP di Nano Server all'elenco dei computer di gestione degli host attendibili, aggiungere l'account in uso agli amministratori di Nano Server e abilitare CredSSP, se si prevede di usare tale funzionalità.  
 
  >[!NOTE]  
-    > Se l'istanza di Nano Server di destinazione e il computer di gestione sono nella stessa foresta di Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere l'istanza di Nano Server all'elenco di host attendibili. È possibile connettersi a Nano Server usando il nome di dominio completo, ad esempio: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+    > Se la destinazione Nano Server e computer di gestione sono nella stessa foresta Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere Nano Server all'elenco di host attendibili, è possibile connettersi a Nano Server usando il nome di dominio completo Per esempio: PS C:\> Con Enter-PSSession - ComputerName nanoserver.contoso.com-Credential (Get-Credential)
   
   
 Per aggiungere Nano Server all'elenco di host attendibili, eseguire questo comando a un prompt di Windows PowerShell con privilegi elevati:  
@@ -91,13 +91,13 @@ Gestione remota Windows (WinRM) consente di eseguire programmi in Nano Server in
   
 **WinRM quickconfig**  
   
-**winrm set winrm/config/client @{TrustedHosts="&lt;ip address of Nano Server"}**  
+**winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server"}**  
   
 **chcp 65001**  
   
 È ora possibile eseguire comandi in Nano Server in modalità remota. Ad esempio:  
   
-**winrs -r: <Indirizzo IP di Nano Server> -u:Administrator -p: <Password amministratore di Nano Server> ipconfig**  
+**winrs-r\<indirizzo IP di Nano Server > - u: amministratore-p:\<password di amministratore di Nano Server > ipconfig**  
   
 Per altre informazioni su Gestione remota Windows, vedere [Panoramica di Gestione remota Windows (WinRM)](https://technet.microsoft.com/library/dn265971.aspx).  
    
@@ -122,26 +122,26 @@ Se si vuole installare un pacchetto di manutenzione, usare il parametro -Servici
   
 Un hotfix o un pacchetto di manutenzione viene spesso scaricato come elemento KB che include un file CAB. Seguire questa procedura per estrarre il file con estensione cab, che è possibile installare con il parametro -ServicingPackagePath:  
   
-1.  Scaricare il pacchetto di manutenzione dall'articolo della Knowledge Base associato o da [Microsoft Update Catalog](https://catalog.update.microsoft.com/v7/site/home.aspx). Salvarlo in una directory locale o in una condivisione di rete, ad esempio: C:\ServicingPackages  
+1.  Scaricare il pacchetto di manutenzione dall'articolo della Knowledge Base associato o da [Microsoft Update Catalog](https://catalog.update.microsoft.com/v7/site/home.aspx). Salvarlo in una condivisione di rete o di directory locale, ad esempio: C:\ServicingPackages  
 2.  Creare una cartella in cui verrà salvato il pacchetto di manutenzione estratto.  Esempio: c:\KB3157663_expanded  
-3.  Aprire una console di Windows PowerShell e usare il comando `Expand` specificando il percorso al file del pacchetto di manutenzione con estensione msu, inclusi il parametro `-f:*` e il percorso in cui si vuole estrarre il pacchetto di manutenzione.  Ad esempio:  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
+3.  Aprire una console di Windows PowerShell e usare il comando `Expand` specificando il percorso al file del pacchetto di manutenzione con estensione msu, inclusi il parametro `-f:*` e il percorso in cui si vuole estrarre il pacchetto di manutenzione.  Per esempio:  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
   
     I file espansi devono avere un aspetto simile al seguente:  
-C:gt;dir C:\\KB3157663_expanded   
-Il volume nell’unità C è OS  
-Numero di serie del volume: B05B-CC3D  
+C:>dir C:\KB3157663_expanded   
+Volume in drive C is OS  
+Volume Serial Number is B05B-CC3D  
    
       Directory di C:\KB3157663_expanded  
    
-      19/04/2016  13:17    \<DIR>          .  
-      19/04/2016  13:17    \<DIR>          .  
-        17/04/2016  00:31               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
-17/04/2016  12:30         93.886.347 Windows10.0-KB3157663-x64.cab  
-17/04/2016  12:31               454 Windows10.0-KB3157663-x64.xml  
-17/04/2016  12:36           185,818 WSUSSCAN.cab  
-               4 File     94.073.136 byte  
-               2 Directory  328.559.427.584 byte disponibili  
-4.  Eseguire `New-NanoServerImage` con il parametro -ServicingPackagePath che punta al file cab presente in questa directory, ad esempio: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+      04/19/2016  01:17 PM    \<DIR>          .  
+      04/19/2016  01:17 PM    \<DIR>          ..  
+        04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
+04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
+04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  
+04/17/2016  12:36 AM           185,818 WSUSSCAN.cab  
+               4 File(s)     94,073,136 bytes  
+               2 Dir(s)  328,559,427,584 bytes free  
+4.  Eseguire `New-NanoServerImage` con il parametro - ServicingPackagePath che punta al file con estensione cab in questa directory, ad esempio: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>Gestione degli aggiornamenti in Nano Server
 
@@ -210,7 +210,7 @@ Get-WindowsPackage--Online
 
 ### <a name="using-wsus"></a>Uso di WSUS  
 ---  
-I comandi sopra elencati eseguiranno una query sui servizi Windows Update e Microsoft Update in Internet per trovare e scaricare gli aggiornamenti. Usando WSUS, è possibile impostare chiavi del Registro di sistema in Nano Server in modo da usare invece il server WSUS.  
+I comandi sopra elencati eseguiranno una query sui servizi Windows Update e Microsoft Update in Internet per trovare e scaricare gli aggiornamenti. Se si usa WSUS, è possibile impostare le chiavi del Registro di sistema in Nano Server in modo da usare il proprio server WSUS.  
   
 Vedere la tabella delle "chiavi del Registro di sistema per le opzioni dell'Agente di Windows Update" nell'articolo sulla [configurazione di aggiornamenti automatici in un ambiente non Active Directory](https://technet.microsoft.com/library/cc708449(v=ws.10).aspx).  
   
@@ -240,7 +240,7 @@ Nelle sezioni seguenti vengono elencate le più comuni attività di raccolta dei
 wpr.exe -providers
 ```
 
-È possibile filtrare l'output in base al tipo di eventi di proprio interesse. Ad esempio:
+È possibile filtrare l'output in base al tipo di eventi di proprio interesse. Ad esempio: 
 ```
 PS C:\> wpr.exe -providers | select-string "Storage"
 
@@ -349,7 +349,7 @@ PS C:\> Remove-AutologgerConfig -Name BootPnpLog
 Per raccogliere tracce di avvio e di configurazione da più sistemi o da un sistema senza dischi, valutare l'opportunità di usare il [programma di installazione e la raccolta degli eventi di avvio](../administration/get-started-with-setup-and-boot-event-collection.md).
 
 ### <a name="capture-performance-counter-data"></a>Acquisire i dati dei contatori delle prestazioni
-In genere, i dati dei contatori delle prestazioni vengono monitorati con l'interfaccia grafica Perfmon.exe. In Nano Server usare l'equivalente da riga di comando ```Typeperf.exe```. Ad esempio:
+In genere, i dati dei contatori delle prestazioni vengono monitorati con l'interfaccia grafica Perfmon.exe. In Nano Server usare l'equivalente da riga di comando ```Typeperf.exe```. Ad esempio: 
 
 Eseguire query sui contatori disponibili: è possibile filtrare l'output per trovare più facilmente quelli di proprio interesse.
 ```

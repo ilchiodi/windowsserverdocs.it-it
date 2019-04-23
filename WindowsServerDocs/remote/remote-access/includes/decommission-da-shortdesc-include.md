@@ -1,0 +1,1 @@
+**Rimuovere le autorizzazioni del server DirectAccess.** Dopo aver rimosso correttamente le impostazioni di configurazione e i record DNS, si è pronti per chiudere il server DirectAccess. A tale scopo, rimuovere il ruolo in Server Manager o rimuovere il server e rimuoverlo dal dominio Active Directory.

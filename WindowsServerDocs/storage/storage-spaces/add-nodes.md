@@ -11,13 +11,13 @@ ms.date: 11/06/2017
 description: Come aggiungere server o unità a un cluster di spazi di archiviazione diretta
 ms.localizationpriority: medium
 ms.openlocfilehash: ae639b920788911dbc16952d7b61aab85b0a391b
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678600"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833452"
 ---
-# Aggiunta di server o unità a Spazi di archiviazione diretta
+# <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Aggiunta di server o unità a Spazi di archiviazione diretta
 
 >Si applica a: Windows Server 2019, Windows Server 2016
 
@@ -27,11 +27,11 @@ Questo argomento descrive come aggiungere server o unità a Spazi di archiviazio
 
 L'aggiunta di server (spesso chiamata anche scalabilità orizzontale) consente di aggiungere capacità di archiviazione, di migliorarne le prestazioni e di sbloccare una migliore efficienza di archiviazione. Se la distribuzione è iperconvergente, l'aggiunta di server rende disponibili altre risorse di calcolo per il carico di lavoro.
 
-![Animazione di aggiunta di un server a un cluster di quattro nodi](media/add-nodes/Scaling-Out.gif)
+![Animazione dell'aggiunta di un server a un cluster a quattro nodi](media/add-nodes/Scaling-Out.gif)
 
 Per le distribuzioni tipiche è facile eseguire la scalabilità orizzontale tramite l'aggiunta di server. La procedura include solo due passaggi:
 
-1. Eseguire la [procedura guidata per la convalida dei cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) utilizzando lo snap-in dei cluster di failover o con il cmdlet **Test-Cluster** in PowerShell (Esegui come amministratore). Includere il nuovo server *\<NewNode>* che si desidera aggiungere.
+1. Eseguire la [procedura guidata per la convalida dei cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) utilizzando lo Snap-in cluster di failover o con il cmdlet **Test-Cluster** in PowerShell (Esegui come amministratore). Includere il nuovo server *\<NewNode>* che si desidera aggiungere.
 
    ```PowerShell
    Test-Cluster -Node <Node>, <Node>, <Node>, <NewNode> -Include "Storage Spaces Direct", Inventory, Network, "System Configuration"
@@ -51,9 +51,9 @@ Add-ClusterNode -Name NewNode
    >[!NOTE]
    > Il pooling automatico dipende dalla presenza di un unico pool. Se si è aggirata la configurazione standard per creare più pool, è necessario aggiungere manualmente nuove unità per il pool preferito tramite **Add–PhysicalDisk**.
 
-### Da due a tre server: sblocco del mirroring a 3 vie
+### <a name="from-2-to-3-servers-unlocking-three-way-mirroring"></a>Da due a tre server: sblocco del mirroring a 3 vie
 
-![aggiunta di un terzo server a un cluster di due nodi](media/add-nodes/Scaling-2-to-3.png)
+![aggiunta di un terzo server a un cluster a due nodi](media/add-nodes/Scaling-2-to-3.png)
 
 Con due server è possibile creare solo volumi con mirroring a 2 vie (confrontare con RAID–1 distribuito). Con tre server è possibile creare volumi con mirroring a 3 vie per una migliore tolleranza di errore. È consigliabile usare il mirroring a 3 vie ogni volta che sia possibile.
 
@@ -61,7 +61,7 @@ Non è possibile eseguire l'aggiornamento sul posto dei volumi con mirroring a 2
 
 Per iniziare la creazione di volumi con mirroring a 3 vie sono disponibili diverse opzioni. È possibile utilizzare quella preferita. 
 
-#### Opzione 1
+#### <a name="option-1"></a>Opzione 1
 
 Specificare **PhysicalDiskRedundancy = 2** per ogni nuovo volume al momento della creazione.
 
@@ -69,7 +69,7 @@ Specificare **PhysicalDiskRedundancy = 2** per ogni nuovo volume al momento dell
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size> -PhysicalDiskRedundancy 2
 ```
 
-#### Opzione 2
+#### <a name="option-2"></a>Opzione 2
 
 Oppure, è possibile impostare **PhysicalDiskRedundancyDefault = 2** nell'oggetto **ResiliencySetting** denominato **Mirror** del pool. Quindi, tutti i nuovi volumi con mirroring utilizzeranno automaticamente il mirroring *a 3 vie* anche se non è specificato.
 
@@ -79,7 +79,7 @@ Get-StoragePool S2D* | Get-ResiliencySetting -Name Mirror | Set-ResiliencySettin
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size>
 ```
 
-#### Opzione 3
+#### <a name="option-3"></a>Opzione 3
 
 Impostare **PhysicalDiskRedundancy = 2** per il modello **StorageTier** denominato *Capacity* e quindi creare i volumi facendo riferimento al livello.
 
@@ -89,15 +89,15 @@ Set-StorageTier -FriendlyName Capacity -PhysicalDiskRedundancy 2
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Capacity -StorageTierSizes <Size>
 ```
 
-### Da tre a quattro server: sblocco della doppia parità
+### <a name="from-3-to-4-servers-unlocking-dual-parity"></a>Da tre a quattro server: sblocco della doppia parità
 
-![aggiungere un server quarto in un cluster di tre nodi](media/add-nodes/Scaling-3-to-4.png)
+![aggiunta di un quarto server a un cluster a tre nodi](media/add-nodes/Scaling-3-to-4.png)
 
 Con quattro server è possibile usare la doppia parità, detta anche codifica di cancellazione (confrontare con RAID–6 distribuito). Ciò consente la stessa tolleranza di errori del mirroring a 3 vie, ma con una migliore efficienza di archiviazione. Per ulteriori informazioni, vedere [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md).
 
 Se si passa a questa distribuzione da una distribuzione più ridotta, sono disponibili diverse opzioni per la creazione di volumi a doppia parità. È possibile utilizzare quella preferita.
 
-#### Opzione 1
+#### <a name="option-1"></a>Opzione 1
 
 Specificare **PhysicalDiskRedundancy = 2** e **ResiliencySettingName = Parity** per ogni nuovo volume al momento della creazione.
 
@@ -105,7 +105,7 @@ Specificare **PhysicalDiskRedundancy = 2** e **ResiliencySettingName = Parity** 
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size> -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity
 ```
 
-#### Opzione 2
+#### <a name="option-2"></a>Opzione 2
 
 Impostare **PhysicalDiskRedundancyDefault = 2** nell'oggetto **ResiliencySetting** denominato **Parity** del pool. Quindi, tutti i nuovi volumi con parità utilizzeranno automaticamente la parità *doppia* anche se non è specificata
 
@@ -119,7 +119,7 @@ Con quattro server è anche possibile iniziare con una parità accelerata con mi
 
 A tale scopo, sarà necessario aggiornare i modelli **StorageTier** per avere sia il livello *Performance* che il livello *Capacity*, come sarebbero stati creati se prima si fosse eseguito **Enable–ClusterS2D** su quattro server. In particolare, entrambi i livelli devono avere **MediaType** dei dispositivi di capacità (quali, ad esempio SSD o HDD) e **PhysicalDiskRedundancy = 2**. Il livello *Performance* deve corrispondere a **ResiliencySettingName = Mirror** e il livello *Capacity* deve corrispondere a **ResiliencySettingName = Parity**.
 
-#### Opzione 3
+#### <a name="option-3"></a>Opzione 3
 
 La cosa più semplice potrebbe essere rimuovere il modello del livello esistente e crearne due nuovi. Ciò non influirà su eventuali volumi preesistenti creati facendo riferimento al modello del livello: si tratta semplicemente di un modello.
 
@@ -130,15 +130,15 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-Ecco fatto! È ora possibile creare volumi con parità accelerata con mirror facendo riferimento a questi modelli di livello.
+La procedura è terminata. È ora possibile creare volumi con parità accelerata con mirror facendo riferimento a questi modelli di livello.
 
-#### Esempio
+#### <a name="example"></a>Esempio
 
 ```PowerShell
 New-Volume -FriendlyName "Sir-Mix-A-Lot" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes <Size, Size> 
 ```
 
-### Oltre quattro server: maggiore efficienza della parità
+### <a name="beyond-4-servers-greater-parity-efficiency"></a>Oltre quattro server: maggiore efficienza della parità
 
 Man mano che si esegue il ridimensionamento oltre i quattro server, i nuovi volumi possono avvalersi di un'efficienza di codifica della parità ancora maggiore. Ad esempio, tra sei e sette server l'efficienza migliora dal 50,0% al 66,7%, poiché è ora possibile usare Reed–Solomon 4+2, anziché 2+2. Non sono previsti passaggi da eseguire per usufruire di questa nuova efficienza. La codifica più efficiente viene determinata automaticamente ogni volta che si crea un volume.
 
@@ -146,7 +146,7 @@ Tuttavia, i volumi esistenti *non* vengono "convertiti" alla nuova codifica più
 
 Per ulteriori dettagli, vedere [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md).
 
-### Aggiunta di server con la tolleranza di errore chassis o rack
+### <a name="adding-servers-when-using-chassis-or-rack-fault-tolerance"></a>Aggiunta di server con la tolleranza di errore chassis o rack
 
 Se la distribuzione usa la tolleranza di errore chassis o rack, è necessario specificare lo chassis o il rack dei nuovi server prima di aggiungerli al cluster. Questo indica a Spazi di archiviazione diretta il modo più efficiente per distribuire i dati ottimizzando la tolleranza di errore.
 
@@ -162,7 +162,7 @@ Se la distribuzione usa la tolleranza di errore chassis o rack, è necessario sp
    Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName> 
    ```
 
-   Per ulteriori informazioni, vedere [Informazioni sulla presenza di un dominio di errore in Windows Server 2016](../../failover-clustering/fault-domains.md).
+   Per altre informazioni, vedere [Fault domain awareness in Windows Server 2016](../../failover-clustering/fault-domains.md) (Informazioni sulla presenza di un dominio di errore in Windows Server 2016).
 
 3. Aggiungere il server al cluster come descritto in [Aggiunta di server](#adding-servers). Quando si aggiunge il nuovo server al cluster, viene automaticamente associato, tramite il nome, al dominio di errore segnaposto.
 
@@ -173,7 +173,7 @@ L'aggiunta di unità, detta anche scalabilità verticale, consente di aggiungere
    >[!IMPORTANT]
    > È consigliabile configurare tutti i server con configurazioni di archiviazione identiche.
 
-![Unità di animazione che mostra l'aggiunta a un sistema](media/add-nodes/Scale-Up.gif)
+![Le unità che illustra l'aggiunta di animazione a un sistema](media/add-nodes/Scale-Up.gif)
 
 Per eseguire la scalabilità verticale, connettere le unità e verificare che Windows le individui. Queste unità dovrebbero essere visualizzate nell'output del cmdlet **Get-PhysicalDisk** in PowerShell con la proprietà **CanPool** impostata su **True**. Se vengono visualizzate con **CanPool = False**, è possibile capirne il motivo controllando la proprietà **CannotPoolReason**.
 
@@ -183,24 +183,24 @@ Get-PhysicalDisk | Select SerialNumber, CanPool, CannotPoolReason
 
 In breve tempo le unità idonee verranno automaticamente richieste da Spazi di archiviazione diretta e aggiunte al pool di archiviazione. I volumi verranno automaticamente [ridistribuiti in modo uniforme tra tutte le unità](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/). A questo punto, puoi [estendere i volumi](resize-volumes.md) o [crearne di nuovi](create-volumes.md).
 
-Se le unità non vengono visualizzate, esegui manualmente l'analisi per rilevare le modifiche hardware. Per eseguire questa operazione usare **Gestione dispositivi** nel menu **Azione**. Se le unità contengono dati o metadati obsoleti, considerare la possibilità di riformattarle. A tale scopo è possibile utilizzare **Gestione disco** o il cmdlet **Reset-PhysicalDisk**.
+Se le unità non vengono visualizzate, eseguire manualmente l'analisi per rilevare le modifiche hardware. Per eseguire questa operazione usare **Gestione dispositivi** nel menu **Azione**. Se le unità contengono dati o metadati obsoleti, considerare la possibilità di riformattarle. A tale scopo è possibile utilizzare **Gestione disco** o il cmdlet **Reset-PhysicalDisk**.
 
    >[!NOTE]
-   > Il pooling automatico dipende dalla presenza di un unico pool. Se hai aggirato la configurazione standard per creare più pool, dovrai aggiungere manualmente nuove unità per il pool preferito tramite **Add–PhysicalDisk**.
+   > Il pooling automatico dipende dalla presenza di un unico pool. Se si è aggirata la configurazione standard per creare più pool, è necessario aggiungere manualmente nuove unità per il pool preferito tramite **Add–PhysicalDisk**.
 
-## Ottimizzazione dell'utilizzo di unità dopo l'aggiunta di unità o server
+## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Ottimizzazione dell'utilizzo di unità dopo l'aggiunta di dischi o server
 
-Nel corso del tempo, come unità vengono aggiunti o rimossi, la distribuzione dei dati tra le unità nel pool di possa diventare non uniforme. In alcuni casi, ciò può comportare alcune unità riempimento mentre altre unità nel pool hanno molto più basso consumo.
+Nel corso del tempo, come le unità vengono aggiunte o rimosse, la distribuzione dei dati tra le unità nel pool può non essere uniforme. In alcuni casi, ciò può comportare alcune unità esaurisca mentre altre unità nel pool sono molto più basso consumo.
 
-Per mantenere anche attraverso il pool di allocazione di unità, spazi di archiviazione diretta di ottimizzare automaticamente all'uso di unità dopo l'aggiunta di unità o server al pool (questo è un processo manuale per i sistemi di spazi di archiviazione che usano alloggiamenti SAS condivisi). Ottimizzazione inizia 15 minuti dopo aver aggiunto una nuova unità al pool. Ottimizzazione del pool viene eseguito come un'operazione in background con priorità bassa, in modo che può richiedere ore o giorni per completare, in particolare se usi unità disco rigida di grandi dimensioni.
+Per mantenere l'allocazione di unità anche attraverso il pool, spazi di archiviazione diretta automaticamente l'ottimizzazione dell'utilizzo di unità dopo aver aggiunto le unità o i server nel pool (si tratta di un processo manuale per i sistemi di spazi di archiviazione che usano le enclosure SAS, Shared). Avvio dell'ottimizzazione 15 minuti dopo aver aggiunto una nuova unità al pool. Ottimizzazione del pool viene eseguito come un'operazione in background con priorità bassa, in modo che può richiedere ore o giorni per il completamento, in particolare se si usano dischi rigidi di grandi dimensioni.
 
-Ottimizzazione usa due processi - one denominata *Ottimizza* e uno denominata *ribilanciare* - ed è possibile monitorare lo stato di avanzamento con il comando seguente:
+Ottimizzazione usa due processi: uno denominato *Ottimizza* e uno chiamato *ribilanciare* - ed è possibile monitorare lo stato di avanzamento con il comando seguente:
 
 ```powershell
 Get-StorageJob
 ```
 
-Puoi manualmente ottimizzare un pool di archiviazione con il cmdlet [Optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Ecco un esempio:
+È possibile ottimizzare manualmente un pool di archiviazione con il [Optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) cmdlet. Di seguito è riportato un esempio:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

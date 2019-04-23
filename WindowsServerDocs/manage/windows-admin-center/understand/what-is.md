@@ -5,65 +5,64 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d374704768d06aaeb7ee6bc9c984cc78d49cb4b0
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.openlocfilehash: 76427cc6d86a3d61dcf2d66cdf47ded9ba9be848
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4080908"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829042"
 ---
-# Che cos'è Windows Admin Center?
+# <a name="what-is-windows-admin-center"></a>Che cos'è Windows Admin Center?
 
->Si applica a: Windows Admin Center, Anteprima di Windows Admin Center
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
 Windows Admin Center è un nuovo strumento di gestione basato su browser, distribuito localmente che ti consente di gestire i server Windows senza dipendenze cloud o Azure. Windows Admin Center ti offre il controllo completo su tutti gli aspetti dell'infrastruttura server ed è particolarmente utile per la gestione dei server su reti private non connesse a Internet.
 
-Windows Admin Center è l'evoluzione moderna degli strumenti di gestione "inclusi", ad esempio Server Manager e MMC. Può integrarlo System Center, non è una sostituzione.
+Windows Admin Center è l'evoluzione moderna degli strumenti di gestione "inclusi", ad esempio Server Manager e MMC. Si integra con System Center: non è una sostituzione.
 
 ![](../media/wac-complements.png)
 
-## Come funziona Windows Admin Center?
+## <a name="how-does-windows-admin-center-work"></a>Come funziona Windows Admin Center?
 
-Windows Admin Center viene eseguito in un Web browser e gestisce Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 e altro tramite il **gateway di Windows Admin Center** installato su Windows Server 2016 o Windows 10. Il gateway gestisce i server tramite la sessione remota di PowerShell e WMI su WinRM. Il gateway è incluso in Windows Admin Center in un unico pacchetto MSI leggero che è possibile [scaricare](https://aka.ms/windowsadmincenter).
+Windows Admin Center viene eseguito in un web browser e gestisce 2019 Server Windows, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 e così via, tramite il **gateway Windows Admin Center** installato in Windows Server o Windows 10. Il gateway gestisce i server tramite la sessione remota di PowerShell e WMI su WinRM. Il gateway è incluso in Windows Admin Center in un unico pacchetto MSI leggero che è possibile [scaricare](https://aka.ms/windowsadmincenter).
 
 Il gateway Windows Admin Center, quando viene pubblicato su DNS e ottiene l'accesso tramite i firewall aziendali corrispondenti, ti consente di connetterti e gestire i server in modo sicuro da qualsiasi luogo con Microsoft Edge o Google Chrome.
 
 ![](../media/architecture.png)
 
-## Scopri come Windows Admin Center può migliorare la gestione del tuo ambiente
+## <a name="learn-how-windows-admin-center-improves-your-management-environment"></a>Scopri come Windows Admin Center può migliorare la gestione del tuo ambiente
 
-### **Funzionalità familiare**
+### <a name="familiar-functionality"></a>**Funzionalità familiari**
 
 Windows Admin Center è l'evoluzione di piattaforme di gestione consolidate e di lunga data come Microsoft Management Console (MMC), concepite fin dall'inizio per il modo in cui i sistemi sono creati e gestiti oggi. Windows Admin Center contiene molti degli strumenti familiari attualmente in uso per gestire server e client Windows.
 
-### **Facilità di installazione e utilizzo**
+### <a name="easy-to-install-and-use"></a>**Facile da installare e usare**
 
 [Viene installato](../deploy/install.md) su un computer Windows 10 e la gestione inizia dopo pochi minuti oppure viene installato su un server Windows 2016 fungendo da gateway per consentire all'intera organizzazione di gestire i computer dal Web browser.
 
-### **Complementare alle soluzioni esistenti** 
+### <a name="complements-existing-solutions"></a>**Integra le soluzioni esistenti**
 
-Windows Admin Center funziona con soluzioni come System Center e Azure gestione e sicurezza, aggiungendo alle loro capacità di eseguire dettagliati, le attività di gestione solo computer.
+Windows Admin Center funziona con soluzioni quali gestione di System Center e Azure e la sicurezza, aggiungere le relative funzionalità per eseguire dettagliato, le attività di gestione singolo computer.
 
-### **Gestione da qualsiasi luogo**
+### <a name="manage-from-anywhere"></a>**Gestire ovunque**
 
 Pubblica il server gateway Windows Admin Center su una rete Internet pubblica, puoi connetterti e gestire i tuoi server da qualsiasi luogo, in maniera assolutamente sicura.
 
-### **Protezione avanzata per la piattaforma di gestione**
+### <a name="enhanced-security-for-your-management-platform"></a>**Sicurezza avanzata per la piattaforma di gestione**
 
 Windows Admin Center include molti miglioramenti che rendono la tua piattaforma di gestione [più sicura](../plan/user-access-options.md). Il controllo degli accessi basato sui ruoli ti consente di scegliere gli amministratori che hanno accesso alle varie funzioni di gestione. Le opzioni di autenticazione del gateway includono gruppi locali, Active Directory basata su dominio locale e Azure Active Directory basata su cloud.  Inoltre, [acquisisci i dettagli](../use/logging.md) delle azioni di gestione eseguite nell'ambiente in uso.
 
-### **Integrazione di Azure**
+### <a name="azure-integration"></a>**Integrazione di Azure**
 
-Windows Admin Center ha molti punti di [integrazione con servizi di Azure](../plan/azure-integration-options.md), inclusi Azure Active Directory, Azure Backup, Azure Site Recovery e altro ancora.
+Numero di punti di dispone di Windows Admin Center [integrazione con servizi di Azure](../plan/azure-integration-options.md), tra cui Azure Active Directory, Backup di Azure, Azure Site Recovery e altro ancora.
 
-### **Gestione dei cluster iper-convergenti**
+### <a name="manage-hyper-converged-clusters"></a>**Gestire i cluster iperconvergenti**
 
 Windows Admin Center offre la migliore esperienza per la [gestione dei cluster iper-convergenti](../use/manage-hyper-converged.md), inclusi componenti di calcolo, storage e networking virtualizzati.
 
-### **Estendibilità**
+### <a name="extensibility"></a>**Estendibilità**
 
 Windows Admin Center è stato progettato fin dall'inizio per l'estensibilità, con la possibilità per gli sviluppatori Microsoft e di terze parti di creare strumenti e soluzioni oltre le offerte correnti. Microsoft offre un [SDK](../extend/extensibility-overview.md) che consente agli sviluppatori di creare i propri strumenti per Windows Admin Center.
 

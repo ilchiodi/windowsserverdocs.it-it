@@ -1,39 +1,55 @@
 ---
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
-title: Non sono di errore di replica 1753 Nessun endpoint disponibile nel mapping degli endpoint
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Errore di replica 1753 Nessun endpoint disponibile nel mapping degli endpoint
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0e7412f5edc6c206888551fdc250883b5c0ced3e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: e429c87a2194ecfaf02c3d6c579eda75293250d4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827512"
 ---
-# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Non sono di errore di replica 1753 Nessun endpoint disponibile nel mapping degli endpoint
+# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Errore di replica 1753 Nessun endpoint disponibile nel mapping degli endpoint
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
-  <introduction>
-    <para>In questo argomento vengono illustrati i sintomi, cause e come risolvere Active Directory replica errore 8524 l'operazione DSA è in grado di procedere a causa di un errore di ricerca DNS.</para>
+<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
+    <para>In questo argomento vengono illustrati i sintomi, cause e come risolvere l'operazione di Active Directory replica errore 8524 DSA il è in grado di procedere a causa di un errore di ricerca DNS.</para>
     <list class="bullet">
-      <listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">Sintomi</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">causa</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">risoluzioni</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">informazioni</link></para></listItem>
+      <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">Sintomi</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">Cause</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">Soluzioni</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">Altre informazioni</link>
+        </para>
+      </listItem>
     </list>
   </introduction>
   <section address="BKMK_Symptoms">
     <title>Sintomi</title>
     <content>
-      <para>questo articolo descrive i sintomi, cause e i passaggi di risoluzione per operazioni di Active Directory non riuscite con errore Win32 1753: "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." </para>
+      <para>Questo articolo descrive i sintomi, cause e la risoluzione dei passaggi per le operazioni di Active Directory che non soddisfano 1753 s chybou Win32: "Non esistono Nessun endpoint disponibile nel mapping degli endpoint."</para>
       <list class="ordered">
         <listItem>
-          <para>Report DCDIAG che il test della connettività, i test di repliche di Active Directory o KnowsOfRoleHolders test non è riuscita con errore 1753: "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." </para>
+          <para>Report DCDIAG che il test della connettività, test di repliche di Active Directory o KnowsOfRoleHolders test non è riuscita con errore 1753: "Non esistono Nessun endpoint disponibile nel mapping degli endpoint."</para>
           <code>Testing server: &lt;site&gt;&lt;DC Name&gt;
 Starting test: Connectivity
 * Active Directory LDAP Services Check
@@ -69,7 +85,7 @@ of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
 </code>
         </listItem>
-<listItem><para>REPADMIN. Fornisce un report EXE che tentano di replica non è riuscito con stato 1753. </para><para>Comandi REPADMIN che in genere riportare lo stato 1753 includono ma non sono limitati a:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /replsum.</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>Il comando REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Esempio di output da "REPADMIN /SHOWREPS" che rappresenta la replica in ingresso da CONTOSO-DC2 per CONTOSO-DC1 ha generato l'errore con l'errore "accesso di replica è stato negato" è illustrata di seguito:</para><code>Default-First-Site-NameCONTOSO-DC1
+<listItem><para>REPADMIN. File EXE segnala che il tentativo di replica non è riuscita con stato 1753.</para><para>REPADMIN comandi che in genere riportare lo stato 1753 includono ma non sono limitati a:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM.</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Di seguito è riportato l'output di esempio da "REPADMIN /SHOWREPS" che descrivono la replica in ingresso da CONTOSO-DC2 per CONTOSO-DC1 che si verifichi l'errore "è stato negato l'accesso di replica":</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -83,117 +99,118 @@ There are no more endpoints available from the endpoint mapper.</codeFeaturedEle
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
 
-</code></listItem><listItem><para>il <ui>controllo topologia di replica</ui> comando in Active Directory Sites and Services restituisce "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." </para><para>Pulsante destro del mouse sull'oggetto connessione da un controller di dominio di origine e scegliendo <ui>controllo topologia di replica</ui> ha esito negativo con "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." Sullo schermo viene visualizzato il messaggio di errore seguente:</para><para>testo del titolo di finestra di dialogo: controllo topologia di replica</para><para>testo del messaggio finestra di dialogo: </para><para>si è verificato l'errore seguente durante il tentativo di contattare il controller di dominio: non esistono Nessun endpoint disponibile nel mapping degli endpoint. </para></listItem><listItem><para>Il <ui>Replicate now</ui> comando in Active Directory Sites and Services restituisce "non esistono Nessun endpoint disponibile nel mapping degli endpoint." </para><para>Pulsante destro del mouse sull'oggetto connessione da un controller di dominio di origine e scegliendo <ui>Replicate now</ui> ha esito negativo con "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." Sullo schermo viene visualizzato il messaggio di errore seguente:</para><para>testo del titolo di finestra di dialogo: Replicate Now</para><para>testo del messaggio finestra di dialogo: si è verificato l'errore seguente durante il tentativo di sincronizzare il contesto dei nomi &lt;nome partizione di directory di %&gt; dal Controller di dominio &lt;controller di dominio di origine&gt; a Controller di dominio &lt;controller di dominio di destinazione&gt;:</para><para>
+</code></listItem><listItem><para>Il <ui>topologia di replica controllare</ui> comando in Active Directory Sites and Services restituisce "Non esistono Nessun endpoint disponibile nel mapping degli endpoint."</para><para>Facendo clic sull'oggetto connessione da un controller di dominio di origine e scegliendo <ui>topologia di replica controllare</ui> ha esito negativo con "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." Sullo schermo viene visualizzato il messaggio di errore seguente:</para><para>Testo del titolo della finestra: Controllare la topologia di replica</para><para>Testo del messaggio finestra di dialogo: </para><para>Si è verificato l'errore seguente durante il tentativo di contattare il controller di dominio: Non esistono Nessun endpoint disponibile nel mapping degli endpoint.</para></listItem><listItem><para>Il <ui>Replicate now</ui> comando in Active Directory Sites and Services restituisce "non esistono Nessun endpoint disponibile nel mapping degli endpoint."</para><para>Facendo clic sull'oggetto connessione da un controller di dominio di origine e scegliendo <ui>Replicate now</ui> ha esito negativo con "Non esistono Nessun endpoint disponibile nel mapping degli endpoint." Sullo schermo viene visualizzato il messaggio di errore seguente:</para><para>Testo del titolo della finestra: Replicare ora</para><para>Testo del messaggio finestra di dialogo: Si è verificato l'errore seguente durante il tentativo di sincronizzare il contesto di denominazione &lt;% nome directory partition&gt; dal Controller di dominio &lt;controller di dominio di origine&gt; al Controller di dominio &lt;controller di dominio di destinazione&gt;:</para><para>
 
-Non esistono Nessun endpoint disponibile nel mapping degli endpoint. </para><para>L'operazione verrà interrotta</para></listItem><listItem><para>KCC NTDS, NTDS generale o Microsoft-Windows-ActiveDirectory DomainService con lo stato-2146893022 vengono registrati nel Registro di servizi di Directory nel Visualizzatore eventi. </para><para>Gli eventi di active Directory che in genere riportare lo stato-2146893022 includono ma non sono limitati a:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID evento</para></TD><TD><para>Origine evento</para></TD><TD><para>Stringa dell'evento</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS generale</para></TD><TD><para>Active Directory ha tentato di comunicare con il catalogo globale seguente e i tentativi hanno esito negativo.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Non è riuscito il tentativo di stabilire un collegamento di replica per la partizione di directory scrivibile.</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Non è riuscito per il controllo di coerenza informazioni (KCC) tenta di aggiungere un accordo di replica per le seguenti directory partizione e origine controller di dominio.</para></TD></tr></tbody></table></listItem>
+Non esistono Nessun endpoint disponibile nel mapping degli endpoint.</para><para>Non sarà possibile continuare l'operazione</para></listItem><listItem><para>Gli eventi di KCC NTDS, NTDS generale o Microsoft-Windows-ActiveDirectory DomainService con lo stato-2146893022 vengono registrati nel Registro di servizi di Directory nel Visualizzatore eventi.</para><para>Eventi Active Directory che in genere riportare lo stato-2146893022 includono ma non sono limitati a:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID evento</para></TD><TD><para>Origine evento</para></TD><TD><para>Stringa dell'evento</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS generale</para></TD><TD><para>Active Directory ha tentato di comunicare con il catalogo globale seguente e i tentativi hanno esito negativo.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Non è riuscito il tentativo di stabilire un collegamento di replica per la partizione di directory scrivibile.</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Un tentativo dal controllo di coerenza informazioni (KCC) per aggiungere un contratto di replica per le seguenti directory origine e partizione controller di dominio non riuscito.</para></TD></tr></tbody></table></listItem>
 </list>
     </content>
   </section>
   <section address="BKMK_Cause">
-    <title>Causa</title>
+    <title>Cause</title>
     <content>
-      <para>il diagramma seguente mostra il flusso di lavoro RPC a partire dalla registrazione dell'applicazione server con RPC Endpoint Mapper (EPM) nel passaggio 1 per la trasmissione dei dati dal client RPC per l'applicazione client nel passaggio 7. </para>
+      <para>Il diagramma seguente illustra il flusso di lavoro RPC inizia con la registrazione dell'applicazione server con RPC Endpoint Mapper (EPM) nel passaggio 1 per la trasmissione dei dati dal client RPC per l'applicazione client nel passaggio 7. </para>
       <para>&lt;ADDS_RPCWorkflow&gt;</para>
-      <para>passaggi da 1 a 7 mappa per le operazioni seguenti:</para>
+      <para>Passaggi da 1 a 7 mappa per le operazioni seguenti:</para>
       <list class="ordered">
         <listItem>
-          <para>Server app registra i propri endpoint con il mapping degli Endpoint RPC (EPM) </para>
+          <para>App server registra i propri endpoint con il RPC Endpoint Mapper (EPM) </para>
         </listItem>
         <listItem>
-          <para>Client effettua una chiamata RPC (per conto di un utente, del sistema operativo o applicazione avviata operazione) </para>
+          <para>Il client effettua una chiamata RPC (per conto di un utente, sistema operativo o applicazione iniziato l'operazione) </para>
         </listItem>
         <listItem>
-          <para>Client lato RPC contatti, computer di destinazione EPM e richiedere all'endpoint completare la chiamata di client </para>
+          <para>Sul lato client RPC contatta i computer di destinazione EPM e chiedere l'endpoint completare la chiamata del client </para>
         </listItem>
         <listItem>
-          <para>EPM del computer Server risponde con un endpoint </para>
+          <para>Risponde EPM del computer server con un endpoint </para>
         </listItem>
         <listItem>
-          <para>lato Client RPC contatta l'app server </para>
+          <para>Sul lato client RPC contatta l'app server </para>
         </listItem>
         <listItem>
-          <para>Server app verrà eseguita la chiamata, restituisce il risultato al client RPC </para>
+          <para>App server viene eseguita la chiamata, restituisce il risultato al client RPC </para>
         </listItem>
         <listItem>
-          <para>lato Client RPC passa il risultato all'App client</para>
+          <para>Sul lato client RPC passa il risultato all'App client</para>
         </listItem>
       </list>
-      <para>1753 errore viene generato un errore tra i passaggi #3 e 4 #. In particolare, errore 1753 significa che il client RPC (controller di dominio di destinazione) è stato in grado di contattare il Server RPC (controller di dominio di origine) sulla porta 135 ma il EPM sul Server RPC (controller di dominio di origine) non è riuscito a individuare l'applicazione RPC di interesse e ha restituito l'errore sul lato server 1753. La presenza dell'errore 1753 indica che il client RPC (controller di dominio di destinazione) ha ricevuto la risposta di errore sul lato server dal Server RPC (origine della replica controller di dominio di Active Directory) in rete. </para>
-      <para>Cause specifiche per l'errore 1753 includono: </para>
+      <para>Errore 1753 viene generato da un errore tra i passaggi da 3 # e #4. In particolare, errore 1753 significa che il client RPC (controller di dominio di destinazione) è stato in grado di contattare il Server RPC (controller di dominio di origine) sulla porta 135 ma EPM sul Server RPC (controller di dominio di origine) non è riuscito a individuare l'applicazione di RPC di interesse e ha restituito l'errore sul lato server 1753. La presenza dell'errore 1753 indica che il client RPC (controller di dominio di destinazione) ha ricevuto la risposta di errore sul lato server da Server RPC (origine replica controller di dominio di Active Directory) in rete. </para>
+      <para>Le cause radice specifico per l'errore 1753 includono: </para>
       <list class="ordered">
         <listItem>
-          <para>l'app server mai stato avviato (ad esempio, passaggio 1 nel diagramma "ulteriori informazioni" sopra è stata mai tentata). </para>
+          <para>L'app server mai avviata (vale a dire passaggio n. 1 nel diagramma "altre informazioni" che si trova sopra è stata mai tentata).</para>
         </listItem>
         <listItem>
-          <para>Avviato l'app server ma si è verificato un errore durante l'inizializzazione che ha impedito la registrazione con l'agente mapping Endpoint RPC (ad esempio, il passaggio #1 nel diagramma precedente "ulteriori informazioni" non riuscita). </para>
+          <para>Avvio dell'app server, ma si è verificato un errore durante l'inizializzazione che ne ha impedito la registrazione con l'agente mapping Endpoint RPC (vale a dire il passaggio #1 nel diagramma precedente "altre informazioni" non è riuscita).</para>
         </listItem>
         <listItem>
-          <para>L'app server avviato ma successivamente arresto. (ad esempio, il passaggio #1 nel diagramma precedente "ulteriori informazioni" è stata completata correttamente, ma è stata annullata in seguito perché il server di arresto). </para>
+          <para>L'app server avviata ma successivamente è stata interrotta. (ad esempio & passaggio 1 nel diagramma "altre informazioni" precedente è stata completata correttamente, ma è stata annullata in un secondo momento perché il server morte).</para>
         </listItem>
         <listItem>
-          <para>L'app server annullata la registrazione manualmente gli endpoint (simili a 3 ma intenzionale. Ma probabilmente non inclusa per completezza.) </para>
+          <para>L'app server annullata manualmente gli endpoint (simili a 3 ma intenzionale. Ma probabilmente non incluso per motivi di completezza.)</para>
         </listItem>
         <listItem>
-          <para>Client RPC (controller di dominio di destinazione) contattare un server RPC diverso da quello desiderato a causa di un nome all'errore di mapping IP in DNS, WINS o host/Lmhosts file. </para>
+          <para>Il client RPC (controller di dominio di destinazione) contattare un server RPC diverso da quello previsto a causa di un nome all'errore di mapping IP nel DNS, WINS o file Lmhosts/host.</para>
         </listItem>
       </list>
-      <para>1753 errore non è causato da: </para>
+      <para>Errore 1753 non è causato da: </para>
       <list class="bullet">
         <listItem>
-          <para>una mancanza di connettività di rete tra il client RPC (controller di dominio di destinazione) e il Server RPC (controller di dominio di origine) sulla porta 135</para>
+          <para>Una mancanza di connettività di rete tra il client RPC (controller di dominio di destinazione) e il Server RPC (controller di dominio di origine) sulla porta 135</para>
         </listItem>
         <listItem>
-          <para>una mancanza di connettività di rete tra il server RPC (controller di dominio di origine) tramite la porta 135 e il client RPC (controller di dominio di destinazione) sulla porta temporanea. </para>
+          <para>Una mancanza di connettività di rete tra il server RPC (controller di dominio di origine) usando la porta 135 e il client RPC (controller di dominio di destinazione) tramite le porte temporanee. </para>
         </listItem>
         <listItem>
-          <para>Una mancata corrispondenza di password o l'impossibilità per il controller di dominio di origine per decrittografare un pacchetto crittografato Kerberos</para>
+          <para>Mancata corrispondenza di una password o l'impossibilità per il controller di dominio di origine per decrittografare un pacchetto crittografato Kerberos </para>
         </listItem>
       </list>
-      <para></para>
+      <para> </para>
     </content>
   </section>
   <section address="BKMK_Resolutions">
-    <title>Risoluzioni</title>
+    <title>Soluzioni</title>
     <content>
       <list class="ordered">
         <listItem>
           <para>
-            <embeddedLabel>verificare che il servizio registrazione il servizio con il mapping degli endpoint è stato avviato</embeddedLabel>
+            <embeddedLabel>Verificare che il servizio registrazione il servizio con l'endpoint mapper sia stato avviato</embeddedLabel>
           </para>
-          <para>per Windows 2000 e i controller di dominio di Windows Server 2003: assicurarsi che il controller di dominio di origine è stato avviato in modalità normale. </para>
-          <para>Per Windows Server 2008 o Windows Server 2008 R2: dalla console del controller di dominio di origine, avviare servizi Manager (services.msc) e verificare che il <embeddedLabel>servizi di dominio Active Directory</embeddedLabel> servizio è in esecuzione. </para>
+          <para>Per Windows 2000 e i controller di dominio di Windows Server 2003: assicurarsi che il controller di dominio di origine è stato avviato in modalità normale. </para>
+          <para>
+Per Windows Server 2008 o Windows Server 2008 R2: dalla console di controller di dominio di origine, avviare Gestione servizi (Services. msc) e verificare che il <embeddedLabel>Active Directory Domain Services</embeddedLabel> servizio è in esecuzione. </para>
         </listItem>
         <listItem>
           <para>
-            <embeddedLabel>Verificare tale client (controller di dominio di destinazione) connesso al server RPC (controller di dominio di origine)</embeddedLabel>
+            <embeddedLabel>Verificare che per client RPC (controller di dominio di destinazione) connessi al server RPC (controller di dominio di origine)</embeddedLabel>
           </para>
-          <para>tutti i controller di dominio in un registro comune di insieme di strutture Active Directory un controller di dominio CNAME record nella zona msdcs. &lt;dominio radice della foresta&gt; zona DNS indipendentemente dal dominio cui si trovano all'interno della foresta. Il record CNAME di controller di dominio è derivato dal <embeddedLabel>objectGUID</embeddedLabel> attributo dell'oggetto impostazioni NTDS per ogni controller di dominio. </para>
-          <para>Durante le operazioni basate su replica, un controller di dominio di destinazione esegue una query DNS per il record CNAME i controller di dominio di origine. Il record CNAME contiene il nome del computer completo controller di dominio di origine che viene usato per derivare l'indirizzo IP di controller di dominio di origine tramite la ricerca nella cache client DNS, ospitare / LMHost file ricerca, l'host A o AAAA record in DNS o WINS. </para>
-          <para>Oggetti Impostazioni NTDS non aggiornati e i mapping nome non valido - to-IP nei file di DNS, WINS, Host e LMHOST possono causare il client RPC (controller di dominio di destinazione) per connettersi a un Server RPC non valido (controller di dominio di origine). Inoltre, il mapping nome non valido - to-IP può provocare il client RPC (controller di dominio di destinazione) per connettersi a un computer che non dispone anche l'applicazione Server RPC di interesse (il ruolo di Active Directory in questo caso) installato. (Esempio: un record host non aggiornati per DC2 contiene l'indirizzo IP di un computer membro o DC3). </para>
-          <para>Verifica objectGUID per il controller di dominio esistente nella destinazione di copia di controller di dominio di Active Directory di origine corrispondente l'objectGUID controller di dominio di origine archiviata nell'origine copia i controller di dominio di Active Directory. Se è presente una discrepanza, utilizzare repadmin /showobjmeta sull'oggetto impostazioni ntds per vedere quale corrisponde all'ultima innalzamento di livello del controller di dominio di origine (Suggerimento: confrontare gli indicatori di data per l'oggetto impostazioni NTDS creare data da /showobjmeta contro l'ultima data di innalzamento di livello nel file dcpromo.log controller di dominio di origine. Potrebbe essere necessario usare l'ultima modifica / creare data la DCPROMO.LOG stesso). Se l'oggetto GUID non è identico, la destinazione di controller di dominio che dispone di un oggetto impostazioni NTDS non aggiornato per il controller di dominio di origine cui record CNAME fa riferimento a un record host con un nome per il mapping di IP non valido. </para>
-          <para>Nel controller di dominio di destinazione, eseguire IPCONFIG//ALL per determinare quale server DNS utilizza il controller di dominio di destinazione per la risoluzione dei nomi:</para>
+          <para>Tutti i controller di dominio in una foresta di Active Directory comune registrare un controller di dominio record CNAME nella zona msdcs. &lt;dominio radice della foresta&gt; zona DNS indipendentemente dal dominio cui si trovano all'interno della foresta. Il record CNAME di controller di dominio è derivato dal <embeddedLabel>objectGUID</embeddedLabel> attributo dell'oggetto impostazioni NTDS per ogni controller di dominio. </para>
+          <para>Quando si eseguono operazioni basate su replica, un controller di dominio di destinazione esegue una query DNS per il record CNAME i controller di dominio di origine. Il record CNAME contiene il nome completo del computer del controller di dominio utilizzato per derivare l'indirizzo IP di controller di dominio di origine tramite la ricerca nella cache client DNS, ospitare / LMHost file ricerca, A host / record AAAA in DNS o WINS. </para>
+          <para>Non aggiornati gli oggetti Impostazioni NTDS e mapping nome-per-IP non valido nei file di DNS, WINS, Host e LMHOST può causare il client RPC (controller di dominio di destinazione) per connettersi a un Server RPC non valido (controller di dominio di origine). Inoltre, il mapping nome-per-IP non valido potrebbe essere il client RPC (controller di dominio di destinazione) per connettersi a un computer che non dispone inoltre dell'applicazione Server RPC di interesse (il ruolo di Active Directory in questo caso) installato. (Esempio: un record host non aggiornato per DC2 contiene l'indirizzo IP del DC3 o in un computer membro). </para>
+          <para>Verificare che l'attributo objectGUID per il controller di dominio di origine che esiste nella destinazione copia i controller di dominio di Active Directory corrisponda l'objectGUID di controller di dominio di origine archiviato nell'origine copia i controller di dominio di Active Directory. Se è presente una discrepanza, utilizzare repadmin. exe /showobjmeta sull'oggetto impostazioni ntds per visualizzare quello che corrisponde all'ultimo promozione del controller di dominio di origine (hint: confrontare i timbri data per l'oggetto impostazioni NTDS data di creazione da. exe /showobjmeta contro l'ultima data di innalzamento di livello di file di log Dcpromo. log i controller di dominio di origine. Potrebbe essere necessario usare l'ultima modifica / creazione data di DCPROMO. File di registro stesso). Se l'oggetto GUID non è identico, la destinazione controller di dominio che include un oggetto impostazioni NTDS non aggiornato per il controller di dominio di origine cui il record CNAME si riferisce a un record host con un nome non valido per il mapping IP. </para>
+          <para>Nel controller di dominio di destinazione, eseguire IPCONFIG/ALL per determinare i server DNS che il controller di dominio utilizza per la risoluzione dei nomi di destinazione:</para>
           <code>c:&gt;ipconfig /all</code>
-          <para>sul controller di dominio di destinazione, eseguire il record CNAME di controller di dominio completo di controller di dominio di origine NSLOOKUP:</para>
+          <para>Sul controller di dominio di destinazione, eseguire NSLOOKUP il record CNAME di controller di dominio completo di controller di dominio di origine:</para>
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
-          <para>verificare che l'indirizzo IP restituito da NSLOOKUP "proprietario" il nome host / identità di sicurezza del controller di dominio di origine:</para>
+          <para>Verificare che l'indirizzo IP restituito dal NSLOOKUP "proprietario" del nome host / identità di sicurezza del controller di dominio di origine:</para>
 
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
-          <para>o</para>
-          <para>registro la console del dominio di origine., eseguire "IPCONFIG" dal prompt di CMD e verificare che il controller di dominio di origine appartiene l'indirizzo IP restituito dal comando NSLOOKUP sopra</para>
-          <para>cercare host aggiornato o duplicate per il mapping IP in DNS</para>
+          <para>oppure</para>
+          <para>Accedere alla console di controller di dominio di origine, eseguire "IPCONFIG" dal prompt dei comandi e verificare che il controller di dominio di origine sia proprietaria di indirizzo IP restituito dal comando NSLOOKUP precedente</para>
+          <para>Controllo per i mapping IP nel DNS dell'host non aggiornati / duplicati</para>
           <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;secondary DNS Server IP on destination DC&gt;
 
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;secondary DNS Server IP on dest. DC&gt;</code>
-<para>se gli indirizzi IP non validi è presente nel record di host, verificare se lo scavenging DNS è abilitato e configurato correttamente. </para><para>Se i test precedenti o una traccia di rete non mostra una query di nome che restituisca un indirizzo IP non valido, prendere in considerazione delle voci obsolete nel file HOST, i file LMHOSTS e i server WINS. Si noti che i server DNS può anche essere configurati per eseguire la risoluzione dei nomi di fallback di WINS. </para>
+<para>In presenza di indirizzi IP non validi nei record di host, provare a utilizzare se lo scavenging DNS è abilitato e configurato correttamente. </para><para>Se i test in precedenza o una traccia di rete non è presente una query di nome che restituisca un indirizzo IP non valido, prendere in considerazione le voci non aggiornate nel file HOST, i file LMHOSTS e server WINS. Si noti che i server DNS può anche essere configurati per eseguire la risoluzione dei nomi fallback di WINS.</para>
 </listItem>
         <listItem>
           <para>
-            <embeddedLabel>Verificare che l'applicazione server (Active Directory e al) è stato registrato con il mapping degli endpoint sul server RPC (controller di dominio di origine)</embeddedLabel>
+            <embeddedLabel>Verificare che l'applicazione server (Active Directory et al) sia registrato con il mapping degli endpoint nel server RPC (controller di dominio di origine)</embeddedLabel>
           </para>
-          <para>Active Directory utilizza una combinazione di porte registrate in modo dinamico e ben note. Questa tabella elenca note porte e protocolli utilizzati dai controller di dominio Active Directory.</para>
+          <para>Active Directory viene usata una combinazione di porte note e registrate in modo dinamico. Questa tabella elenca i ben note porte e protocolli usati dai controller di dominio Active Directory.</para>
           <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
             <thead>
               <tr>
@@ -201,7 +218,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>Applicazione Server RPC</para>
                 </TD>
                 <TD>
-                  <para>Porta</para>
+                  <para>Port</para>
                 </TD>
                 <TD>
                   <para>TCP</para>
@@ -220,10 +237,10 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>53</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
               </tr>
               <tr>
@@ -234,10 +251,10 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>88</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
               </tr>
               <tr>
@@ -248,24 +265,24 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>389</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
               </tr>
               <tr>
                 <TD>
-                  <para>Directory di Microsoft</para>
+                  <para>Microsoft-DS</para>
                 </TD>
                 <TD>
                   <para>445</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
               </tr>
               <tr>
@@ -276,10 +293,10 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>636</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
               </tr>
               <tr>
@@ -290,7 +307,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>3268</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
                   <para />
@@ -304,7 +321,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
                   <para>3269</para>
                 </TD>
                 <TD>
-                  <para>X</para>
+                  <para>x</para>
                 </TD>
                 <TD>
                   <para />
@@ -312,12 +329,12 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
             </tbody>
           </table>
-          <para>Well-known ports are NOT registered with the endpoint mapper. </para>
-          <para>Active Directory and other applications also register services that receive dynamically assigned ports in the RPC ephemeral port range. Such RPC server applications are dynamically assigned TCP ports between 1024 and 5000 on Windows 2000 and Windows Server 2003 computers and ports between 49152 and 65535 range on Windows Server 2008 and Windows Server 2008 R2 computers. The RPC port used by replication can be hard-coded in the registry using the steps documented in <externalLink><linkText>KB article 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>. Active Directory continues to register with the EPM when configured to use a hard coded port. </para>
-          <para>Verify that the RPC Server application of interest has registered itself with the RPC endpoint mapper on the RPC Server (the source DC in the case of AD replication). </para>
-          <para>There are a number of ways to accomplish this task but one is to install and run PORTQRY from an admin privileged CMD prompt on the console of the source DC using the syntax: </para>
+          <para>Le porte non sono registrate con il mapper di endpoint. </para>
+          <para>Active Directory e altre applicazioni registrare anche i servizi assegnate dinamicamente le porte di ricevano nell'intervallo di porte temporanee di RPC. Tali applicazioni server RPC vengono assegnate dinamicamente le porte TCP compreso tra 1024 e 5000 nei computer Windows 2000 e Windows Server 2003 e le porte tra 49152 e 65535 intervallo nei computer Windows Server 2008 e Windows Server 2008 R2. La porta RPC utilizzata dalla replica può essere impostate come hardcoded nel Registro di sistema usando i passaggi illustrati nella <externalLink> <linkText>articolo della Knowledge Base 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>. Active Directory continua a registrare con Gestione endpoint quando configurato per usare una porta hardcoded. </para>
+          <para>Verificare che l'applicazione Server RPC di interesse è stato registrato con l'agente mapping endpoint RPC sul Server RPC (il controller di dominio origine nel caso di replica di Active Directory). </para>
+          <para>Esistono diversi modi per eseguire questa operazione, ma una è per installare ed eseguire PORTQRY da un prompt dei comandi con privilegiata di amministratore nella console dell'origine di controller di dominio usando la sintassi: </para>
           <code>c:\&gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
-          <para>In the portqry output, note the port numbers dynamically registered by the "MS NT Directory DRS Interface" (UUID = 351...) for the <embeddedLabel>ncacn_ip_tcp protocol</embeddedLabel>. The snippet below shows sample portquery output from a Windows Server 2008 R2 DC and the UUID / protocol pair specifically used by Active Directory highlighted in <embeddedLabel>bold</embeddedLabel>: </para>
+          <para>Nell'output di portqry, tenere presente i numeri di porta registrati dinamicamente dal "MS NT Directory DRS interfaccia" (UUID = 351...) per il <embeddedLabel>ncacn_ip_tcp protocollo</embeddedLabel>. Il frammento di codice seguente Mostra output di esempio portquery da Windows Server 2008 R2 controller di dominio e l'UUID / coppia di protocollo usato in particolare da Active Directory evidenziato nel <embeddedLabel>grassetto</embeddedLabel>: </para>
           <code>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\pipe\lsass] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
@@ -331,17 +348,17 @@ ncacn_http:CONTOSO-DC01[6004]</code>
           <para />
         </listItem>
         <listItem>
-          <para>Other possible ways to resolve this error:</para>
+          <para>Altri modi possibili per risolvere questo errore:</para>
           <list class="ordered">
             <listItem>
-              <para>Verify that the source DC is booted in normal mode and that the OS and DC role on the source DC have fully started.</para>
+              <para>Verificare che il controller di dominio di origine viene avviato in modalità normale e che il ruolo del sistema operativo e controller di dominio nel controller di dominio di origine siano stati avviati completamente.</para>
             </listItem>
             <listItem>
-              <para>Verify that the Active Directory Domain Service is running. If the service is currently stopped or was not configured with default startup values, reset the default startup values, reboot the modified DC then retry the operation.</para>
+              <para>Verificare che il servizio di dominio Active Directory sia in esecuzione. Se il servizio è inattivo o non è stato configurato con i valori di avvio predefiniti, reimpostare i valori di avvio predefinite, riavviare il controller di dominio modificato, quindi ripetere l'operazione.</para>
             </listItem>
             <listItem>
-              <para>Verify that the startup value and service status for RPC service and RPC Locator is correct for OS version of the RPC Client (destination DC) and RPC Server (source DC). If the service is currently stopped or was not configured with default startup values, reset the default startup values, reboot the modified DC then retry the operation.</para>
-              <para>In addition, ensure that the service context matches default settings listed in the following table.</para>
+              <para>Verificare che lo stato di valore e il servizio di avvio per il servizio RPC e RPC Locator sia corretto per la versione del sistema operativo del Client RPC (controller di dominio di destinazione) e Server RPC (controller di dominio di origine). Se il servizio è inattivo o non è stato configurato con i valori di avvio predefiniti, reimpostare i valori di avvio predefinite, riavviare il controller di dominio modificato, quindi ripetere l'operazione.</para>
+              <para>Inoltre, assicurarsi che il contesto del servizio corrisponde a impostazioni predefinite elencate nella tabella seguente.</para>
               <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
                 <thead>
                   <tr>
@@ -362,39 +379,39 @@ ncacn_http:CONTOSO-DC01[6004]</code>
                       <para>Chiamata di procedura remota</para>
                     </TD>
                     <TD>
-                      <para>Avvio (automatico)</para>
+                      <para>Avviato (automatica)</para>
                     </TD>
                     <TD>
-                      <para>Avvio (automatico)</para>
+                      <para>Avviato (automatica)</para>
                     </TD>
                   </tr>
                   <tr>
                     <TD>
-                      <para>Localizzatore chiamata di procedura remota</para>
+                      <para>Localizzatore di chiamata di procedura remota</para>
                     </TD>
                     <TD>
-                      <para>Null o arrestato (manuale)</para>
+                      <para>Null o l'arresto (manuale)</para>
                     </TD>
                     <TD>
-                      <para>Avvio (automatico)</para>
+                      <para>Avviato (automatica)</para>
                     </TD>
                   </tr>
                 </tbody>
               </table>
             </listItem>
             <listItem>
-              <para>Verify that the size of the dynamic port range has not been constrained. The Windows Server 2008 and Windows Server 2008 R2 NETSH syntax to enumerate the RPC port range is shown below:</para>
+              <para>Verificare che le dimensioni dell'intervallo di porte dinamiche non sono stata vincolata. La sintassi di Windows Server 2008 e Windows Server 2008 R2 NETSH per enumerare l'intervallo di porte RPC è illustrata di seguito:</para>
               <code>&gt;netsh int ipv4 show dynamicport tcp
 &gt;netsh int ipv4 show dynamicport udp
 &gt;netsh int ipv6 show dynamicport tcp
 &gt;netsh int ipv6 show dynamicport udp</code>
             </listItem>
             <listItem>
-              <para>Verify that hard coded port definitions defined in KB 224196 fall within the dynamic port range for source DCs OS version.</para>
-              <para>Review <externalLink><linkText>KB article 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink> and ensure that the hard coded port falls within the ephemeral port range for the source DC's operating system version.</para>
+              <para>Verificare che le definizioni di porta hardcoded definite nella Knowledge Base 224196 rientrano nell'intervallo di porte dinamiche per la versione del sistema operativo i controller di dominio di origine.</para>
+              <para>Revisione <externalLink> <linkText>articolo della Knowledge Base 224196</linkText> <linkUri> https://support.microsoft.com/kb/224196 </linkUri> </externalLink> e assicurarsi che la porta hardcoded rientra nell'intervallo porte temporaneo per la versione del sistema operativo del controller di dominio di origine.</para>
             </listItem>
             <listItem>
-              <para>Verify that the ClientProtocols key exists under HKLM\Software\Microsoft\Rpc and contains the following 5 default values:</para>
+              <para>Verificare che la chiave di protocolli client in HKLM\Software\Microsoft\Rpc esiste e contiene i valori 5 predefiniti seguente:</para>
               <code>ncacn_http REG_SZ rpcrt4.dll
 ncacn_ip_tcp REG_SZ rpcrt4.dll
 <codeFeaturedElement>ncacn_nb_tcp REG_SZ rpcrt4.dll</codeFeaturedElement>
@@ -410,9 +427,9 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
     <title>Altre informazioni</title>
     <content>
       <para>
-        <embeddedLabel>esempio di un nome non valido per IP mapping che causano errore RPC 1753 e -2146893022: il nome dell'entità di destinazione è errato</embeddedLabel>
+        <embeddedLabel>Esempio di un nome non valido per IP mapping che provocano errori RPC 1753 VS -2146893022: il nome dell'entità di destinazione non è corretto</embeddedLabel>
       </para>
-      <para>dominio contoso.com è costituito da DC1 e DC2 con IP indirizzi x.x.1.1 e x.x.1.2. L'host "A" / record "AAAA" per DC2 siano registrati correttamente in tutti i server DNS configurato per DC1. Inoltre, il file HOSTS nel DC1 contiene una voce mapping nome host completo DC2s x.x.1.2 indirizzo IP. Modifiche all'indirizzo IP del DC2 da X.X.1.2 X.X.1.3 e un computer membro di nuovo in un secondo momento, viene aggiunto al dominio con x.x.1.2 indirizzo IP. Replica di Active Directory tentativi attivate dal <ui>Replicate now</ui> comando nello snap-in Active Directory Sites and Services non riesce con errore 1753 come illustrato nella traccia di seguito:</para>
+      <para>Il dominio contoso.com costituito DC1 e DC2 con x.x.1.1 gli indirizzi IP e x.x.1.2. L'host "A" / record "AAAA" per DC2 sono stati registrati correttamente in tutti i server DNS configurato per DC1. Inoltre, il file HOSTS nel DC1 contiene una voce di mapping nome host completo DC2s a x.x.1.2 indirizzo IP. In un secondo momento, indirizzo IP viene modificato DC2 per da X.X.1.2 X.X.1.3 e un nuovo computer membro viene aggiunto al dominio con x.x.1.2 indirizzo IP. Replica di Active Directory tenta attivato dal <ui>Replicate now</ui> comando Active Directory Sites and Services snap-in non riesce con errore 1753 come illustrato nella traccia riportato di seguito:</para>
       <code>F# SRC    DEST    Operation 
 1 x.x.1.1 x.x.1.2 ARP:Request, x.x.1.1 asks for x.x.1.2
 2 x.x.1.2 x.x.1.1 ARP:Response, x.x.1.2 at 00-13-72-28-C8-5E
@@ -426,23 +443,23 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
 <codeFeaturedElement>10</codeFeaturedElement> x.x.1.1 x.x.1.2 EPM:Request: ept_map: NDR, DRSR(DRSR) {E3514235-4B06-11D1-AB04-00C04FC2DCD2} [DCE endpoint resolution(135)]
 <codeFeaturedElement>11</codeFeaturedElement> x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
 </code>
-      <para>fotogramma <embeddedLabel>10</embeddedLabel>, il controller di dominio di destinazione esegue una query il mapping di punto finale di controller di dominio di origine tramite la porta 135 per la classe di servizio di replica di Active Directory E351 UUID... </para>
-      <para>Nel frame <embeddedLabel>11</embeddedLabel>, l'origine controller di dominio, in questo caso un computer membro che non è ancora ospita il ruolo di controller di dominio e pertanto non è stato registrato il E351... UUID per il servizio di replica con il relativo EPM locale risponde con errore simbolico EP_S_NOT_REGISTERED mappato all'errore decimale 1753, errore esadecimale 0x6d9 e descrittivo errore "non sono presenti più endpoint disponibile nel mapping degli endpoint". </para>
-      <para>In un secondo momento, il computer membro con x.x.1.2 indirizzo IP può essere promosso come una replica "MayberryDC" nel dominio contoso.com. Nuovamente, il <ui>Replicate now</ui> comando viene utilizzato per avviare la replica, ma questa volta ha esito negativo con sullo schermo errore "il nome dell'entità di destinazione è errato." Il computer il cui scheda di rete viene assegnata l'IP indirizzo x.x.1.2 <placeholder>è</placeholder> un controller di dominio attualmente è avviato in modalità normale e ha registrato il E351... il servizio di replica UUID con il relativo EPM locale, ma non possiede l'identità di sicurezza o di nome di DC2 e non puoi decrittografare la richiesta di Kerberos da DC1, in modo che la richiesta ora ha esito negativo con errore "il nome dell'entità di destinazione è errato." L'errore associato a un errore decimale -2146893022 / esadecimale errore 0x80090322. </para>
-      <para>Tali mapping to-IP host non valido - potrebbe essere causata da delle voci obsolete nell'host o file lmhost, ospitare un / registrazioni AAAA in DNS o WINS. </para>
-      <para>Riepilogo: in questo esempio non è riuscita causa di un mapping to-IP host non valido-, nel file HOST in questo caso, il controller di dominio di destinazione risolvere una "origine" controller di dominio di servizi di dominio Active Directory non è in esecuzione del servizio (o anche installato a tale scopo) quindi la replica SPN non è stato ancora registrato e il controller di dominio ha restituito l'errore 1753 di origine. Nel secondo caso, un mapping to-IP host non valido-(nuovamente nel file HOST) ha causato il controller di dominio per connettersi a un controller di dominio che ha registrato il E351... replica SPN di destinazione, ma tale origine era un'identità di sicurezza e il nome host diversa da quello di controller di dominio di origine previsto in modo che i tentativi non riuscita con errore -2146893022: il nome dell'entità di destinazione è errato.</para>
+      <para>Fotogramma <embeddedLabel>10</embeddedLabel>, il controller di dominio di destinazione esegue una query il mapper di endpoint di origine i controller di dominio sulla porta 135 per la classe di servizio di replica di Active Directory UUID E351... </para>
+      <para>Nel frame <embeddedLabel>11</embeddedLabel>, controller di dominio, l'origine in questo caso, un computer membro che non ospita ancora il ruolo di controller di dominio e pertanto non è stato registrato il E351... UUID per il servizio di replica con relativo EPM locale risponde con l'errore simbolico EP_S_NOT_REGISTERED mappato all'errore decimale 1753, errore hex 0x6d9 ed errore descrittivo "non esistono Nessun endpoint disponibile nel mapping degli endpoint".</para>
+      <para>In un secondo momento, il computer membro con x.x.1.2 indirizzo IP viene alzato di livello come una replica "MayberryDC" nel dominio contoso.com. Anche in questo caso, il <ui>Replicate now</ui> comando viene utilizzato per attivare la replica, ma questa volta ha esito negativo con sullo schermo errore "il nome dell'entità di destinazione non corretto." Computer con scheda di rete è assegnato l'indirizzo IP indirizzo x.x.1.2 <placeholder>è</placeholder> un controller di dominio è attualmente avviato in modalità normale e ha registrato il E351... il servizio di replica UUID con relativo EPM locale ma l'identità di sicurezza o nome di DC2 non è il proprietario e non può decrittografare la richiesta Kerberos da DC1 in modo che la richiesta avrà esito negativo con errore "il nome dell'entità di destinazione non è corretto". L'errore viene eseguito il mapping all'errore decimale -2146893022 / errore 0x80090322 hex. </para>
+      <para>Tali mapping host IP non valido potrebbe essere causato da voci non aggiornate nell'host / file lmhost, host A / registrazioni AAAA in DNS o WINS. </para>
+      <para>Riepilogo In questo esempio non è riuscita perché un mapping di host IP non valido (nel file di HOST in questo caso) ha causato il controller di dominio di destinazione risolvere una "origine" controller di dominio di Active Directory Domain Services non è in esecuzione del servizio (o anche installati nemmeno), pertanto la replica Nome dell'entità servizio non è stato ancora registrato e il controller di dominio di origine ha restituito errore 1753. Nel secondo caso, un mapping di host IP non valido (nuovamente nel file HOST) ha causato il controller di dominio per connettersi a un controller di dominio che ha registrato il E351 di destinazione... replica SPN, ma tale origine ha un'identità del nome host e sicurezza diversi rispetto all'origine desiderata controller di dominio in modo che i tentativi non è riuscita con errore -2146893022: Il nome dell'entità di destinazione non è corretto.</para>
     </content>
   </section>
   <relatedTopics>
     <externalLink>
-      <linkText>Troubleshooting Active Directory operations that fail with error 1753: There are no more endpoints available from the endpoint mapper.</linkText>
-      <linkUri>https://support.microsoft.com/kb/2089874</linkUri>
-    </externalLink>
-<externalLink><linkText>KB article 839880 Troubleshooting RPC Endpoint Mapper errors using the Windows Server 2003 Support Tools from the product CD</linkText><linkUri>https://support.microsoft.com/kb/839880</linkUri></externalLink>
-<externalLink><linkText>KB article 832017 Service overview and network port requirements for the Windows Server system</linkText><linkUri>https://support.microsoft.com/kb/832017/</linkUri></externalLink>
-<externalLink><linkText>KB article 224196 Restricting Active Directory replication traffic and client RPC traffic to a specific port</linkText><linkUri>https://support.microsoft.com/kb/224196/</linkUri></externalLink>
-<externalLink><linkText>KB article 154596 How to configure RPC dynamic port allocation to work with firewalls</linkText><linkUri>https://support.microsoft.com/kb/154596</linkUri></externalLink><externalLink><linkText>How RPC Works</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>How the Server Prepares for a Connection</linkText><linkUri>https://msdn.microsoft.com/library/aa373938(VS.85).aspx</linkUri></externalLink>
-<externalLink><linkText>How the Client Establishes a Connection</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Registering the Interface</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Making the Server Available on the Network</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Registering Endpoints</linkText><linkUri>https://msdn.microsoft.com/library/aa375255(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Listening for Client Calls</linkText><linkUri>https://msdn.microsoft.com/library/aa373966(VS.85).aspx</linkUri></externalLink><externalLink><linkText>How the Client Establishes a Connection</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Restricting Active Directory replication traffic and client RPC traffic to a specific port</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>SPN for a Target DC in AD DS</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
+      <linkText>Risoluzione dei problemi di operazioni di Active Directory non riuscite con errore 1753: Non esistono Nessun endpoint disponibile nel mapping degli endpoint. </linkText> 
+      <linkUri> https://support.microsoft.com/kb/2089874 </linkUri> 
+    </externalLink> 
+<externalLink> <linkText>KB articolo 839880 errori di risoluzione dei problemi RPC Endpoint Mapper utilizzando gli strumenti di supporto Windows Server 2003 dal CD del prodotto</linkText> <linkUri> https://support.microsoft.com/kb/839880 </linkUri> </externalLink> 
+<externalLink> <linkText>KB articolo 832017 servizio rete e Panoramica requisiti delle porte per il sistema di Windows Server</linkText> <linkUri> https://support.microsoft.com/kb/832017/ </linkUri> </externalLink> 
+<externalLink> <linkText>KB articolo 224196 il traffico di replica di limitazione dell'Active Directory e il traffico RPC client a una porta specifica</linkText> <linkUri> https://support.microsoft.com/kb/224196/ </linkUri> </externalLink> 
+<externalLink> <linkText>Articolo della Knowledge Base 154596 Jak nakonfigurovat assegnazione delle porte dinamiche RPC per lavorare con i firewall</linkText> <linkUri> https://support.microsoft.com/kb/154596 </linkUri> </externalLink> <externalLink> <linkText>Funzionamento del servizio RPC</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>come consente di preparare il Server per una connessione</linkText> <linkUri> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </linkUri> </externalLink> 
+<externalLink> <linkText>Modo in cui il Client stabilisce una connessione</linkText> <linkUri> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>La registrazione dell'interfaccia</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>trasformandolo in Disponibile in rete</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>registrazione degli endpoint</linkText> <linkUri> https://msdn.microsoft.com/library/aa375255(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>Per ascoltare le chiamate Client</linkText> <linkUri> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>Modo in cui il Client stabilisce una connessione</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>limitazione Attiva il traffico di replica e i client RPC del traffico a una porta specifica</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>SPN per un controller di dominio di destinazione in ACTIVE DIRECTORY DOMAIN SERVICES</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
 </developerConceptualDocument>
 
 
