@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di VPN Always On
-description: In questo argomento vengono fornite istruzioni per la verifica e risoluzione dei problemi di distribuzione di VPN Always On in Windows Server 2016.
+description: Questo argomento fornisce istruzioni per la verifica e risoluzione dei problemi di distribuzione VPN Always On in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -10,179 +10,179 @@ ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 47d22d566407f45fe6ac78931ffea7b5b2854a1c
-ms.sourcegitcommit: 4893d79345cea85db427224bb106fc1bf88ffdbc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "6067374"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839092"
 ---
-# Risolvere i problemi di VPN Always On 
+# <a name="troubleshoot-always-on-vpn"></a>Risolvere i problemi di VPN Always On 
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-Se l'installazione di VPN Always On non riesce a connettersi client alla rete interna, la causa è probabilmente problemi con gli script di distribuzione di client o in Routing e accesso remoto, i criteri dei criteri di rete non corretti o un certificato VPN non valido. Il primo passaggio per la risoluzione dei problemi e il test della connessione VPN è comprendere i componenti fondamentali dell'infrastruttura di VPN Always On. 
+Se la configurazione VPN Always On non riesce a connettersi ai client alla rete interna, la causa è probabilmente un certificato VPN non valido, i criteri di criteri di rete non corretti o problemi con gli script di distribuzione client o nel Routing e accesso remoto. Il primo passaggio nella risoluzione dei problemi e il test della connessione VPN è comprendere i componenti principali dell'infrastruttura VPN Always On. 
 
-È possibile risolvere i problemi di connessione in diversi modi. Per la risoluzione dei problemi generali e problemi lato client, i registri di applicazioni nei computer client si rivelano particolarmente utili. Per i problemi di autenticazione specifiche, il registro dei criteri di rete nel server dei criteri di rete possa aiutarti a determinare l'origine del problema.
-
-
-## Codici di errore
+È possibile risolvere i problemi di connessione in diversi modi. Per i problemi lato client e la risoluzione dei problemi generale, i log dell'applicazione nei computer client sono estremamente utile. Per problemi specifici di autenticazione, i log dei criteri di rete nel server NPS consente di determinare la causa del problema.
 
 
-### Codice di errore: 800
-
--   **Descrizione dell'errore.** La connessione remota non è stata effettuata perché non è riuscito il tentativo di VPN tunnel. Il server VPN potrebbe non essere raggiungibile. Se questa connessione è il tentativo di usare un tunnel IPsec/L2TP, i parametri di sicurezza necessario per IPsec negoziazione potrebbe non essere configurata correttamente.
+## <a name="error-codes"></a>Codici di errore
 
 
--   **Possibile causa.** Questo errore si verifica quando il tipo di tunnel VPN è **automatica** e il tentativo di connessione ha esito negativo per tutti i tunnel VPN.
+### <a name="error-code-800"></a>Codice errore: 800
 
--   **Soluzioni possibili:**
+-   **Descrizione dell'errore.** La connessione remota non è stata effettuata perché i tentativi di tunnel VPN non è riuscita. Il server VPN potrebbe non essere raggiungibile. Se questa connessione sta tentando di usare un tunnel L2TP/IPsec, parametri di sicurezza necessarie per la negoziazione non sia configurata correttamente.
 
-    -   Se sai quali tunnel da usare per la distribuzione, impostare il tipo di VPN a quel tipo di tunnel particolare sul lato client VPN.
 
-    -   Effettuando una connessione VPN con un tipo di tunnel particolare, la connessione ha esito negativo, ma il risultato sarà un errore più tunnel specifico (ad esempio, "GRE bloccato per PPTP").
+-   **Possibile causa.** Questo errore si verifica quando il tipo di tunnel VPN **automatica** e il tentativo di connessione ha esito negativo per tutti i tunnel VPN.
 
-    -   Questo errore si verifica anche quando il server VPN non raggiungibile o la connessione tunnel ha esito negativo.
+-   **Possibili soluzioni:**
+
+    -   Se si sa quale tunnel da utilizzare per la distribuzione, impostare il tipo di VPN per tale tipo di tunnel particolare sul lato client VPN.
+
+    -   Per stabilire una connessione VPN con un tipo particolare di tunnel, la connessione avrà comunque esito negativo, ma si verificherà un errore più specifico del tunnel (ad esempio, "GRE bloccato per PPTP").
+
+    -   Questo errore si verifica anche quando il server VPN non è raggiungibile o errore di connessione del tunnel.
 
 -   **Assicurarsi:**
 
-    -   Porte IKE (UDP ports500 e 4500) non vengono bloccati.
+    -   Le porte di IKE (porte UDP 500 e 4500) non sono bloccate.
 
-    -   I certificati corretti per IKE sono presenti sul client e server.
+    -   I certificati corretti per IKE sono presenti sia il client e server.
 
-### Codice di errore: 809
+### <a name="error-code-809"></a>Codice errore: 809
 
--   **Descrizione dell'errore.**  La connessione di rete tra computer e il server VPN potrebbe non essere stabilita perché il server remoto non risponde. Ciò potrebbe essere perché una delle periferiche di rete \ (ad esempio, firewall, NAT, routers\) tra il computer e il server remoto non è configurato per consentire le connessioni VPN. Contatta l'amministratore o il provider di servizi per determinare quale dispositivo potrebbe potrebbero causare il problema.
+-   **Descrizione dell'errore.**  Non è stato possibile stabilire la connessione di rete tra il computer e il server VPN, perché il server remoto non risponde. È possibile che uno dei dispositivi di rete \(ad esempio, i router di firewall, NAT,\) tra il computer e il server remoto non è configurato per consentire le connessioni VPN. Contattare l'amministratore o il provider di servizi per determinare quale dispositivo potrebbe causare il problema.
 
--   **Possibile causa.** Questo errore è causato da 500 UDP bloccato o 4500 porte nel server VPN o del firewall.
+-   **Possibile causa.** Questo errore è causato da 4500 porte nel server VPN o il firewall o bloccato UDP 500.
 
--   **Soluzioni possibili.** Assicurarsi che tutti i firewall tra il client e server RRAS sono consentiti 4500 e UDP ports500. 
+-   **Possibile soluzione.** Assicurarsi che le porte UDP 500 e 4500 siano consentite attraverso tutti i firewall tra il client e il server RRAS. 
     
     
-### Codice di errore: 812
+### <a name="error-code-812"></a>Codice errore: 812
 
--   **Descrizione dell'errore.** Non riesce a connettersi alla VPN Always On. La connessione è stata bloccata a causa di un criterio configurato nel server RAS/VPN. In particolare, il metodo di autenticazione server utilizzato per verificare il nome utente e password potrebbe non corrispondere al metodo di autenticazione configurato nel tuo profilo di connessione. Contatta l'amministratore del server RAS e inviare una notifica all'utente di questo errore.
+-   **Descrizione dell'errore.** Impossibile connettersi alla VPN Always On. La connessione è stata impedita a causa di un criterio configurato nel server RAS/VPN. In particolare, il metodo di autenticazione server usato per verificare il nome utente e password potrebbe non corrispondere al metodo di autenticazione configurato nel profilo di connessione. Contattare l'amministratore del server RAS e inviare una notifica all'utente di questo errore.
 
 -   **Possibili cause:**
 
-    -  La causa tipica di questo errore è che i criteri di rete ha specificato una condizione di autenticazione che il client non è possibile soddisfare. Ad esempio, i criteri di rete possono specificare l'uso di un certificato per proteggere la connessione PEAP, ma il client sta tentando di usare EAP-MSCHAPv2.
+    -  La causa tipica di questo errore è che i criteri di rete ha specificato una condizione di autenticazione che non supportano il client. Ad esempio, i criteri di rete possono specificare l'uso di un certificato per proteggere la connessione di PEAP, ma il client tenta di utilizzare EAP-MSCHAPv2.
 
-    -  Registro eventi 20276 viene registrato nel Visualizzatore eventi quando l'impostazione del protocollo di autenticazione server VPN basate su RRAS non corrispondere a quella del computer client VPN.
+    -  Registro eventi 20276 viene registrato nel Visualizzatore eventi quando l'impostazione del protocollo VPN basato su RRAS autenticazione server non corrisponde a quello del computer client VPN.
 
--   **Soluzioni possibili.** Assicurarsi che la configurazione client soddisfa le condizioni che vengono specificate nel server dei criteri di rete.
+-   **Possibile soluzione.** Assicurarsi che la configurazione client soddisfa le condizioni specificate nel server NPS.
 
 
-### Codice di errore: 13806
+### <a name="error-code-13806"></a>Codice errore: 13806
 
--   **Descrizione dell'errore.** IKE non è riuscito a trovare il certificato del computer valido. Contatta l'amministratore della sicurezza di rete sull'installazione di un certificato valido nell'archivio certificati appropriato.
+-   **Descrizione dell'errore.** IKE non è stato possibile trovare un certificato di computer valido. Contattare l'amministratore della sicurezza di rete sull'installazione di un certificato valido nell'archivio certificati appropriato.
 
--   **Possibile causa.** Questo errore si verifica in genere quando nessun certificato del computer o certificato radice della macchina è presente nel server VPN.
+-   **Possibile causa.** Questo errore si verifica in genere quando nessun certificato di computer o certificato radice del computer è presente nel server VPN.
 
--   **Soluzioni possibili.** Assicurarsi che i certificati illustrati in questa distribuzione siano installati nel computer client sia il server VPN.
+-   **Possibile soluzione.** Assicurarsi che i certificati descritti in questa distribuzione siano installati nel computer client sia il server VPN.
 
-### Codice di errore: 13801
+### <a name="error-code-13801"></a>Codice errore: 13801
 
--   **Descrizione dell'errore.** Le credenziali di autenticazione IKE sono semplicemente inaccettabile.
+-   **Descrizione dell'errore.** Le credenziali di autenticazione IKE sono inaccettabili.
 
 -   **Possibili cause.** Questo errore si verifica in genere in uno dei seguenti casi:
 
-    -   Certificato del computer usato per la convalida IKEv2 nel server RAS non dispone di **Autenticazione Server** in **Utilizzo chiavi avanzato**.
+    -   Non ha il certificato del computer usato per la convalida di IKEv2 nel server RAS **autenticazione Server** sotto **Enhanced Key Usage**.
 
-    -   Il certificato del computer nel server RAS è scaduto.
+    -   Il certificato del computer nel server di RAS è scaduto.
 
-    -   Il certificato radice per convalidare il certificato del server RAS non è presente nel computer client.
+    -   Il certificato radice da convalidare il certificato del server RAS non è presente nel computer client.
 
-    -   Il nome del server VPN utilizzato nel computer client non corrisponde il **subjectName** del certificato server.
+    -   Il nome del server VPN usato nel computer client non corrisponde la **subjectName** del certificato del server.
 
--   **Soluzioni possibili.** Verifica che il certificato del server include l' **Autenticazione Server** in **Utilizzo chiavi avanzato**. Verifica che il certificato del server sia ancora valido. Verificare che l'autorità di certificazione usato è elencato in **Autorità di certificazione radice attendibili** per il server RRAS. Verifica che il client VPN si connette con il nome FQDN del server VPN, così come presentato nel certificato del server VPN.
+-   **Possibile soluzione.** Verificare che il certificato del server includa **autenticazione Server** sotto **Enhanced Key Usage**. Verificare che il certificato del server sia ancora valido. Verificare che l'autorità di certificazione usata sia elencato sotto **autorità di certificazione radice attendibili** nel server RRAS. Verificare che il client VPN si connette usando il nome FQDN del server VPN come presentata nel certificato del server VPN.
 
 
-### Codice di errore: 0x80070040
+### <a name="error-code-0x80070040"></a>Codice errore: 0x80070040
 
--   **Descrizione dell'errore.** Il certificato del server non dispone di **Autenticazione Server** come uno dei relativi movimenti di utilizzo del certificato.
+-   **Descrizione dell'errore.** Il certificato del server non dispone **autenticazione Server** come una delle relative voci dell'utilizzo di certificati.
 
--   **Possibile causa.** Questo errore può verificarsi se nessun certificato di autenticazione server è installato nel server RAS.
+-   **Possibile causa.** Questo errore può verificarsi se non è installato alcun certificato di autenticazione server nel server RAS.
 
--   **Soluzioni possibili.** Assicurati che il certificato del computer che il server RAS utilizza per **IKEv2** dispone di **Autenticazione Server** come uno dei movimenti di utilizzo di certificato.
+-   **Possibile soluzione.** Assicurarsi che il certificato del computer del server RAS usi per **IKEv2** ha **autenticazione Server** come una delle voci di utilizzo del certificato.
 
-### Codice di errore: 0x800B0109
+### <a name="error-code-0x800b0109"></a>Codice errore: 0x800B0109
 
-In generale, il computer client VPN viene aggiunto al dominio basata su Active Directory. Se usi le credenziali di dominio per accedere al server VPN, il certificato viene installato automaticamente nell'autorità di certificazione radice attendibili archiviare. Tuttavia, se il computer non viene aggiunto al dominio o se si utilizza una catena di certificati alternativo, si potrebbe riscontrare questo problema.
+In genere, il computer client VPN è aggiunto al dominio basato su Active Directory. Se si usano le credenziali di dominio per l'accesso al server VPN, il certificato viene installato automaticamente in Autorità di certificazione radice attendibili archiviare. Tuttavia, se il computer non è unito al dominio o se si usa una catena di certificati alternativo, che si verifichi questo problema.
 
--   **Descrizione dell'errore.** Una catena di certificati elaborata termina in un certificato radice che non considera attendibile il provider di trust.
+-   **Descrizione dell'errore.** Una catena di certificati elaborata, ma termina con un certificato radice che il provider di attendibilità non considera attendibile.
 
--   **Possibile causa.** Questo errore può verificarsi se il certificato CA radice attendibile appropriato non è installato nell'autorità di certificazione radice attendibili archiviare nel computer client.
+-   **Possibile causa.** Questo errore può verificarsi se il certificato CA radice attendibile appropriato non è installato in Autorità di certificazione radice attendibili archiviare nel computer client.
 
--   **Soluzioni possibili.** Assicurati che il certificato radice è installato nel computer client nell'archivio Autorità di certificazione radice attendibili.
+-   **Possibile soluzione.** Assicurarsi che il certificato radice sia installato nel computer client nell'archivio Autorità di certificazione radice attendibili.
 
-## Log
+## <a name="logs"></a>Log
 
-### Registri di applicazione
+### <a name="application-logs"></a>Log dell'applicazione
 
-I registri di applicazioni nei computer client registrano la maggior parte dei dettagli di livello superiore di eventi di connessione VPN.
+L'applicazione nei computer client nei registri la maggior parte dei dettagli degli eventi di connessione VPN di livello superiore.
 
-Cerca gli eventi da source ClientRas. Tutti i messaggi di errore restituiscono il codice di errore alla fine del messaggio. Alcuni dei codici di errore più comuni sono descritte di seguito, ma un elenco completo è disponibile in [Routing e codici di errore di accesso remoto](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx).
+Cercare gli eventi dall'origine ClientRas. Tutti i messaggi di errore restituiscono il codice di errore alla fine del messaggio. Di seguito sono descritte alcune dei codici di errore più comuni, ma è disponibile in un elenco completo [Routing e i codici di errore di accesso remoto](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx).
 
-## Registri dei criteri di rete
-Criteri di rete crea e archivia i registri di accounting dei criteri di rete. Per impostazione predefinita, questi vengono archiviati in %SYSTEMROOT%\\System32\\Logfiles\\ in un file denominato nel*XXXX.* txt, dove *XXXX* è la data di creazione del file.
+## <a name="nps-logs"></a>Log dei criteri di rete
+Criteri di rete crea e archivia i log di accounting di NPS. Per impostazione predefinita, questi vengono archiviati in % SYSTEMROOT %\\System32\\Logfiles\\ in un file denominato nella*XXXX.* txt, dove *XXXX* è la data di creazione del file.
 
-Per impostazione predefinita, questi log sono in formato con valori delimitati da virgole, ma non includono una riga dell'intestazione. La riga dell'intestazione è:
+Per impostazione predefinita, questi log sono in formato con valori delimitati da virgole, ma non includono una riga di intestazione. La riga di intestazione è:
 
 ```
 ComputerName,ServiceName,Record-Date,Record-Time,Packet-Type,User-Name,Fully-Qualified-Distinguished-Name,Called-Station-ID,Calling-Station-ID,Callback-Number,Framed-IP-Address,NAS-Identifier,NAS-IP-Address,NAS-Port,Client-Vendor,Client-IP-Address,Client-Friendly-Name,Event-Timestamp,Port-Limit,NAS-Port-Type,Connect-Info,Framed-Protocol,Service-Type,Authentication-Type,Policy-Name,Reason-Code,Class,Session-Timeout,Idle-Timeout,Termination-Action,EAP-Friendly-Name,Acct-Status-Type,Acct-Delay-Time,Acct-Input-Octets,Acct-Output-Octets,Acct-Session-Id,Acct-Authentic,Acct-Session-Time,Acct-Input-Packets,Acct-Output-Packets,Acct-Terminate-Cause,Acct-Multi-Ssn-ID,Acct-Link-Count,Acct-Interim-Interval,Tunnel-Type,Tunnel-Medium-Type,Tunnel-Client-Endpt,Tunnel-Server-Endpt,Acct-Tunnel-Conn,Tunnel-Pvt-Group-ID,Tunnel-Assignment-ID,Tunnel-Preference,MS-Acct-Auth-Type,MS-Acct-EAP-Type,MS-RAS-Version,MS-RAS-Vendor,MS-CHAP-Error,MS-CHAP-Domain,MS-MPPE-Encryption-Types,MS-MPPE-Encryption-Policy,Proxy-Policy-Name,Provider-Type,Provider-Name,Remote-Server-Address,MS-RAS-Client-Name,MS-RAS-Client-Version
 ```
 
-Se si incolla questa riga del titolo come prima riga del file di log, quindi importare il file in Microsoft Excel, saranno contrassegnate correttamente le colonne.
+Se si incolla la riga di intestazione come prima riga del file di log, quindi importare il file in Microsoft Excel, le colonne saranno contrassegnate in modo corretto.
 
-I registri dei criteri di rete possono essere utili per diagnosticare i problemi correlati ai criteri. Per ulteriori informazioni sui registri dei criteri di rete, vedi [I file di Log di interpretare NPS Database formato](https://technet.microsoft.com/library/cc771748.aspx).
+I log dei criteri di rete possono essere utili per diagnosticare i problemi relativi ai criteri. Per altre informazioni sui log dei criteri di rete, vedere [interpretare NPS Log file in formato Database](https://technet.microsoft.com/library/cc771748.aspx).
 
-## Problemi di script VPN_Profile.ps1
+## <a name="vpnprofileps1-script-issues"></a>Problemi degli script VPN_Profile.ps1
 I problemi più comuni quando si esegue manualmente lo script VPN_ Profile.ps1 includono:
 
-- Usare uno strumento di connessione remota?  Assicurati di non utilizzare RDP o un altro metodo di connessione remota come lo fanno con il rilevamento di accesso utente.
+- Viene utilizzato uno strumento di connessione remota?  Assicurarsi di non usare RDP o un altro metodo di connessione remota, come lo dovuto sistemare i problemi con il rilevamento di account di accesso utente.
 
-- È un amministratore del computer locale dell'utente?  Assicurati che l'esecuzione dello script VPN_Profile.ps1 che l'utente abbia privilegi di amministratore.
+- È l'utente amministratore del computer locale?  Assicurarsi che durante l'esecuzione dello script VPN_Profile.ps1 che l'utente disponga dei privilegi di amministratore.
 
-- Hai ulteriori funzionalità di sicurezza di PowerShell abilitata? Assicurati che i criteri di esecuzione di PowerShell non sta bloccando lo script. Valuta la disattivazione della modalità di linguaggio vincolato, se abilitata, prima di eseguire lo script. Dopo che lo script viene completato correttamente, è possibile attivare la modalità di linguaggio vincolato.
+- Si dispone di ulteriori funzionalità di sicurezza di PowerShell abilitata? Assicurarsi che i criteri di esecuzione di PowerShell non stia bloccando lo script. È possibile considerare la disattivazione modalità linguaggio vincolato, se abilitata, prima di eseguire lo script. È possibile attivare la modalità linguaggio vincolata dopo il completamento dello script.
 
-## Problemi di connessione client VPN Always On
-Una configurazione errata di piccole dimensioni può causare la connessione client esito negativo e possa essere difficili da individuare la causa.  Un client VPN Always On prevede diversi passaggi prima di stabilire una connessione. Durante la risoluzione dei problemi di connessione client, sottoposto al processo di eliminazione con quanto segue:
-
-
-1. Il computer modello esternamente è connesso? Un'analisi **whatismyip** dovrebbero visualizzare un indirizzo IP pubblico che non appartiene a te.
-
-2. È possibile risolvere il nome del server Accesso remoto/VPN in un indirizzo IP? Nel **Pannello di controllo** \> **rete** e **Internet** \> **Connessioni di rete**, Apri le proprietà per il profilo VPN. Il valore nella scheda **Generale** deve essere pubblicamente risolvibile tramite DNS.
-
-3. È possibile accedere ai server VPN da una rete esterna? Prendi in considerazione il ping il nome dal client remoto e apertura di controllo protocollo ICMP (Internet Message) per l'interfaccia esterna. Dopo un ping ha esito positivo, è possibile rimuovere la ICMP consentire regola.
-
-4. Hai le schede NIC interne ed esterne nel server VPN configurato correttamente? Sono in una subnet diversa? Scheda di rete esterna la connessione per l'interfaccia corretta sul firewall?
-
-5. UDP 500 e 4500 porte sono aperte dal client all'interfaccia esterna del server VPN? Controlla il firewall client, server firewall e qualsiasi firewall hardware. IPSEC utilizza marca così di UDP porta 500, assicurati che non hai IPEC disabilitato o bloccato in un punto qualsiasi.
-
-7. Convalida del certificato non riesce? Verificare che il server dei criteri di rete dispone di un certificato di autenticazione Server che può IKE richieste di servizio. Assicurati che hai IP del server VPN corretto specificato come un client dei criteri di rete. Assicurati che eseguono l'autenticazione con PEAP e le proprietà PEAP devono consentire solo l'autenticazione con un certificato. Puoi controllare i registri eventi dei criteri di rete per gli errori di autenticazione. Per altri dettagli, vedi [installare e configurare il Server dei criteri di rete](vpn-deploy-nps.md)
-
-8. Si connette, ma non hanno accesso alla rete Internet/locale? Controlla i pool di IP DHCP/VPN server i problemi di configurazione.
-
-9.  Si connette e avere un indirizzo IP interno valido senza non hanno accesso alle risorse locali?  Verifica che i client sappiano come accedere a tali risorse. È possibile utilizzare il server VPN per indirizzare le richieste.
+## <a name="always-on-vpn-client-connection-issues"></a>Problemi di connessione client VPN Always On
+Una configurazione errata di piccole dimensioni può causare l'errore di connessione client e può essere difficile per individuare la causa.  Un client VPN Always On esegue diversi passaggi prima di stabilire una connessione. Risolvere i problemi di connessione client, seguire la procedura di eliminazione con gli elementi seguenti:
 
 
-## Problemi di connessione Azure AD accesso condizionale
+1. È connesso il computer di modello esternamente? Oggetto **whatismyip** analisi dovrebbe mostrare un indirizzo IP pubblico che non appartiene all'utente.
 
-### E poi - non è possibile ottenere a questa ancora
+2. È possibile risolvere il nome del server Accesso remoto/VPN a un indirizzo IP? Nelle **Pannello di controllo** \> **rete** e **Internet** \> **connessioni di rete**, aprire le proprietà per il profilo VPN. Il valore di **generale** scheda deve essere pubblicamente risolvibile con DNS.
 
--   **Descrizione dell'errore.** Quando il criterio di accesso condizionale non viene soddisfatta, bloccare la connessione VPN, ma si connette dopo l'utente fa clic **X** per chiudere il messaggio.  Facendo clic su **OK** fa sì che un altro tentativo di autenticazione e termina con un altro messaggio _Oops_ . Questi eventi vengono registrati nel registro eventi operative AAD del client. 
+3. È possibile accedere al server VPN verso una rete esterna? È consigliabile aprire messaggio protocollo ICMP (Internet Control) per l'interfaccia esterna e il ping del nome dal client remoto. Dopo un ping ha esito positivo, è possibile rimuovere il protocollo ICMP regola di assenso.
+
+4. Si hanno le schede NIC interna ed esterna del server VPN configurata in modo corretto? Sono in subnet diverse? L'interfaccia di rete esterno la connessione all'interfaccia corretta nel firewall?
+
+5. UDP 500 e 4500 porte siano aperte dal client per interfaccia esterna del server VPN? Controllare il firewall del client, firewall del server e tutti i firewall hardware. IPSEC utilizza UDP porta 500,. assicurati pertanto verificare che non è disabilitato o bloccato in un punto qualsiasi di IPSec.
+
+7. La convalida dei certificati ha esito negativo? Verificare che il server NPS disponga di un certificato di autenticazione Server che riesce a servire le richieste di IKE. Assicurarsi di avere l'indirizzo IP server VPN corretta specificato come un client di criteri di rete. Assicurarsi che si esegue l'autenticazione con il protocollo PEAP e la finestra delle proprietà PEAP deve consentire solo l'autenticazione con un certificato. È possibile controllare i registri eventi dei criteri di rete per gli errori di autenticazione. Per altre informazioni, vedere [installare e configurare il Server dei criteri di rete](vpn-deploy-nps.md)
+
+8. È la connessione ma non ha accesso alla rete Internet o locale? Controllare il pool IP di server DHCP, VPN per i problemi di configurazione.
+
+9.  La connessione e avere un indirizzo IP interno valido senza non hanno accesso alle risorse locali?  Verificare che i client sappiano come accedere a tali risorse. È possibile usare il server VPN per indirizzare le richieste.
+
+
+## <a name="azure-ad-conditional-access-connection-issues"></a>Problemi di connessione di accesso condizionale AD Azure
+
+### <a name="oops---you-cant-get-to-this-yet"></a>Si - è possibile ottenere questo ancora
+
+-   **Descrizione dell'errore.** Quando i criteri di accesso condizionale è non soddisfatto, il blocco della connessione VPN, ma si connette dopo che l'utente fa clic **X** per chiudere il messaggio.  Facendo clic **OK** fa sì che un altro tentativo di autenticazione, che termina in un'altra _Oops_ messaggio. Questi eventi vengono registrati nel log eventi operativi di AAD del client. 
 
 -   **Possibile causa.** 
 
-    - L'utente ha un certificato di autenticazione client valido nel proprio certificato personale archiviare che non è stato rilasciato da Azure AD.
+    - L'utente dispone di un certificato di autenticazione client valido nel certificato personale archivio che non è stato rilasciato da Azure AD.
 
-    - Il profilo VPN \ < TLSExtensions\ > sezione è mancante o non non contengono il **\ < EKUName\ > Access\ condizionale AAD < / EKUName\ > \ < EKUOID\ > 1.3.6.1.4.1.311.87 < / EKUOID\ > \ < EKUName > accesso condizionale AAD < / EKUName\ > \ < EKUOID\ > 1.3.6.1.4.1.311.87 < / EKUOID\ >** le voci. Il \ < EKUName > e \ voci < EKUOID > indicano il client VPN il certificato da recuperare dall'archivio certificati dell'utente quando si passa il certificato al server VPN. In caso contrario, il client VPN Usa qualsiasi certificato di autenticazione Client valido è nell'archivio certificati dell'utente e l'autenticazione ha esito positivo. 
+    - Il profilo VPN \<TLSExtensions\> sezione è mancante o non non contengono le **\<EKUName\>accesso condizionale di AAD\</EKUName\> \< EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>\<EKUName > accesso condizionale di AAD < / EKUName\>\<EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>** voci. Il \<EKUName > e \<EKUOID > le voci di indicano il client VPN certificato da recuperare dall'archivio certificati dell'utente quando si passa il certificato per il server VPN. In caso contrario, il client VPN utilizza qualsiasi certificato di autenticazione Client valido sia nell'archivio certificati dell'utente e l'autenticazione ha esito positivo. 
 
-    - Il server RADIUS (NPS) non è stato configurato per accettare solo i certificati client che contengono l' **Accesso condizionale AAD** OID.
+    - Il server RADIUS (NPS) non è stato configurato per accettare solo i certificati client che contengono il **accesso condizionale di AAD** OID.
 
--   **Soluzioni possibili.** Per questo ciclo di escape, Esegui le operazioni seguenti:
+-   **Possibile soluzione.** Per eseguire l'escape di questo ciclo, eseguire le operazioni seguenti:
 
-    1. In Windows PowerShell, eseguire il cmdlet **Get-WmiObject** per eseguire il dump la configurazione del profilo VPN. 
-    2. Verificare che il **\ < TLSExtensions >**, **\ < EKUName >**, e **\ < EKUOID >** sezioni esistenti e Mostra il nome e corretti OID. 
+    1. In Windows PowerShell, eseguire la **Get-WmiObject** cmdlet per eseguire il dump della configurazione del profilo VPN. 
+    2. Verificare che il  **\<TLSExtensions >**,  **\<EKUName >**, e  **\<EKUOID >** sezioni esiste e viene illustrato il valore corretto Name e OID. 
         ```
         PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
 
@@ -245,7 +245,7 @@ Una configurazione errata di piccole dimensioni può causare la connessione clie
         PSComputerName          : DERS2
         ```
 
-    3. Per determinare se sono presenti certificati validi nell'archivio certificati dell'utente, eseguire il comando **Certutil** :
+    3. Per determinare se sono presenti certificati validi nell'archivio certificati dell'utente, eseguire la **Certutil** comando:
 
        ```
        C:\>certutil -store -user My
@@ -281,22 +281,22 @@ Una configurazione errata di piccole dimensioni può causare la connessione clie
         Encryption test passed
        ```
        >[!NOTE]
-       >Se un certificato di autorità emittente **CN = generazione CA radice Microsoft VPN 1** è presente nell'archivio personale dell'utente, ma l'utente ottenuto l'accesso, fai clic su **X** per chiudere il messaggio Oops, raccogliere i registri eventi CAPI2 per verificare il certificato utilizzato per l'autenticazione è un certificato di autenticazione Client valido che non è stato rilasciato dall'autorità di certificazione radice Microsoft VPN.
+       >Se un certificato dall'autorità di certificazione **CN = generazione di autorità di certificazione radice Microsoft VPN 1** è presente nell'archivio personale dell'utente, ma l'utente ha ottenuto l'accesso facendo clic **X** per chiudere il messaggio Oops, raccogliere i registri eventi di CAPI2 verificare il certificato usato per l'autenticazione è un certificato di autenticazione Client valido che non è stato rilasciato dalla CA radice VPN di Microsoft.
 
-   4. Se esiste un certificato di autenticazione Client valido nell'archivio personale dell'utente, la connessione ha esito negativo (come dovrebbe) dopo che l'utente fa clic sulla **X** e se la **\ < TLSExtensions >**, **\ < EKUName >**, e **\ < EKUOID >** le sezioni esistono e contengono le informazioni corrette.<p>Il _un certificato non è possibile trovare che può essere usato con il protocollo di autenticazione Extensible._ viene visualizzato il messaggio di errore.
+   4. Se esiste un certificato di autenticazione Client valido nell'archivio personale dell'utente, la connessione ha esito negativo (come dovrebbe essere) dopo che l'utente fa clic il **X** e, se il  **\<TLSExtensions >**,  **\<EKUName >**, e  **\<EKUOID >** sezioni presenti e contenere le informazioni corrette.<p>Il _non è stato trovato un certificato che può essere utilizzato con il protocollo di autenticazione estendibile._ viene visualizzato il messaggio di errore.
 
-### In grado di eliminare il certificato dalla blade di connettività VPN
+### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>Non è possibile eliminare il certificato nel Pannello di connettività VPN
 
--   **Descrizione dell'errore.** Certificati nel blade di connettività VPN non possono essere eliminati.
+-   **Descrizione dell'errore.** Non è possibile eliminare i certificati nel Pannello di connettività della VPN.
 
--   **Possibile causa.** Il certificato è impostato su **primario**.
+-   **Possibile causa.** Il certificato è impostato su **primaria**.
 
--   **Soluzioni possibili.** 
+-   **Possibile soluzione.** 
 
-    1. Nel pannello connettività VPN, selezionare il certificato.
-    2. In **primario**, selezionare **No** e fai clic su **Salva**.
-    3. Nel pannello connettività VPN selezioni nuovamente il certificato.
-    4. Fai clic su **Elimina**.
+    1. Nel Pannello di connettività VPN, selezionare il certificato.
+    2. Sotto **primari**, selezionare **senza** e fare clic su **Salva**.
+    3. Nel pannello della connettività VPN, selezionare di nuovo il certificato.
+    4. Fare clic su **Elimina**.
 
 
 ---

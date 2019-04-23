@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082279"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59837722"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Novità della console Windows in Windows Server 2016
 >Si applica a: Windows Server 2016
@@ -57,7 +57,7 @@ La nuova finestra della console supporta ora il ritorno a capo automatico. Tutta
 
 Le finestre della console possono ora essere semi-trasparenti (trasparenza minima pari al 30%). È possibile regolare la trasparenza dal menu Proprietà o con i comandi della tastiera seguenti:  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Aumento della trasparenza|CTRL+MAIUSC+segno più (+) o CTRL+MAIUSC+scorrere verso l'alto|  
 |Diminuzione della trasparenza|CTRL+MAIUSC+segno meno (-) o CTRL+MAIUSC+scorrere verso il basso|  
@@ -66,13 +66,13 @@ Le finestre della console possono ora essere semi-trasparenti (trasparenza minim
 ## <a name="selection"></a>Selezione  
 Sono disponibili molte opzioni nuove per selezionare testo e righe, nonché per contrassegnare il testo e usare la cronologia del buffer. La console tenta di evitare conflitti con le applicazioni che potrebbero usare le stesse chiavi.  
 
-**Per gli sviluppatori:** se si verifica un conflitto, in genere è possibile controllare il comportamento di utilizzo delle modalità line input, processed input e echo input da parte dell'applicazione con l'API SetConsoleMode(). Se l'esecuzione avviene in modalità processed input si applicano le scelte rapide seguenti, ma nelle altre modalità l'applicazione deve gestirle. Le combinazioni di tasti non elencate qui sotto funzionano come nelle versioni precedenti della console. È anche possibile provare a risolvere i conflitti con varie impostazioni della scheda **Opzioni**. Se non è possibile risolvere i conflitti in alcun modo, è sempre possibile ripristinare la console originale.  
+**Per gli sviluppatori:** Se si verifica un conflitto, è possibile controllare in genere il comportamento di utilizzo dell'applicazione di input della riga, input elaborati e le modalità echo di input con l'API setconsolemode (). Se l'esecuzione avviene in modalità processed input si applicano le scelte rapide seguenti, ma nelle altre modalità l'applicazione deve gestirle. Le combinazioni di tasti non elencate qui sotto funzionano come nelle versioni precedenti della console. È anche possibile provare a risolvere i conflitti con varie impostazioni della scheda **Opzioni**. Se non è possibile risolvere i conflitti in alcun modo, è sempre possibile ripristinare la console originale.  
 
 È ora possibile usare la selezione "fare clic e trascinare" al di fuori della modalità QuickEdit. Questa selezione può selezionare il testo su più righe come nel Blocco note, anziché solo in un blocco rettangolare. Le operazioni di copia non richiedono più la rimozione delle interruzioni di riga. Oltre alla selezione "fare clic e trascinare", sono disponibili queste combinazioni:  
 
-**Selezione testo**  
+**Selezione di testo**  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Spostare il cursore di un carattere verso sinistra, estendendo la selezione|MAIUSC+freccia SINISTRA|  
 |Spostare il cursore di un carattere verso destra, estendendo la selezione|MAIUSC+freccia DESTRA|  
@@ -90,22 +90,22 @@ Sono disponibili molte opzioni nuove per selezionare testo e righe, nonché per 
 |Selezionare tutto il testo dopo il prompt, se il cursore si trova nella riga corrente e la riga non è vuota|CTRL+A|  
 |Selezionare l'intero buffer, se il cursore **non** di trova nella riga corrente|CTRL+A|  
 
-**Modifica di testo**  
+**Modifica del testo**  
 
 È possibile copiare e incollare il testo nella console usando i comandi della tastiera. CTRL+C ora svolge due funzioni. Se non è stato selezionato testo quando viene usato, invia il comando di interruzione come di consueto. Se è stato selezionato testo, al primo clic copia il testo e cancella la selezione; al secondo clic invia il comando di interruzione. Ecco altri comandi di modifica:  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Incollare il testo nella riga di comando|CTRL+V|  
 |Copiare il testo selezionato negli appunti|CTRL+INS|  
 |Copiare il testo selezionato negli appunti; inviare il comando di interruzione|CTRL+C|  
 |Incollare il testo nella riga di comando|MAIUSC+INS|  
 
-**Modalità contrassegno**  
+**Modalità indicatore**  
 
 Per attivare la modalità contrassegno in qualsiasi momento, fare clic con il pulsante destro del mouse in un punto qualsiasi della barra del titolo della console, scegliere **Modifica** e selezionare **Contrassegna** dal menu visualizzato. È inoltre possibile digitare CTRL+M. In modalità contrassegno, usare il tasto ALT per identificare l'inizio di una selezione di ritorno a capo automatico. Se **Consenti selezione con ritorno a capo automatico righe** è disabilitata, la modalità contrassegno seleziona il testo in un blocco. In modalità contrassegno, CTRL+MAIUSC+freccia esegue la selezione in base al carattere e non in base alla parola come in modalità normale. Oltre alle chiavi di selezione nella sezione **Modifica di testo**, in modalità contrassegno sono disponibili queste combinazioni:  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Attivare la modalità contrassegno per spostare il cursore nella finestra|CTRL+M|  
 |Iniziare la selezione con ritorno a capo automatico in modalità contrassegno, insieme ad altre combinazioni di tasti|ALT|  
@@ -116,16 +116,16 @@ Per attivare la modalità contrassegno in qualsiasi momento, fare clic con il pu
 
 **Navigazione nella cronologia**  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Spostare verso l'alto una riga nella cronologia di output|CTRL+freccia SU|  
 |Spostare verso il basso una riga nella cronologia di output|CTRL+freccia GIÙ|  
 |Spostare il riquadro di visualizzazione all'inizio del buffer se la riga di comando è vuota o eliminare tutti i caratteri a sinistra del cursore se la riga di comando non è vuota|CTRL+HOME|  
 |Spostare il riquadro di visualizzazione nella riga di comando se la riga di comando è vuota o eliminare tutti i caratteri a destra del cursore se la riga di comando non è vuota|CTRL+FINE|  
 
-**Altri comandi della tastiera**  
+**Comandi da tastiera aggiuntive**  
 
-|A tale scopo:|Usare questa combinazione di tasti:|  
+|A tale scopo, effettuare le seguenti operazioni:|Usare questa combinazione di tasti:|  
 |---------------|-----------------------------|  
 |Aprire la finestra di dialogo Trova|CTRL+F|  
 |Chiudere la finestra della console|ALT+F4|  

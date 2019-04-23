@@ -1,0 +1,1 @@
+**[Apprendere le tecnologie VPN Always On](../vpn/always-on-vpn/always-on-vpn-technology-overview.md).** Per questa distribuzione, è necessario installare un nuovo server di accesso remoto che esegue Windows Server 2016, nonché modificare alcuni dell'infrastruttura esistente per la distribuzione.

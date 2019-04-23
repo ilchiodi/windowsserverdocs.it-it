@@ -1,28 +1,30 @@
 ---
 ms.assetid: fd427da3-3869-428f-bf2a-56c4b7d99b40
 title: Clonazione dei blocchi su ReFS
-description: 
+description: ''
 author: gawatu
 ms.author: gawatu
 manager: gawatu
-ms.date: 12/6/2016
+ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-file-systems
-ms.openlocfilehash: 25cc523eaa2ed266e5b07c53ede4bc9e9be20e93
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 54165700209320eee50fc63d98d78cbf4a92d053
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838112"
 ---
 # <a name="block-cloning-on-refs"></a>Clonazione dei blocchi su ReFS
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 La clonazione dei blocchi indica al file system di copiare un intervallo di byte di file per conto di un'applicazione in cui il file di destinazione può essere lo stesso oppure può essere diverso dal file di origine. Le operazioni di copia sono costose in quanto attivano letture e scritture impegnative sui dati fisici sottostanti. 
 
 La clonazione dei blocchi in ReFS, tuttavia, esegue le copie come un'operazione di metadati a basso costo invece che leggere e scrivere nei dati dei file. Poiché ReFS consente a più file di condividere gli stessi cluster logici (posizioni fisiche su un volume), le operazioni di copia devono solo rimappare un'area di un file in una posizione fisica separata, trasformando in questo modo un'operazione fisica costosa in una rapida operazione logica. Ciò consente di completare le copie in modo più rapido e di generare meno I/O nell'archiviazione sottostante. Questo miglioramento offre vantaggi anche ai carichi di lavoro della virtualizzazione in quanto, quando si utilizzano le operazioni di clonazione dei blocchi, le operazioni di unione del checkpoint .vhdx. vengono estremamente velocizzate. Inoltre, poiché più file possono condividere gli stessi cluster logici, i dati identici non vengono fisicamente archiviati più volte, migliorando la capacità di archiviazione. 
   
-## <a name="how-it-works"></a>Funzionamento 
+## <a name="how-it-works"></a>Come funziona 
 
 La clonazione dei blocchi su ReFS converte un'operazione dati dei file in un'operazione di metadati. Per effettuare questa ottimizzazione, ReFS introduce nei metadati i conteggi dei riferimenti per le aree copiate. Questo conteggio dei riferimenti registra il numero delle aree distinte del file che si riferiscono alle stesse aree fisiche. Ciò consente a più file di condividere gli stessi dati fisici:
 
@@ -62,8 +64,8 @@ Dopo la scrittura di modifica, l'area B è ancora condivisa da entrambi i file. 
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Panoramica di ReFS](refs-overview.md)
--   [Flussi di integrità ReFS](integrity-streams.md)
--   [Panoramica di Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Cenni preliminari su reFS](refs-overview.md)
+-   [Flussi di integrità di reFS](integrity-streams.md)
+-   [Panoramica di spazi diretti di archiviazione](../storage-spaces/storage-spaces-direct-overview.md)
 -   [DUPLICATE_EXTENTS_DATA](https://msdn.microsoft.com/library/windows/desktop/mt590821(v=vs.85).aspx)
 -   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](https://msdn.microsoft.com/library/windows/desktop/mt590823(v=vs.85).aspx)

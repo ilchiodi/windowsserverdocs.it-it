@@ -1,61 +1,58 @@
 ---
-title: Configurazione di rete convergente con una sola scheda di rete
-description: In questo argomento vengono fornite istruzioni su come distribuire una scheda di rete convergente con una sola scheda di rete in Windows Server 2016.
+title: Configurazione di interfaccia di rete convergente con una sola scheda di rete
+description: In questo argomento, ti offriamo le istruzioni per configurare l'interfaccia di rete convergente con una singola scheda di rete nell'host Hyper-V.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: eed5c184-fa55-43a8-a879-b1610ebc70ca
-manager: brianlic
+manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d6663a966026afb301a4bad90a9573d16fc82875
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/14/2018
+ms.openlocfilehash: 7777278f374984f242e44fd8a8fa94388df88a30
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59836472"
 ---
-# <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configurazione di rete convergente con una sola scheda di rete
+# <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configurazione di interfaccia di rete convergente con una sola scheda di rete
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Le sezioni seguenti forniscono istruzioni per la configurazione di rete convergente con una singola scheda di rete nell'host Hyper-V.
+In questo argomento, ti offriamo le istruzioni per configurare l'interfaccia di rete convergente con una singola scheda di rete nell'host Hyper-V.
 
-La configurazione di esempio in questa guida illustra due host Hyper-V, **un Host Hyper-V**, e **Hyper-V Host B**.
-
-## <a name="test-connectivity-between-source-and-destination"></a>Verificare la connettività tra origine e di destinazione
-
-In questa sezione include i passaggi necessari per testare la connettività tra origine e destinazione host Hyper-V.
-
-L'illustrazione seguente mostra due host Hyper-V, **un Host Hyper-V** e **Hyper-V Host B**. 
-
-Entrambi i server hanno una singola scheda fisica (pNIC) installata e le schede NIC sono connessi a un commutatore top of rack \(ToR\) fisico. Inoltre, i server si trovano nella stessa subnet, ovvero 192.168.1.x/24.
+La configurazione di esempio in questo argomento descrive due host Hyper-V **un Host Hyper-V**, e **Hyper-V Host B**. Entrambi gli host dispongano di una singola scheda NIC fisica (pNIC) installato, e le schede di rete sono connesse a una parte superiore del rack \(ToR\) commutatore fisico. Inoltre, l'host si trovano nella stessa subnet, ovvero 192.168.1.x/24.
 
 ![Host Hyper-V](../../media/Converged-NIC/1-single-test-conn.jpg)
 
 
-### <a name="test-nic-connectivity-to-the-hyper-v-virtual-switch"></a>Testare la connettività di scheda di rete al commutatore virtuale Hyper\-V
+## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Passaggio 1. Testare la connettività tra origine e destinazione
 
-Con questo passaggio, è possibile verificare che la scheda NIC fisica, per cui è in un secondo momento verrà creato un commutatore virtuale Hyper\-V, è possibile connettersi all'host di destinazione. 
+Assicurarsi che fisico NIC possa connettersi all'host di destinazione. Questo test dimostra la connettività con Livello3 \(L3\) - o il livello IP -, nonché di livello 2 \(L2\).
 
-Questo test dimostra la connettività tramite \(L3\) livello 3 - o il livello IP - nonché \(L2\) livello 2.
+1. Visualizzare le proprietà scheda di rete.
 
-È possibile utilizzare il comando di Windows PowerShell seguente per ottenere le proprietà della scheda di rete.
+   ```PowerShell
+   Get-NetAdapter
+   ```
+   
+   _**Risultati:**_  
 
-    Get-NetAdapter
-     
-Di seguito sono risultati di esempio di questo comando.
+   |Nome|InterfaceDescription|ifIndex|Stato|MacAddress|LinkSpeed|
+   |-----|--------------------|-------|-----|----------|---------|
+   |M1|Mellanox ConnectX-3 Pro...| 4| Su|7C-FE-90-93-8F-A1|40 Gbps|
+   ---
 
-|Nome|InterfaceDescription|ifIndex|Stato|Indirizzo MAC|LinkSpeed|
-|-----|--------------------|-------|-----|----------|---------|
-|
-|M1|Pro Mellanox ConnectX-3...| 4| Backup|7C-FE-90-93-8F-A1|40 GB/s|
+2. Visualizzare le proprietà di adapter aggiuntivi, tra cui l'indirizzo IP.
 
-È possibile utilizzare uno dei comandi seguenti per ottenere le proprietà delle schede aggiuntive, inclusi l'indirizzo IP.
+   ```PowerShell
+   Get-NetAdapter M1 | fl *
+   ```
 
-    Get-NetAdapter M1 | fl *
+   _**Risultati:**_
 
-Di seguito sono esempio modificato risultati del comando.
-    
+   ```PowerShell   
     MacAddress   : 7C-FE-90-93-8F-A1
     Status   : Up
     LinkSpeed: 40 Gbps
@@ -97,308 +94,306 @@ Di seguito sono esempio modificato risultati del comando.
     AdditionalAvailability   :
     Availability :
     CreationClassName: MSFT_NetAdapter
-    
+   ``` 
 
-### <a name="ensure-that-source-and-destination-can-communicate"></a>Assicurarsi che possa comunicare l'origine e destinazione
+## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Passaggio 2. Assicurarsi che possano comunicare l'origine e destinazione
 
-È possibile utilizzare questo passaggio per verificare la comunicazione bidirezionale \ (ping dall'origine alla destinazione e viceversa in entrambi systems\).  Nell'esempio seguente, il **Test NetConnection** viene utilizzato il comando di Windows PowerShell, ma se preferisci che è possibile utilizzare il **ping** comando. 
+In questo passaggio si usa la **Test-NetConnection** comando Windows PowerShell, ma se è possibile utilizzare il **ping** comando se si preferisce. 
 
->[!NOTE]
+>[!TIP]
 >Se si è certi che gli host possono comunicare tra loro, è possibile ignorare questo passaggio.
 
-    Test-NetConnection 192.168.1.5
+1. Verificare la comunicazione bidirezionale.
 
-Di seguito sono risultati di esempio di questo comando.
+   ```PowerShell
+   Test-NetConnection 192.168.1.5
+   ```
+   
+   _**Risultati:**_
 
-|Parametro|Valore|
-|---------|-----|
-|
-|ComputerName|192.168.1.5|
-|RemoteAddress|192.168.1.5|
-|InterfaceAlias|M1|
-|IndirizzoOrigine|192.168.1.3|
-|PingSucceeded|True|
-|PingReplyDetails \(RTT\)|0 ms|
+   |Parametro|Value|
+   |---------|-----|
+   |ComputerName|192.168.1.5|
+   |RemoteAddress|192.168.1.5|
+   |InterfaceAlias|M1|
+   |SourceAddress|192.168.1.3|
+   |PingSucceeded|True|
+   |PingReplyDetails \(RTT\)|0 ms|
+   ---
+   
+   In alcuni casi, potrebbe essere necessario disabilitare Windows Firewall con sicurezza avanzata per eseguire correttamente questo test. Se si disabilita il firewall, infatti, sicurezza e assicurarsi che la configurazione soddisfi i requisiti di sicurezza dell'organizzazione.
 
-In alcuni casi, potrebbe essere necessario disattivare Windows Firewall con sicurezza avanzata per eseguire correttamente questo test. Se si disabilita il firewall, tenere presente protezione e assicurarsi che la configurazione soddisfi i requisiti di sicurezza dell'organizzazione.
+2. Disabilitare tutti i profili del firewall.
 
-Il comando seguente consente di disabilitare tutti i profili firewall.
-
-    Set-NetFirewallProfile -All -Enabled False
+   ```PowerShell
+   Set-NetFirewallProfile -All -Enabled False
+   ```
     
-Dopo la disattivazione del firewall, è possibile utilizzare il comando seguente per verificare la connessione.
+3. Dopo aver disabilitato i profili firewall, verificare nuovamente la connessione. 
 
-    Test-NetConnection 192.168.1.5
+   ```PowerShell
+   Test-NetConnection 192.168.1.5
+   ```
 
-Di seguito sono risultati di esempio di questo comando.
+   _**Risultati:**_
 
-|Parametro|Valore|
-|---------|-----|
-|
-|ComputerName|192.168.1.5|
-|RemoteAddress|192.168.1.5|
-|InterfaceAlias|Test-40G-1|
-|IndirizzoOrigine|192.168.1.3|
-|PingSucceeded|False|
-|PingReplyDetails \(RTT\)|0 ms|
+   |Parametro|Value|
+   |---------|-----|
+   |ComputerName|192.168.1.5|
+   |RemoteAddress|192.168.1.5|
+   |InterfaceAlias|Test-40G-1|
+   |SourceAddress|192.168.1.3|
+   |PingSucceeded|False|
+   |PingReplyDetails \(RTT\)|0 ms|
+   ---
 
-## <a name="configure-vlans-optional"></a>Configurare le VLAN \(Optional\)
 
-Diverse configurazioni di rete si avvale delle VLAN. Se si prevede di utilizzare VLAN della rete, è necessario ripetere il test precedente con VLAN configurata. \ (Se si prevede di utilizzare RoCE per i servizi RDMA è necessario abilitare le VLAN. \)
 
-Per questo passaggio, le schede NIC sono **accesso** modalità. Tuttavia, quando si crea un commutatore virtuale Hyper-V di \(vSwitch\) più avanti in questa Guida, le proprietà VLAN vengono applicate a livello di porta vSwitch. 
+## <a name="step-3-optional-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Passaggio 3. (Facoltativo) Configurare gli ID VLAN per schede di rete installati negli host Hyper-V
 
-Poiché un commutatore può ospitare più VLAN, è necessario per il commutatore fisico \(ToR\) Top of Rack di una porta che l'host è connesso a configurata in modalità Trunk.
+Molte configurazioni di rete si avvalgono delle VLAN e se si prevede di usare reti VLAN in una rete, è necessario ripetere il test precedente con le VLAN configurate. Inoltre, se si prevede di usare RoCE per i servizi RDMA è necessario abilitare le VLAN.
+
+Per questo passaggio, le schede di rete presenti **accesso** modalità. Tuttavia, quando si crea un commutatore virtuale Hyper-V \(vSwitch\) più avanti in questa Guida, le proprietà VLAN vengono applicate a livello della porta commutatore virtuale. 
+
+Poiché un interruttore può ospitare più VLAN, è necessario per il Top of Rack \(ToR\) commutatore fisico per avere la porta che l'host è connesso da configurati in modalità Trunk.
 
 >[!NOTE]
 >Per istruzioni su come configurare la modalità Trunk nel commutatore, consultare la documentazione del commutatore ToR.
 
-L'illustrazione seguente mostra due host Hyper-V, ognuna con una scheda di rete fisica, e ogni configurato per la comunicazione sulla VLAN 101.
+L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisica e ogni configurato per comunicare sulla rete VLAN 101.
 
-![Configurare reti locali virtuali](../../media/Converged-NIC/2-single-configure-vlans.jpg)
+![Configurare le reti locali virtuali](../../media/Converged-NIC/2-single-configure-vlans.jpg)
 
-### <a name="configure-the-vlan-id"></a>Configurare l'ID VLAN
-
-Per configurare gli ID VLAN per le schede NIC installata nell'host Hyper-V, è possibile utilizzare questo passaggio.
-
-#### <a name="configure-nic-m1"></a>Configurare M1 NIC
-
-Con i comandi seguenti, configurare l'ID VLAN per la prima scheda NIC, M1, quindi visualizzare la configurazione risultante.
 
 >[!IMPORTANT]
->Non eseguire questo comando se si è connessi all'host in modalità remota attraverso questa interfaccia, perché tale operazione genererà perdita dell'accesso all'host.
+>Eseguire questa operazione nel server locale e di destinazione. Se il server di destinazione non è configurato con lo stesso ID VLAN nel server locale, i due non possono comunicare.
+
+
+1. Configurare l'ID VLAN per schede di rete installati negli host Hyper-V.
+
+   >[!IMPORTANT]
+   >Non eseguire questo comando se si è connessi all'host in modalità remota su questa interfaccia, perché ciò comporta una perdita di accesso all'host.
     
-    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "101"
-    Get-NetAdapterAdvancedProperty -Name M1 | Where-Object {$_.RegistryKeyword -eq "VlanID"} 
+   ```PowerShell
+   Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "101"
+   Get-NetAdapterAdvancedProperty -Name M1 | Where-Object {$_.RegistryKeyword -eq "VlanID"} 
+   ```
+
+   _**Risultati:**_
+
+   |Nome |DisplayName| DisplayValue| RegistryKeyword |RegistryValue|
+   |----|-----------|------------|---------------|-------------|
+   |M1|ID VLAN|101|VlanID|{101}|
+   ---
+
+2. Riavviare la scheda di rete per applicare il ID. VLAN
+
+   ```PowerShell
+   Restart-NetAdapter -Name "M1"
+   ```
+
+3. Verificare che lo stato è **backup**.
+
+   ```PowerShell
+   Get-NetAdapter -Name "M1"
+   ```
+   
+   _**Risultati:**_
+
+   |Nome|InterfaceDescription|ifIndex| Stato|MacAddress|LinkSpeed|
+   |----|--------------------|-------|------|----------| ---------|
+   |M1|Ada Ethernet Pro Mellanox ConnectX-3...|4|Su|7C-FE-90-93-8F-A1|40 Gbps|
+   ---
+
+   >[!IMPORTANT]
+   >Potrebbe richiedere alcuni secondi per il dispositivo per riavviare e diventano disponibili nella rete. 
+
+4. Verificare la connettività.<p>Se si verifica un errore di connettività, esaminare il commutatore partecipazione VLAN di configurazione o di destinazione nella stessa VLAN. 
+
+   ```PowerShell
+   Test-NetConnection 192.168.1.5
+   ```
     
-Di seguito sono risultati di esempio di questo comando.
-
-|Nome |DisplayName| Disponibili DisplayValue| RegistryKeyword |RegistryValue|
-|----|-----------|------------|---------------|-------------|
-|
-|M1|ID VLAN|101|VlanID|{101}|
-
-
-Assicurarsi che l'ID VLAN ha effetto indipendente dell'implementazione di scheda di rete utilizzando il comando seguente per riavviare la scheda di rete.
-
-    Restart-NetAdapter -Name "M1"
-
-È possibile utilizzare il comando seguente per verificare che lo stato di scheda di rete sia **backup** prima di procedere.
-
-    Get-NetAdapter -Name "M1"
-
-Di seguito sono risultati di esempio di questo comando.
-
-|Nome|InterfaceDescription|ifIndex| Stato|Indirizzo MAC|LinkSpeed|
-|----|--------------------|-------|------|----------| ---------|
-|
-|M1|Ada Ethernet Pro Mellanox ConnectX-3...|4|Backup|7C-FE-90-93-8F-A1|40 GB/s|
-
-Assicurarsi di eseguire questo passaggio in server locali e di destinazione. Se il server di destinazione non è configurato con lo stesso ID VLAN del server locale, non possono comunicare le due.
-
-### <a name="verify-connectivity"></a>Verificare la connettività
-
-È possibile utilizzare questa sezione per verificare la connettività dopo le schede di rete vengono riavviate. È possibile verificare la connettività dopo l'applicazione di tag VLAN a entrambe le schede. Se si verifica un errore di connettività, è possibile esaminare il commutatore partecipazione VLAN di configurazione o di destinazione nella stessa VLAN. 
-
->[!IMPORTANT]
->Dopo aver eseguito i passaggi nella sezione precedente, potrebbe richiedere alcuni secondi per il dispositivo per riavviare e diventano disponibili nella rete.
-
-#### <a name="verify-connectivity-for-nic-test-40g-1"></a>Verificare la connettività per NIC Test-40G-1
-
-Per verificare la connettività per la prima scheda di rete, è possibile eseguire il comando seguente.
-
-    Test-NetConnection 192.168.1.5
-    
-## <a name="configure-data-center-bridging-dcb"></a>Configurazione Data Center Bridging \(DCB\)
-
-Il passaggio successivo consiste nel configurare \(QoS\) DCB e Quality of Service, che è necessario innanzitutto installare la funzionalità di Windows Server 2016 DCB.
+## <a name="step-4-configure-quality-of-service-qos"></a>Passaggio 4. Configurare la qualità del servizio \(QoS\)
 
 >[!NOTE]
->È necessario eseguire tutti i seguenti passaggi di configurazione Data Center Bridging e QoS in tutti i server allo scopo di comunicare tra loro.
+>È necessario eseguire tutti i passaggi di configurazione Data Center Bridging e QoS seguenti in tutti gli host che devono comunicare tra loro.
 
-### <a name="install-data-center-bridging-dcb"></a>Installazione di Data Center Bridging \(DCB\)
+1. Installare Data Center Bridging \(DCB\) in ognuno degli host Hyper-V.
 
-Per installare e abilitare DCB, è possibile utilizzare questo passaggio. 
+   - **Facoltativo** le configurazioni di rete che utilizzano iWarp per i servizi RDMA.
+   - **Obbligatorio** per le configurazioni di rete che usano RoCE \(qualsiasi versione\) per i servizi RDMA.
 
->[!IMPORTANT]
->- Installazione e configurazione di DCB è **facoltativo** le configurazioni di rete che utilizzano iWarp per i servizi RDMA.
->- Installazione e configurazione di DCB è **necessari** le configurazioni di rete che utilizzano RoCE \(any version\) per i servizi RDMA.
+   ```PowerShell
+   Install-WindowsFeature Data-Center-Bridging
+   ```
 
+2. Impostare i criteri QoS per SMB diretto:
 
-È possibile utilizzare il comando seguente per installare DCB in tutti gli host Hyper-V. 
+   - **Facoltativo** le configurazioni di rete che utilizzano iWarp.
+   - **Obbligatorio** le configurazioni di rete che utilizzano RoCE.
+   
+   Nel comando riportato di seguito viene riportato di seguito, il valore "3" è arbitrario. È possibile usare qualsiasi valore compreso tra 1 e 7, purché si utilizzino in modo coerente lo stesso valore in tutta la configurazione dei criteri QoS.
 
-    Install-WindowsFeature Data-Center-Bridging
+   ```PowerShell
+   New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
+   ```
 
-### <a name="set-the-qos-policies-for-smb-direct"></a>Impostare i criteri QoS per SMB diretto 
+   _**Risultati:**_
 
-È possibile utilizzare il comando seguente per configurare i criteri QoS per SMB diretto.
+   |Parametro|Value|
+   |---------|-----|
+   |Nome |SMB|
+   |Proprietario|Criteri di gruppo \(macchina\)|
+   |NetworkProfile|Tutte|
+   |Precedenza|127|
+   |JobObject|&nbsp;| 
+   |NetDirectPort|445 |
+   |PriorityValue|3 |
+ ---
 
->[!IMPORTANT]
->- Questo passaggio è facoltativo per le configurazioni di rete che utilizzano iWarp.
->- Questo passaggio è obbligatorio per le configurazioni di rete che utilizzano RoCE.
->- Nell'esempio di comando seguente, il valore "3" è arbitrario. È possibile utilizzare qualsiasi valore compreso tra 1 e 7, purché si usano in modo coerente lo stesso valore in tutta la configurazione dei criteri QoS.
+3. Per le distribuzioni RoCE, attivare **controllo di flusso priorità** per il traffico SMB, che non è necessaria per iWarp.
 
-    New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
+   ```PowerShell
+   Enable-NetQosFlowControl -priority 3
+   Get-NetQosFlowControl
+   ```
 
-Di seguito sono risultati di esempio di questo comando.
+   _**Risultati:**_
 
-|Parametro|Valore|
-|---------|-----|
-|
-|Nome |SMB|
-|Proprietario|\(Machine\) criteri di gruppo|
-|NetworkProfile|Tutti|
-|Precedenza|127|
-|JobObject|&nbsp;| 
-|NetDirectPort|445
-|PriorityValue|3
+   |Priority|Enabled|PolicySet|IfIndex|IfAlias|
+   |---------|-----|--------- |-------| -------|
+   |0 |False |Globale|&nbsp;|&nbsp;|
+   |1 |False |Globale|&nbsp;|&nbsp;|
+   |2 |False |Globale|&nbsp;|&nbsp;|
+   |3 |True  |Globale|&nbsp;|&nbsp;|
+   |4 |False |Globale|&nbsp;|&nbsp;|
+   |5 |False |Globale|&nbsp;|&nbsp;|
+   |6 |False |Globale|&nbsp;|&nbsp;|
+   |7 |False |Globale|&nbsp;|&nbsp;|
+   ---
 
-### <a name="for-roce-deployments-turn-on-priority-flow-control-for-smb-traffic"></a>Per RoCE distribuzioni attivare il controllo di flusso di priorità per il traffico SMB 
+4. Abilitare QoS per le schede di rete locale e di destinazione.
 
-Se si utilizza RoCE per i servizi RDMA, è possibile utilizzare i comandi seguenti per abilitare il controllo di flusso SMB e visualizzare i risultati. Controllo di flusso priorità è obbligatorio per RoCE, ma non è necessario quando si utilizza iWarp.
+   - **Non è necessario** le configurazioni di rete che utilizzano iWarp.
+   - **Obbligatorio** le configurazioni di rete che utilizzano RoCE.
 
-    Enable-NetQosFlowControl -priority 3
-    Get-NetQosFlowControl
+   ```PowerShell
+   Enable-NetAdapterQos -InterfaceAlias "M1"
+   Get-NetAdapterQos -Name "M1"
+   ```
 
-Risultati di esempio di seguito sono riportati i **Get-NetQosFlowControl** comando.
+   _**Risultati:**_
 
-|Priorità|Abilitato|PolicySet|IfIndex|IfAlias|
-|---------|-----|--------- |-------| -------|
-|
-|0 |False |Globale|&nbsp;|&nbsp;|
-|1 |False |Globale|&nbsp;|&nbsp;|
-|2 |False |Globale|&nbsp;|&nbsp;|
-|3 |True  |Globale|&nbsp;|&nbsp;|
-|4 |False |Globale|&nbsp;|&nbsp;|
-|5 |False |Globale|&nbsp;|&nbsp;|
-|6 |False |Globale|&nbsp;|&nbsp;|
-|7 |False |Globale|&nbsp;|&nbsp;|
+   **Nome**: M1  
+   **Enabled**: True  
 
-### <a name="enable-qos-for-the-local-and-destination-network-adapters"></a>Abilitare QoS per le schede di rete locali e di destinazione
-Con questo passaggio è possibile abilitare DCB sulle schede di rete specifiche.
+   _**Funzionalità:**_   
 
->[!IMPORTANT]
->-  Questo passaggio non è necessaria per le configurazioni di rete che utilizzano iWarp.
->-  Questo passaggio è obbligatorio per le configurazioni di rete che utilizzano RoCE.
-
-
-
-
-#### <a name="enable-qos-for-nic-m1"></a>Abilitare QoS per M1 NIC
-
-È possibile utilizzare i comandi seguenti per abilitare QoS e visualizzare i risultati della configurazione.
-
-    Enable-NetAdapterQos -InterfaceAlias "M1"
-    Get-NetAdapterQos -Name "M1"
-
-Di seguito sono risultati di esempio di questo comando.
-
-**Nome**: M1 **abilitato**: True **funzionalità**:   
-
-|Parametro|Hardware|Corrente|
-|---------|--------|-------|
-|
-|MacSecBypass|NotSupported|NotSupported|
-|DcbxSupport|Nessuno|Nessuno|
-|NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
+   |Parametro|Hardware|Corrente|
+   |---------|--------|-------|
+   |MacSecBypass|NotSupported|NotSupported|
+   |DcbxSupport|Nessuno|Nessuno|
+   |NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
+   ---
  
-**OperationalTrafficClasses**: 
+   _**OperationalTrafficClasses:**_ 
 
-|TC|TSA|Larghezza di banda|Priorità|
-|----|-----|--------|-------|
-|
-|0| ETS|70%|0-2,4-7|
-|1|ETS|30%|3
+   |TC|TSA|Bandwidth|Priorità|
+   |----|-----|--------|-------|
+   |0| ETS|70%|0-2,4-7|
+   |1|ETS|30%|3 |
+   ---
 
-**OperationalFlowControl**: priorità 3 Enabled **OperationalClassifications**:
+   _**OperationalFlowControl:**_  
+   
+   Con priorità 3 abilitata  
 
-|Protocollo|Tipo di porta /|Priorità|
-|--------|---------|--------|
-|
-|Impostazione predefinita|&nbsp;|0|
-|NetDirect| 445|3|
+   _**OperationalClassifications:**_  
 
-### <a name="reserve-a-percentage-of-the-bandwidth-for-smb-direct-rdma"></a>Riservare una percentuale della larghezza di banda per \(RDMA\) SMB diretto
+   |Protocollo|Porta/tipo|Priority|
+   |--------|---------|--------|
+   |Impostazione predefinita|&nbsp;|0|
+   |NetDirect| 445|3|
+   ---
 
-È possibile utilizzare il comando seguente per riservare una percentuale della larghezza di banda per SMB diretto.  
+5. Riserva una percentuale della larghezza di banda per SMB diretto \(RDMA\).
 
-In questo esempio viene utilizzata una prenotazione della larghezza di banda 30%. È necessario selezionare un valore corrispondente a quello previsto che richiederà il traffico di archiviazione. Il valore di **- bandwidthpercentage** parametro deve essere un multiplo del 10%.
+    In questo esempio viene utilizzata una prenotazione della larghezza di banda del 30%. È necessario selezionare un valore che rappresenta ciò che si prevede che il traffico di archiviazione richiede. 
 
-    New-NetQosTrafficClass "SMB" -Priority 3 -BandwidthPercentage 30 -Algorithm ETS
+   ```PowerShell
+   New-NetQosTrafficClass "SMB" -Priority 3 -BandwidthPercentage 30 -Algorithm ETS
+   ```
 
-Di seguito sono risultati di esempio di questo comando.
+   _**Risultati:**_
 
-|Nome|Algoritmo |Bandwidth(%)| Priorità |PolicySet |IfIndex |IfAlias |
-|----|---------| ------------ |--------| ---------|------- |------- |
-|
-|SMB | ETS     | 30 |3 |Globale |&nbsp;|&nbsp;|                                      
+   |Nome|Algoritmo |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
+   |----|---------| ------------ |--------| ---------|------- |------- |
+   |SMB | ETS     | 30 |3 |Globale |&nbsp;|&nbsp;|
+   ---                                      
+
+6. Visualizzare le impostazioni di prenotazione della larghezza di banda.  
+
+   ```PowerShell
+   Get-NetQosTrafficClass
+   ```
+
+   _**Risultati:**_
  
-È possibile utilizzare il comando seguente per visualizzare le informazioni di prenotazione della larghezza di banda.
+   |Nome|Algoritmo |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
+   |----|---------| ------------ |--------| ---------|------- |------- |
+   |[Predefinito]|ETS|70 |0-2,4-7| Globale|&nbsp;|&nbsp;| 
+   |SMB      |ETS|30 |3 |Globale|&nbsp;|&nbsp;| 
+   ---
 
-    Get-NetQosTrafficClass
+## <a name="step-5-optional-resolve-the-mellanox-adapter-debugger-conflict"></a>Passaggio 5. (Facoltativo) Risolvere il conflitto di debugger scheda Mellanox 
 
-Di seguito sono risultati di esempio di questo comando.
- 
-|Nome|Algoritmo |Bandwidth(%)| Priorità |PolicySet |IfIndex |IfAlias |
-|----|---------| ------------ |--------| ---------|------- |------- |
-|
-|[Predefinito]|ETS|70 |0-2,4-7| Globale|&nbsp;|&nbsp;| 
-|SMB      |ETS|30 |3 |Globale|&nbsp;|&nbsp;| 
+Per impostazione predefinita, quando si usa una scheda Mellanox, il debugger collegato Blocca NetQos, che è un problema noto. Pertanto, se si utilizza un adapter da Mellanox e si prevede di collegare un debugger, usare seguente comando risolvono questo problema. Questo passaggio non è obbligatorio se non si prevede di collegare un debugger o se non si usa una scheda Mellanox.
 
-## <a name="remove-debugger-conflict-mellanox-adapter-only"></a>Rimuovere il conflitto Debugger \(Mellanox adapter only\)
+   ```PowerShell    
+   Set-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" AllowFlowControlUnderDebugger -type DWORD -Value 1 –Force
+   ``` 
 
-Se usi un adattatore da è necessario eseguire questo passaggio per configurare il debugger Mellanox. Per impostazione predefinita, quando si utilizza una scheda Mellanox, il debugger collegato Blocca NetQos. È possibile utilizzare il comando seguente per sostituire il debugger.
+## <a name="step-6-verify-the-rdma-configuration-native-host"></a>Passaggio 6. Verificare la configurazione di RDMA (host nativo)
 
-    
-    Set-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" AllowFlowControlUnderDebugger -type DWORD -Value 1 –Force
-    
+Si desidera assicurarsi che l'infrastruttura sia configurato correttamente prima della creazione di un commutatore virtuale e la transizione per RDMA (interfaccia di rete con convergenza). 
 
-## <a name="test-rdma-native-host"></a>Test RDMA (host nativo)
-
-È possibile utilizzare questo passaggio per assicurarsi che l'infrastruttura sia configurato correttamente prima della creazione di un vSwitch e passando a \(Converged NIC\) RDMA.
-
-L'illustrazione seguente mostra lo stato corrente degli host Hyper-V.
+L'immagine seguente mostra lo stato corrente degli host Hyper-V.
 
 ![Test RDMA](../../media/Converged-NIC/4-single-test-rdma.jpg)
 
-Per verificare la configurazione di RDMA, è possibile eseguire il comando seguente.
+1. Verificare la configurazione di RDMA.
 
-    Get-NetAdapterRdma
+   ```PowerShell
+   Get-NetAdapterRdma
+   ```
+   _**Risultati:**_
 
-Di seguito sono risultati di esempio di questo comando.
+   |Nome |InterfaceDescription |Enabled|
+   |----|--------------------|-------|
+   |M1| Scheda Ethernet Pro Mellanox ConnectX-3 |True|
+   ---
 
-|Nome |InterfaceDescription |Abilitato|
-|----|--------------------|-------|
-|
-|M1| Scheda Ethernet Pro Mellanox ConnectX-3 |True|
+2. Determinare il **ifIndex** valore l'adattatore di destinazione.<p>È consigliabile usare questo valore nei passaggi successivi quando si esegue lo script scaricato.
 
-### <a name="download-diskspdexe-and-a-powershell-script"></a>Download di DiskSpd.exe e uno Script di PowerShell
+   ```PowerShell
+   Get-NetIPConfiguration -InterfaceAlias "M*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
+   ```
 
-Per continuare, è necessario prima scaricare gli elementi seguenti.
+   _**Risultati:**_ 
 
-- Scaricare l'utilità DiskSpd.exe ed estrarre l'utilità in C:\TEST\ [utilità di Diskspd: un solido archiviazione Testing Tool (sostitutivi SQLIO)](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223)
+   |InterfaceAlias |InterfaceIndex |Indirizzo IPv4|
+   |-------------- |-------------- |-----------|
+   |M2 |14 |{192.168.1.5}|
+   ---
 
-- Scaricare lo script di powershell Test-RDMA a C:\TEST\[https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1)
+3. Scaricare il [DiskSpd.exe utilità](https://aka.ms/diskspd) e decomprimerlo in c:\test.\.
 
-### <a name="determine-the-ifindex-value-of-your-target-adapter"></a>Determinare il valore ifIndex destinazione della scheda di rete
+4. Scaricare il [script di powershell Test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) in una cartella di test nell'unità locale, ad esempio, c:\test.\.
 
-È possibile utilizzare il comando seguente per individuare il valore ifIndex della scheda di destinazione. Quando si esegue lo script che hai scaricato, è possibile utilizzare questo valore nei passaggi successivi.
-
-    Get-NetIPConfiguration -InterfaceAlias "M*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
-
-Di seguito sono risultati di esempio di questo comando.
-
-|InterfaceAlias |InterfaceIndex |IPv4Address|
-|-------------- |-------------- |-----------|
-|
-|M2 |14 |{192.168.1.5}|
-
-### <a name="run-the-powershell-script"></a>Eseguire lo script PowerShell
-
-Quando si esegue il ps1 Test-Rdma script di Windows PowerShell, è possibile passare il valore ifIndex dello script, con l'indirizzo IP della scheda remota nella stessa VLAN.
-
-È possibile utilizzare il comando seguente per eseguire lo script con un ifIndex del 14 nella scheda di rete 192.168.1.5.
-    
+5. Eseguire la **Test-Rdma.ps1** script di PowerShell per passare il valore di ifIndex allo script, con l'indirizzo IP della scheda remota nella stessa VLAN.<p>In questo esempio, lo script passa il **ifIndex** pari a 14 sull'indirizzo IP della scheda di rete remoto 192.168.1.5.
+   
+   ```PowerShell
     C:\TEST\Test-RDMA.PS1 -IfIndex 14 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
     
     VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\\diskspd.exe
@@ -418,183 +413,195 @@ Quando si esegue il ps1 Test-Rdma script di Windows PowerShell, è possibile pas
     VERBOSE: 8901349 RDMA bytes sent per second
     VERBOSE: Enabling RDMA on adapters that are not part of this test. RDMA was disabled on them prior to sending RDMA traffic.
     VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.1.5
+   ```
+
+   >[!NOTE]
+   >Se il traffico RDMA non riesce, nel caso di RoCE in particolare, consultare la configurazione di ToR Switch per le impostazioni di base alla priorità/ETS appropriate che dovrebbero corrispondere le impostazioni dell'Host. Vedere la sezione QoS in questo documento per i valori di riferimento.
+
+## <a name="step-7-remove-the-access-vlan-setting"></a>Passaggio 7. Rimuovere l'impostazione di accesso VLAN
+
+Impostare in preparazione per la creazione di Hyper-V, è necessario rimuovere le impostazioni VLAN che è stato installato in precedenza.  
+
+1. Rimuovere l'impostazione di accesso VLAN dall'interfaccia di rete fisica per impedire l'assegnazione automatica di tag il traffico in uscita con l'ID di VLAN non corretto. l'interfaccia di rete<p>Rimuovere questa impostazione impedisce inoltre il filtraggio del traffico in ingresso corrisponde all'ID accesso VLAN.
     
+   ```PowerShell
+   Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "0"
+   ```    
 
->[!NOTE]
->Se il traffico RDMA non riesce, il caso RoCE in particolare, consultare la configurazione ToR Switch per le impostazioni di base alla priorità/ETS appropriate che devono corrispondere alle impostazioni di Host. Vedere la sezione di QoS in questo documento per i valori di riferimento.
+2. Verificare che il **VlanID impostazione** Mostra il valore di ID VLAN pari a zero.
 
-## <a name="remove-the-access-vlan-setting"></a>Rimuovere l'impostazione di accesso VLAN
-
-In preparazione per la creazione del commutatore Hyper-V è necessario rimuovere le impostazioni VLAN che è stato installato in precedenza.  È possibile utilizzare il comando seguente per rimuovere l'impostazione di accesso VLAN dalla scheda di rete fisica. Questa azione impedisce l'assegnazione automatica di tag il traffico in uscita con l'ID VLAN non corretto la scheda di rete e impedisce inoltre filtrano il traffico in ingresso che non corrisponde l'ID della VLAN accesso.
-
-    
-    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "0"
-    
-
-È possibile utilizzare il comando seguente per verificare l'impostazione VlanID e visualizzare i risultati, che mostrano che il valore di ID VLAN è zero.
-
-    
-    Get-NetAdapterAdvancedProperty -name m1 | Where-Object {$_.RegistryKeyword -eq 'VlanID'} 
-    
+   ```PowerShell    
+   Get-NetAdapterAdvancedProperty -name m1 | Where-Object {$_.RegistryKeyword -eq 'VlanID'} 
+   ```  
 
 
-## <a name="create-a-hyper-v-virtual-switch"></a>Creare un commutatore virtuale Hyper-V
+## <a name="step-8-create-a-hyper-v-vswitch-on-your-hyper-v-hosts"></a>Passaggio 8. Creare un commutatore virtuale Hyper-V negli host Hyper-V
 
-È possibile utilizzare questa sezione per creare un commutatore virtuale Hyper-V di \(vSwitch\) negli host Hyper-V.
-
-L'illustrazione seguente mostra Hyper-V Host 1 con un vSwitch.
+L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
 
 ![Creare un commutatore virtuale Hyper-V](../../media/Converged-NIC/5-single-create-vswitch.jpg)
 
 
-### <a name="create-an-external-hyper-v-virtual-switch"></a>Creare un commutatore virtuale Hyper-V esterno
+1. Creare un commutatore virtuale Hyper-V esterno in Hyper-V in Host Hyper-V A. <p>In questo esempio, l'opzione è denominata VMSTEST. Inoltre, il parametro **AllowManagementOS** crea una scheda vNIC host che eredita gli indirizzi MAC e IP della scheda di rete fisica.
 
-È possibile utilizzare questa sezione per creare un vSwitch esterno in Hyper-V in Host Hyper-V A.
+   ```PowerShell
+   New-VMSwitch -Name VMSTEST -NetAdapterName "M1" -AllowManagementOS $true
+   ```
+   _**Risultati:**_
 
-È possibile utilizzare il comando seguente per creare un commutatore denominato VMSTEST.
+   |Nome |SwitchType |NetAdapterInterfaceDescription|
+   |---- |---------- |------------------------------|
+   |VMSTEST |Esterno |Scheda Ethernet Pro Mellanox ConnectX-3|
+   ---
 
->[!NOTE]
->Il parametro **AllowManagementOS** nel comando seguente crea una scheda di rete Host che eredita l'indirizzo MAC e l'indirizzo IP della scheda di rete fisica.
+2. Visualizzare le proprietà scheda di rete.
 
-    New-VMSwitch -Name VMSTEST -NetAdapterName "M1" -AllowManagementOS $true
+   ```PowerShell
+   Get-NetAdapter | ft -AutoSize
+   ```
 
-Di seguito sono risultati di esempio di questo comando.
+   _**Risultati:**_
 
-|Nome |SwitchType |NetAdapterInterfaceDescription|
-|---- |---------- |------------------------------|
-|VMSTEST |Esterno |Scheda Ethernet Pro Mellanox ConnectX-3|
+   |Nome |InterfaceDescription | ifIndex |Stato |MacAddress |LinkSpeed|
+   |---- |-------------------- |-------| ------|----------|---------|
+   |vEthernet \(VMSTEST\) |Adattatore Ethernet virtuale Hyper-V #2|27 |Su |E4-1D-2D-07-40-71 |40 Gbps|
+   ---
 
-È possibile utilizzare il comando seguente per visualizzare le proprietà della scheda di rete.
+3. Gestire la scheda di rete virtuale host in uno dei due modi. 
 
-    Get-NetAdapter | ft -AutoSize
+   - **NetAdapter** vista opera in base al "vEthernet \(VMSTEST\)" name. Non tutte le proprietà di scheda di rete visualizzato in questa visualizzazione.
+   - **VMNetworkAdapter** vista Elimina il prefisso "vEthernet" e utilizza semplicemente il nome del commutatore virtuale. (Consigliato) 
 
-Di seguito sono risultati di esempio di questo comando.
+   ```PowerShell
+   Get-VMNetworkAdapter –ManagementOS | ft -AutoSize
+   ```
 
-|Nome |InterfaceDescription | ifIndex |Stato |Indirizzo MAC |LinkSpeed|
-|---- |-------------------- |-------| ------|----------|---------|
-|
-|vEthernet \(VMSTEST\) |Scheda Ethernet virtuale Hyper-V #2|27 |Backup |E4-1D-2D-07-40-71 |40 GB/s|
+   _**Risultati:**_
 
+   |Nome |IsManagementOs |VMName |SwitchName |MacAddress |Stato |IPAddresses|
+   |----|-------------- |------ |----------|----------|------ |-----------|
+   |CORP-External-opzione |True |CORP-External-opzione| 001B785768AA |{Ok} |&nbsp;|
+   |VMSTEST |True |VMSTEST | E41D2D074071| {Ok} | &nbsp;| 
+   ---
 
-È possibile gestire una scheda di rete Host in due modi. È un metodo di **NetAdapter** visualizzazione, che opera in base al "vEthernet \(VMSTEST\)" nome.
+4. Testare la connessione.
 
-L'altro metodo consiste di **VMNetworkAdapter** visualizzazione, che elimina il prefisso "vEthernet" e Usa semplicemente il nome del commutatore VM.
+   ```Powershell    
+   Test-NetConnection 192.168.1.5
+   ```
 
-Il **VMNetworkAdapter** consente di visualizzare alcune proprietà di scheda di rete che non vengono visualizzate con il **NetAdapter** comando.
+   _**Risultati:**_ 
 
-È possibile utilizzare il comando seguente per visualizzare i risultati del **VMNetworkAdapter** metodo.
-
-    Get-VMNetworkAdapter –ManagementOS | ft -AutoSize
-
-Di seguito sono risultati di esempio di questo comando.
-
-|Nome |IsManagementOs |VMName |SwitchName |Indirizzo MAC |Stato |IPAddresses|
-|----|-------------- |------ |----------|----------|------ |-----------|
-|
-|CORP-commutatore esterno |True |CORP-commutatore esterno| 001B785768AA |{Ok} |&nbsp;|
-|VMSTEST |True |VMSTEST | E41D2D074071| {Ok} | &nbsp;| 
-
-### <a name="test-the-connection"></a>Verificare la connessione
-
-È possibile utilizzare il comando seguente per verificare la connessione e visualizzare i risultati.
-    
-    Test-NetConnection 192.168.1.5
-
+   ```
     ComputerName   : 192.168.1.5
     RemoteAddress  : 192.168.1.5
     InterfaceAlias : vEthernet (CORP-External-Switch)
     SourceAddress  : 192.168.1.3
     PingSucceeded  : True
     PingReplyDetails (RTT) : 0 ms
-    
-È possibile utilizzare i seguenti comandi di esempio per assegnare e visualizzare le impostazioni VLAN scheda di rete.
-    
-    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
-    Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
-    
+   ```
 
-|VMName |VMNetworkAdapterName |Modalità |VlanList|
-|------ |-------------------- |---- |--------|
-|
-|&nbsp;|VMSTEST |Accesso |101     
+5. Assegnare e visualizzare le impostazioni della scheda di rete VLAN.
+    
+   ```PowerShell
+   Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
+   Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
+   ```    
+
+   _**Risultati:**_
+
+   |VMName |VMNetworkAdapterName |Modalità |VlanList|
+   |------ |-------------------- |---- |--------|
+   |&nbsp;|VMSTEST |Accesso |101   |
+   ---  
  
-### <a name="test-the-connection"></a>Verificare la connessione
+6. Testare la connessione.<p>Potrebbe richiedere alcuni secondi per il completamento prima che è possibile effettuare correttamente il ping di altri adapter.  
 
-Ricorda che la modifica potrebbe richiedere alcuni secondi completare prima di è possibile effettuare correttamente il ping l'altra scheda.
+   ```PowerShell    
+   Test-NetConnection 192.168.1.5
+   ```
 
-È possibile utilizzare il comando seguente per verificare la connessione e visualizzare i risultati.
-    
-    Test-NetConnection 192.168.1.5
+   _**Risultati:**_
      
+   ```
     ComputerName   : 192.168.1.5
     RemoteAddress  : 192.168.1.5
     InterfaceAlias : vEthernet (VMSTEST)
     SourceAddress  : 192.168.1.3
     PingSucceeded  : True
     PingReplyDetails (RTT) : 0 ms
-    
+   ```
 
-## <a name="test-hyper-v-virtual-switch-rdma-mode-2"></a>Testare il commutatore virtuale Hyper-V RDMA (modalità 2)
+## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Passaggio 9: Testare il commutatore virtuale Hyper-V RDMA (modalità 2)
 
-L'illustrazione seguente mostra lo stato corrente i host Hyper-V, inclusi il vSwitch su Hyper-V Host 1.
+L'immagine seguente visualizza lo stato corrente degli host Hyper-V, tra cui il commutatore virtuale Hyper-V Host 1.
 
 ![Testare il commutatore virtuale Hyper-V](../../media/Converged-NIC/6-single-test-vswitch-rdma.jpg)
 
 
-### <a name="set-priority-tagging-on-the-host-vnic"></a>Impostare la priorità di assegnazione di tag vNIC Host
+1. Impostare la priorità l'assegnazione di tag su vNIC host.
 
-È possibile utilizzare i seguenti comandi di esempio per impostare la priorità su vNIC Host la codifica e visualizzare i risultati delle azioni.
-    
-    Set-VMNetworkAdapter -ManagementOS -Name "VMSTEST" -IeeePriorityTag on
-    Get-VMNetworkAdapter -ManagementOS -Name "VMSTEST" | fl Name,IeeePriorityTag
-    
-    Name: VMSTEST
-    IeeePriorityTag : On
-    
-È possibile utilizzare il comando seguente per visualizzare la scheda di rete informazioni RDMA. Nei risultati, quando il parametro **abilitato** ha il valore **False**, significa che non sia abilitato RDMA.
-    
-    Get-NetAdapterRdma
-    
-|Nome |InterfaceDescription |Abilitato |
-|---- |-------------------- |-------|
-|
-|vEthernet \(VMSTEST\)| Scheda Ethernet virtuale Hyper-V #2|False|
+   ```PowerShell    
+   Set-VMNetworkAdapter -ManagementOS -Name "VMSTEST" -IeeePriorityTag on
+   Get-VMNetworkAdapter -ManagementOS -Name "VMSTEST" | fl Name,IeeePriorityTag
+   ```  
+   
+   _**Risultati:**_
 
-### <a name="enable-rdma-on-the-host-vnic"></a>Abilitare RDMA sulle vNIC Host
-
-È possibile utilizzare i seguenti comandi di esempio per visualizzare le proprietà di scheda di rete, abilitare RDMA per la scheda e quindi visualizzare la scheda di rete informazioni RDMA.
-    
-    Get-NetAdapter
-    
-|Nome |InterfaceDescription |ifIndex |Stato |Indirizzo MAC |LinkSpeed|
-|----|--------------------|-------|------|----------|---------|
-|
-|vEthernet (VMSTEST)|Scheda Ethernet virtuale Hyper-V #2|27|Backup|E4-1D-2D-07-40-71|40 GB/s|
-
-    Enable-NetAdapterRdma -Name "vEthernet (VMSTEST)"
-    Get-NetAdapterRdma -Name "vEthernet (VMSTEST)"
-
-Nei risultati seguenti, quando il parametro **abilitato** ha il valore **True**, significa che è abilitato RDMA.
-
-|Nome |InterfaceDescription |Abilitato |
-|---- |-------------------- |-------|
-|
-|vEthernet \(VMSTEST\)| Scheda Ethernet virtuale Hyper-V #2|True|
+    Nome: IeeePriorityTag VMSTEST: Attivato
 
 
-    
-    Get-NetAdapter 
+2. Consente di visualizzare la scheda di rete informazioni RDMA. 
+
+   ```PowerShell
+   Get-NetAdapterRdma
+   ```   
+
+   _**Risultati:**_
+
+   |Nome |InterfaceDescription |Enabled |
+   |---- |-------------------- |-------|
+   |vEthernet \(VMSTEST\)| Adattatore Ethernet virtuale Hyper-V #2|False|
+   ---
+
+   >[!NOTE]
+   >Se il parametro **Enabled** ha il valore **False**, significa che RDMA non è abilitato.
     
 
-|Nome |InterfaceDescription |ifIndex |Stato |Indirizzo MAC |LinkSpeed|
-|----|--------------------|-------|------|----------|---------|
-|
-|vEthernet (VMSTEST)|Scheda Ethernet virtuale Hyper-V #2|27|Backup|E4-1D-2D-07-40-71|40 GB/s|
+3. Visualizzare le informazioni di scheda di rete.
 
-### <a name="perform-rdma-traffic-test-by-using-the-script"></a>Eseguire test di traffico RDMA mediante lo script
+   ```PowerShell
+   Get-NetAdapter
+   ```
 
-È possibile utilizzare il comando seguente per eseguire lo script che è stato scaricato e visualizzare i risultati.
-    
+   _**Risultati:**_   
+ 
+   |Nome |InterfaceDescription |ifIndex |Stato |MacAddress |LinkSpeed|
+   |----|--------------------|-------|------|----------|---------|
+   |vEthernet (VMSTEST)|Adattatore Ethernet virtuale Hyper-V #2|27|Su|E4-1D-2D-07-40-71|40 Gbps|
+   ---
+
+
+4. Abilitare RDMA sulle vNIC host.
+
+   ```PowerShell
+   Enable-NetAdapterRdma -Name "vEthernet (VMSTEST)"
+   Get-NetAdapterRdma -Name "vEthernet (VMSTEST)"
+   ```
+
+   _**Risultati:**_
+
+   |Nome |InterfaceDescription |Enabled |
+   |---- |-------------------- |-------|
+   |vEthernet \(VMSTEST\)| Adattatore Ethernet virtuale Hyper-V #2|True|
+   ---
+
+   >[!NOTE]
+   >Se il parametro **Enabled** ha il valore **True**, significa che RDMA è abilitato.
+
+5. Eseguire test di traffico RDMA.
+
+   ```PowerShell    
     C:\TEST\Test-RDMA.PS1 -IfIndex 27 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
     VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\\diskspd.exe
     VERBOSE: The adapter vEthernet (VMSTEST) is a virtual adapter
@@ -622,14 +629,11 @@ Nei risultati seguenti, quando il parametro **abilitato** ha il valore **True**,
     VERBOSE: 35035861 RDMA bytes sent per second
     VERBOSE: Enabling RDMA on adapters that are not part of this test. RDMA was disabled on them prior to sending RDMA traffic.
     VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.1.5
-    
-La riga finale in questo output, "test traffico RDMA riuscite: traffico RDMA è stato inviato alla 192.168.1.5," Mostra che sia stato configurato correttamente convergente NIC dell'adattatore.
+   ```
 
-## <a name="all-topics-in-this-guide"></a>Tutti gli argomenti in questa Guida
+L'ultima riga nell'output di questo "test di traffico RDMA riuscito: Il traffico RDMA è stato inviato a 192.168.1.5,"Mostra che è stato configurato correttamente interfaccia di rete convergente sulla propria scheda.
 
-Questa guida contiene gli argomenti seguenti.
-
-- [Configurazione di rete convergente con una sola scheda di rete](cnic-single.md)
-- [Configurazione di rete convergente le NIC combinate](cnic-datacenter.md)
-- [Configurazione di commutatore fisico per scheda di rete convergente](cnic-app-switch-config.md)
-- [Risoluzione dei problemi convergente configurazioni NIC](cnic-app-troubleshoot.md)
+## <a name="related-topics"></a>Argomenti correlati
+- [Configurazione di interfaccia di rete convergente le NIC](cnic-datacenter.md)
+- [Configurazione di commutatore fisico per la scheda di rete convergente](cnic-app-switch-config.md)
+- [Risoluzione dei problemi di configurazioni di interfaccia di rete convergente](cnic-app-troubleshoot.md)

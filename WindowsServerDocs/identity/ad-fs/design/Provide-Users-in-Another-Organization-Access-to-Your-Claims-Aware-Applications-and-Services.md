@@ -1,7 +1,7 @@
 ---
 ms.assetid: de7e1e4a-f96d-4b59-ac9b-f65f5d37a96f
-title: Fornire agli utenti in un'altra organizzazione l'accesso ai propri servizi e applicazioni in grado di riconoscere attestazioni
-description: 
+title: Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,42 +10,43 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: b4ec08182e2523b0fcb16088ec9c1d094a5923fe
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59836532"
 ---
-# <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti in un'altra organizzazione l'accesso ai propri servizi e applicazioni in grado di riconoscere attestazioni
+# <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Quando un amministratore nell'organizzazione partner risorse in Active Directory Federation Services \(AD FS\) e si dispone di un obiettivo di distribuzione per fornire l'accesso federato per gli utenti in un'altra organizzazione \ (organization\ il partner account) a un'applicazione in grado di riconoscere claims\ o un servizio basata sul Web che si trova all'interno dell'organizzazione \ (organization\ il partner risorse):  
+Quando si è un amministratore nell'organizzazione partner risorse in Active Directory Federation Services \(ADFS\) e si dispone di un obiettivo di distribuzione per fornire l'accesso federato per gli utenti in un'altra organizzazione \(il organizzazione partner account\) a delle attestazioni\-consapevole o un'applicazione Web\-basato su servizio che si trova all'interno dell'organizzazione \(organizzazione partner risorse\):  
   
--   Gli utenti sia all'interno dell'organizzazione che di altre organizzazioni che hanno configurato una federazione trust per l'organizzazione federati \ (organizations\ partner account) possono accedere di AD FS applicazione o servizio che è ospitato dalla propria organizzazione protetto. Per ulteriori informazioni, vedere [Federated Web SSO Design](Federated-Web-SSO-Design.md).  
+-   Sia all'interno dell'organizzazione che di altre organizzazioni che hanno configurato una federazione trust all'organizzazione di utenti federati \(le organizzazioni partner account\) possono accedere AD FS dell'applicazione o al servizio protetto ospitato dal organizzazione. Per altre informazioni, vedere [Federated Web SSO Design](Federated-Web-SSO-Design.md).  
   
-    Ad esempio, è possibile Fabrikam voglia i dipendenti della rete aziendale per l'accesso federativo ai servizi Web ospitati in Contoso.  
+    È possibile, ad esempio, che Fabrikam voglia concedere ai dipendenti della rete aziendale l'accesso federativo ai servizi Web ospitati in Contoso.  
   
--   Gli utenti che non dispongono di alcuna associazione diretta a un'organizzazione considerata attendibile federati \ (ad esempio singoli customers\), che sono connessi a un archivio di attributi che è ospitato nella rete perimetrale, possono accedere a più applicazioni protette FS\ Active Directory, anch'esse ospitate nella rete perimetrale, effettuando l'accesso una sola volta da computer client che si trovano su Internet. In altre parole, quando si ospitano account cliente per abilitare l'accesso alle applicazioni o servizi nella rete perimetrale, i clienti ospitati in un archivio di attributi possono accedere uno o più applicazioni o servizi nella rete perimetrale semplicemente effettuando l'accesso una sola volta. Per ulteriori informazioni, vedere [progettazione di Web SSO](Web-SSO-Design.md).  
+-   Gli utenti non hanno alcuna associazione diretta a un'organizzazione considerata attendibile federati \(ad esempio, clienti singoli\), che sono connessi a un archivio di attributi ospitato nella rete perimetrale, possono accedere più AD FS\- applicazioni protette, anch sono esse ospitate nella rete perimetrale, effettuando l'accesso una sola volta da computer client che si trovano su Internet. In altre parole, quando si ospitano account cliente per abilitare l'accesso ad applicazioni o servizi nella rete perimetrale, i clienti ospitati in un archivio di attributi possono accedere a una o più applicazioni o servizi nella rete perimetrale semplicemente effettuando l'accesso una sola volta. Per altre informazioni, vedere [Web SSO Design](Web-SSO-Design.md).  
   
-    Ad esempio, è possibile Fabrikam voglia ai clienti di avere accesso in apartment \(SSO\) accesso a più applicazioni o servizi ospitati nella rete perimetrale.  
+    Ad esempio, possibile che Fabrikam voglia ai clienti single\-sign\-sul \(SSO\) accesso a più applicazioni o servizi ospitati nella rete perimetrale.  
   
-I componenti seguenti sono necessari per questo obiettivo di distribuzione:  
+Per questo obiettivo di distribuzione, sono necessari i componenti seguenti:  
   
--   **Active Directory Domain Services \(AD DS\):** il server federativo del partner risorse deve appartenere a un dominio Active Directory.  
+-   **Active Directory Domain Services \(AD DS\):** Il server federativo del partner risorse deve appartenere a un dominio Active Directory.  
   
--   **DNS perimetrale:** Domain Name System \(DNS\) deve contenere un record di risorse host semplice \(A\) in modo che i computer client possano trovare il server federativo del partner risorse e il server Web. Il server DNS può ospitare altri record DNS anch'essi necessari nella rete perimetrale. Per ulteriori informazioni, vedere [requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **DNS perimetrale:** Domain Name System \(DNS\) deve contenere un host semplice \(oggetto\) di record di risorsa in modo che i computer client possano trovare il server federativo del partner risorse e il server Web. Il server DNS può ospitare altri record DNS anch'essi necessari nella rete perimetrale. Per altre informazioni, vedere [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
--   **Server federativo del partner risorse:** il server federativo del partner risorse convalida i token AD FS inviati dai partner account. Individuazione del partner account viene eseguita tramite il server federativo. Per ulteriori informazioni, vedere [rivedere il ruolo del Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+-   **Server federativo del partner risorse:** Il server federativo del partner risorse convalida i token di AD FS inviati dai partner account. Individuazione del partner account viene eseguita tramite il server federativo. Per altre informazioni, vedere [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
--   **Server Web:** il server Web può ospitare un'applicazione Web o un servizio Web. Il server Web di conferma ricevuto token AD FS validi dagli utenti federati prima di consentire l'accesso al servizio Web o applicazione Web protetto.  
+-   **Server Web:** il server Web può ospitare un'applicazione Web o un servizio Web. Il server Web verifica di avere ricevuto token AD FS validi dagli utenti federati prima di consentire l'accesso all'applicazione Web o al servizio Web protetto.  
   
-    Utilizzando Windows Identity Foundation \(WIF\), è possibile sviluppare l'applicazione Web o il servizio in modo che accetti le richieste di accesso utente federati effettuate con qualsiasi metodo di accesso standard, ad esempio nome utente e password.  
+    Con Windows Identity Foundation \(WIF\), è possibile sviluppare l'applicazione Web o servizio in modo che accetti federativa le richieste di accesso utente che vengono eseguite con qualsiasi metodo di accesso standard, ad esempio nome utente e password.  
   
-Dopo aver esaminato le informazioni negli argomenti collegati, è possibile iniziare a distribuire questo obiettivo seguendo i passaggi descritti in [Checklist: Implementing a Federated Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md) e [elenco di controllo: implementazione di una progettazione di Web SSO](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
+Dopo aver esaminato le informazioni negli argomenti collegati, è possibile iniziare a distribuire questo obiettivo seguendo i passaggi descritti in [elenco di controllo: Implementazione di un progetto SSO Web federata](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md) e [elenco di controllo: Implementazione di un progetto Web SSO](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
-La figura seguente mostra tutti i componenti necessari per questo obiettivo di distribuzione di ADFS.  
+Nella figura seguente viene illustrato ognuno dei componenti necessari per questo obiettivo di distribuzione di AD FS.  
   
-![Accedere al tuo attestazioni](media/75358b16-2a6f-4e16-9cc4-b0e614480305.gif)  
+![per le attestazioni di accesso](media/75358b16-2a6f-4e16-9cc4-b0e614480305.gif)  
   
 ## <a name="see-also"></a>Vedere anche
-[Guida alla progettazione di ADFS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

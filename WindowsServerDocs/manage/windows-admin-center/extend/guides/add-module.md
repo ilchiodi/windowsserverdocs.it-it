@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un modulo a un'estensione dello strumento
-description: "Sviluppare un'estensione dello strumento Windows Admin Center SDK (Project Honolulu): aggiungere un modulo a un'estensione dello strumento"
+description: Sviluppare un'estensione per strumento Windows Admin Center SDK (progetto Honolulu) - aggiungere un modulo a un'estensione degli strumenti
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,23 +9,23 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081208"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834402"
 ---
-# Aggiungere un modulo a un'estensione dello strumento
+# <a name="add-a-module-to-a-tool-extension"></a>Aggiungere un modulo a un'estensione dello strumento
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-In questo articolo, aggiungeremo un modulo vuoto per un'estensione dello strumento che abbiamo creato con l'interfaccia CLI di Windows Admin Center.
+In questo articolo, si aggiungerà un modulo vuoto per un'estensione degli strumenti che è stata creata con la CLI di Windows Admin Center.
 
-## Preparazione dell'ambiente
+## <a name="prepare-your-environment"></a>Preparazione dell'ambiente
 
-Se hai già fatto, segui le istruzioni nel sviluppano un'estensione [dello strumento](..\develop-tool.md) (o [soluzione](..\develop-solution.md)) per preparare l'ambiente e creare un'estensione dello strumento di nuovo e vuoto.
+Se hai già fatto, seguire le istruzioni di sviluppare un [lo strumento](..\develop-tool.md) (o [soluzione](..\develop-solution.md)) estensione a preparare l'ambiente e creare un'estensione per strumento nuovo e vuoto.
 
-## Usa l'interfaccia CLI Angular per creare un modulo (e componente)
+## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Usare il comando di Angular per creare un modulo (e component)
 
 Se non conosci Angular, è consigliabile leggere la documentazione sul sito Web Angular.Io per ulteriori informazioni su Angular e NgModule. Per ulteriori informazioni su NgModule, vai qui: https://angular.io/guide/ngmodule
 
@@ -33,7 +33,7 @@ Se non conosci Angular, è consigliabile leggere la documentazione sul sito Web 
 * Ulteriori informazioni sulla creazione di un nuovo componente in CLI Angular: https://github.com/angular/angular-cli/wiki/generate-component
 
 
-Apri un prompt dei comandi, passare alla \src\app nel tuo progetto, quindi Esegui i comandi seguenti, sostituendo ```{!ModuleName}``` con il nome del modulo (spazi rimossi):
+Aprire un prompt dei comandi, passare alla \src\app nel progetto, quindi eseguire i comandi seguenti, sostituendo ```{!ModuleName}``` con il nome del modulo (spazi rimossi):
 
 ```
 cd \src\app
@@ -41,7 +41,7 @@ ng generate module {!ModuleName}
 ng generate component {!ModuleName}
 ```
 
-| Valore | Spiegazione | Esempio |
+| Value | Spiegazione | Esempio |
 | ----- | ----------- | ------- |
 | ```{!ModuleName}``` | Nome del modulo (spazi rimossi) | ```ManageFooWorksPortal``` |
 
@@ -53,19 +53,19 @@ ng generate component ManageFooWorksPortal
 ```
 
 
-## Aggiungere le informazioni di routing
+## <a name="add-routing-information"></a>Aggiungere le informazioni di routing
 
 Se non conosci Angular, è altamente consigliabile ottenere informazioni sulla navigazione e il routing di Angular. Le sezioni seguenti definiscono elementi di routing necessari che consentono a Windows Admin Center di accedere alla tua estensione e spostarsi tra le visualizzazioni nell'estensione in risposta all'attività dell'utente. Per ulteriori informazioni, vai qui: https://angular.io/guide/router
 
-Usa lo stesso nome di modulo utilizzato nel passaggio precedente.
+Usare lo stesso nome di modulo usato nel passaggio precedente.
 
-### Aggiungere contenuto al nuovo file di routing
+### <a name="add-content-to-new-routing-file"></a>Aggiungere contenuto al nuovo file di routing
 
 * Accedi alla cartella del modulo creata da ``` ng generate ``` nel passaggio precedente.
 
 * Crea un nuovo file ```{!module-name}.routing.ts```, in base a questa convenzione di denominazione:
 
-    | Valore | Spiegazione | Nome del file di esempio |
+    | Value | Spiegazione | Nome del file di esempio |
     | ----- | ----------- | ------- |
     | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal.routing.ts``` |
 
@@ -103,16 +103,16 @@ Usa lo stesso nome di modulo utilizzato nel passaggio precedente.
 
 * Sostituisci i valori nel file appena creato con i valori desiderati:
 
-    | Valore | Spiegazione | Esempio |
+    | Value | Spiegazione | Esempio |
     | ----- | ----------- | ------- |
     | ```{!ModuleName}``` | Nome del modulo (spazi rimossi) | ```ManageFooWorksPortal``` |
     | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal``` |
 
-### Aggiungere contenuto al nuovo file di modulo
+### <a name="add-content-to-new-module-file"></a>Aggiungere contenuto al nuovo file di modulo
 
 Apri il file ```{!module-name}.module.ts``` trovato in base a questa convenzione di denominazione:
 
-| Valore | Spiegazione | Nome del file di esempio |
+| Value | Spiegazione | Nome del file di esempio |
 | ----- | ----------- | ------- |
 | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal.module.ts``` |
 
@@ -124,7 +124,7 @@ Apri il file ```{!module-name}.module.ts``` trovato in base a questa convenzione
 
 * Sostituisci i valori nel contenuto appena aggiunto con i valori desiderati:
 
-    | Valore | Spiegazione | Esempio |
+    | Value | Spiegazione | Esempio |
     | ----- | ----------- | ------- |
     | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal``` |
 
@@ -136,11 +136,11 @@ Apri il file ```{!module-name}.module.ts``` trovato in base a questa convenzione
 
 * Verifica che le istruzioni ```import``` siano in ordine alfabetico in base all'origine.
 
-### Aggiungere contenuto al nuovo file di typescript componente
+### <a name="add-content-to-new-component-typescript-file"></a>Aggiungere contenuto al nuovo file del componente typescript
 
 Apri il file ```{!module-name}.component.ts``` trovato in base a questa convenzione di denominazione:
 
-| Valore | Spiegazione | Nome del file di esempio |
+| Value | Spiegazione | Nome del file di esempio |
 | ----- | ----------- | ------- |
 | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal.component.ts``` |
     
@@ -155,11 +155,11 @@ public ngOnInit() {
     // TODO
 }
 ```
-### Aggiornare app routing.module.ts
+### <a name="update-app-routingmodulets"></a>Aggiornare app routing.module.ts
 
-Apri il file ```app-routing.module.ts```e modificare il percorso predefinito, in modo che verrà caricato il nuovo modulo appena creato.  Trovare la voce per ```path: ''```e aggiorna ```loadChildren``` per caricare il modulo invece il modulo predefinito:
+Apri file ```app-routing.module.ts```e modificare il percorso predefinito in modo che caricherà il nuovo modulo appena creato.  Trovare la voce relativa ```path: ''```e aggiornare ```loadChildren``` per caricare il modulo invece il modulo predefinito:
 
-| Valore | Spiegazione | Esempio |
+| Value | Spiegazione | Esempio |
 | ----- | ----------- | ------- |
 | ```{!ModuleName}``` | Nome del modulo (spazi rimossi) | ```ManageFooWorksPortal``` |
 | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal``` |
@@ -179,6 +179,6 @@ Ecco un esempio di un percorso predefinito aggiornato:
 ```
 
 
-## Crea e Trasferisci localmente estensione
+## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
 
-Ora hai aggiunto un modulo per l'estensione.  Successivamente, è possibile [creare e trasferire localmente carico](..\develop-tool.md#build-and-side-load-your-extension) l'estensione in Windows Admin Center per visualizzare i risultati.
+Viene aggiunto un modulo all'estensione.  Successivamente, è possibile [compilazione e sul lato carico](..\develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center per visualizzare i risultati.

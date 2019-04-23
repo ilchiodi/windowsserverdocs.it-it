@@ -1,6 +1,6 @@
 ---
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
-title: "Interoperabilità di Deduplicazione dati"
+title: Interoperabilità di Deduplicazione dati
 ms.technology: storage-deduplication
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,22 +9,23 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
 ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834432"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilità di Deduplicazione dati
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-## <a id="supported"></a>Funzionalità supportata
+## <a id="supported"></a>È supportato
 
 ### <a id="supported-clusters"></a>Clustering di failover
 
 Il [clustering di failover](../..//failover-clustering/failover-clustering-overview.md) è completamente supportato se in ogni nodo del cluster è installata la [funzionalità Deduplicazione dati](install-enable.md#install-dedup). Altre note importanti:
 
-* [I processi di Deduplicazione dati avviati manualmente](run.md#running-dedup-jobs-manually) devono essere eseguiti sul nodo del proprietario per il volume condiviso cluster.
+* [I processi di deduplicazione dei dati avviati manualmente](run.md#running-dedup-jobs-manually) devono essere eseguiti sul nodo del proprietario per il volume condiviso cluster.
 * I processi pianificati di Deduplicazione dati vengono archiviati nell'attività cluster pianificata in modo che se un volume deduplicato viene eseguito da un altro nodo, il processo pianificato verrà applicato al successivo intervallo pianificato.
 * Deduplicazione dati interagisce completamente con la funzionalità di [aggiornamento in sequenza del sistema operativo in cluster](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md).
 * Deduplicazione dati è completamente supportata nei volumi di [Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md) formattati con NTFS (mirror o parità). La deduplicazione non è supportata nei volumi a più livelli. Per altre informazioni, vedere [Data Deduplication on ReFS](interop.md#unsupported-refs) (Deduplicazione dati in ReFS).
@@ -36,7 +37,7 @@ La [replica di archiviazione](../storage-replica/storage-replica-overview.md) è
 È possibile ottimizzare l'accesso ai dati in rete abilitando [BranchCache](../../networking/branchcache/branchcache.md) su server e client. Quando un sistema abilitato per BranchCache comunica su una rete WAN con un file server remoto che esegue Deduplicazione dati, tutti i file deduplicati sono già indicizzati e con hash. Di conseguenza, le richieste di dati da una filiale vengono calcolate rapidamente. È simile alla preindicizzazione o al prehashing di un server abilitato per BranchCache.
 
 ### <a id="supported-dfsr"></a>Replica DFS
-La funzionalità Deduplicazione dati funziona con Replica DFS. L'ottimizzazione o l'annullamento dell'ottimizzazione di un file non attiverà una replica, perché il file non viene modificato. Per i salvataggi attraverso la rete, Replica DFS usa RDC (Remote Differential Compression), non i blocchi nell'archivio blocchi. I file per la replica possono anche essere ottimizzati tramite deduplicazione se la replica usa Deduplicazione dati.
+La funzionalità Deduplicazione dati funziona con Replica DFS (file system distribuito). L'ottimizzazione o l'annullamento dell'ottimizzazione di un file non attiverà una replica, perché il file non viene modificato. Per i salvataggi attraverso la rete, Replica DFS usa RDC (Remote Differential Compression), non i blocchi nell'archivio blocchi. I file per la replica possono anche essere ottimizzati tramite deduplicazione se la replica usa Deduplicazione dati.
 
 ### <a id="supported-quotas"></a>Quote
 Deduplicazione dati non supporta la creazione di una quota rigida su una cartella radice del volume in cui è abilitata anche la deduplicazione. Quando una quota rigida è presente in una radice del volume, lo spazio disponibile effettivo sul volume e lo spazio limitato dalla quota non corrispondono. Ciò può compromettere l'esito dei processi di ottimizzazione. È comunque possibile creare una quota flessibile su una cartella radice del volume in cui è abilitata la deduplicazione. 
@@ -60,29 +61,29 @@ Windows Server Backup consente di eseguire il backup di un volume ottimizzato "c
     wbadmin get versions
     ```
 
-    Questo ID versione dell'output sarà una stringa di data e ora, ad esempio: 08/18/2016-06:22.
+    Questo ID versione di output sarà una stringa di data e ora, ad esempio: 08/18/2016-06:22.
 
 4. Ripristinare l'intero volume.
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--OPPURE--**  
+    **--OR--**  
 
     Ripristinare una particolare cartella (in questo caso la cartella E:\Docs):
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:File  -items:E:\Docs  -recursive
     ```
 
-## <a id="unsupported"></a>File modifiche disco non supportato
+## <a id="unsupported"></a>Non è supportato
 ### <a id="unsupported-refs"></a>ReFS
 Windows Server 2016 non supporta Deduplicazione dati nei volumi formattati con ReFS. [Vota per questo elemento per Windows Server vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs).
 
-### <a id="unsupported-windows-client"></a>Windows 10 (sistema operativo client)
+### <a id="unsupported-windows-client"></a>Windows 10 (SO client)
 La funzionalità Deduplicazione dati non è supportata in Windows 10. Esistono diversi post di blog popolari nella community di Windows che descrivono come rimuovere i file binari da Windows Server 2016 e installarli su Windows 10, ma questo scenario non è stato convalidato come parte dello sviluppo di Deduplicazione dati. [Vota per questo elemento per Windows 10 vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).
 
 ### <a id="unsupported-windows-search"></a>Windows Search
 Windows Search non supporta Deduplicazione dati. Deduplicazione dati usa reparse point che Windows Search non può indicizzare, pertanto tutti i file deduplicati vengono ignorati ed esclusi dall'indice. Di conseguenza, i risultati della ricerca potrebbero essere incompleti per i volumi deduplicati. [Vota per questo elemento per Windows Server vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/17888647-make-windows-search-service-work-with-data-dedupli).
 
 ### <a id="unsupported-robocopy"></a>Robocopy
-Non è consigliabile eseguire Robocopy con Deduplicazione dati perché alcuni comandi di Robocopy possono danneggiare l'archivio blocchi. L'archivio blocchi è archiviato nella cartella System Volume Information per un volume. Se la cartella viene eliminata, i file ottimizzati (reparse point) copiati dal volume di origine vengono danneggiati poiché i blocchi di dati non vengono copiati nel volume di destinazione.
+Non è consigliabile eseguire Robocopy con Deduplicazione dati perché alcuni comandi di Robocopy possono danneggiare l'Archivio blocchi. L'archivio blocchi è archiviato nella cartella System Volume Information per un volume. Se la cartella viene eliminata, i file ottimizzati (reparse point) copiati dal volume di origine vengono danneggiati poiché i blocchi di dati non vengono copiati nel volume di destinazione.

@@ -1,97 +1,121 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: L'aggiornamento a AD FS in Windows Server 2016
-description: 
+title: Aggiornamento ad AD FS in Windows Server 2016
+description: ''
 author: billmath
 manager: femila
-ms.date: 05/31/2017
+ms.date: 04/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ce07398a2d624a1e9b004cd35eb9228d59dc2b5b
-ms.sourcegitcommit: 76e57a5453d6ee9a04dcff6a8cca087132cb1d5f
+ms.openlocfilehash: 39c735e9dde0fd60c7eb9ccfe0af890bdc5a5950
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838322"
 ---
-# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>L'aggiornamento a AD FS in Windows Server 2016 tramite un database interno di Windows
+# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aggiornamento ad AD FS in Windows Server 2016 con un database interno di Windows
 
->Si applica a: Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016
 
 
-## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Lo spostamento da una farm di Windows Server 2012 R2 AD ADFS in una farm ADFS a Windows Server 2016  
-In questo documento viene descritto come eseguire l'aggiornamento della farm di AD FS Windows Server 2012 R2 ad ADFS in Windows Server 2016, quando si utilizza un database interno di Windows.  
+## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>L'aggiornamento a Windows Server 2012 R2 o 2016 farm ADFS a Windows Server 2019 
+Il documento seguente viene descritto come eseguire l'aggiornamento della farm AD FS a AD FS in Windows Server 2019 quando si usa database interno di Windows.  
 
-### <a name="upgrading-ad-fs-to-windows-server-2016-fbl"></a>L'aggiornamento di ADFS a Windows Server 2016 FBL  
-Novità in AD FS per Windows Server 2016 è la funzionalità di livello il comportamento di farm (FBL).   Questa funzionalità è per l'intera farm e determina le funzionalità che è possibile utilizzare la farm ADFS.   Per impostazione predefinita, il FBL in una farm di Windows Server 2012 R2 AD ADFS si trova il FBL di Windows Server 2012 R2.  
+### <a name="ad-fs-farm-behavior-levels-fbl"></a>Livelli di comportamento di Farm di ADFS (FBL) AD  
+In AD FS per Windows Server 2016 è stato introdotto il livello di comportamento farm (FBL). Si tratta di impostazione a livello di farm che determina che la farm di funzionalità di AD FS è possibile usare. 
 
-Un server ADFS di Windows Server 2016 può essere aggiunto a una farm di Windows Server 2012 R2 e sarà attivo il fbl stesso come un Windows Server 2012 R2.  Quando si dispone di un server ADFS di Windows Server 2016 opera in questo modo, la farm viene detto "misto".  Tuttavia, non sarà in grado di sfruttare le nuove funzionalità di Windows Server 2016 fino a quando non viene generato il FBL a Windows Server 2016.  Con una farm mista:  
-
--   Gli amministratori possono aggiungere nuovi server federativi di Windows Server 2016 a una farm di Windows Server 2012 R2 esistente.  Di conseguenza, la farm in "modalità mista" e opera a livello di comportamento farm di Windows Server 2012 R2.  Per garantire un comportamento coerente nella farm, nuove funzionalità di Windows Server 2016 non possono essere configurate o utilizzata in questa modalità.  
-
--   Una volta tutti i server federativi di Windows Server 2012 R2 sono stati rimossi dalla farm in modalità mista e in caso di una farm database interno di Windows, uno dei nuovi server federativi di Windows Server 2016 è stato promosso al ruolo del nodo primario, l'amministratore può quindi generare FBL da Windows Server 2012 R2 a Windows Server 2016.  Di conseguenza, le nuove funzionalità di AD FS Windows Server 2016 possono essere configurate e utilizzate.  
-
--   Di conseguenza della funzionalità di farm misto, AD FS Windows Server 2012 R2, le organizzazioni che desiderano eseguire l'aggiornamento a Windows Server 2016 non saranno necessario distribuire una farm completamente nuova, esportare e importare i dati di configurazione.  Al contrario, possono aggiungere Windows Server 2016 nodi a una farm esistente mentre è in linea e comportano solo il tempo di inattività relativamente breve coinvolti nella raise FBL.  
-
-Tenere presente che in modalità mista farm, la farm di ADFS non è in grado di nuove funzionalità o funzionalità introdotta in ADFS in Windows Server 2016.  Questo significa che le organizzazioni che vogliono provare le nuove funzionalità non finché non viene generato il FBL.  Pertanto, se l'organizzazione esegue la ricerca per testare le nuove funzionalità prima di FBL rasing, è necessario distribuire una farm separata per eseguire questa operazione.  
-
-La parte restante del documento fornisce i passaggi per aggiungere un server federativo di Windows Server 2016 a un ambiente Windows Server 2012 R2 e quindi di aumentarne il FBL a Windows Server 2016.  Questi passaggi sono stati eseguiti in un ambiente di test descritto nel diagramma dell'architettura riportato di seguito.  
+Nella tabella seguente sono elencati i valori FBL dalla versione di Windows Server:
+| Versione di Windows Server  | FBL | Nome del Database di configurazione di AD FS |
+| ------------- | ------------- | ------------- |
+| 2012 R2  | 1  | AdfsConfiguration |
+| 2016  | 3  | AdfsConfigurationV3 |
+| 2019  | 4  | AdfsConfigurationV4 |
 
 > [!NOTE]  
-> Prima di poter passare ad ADFS in Windows Server 2016 FBL, è necessario rimuovere tutti i nodi di Windows 2012 R2.  Non appena l'aggiornamento di un sistema operativo di Windows Server 2012 R2 a Windows Server 2016 ed è diventato un nodo 2016.  È necessario rimuoverlo e sostituirlo con un nuovo nodo 2016.
->
-> L'aggiornamento il FBL quando si utilizza SQL per archiviare la configurazione di ADFS creare un nuovo database di gestione "AdfsConfigurationV3".
+> L'aggiornamento il FBL crea un nuovo database di configurazione di AD FS.  Vedere la tabella precedente per i nomi dei database di configurazione per ogni versione di Windows Server AD FS e il valore FBL
 
-##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2016-farm-behavior-level"></a>Per aggiornare la farm ADFS a livello di comportamento Farm di Windows Server 2016  
+### <a name="new-vs-upgraded-farms"></a>Visual Studio nuova farm aggiornato
+Per impostazione predefinita, il FBL in una nuova farm AD FS corrisponde al valore per la versione di Windows Server del nodo della farm prima installato.  
 
-1.  Utilizzando Server Manager installa il ruolo di servizi di Active Directory Federation in Windows Server 2016  
+Un server AD FS di una versione più recente può essere unito a una farm AD FS 2012 R2 o 2016 e la farm venga utilizzato il fbl stesso come dei nodi esistenti. Quando si dispone di più versioni di Windows Server operativi nella stessa farm in corrispondenza del valore FBL della versione più bassa, la farm viene detto "misto". Tuttavia, non sarà in grado di sfruttare i vantaggi delle funzionalità di versioni successive, fino a quando non viene generato il FBL. Con una farm mista:  
 
-2.  Utilizzando la procedura guidata configurazione di ADFS, aggiungere il nuovo server Windows Server 2016 alla farm ADFS esistente.  
+-   Gli amministratori possono aggiungere nuovi server federativi di Windows Server 2019 per un esistenti di Windows Server 2012 R2 o 2016 farm. Di conseguenza, la farm in "modalità mista" e opera a livello di comportamento farm stessa della farm originale. Per garantire un comportamento coerente nella farm, le funzionalità di nuove versioni Windows Server AD FS non è possibile configurare o usate.  
 
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)  
+- Prima può essere generato il FBL, gli amministratori devono rimuovere nodi delle versioni precedenti di Windows Server AD FS dalla farm.  Nel caso di una farm database interno di Windows, si noti che questa operazione richiede una dell'elaborazione delle transazioni di nuovo Windows Server 2019 federation server alzata di livello al ruolo del nodo primario nella farm.
 
-3.  Nel server federativo di Windows Server 2016, aprire Gestione ADFS.    Si noti che non viene visualizzato come il server federativo non è il server primario.  
+-   Dopo che tutti i server federativi nella farm sono della stessa versione di Windows Server, può essere generato il FBL.  Di conseguenza, eventuali nuove funzionalità di Windows Server ADFS 2019 può quindi essere configurata e usata.
 
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)  
+Tenere presente che mentre in modalità mista farm, la farm AD FS non è in grado di nuove funzionalità o funzionalità introdotta in ADFS in Windows Server 2019. Questo significa che le organizzazioni che vogliono provare le nuove funzionalità non finché non viene generato il FBL. Pertanto, se l'organizzazione esegue la ricerca per testare le nuove funzionalità prima di FBL rasing, è necessario distribuire una farm separata per eseguire questa operazione.  
 
-4.  Al termine il join, nel server di Windows Server 2016, aprire PowerShell ed eseguire il seguente cmdlet: Set-AdfsSyncProperties-PrimaryComputer ruolo  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)  
-
-5.  Nel server AD FS Windows Server 2012 R2 originale, aprire PowerShell ed eseguire il seguente cmdlet: Set-AdfsSyncProperties-ruolo SecondaryComputer - PrimaryComputerName {FQDN}  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
-
-6.  Nel Proxy di applicazione Web, aprire PowerShell ed eseguire il cmdlet seguenti: {SSLCert} Install-WebApplicationProxy - CertificateThumbprint - fsname fsname - TrustCred $trustcred  
-
-7.  Nel server federativo di Windows Server 2016 aprire Gestione ADFS.  Si noti che ora tutti i nodi vengono visualizzati perché il ruolo primario è stato trasferito a questo server.  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
-
-8.  Con il supporto di installazione di Windows Server 2016, aprire un prompt dei comandi e passare alla directory support\adprep..  Eseguire il comando seguente: adprep /forestprep.  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
-
-9. Quando è stata completata, eseguire adprep/domainprep  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
-
-10. Ora nel Server di Windows Server 2016, aprire PowerShell ed eseguire il cmdlet seguente: AdfsFarmBehaviorLevelRaise Invoke  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
-
-11. Quando richiesto, digitare Y. Verrà avviata l'aumento del livello.  Questo termine si è generati correttamente il FBL.  
-
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
+Il resto del documento fornisce i passaggi per l'aggiunta di un server federativo di Windows Server 2019 per ambiente 2012 R2 o Windows Server 2016 e quindi di aumentarne il FBL a Windows Server 2019. Questi passaggi sono stati eseguiti in un ambiente di test descritto nel diagramma dell'architettura riportato di seguito.  
 
 > [!NOTE]  
-> Se i server ADFS utilizzano SQL per la configurazione, con il nome "AdfsConfiguraionV3" è stato creato un nuovo database manamgement. 
+> Prima di poter passare ad ADFS in Windows Server 2019 FBL, è necessario rimuovere tutti i Windows Server 2016 o 2012 R2 nodi. Appena non è possibile eseguire l'aggiornamento del sistema operativo R2 di 2012 o Windows Server 2016 per Windows Server 2019 ed è diventato un nodo 2019. È necessario rimuoverlo e sostituirlo con un nuovo nodo 2019.
 
-12. A questo punto, se si passa alla gestione di ADFS, si noterà nuovi nodi che sono state aggiunte per ADFS in Windows Server 2016  
 
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
 
-13. Analogamente, è possibile utilizzare il cmdlet PowerShell: Get-AdfsFarmInformation per mostrarvi FBL corrente.  
+##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>Per aggiornare la farm ADFS a livello di comportamento Farm di Windows Server 2019  
 
-    ![eseguire l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
+1.  Usa Server Manager, installare il ruolo di Active Directory Federation Services il 2019 di Windows Server 
+
+2.  Tramite la procedura guidata configurazione di AD FS, unire il nuovo server Windows Server 2019 alla farm ADFS esistente.  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)  
+
+3.  Nel server federativo di Windows Server 2019, aprire Gestione ADFS. Si noti che le funzionalità di gestione non sono disponibili perché il server federativo non è il server primario.  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)  
+
+4.  Nel server di Windows Server 2019, aprire una finestra di comando di PowerShell con privilegi elevata ed eseguire il cmdlet seguente: `Set-AdfsSyncProperties -Role PrimaryComputer`
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)  
+
+5.  Nel server AD FS che è stato precedentemente configurato come primario, aprire una finestra di comando di PowerShell con privilegi elevata ed eseguire il cmdlet seguente: `Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN} `
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
+
+6.  In ogni Proxy applicazione Web, riconfigurare il WAP eseguendo il comando PowerShell seguente in una finestra con privilegi elevata:  
+```powershell
+$trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+```
+
+7.  Ora sul server federativo a Windows Server 2016 aprire Gestione ADFS. Si noti che ora tutte le funzionalità di amministrazione vengono visualizzati perché il ruolo primario è stato trasferito a questo server.  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
+
+8.  Se si sta aggiornando una farm di AD FS 2012 R2 a 2016 o 2019, l'aggiornamento richiede lo schema di Active Directory sia almeno di livello 85.  Per eseguire l'aggiornamento di schema, il supporto di installazione con il Windows Server 2016, aprire un prompt dei comandi e passare alla directory support\adprep. Eseguire il comando seguente:  `adprep /forestprep`
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
+
+    Una volta che viene completata l'esecuzione `adprep/domainprep`
+    >[!NOTE]
+    >Prima di eseguire il passaggio successivo, assicurarsi che Windows Server è corrente tramite l'esecuzione di Windows Update dalle impostazioni. Continua questo processo fino a quando non sono necessari altri aggiornamenti. 
+    > 
+    
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
+
+9. Ora nel Server di Windows Server 2016 aprire PowerShell ed eseguire il cmdlet seguente:
+    >[!NOTE]
+    > Tutti i Server 2012 R2 deve essere rimosso dalla farm prima di eseguire il passaggio successivo.
+ 
+    `Invoke-AdfsFarmBehaviorLevelRaise`  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
+
+10. Quando richiesto, digitare Y. Verrà avviata l'aumento del livello. Questo termine si sono generati correttamente il FBL.  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
+
+11. A questo punto, se si passa alla gestione di AD FS, verrà visualizzato che sono state aggiunte le nuove funzionalità per la versione più recente AD FS 
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
+
+13. Analogamente, è possibile usare il cmdlet di PowerShell: `Get-AdfsFarmInformation` per mostrarvi FBL corrente.  
+
+    ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
+    
+

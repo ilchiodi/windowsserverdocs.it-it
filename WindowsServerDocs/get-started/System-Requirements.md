@@ -15,15 +15,15 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 29183c62830cbe9e26cce4e0ce4543b554f0ed65
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783743"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59837312"
 ---
-# Requisiti di sistema
+# <a name="system-requirements"></a>Requisiti di sistema
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016 
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016 
 
 Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Windows Server&reg; 2016 o Windows Server, versione 1709.
 
@@ -36,7 +36,7 @@ Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Wind
 > Se al momento dell'installazione si sceglie di procedere con l'opzione Server Core è necessario essere consapevoli che nessun componente GUI è installato e che non sarà possibile installare o disinstallare tali elementi con Server Manager. Se sono necessarie funzionalità GUI, quando si installa Windows Server 2016 assicurarsi di scegliere l'opzione "Server con Esperienza desktop". Per altre informazioni, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md)  
 
 
-## Verificare i requisiti di sistema  
+## <a name="review-system-requirements"></a>Verificare i requisiti di sistema  
 Di seguito sono indicati i requisiti di sistema stimati per Windows Server 2016. Se le risorse del computer sono inferiori ai requisiti minimi indicati, non sarà possibile installare il prodotto in modo corretto. I requisiti effettivi possono variare in base alla configurazione del sistema, nonché in base alle applicazioni e alle funzionalità selezionate per l'installazione.
 
 Se non diversamente specificato, i requisiti minimi di sistema si applicano a tutte le opzioni di installazione (Server Core, Server con Esperienza desktop e Nano Server) e a entrambe le edizioni Standard e Datacenter.  
@@ -45,7 +45,7 @@ Se non diversamente specificato, i requisiti minimi di sistema si applicano a tu
 > La gamma estremamente diversificata delle potenziali distribuzioni rende poco realistico dichiarare i requisiti di sistema applicabili a livello generale come "consigliati". Consultare la documentazione relativa a ogni ruolo del server che si prevede di distribuire per ulteriori dettagli sulle esigenze a livello di risorse per gli specifici ruoli del server. Per ottenere risultati ottimali, eseguire distribuzioni di prova per stabilire i requisiti di sistema appropriati per ogni scenario di distribuzione specifico.  
 
 
-## Processore  
+## <a name="processor"></a>Processore  
 Oltre che dalla frequenza di clock del processore, le prestazioni del processore dipendono dal numero di core del processore e dalle dimensioni della cache del processore. Di seguito sono indicati i requisiti del processore per questo prodotto:  
 
 **Minimo**:  
@@ -55,9 +55,9 @@ Oltre che dalla frequenza di clock del processore, le prestazioni del processore
 - Supporto per CMPXCHG16b, LAHF/SAHF e PrefetchW  
 - Supporto per SLAT (Second-Level Address Translation) (EPT o NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento che è possibile utilizzare per verificare quali di queste funzionalità della CPU.
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento è possibile usare per verificare quali di queste funzionalità è la CPU.
 
-## RAM  
+## <a name="ram"></a>RAM  
 Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:  
 
 **Minimo**:  
@@ -72,7 +72,7 @@ Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:
 > -   Allocare più di 800 MB di RAM alla macchina virtuale in cui si intende installare questa versione. Al termine dell'installazione, è possibile modificare l'allocazione fino a un minimo di 512 MB di RAM, a seconda della configurazione effettiva del server.  
 > -   Interrompere il processo di avvio di questa versione nella macchina virtuale con MAIUSC+F10. Nel prompt dei comandi aperto utilizzare Diskpart.exe per creare e formattare una partizione di installazione. Eseguire **Wpeutil createpagefile /path=C:\pf.sys** (supponendo che la partizione di installazione creata sia C:). Chiudere il prompt dei comandi e procedere con l'installazione.  
 
-## Requisiti di spazio su disco e del controller di archiviazione  
+## <a name="storage-controller-and-disk-space-requirements"></a>Requisiti di spazio su disco e del controller di archiviazione  
 I computer che eseguono Windows Server 2016 devono includere un adattatore di archiviazione conforme alla specifica di architettura PCI Express. I dispositivi di archiviazione permanente sul server classificati come unità disco rigido non devono essere di tipo PATA. Windows Server 2016 non supporta EIDE/ATA/PATA/IDE per l'avvio, il paging o le unità dati.  
 
 Di seguito sono indicati i requisiti **minimi** di spazio su disco stimati per la partizione di sistema.  
@@ -87,7 +87,7 @@ Di seguito sono indicati i requisiti **minimi** di spazio su disco stimati per l
     > -   Se si installa il sistema in una rete.  
     > -   Nei computer con più di 16 GB di RAM è necessario ulteriore spazio su disco per i file di paging, di ibernazione e di dettagli.  
 
-## Requisiti della scheda di rete  
+## <a name="network-adapter-requirements"></a>Requisiti della scheda di rete  
 
 Le schede di rete usate con questa versione devono includere queste funzionalità:  
 
@@ -100,7 +100,7 @@ Una scheda di rete che supporta il debugging di rete (KDNet) è utile, ma non co
 
 
 
-## Altri requisiti  
+## <a name="other-requirements"></a>Altri requisiti  
 I computer che eseguono questa versione devono disporre anche di quanto segue:  
 
 
@@ -125,11 +125,11 @@ Gli elementi seguenti non sono effettivamente obbligatori, ma necessari per alcu
 >- I TPM che implementano la versione 2.0 devono disporre delle banche SHA-256 PCR e implementare PCR tra 0 e 23 per SHA-256. È possibile distribuire i TPM con una singola banca PCR commutabile che può essere utilizzata per le misurazioni SHA-1 e SHA-256.  
 >- La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
 
-## Installazione di Nano Server  
-Per passaggi dettagliati per installare Windows Server 2016 come Nano Server, vedi [Installare Nano Server](Getting-Started-with-Nano-Server.md).
+## <a name="installation-of-nano-server"></a>Installazione di Nano Server  
+Per passaggi dettagliati per installare Windows Server 2016 come Nano Server, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 - [Requisiti del processore di Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
-- [Confronto tra le edizioni Standard e Datacenter di Windows Server2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
+- [Confronto delle edizioni Standard e Datacenter di Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
 - [Requisiti di sistema di Windows 10 ](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [Scarica il foglio dati sulle licenze di Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

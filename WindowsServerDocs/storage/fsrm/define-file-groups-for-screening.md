@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6e043692500370b6c084a4db068027d13afc957f
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838432"
 ---
 # <a name="define-file-groups-for-screening"></a>Definire gruppi di file per lo screening
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Un *gruppo di file* viene utilizzato per definire uno spazio dei nomi per uno screening dei file, l'eccezione screening dei file o il rapporto di archiviazione **File in base a gruppo di file** È costituito da un set di modelli di nomi di file, che vengono raggruppati in base a quanto segue:
 
@@ -40,16 +41,16 @@ Un *gruppo di file* viene utilizzato per definire uno spazio dei nomi per uno sc
 
     -   Per ogni set di file che si desidera includere nel gruppo di file, nella casella **File da includere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
     -   Per ogni set di file che si desidera escludere dal gruppo di file, nella casella **File da escludere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
-        SI noti che si applicano le regole per i caratteri jolly standard, ad esempio **\*.exe** seleziona tutti i file eseguibili.
+        Si noti che si applicano le regole con caratteri jolly standard, ad esempio,  **\*.exe** Seleziona tutti i file eseguibili.
 
 5.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione screening dei file](file-screening-management.md)
--   [Creare uno screening dei file](create-file-screen.md)
--   [Creare un'eccezione screening dei file](create-file-screen-exception.md)
--   [Creare un modello di screening dei file](create-file-screen-template.md)
--   [Gestione rapporti di archiviazione](storage-reports-management.md)
+-   [Gestione di screening dei file](file-screening-management.md)
+-   [Creare uno screening dei File](create-file-screen.md)
+-   [Creare un'eccezione per screening dei File](create-file-screen-exception.md)
+-   [Creare un modello di schermata del File](create-file-screen-template.md)
+-   [Gestione rapporti archiviazione](storage-reports-management.md)
 
 

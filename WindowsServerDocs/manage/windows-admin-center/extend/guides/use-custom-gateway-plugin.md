@@ -1,6 +1,6 @@
 ---
 title: Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento
-description: Sviluppare un'estensione dello strumento Windows Admin Center SDK (Project Honolulu) - utilizzare un plug-in gateway personalizzato nell'estensione dello strumento
+description: Sviluppare un'estensione per strumento Windows Admin Center SDK (progetto Honolulu) - usare un plug-in gateway personalizzato nella propria estensione degli strumenti
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,36 +8,36 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 4652616478b7b05bde97db48bf84648984b5a325
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: c9b2e9201d58472286b42a9c89a36423f40d143d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296763"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834512"
 ---
-# Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento
+# <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
+>Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-In questo articolo, usiamo un plug-in di gateway personalizzato in un'estensione dello strumento di nuovo e vuoto che abbiamo creato con l'interfaccia CLI di Windows Admin Center.
+In questo articolo si userà un plug-in di gateway personalizzato in un'estensione per strumento nuovo e vuoto che sono stati creati con la CLI di Windows Admin Center.
 
-## Preparazione dell'ambiente ##
+## <a name="prepare-your-environment"></a>Preparazione dell'ambiente ##
 
-Se hai già fatto, segui le istruzioni nel [sviluppare un'estensione dello strumento](..\develop-tool.md) per preparare l'ambiente e creare un'estensione dello strumento di nuovo e vuoto.
+Se hai già fatto, seguire le istruzioni disponibili nel [sviluppare un'estensione per strumento](..\develop-tool.md) per preparare l'ambiente e creare un nuovo, vuoto estensione degli strumenti.
 
-## Aggiungere un modulo al progetto ##
+## <a name="add-a-module-to-your-project"></a>Aggiungere un modulo al progetto ##
 
-Se hai già fatto, aggiungere un nuovo [modulo vuota](add-module.md) al tuo progetto, che verrà utilizzato nel passaggio successivo.  
+Se hai già fatto, aggiungere un nuovo [modulo vuoto](add-module.md) al progetto, che verrà usato nel passaggio successivo.  
 
-## Aggiungere l'integrazione di plug-in del gateway personalizzato ##
+## <a name="add-integration-to-custom-gateway-plugin"></a>Aggiungere l'integrazione al plug-in gateway personalizzato ##
 
-Ora useremo un plug-in gateway personalizzato nel modulo di nuovo e vuoto che abbiamo appena creato.
+A questo punto si userà un plug-in gateway personalizzato nel modulo nuovo e vuoto appena creato.
 
-### Creare plugin.service.ts
+### <a name="create-pluginservicets"></a>Creare plugin.service.ts
 
-Modificare la directory del nuovo modulo strumento creato in precedenza (```\src\app\{!Module-Name}```) e creare un nuovo file ```plugin.service.ts```.
+Passare alla directory del nuovo modulo strumento creato in precedenza (```\src\app\{!Module-Name}```) e creare un nuovo file ```plugin.service.ts```.
 
-Aggiungi il codice seguente al file appena creato:
+Aggiungere il codice seguente al file appena creato:
 ``` ts
 import { Injectable } from '@angular/core';
 import { AppContextService, HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -61,16 +61,13 @@ export class PluginService {
 }
 ```
 
-Modificare i riferimenti a ```Sample Uno``` e ```Sample%20Uno``` per il nome della funzionalità come appropriato.
+Modificare i riferimenti a ```Sample Uno``` e ```Sample%20Uno``` al nome di funzionalità come appropriato.
 
-[!WARNING]
-> È consigliabile che l'integrati ```this.appContextService.node``` viene usato per chiamare un'API definito nel plug-in gateway personalizzato. Ciò garantisce che se le credenziali sono necessari all'interno di plug-in gateway che essi verranno gestite correttamente.
+### <a name="modify-modulets"></a>Modificare Module
 
-### Modificare module.ts
+Aprire il ```module.ts``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.module.ts```):
 
-Apri il ```module.ts``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.module.ts```):
-
-Aggiungi le istruzioni di importazione seguenti:
+Aggiungere le istruzioni import seguenti:
 
 ``` ts
 import { HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -78,7 +75,7 @@ import { Http } from '@microsoft/windows-admin-center-sdk/core';
 import { PluginService } from './plugin.service';
 ```
 
-Aggiungere i provider seguenti (dopo dichiarazioni):
+Aggiungere i provider seguenti (dopo le dichiarazioni):
 
 ``` ts
   ,
@@ -89,11 +86,11 @@ Aggiungere i provider seguenti (dopo dichiarazioni):
   ]
 ```
 
-### Modificare component.ts
+### <a name="modify-componentts"></a>Modificare component.ts
 
-Apri il ```component.ts``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.ts```):
+Aprire il ```component.ts``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.ts```):
 
-Aggiungi le istruzioni di importazione seguenti:
+Aggiungere le istruzioni import seguenti:
 
 ``` ts
 import { ActivatedRouteSnapshot } from '@angular/router';
@@ -103,14 +100,14 @@ import { Strings } from '../../generated/strings';
 import { PluginService } from './plugin.service';
 ```
 
-Aggiungi le variabili seguenti:
+Aggiungere le variabili seguenti:
 
 ``` ts
   private serviceSubscription: Subscription;
   private responseResult: string;
 ```
 
-Modificare il costruttore e modificare/aggiungere le funzioni seguenti:
+Modificare il costruttore e modificare o aggiungere le funzioni seguenti:
 
 ``` ts
   constructor(private appContextService: AppContextService, private plugin: PluginService) {
@@ -133,16 +130,16 @@ Modificare il costruttore e modificare/aggiungere le funzioni seguenti:
   }
 ```
 
-### Modificare component.html ###
+### <a name="modify-componenthtml"></a>Modificare component.html ###
 
-Apri il ```component.html``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.html```):
+Aprire il ```component.html``` file del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.html```):
 
-Aggiungi il contenuto seguente al file html:
+Il file html, aggiungere il contenuto seguente:
 ``` html
 <button (click)="onClick()" >go</button>
 {{ responseResult }}
 ```
 
-## Crea e Trasferisci localmente estensione
+## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
 
-Ora sei pronto per [creare e trasferire localmente carico](..\develop-tool.md#build-and-side-load-your-extension) l'estensione in Windows Admin Center.
+A questo punto si è pronti per [compilazione e sul lato carico](..\develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center.

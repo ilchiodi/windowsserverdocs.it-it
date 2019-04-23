@@ -13,40 +13,41 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 1a67cda9e4b04e8d861232b48f45915fb2b460d1
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59836412"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Aggiungere i computer per il nuovo server1 di Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_JoinComputers"></a>   
- Il passaggio successivo del processo di migrazione è per aggiungere i computer client alla nuova rete Windows Server Essentials e aggiornare le impostazioni di criteri di gruppo.  
+ Il passaggio successivo del processo di migrazione è aggiungere i computer client alla nuova rete Windows Server Essentials e aggiornare le impostazioni di criteri di gruppo.  
   
 > [!NOTE]
->  Se un computer client è già stato aggiunto al Server di origine, è innanzitutto necessario disinstallare il software connettore nel computer client prima di poter connettere il computer al Server di destinazione.  
+>  Se un computer client è già stato aggiunto al server di origine, è necessario disinstallare il software Connettere nel computer client prima di poter connettere il computer al server di destinazione.  
   
- Il processo di connettere un computer client al server è lo stesso per i computer appartenenti a un dominio o non aggiunti al dominio.  
+ Il processo per connettere un computer client al server è lo stesso per i computer aggiunti a un dominio o non aggiunti a un dominio:  
   
--   Passare a **http://***nome-server-destinazione***/ connect** e installare il software connettore Windows Server come se fosse un nuovo computer.  
-  
-> [!NOTE]
->  Il software connettore Windows Server non supporta computer che eseguono Windows XP o Windows Vista. Se si dispone di computer che eseguono Windows XP o Windows Vista che sono già connessi al dominio, è possibile ignorare questo passaggio.  
-  
-### <a name="ensure-that-group-policy-has-updated"></a>Assicurarsi che sia aggiornato criteri di gruppo  
+-   Passare a **http://***nome-server-destinazione***/Connect** e installare il software connettore Windows Server come se fosse un nuovo computer.  
   
 > [!NOTE]
->  Questo passaggio è facoltativo ed è solo necessario se il Server di origine è stato configurato con impostazioni di criteri di gruppo personalizzate, come reindirizzamento cartelle.  
+>  Il software Connettore Windows Server non supporta computer che eseguono Windows XP o Windows Vista. Se al dominio sono già stati aggiunti computer che eseguono Windows XP o Windows Vista, è possibile saltare questo passaggio.  
   
- Anche se il Server di origine e il Server di destinazione sono ancora online, è necessario assicurarsi che i criteri di gruppo impostazioni siano state replicate dal Server di destinazione per i computer client. In ogni computer client, procedere come segue:  
+### <a name="ensure-that-group-policy-has-updated"></a>Verificare che Criteri di gruppo sia stato aggiornato  
+  
+> [!NOTE]
+>  È un passaggio facoltativo, necessario solo se il server di origine è stato configurato con impostazioni di Criteri di gruppo personalizzate, come Reindirizzamento cartelle.  
+  
+ Mentre il server di origine e il server di destinazione sono ancora online, è consigliabile verificare che le impostazioni di Criteri di gruppo siano state replicate dal server di destinazione ai computer client. Eseguire i passaggi seguenti in ogni computer client:  
   
 1.  Aprire una finestra del prompt dei comandi.  
   
-2.  Al prompt dei comandi, digitare **GPRESULT /R**, quindi premere INVIO.  
+2.  Al prompt dei comandi digitare **GPRESULT /R** e quindi premere INVIO.  
   
-3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **DestinationSrv.Domain.local**. Per esempio:  
+3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **Destinationsrv**. Ad esempio:   
   
     ```  
     USER SETTINGS  
@@ -60,12 +61,12 @@ ms.lasthandoff: 07/03/2017
   
     ```  
   
-4.  Se il Server di destinazione non è elencato, al prompt dei comandi, digitare **gpupdate /force**, quindi premere INVIO per aggiornare le impostazioni di criteri di gruppo. Quindi eseguire nuovamente la procedura precedente.  
+4.  Se il server di destinazione non è nell'elenco, al prompt dei comandi digitare **gpupdate /force**e quindi premere INVIO per aggiornare le impostazioni di Criteri di gruppo. Quindi eseguire di nuovo la procedura precedente.  
   
-5.  Se il Server di destinazione non è ancora visualizzato, potrebbe trattarsi di un errore nelle impostazioni di criteri di gruppo o un errore nell'applicazione di tali al computer client specifico. Se il Server di destinazione non è visualizzato, eseguire i passaggi seguenti:  
+5.  Se il server di destinazione non è ancora visualizzato, potrebbe esserci un errore nelle impostazioni di Criteri di gruppo o nell'applicazione di tali impostazioni a questo specifico computer client. Se il server di destinazione non viene visualizzato, eseguire i passaggi seguenti:  
   
-    1.  Fare clic su **Start**, fare clic su **eseguire**, tipo **rsop.msc** (gruppo di criteri risultante), quindi premere INVIO.  
+    1.  Fare clic su **Start**, scegliere **Esegui**, digitare **rsop.msc** (Gruppo di criteri risultante) e quindi premere INVIO.  
   
-    2.  Espandere l'albero con la X su di esso finché non viene visualizzato un nodo.  
+    2.  Espandere l'albero con la X su di esso fino ad arrivare a un nodo.  
   
-    3.  Pulsante destro del mouse sul nodo e fare clic su **Visualizza errore** per informazioni sui motivi per cui le impostazioni di criteri di gruppo hanno esito negativo nel computer elencato.
+    3.  Fare clic con il pulsante destro del mouse sul nodo e scegliere **Visualizza errore** per conoscere il motivo per cui le impostazioni di Criteri di gruppo hanno esito negativo nel computer elencato.
