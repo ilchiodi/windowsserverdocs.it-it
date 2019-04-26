@@ -13,60 +13,61 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: ade18cec590392f35e7ad6b30d9a22ccdce44dcd
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59837032"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installare Windows Server Essentials Log Collector
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-L'installazione guidata di Windows Server Essentials Log Collector installa Log Collector come una finestra di avvio Add-in. È possibile installare e usare Log Collector sul computer di rete e/o il server. Dopo l'installazione, Log Collector verrà visualizzato nel Dashboard.  
+L'installazione guidata di Windows Server Essentials Log Collector installa Log Collector come un Launchpad Add-in. È possibile installare e usare Log Collector nei computer di rete o nel server o in entrambi. Dopo l'installazione, Log Collector verrà visualizzato nel dashboard.  
   
-###  <a name="BKMK_ToInstall"></a>Per installare Log Collector  
+###  <a name="BKMK_ToInstall"></a> Per installare Log Collector  
   
-1.  Scaricare il pacchetto di installazione dell'agente di raccolta Log in qualsiasi server o computer in rete.  
+1.  Scaricare il pacchetto di installazione di Log Collector in un server o in un computer in rete.  
   
     > [!NOTE]
     >  È possibile [scaricare il pacchetto di installazione di Log Collector](https://go.microsoft.com/fwlink/p/?LinkId=255470) da Microsoft.  
   
 2.  Fare doppio clic sull'icona di Log Collector.  
   
-3.  Se si esegue l'installazione da un computer di rete, immettere le credenziali di amministratore server quando richiesto.  
+3.  Se si esegue l'installazione da un computer di rete, immettere le credenziali di amministratore server, quando viene richiesto.  
   
-4.  Scegliere di accettare le condizioni di licenza Software Microsoft.  
+4.  Scegliere di accettare le condizioni di licenza software Microsoft.  
   
-5.  Per installare Log Collector solo nel server, selezionare il **solo sul server** casella di controllo. Per installare Log Collector in tutti i computer di rete, selezionare il **nel server e in tutti i computer nella rete** casella di controllo.  
+5.  Per installare Log Collector solo nel server, selezionare la casella di controllo **Only on the server** . Per installare Log Collector in tutti i computer di rete, selezionare la casella di controllo **Nel server e in tutti i computer della rete** .  
   
-6.  Fare clic su **installare il componente aggiuntivo**.  
+6.  Fare clic su **Install the Add-in**.  
   
-###  <a name="BKMK_Reinstall"></a>Reinstallazione di Log Collector  
- Se è necessario reinstallare Log Collector, è necessario disinstallare e reinstallare Log Collector sul server e i computer di rete nella rete. Disinstallando Log Collector sul server dal Dashboard, tutti i computer di rete disinstalleranno automaticamente Log Collector.  
+###  <a name="BKMK_Reinstall"></a> Reinstallare Log Collector  
+ Se è necessario reinstallare Log Collector, disinstallare e reinstallare Log Collector nel server e nei computer di rete, Disinstallando Log Collector dal server dal dashboard, tutti i computer di rete disinstalleranno automaticamente Log Collector.  
   
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>Per disinstallare e reinstallare Log Collector  
   
-1.  Aprire il Dashboard.  
+1.  Aprire il dashboard.  
   
-2.  Fare clic su di **componenti** selezionare **Log Collector** dall'elenco, quindi fare clic su **Disinstalla**.  
+2.  Fare clic sulla scheda **Componente aggiuntivo** , selezionare **Log Collector** nell'elenco e quindi fare clic su **Disinstalla**.  
   
 
-3.  Scaricare e installare Log Collector eseguendo i passaggi nella procedura precedente, [per installare Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
+3.  Scaricare e installare Log Collector eseguendo i passaggi nella procedura precedente, [To install the Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
 
-3.  Scaricare e installare Log Collector eseguendo i passaggi nella procedura precedente, [per installare Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
+3.  Scaricare e installare Log Collector eseguendo i passaggi nella procedura precedente, [To install the Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
 
   
 ### <a name="manually-install-the-log-collector"></a>Installare manualmente Log Collector  
- Se l'installazione guidata non è riuscito a installare Log Collector, è possibile installare Log Collector in un singolo computer mediante la procedura seguente.  
+ Se l'installazione guidata non riesce a installare Log Collector, è possibile installare Log Collector in un solo computer con la procedura seguente.  
   
-##### <a name="to-manually-install-the-log-collector"></a>Per installare manualmente Log Collector  
+##### <a name="to-manually-install-the-log-collector"></a>Per installarenstallare manualmente Log Collector  
   
-1.  Rinominare l'estensione del file di installazione scaricato da. wssx CAB.  
+1.  Rinominare l'estensione del file di installazione scaricato da wssx a. cab.  
   
-2.  Fare doppio clic il nome del file di installazione.  
+2.  Fare doppio clic sul nome del file di installazione.  
   
 3.  Fare clic su **OK** se viene richiesto.  
   
-4.  Fare doppio clic sul nome di file che termina con ˜.msi e selezionare una cartella in cui estrarlo.  
+4.  Fare doppio clic il nome del file che terminano con ˜.msi e selezionare una cartella in cui si desidera estrarre i file.  
   
-5.  Passare alla cartella con il file estratto e fare doppio clic sul file di installazione per utilizzare la procedura guidata per completare l'installazione.
+5.  Passare alla cartella con il file estratto e fare doppio clic sul file di installazione per usare la procedura guidata per completare l'installazione.

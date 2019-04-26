@@ -1,5 +1,5 @@
 ---
-title: Configurazione dell'archiviazione Server
+title: Configurazione dell'archiviazione server
 description: Viene descritto come utilizzare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -13,46 +13,47 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 6de485f6fd46464ba707bc0871f60ac2fec5a1db
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859982"
 ---
-# <a name="configure-server-storage"></a>Configurazione dell'archiviazione Server
+# <a name="configure-server-storage"></a>Configurazione dell'archiviazione server
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ## <a name="sample-hard-disk-configurations"></a>Esempi di configurazione del disco rigido  
- La seguente tabella suggerisce degli esempi di configurazione del disco rigido. Le stime si basano sulla funzionalità e sull'utilizzo tipico, ma non si riferiscono a problemi che influiscono sulle prestazioni ottimali. È possibile utilizzare qualsiasi tipo di disco rigido supportato per queste configurazioni (come SATA o SCSI), in base alle specifiche preferenze ed esigenze del cliente.  
+ La seguente tabella suggerisce degli esempi di configurazione del disco rigido. Le stime si basano sulla funzionalità e sull'utilizzo tipico, ma non si riferiscono a problemi che influiscono sulle prestazioni ottimali. Per queste configurazioni, è possibile utilizzare qualsiasi tipo di disco rigido supportato (come SATA o SCSI), in base alle preferenze e alle esigenze del cliente.  
   
 > [!IMPORTANT]
->   Windows Server Essentials deve essere installato come volume c:, e le dimensioni del volume devono essere di almeno 60 GB. È consigliabile creare due partizioni sul disco del sistema operativo e non utilizzare l'unità c: (partizione di sistema) per archiviare i dati aziendali.  
+>   Windows Server Essentials deve essere installato come volume c:, e le dimensioni del volume devono essere almeno 60 GB. È consigliabile creare due partizioni sul disco del sistema operativo ed è preferibile non utilizzare la partizione di sistema C: per archiviare i dati aziendali.  
   
-|Livello di server|Configurazione del disco|  
+|Livello del server|Configurazione del disco|  
 |------------------|------------------------|  
-|Voce|-Due dischi fisici<br /><br /> -Configurato come un set con mirroring RAID 1 che contiene quanto segue:<br /><br /> -Volume c:? 60 GB<br /><br /> -Volume d:? 1000 GB|  
-|Media|-Tre dischi fisici<br /><br /> -Configurato come un set RAID 5 che contiene quanto segue:<br /><br /> -Volume c:? 60 GB<br /><br /> -Volume d:? 1500 GB|  
-|Elevata|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 contenente il volume c:? 100 GB<br /><br /> -I dischi restanti tutto in un set RAID 5 che contiene quanto segue:<br /><br /> -Volume d:? 1500 GB<br /><br /> -Volume e:? 1500 GB|  
+|Voce|-Due dischi fisici<br /><br /> -Configurata come un set con mirroring RAID 1 che contiene gli elementi seguenti:<br /><br /> - C: volume  ? 60 GB<br /><br /> - D: volume  ? 1000 GB|  
+|Medio|-Tre dischi fisici<br /><br /> -Configurata come un set RAID 5 che contiene gli elementi seguenti:<br /><br /> - C: volume  ? 60 GB<br /><br /> - D: volume  ? 1500 GB|  
+|Alto|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 che contiene il volume c:? 100 GB<br /><br /> -Tutti gli altri dischi in un set RAID 5 che contiene gli elementi seguenti:<br /><br /> - D: volume  ? 1500 GB<br /><br /> - E: volume  ? 1500 GB|  
   
- Queste indicazioni prendono in considerazione le dimensioni del sistema operativo installato, la dimensione media dell'archiviazione dei dati utilizzati dal server e la crescita di archiviazione dati previsti per tutta la durata del server. I volumi possono essere partizioni su un singolo disco fisico o possono essere posizionati su dischi fisici separati. Poiché il server archivia dati importanti per il cliente, è consigliabile utilizzare più dischi fisici e proteggere i dati di s cliente utilizzando RAID hardware o spazi di archiviazione.  
+ Queste indicazioni prendono in considerazione le dimensioni del sistema operativo installato, le dimensioni medie dell'archivio dei dati utilizzate dal server e l'espansione prevista dell'archivio dei dati nella durata del server. I volumi possono essere partizioni su un singolo disco fisico o possono essere posizionati su dischi fisici separati. Dal momento che il server archivia i dati importanti per il cliente, è consigliabile usare più dischi fisici e proteggere i dati di s cliente utilizzando RAID hardware o spazi di archiviazione.  
   
 ## <a name="configuring-your-server-backup"></a>Configurazione del backup del server  
- Oltre ai dischi rigidi interni nel server, i clienti considerare l'uso di dischi rigidi USB esterni per i backup. In teoria, il cliente dovrebbe disporre di almeno due dischi rigidi esterni con una capacità sufficiente per eseguire il backup di tutti i dati nel server. Se si utilizzano dischi rigidi esterni, il cliente può portare un disco fuori sede ogni sera per proteggere ulteriormente i dati.  
+ Oltre ai dischi rigidi interni del server, è opportuno che i clienti prendano in considerazione l'uso di dischi rigidi USB esterni per i backup. Idealmente, il cliente dovrebbe disporre di almeno due dischi rigidi esterni con una capacità sufficiente a eseguire il backup di tutti i dati presenti sul server. Se si utilizzano dischi rigidi esterni, ogni sera il cliente può portare un disco fuori sede per proteggere ulteriormente i dati.  
   
-## <a name="partition-configuration"></a>Configurazione della partizione  
- Durante la configurazione iniziale per il server, un set predefinito di cartelle del server che includono cartelle condivise e della cartella di backup computer client vengono creati nella partizione dati più grande sul disco 0.  
+## <a name="partition-configuration"></a>Configurazione delle partizioni  
+ Durante la configurazione iniziale per il server, nella partizione dati più grande del Disco 0 viene creato un gruppo di cartelle server predefinite che includono cartelle condivise e una cartella di backup del computer client.  
   
 ## <a name="see-also"></a>Vedere anche  
 
  [Guida introduttiva a Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
 
  [Guida introduttiva a Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
- [Ulteriori personalizzazioni](../install/Additional-Customizations.md)   
+ [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   
- [Test di analisi utilizzo software](../install/Testing-the-Customer-Experience.md)
+ [Testare l'esperienza dei clienti](../install/Testing-the-Customer-Experience.md)
 

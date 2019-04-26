@@ -1,7 +1,7 @@
 ---
-title: Configurare qualità del servizio (QoS) per una scheda di rete di macchina virtuale Tenant
-description: Questo argomento fa parte della Guida alla rete definita dal Software su come gestire carichi di lavoro Tenant e reti virtuali in Windows Server 2016.
-manager: brianlic
+title: Configurare qualità del servizio (QoS) per una scheda di rete VM tenant
+description: Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra i Data Center Bridging \(DCB\)o Software Defined Networking \(SDN\) QoS.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,33 +12,37 @@ ms.topic: article
 ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cde4e21beaec58a98a5d5fbe5c4631e2f113dbf7
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
-ms.translationtype: MT
+ms.date: 08/23/2018
+ms.openlocfilehash: 0b9ce318c3d249b23d7560e0b6bb90a83e60d64d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880602"
 ---
-# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Configurare qualità del servizio (QoS) per una scheda di rete di macchina virtuale Tenant
+# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Configurare qualità del servizio (QoS) per una scheda di rete VM tenant
 
->Si applica a: Windows Server (canale annuale e virgola), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016
 
-Quando si configura QoS per una scheda di rete di macchina virtuale tenant, è possibile scegliere tra Data Center Bridging \ (DCB\) o rete definita dal Software \(SDN\) QoS.
+Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra i Data Center Bridging \(DCB\)o Software Defined Networking \(SDN\) QoS.
 
 1.  **DCB**. È possibile configurare DCB utilizzando i cmdlet di Windows PowerShell NetQoS. Per un esempio, vedere la sezione "Abilitare Data Center Bridging" nell'argomento [diretta accesso memoria remota (RDMA) e Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
-2.  **QoS SDN**. È possibile abilitare QoS SDN con Controller di rete, che può essere impostato per limitare la larghezza di banda su un'interfaccia virtuale per impedire che una macchina virtuale di traffico elevato impedire ad altri utenti.  È inoltre possibile configurare QoS SDN per riservare una quantità di larghezza di banda per una macchina virtuale garantire che la macchina virtuale sia accessibile a prescindere dalla quantità di traffico di rete specifica.  
+2.  **QoS di rete SDN**. È possibile abilitare QoS di rete SDN usando Controller di rete, che può essere impostata per limitare la larghezza di banda in un'interfaccia virtuale per impedire che una VM con traffico elevato blocchi ad altri utenti.  È anche possibile configurare QoS di rete SDN per riservare una quantità di larghezza di banda per una macchina virtuale per assicurarsi che sia accessibile indipendentemente dalla quantità di traffico di rete della macchina virtuale specifica.  
 
-Tutte le impostazioni Qos SDN vengono applicate tramite le impostazioni della porta le proprietà di interfaccia di rete in base alla tabella seguente.
+Applica tutte le impostazioni QoS di rete SDN tramite le impostazioni della porta delle proprietà di interfaccia di rete. Fare riferimento alla tabella di seguito per altri dettagli.
 
 |Nome elemento|Descrizione|
 |------------|-----------| 
-|macSpoofing|Specifica se le macchine virtuali possono modificare l'indirizzo origine media access control \(MAC\) pacchetti in uscita a un indirizzo MAC non assegnato alla macchina virtuale. I valori sono "attivati" è consentito \ (consentendo la macchina virtuale da utilizzare un diverso indirizzo MAC) e "disabled" \ (consentendo la macchina virtuale da utilizzare solo l'indirizzo MAC assegnato alla it\).|
-|arpGuard|Specifica se è abilitato guard ARP.  Guard ARP consente solo indirizzi specificati nel ArpFilter di passare attraverso la porta.  I valori consentiti sono "attivati" o "disabled".
-|Controllo DHCP|Specifica se eliminare i messaggi DHCP da una macchina virtuale che dichiara l'appartenenza a un server DHCP. I valori consentiti sono "attivati", che elimina i messaggi DHCP perché il server DHCP virtualizzato è considerato non attendibile, o "disabled", che consente il messaggio di essere ricevuto perché il server DHCP virtualizzato è considerato attendibile.
-|stormLimit|Specifica il numero di pacchetti di broadcast, multicast e unicast sconosciuta che al secondo che una macchina virtuale è autorizzata a inviare tramite la scheda di rete virtuale specificata. Pacchetti di broadcast, multicast e unicast sconosciuta che superano il limite durante tale intervallo di un secondo vengono eliminati. Il valore zero \(0\) indica che non esiste alcun limite.
-|portFlowLimit|Specifica il numero massimo di flussi che possono essere eseguite per la porta.  Un valore vuoto o zero \(0\) significa che non esiste alcun limite.
-|vmqWeight|Specifica se la coda di macchine virtuali (VMQ) è abilitata nella scheda di rete virtuale. Il peso relativo descrive l'affinità della scheda di rete virtuale di usare coda macchine Virtuali. L'intervallo del valore è 0 e 100. Specificare 0 per disabilitare coda macchine Virtuali nella scheda di rete virtuale.
-|iovWeight|Specifica se single-root i/o virtualization \(SR-IOV\) è abilitata in questa scheda di rete virtuale. Il peso relativo imposta l'affinità della scheda di rete virtuale alla funzione virtuale SR-IOV assegnata. L'intervallo del valore è 0 e 100. Specificare 0 per disabilitare SR-IOV nella scheda di rete virtuale. 
-|iovInterruptModeration|Specifica il valore di regolazione interrupt per un single-root i/o virtualization \(SR-IOV\) funzione virtuale assegnato a una scheda di rete virtuale. I valori consentiti sono "default", "adattivo", "off", "basso", "Media" e "high".   Se si sceglie l'impostazione predefinita, il valore è determinato dall'impostazione del fornitore della scheda di rete fisica.  Se si sceglie adattiva, la frequenza di regolazione interrupt si basa sul modello di traffico di runtime. 
-|iovQueuePairsRequested|Specifica il numero di coppie di code hardware da allocare a una funzione virtuale SR-IOV. Se è necessario il receive-side scaling \(RSS\) e se la scheda di rete fisica associata al commutatore virtuale supporta RSS virtuale SR-iov funzioni, più coppie di code è obbligatorio. Valori consentiti sono compresi tra 1 per 4294967295. 
-|QosSettings|È possibile configurare le impostazioni Qos seguenti, ognuno dei quali sono facoltativi:  <br/><br />**outboundReservedValue:**<br/>Se è "assoluto" outboundReservedMode il valore indica la larghezza di banda, in Mbps, la porta virtuale per la trasmissione (in uscita) è garantito. Se outboundReservedMode è "peso" il valore indica la parte ponderata della larghezza di banda garantita. <br/><br />**outboundMaximumMbps:**  <br/>Indica che il numero massimo consentito di larghezza di banda sul lato invio, in Mbps, per la porta virtuale (in uscita). <br/><br/>**InboundMaximumMbps:**  <br/>Indica che il numero massimo consentito il receive-side della larghezza di banda per la porta virtuale (ingresso) in Mbps. |
+|macSpoofing| Consente alle macchine virtuali modificare il controllo di accesso di origine multimediali \(MAC\) indirizzo pacchetti in uscita a un indirizzo MAC non è stato assegnato alla macchina virtuale.<p>Valori consentiti:<ul><li>Abilitata: usare un indirizzo MAC diverso.</li><li>Disabilitata: usare solo l'indirizzo MAC assegnato a esso.</li></ul>|
+|arpGuard| Consente di guard ARP solo gli indirizzi specificati in ArpFilter passare attraverso la porta.<p>Valori consentiti:<ul><li>Abilitato: consentito</li><li>Disabilitata: non consentito</li></ul>|
+|dhcpGuard| Consente di o Elimina tutti i messaggi DHCP da una macchina virtuale che dichiara di essere un server DHCP. <p>Valori consentiti:<ul><li>Abilitata: Elimina i messaggi DHCP perché il server DHCP virtualizzato è considerato non attendibile.</li><li>Disabilitata: consente il messaggio da ricevere perché il server DHCP virtualizzato è considerato attendibile.</li></ul>|
+|stormLimit| Il numero di pacchetti (broadcast, multicast e unicast sconosciuta) al secondo una macchina virtuale è consentito per l'invio tramite la scheda di rete virtuale. Vengono rilasciati pacchetti oltre il limite durante l'intervallo di 1 secondo. Un valore pari a zero \(0\) non esiste alcun limite...|
+|portFlowLimit| Il numero massimo di flussi possa essere eseguito per la porta. Un valore blank o zero \(0\) non esiste alcun limite. |
+|vmqWeight| Il peso relativo descrive l'affinità della scheda di rete virtuale da usare coda macchine virtuali (VMQ). L'intervallo del valore va da 0 a 100.<p>Valori consentiti:<ul><li>0: disabilita la funzionalità coda macchine Virtuali nella scheda di rete virtuale.</li><li>1-100 – abilita la funzionalità coda macchine Virtuali nella scheda di rete virtuale.</li></ul>|
+|iovWeight| Il peso relativo imposta l'affinità della scheda di rete virtuale per la virtualizzazione dei / o single-root assegnata \(SR-IOV\) funzione virtuale. <p>Valori consentiti:<ul><li>0 – disabilita SR-IOV nella scheda di rete virtuale.</li><li>1-100 – Abilita SR-IOV nella scheda di rete virtuale.</li></ul>|
+|iovInterruptModeration|<p>Valori consentiti:<ul><li>predefinito: impostazione del fornitore scheda rete fisica determina il valore.</li><li>adattivo: </li><li>Disattivato </li><li>Bassa</li><li>media</li><li>Elevata</li></ul><p>Se si sceglie **predefinito**, impostazione del fornitore scheda rete fisica determina il valore.  Se si sceglie, **adattivo**, il traffico di runtime modello determina la frequenza di regolazione di interrupt.|
+|iovQueuePairsRequested| Il numero di coppie di code hardware allocate a una funzione virtuale SR-IOV. Se il receive-side scaling \(RSS\) è obbligatorio e se la scheda di rete fisica che viene associata al commutatore virtuale supporta RSS in funzioni virtuali SR-IOV, sarà necessaria più di una coppia di coda. <p>Valori consentiti: tra 1 e 4294967295.|
+|QosSettings| Configurare le impostazioni Qos seguenti, ognuno dei quali sono facoltativi: <ul><li>**outboundReservedValue** : se il valore indica la larghezza di banda in Mbps, sicuramente la porta virtuale per la trasmissione (traffico in uscita) è "assoluto" outboundReservedMode. Se outboundReservedMode è "peso" il valore indica la porzione ponderata della larghezza di banda garantito.</li><li>**outboundMaximumMbps** -indica il numero massimo consentito di larghezza di banda lato trasmissione, in Mbps, per la porta virtuale (traffico in uscita).</li><li>**InboundMaximumMbps** -indica il numero massimo consentito della larghezza di banda lato di ricezione per la porta virtuale (traffico in ingresso) in Mbps.</li></ul> |
+
+---
