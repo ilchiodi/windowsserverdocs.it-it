@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione dell'infrastruttura iperconvergente
+metadata:
+  document_id: null
+  title: Documentazione dell'infrastruttura iperconvergente
+  description: Documentazione dell'infrastruttura iperconvergente
+  text: 'Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile'
+  keywords: 'Windows Server, Windows Server 2016, Hyper-V, SDN, Spazi di archiviazione diretta, WSSD'
+  ms.localizationpriority: high
+  author: coreyp-at-msft
+  ms.author: coreyp
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: null
+  - items:
+      - type: markdown
+        text: 'Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsI
+        columns: 2
+        items:
+          - href: ../virtualization/hyper-v/index.md
+            html: '<p>Virtualizza l''hardware del server, consentendo di eseguire macchine virtuali tra server in un cluster iperconvergente.</p>'
+            image:
+              src: ../media/i-virtualize.svg
+            title: Hyper-V
+          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+            html: '<p>Virtualizza l''hardware di archiviazione, consentendo di creare volumi su un pool virtualizzato di unità distribuite tra server in un cluster iperconvergente.</p>'
+            image:
+              src: ../media/i-store.svg
+            title: Spazi di archiviazione diretta
+          - href: ../failover-clustering/failover-clustering-overview.md
+            html: '<p>Raggruppa più server in modo che i carichi di lavoro quali le macchine virtuali possano essere eseguiti in qualsiasi server nel cluster, eseguendo il bilanciamento del carico e failover normalmente tra i server.</p>'
+            image:
+              src: ../media/i-cluster.svg
+            title: Clustering di failover
+          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+            html: '<p>Virtualizza l''hardware di rete, consentendo di creare e gestire in modo dinamico le reti e i criteri che estraggono i carichi di lavoro dalle reti fisiche sottostanti.</p>'
+            image:
+              src: ../media/i-network.svg
+            title: Software Defined Networking
+          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
+            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
+            title: Programma software-defined per Windows Server (WSSD)

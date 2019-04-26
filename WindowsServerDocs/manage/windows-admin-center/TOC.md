@@ -1,9 +1,9 @@
 # [Windows Admin Center](overview.md)
 
-## Esaminare con attenzione
+## Nozioni di base
 ### [Introduzione a Windows Admin Center](understand/windows-admin-center.md)
 ### [Che cos'è Windows Admin Center?](understand/what-is.md)
-### [Domande frequenti](understand/faq.md)
+### [DOMANDE FREQUENTI](understand/faq.md)
 ### [Case study](understand/case-studies.md)
 ### [Prodotti di gestione correlati](understand/related-management.md)
 ### [Video](understand/videos.md)
@@ -11,43 +11,32 @@
 ## Pianificazione
 ### [Che tipo di installazione è adatto alle tue esigenze?](plan/installation-options.md)
 ### [Opzioni di accesso dell'utente](plan/user-access-options.md)
+### [Opzioni di integrazione di Azure](plan/azure-integration-options.md)
 
-## Distribuire
+## Distribuisci
 ### [Preparazione dell'ambiente](deploy/prepare-environment.md)
 ### [Installare Windows Admin Center](deploy/install.md)
 ### [Disponibilità elevata](deploy/high-availability.md)
 
-
-## Configurare
+## Configura
 ### [Impostazioni di Windows Admin Center](configure/settings.md)
 ### [Autorizzazioni e controllo dell'accesso utente](configure/user-access-control.md)
 ### [Uso delle estensioni](configure/using-extensions.md)
+### [Configurare l'integrazione di Azure](configure/azure-integration.md)
+### [Gestire macchine virtuali di Azure con Windows Admin Center](configure/manage-azure-vms.md)
 
-## Usare
-### [Informazioni di base](use/get-started.md)
-### [Gestire server](use/manage-servers.md)
+## Uso
+### [Per iniziare](use/get-started.md)
+### [Gestire i server](use/manage-servers.md)
 ### [Gestire l'infrastruttura iperconvergente](use/manage-hyper-converged.md)
 ### [Gestire i cluster di failover](use/manage-failover-clusters.md)
 ### [Gestire le macchine virtuali Hyper-V](use/manage-virtual-machines.md)
+### [Configurare servizi di Azure](use/azure-services.md)
+#### [Proteggere le macchine virtuali Hyper-V con Azure Site Recovery](use/azure-site-recovery.md)
+#### [Aggiornare i server con Gestione aggiornamenti di Azure](use/azure-update-management.md)
 ### [Registrazione](use/logging.md)
-
-
-## Connessione ad Azure
-### [Servizi di Azure ibrido](azure/index.md)
-#### [Azure Backup](azure/azure-backup.md)
-#### [Azure Site Recovery](azure/azure-site-recovery.md)
-#### [Sincronizzazione di File di Azure](azure/azure-file-sync.md)
-#### [Monitor di Azure](azure/azure-monitor.md)
-#### [Gestione degli aggiornamenti Azure](azure/azure-update-management.md)
-### [Connettersi a Windows Admin Center ad Azure](azure/azure-integration.md)
-### [Distribuire Windows Admin Center in Azure](azure/deploy-wac-in-azure.md)
-### [Gestisci le macchine virtuali di Azure con Windows Admin Center](azure/manage-azure-vms.md)
-
-## Supporto tecnico
-### [Supporto dei criteri](support/index.md)
-### [Passaggi di risoluzione dei problemi comuni](support/troubleshooting.md)
-### [Problemi noti](support/known-issues.md)
-
+### [Passaggi di risoluzione dei problemi comuni](use/troubleshooting.md)
+### [Problemi noti](use/known-issues.md)
 
 ## Estendere
 ### [Panoramica delle estensioni](extend/extensibility-overview.md)
@@ -69,15 +58,11 @@
 #### [Guida di stile di progettazione e testo dell'interfaccia utente](extend/guides/ui-text-style-guide.md)
 #### [Utilizzo di PowerShell nell'estensione](extend/guides/powershell.md)
 #### [Guida dell'icona CSS](extend/guides/cssicons.md)
-#### [Eseguire la migrazione per il SDK più recente](extend/guides/migration-guide-0_1-1_0.md)
-#### [Abilitare il banner di individuazione di estensione](extend/guides/extension-discovery-banner.md)
+#### [Eseguire la migrazione all'SDK più recente](extend/guides/migration-guide-0_1-1_0.md)
 ### [Pubblicazione delle estensioni](extend/publish-extensions.md)
 ### Case study
 #### [DataON](extend/case-studies/dataon.md)
 #### [Fujitsu](extend/case-studies/fujitsu.md)
 #### [Lenovo](extend/case-studies/lenovo.md)
-#### [NEC](extend/case-studies/nec.md)
 #### [Pure Storage](extend/case-studies/purestorage.md)
 #### [Squared Up](extend/case-studies/squared-up.md)
-
-
