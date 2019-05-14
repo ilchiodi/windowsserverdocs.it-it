@@ -687,7 +687,7 @@ Per usare System Center Configuration Manager per distribuire un profilo Remote 
 
     a.  Nelle **regole di appartenenza**, fare clic su **Add Rule**, fare clic su **regola diretta**. In questo esempio, si stanno aggiungendo singoli utenti per la raccolta di utenti. Tuttavia, è possibile utilizzare una regola di query per aggiungere utenti a questa raccolta in modo dinamico per una distribuzione su larga scala.
 
-    b.  Nella pagina iniziale**** fare clic su **Avanti**.
+    b.  Nella pagina **iniziale** fare clic su **Avanti**.
 
     c.  Nella pagina delle risorse, la ricerca nella **valore**, digitare il nome dell'utente da aggiungere. Il nome di risorsa include il dominio dell'utente. Per includere i risultati in base a una corrispondenza parziale, inserire il **%** carattere su ciascuna estremità del criterio di ricerca. Ad esempio, per trovare tutti gli utenti che contengono la stringa "lori", digitare **% % lori**. Fare clic su **Avanti**.
 

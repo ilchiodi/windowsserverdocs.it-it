@@ -31,7 +31,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 2.  Sotto **azioni**, fare clic su **Aggiungi attendibilità Provider di attestazioni**.  
 ![Trust del provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Nella pagina iniziale**** fare clic **Avvia**. 
+3.  Nella pagina **iniziale** fare clic **Avvia**. 
 ![Trust del provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Nella pagina **Seleziona origine dati** fare clic su **Immetti dati sull'attendibilità del provider di attestazioni manualmente** e quindi scegliere **Avanti**.  
@@ -66,7 +66,7 @@ Per aggiungere un nuovo provider di attestazioni trust, tramite lo snap-in di ge
 2.  Sotto **azioni**, fare clic su **Aggiungi attendibilità Provider di attestazioni**.  
 ![Trust del provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Nella pagina iniziale**** fare clic **Avvia**. 
+3.  Nella pagina **iniziale** fare clic **Avvia**. 
 ![Trust del provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Nella pagina **Seleziona origine dati** fare clic su **Importa dati sul provider di attestazioni pubblicati online o in una rete locale**. Federazione digitare l'indirizzo di metadati (nome host o URL), il **URL metadati federazione** o host, assegnare un nome per il partner e quindi fare clic su **Avanti**.

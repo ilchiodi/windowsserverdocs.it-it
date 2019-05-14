@@ -37,11 +37,11 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
     -   In qualsiasi momento dopo l'installazione guidata è completata, aprire Esplora Windows, passare al **c:\\Windows\\ADFS** cartella e quindi fare doppio\-fare clic su **FspConfigWizard.exe**.  
   
-2.  Usando uno dei due metodi, avviare la procedura guidata e nella pagina iniziale **** fare clic su **Avanti**.  
+2.  Usando uno dei due metodi, avviare la procedura guidata e nella pagina **iniziale** fare clic su **Avanti**.  
   
 3.  Nella pagina **Nome servizio federativo**, in **Nome servizio federativo**, immettere il nome che rappresenta il servizio federativo per cui il computer agirà nel ruolo di proxy.  
   
-4.  In base a specifici requisiti di rete, determinare se sarà necessario usare un server proxy HTTP per inoltrare le richieste al servizio federativo. In caso affermativo, selezionare la casella di controllo relativa all'uso di un server proxy HTTP per l'invio di richieste al servizio federativo,**** in **Indirizzo e porta server proxy HTTP** immettere l'indirizzo del server proxy, fare clic su **Test connessione** per verificare la connettività e quindi fare clic su **Avanti**.  
+4.  In base a specifici requisiti di rete, determinare se sarà necessario usare un server proxy HTTP per inoltrare le richieste al servizio federativo. In caso affermativo, selezionare la casella di controllo relativa **all'uso di un server proxy HTTP per l'invio di richieste al servizio federativo**, in **Indirizzo e porta server proxy HTTP** immettere l'indirizzo del server proxy, fare clic su **Test connessione** per verificare la connettività e quindi fare clic su **Avanti**.  
   
 5.  Quando viene richiesto, specificare le credenziali necessarie per stabilire un trust tra il proxy server federativo e il Servizio federativo.  
   
