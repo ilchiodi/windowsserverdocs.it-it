@@ -89,7 +89,7 @@ ms.locfileid: "59870002"
   
 2.  Fare clic su **Impostazioni**.  
   
-3.  Nella scheda **Generale** fare clic sull'elenco a discesa della sezione **Paese/Regione del server**.  
+3.  Nella scheda **Generale** fare clic sull'elenco a discesa della sezione **Paese/Area geografica del server**.  
   
 4.  Selezionare la nuova area geografica nell'elenco a discesa e quindi fare clic su **Applica** per accettare la nuova impostazione.  
   
@@ -347,7 +347,7 @@ ms.locfileid: "59870002"
 ###  <a name="BKMK_SetNameManually"></a> Configurare manualmente un nome di dominio  
  Se si sceglie questa opzione, il server non esegue il monitoraggio e la manutenzione del nome di dominio e non invia alcun avviso qualora si verifichi un problema di configurazione. È consigliabile scegliere questa opzione nei casi seguenti:  
   
--   Se non sono presenti provider di nomi di dominio partner per il proprio paese o regione.  
+-   Se non sono presenti provider di nomi di dominio partner per il proprio paese o la propria area geografica.  
   
 -   Se i provider di domini partner disponibili non supportano l'estensione del nome di dominio in uso.  
   

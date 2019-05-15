@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 622d4b64128c7e39cc761e4f5e9d69cf54383760
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59819202"
@@ -41,9 +41,9 @@ chcp [<NNN>]
 |\<NNN>|Specifica la tabella codici.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-La tabella seguente elenca ogni codice supportate pagina e il paese/regione o lingua:
+La tabella seguente elenca ogni codice supportate pagina e il paese/area geografica o lingua:
 
-|Tabella codici|Paese/regione o lingua|
+|Tabella codici|Paese/area geografica o lingua|
 |---------|--------------------------|
 |437|Stati Uniti|
 |850|Multilingue (latino I)|

@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 ms.date: 02/20/2018
 ms.openlocfilehash: 08229e458d0aa0c8e8397f0f053f37a207a1aea5
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59885602"
@@ -71,7 +71,7 @@ Nella tabella seguente indica quali applicazioni sono disponibili *localmente* i
 | Barra delle applicazioni                            | non disponibile   | disponibile                      |
 | Notifiche della barra delle applicazioni              | non disponibile   | disponibile                      |
 | Taskmgr                            | disponibile       | disponibile                      |
-| Internet Explorer o Edge          | non disponibile   | disponibile                      |
+| Internet Explorer o Microsoft Edge          | non disponibile   | disponibile                      |
 | Sistema della Guida incorporato               | non disponibile   | disponibile                      |
 | Windows 10 Shell                   | non disponibile   | disponibile                      |
 | Windows Media Player               | non disponibile   | disponibile                      |

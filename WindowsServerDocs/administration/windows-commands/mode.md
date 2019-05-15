@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: cde0e9786f72823f446202f1c87ad8e9e181d29c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59848202"
@@ -130,7 +130,7 @@ mode <Device> codepage [/status]
 |---------|-----------|
 |\<Device>|Obbligatorio. Specifica il dispositivo per il quale si desidera selezionare una tabella codici. ESEGUITA è l'unico nome valido per un dispositivo.|
 |Selezionare la tabella codici =|Obbligatorio. Specifica la tabella codici da usare con il dispositivo specificato. È possibile abbreviare **codepage** **seleziona** come **cp** **sel**.|
-|\<YYY &GT;|Obbligatorio. Specifica il numero di tabella codici da selezionare. Nell'elenco seguente viene illustrato ogni codice pagina in cui è supportato e il paese/regione o lingua.</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
+|\<YYY &GT;|Obbligatorio. Specifica il numero di tabella codici da selezionare. Nell'elenco seguente viene illustrato ogni codice pagina in cui è supportato e il paese/area geografica o lingua.</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
 |tabella codici|Obbligatorio. Consente di visualizzare i numeri del codice delle pagine (se presente) che sono selezionati per il dispositivo specificato.|
 |/status|Visualizza i numeri delle tabelle codici corrente selezionate per il dispositivo specificato. È possibile abbreviare **/status** al **/sta**. Se specifica **/status**, **codepage modalità** Visualizza i numeri delle tabelle codici sono selezionati per il dispositivo specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|

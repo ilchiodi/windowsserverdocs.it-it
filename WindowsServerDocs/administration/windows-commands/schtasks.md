@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 7aed2b88823c117a7424a4d90edd86829a53f786
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59822882"
@@ -215,7 +215,7 @@ Nella tabella seguente sono elencati i formati di data valido. Utilizzare il for
 |Value|Descrizione|
 |-----|-----------|
 |\<MM>/<DD>/<YYYY>|Utilizzare per i formati primo mese, ad esempio **inglese (Stati Uniti)** e **Spagnolo (Panama)**.|
-|\<DD>/<MM>/<YYYY>|Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Olanda)**.|
+|\<DD>/<MM>/<YYYY>|Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)**.|
 |\<AAAA &GT; /<MM>/<DD>|Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)**.|
 
 /ed \<EndDate >
@@ -229,7 +229,7 @@ Nella tabella seguente sono elencati i formati di data valido. Utilizzare il for
 |Value|Descrizione|
 |-----|-----------|
 |\<MM>/<DD>/<YYYY>|Utilizzare per i formati primo mese, ad esempio **inglese (Stati Uniti)** e **Spagnolo (Panama)**.|
-|\<DD>/<MM>/<YYYY>|Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Olanda)**.|
+|\<DD>/<MM>/<YYYY>|Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)**.|
 |\<AAAA &GT; /<MM>/<DD>|Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)**.|
 
 ##### <a name="it"></a>/IT
