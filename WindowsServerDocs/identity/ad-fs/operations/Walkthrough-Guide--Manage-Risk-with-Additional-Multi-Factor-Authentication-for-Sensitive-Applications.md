@@ -180,10 +180,10 @@ Dopo aver scaricato l'eseguibile per il server Windows Azure Multi-Factor Authen
 
 6.  Nell'elenco **Utenti** selezionare l'account **Robert Hatley** e fare clic su **Verifica**. Nella finestra **Utente test** specificare le credenziali per l'account **Robert Hatley** . Quando allo squillo del cellulare, premere '#' per completare la verifica dell'account.
 
-7.  Nell'interfaccia utente di **Multi-Factor Authentication Server** selezionare l'icona **ADFS** , assicurarsi che le caselle di controllo **Consenti registrazione utente**, **Consenti agli utenti di selezionare il metodo** (incluse le opzioni **Telefonata** e **SMS**), **Usa domande di sicurezza per il fallback** e **Abilita registrazione** siano selezionate, fare clic su **Installa scheda ADFS**e completare l'installazione guidata della scheda ADFS per l'autenticazione a più fattori **** .
+7.  Nell'interfaccia utente di **Multi-Factor Authentication Server** selezionare l'icona **ADFS** , assicurarsi che le caselle di controllo **Consenti registrazione utente**, **Consenti agli utenti di selezionare il metodo** (incluse le opzioni **Telefonata** e **SMS**), **Usa domande di sicurezza per il fallback** e **Abilita registrazione** siano selezionate, fare clic su **Installa scheda ADFS**e completare l'installazione guidata della scheda ADFS per l'autenticazione a più **fattori** .
 
     > [!NOTE]
-    > L'installazione guidata della scheda ADFS per l'autenticazione a più fattori **** crea un gruppo di sicurezza denominato **PhoneFactor Admins** in Active Directory e quindi aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo.
+    > **L'installazione guidata della scheda ADFS per l'autenticazione a più fattori** crea un gruppo di sicurezza denominato **PhoneFactor Admins** in Active Directory e quindi aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo.
     > 
     > È consigliabile verificare nel controller di dominio l'effettiva creazione del gruppo **PhoneFactor Admins** e che l'account del servizio ADFS sia un membro di questo gruppo.
     > 
@@ -209,9 +209,9 @@ Per abilitare l'autenticazione a più fattori, è necessario configurare i crite
 
 2.  Nella pagina **Azioni** o facendo clic con il pulsante destro del mouse su **claimapp**selezionare **Modifica autenticazione a più fattori personalizzata**.
 
-3.  Nella finestra di dialogo per la modifica dell'attendibilità del componente claimapp **** fare clic sul pulsante **Aggiungi** accanto all'elenco **Utenti/Gruppi** . Digitare **Finance** per il nome del gruppo di Active Directory creato nel [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md), fare clic su **Controlla nomi**, e quando è il nome è stato risolto, fare clic su **OK**.
+3.  Nella finestra di dialogo per la modifica dell'attendibilità del componente **claimapp** fare clic sul pulsante **Aggiungi** accanto all'elenco **Utenti/Gruppi** . Digitare **Finance** per il nome del gruppo di Active Directory creato nel [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md), fare clic su **Controlla nomi**, e quando è il nome è stato risolto, fare clic su **OK**.
 
-4.  Fare clic su **OK** nella finestra di dialogo per la modifica dell'attendibilità del componente claimapp****.
+4.  Fare clic su **OK** nella finestra di dialogo per la modifica dell'attendibilità del componente **claimapp**.
 
 ##### <a name="to-configure-the-mfa-policy-based-on-users-group-membership-data-for-claimapp--via-windows-powershell"></a>Per configurare i criteri di autenticazione a più fattori basato su dati di appartenenza a gruppi dell'utente per 'claimapp' tramite Windows PowerShell
 
