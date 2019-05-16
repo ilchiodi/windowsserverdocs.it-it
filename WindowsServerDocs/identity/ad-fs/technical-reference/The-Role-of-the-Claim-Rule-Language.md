@@ -11,7 +11,7 @@ ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
 ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59855692"
@@ -75,7 +75,7 @@ Nella tabella seguente viene fornito un esempio di più - delle condizioni dell'
   
 |Descrizione della condizione|Esempio di sintassi della condizione|  
 |-------------------------|----------------------------|  
-|Questa regola presenta una condizione da verificare per due input attestazioni, ognuno con un tipo di attestazione specificato ("http://test/name"e"http://test/email"). Se due attestazioni corrispondenti si trovano nelle attestazioni di input, la regola copia l'attestazione del nome nel set di attestazioni di output.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
+|Questa regola presenta una condizione da verificare per due input attestazioni, ognuno con un tipo di attestazione specificato ("http://test/name" e "http://test/email"). Se due attestazioni corrispondenti si trovano nelle attestazioni di input, la regola copia l'attestazione del nome nel set di attestazioni di output.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
   
 #### <a name="regular--condition-examples"></a>Regolare - condizione esempi  
 Nella tabella seguente fornisce un esempio di un'espressione regolare,-in condizione di base.  
