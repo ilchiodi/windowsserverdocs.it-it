@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 1f22578cc54a22464fe5d9208731fe681be30481
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59832982"
@@ -26,7 +26,7 @@ ms.locfileid: "59832982"
 
 In Windows Server, Server Manager consente di gestire sia il server locale (se si eseguono Server Manager in Windows Server e non su un sistema operativo client basati su Windows) e i server remoti che eseguono Windows Server 2008 e versioni successive di Windows Sistema operativo server.
 
-Il **Server locale** pagina in Server Manager consente di visualizzare dati del contatore proprietà, eventi, servizi e delle prestazioni server, e i risultati di Best Practices Analyzer (BPA) per il server locale. I riquadri evento, servizio, BPA e prestazioni funzionano come nelle pagine gruppo di server e di ruolo. Per altre informazioni su come configurare i dati visualizzati in questi riquadri, vedere [View e Configure Performance, Event, e Service Data e [Run Best Practices Analyzer Scans e Manage Scan Results.
+Il **Server locale** pagina in Server Manager consente di visualizzare dati del contatore proprietà, eventi, servizi e delle prestazioni server, e i risultati di Best Practices Analyzer (BPA) per il server locale. I riquadri evento, servizio, BPA e prestazioni funzionano come nelle pagine gruppo di server e di ruolo. Per ulteriori informazioni sulla configurazione dei dati visualizzati in questi riquadri, vedere [Visualizzare e configurare dati relativi a prestazioni, eventi e servizi](view-and-configure-performance-event-and-service-data.md) ed [Eseguire analisi di Best Practices Analyzer e gestire i risultati dell'analisi](run-best-practices-analyzer-scans-and-manage-scan-results.md).
 
 I comandi di menu e le impostazioni nelle barre di intestazione console Server Manager si applicano globalmente a tutti i server nel pool di server e consentono di usare Server Manager per gestire l'intero pool di server.
 
@@ -104,7 +104,7 @@ Quando i server appartenenti a un cluster vengono aggiunti a Server Manager, se 
 I dati visualizzati nelle home page ruolo in Server Manager per Servizi Desktop remoto, indirizzo IP, gestione e servizi File e archiviazione non vengono aggiornati automaticamente. Aggiornare i dati che vengono visualizzati in queste pagine manualmente premendo **F5** o facendo clic su **aggiornare** nella console di Server Manager intestazione mentre si è dalle pagine stesse.
 
 ### <a name="add-or-remove-roles-or-features"></a>aggiungere o rimuovere ruoli o funzionalità
-I comandi che aprono l'aggiunta guidata ruoli e funzionalità e rimuovere ruoli e funzionalità guidata e consentono aggiungere o rimuovere ruoli, servizi ruolo e funzionalità ai server nel pool di server, inclusi i **Gestisci** dal menu di Server Manager console e il **attività** dal menu delle **ruoli e funzionalità** riquadro nelle pagine ruolo o gruppo. Per informazioni dettagliate su come aggiungere o rimuovere ruoli o funzionalità, vedere [Install or Uninstall Roles, Role Services, or Features](install-or-uninstall-roles-role-services-or-features.md).
+I comandi che aprono l'aggiunta guidata ruoli e funzionalità e rimuovere ruoli e funzionalità guidata e consentono aggiungere o rimuovere ruoli, servizi ruolo e funzionalità ai server nel pool di server, inclusi i **Gestisci** dal menu di Server Manager console e il **attività** dal menu delle **ruoli e funzionalità** riquadro nelle pagine ruolo o gruppo. Per informazioni dettagliate su come aggiungere o rimuovere ruoli o funzionalità, vedere [installare o disinstallare ruoli, servizi ruolo o funzionalità](install-or-uninstall-roles-role-services-or-features.md).
 
 In Server Manager, i dati di ruolo e funzionalità vengono visualizzati nella lingua di base del sistema, denominato anche la lingua GUI predefinita del sistema o la lingua selezionata durante l'installazione del sistema operativo.
 
