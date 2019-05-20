@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: e396ee678e22885a50c02800d77ecea1cc5ef8ba
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59819652"
@@ -55,7 +55,7 @@ wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
 media:<Image name>|Specifica il nome dell'immagine da sostituire.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 mediatype:{Boot &#124; Install}|Specifica il tipo di immagine da sostituire.|
-|/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine da sostituire. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, specificando l'architettura si garantisce che l'immagine corretta verrà sostituito.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine da sostituire. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, specificando l'architettura si garantisce che l'immagine corretta verrà sostituito.|
 |[/Filename:<File name>]|Se l'immagine non può essere identificata dal nome, è necessario utilizzare questa opzione per specificare il nome del file.|
 |/replacementImage|Specifica le impostazioni per l'immagine di sostituzione. Configurare queste impostazioni utilizzando le opzioni seguenti:<br /><br />-mediaFile: <file path> -specifica il nome e percorso completo del nuovo file con estensione wim.<br />-[/ SourceImage: <image name>]-Specifica l'immagine da utilizzare se il file WIM contiene più immagini. Questa opzione si applica solo alle immagini di installazione.<br />-[/Name:<Image name>] imposta il nome visualizzato dell'immagine.<br />-[/ Descrizione:<Image description>]-imposta la descrizione dell'immagine.|
 ## <a name="BKMK_examples"></a>Esempi

@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d995204eea0af776a2084a82411fa95542d1d77a
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59889092"
@@ -38,7 +38,7 @@ ipxroute config
 |-------|--------|  
 |server [/ type = X]|Visualizza la tabella Service Access Point (SAP) per il tipo di server specificato.  **X** deve essere un numero intero. Ad esempio, **/type = 4** Visualizza tutti i file server. Se non si specifica **/tipo**, **server ipxroute** Visualizza tutti i tipi di server, elencandoli in base al nome del server.|  
 |ripout rete|Consente di individuare se *rete* è raggiungibile consultando la tabella di routing di stack IPX e inviando una richiesta rip se necessario.  *Rete* è il numero di segmenti di rete IPX.|  
-|risoluzione {GUID & #124; nome} {GUID & #124; AdapterName}|Risolve il nome del GUID per il relativo nome descrittivo o il nome descrittivo per il relativo GUID.|  
+|risoluzione {GUID &#124; nome} {GUID &#124; AdapterName}|Risolve il nome del GUID per il relativo nome descrittivo o il nome descrittivo per il relativo GUID.|  
 |area = *N*|Specifica la scheda di rete per cui si desidera eseguire una query o impostare i parametri.|  
 |DEF|Invia pacchetti per la trasmissione di TUTTE le ROUTE. Se un pacchetto viene trasmesso a un unico indirizzo di scheda MAC (Media Access) che non è presente nella tabella di routing di origine, **ipxroute** Invia il pacchetto per la SINGOLA ROUTE broadcast per impostazione predefinita.|  
 |GBR|Invia pacchetti per la trasmissione di TUTTE le ROUTE. Se un pacchetto viene trasmesso all'indirizzo di broadcast (FFFFFFFFFFFF), **ipxroute** Invia il pacchetto per la SINGOLA ROUTE broadcast per impostazione predefinita.|  

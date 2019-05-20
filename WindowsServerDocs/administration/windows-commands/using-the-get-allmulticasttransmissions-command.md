@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: bf4c3449a5c3194ec27efc2ee4adaccb54f9f7e8
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59889152"
@@ -38,7 +38,7 @@ wdsutil /Get-AllMulticastTransmissions [/Server:<Server name>] [/Show:{Boot | In
 |Parametro|Spiegazione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-|[/Show]|**Windows Server 2008**<br /><br />/Show:Clients - Visualizza informazioni sui computer client connessi a trasmissioni multicast.<br /><br />**Windows Server 2008 R2**<br /><br />Mostra: {Avvio & #124; Installa & #124; All} - il tipo di immagine da restituire.                                **Avvio** restituisce solo le trasmissioni di immagini di avvio.                                  **Installare** restituisce installare solo le trasmissioni di immagine. **Tutti** restituisce entrambi i tipi di immagine.|
+|[/Show]|**Windows Server 2008**<br /><br />/Show:Clients - Visualizza informazioni sui computer client connessi a trasmissioni multicast.<br /><br />**Windows Server 2008 R2**<br /><br />Mostra: {Avvio &#124; Installa &#124; All} - il tipo di immagine da restituire.                                **Avvio** restituisce solo le trasmissioni di immagini di avvio.                                  **Installare** restituisce installare solo le trasmissioni di immagine. **Tutti** restituisce entrambi i tipi di immagine.|
 |||
 |/details:clients|Supportato solo per Windows Server 2008 R2. Se presente, verranno visualizzati ai client connessi alla trasmissione.|
 |[/ExcludedeletePending]|Esclude tutte le trasmissioni disattivate dall'elenco.|

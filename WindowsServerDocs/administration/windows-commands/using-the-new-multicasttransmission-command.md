@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 84f5aa69f2d4a875995ac6c18fa43bd68518fba3
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59875142"
@@ -63,7 +63,7 @@ mediatype:{Boot&#124;Install}|Specifica il tipo di immagine devono essere trasme
 |\mediaGroup:<Image group name>]|Specifica il gruppo di immagini che contiene l'immagine. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, viene utilizzato il gruppo di immagini. Se è presente più di un gruppo di immagini nel server, è necessario utilizzare questa opzione per specificare il nome del gruppo di immagini.|
 |[/Filename:<File name>]|Specifica il nome del file. Se l'immagine di origine non può essere identificata in modo univoco dal nome, è necessario utilizzare questa opzione per specificare il nome del file.|
 |/Transmissiontype:{AutoCast &#124; ScheduledCast}|Specifica se avviare automaticamente la trasmissione (automatico) o in base ai criteri di inizio specificato (multicast).<br /><br /><ul><li>**Multicast automatico**. Questo tipo di trasmissione indica che non appena un client richiede un'immagine di installazione, ha inizio la trasmissione multicast dell'immagine selezionata. Se altri client richiedono la stessa immagine, in cui vengono aggiunti la trasmissione che è già stata avviata.</li><li>**Il multicast pianificato**. Questo tipo di trasmissione imposta i criteri per la trasmissione in base al numero di client che richiedono un'immagine e/o un giorno specifico e l'ora di avvio. È possibile specificare le opzioni seguenti:<br /><br /><ul><li>[/ ora: <time>]-imposta il tempo di trasmissione deve iniziare con il formato seguente: YYYY/MM/DD:hh:mm.</li><li>[/ Client: <Number of clients>] -Imposta il numero minimo di client da attendere prima che venga avviata la trasmissione.</li></ul></li></ul>|
-|/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine di avvio per la trasmissione mediante il multicast. Poiché è possibile avere lo stesso nome per le immagini di avvio di diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine di avvio per la trasmissione mediante il multicast. Poiché è possibile avere lo stesso nome per le immagini di avvio di diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
 |[/Filename:<File name>]|Specifica il nome del file. Se l'immagine di origine non può essere identificata in modo univoco dal nome, è necessario specificare il nome del file.|
 ## <a name="BKMK_examples"></a>Esempi
 Per creare una trasmissione multicast automatico di un'immagine di avvio in Windows Server 2008 R2, digitare:

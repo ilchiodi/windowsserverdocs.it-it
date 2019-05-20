@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: dc675ac202f87703074f78c45b1f264f6105c324
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59843742"
@@ -38,7 +38,7 @@ wdsutil /add-ImageDriverPackage [/Server:<Server name>media:<Image namemediatype
 |[/Server:<Server name>|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale.|
 media:<Image name>|Specifica il nome dell'immagine da aggiungere il driver.|
 mediatype:Boot|Specifica il tipo di immagine per aggiungere il driver. Pacchetti driver possono essere aggiunti solo alle immagini di avvio.|
-|/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine di avvio. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine di avvio. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
 |/ Filename:<File name>]|Specifica il nome del file. Se l'immagine non può essere identificata in modo univoco dal nome, è necessario specificare il nome del file.|
 |[/DriverPackage:<Name>|Specifica il nome del pacchetto driver da aggiungere all'immagine.|
 |[/ PackageId:<ID>]|Specifica l'ID di servizi di distribuzione di Windows del pacchetto driver. È necessario specificare questa opzione se il pacchetto driver non può essere identificato in modo univoco in base al nome. Per trovare l'ID del pacchetto, fare clic sul gruppo di driver che contiene il pacchetto (o **tutti i pacchetti** nodo), fare doppio clic su pacchetto e quindi fare clic su **proprietà**. L'ID del pacchetto è elencato nel **Generale** scheda. Ad esempio: {dd098d20-1850-4fc8-8e35-ea24a1beff5e}.|

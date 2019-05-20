@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: c321c4ebcaf5fbbae30f6825fef18b478554f665
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59884192"
@@ -42,14 +42,14 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 |-k {\<SessionID > &#124; tutti}|Terminata la sessione telnet. Digitare l'ID di sessione per terminare una sessione specifica oppure tutti per terminare tutte le sessioni.|  
 |-m {\<SessionID > &#124; tutti}  <Message>|Invia un messaggio a una o più sessioni. Digitare l'ID di sessione per inviare un messaggio a una determinata sessione, oppure tutti per inviare un messaggio a tutte le sessioni. digitare il messaggio che si desidera inviare tra virgolette.|  
 |configurazione dom = \<dominio >|Consente di configurare il dominio predefinito per il server.|  
-|configurazione non qualificato = {Sì & #124; n}|Specifica se si desidera che il server telnet interpretare CTRL + A come ALT. tipo di **yes** alla mappa tasto di scelta rapida o di tipo **alcun** per impedire il mapping.|  
+|configurazione non qualificato = {Sì &#124; n}|Specifica se si desidera che il server telnet interpretare CTRL + A come ALT. tipo di **yes** alla mappa tasto di scelta rapida o di tipo **alcun** per impedire il mapping.|  
 |config timeout = \<hh>:\<mm>:\<ss>|Imposta il periodo di timeout in ore, minuti e secondi.|  
-|configurazione timeoutactive = {Sì & #124; no|Consente il timeout di sessione inattiva.|  
+|configurazione timeoutactive = {Sì &#124; no|Consente il timeout di sessione inattiva.|  
 |config maxfail = \<attempts>|Imposta il numero massimo di tentativi di accesso non riusciti prima della disconnessione.|  
 |configurazione maxconn = \<connessioni >|Imposta il numero massimo di connessioni.|  
 |configurazione porta = < \Number >|Imposta la porta di telnet. È necessario specificare la porta con un valore integer minore di 1024.|  
-|configurazione sec {+ & #124; -} NTLM {+ & #124; -} passwd|Specifica se si desidera utilizzare NTLM, una password o entrambi per autenticare i tentativi di accesso. Per utilizzare un particolare tipo di autenticazione, digitare un segno più (**+**) prima del tipo di autenticazione. Per impedire l'utilizzo di un determinato tipo di autenticazione, digitare un segno meno (**-**) prima del tipo di autenticazione.|  
-|modalità di configurazione = {console & #124; flusso}|Specifica la modalità di funzionamento.|  
+|configurazione sec {+ &#124; -} NTLM {+ &#124; -} passwd|Specifica se si desidera utilizzare NTLM, una password o entrambi per autenticare i tentativi di accesso. Per utilizzare un particolare tipo di autenticazione, digitare un segno più (**+**) prima del tipo di autenticazione. Per impedire l'utilizzo di un determinato tipo di autenticazione, digitare un segno meno (**-**) prima del tipo di autenticazione.|  
+|modalità di configurazione = {console &#124; flusso}|Specifica la modalità di funzionamento.|  
 |-?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  

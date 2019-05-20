@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: c50c53fc277626d1b83268f5e0c8dcc95161f35a
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59854052"
@@ -112,7 +112,7 @@ macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/
 |Parametro|Descrizione|
 |-------|--------|
 |/server:\\\\<computerName>|Specifica il server in cui si desidera modificare i parametri. Se omesso, l'operazione viene eseguita nel computer locale.|
-|/maxsessions: {numero & #124; illimitato}|Specifica il numero massimo di utenti che possono usare File e server di stampa per Macintosh contemporaneamente. Se omesso, il **maxsessions** l'impostazione per il server rimane invariato.|
+|/maxsessions: {numero &#124; illimitato}|Specifica il numero massimo di utenti che possono usare File e server di stampa per Macintosh contemporaneamente. Se omesso, il **maxsessions** l'impostazione per il server rimane invariato.|
 |/loginmessage:<Message>|Modifica i messaggio Macintosh visualizzato dagli utenti quando si accede al File Server per Macintosh. Il numero massimo di caratteri per il messaggio di accesso è 199. Se omesso, il **loginmessage** messaggio per il server rimane invariato. Per rimuovere un messaggio di accesso esistente, includere il **/loginmessage** parametro, ma lasciare la *messaggio* variabile vuoto.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -135,14 +135,14 @@ macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 ### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|{/Add & #124; /set}|Obbligatorio quando si aggiungono o si modifica un volume accessibile da Macintosh. Aggiunge o modifica il volume specificato.|
+|{/Add &#124; /set}|Obbligatorio quando si aggiungono o si modifica un volume accessibile da Macintosh. Aggiunge o modifica il volume specificato.|
 |/server:\\\\<computerName>|Specifica il server in cui si desidera aggiungere, modificare o rimuovere un volume. Se omesso, l'operazione viene eseguita nel computer locale.|
 |/name:<volumeName>|Obbligatorio. Specifica il nome del volume per essere aggiunto, modificato o rimosso.|
 |/path:<directory>|Obbligatorio e valido solo quando si aggiunge un volume. Specifica il percorso alla directory radice del volume da aggiungere.|
-|/ReadOnly: {true & #124; false}|Specifica se gli utenti possono modificare i file del volume. Digitare true per specificare che gli utenti non possono modificare i file del volume. Digitare false per specificare che gli utenti possono modificare i file del volume. Se omesso quando si aggiunge un volume, sono consentite modifiche ai file. Se omesso quando si modifica un volume, il **readonly** l'impostazione per il volume non subisce modifiche.|
-|/guestsallowed: {true & #124; false}|Specifica se gli utenti accedono come Guest possono utilizzare il volume. Digitare true per specificare che gli utenti guest possono utilizzare il volume. Digitare false per specificare che gli utenti guest non è possibile utilizzare il volume. Se omesso quando si aggiunge un volume, gli utenti guest possono utilizzare il volume. Se omesso quando si modifica un volume, il **guestsallowed** l'impostazione per il volume non subisce modifiche.|
+|/ReadOnly: {true &#124; false}|Specifica se gli utenti possono modificare i file del volume. Digitare true per specificare che gli utenti non possono modificare i file del volume. Digitare false per specificare che gli utenti possono modificare i file del volume. Se omesso quando si aggiunge un volume, sono consentite modifiche ai file. Se omesso quando si modifica un volume, il **readonly** l'impostazione per il volume non subisce modifiche.|
+|/guestsallowed: {true &#124; false}|Specifica se gli utenti accedono come Guest possono utilizzare il volume. Digitare true per specificare che gli utenti guest possono utilizzare il volume. Digitare false per specificare che gli utenti guest non è possibile utilizzare il volume. Se omesso quando si aggiunge un volume, gli utenti guest possono utilizzare il volume. Se omesso quando si modifica un volume, il **guestsallowed** l'impostazione per il volume non subisce modifiche.|
 |/password:<Password>|Specifica una password che sarà necessario accedere al volume. Se omesso quando si aggiunge un volume, verrà creata alcuna password. Se omesso quando si modifica un volume, la password rimarrà invariata.|
-|/maxusers: {<Number>> & #124; illimitato}|Specifica il numero massimo di utenti che possono utilizzare simultaneamente i file nel volume. Se omesso quando si aggiunge un volume, un numero illimitato di utenti può utilizzare il volume. Se omesso quando si modifica un volume, il **maxusers** valore rimane invariato.|
+|/maxusers: {<Number>> &#124; illimitato}|Specifica il numero massimo di utenti che possono utilizzare simultaneamente i file nel volume. Se omesso quando si aggiunge un volume, un numero illimitato di utenti può utilizzare il volume. Se omesso quando si modifica un volume, il **maxusers** valore rimane invariato.|
 |/remove|Obbligatorio quando si rimuove un volume accessibile da Macintosh. Rimuove il volume specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 

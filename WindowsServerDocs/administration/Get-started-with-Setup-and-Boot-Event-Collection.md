@@ -14,7 +14,7 @@ author: jaimeo
 ms.author: jaimeo
 ms.openlocfilehash: 781ed17fb07d2aecd4bb0b7bc672056096ab8060
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59837062"
@@ -311,7 +311,7 @@ Il log per il servizio agente di raccolta dati stesso (che è diverso dal progra
   
 ||Errore|Descrizione dell'errore|Sintomo|Potenziale problema|  
 |-|---------|---------------------|-----------|---------------------|  
-|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features & #124;? { $_-corrispondono "avvio"}**. Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
+|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features &#124;? { $_-corrispondono "avvio"}**. Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
 |Dism.exe|0x800f080c|Funzionalità \<name > è sconosciuto.||Come sopra|  
   
 ### <a name="troubleshooting-the-collector"></a>Risoluzione dei problemi l'agente di raccolta  

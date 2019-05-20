@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: fdbb9283285bcf56cd83c18ea076e3d36a51b966
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59823232"
@@ -56,7 +56,7 @@ media:<Image name>|Visualizza la trasmissione multicast che è associata a quest
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
 MediaType:Install|Specifica il tipo di immagine. Si noti che questa opzione deve essere impostata su **installare**.|
 |\mediaGroup:<Image group name>]|Specifica il gruppo di immagini che contiene l'immagine. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, viene utilizzato il gruppo di immagini. Se è presente più di un gruppo di immagini nel server, è necessario utilizzare questa opzione per specificare un gruppo di immagini.|
-|/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine di avvio che è associata la trasmissione. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine di avvio che è associata la trasmissione. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
 |[/Filename:<File name>]|Specifica il file che contiene l'immagine. Se l'immagine non può essere identificata in modo univoco dal nome, è necessario utilizzare questa opzione per specificare il nome del file.|
 |[/ Show: client]<br /><br />oppure<br /><br />[/ Dettagli: client]|Consente di visualizzare informazioni sui computer client connessi alla trasmissione multicast.|
 ## <a name="BKMK_examples"></a>Esempi

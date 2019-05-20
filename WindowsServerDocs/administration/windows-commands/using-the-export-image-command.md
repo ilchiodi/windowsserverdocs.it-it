@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: efa9b2d09c37a383a91883ee02c995eedb2f235e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59823142"
@@ -54,7 +54,7 @@ media:<Image name>|Specifica il nome dell'immagine da esportare.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 mediatype:{Boot &#124; Install}|Specifica il tipo di immagine da esportare.|
 |\mediaGroup:<Image group name>]|Specifica il gruppo di immagini contenente l'immagine da esportare. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, tale gruppo di immagini da utilizzare per impostazione predefinita. Se è presente più di un gruppo di immagini nel server, è necessario specificare il gruppo di immagini.|
-|/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine da esportare. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, specificando il valore di architettura si garantisce che verrà restituito l'immagine corretta.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine da esportare. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, specificando il valore di architettura si garantisce che verrà restituito l'immagine corretta.|
 |[/Filename:<Filename>]|Se l'immagine non può essere identificata dal nome, è necessario specificare il nome del file.|
 |/DestinationImage|Specifica le impostazioni per l'immagine di destinazione. È possibile specificare queste impostazioni utilizzando le opzioni seguenti:<br /><br />-/Filepath:<File path and name> -specifica il percorso completo del file per la nuova immagine.<br />-[/Name:<Name>]-imposta il nome visualizzato dell'immagine. Se viene specificato alcun nome, verrà utilizzato il nome visualizzato dell'immagine di origine.<br />-[/ Descrizione: <Description>]-Imposta la descrizione dell'immagine.|
 |[/Overwrite: {Sì &#124; No &#124; aggiungere}]|Determina se il file specificato nella **/DestinationImage** opzione verrà sovrascritta se esiste già un file esistente con lo stesso nome in /FilePath.<br /><br />-   **Sì** fa sì che il file esistente verranno sovrascritti.<br />-   **Non** (opzione predefinita) causa un errore che si verifichi se un file con lo stesso nome esiste già.<br />-   **accodare** fa sì che l'immagine generata da aggiungere come una nuova immagine all'interno del file con estensione wim esistente.|

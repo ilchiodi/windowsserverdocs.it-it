@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 6e21b1606b09c47ea773c4fad80eaa53d9aca27c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59888752"
@@ -37,7 +37,7 @@ lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o |
 |-P <printerName>|Specifica (nome) della stampante per la coda di stampa con uno stato che si desidera visualizzare. Obbligatorio.|  
 |-C <BannerContent>|Specifica il contenuto per la stampa su pagina di intestazione del processo di stampa. Se non si include questo parametro, il nome del computer da cui è stato inviato il processo di stampa viene visualizzato nella pagina di intestazione.|  
 |-J <JobName>|Specifica il nome di processo di stampa che verrà stampato sulla pagina di intestazione. Se non si include questo parametro, il nome del file in fase di stampa viene visualizzato nella pagina di intestazione.|  
-|[-o & #124; "-o l"]|Specifica il tipo di file che si desidera stampare. Il parametro **-o** Specifica che si desidera stampare un file di testo. Il parametro **"-o l"** Specifica che si desidera stampare un file binario (ad esempio, un file PostScript).|  
+|[-o &#124; "-o l"]|Specifica il tipo di file che si desidera stampare. Il parametro **-o** Specifica che si desidera stampare un file di testo. Il parametro **"-o l"** Specifica che si desidera stampare un file binario (ad esempio, un file PostScript).|  
 |-d|Specifica che il file di dati deve essere inviato prima il file di controllo. Utilizzare questo parametro se la stampante in uso richiede il file di dati inviati per primi. Per ulteriori informazioni, vedere la documentazione della stampante.|  
 |-x|Specifica che il **lpr** comando deve essere compatibile con Sun Microsystems sistema (noto come SunOS) per le versioni fino a e includendo 4.1.4_u1.|  
 |<FileName>|Specifica (nome) il file da stampare. Obbligatorio.|  

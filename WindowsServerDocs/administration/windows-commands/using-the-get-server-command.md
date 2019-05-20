@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: da8bf0fc6e31bd8d0079933f1d7c529c4fe96f42
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59870982"
@@ -33,7 +33,7 @@ wdsutil [Options] /Get-Server [/Server:<Server name>] /Show:{Config | Images | A
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-|/ Mostra: {configurazione & #124; Immagini & #124; All}|Specifica il tipo di informazioni da restituire.<br /><br />-   **Configurazione** restituisce le informazioni di configurazione.<br />-   **Le immagini** restituisce informazioni sui gruppi di immagini, immagini di avvio e le immagini di installazione.<br />-   **Tutti i** restituisce le informazioni di configurazione e le informazioni sull'immagine.|
+|/ Mostra: {configurazione &#124; Immagini &#124; All}|Specifica il tipo di informazioni da restituire.<br /><br />-   **Configurazione** restituisce le informazioni di configurazione.<br />-   **Le immagini** restituisce informazioni sui gruppi di immagini, immagini di avvio e le immagini di installazione.<br />-   **Tutti i** restituisce le informazioni di configurazione e le informazioni sull'immagine.|
 |[/ dettagliate]|È possibile usare questa opzione con **/Show:Images** oppure **/Show:All** per indicare che tutti i metadati delle immagini da ogni immagine devono essere restituito. Se il **/ dettagliate** opzione non viene utilizzato, il comportamento predefinito è per restituire il nome dell'immagine, descrizione e nome file.|
 ## <a name="BKMK_examples"></a>Esempi
 Per visualizzare informazioni sul server, digitare:

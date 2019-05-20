@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: b36d22cea5b7b0c0e1768736d6c80c67b3c733f9
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59857652"
@@ -33,7 +33,7 @@ bootcfg /dbg1394 {ON | OFF}[/s <computer> [/u <Domain>\<User> /p <Password>]] [/
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|{ON & #124; OFF}|Specifica il valore per il debug della porta 1394.<br /><br />-   **VIA** -Abilita il supporto del debug remoto aggiungendo l'opzione/dbg1394 specificato <OSEntryLineNum>.<br />-   **DISATTIVARE** -disabilita il supporto del debug remoto rimuovendo l'opzione/dbg1394 specificato <OSEntryLineNum>.|
+|{ON &#124; OFF}|Specifica il valore per il debug della porta 1394.<br /><br />-   **VIA** -Abilita il supporto del debug remoto aggiungendo l'opzione/dbg1394 specificato <OSEntryLineNum>.<br />-   **DISATTIVARE** -disabilita il supporto del debug remoto rimuovendo l'opzione/dbg1394 specificato <OSEntryLineNum>.|
 |/s <computer>|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
 |/u <Domain>\\<User>|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> oppure <Domain> \\ <User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
 |/p <Password>|Specifica la password dell'account utente specificato nella **/u** parametro.|

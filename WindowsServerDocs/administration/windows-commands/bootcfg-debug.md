@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 27768788e7f14445137331523c62151fcf3b6b2d
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59879022"
@@ -37,8 +37,8 @@ bootcfg /debug {ON | OFF | edit}[/s <computer> [/u <Domain>\<User> /p <Password>
 |/s <computer>|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
 |/u <Domain>\\<User>|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> oppure <Domain> \\ <User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
 |/p <Password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|porta {COM1 & #124; COM2 & #124; COM3 & #124; COM4}|Specifica la porta COM da utilizzare per il debug. Non utilizzare il **porta/** parametro se il debug è stato disabilitato.|
-|/baud {9600 & #124; 19200 & #124; 38400 & #124; 57600 & #124; 115200}|Specifica la velocità in baud da utilizzare per il debug. Non utilizzare il **/baud** parametro se il debug è stato disabilitato.|
+|porta {COM1 &#124; COM2 &#124; COM3 &#124; COM4}|Specifica la porta COM da utilizzare per il debug. Non utilizzare il **porta/** parametro se il debug è stato disabilitato.|
+|/baud {9600 &#124; 19200 &#124; 38400 &#124; 57600 &#124; 115200}|Specifica la velocità in baud da utilizzare per il debug. Non utilizzare il **/baud** parametro se il debug è stato disabilitato.|
 |/id <OSEntryLineNum>|Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini alla quale aggiungere le opzioni di debug. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.|
 |/?|Visualizza la guida al prompt dei comandi.|
 ##### <a name="remarks"></a>Note

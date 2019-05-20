@@ -13,7 +13,7 @@ ms.author: kathydav
 ms.date: 10/03/2016
 ms.openlocfilehash: 6ec089f501a0999a4460501dbc4d03428d36af40
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59863832"
@@ -28,7 +28,7 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 
 * **Incorporata** -LIS sono inclusi come parte di questa distribuzione Linux. Il pacchetto di download LIS fornita da Microsoft non funziona per la distribuzione in modo da non installare. I numeri di versione del modulo del kernel per incorporato LIS (come illustrato da **lsmod**, ad esempio) sono diversi dal numero di versione del pacchetto di download LIS fornita da Microsoft. Una mancata corrispondenza non indicano che incorporato LIS è scaduto.
 
-* & #10004; -Funzionalità disponibili
+* &#10004; -Funzionalità disponibili
 
 * (*vuoto*)-funzionalità non disponibile
 
@@ -46,9 +46,9 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 |Segmentazione di TCP e gli offload Checksum|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Note 8|||
 |SR-IOV|2019, 2016|&#10004; Note 8||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
-|Ridimensionamento di VHDX|2019, 2016, 2012 R2|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|
+|Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|
 |Fibre Channel virtuale|2019, 2016, 2012 R2|||
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|& #10004; Nota 4,5|& #10004; Nota 4,5|& #10004; Nota 4|
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 4,5|&#10004; Nota 4,5|&#10004; Nota 4|
 |Supporto per TRIM|2019, 2016, 2012 R2|&#10004; Note 8|||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004; Note 8||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
@@ -60,14 +60,14 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
-|Coppia chiave-valore|2019, 2016, 2012 R2, 2012, 2008 R2|& #10004; Nota 4|& #10004; Nota 4||
+|Coppia chiave-valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 4|&#10004; Nota 4||
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|
-|Copiare i file dall'host al guest|2019, 2016, 2012 R2|& #10004; Nota 4|& #10004; Nota 4||
+|Copiare i file dall'host al guest|2019, 2016, 2012 R2|&#10004; Nota 4|&#10004; Nota 4||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|||
 |Socket di Hyper-V|2019, 2016|&#10004; Note 8|||
 |Pass-through/DDA PCI|2019, 2016|&#10004; Note 8|||
 |**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
-|Avvio UEFI|2019, 2016, 2012 R2|& #10004; Nota 7|& #10004; Nota 7||
+|Avvio UEFI|2019, 2016, 2012 R2|&#10004; Nota 7|&#10004; Nota 7||
 |Avvio protetto|2019, 2016|||
 
 ## <a name="BKMK_notes"></a>Note

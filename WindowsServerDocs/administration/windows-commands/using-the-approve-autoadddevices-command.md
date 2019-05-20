@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 9ce9824c45a00ccb9f1f9e357c7e3d36b2857f69
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59886822"
@@ -34,12 +34,12 @@ wdsutil [Options] /Approve-AutoaddDevices [/Server:<Server name>] /RequestId:{<R
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se non si specifica alcun nome server, verrà utilizzato il server locale.|
-|/ RequestId: {richiesta ID & #124; ALL}|Specifica l'ID richiesta assegnato al computer in sospeso. Specificare **TUTTI** per approvare tutti i computer in sospeso.|
+|/ RequestId: {richiesta ID &#124; ALL}|Specifica l'ID richiesta assegnato al computer in sospeso. Specificare **TUTTI** per approvare tutti i computer in sospeso.|
 |[/ NomeComputer:<Device name>]|Specifica il nome del computer da aggiungere. È possibile utilizzare questa opzione quando si approvano tutti i computer.|
 |[/OU:<DN of OU>]|Specifica il nome distinto dell'unità organizzativa (OU) in cui deve essere creato l'oggetto account computer. Ad esempio:  **OU = UnitàOrganizzativa, CN = Test, DC = Domain, DC = com**. Il percorso predefinito è il contenitore del computer predefinito.|
 |[/ Utente: < dominio\utente &#124; User@Domain>]|Imposta le autorizzazioni sull'oggetto account computer per assegnare i diritti necessari all'utente specificato.|
-|[/ JoinRights: {JoinOnly & #124; Completo}]|Specifica il tipo di diritti da assegnare all'utente specificato.<br /><br />-   **JoinOnly** richiede che l'amministratore reimpostare l'account del computer prima che l'utente può aggiungere il computer al dominio.<br />-   **Completa** fornisce l'accesso completo all'utente, che include il diritto di aggiungere il computer al dominio.|
-|[/ JoinDomain: {Sì & #124; No}]|Specifica se il computer deve appartenere al dominio come account di questo computer durante l'installazione del sistema operativo. Il valore predefinito è **Sì**.|
+|[/ JoinRights: {JoinOnly &#124; Completo}]|Specifica il tipo di diritti da assegnare all'utente specificato.<br /><br />-   **JoinOnly** richiede che l'amministratore reimpostare l'account del computer prima che l'utente può aggiungere il computer al dominio.<br />-   **Completa** fornisce l'accesso completo all'utente, che include il diritto di aggiungere il computer al dominio.|
+|[/ JoinDomain: {Sì &#124; No}]|Specifica se il computer deve appartenere al dominio come account di questo computer durante l'installazione del sistema operativo. Il valore predefinito è **Sì**.|
 |[/ ReferralServer:<Server name>]|Specifica il nome del server a cui essere contattati per scaricare l'immagine di avvio e di programma di avvio rete tramite Trivial File Transfer Protocol (tftp).|
 |[/ BootProgram:<Relative path>]|Specifica il percorso relativo dalla cartella remoteInstall per il programma di avvio di rete che deve ricevere questo computer. Ad esempio: **boot\x86\pxeboot.com**.|
 |[/ WdsClientUnattend:<Relative path>]|Specifica il percorso relativo dalla cartella remoteInstall del file di installazione automatica che consente di automatizzare il client di servizi di distribuzione Windows.|

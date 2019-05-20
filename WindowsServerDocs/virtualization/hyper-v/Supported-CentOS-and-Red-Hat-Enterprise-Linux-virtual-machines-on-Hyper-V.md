@@ -12,7 +12,7 @@ ms.author: daniha
 ms.date: 12/20/2017
 ms.openlocfilehash: 6bf15e5bfff4b875c4debd3c682bbdccd81a7bb6
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59869432"
@@ -44,7 +44,7 @@ In questa sezione:
 
 * **Incorporata** -LIS sono inclusi come parte di questa distribuzione Linux. I numeri di versione del modulo del kernel per incorporato LIS (come illustrato da **lsmod**, ad esempio) sono diversi dal numero di versione del pacchetto di download LIS fornita da Microsoft. Una mancata corrispondenza non indicano che incorporato LIS è scaduto.
 
-* & #10004; -Funzionalità disponibili
+* &#10004; -Funzionalità disponibili
 
 * (*vuoto*)-funzionalità non disponibile
 
@@ -61,21 +61,21 @@ Questa serie dispone solo di kernel a 64 bit.
 |Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|
+|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|
 |RSS virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Segmentazione di TCP e gli offload Checksum|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;|||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||||
 |Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Fibre Channel virtuale|2019, 2016, 2012 R2|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|& #10004; Nota 5|& #10004; Nota 5|& #10004; Nota 5|& #10004; Nota 4,5|& #10004; Nota 4, 5|& #10004; Nota 4, 5|& #10004; Nota 4, 5|& #10004; Nota 4, 5|& #10004; Nota 4, 5|
+|Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 5|&#10004; Nota 5|&#10004; Nota 5|&#10004; Nota 4,5|&#10004; Nota 4, 5|&#10004; Nota 4, 5|&#10004; Nota 4, 5|&#10004; Nota 4, 5|&#10004; Nota 4, 5|
 |Supporto per TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||
 |Supporto PAE Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Configurazione di gap MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|& #10004; Si noti 8, 9, 10|& #10004; Si noti 8, 9, 10|& #10004; Si noti 8, 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Si noti 8, 9, 10|
-|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|& #10004; Si noti 8, 9, 10|& #10004; Si noti 8, 9, 10|& #10004; Si noti 8, 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Nota 9, 10|& #10004; Si noti 8, 9, 10|
+|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|&#10004; Si noti 8, 9, 10|&#10004; Si noti 8, 9, 10|&#10004; Si noti 8, 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Si noti 8, 9, 10|
+|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Si noti 8, 9, 10|&#10004; Si noti 8, 9, 10|&#10004; Si noti 8, 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Nota 9, 10|&#10004; Si noti 8, 9, 10|
 |Ridimensionamento della memoria di runtime|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -87,7 +87,7 @@ Questa serie dispone solo di kernel a 64 bit.
 |Socket di Hyper-V|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
 |Pass-through/DDA PCI|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;||||
 |**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|||||
-|Avvio UEFI|2019, 2016, 2012 R2|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14|
+|Avvio UEFI|2019, 2016, 2012 R2|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14|
 |Avvio protetto|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 
 ## <a name="BKMK_6x"></a>Serie RHEL/CentOS 6.x
@@ -101,28 +101,28 @@ Il kernel a 32 bit per questa serie è PAE attivata. Non esiste alcun supporto p
 |Ora esatta di Windows Server 2016|2019, 2016||||||
 |**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
 |Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|
+|La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|
+|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|
 |RSS virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Segmentazione di TCP e gli offload Checksum|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |SR-IOV|2019, 2016|||||||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
 |Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
-|Fibre Channel virtuale|2019, 2016, 2012 R2|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3||
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|& #10004; Nota 5|& #10004; Nota 5|& #10004; Nota 4, 5|& #10004; Nota 4, 5|& #10004; Nota 4, 5, 6|& #10004; Nota 4, 5, 6|
+|Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3||
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 5|&#10004; Nota 5|&#10004; Nota 4, 5|&#10004; Nota 4, 5|&#10004; Nota 4, 5, 6|&#10004; Nota 4, 5, 6|
 |Supporto per TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|||||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
 |Supporto PAE Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Configurazione di gap MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 8, 9, 10|& #10004; Si noti 7, 8, 9, 10||
-|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10|& #10004; Si noti 7, 9, 10, 11|
+|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 8, 9, 10|&#10004; Si noti 7, 8, 9, 10||
+|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10|&#10004; Si noti 7, 9, 10, 11|
 |Ridimensionamento della memoria di runtime|2019, 2016|||||||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
-|Coppia chiave-valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|& #10004; Nota 12|& #10004; Nota 12|& #10004; Nota 12, 13|& #10004; Nota 12, 13|
+|Coppia chiave-valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004; Nota 12|&#10004; Nota 12|&#10004; Nota 12, 13|&#10004; Nota 12, 13|
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copiare i file dall'host al guest|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||||||
@@ -130,7 +130,7 @@ Il kernel a 32 bit per questa serie è PAE attivata. Non esiste alcun supporto p
 |Pass-through/DDA PCI|2019, 2016|||||||
 |**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
 |Avvio UEFI|2012 R2|||||||
-||2019, 2016|& #10004; Nota 14|& #10004; Nota 14|& #10004; Nota 14||||
+||2019, 2016|&#10004; Nota 14|&#10004; Nota 14|&#10004; Nota 14||||
 |Avvio protetto|2019, 2016||||||
 
 ## <a name="BKMK_5x"></a>Serie RHEL/CentOS 5. x
@@ -144,23 +144,23 @@ Questa serie è supportato a 32 bit PAE kernel disponibile. Non esiste alcun sup
 |Ora esatta di Windows Server 2016|2019, 2016||||
 |**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
 |Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
-|La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|
+|La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
-|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|
+|Indirizzo IP statico Injection|2019, 2016, 2012 R2, 2012|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|
 |RSS virtuale|2019, 2016, 2012 R2||||
 |Segmentazione di TCP e gli offload Checksum|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |SR-IOV|2019, 2016||||||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
 |Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;||
-|Fibre Channel virtuale|2019, 2016, 2012 R2|& #10004; Nota 3|& #10004; Nota 3||
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Note 5, 15|& #10004; Nota 5|& #10004; Nota 4, 5, 6|
+|Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004; Nota 3|&#10004; Nota 3||
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Note 5, 15|&#10004; Nota 5|&#10004; Nota 4, 5, 6|
 |Supporto per TRIM|2019, 2016, 2012 R2||||
 |WWN SCSI|2019, 2016, 2012 R2||||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
 |Supporto PAE Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Configurazione di gap MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012||||
-|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|& #10004; Si noti 7, 9, 10, 11|& #10004; Si noti 7, 9, 10, 11||
+|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Si noti 7, 9, 10, 11|&#10004; Si noti 7, 9, 10, 11||
 |Ridimensionamento della memoria di runtime|2019, 2016||||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||

@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 5df078af23c77f54ccb2da83b1057c5d7042593a
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59825962"
@@ -38,7 +38,7 @@ expand <source>.cab /f:<files> <destination>
 |-------|--------|  
 |/r|file ridenominazioni espansi.|  
 |origine|Specifica i file da espandere. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. È possibile utilizzare caratteri jolly (**\*** o **?**).|  
-|destinazione|Specifica in cui i file da espandere.<br /><br />Se *origine* costituito da più file e non si specifica **/r**, *destinazione* deve essere una directory.<br /><br />*Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.<br /><br />File di destinazione & #124; Specifica del percorso.|  
+|destinazione|Specifica in cui i file da espandere.<br /><br />Se *origine* costituito da più file e non si specifica **/r**, *destinazione* deve essere una directory.<br /><br />*Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.<br /><br />File di destinazione &#124; Specifica del percorso.|  
 |/i|Rinomina file espansi, ma ignora la struttura di directory.<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.|  
 |/d|Visualizza un elenco dei file nel percorso di origine. Non espandere o estrarre i file.|  
 |/f:|Specifica i file in un file cabinet (CAB) che si desidera espandere. È possibile utilizzare caratteri jolly (**\*** o **?**).|  
