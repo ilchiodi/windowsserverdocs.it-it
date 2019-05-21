@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.openlocfilehash: b55063c3c5ea41b43573e6322b5efb36d2dad90e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59828332"
@@ -57,7 +57,7 @@ fsutil resource [stop] <RmRootPathname>
 |setavailable|Specifica che un gestore di risorse transazionale verrà preferisce disponibilità coerenza.|
 |setconsistent|Specifica che un gestore di risorse transazionale verrà preferire coerenza rispetto alla disponibilità.|
 |SETLOG|Modifica le caratteristiche di una transazionale Gestione risorse che è già in esecuzione.|
-|aumento delle dimensioni|Specifica la quantità mediante il quale il Registro di gestore di risorse transazionale può raggiungere.<br /><br />Il parametro di aumento delle dimensioni può essere specificato come indicato di seguito:<br /><br />-Numero di contenitori usando il formato: *I contenitori ***contenitori**<br />: percentuale utilizzando il formato: *% * * * Percentuale**|
+|aumento delle dimensioni|Specifica la quantità mediante il quale il Registro di gestore di risorse transazionale può raggiungere.<br /><br />Il parametro di aumento delle dimensioni può essere specificato come indicato di seguito:<br /><br />-Numero di contenitori usando il formato: *I contenitori***contenitori**<br />:   percentuale utilizzando il formato: *%***Percentuale**|
 |<containers>|Specifica gli oggetti dati che vengono usati da Gestione risorse transazionali.|
 |maxextent|Specifica il numero massimo di contenitori per specificato transazionale Resource Manager.|
 |minextent|Specifica il numero minimo di contenitori per specificato transazionale Resource Manager.|

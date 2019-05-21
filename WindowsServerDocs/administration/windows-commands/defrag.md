@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59813192"
@@ -67,7 +67,7 @@ defrag <volume> [/<Parameter>]*
 -   Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **la deframmentazione** Usa quest'area come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
 -   Mentre **defrag** è l'analisi e la deframmentazione di un volume, viene visualizzato un cursore lampeggiante. Quando **defrag** termine dell'analisi e la deframmentazione del volume, Visualizza il report di analisi, il rapporto di deframmentazione o entrambi i report e quindi viene chiusa al prompt dei comandi.
 -   Per impostazione predefinita, **defrag** Visualizza un riepilogo dei report di analisi e deframmentazione se non si specifica il **/a** o **/v** parametri.
--   È possibile inviare i report in un file di testo digitando **> ***FileName.txt*, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
+-   È possibile inviare i report in un file di testo digitando **>** *FileName.txt*, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
 -   Per interrompere il processo di deframmentazione, dalla riga di comando, premere **CTRL + C**.
 -   In esecuzione la **defrag** comando e utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue la **defrag** comando in una riga di comando, il **defrag** comando ha esito negativo. Viceversa, se si esegue la **defrag** comando e aprire Utilità di deframmentazione dischi, non sono disponibili le opzioni di utilità di deframmentazione dischi.
 
