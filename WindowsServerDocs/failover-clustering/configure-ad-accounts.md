@@ -6,17 +6,17 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 2fcc6047a0e85170754d8f05d10f728a4c529049
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871962"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772719"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configurazione di account di cluster in Active Directory
 
 
-Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008
+Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008
 
 In Windows Server, quando si crea un cluster di failover e configurare servizi del cluster o le applicazioni, le procedure guidate del cluster di failover creano gli account computer Active Directory necessari (detti anche oggetti computer) e concedere loro autorizzazioni specifiche. Le procedure guidate di creare un account computer per il cluster stesso (questo account viene anche chiamato l'oggetto nome cluster o CNO) e un account computer per la maggior parte delle applicazioni e servizi cluster, l'eccezione in fase di una macchina virtuale Hyper-V. Le autorizzazioni per questi account vengono impostate automaticamente tramite le procedure guidate del cluster di failover. Se vengono modificate le autorizzazioni, devono essere modificati in modo da corrispondere i requisiti di un cluster. Questa guida vengono descritti questi account di Active Directory e autorizzazioni, vengono fornite informazioni sui motivi per cui sono importanti e vengono descritti i passaggi per configurare e gestire gli account.
       
@@ -113,7 +113,7 @@ Come descritto nelle tre sezioni precedenti, prima di servizi del cluster devono
 
 ### <a name="planning-ahead-for-password-resets-and-other-account-maintenance"></a>La pianificazione per la reimpostazione della password e altre operazioni di manutenzione di account
 
-Gli amministratori di cluster di failover in alcuni casi potrebbe essere necessario reimpostare la password dell'account del nome del cluster. Questa azione richiede un'autorizzazione specifica, il **la reimpostazione della password** l'autorizzazione. Pertanto, è consigliabile modificare le autorizzazioni dell'account del nome cluster (tramite lo snap-in Active Directory Users and Computers) per assegnare gli amministratori del cluster di **la reimpostazione della password** dell'autorizzazione per il cluster account del nome. Per altre informazioni, vedere [passaggi per la risoluzione dei problemi delle password con il cluster del nome account](#steps_for_troubleshooting_password_problems_with_the_cluster_name_account), più avanti in questa Guida.
+Gli amministratori di cluster di failover in alcuni casi potrebbe essere necessario reimpostare la password dell'account del nome del cluster. Questa azione richiede un'autorizzazione specifica, il **la reimpostazione della password** l'autorizzazione. Pertanto, è consigliabile modificare le autorizzazioni dell'account del nome cluster (tramite lo snap-in Active Directory Users and Computers) per assegnare gli amministratori del cluster di **la reimpostazione della password** dell'autorizzazione per il cluster account del nome. Per altre informazioni, vedere [passaggi per la risoluzione dei problemi delle password con il cluster del nome account](#steps-for-troubleshooting-password-problems-with-the-cluster-name-account), più avanti in questa Guida.
 
 ## <a name="steps-for-configuring-the-account-for-the-person-who-installs-the-cluster"></a>Passaggi per la configurazione dell'account per chi installa il cluster
 
