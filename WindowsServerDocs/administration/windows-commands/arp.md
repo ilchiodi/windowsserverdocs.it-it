@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 5cd84269a5ac1a85d4b6cf359cc97f478a500c4f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59825982"
@@ -32,7 +32,7 @@ arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <I
 ### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/a [<Inetaddr>] [/n <ifaceaddr>]|Consente di visualizzare tabelle cache arp corrente per tutte le interfacce. Il parametro /n è tra maiuscole e minuscole.<br /><br />Per visualizzare la voce della cache arp di un indirizzo IP specifico, usare **/a arp** con il *IndInet* parametro, in cui *IndInet* è un indirizzo IP. Se *IndInet* viene omesso, viene utilizzata la prima interfaccia applicabile.<br /><br />Per visualizzare la tabella di cache arp di un'interfaccia specifica, usare il **/n * * * IndIfaccia* parametro in combinazione con la **/a** parametro in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia.|
+|/a [<Inetaddr>] [/n <ifaceaddr>]|Consente di visualizzare tabelle cache arp corrente per tutte le interfacce. Il parametro /n è tra maiuscole e minuscole.<br /><br />Per visualizzare la voce della cache arp di un indirizzo IP specifico, usare **/a arp** con il *IndInet* parametro, in cui *IndInet* è un indirizzo IP. Se *IndInet* viene omesso, viene utilizzata la prima interfaccia applicabile.<br /><br />Per visualizzare la tabella di cache arp di un'interfaccia specifica, usare il **/n***IndIfaccia* parametro in combinazione con la **/a** parametro in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia.|
 |/g [<Inetaddr>] [/n <ifaceaddr>]|Identico al **/a**.|
 |[/d <Inetaddr> [<ifaceaddr>]|Elimina una voce con un indirizzo IP specifico, dove *IndInet* è l'indirizzo IP.<br /><br />Per eliminare una voce in una tabella per un'interfaccia specifica, usare il *IndIfaccia* parametro in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia.<br /><br />Per eliminare tutte le voci, usare l'asterisco (\*) carattere jolly al posto di *IndInet*.|
 |/s <Inetaddr> <Etheraddr> [<ifaceaddr>]|Aggiunge una voce statica per la cache arp che risolve l'indirizzo IP *IndInet* all'indirizzo fisico *IndEther*.<br /><br />Per aggiungere una voce della cache arp statico per la tabella per un'interfaccia specifica, usare il *IndIfaccia* parametro in cui *IndIfaccia* è un indirizzo IP assegnato all'interfaccia.|
