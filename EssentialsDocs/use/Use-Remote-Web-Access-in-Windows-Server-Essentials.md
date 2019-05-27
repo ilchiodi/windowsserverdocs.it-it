@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59872172"
@@ -314,13 +314,13 @@ ms.locfileid: "59872172"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>Per connettersi ad Accesso Web remoto da un dispositivo mobile  
   
-1.  Aprire un Web browser e digitare **https://***< NomeDominio\>***/remote** nella barra degli indirizzi.  Assicurarsi di includere i dispositivi in https.  
+1.  Aprire un Web browser e digitare **https://***<NomeDominio\>***/remote** nella barra degli indirizzi.  Assicurarsi di includere i dispositivi in https.  
   
 2.  Nella pagina di accesso di accesso Web remoto, digitare il nome utente e password nelle caselle di testo e quindi fare clic sulla freccia. Si è connessi alla versione di Accesso Web remoto per dispositivi mobili.  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>Per passare alla versione desktop di Accesso Web remoto  
   
-1.  Aprire un Web browser e digitare **https://***< NomeDominio\>***/remote** nella barra degli indirizzi.  Assicurarsi di includere i dispositivi in https.  
+1.  Aprire un Web browser e digitare **https://***<NomeDominio\>***/remote** nella barra degli indirizzi.  Assicurarsi di includere i dispositivi in https.  
   
 2.  Nella pagina di accesso di accesso Web remoto, digitare il nome utente e password nelle caselle di testo, fare clic su **Visualizza versione desktop**e quindi fare clic sulla freccia. Si è connessi alla versione desktop di Accesso Web remoto.  
   
@@ -328,7 +328,7 @@ ms.locfileid: "59872172"
   
 1.  Esegue la disconnessione.  
   
-2.  Aprire un Web browser e digitare **https://***< NomeDominio\>*** remoto/m** nella barra degli indirizzi. Assicurarsi di includere i dispositivi in https.  
+2.  Aprire un Web browser e digitare **https://***<NomeDominio\>*** remoto/m** nella barra degli indirizzi. Assicurarsi di includere i dispositivi in https.  
   
 3.  Viene visualizzata la versione per dispositivi mobili di accesso Web remoto. Nella pagina di accesso di accesso Web remoto, digitare il nome utente e password nelle caselle di testo e quindi fare clic sulla freccia. Si è connessi alla versione per dispositivi mobili di accesso Web remoto.  
   

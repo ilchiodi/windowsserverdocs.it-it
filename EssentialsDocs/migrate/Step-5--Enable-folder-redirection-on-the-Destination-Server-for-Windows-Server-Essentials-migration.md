@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815382"
@@ -43,7 +43,7 @@ Se il reindirizzamento cartelle è abilitato nel server di origine, è possibile
   
 1.  Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
   
-2.  Nelle **Gestione criteri di gruppo**, espandere **foresta: * * * YourNetworkDomainName*, espandere **domini**, espandere *YourNetworkDomainName* , quindi espandere **oggetti Criteri di gruppo**.  
+2.  Nelle **Gestione criteri di gruppo**, espandere **foresta:***YourNetworkDomainName*, espandere **domini**, espandere *YourNetworkDomainName* , quindi espandere **oggetti Criteri di gruppo**.  
   
 3.  Fare clic con il pulsante destro del mouse sui criteri da eliminare e quindi scegliere **Elimina**.  
   
