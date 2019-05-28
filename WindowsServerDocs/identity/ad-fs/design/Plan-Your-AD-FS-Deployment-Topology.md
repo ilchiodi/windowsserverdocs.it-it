@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7e41f7728c42912ec6ce680e1ed0c6a906a33392
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00c43a56d9b57a2ae2c8b9aeca56807fe1d1841f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821712"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191184"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>Pianificare la topologia di distribuzione di AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Il primo passaggio nella pianificazione di una distribuzione di Active Directory Federation Services \(ADFS\) consiste nel determinare la topologia di distribuzione appropriata per soddisfare le esigenze della propria organizzazione.  
   
@@ -71,11 +69,11 @@ Un proxy server federativo deve essere posizionato nella rete perimetrale prima 
 ## <a name="supported-deployment-topologies"></a>Topologie di distribuzione supportate  
 Gli argomenti seguenti descrivono le diverse topologie di distribuzione che è possibile utilizzare con ADFS. Vengono descritti anche i vantaggi e le limitazioni di ogni topologia di distribuzione, in modo che si possa scegliere quella più appropriata per le esigenze aziendali specifiche.  
   
--   [Server Farm federativa con WID](Federation-Server-Farm-Using-WID.md)  
+-   [Server farm federativa che usa Database interno di Windows](Federation-Server-Farm-Using-WID.md)  
   
--   [Server Farm federativa con WID e proxy](Federation-Server-Farm-Using-WID-and-Proxies.md)  
+-   [Server farm federativa che usa Database interno di Windows e proxy](Federation-Server-Farm-Using-WID-and-Proxies.md)  
   
--   [Server Farm federativa con SQL Server](Federation-Server-Farm-Using-SQL-Server.md)  
+-   [Server farm federativa che usa SQL Server](Federation-Server-Farm-Using-SQL-Server.md)  
   
 ## <a name="see-also"></a>Vedere anche  
 [Guida alla progettazione di AD FS in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  

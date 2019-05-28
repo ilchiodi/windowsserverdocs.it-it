@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: de85af27e699242977054420178dd3c424b2ddb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abb00e14dd0b3ce7b06efba816fbd7452e7bf0f1
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822592"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189411"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Creare una regola per consentire tutti gli utenti
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 In Windows Server 2016, è possibile utilizzare un **criteri di controllo di accesso** per creare una regola che consentirà tutti gli utenti di accedere a una relying party.  In Windows Server 2012 R2, utilizzando il **consentire tutti gli utenti** modello di regola in Active Directory Federation Services \(ADFS\), è possibile creare una regola di autorizzazione che consentirà tutti gli utenti di accedere alla relying l'entità. 
 
@@ -59,12 +57,12 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 7.  Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

@@ -9,17 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3745a0ab9d313223c611e58864dd6b4d747f0624
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881042"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189404"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Creare una regola per l'invio di un'attestazione compatibile di AD FS 1. x
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
-
 
 In situazioni in cui si utilizza Active Directory Federation Services \(ADFS\) alle attestazioni, problema che verranno ricevute dal server federativo ADFS 1.0 \(Windows Server 2003 R2\) o AD FS 1.1 \(Windows Server 2008 o Windows Server 2008 R2\), è necessario eseguire le operazioni seguenti:  
   
@@ -330,14 +327,14 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

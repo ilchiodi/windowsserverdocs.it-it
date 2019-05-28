@@ -9,15 +9,14 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cd3ad4e6547194a971d8a51ecb95ee56f5e4e8c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822722"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188774"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare intestazioni della risposta HTTP protezione con AD FS 2019 
-Si applica a: Windows Server 2019 
  
 Per proteggersi da vulnerabilità della sicurezza comuni e offrono agli amministratori la possibilità di sfruttare i miglioramenti più recenti di meccanismi di protezione basata su browser, AD FS 2019 aggiunto la funzionalità per personalizzare le intestazioni di risposta di sicurezza HTTP inviato da ADFS. Questa operazione viene eseguita con l'introduzione di due nuovi cmdlet: `Get-AdfsResponseHeaders` e `Set-AdfsResponseHeaders`.  
  
@@ -235,4 +234,4 @@ Usare la tabella e i collegamenti seguenti per determinare quali browser web son
 ## <a name="next"></a>Avanti
 
 - [Usare le guide troublehshooting Guida di ADFS](https://aka.ms/adfshelp/troubleshooting )
-- [Risoluzione dei problemi di AD FS](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)
+- [Risoluzione dei problemi relativi ad AD FS](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

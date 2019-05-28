@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: b6ad1f1f8573fc380e999e5ec2091cea8ebb8aa1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d761e4532a5be92d43e09904e9df8f2aa61b6bb8
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820362"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63738465"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Le porte di condivisione file e stampanti devono essere aperte
 
@@ -69,7 +69,7 @@ Il requisito minimo per completare questa procedura è l'appartenenza al gruppo 
 
 2.  Nel riquadro sinistro, fare clic su **impostazioni avanzate**, nell'albero della console, fare clic su **regole connessioni in entrata**.
 
-3.  Sotto **regole connessioni in entrata**, individuare le regole **condivisione File e stampanti (NB-sessione-In)** e **condivisione File e stampanti (SMB-In)**.
+3.  Sotto **regole connessioni in entrata**, individuare le regole **condivisione File e stampanti (NB-sessione-In)** e **condivisione File e stampanti (SMB-In)** .
 
 4.  Per ogni regola, fare doppio clic su regola e quindi fare clic su **Abilita regola**.
 

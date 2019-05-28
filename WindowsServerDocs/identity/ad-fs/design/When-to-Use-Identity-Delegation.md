@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: af227d9e87ddb73f194dd46c8ce45fcdf12a34cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2544001b871a1eda2c03005c384a99d5209e7282
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872552"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190551"
 ---
 # <a name="when-to-use-identity-delegation"></a>Quando usare la delega di identità
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="what-is-identity-delegation"></a>Che cos'è la delega di identità?  
 Delega dell'identità è una funzionalità di Active Directory Federation Services \(ADFS\) che consente l'amministrazione\-specificati account per rappresentare gli utenti. L'account che rappresenta l'utente viene chiamato *delegato*. Questa funzionalità di delega è fondamentale per molte applicazioni distribuite per le quali è disponibile una serie di verifiche del controllo di accesso che devono essere eseguite in sequenza per ogni applicazione, database o servizio che fa parte della catena di autorizzazione per la richiesta di origine. Numero reale\-esistono scenari in cui un'applicazione "front-end Web" deve recuperare dati da un più sicuro "back-end", ad esempio un servizio Web che è connesso a un database Microsoft SQL Server.  

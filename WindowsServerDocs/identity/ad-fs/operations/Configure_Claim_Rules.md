@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 259e2b266b64a3b34c237cfe209a3558124c8ef2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7eedd907c07c2aaef1670c5db3a6892ca3e650d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871632"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189634"
 ---
 # <a name="configure-claim-rules"></a>Configurare le regole di attestazione
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 In delle attestazioni\-identità basata su modello, la funzione di Active Directory Federation Services (ADFS) come servizi di federazione è per emettere un token che contiene un set di attestazioni. Le regole delle attestazioni regolano le decisioni in relazione le attestazioni che ADFS rilascia. Le regole attestazioni e tutti i dati di configurazione di server vengono archiviati nel database di configurazione di AD FS.  
   
@@ -28,13 +26,13 @@ Gli argomenti seguenti semplificheranno la creazione di regole che elaborerà AD
   
 -   [Creare una regola per Pass-Through o filtrare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim.md)  
   
--   [Creare una regola per consentire tutti gli utenti](../../ad-fs/operations/Create-a-Rule-to-Permit-All-Users.md)  
+-   [Creare una regola per concedere l'accesso a tutti gli utenti](../../ad-fs/operations/Create-a-Rule-to-Permit-All-Users.md)  
   
--   [Creare una regola per consentire o negare agli utenti con un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim.md)  
+-   [Creare una regola per concedere o rifiutare l'accesso agli utenti in base a un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim.md)  
   
 -   [Creare una regola per inviare attributi LDAP come attestazioni](../../ad-fs/operations/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims.md)  
   
--   [Creare una regola per l'appartenenza al gruppo di trasmissione come attestazione](../../ad-fs/operations/Create-a-Rule-to-Send-Group-Membership-as-a-Claim.md)  
+-   [Creare una regola per inviare l'appartenenza al gruppo come attestazione](../../ad-fs/operations/Create-a-Rule-to-Send-Group-Membership-as-a-Claim.md)  
   
 -   [Creare una regola per trasformare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md)  
   

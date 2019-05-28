@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: bd15df5360a50e417881d83319344dbdf48f35fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829642"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034143"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Ripristino della foresta Active Directory - ripristino di Windows Server 2003
 
@@ -22,9 +22,9 @@ ms.locfileid: "59829642"
 
 In questo argomento include le procedure di ripristino di foreste per i controller di dominio (DC) che eseguono Windows Server 2003. Il processo generale di ripristino della foresta è alcuna differenza con i controller di dominio di Windows Server 2003, ma le procedure specifiche possono essere diverso a causa di diversi strumenti. Ad esempio, Ntdsutil.exe utilizzabile per eseguire il backup e ripristinare i controller di dominio che eseguono Windows Server 2003 i controller di dominio, mentre Windows Server Backup o Wbadmin.exe viene usato per i controller di dominio che eseguono Windows Server 2008 o versioni successive.  
   
-- [Backup dei dati dello stato del sistema](#Backing-up-the-System-State-data)  
-- [Esecuzione di un ripristino non autorevole](#Performing-a-nonauthoritative restore)  
-- [Installare e configurare il servizio Server DNS](#Install-and-configure-the-DNS-Server-service)  
+- [Backup dei dati dello stato del sistema](#backing-up-the-system-state-data)  
+- [Esecuzione di un ripristino non autorevole](#performing-a-nonauthoritative-restore)  
+- [Installare e configurare il servizio Server DNS](#install-and-configure-the-dns-server-service)
 
 ## <a name="backing-up-the-system-state-data"></a>Backup dei dati dello stato del sistema
 Usare la procedura seguente per eseguire il backup dei dati dello stato del sistema, insieme a tutti gli altri dati selezionate per l'operazione di backup corrente, di un controller di dominio che esegue Windows Server 2003. Windows Server 2003 include lo strumento Ntbackup, che è possibile usare per eseguire il backup dei dati dello stato del sistema.  
@@ -57,7 +57,7 @@ Per ridurre i tempi necessari per installare nuovo software, determinare se le a
 ### <a name="to-perform-a-nonauthoritative-restore"></a>Eseguire un ripristino non autorevole
   
 1. Dopo avere avviato il controller di dominio, premere F8 per riavviare il computer in servizi di ripristino in modalità (Directory).  
-2. Selezionare **modalità ripristino servizi Directory (solo controller di dominio Windows)**.  
+2. Selezionare **modalità ripristino servizi Directory (solo controller di dominio Windows)** .  
 3. Selezionare il sistema operativo che si desidera avviare in modalità di ripristino.  
 4. Accedere come amministratore (è possibile solo usare un account computer locale, nessuna opzione di accesso di dominio è disponibile).  
 5. Un prompt dei comandi, digitare **ntbackup**, quindi premere INVIO.  
@@ -100,7 +100,7 @@ Se il controller di dominio che è stato ripristinato da un backup è in esecuzi
 
 5. Fare clic su **avviare**, scegliere **tutti i programmi**, scegliere **strumenti di amministrazione**, quindi fare clic su **DNS**.  
 6. Creare zone DNS per gli stessi nomi di dominio DNS ospitate sui server DNS prima il malfunzionamento critico. Per altre informazioni, vedere Aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).  
-7. Configurare i dati DNS esistente prima di malfunzionamento critico. Ad esempio:  
+7. Configurare i dati DNS esistente prima di malfunzionamento critico. Ad esempio:   
 
    - Configurare le zone DNS di essere archiviati in Active Directory Domain Services. Per altre informazioni, vedere Modifica il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).  
    - Configurare la zona DNS autorevole per record di risorse (DC Locator) del localizzatore di controller di dominio consentire l'aggiornamento dinamico sicuro. Per altre informazioni, vedere consentire solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).  
@@ -119,12 +119,12 @@ Se il controller di dominio che è stato ripristinato da un backup è in esecuzi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristino della foresta Active Directory - prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
+- [Ripristino della foresta di Active Directory - Prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
 - [Ripristino della foresta Active Directory - concepire un piano di ripristino personalizzata-foresta](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Ripristino della foresta Active Directory - identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
 - [Ripristino della foresta Active Directory - determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Ripristino della foresta Active Directory - eseguire il ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md)  
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md)  
 - [Ripristino della foresta Active Directory - domande frequenti](AD-Forest-Recovery-FAQ.md)  
 - [Ripristino della foresta Active Directory - il ripristino di un singolo dominio all'interno di un Multidomain foresta](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Ripristino della foresta Active Directory - ripristino della foresta con controller di dominio di Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md) 

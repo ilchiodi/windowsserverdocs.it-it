@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 167e43d49c08d0e39549bf46888118f985e3876d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72fe425b040f83a217a144976265c7754830c91b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863772"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189498"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Creare una regola per consentire o negare agli utenti in base a un'attestazione in ingresso 
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 In Windows Server 2016, è possibile usare un **criteri di controllo di accesso** per creare una regola per consentire o negare agli utenti in base a un'attestazione in ingresso.  In Windows Server 2012 R2, utilizzando il **Permit or Deny Users Based on an Incoming Claim** modello di regola in Active Directory Federation Services \(ADFS\), è possibile creare una regola di autorizzazione che verrà concesso o negare l'accesso dell'utente per la relying party basata sul tipo e valore di un'attestazione in ingresso. 
 
@@ -115,12 +114,12 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 8.  Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

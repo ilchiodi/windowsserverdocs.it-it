@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fbc8bb63435211a92cb7fc6aa05b1413aef939c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854232"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189708"
 ---
 # <a name="create-a-claims-provider-trust"></a>Creare un'attendibilità del provider di attestazioni
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Per aggiungere una nuova attendibilità del provider di attestazioni utilizzando lo snap di gestione di ADFS\-manualmente e a configurare le impostazioni, eseguire la procedura seguente in un server federativo partner risorse nell'organizzazione partner risorse.  
   
@@ -84,7 +82,7 @@ Per aggiungere un nuovo provider di attestazioni trust, tramite lo snap-in di ge
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: Configurazione dell'organizzazione Partner risorse](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
   
-[Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
 ## <a name="see-also"></a>Vedere anche  
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

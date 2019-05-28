@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 376cec7f3a4fb1f988ac5d458b05220c7b9de970
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b883126f60950c0015b3a21e2ca5abc251b25b84
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857692"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190463"
 ---
 # <a name="where-to-place-a-federation-server"></a>Dove posizionare un server federativo
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Per una sicurezza ottimale, sul posto Active Directory Federation Services \(ADFS\)server federativi davanti a un firewall e connetterle alla rete aziendale per impedire l'esposizione su Internet. Questo è importante perché i server federativi hanno autorizzazioni complete per concedere i token di sicurezza. Di conseguenza, dovranno avere la stessa protezione di un controller di dominio. Se viene compromesso un server federativo, un utente malintenzionato ha la possibilità di rilasciare token di accesso completo a tutte le applicazioni Web e per i server federativi che sono protetti da Active Directory Federation Services \(ADFS\) in tutte le risorse organizzazioni partner.  
   

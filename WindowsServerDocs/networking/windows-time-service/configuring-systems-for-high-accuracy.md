@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: d872252180d49bd41a91e9a8eaf516b834ed242a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a5a7a6bd6313f7a4eadd827e3d754c1e467c3bc
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814672"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63745450"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Configurazione dei sistemi per verificarne l'accuratezza elevata
 >Si applica a: Windows Server 2016 e Windows 10 versione 1607 o successiva
@@ -84,7 +84,7 @@ Incertezza e "rumore" potrebbe subentrare man mano che aumenta la latenza di ret
 
 Per calcolare la latenza di rete unidirezionale cumulativo, aggiungere i singoli ritardi unidirezionali tra coppie di nodi client e server NTP nella topologia di tempo, inizia con la destinazione e termina con lo strato di elevata precisione 1 origine dell'ora.
 
-Ad esempio: Prendere in considerazione una gerarchia di sincronizzazione di tempo con un'origine estremamente precisa, due server NTP intermediari, A e B e il computer di destinazione in quell'ordine. Per ottenere la latenza di rete cumulativo tra origine e destinazione, misurare la media di andata e ritorno NTP singoli times (RTTs) tra:
+Ad esempio:  Prendere in considerazione una gerarchia di sincronizzazione di tempo con un'origine estremamente precisa, due server NTP intermediari, A e B e il computer di destinazione in quell'ordine. Per ottenere la latenza di rete cumulativo tra origine e destinazione, misurare la media di andata e ritorno NTP singoli times (RTTs) tra:
 
 - Il server di destinazione e l'ora B
 - Ora server B e server ora A

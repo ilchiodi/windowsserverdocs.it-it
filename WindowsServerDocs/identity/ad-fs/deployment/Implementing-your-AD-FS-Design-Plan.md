@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 31c2e048c3c125d0ea60610b049501151d7aa823
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830782"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192133"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementazione del piano di progettazione di AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I requisiti e condizioni ambientali seguenti sono fattori importanti per l'implementazione di Active Directory Federation Services \(ADFS\) piano di progettazione:  
   
@@ -39,6 +37,6 @@ Il passaggio successivo dell'implementazione della progettazione è per determin
   
 Usare i seguenti elenchi di controllo padre in questa sezione della Guida per acquisire familiarità con le attività di distribuzione per l'implementazione di progettazione di AD FS preferita della propria organizzazione:  
   
--   [Elenco di controllo: Implementazione di un progetto Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Elenco di controllo: Implementazione di un progetto di Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Elenco di controllo: Implementazione di un progetto SSO Web federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Elenco di controllo: Implementazione di un progetto di Web SSO federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  

@@ -5,29 +5,27 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: faa0590dc38921a56952aa54bf38243b6ff84d82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbb289c16d82da79aded49e3af4134ac7f6df325
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867712"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188700"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Novità di Active Directory Federation Services
 
-
->Si applica a: Windows Server 2019, Windows Server 2016
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>Che cosa sono le novità di Active Directory Federation Services per Windows Server 2019
 
 ### <a name="protected-logins"></a>Account di accesso protetto
 Di seguito è riportato un breve riepilogo degli aggiornamenti agli account di accesso protetta disponibili in AD FS 2019:
-- **Provider di autenticazione esterni come primario** -i clienti possono ora usare prodotti di autenticazione di terze parti 3rd come il primo fattore e non esporre le password come il primo fattore. Nei casi in cui un provider di autenticazione licazione esterna può rivelarsi 2 fattori possibile attestazione MFA. 
+- **Provider di autenticazione esterni come primario** -i clienti possono ora usare prodotti di autenticazione di terze parti 3rd come il primo fattore e non esporre le password come il primo fattore. Nei casi in cui un provider di autenticazione esterni può dimostrare 2 fattori possibile attestazione MFA. 
 - **L'autenticazione della password come metodo di autenticazione aggiuntiva** -i clienti hanno un'opzione completamente supportata nella posta in arrivo di usare password solo per fattore aggiuntivo dopo una password meno opzione viene utilizzato come il primo fattore. Ciò migliora l'esperienza dei clienti da ad FS 2016 in cui i clienti dovevano scaricare un adattatore di github che è supportato come è. 
-- **Framework modulo Threat innestabile** -i clienti possono ora creare i propri plug-in moduli per bloccare determinati tipi di richieste durante la fase di preautenticazione. Questo rende più semplice per i clienti a usare l'intelligence per il cloud, ad esempio Identity protection per bloccare l'account di accesso per gli utenti a rischio o transazioni a rischio.
+- **Modulo plug-in valutazione dei rischi** -i clienti possono ora creare i propri plug-in moduli per bloccare determinati tipi di richieste durante la fase di preautenticazione. Questo rende più semplice per i clienti a usare l'intelligence per il cloud, ad esempio Identity protection per bloccare l'account di accesso per gli utenti a rischio o transazioni a rischio.  Per altre informazioni vedere [ creare Plug-in con modello di valutazione del rischio 2019 AD FS](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
 - **Miglioramenti di ESL** -migliora la correzione QFE ESL nel 2016 aggiungendo le funzionalità seguenti
     - Consente ai clienti di essere in modalità di controllo mentre viene protetto dalla funzionalità di blocco extranet "classici" disponibile a partire da ad FS 2012 R2. Attualmente i clienti 2016 non avrebbe alcuna protezione in modalità di controllo. 
     - Abilita la soglia di blocco indipendenti per posizioni note. Questo rende possibile per più istanze delle App in esecuzione con un account del servizio comune per il rollover delle password con il minimo impatto. 

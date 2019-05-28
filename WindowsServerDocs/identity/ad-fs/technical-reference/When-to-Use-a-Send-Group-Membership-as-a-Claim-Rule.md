@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dffd886ffd0bedd429918f72408b2d13d9fa1bdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea537aa61cd7bfbe05ed1dd151eddd4a0bfc5ca7
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859172"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188304"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-send-group-membership-as-a-claim-rule"></a>Quando usare una regola di invio dell'appartenenza a un gruppo come attestazione
 È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando si vuole emettere un nuovo valore attestazione in uscita per solo gli utenti che sono membri di un gruppo di sicurezza di Active Directory specificato. Quando si usa questa regola, si emette una singola attestazione solo per il gruppo specificato e che corrisponde alla logica della regola, come descritto nella tabella seguente.  
   

@@ -9,16 +9,14 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ae7809089a69ac0ff48168db0aa2e9d61c35257a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 33b782ded2ae1bdd8b00c08b81e4e0ee7f885899
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814092"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188832"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurare Azure MFA come provider di autenticazione con AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2019
 
 Se l'organizzazione è federata con Azure AD, è possibile usare Azure multi-Factor Authentication per proteggere le risorse di ADFS, sia in locale e nel cloud. Azure MFA consente di eliminare le password e fornire un modo più sicuro per l'autenticazione.  A partire da Windows Server 2016, è ora possibile configurare Azure MFA per l'autenticazione principale o usarlo come provider di autenticazione aggiuntivo. 
   
@@ -50,7 +48,7 @@ Come descritto in precedenza, qualsiasi utente di AD FS che non è ancora regist
 Poiché Azure MFA come primario viene considerato un fattore singolo, dopo la configurazione iniziale è necessario fornire un fattore aggiuntivo per gestire o aggiornare le informazioni di verifica di Azure AD o per accedere ad altre risorse che richiedono l'autenticazione a più fattori.
 
 >[!NOTE]
-> Con ad FS 2019, è necessario apportare una modifica al tipo di attestazione ancoraggio per la relazione di trust di Provider di attestazioni Active Directory e modificare questo valore dal windowsaccountname UPN. Eseguire il seguente cmdlet di powershell riportati di seguito. Ciò non ha alcun impatto sul funzionamento interno della farm AD FS. È possibile riscontrare che alcuni utenti potrebbero essere reinserire le credenziali una volta effettuata questa modifica. Dopo l'accesso anche in questo caso, gli utenti finali non vedranno alcuna differenza. 
+> Con ad FS 2019, è necessario apportare una modifica al tipo di attestazione ancoraggio per la relazione di trust di Provider di attestazioni Active Directory e modificare questo valore dal windowsaccountname UPN. Eseguire il cmdlet di PowerShell riportato di seguito. Ciò non ha alcun impatto sul funzionamento interno della farm AD FS. È possibile riscontrare che alcuni utenti potrebbero essere nuovamente richieste le credenziali una volta effettuata questa modifica. Dopo l'accesso anche in questo caso, gli utenti finali non vedranno alcuna differenza. 
 
 ```powershell
 Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -TargetName "Active Directory"
@@ -68,7 +66,7 @@ Quando si utilizza l'autenticazione a più Fattori di Azure per l'autenticazione
   
 - Un [sottoscrizione di Azure con Azure Active Directory](https://azure.microsoft.com/pricing/free-trial/).  
 - [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)  
-- Proxy applicazione Web è in grado di communticate con il codice seguente sulle porte 80 e 443
+- Proxy applicazione Web è in grado di comunicare con il codice seguente sulle porte 80 e 443:
 
     - https://adnotifications.windowsazure.com
     - https://login.microsoftonline.com
@@ -90,7 +88,7 @@ Quando si utilizza l'autenticazione a più Fattori di Azure per l'autenticazione
 Per completare configurazione per Azure MFA per ADFS, è necessario configurare ciascun server ADFS eseguendo la procedura descritta. 
 
 >[!NOTE]
->Assicurarsi che questi passaggi vengono eseguiti su **tutti** server ADFS nella farm. Se si dispone di più server AD FS nella farm, è possibile eseguire la configurazione necessaria in remoto con Azure AD Powershell.  
+>Assicurarsi che questi passaggi vengono eseguiti su **tutti** server ADFS nella farm. Se si dispone di più server AD FS nella farm, è possibile eseguire la configurazione necessaria in remoto con Azure AD PowerShell.  
 
 ### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>Passaggio 1: Generare un certificato per Azure MFA in ogni server AD FS tramite il `New-AdfsAzureMfaTenantCertificate` cmdlet
 
@@ -108,7 +106,7 @@ Si noti che TenantID è il nome della directory in Azure AD.  Utilizzare il segu
 Per abilitare i server AD FS comunicare con il Client di Azure multi-Factor Authentication, è necessario aggiungere le credenziali all'entità servizio per il Client di Azure multi-Factor Authentication. I certificati generati utilizzando il `New-AdfsAzureMFaTenantCertificate` cmdlet fungerà da queste credenziali. Eseguire le operazioni seguenti usando PowerShell per aggiungere le nuove credenziali per il multi-Factor Authentication Client entità servizio di Azure.  
 
 > [!NOTE]
-> Per completare questo passaggio è necessario connettersi all'istanza di Azure Active Directory con PowerShell e Connect-MsolService.  Questi passaggi presuppongono che si sia già connessi tramite PowerShell.  Per informazioni vedere [Connect-MsolService.](https://msdn.microsoft.com/library/dn194123.aspx)  
+> Per completare questo passaggio è necessario connettersi all'istanza di Azure AD con PowerShell tramite `Connect-MsolService`.  Questi passaggi presuppongono che si sia già connessi tramite PowerShell.  Per informazioni, vedere [ `Connect-MsolService`.](https://msdn.microsoft.com/library/dn194123.aspx)  
 
 **Impostare il certificato come le nuove credenziali contro il Client di Azure multi-Factor Authentication**  
 
@@ -140,7 +138,7 @@ Successivamente, si noterà che è disponibile come un metodo di autenticazione 
 ## <a name="renew-and-manage-ad-fs-azure-mfa-certificates"></a>Il rinnovo e la gestione di AD FS ad Azure i certificati di autenticazione a più fattori
 
 Il materiale sussidiario seguente illustra come gestire i certificati di autenticazione a più fattori di Azure nei server AD FS.
-Per impostazione predefinita, quando si configura ADFS con Azure MFA, i certificati generati tramite il cmdlet di PowerShell New-AdfsAzureMfaTenantCertificate sono validi per 2 anni.  Per determinare la modalità simile a scadenza dei certificati sono e quindi per rinnovare e installare nuovi certificati, utilizzare la procedura seguente.
+Per impostazione predefinita, quando si configura ADFS con Azure MFA, i certificati generati tramite il `New-AdfsAzureMfaTenantCertificate` cmdlet di PowerShell sono valide per 2 anni.  Per determinare la modalità simile a scadenza dei certificati sono e quindi per rinnovare e installare nuovi certificati, utilizzare la procedura seguente.
 
 ### <a name="assess-ad-fs-azure-mfa-certificate-expiration-date"></a>Valutare la data di scadenza certificato di Azure MFA per AD FS
 
@@ -148,7 +146,7 @@ In ogni server AD FS, nel computer locale un archivio personale, sarà presente 
 
 ### <a name="create-new-ad-fs-azure-mfa-certificate-on-each-ad-fs-server"></a>Crea nuovo certificato per autenticazione a più fattori Azure AD FS su ogni server AD FS
 
-Se il periodo di validità dei certificati è prossima alla fine, avviare il processo di rinnovo tramite la generazione di un nuovo certificato di autenticazione a più fattori di Azure in ogni server AD FS. In una finestra di comando di powershell, generare un nuovo certificato in ogni server AD FS usando il cmdlet seguente:
+Se il periodo di validità dei certificati è prossima alla fine, avviare il processo di rinnovo tramite la generazione di un nuovo certificato di autenticazione a più fattori di Azure in ogni server AD FS. In una finestra di comando di PowerShell, generare un nuovo certificato in ogni server AD FS usando il cmdlet seguente:
 
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
@@ -158,23 +156,37 @@ In seguito a questo cmdlet, verrà generato un nuovo certificato valido da 2 gio
 
 ### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Configurare ogni nuovo certificato di Azure MFA per AD FS nel tenant di Azure AD
 
-Usando il modulo Azure AD PowerShell, per ogni nuovo certificato (in ogni server AD FS), aggiornare le impostazioni del tenant Azure AD come indicato di seguito (Nota: è necessario innanzitutto connettersi al tenant usando Connect-MsolService per eseguire i comandi seguenti).
+Usando il modulo Azure AD PowerShell, per ogni nuovo certificato (in ogni server AD FS), aggiornare le impostazioni del tenant Azure AD come indicato di seguito (Nota: è necessario innanzitutto connettersi al tenant usando `Connect-MsolService` per eseguire i comandi seguenti).
 
 ```
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-$certbase64 è il nuovo certificato.  Il certificato con codificata base 64 può essere ottenuto tramite l'esportazione del certificato (senza la chiave privata) come file e apertura in Notepad.exe, quindi copiando e incollando nella sessione PSH e assegnazione alla variabile $certbase64 con codifica DER
+`$certbase64` è il nuovo certificato.  Il certificato con codificata base 64 può essere ottenuto eseguendo l'esportazione del certificato (senza la chiave privata) come file e apertura in Notepad.exe, quindi copiando e incollando alla sessione di PowerShell e l'assegnazione alla variabile con codifica DER `$certbase64`.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Verificare i nuovi certificati verranno utilizzati per Azure MFA
 
-Una volta il nuovo certificato diventi valido, AD FS verrà vengono prelevati e iniziare a usare ogni rispettivo certificato per Azure MFA in poche ore al giorno.  Una volta in questo caso, in ogni server viene visualizzato un evento registrato nel registro eventi di amministrazione di AD FS con le informazioni seguenti: Nome registro:      ADFS/Amministratore origine:        Data di AD FS:          27/2 marzo 2018 7:33:31 PM l'ID evento:      Categoria attività 547: Nessuno di livello:         Parole chiave informazioni:      Utente di AD FS:          DOMAIN\adfssvc Computer:      Descrizione ADFS.domain.contoso.com: Il certificato di tenant per Azure MFA è stato rinnovato.  
+Una volta il nuovo certificato diventi valido, AD FS verrà vengono prelevati e iniziare a usare ogni rispettivo certificato per Azure MFA in poche ore al giorno.  Una volta in questo caso, in ogni server viene visualizzato un evento registrato nel registro eventi di amministrazione di AD FS con le informazioni seguenti:
+
+```
+Log Name:      AD FS/Admin
+Source:        AD FS
+Date:          2/27/2018 7:33:31 PM
+Event ID:      547
+Task Category: None
+Level:         Information
+Keywords:      AD FS
+User:          DOMAIN\adfssvc
+Computer:      ADFS.domain.contoso.com
+Description:
+The tenant certificate for Azure MFA has been renewed.  
 
 TenantId: contoso.onmicrosoft.com.
-Identificazione personale precedente: 7CC103D60967318A11D8C51C289EF85214D9FC63.
-Data di scadenza precedenti: 9/15/2019 9 ORE 21.50.43: 17.
-Nuova identificazione personale: 8110D7415744C9D4D5A4A6309499F7B48B5F3CCF.
-Nuova data di scadenza: 2/27 O 2020:16:07 2AM.
+Old thumbprint: 7CC103D60967318A11D8C51C289EF85214D9FC63.
+Old expiration date: 9/15/2019 9:43:17 PM.
+New thumbprint: 8110D7415744C9D4D5A4A6309499F7B48B5F3CCF.
+New expiration date: 2/27/2020 2:16:07 AM.
+```
 
 ## <a name="customize-the-ad-fs-web-page-to-guide-users-to-register-mfa-verification-methods"></a>Personalizzare la pagina web di ADFS per guidare gli utenti per registrare i metodi di verifica MFA
 
@@ -211,7 +223,8 @@ Per rilevare l'errore e far visualizzare all'utente indicazioni personalizzate s
  - cercare le stringhe di errore di identificazione
  - fornire contenuto web personalizzato.  
 
-(Per linee guida in generale su come personalizzare il file OnLoad, vedere l'articolo [Advanced Customization of AD FS Sign-in Pages](advanced-customization-of-ad-fs-sign-in-pages.md).)
+> [!NOTE]
+> Per informazioni aggiuntive in generale su come personalizzare il file OnLoad, vedere l'articolo [Advanced Customization of AD FS Sign-in Pages](advanced-customization-of-ad-fs-sign-in-pages.md).
 
 Di seguito è riportato un esempio semplice, è possibile estendere:
 
@@ -220,10 +233,10 @@ Di seguito è riportato un esempio semplice, è possibile estendere:
     ``` PowerShell
         New-AdfsWebTheme –Name ProofUp –SourceName default
     ``` 
-2. Successivamente, esportare il tema Web di AD FS predefinito:
+2. Successivamente, creare la cartella ed esportare il tema Web di AD FS predefinito:
 
     ``` PowerShell
-       Export-AdfsWebTheme –Name default –DirectoryPath c:\Theme
+       New-Item -Path 'c:\Theme' -ItemType Directory;Export-AdfsWebTheme –Name default –DirectoryPath c:\Theme
     ```
 3. Aprire il file C:\Theme\script\onload.js in un editor di testo
 4. Aggiungere il codice seguente alla fine del file OnLoad
@@ -239,22 +252,24 @@ Di seguito è riportato un esempio semplice, è possibile estendere:
     var authArea = document.getElementById("authArea");
     if (authArea) {
         var errorMessage = document.getElementById("errorMessage");
-        if (errorMessage.innerHTML.indexOf(mfaSecondFactorErr) >= 0) {
+        if (errorMessage) {
+            if (errorMessage.innerHTML.indexOf(mfaSecondFactorErr) >= 0) {
 
-        //Hide the error message
-            var openingMessage = document.getElementById("openingMessage");
-            if (openingMessage) {
-                openingMessage.style.display = 'none'
-            }
-            var errorDetailsLink = document.getElementById("errorDetailsLink");
-            if (errorDetailsLink) {
-                errorDetailsLink.style.display = 'none'
-            }
+                //Hide the error message
+                var openingMessage = document.getElementById("openingMessage");
+                if (openingMessage) {
+                    openingMessage.style.display = 'none'
+                }
+                var errorDetailsLink = document.getElementById("errorDetailsLink");
+                if (errorDetailsLink) {
+                    errorDetailsLink.style.display = 'none'
+                }
 
-            //Provide a message and redirect to Azure AD MFA Registration Url
-            var mfaRegisterUrl = "https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1&whr=" + domain_hint;
-            errorMessage.innerHTML = "<br>" + mfaProofupMessage.replace("{0}", mfaRegisterUrl);
-            window.setTimeout(function () { window.location.href = mfaRegisterUrl; }, 5000);
+                //Provide a message and redirect to Azure AD MFA Registration Url
+                var mfaRegisterUrl = "https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1&whr=" + domain_hint;
+                errorMessage.innerHTML = "<br>" + mfaProofupMessage.replace("{0}", mfaRegisterUrl);
+                window.setTimeout(function () { window.location.href = mfaRegisterUrl; }, 5000);
+            }
         }
     }
 
@@ -273,7 +288,7 @@ Di seguito è riportato un esempio semplice, è possibile estendere:
 7. Infine, applicare il tema Web di personalizzati AD FS digitando il comando Windows PowerShell seguente:
     
     ``` PowerShell
-    Set-AdfsWebConfig -ActiveThemeName
+    Set-AdfsWebConfig -ActiveThemeName "ProofUp"
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

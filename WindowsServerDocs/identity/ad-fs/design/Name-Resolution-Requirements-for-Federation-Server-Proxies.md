@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a94e4de181cd8794d479bbd6695a94658aba0f86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8aef8b3d8f1e6dde4f960a3bee5a93964d07c72b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855022"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191281"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Requisiti per la risoluzione dei nomi per i proxy server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Quando i computer client su Internet tentano di accedere a un'applicazione protetta da Active Directory Federation Services \(ADFS\), devono prima autenticarsi al server federativo. Nella maggior parte dei casi, il server federativo non è in genere accessibile direttamente da Internet. I computer client Internet, pertanto, devono essere reindirizzati al proxy server federativo invece. È possibile eseguire correttamente il reindirizzamento tramite l'aggiunta di Domain Name System appropriato \(DNS\) record per la zona DNS o zone con connessione Internet.  
   

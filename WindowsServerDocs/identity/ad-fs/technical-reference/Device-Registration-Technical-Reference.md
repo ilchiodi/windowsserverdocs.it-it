@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fac6437e9b6c3893064769a8279c2cf96cbc47d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2e373f45088105a7ac9ca5cb43fbebc6452ccb9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833782"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188580"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2
-
 # <a name="device-registration-technical-reference"></a>Guida di riferimento tecnico per la registrazione di dispositivi
 Il servizio registrazione dispositivo \(DRS\) è un nuovo servizio Windows che è incluso con il servizio ruolo Active Directory Federation in Windows Server 2012 R2.  Il servizio DRS deve essere installato e configurato in tutti i server federativi della farm AD FS.  Per informazioni sulla distribuzione del servizio DRS, vedere [Configurare un server federativo con Device Registration Service](https://technet.microsoft.com/library/dn486831.aspx).  
   
@@ -25,7 +23,7 @@ Il servizio registrazione dispositivo \(DRS\) è un nuovo servizio Windows che �
 Gli oggetti Active Directory seguenti vengono creati nell'ambito del servizio registrazione dispositivi.  
   
 ### <a name="device-registration-configuration"></a>Configurazione registrazione dispositivi  
-La configurazione registrazione dispositivi viene archiviata nel contesto dei nomi di configurazione della foresta Active Directory. \(Ad esempio, **CN\=Device Registration Configuration, CN\=Services, < configuration\-denominazione\-contesto >**\). Questo oggetto viene creato quando la foresta Active Directory viene inizializzata per la registrazione dispositivi.  
+La configurazione registrazione dispositivi viene archiviata nel contesto dei nomi di configurazione della foresta Active Directory. \(Ad esempio, **CN\=Device Registration Configuration, CN\=Services, < configuration\-denominazione\-contesto >** \). Questo oggetto viene creato quando la foresta Active Directory viene inizializzata per la registrazione dispositivi.  
   
 La configurazione registrazione dispositivi include gli elementi seguenti:  
   
@@ -40,7 +38,7 @@ La configurazione registrazione dispositivi include gli elementi seguenti:
 ### <a name="registered-devices-container"></a>Contenitore di dispositivi registrati  
 Il contenitore di dispositivi registrati viene creato in uno dei domini della foresta Active Directory.  Questo contenitore di oggetti conterrà tutti gli oggetti dispositivo per la foresta Active Directory.  
   
-Per impostazione predefinita, il contenitore viene creato nello stesso dominio di AD FS.  \(Ad esempio, **CN\=RegisteredDevices, DC\=< impostazione predefinita\-denominazione\-contesto >**\). Questo oggetto viene creato quando la foresta di Active Directory viene inizializzata per la registrazione del dispositivo.  
+Per impostazione predefinita, il contenitore viene creato nello stesso dominio di AD FS.  \(Ad esempio, **CN\=RegisteredDevices, DC\=< impostazione predefinita\-denominazione\-contesto >** \). Questo oggetto viene creato quando la foresta di Active Directory viene inizializzata per la registrazione del dispositivo.  
   
 ### <a name="registered-devices"></a>Dispositivi registrati  
 Gli oggetti dispositivo sono nuovi oggetti leggeri in Active Directory.  Vengono usati per rappresentare la relazione tra un utente, un dispositivo e la società.  Gli oggetti dispositivo usano un certificato firmato da AD FS per associare il dispositivo fisico all'oggetto dispositivo logico in Active Directory.  

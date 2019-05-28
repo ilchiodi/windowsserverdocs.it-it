@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fe113eb7fe5cb096ff1e94150b929682d137b24b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871952"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034118"
 ---
 # <a name="perform-initial-recovery"></a>Eseguire il ripristino iniziale  
 
@@ -22,9 +22,9 @@ ms.locfileid: "59871952"
 
 In questa sezione include i passaggi seguenti:  
 
-- [Ripristinare il primo controller di dominio scrivibile in ogni dominio](#Restore-the-first-writeable-domain-controller-in-each-domain)  
-- [Riconnettersi ogni controller di dominio scrivibile ripristinato alla rete](#Reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
-- [Aggiungere il catalogo globale a un controller di dominio nel dominio radice della foresta](#Add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
+- [Ripristinare il primo controller di dominio scrivibile in ogni dominio](#restore-the-first-writeable-domain-controller-in-each-domain)  
+- [Riconnettersi ogni controller di dominio scrivibile ripristinato alla rete](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
+- [Aggiungere il catalogo globale a un controller di dominio nel dominio radice della foresta](#add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
 
 ## <a name="restore-the-first-writeable-domain-controller-in-each-domain"></a>Ripristinare il primo controller di dominio scrivibile in ogni dominio  
 
@@ -151,12 +151,12 @@ In questa fase si deve avere una foresta stabile, con un controller di dominio p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristino della foresta Active Directory - prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
+- [Ripristino della foresta di Active Directory - Prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
 - [Ripristino della foresta Active Directory - concepire un piano di ripristino personalizzata-foresta](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Ripristino della foresta Active Directory - identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
 - [Ripristino della foresta Active Directory - determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Ripristino della foresta Active Directory - eseguire il ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md)  
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md)  
 - [Ripristino della foresta Active Directory - domande frequenti](AD-Forest-Recovery-FAQ.md)  
 - [Ripristino della foresta Active Directory - il ripristino di un singolo dominio all'interno di un Multidomain foresta](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Ripristino della foresta Active Directory - ripristino della foresta con controller di dominio di Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  

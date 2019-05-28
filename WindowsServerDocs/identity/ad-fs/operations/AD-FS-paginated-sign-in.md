@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2b11454427a65e37604b430a63b5ed745f4a2bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 946e99448d13bf6782c10bce5a0b8566da4deb17
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864452"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190381"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS impaginato Accedi
 
->Si applica a: Windows Server 2019
 
 Per AD FS 2019, abbiamo riprogettato l'interfaccia utente di accesso.  A questo punto, sign-in ADFS avrà lo stesso aspetto e comportamento di Azure Active Directory.  Questo fornirà agli utenti un'esperienza più coerente Accedi, che incorpora un flusso utente impaginati e centrato. 
 
@@ -60,4 +59,4 @@ Le opzioni per la personalizzazione continuerà a essere applicabile per AD FS 2
 
 • Per coloro che non si intende eseguire l'aggiornamento dei server ad AD FS 2019 ma vuole comunque che la nuova progettazione: [Utilizzo di un tema Web dell'esperienza utente di Azure AD in Active Directory Federation Services](azure-ux-web-theme-in-ad-fs.md)
 
-• Una posizione centrale per la personalizzazione: [Accedi personalizzazione di AD FS utente](ad-fs-user-sign-in-customization.md)
+• Una posizione centrale per la personalizzazione: [Personalizzazione dell'accesso utente ad AD FS](ad-fs-user-sign-in-customization.md)

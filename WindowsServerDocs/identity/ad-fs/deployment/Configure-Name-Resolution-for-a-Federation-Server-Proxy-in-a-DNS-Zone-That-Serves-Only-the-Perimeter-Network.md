@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32b8e3cc133ce95872881115608bb8cfb17b2427
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816012"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192300"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve solo la rete perimetrale
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In modo che la risoluzione dei nomi può funzionare correttamente per un server federativo in una Active Directory Federation Services \(ADFS\) scenario in cui uno o più Domain Name System \(DNS\) zone servono solo al perimetro di rete, le seguenti attività devono essere completate:  
   
@@ -58,7 +57,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 1.  In un server DNS per la rete perimetrale, aprire lo snap-DNS\-in. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **DNS**.  
   
-2.  Nell'albero della console, a destra\-fare clic sulla zona di ricerca diretta applicabile e quindi fare clic su **Nuovo Host \(A o AAAA\)**.  
+2.  Nell'albero della console, a destra\-fare clic sulla zona di ricerca diretta applicabile e quindi fare clic su **Nuovo Host \(A o AAAA\)** .  
   
 3.  In **nome**, digitare solo il nome del computer del server federativo. Ad esempio, per il nome di dominio completo \(FQDN\) fs.fabrikam.com, digitare **ADFS**.  
   
@@ -67,8 +66,8 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 5.  Fare clic su **Aggiungi host**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Proxy Server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[Requisiti di risoluzione dei nomi per i Server federativi](https://technet.microsoft.com/library/dd807055.aspx)  
+[Requisiti per la risoluzione dei nomi per i proxy server federativi](https://technet.microsoft.com/library/dd807055.aspx)  
   
 

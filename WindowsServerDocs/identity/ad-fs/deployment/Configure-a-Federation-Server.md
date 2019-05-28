@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 13ce514dc5f3f70217a26c898cde6fe24d4967c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847382"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192266"
 ---
 # <a name="configure-a-federation-server"></a>Configurare un server federativo
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio ruolo nel computer, si è pronti per configurare questo computer come un server federativo. Eseguire una delle operazioni seguenti:  
   
@@ -118,7 +116,7 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscred  
         ```  
   
-        Per ottenere il valore per **< certificato\_identificazione personale >**, eseguire `dir Cert:\LocalMachine\My`e quindi selezionare l'identificazione personale del certificato SSL. Il valore di **< federazione\_service\_name >** è il nome del servizio federativo, ad esempio fs.contoso.com.  
+        Per ottenere il valore per **< certificato\_identificazione personale >** , eseguire `dir Cert:\LocalMachine\My`e quindi selezionare l'identificazione personale del certificato SSL. Il valore di **< federazione\_service\_name >** è il nome del servizio federativo, ad esempio fs.contoso.com.  
   
         > [!NOTE]  
         > Se non si tratta la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
@@ -225,6 +223,6 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
 
 [Guida alla distribuzione di Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
-[Distribuzione di una Server Farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
+[Distribuzione di una server farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   
 

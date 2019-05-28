@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 2f4fc63c6ff7c1254fda630a8f34188d8fedc8e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825042"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034423"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Aggiungere il server Gestore connessione Desktop remoto alla distribuzione e configurare la disponibilità elevata
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 È possibile distribuire un cluster di Gestore connessione Desktop remoto (Gestore connessione desktop remoto) per migliorare la disponibilità e scalabilità dell'infrastruttura di Servizi Desktop remoto. 
 
@@ -37,7 +37,7 @@ Impostare un database per il gestore di connessione. È possibile usare [Databas
     1. Nel portale di Azure, fare clic su **Sfoglia > gruppi di risorse** e fare clic sul gruppo di risorse per la distribuzione.   
     2. Selezionare il database SQL che appena creato (ad esempio, DB1-CB).   
     3. Fare clic su **Impostazioni > Proprietà > Mostra stringhe di connessione database**.   
-    4. Copiare la stringa di connessione **ODBC (include Node. js)**, quali dovrebbe essere simile al seguente:   
+    4. Copiare la stringa di connessione **ODBC (include Node. js)** , quali dovrebbe essere simile al seguente:   
       
         Driver = {SQL Server Native Client 13.0}; Server = tcp:cb-sqls1.database.windows.net,1433; Database = CB-DB1; UID =sqladmin@contoso; Pwd = {your_password_here}; Crittografare = yes; TrustServerCertificate = no. Timeout di connessione = 30.   
   
@@ -62,7 +62,7 @@ Impostare un database per il gestore di connessione. È possibile usare [Databas
 
 ## <a name="step-2-configure-load-balancing-on-the-rd-connection-brokers"></a>Passaggio 2: Configurare il bilanciamento del carico sui gestori connessione desktop remoto 
 
-Se si utilizza dell'infrastruttura di Azure, è possibile creare un [servizio Azure load balancer](#create-a-load-balancer); se non è possibile impostare fino [DNS round robin](#configure-dns-round--robin). 
+Se si utilizza dell'infrastruttura di Azure, è possibile creare un [servizio Azure load balancer](#create-a-load-balancer); se non è possibile impostare fino [DNS round robin](#configure-dns-round-robin).
 
 ### <a name="create-a-load-balancer"></a>Creare un servizio di bilanciamento del carico  
 1. Creare un servizio di bilanciamento del carico di Azure   
@@ -88,9 +88,9 @@ Se si utilizza dell'infrastruttura di Azure, è possibile creare un [servizio Az
       1. Connettersi alla macchina virtuale server RDBMS (ad esempio, Contoso-CB1). Consultare il [preparare la VM di Gestore connessione desktop remoto](Prepare-the-RD-Connection-Broker-VM-for-Remote-Desktop.md) articolo per i passaggi per la modalità di connessione alla macchina virtuale.   
       2. In Server Manager fare clic su **strumenti > DNS**.   
       3. Nel riquadro sinistro, espandere **DNS**, fare clic sulla macchina DNS, fare clic su **zone di ricerca diretta**, quindi scegliere il nome di dominio (ad esempio, Contoso.com). (Potrebbe richiedere alcuni secondi per elaborare la query al server DNS per le informazioni).  
-      4. Fare clic su **azione > Nuovo Host (A o AAAA)**.   
+      4. Fare clic su **azione > Nuovo Host (A o AAAA)** .   
       9. Immettere il nome (ad esempio, hacb) e l'indirizzo IP specificato in precedenza (ad esempio, 10.0.0.32).   
-  
+
 ### <a name="configure-dns-round-robin"></a>Configurare DNS round robin  
   
 I passaggi seguenti sono un'alternativa alla creazione di un bilanciamento del carico interno di Azure.   
@@ -99,7 +99,7 @@ I passaggi seguenti sono un'alternativa alla creazione di un bilanciamento del c
 2. Creare record DNS:   
       1. In Server Manager fare clic su **strumenti > DNS**.   
       2. Nel riquadro sinistro, espandere **DNS**, fare clic sulla macchina DNS, fare clic su **zone di ricerca diretta**, quindi scegliere il nome di dominio (ad esempio, Contoso.com). (Potrebbe richiedere alcuni secondi per elaborare la query al server DNS per le informazioni).  
-      3. Fare clic su **azione** e **nuovo Host (A o AAAA)**.   
+      3. Fare clic su **azione** e **nuovo Host (A o AAAA)** .   
       4. Immettere il **nome DNS** per il Gestore connessione desktop remoto del cluster (ad esempio, hacb) e quindi immettere il **indirizzo IP** del primo gestore connessione desktop remoto.   
       5. Ripetere i passaggi 3-4 per ogni gestore di connessione di desktop remoto aggiuntive, fornendo ogni indirizzo IP univoco per ogni record aggiuntivi.
 

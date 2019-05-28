@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5b4ba00aa9fed1022d9c0137d05ac6240b44b276
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93f61bc7fd147b2e0220178bcd163b6ca56279cf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837912"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191574"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>Distribuzione di AD FS nell'organizzazione partner account
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Un partner account in Active Directory Federation Services \(ADFS\) rappresenta l'organizzazione nella relazione di trust federativa che archivia fisicamente gli account utente in un archivio di attributi supportati. Per altre informazioni su quale attributo archivi sono supportati, vedere [il ruolo degli archivi attributi](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
   
@@ -30,9 +28,9 @@ Per altre informazioni su come installare e configurare un'organizzazione partne
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
--   [Rivedere il ruolo del Server federativo nel Partner Account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
+-   [Rivedere il ruolo del server federativo nel partner account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
--   [Rivedere il ruolo del Proxy Server federativo nel Partner Account](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md)  
+-   [Rivedere il ruolo del proxy server federativo nel partner account](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md)  
   
 -   [Preparare i computer Client nel Partner Account](Prepare-Client-Computers-in-the-Account-Partner.md)  
   

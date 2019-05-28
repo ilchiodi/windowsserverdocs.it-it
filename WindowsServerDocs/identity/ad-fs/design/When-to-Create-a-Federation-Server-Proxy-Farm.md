@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8935760cad272d5b82edb675cda85caf0456565f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c33475d7420383448439e2b769562e55127c7b0e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859442"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190634"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>Quando creare una farm di proxy server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Si consiglia di installare i proxy server federativo aggiuntivo quando si dispone di un grande Active Directory Federation Services \(ADFS\) distribuzione e si vuole fornire tolleranza di errore, il carico\-bilanciamento del carico e scalabilità per la distribuzione di proxy. L'atto di creazione della federazione di due o più i proxy server federativi nella stessa rete perimetrale e la configurazione di ognuno di essi per proteggere il servizio federativo ADFS stesso crea una farm proxy server federativo.  
   

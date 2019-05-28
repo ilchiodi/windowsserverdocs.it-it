@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4065a61e042f52298da656899289e718e010f932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be3a16bac9c146637117aa7b9720cb4aa76177e2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819092"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189395"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Creare una regola per l'invio di un'attestazione di metodo di autenticazione
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 È possibile utilizzare il **inviare l'appartenenza al gruppo come attestazioni** modello di regola o il **trasformare un'attestazione in ingresso** modello di regola per inviare un'attestazione di metodo di autenticazione. La relying party può usare un'attestazione di metodo di autenticazione per determinare il meccanismo di accesso che l'utente usa per autenticarsi e ottenere le attestazioni da Active Directory Federation Services \(ADFS\). È anche possibile usare la funzionalità di verifica del meccanismo di autenticazione di Active Directory Federation Services \(ADFS\) in Windows Server 2012 R2 come input per generare attestazioni metodo di autenticazione per le situazioni in cui la relying party desidera determinare il livello di accesso basato su accessi con smart card. Ad esempio, uno sviluppatore può assegnare diversi livelli di accesso agli utenti federati dell'applicazione relying party. I livelli di accesso sono basati su se gli utenti accedono con le credenziali nome utente e password, anziché le smart card.  
   
@@ -283,14 +282,14 @@ A seconda dei requisiti dell'organizzazione, utilizzare una delle seguenti proce
 > Oltre ai valori nella tabella, è possono utilizzare altri valori URI. I valori URI presenti ion nella tabella precedente rappresentano gli URI che accetta la relying party per impostazione predefinita.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

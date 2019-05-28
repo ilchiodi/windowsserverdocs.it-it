@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 27282c6b88b0457af3b4cf031fdadced7b40268c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac666539170bb7aabf0b7f58a7ef003ebe87c2a8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878132"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188386"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="understanding-key-ad-fs-concepts"></a>Informazioni sui concetti principali relativi ad AD FS
 Si consiglia di apprendere i concetti importanti di Active Directory Federation Services e acquisire familiarità con il set di caratteristiche.  
   
@@ -52,20 +50,20 @@ Con AD FS, le organizzazioni possono ignorare le richieste delle credenziali sec
   
 -   [Il ruolo degli archivi di attributi](The-Role-of-Attribute-Stores.md)  
   
--   [Il ruolo del Database di configurazione AD FS](The-Role-of-the-AD-FS-Configuration-Database.md)  
+-   [Ruolo del database di configurazione di AD FS](The-Role-of-the-AD-FS-Configuration-Database.md)  
   
 -   [Ruolo delle attestazioni](The-Role-of-Claims.md)  
   
--   [Il ruolo delle regole attestazioni](The-Role-of-Claim-Rules.md)  
+-   [Ruolo delle regole delle attestazioni](The-Role-of-Claim-Rules.md)  
   
--   [Il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md)  
+-   [Ruolo del motore delle attestazioni](The-Role-of-the-Claims-Engine.md)  
   
--   [Il ruolo delle Pipeline delle attestazioni](The-Role-of-the-Claims-Pipeline.md)  
+-   [Ruolo della pipeline delle attestazioni](The-Role-of-the-Claims-Pipeline.md)  
   
--   [Il ruolo del linguaggio di regola attestazione](The-Role-of-the-Claim-Rule-Language.md)  
+-   [Ruolo del linguaggio delle regole delle attestazioni](The-Role-of-the-Claim-Rule-Language.md)  
   
 -   [Determinare il tipo di modello di regola attestazione da usare](Determine-the-Type-of-Claim-Rule-Template-to-Use.md)  
   
--   [Come gli URI vengono usati in AD FS](How-URIs-Are-Used-in-AD-FS.md)  
+-   [Modalità d'uso degli URI in AD FS](How-URIs-Are-Used-in-AD-FS.md)  
   
 

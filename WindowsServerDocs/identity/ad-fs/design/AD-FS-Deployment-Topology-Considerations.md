@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bbd3ec26e5fb0ce9857f2c9e5321300fb835b303
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c5a3c85d40baee137ecdf7a1a5507b25361cac6d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834592"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191769"
 ---
 # <a name="ad-fs-deployment-topology-considerations"></a>Considerazioni sulla topologia di distribuzione di ADFS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento descrive importanti considerazioni che consentono di pianificare e progettare quali Active Directory Federation Services \(ADFS\) topologia di distribuzione da usare nell'ambiente di produzione. In questo argomento è un punto di partenza per rivedere e valutare le considerazioni che riguardano le caratteristiche o funzionalità saranno disponibili all'utente dopo la distribuzione di AD FS. Ad esempio, a seconda di quale database tipo scelto per archiviare il database di configurazione di ADFS determinerà in ultima analisi se è possibile implementare determinati Security Assertion Markup Language \(SAML\) funzionalità che richiedono SQL Server.  
   
@@ -32,15 +30,15 @@ Funzionalità di AD FS
 |Funzionalità|Supportata in Database interno di Windows|Supportata in SQL Server|Altre informazioni su questa funzionalità|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
 |Distribuzione in una server farm federativa|Sì, con un limite di 30 server federativi per ogni farm|Sì. Non esiste un limite imposto per il numero di server federativi che si possono distribuire in una singola farm.|[Determinare la topologia di distribuzione di AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|Risoluzione artefatto SAML **Nota:** Questa funzionalità non è richiesta per scenari Microsoft Online Services, Microsoft Office 365, Microsoft Exchange o Microsoft Office SharePoint.|No|Yes|[Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Le procedure consigliate per la pianificazione sicura e distribuzione di AD FS.](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|SAML\/WS\-rilevamento riproduzione token federazione|No|Yes|[Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Le procedure consigliate per la pianificazione sicura e distribuzione di AD FS.](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|Risoluzione artefatto SAML **Nota:** Questa funzionalità non è richiesta per scenari Microsoft Online Services, Microsoft Office 365, Microsoft Exchange o Microsoft Office SharePoint.|No|Yes|[Ruolo del database di configurazione di AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Procedure consigliate per la pianificazione e la distribuzione sicure di AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML\/WS\-rilevamento riproduzione token federazione|No|Yes|[Ruolo del database di configurazione di AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Procedure consigliate per la pianificazione e la distribuzione sicure di AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
   
 Funzionalità di database  
   
 |Funzionalità|Supportata in Database interno di Windows|Supportata in SQL Server|Altre informazioni su questa funzionalità|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Tramite la ridondanza dei database Basic effettuare il pull della replica, in cui uno o più server che ospita un'operazione di lettura\-copia solo delle modifiche di richiesta del database che vengono eseguite su un server di origine che ospita una lettura\/scrivere copia del database|Yes|No|[Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
-|Ridondanza del database con elevata\-soluzioni di disponibilità, ad esempio clustering di failover o mirroring \(a livello di database solo\) **Nota:** Tutte le topologie di distribuzione di AD FS supportano il clustering a livello del servizio AD FS.|No|Yes|[Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853)|  
+|Tramite la ridondanza dei database Basic effettuare il pull della replica, in cui uno o più server che ospita un'operazione di lettura\-copia solo delle modifiche di richiesta del database che vengono eseguite su un server di origine che ospita una lettura\/scrivere copia del database|Yes|No|[Ruolo del database di configurazione di AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
+|Ridondanza del database con elevata\-soluzioni di disponibilità, ad esempio clustering di failover o mirroring \(a livello di database solo\) **Nota:** Tutte le topologie di distribuzione di AD FS supportano il clustering a livello del servizio AD FS.|No|Yes|[Ruolo del database di configurazione di AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853)|  
   
 ### <a name="sql-server-considerations"></a>Considerazioni su SQL Server  
 Se si sceglie SQL Server come database di configurazione per la distribuzione di ADFS, è consigliabile tenere presenti i seguenti aspetti.  

@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e2ad7d1467abd6d69077b515b8c69a65f7e70f19
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c399467a8bb70e723a86618aa37fc54425f4e7d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865592"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189055"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Gestire i rischi con il controllo di accesso condizionale
 
->Si applica a: Windows Server 2012 R2
+
 
 
 -   [Controllo di accesso condizionale i concetti chiave in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
@@ -175,7 +175,7 @@ Altri esempi di implementazione del controllo di accesso condizionale in ADFS in
     ```
 
 ## <a name="see-also"></a>Vedere anche
-[Guida allo scenario: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+[Procedura dettagliata: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 

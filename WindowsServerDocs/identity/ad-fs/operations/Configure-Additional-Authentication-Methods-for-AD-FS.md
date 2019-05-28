@@ -9,16 +9,14 @@ ms.date: 10/04/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 73de8908677b3f74651b10c29ef2abe62e484694
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88c4d976b9808d254dc1681ce9eee3ca556824ab
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868412"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189787"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configure Additional Authentication Methods for AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Per abilitare l'autenticazione a più fattori (MFA), è necessario selezionare almeno un metodo di autenticazione aggiuntivo. Per impostazione predefinita, in Active Directory Federation Services (ADFS) in Windows Server 2012 R2, è possibile selezionare l'autenticazione del certificato (in altre parole, autenticazione basata su smart card) come metodo di autenticazione aggiuntivo.
 
@@ -39,7 +37,7 @@ L'elenco seguente riporta in ordine alfabetico i provider Microsoft e di terze p
 |Gemalto|Gemalto Identity & Security Services|[http://www.gemalto.com/identity](http://www.gemalto.com/identity)|
 |inWebo Technologies|inWebo Enterprise Authentication service|[inWebo autenticazione Enterprise](http://www.inwebo.com)|
 |Login People|Login People MFA API connector for AD FS 2012 R2 (versione beta pubblica)|[https://www.loginpeople.com](https://www.loginpeople.com)|
-|Microsoft Corp.|Microsoft Azure MFA|[Guida allo scenario: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari](https://technet.microsoft.com/library/dn280946.aspx) (vedere il passaggio 3)|
+|Microsoft Corp.|Microsoft Azure MFA|[Procedura dettagliata: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari](https://technet.microsoft.com/library/dn280946.aspx) (vedere il passaggio 3)|
 Mideye | Provider di autenticazione mideye per ad FS | [Autenticazione a due fattori mideye con Microsoft Active Directory Federation Services](https://www.mideye.com/support/administrators/documentation/integration/microsoft-adfs/)|
 |Okta | MFA Okta per Active Directory Federation Services | [MFA Okta per Active Directory Federation Services (ADFS)](https://help.okta.com/en/prod/Content/Topics/integrations/adfs-okta-int.htm)|
 |Una sola identità| Starling 2FA AD FS|[Starling 2FA scheda ADFS](https://www.oneidentity.com/products/starling-two-factor-authentication/)|
