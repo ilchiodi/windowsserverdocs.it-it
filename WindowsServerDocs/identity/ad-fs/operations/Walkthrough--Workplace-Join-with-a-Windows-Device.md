@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fd222eb47982591e051594e8a572443b65c0357f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864002"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188905"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Scenario: Aggiunta alla rete aziendale con un dispositivo Windows
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Questo argomento illustra come usare Aggiunta alla rete aziendale per connettere il dispositivo Windows alla rete aziendale e come accedere a un'applicazione Web con Single Sign-On. √à necessario completare i passaggi descritti nel [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) sezione prima di provare questa procedura dettagliata.
 
@@ -84,7 +82,7 @@ In questa parte della dimostrazione si accede all'applicazione Web della societ√
 ## <a name="see-also"></a>Vedere anche
 [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) 
- [ Procedura dettagliata: Aggiunta alla rete con un dispositivo iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+ [ Procedura dettagliata: Aggiungere alla rete aziendale con un dispositivo iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
 
 

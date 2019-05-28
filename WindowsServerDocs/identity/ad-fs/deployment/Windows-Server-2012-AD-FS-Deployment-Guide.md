@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3e555d1003878e12320cb8557bd205ac24e1bbb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882442"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191847"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Guida alla distribuzione di AD FS in Windows Server 2012
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile usare Active Directory® Federation Services \(ADFS\) con il sistema operativo Windows Server® 2012 per compilare una soluzione di gestione delle identità federate che estende l'identificazione distribuita, l'autenticazione, e servizi di autorizzazione Web\-applicazioni basate su confini dell'organizzazione e piattaforma. Con la distribuzione di ADFS, è possibile estendere a Internet le funzionalità di gestione delle identità esistenti dell'organizzazione.  
   
@@ -62,18 +61,18 @@ Questa guida non contiene:
   
 -   [Pianificazione della distribuzione di AD FS](Planning-to-Deploy-AD-FS.md)  
   
--   [Implementazione di ADFS progettare piano](Implementing-Your-AD-FS-Design-Plan.md)  
+-   [Implementazione del piano di progettazione di AD FS](Implementing-Your-AD-FS-Design-Plan.md)  
   
--   [Elenco di controllo: Implementazione di un progetto Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Elenco di controllo: Implementazione di un progetto di Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Elenco di controllo: Implementazione di un progetto SSO Web federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Elenco di controllo: Implementazione di un progetto di Web SSO federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
 -   [Configurazione di organizzazioni Partner](Configuring-Partner-Organizations.md)  
   
--   [Configurazione delle regole attestazione](Configuring-Claim-Rules.md)  
+-   [Configurazione delle regole delle attestazioni](Configuring-Claim-Rules.md)  
   
 -   [Distribuzione di server federativi](Deploying-Federation-Servers.md)  
   
--   [Distribuzione di Server federativi](Deploying-Federation-Server-Proxies.md)  
+-   [Distribuzione di proxy server federativi](Deploying-Federation-Server-Proxies.md)  
   
--   [Interoperabilità con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  
+-   [Interazione con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bb4e5f88f3d62511b185a2b4317416169717c860
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0f3d8c70a41d512e7cd33282524bc401ce84600
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851402"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191426"
 ---
 # <a name="federation-server-farm-using-wid"></a>Server farm federativa che usa Database interno di Windows
-
->Si applica a: Windows Server 2012
 
 La topologia predefinita per Active Directory Federation Services \(ADFS\) è una server farm federativa, utilizzare Database interno di Windows \(WID\), costituito da un massimo di cinque server federativi ospitano il Servizio federativo dell'organizzazione. In questa topologia, ADFS utilizza WID come archivio per il database di configurazione di ADFS per tutti i server federativi che sono connessi alla farm. La farm replica e mantiene i dati del servizio federativo nel database di configurazione di tutti i server della farm.  
   

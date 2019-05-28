@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dc49d8f4b656fdbb92083aa3c60bc4ce81091e9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 330214e83b6da5bf711c36995306f8f1a098fa24
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890822"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192209"
 ---
 # <a name="deploying-federation-server-proxies"></a>Distribuzione di proxy server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 In Active Directory Federation Services \(ADFS\) in Windows Server 2012 R2, il ruolo di un proxy server federativo viene gestito da un nuovo servizio ruolo Accesso remoto denominato Proxy applicazione Web. Per rendere ADFS accessibile dall'esterno della rete aziendale, che lo scopo della distribuzione di un proxy server federativo nelle versioni legacy di ADFS, ad esempio AD FS 2.0 e ADFS in Windows Server 2012, è possibile distribuire uno o più proxy applicazione web per oggetto D ADFS in Windows Server 2012 R2.  
   
@@ -43,6 +41,6 @@ Per distribuire il proxy applicazione Web, è possibile seguire le procedure neg
 
 [Guida alla distribuzione di Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
-[Distribuzione di una Server Farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
+[Distribuzione di una server farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   
 

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c968f0702d56b56d0a80459e5cf0c9e658c56741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857192"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192145"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Esportare la parte di chiave privata di un certificato di autenticazione server
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ogni server federativo in una Active Directory Federation Services \(ADFS\) farm deve avere accesso alla chiave privata del certificato di autenticazione server. Se si implementa una server farm di server federativi o server Web, è necessario disporre di un singolo certificato di autenticazione. Questo certificato deve essere emesso da un'autorità di certificazione \(CA\), e deve avere una chiave privata esportabile. La chiave privata del certificato di autenticazione server deve essere esportabile in modo che possa essere resa disponibile a tutti i server della farm.  
   
@@ -55,12 +53,12 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 9. Importare il certificato di autenticazione server esportato nell'archivio certificati del nuovo server prima di installare il Servizio federativo. Per informazioni su come importare il certificato, vedere importare un certificato del Server \( [http:\/\/go.microsoft.com\/fwlink\/? LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\).  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Elenco di controllo: Configurazione di un Proxy Server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Requisiti dei certificati per i server federativi](https://technet.microsoft.com/library/dd807040.aspx)  
   
-[Requisiti dei certificati per i Server federativi](https://technet.microsoft.com/library/dd807054.aspx)  
+[Requisiti dei certificati per i proxy server federativi](https://technet.microsoft.com/library/dd807054.aspx)  
   
 

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e4d463f5f25fe85dc95d767c9c75b722e60b012
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b5aa22ad99529d99e2d7381a434916e8e749f185
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852032"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188757"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Personalizzazione di AD FS in Windows Server 2016
 
->Si applica a: Windows Server 2016
 
 In risposta ai commenti e suggerimenti da organizzazioni usando AD FS, è stato aggiunto l'esperienza per le singole applicazioni protette da AD FS strumenti aggiuntivi per personalizzare l'utente di accesso.  
 Oltre al contenuto per ogni applicazione web come testo della descrizione e collegamenti, ora è possibile specificare i temi intero web per ogni applicazione.  Ciò include logo, immagine, fogli di stile o un file OnLoad intero.  
