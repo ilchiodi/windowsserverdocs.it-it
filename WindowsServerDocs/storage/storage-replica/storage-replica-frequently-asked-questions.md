@@ -6,22 +6,22 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 12/19/2018
+ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 0e010f0319b46e04cf9aa15cde9552af1191ab22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824712"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475940"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Domande frequenti su Replica archiviazione
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 Questo argomento contiene le risposte alle domande frequenti su Replica archiviazione.
 
-## <a name="FAQ1"></a> Replica archiviazione è supportata in Azure?  
+## <a name="FAQ1"></a> Replica archiviazione è supportata in Azure?
 Sì. Con Azure, è possibile usare gli scenari seguenti:
 
 1. Replica da server a server all'interno di Azure (in modo sincrono o in modo asincrono tra le macchine virtuali IaaS in uno o due domini di errore di Data Center o in modo asincrono tra due aree distinte)
@@ -29,12 +29,12 @@ Sì. Con Azure, è possibile usare gli scenari seguenti:
 3. Replica da cluster a cluster all'interno di Azure (in modo sincrono o in modo asincrono tra le macchine virtuali IaaS in uno o due domini di errore di Data Center o in modo asincrono tra due aree distinte)
 4. Cluster a cluster replica asincrona tra Azure e in locale (tramite Azure ExpressRoute o VPN)
 
-Altre note sul clustering guest in Azure sono reperibile in: [Distribuzione di cluster Guest di VM IaaS in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+Altre note sul clustering guest in Azure sono reperibile in: [Distribuzione di cluster Guest di VM IaaS in Microsoft Azure](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
 Note importanti:
 
 1. Azure non supporta clustering guest con VHDX condiviso in modo che le macchine virtuali del Cluster di Failover di Windows è necessario usare destinazioni iSCSI per il clustering di prenotazione classico dischi persistenti di archiviazione condivisa o spazi di archiviazione diretta.
-2. Sono disponibili modelli di Azure Resource Manager per il clustering di spazi di archiviazione diretta basati su Replica archiviazione in [creare un cluster SOFS spazi di archiviazione è diretta (S2D) con Replica archiviazione per il ripristino di emergenza tra aree di Azure](https://aka.ms/azure-storage-replica-cluster).  
+2. Sono disponibili modelli di Azure Resource Manager per il clustering di spazi di archiviazione diretta basati su Replica archiviazione in [creare un cluster SOFS diretta spazi di archiviazione con Replica archiviazione per il ripristino di emergenza tra aree di Azure](https://aka.ms/azure-storage-replica-cluster).  
 3. Cluster per la comunicazione RPC del cluster in Azure (obbligatorio per le API del cluster per la concessione dell'accesso tra cluster) richiede la configurazione di accesso alla rete per l'oggetto nome cluster. È necessario consentire la porta TCP 135 e l'intervallo dinamico sopra la porta TCP 49152. Riferimento [Building Windows Server Failover Clustering in Azure IAAS VM – Part 2 rete e la creazione](https://blogs.technet.microsoft.com/askcore/2015/06/24/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation/).  
 4. È possibile usare i cluster guest a due nodi, dove ogni nodo Usa iSCSI di loopback per un cluster asimmetrico replicato tramite Replica archiviazione. Ma è probabile che siano molto una riduzione delle prestazioni e deve essere usato solo per i carichi di lavoro molto limitate o il test.  
 
@@ -80,7 +80,7 @@ Per i vincoli della rete di configurazione in un cluster esteso:
     Set-SRNetworkConstraint -SourceComputerName sr-srv01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-srv03 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"  
 
 ## <a name="FAQ4"></a> È possibile configurare la replica uno-a-molti o transitiva (da A B a C)?  
-Non in Windows Server 2016. Questa versione supporta solo la replica uno a uno di un server, un cluster o un nodo del cluster esteso. Questo limite potrebbe venire superato nelle versioni successive. Naturalmente, è possibile configurare la replica tra i vari server di una coppia di volumi specifica, in entrambe le direzioni. Ad esempio, Server 1 può replicare il volume D su Server 2 e il volume E su Server 3.
+No, Replica archiviazione supporta la replica da uno a uno solo di un server, cluster o nodo del cluster esteso. Questo limite potrebbe venire superato nelle versioni successive. Naturalmente, è possibile configurare la replica tra i vari server di una coppia di volumi specifica, in entrambe le direzioni. Ad esempio, Server 1 può replicare il volume D su Server 2 e il volume E su Server 3.
 
 ## <a name="FAQ5"></a> È possibile aumentare o ridurre i volumi replicati tramite Replica archiviazione?  
 Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinita, Replica di archiviazione impedisce agli amministratori di estendere i volumi replicati. Utilizza l'opzione `Set-SRGroup -AllowVolumeResize $TRUE` nel gruppo di origine, prima del ridimensionamento. Ad esempio: 
@@ -90,9 +90,9 @@ Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinit
 3. Usare in base al computer di origine: `Set-SRGroup -Name YourRG -AllowVolumeResize $FALSE` 
 
 ## <a name="FAQ6"></a>È possibile trasferire un volume di destinazione per l'accesso di sola lettura?  
-Non in Windows Server 2016 RTM, ovvero la cosiddetta versione "RS1". Replica archiviazione smonta il volume di destinazione quando inizia la replica. 
+Non in Windows Server 2016. Replica archiviazione smonta il volume di destinazione quando inizia la replica. 
 
-In Windows Server, versione 1709 è ora tuttavia possibile montare l'archiviazione di destinazione, grazie alla funzionalità denominata "Failover di test". A tale scopo, è necessario disporre di un volume NTFS o ReFS inutilizzato di cui non viene attualmente eseguita la replica nella destinazione. È quindi possibile montare temporaneamente uno snapshot dell'archiviazione replicata a scopo di test o backup. 
+Tuttavia, in Windows Server 2019 e canale semestrale di Windows Server a partire dalla versione 1709, l'opzione per l'archiviazione di destinazione di montaggio è ora possibile: questa funzionalità è denominata "Failover di Test". A tale scopo, è necessario disporre di un volume NTFS o ReFS inutilizzato di cui non viene attualmente eseguita la replica nella destinazione. È quindi possibile montare temporaneamente uno snapshot dell'archiviazione replicata a scopo di test o backup. 
 
 Ad esempio, per creare un failover di test quando si esegue la replica di un volume "D:" nel gruppo di replica "RG2" nel server di destinazione "SRV2" e si dispone di un'unità "T:" in SRV2 di cui non viene eseguita la replica:
 
@@ -107,7 +107,7 @@ Per rimuovere lo snapshot del failover di test e annullare le modifiche:
 Utilizzare la funzionalità per il failover di test solo per le operazioni temporanee a breve termine, in quanto non è destinata all'utilizzo a lungo termine. Quando è in uso, la replica continua per il volume di destinazione reale. 
 
 ## <a name="FAQ7"></a> È possibile configurare File Server di scalabilità orizzontale (SOFS) in un cluster esteso?  
-Anche se tecnicamente possibile, non è una configurazione consigliata in Windows Server 2016 a causa della mancanza di riconoscimento dei siti nei nodi di calcolo che contattano SOFS. Se si usa rete distanza campus, dove le latenze sono in genere inferiori al millisecondo, questa configurazione è in genere funziona senza problemi.   
+Anche se tecnicamente possibile, non una configurazione consigliata a causa della mancanza di riconoscimento dei siti nei nodi di calcolo che contattano SOFS. Se si usa rete distanza campus, dove le latenze sono in genere inferiori al millisecondo, questa configurazione è in genere funziona senza problemi.   
 
 Se si configura una replica da cluster a cluster, Replica archiviazione supporta completamente i File server di scalabilità orizzontale, inclusi l'uso di Spazi di archiviazione diretta, durante la replica tra due cluster.  
 
@@ -117,7 +117,7 @@ No. È possibile replicare con CSV o prenotazioni di disco persistente (democrat
 Se si configura una replica da cluster a cluster, Replica archiviazione supporta completamente i File server di scalabilità orizzontale, inclusi l'uso di Spazi di archiviazione diretta, durante la replica tra due cluster.  
 
 ## <a name="FAQ8"></a>È possibile configurare spazi di archiviazione diretta in un cluster esteso con Replica archiviazione?  
-Questa configurazione non è supportata in Windows Server 2016.  Questo limite potrebbe venire superato nelle versioni successive. Se si configura una replica da cluster a cluster, Replica archiviazione supporta completamente i File server di scalabilità orizzontale e i server Hyper-V, inclusi l'uso di Spazi di archiviazione diretta.  
+Non si tratta di una configurazione supportata in Windows Server. Questo limite potrebbe venire superato nelle versioni successive. Se si configura una replica da cluster a cluster, Replica archiviazione supporta completamente i File server di scalabilità orizzontale e i server Hyper-V, inclusi l'uso di Spazi di archiviazione diretta.  
 
 ## <a name="FAQ9"></a>Come si configura la replica asincrona?  
 
@@ -126,10 +126,10 @@ Specificare `New-SRPartnership -ReplicationMode` e fornire l'argomento **Asincro
 ## <a name="FAQ10"></a>Come si può evitare il failover automatico di un cluster esteso?  
 Per evitare il failover automatico, è possibile usare PowerShell per configurare `Get-ClusterNode -Name "NodeName").NodeWeight=0`. In questo modo si rimuove il voto in ogni nodo del sito di ripristino di emergenza. È quindi possibile usare `Start-ClusterNode -PreventQuorum` sui nodi nel sito primario e `Start-ClusterNode -ForceQuorum` sui nodi nel sito di emergenza per forzare il failover. Non esiste alcuna opzione grafica per evitare il failover automatico e in ogni caso non è consigliabile evitare il failover automatico.  
 
-## <a name="FAQ11"></a>Come si disabilita una resilienza della macchina virtuale?  
+## <a name="FAQ11"></a>Come si disabilita una resilienza della macchina virtuale?
 Per evitare che la nuova funzionalità di resilienza macchina virtuale di Hyper-V da in esecuzione e pertanto posizionando le macchine virtuali invece di provocarne il failover al sito di ripristino di emergenza, eseguire `(Get-Cluster).ResiliencyDefaultPeriod=0`  
 
-## <a name="FAQ12"></a> Come si riduce la durata per la sincronizzazione iniziale?  
+## <a name="FAQ12"></a> Come si riduce la durata per la sincronizzazione iniziale?
 
 È possibile usare l'archiviazione con thin provisioning per accelerare i tempi di sincronizzazione iniziali. Replica archiviazione esegue una query e usa automaticamente l'archiviazione con thin provisioning, compresi gli Spazi di archiviazione non cluster, i dischi dinamici Hyper-V e i LUN SAN.  
 
@@ -139,11 +139,9 @@ Per evitare che la nuova funzionalità di resilienza macchina virtuale di Hyper-
 2. Ripristino dello snapshot o il ripristino basato su snapshot di backup - tramite il ripristino di uno snapshot in base al volume nel volume di destinazione, dovrebbe esserci delle differenze minime tra il layout di blocco. Si tratta del metodo più efficace successivo come i blocchi sono probabilmente in modo che corrispondano grazie alle istantanee di volume da immagini speculari.
 3. I file copiati - per la creazione di un nuovo volume nella destinazione non è mai stata usata prima e l'esecuzione di una struttura ad albero /MIR robocopy completo copia dei dati, esistono probabilmente corrispondenze di blocco. Usando Esplora File di Windows o la copia di una parte dell'albero non creerà numero elevato di corrispondenze di blocco. La copia manuale dei file è il metodo meno efficace del seeding.
 
-
-
 ## <a name="FAQ13"></a> È possibile delegare agli utenti di amministrare la replica?  
 
-È possibile usare il cmdlet `Grant-SRDelegation` in Windows Server 2016. Ciò consente di impostare utenti specifici in scenari di replica da server a server, da cluster a cluster e con cluster esteso che abbiano le autorizzazioni per creare, modificare o rimuovere la replica, pur non essendo un membro del gruppo di amministratori locale. Ad esempio:   
+È possibile usare il `Grant-SRDelegation` cmdlet. Ciò consente di impostare utenti specifici in scenari di replica da server a server, da cluster a cluster e con cluster esteso che abbiano le autorizzazioni per creare, modificare o rimuovere la replica, pur non essendo un membro del gruppo di amministratori locale. Ad esempio:  
 
     Grant-SRDelegation -UserName contso\tonywang  
 
@@ -158,7 +156,7 @@ Dopo aver modificato la direzione di replica, rimosso la replica o quando ci si 
 
     vssadmin list shadows
      vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
-È inoltre possibile pianificare questo strumento in modo che venga eseguito periodicamente tramite un'attività pianificata. Per altre informazioni sull'uso del Servizio Copia Shadow del volume, vedere [Vssadmin](https://technet.microsoft.com/library/cc754968.aspx). Il backup di volumi di registro non richiede azioni o valori particolari. Il tentativo di eseguire questa operazione verrà ignorato da Servizio Copia Shadow del volume.
+È inoltre possibile pianificare questo strumento in modo che venga eseguito periodicamente tramite un'attività pianificata. Per altre informazioni sull'uso del Servizio Copia Shadow del volume, vedere [Vssadmin](../../administration/windows-commands/vssadmin.md). Il backup di volumi di registro non richiede azioni o valori particolari. Il tentativo di eseguire questa operazione verrà ignorato da Servizio Copia Shadow del volume.
 L'uso di Windows Server Backup, backup di Microsoft Azure, Microsoft DPM o altri snapshot, Servizio Copia Shadow del volume, macchina virtuale o tecnologie basate su file è supportato da Replica archiviazione purché questi servizi operino all'interno del livello del volume. Replica archiviazione non supporta il backup e il ripristino basati su blocchi.
 
 ## <a name="FAQ14"></a> È possibile configurare la replica per limitare l'utilizzo della larghezza di banda?
@@ -204,13 +202,13 @@ di nuovo: Microsoft consiglia che l'archiviazione dei log può risultare più ef
 SOLO il disco dati dal cluster di origine deve essere eseguito il backup. I dischi di archiviazione Log della Replica devono non essere sottoposti a backup poiché una copia di backup può essere in conflitto con le operazioni di Replica di archiviazione.
 
 ## <a name="FAQ16"></a> Il motivo per cui è preferibile scegliere un cluster esteso rispetto a cluster a cluster rispetto al server topologia?  
-Replica archiviazione è disponibile in tre configurazioni principali: cluster esteso, da cluster a cluster e da server a server. Ognuna presenta vantaggi diversi.
+Replica di archiviazione è disponibile in tre configurazioni principale: estendere i cluster, cluster a cluster e da server a server. Ognuna presenta vantaggi diversi.
 
 La topologia del cluster esteso è ideale per i carichi di lavoro che richiedono il failover automatico con orchestrazione, ad esempio cluster di cloud privato Hyper-V e istanze del cluster di failover di SQL Server. Include anche un'interfaccia grafica incorporata che utilizza Gestione cluster di failover. Usa la classica architettura di archiviazione condivisa del cluster asimmetrico di Spazi di archiviazione, SAN, iSCSI e RAID tramite prenotazione permanente. Può essere eseguita con soli 2 nodi.
 
 La topologia da cluster a cluster usa due cluster distinti ed è ideale per gli amministratori che desiderano un failover manuale, soprattutto quando viene effettuato il provisioning del secondo sito per il ripristino di emergenza e l'utilizzo non quotidiano. L'orchestrazione è manuale. A differenza dei cluster esteso, spazi di archiviazione diretta può essere utilizzato in questa configurazione (con alcune avvertenze - vedere le domande frequenti sulla Replica di archiviazione e la documentazione del cluster a cluster). È possibile eseguirlo con soli quattro nodi. 
 
-La topologia da server a server è ideale per i clienti che eseguono hardware che non può essere incluso nel cluster. Richiede l'orchestrazione e il failover manuali. È ideale per le distribuzioni economiche tra succursali e data center centrali, soprattutto quando si utilizza la replica asincrona. Questa configurazione può sostituire spesso le istanze di file server protetti da DFSR utilizzati per scenari di ripristino di emergenza a master singolo.
+La topologia da server a server è ideale per i clienti che eseguono hardware che non può essere incluso nel cluster. Richiede l'orchestrazione e il failover manuali. È ideale per distribuzioni conveniente tra succursali e centri dati centrale, soprattutto quando si usa la replica asincrona. Questa configurazione può sostituire spesso le istanze di file server protetti da DFSR utilizzati per scenari di ripristino di emergenza a master singolo.
 
 In tutti i casi, le topologie supportano l'esecuzione sia su hardware fisico sia su macchine virtuali. In caso di macchine virtuali, l'hypervisor sottostante non richiede Hyper-V, ma VMware, KVM, Xen e così via.
 
@@ -222,6 +220,12 @@ Sì, Deduplcation dati è supportata con la Replica di archiviazione. Abilitare 
 
 Mentre dovrebbero *installare* la deduplicazione dei dati nei server di origine e di destinazione (vedere [installazione e abilitare deduplicazione dati](../data-deduplication/install-enable.md)), è importante non a *abilitare*La deduplicazione dei dati nel server di destinazione. Replica archiviazione consente operazioni di scrittura solo nel server di origine. Poiché la deduplicazione dei dati semplifica operazioni di scrittura nel volume, deve essere eseguito solo sul server di origine. 
 
+## <a name="FAQ19"></a> È possibile replicare tra 2019 Server Windows e Windows Server 2016?
+
+Sfortunatamente, non è supportata la creazione di un *nuovo* partnership tra Windows Server 2016 e Windows Server 2019. È possibile aggiornare in modo sicuro un server o cluster che esegue Windows Server 2016 per Windows Server 2019 ed eventuali *esistenti* collaborazioni continueranno a funzionare.
+
+Tuttavia, per ottenere le prestazioni di replica di Windows Server 2019, tutti i membri della relazione devono eseguire Windows Server 2019 ed è necessario eliminare relazioni esistenti e i gruppi di replica associati e quindi crearli di nuovo con dati di seeding (sia Quando si crea la partnership in Windows Admin Center o il cmdlet New-SRPartnership).
+
 ## <a name="FAQ17"></a> Come segnalare un problema con la Replica di archiviazione o questa Guida?  
 Per assistenza tecnica relativa a Replica di archiviazione, è possibile pubblicare un post nei [forum di Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). È inoltre possibile inviare un'e-mail all'indirizzo srfeed@microsoft.com per domande su Replica archiviazione o problemi relativi a questa documentazione. Il https://windowsserver.uservoice.com sito diventi preferito per le richieste di modifica di progettazione, in quanto consente ai clienti fornire commenti e suggerimenti e supporto per le tue idee.
 
@@ -232,8 +236,8 @@ Per assistenza tecnica relativa a Replica di archiviazione, è possibile pubblic
 - [Replica di Cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 - [Replica di archiviazione da server a Server](server-to-server-storage-replication.md)  
 - [Replica di archiviazione da cluster a Cluster](cluster-to-cluster-storage-replication.md)  
-- [Replica archiviazione: Problemi noti](storage-replica-known-issues.md)  
+- [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
 
 ## <a name="see-also"></a>Vedere anche  
 - [Panoramica dell'archiviazione](../storage.md)  
-- [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md)  

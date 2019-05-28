@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1ae755b9c41d66ce5f907f600be17547398acc1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839582"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222866"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Convertire un disco GPT in un disco MBR
 
@@ -29,8 +29,6 @@ I dischi MBR (Master Boot Record) usano la tabella di partizione BIOS standard. 
 > [!NOTE]
 > Per completare questi passaggi, devi essere un membro del gruppo **Backup Operators** o **Administrators**.
 
-<a id="BKMK_WINUI"></a>
-
 ## <a name="converting-using-the-windows-interface"></a>Conversione tramite l'interfaccia di Windows
 
 1.  Eseguire il backup di tutti i volumi sul disco GPT di base che si desidera convertire in un disco MBR.
@@ -38,8 +36,6 @@ I dischi MBR (Master Boot Record) usano la tabella di partizione BIOS standard. 
 2.  Se il disco contiene partizioni o volumi, fare clic con il pulsante destro del mouse su ciascuno di essi e quindi fare clic su **Elimina Volume**.
 
 3.  Fare clic con il pulsante destro del mouse sul disco GPT che si desidera convertire in un disco MBR, quindi fare clic su **Converti in disco MBR**.
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>Conversione tramite la riga di comando
 

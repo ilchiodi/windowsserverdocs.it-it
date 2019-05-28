@@ -1,18 +1,18 @@
 ---
-title: Cluster AntiAffinity
+title: Affinità di cluster
 ms.prod: windows-server-threshold
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
-description: Questo articolo descrive i livelli di AntiAffinity Cluster di Failover
-ms.openlocfilehash: 0e7511aa4305e09a1e895a4f8f4ec120079733b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+description: Questo articolo descrive i livelli di affinità e antiAffinity cluster di failover
+ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857202"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476059"
 ---
 # <a name="cluster-affinity"></a>Affinità di cluster
 

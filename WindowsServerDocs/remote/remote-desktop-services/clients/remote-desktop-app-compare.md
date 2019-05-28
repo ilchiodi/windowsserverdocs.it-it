@@ -12,18 +12,18 @@ ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/22/2018
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 79a6b264c38b4b843c2887c6a3eb6f236480243d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0c10cf6c9355b5f7457a5f17babdfb44aaa679b2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828962"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976793"
 ---
 # <a name="compare-the-client-apps"></a>Confrontare le app client
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Spesso si chiedono come diverse App il client Desktop remoto vengono confrontate tra loro. È tutti la stessa operazione? Di seguito sono riportate le risposte a queste domande.
 
@@ -39,7 +39,7 @@ Se è remoto nel desktop personali, vi sono altri reindirizzamenti che è possib
 |-------------|-------------------------------|-----------|---------|-----|-------|------------|
 | Tastiera    | x                             | X         | X       | X   | X     | x          |
 | Mouse       | x                             | X         | x       | X*    | x     | x          |
-| Tocco       | x                             | X         | X       | x   |       |            |
+| Tocco       | x                             | X         | X       | x   |       | X (Microsoft Edge e IE non supportato) |
 | Altro       | Penna                           |           |         |     |       |            |
 * Visualizzare la [elenco dei dispositivi di input supportati per il client di Desktop remoto iOS Beta](remote-desktop-ios.md#supported-input-devices).
 

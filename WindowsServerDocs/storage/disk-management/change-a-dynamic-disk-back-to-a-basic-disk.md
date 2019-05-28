@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d018b417aeba21e2b1303fd9e72b58b4e2fc334f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7655ca78868d40d354b5260fa99fcfa3a21d0de
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836052"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192755"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Convertire nuovamente un disco dinamico in un disco di base
 
@@ -26,22 +26,20 @@ In questo argomento viene descritto come eliminare tutti i dati su un disco dina
 
 ## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Riconversione di un disco dinamico in un disco di base
 
--   [Tramite l'interfaccia di Windows](#BKMK_WINUI)
--   [Tramite la riga di comando](#BKMK_CMD)
+-   [Tramite l'interfaccia di Windows](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
+-   [Tramite la riga di comando](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
 
 > [!NOTE]
 > Per completare questi passaggi, devi essere un membro del gruppo **Backup Operators** o **Administrators**.
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>Per convertire un disco dinamico nuovamente in un disco di base tramite l'interfaccia di Windows
+
 1.  Eseguire il backup tutti i volumi sul disco che si desidera convertire da dinamico a base.
 
 2.  In Gestione disco, fare clic con il pulsante destro del mouse su ciascun volume del disco dinamico che si desidera convertire in un disco di base e quindi fare clic su **Elimina Volume** per ogni volume sul disco.
 
 3.  Quando tutti i volumi sul disco sono stati eliminati, fare clic con il pulsante destro del mouse sul disco e quindi fare clic su **Converti in disco di base**.
 
-
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>Per convertire un disco dinamico nuovamente in un disco di base tramite una riga di comando
 
 1.  Eseguire il backup tutti i volumi sul disco che si desidera convertire da dinamico a base.

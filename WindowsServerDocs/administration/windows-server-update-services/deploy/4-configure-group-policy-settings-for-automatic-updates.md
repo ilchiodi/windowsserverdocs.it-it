@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08cc0b31aa123aadd57a0ea5ddbbeb96bffc3d6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880102"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222918"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Passaggio 4: Configurare le impostazioni di criteri di gruppo per gli aggiornamenti automatici
 
@@ -27,69 +27,69 @@ In un ambiente active directory, è possibile utilizzare criteri di gruppo per d
 
 In questo argomento contiene due sezioni principali:
 
-[Gruppo di impostazioni dei criteri per gli aggiornamenti client WSUS](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_PolSettings), che fornisce indicazioni e comportamento i dettagli sulle impostazioni di Windows Update e dell'utilità di pianificazione di manutenzione dei criteri di gruppo che controllano come i client WSUS possono interagire con Windows Update per ottenere gli aggiornamenti automatici.
+[Gruppo di impostazioni dei criteri per gli aggiornamenti client WSUS](#group-policy-settings-for-wsus-client-updates), che fornisce indicazioni e comportamento i dettagli sulle impostazioni di Windows Update e dell'utilità di pianificazione di manutenzione dei criteri di gruppo che controllano come i client WSUS possono interagire con Windows Update per ottenere gli aggiornamenti automatici.
 
-[Informazioni supplementari](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Supplemental) include le sezioni seguenti:
+[Informazioni supplementari](#supplemental-information) include le sezioni seguenti:
 
--   [Accesso alle impostazioni di Windows Update in Criteri di gruppo](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_OpenGPO), che fornisce indicazioni generali sull'utilizzo di editor gestione criteri di gruppo e informazioni sull'accesso alle estensioni di criteri di Update Services e le utilità di pianificazione di manutenzione impostazioni di Criteri di gruppo.
+-   [Accesso alle impostazioni di Windows Update in Criteri di gruppo](#accessing-the-windows-update-settings-in-group-policy), che fornisce indicazioni generali sull'utilizzo di editor gestione criteri di gruppo e informazioni sull'accesso alle estensioni di criteri di Update Services e le utilità di pianificazione di manutenzione impostazioni di Criteri di gruppo.
 
--   [Modifiche a WSUS pertinente per questa Guida](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_changes): per gli amministratori conoscono WSUS 3.2 e versioni precedenti, questa sezione viene fornita un breve riepilogo delle differenze principali tra la versione corrente e precedente di WSUS pertinente per questa Guida.
+-   [Modifiche a WSUS pertinente per questa Guida](#changes-to-wsus-relevant-to-this-guide): per gli amministratori conoscono WSUS 3.2 e versioni precedenti, questa sezione viene fornita un breve riepilogo delle differenze principali tra la versione corrente e precedente di WSUS pertinente per questa Guida.
 
--   [Termini e definizioni](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Terms): le definizioni per vari termini relativi ai servizi WSUS e aggiornamenti che vengono utilizzati in questa Guida.
+-   [Termini e definizioni](#terms-and-definitions): le definizioni per vari termini relativi ai servizi WSUS e aggiornamenti che vengono utilizzati in questa Guida.
 
-## <a name="BKMK_PolSettings"></a>Impostazioni dei criteri di gruppo per gli aggiornamenti client WSUS
+## <a name="group-policy-settings-for-wsus-client-updates"></a>Impostazioni di criteri di gruppo per gli aggiornamenti client WSUS
 Questa sezione vengono fornite informazioni su tre estensioni di criteri di gruppo. In queste estensioni sono disponibili le impostazioni che è possibile utilizzare per configurare come client WSUS possono interagire con Windows Update per ricevere gli aggiornamenti automatici.
 
--   [Configurazione computer &gt; impostazioni dei criteri di Windows Update](#BKMK_computerPol)
+-   [Configurazione computer &gt; impostazioni dei criteri di Windows Update](#computer-configuration--windows-update-policy-settings)
 
--   [Configurazione computer &gt; impostazioni dei criteri dell'utilità di pianificazione di manutenzione](#BKMK_MtncScheduler)
+-   [Configurazione computer &gt; impostazioni dei criteri dell'utilità di pianificazione di manutenzione](#computer-configuration--maintenance-scheduler-policy-settings)
 
--   [Configurazione utente &gt; impostazioni dei criteri di Windows Update](#BKMK_UserPol)
+-   [Configurazione utente &gt; impostazioni dei criteri di Windows Update](#user-configuration--windows-update-policy-settings)
 
 > [!NOTE]
-> In questo argomento si presuppone che già utilizza e si ha familiarità con criteri di gruppo. Se non ha familiarità con criteri di gruppo, si consiglia di rivedere le informazioni di [informazioni supplementari](#BKMK_Supplemental) sezione di questo documento prima di tentare di configurare le impostazioni di criteri per Windows Server Update SERVICES.
+> In questo argomento si presuppone che già utilizza e si ha familiarità con criteri di gruppo. Se non ha familiarità con criteri di gruppo, si consiglia di rivedere le informazioni di [informazioni supplementari](#supplemental-information) sezione di questo documento prima di tentare di configurare le impostazioni di criteri per Windows Server Update SERVICES.
 
-### <a name="BKMK_computerPol"></a>Configurazione computer > Impostazioni di criteri di Windows Update
+### <a name="computer-configuration--windows-update-policy-settings"></a>Configurazione computer > Impostazioni di criteri di Windows Update
 In questa sezione vengono forniti dettagli sulle impostazioni dei criteri basate sul computer seguenti:
 
--   [Consenti installazione immediata aggiornamenti automatici](#BKMK_comp1)
+-   [Consenti installazione immediata aggiornamenti automatici](#allow-automatic-updates-immediate-installation)
 
--   [Consentire a utenti non amministratori di ricevere le notifiche di aggiornamento](#BKMK_comp2)
+-   [Consentire a utenti non amministratori di ricevere le notifiche di aggiornamento](#allow-non-administrators-to-receive-update-notifications)
 
--   [Consenti aggiornamenti firmati da un percorso del servizio di Microsoft update intranet](#BKMK_comp3)
+-   [Consenti aggiornamenti firmati da un percorso del servizio di Microsoft update intranet](#allow-signed-updates-from-an-intranet-microsoft-update-service-location)
 
--   [Frequenza rilevamento aggiornamenti automatici](#BKMK_comp4)
+-   [Frequenza rilevamento aggiornamenti automatici](#automatic-updates-detection-frequency)
 
--   [Configurare gli aggiornamenti automatici](#BKMK_comp5)
+-   [Configurare gli aggiornamenti automatici](#configure-automatic-updates)
 
--   [Rimanda riavvio per installazioni pianificate](#BKMK_comp6)
+-   [Rimanda riavvio per installazioni pianificate](#delay-restart-for-scheduled-installations)
 
--   [Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#BKMK_comp7)
+-   [Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [Non visualizzare l'opzione "dell'opzione Installa aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#BKMK_comp8)
+-   [Non visualizzare l'opzione "dell'opzione Installa aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [Abilitare la destinazione lato client](#BKMK_comp9)
+-   [Abilitare la destinazione lato client](#enable-client-side-targeting)
 
--   [Abilitazione di risparmio di energia di Windows Update riattivare automaticamente il computer per installare gli aggiornamenti pianificati](#BKMK_comp10)
+-   [Abilitazione di risparmio di energia di Windows Update riattivare automaticamente il computer per installare gli aggiornamenti pianificati](#enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates)
 
--   [Nessun riavvio automatico agli utenti automatica pianificata Aggiorna installazioni](#BKMK_comp11)
+-   [Nessun riavvio automatico agli utenti automatica pianificata Aggiorna installazioni](#no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations)
 
--   [Richiedi nuovamente riavvio con installazioni pianificate per](#BKMK_comp12)
+-   [Richiedi nuovamente riavvio con installazioni pianificate per](#re-prompt-for-restart-with-scheduled-installations)
 
--   [Nuova pianificazione installazioni pianificate Aggiornamenti automatici](#BKMK_comp13)
+-   [Nuova pianificazione installazioni pianificate Aggiornamenti automatici](#reschedule-automatic-updates-scheduled-installations)
 
--   [Specificare percorso servizio di aggiornamento Microsoft intranet](#BKMK_comp14)
+-   [Specificare percorso servizio di aggiornamento Microsoft intranet](#specify-intranet-microsoft-update-service-location)
 
--   [Attiva aggiornamenti consigliati tramite aggiornamenti automatici](#BKMK_comp15)
+-   [Attiva aggiornamenti consigliati tramite aggiornamenti automatici](#turn-on-recommended-updates-via-automatic-updates)
 
--   [Abilitazione delle notifiche di Software](#BKMK_comp16)
+-   [Abilitazione delle notifiche di Software](#turn-on-software-notifications)
 
 Nell'Editor criteri di Windows Update per la configurazione basata sul computer si trovano nel percorso: *PolicyName* > **configurazione del Computer** > **criteri** > **modelli amministrativi**  >  **i componenti di Windows** > **Windows Update**.
 
 > [!NOTE]
 > Per impostazione predefinita, queste impostazioni non sono configurate.
 
-#### <a name="BKMK_comp1"></a>Consenti installazione immediata aggiornamenti automatici
+#### <a name="allow-automatic-updates-immediate-installation"></a>Consenti installazione immediata aggiornamenti automatici
 Specifica se aggiornamenti automatici installerà automaticamente gli aggiornamenti che non interrompere i servizi di Windows o il riavvio di Windows.
 
 |Supportato in:|Esclusione:|
@@ -108,7 +108,7 @@ Specifica se aggiornamenti automatici installerà automaticamente gli aggiorname
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp2"></a>Consentire a utenti non amministratori di ricevere le notifiche di aggiornamento
+#### <a name="allow-non-administrators-to-receive-update-notifications"></a>Consentire a utenti non amministratori di ricevere le notifiche di aggiornamento
 Specifica se gli utenti non amministratori riceveranno le notifiche di aggiornamento in base all'impostazione di criteri Configura Aggiornamenti automatici.
 
 |Supportato in:|Esclusione:|
@@ -130,7 +130,7 @@ Specifica se gli utenti non amministratori riceveranno le notifiche di aggiornam
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp3"></a>Consenti aggiornamenti firmati da un percorso del servizio di Microsoft update intranet
+#### <a name="allow-signed-updates-from-an-intranet-microsoft-update-service-location"></a>Consenti aggiornamenti firmati da un percorso del servizio Microsoft update intranet
 Specifica se aggiornamenti automatici accetta gli aggiornamenti che sono firmati da entità diverse da Microsoft durante l'aggiornamento è disponibile in un percorso del servizio intranet Microsoft update.
 
 |Supportato in:|Esclusione:|
@@ -173,7 +173,7 @@ Specifica se un riavvio del timer inizia sempre immediatamente dopo l'installazi
 
 **Opzioni:** se questa impostazione è abilitata, è possibile specificare la quantità di tempo che deve trascorrerà dopo gli aggiornamenti vengono installati prima che si verifichi un riavvio forzato del computer.
 
-#### <a name="BKMK_comp4"></a>Frequenza rilevamento aggiornamenti automatici
+#### <a name="automatic-updates-detection-frequency"></a>Frequenza rilevamento aggiornamenti automatici
 Specifica le ore di Windows viene utilizzato per determinare il tempo di attesa prima di verificare la disponibilità di aggiornamenti. Il tempo di attesa esatto è determinato dall'utilizzo di ore specificato qui meno zero e il 20% delle ore specificato. Ad esempio, se questo criterio viene utilizzato per specificare una frequenza di rilevamento di 20 ore, tutti i client a cui viene applicato il criterio verranno controllati gli aggiornamenti in un punto qualsiasi tra 16 e 20 ore.
 
 |Supportato in:|Esclusione:|
@@ -197,7 +197,7 @@ Specifica le ore di Windows viene utilizzato per determinare il tempo di attesa 
 
 **Opzioni:** se questa impostazione è abilitata, è possibile specificare l'intervallo di tempo (in ore) che Windows Update attesa prima del controllo degli aggiornamenti.
 
-#### <a name="BKMK_comp5"></a>Configurare gli aggiornamenti automatici
+#### <a name="configure-automatic-updates"></a>Configurare gli aggiornamenti automatici
 Specifica specificare se gli aggiornamenti automatici sono abilitati nel computer.
 
 |Supportato in:|Esclusione:|
@@ -212,10 +212,10 @@ Per utilizzare questa impostazione, selezionare **Enabled**, quindi nella **Opzi
 |-|-|
 |**Impostazione dello stato di criteri**|**Comportamento**|
 |**Non configurato**|Specifica che l'utilizzo di aggiornamenti automatici non è specificata a livello di criteri di gruppo. Tuttavia, un amministratore del computer può comunque configurare Aggiornamenti automatici nel Pannello di controllo.|
-|**Enabled**|Specifica che Windows riconosce quando il computer è online e utilizza la connessione Internet per cercare eventuali aggiornamenti di Windows Update.<br /><br />Quando abilitata, gli amministratori locali saranno possibile utilizzare il pannello di controllo di Windows Update per selezionare un'opzione di configurazione di propria scelta. Tuttavia, gli amministratori locali non potrà essere per disabilitare la configurazione per gli aggiornamenti automatici.<br /><br />-   **2 - avviso per il download e installazione**<br />    Quando Windows Update rileva gli aggiornamenti applicabili al computer, gli utenti verranno informati che gli aggiornamenti sono pronti per il download. Gli utenti possono quindi eseguire Windows Update per scaricare e installare eventuali aggiornamenti disponibili.<br />-   **3 - download automatico e avviso per l'installazione** (impostazione predefinita)<br />    Windows Update rileva che gli aggiornamenti e li scarica in background. l'utente non è una notifica o interrotta durante il processo. Dopo aver completato il download, gli utenti vengono informati pronto per l'installazione di aggiornamenti. Gli utenti possono quindi eseguire Windows Update per installare gli aggiornamenti scaricati.<br />-   **4 - download automatico e pianificazione dell'installazione**<br />    È possibile specificare la pianificazione utilizzando le opzioni in questa impostazione di criteri di gruppo. Se viene specificata alcuna pianificazione, la pianificazione predefinita per tutte le installazioni sarà ogni giorno alle 3:00. Se tutti gli aggiornamenti richiedono il riavvio per completare l'installazione, Windows verrà riavviato automaticamente il computer. (se un utente è connesso al computer quando è pronto per riavviare Windows, l'utente verrà notificato e la possibilità di ritardare il riavvio.) **Nota:** a partire da Windows 8, è possibile impostare gli aggiornamenti da installare durante la manutenzione automatica anziché utilizzare una pianificazione specifica legata a Windows Update. Manutenzione automatica verrà installare gli aggiornamenti quando il computer non è in uso ed evitare l'installazione degli aggiornamenti quando il computer è alimentato a batteria. Se non è in grado di installare gli aggiornamenti entro manutenzione automatica, Windows Update installerà gli aggiornamenti immediatamente. Gli utenti verranno quindi informati un riavvio in sospeso. Un riavvio in sospeso verrà eseguita solo se è presente alcun potenziale di perdita accidentale dei dati.    È possibile specificare le opzioni di pianificazione nelle impostazioni dell'editor di pianificazione di manutenzione che si trovano nel percorso, *PolicyName* > **computer Configuration**  >  **i criteri** > **modelli amministrativi** > **componenti di Windows** > **manutenzione Utilità di pianificazione** > **limite di attivazione manutenzione automatica**. Vedere la sezione di riferimento denominata: [Le impostazioni dell'utilità di pianificazione della manutenzione](#BKMK_MtncScheduler), per impostare i dettagli.    **5 - Consenti scelta impostazioni all'amministratore locale**<br />-Specifica se gli amministratori locali possono utilizzare il pannello di controllo degli aggiornamenti automatici per selezionare un'opzione di configurazione di propria scelta, ad esempio, se gli amministratori locali possono scegliere ora di installazione pianificata.<br />    Gli amministratori locali non saranno possibile disabilitare la configurazione per gli aggiornamenti automatici.|
+|**Enabled**|Specifica che Windows riconosce quando il computer è online e utilizza la connessione Internet per cercare eventuali aggiornamenti di Windows Update.<br /><br />Quando abilitata, gli amministratori locali saranno possibile utilizzare il pannello di controllo di Windows Update per selezionare un'opzione di configurazione di propria scelta. Tuttavia, gli amministratori locali non potrà essere per disabilitare la configurazione per gli aggiornamenti automatici.<br /><br />-   **2 - avviso per il download e installazione**<br />    Quando Windows Update rileva gli aggiornamenti applicabili al computer, gli utenti verranno informati che gli aggiornamenti sono pronti per il download. Gli utenti possono quindi eseguire Windows Update per scaricare e installare eventuali aggiornamenti disponibili.<br />-   **3 - download automatico e avviso per l'installazione** (impostazione predefinita)<br />    Windows Update rileva che gli aggiornamenti e li scarica in background. l'utente non è una notifica o interrotta durante il processo. Dopo aver completato il download, gli utenti vengono informati pronto per l'installazione di aggiornamenti. Gli utenti possono quindi eseguire Windows Update per installare gli aggiornamenti scaricati.<br />-   **4 - download automatico e pianificazione dell'installazione**<br />    È possibile specificare la pianificazione utilizzando le opzioni in questa impostazione di criteri di gruppo. Se viene specificata alcuna pianificazione, la pianificazione predefinita per tutte le installazioni sarà ogni giorno alle 3:00. Se tutti gli aggiornamenti richiedono il riavvio per completare l'installazione, Windows verrà riavviato automaticamente il computer. (se un utente è connesso al computer quando è pronto per riavviare Windows, l'utente verrà notificato e la possibilità di ritardare il riavvio.) **Nota:** a partire da Windows 8, è possibile impostare gli aggiornamenti da installare durante la manutenzione automatica anziché utilizzare una pianificazione specifica legata a Windows Update. Manutenzione automatica verrà installare gli aggiornamenti quando il computer non è in uso ed evitare l'installazione degli aggiornamenti quando il computer è alimentato a batteria. Se non è in grado di installare gli aggiornamenti entro manutenzione automatica, Windows Update installerà gli aggiornamenti immediatamente. Gli utenti verranno quindi informati un riavvio in sospeso. Un riavvio in sospeso verrà eseguita solo se è presente alcun potenziale di perdita accidentale dei dati.    È possibile specificare le opzioni di pianificazione nelle impostazioni dell'editor di pianificazione di manutenzione che si trovano nel percorso, *PolicyName* > **computer Configuration**  >  **i criteri** > **modelli amministrativi** > **componenti di Windows** > **manutenzione Utilità di pianificazione** > **limite di attivazione manutenzione automatica**. Vedere la sezione di riferimento denominata: [Le impostazioni dell'utilità di pianificazione della manutenzione](#computer-configuration--maintenance-scheduler-policy-settings), per impostare i dettagli.    **5 - Consenti scelta impostazioni all'amministratore locale**<br />-Specifica se gli amministratori locali possono utilizzare il pannello di controllo degli aggiornamenti automatici per selezionare un'opzione di configurazione di propria scelta, ad esempio, se gli amministratori locali possono scegliere ora di installazione pianificata.<br />    Gli amministratori locali non saranno possibile disabilitare la configurazione per gli aggiornamenti automatici.|
 |**Disabilitato**|Specifica che gli aggiornamenti client che sono disponibili dal servizio Windows Update pubblico devono essere scaricati da Internet e installati manualmente.|
 
-#### <a name="BKMK_comp6"></a>Rimanda riavvio per installazioni pianificate
+#### <a name="delay-restart-for-scheduled-installations"></a>Rimanda riavvio per installazioni pianificate
 Specifica la quantità di tempo di che attesa prima di procedere con il riavvio pianificato aggiornamenti automatici.
 
 |Supportato in:|Esclusione:|
@@ -234,7 +234,7 @@ Specifica la quantità di tempo di che attesa prima di procedere con il riavvio 
 
 **Opzioni:** se questa impostazione è abilitata, è possibile usare questa opzione per specificare la quantità di aggiornamenti automatici di tempo (in minuti) di attesa prima di procedere con il riavvio pianificato.
 
-#### <a name="BKMK_comp7"></a>Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog"></a>Non impostare l'opzione predefinita per installare gli aggiornamenti e spegni nella finestra di dialogo arresto verso il basso Windows
 Questa impostazione di criteri consente di specificare se il **Installa aggiornamenti e spegni** opzione è consentita come scelta predefinita nel **Spegni** la finestra di dialogo.
 
 |Supportato in:|Esclusione:|
@@ -274,7 +274,7 @@ Abilita questo criterio disabiliterà la funzionalità per recuperare periodicam
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp8"></a>Non visualizzare l'opzione "dell'opzione Installa aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog"></a>Installare aggiornamenti e spegni opzione non vengono visualizzati nella finestra di dialogo arresto verso il basso Windows
 Specifica se il **Installa aggiornamenti e spegni** opzione viene visualizzata nel **Spegni** la finestra di dialogo.
 
 |Supportato in:|Esclusione:|
@@ -290,7 +290,7 @@ Specifica se il **Installa aggiornamenti e spegni** opzione viene visualizzata n
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp9"></a>Abilitare la destinazione lato client
+#### <a name="enable-client-side-targeting"></a>Abilitare la destinazione lato client
 Specifica il nome del gruppo di destinazione o i nomi configurati nella console di WSUS che devono ricevere gli aggiornamenti da WSUS.
 
 |Supportato in:|Esclusione:|
@@ -312,7 +312,7 @@ Specifica il nome del gruppo di destinazione o i nomi configurati nella console 
 
 **Opzioni:** Utilizzare quest'area per specificare uno o più nomi di gruppo di destinazione.
 
-#### <a name="BKMK_comp10"></a>Abilitazione di risparmio di energia di Windows Update riattivare automaticamente il computer per installare gli aggiornamenti pianificati
+#### <a name="enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates"></a>Abilitazione di risparmio energia di Windows Update riattivare automaticamente il computer per installare aggiornamenti pianificati
 Specifica se Windows Update verranno utilizzate le funzionalità di risparmio energia di Windows o opzioni risparmio energia per riattivare automaticamente il computer dalla modalità di sospensione, se sono presenti aggiornamenti pianificati per l'installazione.
 
 Il computer verrà riattiva automaticamente solo se è configurato Windows Update per installare automaticamente gli aggiornamenti. Se il computer è in modalità sospensione quando si verifica il tempo di installazione pianificata e sono disponibili aggiornamenti da applicare, Windows Update utilizzerà le funzionalità di risparmio energia di Windows o opzioni risparmio energia per riattivare automaticamente il computer per installare gli aggiornamenti. Windows Update verrà inoltre riattivare il computer e installare un aggiornamento se si verifica una scadenza di installazione.
@@ -332,7 +332,7 @@ Il computer non attivano a meno che non sono disponibili aggiornamenti da instal
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp11"></a>Nessun riavvio automatico agli utenti automatica pianificata Aggiorna installazioni
+#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Escludi riavvio automatico per installazioni pianificate di Aggiornamenti automatici con gli utenti non connessi
 Specifica che per completare un'installazione pianificata, aggiornamenti automatici attenderà che il computer venga riavviato da qualsiasi utente che ha effettuato l'accesso, anziché il computer venga riavviato automaticamente.
 
 |Supportato in:|Esclusione:|
@@ -351,7 +351,7 @@ Specifica che per completare un'installazione pianificata, aggiornamenti automat
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp12"></a>Richiedi nuovamente riavvio con installazioni pianificate per
+#### <a name="re-prompt-for-restart-with-scheduled-installations"></a>Richiedi nuovamente riavvio per installazioni pianificate
 Specifica la quantità di tempo per gli aggiornamenti automatici di attesa prima di richiedere nuovamente un riavvio pianificato.
 
 |Supportato in:|Esclusione:|
@@ -373,7 +373,7 @@ Specifica la quantità di tempo per gli aggiornamenti automatici di attesa prima
 
 **Opzioni:** Quando abilitata, è possibile utilizzare questa opzione per specificare (in minuti) il periodo di tempo che deve trascorrerà prima che gli utenti vengono richiesto nuovamente di un riavvio pianificato.
 
-#### <a name="BKMK_comp13"></a>Nuova pianificazione installazioni pianificate Aggiornamenti automatici
+#### <a name="reschedule-automatic-updates-scheduled-installations"></a>Nuova pianificazione installazioni pianificate Aggiornamenti automatici
 Specifica la quantità di tempo di attesa dopo un avvio del computer, prima di procedere con l'installazione non è stato precedentemente eseguita tramite aggiornamenti automatici.
 
 Se lo stato è impostato su **non è configurato**, un'installazione pianificata si verificherà un minuto dopo che il computer è successivo avvio.
@@ -394,7 +394,7 @@ Se lo stato è impostato su **non è configurato**, un'installazione pianificata
 
 **Opzioni:** Quando questa impostazione dei criteri è abilitata, è possibile usarlo per specificare un numero di minuti dopo che il computer viene avviato successivamente, si verifica che un'installazione pianificata non è stato creato, viene inserita in precedenza.
 
-#### <a name="BKMK_comp14"></a>Specificare percorso servizio di aggiornamento Microsoft intranet
+#### <a name="specify-intranet-microsoft-update-service-location"></a>Specificare la posizione del servizio di aggiornamento Microsoft intranet
 Specifica un server intranet che ospiterà gli aggiornamenti da Microsoft Update. È quindi possibile utilizzare WSUS per aggiornare automaticamente i computer sulla rete.
 
 |Supportato in:|Esclusione:|
@@ -425,7 +425,7 @@ Per utilizzare questa impostazione, è necessario impostare due valori di nome s
 |Impostare il servizio di aggiornamento intranet per il rilevamento degli aggiornamenti|http://wsus01:8530|
 |Impostare il server delle statistiche intranet|http://IntranetUpd01|
 
-#### <a name="BKMK_comp15"></a>Attiva aggiornamenti consigliati tramite aggiornamenti automatici
+#### <a name="turn-on-recommended-updates-via-automatic-updates"></a>Attiva aggiornamenti consigliati tramite aggiornamenti automatici
 Specifica se aggiornamenti automatici recapiterà importante e gli aggiornamenti consigliati da WSUS.
 
 |Supportato in:|Esclusione:|
@@ -441,7 +441,7 @@ Specifica se aggiornamenti automatici recapiterà importante e gli aggiornamenti
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_comp16"></a>Abilitazione delle notifiche di Software
+#### <a name="turn-on-software-notifications"></a>Abilitazione delle notifiche del Software
 Questa impostazione di criteri consente di controllare se gli utenti visualizzano i messaggi di notifica avanzata dettagliate sul software disponibile dal servizio Microsoft Update. I messaggi di notifica avanzata comunicare il valore e promuovono l'installazione e utilizzo di software opzionale. Questa impostazione deve essere utilizzato in ambienti gestititi in cui consentire l'accesso dell'utente finale per il servizio Microsoft Update.
 
 Se non si usa il servizio Microsoft Update, l'impostazione di criteri "Software Notifications" non ha alcun effetto.
@@ -464,16 +464,16 @@ Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitat
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-### <a name="BKMK_MtncScheduler"></a>Configurazione computer > Impostazioni di criteri dell'utilità di pianificazione di manutenzione
+### <a name="computer-configuration--maintenance-scheduler-policy-settings"></a>Configurazione computer > impostazioni dei criteri dell'utilità di pianificazione di manutenzione
 Nell'impostazione Configura Aggiornamenti automatici, è stata selezionata l'opzione **4 - download automatico e pianificazione dell'installazione**, è possibile pianificare le impostazioni dell'utilità di pianificazione di manutenzione nella console GPMC per computer che eseguono Windows 8 e Windows RT. Se non è stata selezionata l'opzione 4 nell'impostazione "Configura Aggiornamenti automatici", non è necessario configurare queste impostazioni per gli aggiornamenti automatici. Le impostazioni dell'utilità di pianificazione di manutenzione si trovano nel percorso: *PolicyName* > **computer Configuration** > **criteri** > **modelli amministrativi**  >  **i componenti di Windows** > **utilità di pianificazione di manutenzione**. L'estensione dell'utilità di pianificazione di manutenzione dei criteri di gruppo contiene le seguenti impostazioni:
 
--   [Limite di attivazione manutenzione automatica](#BKMK_comp5a)
+-   [Limite di attivazione manutenzione automatica](#automatic-maintenance-activation-boundary)
 
--   [Ritardo casuale manutenzione automatica](#BKMK_comp5b)
+-   [Ritardo casuale manutenzione automatica](#automatic-maintenance-random-delay)
 
--   [Criteri di attivazione automatica](#BKMK_comp5c)
+-   [Criteri di attivazione automatica](#automatic-wakeup-policy)
 
-#### <a name="BKMK_comp5a"></a>Limite di attivazione manutenzione automatica
+#### <a name="automatic-maintenance-activation-boundary"></a>Limite di attivazione di manutenzione automatica
 Questo criterio consente di configurare l'impostazione "Limite di attivazione manutenzione automatica".
 
 Il limite di attivazione di manutenzione è l'orario pianificato giornaliero in cui inizia la manutenzione automatica.
@@ -492,7 +492,7 @@ Il limite di attivazione di manutenzione è l'orario pianificato giornaliero in 
 |**Enabled**|Attivando questa impostazione esegue l'override di qualsiasi impostazione predefinita o modificare le impostazioni configurate nei computer client **Pannello di controllo** > **Centro operativo** > **manutenzione automatica** (o in alcune versioni di client, **manutenzione**).|
 |**Disabilitato**|Se questa impostazione dei criteri è impostata su **disabilitati**, l'ora pianificata giornaliera come specificato nella **centro operativo** > **manutenzione automatica**, nel controllo Pannello verranno applicate.|
 
-#### <a name="BKMK_comp5b"></a>Ritardo casuale manutenzione automatica
+#### <a name="automatic-maintenance-random-delay"></a>Ritardo casuale manutenzione automatica
 Questa impostazione di criteri consente di configurare il ritardo casuale manutenzione automatica attivazione.
 
 Il ritardo casuale manutenzione è la quantità di tempo fino a cui manutenzione automatica verrà ritardare l'avvio al limite di attivazione. Questa impostazione è utile per le macchine virtuali in cui casuale manutenzione può essere un requisito di prestazioni.
@@ -513,7 +513,7 @@ Per impostazione predefinita, quando abilitato, il ritardo casuale manutenzione 
 |**Enabled**|Manutenzione automatica verrà ritardare l'avvio dal relativo limite di attivazione tramite fino alla quantità di tempo specificato.|
 |**Disabilitato**|Non viene applicato alcun ritardo casuale manutenzione automatica.|
 
-#### <a name="BKMK_comp5c"></a>Criteri di attivazione automatica
+#### <a name="automatic-wakeup-policy"></a>Criteri di attivazione automatica
 Questa impostazione di criteri consente di configurare i criteri di riattivazione manutenzione automatica.
 
 Il manutenzione dei criteri di attivazione consente di specificare se manutenzione automatica deve effettuare una richiesta di riattivazione per il computer operativo per la manutenzione pianificata giornaliera.
@@ -535,14 +535,14 @@ Il manutenzione dei criteri di attivazione consente di specificare se manutenzio
 |**Enabled**|Se si abilita questa impostazione dei criteri, manutenzione automatica tenterà di impostare un criterio di riattivazione del sistema operativo e creare una richiesta di riattivazione per ora pianificata giornaliera, se necessario.|
 |**Disabilitato**|Se si disabilita questa impostazione dei criteri, la riattivazione impostando come specificato nella **centro operativo** > **manutenzione automatica** Pannello controllo verranno applicate.|
 
-### <a name="BKMK_UserPol"></a>Configurazione utente > Impostazioni di criteri di Windows Update
+### <a name="user-configuration--windows-update-policy-settings"></a>Configurazione utente > Impostazioni di criteri di Windows Update
 In questa sezione vengono forniti dettagli sulle impostazioni di criteri basati sull'utente seguenti:
 
--   [Non visualizzare l'opzione "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#BKMK_Client1)
+-   [Non visualizzare l'opzione "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#BKMK_Client2)
+-   [Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [rimuovere l'accesso per usare tutte le funzionalità di Windows Update](#BKMK_Client3)
+-   [rimuovere l'accesso per usare tutte le funzionalità di Windows Update](#remove-access-to-use-all-windows-update-features)
 
 Nella console GPMC, le impostazioni utente per gli aggiornamenti automatici del computer si trovano nel percorso: *PolicyName* > **configurazione utente** > **criteri** > **modelli amministrativi**  >  **i componenti di Windows** > **Windows Update**. Le impostazioni sono elencate nello stesso ordine, così come appaiono nel computer configurazione delle estensioni di configurazione utente in Criteri di gruppo quando le **impostazioni** scheda dei criteri di Windows Update è selezionata per ordinare le impostazioni in ordine alfabetico.
 
@@ -552,7 +552,7 @@ Nella console GPMC, le impostazioni utente per gli aggiornamenti automatici del 
 > [!TIP]
 > per ognuna di queste impostazioni, è possibile utilizzare la procedura seguente per abilitare, disabilitare o spostarsi tra le impostazioni:
 
-#### <a name="BKMK_Client1"></a>Non visualizzare l'opzione "Installa aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog-box"></a>Non visualizzare l'opzione Installa aggiornamenti e spegni nella finestra di dialogo arresto di Windows
 Specifica se il **Installa aggiornamenti e spegni** opzione viene visualizzata nel **Spegni** la finestra di dialogo.
 
 |Supportato in:|Esclusione:|
@@ -568,7 +568,7 @@ Specifica se il **Installa aggiornamenti e spegni** opzione viene visualizzata n
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
 
-#### <a name="BKMK_Client2"></a>Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto verso il basso Windows
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog-box"></a>Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto di Windows
 Specifica se il **Installa aggiornamenti e spegni** l'opzione è consentita come scelta predefinita nel **Spegni** la finestra di dialogo.
 
 |Supportato in:|Esclusione:|
@@ -586,8 +586,8 @@ Specifica se il **Installa aggiornamenti e spegni** l'opzione è consentita come
 |**Disabilitato**|Specifica se il **Installa aggiornamenti e spegni** opzione sarà l'opzione predefinita nel **Spegni** la finestra di dialogo se gli aggiornamenti disponibili per l'installazione al momento l'utente seleziona l'opzione Arresta per arrestare il computer.|
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
-
-#### <a name="BKMK_Client3"></a>Rimuovere l'accesso per usare tutte le funzionalità di Windows Update
+    
+#### <a name="remove-access-to-use-all-windows-update-features"></a>Rimuovere l'accesso per l'utilizzo di tutte le funzionalità di Windows Update
 Questa impostazione consente di rimuovere l'accesso client di Windows Server Update SERVICES a Windows Update.
 
 |Supportato in:|Esclusione:|
@@ -603,10 +603,10 @@ Questa impostazione consente di rimuovere l'accesso client di Windows Server Upd
 
 **Opzioni:** Visualizzare **abilitato** nella tabella per questa impostazione.
 
-## <a name="BKMK_Supplemental"></a>Informazioni aggiuntive
+## <a name="supplemental-information"></a>Informazioni aggiuntive
 Questa sezione vengono fornite ulteriori informazioni sull'utilizzo di apertura e salvataggio delle impostazioni di WSUS in Criteri di gruppo e le definizioni dei termini utilizzati in questa Guida. Per gli amministratori familiari con le versioni precedenti di Windows Server Update SERVICES (WSUS 3.2 e versioni precedenti), è disponibile una tabella che riepiloga brevemente le differenze tra le versioni WSUS.
 
-### <a name="BKMK_OpenGPO"></a>Accesso alle impostazioni di Windows Update in Criteri di gruppo
+### <a name="accessing-the-windows-update-settings-in-group-policy"></a>Accesso alle impostazioni di Windows Update in Criteri di gruppo
 La procedura descritta di seguito viene descritto come aprire la console GPMC sul controller di dominio. Quindi, la procedura descrive come aprire un oggetto gruppo di criteri di a livello di dominio esistente (GPO) per la modifica, o creare un nuovo GPO a livello di dominio e aprirlo e modificarlo.
 
 > [!NOTE]
@@ -668,7 +668,7 @@ Per ulteriori informazioni sui criteri di gruppo, vedere [Cenni preliminari sui 
 
     -   Per annullare tutte le modifiche non salvate e chiudere la finestra di dialogo, fare clic su **Annulla**.
 
-### <a name="BKMK_changes"></a>Modifiche apportate a WSUS pertinente per questa Guida
+### <a name="changes-to-wsus-relevant-to-this-guide"></a>Modifiche apportate a WSUS pertinente per questa Guida
 Nella tabella seguente sono riepilogate le differenze principali tra le versioni correnti e precedenti di Windows Server Update SERVICES che sono rilevanti per questa Guida.
 
 |Versioni di Windows Server e Windows Server Update SERVICES|Descrizione|
@@ -676,7 +676,7 @@ Nella tabella seguente sono riepilogate le differenze principali tra le versioni
 | Windows Server 2012 R2 con Windows Server Update SERVICES 6.0 e versioni successive|a partire da Windows Server 2012, il ruolo server WSUS è integrato con il sistema operativo e le impostazioni di criteri di gruppo associate per i client WSUS sono, per impostazione predefinita, incluso nei criteri di gruppo.|
 | Windows Server 2008 (e versioni precedenti di Windows Server) con WSUS 3.2 e versioni precedenti|In Windows Server 2008 e versioni precedenti di Windows Server tramite WSUS 3.2 (e versioni precedenti), le impostazioni di criteri di gruppo che controllano i client WSUS non sono inclusi in questi sistemi operativi Windows Server. Le impostazioni dei criteri sono nel modello di amministrazione di WSUS, **Wuau. adm**. In queste versioni di server, il modello amministrativo di WSUS deve essere prima aggiunto nella Console di gestione di criteri di gruppo (GPMC) prima che possano essere configurate le impostazioni del client WSUS.|
 
-### <a name="BKMK_Terms"></a>Termini e definizioni
+### <a name="terms-and-definitions"></a>Termini e definizioni
 Seguito è riportato un elenco dei termini utilizzati in questa Guida.
 
 |Nome|Definizione|

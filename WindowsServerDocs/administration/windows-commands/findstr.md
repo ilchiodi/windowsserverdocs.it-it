@@ -13,20 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82ba51cdb49501492c1fa38c6c93933f4aee90d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea306127be9497c21a5b8efa9fd3f0fa2433014c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890462"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192674"
 ---
 # <a name="findstr"></a>findstr
 
-
-
 Cerca modelli di testo nei file.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -88,7 +86,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
     b.*ing
     ```
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Utilizzare gli spazi per separare più stringhe di ricerca, a meno che l'argomento è preceduto da **/c**.
 
@@ -127,4 +125,4 @@ findstr /s /i /m "\<comp.*" *.*
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

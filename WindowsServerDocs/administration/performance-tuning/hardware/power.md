@@ -7,22 +7,22 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5261c856a0a29f9f58526e4f9580a16bbed5be56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5fe91888188796c96d5da80e8f9bd3ed627b9d43
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874302"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564737"
 ---
 # <a name="server-hardware-power-considerations"></a>Considerazioni relative all'alimentazione Hardware server
 
 È importante riconoscere l'importanza crescente del risparmio energetico in ambienti di centri di azienda e i dati. Low energy utilizzo e prestazioni elevate sono spesso obiettivi in conflitto, ma con attenzione la selezione di componenti server, è possibile ottenere il giusto equilibrio tra di essi. Le sezioni seguenti sono elencate le linee guida per le caratteristiche di potenza e le funzionalità dei componenti hardware server.
 
-## <a name="processor-recommendations"></a>Consigli di processore
+## <a name="processor-recommendations"></a>Consigli per i processori
 
 Frequenza, operativo tensione, le dimensioni della cache e la tecnologia di processo influisce sul consumo di energia dei processori. I processori hanno una progettazione termica punto rating (TDP) che offre un'indicazione di base del consumo di energia relativo altri modelli.
 
-In generale, optare per il processore TDP più basso in grado di soddisfare gli obiettivi di prestazioni. Inoltre, più recente generazioni di processori sono in genere più energia efficiente e potrebbero esporre più stati di alimentazione per gli algoritmi di gestione dell'alimentazione di Windows, che consente una migliore gestione dell'alimentazione a tutti i livelli di prestazioni. O l'utilizzo di alcune delle nuove "cooperativo? tecniche di gestione di potenza che Microsoft ha sviluppato in collaborazione con i produttori di hardware.
+In generale, optare per il processore TDP più basso in grado di soddisfare gli obiettivi di prestazioni. Inoltre, più recente generazioni di processori sono in genere più energia efficiente e potrebbero esporre più stati di alimentazione per gli algoritmi di gestione dell'alimentazione di Windows, che consente una migliore gestione dell'alimentazione a tutti i livelli di prestazioni. O l'utilizzo di alcune delle tecniche di gestione dell'alimentazione "cooperativa" che Microsoft ha sviluppato in collaborazione con i produttori di hardware.
 
 Per altre informazioni sulle tecniche di gestione power cooperativo, vedere la sezione denominata controllo di prestazioni del processore collaborativo nel [Advanced Configuration and Power Interface Specification](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf).
 
@@ -36,7 +36,7 @@ A questo punto è disponibile memoria basso consumo, ma è necessario considerar
 ## <a name="disks-recommendations"></a>Consigli di dischi
 RPM superiore indica che il consumo di energia maggiore. Nelle unità SSD sono più efficiente rispetto alle unità rotazionali. Inoltre, le unità da 2,5 richiedono in genere meno energia rispetto alle unità da 3,5 pollici.
 
-## <a name="network-and-storage-adapter-recommendations"></a>Indicazioni sull'adattatore di archiviazione e rete
+## <a name="network-and-storage-adapter-recommendations"></a>Consigli per schede di rete e adattatori di archiviazione
 Alcune schede di ridurre il consumo di energia durante i periodi di inattività. Si tratta di una considerazione importante per schede di rete da 10 Gb e i collegamenti di archiviazione (4 a 8 Gb) di larghezza di banda elevata. Tale dispositivo può utilizzare grandi quantità di energia.
 
 
@@ -65,10 +65,10 @@ La terminologia di processore usata in questo argomento rifletta la gerarchia di
 -   Core
 -   processore logico
 
-![terminologia del processore](../media/perftune-guide-figure-1.png)
+![Terminologia del processore](../media/perftune-guide-figure-1.png)
 
 ## <a name="see-also"></a>Vedere anche
 - [Considerazioni sulle prestazioni dell'Hardware di server](index.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power/power-performance-tuning.md)
-- [Processore Power Management di ottimizzazione](power/processor-power-management-tuning.md)
-- [Parametri bilanciato piano consigliato](power/recommended-balanced-plan-parameters.md)
+- [Ottimizzazione di Risparmio energia del processore](power/processor-power-management-tuning.md)
+- [Parametri della combinazione per il risparmio di energia Bilanciato](power/recommended-balanced-plan-parameters.md)

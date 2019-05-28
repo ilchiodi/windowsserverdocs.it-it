@@ -4,21 +4,22 @@ description: Nuove funzionalità in Windows Server, versione 1809
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
+ms.date: 05/21/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 32868a4a5044360bf596e26d497138bccf6692bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d268550112236daecbe3dc1a9d9da21bc8ec67fb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834412"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976637"
 ---
 # <a name="whats-new-in-windows-server-version-1809"></a>Novità di Windows Server, versione 1809
 
 >Si applica a: Windows Server (Canale semestrale)
 
-Questo argomento descrive alcune delle nuove funzionalità in Windows Server, versione 1809. Per scoprire le novità in Windows Server 2019, vedi [Novità in Windows Server 2019](../get-started-19/whats-new-19.md).
+Per altre informazioni sulle funzionalità più recenti di Windows, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md). Questo argomento descrive alcune delle nuove funzionalità in Windows Server, versione 1809.
 
 ## <a name="container-networking-with-kubernetes"></a>Reti di contenitori con Kubernetes
 
@@ -41,7 +42,7 @@ Oltre a funzionalità nuove in Windows Server versione 1809, le seguenti nuove f
 * Contenitori di Linux in Windows
 * [Trasporto in Background Low Delay Extra (LEDBAT)](https://blogs.technet.microsoft.com/networking/2018/07/25/ledbat/)
 * Miglioramenti nelle prestazioni di rete per i carichi di lavoro virtuali
-* [Funzionalità di compatibilità delle App di Core server su richiesta (DOM) ](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
+* [Funzionalità di compatibilità delle App di Core server su richiesta (DOM)](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
 * [Servizio di migrazione di archiviazione (SMS)](../storage/whats-new-in-storage.md#storage-spaces-direct)
 * Replica archiviazione
 * Informazioni dettagliate di sistema 

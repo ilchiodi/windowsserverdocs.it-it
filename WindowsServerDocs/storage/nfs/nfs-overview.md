@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fb31cff44cac6bd66f9aa5b7234ff3fd3b215ccf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b0d339df588c784f8fe46f7dd0e6ce2975d0c48
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876302"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034659"
 ---
 # <a name="network-file-system-overview"></a>Panoramica di Network File System
 
@@ -51,7 +51,7 @@ Funzionalità nuove e modificate nel File System di rete include il supporto per
 
 |Caratteristica/funzionalità|Novità o aggiornamento|Descrizione|
 |---|---|---|
-|[NFS versione 4.1](#nfs-version-4.1)|Nuova|Una maggiore sicurezza, prestazioni e l'interoperabilità rispetto a NFS versione 3.|
+|[NFS versione 4.1](#nfs-version-41)|Nuova|Una maggiore sicurezza, prestazioni e l'interoperabilità rispetto a NFS versione 3.|
 |[Infrastruttura NFS](#nfs-infrastructure)|Aggiornamento|Migliora la distribuzione e la gestibilità e aumenta la protezione.|
 |[Disponibilità continua NFS versione 3](#nfs-version-3-continuous-availability)|Aggiornamento|Consente di migliorare la disponibilità continua sul client NFS versione 3.|
 |[Miglioramenti della distribuzione e facilità di gestione](#deployment-and-manageability-improvements)|Aggiornamento|Consente di distribuire e gestire NFS con nuovi cmdlet di Windows PowerShell e un nuovo provider WMI facilmente.|

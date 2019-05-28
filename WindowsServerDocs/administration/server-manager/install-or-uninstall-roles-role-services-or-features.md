@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32d356b3ae70b7b15f23a40247e73b4b8f61c3db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822372"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222980"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità
 
@@ -35,19 +35,19 @@ Per ulteriori informazioni su quali sono i ruoli, servizi ruolo e funzionalità,
   
 In questo argomento sono incluse le sezioni seguenti.  
   
--   [Installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#BKMK_installarfw)  
+-   [Installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)  
   
--   [Installare ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell](#BKMK_installwps)  
+-   [Installare ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell](#install-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Rimuovere ruoli, servizi ruolo e funzionalità tramite la rimozione guidata ruoli e funzionalità](#BKMK_removerrfw)  
+-   [rimuovere ruoli, servizi ruolo e funzionalità tramite la rimozione guidata ruoli e funzionalità](#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard)  
   
--   [Rimuovere ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell](#BKMK_removewps)  
+-   [Rimuovere ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell](#remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell](#BKMK_batch)  
+-   [Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell](#install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script)  
   
--   [Installare .NET Framework 3.5 e altre funzionalità su richiesta](#BKMK_FoD)  
+-   [Installare .NET Framework 3.5 e altre funzionalità su richiesta](#install-net-framework-35-and-other-features-on-demand)  
   
-## <a name="BKMK_installarfw"></a>Installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità  
+## <a name="install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard"></a>Installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità  
 In una singola sessione nel Aggiungi ruoli e funzionalità guidata, è possibile installare ruoli, servizi ruolo e funzionalità nel server locale, un server remoto che è stato aggiunto a Server Manager o un disco rigido virtuale offline. Per ulteriori informazioni su come aggiungere un server a Server Manager per gestire, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md).  
   
 > [!NOTE]  
@@ -72,7 +72,7 @@ In una singola sessione nel Aggiungi ruoli e funzionalità guidata, è possibile
     > [!NOTE]  
     > Per installare ruoli e funzionalità in dischi rigidi virtuali offline, i dischi rigidi virtuali di destinazione devono soddisfare i requisiti seguenti.  
     >   
-    > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#BKMK_installarfw).  
+    > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   I dischi rigidi virtuali non possono contenere più di un volume o una partizione di sistema.  
     > -   La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
     >   
@@ -95,7 +95,7 @@ In una singola sessione nel Aggiungi ruoli e funzionalità guidata, è possibile
   
 8.  Dopo aver fatto clic **installare**, il **lo stato dell'installazione** pagina viene visualizzato lo stato dell'installazione, risultati e messaggi quali avvisi, errori o passaggi di configurazione post-installazione sono obbligatorio per i ruoli o funzionalità che è stato installato. In Windows Server 2012 e versioni successive di Windows Server, è possibile chiudere l'aggiunta guidata ruoli e funzionalità mentre è ancora in corso e visualizzare i risultati di installazione o altri messaggi nell'installazione di **notifiche** area nella parte superiore la console di Server Manager. Fare clic su di **notifiche** icona del flag per visualizzare ulteriori dettagli sulle installazioni o altre attività in esecuzione in Server Manager.  
   
-## <a name="BKMK_installwps"></a>Installare ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell  
+## <a name="install-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Installare ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell  
 I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShell in modo simile al basata su GUI Aggiungi ruoli e funzionalità guidata e rimozione guidata ruoli e funzionalità, con una differenza importante. In Windows PowerShell, a differenza nell'Aggiunta guidata ruoli e funzionalità, gli strumenti di gestione e snap-in per un ruolo non presenti per impostazione predefinita. Per includere gli strumenti di gestione come parte dell'installazione di un ruolo, aggiungere il parametro `IncludeManagementTools` al cmdlet. Se si installa ruoli e funzionalità in un server che esegue l'opzione di installazione Server Core di Windows Server 2012 o versioni successive, è possibile aggiungere gli strumenti di gestione di un ruolo a un'installazione, ma gli strumenti di gestione basata su GUI e snap-in non può essere installato nei server che eseguono l'opzione di installazione Server Core di Windows Server. Solo della riga di comando e gli strumenti di gestione di Windows PowerShell possono essere installati l'opzione di installazione Server Core.  
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>Per installare ruoli e funzionalità mediante il cmdlet Install-WindowsFeature  
@@ -109,7 +109,7 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
     -   In Windows **avviare** schermata, fare clic sul riquadro per Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
   
-2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>**, in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
+2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>** , in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
   
     > [!NOTE]  
     > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
@@ -129,7 +129,7 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
     >   
     > Per installare ruoli e funzionalità in dischi rigidi virtuali offline, i dischi rigidi virtuali di destinazione devono soddisfare i requisiti seguenti.  
     >   
-    > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#BKMK_installarfw).  
+    > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   I dischi rigidi virtuali non possono contenere più di un volume o una partizione di sistema.  
     > -   La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
     >   
@@ -148,7 +148,7 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
 5.  Al termine dell'installazione, verificare l'installazione aprendo il **tutti i server** pagina in Server Manager, selezionando un server in cui è installato i ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
-## <a name="BKMK_removerrfw"></a>rimuovere ruoli, servizi ruolo e funzionalità tramite la rimozione guidata ruoli e funzionalità  
+## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>rimuovere ruoli, servizi ruolo e funzionalità tramite la rimozione guidata ruoli e funzionalità  
 In qualità di amministratore per disinstallare ruoli, servizi ruolo e funzionalità, è necessario essere connessi a un server. Se si è connessi al computer locale con un account che non dispone di diritti di amministratore nel server di destinazione della disinstallazione, fare clic con il pulsante destro del mouse sul server di destinazione nel riquadro **Server** e quindi scegliere **Account di gestione** per specificare un account con diritti di amministratore. Il server in cui si desidera montare un disco rigido virtuale offline deve essere aggiunto a Server Manager ed è necessario disporre di diritti di amministratore per tale server.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-remove-roles-and-features-wizard"></a>Per rimuovere ruoli e funzionalità tramite la rimozione guidata ruoli e funzionalità  
@@ -186,7 +186,7 @@ In qualità di amministratore per disinstallare ruoli, servizi ruolo e funzional
   
 7.  Dopo aver fatto clic **rimuovere**, il **stato rimozione** pagina Visualizza stato rimozione, risultati e messaggi quali avvisi, errori o procedure di configurazione post-rimozione necessarie, come il riavvio del server di destinazione. In Windows Server 2012 e versioni successive di Windows Server, è possibile chiudere la rimozione guidata ruoli e funzionalità mentre la rimozione è ancora nello stato di avanzamento e visualizzare i risultati della rimozione o altri messaggi nel **notifiche** area nella parte superiore del Console di Server Manager. Fare clic su di **notifiche** flag per visualizzare ulteriori dettagli sulle rimozioni o altre attività in esecuzione in Server Manager.  
   
-## <a name="BKMK_removewps"></a>rimuovere ruoli, servizi ruolo e funzionalità usando i cmdlet di Windows PowerShell  
+## <a name="remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Rimuovere ruoli, servizi ruolo e funzionalità con cmdlet di Windows PowerShell  
 I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShell in modo simile alla grafica Rimozione guidata ruoli e funzionalità, con una differenza importante. In Windows PowerShell, a differenza nella schermata Rimozione ruoli e funzionalità guidata, gli strumenti di gestione e snap-in per un ruolo non vengono rimossi per impostazione predefinita. Per includere gli strumenti di gestione come parte della rimozione di un ruolo, aggiungere il parametro `IncludeManagementTools` al cmdlet. Se si sta disinstallando funzionalità, ruoli e funzionalità da un server che esegue l'opzione di installazione Server Core di Windows Server 2012 o versione successiva di Windows Server, questo viene rimosso il parametro della riga di comando e gli strumenti di gestione di Windows PowerShell per i ruoli specificati.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>Per rimuovere ruoli e funzionalità mediante il cmdlet Uninstall-WindowsFeature  
@@ -200,7 +200,7 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
     -   Nella finestra di Windows **avviare** schermata, fare clic sul riquadro Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
   
-2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>**, in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
+2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>** , in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
   
     > [!NOTE]  
     > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
@@ -235,7 +235,7 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
 5.  Termine della rimozione, verificare che i ruoli e funzionalità sono stati effettivamente rimossi aprendo la **tutti i server** pagina in Server Manager, selezionando il server da cui sono stati rimossi ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
-## <a name="BKMK_batch"></a>Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell  
+## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell  
 Anche se è possibile utilizzare l'aggiunta guidata ruoli e funzionalità per installare ruoli, servizi ruolo e funzionalità in più di un server di destinazione in una singola sessione, è possibile usare uno script di Windows PowerShell per installare ruoli, servizi ruolo e funzionalità in più di destinazione server che si siano gestendo tramite Server Manager. Lo script che consente di eseguire una distribuzione di batch, questo processo viene chiamato, punta a un file di configurazione XML che è possibile creare facilmente tramite l'aggiunta guidata ruoli e funzionalità e scegliendo **Esporta impostazioni di configurazione** dopo raggiunto la procedura guidata per la **Conferma selezioni per l'installazione** pagina l'aggiunta guidata ruoli e funzionalità.  
   
 > [!IMPORTANT]  
@@ -294,18 +294,18 @@ Anche se è possibile utilizzare l'aggiunta guidata ruoli e funzionalità per in
   
 5.  Al termine dell'installazione, verificare l'installazione aprendo il **tutti i server** pagina in Server Manager, selezionando un server in cui è installato i ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet su un server specifico (`Get-WindowsFeature -computerName` <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
-## <a name="BKMK_FoD"></a>Installare .NET Framework 3.5 e altre funzionalità su richiesta  
+## <a name="install-net-framework-35-and-other-features-on-demand"></a>Installare .NET Framework 3.5 e altre funzionalità su richiesta  
 a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET Framework 3.5 (che include .NET Framework 2.0 e .NET Framework 3.0) non sono disponibili nel computer locale per impostazione predefinita. I file sono stati rimossi. I file per le funzionalità che sono stati rimossi in una configurazione Funzionalità su richiesta e i file delle funzionalità per .NET Framework 3.5 sono disponibili tramite Windows Update. Per impostazione predefinita, se i file di funzionalità non sono disponibili nel server di destinazione che esegue Windows Server 2012 o versioni successive, il processo di installazione cerca i file mancanti connettendosi a Windows Update. È possibile eseguire l'override del comportamento predefinito configurando un'impostazione di criteri di gruppo o specificando un percorso di origine alternativo durante l'installazione, se si installano usando Aggiungi ruoli e funzionalità guidata GUI o una riga di comando.  
   
 È possibile installare .NET Framework 3.5 in uno dei modi seguenti.  
   
--   Usare [Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature](#BKMK_dotnetcmdlet) per aggiungere il parametro `Source` e specificare un'origine da cui recuperare i file di funzionalità di .NET Framework 3.5. Se non si aggiunge il parametro `Source`, il processo di installazione determina innanzitutto se il percorso ai file di funzionalità è stato specificato da impostazioni di Criteri di gruppo, e in caso contrario, cerca i file di funzionalità mancanti tramite Windows Update.  
+-   Usare [Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature](#to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet) per aggiungere il parametro `Source` e specificare un'origine da cui recuperare i file di funzionalità di .NET Framework 3.5. Se non si aggiunge il parametro `Source`, il processo di installazione determina innanzitutto se il percorso ai file di funzionalità è stato specificato da impostazioni di Criteri di gruppo, e in caso contrario, cerca i file di funzionalità mancanti tramite Windows Update.  
   
--   Uso [per installare .NET Framework 3.5 tramite l'aggiunta guidata ruoli e funzionalità](#BKMK_arfw) per specificare un percorso di file di origine alternativo nella **Conferma opzioni di installazione** pagina l'aggiunta guidata ruoli e funzionalità.  
+-   Uso [per installare .NET Framework 3.5 tramite l'aggiunta guidata ruoli e funzionalità](#to-install-net-framework-35-by-using-the-add-roles-and-features-wizard) per specificare un percorso di file di origine alternativo nella **Conferma opzioni di installazione** pagina l'aggiunta guidata ruoli e funzionalità.  
   
--   Usare [Per installare .NET Framework 3.5 usando DISM](#BKMK_dism) per recuperare i file da Windows Update per impostazione predefinita oppure specificando un percorso di origine per il supporto di installazione.  
+-   Usare [Per installare .NET Framework 3.5 usando DISM](#to-install-net-framework-35-by-using-dism) per recuperare i file da Windows Update per impostazione predefinita oppure specificando un percorso di origine per il supporto di installazione.  
   
-[Configurare le origini alternative per i file di funzionalità in Criteri di gruppo](#BKMK_configgp) per .NET Framework 3.5 o altre funzionalità, se i file di funzionalità non sono presenti nel computer locale.  
+[Configurare le origini alternative per i file di funzionalità in Criteri di gruppo](#configure-alternate-sources-for-feature-files-in-group-policy) per .NET Framework 3.5 o altre funzionalità, se i file di funzionalità non sono presenti nel computer locale.  
   
 > [!IMPORTANT]  
 > Quando si installano i file di funzionalità da un'origine remota, il percorso di origine o la condivisione file deve concedere autorizzazioni di **Lettura** al gruppo **Everyone** (non consigliato per motivi di sicurezza) o all'account del computer (sistema locale) del server di destinazione. La concessione dell'accesso all'account utente non è sufficiente.  
@@ -314,7 +314,7 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
 >   
 > È possibile specificare un file WIM come origine del file di funzionalità alternativo quando si installano ruoli, servizi ruolo e funzionalità in un server fisico in esecuzione. Il percorso di origine per un file WIM dovrebbe essere nel formato seguente, con **WIM** come un prefisso e l'indice in cui i file di funzionalità come suffisso: **WIM:e:\Sources\Install.wim:4**. È tuttavia possibile utilizzare un file WIM direttamente come origine per l'installazione di ruoli, servizi ruolo e funzionalità di un disco rigido Virtuale offline. è necessario montare il disco rigido Virtuale offline e puntare al percorso di montaggio per i file di origine oppure puntare a una cartella che contiene una copia del contenuto del file WIM.  
   
-### <a name="BKMK_dotnetcmdlet"></a>Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature  
+### <a name="to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet"></a>Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature  
   
 1.  Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
   
@@ -335,7 +335,7 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
   
     Se si vuole che il comando usi Windows Update come origine per i file di funzionalità mancanti o se è già stata configurata un'origine predefinita mediante Criteri di gruppo, non è necessario aggiungere il parametro `Source` a meno che non si intenda specificare un'origine diversa.  
   
-### <a name="BKMK_arfw"></a>Installare .NET Framework 3.5 usando l'aggiunta guidata ruoli e funzionalità  
+### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>Installare .NET Framework 3.5 usando l'aggiunta guidata ruoli e funzionalità  
   
 1.  Nel **Manage** dal menu in Server Manager fare clic su **Aggiungi ruoli e funzionalità**.  
   
@@ -357,7 +357,7 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
   
 6.  Fare clic su **OK**e quindi su **Installa**.  
   
-### <a name="BKMK_dism"></a>Per installare .NET Framework 3.5 usando DISM  
+### <a name="to-install-net-framework-35-by-using-dism"></a>Per installare .NET Framework 3.5 utilizzando DISM  
   
 1.  Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
   
@@ -387,7 +387,7 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
     > [!NOTE]  
     > Per il comando DISM viene fatta distinzione tra maiuscole e minuscole.  
   
-### <a name="BKMK_configgp"></a>Configurare le origini alternative per i file di funzionalità in Criteri di gruppo  
+### <a name="configure-alternate-sources-for-feature-files-in-group-policy"></a>Configurare le origini alternative per i file di funzionalità in Criteri di gruppo  
 L'impostazione di Criteri di gruppo descritta in questa sezione specifica i percorsi di origine autorizzati per i file .NET Framework 3.5 e altri file di funzionalità rimossi nell'ambito di una configurazione Funzionalità su richiesta. L'impostazione dei criteri **specificare le impostazioni per l'installazione del componente facoltativo e il ripristino** si trova nel **computer Configurazione computer\Modelli amministrativi\Sistema** cartella nei criteri di gruppo Editor Criteri di gruppo locali o Console di gestione.  
   
 > [!NOTE]  
@@ -403,7 +403,7 @@ L'impostazione di Criteri di gruppo descritta in questa sezione specifica i perc
   
 3.  Nella casella di testo **Percorso file di origine alternativo** dell'area **Opzioni** specificare un percorso completo a una cartella condivisa o a un file WIM. Per specificare un file WIM come percorso file di origine alternativo, aggiungere il prefisso **WIM:** al percorso, quindi aggiungere l'indice dell'immagine da utilizzare nel file WIM come suffisso. Di seguito sono illustrati alcuni esempi di valori che è possibile specificare.  
   
-    -   percorso di una cartella condivisa: **\\\\***nome_server***\share\\* * * nome_cartella*  
+    -   percorso di una cartella condivisa: * *\\\\***nome_server***\share\\* * * nome_cartella*  
   
     -   percorso di un file WIM, in cui **3** rappresenta l'indice dell'immagine in cui si trovano i file delle funzionalità:  **WIM:\\\\***nome_server***\share\install.wim:3**  
   

@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 48319e057da9c815a77349bba34996f89973d85a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850502"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192774"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?
 
 >Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-> [!WARNING]
-> Se si prevede di caricare mai un Windows le macchine virtuali (VM) da locale ad Azure, Microsoft **solo le macchine virtuali di generazione 1** che sono in formato di file VHD e hanno un disco a dimensione fissa sono supportati. Per altre informazioni sul caricamento di un disco rigido virtuale Windows o VHDX, vedere [preparare un disco rigido virtuale Windows o vhdx prima del caricamento in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> [!NOTE]
+> Se si prevede di mai caricare una macchina virtuale di Windows (VM) da un'istanza locale di Microsoft Azure, la generazione 1 e generazione 2 macchine virtuali nel formato di file VHD e avere un disco a dimensione fissa sono supportati. Visualizzare [macchine virtuali di seconda generazione 2 in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) per altre informazioni sulle funzionalità di generazione 2 è supportata in Azure. Per altre informazioni sul caricamento di un disco rigido virtuale Windows o VHDX, vedere [preparare un disco rigido virtuale Windows o vhdx prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 La scelta per creare una generazione 1 o una macchina virtuale di generazione 2 dipende dal sistema operativo guest si desidera installare e il metodo di avvio da usare per distribuire la macchina virtuale. È consigliabile creare una macchina virtuale di generazione 2 per sfruttare i vantaggi delle funzionalità come avvio protetto, a meno che non viene soddisfatta una delle istruzioni seguenti:  
 

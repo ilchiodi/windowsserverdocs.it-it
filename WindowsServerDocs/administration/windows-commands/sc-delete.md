@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b60127cf957a30d147c9992c74c01e37e5b8bf89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68af5f118b2cc9d7941abddccd2a1bc7fde4c6d0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871922"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222929"
 ---
 # <a name="sc-delete"></a>Eliminazione di SC
 
@@ -26,7 +26,7 @@ ms.locfileid: "59871922"
 
 Elimina una sottochiave servizio dal Registro di sistema. Se il servizio è in esecuzione o se un altro processo ha un handle aperto al servizio, il servizio è contrassegnato per l'eliminazione.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -46,7 +46,7 @@ sc [<ServerName>] delete [<ServiceName>]
 
 Utilizzare **Aggiungi / Rimuovi programmi** su **Pannello di controllo** eliminare DHCP, DNS o altri servizi del sistema operativo predefinito. Si noti che **Aggiungi / Rimuovi programmi** non rimuoverà solo la sottochiave del Registro di sistema per il servizio, ma verrà anche disinstallare il servizio ed eliminare tutti i collegamenti a esso.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per eliminare la sottochiave servizio **nuovosrv** dal Registro di sistema del computer locale, digitare:
 ```
@@ -55,4 +55,4 @@ sc delete newserv
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

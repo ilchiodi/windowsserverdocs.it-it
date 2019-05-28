@@ -11,12 +11,12 @@ ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: 013328953321bc66b3fd30759e5be321eea32dde
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a398334700f7c292732207919b73a33145a6aae9
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824232"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222689"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Macchine virtuali FreeBSD supportate in Hyper-V
 
@@ -35,9 +35,9 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 |**Funzionalità**|**Versione del sistema operativo Windows Server**|**11.1/11.2**|**11.0**|**10.3**|**10.2**|**10.0 - 10.1**|**9.1 - 9.3, 8.4**|
 |-|-|-|-|-|-|-|-|
 |**Disponibilità**||Incorporata|Incorporata|Incorporata|Incorporata|Incorporata|[Porte](https://svnweb.freebsd.org/ports/branches/2015Q1/emulators/hyperv-is/) |
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
 |Ora esatta di Windows Server 2016|2016|&#10004;||||||
-|**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**||||||||
+|**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**||||||||
 |Frame jumbo|2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|
 |La codifica VLAN e trunking|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Migrazione in tempo reale|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -46,28 +46,28 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 |Segmentazione di TCP e gli offload Checksum|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Grandi ricezione Offload (e)|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |SR-IOV|2016|||||||
-|**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||Nota 1|Nota 1|Nota 1|Nota 1|Nota 1, 2|Nota 1, 2|
+|**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||Nota 1|Nota 1|Nota 1|Nota 1|Nota 1, 2|Nota 1, 2|
 |Ridimensionamento di VHDX|2016, 2012 R2|&#10004; Nota 7|&#10004; Nota 7|||||
 |Fibre Channel virtuale|2016, 2012 R2|||||||
 |Backup della macchina virtuale in tempo reale|2016, 2012 R2|&#10004;||||||
 |Supporto per TRIM|2016, 2012 R2|&#10004;||||||
 |WWN SCSI|2016, 2012 R2|||||||
-|**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||||||
+|**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
 |Supporto PAE Kernel|2016, 2012 R2, 2012, 2008 R2|||||||
 |Configurazione di gap MMIO|2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Memoria dinamica - aggiunta a caldo|2016, 2012 R2, 2012|||||||
 |Memoria dinamica - Ballooning|2016, 2012 R2, 2012|||||||
 |Ridimensionamento della memoria di runtime|2016|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Dispositivo video specifico Hyper-V|2016, 2012 R2, 2012, 2008 R2|||||||
-|**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||||||
+|**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
 |Coppia chiave/valore|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Nota 6|&#10004; Nota 5, 6|&#10004;Nota 6|
 |Interrupt non mascherabile|2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copiare i file dall'host al guest|2016, 2012 R2|||||||
 |comando lsvmbus|2016, 2012 R2, 2012, 2008 R2|||||||
 |Socket di Hyper-V|2016|||||||
 |Pass-through/DDA PCI|2016|&#10004;||||||
-|**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**||||||||
+|**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
 |Avvio UEFI|2016, 2012 R2|&#10004;||||||
 |Avvio protetto|2016|||||||
 

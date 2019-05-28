@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 1245b88a42b80218b5557dc89f2b97b5d0059d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852542"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034677"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Macchine virtuali schermate per i tenant - creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -35,7 +35,7 @@ Per prepararsi alla creazione di un file di dati di schermatura, procedere come 
 
 È quindi possibile creare il file di dati di schermatura:
 
-- [Creare un file di dati di schermatura e aggiungere guardians](#create-a-shielding-data-file-and-add-guardians)
+- [Creare un file di dati di schermatura e aggiungere guardians](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
 
 ## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>Ottenere un certificato per la connessione Desktop remoto
@@ -211,7 +211,7 @@ Questo comando crea una coppia di certificati di firma e crittografia nell'archi
 Saranno necessari i certificati del proprietario e le relative chiavi private per unshield una macchina virtuale, pertanto è necessario verificare questi certificati vengono sottoposti a backup e protetti dal rischio di furto.
 Un utente malintenzionato con accesso ai certificati proprietario possibile utilizzarli per la macchina virtuale schermata di avvio o modificarne la configurazione di sicurezza.
 
-Se si desidera importare le informazioni di sorveglianza da un'infrastruttura sorvegliata in cui si desidera eseguire la macchina virtuale (il Data Center primario, i Data Center di backup e così via), eseguire il comando seguente per ogni [file di metadati recuperati dalle infrastrutture sorvegliate ](#Select-trusted-fabrics).
+Se si desidera importare le informazioni di sorveglianza da un'infrastruttura sorvegliata in cui si desidera eseguire la macchina virtuale (il Data Center primario, i Data Center di backup e così via), eseguire il comando seguente per ogni [file di metadati recuperati dalle infrastrutture sorvegliate ](#select-trusted-fabrics).
 
 ```powershell
 Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
@@ -220,7 +220,7 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 > [!TIP]
 > Se sono utilizzati i certificati autofirmati o certificati registrati con HGS è scaduto, potrebbe essere necessario usare il `-AllowUntrustedRoot` e/o `-AllowExpired` flag con il comando Import-HgsGuardian per ignorare i controlli di sicurezza.
 
-È necessario anche per [ottenere un catalogo delle firme del volume](#Get-the-volume-signature-catalog-file) per ogni disco di modello da usare con questo file di dati di schermatura e un [file di risposte i dati di schermatura](#Create-an-answer-file) per consentire al sistema operativo completare il specializzazione attività automaticamente.
+È necessario anche per [ottenere un catalogo delle firme del volume](#get-the-volume-signature-catalog-file) per ogni disco di modello da usare con questo file di dati di schermatura e un [file di risposte i dati di schermatura](#create-an-answer-file) per consentire al sistema operativo completare il specializzazione attività automaticamente.
 Infine, decidere se la macchina virtuale deve essere completamente schermate o semplicemente abilitate per vTPM.
 Uso `-Policy Shielded` per una macchina virtuale schermata completamente o `-Policy EncryptionSupported` per macchina virtuale che consente le connessioni di console di base e PowerShell Direct è abilitato un vTPM.
 
@@ -242,5 +242,5 @@ Vedere la documentazione del cmdlet relativa [New-ShieldingDataFile](https://doc
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Distribuire VM schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

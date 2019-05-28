@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f62208d6576890529be80b1c6cb3cc073a2b4e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 579b0772e4642389b90aa370dad80a3eebea9d34
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853362"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564722"
 ---
 # <a name="ksetupremoverealm"></a>ksetup:removerealm
 
@@ -46,7 +46,7 @@ Poiché questa operazione ripristina le informazioni DNS e rimuoverlo potrebbe r
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Erroneamente impostato il nome dell'area di autenticazione dall'errore di ortografia ". COM? nel computer locale per CORP. CONTOSO. CON
+Erroneamente impostare il nome dell'area di autenticazione dall'ortografia errata ". com" nel computer locale per CORP. CONTOSO. CON
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```
@@ -60,4 +60,4 @@ Verificare la rimozione eseguendo **che ksetup** ed esaminare l'output.
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:setrealm](ksetup-setrealm.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

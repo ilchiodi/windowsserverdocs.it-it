@@ -1,33 +1,32 @@
 ---
 title: Funzionalità rimosse o deprecate in Windows Server 2016
-description: Caratteristiche e funzionalità rimosse o di cui è pianificata la rimozione nelle versioni.
-ms.custom: na
+description: Elenco di caratteristiche e funzionalità in Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o ne è pianificata la potenziale rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale.
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/21/2019
 ms.assetid: 5d10c5f9-ebac-49a0-b808-c0b1702e0437
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 20178a3be14c076623f647fa139e013528de9a69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858162"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976600"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Funzionalità rimosse o deprecate in Windows Server 2016
 
 >Si applica a: Windows Server 2016
 
-Di seguito è riportato un elenco di caratteristiche e funzionalità di Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o di cui è pianificata la potenziale rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale. L'elenco è soggetto a modifiche nelle versioni successive e potrebbe non includere tutte le funzioni o funzionalità deprecate. Per ulteriori dettagli su una particolare caratteristica o funzionalità e la relativa sostituzione, vedere la documentazione relativa a tale funzionalità.  
+Di seguito è riportato un elenco di caratteristiche e funzionalità di Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o di cui è pianificata la potenziale rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale. L'elenco è soggetto a modifiche nelle versioni successive e potrebbe non includere tutte le funzioni o funzionalità deprecate. Per ulteriori dettagli su una particolare caratteristica o funzionalità e la relativa sostituzione, vedere la documentazione relativa a tale funzionalità.
 
-## <a name="features-removed-from-windows-server-2016"></a>Funzionalità rimosse da Windows Server 2016 
+Per informazioni su cosa è stato rimossa o deprecata nelle versioni più recenti, vedi [funzionalità rimosse o pianificata la sostituzione di avvio di Windows Server 2019](../get-started-19/removed-features-19.md).
+
+## <a name="features-removed-from-windows-server-2016"></a>Funzionalità rimosse da Windows Server 2016
+
 Le caratteristiche e le funzionalità seguenti sono state rimosse da questa versione di Windows Server 2016. Utilizzo,codice o applicazioni che dipendono da queste funzionalità non saranno disponibili in questa versione, a meno di utilizzare un metodo alternativo.  
 
 > [!NOTE]  

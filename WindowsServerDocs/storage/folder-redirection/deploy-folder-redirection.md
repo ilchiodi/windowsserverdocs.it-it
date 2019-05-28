@@ -8,23 +8,23 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 33942db34314e0ff60b24d4b9c8e5e33b4ca92fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831572"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222740"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Distribuire reindirizzamento cartelle con i file Offline
 
->Si applica a: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Vista
+>Si applica a: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2
 
 Questo argomento descrive come usare Windows Server per distribuire il reindirizzamento delle cartelle con i file Offline nei computer client Windows.
 
 Per un elenco delle modifiche recenti apportate a questo argomento, vedere [cronologia modifiche](#change-history).
 
 >[!IMPORTANT]
->A causa della protezione modifiche apportate [MS16 072](https://support.microsoft.com/en-us/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), sono stati aggiornati [passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3:-create-a-gpo-for-folder-redirection) di questo argomento in modo che Windows possa applicare correttamente i criteri di reindirizzamento cartelle (e non verranno ripristinate le cartelle reindirizzate nei computer interessati).
+>A causa della protezione modifiche apportate [MS16 072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), sono stati aggiornati [passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3-create-a-gpo-for-folder-redirection) di questo argomento in modo che Windows possa applicare correttamente i criteri di reindirizzamento cartelle (e non verranno ripristinate le cartelle reindirizzate nei computer interessati).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Il reindirizzamento delle cartelle richiede un computer basato su x86 o x64. non
 Il reindirizzamento delle cartelle presenta i requisiti software seguenti:
 
 - Per amministrare il reindirizzamento delle cartelle, è necessario essere connessi come membro del gruppo di sicurezza amministratori di dominio, il gruppo di sicurezza amministratori dell'organizzazione o il gruppo di sicurezza Group Policy Creator Owners.
-- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008.
+- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008.
 - I computer client devono essere aggiunti ai Servizi di dominio Active Directory in corso di gestione.
 - Deve essere disponibile un computer in cui siano installati l'editor Gestione Criteri di gruppo e il Centro amministrativo di Active Directory.
 - Un file server deve essere disponibile per ospitare cartelle reindirizzate.
@@ -70,13 +70,13 @@ Se si dispone già di una condivisione file per le cartelle reindirizzate, usare
 >[!NOTE]
 >Alcune funzionalità potrebbero differire o non essere disponibili se si crea la condivisione file su un server che esegue un'altra versione di Windows Server.
 
-Di seguito viene illustrato come creare una condivisione file in Windows Server 2012 e Windows Server 2016:
+Di seguito viene illustrato come creare una condivisione file in Windows Server 2012, Windows Server 2016 e Windows Server 2019:
 
 1. Nel riquadro di spostamento di Server Manager, selezionare **servizi File e archiviazione**, quindi selezionare **condivisioni** per visualizzare la pagina condivisioni.
 2. Nel **condivisioni** riquadro, seleziona **attività**, quindi selezionare **nuova condivisione**. Verrà visualizzata la Creazione guidata nuova condivisione.
 3. Nel **selezionare il profilo** pagina, selezionare **condivisione SMB-rapida**. Se si dispone di gestione risorse File Server installato e si usano le proprietà di gestione di cartella, selezionare invece **condivisione SMB - avanzata**.
 4. Nella pagina **Percorso condivisione** selezionare il server e il volume sui quali creare la condivisione.
-5. Nel **nome condivisione** , digitare un nome per la condivisione (, ad esempio, **utenti$**) nel **nome condivisione** casella.
+5. Nel **nome condivisione** , digitare un nome per la condivisione (, ad esempio, **utenti$** ) nel **nome condivisione** casella.
     >[!TIP]
     >Quando si crea la condivisione, nasconderla inserendo ```$``` dopo il nome condivisione. Questa nasconderà la condivisione nascosta dai browser casuali.
 6. Nel **altre impostazioni** pagina, deselezionare la casella di controllo Abilita disponibilità continua, se presente e, facoltativamente, selezionare la **Abilita enumerazione basata sull'accesso** e **crittografa accesso ai dati** caselle di controllo.
@@ -93,50 +93,15 @@ Di seguito viene illustrato come creare una condivisione file in Windows Server 
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Le autorizzazioni necessarie per il file di condividono che ospita le cartelle reindirizzate
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Account utente</td>
-<td>Accesso</td>
-<td>Si applica a</td>
-</tr>
-<tr class="even">
-<td>Sistema</td>
-<td>Controllo completo</td>
-<td>Questa cartella, le sottocartelle e i file</td>
-</tr>
-<tr class="odd">
-<td>Administrators</td>
-<td>Controllo completo</td>
-<td>Solo questa cartella</td>
-</tr>
-<tr class="even">
-<td>Autore/proprietario</td>
-<td>Controllo completo</td>
-<td>Solo sottocartelle e file</td>
-</tr>
-<tr class="odd">
-<td>Gruppo di sicurezza degli utenti che devono inserire dati nella condivisione (utenti di reindirizzamento cartelle)</td>
-<td>Elenco cartelle/lettura dati<sup>1</sup><br />
-<br />
-Creazione cartelle/aggiunta dati<sup>1</sup><br />
-<br />
-Leggere gli attributi<sup>1</sup><br />
-<br />
-Lettura attributi estesi<sup>1</sup><br />
-<br />
-Le autorizzazioni di lettura<sup>1</sup></td>
-<td>Solo questa cartella</td>
-</tr>
-<tr class="even">
-<td>Altri gruppi e account</td>
-<td>Nessuno (rimuovere)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
-1 Autorizzazioni avanzate
+|Account utente  |Accesso  |Si applica a  |
+|---------|---------|---------|
+| Account utente | Accesso | Si applica a |
+|Sistema     | Controllo completo        |    Questa cartella, le sottocartelle e i file     |
+|Administrators     | Controllo completo       | Solo questa cartella        |
+|Autore/proprietario     |   Controllo completo      |   Solo sottocartelle e file      |
+|Gruppo di sicurezza degli utenti che devono inserire dati nella condivisione (utenti di reindirizzamento cartelle)     |   Elenco cartelle / lettura dati *(autorizzazioni avanzate)* <br /><br />Creazione cartelle / Aggiunta dati *(autorizzazioni avanzate)* <br /><br />Leggere gli attributi *(autorizzazioni avanzate)* <br /><br />Lettura attributi estesi *(autorizzazioni avanzate)* <br /><br />Le autorizzazioni di lettura *(autorizzazioni avanzate)*      |  Solo questa cartella       |
+|Altri gruppi e account     |  Nessuno (rimuovere)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle
 
@@ -225,9 +190,9 @@ Di seguito viene illustrato come testare il reindirizzamento delle cartelle:
 
 La tabella seguente include un riepilogo di alcune delle più importanti modifiche apportate a questo argomento.
 
-|Data|Descrizione|Motivo|
+|Date|Descrizione|`Reason`|
 |---|---|---|
-|18 gennaio 2017|Aggiungere un passaggio per [passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3:-create-a-gpo-for-folder-redirection) per delegare le autorizzazioni di lettura agli utenti autenticati, che è ora necessario a causa di un aggiornamento della sicurezza dei criteri di gruppo.|Commenti e suggerimenti dei clienti.|
+|18 gennaio 2017|Aggiungere un passaggio per [passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3-create-a-gpo-for-folder-redirection) per delegare le autorizzazioni di lettura agli utenti autenticati, che è ora necessario a causa di un aggiornamento della sicurezza dei criteri di gruppo.|Commenti e suggerimenti dei clienti.|
 
 ## <a name="more-information"></a>Altre informazioni
 

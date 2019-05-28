@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6099dac7d77e37b761785b4f58b6106472e5ba1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f30bfcd531731e3a0d14350536ddf418c50f3ea0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827952"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475944"
 ---
 # <a name="troubleshoot-user-profiles-with-events"></a>Risolvere i problemi di profili utente con eventi
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server (canale semestrale).
 
 Questo argomento descrive come risolvere i problemi durante il caricamento e scaricamento dei profili utente usando gli eventi e log di traccia. Le sezioni seguenti descrivono come usare i tre registri eventi che registrano informazioni sul profilo utente.
 
@@ -58,7 +58,7 @@ Di seguito viene illustrato come abilitare e visualizzare analisi e i registri d
 1. Nel **azioni** riquadro del Visualizzatore eventi, selezionare **View**e quindi selezionare **Visualizza registri analitici e Debug**.
 2. Passare a **registri applicazioni e servizi**, quindi **Microsoft**, quindi **Windows**, quindi **User Profile Service**, quindi  **Diagnostica**.
 3. Selezionare **Attiva registro** e quindi selezionare **Yes**. In questo modo il log di diagnostica, che verrà avviata la registrazione.
-4. Se sono necessarie informazioni ancora più dettagliate, vedere [passaggio 4: Creazione e la decodifica di una traccia](#step-4:-creating-and-decoding-a-trace) per altre informazioni su come creare un log di traccia.
+4. Se sono necessarie informazioni ancora più dettagliate, vedere [passaggio 4: Creazione e la decodifica di una traccia](#step-4-creating-and-decoding-a-trace) per altre informazioni su come creare un log di traccia.
 5. Dopo averli completati alla risoluzione del problema, passare al **diagnostica** log, selezionare **Disattiva registro**, selezionare **visualizzazione** e quindi deselezionare la **Mostra Registri di Debug e analitico** casella di controllo per nascondere analitiche e la registrazione debug.
 
 ## <a name="step-4-creating-and-decoding-a-trace"></a>Passaggio 4: Creazione e la decodifica di una traccia
@@ -93,4 +93,4 @@ Di seguito viene illustrato come creare e la decodifica di una traccia per il se
 
 ## <a name="more-information"></a>Altre informazioni
 
-* [Distribuire i profili utente mobili](deploy-roaming-user-profiles.md)
+* [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)

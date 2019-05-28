@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: cb30c703adb7e3a791e41caab4561300faa8fcd3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845022"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034447"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Eseguire la migrazione delle licenze CAL Servizi Desktop remoto
 
@@ -27,12 +27,12 @@ Sono disponibili tre opzioni per eseguire la migrazione delle licenze CAL Serviz
 2. Usando un web browser: Questo metodo consente la migrazione quando il server che esegue lo strumento Gestione licenze Desktop remoto non dispone di connettività internet, ma l'amministratore abbia la connettività internet in un dispositivo separato. In Gestione guidata licenze CAL Servizi Desktop remoto viene visualizzato l'URL per il metodo di migrazione di Web. 
 3. Utilizzo di un telefono: Questo metodo consente all'amministratore completare il processo di migrazione tramite telefono con un rappresentante Microsoft. Il numero di telefono appropriato viene determinato dal paese/area geografica che è stato scelto l'attivazione guidata Server e viene visualizzato in Gestione guidata licenze CAL Servizi Desktop remoto.
 
-In questo articolo, il [metodo di migrazione di servizi desktop remoto stabilire CAL](#establish-RDS-CAL-migration-method) evidenzia i passaggi generali comuni tra qualsiasi metodo di migrazione CAL RDS, mentre [licenze CAL Servizi Desktop remoto di eseguire la migrazione](#migrate-RDS-CALs) evidenzia i passaggi specifici per ogni migrazione metodo.
+In questo articolo, il [metodo di migrazione di servizi desktop remoto stabilire CAL](#establish-rds-cal-migration-method) evidenzia i passaggi generali comuni tra qualsiasi metodo di migrazione CAL RDS, mentre [licenze CAL Servizi Desktop remoto di eseguire la migrazione](#migrate-rds-cals) evidenzia i passaggi specifici per ogni migrazione metodo.
 
 Indipendentemente dal metodo di migrazione, è necessario, come minimo, essere un membro del gruppo Administrators locale per eseguire i passaggi della migrazione.
 
-
 ## <a name="establish-rds-cal-migration-method"></a>Stabilire il metodo di migrazione di licenze CAL Servizi Desktop remoto
+
 1. Nel server licenze aprire **gestione licenze Desktop remoto**. (Fare clic su **Start > Strumenti di amministrazione**. Immettere il **Servizi Desktop remoto** directory e avviare **gestione licenze Desktop remoto**.)
 2. Verificare il metodo di connessione per il server licenze Desktop remoto: pulsante destro del mouse il server licenze a cui si desidera eseguire la migrazione di licenze CAL Servizi Desktop remoto e quindi fare clic su **proprietà**. Nel **Connection Method** scheda, verificare le **Connection method** -è possibile modificarlo nel menu a discesa. Fare clic su **OK**.
 3. Fare clic sul server licenze a cui si desidera eseguire la migrazione di licenze CAL Servizi Desktop remoto e quindi fare clic su **gestire le licenze CAL Servizi Desktop remoto**.
@@ -54,12 +54,14 @@ Indipendentemente dal metodo di migrazione, è necessario, come minimo, essere u
 Il passaggio successivo è eseguire la migrazione di licenze CAL: usare le informazioni seguenti per completare la procedura guidata. Si noti che ciò che viene visualizzato nella procedura guidata dipende il metodo di connessione che è stata identificata nel passaggio 2 precedente.
 
 ## <a name="migrate-rds-cals"></a>Eseguire la migrazione di licenze CAL Servizi Desktop remoto
+
 Esistono tre meccanismi per eseguire la migrazione delle licenze per il server licenze di destinazione. continuare la procedura corrispondente per il **metodo di connessione** verificati nel passaggio 2:
-  - [Metodo di connessione automatica](#Automatic-connection-method)
-  - [Usando un web browser](#Using-a-web-browser)
-  - [Telefono.](#Using-a-telephone)
+  - [Metodo di connessione automatica](#automatic-connection-method)
+  - [Usando un web browser](#using-a-web-browser)
+  - [Telefono.](#using-a-telephone)
 
 ### <a name="automatic-connection-method"></a>Metodo di connessione automatica
+
 1. Nel **programma di licenza** pagina, selezionare il programma appropriato tramite cui sono state acquistate le licenze CAL Servizi Desktop remoto, quindi fare clic su **successivo**.
 2. Immettere le informazioni necessarie (in genere un codice di licenza o un numero di contratto, a seconda il **programma di licenza**), quindi fare clic su **successivo**. Consultare la documentazione fornita al momento dell'acquisto delle licenze CAL Servizi Desktop remoto.
 4. Selezionare la versione appropriata del prodotto, il tipo di licenza e quantità di licenze CAL Servizi Desktop remoto per l'ambiente in base al contratto di acquisto CAL RDS e quindi fare clic su **successivo**.

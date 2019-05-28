@@ -7,18 +7,18 @@ ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: 45d8364adf9d3db24a8e6d8f7bc91178ce7d1551
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b9271ceac99ac9b21cbfac902ba133d66815df4
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881132"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476120"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>SMB multicanale semplificato e reti di cluster Multi-NIC
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
-SMB multicanale e Multi - semplificati<abbr title="scheda di interfaccia di rete">Interfaccia di rete</abbr> le reti del Cluster è una nuova funzionalità di Windows Server 2016 che consente l'uso di più schede di rete nella stessa subnet di rete di cluster e abilita automaticamente SMB multicanale.  
+SMB multicanale e Multi - semplificati<abbr title="scheda di interfaccia di rete">Interfaccia di rete</abbr> le reti del Cluster è una funzionalità che consente l'uso di più schede di rete nella stessa subnet di rete di cluster e abilita automaticamente SMB multicanale.
 
 SMB multicanale semplificato e reti di Cluster Multi-NIC offre i vantaggi seguenti:  
 - Clustering di failover riconosce automaticamente tutte le schede di rete nei nodi che usano la stessa opzione / stessa subnet - alcuna configurazione aggiuntiva.  
@@ -31,7 +31,7 @@ SMB multicanale semplificato e reti di Cluster Multi-NIC offre i vantaggi seguen
 -   Più schede di rete per ogni server, usando la stessa opzione / subnet.  
 
 ## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>SMB multicanale semplificato e reti di cluster come sfruttare i vantaggi del multi-NIC  
-In questa sezione descrive come sfruttare le nuove reti di cluster multi-NIC e semplificata funzionalità multicanale SMB in Windows Server 2016.  
+In questa sezione descrive come sfruttare le nuove reti di cluster multi-NIC e semplificata funzionalità multicanale SMB.  
 
 ### <a name="use-at-least-two-networks-for-failover-clustering"></a>Usare almeno due reti per il Clustering di Failover   
 Sebbene sia raro, commutatori di rete possono avere esito negativo, è comunque consigliabile usare almeno due reti per il Clustering di Failover. Tutte le reti che si trovano vengono usate per gli heartbeat dei cluster. Evitare di usare una singola rete per il Cluster di Failover per evitare un singolo punto di guasto. In teoria, dovrebbe esserci più percorsi fisici di comunicazione tra i nodi del cluster e nessun singolo punto di guasto.  
@@ -58,7 +58,7 @@ Quando si usa più di una rete privata (solo cluster), controllare la configuraz
 **Figura 4: Configurazione automatica delle risorse indirizzo IPv6 Link locale (fe80)**  
 
 ## <a name="throughput-and-fault-tolerance"></a>Velocità effettiva e la tolleranza di errore  
-Windows Server 2016 automaticamente rileva le funzionalità di interfaccia di rete e proverà a usare ogni interfaccia di rete nella configurazione più rapida possibile. Schede di rete che sono raggruppate, schede di rete tramite RSS e schede di rete con funzionalità RDMA tutti utilizzabile. La tabella seguente riepiloga i compromessi quando si usano queste tecnologie. Velocità effettiva massima avviene quando si usano più NIC in grado di supportare RDMA. Per altre informazioni, vedere [le nozioni di base di SMB a canali multipli](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/).
+Windows Server 2016 e Windows Server 2019 automaticamente rilevare le funzionalità di interfaccia di rete e proverà a usare ogni interfaccia di rete nella configurazione più rapida possibile. Schede di rete che sono raggruppate, schede di rete tramite RSS e schede di rete con funzionalità RDMA tutti utilizzabile. La tabella seguente riepiloga i compromessi quando si usano queste tecnologie. Velocità effettiva massima avviene quando si usano più NIC in grado di supportare RDMA. Per altre informazioni, vedere [le nozioni di base di SMB a canali multipli](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/).
 
 ![Un'illustrazione di velocità effettiva e tolleranza di errore per diverse configurazioni di interfaccia di rete](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)  
 **Figura 5: Velocità effettiva e tolleranza di errore per vari conifigurations di interfaccia di rete**   

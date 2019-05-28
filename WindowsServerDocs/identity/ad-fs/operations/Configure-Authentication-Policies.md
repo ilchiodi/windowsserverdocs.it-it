@@ -3,22 +3,20 @@ ms.assetid: 8e7015bc-c489-4ec7-8b6e-3ece90f72317
 title: Configurare i criteri di autenticazione
 description: ''
 author: billmath
-ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7faffb7ccbb4b0ea3c65329d18f915d7dafcd46f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: billmath
+ms.openlocfilehash: 9345f995af2f256dddcbcbd7d05c4bf6170b563e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861792"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189863"
 ---
 # <a name="configure-authentication-policies"></a>Configurare i criteri di autenticazione
-
->Si applica a: Windows Server 2012 R2
 
 In ADFS, in Windows Server 2012 R2, entrambi controllo di accesso e il meccanismo di autenticazione sono stati migliorati con più fattori che includono dati utente, dispositivo, posizione e l'autenticazione. Questi miglioramenti consentono, tramite l'interfaccia utente o tramite Windows PowerShell, per gestire il rischio di concessione di autorizzazioni di accesso ad ADFS\-protetto applicazioni tramite più\-fattore di controllo di accesso e multi-\-l'autenticazione a fattore basato su utente identità o appartenenza al gruppo, il percorso di rete, dati del dispositivo di lavoro\-unita in join, e l'autenticazione quando più\-l'autenticazione a fattore \(autenticazione a più Fattori\) è stata eseguita.  
   

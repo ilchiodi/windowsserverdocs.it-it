@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fe99487d3a770547af36f69722b442d0e2cbb8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41a71ff49d211d294768c0e4a55692ced3f2d844
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828292"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192454"
 ---
 # <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>Elenco di controllo: Configurazione di ADFS per utilizzare attestazioni AD FS 1.x
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Elenco di controllo: Configurazione di ADFS per utilizzare attestazioni AD FS 1.x  
 Questo elenco di controllo include le attività necessarie per la configurazione di Active Directory Federation Services \(ADFS\) servizio federativo in Windows Server 2012 per utilizzare le attestazioni inviate da un'istanza di ADFS 1. *x* servizio federativo.  

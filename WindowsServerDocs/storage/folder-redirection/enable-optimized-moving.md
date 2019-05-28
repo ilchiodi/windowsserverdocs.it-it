@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 98fd5d50645ad454204dcf9dabf58e97c246ab1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7bdf30a4f721568add4e7902245da2a803b72db1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853992"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475873"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Abilitare con ottimizzazione per la sposta delle cartelle reindirizzate
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale)
 
 Questo argomento descrive come eseguire uno spostamento delle cartelle reindirizzate (reindirizzamento) ottimizzato per una nuova condivisione file. Se si abilita questa impostazione di criteri, quando un amministratore si sposta la condivisione di file che contiene le cartelle reindirizzate e aggiorna il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo, il contenuto memorizzato nella cache viene semplicemente rinominato nella cache dei file Offline locale senza eventuali ritardi o perdita di dati per l'utente.
 
@@ -28,7 +28,7 @@ In precedenza, gli amministratori è stato possibile modificare il percorso di d
 Spostamento ottimizzato ha i requisiti seguenti:
 
 - Il reindirizzamento delle cartelle deve essere configurato. Per altre informazioni, vedere [distribuire reindirizzamento cartelle con i file Offline](deploy-folder-redirection.md).
-- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
+- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server (canale semestrale).
 
 ## <a name="step-1-enable-optimized-move-in-group-policy"></a>Passaggio 1: Abilitano lo spostamento ottimizzato in Criteri di gruppo
 
@@ -75,5 +75,5 @@ Quando lo spostamento della condivisione di file che contiene degli utenti di ca
 ## <a name="more-information"></a>Altre informazioni
 
 * [Distribuire reindirizzamento cartelle con i file Offline](deploy-folder-redirection.md)
-* [Distribuire i profili utente mobili](deploy-roaming-user-profiles.md)
+* [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)
 * [Panoramica di reindirizzamento cartelle, file Offline e profili utente mobili](folder-redirection-rup-overview.md)

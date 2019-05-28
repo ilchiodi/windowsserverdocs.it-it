@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 21f99362205e0a6aa90ebd26cef8f3a779bdc1dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6641ba08323aeffa680e59c8e0bc5fcfa9757fd
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836492"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222447"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurare e gestire il quorum
 
@@ -31,57 +31,20 @@ Il modello di quorum in Windows Server è flessibile. Se è necessario modificar
 
 La tabella seguente elenca le tre opzioni di configurazione quorum disponibili nella Configurazione guidata quorum del cluster.
 
-<table>
-<thead>
-<tr class="header">
-<th>Opzione</th>
-<th>Descrizione</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Usa impostazioni tipiche</td>
-<td>Il cluster assegna automaticamente un voto a ogni nodo e gestisce in modo dinamico i voti del nodo. Se appropriato per il cluster in uso e se è disponibile l'archiviazione condivisa cluster, il cluster selezionerà un disco di controllo. Questa opzione è consigliata nella maggior parte dei casi, perché il software del cluster sceglie automaticamente una configurazione di quorum e controllo che fornisce la massima disponibilità per il cluster.</td>
-</tr>
-<tr class="even">
-<td>Aggiungi o modifica il quorum di controllo</td>
-<td>È possibile aggiungere, modificare o rimuovere una risorsa di controllo. È possibile configurare una condivisione file o un disco di controllo. Il cluster assegna automaticamente un voto a ogni nodo e gestisce in modo dinamico i voti del nodo.</td>
-</tr>
-<tr class="odd">
-<td>Configurazione quorum avanzata e selezione controllo</td>
-<td>Selezionare questa opzione solo se esistono requisiti specifici dell'applicazione o del sito per la configurazione quorum. È possibile modificare il quorum di controllo, aggiungere o rimuovere i voti dei nodi e scegliere se il cluster potrà gestire in modo dinamico i voti dei nodi. Per impostazione predefinita, i voti sono assegnati a tutti i nodi e i voti dei nodi sono gestiti in modo dinamico.</td>
-</tr>
-</tbody>
-</table>
+|Opzione  |Descrizione  |
+|---------|---------|
+|Usa impostazioni tipiche     |  Il cluster assegna automaticamente un voto a ogni nodo e gestisce in modo dinamico i voti del nodo. Se appropriato per il cluster in uso e se è disponibile l'archiviazione condivisa cluster, il cluster selezionerà un disco di controllo. Questa opzione è consigliata nella maggior parte dei casi, perché il software del cluster sceglie automaticamente una configurazione di quorum e controllo che fornisce la massima disponibilità per il cluster.       |
+|Aggiungi o modifica il quorum di controllo     |   È possibile aggiungere, modificare o rimuovere una risorsa di controllo. È possibile configurare una condivisione file o un disco di controllo. Il cluster assegna automaticamente un voto a ogni nodo e gestisce in modo dinamico i voti del nodo.      |
+|Configurazione quorum avanzata e selezione controllo     | Selezionare questa opzione solo se esistono requisiti specifici dell'applicazione o del sito per la configurazione quorum. È possibile modificare il quorum di controllo, aggiungere o rimuovere i voti dei nodi e scegliere se il cluster potrà gestire in modo dinamico i voti dei nodi. Per impostazione predefinita, i voti sono assegnati a tutti i nodi e i voti dei nodi sono gestiti in modo dinamico.        |
 
 In base all'opzione di configurazione quorum selezionata e dalle impostazioni specifiche, il cluster sarà configurato in una delle modalità quorum seguenti:
 
-<table>
-<thead>
-<tr class="header">
-<th>Modalità</th>
-<th>Descrizione</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Maggioranza dei nodi (senza controllo)</td>
-<td>Solo i nodi dispongono di voti. Non è configurato alcun quorum di controllo. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo.</td>
-</tr>
-<tr class="even">
-<td>Maggioranza dei nodi con controllo (disco o condivisione file)</td>
-<td>I nodi dispongono di voti. Il quorum di controllo, inoltre, dispone di un voto. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo più un voto del disco di controllo.<br />
-<br />
-Un quorum di controllo può essere un disco di controllo designato o una condivisione file di controllo designata.</td>
-</tr>
-<tr class="odd">
-<td>Nessuna maggioranza (solo disco di controllo)</td>
-<td>Nessun nodo dispone di voti. Solo un disco di controllo dispone di un voto. Il quorum del cluster è determinato dallo stato del disco di controllo.<br />
-<br />
-Il cluster raggiunge il quorum se un nodo è disponibile e se comunica con un disco specifico nell'archiviazione cluster. In genere, questa modalità non è consigliata ed è opportuno non selezionarla, poiché crea un singolo punto di errore per il cluster.</td>
-</tr>
-</tbody>
-</table>
+
+|Modalità  |Descrizione  |
+|---------|---------|
+|Maggioranza dei nodi (senza controllo)     |   Solo i nodi dispongono di voti. Non è configurato alcun quorum di controllo. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo.      |
+|Maggioranza dei nodi con controllo (disco o condivisione file)     |   I nodi dispongono di voti. Il quorum di controllo, inoltre, dispone di un voto. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo più un voto del disco di controllo. Un quorum di controllo può essere un disco di controllo designato o una condivisione file di controllo designata. 
+|Nessuna maggioranza (solo disco di controllo)     | Nessun nodo dispone di voti. Solo un disco di controllo dispone di un voto. <br>Il quorum del cluster è determinato dallo stato del disco di controllo. In genere, questa modalità non è consigliata ed è opportuno non selezionarla, poiché crea un singolo punto di errore per il cluster.       |
 
 Le sottosezioni seguenti offrono altre informazioni sulle impostazioni di configurazione quorum avanzata.
 
@@ -93,59 +56,12 @@ Un disco di controllo è in genere consigliato se tutti i nodi possono vedere il
 
 La tabella seguente include informazioni e considerazioni aggiuntive sui tipi di quorum di controllo.
 
-<table>
-<thead>
-<tr class="header">
-<th>Tipo di controllo</th>
-<th>Descrizione</th>
-<th>Requisiti e consigli</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Disco di controllo</td>
-<td>- LUN dedicato che archivia una copia del database del cluster<br />
-- Particolarmente utile per i cluster con archiviazione condivisa (non replicata)</td>
-<td>- Le dimensioni di LUN devono essere almeno 512 MB<br />
-- Deve essere dedicato da usare nel cluster e non assegnati a un ruolo del cluster<br />
-- Deve essere incluso nei cluster archiviazione e passaggio di convalida dei test di archiviazione<br />
-- Non può essere un disco che è un Volume condiviso Cluster (CSV)<br />
-- Disco di base con un singolo volume<br />
-- Non è necessario disporre di una lettera di unità<br />
-- Può essere formattato con NTFS o ReFS<br />
-- Può essere facoltativamente configurato con RAID hardware per tolleranza di errore<br />
-- Devono essere esclusi dal backup e scansione antivirus<br />
-- Un disco di controllo non è supportato con spazi di archiviazione diretta</td>
-</tr>
-<tr class="even">
-<td>Condivisione file di controllo</td>
-<td>- Condivisione file SMB configurata in un file server che esegue Windows Server<br />
-- Non archivia una copia del database del cluster<br />
-- Mantiene le informazioni del cluster solo in un file witness.<br />
-- Particolarmente utile per i cluster multisito con archiviazione replicata</td>
-<td>- Deve avere almeno 5 MB di spazio libero<br />
-- Deve essere dedicata al singolo cluster e non usati per archiviare i dati utente o un'applicazione<br />
-- Devono disporre delle autorizzazioni di scrittura abilitato per l'oggetto computer per il nome del cluster<br />
-<br />
-Di seguito sono riportate alcune considerazioni aggiuntive per un file server che ospita la condivisione file di controllo:<br />
-<br />
-- Un singolo file server può essere configurato con condivisioni file di controllo per più cluster.<br />
-- Il file server deve essere in un sito separato dal carico di lavoro del cluster. Ciò offre a qualsiasi sito di cluster uguali opportunità di sopravvivere in caso di perdita di comunicazioni di rete da sito a sito. Se il file server si trova nello stesso sito, tale sito diventa il sito primario e sarà l'unico sito in grado di raggiungere la condivisione file.<br />
-- Il server di file eseguibili in una macchina virtuale se la macchina virtuale non è ospitata nello stesso cluster che usa il controllo di condivisione file.<br />
-- Per la disponibilità elevata, il server di file può essere configurato in un cluster di failover separato.</td>
-</tr>
 
-<tr class-"odd">
-<td>Cloud di controllo</td>
-<td>- Un file di controllo archiviato nell'archivio blob di Azure<br>
--Consigliabile quando tutti i server del cluster dispongano di una connessione Internet affidabile.</td>
-<td>Visualizzare <a href="https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness">distribuire un cloud di controllo</a>.</td>
-<td>
-</td>
-</tr>
-
-</tbody>
-</table>
+|Tipo di controllo  |Descrizione  |Requisiti e consigli  |
+|---------|---------|---------|
+|Disco di controllo     |  <ul><li> LUN dedicato per l'archiviazione di una copia del database del cluster</li><li> Particolarmente utile per i cluster con archiviazione condivisa (non replicata)</li>       |  <ul><li>Le dimensioni di LUN devo essere pari almeno a 512 MB</li><li> Deve essere dedicato all'uso da parte del cluster e non assegnato ad alcun ruolo del cluster</li><li> Deve essere incluso nell'archiviazione cluster e deve superare i test di convalida dell'archiviazione</li><li> Non può essere un disco di tipo CSV (Cluster Shared Volume)</li><li> Disco di base con un singolo volume</li><li> Non necessita di lettera di unità</li><li> Formattabile con NTFS o ReFS</li><li> Può essere configurato con RAID hardware per tolleranza di errore</li><li> Deve essere escluso da backup e scansione antivirus</li><li> Un disco di controllo non è supportato con spazi di archiviazione diretta</li>|
+|Condivisione file di controllo     | <ul><li>Condivisione file SMB configurata in un file server che esegue Windows Server</li><li> Non archivia alcuna copia del database cluster</li><li> Mantiene le informazioni del cluster solo in un file witness.log</li><li> Particolarmente utile per cluster multisito con archiviazione replicata </li>       |  <ul><li>Deve avere almeno 5 MB di spazio disponibile</li><li> Deve essere dedicata al singolo cluster e non usata per l'archiviazione di dati utente o applicazione</li><li> Deve disporre di autorizzazioni di scrittura abilitate per l'oggetto computer per il nome del cluster</li></ul><br>Di seguito sono riportate alcune considerazioni aggiuntive per un file server che ospita la condivisione file di controllo:<ul><li>Un singolo file server può essere configurato con condivisioni file di controllo per più cluster.</li><li> Il file server deve trovarsi in un sito separato dal carico di lavoro del cluster. Ciò offre a qualsiasi sito di cluster uguali opportunità di sopravvivere in caso di perdita di comunicazioni di rete da sito a sito. Se il file server si trova nello stesso sito, tale sito diventa il sito primario e sarà l'unico sito in grado di raggiungere la condivisione file.</li><li> Il file server può essere eseguito in una macchina virtuale se la VM non è ospitata nello stesso cluster che usa la condivisione file di controllo.</li><li> Per assicurare una disponibilità elevata, è possibile configurare il file in un cluster di failover separato. </li>      |
+|Cloud di controllo     |  <ul><li>Un file di controllo archiviato nell'archivio blob di Azure</li><li> Consigliato quando tutti i server del cluster dispongano di una connessione Internet affidabile.</li>      |  Visualizzare [distribuire un cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
 
 ### <a name="node-vote-assignment"></a>Assegnazione di voti al nodo
 
@@ -212,7 +128,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
 
 1. In Gestione cluster di failover selezionare o specificare il cluster da modificare.
 2. Con il cluster selezionato, in **azioni**, selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del Cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Selezionare **Avanti**.
-3. Nella pagina **Selezione opzione configurazione quorum** selezionare una delle tre opzioni di configurazione e completare i passaggi relativi all'opzione selezionata. Prima di configurare le impostazioni del quorum, è possibile verificare le opzioni disponibili. Per altre informazioni sulle opzioni, vedere [Panoramica del quorum in un cluster di failover](#overview-of-the-quorum-in-a-failover-cluster), più indietro in questo argomento.
+3. Nella pagina **Selezione opzione configurazione quorum** selezionare una delle tre opzioni di configurazione e completare i passaggi relativi all'opzione selezionata. Prima di configurare le impostazioni del quorum, è possibile verificare le opzioni disponibili. Per altre informazioni sulle opzioni, vedere [quorum Understanding](#understanding-quorum), più indietro in questo argomento.
 
     - Per consentire al cluster di reimpostare automaticamente le impostazioni del quorum ottimali per la configurazione del cluster corrente, selezionare **Usa impostazioni tipiche** e quindi completare la procedura guidata.
     - Per aggiungere o modificare il quorum di controllo, selezionare **Aggiungi o modifica quorum di controllo**e quindi completare la procedura seguente. Per informazioni e considerazioni sulla configurazione di un quorum di controllo, vedere [Configurazione del disco di controllo](#witness-configuration) in precedenza in questo argomento.
@@ -366,36 +282,14 @@ In questa configurazione il cluster è costituito da due o più siti che possono
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-<table>
-<thead>
-<tr class="header">
-<th>Item</th>
-<th>Descrizione</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Numero di voti di nodo per sito</td>
-<td>Deve essere uguale</td>
-</tr>
-<tr class="even">
-<td>Assegnazione di voti al nodo</td>
-<td>Non rimuovere voti di nodo perché tutti i nodi sono ugualmente importanti</td>
-</tr>
-<tr class="odd">
-<td>Gestione dinamica del quorum</td>
-<td>Deve essere abilitata</td>
-</tr>
-<tr class="even">
-<td>Configurazione del controllo</td>
-<td>È consigliabile la condivisione file di controllo configurata in un sito separato dai siti del cluster</td>
-</tr>
-<tr class="odd">
-<td>Carichi di lavoro</td>
-<td>I carichi di lavoro possono essere configurati in qualsiasi sito</td>
-</tr>
-</tbody>
-</table>
+
+|Item  |Descrizione  |
+|---------|---------|
+|Numero di voti di nodo per sito     | Deve essere uguale       |
+|Assegnazione di voti al nodo     |  Non rimuovere voti di nodo perché tutti i nodi sono ugualmente importanti       |
+|Gestione dinamica del quorum     |   Deve essere abilitata      |
+|Configurazione del controllo     |  È consigliabile la condivisione file di controllo configurata in un sito separato dai siti del cluster       |
+|Carichi di lavoro     |  I carichi di lavoro possono essere configurati in qualsiasi sito       |
 
 #### <a name="additional-considerations-for-automatic-failover"></a>Considerazioni aggiuntive per il failover automatico
 
@@ -407,39 +301,13 @@ In questa configurazione il cluster è costituito da un sito primario, *SiteA*, 
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-<table>
-<thead>
-<tr class="header">
-<th>Item</th>
-<th>Descrizione</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Numero di voti di nodo per sito</td>
-<td>Può essere diverso</td>
-</tr>
-<tr class="even">
-<td>Assegnazione di voti al nodo</td>
-<td>- I voti di nodo non devono essere rimossi dai nodi nel sito primario, <em>SiteA</em><br />
-- I voti di nodo devono essere rimossi dai nodi nel sito di backup, <em>SiteB</em><br />
-- Se si verifica un'interruzione a lungo termine <em>SiteA</em>, i voti devono essere assegnati ai nodi in <em>SiteB</em> per abilitare una maggioranza del quorum in tale sito come parte del ripristino</td>
-</tr>
-<tr class="odd">
-<td>Gestione dinamica del quorum</td>
-<td>Deve essere abilitata</td>
-</tr>
-<tr class="even">
-<td>Configurazione del controllo</td>
-<td>- Configurare un controllo se è presente un numero pari di nodi a <em>SiteA</em><br />
-- Se è necessario un controllo, configurare una condivisione file di controllo o un disco di controllo accessibile solo ai nodi in <em>SiteA</em> (talvolta denominato disco di controllo asimmetrico)</td>
-</tr>
-<tr class="odd">
-<td>Carichi di lavoro</td>
-<td>Usare proprietari preferiti per mantenere i nodi in esecuzione in <em>SiteA</em></td>
-</tr>
-</tbody>
-</table>
+
+|Item  |Descrizione  |
+|---------|---------|
+|Numero di voti di nodo per sito     |  <ul><li> I voti di nodo non devono essere rimossi dai nodi nel sito primario, **SiteA**</li><li>I voti di nodo devono essere rimossi dai nodi nel sito di backup, **SiteB**</li><li>In caso di interruzione a lungo termine in **SiteA**, i voti devono essere assegnati ai nodi in **SiteB** per abilitare una maggioranza del quorum in tale sito come parte del ripristino.</li>       |
+|Gestione dinamica del quorum     |  Deve essere abilitata       |
+|Configurazione del controllo     |  <ul><li>Configurare un controllo se **SiteA include un numero pari di nodi**</li><li>Se è necessario un controllo, configurare una condivisione file di controllo o un disco di controllo accessibile solo ai nodi in **SiteA** (definito a volte disco di controllo asimmetrico)</li>       |
+|Carichi di lavoro     |  Usare proprietari preferiti per mantenere i nodi in esecuzione in **SiteA**       |
 
 #### <a name="additional-considerations-for-manual-failover"></a>Considerazioni aggiuntive per il failover manuale
 

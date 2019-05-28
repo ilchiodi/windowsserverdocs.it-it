@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d11a2d149ec1d83facd4aea64019bbb963ec70e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acd3b4bb0342dfb8dc651ce7c31e85f1e77a2569
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840682"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222975"
 ---
 # <a name="dir"></a>dir
 
@@ -26,7 +26,7 @@ ms.locfileid: "59840682"
 
 Visualizza un elenco di file e le sottodirectory della directory. Se utilizzata senza parametri, **dir** Visualizza l'etichetta di volume del disco e numero di serie, seguito da un elenco di directory e file sul disco (inclusi i relativi nomi e i data e ora dell'ultima modifica ogni). Per i file, **dir** consente di visualizzare l'estensione del nome e la dimensione in byte. **Dir** inoltre visualizza il numero totale di file e directory elencate, la quantità di memoria e lo spazio libero sul disco (in byte).
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -59,7 +59,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 ## <a name="remarks"></a>Note
 
 -   L'utilizzo di più *FileName* parametri, separare ogni nome di file con uno spazio, virgola o punto e virgola.
--   È possibile usare caratteri jolly (**&#42;** oppure **?**), per rappresentare uno o più caratteri di un nome file e per visualizzare un subset di file o sottodirectory.
+-   È possibile usare caratteri jolly (**&#42;** oppure **?** ), per rappresentare uno o più caratteri di un nome file e per visualizzare un subset di file o sottodirectory.
 
     **Asterisco (\*):** Usare l'asterisco come sostituto di qualsiasi stringa di caratteri, ad esempio:  
     -   **dir \*. txt** Elenca tutti i file nella directory corrente con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1, .txt_old.
@@ -90,10 +90,10 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
     Se si specifica più di uno *SortOrder* , valore **dir** Ordina i nomi dei file per il primo criterio, quindi il secondo criterio e così via. Ad esempio, se si utilizza **/o** con il **e** e **-s** i valori del parametro *SortOrder* (utilizzando **/o: e-s** o **/oe-s**), **dir** Ordina i nomi di directory e file per estensione, con il primo più grande e viene visualizzato il risultato finale. In ordine alfabetico per estensione determina i nomi di file con estensioni non vengono visualizzati per primi, quindi i nomi di directory e i nomi di file con estensioni.
 -   Usando pipe e i simboli di reindirizzamento
 
-    Quando si usa il simbolo di reindirizzamento (**>**) per inviare **dir** output a un file o una barra verticale (**|**) per inviare **dir**di output a un altro comando, usare **/b** e **/b** per elencare solo i nomi dei file. È possibile utilizzare *FileName* con **/b** e **/s** per specificare che **dir** ricerca nella directory corrente e nelle relative sottodirectory per tutti i file che corrispondono a *FileName*. **Dir** Elenca solo la lettera di unità, nome della directory, nome file ed estensione (un percorso per riga), per ogni file denominarlo trova. Prima di utilizzare una pipe per inviare **dir** output a un altro comando, è necessario impostare posizione TEMPORANEA di variabile di ambiente nel file Autoexec.
+    Quando si usa il simbolo di reindirizzamento ( **>** ) per inviare **dir** output a un file o una barra verticale ( **|** ) per inviare **dir**di output a un altro comando, usare **/b** e **/b** per elencare solo i nomi dei file. È possibile utilizzare *FileName* con **/b** e **/s** per specificare che **dir** ricerca nella directory corrente e nelle relative sottodirectory per tutti i file che corrispondono a *FileName*. **Dir** Elenca solo la lettera di unità, nome della directory, nome file ed estensione (un percorso per riga), per ogni file denominarlo trova. Prima di utilizzare una pipe per inviare **dir** output a un altro comando, è necessario impostare posizione TEMPORANEA di variabile di ambiente nel file Autoexec.
 -   Il **dir** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare tutte le directory, uno dopo l'altro, in ordine alfabetico, nel formato grande e pause tra le schermate, assicurarsi che la directory radice è la directory corrente e quindi digitare:
 ```
@@ -127,4 +127,4 @@ dir c:\*.txt /w/o/s/p
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

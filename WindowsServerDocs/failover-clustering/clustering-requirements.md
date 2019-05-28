@@ -8,21 +8,21 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6eb6f2acd420ae657a5c1b698e9733751378552
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848172"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476087"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Requisiti hardware di clustering failover e opzioni di archiviazione
 
-Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Per creare un cluster di failover, è necessario disporre dell'hardware seguente. Per essere supportato da Microsoft, tutto l'hardware deve essere certificato per la versione di Windows Server in esecuzione e la soluzione completa del cluster di failover deve superare tutti i test della Convalida guidata configurazione. Per altre informazioni sulla convalida del cluster di failover, vedere [Convalidare l'hardware per un cluster di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 
 - **Server**: è consigliabile utilizzare un insieme di computer corrispondenti che contengono gli stessi componenti o componenti simili.
-- **Cavo e adattatori di rete (per comunicazione di rete)**: In caso di uso di iSCSI, ogni scheda di rete deve essere dedicata alle comunicazioni di rete o a iSCSI, non a entrambi.
+- **Cavo e adattatori di rete (per comunicazione di rete)** : In caso di uso di iSCSI, ogni scheda di rete deve essere dedicata alle comunicazioni di rete o a iSCSI, non a entrambi.
 
     Evitare singoli punti di errore nell'infrastruttura di rete utilizzata per la connessione dei nodi del cluster. È ad esempio possibile connettere i nodi del cluster con più reti distinte. In alternativa, è possibile connettere i nodi del cluster con una rete che viene costruita con schede di rete, commutatori ridondanti, router ridondanti o hardware simile che rimuova singoli punti di errore.
 

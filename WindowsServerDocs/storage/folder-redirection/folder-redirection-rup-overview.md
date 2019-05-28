@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3cf32cd718b906f16fc09901284d8520177df8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824282"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475910"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Panoramica di reindirizzamento cartelle, file offline e profili utente mobili
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 In questo argomento illustra il reindirizzamento delle cartelle, file Offline (memorizzazione nella cache lato client o CSC) e tecnologie dei profili utente (talvolta noto come Reperire), tra cui nuove funzionalità e dove trovare informazioni aggiuntive.
 
@@ -76,7 +76,7 @@ Per altre informazioni, vedere [Enable the Always Offline Mode to Provide Faster
 Con la sincronizzazione che tiene conto dei costi, la sincronizzazione in background viene disabilitata automaticamente quando l'utente utilizza una connessione di rete a consumo, come una rete mobile 4G e l'abbonato è prossimo al limite di larghezza di banda o l'ha superato oppure è in roaming sulla rete di un altro provider.
 
 >[!NOTE]
->Connessioni di rete a consumo presentano in genere latenze di rete di andata/ritorno inferiori al valore di latenza predefinito 35 millisecondi per il passaggio alla modalità Offline (connessione lenta) in Windows 8, Windows Server 2012 e Windows Server 2016. Per questo motivo, queste connessioni passano di solito automaticamente alla modalità Offline (connessione lenta).
+>Le connessioni di rete a consumo presentano in genere latenze di rete di andata/ritorno inferiori al valore di latenza predefinito 35 millisecondi per il passaggio alla modalità Offline (connessione lenta) in Windows 8, Windows Server 2019, Windows Server 2016 e Windows Server 2012. Per questo motivo, queste connessioni passano di solito automaticamente alla modalità Offline (connessione lenta).
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>Valore aggiunto da sincronizzazione che tiene conto dei costi?
 
@@ -123,7 +123,7 @@ Per il reindirizzamento cartelle, i file offline e i profili utente mobili è ne
 Per designare i computer primari, l'ambiente deve soddisfare i requisiti seguenti:
 
 - Lo schema di Active Directory Domain Services (AD DS) deve essere aggiornato per includere lo schema di Windows Server 2012 e le condizioni (installa automaticamente un Windows Server 2012 o versioni successive controller di dominio di aggiornamento dello schema). Per altre informazioni sull'aggiornamento dello schema di Active Directory Domain Services, vedere [aggiornare controller di dominio a Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
-- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 e appartenere al dominio di Active Directory che si sta gestendo.
+- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 e appartenere al dominio di Active Directory che si sta gestendo.
 
 ## <a name="more-information"></a>Altre informazioni
 

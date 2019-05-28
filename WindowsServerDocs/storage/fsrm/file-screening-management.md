@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52a08ae7eaee81c00985d5334f9abeaa84e30879
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05fcaf402347d16bf8c28528d402664ae5f99165
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814162"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476058"
 ---
 # <a name="file-screening-management"></a>Gestione screening dei file
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Nel nodo **Gestione screening dei file** dello snap-in di MMC Gestione risorse file server, è possibile eseguire le attività seguenti:
 
@@ -32,17 +32,17 @@ Ad esempio, puoi:
 
 Questa sezione include gli argomenti seguenti:
 
--   [Definire gruppi di File per Screening](define-file-groups-for-screening.md)
+-   [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)
 -   [Creare uno screening dei File](create-file-screen.md)
--   [Creare un'eccezione per screening dei File](create-file-screen-exception.md)
--   [Creare un modello di schermata del File](create-file-screen-template.md)
--   [Modifica proprietà modello di schermata](edit-file-screen-template-properties.md)
+-   [Creare un'eccezione screening dei file](create-file-screen-exception.md)
+-   [Creare un modello di screening dei file](create-file-screen-template.md)
+-   [Modificare le proprietà dei modelli per lo screening dei file](edit-file-screen-template-properties.md)
 
 > [!Note]
 > Per impostare le notifiche tramite posta elettronica e alcune funzionalità di creazione di rapporti, è innanzitutto necessario configurare le opzioni generali di Gestione risorse file server.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 
 

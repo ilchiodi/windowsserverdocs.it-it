@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfd06a28f8ccaa04014024a235cd19512adb181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd4c436c806074f63bf51f497429532d7be32f75
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887032"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192411"
 ---
 # <a name="checklist-configuring-ad-fs-to-send-claims-to-an-ad-fs-1x-federation-service"></a>Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni a un servizio federativo di AD FS 1.x
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-send-claims-to-an-adfs1x-federation-service"></a>Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni per AD FS 1.x Federation Service  
 Questo elenco di controllo include le attività necessarie per la configurazione di Active Directory Federation Services \(ADFS\) servizio federativo in Windows Server 2012 per inviare attestazioni che possono essere riconosciute da un'istanza di ADFS 1. *x* servizio federativo.  

@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8a94e0724d6fd2a04e2fbfc22b3054b49d87f440
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac9f9b95ad6226a8e3b7012e317899f1d48c60c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826152"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192473"
 ---
 # <a name="add-a-token-signing-certificate"></a>Aggiungere un certificato per la firma di token
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Server federativo in Active Directory Federation Services \(ADFS\) richiedono token\-firma dei certificati a utenti malintenzionati di modificare o contraffare i token di sicurezza nel tentativo di accesso non autorizzato alle risorse federative. Ogni token\-certificato di firma contiene chiavi private di crittografia e le chiavi pubbliche utilizzate per firmare digitalmente \(tramite la chiave privata\) un token di sicurezza. In un secondo momento, dopo che queste chiavi vengono ricevute da un server federativo del partner, convalidano l'autenticità \(tramite la chiave pubblica\) del token di sicurezza crittografato.  
   
@@ -40,7 +39,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 4.  Nel **cerca i file di certificato** finestra di dialogo passare al file del certificato che si desidera aggiungere, selezionare il file del certificato e quindi fare clic su **Open**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [Requisiti dei certificati per i server federativi](https://technet.microsoft.com/library/dd807040.aspx)  
   

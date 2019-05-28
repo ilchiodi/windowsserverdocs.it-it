@@ -6,18 +6,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 10/26/2016
+ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: 18c3c694e1d2e21a7068877ba22786862824bea6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc49674d518756424acc02bd5b830c361c7400df
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772424"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Replica di un cluster esteso tramite l'archiviazione condivisa
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 In questo esempio di valutazione i computer e la relativa archiviazione verranno configurati in un singolo cluster esteso, in cui due nodi condividono un unico set di archiviazione e due nodi condividono un altro set di archiviazione e la replica mantiene il mirroring di entrambi i gruppi di archiviazione nel cluster per consentire il failover immediato. Questi nodi e la relativa archiviazione devono trovarsi in siti fisici separati, anche se non è obbligatorio. Esistono due fasi distinte per la creazione di cluster Hyper-V e file server come scenari di esempio.  
 
@@ -40,7 +40,7 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ## <a name="prerequisites"></a>Prerequisiti  
 -   Foresta di Active Directory Domain Services (non è necessario eseguire Windows Server 2016).  
--   Almeno due server con Windows Server 2016 Datacenter Edition già installato. Supporto di un cluster con un massimo di 64 nodi.  
+-   2-64 server che esegue Windows Server 2016, Datacenter Edition o Windows Server 2019. Se si esegue Windows Server 2019, è possibile invece usare Standard Edition se si replicano bene solo un singolo volume fino a 2 TB di dimensioni. 
 -   Due set di risorse di archiviazione condivise che usano JBOD SAS (come con Spazi di archiviazione), SAN Fibre Channel, VHDX condiviso o destinazione iSCSI. Lo spazio di archiviazione deve contenere una combinazione di unità SSD e disco rigido e deve supportare la prenotazione permanente. Ogni risorsa di archiviazione verrà resa disponibile solo a due dei server (asimmetrica).  
 -   Ogni set di risorse di archiviazione deve consentire la creazione di almeno due dischi virtuali, uno per i dati replicati e uno per i registri. L'archiviazione fisica deve avere le stesse dimensioni di settore su tutti i dischi di dati. L'archiviazione fisica deve avere le stesse dimensioni di settore su tutti i dischi dei registri.  
 -   Almeno una connessione da 1 GbE su ciascun server per la replica sincrona, ma preferibilmente RDMA.   
@@ -53,7 +53,7 @@ Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTo
 
 ## <a name="provision-operating-system-features-roles-storage-and-network"></a>Effettuare il provisioning di sistema operativo, funzionalità, ruoli, archiviazione e rete  
 
-1.  Installare Windows Server 2016 Datacenter Edition in tutti i nodi del server. Non scegliere Standard Edition se disponibile, in quanto non contiene Replica archiviazione. È supportato l'uso delle modalità di installazione di Windows Server Desktop Experience, Core e Nano.  
+1.  Installare Windows Server in tutti i nodi di server, con il Server Core o Server con le opzioni di installazione di esperienza Desktop.  
     > [!IMPORTANT]
     > Da questo momento, accedere sempre a tutti i server come utente di dominio, ovvero un membro del gruppo amministratore incorporato. Ricordarsi di elevare i prompt di PowerShell e CMD futuro durante l'esecuzione in un'installazione server con interfaccia grafica o in un computer Windows 10.
 
@@ -92,7 +92,7 @@ Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTo
 
         ```  
 
-        Per altre informazioni su questi passaggi, vedere [Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità](https://technet.microsoft.com/library/hh831809.aspx).  
+        Per altre informazioni su questi passaggi, vedere [Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md).  
 
 
 8. Configurare lo spazio di archiviazione come indicato di seguito:  
@@ -114,13 +114,13 @@ Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTo
 
         1.  Assicurarsi che ogni set di nodi del server associati possa visualizzare solo l'enclosure di archiviazione del sito (archiviazione asimmetrica) e che le connessioni SAS siano configurate correttamente.  
 
-        2.  Effettuare il provisioning dell'archiviazione mediante Spazi di archiviazione seguendo i **passaggi 1-3** indicati in [Distribuire Spazi di archiviazione in un server autonomo](https://technet.microsoft.com/library/jj822938.aspx) usando Windows PowerShell o Server Manager.  
+        2.  Effettuare il provisioning dell'archiviazione mediante Spazi di archiviazione seguendo i **passaggi 1-3** indicati in [Distribuire Spazi di archiviazione in un server autonomo](../storage-spaces/deploy-standalone-storage-spaces.md) usando Windows PowerShell o Server Manager.  
 
     -   **Per l'archiviazione iSCSI:**  
 
         1.  Assicurarsi che ogni set di nodi del server associati possa visualizzare solo l'enclosure di archiviazione del sito (archiviazione asimmetrica). Se si usa iSCSI, è necessario usare più di una singola scheda di rete.  
 
-        2.  Effettua il provisioning dell'archiviazione usando la documentazione del fornitore. Se si usa la destinazione iSCSI basata su Windows, consultare [iSCSI Target Block Storage, How To](https://technet.microsoft.com/library/hh848268.aspx) (Procedura per l'archiviazione a blocchi nella destinazione iSCSI).  
+        2.  Effettua il provisioning dell'archiviazione usando la documentazione del fornitore. Se si usa la destinazione iSCSI basata su Windows, consultare [iSCSI Target Block Storage, How To](../iscsi/iscsi-target-server.md) (Procedura per l'archiviazione a blocchi nella destinazione iSCSI).  
 
     -   **Per l'archiviazione FC SAN:**  
 
@@ -139,7 +139,7 @@ Dopo aver configurato i nodi del server, il passaggio successivo consiste nel cr
 >[!NOTE]
 > Se si desidera creare un cluster del file server e non un cluster Hyper-V, saltare questa sezione e andare alla sezione [Configurazione di un file server per un cluster per uso generale](#BKMK_FileServer).  
 
-Ora si creerà un cluster di failover normale. Dopo la configurazione, la convalida e la fase di test, il cluster dovrà essere esteso usando Replica archiviazione. Tutti i passaggi seguenti possono essere eseguiti sui nodi del cluster direttamente o da un computer di gestione remota che contiene gli strumenti di gestione RSAT di Windows Server 2016.  
+Ora si creerà un cluster di failover normale. Dopo la configurazione, la convalida e la fase di test, il cluster dovrà essere esteso usando Replica archiviazione. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
 
 #### <a name="graphical-method"></a>Metodo grafico  
 
@@ -150,15 +150,15 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
     > [!NOTE]  
     > Potrebbero verificarsi errori di archiviazione durante la convalida del cluster a causa dell'uso dell'archiviazione asimmetrica.  
 
-3.  Creare il cluster di calcolo Hyper-V. Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza. Nell'esempio seguente il nome è SR-SRVCLUS. Se i nodi verranno si trovano in subnet diverse, è necessario creare un indirizzo IP per il nome del Cluster per ogni subnet e usare la dipendenza "O".  Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+3.  Creare il cluster di calcolo Hyper-V. Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza. Nell'esempio seguente il nome è SR-SRVCLUS. Se i nodi verranno si trovano in subnet diverse, è necessario creare un indirizzo IP per il nome del Cluster per ogni subnet e usare la dipendenza "O".  Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4.  Configurare un controllo di condivisione file o un controllo del cloud per fornire quorum in caso di perdita del sito.  
 
     > [!NOTE]  
-    > Windows Server 2016 include ora un'opzione per il controllo basato su cloud (Azure). È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
+    > WIndows Server include ora un'opzione per Cloud di Azure-controllo basato su. È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
 
     > [!WARNING]  
-    > Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet `Set-ClusterQuorum`, vedere [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    > Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet `Set-ClusterQuorum`, vedere [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 5.  Consultare [Network Recommendations for a Hyper-V Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) (Consigli sulla rete per un cluster Hyper-V in Windows Server 2012) e assicurarsi che la rete cluster sia stata configurata correttamente.  
 
@@ -179,7 +179,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
     4. Spostare tutte le risorse di archiviazione disponibili in **SR-SRV03**.
     5. Fare clic su **Crea ruolo vuoto** nella sezione **Ruoli** di Gestione cluster di failover.
     6. Spostare il **Nuovo ruolo (2)** vuoto in **SR-SRV03**.
-    7. Aggiungere le risorse di archiviazione online a tale ruolo vuoto denominato **Nuovo ruolo (2)**.
+    7. Aggiungere le risorse di archiviazione online a tale ruolo vuoto denominato **Nuovo ruolo (2)** .
     8. Tutte le risorse di archiviazione sono ora montate con lettere di unità e possono valutare il cluster con `Test-SRTopology`.
 
         Ad esempio:
@@ -242,22 +242,23 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
     > [!NOTE]
     >  Potrebbero verificarsi errori di archiviazione durante la convalida del cluster a causa dell'uso dell'archiviazione asimmetrica.  
 
-2.  Creare il cluster di calcolo Hyper-V (è necessario specificare l'indirizzo IP statico che verrà usato dal cluster). Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza.  Se i nodi si trovano in subnet diverse, rispetto a un indirizzo IP per il sito aggiuntivo deve essere creato usando la dipendenza "OR". Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).
+2.  Creare il cluster di calcolo Hyper-V (è necessario specificare l'indirizzo IP statico che verrà usato dal cluster). Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza.  Se i nodi si trovano in subnet diverse, rispetto a un indirizzo IP per il sito aggiuntivo deve essere creato usando la dipendenza "OR". Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
 ```PowerShell  
 New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
 Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
 Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
 ```  
-3.  Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:  
+
+3.  Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:   
 
     ```PowerShell  
     Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
     ```  
 
     > [!NOTE]
-    > Windows Server 2016 include ora un'opzione per il controllo basato su cloud (Azure). È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
+    > WIndows Server include ora un'opzione per Cloud di Azure-controllo basato su. È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
     
-    Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet `Set-ClusterQuorum`, vedere [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet `Set-ClusterQuorum`, vedere [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 4.  Consultare [Network Recommendations for a Hyper-V Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) (Consigli sulla rete per un cluster Hyper-V in Windows Server 2012) e assicurarsi che la rete cluster sia stata configurata correttamente.  
 
@@ -304,7 +305,7 @@ Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Clust
 >[!NOTE]
 > Se si è già configurato un cluster di failover Hyper-V come descritto in [Configurazione di un cluster di failover Hyper-V](#BKMK_HyperV), ignorare questa sezione.  
 
-Ora si creerà un cluster di failover normale. Dopo la configurazione, la convalida e la fase di test, il cluster dovrà essere esteso usando Replica archiviazione. Tutti i passaggi seguenti possono essere eseguiti sui nodi del cluster direttamente o da un computer di gestione remota che contiene gli strumenti di gestione RSAT di Windows Server 2016.  
+Ora si creerà un cluster di failover normale. Dopo la configurazione, la convalida e la fase di test, il cluster dovrà essere esteso usando Replica archiviazione. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
 
 #### <a name="graphical-method"></a>Metodo grafico  
 
@@ -313,13 +314,13 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 2.  Convalidare il cluster proposto e analizzare i risultati per assicurarsi di poter continuare.  
     >[!NOTE]
     >Potrebbero verificarsi errori di archiviazione durante la convalida del cluster a causa dell'uso dell'archiviazione asimmetrica.   
-3. Creare il file server per il cluster di archiviazione per uso generale. Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza. Nell'esempio seguente il nome è SR-SRVCLUS.  Se i nodi verranno si trovano in subnet diverse, è necessario creare un indirizzo IP per il nome del Cluster per ogni subnet e usare la dipendenza "O".  Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+3. Creare il file server per il cluster di archiviazione per uso generale. Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza. Nell'esempio seguente il nome è SR-SRVCLUS.  Se i nodi verranno si trovano in subnet diverse, è necessario creare un indirizzo IP per il nome del Cluster per ogni subnet e usare la dipendenza "O".  Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4.  Configurare un controllo di condivisione file o un controllo del cloud per fornire quorum in caso di perdita del sito.  
     >[!NOTE]
-    > Windows Server 2016 include ora un'opzione per il controllo basato su cloud (Azure). È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.                                                                                                                                                                             
+    > WIndows Server include ora un'opzione per Cloud di Azure-controllo basato su. È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.                                                                                                                                                                             
     >[!NOTE]
-    >  Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet Set-ClusterQuorum, vedi [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx). 
+    >  Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet Set-ClusterQuorum, vedi [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum). 
 
 5.  Se crei un cluster esteso a due nodi, devi aggiungere tutta l'archiviazione prima di continuare. A tale scopo, aprire una sessione di PowerShell con autorizzazioni amministrative nei nodi del cluster ed eseguire il comando seguente: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
@@ -365,33 +366,40 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 16.  (Facoltativo) Configurare reti di cluster e Active Directory per accelerare il failover del sito DNS. È possibile usare VLAN estese, i dispositivi di astrazione rete, TTL DNS ridotti e altre tecniche comuni.  
 
-    Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Estensione dei cluster di failover e uso della replica di archiviazione in Windows Server vNext) e il post di blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Abilitare le notifiche di modifica tra i siti - Come e perché?).    
+Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Estensione dei cluster di failover e uso della replica di archiviazione in Windows Server vNext) e il post di blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Abilitare le notifiche di modifica tra i siti - Come e perché?).    
 
-#### <a name="powershell-method"></a>Metodo PowerShell  
+#### <a name="powershell-method"></a>Metodo PowerShell
+
 1. Testare il cluster proposto e analizzare i risultati per assicurarsi di poter continuare:    
 
-        Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
+    ```PowerShell
+    Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04
+    ```
 
     > [!NOTE]
     >  Potrebbero verificarsi errori di archiviazione durante la convalida del cluster a causa dell'uso dell'archiviazione asimmetrica.   
 
-2.  Creare il cluster di calcolo Hyper-V (è necessario specificare l'indirizzo IP statico che verrà usato dal cluster). Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza.  Se i nodi si trovano in subnet diverse, rispetto a un indirizzo IP per il sito aggiuntivo deve essere creato usando la dipendenza "OR". Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+2.  Creare il cluster di calcolo Hyper-V (è necessario specificare l'indirizzo IP statico che verrà usato dal cluster). Assicurarsi che il nome del cluster non superi i 15 caratteri di lunghezza.  Se i nodi si trovano in subnet diverse, rispetto a un indirizzo IP per il sito aggiuntivo deve essere creato usando la dipendenza "OR". Vedere altre informazioni [configurazione di indirizzi IP e le dipendenze per i cluster su più Subnet – parte III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
-        New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here> 
+    ```PowerShell
+    New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here> 
 
-        Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
+    Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
 
-        Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+    Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+    ```
 
 
 3. Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:   
 
-       Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
+    ```PowerShell
+    Set-ClusterQuorum -FileShareWitness \\someserver\someshare
+    ```
 
     >[!NOTE]
-    > Windows Server 2016 include ora un'opzione per il controllo basato su cloud (Azure). È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
+    > Windows Server include ora un'opzione per cloud di controllo con Azure. È possibile scegliere questa opzione di quorum anziché il controllo di condivisione file.  
 
-   Per altre informazioni sulla configurazione quorum, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx). Per altre informazioni sul cmdlet Set-ClusterQuorum, vedi [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).   
+   Per altre informazioni sulla configurazione del quorum, vedere la [quorum di cluster e pool Understanding](../storage-spaces/understand-quorum.md). Per altre informazioni sul cmdlet Set-ClusterQuorum, vedi [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).
 
 4.  Se crei un cluster esteso a due nodi, devi aggiungere tutta l'archiviazione prima di continuare. A tale scopo, aprire una sessione di PowerShell con autorizzazioni amministrative nei nodi del cluster ed eseguire il comando seguente: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
@@ -399,16 +407,16 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 5. Assicurati che la rete di cluster sia stata configurata correttamente.  
 
-6.  Configurare un ruolo File server. Ad esempio:    
+6.  Configurare un ruolo File server. Ad esempio: 
 
-        ```PowerShell  
-        Get-ClusterResource  
-        Add-ClusterFileServerRole -Name SR-CLU-FS2 -Storage "Cluster Disk 4"  
+    ```PowerShell  
+    Get-ClusterResource  
+    Add-ClusterFileServerRole -Name SR-CLU-FS2 -Storage "Cluster Disk 4"  
 
-        MD e:\share01  
+    MD e:\share01  
 
-        New-SmbShare -Name Share01 -Path f:\share01 -ContinuouslyAvailable $false  
-        ```
+    New-SmbShare -Name Share01 -Path f:\share01 -ContinuouslyAvailable $false  
+    ```
 
 7. Configurare il riconoscimento dei siti del cluster esteso in modo che i server SR-SRV01 e SR-SRV02 si trovino nel sito Redmond, SRV03 SR e SR-SRV04 si trovino nel sito Bellevue e Redmond diventi preferito per la proprietà del nodo dell'archiviazione di origine e delle macchine virtuali:  
 
@@ -430,7 +438,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
     Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Estensione dei cluster di failover e uso della replica di archiviazione in Windows Server vNext) e il post di blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Abilitare le notifiche di modifica tra i siti - Come e perché?).
 
 ### <a name="configure-a-stretch-cluster"></a>Configurare un cluster esteso  
-A questo punto si configurerà il cluster esteso usando Gestione cluster di failover o Windows PowerShell. Tutti i passaggi seguenti possono essere eseguiti sui nodi del cluster direttamente o da un computer di gestione remota che contiene gli strumenti di gestione RSAT di Windows Server 2016.  
+A questo punto si configurerà il cluster esteso usando Gestione cluster di failover o Windows PowerShell. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
 
 #### <a name="failover-cluster-manager-method"></a>Metodo Gestione cluster di failover  
 
@@ -622,7 +630,7 @@ Se si replica un carico di lavoro di una risorsa Disco fisico come file server p
     ```  
 
 ### <a name="manage-stretched-cluster-replication"></a>Gestire la replica del cluster esteso  
-Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster esteso. Tutti i passaggi seguenti possono essere eseguiti sui nodi del cluster direttamente o da un computer di gestione remota che contiene gli strumenti di gestione RSAT di Windows Server 2016.  
+Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster esteso. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
 
 #### <a name="graphical-tools-method"></a>Metodo degli strumenti grafici  
 
@@ -658,7 +666,7 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
         > [!NOTE]
         > Replica archiviazione smonta i volumi di destinazione. Questo comportamento è da progettazione.  
 
-4.  Per modificare le dimensioni del log predefinite di 8 GB in Windows Server 2016, fare clic con il pulsante destro del mouse sui dischi del log di origine e di destinazione, fare clic sulla scheda **Log di replica**, quindi modificare le dimensioni su entrambi i dischi.  
+4.  Per modificare le dimensioni del log da 8GB predefiniti, fare doppio clic su dischi di registro di origine e di destinazione, scegliere il **Log di replica** tab, quindi modificare le dimensioni su entrambi i dischi in modo che corrispondano.  
 
     > [!NOTE]  
     > La dimensione predefinita del registro è 8 GB. In base ai risultati del cmdlet `Test-SRTopology`, è possibile decidere di usare `-LogSizeInBytes` con un valore superiore o inferiore.  
@@ -737,7 +745,7 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
 
     -   \Statistiche Replica archiviazione(*)\Numero di messaggi inviati  
 
-    Per altre informazioni sui contatori delle prestazioni in Windows PowerShell, vedere [Get-Counter](https://technet.microsoft.com/library/hh849685.aspx).  
+    Per altre informazioni sui contatori delle prestazioni in Windows PowerShell, vedere [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).  
 
 3.  Per modificare l'origine e la destinazione della replica all'interno del cluster esteso, usare i metodi seguenti:  
 
@@ -762,7 +770,7 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
         > [!NOTE]  
         > Replica archiviazione smonta i volumi di destinazione. Questo comportamento è da progettazione.  
 
-4.  Per modificare le dimensioni del log predefinite di 8 GB in Windows Server 2016, usare **Set SRGroup** in entrambi i gruppi di Replica di archiviazione di origine e di destinazione.   Ad esempio, per impostare tutti i registri a 2 GB:  
+4.  Per modificare le dimensioni del log da 8GB predefiniti, usare **Set-SRGroup** in gruppi di Replica di archiviazione di origine e di destinazione.   Ad esempio, per impostare tutti i registri a 2 GB:  
 
     ```PowerShell  
     Get-SRGroup | Set-SRGroup -LogSizeInBytes 2GB  
@@ -788,8 +796,8 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
 - [Panoramica di Replica di archiviazione](storage-replica-overview.md)  
 - [Replica di archiviazione da server a Server](server-to-server-storage-replication.md)  
 - [Replica di archiviazione da cluster a Cluster](cluster-to-cluster-storage-replication.md)  
-- [Replica archiviazione: Problemi noti](storage-replica-known-issues.md) 
-- [Replica archiviazione: Domande frequenti](storage-replica-frequently-asked-questions.md)  
+- [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md) 
+- [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
 
 ## <a name="see-also"></a>Vedere anche  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  

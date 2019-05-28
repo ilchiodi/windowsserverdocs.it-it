@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: Gestione risorse file Server (FSRM) è uno strumento che consente di gestire e classificare i dati in un file server Windows Server.
-ms.openlocfilehash: 107d08f247fc56720ccc3d11a3db88c77377257c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8488c7418ac03be53db7164678fad353bc7c637d
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870722"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476131"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Panoramica di Gestione risorse file server
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canale semestrale), 
 
 Gestione risorse file server è un servizio ruolo in Windows Server che consente di gestire e classificare i dati archiviati nei file server. È possibile utilizzare Gestione risorse File Server a automaticamente classificare i file, eseguire le attività in base a queste classificazioni, impostare le quote nelle cartelle e creare report di monitoraggio dell'utilizzo di archiviazione.
 
@@ -72,7 +72,7 @@ Per impedire la creazione di un journal delle modifiche in alcuni o tutti i volu
 3. Aprire Editor del Registro di sistema, ad esempio, digitando `regedit` nella stessa sessione di PowerShell.
 4. Passare alla chiave seguente: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
 5. Al facoltativamente skip modificare la creazione di registrazioni per l'intero server (ignorare questo passaggio se si vuole disabilitare questa solo su volumi specifici):
-    1. Fare doppio clic il **le impostazioni** chiave e quindi selezionare **New** > **valore DWORD (32 bit)**. 
+    1. Fare doppio clic il **le impostazioni** chiave e quindi selezionare **New** > **valore DWORD (32 bit)** . 
     1. Nome valore `SkipUSNCreationForSystem`.
     1. Impostare il valore su **1** (in esadecimale).
 6. Se lo si desidera ignorare la creazione di journal delle modifiche per volumi specifici:
@@ -90,7 +90,7 @@ Per impedire la creazione di un journal delle modifiche in alcuni o tutti i volu
        ```
     2. Fare doppio clic su Indietro nell'Editor del registro, il **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** chiave e quindi selezionare **New** > **multistringa Valore**.
     3. Nome valore `SkipUSNCreationForVolumes`.
-    4. Immettere il percorso di ciascun volume in cui si ignora la creazione di un journal delle modifiche, l'inserimento di ogni percorso in una riga separata. Ad esempio: 
+    4. Immettere il percorso di ciascun volume in cui si ignora la creazione di un journal delle modifiche, l'inserimento di ogni percorso in una riga separata. Ad esempio:
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\

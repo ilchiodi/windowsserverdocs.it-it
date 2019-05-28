@@ -11,12 +11,12 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 6ec089f501a0999a4460501dbc4d03428d36af40
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 129783dc980be6e471ecadb2cdbffee900e3396e
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863832"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222833"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Macchine virtuali Debian supportate in Hyper-V
 
@@ -35,9 +35,9 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 |**Funzionalità**|**Versione del sistema operativo Windows Server**|**9.0-9.6 (stretch)**|**8.0-8.11 (jessie)**|**7.0-7.11 (wheezy)**|
 |-|-|-|-|-|
 |**Disponibilità**||Incorporata|Incorporata|Compilato (nota 6)|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Ora esatta di Windows Server 2016|2019, 2016|&#10004; Note 8||
-|**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Funzionalità di rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |La codifica VLAN e trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
@@ -45,28 +45,28 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 |RSS virtuale|2019, 2016, 2012 R2|&#10004; Note 8|||
 |Segmentazione di TCP e gli offload Checksum|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Note 8|||
 |SR-IOV|2019, 2016|&#10004; Note 8||
-|**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|
 |Fibre Channel virtuale|2019, 2016, 2012 R2|||
 |Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 4,5|&#10004; Nota 4,5|&#10004; Nota 4|
 |Supporto per TRIM|2019, 2016, 2012 R2|&#10004; Note 8|||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004; Note 8||
-|**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Supporto PAE Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Configurazione di gap MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|&#10004; Note 8|||
 |Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Note 8|||
 |Ridimensionamento della memoria di runtime|2019, 2016|&#10004; Note 8|||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
-|**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Coppia chiave-valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 4|&#10004; Nota 4||
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|
 |Copiare i file dall'host al guest|2019, 2016, 2012 R2|&#10004; Nota 4|&#10004; Nota 4||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|||
 |Socket di Hyper-V|2019, 2016|&#10004; Note 8|||
 |Pass-through/DDA PCI|2019, 2016|&#10004; Note 8|||
-|**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Avvio UEFI|2019, 2016, 2012 R2|&#10004; Nota 7|&#10004; Nota 7||
 |Avvio protetto|2019, 2016|||
 

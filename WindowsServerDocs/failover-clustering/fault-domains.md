@@ -8,23 +8,41 @@ ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: f5c64bb8f8b7d4b8d13c76c4e94cfcf52ee32c30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18b7a932cc8a22c356fde89baa316c0532ebc374
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821472"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475997"
 ---
-# <a name="fault-domain-awareness-in-windows-server-2016"></a>Informazioni sulla presenza di un dominio di errore in Windows Server 2016
+# <a name="fault-domain-awareness"></a>Informazioni sulla presenza di domini di errore
 
-> Si applica a: Windows Server 2016
+> Si applica a: Windows Server 2019 e Windows Server 2016
 
-Il clustering di failover consente a più server di interagire per garantire un'elevata disponibilità, o in altri termini, per offrire tolleranza di errore di nodo. Tuttavia, le aziende richiedono oggi sempre maggiore disponibilità dalla infrastruttura. Per ottenere tempi di attività di tipo cloud si deve disporre di una protezione anche in casi estremi, ad esempio problemi di chassis, interruzioni di rack o calamità naturali. Ecco perché il Clustering di Failover in Windows Server 2016 introduce chassis, rack e sito nonché la tolleranza.
+Il clustering di failover consente a più server di interagire per garantire un'elevata disponibilità, o in altri termini, per offrire tolleranza di errore di nodo. Tuttavia, le aziende richiedono oggi sempre maggiore disponibilità dalla infrastruttura. Per ottenere tempi di attività di tipo cloud si deve disporre di una protezione anche in casi estremi, ad esempio problemi di chassis, interruzioni di rack o calamità naturali. Ecco perché il Clustering di Failover in Windows Server 2016 introdotto chassis, rack e sito nonché la tolleranza.
+
+## <a name="fault-domain-awareness"></a>Informazioni sulla presenza di domini di errore
 
 I concetti di domini di errore e tolleranza di errore sono strettamente correlati. Un dominio di errore è un set di componenti hardware che condividono un singolo punto di errore. Per un sistema a tolleranza di errore a un certo livello sono necessari più domini di errore per tale livello. Ad esempio, per una tolleranza di errore di rack, i server e i dati devono essere distribuiti in più rack.
 
 In questo breve video offre una panoramica di domini di errore in Windows Server 2016:  
 [![Fare clic su questa immagine per guardare una panoramica dei domini di errore in Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+
+### <a name="fault-domain-awareness-in-windows-server-2019"></a>Consapevolezza di dominio di errore in Windows Server 2019
+
+La consapevolezza di dominio di errore è disponibile in Windows Server 2019 ma è disabilitato per impostazione predefinita e deve essere abilitata tramite il Registro di sistema di Windows.
+
+Per abilitare la consapevolezza di dominio di errore in Windows Server 2019, passare al Registro di sistema Windows e impostare (Get-Cluster). Chiave del Registro di sistema AutoAssignNodeSite su 1.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=1
+```
+
+Per disabilitare il riconoscimento di dominio di errore in Windows 2019, passare al Registro di sistema Windows e impostare (Get-Cluster). Chiave del Registro di sistema AutoAssignNodeSite su 0.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=0
+```
 
 ## <a name="benefits"></a>Vantaggi
 - **Spazi di archiviazione, inclusi spazi di archiviazione diretta Usa domini di errore per massimizzare la sicurezza dei dati.**  
@@ -103,7 +121,7 @@ Remove-ClusterFaultDomain -Name "Rack A"
 ```
 
 ### <a name="defining-fault-domains-with-xml-markup"></a>Definizione di domini di errore con markup XML
-I domini di errore possono essere specificati tramite una sintassi XML. Si consiglia di usare un editor di testo, ad esempio Visual Studio Code (disponibile gratuitamente *[qui](https://code.visualstudio.com/)*) o Blocco note, per creare un documento XML da salvare e usare di nuovo.  
+I domini di errore possono essere specificati tramite una sintassi XML. Si consiglia di usare un editor di testo, ad esempio Visual Studio Code (disponibile gratuitamente *[qui](https://code.visualstudio.com/)* ) o Blocco note, per creare un documento XML da salvare e usare di nuovo.  
 
 Questo breve video illustra l'uso di markup XML per specificare i domini di errore.
 
@@ -176,5 +194,6 @@ Questa guida illustra due esempi, ma il `<Site>`, `<Rack>`, `<Chassis>`, e `<Nod
 [![Fare clic per vedere un breve video che illustra il valore di aggiunta di descrittori di percorso a domini di errore](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>Vedere anche  
--   [Windows Server 2016](../get-started/windows-server-2016.md)  
--   [Spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+- [Introduzione a Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
+- [Introduzione a Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
+-   [Spazi di archiviazione diretta Panoramica](../storage/storage-spaces/storage-spaces-direct-overview.md) 

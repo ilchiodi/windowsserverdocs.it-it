@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: fa8b2b15ff411a59b28308a329d7ca2341ef0886
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871942"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976804"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurazione client
 
@@ -52,7 +52,7 @@ Per installare i certificati, effettuare le seguenti operazioni:
   
 5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
-6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
+6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
 7.  Fare clic su **OK**.  
   
@@ -79,7 +79,7 @@ Per configurare cartelle di lavoro sul computer client, procedere come segue:
   
 2.  Fare clic su **Installa Cartelle di lavoro**.  
   
-3.  Nel **immettere l'indirizzo di posta elettronica di lavoro** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test https://workfolders.contoso.com)e quindi fare clic su **successivo**.  
+3.  Nel **immettere l'indirizzo di posta elettronica ufficio** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test, https:\//workfolders.contoso.com) e quindi fare clic su  **Avanti**.  
   
 4.  Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
   

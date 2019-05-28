@@ -10,12 +10,12 @@ ms.date: 07/12/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 4127eab613abb429a200f513a11b944e05da0f76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d8a8cae62a9be3384c09009dbad52e06623adb0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851342"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222916"
 ---
 # <a name="upgrade-windows-server-2008-and-windows-server-2008-r2"></a>Eseguire l'aggiornamento di Windows Server 2008 e Windows Server 2008 R2
 
@@ -42,12 +42,11 @@ Se Windows Server 2003 è in esecuzione, sarà necessario [eseguire l'aggiorname
 - Migrando SQL Server ad Azure Managed Instances o a macchine virtuali, otterrai gratuitamente altri tre anni di importanti aggiornamenti di sicurezza critici di Windows Server 2008 R2 o 2008. 
 - Utilizzare le esistenti licenze SQL Server e Windows Server per risparmi cloud unici per Azure.
 
-<a href="uploading-specialized-WS08-image-to-azure.md"><img src="media/WS08-image-banner-small.png"></a>
+[![Avviare la migrazione ad Azure con un'immagine specializzata](./media/WS08-image-banner-small.png)](uploading-specialized-WS08-image-to-azure.md)
 
 Per iniziare la migrazione, consulta [Caricamento di un'immagine specializzata Windows Server 2008/2008 R2 su Azure](uploading-specialized-WS08-image-to-azure.md).
 
 Per aiutarti a comprendere come analizzare le risorse IT esistenti, valutare ciò che hai e identificare i benefici del trasferimento a servizi e applicazioni specifici nel cloud o del mantenimento dei carichi di lavoro in locale e dell'aggiornamento all'ultima versione di Windows Server, consulta [Guida alla migrazione per Windows Server](https://go.microsoft.com/fwlink/?linkid=872689).
-
 
 ## <a name="upgrade-sql-server-20082008-r2-in-parallel-with-your-windows-servers"></a>Aggiorna SQL Server 2008/2008 R2 in parallelo con i server Windows
 

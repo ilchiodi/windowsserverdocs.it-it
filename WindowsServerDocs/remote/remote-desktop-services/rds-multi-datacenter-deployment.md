@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 7d895b1098c4d8cdf162c77f35209b7308872d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849962"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222789"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Creare un geograficamente ridondante, più data center la distribuzione di servizi desktop remoto per il ripristino di emergenza
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 È possibile abilitare il ripristino di emergenza per la distribuzione di Servizi Desktop remoto usando più data center in Azure. A differenza di una distribuzione di servizi desktop remoto a disponibilità elevata standard (come descritto nel [architettura di Servizi Desktop remoto](desktop-hosting-logical-architecture.md)), che usa i Data Center in una singola area di Azure (ad esempio, Europa occidentale), una distribuzione a più data center Usa i dati Data Center in più aree geografiche, aumentare la disponibilità della distribuzione - un data center di Azure potrebbe non essere disponibile, ma è improbabile che le aree più andrebbe verso il basso nello stesso momento. Tramite la distribuzione di un'architettura di servizi desktop remoto con ridondanza geografica, è possibile abilitare il failover nel caso di errore irreversibile di un'intera area.
 
@@ -44,7 +44,7 @@ In confronto, ecco l'architettura per una distribuzione che usa più data center
 
 ![Una distribuzione di servizi desktop remoto che usa più aree di Azure](media/rds-ha-multi-region.png)
 
-L'intera distribuzione di servizi desktop remoto viene replicata in una seconda area di Azure per creare una distribuzione con ridondanza geografica. Questa architettura Usa un modello attivo / passivo, in cui viene eseguito solo una distribuzione di servizi desktop remoto alla volta. Una connessione di rete virtuale a rete virtuale consente due ambienti di comunicare tra loro. Le distribuzioni di servizi desktop remoto si basano su un singolo insieme di strutture di Active Directory/dominio e i server AD eseguire la replica tra le due distribuzioni, pertanto gli utenti possono accedere a una distribuzione usando le stesse credenziali. Dati archiviati in dischi profili utente (UPD) e le impostazioni utente vengono archiviati in un file server cluster a due nodi spazi di archiviazione è diretta (S2D) scalabilità orizzontale (SOFS). Nella seconda area (passivo) viene distribuito un secondo cluster di S2D identici e Replica di archiviazione viene usata per replicare i profili utente da attivo a passiva distribuzione. Gestione traffico di Azure viene usato per indirizzare automaticamente agli utenti finali di qualsiasi distribuzione è attualmente attivo - dal punto di vista degli utenti finali, la distribuzione tramite un singolo URL di accesso e non sono a conoscenza dell'area in cui vengono emesse utilizzando.
+L'intera distribuzione di servizi desktop remoto viene replicata in una seconda area di Azure per creare una distribuzione con ridondanza geografica. Questa architettura Usa un modello attivo / passivo, in cui viene eseguito solo una distribuzione di servizi desktop remoto alla volta. Una connessione di rete virtuale a rete virtuale consente due ambienti di comunicare tra loro. Le distribuzioni di servizi desktop remoto si basano su un singolo insieme di strutture di Active Directory/dominio e i server AD eseguire la replica tra le due distribuzioni, pertanto gli utenti possono accedere a una distribuzione usando le stesse credenziali. Dati archiviati in dischi profili utente (UPD) e le impostazioni utente vengono archiviati in un file server cluster a due nodi spazi di archiviazione diretta di scalabilità orizzontale (SOFS). Nella seconda area (passivo) viene distribuito un cluster di spazi di archiviazione diretta identico secondo e la Replica di archiviazione viene usata per replicare i profili utente da attivo a passiva distribuzione. Gestione traffico di Azure viene usato per indirizzare automaticamente agli utenti finali di qualsiasi distribuzione è attualmente attivo - dal punto di vista degli utenti finali, la distribuzione tramite un singolo URL di accesso e non sono a conoscenza dell'area in cui vengono emesse utilizzando.
 
 
 Si *è stato possibile* creare una distribuzione di servizi desktop remoto non a disponibilità elevata in ogni area, ma se anche una singola macchina virtuale viene riavviata in un'area, si verifica un failover, aumentando la probabilità di failover che si verificano con associato l'impatto sulle prestazioni.
@@ -74,8 +74,8 @@ Creare le risorse seguenti in Azure per creare una distribuzione di servizi desk
 
    > [!NOTE]
    > È possibile eseguire il provisioning di archiviazione manualmente (invece di usare lo script di PowerShell e modello): 
-   >1. Distribuire un' [2 nodi S2D SOFS](rds-storage-spaces-direct-deployment.md) a gruppo di risorse per archiviare i dischi dei profili utente (UPD).
-   >2. Distribuire un SOFS S2D in secondo luogo, identici in RG B: assicurarsi di usare la stessa quantità di spazio di archiviazione in ogni cluster.
+   >1. Distribuire un' [SOFS diretto spazi di archiviazione di due nodi](rds-storage-spaces-direct-deployment.md) a gruppo di risorse per archiviare i dischi dei profili utente (UPD).
+   >2. Distribuire un secondo, identica archiviazione spazi diretti SOFS in RG B: assicurarsi di usare la stessa quantità di spazio di archiviazione in ogni cluster.
    >3. Configurare [Replica di archiviazione con la replica asincrona](../../storage/storage-replica/cluster-to-cluster-storage-replication.md) tra i due.
 
 ### <a name="enable-upds"></a>Abilita gli UPD
@@ -85,14 +85,14 @@ Vuoi altre informazioni sulla gestione della replica? Consulta [Cluster a cluste
 
 Per abilitare gli UPD in entrambe le distribuzioni, eseguire le operazioni seguenti:
 
-1. Eseguire la [cmdlet Set-RDSessionCollectionConfiguration](https://technet.microsoft.com/itpro/powershell/windows/remote-desktop/set-rdsessioncollectionconfiguration) per abilitare i dischi dei profili utente per la distribuzione (attivo) primario - specificare il percorso della condivisione file nel volume di origine (che è stata creata nel passaggio 7 nei passaggi di distribuzione).
-2. Invertire la direzione della Replica di archiviazione in modo che il volume di destinazione diventa il volume di origine (monta il volume e lo rende accessibile per la distribuzione secondaria). È possibile eseguire **Set-SRPartnership** cmdlet per eseguire questa operazione. Ad esempio:
+1. Eseguire la [cmdlet Set-RDSessionCollectionConfiguration](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) per abilitare i dischi dei profili utente per la distribuzione (attivo) primario - specificare il percorso della condivisione file nel volume di origine (che è stata creata nel passaggio 7 nei passaggi di distribuzione).
+2. Invertire la direzione della Replica di archiviazione in modo che il volume di destinazione diventa il volume di origine (monta il volume e lo rende accessibile per la distribuzione secondaria). È possibile eseguire **Set-SRPartnership** cmdlet per eseguire questa operazione. Ad esempio: 
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"
    ```
 3. Abilitare i dischi dei profili utente della distribuzione secondario (passivo). Usare la stessa procedura usata per la distribuzione primaria, nel passaggio 1.
-4. Invertire la direzione della Replica di archiviazione anche in questo caso, in modo che il volume di origine originale viene nuovamente il volume di origine nella relazione di SR e alla distribuzione primaria può accedere alla condivisione file. Ad esempio:
+4. Invertire la direzione della Replica di archiviazione anche in questo caso, in modo che il volume di origine originale viene nuovamente il volume di origine nella relazione di SR e alla distribuzione primaria può accedere alla condivisione file. Ad esempio: 
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-a-s2d-c" -SourceRGName "cluster-a-s2d-c" -DestinationComputerName "cluster-b-s2d-c" -DestinationRGName "cluster-b-s2d-c"
@@ -105,10 +105,10 @@ Creare un [gestione traffico di Azure](/azure/traffic-manager/traffic-manager-ov
 
 Si noti che Gestione traffico richiede gli endpoint da restituire 200 OK in risposta a una richiesta GET per poter essere contrassegnato come "Integro". L'oggetto indirizzo IP pubblico creato dai modelli di servizi desktop remoto funzionerà, ma non aggiungere un supplemento di percorso. In alternativa, è possibile assegnare gli utenti finali l'URL di gestione traffico con "/ RDWeb" aggiunto, ad esempio: ```http://deployment.trafficmanager.net/RDWeb```
 
-Tramite la distribuzione di gestione traffico di Azure con il metodo di routing priorità, impedire agli utenti finali l'accesso alla distribuzione passiva durante la distribuzione attiva è funzionale. Se gli utenti finali di accedere alla distribuzione dei passiva e non è stata passata la direzione di Replica di archiviazione per il failover, l'accesso dell'utente si blocca durante la distribuzione di prova e ha esito negativo accedere alla condivisione file nel cluster di S2D passivo - alla fine la distribuzione verrà rinunciare e assegnare a l'utente di un profilo temporaneo.  
+Tramite la distribuzione di gestione traffico di Azure con il metodo di routing priorità, impedire agli utenti finali l'accesso alla distribuzione passiva durante la distribuzione attiva è funzionale. Se gli utenti finali di accedere alla distribuzione dei passiva e non è stata passata la direzione di Replica di archiviazione per il failover, l'accesso dell'utente si blocca durante la distribuzione di prova e ha esito negativo accedere alla condivisione file nel cluster di spazi di archiviazione diretta passivo - alla fine la distribuzione verrà rinunciare e concedere all'utente un profilo temporaneo.  
 
 ### <a name="deallocate-vms-to-save-resources"></a>Deallocare la VM per risparmiare risorse 
-Dopo aver configurato entrambe le distribuzioni, è facoltativamente possibile arrestare e deallocare l'infrastruttura Servizi Desktop remoto e le macchine virtuali host sessione Desktop remoto per risparmiare sui costi in queste macchine virtuali secondarie. Il SOFS S2D AD server e le macchine virtuali deve sempre rimanere in esecuzione nella distribuzione secondaria/passiva per abilitare la sincronizzazione profilo e account utente.  
+Dopo aver configurato entrambe le distribuzioni, è facoltativamente possibile arrestare e deallocare l'infrastruttura Servizi Desktop remoto e le macchine virtuali host sessione Desktop remoto per risparmiare sui costi in queste macchine virtuali secondarie. Il SOFS diretto di spazi di archiviazione AD server e le macchine virtuali deve sempre rimanere in esecuzione nella distribuzione secondaria/passiva per abilitare la sincronizzazione profilo e account utente.  
 
 Quando si verifica un failover, è necessario avviare le VM deallocate. Questa configurazione di distribuzione ha il vantaggio di essere costo inferiore, ma a scapito della fase di failover. Se si verifica un errore irreversibile nella distribuzione attiva, è necessario avviare manualmente la distribuzione passiva oppure è necessario uno script di automazione per rilevare l'errore e avviare automaticamente la distribuzione passiva. In entrambi i casi, potrebbe richiedere alcuni minuti per ottenere la distribuzione passiva in esecuzione e disponibili per gli utenti per l'accesso, causando periodi di inattività per il servizio. Questo periodo di inattività dipende dalla quantità di tempo viene impiegato per avviare l'infrastruttura di servizi desktop remoto e le macchine virtuali host sessione Desktop remoto (in genere 2 a 4 minuti, se le macchine virtuali vengono avviate in parallelo anziché in modo seriale) e l'ora di portare online il cluster passivo (che dipende dalle dimensioni del cluster in genere 2 a 4 minuti per un cluster a 2 nodi con 2 dischi per nodo). 
 
@@ -123,7 +123,7 @@ Quando si aggiornano le immagini host sessione Desktop remoto per fornire aggior
 
 ## <a name="failover"></a>Failover
 
-Nel caso della distribuzione attiva-passiva, il failover è necessario avviare le macchine virtuali della distribuzione secondaria. È possibile farlo manualmente o con uno script di automazione. Nel caso di failover irreversibili del SOFS S2D, modificare la direzione di partnership di Replica di archiviazione, in modo che il volume di destinazione diventa il volume di origine. Ad esempio:
+Nel caso della distribuzione attiva-passiva, il failover è necessario avviare le macchine virtuali della distribuzione secondaria. È possibile farlo manualmente o con uno script di automazione. Nel caso di failover irreversibili del SOFS spazi di archiviazione diretta, modificare la direzione di partnership di Replica di archiviazione, in modo che il volume di destinazione diventa il volume di origine. Ad esempio: 
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"

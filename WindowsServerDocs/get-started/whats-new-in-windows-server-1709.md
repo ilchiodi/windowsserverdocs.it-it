@@ -7,25 +7,25 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d63721dde484756e67b68bcff078257c130ae36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825492"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976731"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Novità di Windows Server, versione 1709
 
 >Si applica a: Windows Server (Canale semestrale)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedi anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Per altre informazioni sulle funzionalità più recenti di Windows, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedi anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
    
 
 ## <a name="new-cadence-of-releases"></a>Nuova frequenza di rilascio
 
 A partire da questa versione, sono disponibili due opzioni per la ricezione degli aggiornamenti delle funzionalità di Windows Server:
 - **A lungo termine (LTSC) canale di manutenzione**: Si tratta di attività, come di consueto con 5 anni di supporto "Mainstream" e 5 anni di supporto "Extended". Hai la possibilità di eseguire l'aggiornamento alla versione LTSC successiva ogni 2-3 anni, come supportato negli ultimi 20 anni.
-- **Canale semestrale (SAC)**: Questo è un beneficio Software Assurance e si è completamente supportato nell'ambiente di produzione. La differenza è che è supportato per 18 mesi e sarà disponibile una nuova versione ogni sei mesi.
+- **Canale semestrale (SAC)** : Questo è un beneficio Software Assurance e si è completamente supportato nell'ambiente di produzione. La differenza è che è supportato per 18 mesi e sarà disponibile una nuova versione ogni sei mesi.
 
 I canali di rilascio sono riassunti nella tabella seguente.
 
@@ -36,7 +36,7 @@ I canali di rilascio sono riassunti nella tabella seguente.
 | Disponibilità  | Software Assurance o Azure (ospitato nel cloud)  | Tutti i canali |
 | Convenzione di denominazione  | Windows Server, versione AAMM  | Windows Server AAAA |
 
-Per altre informazioni, vedi [Panoramica di Canale semestrale di Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Per altre informazioni, vedere [confronto dei canali di manutenzione](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
 
 ## <a name="application-containers-and-micro-services"></a>Contenitori applicazioni e micro servizi
 
@@ -70,7 +70,7 @@ La **memoria persistente virtualizzata (vPMEM, Virtualized Persistent Memory)** 
 
 **Archiviazione contenitori, volumi di dati persistenti con mapping globale SMB**. In Windows Server, versione 1709 abbiamo aggiunto il supporto per il mapping di una condivisione file SMB per una lettera di unità all'interno di un contenitore. Ciò è noto con il nome di mapping globale SMB. Questa unità mappata è quindi accessibile a tutti gli utenti nel server locale in modo che l'I/O del contenitore nel volume di dati possa passare dall'unità montata alla condivisione di file sottostante. Per altre informazioni, vedi la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Formato di file di configurazione macchina virtuale (aggiornato)**. È stato aggiunto un ulteriore file (con estensione vmgs) per le macchine virtuali con una versione di configurazione 8.2 e versioni successive. VMGS è l'acronimo di "VM guest" (guest VM) ed è un nuovo file interno che include lo stato del dispositivo che in precedenza faceva parte del file di stato di runtime della macchina virtuale.
+**Formato di file di configurazione macchina virtuale (aggiornato)** . È stato aggiunto un ulteriore file (con estensione vmgs) per le macchine virtuali con una versione di configurazione 8.2 e versioni successive. VMGS è l'acronimo di "VM guest" (guest VM) ed è un nuovo file interno che include lo stato del dispositivo che in precedenza faceva parte del file di stato di runtime della macchina virtuale.
 
 ## <a name="security-and-assurance"></a>Sicurezza e controllo
 
@@ -115,7 +115,7 @@ La **mesh di routing di Docker** è supportata. La mesh routing in ingresso fa p
 **Requisiti di rete alla parità con Linux per Kubernetes Windows**: Windows è ora coerente con Linux in termini di funzionalità di rete. I clienti possono distribuire cluster Kubernetes con sistemi operativi misti in qualsiasi ambiente, inclusi Azure, in locale e in stack cloud di terzi con le stesse topologie e primitive di rete supportate su Linux, senza la necessità di eventuali soluzioni alternative o le estensioni del commutatore.
 
 **Stack di rete core**: Diverse funzionalità dello stack di rete core sono state migliorate. Per altre informazioni su queste funzionalità, vedi la pagina relativa alle [funzionalità dello stack di rete core in Windows 10 Creators Update](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/).
-- **TCP Fast Open (failover di test)**: Per ottimizzare il processo di handshake a 3 TCP è stato aggiunto il supporto per failover di test. TFO definisce un cookie TFO sicuro alla prima connessione tramite un handshake a 3 vie standard.  Le connessioni successive allo stesso server utilizzano il cookie TFO anziché un handshake a 3 vie per connettersi con un tempo di round trip pari a zero.
+- **TCP Fast Open (failover di test)** : Per ottimizzare il processo di handshake a 3 TCP è stato aggiunto il supporto per failover di test. TFO definisce un cookie TFO sicuro alla prima connessione tramite un handshake a 3 vie standard.  Le connessioni successive allo stesso server utilizzano il cookie TFO anziché un handshake a 3 vie per connettersi con un tempo di round trip pari a zero.
 - **CUBIC**: Implementazione nativa Windows sperimentale di CUBI, è disponibile un algoritmo di controllo della congestione TCP. I comandi seguenti consentono rispettivamente di abilitare o disabilitare CUBIC.
 
     ```
@@ -140,10 +140,10 @@ La **mesh di routing di Docker** è supportata. La mesh routing in ingresso fa p
     ```
 
     - **ISATAP e 6to4**: Come passo aggiuntivo per deprecation futuri, Creators Update avrà queste tecnologie disabilitate per impostazione predefinita.
-- **Rilevamento Dead Gateway (DGD)**: L'algoritmo DGD passa automaticamente le connessioni su a un altro gateway quando il gateway corrente non è raggiungibile. In questo rilascio l'algoritmo è stato migliorato per eseguire di nuovo il probe dell'ambiente di rete periodicamente.
+- **Rilevamento Dead Gateway (DGD)** : L'algoritmo DGD passa automaticamente le connessioni su a un altro gateway quando il gateway corrente non è raggiungibile. In questo rilascio l'algoritmo è stato migliorato per eseguire di nuovo il probe dell'ambiente di rete periodicamente.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) è un cmdlet incorporato in Windows PowerShell che esegue un'ampia gamma di diagnostica di rete.  In questa versione abbiamo migliorato il cmdlet per fornire informazioni dettagliate sulla selezione delle route e sulla selezione dell'indirizzo di origine.
 
-**Software Defined Networking**
+**SDN (Software Defined Networking)**
 
 - **Codifica di rete virtuale** è una nuova funzionalità che offre la possibilità di codificare il traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno di subnet contrassegnate come "Crittografia abilitata". Questa funzionalità usa Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare i pacchetti.  DTLS fornisce protezione contro intercettazione, manomissione e contraffazione da chiunque abbia accesso alla rete fisica.
  

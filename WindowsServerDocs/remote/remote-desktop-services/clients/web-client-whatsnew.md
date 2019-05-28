@@ -11,18 +11,34 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2746127c15753ac8f4f6067eef068fe97b425829
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844552"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976333"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>Novità per il client di web Desktop remoto?
 
 Viene aggiornato regolarmente le [client web Desktop remoto](remote-desktop-web-client.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
+
+   >[!NOTE]
+    >È stato modificato il sistema di controllo delle versioni per il client web. A partire dalla versione 1.0.18.0, tutte le versioni di rilascio di client web conterrà i numeri (nel formato "W.x.y. z"). I numeri di versione per il client di web Desktop remoto termina sempre con il valore 0 (ad esempio, W.X.Y.0). Ogni versione del client web Windows Desktop virtuale verrà modificato l'ultima cifra finché la prossima versione di client di Desktop remoto web (ad esempio, 1.0.18.1).
+
+## <a name="updates-for-version-10180"></a>Aggiornamenti per la versione 1.0.18.0
+*Data di pubblicazione: 5/14/2019*
+
+- Configurazione metodo di avvio delle risorse aggiunto nella scheda Impostazioni, consentendo agli utenti di aprire le risorse nel browser o scaricare un file con estensione rdp da gestire con un altro client. Questa impostazione può essere configurata dall'amministratore. I dettagli riguardanti le configurazioni di amministratore per questa funzionalità è disponibile nel [documentazione dell'installazione di client web](remote-desktop-web-client-admin.md).
+- Colore fisso problemi, l'abilitazione di rendering più vivace i colori nella sessione remota.
+- Messaggi di errore rivisto correlati a errori relativi alle risorse remote del feed. 
+- Aggiunta del supporto per più collegamenti di office, ad esempio Incolla speciale (Ctrl + Alt + V).
+- Aggiunta di tasti di scelta rapida per gli utenti richiamare la chiave di Windows nella sessione remota (ALT+F3)
+- Messaggio di errore aggiornate per gli utenti che tentano di eseguire l'autenticazione con una password scaduta.
+- Feed aggiornato dell'interfaccia utente nella pagina tutte le risorse.
+- Risolti dialoghi sovrapposti che si sono verificati durante la sessione di ristabilire la connessione.
+- Correzione di ridimensionamento sull'icona di risorsa remota nella barra delle applicazioni di risorse. 
 
 ## <a name="updates-for-version-1011"></a>Aggiornamenti per la versione 1.0.11
 *Data di pubblicazione: 2/22/2019*

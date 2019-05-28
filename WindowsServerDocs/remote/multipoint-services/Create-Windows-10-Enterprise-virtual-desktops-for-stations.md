@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: befd784f4a2179c121992057e298d4ea9068c11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0aa81ef3633adf27a25b45b3b7c00082d83bf0bb
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862082"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034621"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Creare desktop virtuali di Windows 10 Enterprise per le stazioni
 Questa configurazione facoltativa in servizi MultiPoint è destinata principalmente in situazioni in cui un'applicazione essenziale richiede un'istanza di un sistema operativo client per ciascun utente. Sono esempi di applicazioni che non possono essere installate in Windows Server e applicazioni che non vengono eseguiranno più istanze nello stesso computer host.  
@@ -44,13 +44,13 @@ Per prepararsi alla creazione stazione di desktop virtuali, assicurarsi che i se
 ## <a name="procedures"></a>Procedure  
 Usare le procedure seguenti per:  
   
--   [Creare un modello di desktop virtuali](#a-namebkmkcreateatemplateacreate-a-template-for-virtual-desktops)  
+-   [Creare un modello di desktop virtuali](#create-a-template-for-virtual-desktops)  
   
--   [Creare i desktop virtuali dal modello](#BKMK_CreateVirtualDesktopsfromTemplate)  
+-   [Creare i desktop virtuali dal modello](#create-virtual-machine-desktops-from-the-template)  
   
--   [Copiare un modello di desktop virtuale esistente](#BKMK_CopyExiistingVirtualDesktopTemplate)  
+-   [Copiare un modello di desktop virtuale esistente](#copy-an-existing-virtual-desktop-template)  
   
-### <a name="BKMK_CreateaTemplate"></a>Creare un modello di desktop virtuali  
+### <a name="create-a-template-for-virtual-desktops"></a>Creare un modello per i desktop virtuali  
 Prima di poter creare un modello per i desktop virtuali, è necessario abilitare la funzionalità di Desktop virtuali in MultiPoint Server.  
   
 ##### <a name="to-enable-the-virtual-desktop-feature"></a>Per abilitare la funzionalità di Desktop virtuali  
@@ -98,7 +98,7 @@ Il passaggio successivo consiste nel configurare il modello con il software e l'
 4.  Selezionare il modello che si desidera personalizzare, fare clic su **Personalizza modello**, quindi fare clic su **OK**.  
   
     > [!NOTE]  
-    > Sono disponibili solo i modelli che non sono stati utilizzati per creare le stazioni di desktop virtuali. Se si desidera aggiornare un modello che è già in uso, è necessario eseguire una copia del modello utilizzando il **Importa modello** attività, descritto più avanti in [copiare un modello di desktop virtuale esistente](#BKMK_CopyExiistingVirtualDesktopTemplate).  
+    > Sono disponibili solo i modelli che non sono stati utilizzati per creare le stazioni di desktop virtuali. Se si desidera aggiornare un modello che è già in uso, è necessario eseguire una copia del modello utilizzando il **Importa modello** attività, descritto più avanti in [copiare un modello di desktop virtuale esistente](#copy-an-existing-virtual-desktop-template).  
   
     Il modello verrà aperto in Hyper-V **VM connettersi** finestra e l'accesso automatico viene eseguita utilizzando l'account Administrator predefinito.  
   
@@ -111,7 +111,7 @@ Il passaggio successivo consiste nel configurare il modello con il software e l'
   
 6.  Dopo aver completato la configurazione del sistema, fare doppio clic su di **CompleteCustomization** collegamento sul desktop dell'amministratore per eseguire Sysprep e arrestare il modello. Durante la personalizzazione, lo strumento Sysprep rimuove tutte le informazioni di sistema univoco per preparare l'installazione di Windows per l'Imaging.  
   
-### <a name="BKMK_CreateVirtualDesktopsfromTemplate"></a>Creare desktop delle macchine virtuali dal modello  
+### <a name="create-virtual-machine-desktops-from-the-template"></a>Creare desktop delle macchine virtuali dal modello  
 Con il modello di desktop virtuale configurato nel modo desiderato i desktop sia, si è pronti per iniziare la creazione di desktop virtuali. Verrà creato un desktop virtuale per ogni stazione di cui è collegata al computer MultiPoint Server. Alla successiva che un utente accede a una stazione visualizzano il desktop virtuale anziché il desktop basato sulla sessione che è stato visualizzato prima.  
   
 > [!NOTE]  
@@ -141,7 +141,7 @@ Al completamento dell'attività, ciascuna stazione locale si connetterà a un de
 > [!NOTE]  
 > Se un account utente è connesso a uno dei posti di locale, è necessario disconnettersi dalla sessione per ottenere la stazione a connettersi a uno dei desktop virtuali stazione appena creato.  
   
-### <a name="BKMK_CopyExiistingVirtualDesktopTemplate"></a>Copiare un modello di desktop virtuale esistente  
+### <a name="copy-an-existing-virtual-desktop-template"></a>Copiare un modello di desktop virtuale esistente  
 Utilizzare la procedura seguente per creare una copia di un modello di desktop virtuale esistente che è possibile personalizzare e utilizzare. Ciò può risultare utile nelle situazioni seguenti:  
   
 -   Per copiare un modello master da una condivisione di rete in un computer host MultiPoint Server in modo che le stazioni di desktop virtuali possono essere create da del modello master.  

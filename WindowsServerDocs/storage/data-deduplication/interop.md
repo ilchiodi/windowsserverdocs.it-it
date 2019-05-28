@@ -8,18 +8,21 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9453811b0f76b249c245990293ba82cf5a6e0867
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834432"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624637"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilità di Deduplicazione dati
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2019
 
 ## <a id="supported"></a>È supportato
+
+### <a id="supported-ReFS"></a>ReFS
+Deduplicazione dati è supportata a partire da Windows Server 2019. 
 
 ### <a id="supported-clusters"></a>Clustering di failover
 
@@ -76,8 +79,6 @@ Windows Server Backup consente di eseguire il backup di un volume ottimizzato "c
     ```
 
 ## <a id="unsupported"></a>Non è supportato
-### <a id="unsupported-refs"></a>ReFS
-Windows Server 2016 non supporta Deduplicazione dati nei volumi formattati con ReFS. [Vota per questo elemento per Windows Server vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs).
 
 ### <a id="unsupported-windows-client"></a>Windows 10 (SO client)
 La funzionalità Deduplicazione dati non è supportata in Windows 10. Esistono diversi post di blog popolari nella community di Windows che descrivono come rimuovere i file binari da Windows Server 2016 e installarli su Windows 10, ma questo scenario non è stato convalidato come parte dello sviluppo di Deduplicazione dati. [Vota per questo elemento per Windows 10 vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).

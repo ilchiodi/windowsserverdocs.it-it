@@ -13,12 +13,12 @@ ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 31c1579dc840f6f4eb805ac4e10f51192a6b4c99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d671d044896ae9e71edad8302f06f2a21fe50772
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816192"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034551"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Distribuire controller di rete tramite Windows PowerShell
 
@@ -31,19 +31,19 @@ Questo argomento fornisce istruzioni su come usare Windows PowerShell per distri
 
 In questo argomento sono incluse le sezioni seguenti.
 
-- [Installare il ruolo del server Controller di rete](#bkmk_role)
+- [Installare il ruolo del server Controller di rete](#install-the-network-controller-server-role)
 
-- [Configurare il cluster di Controller di rete](#bkmk_configure)
+- [Configurare il cluster di Controller di rete](#configure-the-network-controller-cluster)
 
-- [Configurare l'applicazione Controller di rete](#bkmk_app)
+- [Configurare l'applicazione Controller di rete](#configure-the-network-controller-application)
 
-- [Convalida della distribuzione Controller di rete](#bkmk_validation)
+- [Convalida della distribuzione Controller di rete](#network-controller-deployment-validation)
 
-- [Altri comandi di Windows PowerShell per il Controller di rete](#bkmk_ps)
+- [Altri comandi di Windows PowerShell per il Controller di rete](#additional-windows-powershell-commands-for-network-controller)
 
-- [Script di configurazione di Controller di rete di esempio](#bkmk_script)
+- [Script di configurazione di Controller di rete di esempio](#sample-network-controller-configuration-script)
 
-- [Passaggi di post-distribuzione per le distribuzioni Non Kerberos](#bkmk_nonkerb)
+- [Passaggi di post-distribuzione per le distribuzioni Non Kerberos](#post-deployment-steps-for-non-kerberos-deployments)
 
 ## <a name="install-the-network-controller-server-role"></a>Installare il ruolo di server di Controller di rete
 
@@ -90,7 +90,7 @@ Nella tabella seguente vengono fornite descrizioni per ogni parametro di **Nuovo
 |-------------|---------------|
 |Nome|Il **nome** parametro specifica il nome descrittivo del server che si desidera aggiungere al cluster|
 |Server|Il **Server** parametro specifica il nome host, completamente dominio nome completo (FQDN) o l'indirizzo IP del server che si desidera aggiungere al cluster. Per i computer appartenenti a un dominio, nome di dominio COMPLETO è obbligatorio.|
-|FaultDomain|Il **FaultDomain** parametro specifica il dominio di errore per il server che si desidera aggiungere al cluster. Questo parametro definisce il server che potrebbero verificarsi errori nello stesso momento del server che si desidera aggiungere al cluster. Questo errore potrebbe essere a causa di dipendenze fisiche condivise, ad esempio power e origini di rete. Domini di errore rappresentano in genere gerarchie correlate a tali dipendenze condivise con altri server potrebbe non riuscire insieme dal punto più alto nella struttura di dominio di errore. Durante la fase di esecuzione, il Controller di rete prende in considerazione i domini di errore del cluster e tenta di distribuire i servizi del Controller di rete in modo che si trovano in domini di errore. Questo processo assicura che, in caso di errore di qualsiasi dominio di un errore, che non venga compromessa la disponibilità del servizio e il relativo stato. Domini di errore vengono specificati in un formato gerarchico. Ad esempio:  "Fd: / DC1/Rack1/Host1", dove DC1 è il nome del Data Center, Rack1 è il nome del rack e Host1 è il nome dell'host in cui si trova il nodo.|
+|FaultDomain|Il **FaultDomain** parametro specifica il dominio di errore per il server che si desidera aggiungere al cluster. Questo parametro definisce il server che potrebbero verificarsi errori nello stesso momento del server che si desidera aggiungere al cluster. Questo errore potrebbe essere a causa di dipendenze fisiche condivise, ad esempio power e origini di rete. Domini di errore rappresentano in genere gerarchie correlate a tali dipendenze condivise con altri server potrebbe non riuscire insieme dal punto più alto nella struttura di dominio di errore. Durante la fase di esecuzione, il Controller di rete prende in considerazione i domini di errore del cluster e tenta di distribuire i servizi del Controller di rete in modo che si trovano in domini di errore. Questo processo assicura che, in caso di errore di qualsiasi dominio di un errore, che non venga compromessa la disponibilità del servizio e il relativo stato. Domini di errore vengono specificati in un formato gerarchico. Ad esempio: "Fd: / DC1/Rack1/Host1", dove DC1 è il nome del Data Center, Rack1 è il nome del rack e Host1 è il nome dell'host in cui si trova il nodo.|
 |RestInterface|Il **RestInterface** parametro specifica il nome dell'interfaccia sul nodo in cui è terminata la comunicazione Representational State Transfer (REST). Questa interfaccia di Controller di rete riceve le richieste API Northbound dal livello di gestione della rete.|
 |NodeCertificate|Il **NodeCertificate** parametro specifica il certificato utilizzato per l'autenticazione computer Controller di rete. Il certificato è obbligatorio se si utilizza l'autenticazione basata su certificati per la comunicazione all'interno del cluster; il certificato viene utilizzato anche per la crittografia del traffico tra i servizi del Controller di rete. Il nome soggetto del certificato deve essere uguale al nome DNS del nodo.|
 

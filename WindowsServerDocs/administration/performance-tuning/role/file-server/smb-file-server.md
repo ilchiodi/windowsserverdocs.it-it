@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 93718cf13f28cde8f25b35b42ce20ca75c6fa13c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832062"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222500"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Ottimizzazione delle prestazioni per file server SMB
 
@@ -106,10 +106,8 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
     I valori predefiniti sono 512 e 8192. Questi parametri consentono al server limitare la concorrenza di operazione client in modo dinamico all'interno dei limiti specificati. Alcuni client potrebbero ottenere un aumento della produttività con limiti più elevati della concorrenza, ad esempio, la copia dei file sui collegamenti a banda larga, con latenza elevata.
     
     >[!TIP]
-    > Prima di Windows 10 e Server 2016, il numero di crediti concesse al client consentono di variare in modo dinamico tra Smb2CreditsMin e Smb2CreditsMax basato su un algoritmo che ha tentato di determinare il numero ottimale di crediti per concedere basato sulla carta di credito e sulla latenza di rete utilizzo. In Windows 10 e Server 2016, il server SMB è stato modificato per concedere in modo incondizionato crediti su richiesta fino al numero massimo configurato di crediti. Come parte di questa modifica, è stata rimossa la limitazione delle richieste meccanismo che consente di ridurre le dimensioni della finestra di ogni connessione carta di credito quando il server è eccessivo della memoria, la carta di credito. Evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando il server è così ridotto in memoria (< pochi MB) da poter essere inutile. Poiché il server non è più compatta credito windows l'impostazione Smb2CreditsMin non è più necessario e ora viene ignorato.
+    > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesse al client consentono di variare in modo dinamico tra Smb2CreditsMin e Smb2CreditsMax basato su un algoritmo che ha tentato di determinare il numero ottimale di crediti per concedere basata sulla latenza di rete e utilizzo di credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato per concedere in modo incondizionato crediti su richiesta fino al numero massimo configurato di crediti. Come parte di questa modifica, è stata rimossa la limitazione delle richieste meccanismo che consente di ridurre le dimensioni della finestra di ogni connessione carta di credito quando il server è eccessivo della memoria, la carta di credito. Evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando il server è così ridotto in memoria (< pochi MB) da poter essere inutile. Poiché il server non è più compatta credito windows l'impostazione Smb2CreditsMin non è più necessario e ora viene ignorato.
 
-
-    >[!TIP]
     > È possibile monitorare le condivisioni Client SMB\\credito si blocca/sec per vedere se sono presenti problemi con i crediti.
 
 - **AdditionalCriticalWorkerThreads**
@@ -134,7 +132,8 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
     >[!TIP]
     > Indica che il valore potrebbe essere necessario aumentare è se le code di lavoro SMB2 stanno crescendo molto grandi (contatore delle prestazioni ' code di lavoro del Server\\lunghezza della coda\\SMB2 non bloccante \*' è costantemente superiore a circa 100).
 
-     
+    >[!Note]
+    >In Windows 10 e Windows Server 2016, MaxThreadsPerQueue non è disponibile. Il numero di thread per un pool di thread sarà "20 * il numero di processori in un nodo NUMA".  
 
 -   **AsynchronousCredits**
 
@@ -146,7 +145,7 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
 
 ### <a name="smb-server-tuning-example"></a>Esempio di ottimizzazione server SMB
 
-Le impostazioni seguenti possono ottimizzare un computer per le prestazioni del server di file in molti casi. Le impostazioni non sono ottimali o appropriata in tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
+Le impostazioni seguenti possono ottimizzare un computer per le prestazioni del server di file in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
 | Parametro                       | Value | Impostazione predefinita |
 |---------------------------------|-------|---------|

@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 61131d2bf253c66d93408bc66b78d1dca2502087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d358c47bd278cf11c4bab6887302bf6d053529ec
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840592"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192662"
 ---
 # <a name="gpupdate"></a>gpupdate
 
 
 
-Aggiorna le impostazioni di criteri di gruppo. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Aggiorna le impostazioni di criteri di gruppo. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -48,7 +48,7 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 -   Il **gpupdate** comando è disponibile in Windows Server 2008 R2, Windows Server 2008, Windows 7 Ultimate, Windows 7 Professional, Windows Vista Ultimate, Windows Vista Enterprise e Windows Vista Business.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Forzare un aggiornamento in background di tutte le impostazioni di criteri di gruppo, indipendentemente dal fatto che siano modificati.
 ```
@@ -58,4 +58,4 @@ gpupdate /force
 #### <a name="additional-references"></a>Altri riferimenti
 
 -   [TechCenter di criteri di gruppo](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

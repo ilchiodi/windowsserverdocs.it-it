@@ -9,12 +9,12 @@ ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
 ms.author: pashort
 author: shortpatti
 ms.date: 06/20/2018
-ms.openlocfilehash: c76483031bdca184e0943738a8c921776440d1fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0439c0f45a604f6b3ef90369f5fe77a59568d9d7
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829032"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222581"
 ---
 # <a name="network-policy-server-nps"></a>Server dei criteri di rete
 
@@ -39,10 +39,10 @@ Server dei criteri di rete consente di creare e imporre criteri di accesso di re
 
 Criteri di rete consente all'utente in modo centralizzato, configurare e gestire l'autenticazione di accesso di rete, autorizzazione e accounting con le funzionalità seguenti:
 
-- **Server RADIUS**. Esegue inoltre centralizzati di autenticazione, autorizzazione e accounting per wireless, l'autenticazione di commutatore, accesso remoto e le connessioni di rete privata virtuale (VPN). Quando si utilizza Server dei criteri di rete come un server RADIUS, si configurano i server di accesso alla rete, ad esempio punti di accesso wireless e server VPN, come client RADIUS in Server dei criteri di rete. È inoltre possibile configurare criteri di rete utilizzati da Server dei criteri di rete per autorizzare richieste di connessione, nonché configurare l'accounting RADIUS in modo che Server dei criteri di rete registri le informazioni di accounting in file di registro sul disco rigido locale oppure in un database di Microsoft SQL Server. Per altre informazioni, vedere [server RADIUS](#bkmk_server).
-- **Proxy RADIUS**. Quando si usa criteri di rete come proxy RADIUS, si configurano criteri di richiesta di connessione che indicano i criteri di rete quali richieste di connessione inoltrare ad altri server RADIUS e server RADIUS che si desidera inoltrare le richieste di connessione. È inoltre possibile configurare Server dei criteri di rete per inoltrare i dati di accounting da registrare da parte di uno o più computer in un gruppo remoto di server RADIUS. Per configurare criteri di rete come server proxy RADIUS, vedere gli argomenti seguenti. Per altre informazioni, vedere [proxy RADIUS](#bkmk_proxy).
+- **Server RADIUS**. Esegue inoltre centralizzati di autenticazione, autorizzazione e accounting per wireless, l'autenticazione di commutatore, accesso remoto e le connessioni di rete privata virtuale (VPN). Quando si utilizza Server dei criteri di rete come un server RADIUS, si configurano i server di accesso alla rete, ad esempio punti di accesso wireless e server VPN, come client RADIUS in Server dei criteri di rete. È inoltre possibile configurare criteri di rete utilizzati da Server dei criteri di rete per autorizzare richieste di connessione, nonché configurare l'accounting RADIUS in modo che Server dei criteri di rete registri le informazioni di accounting in file di registro sul disco rigido locale oppure in un database di Microsoft SQL Server. Per altre informazioni, vedere [server RADIUS](#radius-server).
+- **Proxy RADIUS**. Quando si usa criteri di rete come proxy RADIUS, si configurano criteri di richiesta di connessione che indicano i criteri di rete quali richieste di connessione inoltrare ad altri server RADIUS e server RADIUS che si desidera inoltrare le richieste di connessione. È inoltre possibile configurare Server dei criteri di rete per inoltrare i dati di accounting da registrare da parte di uno o più computer in un gruppo remoto di server RADIUS. Per configurare criteri di rete come server proxy RADIUS, vedere gli argomenti seguenti. Per altre informazioni, vedere [proxy RADIUS](#radius-proxy).
     - [Configurare i criteri di richiesta di connessione](nps-crp-configure.md)
-- **Accounting RADIUS**. È possibile configurare criteri di rete per registrare gli eventi in un file di log locale o a un'istanza locale o remota di Microsoft SQL Server. Per altre informazioni, vedere [la registrazione di NPS](#bkmk_logging).
+- **Accounting RADIUS**. È possibile configurare criteri di rete per registrare gli eventi in un file di log locale o a un'istanza locale o remota di Microsoft SQL Server. Per altre informazioni, vedere [la registrazione di NPS](#nps-logging).
 
 >[!IMPORTANT]
 >Protezione accesso alla rete \(NAP\), Autorità registrazione integrità \(Autorità registrazione integrità\)e Host Credential Authorization Protocol \(HCAP\) deprecate in Windows Server 2012 R2, e non sono disponibili in Windows Server 2016. Se si dispone di una distribuzione di protezione accesso alla rete usando i sistemi operativi precedenti a Windows Server 2016, è possibile eseguire la migrazione della distribuzione di protezione accesso alla rete a Windows Server 2016.
@@ -66,7 +66,7 @@ Le sezioni seguenti forniscono informazioni più dettagliate sui criteri di rete
 
 È possibile usare criteri di rete come un server RADIUS, proxy RADIUS o entrambi.
 
-### <a name="bkmk_server"></a>Server RADIUS
+### <a name="radius-server"></a>Server RADIUS
 
 Criteri di rete è l'implementazione Microsoft dello standard RADIUS specificato dalla Internet Engineering Task Force \(IETF\) nelle RFC 2865 e 2866. Come server RADIUS, NPS esegue centralizzate di autenticazione, autorizzazione e accounting per connessioni remote molti tipi di accesso alla rete, inclusi switch wireless, che esegue l'autenticazione e rete privata virtuale \(VPN\) remoto l'accesso e le connessioni da router a router.
 
@@ -97,7 +97,7 @@ La figura seguente mostra i criteri di rete come server RADIUS per un'ampia gamm
 
 ![NPS come Server RADIUS](../../media/Nps-Server/Nps-Server.jpg)
 
-### <a name="bkmk_proxy"></a>Proxy RADIUS
+### <a name="radius-proxy"></a>Proxy RADIUS
 
 Come proxy RADIUS, dei criteri di rete inoltra i messaggi di autenticazione e accounting NPS e altri server RADIUS. È possibile usare criteri di rete come proxy RADIUS per il routing del raggio di messaggi tra i client RADIUS \(server di accesso alla rete è l'acronimo\) e server RADIUS che eseguono l'autenticazione, autorizzazione e accounting per il tentativo di connessione. 
 
@@ -183,7 +183,7 @@ Per istruzioni su come rendere tali configurazioni, vedere gli argomenti seguent
 - [Configurare gruppi di Server RADIUS remoti](nps-crp-rrsg-configure.md)
 - [Configurare i criteri di richiesta di connessione](nps-crp-configure.md)
 
-## <a name="bkmk_logging"></a>Registrazione dei criteri di rete
+## <a name="nps-logging"></a>Registrazione dei criteri di rete
 
 La registrazione dei criteri di rete è l'acronimo di accounting RADIUS. Configurare la registrazione dei criteri di rete in base ai requisiti se criteri di rete viene utilizzato come server RADIUS, proxy o qualsiasi combinazione di queste configurazioni.
 

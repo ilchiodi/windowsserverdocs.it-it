@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a015c27f784d5b1f488f984450612820d4a06b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8bcc653cc9eb9adb6d31331463d01774d4faec1a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828982"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189224"
 ---
 # <a name="custom-error-messages-for-ad-fs-sign-in-page"></a>Messaggi di errore personalizzati per la pagina di accesso AD ADFS  
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Si possono configurare messaggi di errore personalizzati specifici per l'organizzazione. Nell'illustrazione seguente sono riportati la descrizione di una pagina di errore personalizzata e un messaggio di errore generico. Utilizzare i cmdlet di Windows PowerShell seguenti per personalizzare i messaggi di errore.  
   

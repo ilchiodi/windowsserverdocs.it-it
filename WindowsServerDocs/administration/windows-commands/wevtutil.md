@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6d57f95379fce80bec9cb5e8445b28f887123c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55a76d58ba7a473881dade55c4f00052c9764ae9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826732"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192698"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -49,8 +49,8 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |{sl \| set-log} \<Logname > [/ e:.\<abilitato >] [/ ricerca per categorie:\<isolamento >] [/ lungo:\<Logpath >] [/ rt:\<conservazione >] [/ ab:\<automatico >] [/ ms:\< MaxSize >] [/ l:\<livello >] [/ k\<parole chiave >] [/ autorità di certificazione:\<canale >] [/ c:\<Config >]|Modifica la configurazione del log specificato.|
 |{ep \| enum-publishers}|Consente di visualizzare gli autori di eventi nel computer locale.|
 |{gp \| get-publisher} \<Publishername > [/ ge:\<metadati >] [/ gm:\<messaggio >] [/ f:\<formato >]]|Visualizza le informazioni di configurazione per il server di pubblicazione di eventi specificato.|
-|{im \| install-manifest} \<manifesto >|Installa gli autori di eventi e log da un manifesto. Per altre informazioni sui manifesti di eventi e l'utilizzo di questo parametro, vedere il SDK del registro eventi di Windows nel sito Web Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
-|{um \| manifesto disinstallare} \<manifesto >|Disinstalla tutti gli autori e i log da un manifesto. Per altre informazioni sui manifesti di eventi e l'utilizzo di questo parametro, vedere il SDK del registro eventi di Windows nel sito Web Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
+|{im \| install-manifest} \<manifesto >|Installa gli autori di eventi e log da un manifesto. Per altre informazioni sui manifesti di eventi e l'utilizzo di questo parametro, vedere il SDK del registro eventi di Windows nel sito Web Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
+|{um \| manifesto disinstallare} \<manifesto >|Disinstalla tutti gli autori e i log da un manifesto. Per altre informazioni sui manifesti di eventi e l'utilizzo di questo parametro, vedere il SDK del registro eventi di Windows nel sito Web Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
 |{qe \| gli eventi di query} \<percorso > [/ lf:\<FileLog >] [/SQ:\<Structquery >] [/ q:\<Query >] [/ bm:\<segnalibro >] [/ sbm:\<Savebm >] [/ desktop remoto:\< Direzione >] [/ f\<formato >] [/ l:\<delle impostazioni locali >] [/ c:\<conteggio >] [/ e:\<elemento >]|Legge gli eventi dal log eventi, da un file di log o tramite una query strutturata. Per impostazione predefinita, si specifica un nome di log per \<Path >. Tuttavia, se si usa la **/lf** opzione, quindi \<percorso > deve essere un percorso di un file di log. Se si usa la **/sq** parametro, \<percorso > deve essere un percorso di un file contenente una query strutturata.|
 |{gli \| get-loginfo} \<Logname > [/ lf:\<FileLog >]|Visualizza informazioni sullo stato relative a un registro eventi o file di log. Se il **/lf** opzione viene utilizzata, \<Logname > è un percorso a un file di log. È possibile eseguire **wevtutil el** per ottenere un elenco di nomi di registro.|
 |{epl \| export-log} \<Path > \<Exportfile > [/ lf:\<Logfile >] [/SQ:\<Structquery >] [/ q:\<Query >] [/ow:\<Overwrite >]|Esporta gli eventi dal log eventi da un file di log o utilizzando una query strutturata per il file specificato. Per impostazione predefinita, si specifica un nome di log per \<Path >. Tuttavia, se si usa la **/lf** opzione, quindi \<percorso > deve essere un percorso di un file di log. Se si usa la **/sq** opzione \<percorso > deve essere un percorso di un file contenente una query strutturata. \<Exportfile > è un percorso per il file in cui verranno archiviati gli eventi esportati.|
@@ -70,7 +70,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |/ms:\<MaxSize>|Imposta la dimensione massima del log in byte. Le dimensioni del log minimo sono 1048576 byte (1024KB) e i file di log vengono sempre multipli di 64KB, pertanto il valore immesso verrà arrotondata conseguenza.|
 |/l:\<Level>|Definisce il filtro del livello del log. \<Livello > può essere qualsiasi valore valido di livello. Questa opzione è applicabile solo file di log con una sessione dedicata. È possibile rimuovere un filtro livello impostando <Level> su 0.|
 |/k:\<Keywords>|Specifica il filtro di parole chiave del registro. \<Parole chiave > può essere qualsiasi maschera di parola chiave a 64 bit valido. Questa opzione è applicabile solo file di log con una sessione dedicata.|
-|/ca:\<Channel>|Imposta l'autorizzazione di accesso per un log eventi. \<Canale > è un descrittore di sicurezza che usa il SDDL Security Descriptor Definition Language (). Per altre informazioni sul formato SDDL, vedere il sito Web Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
+|/ca:\<Channel>|Imposta l'autorizzazione di accesso per un log eventi. \<Canale > è un descrittore di sicurezza che usa il SDDL Security Descriptor Definition Language (). Per altre informazioni sul formato SDDL, vedere il sito Web Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
 |/c:\<Config>|Specifica il percorso di un file di configurazione. Questa opzione determinerà le proprietà del registro da leggere dal file di configurazione definito in \<Config >. Se si utilizza questa opzione, non è necessario specificare un <Logname> parametro. Il nome del log verrà letto dal file di configurazione.|
 |/Ge:\<metadati >|Ottiene informazioni sui metadati per gli eventi generati dal server di pubblicazione. \<Metadati > può essere true o false.|
 |/Gm:\<messaggio >|Viene visualizzato il messaggio effettivo anziché l'ID messaggio numerico. \<Messaggio > può essere true o false.|
@@ -155,4 +155,4 @@ wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b3c87597e07102d00fc068b7ecd5744e4ba366f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b790f39a2bf9c6334eb2176aa2e5f2e0196c0c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854012"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475971"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Distribuire computer primari per il reindirizzamento delle cartelle e profili utente mobili
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Questo argomento descrive come abilitare il supporto di computer principale e designare i computer primari per gli utenti. In questo modo consente di controllare i computer in cui utilizzano il reindirizzamento delle cartelle e profili utente mobili.
 
@@ -31,7 +31,7 @@ Questo argomento descrive come abilitare il supporto di computer principale e de
 Supporto del computer primario presenta i requisiti seguenti:
 
 - Lo schema di Active Directory Domain Services (AD DS) deve essere aggiornato per includere le aggiunte allo schema di Windows Server 2012 (installazione di un controller di dominio di Windows Server 2012 automaticamente Aggiorna lo schema). Per informazioni sull'aggiornamento dello schema di Active Directory Domain Services, vedere [integrazione Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) e [esecuzione Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
-- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
+- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
 
 >[!TIP]
 >Anche se il supporto di computer primario richiede il reindirizzamento delle cartelle e/o i profili utente mobili, se si distribuiscono queste tecnologie per la prima volta, è consigliabile impostare il supporto di computer primari prima di abilitare oggetti Criteri di gruppo che consentono di configurare il reindirizzamento delle cartelle e I profili utente mobili. In tal modo, i dati utente non verranno copiati nei computer non primari prima di aver abilitato il supporto del computer primario. Per informazioni sulla configurazione, vedere [distribuire reindirizzamento cartelle](deploy-folder-redirection.md) e [distribuire i profili utente mobili](deploy-roaming-user-profiles.md).
@@ -115,6 +115,6 @@ Di seguito viene illustrato come testare la funzionalità computer primario:
 ## <a name="more-information"></a>Altre informazioni
 
 - [Distribuire reindirizzamento cartelle con i file Offline](deploy-folder-redirection.md)
-- [Distribuire i profili utente mobili](deploy-roaming-user-profiles.md)
+- [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)
 - [Panoramica di reindirizzamento cartelle, file Offline e profili utente mobili](folder-redirection-rup-overview.md)
 - [Approfondire ulteriormente un po' Computer primario con Windows 8](https://blogs.technet.com/b/askds/archive/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer.aspx)

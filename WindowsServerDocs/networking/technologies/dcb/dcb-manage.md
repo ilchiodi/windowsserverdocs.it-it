@@ -8,12 +8,12 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3912bb6048a06a4656b5b27ccec8f8fb3f5b114b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: daed746fe798ae253956d0977827d0e205bb8b3e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847412"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034571"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gestire Data Center Bridging (DCB)
 
@@ -39,7 +39,7 @@ Le configurazioni di assegnazione di priorità di classe, di base alla priorità
 2. Abilitare DCB sulle schede di rete. Visualizzare [abilitare e visualizzare le impostazioni di DCB sulle schede di rete](#bkmk_enabledcb).
 
 >[!NOTE]
->Se si vuole configurare DCB da un commutatore tramite DCBX, vedere [impostazioni DCBX](#BKMK_DCBX_Settings)
+>Se si vuole configurare DCB da un commutatore tramite DCBX, vedere [impostazioni DCBX](#dcb-configuration-on-network-adapters).
 
 Il bit disposti DCBX è descritto nella specifica del Data Center Bridging. Se il bit disposto in un dispositivo è impostato su true, il dispositivo è disposto ad accettare le configurazioni da un dispositivo remoto tramite DCBX. Se il bit disposto in un dispositivo è impostato su false, il dispositivo verrà rifiutare tutti i tentativi di configurazione da dispositivi remoti e applicare solo le configurazioni locali.
 

@@ -7,12 +7,12 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 2dc9a612fa9760a6ca5f05efe1c287fd0872a1d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05888ce57b5b922fc330d9deab430d329fede69b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861252"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222536"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Risoluzione dei problemi del servizio sorveglianza Host
 
@@ -93,7 +93,7 @@ Per informazioni precise relative al dispositivo specifico, se si hanno ulterior
 Serie di marchio/modulo di protezione hardware      | Suggerimento
 ----------------------|-------------
 Gemalto SafeNet       | Verificare che la proprietà di utilizzo chiave nel file di richiesta di certificato è impostata su messaggi 0xa0, consentendo il certificato da utilizzare per la firma e crittografia. Inoltre, è necessario concedere all'account gMSA *leggere* accesso alla chiave privata usando lo strumento di gestione di certificati locale (vedere la procedura descritta in precedenza).
-NShield di Thales        | Assicurarsi che ogni nodo del servizio HGS ha accesso all'ambiente di sicurezza contenente le chiavi di firma e crittografia. Non devi configurare gMSA specifiche autorizzazioni.
+nCipher nShield        | Assicurarsi che ogni nodo del servizio HGS ha accesso all'ambiente di sicurezza contenente le chiavi di firma e crittografia. Non devi configurare gMSA specifiche autorizzazioni.
 Utimaco CryptoServers | Verificare che la proprietà di utilizzo chiave nel file di richiesta di certificato è impostata su 0x13, consentendo il certificato da usare per la crittografia, decrittografia e firma.
 
 ### <a name="certificate-requests"></a>Richieste di certificati

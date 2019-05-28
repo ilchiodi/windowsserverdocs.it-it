@@ -5,15 +5,14 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 54b34b6d8849caecae2123ddab91a658a4692ba3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cc0667b54dba75d892795f6520664ce7a7a62a5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849342"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192655"
 ---
 # <a name="diskpart-commands"></a>Comandi DiskPart
-
 
 Si applica a: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, Windows Server 2008
 
@@ -31,11 +30,8 @@ Per avviare l'interprete dei comandi DiskPart, al prompt dei comandi digitare:
 
 `diskpart`
 
-
 > [!IMPORTANT]
-> L'appartenenza al gruppo <STRONG>gli amministratori</STRONG> gruppo o equivalente è il requisito minimo necessario per eseguire DiskPart. 
-<br>
-
+> L'appartenenza al gruppo **gli amministratori** gruppo o equivalente è il requisito minimo necessario per eseguire DiskPart. 
 
 Nell'interprete dei comandi Diskpart, è possibile eseguire i comandi seguenti:
 
@@ -118,7 +114,6 @@ Nell'interprete dei comandi Diskpart, è possibile eseguire i comandi seguenti:
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Cmdlet di archiviazione in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/storage/)
-

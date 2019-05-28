@@ -1,6 +1,6 @@
 ---
 title: Creare un cluster di failover
-description: Come creare un cluster di failover per Windows Server 2012 R2, Windows Server 2012 e Windows Server 2016.
+description: Come creare un cluster di failover per Windows Server 2012 R2, Windows Server 2012, Windows Server 2016 e Windows Server 2019.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f919e69488c4f2272ddd07e535ba4e2248ddf79c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4122375a48cae17e5f3ebcd7e9f3ce1fad28a105
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843292"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222482"
 ---
 # <a name="create-a-failover-cluster"></a>Creare un cluster di failover
 
->Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012
 
 In questo argomento viene descritto come creare un cluster di failover usando lo snap-in Gestione cluster di failover o Windows PowerShell. Verrà illustrata una distribuzione tipica, in cui vengono creati oggetti computer per il cluster, insieme ai relativi ruoli del cluster, in Servizi di dominio Active Directory. Se si distribuisce un cluster di spazi di archiviazione diretta, vedere invece [distribuire spazi di archiviazione diretta](../storage/storage-spaces/deploy-storage-spaces-direct.md).
 
@@ -152,72 +152,24 @@ Di seguito viene illustrato come creare un ruolo del cluster:
     
     Nella tabella seguente vengono indicati i ruoli del cluster che è possibile configurare nella Configurazione guidata disponibilità elevata e il ruolo server o funzionalità associata che è necessario installare come prerequisito.
     
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Ruolo del cluster</th>
-    <th>Funzionalità o ruolo prerequisito</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Server dello spazio dei nomi DFS</td>
-    <td>Spazi dei nomi DFS (parte del ruolo File server)</td>
-    </tr>
-    <tr class="even">
-    <td>Server DHCP</td>
-    <td>Ruolo Server DHCP</td>
-    </tr>
-    <tr class="odd">
-    <td>Distributed Transaction Coordinator (DTC)</td>
-    <td>Nessuno</td>
-    </tr>
-    <tr class="even">
-    <td>File Server</td>
-    <td>Ruolo File server</td>
-    </tr>
-    <tr class="odd">
-    <td>Applicazione generica</td>
-    <td>Non applicabile</td>
-    </tr>
-    <tr class="even">
-    <td>Script generico</td>
-    <td>Non applicabile</td>
-    </tr>
-    <tr class="odd">
-    <td>Servizio generico</td>
-    <td>Non applicabile</td>
-    </tr>
-    <tr class="even">
-    <td>Gestore di replica Hyper-V</td>
-    <td>Ruolo Hyper-V</td>
-    </tr>
-    <tr class="odd">
-    <td>Server di destinazione iSCSI</td>
-    <td>Server di destinazione iSCSI (parte del ruolo File server)</td>
-    </tr>
-    <tr class="even">
-    <td>Server iSNS</td>
-    <td>Funzionalità servizio server iSNS</td>
-    </tr>
-    <tr class="odd">
-    <td>Accodamento messaggi</td>
-    <td>Funzionalità servizio di Accodamento messaggi</td>
-    </tr>
-    <tr class="even">
-    <td>Altro server</td>
-    <td>Nessuno</td>
-    </tr>
-    <tr class="odd">
-    <td>Macchina virtuale</td>
-    <td>Ruolo Hyper-V</td>
-    </tr>
-    <tr class="even">
-    <td>Server WINS</td>
-    <td>Funzionalità Server WINS</td>
-    </tr>
-    </tbody>
-    </table>
+
+|Ruolo del cluster  |Funzionalità o ruolo prerequisito  |
+|---------|---------|
+|Server Namespace     |   Spazi dei nomi (parte del ruolo File Server)       |
+|Server dello spazio dei nomi DFS     |  Ruolo Server DHCP       |
+|Distributed Transaction Coordinator (DTC)     | Nessuno        |
+|File Server     |  Ruolo File server       |
+|Applicazione generica     |  Non applicabile       |
+|Script generico     |   Non applicabile      |
+|Servizio generico     |   Non applicabile      |
+|Gestore di replica Hyper-V     |   Ruolo Hyper-V      |
+|Server di destinazione iSCSI     |    Server di destinazione iSCSI (parte del ruolo File server)     |
+|Server iSNS     |  Funzionalità servizio server iSNS       |
+|Accodamento messaggi     |  Funzionalità servizio di Accodamento messaggi       |
+|Altro server     |  Nessuno       |
+|Macchina virtuale     |  Ruolo Hyper-V       |
+|Server WINS     |   Funzionalità Server WINS      |
+
 2. In Gestione Cluster di Failover espandere il nome del cluster, fare doppio clic su **ruoli**, quindi selezionare **Configura ruolo**.
 3. Seguire i passaggi nella Configurazione guidata disponibilità elevata per creare il ruolo del cluster.
 4. Per verificare che il ruolo del cluster sia stato creato, nel riquadro **Ruoli** assicurarsi che il ruolo presenti lo stato **In esecuzione**. Nel riquadro Ruoli è inoltre indicato il ruolo proprietario. Per testare il failover, fare clic sul ruolo, scegliere **spostare**, quindi selezionare **Seleziona nodo**. Nel **Sposta ruolo cluster** finestra di dialogo, selezionare il nodo del cluster desiderato e quindi selezionare **OK**. Nella colonna **Nodo proprietario** verificare che il ruolo proprietario sia stato modificato.

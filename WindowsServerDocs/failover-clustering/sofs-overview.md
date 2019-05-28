@@ -1,6 +1,6 @@
 ---
 title: Panoramica di File server di scalabilità orizzontale per dati applicazioni
-description: Panoramica della funzionalità di Scale-Out File Server per Windows Server 201 R2, Windows Server 2012 e Windows Server 2016.
+description: Panoramica della funzionalità di Scale-Out File Server per Windows Server 201 R2 e Windows Server 2012.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 04e25e9c69062611d9d14c220614f148ac5de770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884772"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476147"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Panoramica di File server di scalabilità orizzontale per dati applicazioni
 
->Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Si applica a: Windows Server 2012 R2, Windows Server 2012
 
 File server di scalabilità orizzontale è una funzionalità progettata per fornire condivisioni file di scalabilità orizzontale continuamente disponibili per l'archiviazione di applicazioni server basate su file. Tali condivisioni consentono di condividere la stessa cartella da più nodi dello stesso cluster. Questo scenario illustra come pianificare e distribuire il File server di scalabilità orizzontale.
 

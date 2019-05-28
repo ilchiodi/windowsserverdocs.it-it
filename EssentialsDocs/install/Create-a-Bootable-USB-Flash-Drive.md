@@ -12,12 +12,12 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884682"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621277"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Creazione di un'unità flash USB di avvio
 
@@ -31,9 +31,9 @@ ms.locfileid: "59884682"
   
  Per altri scenari in cui è possibile scegliere di creare o usare un'unità flash USB di avvio, vedere gli argomenti seguenti:  
   
--   [Ripristinare un intero sistema dal backup di un computer client esistenti](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
+-   [Ripristinare un intero sistema dal backup di un computer client esistente](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
   
--   [Ripristinare o riparare il server che esegue Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
+-   [Ripristinare un server che esegue Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
 
   
 ### <a name="to-create-a-bootable-usb-flash-drive"></a>Per creare un'unità flash USB di avvio  
@@ -50,9 +50,9 @@ ms.locfileid: "59884682"
   
 6.  Digitare `clean`e premere INVIO. Questo comando consente di eliminare tutti i dati dall'unità flash USB.  
   
-7.  Per creare una nuova partizione primaria sull'unità flash USB, digitare `create part pri` e premere INVIO.  
+7.  Per creare una nuova partizione primaria sull'unità flash USB, digitare `create partition primary` e premere INVIO.  
   
-8.  Per selezionare la partizione appena creata, digitare `select part 1`e premere INVIO.  
+8.  Per selezionare la partizione appena creata, digitare `select partition 1`e premere INVIO.  
   
 9. Per formattare la partizione, digitare `format fs=ntfs quick`e premere INVIO.  
   
@@ -71,12 +71,12 @@ ms.locfileid: "59884682"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)   
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)   
 
  [Guida introduttiva a Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](../install/Testing-the-Customer-Experience.md)   
+ [Test di Analisi utilizzo software](../install/Testing-the-Customer-Experience.md)   
 
  [Come possiamo aiutarti?](https://windows.microsoft.com/windows/support)

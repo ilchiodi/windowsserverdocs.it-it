@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 29b7b61f7edc20edda7bc18b82db17447badc0f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c20e2da3e629743ab4d4d4cf1da16a6e69093ecf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834252"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192579"
 ---
 # <a name="extend-a-basic-volume"></a>Estendere un volume di base
 
@@ -25,30 +25,26 @@ Per le unità logiche e i volumi di avvio o di sistema, è possibile estendere i
 
 ## <a name="extending-a-basic-volume"></a>Estensione di un volume di base
 
--   [Tramite l'interfaccia di Windows](#BKMK_WINUI)
--   [Tramite la riga di comando](#BKMK_CMD)
+-   [Tramite l'interfaccia di Windows](#to-extend-a-basic-volume-using-the-windows-interface)
+-   [Tramite la riga di comando](#to-extend-a-basic-volume-using-a-command-line)
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>Per estendere un volume di base tramite l'interfaccia di Windows
 
-1.  In Gestione disco fare clic con il pulsante destro del mouse sul volume di base che si desidera estendere.
+1. In Gestione disco fare clic con il pulsante destro del mouse sul volume di base che si desidera estendere.
 
-2.  Fare clic su **Estendi volume**.
+2. Fare clic su **Estendi volume**.
 
-3.  Segui le istruzioni visualizzate.
+3. Segui le istruzioni visualizzate.
 
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-extend-a-basic-volume-using-a-command-line"></a>Per estendere un volume di base tramite la riga di comando
 
-1.  Aprire un prompt dei comandi e digitare `diskpart`.
+1. Aprire un prompt dei comandi e digitare `diskpart`.
 
-2.  Al prompt **DISKPART** digita `list volume`. Prendere nota del volume di base da estendere.
+2. Al prompt **DISKPART** digita `list volume`. Prendere nota del volume di base da estendere.
 
-3.  Al prompt **DISKPART** digita `select volume <volumenumber>`. In questo modo si seleziona il volume di base *volumenumber* che si desidera estendere nello spazio vuoto contiguo sullo stesso disco.
+3. Al prompt **DISKPART** digita `select volume <volumenumber>`. In questo modo si seleziona il volume di base *volumenumber* che si desidera estendere nello spazio vuoto contiguo sullo stesso disco.
 
-4.  Al prompt **DISKPART** digita `extend [size=<size>]`. In questo modo si estende il volume selezionato per *dimensioni* in megabyte (MB).
-
-<br />
+4. Al prompt **DISKPART** digita `extend [size=<size>]`. In questo modo si estende il volume selezionato per *dimensioni* in megabyte (MB).
 
 | Value | Descrizione |
 | --- | --- |
@@ -64,5 +60,3 @@ Per le unità logiche e i volumi di avvio o di sistema, è possibile estendere i
 ## <a name="see-also"></a>Vedere anche
 
 -   [Notazione della sintassi della riga di comando](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

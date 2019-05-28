@@ -10,21 +10,21 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c1c64336af9c72b97539d2ded750ee4414fccb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 71b56a0bc4f53879ebaf3610f60dded39484375b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868182"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222348"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Introduzione a Windows Server 2016
 
 >Si applica a: Windows Server 2016
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
-<img src="../media/landing-icons/getstarted.png" style='float:left; padding:.5em;' alt="Icon showing a box with a checkmark"> Questa raccolta contiene informazioni dettagliate che consentono di stabilire se si è pronti a passare a Windows Server 2016. Dopo aver controllato i requisiti di sistema, le opzioni di aggiornamento e altre informazioni riguardanti il passaggio a Windows Server 2016, è possibile tornare all'argomento principale [Windows Server 2016](Windows-Server-2016.md) e iniziare il percorso di installazione dell'edizione e delle opzioni di configurazione più adatte alle specifiche esigenze. 
+![Icona che indica che una finestra con un segno di spunta](../media/landing-icons/getstarted.png) questa raccolta contiene informazioni dettagliate che consentono di stabilire se si è pronti a passare a Windows Server 2016. Dopo aver controllato i requisiti di sistema, le opzioni di aggiornamento e altre informazioni riguardanti il passaggio a Windows Server 2016, è possibile tornare all'argomento principale [Windows Server 2016](Windows-Server-2016.md) e iniziare il percorso di installazione dell'edizione e delle opzioni di configurazione più adatte alle specifiche esigenze. 
 
 >[!Note]
 > Per scaricare Windows Server 2016, vedere [versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).

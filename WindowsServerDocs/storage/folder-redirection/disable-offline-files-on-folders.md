@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: adc93906cb7ff958fc1db7b00abdc557623e764e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b006742c9256c357d9aff3fb1b765dbed087383a
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834202"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475876"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>Disabilita file Offline su singole cartelle reindirizzate
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows (canale semestrale)
 
 Questo argomento descrive come disabilitare la memorizzazione nella cache di file non in linea per le singole cartelle che vengono reindirizzate alle condivisioni di rete tramite reindirizzamento cartelle. Questo offre la possibilità di specificare le cartelle da escludere dalla memorizzazione nella cache in locale, riducendo la cache dei file Offline le dimensioni e il tempo necessario per sincronizzare i file Offline.
 
@@ -29,7 +29,7 @@ Questo argomento descrive come disabilitare la memorizzazione nella cache di fil
 Per disabilitare la memorizzazione nella cache di file Offline delle cartelle reindirizzate specifiche, l'ambiente deve soddisfare i prerequisiti seguenti.
 
 - Un dominio di Active Directory Domain Services (AD DS), con i computer client aggiunti al dominio. Non esistono requisiti a livello funzionale di foresta o dominio o requisiti dello schema.
-- Computer client che eseguono Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
+- Computer client che eseguono Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows (canale semestrale).
 - Un computer di gestione di criteri di gruppo installata.
 
 ## <a name="disabling-offline-files-on-individual-redirected-folders"></a>La disabilitazione di file Offline su singole cartelle reindirizzate

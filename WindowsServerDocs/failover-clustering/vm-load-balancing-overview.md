@@ -8,16 +8,16 @@ author: bhattacharyaz
 manager: eldenc
 ms.author: subhatt
 ms.date: 09/19/2016
-ms.openlocfilehash: 8b8ecee16c778ed26953be325fb88748fc458176
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 125dd7421cc1876c07983016498a9689d8a507ac
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867752"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475992"
 ---
 # <a name="virtual-machine-load-balancing-overview"></a>Panoramica di bilanciamento del carico di macchine virtuali
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Un fattore fondamentale per le distribuzioni di cloud privato è le spese in conto capitale (<abbr title="spese in conto capitale">Spese in conto capitale</abbr>) necessario per passare alla fase di produzione. È molto comune per aggiungere ridondanza per le distribuzioni di cloud privato per evitare la capacità in difetto durante il picco di traffico nell'ambiente di produzione, ma in questo modo aumenta <abbr title="spese in conto capitale">CapEx</abbr>. La necessità di ridondanza è dovuta a un utilizzo non equilibrato nei cloud privati in cui alcuni nodi sono che ospita altre macchine virtuali (<abbr title="macchine virtuali">Le macchine virtuali</abbr>) e altri sono sottoutilizzati (ad esempio un server appena riavviato).
 
@@ -25,7 +25,7 @@ Un fattore fondamentale per le distribuzioni di cloud privato è le spese in con
 > [!VIDEO https://channel9.msdn.com/Blogs/windowsserver/Virtual-Machine-Load-Balancing-in-Windows-Server-2016/player]
 
 ## <a id="what-is-vm-load-balancing"></a>Che cos'è il bilanciamento del carico di macchine virtuali?
-<abbr title="macchina virtuale">VM</abbr> bilanciamento del carico è una nuova funzionalità inclusa in Windows Server 2016 che consente di ottimizzare l'utilizzo di nodi in un Cluster di Failover. Identifica i nodi stati overcommit e ridistribuiscono <abbr title="macchine virtuali">Le macchine virtuali</abbr> da tali nodi ai nodi nel commit. Alcuni degli aspetti più importanti di questa funzionalità sono i seguenti:
+<abbr title="macchina virtuale">VM</abbr> bilanciamento del carico è una funzionalità inclusa in Windows Server 2019 e Windows Server 2016 che consente di ottimizzare l'utilizzo di nodi in un Cluster di Failover. Identifica i nodi stati overcommit e ridistribuiscono <abbr title="macchine virtuali">Le macchine virtuali</abbr> da tali nodi ai nodi nel commit. Alcuni degli aspetti più importanti di questa funzionalità sono i seguenti:
 
 * *Si tratta di una soluzione senza tempi di inattività*: <abbr title="Macchine virtuali">Le macchine virtuali</abbr> vengono migrati in tempo reale a nodi inattivi.
 * *Perfetta integrazione con l'ambiente cluster esistente*: Criteri di errore, come possibili proprietari, domini di errore e anti-affinità vengono rispettati.

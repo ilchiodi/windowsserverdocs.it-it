@@ -1,23 +1,26 @@
 ---
-title: Replica di archiviazione da cluster a cluster all'interno della stessa area in Azure
-description: Replica di archiviazione da cluster a Cluster nella stessa area in Azure
+title: Cluster a cluster di Replica di archiviazione nella stessa area in Azure
+description: Cluster a cluster di replica di archiviazione nella stessa area in Azure
 keywords: Replica di archiviazione, gestione Server, Windows Server, Azure, Cluster, nella stessa area
 author: arduppal
 ms.author: arduppal
-ms.date: 12/19/2017
+ms.date: 04/26/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 8dbfab96404f5c98b9861476c0bc654af1bda775
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
+ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829142"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65461983"
 ---
-# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Replica di archiviazione da cluster a cluster all'interno della stessa area in Azure
-È possibile configurare le repliche di archiviazione da Cluster a Cluster nella stessa area in Azure. Negli esempi seguenti, viene usato un cluster a due nodi, ma la replica di archiviazione da Cluster a Cluster non è limitata a un cluster a due nodi. Nella figura seguente è un cluster a due nodi dello spazio di archiviazione diretta in grado di comunicare tra loro, sono nello stesso dominio e nella stessa area.
+# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster a cluster di Replica di archiviazione nella stessa area in Azure
+
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+
+È possibile configurare la replica di archiviazione da cluster a cluster nella stessa area in Azure. Negli esempi seguenti, viene usato un cluster a due nodi, ma la replica di archiviazione da cluster a cluster non è limitata a un cluster a due nodi. Nella figura seguente è un cluster a due nodi dello spazio di archiviazione diretta in grado di comunicare tra loro, sono nello stesso dominio e nella stessa area.
 
 Guarda i video di seguito per una procedura dettagliata completa del processo.
 
@@ -57,10 +60,10 @@ Seconda parte
     
 9. La creazione dei cluster (**SRAZC1**, **SRAZC2**). Ecco i comandi di PowerShell per questo esempio
 ```PowerShell
-    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
 ```
 ```PowerShell
-    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 – StaticAddress 10.3.0.101
+    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
 ```
 10. Abilitare spazi di archiviazione diretta
 ```PowerShell

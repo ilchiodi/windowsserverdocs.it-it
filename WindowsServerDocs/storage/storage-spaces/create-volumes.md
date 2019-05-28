@@ -1,29 +1,98 @@
 ---
-ms.assetid: a9f229eb-bef4-4231-97d0-0899e17cef32
 title: Creazione di volumi in Spazi di archiviazione diretta
+description: Come creare i volumi in spazi di archiviazione diretta tramite Windows Admin Center e PowerShell.
 ms.prod: windows-server-threshold
-ms.author: cosdar
-ms.manager: eldenc
-ms.technology: storage-spaces
-ms.topic: article
+ms.reviewer: cosmosdarwin
 author: cosmosdarwin
-ms.date: 01/11/2017
-ms.localizationpriority: medium
-ms.openlocfilehash: 277a676d8e53a7847d54039aab6607be8e5a78c5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: cosdar
+manager: eldenc
+ms.technology: storage-spaces
+ms.date: 05/09/2019
+ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823612"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613221"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Creazione di volumi in Spazi di archiviazione diretta
 
->Si applica a: Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016
 
-In questo argomento viene descritto come creare volumi in Spazi di archiviazione diretta usando PowerShell o Gestione cluster di failover.
+In questo argomento viene descritto come creare i volumi in un cluster di spazi di archiviazione diretta tramite Windows Admin Center, PowerShell o gestione Cluster di Failover.
 
    >[!TIP]
    >  Se non lo hai già fatto, consulta prima [Pianificazione dei volumi in Spazi di archiviazione diretta](plan-volumes.md).
+
+## <a name="create-a-three-way-mirror-volume"></a>Creare un volume con mirroring a tre vie
+
+Per creare un volume con mirroring a tre vie in Windows Admin Center: 
+
+1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
+2. Nella pagina di volumi, selezionare la **inventario** scheda e quindi selezionare **Crea volume**.
+3. Nel **Crea volume** riquadro, immettere un nome per il volume e lasciare **resilienza** come **vie**.
+4. Nelle **dimensioni in unità disco rigido**, specificare le dimensioni del volume. Ad esempio, 5 TB (terabyte).
+5. Selezionare **Create**.
+
+A seconda delle dimensioni, la creazione del volume può richiedere alcuni minuti. Le notifiche in alto a destra consente di sapere quando viene creato il volume. Il nuovo volume viene visualizzata nell'elenco dell'inventario.
+
+Guardare un video rapido su come creare un volume con mirroring a tre vie.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+
+## <a name="create-a-mirror-accelerated-parity-volume"></a>Creare un volume con parità con accelerazione mirror
+
+Parità con accelerazione mirror riduce il footprint del volume del disco rigido. Ad esempio, un volume con mirroring a tre vie significa che per ogni 10 TB di dimensione, sarà necessario 30 terabyte come footprint. Per ridurre il sovraccarico dovuto alla superficie, creare un volume con parità con accelerazione mirror. Questo riduce il footprint da 30 terabyte fino a terabyte appena 22, anche con solo 4 server, il mirroring il 20% più attivi di dati e con parità, ovvero lo spazio più efficiente, per archiviare il resto. È possibile regolare questo rapporto di parità e mirroring per verificare le prestazioni rispetto a compromesso capacità ottimale per il carico di lavoro. Mirror di parità e del 10% al 90%, ad esempio, produce prestazioni minori ma semplifica ulteriormente l'impatto.
+
+Per creare un volume con parità con accelerazione mirror in Windows Admin Center:
+
+1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
+2. Nella pagina di volumi, selezionare la **inventario** scheda e quindi selezionare **Crea volume**.
+3. Nel **Crea volume** riquadro, immettere un nome per il volume.
+4. Nelle **resilienza**, selezionare **parità con accelerazione Mirror**.
+5. Nelle **percentuale di parità**, selezionare la percentuale di parità.
+6. Selezionare **Create**.
+
+Guardare un video rapido su come creare un volume con accelerazione mirror parità.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+
+## <a name="open-volume-and-add-files"></a>Aprire il volume e aggiungere i file
+
+Per aprire un volume e aggiungere i file nel volume in Windows Admin Center:
+
+1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
+2. Nella pagina di volumi, selezionare la **inventario** scheda.
+2. Nell'elenco di volumi, selezionare il nome del volume che si desidera aprire.
+
+    Nella pagina dei dettagli di volume, è possibile visualizzare il percorso per il volume.
+
+4. Nella parte superiore della pagina, selezionare **aperto**. Verrà avviato lo strumento di file in Windows Admin Center.
+5. Passare al percorso del volume. Qui è possibile cercare i file nel volume.
+6. Selezionare **caricare**e quindi selezionare un file da caricare.
+7. Utilizzare il visualizzatore **nuovamente** per tornare al riquadro degli strumenti di Windows Admin Center.
+
+Guardare un video rapido su come aprire un volume e aggiungere i file.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
+
+## <a name="turn-on-deduplication-and-compression"></a>Attivare la deduplicazione e compressione
+
+Deduplicazione e compressione viene gestito per ogni volume. Deduplicazione e compressione Usa un modello di post-elaborazione, il che significa che non siano visibili risparmi fino a quando non è in esecuzione. Quando questo accade, corretto su tutti i file, anche quelli che sono state effettuate dalla prima.
+
+1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
+2. Nella pagina di volumi, selezionare la **inventario** scheda.
+3. Nell'elenco di volumi, selezionare il nome del volume che si desidera gestire.
+4. Nella pagina dei dettagli di volume, selezionare l'opzione etichettato **deduplicazione e compressione**.
+5. Nel riquadro abilita la deduplicazione, selezionare la modalità di deduplicazione.
+
+    Anziché le impostazioni complicate, Windows Admin Center consente di scegliere tra i profili pronte all'uso per carichi di lavoro diversi. Se non si è certi, usare l'impostazione predefinita.
+
+6. Seleziona **Abilita**.
+
+Guardare un video rapido su come attivare la deduplicazione e compressione.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
 
 ## <a name="create-volumes-using-powershell"></a>Creare volumi con PowerShell
 
@@ -120,3 +189,5 @@ Non c'è altro da fare. Ripeti il numero di volte necessario per creare altri vo
 
 - [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
 - [Pianificazione di volumi in spazi di archiviazione diretta](plan-volumes.md)
+- [Estensione dei volumi in spazi di archiviazione diretta](resize-volumes.md)
+- [Eliminazione dei volumi in spazi di archiviazione diretta](delete-volumes.md)

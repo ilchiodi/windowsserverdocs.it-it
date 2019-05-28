@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db264181ef8e5e3632f3312ade61183cac3fc8f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c31098a7dc151b29def2f3615da1e969ff8c5664
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853082"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222947"
 ---
 # <a name="taskkill"></a>taskkill
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Termina una o più attività o processi. È possibile terminare i processi in base al nome di immagine o all'ID di processo. **Taskkill** sostituisce il **kill** dello strumento.
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+Per esempi di come usare questo comando, vedere [esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -37,13 +37,13 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 |/s \<computer>|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
 |/u \<Domain>\\\<UserName>|Esegue il comando con le autorizzazioni dell'utente che ha specificato dall'account *nomeutente* oppure *Domain*\\*UserName*. **/u** può essere specificato solo se **/s** è specificato. Il valore predefinito è le autorizzazioni dell'utente attualmente connesso al computer in cui viene eseguito il comando.|
 |/p \<Password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/fi \<Filter>|Si applica un filtro per selezionare un set di attività. È possibile usare più di un filtro o usare il carattere jolly (**\***) per specificare tutte le attività o i nomi di immagine. Vedere gli argomenti seguenti [tabella per i nomi di filtro valida](#BKMK_table), operatori e valori.|
+|/fi \<Filter>|Si applica un filtro per selezionare un set di attività. È possibile usare più di un filtro o usare il carattere jolly ( **\*** ) per specificare tutte le attività o i nomi di immagine. Vedere gli argomenti seguenti [tabella per i nomi di filtro valida](#filter-names-operators-and-values), operatori e valori.|
 |/pid \<ProcessID>|Specifica l'ID del processo del processo da terminare.|
-|/IM \<ImageName >|Specifica il nome dell'immagine del processo da terminare. Usare il carattere jolly (**\***) per specificare tutti i nomi di immagine.|
+|/IM \<ImageName >|Specifica il nome dell'immagine del processo da terminare. Usare il carattere jolly ( **\*** ) per specificare tutti i nomi di immagine.|
 |/f|Specifica che i processi terminati in modo forzato. Questo parametro viene ignorato per i processi remoti. tutti i processi remoti vengono interrotti.|
 |/t|Termina il processo specificato e tutti i processi figlio avviati da esso.|
 
-#### <a name="BKMK_table"></a>I nomi dei filtri, gli operatori e valori
+#### <a name="filter-names-operators-and-values"></a>I nomi dei filtri, gli operatori e valori
 |Nome del filtro|Operatori validi|Valori validi|
 |--------|----------|----------|
 |STatUS|eq, ne|ESECUZIONE DI &AMP;#124; NON RISPONDE &AMP;#124; SCONOSCIUTA|
@@ -59,7 +59,7 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ## <a name="remarks"></a>Note
 * I filtri WINDOWTITLE e lo stato non sono supportati quando viene specificato un sistema remoto.
-* Il carattere jolly (**\***) è accettato per il **/im** opzione solo quando viene applicato un filtro.
+* Il carattere jolly ( **\*** ) è accettato per il **/im** opzione solo quando viene applicato un filtro.
 * Terminazione dei processi remoti viene sempre eseguita in modo forzato, indipendentemente dal fatto che il **/f** opzione specificata.
 * Specificando un nome di computer per il filtro hostname filter causa un arresto e tutti i processi vengono arrestati.
 * È possibile usare **tasklist** per determinare l'ID processo (PID) per il processo da terminare.
@@ -87,4 +87,4 @@ taskkill /f /fi "PID ge 1000" /im *
 ```
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

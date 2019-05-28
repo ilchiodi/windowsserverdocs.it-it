@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 966ac7f70984dff6d26265e07a26a6eebcde9fb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874392"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192593"
 ---
 # <a name="cmd"></a>Cmd
-
-
 
 Avvia una nuova istanza dell'interprete dei comandi, Cmd.exe. Se utilizzata senza parametri, **cmd** vengono visualizzate le informazioni sul copyright e versione del sistema operativo.
 
@@ -104,6 +102,7 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+
 -   Abilitazione e disabilitazione delle estensioni di comando
 
     Le estensioni comando sono abilitate per impostazione predefinita in Windows XP. È possibile disabilitarli per un determinato processo utilizzando **/e: off**. È possibile abilitare o disabilitare le estensioni per tutti i **cmd** le opzioni della riga di comando in una sessione utente o computer impostando gli elementi seguenti **REG_DWORD** valori:
@@ -114,28 +113,29 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
     Impostare il **REG_DWORD** valore a una delle due **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel Registro di sistema usando Regedit.exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
->     [!CAUTION]
->     Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+> [!CAUTION]
+> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
     When you enable command extensions, the following commands are affected:  
-    -   **assoc**
-    -   **call**
-    -   **chdir (cd)**
-    -   **color**
-    -   **del (erase)**
-    -   **endlocal**
-    -   **for**
-    -   **ftype**
-    -   **goto**
-    -   **if**
-    -   **mkdir (md)**
-    -   **popd**
-    -   **prompt**
-    -   **pushd**
-    -   **set**
-    -   **setlocal**
-    -   **shift**
-    -   **start** (also includes changes to external command processes)
+    -  **assoc**
+    -  **call**
+    -  **chdir (cd)**
+    -  **color**
+    -  **del (erase)**
+    -  **endlocal**
+    -  **for**
+    -  **ftype**
+    -  **goto**
+    -  **if**
+    -  **mkdir (md)**
+    -  **popd**
+    -  **prompt**
+    -  **pushd**
+    -  **set**
+    -  **setlocal**
+    -  **shift**
+    -  **start** (also includes changes to external command processes)
+
 -   Abilitazione di espansione della variabile di ambiente ritardata
 
     Se si abilita espansione della variabile di ambiente ritardata, è possibile utilizzare il carattere punto esclamativo per sostituire il valore di una variabile di ambiente in fase di esecuzione.
@@ -170,4 +170,4 @@ Se si elabora il completamento del nome file e directory all'interno *stringa*, 
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

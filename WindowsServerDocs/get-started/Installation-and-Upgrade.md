@@ -1,29 +1,27 @@
 ---
 title: Installazione e aggiornamento di Windows Server
-description: ''
-ms.custom: na
+description: Come installare, aggiornare o eseguire la migrazione a una versione più recente di Windows Server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 07/12/2018
+ms.date: 05/14/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 98f876bd-63ff-4c3a-95d4-a8dd8d0d119c
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: c3b9070fc6cb9227ccfa445e23983d9e91fe5c82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859192"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613177"
 ---
-# <a name="windows-server-installation-and-upgrade"></a>Installazione e aggiornamento di Windows Server
+# <a name="windows-server-installation-and-upgrade"></a>Aggiornamento e installazione di Windows Server
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+
+Alla ricerca di Windows Server 2019? Visualizzare [installare, aggiornare o eseguire la migrazione a Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md).
 
 > [!IMPORTANT]
 > Il supporto esteso per Windows Server 2008 R2 e Windows Server 2008 termina nel gennaio 2020. [Scopri le opzioni di aggiornamento](#upgrading-from-windows-server-2008-r2-or-windows-server-2008).
@@ -31,13 +29,14 @@ ms.locfileid: "59859192"
 È arrivato il momento di passare a una versione più recente di Windows Server? Le opzioni per accedervi variano a seconda della versione in uso.
 
 ## <a name="installation"></a>Installazione
+
 Se desideri passare a una versione più recente di Windows Server utilizzando lo stesso hardware, un metodo che funziona sempre è l'**installazione pulita**, durante la quale il sistema operativo più recente viene installato direttamente sull'hardware precedente, eliminando il sistema operativo precedente. Si tratta del modo più semplice, ma è necessario eseguire il backup dei dati innanzitutto e pianificare di reinstallare le applicazioni. Esistono alcuni aspetti da tenere in considerazione, ad esempio i requisiti di sistema, quindi assicurati di controllare i dettagli di [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558), [Windows Server 2012 R2](https://technet.microsoft.com/library/dn303418) e [Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx).
 
 Il passaggio da una versione non definitiva (ad esempio, Windows Server 2016 Technical Preview) alla versione rilasciata (Windows Server 2016) sempre richiede un'installazione pulita.
 
 ## <a name="migration-recommended-for-windows-server-2016"></a>Migrazione (scelta consigliata per Windows Server 2016)
 
-La documentazione di Windows Server [migrazione] consente di eseguire la migrazione di un ruolo o funzionalità per volta da un computer di origine che esegue Windows Server a un altro computer di destinazione che esegue Windows Server, lo stesso o una versione più recente. A tali fini, la migrazione viene definita come lo spostamento di un ruolo o funzionalità e i relativi dati in un altro computer, senza aggiornare la funzionalità nello stesso computer. Questo è il modo consigliato per passare il carico di lavoro e i dati esistenti a una versione più recente di Windows Server. Per iniziare, controlla la [matrice di aggiornamento e migrazione del ruolo del server](https://go.microsoft.com/fwlink/?LinkId=828595) per Windows Server 2016.
+Documentazione sulla migrazione di Windows Server consente di eseguire la migrazione di un ruolo o funzionalità alla volta da un computer di origine che esegue Windows Server a un altro computer di destinazione che esegue Windows Server, con la stessa versione o una versione più recente. A tali fini, la migrazione viene definita come lo spostamento di un ruolo o funzionalità e i relativi dati in un altro computer, senza aggiornare la funzionalità nello stesso computer. Questo è il modo consigliato per passare il carico di lavoro e i dati esistenti a una versione più recente di Windows Server. Per iniziare, esaminare i [matrice di aggiornamento e migrazione del ruolo server](https://go.microsoft.com/fwlink/?LinkId=828595) per Windows Server.
 
 ## <a name="cluster-os-rolling-upgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 L'aggiornamento in sequenza del sistema operativo del cluster è una nuova funzionalità di Windows Server 2016 che consente a un amministratore di aggiornare il sistema operativo dei nodi del cluster da Windows Server 2012 R2 a Windows Server 2016 senza interrompere i carichi di lavoro del file server di scalabilità orizzontale o di Hyper-V. Questa funzionalità consente di evitare tempi di inattività che potrebbero influire sui contratti di servizio. La nuova funzionalità è illustrata in modo più dettagliato in [Aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).
@@ -139,7 +138,7 @@ Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edi
 
 Come descritto in [esegue l'aggiornamento di Windows Server 2008 e Windows Server 2008 R2](modernize-windows-server-2008.md), termina il supporto esteso per Windows Server 2008 R2 e Windows Server 2008 nel gennaio del 2020. Per assicurarsi che nessun gap in modalità di supporto, è necessario eseguire l'aggiornamento a una versione supportata di Windows Server o rehosting in Azure grazie al passaggio a [specializzato macchine virtuali di Windows Server 2008 R2](uploading-specialized-WS08-image-to-azure.md). Consultare il [Guida alla migrazione per Windows Server](https://go.microsoft.com/fwlink/?linkid=872689) per informazioni e considerazioni per la pianificazione della migrazione/aggiornamento.
 
-Per i server in locale, non vi è alcun percorso di aggiornamento diretto da Windows Server 2008 R2 a Windows Server 2016 o versioni successive. Al contrario, aggiornare prima di Windows Server 2012 R2 e quindi [eseguire l'aggiornamento a Windows Server 2016](#Upgrading-to-Windows-Server-2016).
+Per i server in locale, non vi è alcun percorso di aggiornamento diretto da Windows Server 2008 R2 a Windows Server 2016 o versioni successive. Al contrario, aggiornare prima di Windows Server 2012 R2 e quindi [eseguire l'aggiornamento a Windows Server 2016](#upgrading-to-windows-server-2016).
 
 Come si intende l'aggiornamento, tenere presente le linee guida seguenti per il passaggio intermedio di eseguire l'aggiornamento a Windows Server 2012 R2.
 

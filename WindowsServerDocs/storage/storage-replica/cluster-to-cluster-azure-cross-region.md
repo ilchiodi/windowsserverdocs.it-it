@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 41f435c3d537cbfd204dfa869d750b22200deb33
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891132"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475906"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Replica di archiviazione da cluster a cluster tra aree in Azure
+
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+
 È possibile configurare le repliche di archiviazione da Cluster a Cluster per le applicazioni tra aree di Azure. Negli esempi seguenti, viene usato un cluster a due nodi, ma la replica di archiviazione da Cluster a Cluster non è limitata a un cluster a due nodi. Nella figura seguente è un cluster a due nodi dello spazio di archiviazione diretta che possono comunicare tra loro, si trovano nello stesso dominio e tra aree.
 
 Guarda il video seguente per una procedura dettagliata completa del processo.
@@ -31,7 +34,7 @@ Guarda il video seguente per una procedura dettagliata completa del processo.
 
     Ad esempio, **SR-AZ2AZ** nelle **Stati Uniti occidentali 2** e **SR-AZCROSS** in **East US**, come illustrato in precedenza.
 
-2. Creare due [set di disponibilità](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), uno in ogni gruppo di risorse per ogni cluster
+2. Creare due [set di disponibilità](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), uno in ogni gruppo di risorse per ogni cluster.
     - Availability set (**az2azAS1**) in (**SR-AZ2AZ**)
     - Set di disponibilità (**azcross-AS**) in (**SR-AZCROSS**)
 
@@ -41,7 +44,7 @@ Guarda il video seguente per una procedura dettagliata completa del processo.
 
 4. Creare due gruppi di sicurezza di rete
    - Creare il [gruppo di sicurezza di rete](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**az2az-NSG**) nel primo gruppo di risorse (**SR-AZ2AZ**).
-   - Creare il [gruppo di sicurezza di rete](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**azcross-NSG**) del secondo gruppo di risorse (**SR-AZCROSS**). 
+   - Creare il [gruppo di sicurezza di rete](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**azcross-NSG**) del secondo gruppo di risorse (**SR-AZCROSS**).
 
    Aggiungere una regola di sicurezza in ingresso per RDP:3389 a due gruppi di sicurezza di rete. È possibile scegliere di rimuovere la regola dopo aver completato l'installazione.
 
@@ -72,10 +75,10 @@ Guarda il video seguente per una procedura dettagliata completa del processo.
 
    Ecco i comandi di PowerShell per l'esempio
    ```powershell
-      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
    ```
    ```powershell
-      New-Cluster -Name SRAZCross -Node azcross1,azcross2 – StaticAddress 10.0.0.10
+      New-Cluster -Name SRAZCross -Node azcross1,azcross2 –StaticAddress 10.0.0.10
    ```
 
 7. Abilitare spazi di archiviazione diretta.

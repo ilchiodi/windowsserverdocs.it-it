@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a66fe7a274756de9bed9f6b14f5b9e491e5b623
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63d90d52b55357b5de823f2ca5e0a9fa2a3468e6
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819582"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222993"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Configurare la gestione remota in Server Manager
 
@@ -38,35 +38,35 @@ Per gestire i server che eseguono versioni di Windows Server precedente a Window
 
 Per informazioni dettagliate su come aggiungere i server appartenenti a gruppi di lavoro per gestire o gestire server remoti da un computer del gruppo di lavoro che esegue Server Manager, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md).
 
-## <a name="BKMK_remote"></a>Abilitare o disabilitare la gestione remota
+## <a name="enabling-or-disabling-remote-management"></a>Abilitare o disabilitare la gestione remota
 In Windows Server 2016, gestione remota è abilitata per impostazione predefinita. Prima di connettersi a un computer che esegue Windows Server 2016 in modalità remota tramite Server Manager, gestione remota di Server Manager deve abilitata nel computer di destinazione se è stata disabilitata. Le procedure illustrate in questa sezione descrivono come disabilitare la gestione remota e come riabilitarla qualora sia stata disabilitata. Nella console di Server Manager, lo stato di gestione remota del server locale viene visualizzato nel **proprietà** area di **Server locale** pagina.
 
 Gli account degli amministratori locali diversi dall'account Administrator integrato potrebbero non disporre dei diritti necessari alla gestione di un server da una postazione remota, anche se la gestione remota è abilitata. Il controllo di Account utente (UAC) remoti **LocalAccountTokenFilterPolicy** impostazione del Registro di sistema deve essere configurati per consentire agli account locali del gruppo Administrators diversi dall'account predefinito administrator per la gestione remota di Server.
 
-In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM) e Distributed component Object model (DCOM) per le comunicazioni remote. Le impostazioni controllate dal **configurare la gestione remota** nella finestra di dialogo riguardano unicamente parti di Server Manager e Windows PowerShell che utilizzano WinRM per le comunicazioni remote. Tali estensioni non influiscono sulle parti di Server Manager che utilizzano DCOM per le comunicazioni remote. Ad esempio, Server Manager utilizza WinRM per comunicare con i server remoti che eseguono Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, ma utilizza DCOM per comunicare con server che eseguono Windows Server 2008 e Windows Server 2008 R2, ma non si dispone di [Windows Management Framework 4.0](https://go.microsoft.com/fwlink/?LinkId=293881) o [Windows Management Framework 3.0](https://go.microsoft.com/fwlink/p/?LinkID=229019) aggiornamenti applicati. Microsoft Management Console (mmc) e altri strumenti di gestione legacy utilizzano DCOM. Per altre informazioni su come modificare queste impostazioni, vedere [per configurare mmc o un altro strumento di gestione remota su DCOM](#BKMK_dcom) in questo argomento.
+In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM) e Distributed component Object model (DCOM) per le comunicazioni remote. Le impostazioni controllate dal **configurare la gestione remota** nella finestra di dialogo riguardano unicamente parti di Server Manager e Windows PowerShell che utilizzano WinRM per le comunicazioni remote. Tali estensioni non influiscono sulle parti di Server Manager che utilizzano DCOM per le comunicazioni remote. Ad esempio, Server Manager utilizza WinRM per comunicare con i server remoti che eseguono Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, ma utilizza DCOM per comunicare con server che eseguono Windows Server 2008 e Windows Server 2008 R2, ma non si dispone di [Windows Management Framework 4.0](https://go.microsoft.com/fwlink/?LinkId=293881) o [Windows Management Framework 3.0](https://go.microsoft.com/fwlink/p/?LinkID=229019) aggiornamenti applicati. Microsoft Management Console (mmc) e altri strumenti di gestione legacy utilizzano DCOM. Per altre informazioni su come modificare queste impostazioni, vedere [per configurare mmc o un altro strumento di gestione remota su DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom) in questo argomento.
 
 > [!NOTE]
 > Le procedure descritte in questa sezione possono essere completate solo in computer che eseguono Windows Server. Impossibile abilitare o disabilitare la gestione remota in un computer che esegue Windows 10 tramite queste procedure, perché il sistema operativo client non possono essere gestito tramite Server Manager.
 
 -   Per abilitare la gestione remota WinRM, scegliere una delle procedure seguenti.
 
-    -   [Per abilitare gestione remota di Server Manager tramite l'interfaccia di Windows](#BKMK_windows)
+    -   [Per abilitare gestione remota di Server Manager tramite l'interfaccia di Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface)
 
-    -   [Per abilitare gestione remota di Server Manager tramite Windows PowerShell](#BKMK_ps)
+    -   [Per abilitare gestione remota di Server Manager tramite Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell)
 
-    -   [Per abilitare gestione remota di Server Manager con riga di comando](#BKMK_cmdline)
+    -   [Per abilitare gestione remota di Server Manager con riga di comando](#to-enable-server-manager-remote-management-by-using-the-command-line)
 
-    -   [Per abilitare Server Manager e PowerShell di Windows gestione remota nelle versioni precedenti di Windows Server](#BKMK_old)
+    -   [Per abilitare Server Manager e PowerShell di Windows gestione remota nelle versioni precedenti di Windows Server](#to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server)
 
 -   Per disabilitare la gestione remota WinRM e Server Manager, selezionare una delle seguenti procedure.
 
-    -   [Per disabilitare la gestione remota tramite criteri di gruppo](#BKMK_disableGP)
+    -   [Per disabilitare la gestione remota tramite criteri di gruppo](#to-disable-remote-management-by-using-group-policy)
 
-    -   [Per disabilitare la gestione remota tramite un file di risposte durante l'installazione automatica](#BKMK_unattend)
+    -   [Per disabilitare la gestione remota tramite un file di risposte durante l'installazione automatica](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
 
--   Per configurare la gestione remota DCOM, vedere [To configure DCOM remote management](#BKMK_dcom).
+-   Per configurare la gestione remota DCOM, vedere [To configure DCOM remote management](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
 
-### <a name="BKMK_windows"></a>Per abilitare gestione remota di Server Manager tramite l'interfaccia di Windows
+### <a name="to-enable-server-manager-remote-management-by-using-the-windows-interface"></a>Per abilitare la gestione remota di Server Manager usando l'interfaccia di Windows
 
 1.  > [!NOTE]
     > Le impostazioni controllate dal **configurare la gestione remota** nella finestra di dialogo non riguardano parti di Server Manager che utilizzano DCOM per le comunicazioni remote.
@@ -81,7 +81,7 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
     -   Per consentire a questo computer di gestione remota tramite Server Manager o Windows PowerShell, selezionare **Consenti gestione remota del server da altri computer**.
 
-### <a name="BKMK_ps"></a>Per abilitare gestione remota di Server Manager tramite Windows PowerShell
+### <a name="to-enable-server-manager-remote-management-by-using-windows-powershell"></a>Per abilitare la gestione remota di Server Manager tramite Windows PowerShell
 
 1.  Nel computer che si desidera gestire in remoto, eseguire una delle seguenti operazioni per aprire una sessione di Windows PowerShell con diritti utente elevati.
 
@@ -93,7 +93,7 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
     **Configure-SMremoting.exe -enable**
 
-### <a name="BKMK_cmdline"></a>Per abilitare gestione remota di Server Manager con riga di comando
+### <a name="to-enable-server-manager-remote-management-by-using-the-command-line"></a>Per abilitare la gestione remota di Server Manager tramite la riga di comando
 
 1.  Nel computer che si desidera gestire da postazione remota aprire una sessione di prompt dei comandi con diritti utente elevati. A tale scopo, scegliere il **avviare** digitare **cmd**, fare doppio clic sul **prompt dei comandi** riquadro quando viene visualizzato nel **app** risultati, e quindi, nella barra dell'app, fare clic su **Esegui come amministratore**.
 
@@ -109,17 +109,17 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
     -   Per visualizzare l'impostazione di gestione remota corrente, digitare **SMremoting.exe-Configure-ottenere**, quindi premere INVIO.
 
-### <a name="BKMK_old"></a>Per abilitare Server Manager e PowerShell di Windows gestione remota nelle versioni precedenti di Windows Server
+### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server"></a>Per abilitare la gestione remota di Server Manager e Windows PowerShell in versioni precedenti di Windows Server
 
 -   Effettua una delle seguenti operazioni:
 
-    -   Per abilitare la gestione remota sui server che eseguono Windows Server 2012, vedere [per abilitare la gestione remota di Server Manager tramite l'interfaccia di Windows](#BKMK_windows) in questo argomento.
+    -   Per abilitare la gestione remota sui server che eseguono Windows Server 2012, vedere [per abilitare la gestione remota di Server Manager tramite l'interfaccia di Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) in questo argomento.
 
     -   Per abilitare gestione remota sui server che eseguono Windows Server 2008 R2, consultare [gestione remota con Server Manager](https://go.microsoft.com/fwlink/?LinkID=137378) nella Guida di Windows Server 2008 R2.
 
     -   Per abilitare gestione remota sui server che eseguono Windows Server 2008, vedere [abilitare e usare i comandi remoti in Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-### <a name="BKMK_dcom"></a>Per configurare mmc o un altro strumento di gestione remota su DCOM
+### <a name="to-configure-mmc-or-other-tool-remote-management-over-dcom"></a>Per configurare mmc o un altro strumento di gestione remota su DCOM
 
 1.  Eseguire una delle operazioni seguenti per aprire lo snap-in Windows Firewall con sicurezza avanzata.
 
@@ -143,7 +143,7 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
 5.  Chiudere lo snap-in Windows Firewall con sicurezza avanzata.
 
-### <a name="BKMK_disableGP"></a>Per disabilitare la gestione remota tramite criteri di gruppo
+### <a name="to-disable-remote-management-by-using-group-policy"></a>Per disabilitare la gestione remota tramite Criteri di gruppo
 
 1.  Eseguire una delle operazioni seguenti per aprire editor Criteri di gruppo locali.
 
@@ -157,7 +157,7 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
 4.  Nella finestra di dialogo per l'impostazione criteri **Consenti gestione del server remota tramite Gestione remota Windows** selezionare **Disabilitato** per disabilitare la gestione remota. Fare clic su **OK** per salvare le modifiche e chiudere la finestra di dialogo delle impostazioni criteri.
 
-### <a name="BKMK_unattend"></a>Per disabilitare la gestione remota tramite un file di risposte durante l'installazione automatica
+### <a name="to-disable-remote-management-by-using-an-answer-file-during-unattended-installation"></a>Per disabilitare la gestione remota tramite un file di risposte durante l'installazione automatica
 
 1.  creare un file di risposte di installazione automatica per le installazioni di Windows Server 2016 utilizzando Windows System Image Manager (Windows SIM). Per altre informazioni su come creare un file di risposte e utilizzare Windows SIM, vedere [che cos'è Windows System Image Manager?](https://technet.microsoft.com/library/cc766347.aspx) e [dettagliate: Distribuzione di Windows di base per i professionisti IT](https://technet.microsoft.com/library/dd349348.aspx).
 
@@ -166,9 +166,9 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 3.  Per disabilitare la gestione remota di Server Manager per impostazione predefinita in tutti i server a cui si desidera applicare il file di risposte, impostare **Microsoft \EnableServerremoteManagement** a **False** .
 
     > [!NOTE]
-    > Questa impostazione consente di disabilitare la gestione remota nel corso del processo di installazione del sistema operativo. Configurazione di questa impostazione non impedisce un amministratore di abilitare la gestione remota di Server Manager in un server al termine dell'installazione del sistema operativo. Gli amministratori possono abilitare gestione remota eseguendo i passaggi in Server Manager [per configurare Gestione remota di Server Manager tramite l'interfaccia di Windows](#BKMK_windows) o [per abilitare la gestione remota di Server Manager tramite Windows PowerShell](#BKMK_ps) in questo argomento.
+    > Questa impostazione consente di disabilitare la gestione remota nel corso del processo di installazione del sistema operativo. Configurazione di questa impostazione non impedisce un amministratore di abilitare la gestione remota di Server Manager in un server al termine dell'installazione del sistema operativo. Gli amministratori possono abilitare gestione remota eseguendo i passaggi in Server Manager [per configurare Gestione remota di Server Manager tramite l'interfaccia di Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) o [per abilitare la gestione remota di Server Manager tramite Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell) in questo argomento.
     > 
-    > Se si disabilita la gestione remota per impostazione predefinita come parte di un'installazione automatica e non abilitarla gestione remota sui server dopo l'installazione, i server in cui viene applicato questo file di risposte non possono essere completamente gestiti tramite Server Manager. Server che eseguono Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (gestione remota è disattivata per impostazione predefinita) genera errori di stato di gestibilità nella console di Server Manager dopo l'aggiunta al pool di server di gestione Server.
+    > Se si disabilita la gestione remota per impostazione predefinita come parte di un'installazione automatica e non abilitare la gestione remota nel server dopo l'installazione, i server in cui viene applicato questo file di risposta non possono essere completamente gestiti tramite Server Manager. Server che eseguono Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (gestione remota è disattivata per impostazione predefinita) genera errori di stato di gestibilità nella console di Server Manager dopo l'aggiunta al pool di server di gestione Server.
 
 ## <a name="windows-remote-management-winrm-listener-settings"></a>Impostazioni di Windows remote Management (WinRM) del listener
 Server Manager si basa su Impostazioni listener WinRM sui server remoti che si desidera gestire. Se il meccanismo di autenticazione predefinito o il numero di porta del listener di gestione remota Windows su un server remoto è stato modificato rispetto alle impostazioni predefinite, Server Manager non può comunicare con il server remoto.
@@ -188,7 +188,7 @@ Il numero di porta 5985 è quello predefinito per consentire comunicazione di Wi
 per altre informazioni su come configurare le impostazioni listener WinRM, un prompt dei comandi, digitare **winrm help config**, quindi premere INVIO.
 
 ## <a name="see-also"></a>Vedere anche
-[aggiungere server a Server Manager](add-servers-to-server-manager.md)
+[Aggiungere server a Server Manager](add-servers-to-server-manager.md)
 [Windows PowerShell: about_remote_Troubleshooting in Windows Server TechCenter](https://technet.microsoft.com/library/dd347642.aspx)
 [descrizione del controllo dell'Account utente](https://support.microsoft.com/kb/951016)
 

@@ -5,26 +5,27 @@ ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+ms.manager: daveba
 ms.technology: storage-failover-clustering
-ms.date: 04/25/2018
+ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 111969b074b33764dbbf72bfb24ad606f8314e41
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869722"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613163"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Pre-installare oggetti computer del cluster in servizi di dominio Active Directory
 
->Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento viene illustrato come pre-installare oggetti computer del cluster in Servizi di dominio Active Directory. Eseguendo questa procedura, è possibile consentire a un utente o a un gruppo di creare un cluster di failover quando non dispone delle autorizzazioni necessarie per creare oggetti computer in Servizi di dominio Active Directory.
 
 Quando si crea un cluster di failover mediante la Creazione guidata cluster o Windows PowerShell, è necessario specificare un nome per il cluster. Se si dispone di autorizzazioni sufficienti mentre si crea il cluster, il processo di creazione genera automaticamente in Servizi di dominio Active Directory un oggetto computer corrispondente al nome del cluster. Tale oggetto è noto come *oggetto nome cluster*. Tramite l'oggetto nome cluster vengono creati automaticamente oggetti computer virtuale quando si configurano ruoli del cluster che utilizzano punti di accesso client. Se ad esempio si crea un file server a disponibilità elevata con un punto di accesso client denominato *FileServer1*, l'oggetto nome cluster creerà un oggetto computer virtuale corrispondente in Servizi di dominio Active Directory.
 
 >[!NOTE]
->In Windows Server 2012 R2, è disponibile l'opzione per creare un cluster scollegato da Active Directory, in cui nessun oggetto nome cluster o oggetti computer virtuale vengono creati in Active Directory Domain Services. Tale opzione è per tipi specifici di distribuzioni di cluster. Per ulteriori informazioni, vedere [Distribuire un cluster scollegato da Active Directory](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
+>È disponibile l'opzione per creare un cluster scollegato da Active Directory, in cui nessun oggetto nome cluster o oggetti computer virtuale vengono creati in Active Directory Domain Services. Tale opzione è per tipi specifici di distribuzioni di cluster. Per ulteriori informazioni, vedere [Distribuire un cluster scollegato da Active Directory](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
 
 Per creare automaticamente l'oggetto nome cluster, l'utente che crea il cluster di failover deve disporre dell'autorizzazione **Crea oggetti computer** per l'unità organizzativa (OU) o il contenitore in cui risiedono i server che costituiranno il cluster. Per consentire a un utente o a un gruppo di creare un cluster senza disporre di tale autorizzazione, un utente con le autorizzazioni appropriate in Servizi di dominio Active Directory (in genere, un amministratore di dominio) può pre-installare l'oggetto nome cluster in Servizi di dominio Active Directory. Questo inoltre conferisce all'amministratore di dominio maggiore controllo sulla convenzione di denominazione utilizzata per il cluster, nonché sull'unità organizzativa in cui vengono creati gli oggetti cluster.
 
@@ -95,7 +96,7 @@ Se l'oggetto nome cluster è stato pre-installato in Servizi di dominio Active D
 >[!NOTE]
 >Per eseguire la procedura relativa a questa opzione è richiesta almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
 
-- Opzione 2: [Pre-installare un oggetto computer virtuale per un ruolo del cluster](#prestage-a-vco-for-the-clustered-role). Scegliere questa opzione se è necessario pre-installare gli account per i ruoli del server a causa dei requisiti da soddisfare nell'organizzazione. È ad esempio possibile avere la necessità di controllare la convenzione di denominazione oppure quali ruoli del cluster vengono creati.
+- Opzione 2: [Pre-installare un oggetto computer virtuale per un ruolo del cluster](#prestage-a-vco-for-a-clustered-role). Scegliere questa opzione se è necessario pre-installare gli account per i ruoli del server a causa dei requisiti da soddisfare nell'organizzazione. È ad esempio possibile avere la necessità di controllare la convenzione di denominazione oppure quali ruoli del cluster vengono creati.
 
 >[!NOTE]
 >Per eseguire la procedura relativa a questa opzione è richiesta almeno l'appartenenza al gruppo **Account Operators**.
@@ -103,7 +104,7 @@ Se l'oggetto nome cluster è stato pre-installato in Servizi di dominio Active D
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Concedere le autorizzazioni oggetto nome cluster all'unità Organizzativa
 
 1. In Utenti e computer di Active Directory verificare che nel menu **Visualizza** sia selezionata la voce **Funzionalità avanzate**.
-2. Fare doppio clic su unità Organizzativa in cui è stato creato l'oggetto CNO in [passaggio 1: Pre-installare l'oggetto CNO in AD DS](#step-1:-prestage-the-CNO-in-ad-ds), quindi selezionare **proprietà**.
+2. Fare doppio clic su unità Organizzativa in cui è stato creato l'oggetto CNO in [passaggio 1: Pre-installare l'oggetto CNO in AD DS](#step-1-prestage-the-cno-in-ad-ds), quindi selezionare **proprietà**.
 3. Nel **sicurezza** scheda, seleziona **avanzate**.
 4. Nel **impostazioni di sicurezza avanzate** finestra di dialogo **Add**.
 5. Accanto a **Principal**, selezionare **seleziona un'entità**.
@@ -138,3 +139,4 @@ Un amministratore nel cluster di failover potrà ora creare il ruolo del cluster
 ## <a name="more-information"></a>Altre informazioni
 
 - [Clustering di failover](failover-clustering.md)
+- [Configurazione di account di cluster in Active Directory](configure-ad-accounts.md)

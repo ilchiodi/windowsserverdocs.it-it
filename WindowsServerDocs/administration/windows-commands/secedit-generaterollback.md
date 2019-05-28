@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7a55ddc3caea1002ab51ce4f992b36673ea312b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3229e6ccb07c925a900b298a8332c5e48cefefe7
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825642"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564671"
 ---
 # <a name="seceditgeneraterollback"></a>Secedit:generaterollback
 
@@ -44,11 +44,11 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 ## <a name="remarks"></a>Note
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*NomeDatabase*. log) viene usato.
+Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Users \*UserAccount *\My Documents\Security\Logs\*NomeDatabase*. log) viene usato.
 
 A partire da Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 
-Verrà segnalato l'avvenuta esecuzione del comando "l'attività è stata completata.? e i registri solo le mancate corrispondenze tra il modello di sicurezza indicati e configurazione dei criteri di sicurezza. Vengono elencate tali mancate corrispondenze nel scesrv.log.
+L'esecuzione ha esito positivo di questo comando indicherà "l'attività è stata completata." e i registri solo le mancate corrispondenze tra il modello di sicurezza indicati e configurazione dei criteri di sicurezza. Vengono elencate tali mancate corrispondenze nel scesrv.log.
 
 Se viene specificato un modello di ripristino esistenti, questo comando viene sovrascritto. Con questo comando, è possibile creare un nuovo modello di rollback. Parametri aggiuntivi non necessari per una delle due condizioni.
 
@@ -62,4 +62,4 @@ Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcont
 #### <a name="additional-references"></a>Altri riferimenti
 
 -   [Secedit](secedit.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

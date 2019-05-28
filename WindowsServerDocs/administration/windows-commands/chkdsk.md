@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 26aad48db4a5f0a593dfcb29160031a0c9f3dc75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c5272ba0a5ff7c0a30f61631bb6c8dac6552ef0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886862"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192615"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -35,7 +35,7 @@ Controlla il file system e i metadati del file system di un volume per gli error
 > [!IMPORTANT]
 > **Nota:** CHKDSK è utilizzabile solo per i dischi locali. Il comando non può essere usato con una lettera di unità locale che è stata reindirizzata attraverso la rete.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
 ##<a name="syntax"></a>Sintassi
 
@@ -60,7 +60,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 |/ b|Solo NTFS: Cancella l'elenco di cluster danneggiati nel volume e aggiungerà tutti i cluster allocati e disponibile per gli errori. **/ b** include le funzionalità di **/r**. Usare questo parametro dopo la creazione dell'immagine di un volume in una nuova unità disco rigido.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-##<a name="remarks"></a>Note
+## <a name="remarks"></a>Note
 
 -   Ignorare i controlli volume
 
@@ -114,7 +114,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 -   Il **chkdsk** comando con parametri diversi, è disponibile dalla Console di ripristino.
 -   Nei server che non vengono riavviati frequentemente, è consigliabile utilizzare il **chkntfs** o **fsutil dirty query** comandi per determinare se il volume's dirty bit è già impostano prima dell'esecuzione di chkdsk.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Se si desidera controllare il disco nell'unità D e disporre di correggere gli errori di Windows, digitare:
 ```
@@ -131,4 +131,4 @@ chkdsk *.*
 **CHKDSK** Visualizza un rapporto di stato e quindi vengono elencati i file che soddisfano le specifiche dei file blocchi non contigui.
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

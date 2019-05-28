@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 6/11/2017
 description: 'Una panoramica di Cartelle di lavoro: un ruolo del server in Windows Server che consente agli utenti di accedere ai file di lavoro da PC e dispositivi in modo uniforme.'
-ms.openlocfilehash: dd32b84e6442ec55414da27ea94ef16eeab769eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3e3c86efb2f781dc88cac6851ea22f19c6ae812
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890482"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222850"
 ---
 # <a name="work-folders-overview"></a>Panoramica di Cartelle di lavoro
 
@@ -24,18 +24,18 @@ In questo argomento viene illustrata la funzionalità Cartelle di lavoro, un ser
   
 Se intende scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un dispositivo Android o iOS, vedere gli argomenti seguenti:
 
--   [Cartelle di lavoro per Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
--   [Cartelle di lavoro per Windows 7 (download a 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)
--   [Cartelle di lavoro per Windows 7 (download a 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)
+- [Cartelle di lavoro per Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
+- [Cartelle di lavoro per Windows 7 (download a 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)
+- [Cartelle di lavoro per Windows 7 (download a 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)
 - [Cartelle di lavoro per iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Cartelle di lavoro per Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-##  <a name="BKMK_OVER"></a> Descrizione del ruolo  
+## <a name="role-description"></a>Descrizione del ruolo  
  Cartelle di lavoro consente agli utenti di archiviare e accedere ai file di lavoro su computer e dispositivi personali, spesso chiamati dispositivi BYOD (Bring Your Own Device), oltre che sui PC aziendali. Gli utenti avranno a disposizione una posizione in cui archiviare i file di lavoro a cui possono accedere da qualsiasi luogo. Le organizzazioni mantengono il controllo sui dati aziendali archiviando i file in file server gestiti centralmente e, facoltativamente, specificando criteri per i dispositivi degli utenti, ad esempio le password di crittografia e schermata di blocco.  
   
  È possibile distribuire Cartelle di lavoro con le distribuzioni esistenti delle cartelle di Reindirizzamento cartelle, File offline e home directory. In Cartelle di lavoro vengono archiviati i file utente in una cartella sul server denominata *condivisione di sincronizzazione*. È possibile specificare una cartella che contiene già dati sugli utenti e che consenta di adottare Cartelle di lavoro senza eseguire la migrazione di server e dati o eliminare immediatamente e gradualmente la soluzione esistente.  
   
-##  <a name="BKMK_APP"></a> Applicazioni pratiche  
+## <a name="practical-applications"></a>Applicazioni pratiche  
  Gli amministratori possono utilizzare Cartelle di lavoro per offrire agli utenti l'accesso ai loro file di lavoro pur mantenendo l'archiviazione centralizzata e il controllo sui dati dell'organizzazione. Alcune applicazioni specifiche per Cartelle di lavoro includono:  
   
 -   Fornire un singolo punto di accesso ai file di lavoro da computer e dispositivi di lavoro e personali di un utente  
@@ -50,7 +50,8 @@ Se intende scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un di
   
 -   Utilizzare Clustering di failover con Cartelle di lavoro per offrire una soluzione a disponibilità elevata  
   
-##  <a name="BKMK_NEW"></a> Funzionalità importanti  
+## <a name="important-functionality"></a>Funzionalità importanti
+
  Cartelle di lavoro include la seguente funzionalità.  
   
 |Funzionalità|Disponibilità|Descrizione|  
@@ -60,7 +61,8 @@ Se intende scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un di
 |Integrazione di Cartelle di lavoro con Windows|Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7 (download necessario)|Cartelle di lavoro offre la seguente funzionalità nei computer Windows:<br /><br /> -   Un elemento del Pannello di controllo che consente di configurare e monitorare Cartelle di lavoro<br />-   Integrazione di Esplora file che consente di accedere facilmente ai file in Cartelle di lavoro<br />-   Un motore di sincronizzazione che consente di trasferire file verso e da un file server centrale ottimizzando al contempo la durata della batteria e le prestazioni del sistema|  
 |App Cartelle di lavoro per dispositivi|Android<br /><br /> iPhone e iPad® Apple|Un'app che consente ai dispositivi comuni di accedere ai file in Cartelle di lavoro|  
   
-##  <a name="BKMK_New"></a> Funzionalità nuove e modificate  
+## <a name="new-and-changed-functionality"></a>Funzionalità nuove e modificate
+  
  Nella tabella riportata di seguito vengono descritte alcune delle modifiche principali apportate alla funzionalità Cartelle di lavoro.  
   
 |Caratteristica/funzionalità|Novità o aggiornamento|Descrizione|  
@@ -70,7 +72,7 @@ Se intende scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un di
 |Integrato con Windows Information Protection (WIP)|Aggiunto a Windows 10 versione 1607|Se un amministratore distribuisce WIP, Cartelle di lavoro consente di applicare la protezione dei dati crittografando questi ultimi nel PC. La crittografia utilizza una chiave associata all'ID aziendale, che può essere cancellata in remoto utilizzando un pacchetto di gestione di dispositivi mobili supportato, ad esempio Microsoft Intune.|  
 |Integrazione di Microsoft Office|Aggiunto a Windows 10 versione 1511|In Windows 8.1 è possibile spostarsi a Cartelle di lavoro all'interno delle app di Office facendo clic su o toccando Questo PC, quindi spostandosi al percorso di Cartelle di lavoro nel PC. In Windows 10 è possibile semplificare ulteriormente l'accesso a Cartelle di lavoro, aggiungendolo all'elenco di percorsi che Office mostra durante il salvataggio o l'apertura di file. Per altre info, consultare [Cartelle di lavoro in Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) e [Risoluzione dei problemi utilizzando Cartelle di lavoro come un luogo in Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx).|  
   
-##  <a name="BKMK_SOFT"></a> Requisiti software  
+## <a name="software-requirements"></a>Requisiti software
 
 Per Cartelle di lavoro, è necessario che i file server e l'infrastruttura di rete soddisfino i requisiti software seguenti:  
   
@@ -126,7 +128,7 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   
 -   Cartelle di lavoro non supporta il ripristino dello stato precedente delle macchine virtuali client. È comunque possibile eseguire operazioni di backup e ripristino dalle macchine virtuali client mediante il backup dell'immagine del sistema o un'altra app per il backup.  
   
-##  <a name="BKMK_Comparison"></a> Cartelle di lavoro rispetto alle altre tecnologie di sincronizzazione  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>Cartelle di lavoro rispetto alle altre tecnologie di sincronizzazione  
 
 Nella tabella seguente è illustrato come le varie tecnologie di sincronizzazione di Microsoft vengono posizionate e quando utilizzarle.  
   
@@ -141,7 +143,7 @@ Nella tabella seguente è illustrato come le varie tecnologie di sincronizzazion
 > [!NOTE]
 >  Oltre alle tecnologie di sincronizzazione elencate nella tabella precedente, Microsoft offre altre tecnologie di replica, tra cui Replica DFS, progettato per la replica da server a server, e BranchCache, progettato come una tecnologia di accelerazione WAN per succursali. Per altre informazioni, consultare [Spazi dei nomi DFS e Replica DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) e [Panoramica di BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)  
   
-##  <a name="BKMK_INSTALL"></a> Informazioni su Server Manager  
+## <a name="server-manager-information"></a>Informazioni su Server Manager  
 
 Cartelle di lavoro fa parte del ruolo Servizi file e archiviazione. È possibile installare Cartelle di lavoro tramite la procedura guidata Aggiungi ruoli e funzionalità o `Install-WindowsFeature` cmdlet. Entrambi i metodi consentono di ottenere quanto segue:  
   
@@ -151,12 +153,13 @@ Cartelle di lavoro fa parte del ruolo Servizi file e archiviazione. È possibile
   
 -   Consente di installare il modulo Windows PowerShell di SyncShare per gestire Cartelle di lavoro sul server  
   
-##  <a name="BKMK_Azure"></a> Interoperabilità con macchine virtuali di Azure  
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilità con macchine virtuali Windows Azure
+
  È possibile eseguire questo servizio ruolo di Windows Server in una macchina virtuale in Windows Azure. Questo scenario è stato testato con Windows Server 2012 R2 e Windows Server 2016.  
   
 Per altre informazioni introduttive sulle macchine virtuali di Windows Azure, visitare il [sito Web di Windows Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-##  <a name="BKMK_LINKS"></a> Vedere anche  
+## <a name="see-also"></a>Vedere anche  
  Per altre informazioni correlate, vedere le risorse seguenti.  
   
 |Tipo di contenuto|Riferimenti|  
