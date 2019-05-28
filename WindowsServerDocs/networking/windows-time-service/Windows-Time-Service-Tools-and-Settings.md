@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 7cf3b3f2bb9a2c9f95c50aa6a7b7690f89cdd0af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7426c3ede013905ba65a659baead928d3e2bbadf
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840662"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034569"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Strumenti e impostazioni del servizio Ora di Windows
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 o versione successiva
@@ -70,7 +70,7 @@ Le tabelle seguenti descrivono i parametri che vengono usati con W32tm.exe.
 ---  
 Per altre informazioni sulle **W32tm.exe**, vedere la Guida e supporto tecnico di Windows XP, Windows Vista, Windows 7, Windows Server 2003, Windows Server 2003 R2, Windows Server 2008 e Windows Server 2008 R2.  
   
-## <a name="windows-time-service-registry-entries"></a>Voci del Registro di sistema di Windows ora servizio  
+## <a name="windows-time-service-registry-entries"></a>Voci del Registro di sistema di Windows ora servizio
 Le voci del Registro di sistema seguenti sono associate il servizio ora di Windows.  
   
 Queste informazioni vengono fornite come riferimento da usare per la risoluzione dei problemi o verificare che vengano applicate le impostazioni necessarie. È consigliabile che è non modificare direttamente il Registro di sistema a meno che non vi è alcuna altra alternativa. Modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o da Windows prima di applicarle, e di conseguenza, possono essere archiviati i valori non corretti. Ciò può causare errori irreversibili nel sistema.  
@@ -86,11 +86,11 @@ Numero di voci del Registro di sistema per il servizio Windows ora corrispondono
 
   
 Esistono diverse chiavi del Registro di sistema in questa posizione del Registro di sistema. Le impostazioni dell'ora di Windows vengono archiviate nei valori in tutte queste chiavi:
-* [Parametri](#Parameters)
-* [Config](#Configuration)
-* [NtpClient](#NtpClient)
-* [NtpServer](#NtpServer)
-  
+
+* [Parametri](#hklmsystemcurrentcontrolsetservicesw32timeparameters)
+* [Config](#hklmsystemcurrentcontrolsetservicesw32timeconfig)
+* [NtpClient](#hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpclient)
+* [NtpServer](#hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpserver)
 
 Molti dei valori nella sezione W32Time del Registro di sistema vengono usati internamente dal W32Time per archiviare le informazioni. Questi valori non devono essere modificati manualmente in qualsiasi momento. Non modificare le impostazioni in questa sezione a meno che non si ha familiarità con l'impostazione e si è certi che il nuovo valore funzioneranno come previsto. Le seguenti voci del Registro di sistema si trovano in:
 
@@ -114,24 +114,23 @@ Alcuni dei parametri sono archiviati in cicli macchina nel Registro di sistema e
   
 -   1 ms = 10.000 tick dell'orologio in un sistema di Windows, come descritto in [proprietà DateTime. Ticks](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_Ticks).  
   
-Ad esempio, 5 minuti diventerebbe 5 * 60\*1000\*10000 = 3000000000 cicli macchina. 
+Ad esempio, 5 minuti diventerebbe 5\*60\*1000\*10000 = 3000000000 cicli macchina. 
 
 Tutte le versioni includono Windows 7, Windows 8, Windows 10, Windows Server 2008 e Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016.  Alcune voci sono disponibili solo in versioni più recenti di Windows.
 
-
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timeparameters"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters
 
-|Voce del Registro di sistema|Versione|Descrizione|
+|Voce del Registro di sistema|Version|Descrizione|
 |------------------------------------|---------------|----------------------------|
 |AllowNonstandardModeCombinations|Tutte|Voce indica che le combinazioni di modalità non standard sono consentite nella sincronizzazione tra i peer. Il valore predefinito per i membri del dominio è 1. Il valore predefinito per server e client autonomi è 1.|
 |NtpServer|Tutte|Voce specifica un elenco delimitato da spazi dei peer da cui un computer ottiene il timestamp, costituiti da uno o più nomi DNS o gli indirizzi IP per ogni riga. Ogni nome DNS o indirizzo IP elencati deve essere univoco. I computer connessi a un dominio devono sincronizzare con un'origine ora affidabile, ad esempio l'ora dell'orologio US ufficiale.  <ul><li>0x01 SpecialInterval </li><li>0x02 UseAsFallbackOnly</li><li>Consente di 0x04 - per altre informazioni su questa modalità, vedere [Windows ora Server: 3.3 modalità di funzionamento](https://go.microsoft.com/fwlink/?LinkId=208012).</li><li>0x08 client</li></ul><br />Non vi è alcun valore predefinito per questa voce del Registro di sistema per i membri di dominio. Il valore predefinito nel server e client autonomi è time.windows.com,0x1.<br /><br />Nota: Per altre informazioni sul server NTP disponibili, vedere [articolo della Microsoft Knowledge Base 262680 - un elenco di server ora Simple Network Time Protocol (SNTP) che sono disponibili su Internet](https://go.microsoft.com/fwlink/?LinkId=186067)|
 |ServiceDll|Tutte|Voce viene mantenuta dal W32Time. Contiene dati riservati che vengono utilizzati dal sistema operativo Windows e tutte le modifiche a questa impostazione possono causare risultati imprevedibili. Il percorso predefinito per questa DLL su entrambi i membri del dominio e autonomo client e server è % windir%\System32\W32Time.dll.  |
 |ServiceMain|Tutte|Voce viene mantenuta dal W32Time. Contiene dati riservati che vengono utilizzati dal sistema operativo Windows e tutte le modifiche a questa impostazione possono causare risultati imprevedibili. Il valore predefinito per i membri di dominio è SvchostEntry_W32Time. Il valore predefinito nel server e client autonomi è SvchostEntry_W32Time.  "|
-|Tipo|Tutte|Voce indica quale peer per accettare la sincronizzazione da:  <ul><li>**NoSync**. Il servizio ora non viene sincronizzato con altre origini.</li><li>**NTP.** Il servizio ora Sincronizza dal server specificati nel **NtpServer**. voce del Registro di sistema.</li><li>**NT5DS**. Il servizio ora Sincronizza dalla gerarchia di dominio.  </li><li>**AllSync**. Il servizio ora utilizza tutti i meccanismi di sincronizzazione disponibili.  </li></ul>Il valore predefinito per i membri di dominio viene **NT5DS**. È il valore predefinito nel server e client autonomi **NTP**.   |
+|Type|Tutte|Voce indica quale peer per accettare la sincronizzazione da:  <ul><li>**NoSync**. Il servizio ora non viene sincronizzato con altre origini.</li><li>**NTP.** Il servizio ora Sincronizza dal server specificati nel **NtpServer**. voce del Registro di sistema.</li><li>**NT5DS**. Il servizio ora Sincronizza dalla gerarchia di dominio.  </li><li>**AllSync**. Il servizio ora utilizza tutti i meccanismi di sincronizzazione disponibili.  </li></ul>Il valore predefinito per i membri di dominio viene **NT5DS**. È il valore predefinito nel server e client autonomi **NTP**.   |
 ---
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timeconfig"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config
 
-|Voce del Registro di sistema|Versione|Descrizione|
+|Voce del Registro di sistema|Version|Descrizione|
 |------------------------------------|---------------|----------------------------|
 |AnnounceFlags|Tutte|Voce controlla se questo computer è contrassegnato come un server di riferimento ora affidabile. Un computer non è contrassegnato come affidabili, a meno che non è contrassegnato anche come un server.<br /> -0x00 non un server  <br /> -0x01 sempre tempo server  <br /> -server ora automatica 0x02  <br /> -server ora affidabile sempre di 0x04  <br /> -server ora affidabile automatica 0x08  <br />Il valore predefinito per i membri del dominio è 10. Il valore predefinito per server e client autonomi è 10.|
 |EventLogFlags|Tutte|Voce controlla gli eventi che registra il servizio ora.  <br />-Jump fase: 0x1  <br />-Modifica origine: 0x2  <br />Il valore predefinito per i membri di dominio è 2. Il valore predefinito nel server e client autonomi è 2.  |
@@ -140,7 +139,7 @@ Tutte le versioni includono Windows 7, Windows 8, Windows 10, Windows Server 200
 |LargePhaseOffset|Tutte|Voce specifica che un tempo offset maggiore o uguale a questo valore in 10<sup>-7</sup> secondi viene considerato un picco. Un'interruzione di rete, ad esempio una grande quantità di traffico potrebbe provocare un picco. Un picco verrà ignorato a meno che non viene mantenuto per un lungo periodo di tempo. Il valore predefinito per i membri di dominio è 50000000. Il valore predefinito nel server e client autonomi è 50000000.  |
 |LastClockRate|Tutte|Voce viene mantenuta dal W32Time. Contiene dati riservati che vengono utilizzati dal sistema operativo Windows e tutte le modifiche a questa impostazione possono causare risultati imprevedibili. Il valore predefinito per i membri di dominio è 156250. Il valore predefinito nel server e client autonomi è 156250.  |
 |LocalClockDispersion|Tutte|Voce controlla la dispersione (in secondi) che è necessario considerare quando l'unica volta in origine è l'orologio CMOS incorporato. Il valore predefinito per i membri di dominio è 10. Il valore predefinito nel server e client autonomi è 10.|
-|MaxAllowedPhaseOffset|Tutte|Voce specifica l'offset massimo (in secondi) per il quale W32Time prova a modificare l'orologio del computer utilizzando la frequenza di clock. Quando l'offset supera questa frequenza, W32Time imposta direttamente l'orologio del computer. Il valore predefinito per i membri del dominio è 300. Il valore predefinito per server e client autonomi è 1.  [Per altre informazioni vedere di seguito](#MaxAllowedPhaseOffset).|
+|MaxAllowedPhaseOffset|Tutte|Voce specifica l'offset massimo (in secondi) per il quale W32Time prova a modificare l'orologio del computer utilizzando la frequenza di clock. Quando l'offset supera questa frequenza, W32Time imposta direttamente l'orologio del computer. Il valore predefinito per i membri del dominio è 300. Il valore predefinito per server e client autonomi è 1.  [Per altre informazioni vedere di seguito](#maxallowedphaseoffset-information).|
 |MaxClockRate|Tutte|Voce viene mantenuta dal W32Time. Contiene dati riservati che vengono utilizzati dal sistema operativo Windows e tutte le modifiche a questa impostazione possono causare risultati imprevedibili. Il valore predefinito per i membri del dominio è 155860. Il valore predefinito per server e client autonomi è 155860.  |
 |MaxNegPhaseCorrection|Tutte|Voce specifica la correzione di tempo negativo massima in secondi che il servizio esegue. Se il servizio determina che è necessaria una modifica superiore, viene registrato un evento. Caso speciale: 0xFFFFFFFF indica che deve sempre essere eseguita la correzione di tempo. Il valore predefinito per i membri del dominio è 0xFFFFFFFF. Il valore predefinito per server e client autonomi è 54.000 (15 ore).  |
 |MaxPollInterval|Tutte|Voce specifica l'intervallo massimo, espresso in secondi, log2 consentito per l'intervallo di polling del sistema. Si noti che anche se è necessario eseguire il polling di un sistema in base a intervalli pianificati, un provider può rifiutare per produrre i campioni quando richiesto per eseguire questa operazione. Il valore predefinito per i controller di dominio è 10. Il valore predefinito per i membri del dominio è 15. Il valore predefinito per server e client autonomi è 15.  |
@@ -156,7 +155,7 @@ Tutte le versioni includono Windows 7, Windows 8, Windows 10, Windows Server 200
 ---
 Per abilitare la registrazione di W32Time, è necessario aggiungere le voci del Registro di sistema seguenti:  
 
-|Voce del Registro di sistema|Versione|Descrizione|
+|Voce del Registro di sistema|Version|Descrizione|
 |------------------------------------|---------------|----------------------------|
 |FileLogEntries|Tutte|Voce controlla la quantità di voci create nel file di registro ora di Windows. Il valore predefinito è none, che non registra le attività in fase di Windows. I valori validi sono da 0 a 300. Questo valore non influiscono sulle voci del registro eventi in genere create dall'ora di Windows|
 |FileLogName|Tutte|Voce controlla il percorso e nome file del log di Windows ora. Il valore predefinito è vuoto e non devono essere modificato a meno che **FileLogEntries** viene modificato. Un valore valido è un percorso completo e nome file che ora Windows userà per creare il file di log. Questo valore non influenza le voci del registro eventi in genere create dall'ora di Windows.  |
@@ -166,7 +165,7 @@ Per abilitare la registrazione di W32Time, è necessario aggiungere le voci del 
 
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpclient"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient
 
-|Voce del Registro di sistema|Versione|Descrizione|
+|Voce del Registro di sistema|Version|Descrizione|
 |------------------------------------|---------------|----------------------------|
 |AllowNonstandardModeCombinations|Tutte|Voce indica che le combinazioni di modalità non standard sono consentite nella sincronizzazione tra i peer. Il valore predefinito per i membri del dominio è 1. Il valore predefinito per server e client autonomi è 1.|
 |CompatibilityFlags|Tutte|Voce specifica i flag di compatibilità seguenti e i valori: <br /><br />-   DispersionInvalid: 0x00000001  <br />-   IgnoreFutureRefTimeStamp: 0x00000002  <br /> -AutodetectWin2K: 0x80000000  <br />-AutodetectWin2KStage2: 0x40000000  <br /><br />Il valore predefinito per i membri del dominio è 0x80000000. Il valore predefinito per server e client autonomi è 0x80000000.  |
@@ -185,7 +184,7 @@ Per abilitare la registrazione di W32Time, è necessario aggiungere le voci del 
 
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpserver"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer
 
-|Voce del Registro di sistema|Versione|Descrizione|
+|Voce del Registro di sistema|Version|Descrizione|
 |------------------------------------|---------------|----------------------------|
 |AllowNonstandardModeCombinations|Tutte|Voce indica che le combinazioni di modalità non standard sono consentite nella sincronizzazione tra client e server. Il valore predefinito per i membri del dominio è 1. Il valore predefinito per server e client autonomi è 1.|
 |NomeDLL|Tutte|Voce specifica il percorso della DLL per il provider servizi orari.<br /><br />Il percorso predefinito per questa DLL su entrambi i membri del dominio e autonomo client e server è % windir%\System32\W32Time.dll.  |
@@ -209,7 +208,7 @@ W32tm /query /status /verbose
 ClockRate: 0.0156000s  
 ```  
   
-SystemclockRate è la frequenza dell'orologio del sistema. Usa 156000 secondi ad esempio, il SystemclockRate potrebbe essere = 0.0156000 * 1000 \* 10000 = 156000 cicli macchina.  
+SystemclockRate è la frequenza dell'orologio del sistema. Usa 156000 secondi ad esempio, il SystemclockRate potrebbe essere = 0.0156000 \* 1000 \* 10000 = 156000 cicli macchina.  
   
 MaxAllowedPhaseOffset è anche in pochi secondi. Per convertire i dati per Tick del clock, moltiplicare MaxAllowedPhaseOffset * 1000\*10000.  
   
@@ -297,7 +296,7 @@ In questo caso l'orologio verrà nuovamente impostato lentamente.
 > [!WARNING]  
 > Alcuni dei valori di set di impostazioni che sono configurati nel file del modello amministrativo del sistema (System. adm) per le impostazioni di criteri di gruppo (GPO) di oggetti sono diversi dalle voci del Registro di sistema predefinita corrispondente. Se si prevede di usare un oggetto Criteri di gruppo per configurare qualsiasi impostazione del tempo di Windows, assicurarsi di rivedere [preimpostato di valori per le impostazioni di criteri di gruppo del servizio ora di Windows è diversi dalle voci del Registro di sistema del servizio ora di Windows corrispondente in Windows Server 2003 ](https://go.microsoft.com/fwlink/?LinkId=186066). Questo problema si applica a Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2 e Windows Server 2003.  
   
-La tabella seguente elenca le impostazioni di criteri di gruppo globali che sono associate con il servizio ora di Windows e il valore preimpostato associate a ogni impostazione. Per altre informazioni su ogni impostazione, vedere le voci del Registro di sistema corrispondenti di "[le voci del Registro di sistema di Windows ora servizio](#w2k3tr_times_tools_uhlp)" più indietro in questo argomento. Le impostazioni seguenti sono contenute in un singolo oggetto Criteri di gruppo chiamato **impostazioni di configurazione globali**.  
+La tabella seguente elenca le impostazioni di criteri di gruppo globali che sono associate con il servizio ora di Windows e il valore preimpostato associate a ogni impostazione. Per altre informazioni su ogni impostazione, vedere le voci del Registro di sistema corrispondenti nella [le voci del Registro di sistema di Windows ora servizio](#windows-time-service-registry-entries) più indietro in questo argomento. Le impostazioni seguenti sono contenute in un singolo oggetto Criteri di gruppo chiamato **impostazioni di configurazione globali**.  
   
 **Impostazioni di criteri di gruppo globali associate con ora di Windows**  
   
@@ -319,14 +318,14 @@ La tabella seguente elenca le impostazioni di criteri di gruppo globali che sono
 |SpikeWatchPeriod|90|  
 |UpdateInterval|100|  
   
-La tabella seguente elenca le impostazioni disponibili per il **configurare Windows NTP Client** oggetto Criteri di gruppo e i valori predefiniti associati con il servizio ora di Windows. Per altre informazioni su ogni impostazione, vedere le voci del Registro di sistema corrispondenti di "[le voci del Registro di sistema di Windows ora servizio](#w2k3tr_times_tools_uhlp)" più indietro in questo argomento.  
+La tabella seguente elenca le impostazioni disponibili per il **configurare Windows NTP Client** oggetto Criteri di gruppo e i valori predefiniti associati con il servizio ora di Windows. Per altre informazioni su ogni impostazione, vedere le voci del Registro di sistema corrispondenti nella [le voci del Registro di sistema di Windows ora servizio](#windows-time-service-registry-entries) più indietro in questo argomento.  
   
 **Impostazioni dei criteri di gruppo Client NTP associate con ora di Windows**  
   
 |Impostazione di Criteri di gruppo|Valore predefinito|  
 |------------------------|-----------------|  
 |NtpServer|time.windows.com,0x1|  
-|Tipo|Opzioni predefinite:<br /><br />-   **NTP.** Utilizzare nei computer non appartenenti a un dominio.<br />-   **NT5DS.** Utilizzare nei computer che fanno parte di un dominio.|  
+|Type|Opzioni predefinite:<br /><br />-   **NTP.** Utilizzare nei computer non appartenenti a un dominio.<br />-   **NT5DS.** Utilizzare nei computer che fanno parte di un dominio.|  
 |CrossSiteSyncFlags|2|  
 |ResolvePeerBackoffMinutes|15|  
 |ResolvePeerBackoffMaxTimes|7|  

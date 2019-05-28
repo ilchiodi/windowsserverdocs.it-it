@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 1d9e91ec8f4c998f34e324b5d551a387eba5a310
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5717fcc9e1732b6273620e633c140c6df58ec8b7
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823632"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624651"
 ---
 # <a name="create-os-specialization-answer-file"></a>Creare file di risposte di specializzazione del sistema operativo
 
@@ -38,10 +38,8 @@ Le sezioni seguenti illustrano come usare i parametri della funzione per un `una
 - [File di risposte di base di Windows](#basic-windows-answer-file)
 - [File con aggiunta al dominio di risposte Windows](#windows-answer-file-with-domain-join)
 - [File di risposte Windows con indirizzi IPv4 statici](#windows-answer-file-with-static-ipv4-addresses)
-- [File di risposte Windows con le impostazioni locali personalizzate](#windows-answer-file-with-custom-locale)
+- [File di risposte Windows con le impostazioni locali personalizzate](#windows-answer-file-with-a-custom-locale)
 - [File di risposte di Linux base](#basic-linux-answer-file)
-
-È anche possibile esaminare i [i parametri di funzione](#function-parameters), più avanti in questo argomento.
 
 ## <a name="basic-windows-answer-file"></a>File di risposte Windows di base
 
@@ -51,7 +49,7 @@ Quando viene richiesto di immettere credenziali di amministratore, specificare i
 Utilizzare "Administrator" per il nome utente se si vuole configurare l'account Administrator predefinito.
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
+$adminCred = Get-Credential -Message "Local administrator account"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred
 ```
@@ -69,8 +67,8 @@ La seconda richiesta di credenziali verrà richieste le credenziali che hanno il
 Assicurarsi di modificare il valore della "-DomainName" parametro per il nome FQDN del dominio di Active Directory.
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
-$domainCred = Get-Credential -Prompt "Domain join credentials"
+$adminCred = Get-Credential -Message "Local administrator account"
+$domainCred = Get-Credential -Message "Domain join credentials"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -DomainName 'my.contoso.com' -DomainJoinCredentials $domainCred
 ```
@@ -97,7 +95,7 @@ Ecco l'aspetto di riepilogo per la creazione di pool di indirizzi IP statici. In
 È quindi possibile usare il `-StaticIPPool` parametro per includere gli elementi IP statici nel file di risposte. I parametri `@IPAddr-1@`, `@NextHop-1-1@`, e `@DNSAddr-1-1@` nella risposta alla domanda file verrà sostituiti con i valori reali in Virtual Machine Manager specificato al momento della distribuzione.
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
+$adminCred = Get-Credential -Message "Local administrator account"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -StaticIPPool IPv4Address
 ```
@@ -110,8 +108,8 @@ Quando viene richiesto di immettere credenziali di amministratore, specificare i
 Utilizzare "Administrator" per il nome utente se si vuole configurare l'account Administrator predefinito.
 
 ```powershell
-$adminCred = Get-Credential -Prompt "Local administrator account"
-$domainCred = Get-Credential -Prompt "Domain join credentials"
+$adminCred = Get-Credential -Message "Local administrator account"
+$domainCred = Get-Credential -Message "Domain join credentials"
 
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -Locale es-ES
 ```
@@ -132,5 +130,5 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -RootPassword $ro
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Distribuire VM schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32675aa7fb8c7b928bcf80a4d1072fe5eab7cd61
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 874984b469303c0f8a40a676632c144ee6079f44
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864082"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192435"
 ---
 # <a name="checklist-configuring-ad-fs-to-send-claims-to-an-ad-fs-1x-claims-aware-web-agent"></a>Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni a un agente di AD FS 1.x Claims-Aware Web
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-send-claims-to-an-adfs1x-claims-aware-web-agent"></a>Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni alle attestazioni di AD FS 1.x\-agente Web compatibile con  
 Questo elenco di controllo include le attività necessarie per la configurazione di Active Directory Federation Services \(ADFS\) servizio federativo in Windows Server 2012 per inviare attestazioni che possono essere riconosciute da un'applicazione ospitata da un Server Web che esegue AD FS 1. *x* attestazioni\-agente Web compatibile con.  

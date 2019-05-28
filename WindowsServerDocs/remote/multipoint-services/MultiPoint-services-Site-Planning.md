@@ -13,12 +13,12 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 60d2e1fedc018136f5668d55a8afb2e0574d94de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845072"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034595"
 ---
 # <a name="multipoint-services-site-planning"></a>Pianificazione del sito di Servizi MultiPoint
 È necessario considerare la posizione in cui verrà distribuito uno o più computer che esegue MultiPoint Services e le stazioni associate.  
@@ -86,11 +86,11 @@ Non esistono limitazioni distanza fisica per i client LAN. Purché siano nella r
 ## <a name="using-additional-hubs"></a>Uso di hub aggiuntive  
 Altri hub è utilizzabile per semplificare l'installazione. Esistono tre tipi di hub che vengono usati in un sistema MultiPoint Services:  
   
--   [Hub di stazione](#Station-hubs)  
+-   [Hub di stazione](#station-hubs)  
   
--   [Hub intermediario](#Intermediate-hubs)  
+-   [Hub intermediario](#intermediate-hubs)  
   
--   [Hub downstream](#Downstream-hubs)  
+-   [Hub downstream](#downstream-hubs)  
   
 ### <a name="station-hubs"></a>Hub di stazione  
 Hub di stazione è un hub esterno che è stato associato a una stazione MultiPoint Services. Come minimo, l'hub di stazione avrà una tastiera alimentazione da rete elettrica aggiuntivo a esso. È anche possibile che altre periferiche collegate. Un hub di stazione può essere un hub USB generico che è conforme all'USB 2.0 o versioni successive. Hub di stazione deve essere spenti esternamente se i dispositivi avanzati verranno plug-in a essi.  

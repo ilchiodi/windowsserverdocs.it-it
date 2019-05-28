@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd517be0de3ba6ca97ca11f4bbe8f59111a01216
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2ffc6680239fa468b058b74f9acf26d22f2b65f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870952"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222614"
 ---
 # <a name="viewing-and-managing-updates"></a>Visualizzazione e gestione degli aggiornamenti
 
@@ -127,7 +127,7 @@ Gli aggiornamenti vengono utilizzati per l'aggiornamento o fornendo una sostituz
 
 -   File di aggiornamento: I file effettivi necessari per installare un aggiornamento in un computer.
 
-Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere sezione [1.3. Scegliere una strategia di archiviazione WSUS](../plan/plan-your-wsus-deployment.md#BKMK_1.3.) del passaggio 1: Preparare la distribuzione di WSUS, nella Guida alla distribuzione di WSUS.
+Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere sezione [1.3. Scegliere una strategia di archiviazione WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) del passaggio 1: Preparare la distribuzione di WSUS, nella Guida alla distribuzione di WSUS.
 
 Verrà impostazione e l'esecuzione di sincronizzazioni, aggiunta di computer e gruppi di computer e la distribuzione degli aggiornamenti a intervalli regolari. Nell'elenco seguente vengono forniti esempi di attività generali che potrebbe intraprendere nell'aggiornamento dei computer con Windows Server Update SERVICES.
 

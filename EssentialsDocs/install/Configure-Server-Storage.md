@@ -12,12 +12,12 @@ ms.assetid: ef7ddcdd-3a74-40ca-9487-c3a6fc5155a5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6de485f6fd46464ba707bc0871f60ac2fec5a1db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 42ff3dfc633410837bff079223c74cd08051a5de
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859982"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63717726"
 ---
 # <a name="configure-server-storage"></a>Configurazione dell'archiviazione server
 
@@ -49,11 +49,11 @@ ms.locfileid: "59859982"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)
 
  [Guida introduttiva a Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](../install/Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](../install/Testing-the-Customer-Experience.md)
 

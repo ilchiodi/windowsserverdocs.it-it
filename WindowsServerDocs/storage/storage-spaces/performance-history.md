@@ -8,12 +8,12 @@ author: cosmosdarwin
 ms.date: 09/07/2018
 Keywords: Spazi di archiviazione diretta
 ms.localizationpriority: medium
-ms.openlocfilehash: 828a3265c9770bab0158067c4f856866d03e3d42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1916d2d5e4d1fc846bec19826437b200afe36f42
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870862"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772219"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>Cronologia delle prestazioni per spazi di archiviazione diretta
 
@@ -153,7 +153,7 @@ Poco dopo aver abilitato spazi di archiviazione diretta, un volume di circa 10 G
 
 Il volume è supportato da spazi di archiviazione e utilizza mirror semplice, bidirezionale, o la resilienza mirror a tre vie, a seconda del numero di nodi nel cluster. Si procederà al ripristino dopo errori di unità o server esattamente come qualsiasi altro volumi in spazi di archiviazione diretta.
 
-Il volume Usa ReFS ma non di Volume condiviso Cluster (CSV), quindi viene visualizzata solo nel nodo proprietario del gruppo di Cluster. Oltre a viene creato automaticamente, non c'è niente di speciale su questo volume: è possibile visualizzarlo, esplorarlo, ridimensionarlo o eliminarlo (scelta non consigliata). Se si verificano problemi, vedere [Troubleshooting](#troubleshooting). 
+Il volume Usa ReFS ma non di Volume condiviso Cluster (CSV), quindi viene visualizzata solo nel nodo proprietario del gruppo di Cluster. Oltre a viene creato automaticamente, non c'è niente di speciale su questo volume: è possibile visualizzarlo, esplorarlo, ridimensionarlo o eliminarlo (scelta non consigliata). Se si verificano problemi, vedere [Troubleshooting](#troubleshooting).
 
 ### <a name="object-discovery-and-data-collection"></a>Raccolta di dati e di individuazione oggetti
 
@@ -163,7 +163,7 @@ Raccolta viene gestita dal servizio di integrità, disponibilità elevata: se il
 
 ### <a name="handling-measurement-gaps"></a>Gestione degli spazi vuoti di misurazione
 
-Quando misurazioni vengono unite in serie meno granulari che si estendono su più tempo, come descritto in [intervalli di tempo](#Timeframes), sono esclusi i periodi di dati mancanti. Ad esempio, se il server era inattivo per 30 minuti, quindi l'esecuzione al 50% della CPU per i successivi 30 minuti, il `ClusterNode.Cpu.Usage` medio per ora verrà registrata correttamente perché il 50% (non % 25).
+Quando misurazioni vengono unite in serie meno granulari che si estendono su più tempo, come descritto in [intervalli di tempo](#timeframes), sono esclusi i periodi di dati mancanti. Ad esempio, se il server era inattivo per 30 minuti, quindi l'esecuzione al 50% della CPU per i successivi 30 minuti, il `ClusterNode.Cpu.Usage` medio per ora verrà registrata correttamente perché il 50% (non % 25).
 
 ### <a name="extensibility-and-customization"></a>Estensibilità e personalizzazione
 

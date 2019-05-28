@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91175836e4453860b17d2655e6a5a831645de410
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873452"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720697"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gestire gli account utente in Windows Server Essentials
 
@@ -420,7 +420,7 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
 3.  Per sincronizzare la password modalità ripristino servizi directory in un controller di dominio con l'account s amministratore di rete corrente, digitare:  
   
-     **sincronizzazione da account di dominio** *< account_amministratore_rete_corrente >*, quindi premere INVIO.  
+     **sincronizzazione da account di dominio** *< account_amministratore_rete_corrente >* , quindi premere INVIO.  
   
  Poiché la password per l'account dell'amministratore di rete sarà modificata periodicamente, per assicurare che la password della modalità ripristino servizi directory corrisponda sempre alla password attuale dell'amministratore di rete, è consigliabile creare un'attività pianificata per sincronizzare automaticamente ogni giorno la password della modalità ripristino servizi directory con la password dell'amministratore di rete.  
   
@@ -499,7 +499,7 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
     2.  Nella scheda **Accesso remoto via Internet** :  
   
-        1.  Per permettere a un utente di connettersi al server tramite la VPN, selezionare la casella di controllo **Consenti rete privata virtuale (VPN)**.  
+        1.  Per permettere a un utente di connettersi al server tramite la VPN, selezionare la casella di controllo **Consenti rete privata virtuale (VPN)** .  
   
         2.  Per permettere a un utente di connettersi al server tramite Accesso Web remoto, selezionare la casella di controllo **Consenti Accesso Web remoto e accedi ai servizi Web** .  
   
@@ -523,7 +523,7 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
     3.  Nella scheda **Accesso remoto via Internet** :  
   
-        1.  Per permettere a un utente di connettersi al server tramite la VPN, selezionare la casella di controllo **Consenti rete privata virtuale (VPN)**.  
+        1.  Per permettere a un utente di connettersi al server tramite la VPN, selezionare la casella di controllo **Consenti rete privata virtuale (VPN)** .  
   
         2.  Per permettere a un utente di connettersi al server tramite Accesso Web remoto, selezionare la casella di controllo **Consenti Accesso Web remoto e accedi ai servizi Web** .  
   
