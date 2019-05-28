@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cb819a7f91646c61b84c3ee70550af6033ba340
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865972"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976784"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web di Desktop remoto per gli utenti
 
@@ -248,7 +248,36 @@ Il server Host sessione Desktop remoto è diverso dal server Broker di desktop r
     > [!NOTE]
     > Se l'Host sessione Desktop remoto sia sul server di desktop remoto condividono lo stesso computer, impostare solo il certificato del server Broker di desktop remoto. Se il server Host sessione Desktop remoto e Broker di desktop remoto utilizza computer diversi, entrambi deve essere configurati con certificati univoci.
 
-* Il **nome alternativo soggetto (SAN)** di ogni certificato deve essere impostato per la macchina **completamente dominio nome completo (FQDN)**. Il **nome comune (CN)** deve corrispondere la rete SAN per ogni certificato.
+* Il **nome alternativo soggetto (SAN)** di ogni certificato deve essere impostato per la macchina **completamente dominio nome completo (FQDN)** . Il **nome comune (CN)** deve corrispondere la rete SAN per ogni certificato.
+
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Come pre-configurare le impostazioni per gli utenti di client web Desktop remoto
+In questa sezione indicano come usare PowerShell per configurare le impostazioni per la distribuzione del client web Desktop remoto. Questi cmdlet di PowerShell controllo capacità di un utente di modificare le impostazioni di base a problemi di sicurezza dell'organizzazione o del flusso di lavoro è studiata. Le impostazioni seguenti si trovano nel **impostazioni** pannello laterale del client web. 
+
+### <a name="suppress-telemetry"></a>Eliminare i dati di telemetria
+Per impostazione predefinita, gli utenti possono scegliere di abilitare o disabilitare la raccolta di dati di telemetria vengono inviati a Microsoft. Per informazioni sui dati di telemetria raccolti da Microsoft, consultare l'informativa sulla Privacy tramite il collegamento nel **sulle** pannello laterale.
+
+Come amministratore, è possibile scegliere di eliminare la raccolta dati di telemetria per la distribuzione usando il cmdlet di PowerShell seguente:
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+   ```
+
+Per impostazione predefinita, l'utente può selezionare per abilitare o disabilitare la telemetria. Valore booleano **$false** corrisponderanno il comportamento di client predefinito. Valore booleano **$true** disabilita i dati di telemetria e impedisce all'utente di abilitazione della telemetria.
+
+### <a name="remote-resource-launch-method"></a>Metodo di avvio risorsa remota
+Per impostazione predefinita, gli utenti possono scegliere di avviare le risorse remote (1) nel browser o (2), scaricare un file con estensione rdp da gestire con un altro client installato nel proprio computer. Come amministratore, è possibile scegliere di limitare il metodo di avvio risorsa remota per la distribuzione con il comando Powershell seguente:
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+   ```
+ Per impostazione predefinita, l'utente può selezionare uno dei due metodi di avvio. Valore booleano **$true** imporrà all'utente di avviare le risorse nel browser. Valore booleano **$false** forzerà l'utente per avviare le risorse scaricando un file RDP per la gestione con un client RDP installato localmente.
+
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Reimpostare le configurazioni RDWebClientDeploymentSetting impostazioni predefinite
+Per reimpostare tutte le impostazioni client a livello di distribuzione web per le configurazioni predefinite, eseguire il cmdlet di PowerShell seguente:
+
+   ```PowerShell
+    Reset-RDWebClientDeploymentSetting 
+   ```
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

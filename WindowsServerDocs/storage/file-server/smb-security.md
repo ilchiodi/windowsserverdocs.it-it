@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 831ca8266c3ec18ffb83227dcb2d39b3f953ad1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1586c8c63e46452075b4106c944670395734142
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838052"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034409"
 ---
 # <a name="smb-security-enhancements"></a>Miglioramenti della sicurezza SMB
 
@@ -73,7 +73,7 @@ Per impostazione predefinita, quando è abilitata la crittografia SMB per una co
 Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 ```
 
-La funzionalità di negoziazione protetta sottolinguaggio descritta nella sezione successiva si impedisce che un attacco man-in-the-middle il downgrade di una connessione da SMB 3.0 a SMB 2.0 (da utilizzare con l'accesso non crittografato). Tuttavia, non impedisce il downgrade a SMB 1.0, che comporta anche l'accesso non crittografato. Per garantire che i client SMB 3.0 usino sempre la crittografia SMB per accedere alle condivisioni crittografate, è necessario disabilitare il server SMB 1.0. (Per istruzioni, vedere la sezione [la disabilitazione di SMB 1.0](#disabling-smb-1.0).) Se il **– RejectUnencryptedAccess** impostazione è stata lasciata sul valore predefinito **$true**, sono consentiti solo che supporta la crittografia client SMB 3.0 per accedere alle condivisioni file (i client SMB 1.0 verranno inoltre rifiutati).
+La funzionalità di negoziazione protetta sottolinguaggio descritta nella sezione successiva si impedisce che un attacco man-in-the-middle il downgrade di una connessione da SMB 3.0 a SMB 2.0 (da utilizzare con l'accesso non crittografato). Tuttavia, non impedisce il downgrade a SMB 1.0, che comporta anche l'accesso non crittografato. Per garantire che i client SMB 3.0 usino sempre la crittografia SMB per accedere alle condivisioni crittografate, è necessario disabilitare il server SMB 1.0. (Per istruzioni, vedere la sezione [la disabilitazione di SMB 1.0](#disabling-smb-10).) Se il **– RejectUnencryptedAccess** impostazione è stata lasciata sul valore predefinito **$true**, sono consentiti solo che supporta la crittografia client SMB 3.0 per accedere alle condivisioni file (i client SMB 1.0 verranno inoltre rifiutati).
 
 >[!NOTE]
 >* La crittografia SMB Usa il Advanced Encryption Standard (AES)-algoritmo CCM per crittografare e decrittografare i dati. AES-CCM fornisce anche la convalida dell'integrità dei dati (firma) per le condivisioni di file crittografati, indipendentemente dalle impostazioni della firmare SMB. Se si desidera abilitare la firma senza crittografia SMB, è possibile continuare a eseguire questa operazione. Per altre informazioni, vedere [nozioni di base di SMB firma](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
@@ -84,7 +84,7 @@ La funzionalità di negoziazione protetta sottolinguaggio descritta nella sezion
 
 ## <a name="secure-dialect-negotiation"></a>Negoziazione sicuro del linguaggio
 
-SMB 3.0 è in grado di rilevare gli attacchi man-in-the-middle che tentano di effettuare il downgrade la funzionalità che il client e server di negoziare o il protocollo SMB 2.0 o SMB 3.0. Quando viene rilevato un attacco dal client o server, la connessione viene interrotta e 1005 ID evento viene registrato nel registro eventi Microsoft-Windows-SmbServer/Operational. Sottolinguaggio di proteggere la negoziazione non è possibile rilevare o prevenire effettua il downgrade da SMB 2.0 o 3.0 di SMB 1.0. Per questo motivo e per sfruttare le funzionalità complete della crittografia SMB, è consigliabile disabilitare il server SMB 1.0. Per altre informazioni, vedere [la disabilitazione di SMB 1.0](#disabling-smb-1.0).
+SMB 3.0 è in grado di rilevare gli attacchi man-in-the-middle che tentano di effettuare il downgrade la funzionalità che il client e server di negoziare o il protocollo SMB 2.0 o SMB 3.0. Quando viene rilevato un attacco dal client o server, la connessione viene interrotta e 1005 ID evento viene registrato nel registro eventi Microsoft-Windows-SmbServer/Operational. Sottolinguaggio di proteggere la negoziazione non è possibile rilevare o prevenire effettua il downgrade da SMB 2.0 o 3.0 di SMB 1.0. Per questo motivo e per sfruttare le funzionalità complete della crittografia SMB, è consigliabile disabilitare il server SMB 1.0. Per altre informazioni, vedere [la disabilitazione di SMB 1.0](#disabling-smb-10).
 
 La funzionalità di negoziazione protetta sottolinguaggio che è descritti nella sezione successiva impedisce a un attacco man-in-the-middle di downgrade di una connessione da SMB 3 a SMB 2 (da utilizzare con l'accesso non crittografato); Tuttavia, effettua il downgrade non impedisce a SMB 1, che comporta anche l'accesso non crittografato. Per altre informazioni sui problemi potenziali con versioni precedenti non Windows implementazioni di SMB, vedere la [della Microsoft Knowledge Base](http://support.microsoft.com/kb/2686098).
 

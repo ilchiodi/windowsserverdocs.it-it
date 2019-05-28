@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f5bd0ad05bdc2573a5ea0abbe165de2d3e7f5c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857702"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034186"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Usare volumi condivisi Cluster in un cluster di failover
 
->Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 I volumi condivisi cluster (CSV, Cluster Shared Volumes) permettono a più nodi in un cluster di failover di accedere contemporaneamente in lettura/scrittura allo stesso LUN (disco) di cui viene eseguito il provisioning come volume NTFS. (In Windows Server 2012 R2, il disco possa essere sottoposti a provisioning come NTFS o Resilient File System (ReFS).) Grazie al volume CSV, è possibile eseguire rapidamente il failover dei ruoli del cluster in un altro nodo, senza dover modificare la proprietà dell'unità o smontare e rimontare un volume. CSV semplifica anche la gestione di un numero potenzialmente elevato di LUN in un cluster di failover.
 
@@ -55,7 +55,7 @@ Quando si configurano le reti che supportano CSV, prendere in considerazione gli
     >In Windows Server 2012 R2, sono presenti più istanze del servizio Server per ogni nodo del cluster di failover. Il traffico in arrivo dai client SMB che accedono alle condivisioni file normali è gestito dall'istanza predefinita e una seconda istanza CSV gestisce solo il traffico CSV tra i nodi. Se il servizio Server in un nodo risulta non integro, la proprietà del volume CSV sarà trasferita automaticamente a un altro nodo.
 
     In SMB 3.0 sono incluse le funzionalità SMB multicanale e SMB diretto, che permettono il flusso del traffico dei volumi condivisi del cluster su più reti nel cluster e l'uso delle schede di rete che supportano Accesso diretto a memoria remota (RDMA). Per impostazione predefinita, SMB multicanale è usato per il traffico CSV. Per altre informazioni, vedere [Panoramica di SMB (Server Message Block)](../storage/file-server/file-server-smb-overview.md).
-  - **Microsoft Failover Cluster Virtual Adapter Performance Filter**. Questa impostazione permette di migliorare la capacità dei nodi di eseguire il reindirizzamento I/O quando necessario per raggiungere il volume CSV, ad esempio quando un errore di connettività impedisce la connessione diretta di un nodo al disco CSV. Per altre informazioni, vedere [sincronizzazione About i/o e reindirizzamento i/o nelle comunicazioni CSV](#about-i/o-synchronization-and-i/o-redirection-in-csv-communication) più avanti in questo argomento.
+  - **Microsoft Failover Cluster Virtual Adapter Performance Filter**. Questa impostazione permette di migliorare la capacità dei nodi di eseguire il reindirizzamento I/O quando necessario per raggiungere il volume CSV, ad esempio quando un errore di connettività impedisce la connessione diretta di un nodo al disco CSV. Per altre informazioni, vedere [sincronizzazione About i/o e reindirizzamento i/o nelle comunicazioni CSV](#about-io-synchronization-and-io-redirection-in-csv-communication) più avanti in questo argomento.
 - **Definizione delle priorità delle reti del cluster**. È in genere consigliabile non modificare le preferenze configurate dal cluster per le reti.
 - **Configurazione della subnet IP**. Per i nodi in una rete che usa CSV non è richiesta alcuna configurazione specifica della subnet. Nel volume CSV sono supportati cluster con più subnet.
 - **Qualità del servizio (QoS) basata su criteri**. Quando si usa CSV, è consigliabile configurare un criterio di priorità QoS e un criterio minimo per la larghezza di banda per il traffico di rete in ogni nodo. Per altre informazioni, vedere [Quality of Service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
@@ -144,7 +144,7 @@ Quando si pianifica la configurazione dell'archiviazione per un cluster di failo
 
   - Un'organizzazione distribuisce macchine virtuali che supporteranno un'infrastruttura VDI (Virtual Desktop Infrastructure), che costituisce un carico di lavoro relativamente leggero. Per il cluster si usa l'archiviazione a prestazioni elevate. L'amministratore del cluster, dopo avere consultato il fornitore del sistema di archiviazione, decide di posizionare un numero relativamente elevato di VM per ogni volume CSV.
   - Un'altra organizzazione distribuisce un numero elevato di macchine virtuali che supporteranno un'applicazione database molto usata, che rappresenta un carico di lavoro più pesante. Nel cluster si usa l'archiviazione a prestazioni inferiori. L'amministratore del cluster, dopo avere consultato il fornitore del sistema di archiviazione, decide di posizionare un numero relativamente ridotto di VM per ogni volume CSV.
-- Quando si pianifica la configurazione dell'archiviazione per una macchina virtuale specifica, è necessario tenere in considerazione i requisiti del disco del servizio, dell'applicazione o del ruolo che sarà supportato dalla macchina virtuale. La verifica di questi requisiti permette di evitare il conflitto tra dischi, che potrebbe influire negativamente sulle prestazioni. È consigliabile che la configurazione di archiviazione per la macchina virtuale sia il più possibile analoga alla configurazione di archiviazione che sarebbe usata per un server fisico che esegue lo stesso servizio, la stessa applicazione o lo stesso ruolo. Per altre informazioni, vedere [disposizione di LUN, volumi e VHD file](#arrangement-of-luns,-volumes,-and-vhd-files) più indietro in questo argomento.
+- Quando si pianifica la configurazione dell'archiviazione per una macchina virtuale specifica, è necessario tenere in considerazione i requisiti del disco del servizio, dell'applicazione o del ruolo che sarà supportato dalla macchina virtuale. La verifica di questi requisiti permette di evitare il conflitto tra dischi, che potrebbe influire negativamente sulle prestazioni. È consigliabile che la configurazione di archiviazione per la macchina virtuale sia il più possibile analoga alla configurazione di archiviazione che sarebbe usata per un server fisico che esegue lo stesso servizio, la stessa applicazione o lo stesso ruolo. Per altre informazioni, vedere [disposizione di LUN, volumi e VHD file](#arrangement-of-luns-volumes-and-vhd-files) più indietro in questo argomento.
 
     È anche possibile attenuare il conflitto tra dischi configurando l'archiviazione con un numero elevato di dischi rigidi fisici indipendenti. Scegliere l'hardware di archiviazione di conseguenza e rivolgersi al fornitore per ottimizzare le prestazioni del sistema di archiviazione.
 - In base ai carichi di lavoro del cluster e alla rispettiva necessità di operazioni I/O, è possibile prendere in considerazione la configurazione solo di una percentuale di VM per l'accesso a ogni LUN, mentre le altre macchine virtuali non dispongono di connettività e sono invece dedicate alle operazioni di calcolo.

@@ -8,18 +8,18 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4d0ff53b9118db1dd6ba5af94b3e627bf1597e0c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b5658676d08318d88ddee44a0589db5873b4660b
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889022"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034294"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Prepararsi alla migrazione del Server ADFS 2.0 Federation di AD FS in Windows Server 2012 R2
 
 Questo documento descrive come eseguire la migrazione di un ADFS 2.0 o server farm federativa di Windows Server 2012 a una farm AD FS di Windows Server 2012 R2.  I passaggi sono utilizzabili con le farm di ADFS che utilizzano WID o SQL Server come database sottostante.  
   
--   [Panoramica del processo di migrazione](prepare-migrate-ad-fs-server-r2.md#migrate-process-outline)  
+-   [Panoramica del processo di migrazione](prepare-migrate-ad-fs-server-r2.md#migration-process-outline)  
   
 -   [Nuove funzionalità di AD FS in Windows Server 2012 R2](prepare-migrate-ad-fs-server-r2.md#new-ad-fs-functionality-in-windows-server-2012-r2)  
   
@@ -29,7 +29,8 @@ Questo documento descrive come eseguire la migrazione di un ADFS 2.0 o server fa
   
 -   [Altre considerazioni e attività di migrazione](prepare-migrate-ad-fs-server-r2.md#other-migration-tasks-and-considerations)  
   
-##  <a name="migration-process-outline"></a>Panoramica del processo di migrazione  
+##  <a name="migration-process-outline"></a>Panoramica del processo di migrazione
+
  Per completare la migrazione della farm di server federativi di ADFS a Windows Server 2012 R2, è necessario eseguire le attività seguenti:  
   
 1.  Esportare, registrare ed eseguire il backup dei dati di configurazione seguenti nella farm ADFS esistente. Per istruzioni dettagliate su come eseguire queste attività, vedere [Migrazione del server federativo di ADFS](migrate-ad-fs-fed-server-r2.md).  

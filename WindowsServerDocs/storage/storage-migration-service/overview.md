@@ -1,21 +1,23 @@
 ---
 Title: Panoramica del servizio di migrazione archiviazione
-description: Breve descrizione dell'argomento per risultati dei motori di ricerca
+description: Il servizio di migrazione di archiviazione rende più semplice la migrazione di server a una versione più recente di Windows Server. Fornisce uno strumento grafico che archivia i dati nei server, quindi trasferisce i dati e configurazione al server più recenti, tutto senza dover apportare alcuna modifica di utenti o App.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: edc82c996f6877f770454fc6e27ccf5205a7d540
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843862"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976652"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica del servizio di migrazione archiviazione
+
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (canale semestrale)
 
 Il servizio di migrazione di archiviazione rende più semplice la migrazione di server a una versione più recente di Windows Server. Fornisce uno strumento grafico che archivia i dati nei server, quindi trasferisce i dati e configurazione al server più recenti, tutto senza dover apportare alcuna modifica di utenti o App.
 
@@ -52,12 +54,14 @@ Per usare il servizio di migrazione di archiviazione, è necessario quanto segue
 - Oggetto **server di origine** per eseguire la migrazione di file e i dati da
 - Oggetto **server di destinazione** che esegue Windows Server 2019 per eseguire la migrazione a: Windows Server 2016 e Windows Server 2012 R2 funzionare, ma sono circa il 50% più lento
 - Un' **server orchestrator** che esegue Windows Server 2019 per gestire la migrazione  <br>Se si esegue la migrazione solo alcuni server e uno dei server è in esecuzione Windows Server 2019, è possibile utilizzarlo come agente di orchestrazione. Se si esegue la migrazione di più server, è consigliabile usare un server dell'agente di orchestrazione separata.
-- Oggetto **PC o server che esegue [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  per eseguire l'interfaccia utente del servizio di migrazione di archiviazione, a meno che non si preferisce usare PowerShell per gestire la migrazione. La versione Windows Admin Center e Windows Server 2019 deve essere entrambi almeno versione 1809. 
+- Oggetto **PC o server che esegue [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  per eseguire l'interfaccia utente del servizio di migrazione di archiviazione, a meno che non si preferisce usare PowerShell per gestire la migrazione. La versione Windows Admin Center e Windows Server 2019 deve essere entrambi almeno versione 1809.
+
+È consigliabile che l'agente di orchestrazione e la destinazione computer dispongono di almeno due core o due Vcpu e almeno 2 GB di memoria. Operazioni di inventario e di trasferimento sono notevolmente più veloci con più processori e memoria.
 
 ### <a name="security-requirements"></a>Requisiti di sicurezza
 
-- Un account di migrazione che è un amministratore nei computer di origine.
-- Un account di migrazione che è un amministratore nel computer di destinazione.
+- Un account di migrazione che è un amministratore nel computer di origine e nel computer dell'agente di orchestrazione.
+- Un account di migrazione che è un amministratore nel computer di destinazione e nel computer dell'agente di orchestrazione.
 - Il computer dell'agente di orchestrazione deve avere la condivisione File e stampanti (SMB-In) regola del firewall abilitata *in ingresso*.
 - I computer di origine e destinazione devono avere le seguenti regole del firewall abilitate *in ingresso* (anche se potrebbe essere già li abilitata):
   - Condivisione di file e stampanti (SMB-In)
@@ -73,6 +77,7 @@ Per usare il servizio di migrazione di archiviazione, è necessario quanto segue
 
 Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 
+- Windows Server, come canale semestrale
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -82,16 +87,34 @@ Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 - Windows Server 2003 R2
 - Windows Server 2003
 
+Se l'agente di orchestrazione è in esecuzione Windows Server, 1903 o versioni successive, è possibile migrare i tipi di origine aggiuntivi seguenti:
+
+- Cluster di failover
+- Server Linux che usano Samba. È stato testato il seguente:
+    - RedHat Enterprise Linux 7.6, CentOS 7, Debian 8, Ubuntu 16.04 and 12.04.5, SUSE Linux Enterprise Server (SLES) 11 SP4
+    - Samba 4.x, 3.6.x
+
 ### <a name="requirements-for-destination-servers"></a>Requisiti per i server di destinazione
 
 Il server di destinazione deve eseguire uno dei sistemi operativi seguenti:
 
+- Windows Server, come canale semestrale
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 
 > [!TIP]
-> Server di destinazione che eseguono Windows Server 2019 necessario raddoppiare le prestazioni di trasferimento delle precedenti versioni di Windows Server. Questo incremento nelle prestazioni è dovuto l'inclusione di un servizio di proxy del servizio di migrazione di archiviazione predefinito, che apre anche il firewall necessarie porte se non sono già aperte.
+> Server di destinazione che esegue Windows Server 2019 o Windows Server, come canale semestrale 1809 o versione successiva è necessario raddoppiare le prestazioni di trasferimento delle precedenti versioni di Windows Server. Questo incremento nelle prestazioni è dovuto l'inclusione di un servizio di proxy del servizio di migrazione di archiviazione predefinito, che apre anche il firewall necessarie porte se non sono già aperte.
+
+## <a name="whats-new-in-storage-migration-service"></a>Quali sono le novità nel servizio di migrazione di archiviazione
+
+Windows Server, versione 1903 aggiunge le nuove funzionalità seguenti, quando viene eseguita il server orchestrator:
+
+- Eseguire la migrazione di utenti e gruppi locali nel nuovo server
+- La migrazione dell'archiviazione dal cluster di failover
+- Eseguire la migrazione di archiviazione da un server Linux che usa Samba
+- Migrazione di condivisioni di sincronizzazione più facilmente in Azure con sincronizzazione File di Azure
+- Eseguire la migrazione a nuove reti, ad esempio Azure
 
 ## <a name="see-also"></a>Vedere anche
 
