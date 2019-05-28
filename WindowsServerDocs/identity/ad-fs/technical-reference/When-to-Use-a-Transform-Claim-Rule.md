@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c7b7ea2c8d9a08a4cbf6c89c2de2482043efe25b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ed8ee500582e0e687a2b52e83d99fc3cb8f147f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885562"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188338"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-transform-claim-rule"></a>Quando usare una regola attestazioni di trasformazione
 È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determina il tipo di output deve essere eseguita in base ai valori che originato nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
   

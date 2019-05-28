@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4a556c07e7d6e0bec4c947ea9d1a75eef9964cef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acdecd4afd9c55bdbd71cea9e01f3b3024870ced
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877602"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191522"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Distribuzione di AD FS nell'organizzazione partner risorse
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 L'organizzazione partner risorse in Active Directory Federation Services \(ADFS\) rappresenta l'organizzazione cui server Web possono essere protetti da una risorsa\-server federativo lato. Il server federativo del partner risorse Usa i token di sicurezza generati dal partner account per fornire attestazioni ai server Web che si trovano nel partner risorse.  
   
@@ -28,11 +26,11 @@ Per altre informazioni su come installare e configurare un'organizzazione partne
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
--   [Rivedere il ruolo del Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
+-   [Rivedere il ruolo del server federativo nel partner risorse](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
--   [Rivedere il ruolo del Proxy Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+-   [Rivedere il ruolo del proxy server federativo nel partner risorse](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
--   [Determinare la strategia di applicazioni federate nel Partner risorse](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
+-   [Determinare la strategia per le applicazioni federate nel partner risorse](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
   
 
 ## <a name="see-also"></a>Vedere anche

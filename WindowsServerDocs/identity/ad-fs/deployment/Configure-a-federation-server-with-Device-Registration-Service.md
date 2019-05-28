@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 511a039afd47cf7570fffdcaf17842e0eccc5683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1367f03ea8a9ba96bfe4bae1c324deff92576f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843062"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192265"
 ---
 # <a name="configure-a-federation-server-with-device-registration-service"></a>Configurare un server federativo con Device Registration Service
-
->Si applica a: Windows Server 2012 R2
 
 È possibile abilitare Device Registration Service \(DRS\) nel server federativo dopo aver completato le procedure descritte in [passaggio 4: Configurare un Server federativo](https://technet.microsoft.com/library/dn303424.aspx). Il servizio registrazione dispositivo fornisce un meccanismo di onboarding per trasparente l'autenticazione fattore, persistente di single sign\-sul \(SSO\)e l'accesso condizionale per i consumer che richiedono l'accesso alla società risorse. Per altre informazioni su DRS, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
   
@@ -82,6 +80,6 @@ Trasparente secondo fattore di autenticazione è un miglioramento in AD FS che f
 
 [Guida alla distribuzione di Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
-[Distribuzione di una Server Farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
+[Distribuzione di una server farm federativa](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   
 

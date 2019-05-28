@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e982b7608f7602268657ceae74f641bbaaaec939
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816682"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189337"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Creare una regola per trasformare un'attestazione in ingresso
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Tramite il **trasformare un'attestazione in ingresso** modello di regola in Active Directory Federation Services \(ADFS\), è possibile selezionare un'attestazione in ingresso, modificarne il tipo di attestazione e modificarne il valore di attestazione. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invia l'attestazione del ruolo con lo stesso valore di attestazione di un'attestazione in ingresso. È anche possibile usare questa regola per inviare un gruppo di un'attestazione con valore di attestazione dell'acquirente quando esiste un'attestazione in ingresso con un valore del gruppo amministratori oppure è possibile inviare solo i nomi dell'entità utente \(UPN\) attestazioni che terminano con @fabrikam.  
   
@@ -136,14 +135,14 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 8.  Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

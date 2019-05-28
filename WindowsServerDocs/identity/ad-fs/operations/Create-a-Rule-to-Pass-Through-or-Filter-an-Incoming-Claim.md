@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 50f50cd4e096b107a2b58ac05328ff8ed413f2dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be20996d1df3898b8ff23422759e810a4b333b3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860272"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189545"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Creare una regola per Pass-Through o filtrare un'attestazione in ingresso
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in Active Directory Federation Services \(ADFS\), è possibile passare attraverso tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo i nomi dell'entità utente \(UPN\) attestazioni che terminano con @fabrikam.  
   
@@ -130,11 +128,11 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
   
 [Quando utilizzare un Pass-Through or Filter Claim Rule](../../ad-fs/technical-reference/When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)  
   
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
   

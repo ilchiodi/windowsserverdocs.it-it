@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1b8344594c9fc477ed8424c716ec8d7f7fd91ef3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29d50a4d1855e609b6ac9ee627256201074a5033
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852802"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190719"
 ---
 # <a name="web-sso-design"></a>Soluzione di accesso Single Sign-On Web
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Web Single\-Sign\-sul \(SSO\) progettazione in Active Directory Federation Services \(ADFS\), gli utenti devono autenticarsi una sola volta per accedere a più ADFS\- applicazioni protette o servizi. In questa soluzione tutti gli utenti sono esterni e non esiste alcun trust federativo perché non sono presenti organizzazioni partner. In genere, si distribuisce questo tipo di progettazione quando si desidera fornire singoli consumer o clienti l'accesso a una o più applicazioni o servizi di Active Directory protetta con ADFS su Internet, come illustrato nella figura seguente.  
   

@@ -9,16 +9,16 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0ee22afd6fdec96ab69d915e4730bb834d2ab8ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855522"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189095"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali
 
->Si applica a: Windows Server 2012 R2
+
 
 Il rapido aumento del numero di dispositivi di uso personale e l'accesso universale alle informazioni stanno cambiando la percezione della tecnologia da parte delle persone. L'uso costante dell'IT nell'arco dell'intera giornata e l'accesso più facile alle informazioni stanno rendendo sempre più sfocati i tradizionali confini tra il lavoro e la vita privata. Questi confini mutevoli sono accompagnati dalla convinzione che personale selezionata alla tecnologia e personalizzati per adattare personalità degli utenti, le attività e pianificazioni, dovrebbe essere estesa al luogo di lavoro. Per rispondere alla crescente richiesta di connettere i dispositivi di uso personale alla rete aziendale, Microsoft sta introducendo le seguenti proposte di valore:
 
@@ -54,11 +54,11 @@ Nell'ambito di questa soluzione, si apprenderà come usare Aggiunta alla rete az
 
 Nelle guide alla soluzione sono illustrati i seguenti passaggi della procedura dettagliata:
 
-1.  [Scenario: Aggiunta alla rete con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+1.  [Scenario: Aggiungere alla rete aziendale con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
-2.  [Scenario: Aggiunta alla rete con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+2.  [Scenario: Aggiungere alla rete aziendale con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
-3.  [Scenario: Aggiunta alla rete con un dispositivo Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
+3.  [Scenario: Aggiungere alla rete aziendale con un dispositivo Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
 ## <a name="see-also"></a>Vedere anche
 [Configurare un server federativo con Device Registration Service](../deployment/configure-a-federation-server-with-device-registration-service.md)

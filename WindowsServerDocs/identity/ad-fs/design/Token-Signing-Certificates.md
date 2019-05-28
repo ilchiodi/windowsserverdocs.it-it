@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a047b94906cf703bb934c93f517b8874af91e092
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9db69cfb2eb42af90b392433a6e05eaab9978160
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864062"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190814"
 ---
 # <a name="token-signing-certificates"></a>Certificati per la firma di token
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I server federativi richiedono token\-certificati a utenti malintenzionati di modificare o contraffare i token di sicurezza nel tentativo di accesso non autorizzato alle risorse federative per la firma. Privato\/chiave pubblica di associazione che viene utilizzata con token\-i certificati di firma sono il meccanismo di convalida più importante di qualsiasi collaborazione federata poiché queste chiavi verificare che un token di sicurezza emesso da un server federativo partner valido e che il token non è stato modificato durante il transito.  
   

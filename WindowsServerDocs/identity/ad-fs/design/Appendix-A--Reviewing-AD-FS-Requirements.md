@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5cfb5de77843eebfc152b9c79ac55bab1fa7727
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e90df713f08dd387a2438b34839d16efe6e470f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818172"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191687"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>Appendice A: Verifica dei requisiti di ADFS
-
->Si applica a: Windows Server 2012
 
 In modo che i partner dell'organizzazione nella distribuzione di Active Directory Federation Services (ADFS) possono collaborare senza problemi, è prima necessario assicurarsi che l'infrastruttura di rete aziendale sia configurata per supportare i requisiti di AD FS per gli account, assegnare un nome risoluzione e i certificati. ADFS include i seguenti tipi di requisiti:  
   

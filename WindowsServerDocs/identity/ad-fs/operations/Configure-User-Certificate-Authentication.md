@@ -9,16 +9,15 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5c2d84c263517a4c81622ca02538796ccd9da71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817502"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189705"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configurazione di AD FS per l'autenticazione del certificato utente
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 ADFS può essere configurata per x509 usando una delle modalità di autenticazione del certificato utente descritto nella [questo articolo](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md). Questa funzionalità può essere usata [con Azure Active Directory](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/) o di per sé, per consentire ai client e dispositivi il provisioning con i certificati utente per l'accesso AD FS risorse dalla intranet o extranet.
 
@@ -43,7 +42,7 @@ Per altre informazioni su questa configurazione per Chrome, fare riferimento a q
 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-- Se le richieste di autenticazione certificato ha esito negativo con un HTTP 204 "Nessun contenuto da https://certauth.fs.contoso.com" risposta, verificare che eventuali certificati CA intermedi e radice sono installati, rispettivamente, nella radice attendibile di autorità di certificazione e autorità di certificazione intermedia gli archivi in tutti i certificati server federativi.
+- Se le richieste di autenticazione certificato ha esito negativo con un HTTP 204 "Nessun contenuto da https:\//certauth.fs.contoso.com" risposta, verificare che eventuali certificati CA intermedi e radice sono installati, rispettivamente, alla CA radice attendibile e certificato della CA intermedia vengono archiviati in tutti i server federativi.
 - Se le richieste di autenticazione certificato non riescono per motivi sconosciuti, esportare il certificato client in un file con estensione cer ed eseguire il comando 
 
 `certutil -f -urlfetch -verify certificatefilename.cer`

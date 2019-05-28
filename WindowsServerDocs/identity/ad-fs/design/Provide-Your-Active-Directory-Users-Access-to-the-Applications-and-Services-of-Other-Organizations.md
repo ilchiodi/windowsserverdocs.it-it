@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d50d26c5c654e5c91b82f6f209e21f257221c12d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc0cbb461a48d04ddaa677d4de2369ef58fd5390
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843582"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190964"
 ---
 # <a name="provide-your-active-directory-users-access-to-the-applications-and-services-of-other-organizations"></a>Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Questo Active Directory Federation Services \(ADFS\) obiettivo di distribuzione si basa sull'obiettivo contenuto in [Your Claims-Aware Applications e servizi di fornire l'accesso di Active Directory gli utenti](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md).  
   

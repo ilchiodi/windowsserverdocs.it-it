@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f0eef89e651585d48ba87d14bc782efa49087669
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ade2a8304288d102608c81a0c29155478e5a4b7b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824832"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189429"
 ---
 # <a name="create-a-rule-to-send-claims-using-a-custom-rule"></a>Creare una regola per inviare attestazioni mediante una regola personalizzata
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Tramite il **inviare attestazioni mediante una regola personalizzata** modello in Active Directory Federation Services (ADFS), è possibile creare regole attestazioni personalizzate per la situazione in cui un modello di regola standard non soddisfa i requisiti del organizzazione. Regole attestazioni personalizzate vengono scritti nel linguaggio di regola attestazione e quindi deve essere copiate il **Custom rule** casella di testo prima di poter essere utilizzati in un set di regole. Per informazioni sulla creazione di sintassi per una regola avanzata, vedere [il ruolo del linguaggio di regola attestazione](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
   
@@ -123,14 +122,14 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 8.  Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[Configurare regole attestazioni](Configure-Claim-Rules.md)  
+[Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole attestazione per un Provider di attestazioni attendibile](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Il ruolo delle regole attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Ruolo delle regole delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

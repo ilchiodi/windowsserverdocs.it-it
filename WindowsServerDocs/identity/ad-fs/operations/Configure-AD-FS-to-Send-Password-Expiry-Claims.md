@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 080e8cc81949df3bf74ae846eee7f32c5e145f53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3be14b824038e9424b86c40bfd657dd988fa99e9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834362"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189874"
 ---
 # <a name="configure-ad-fs-to-send-password-expiry-claims"></a>Configurare AD FS per l'invio di attestazioni di scadenza password
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 È possibile configurare Active Directory Federation Services (ADFS) per l'invio attestazioni scadenza password per il trust della relying party (applicazioni) che sono protetti da ad FS. Utilizzo di tali attestazioni dipende dall'applicazione. Ad esempio, con Office 365 come la relying party, gli aggiornamenti sono stati implementati a Exchange e Outlook per notificare agli utenti federati delle password appena-a--scaduto.
 

@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b08622cd9eefa153e2fe8403fbe85077644182f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e566de4df2895dfa2ed1104f85c1429881ff5bbf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813112"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188295"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-custom-claim-rule"></a>Quando usare una regola attestazioni personalizzata
 Scrivere una regola attestazioni personalizzata in Active Directory Federation Services \(ADFS\) usando il linguaggio delle regole attestazioni, ovvero un framework che utilizza il motore di rilascio delle attestazioni per generare a livello di codice, trasformare, pass-through e filtrare crediti. Con una regola personalizzata è possibile creare regole con una logica più complessa rispetto a un modello di regola standard. È consigliabile usare una regola personalizzata per:  
   

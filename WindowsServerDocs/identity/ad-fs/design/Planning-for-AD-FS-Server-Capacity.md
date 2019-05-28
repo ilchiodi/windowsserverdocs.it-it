@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 484dd08edef85b91e777f8963f175a6172c75430
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0191c822ec068c5486a1b0d5da4c1ae2ee9e4d31
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847392"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191104"
 ---
 # <a name="planning-for-ad-fs-server-capacity"></a>Pianificazione della capacità per i server ADFS
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 > [!NOTE]  
@@ -36,7 +35,7 @@ Prima di procedere alla lettura di questo contenuto sulla pianificazione della c
   
 |Attività consigliata|Descrizione|Riferimenti|  
 |--------------------|---------------|-------------|  
-|Comprendere i requisiti per la distribuzione di server federativi AD FS e proxy server federativi|Esaminare i principali requisiti hardware e software necessari per la distribuzione di server federativi e proxy server federativi.|[Appendice a: Requisiti per ADFS](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
+|Comprendere i requisiti per la distribuzione di server federativi AD FS e proxy server federativi|Esaminare i principali requisiti hardware e software necessari per la distribuzione di server federativi e proxy server federativi.|[Appendice A: Verifica dei requisiti di AD FS](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
 |Selezionare il tipo di database di configurazione di ADFS da distribuire nell'organizzazione|Prima di iniziare a usare i dati di pianificazione della capacità in questa sezione, è innanzitutto necessario determinare quale configurazione di AD FS del database che sarà distribuito, digitare uno dei Database interno di Windows \(WID\) o un Structured Query Language \(SQL\) database.|[Il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md);<br /><br />[Considerazioni sulla topologia di distribuzione di AD FS](AD-FS-Deployment-Topology-Considerations.md)|  
 |Determinare il tipo di layout della topologia da usare con il nuovo database di configurazione di ADFS selezionato.|Dopo avere scelto il tipo di database di configurazione di ADFS da usare nella distribuzione, si dovrà considerare quale topologia di distribuzione presenta la maggiore analogia con la posizione in cui saranno collocati i server federativi e i proxy server federativi nell'ambiente di produzione.|[Determinare la topologia di distribuzione di AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
 |Comprendere chiave AD FS correlati di pianificazione della capacità termini|Esaminare le definizioni dei termini usati nella discussione sulla pianificazione di capacità di ADFS di pianificazione della capacità comuni.|Vedere la sezione[Termini relativi alla pianificazione della capacità di ADFS](Planning-for-AD-FS-Server-Capacity.md#bk_terms) in questo argomento.|  
@@ -98,9 +97,9 @@ In genere, i componenti hardware che incidono sulle prestazioni e la scalabilit�
 ## <a name="continue-reading-more-about-ad-fs-capacity-planning"></a>Altre informazioni sulla pianificazione della capacità di ADFS  
 Dopo aver completato le attività prerequisite e avere familiarità con termini correlati e i requisiti hardware, è possibile utilizzare la capacità aggiuntiva seguente contenuto di pianificazione per aiutare a determinare il numero consigliato di server AD FS necessari per il distribuzione:  
   
--   [Pianificazione della capacità del Server federativo](Planning-for-Federation-Server-Capacity.md)  
+-   [Pianificazione della capacità per i server federativi](Planning-for-Federation-Server-Capacity.md)  
   
--   [Pianificazione della capacità di Proxy Server federativo](Planning-for-Federation-Server-Proxy-Capacity.md)  
+-   [Pianificazione della capacità per i proxy server federativi](Planning-for-Federation-Server-Proxy-Capacity.md)  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

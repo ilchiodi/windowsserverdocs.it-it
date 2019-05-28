@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c5bdcb0a80b15a1905109229ddd20ee642a8dd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868522"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190994"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>Preparazione dei computer client nel partner account
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il modo più semplice per un amministratore in un account organizzazione partner di preparare i computer client per l'accesso a Active Directory Federation Services \(ADFS\) applicazioni federate consiste nell'usare criteri di gruppo. Criteri di gruppo fornisce un modo pratico per effettuare il push di certificati specifici e delle impostazioni necessarie per la federazione a tutti i computer client che verranno usati per accedere alle applicazioni federate.  
   

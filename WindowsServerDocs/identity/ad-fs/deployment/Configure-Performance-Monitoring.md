@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6a7602cddcaee274d42213cd9365f6d1722dab79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5426ea929037e59d2105fb2b3b06d4ebfdb7a577
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852912"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192292"
 ---
 # <a name="configure-performance-monitoring"></a>Configurare il monitoraggio delle prestazioni
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
 ADFS include un proprio i contatori delle prestazioni dedicati per monitorare le prestazioni di entrambi i server federativi e computer proxy server federativo. Per utilizzare Performance Monitor per monitorare le prestazioni dei server AD FS, è utile creare un nuovo insieme agenti di raccolta dati e aggiungere i contatori ADFS a tale visualizzazione. La procedura seguente descrive come configurare il monitoraggio delle prestazioni per AD FS.  
@@ -31,7 +29,7 @@ ADFS include un proprio i contatori delle prestazioni dedicati per monitorare le
   
     Viene visualizzata la Data dell'agente di raccolta impostata procedura guidata Crea nuovo.  
   
-3.  Nelle **Crea nuovo insieme di raccolta dati**, per **nome** digitare un nome per il nuovo set di dati dell'agente di raccolta \(, ad esempio "Delle prestazioni di AD FS"\), fare clic su **creare manualmente \( Advanced\)**, quindi fare clic su **successivo**.  
+3.  Nelle **Crea nuovo insieme di raccolta dati**, per **nome** digitare un nome per il nuovo set di dati dell'agente di raccolta \(, ad esempio "Delle prestazioni di AD FS"\), fare clic su **creare manualmente \( Advanced\)** , quindi fare clic su **successivo**.  
   
 4.  Per il tipo di dati da includere, verificare che **creare i log dei dati** sia selezionata e quindi selezionare le caselle di controllo per i tipi di dati seguenti: **Contatore delle prestazioni**, **dati di traccia eventi**, **informazioni sulla configurazione di sistema**.  
   
@@ -43,7 +41,7 @@ ADFS include un proprio i contatori delle prestazioni dedicati per monitorare le
   
 7.  Quando viene richiesto di aggiungere le chiavi del Registro di sistema per monitorare, fare clic su **successivo**.  
   
-8.  Quando viene chiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \( * *% systemdrive %\\regprest\\Admin\\* * * < data\_collector\_impostare >*, quindi fare clic su **successivo**.  
+8.  Quando viene chiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \( * *% systemdrive %\\regprest\\Admin\\* * * < data\_collector\_impostare >* , quindi fare clic su **successivo**.  
   
 9. Quando viene chiesto di creare il set di dati dell'agente di raccolta, selezionare **salvare e chiudere**, quindi fare clic su **fine**.  
   

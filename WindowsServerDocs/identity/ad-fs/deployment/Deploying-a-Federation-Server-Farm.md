@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f1ea6830237813e6fd2bd6a172f467e8d81065
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0f8dca425f644952c36a289ec72651f6383e846
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839082"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192193"
 ---
 # <a name="deploying-a-federation-server-farm"></a>Distribuzione di una server farm di federazione
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Per distribuire una server farm federativa, completare le attività dell'elenco di controllo nell'ordine indicato. In presenza di un collegamento di riferimento a un argomento concettuale, dopo aver consultato quest'ultimo tornare a questo elenco di controllo, in modo da poter continuare con le attività rimanenti.  
   

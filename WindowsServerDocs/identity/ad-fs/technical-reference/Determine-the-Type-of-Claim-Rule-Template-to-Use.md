@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 129cd83be4cd8302bd170ba87aad58c50f636006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1d38e23d7f1671f729b03b7e6f8000471d2e9f9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815852"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188654"
 ---
 # <a name="determine-the-type-of-claim-rule-template-to-use"></a>Determinare il tipo di modello di regola attestazioni da usare
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Una parte importante della progettazione di un Active Directory Federation Services \(ADFS\) infrastruttura consiste nel determinare il set completo di regole attestazioni, e quali corrispondente di modelli di regole deve usare per creare tali attestazioni, ovvero per ogni partner che prenderà la federazione con l'organizzazione. Creare regole usando i modelli di regola attestazione nello snap di gestione di AD FS\-in.  
   

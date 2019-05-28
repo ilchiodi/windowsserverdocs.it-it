@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f6fb37c16c20915c0051e3a24cdb0c147ae92d9c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3db2873e1c7a0fa217ba37b9439cc38dfafc36
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835872"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190997"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Quando si è amministratore dell'organizzazione partner account in una Active Directory Federation Services \(ADFS\) distribuzione e si dispone di un obiettivo di distribuzione per fornire single\-sign\-su \( SSO\) accesso per i dipendenti nella rete aziendale alle risorse ospitate:  
   

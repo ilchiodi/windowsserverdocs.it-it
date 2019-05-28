@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 369c0e9e7ab1ef25baee1c35379cc66b886f20d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce301f6320ed3347b1ee802f57c2b2ebd4394970
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827102"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191645"
 ---
 # <a name="certificate-requirements-for-federation-servers"></a>Requisiti dei certificati per i server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In qualsiasi Active Directory Federation Services \(ADFS\) progettazione, è necessario usare vari certificati per proteggere le comunicazioni e facilitare le autenticazioni utente tra client Internet e i server federativi. Ogni server federativo deve essere un certificato di comunicazione del servizio e un token\-firma del certificato prima che possa partecipare le comunicazioni di AD FS. Nella tabella seguente vengono descritti i tipi di certificati che sono associati server federativo.  
   

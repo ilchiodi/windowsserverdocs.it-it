@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b914141a0445febd3961b688aadc2f444b2eee7b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 02311522ee229eeaf0b27ce8d39090a9529b99ae
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816262"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192197"
 ---
 # <a name="deploying-federation-server-proxies"></a>Distribuzione di proxy server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Per distribuire i proxy server federativo in Active Directory Federation Services \(ADFS\), completare le attività in [elenco di controllo: Configurazione di un Proxy Server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   

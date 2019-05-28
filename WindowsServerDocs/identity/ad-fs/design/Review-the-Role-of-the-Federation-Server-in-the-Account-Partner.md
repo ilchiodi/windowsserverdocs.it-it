@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0914d32e8f24d5e7db0a25c733342c1bde3e0329
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bc304277b872bd9b99b79b84694dd0cb1eb73ba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835132"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190878"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-account-partner"></a>Rivedere il ruolo del server federativo nel partner account
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un server federativo in Active Directory Federation Services \(ADFS\) funziona come un emittente di token di sicurezza. Un server federativo genera attestazioni basate su account in cui archiviano i valori che si trovano in un attributo locale e le include in token di sicurezza in modo che gli utenti possano accedere facilmente alle Web\-browser\-le applicazioni basate su \(usando l'accesso Single sign\-sul \(SSO\) \) che sono ospitati in un'organizzazione partner risorse.  
   

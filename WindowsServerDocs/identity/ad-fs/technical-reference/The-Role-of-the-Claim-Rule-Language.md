@@ -9,15 +9,13 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: bf36f12803b8ba621f2249b53ad868fcd8f6c4a7
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855692"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188464"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-the-claim-rule-language"></a>Ruolo del linguaggio delle regole attestazioni
 Active Directory Federation Services (ADFS) di attestazione lingua delle regole agisce come il blocco predefinito amministrativo per il comportamento di attestazioni in ingresso e in uscita, mentre il motore delle attestazioni agisce come il motore di elaborazione per la logica nel linguaggio di regola attestazione che definisce la regola personalizzata. Per ulteriori informazioni su come tutte le regole vengono elaborate dal motore di attestazioni, vedere [il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md).  
   

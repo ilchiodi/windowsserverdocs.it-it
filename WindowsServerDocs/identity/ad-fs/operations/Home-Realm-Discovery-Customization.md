@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1198d8b76f2ecdad728e2de6ce7a5c0d053f779f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e91306ecd8ef08dd6af9173ead314a39dd5d2eff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868932"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189135"
 ---
 # <a name="home-realm-discovery-customization"></a>Personalizzazione di individuazione dell'area di autenticazione
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Quando il client di ADFS richiede innanzitutto una risorsa, il server federativo di risorsa non contiene informazioni sull'area di autenticazione del client. Il server federativo di risorsa risponde al client ADFS con un **individuazione dell'area di autenticazione Client** pagina, in cui l'utente seleziona l'area di autenticazione principale da un elenco. Il valori dell'elenco sono popolati dalla proprietà del nome visualizzato in Attendibilità provider di attestazioni. Utilizzare i cmdlet di Windows PowerShell seguenti per modificare e personalizzare l'esperienza di AD FS Home Realm Discovery.  
   

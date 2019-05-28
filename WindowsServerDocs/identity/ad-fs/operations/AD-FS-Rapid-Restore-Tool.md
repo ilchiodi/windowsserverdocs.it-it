@@ -5,20 +5,18 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 09/19/2018
+ms.date: 04/01/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6fb023529ac8857f7c2eb35586be497f0c809a51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a831154a8b1e84f5ed879375980882e208c33d73
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874172"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190347"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Strumento di ripristino rapido di AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="overview"></a>Panoramica
 Oggi ADFS viene reso disponibile mediante l'impostazione di una farm ADFS. Alcune organizzazioni desiderano un modo per avere un singolo server di distribuzione di ADFS, eliminando la necessità di più server ADFS e bilanciamento di infrastruttura, mantenendo al contempo alcune carico di rete garantisce che service può essere ripristinato rapidamente se si è verificato un problema.
@@ -215,6 +213,16 @@ Ogni volta che viene eseguito un backup o ripristino viene creato un file di log
 > Quando si esegue un ripristino che potrebbe essere creato un file PostRestore_Instructions contenente una panoramica dei provider di autenticazione aggiuntivo, archivi di attributi e i trust del provider di attestazioni locale per essere installato manualmente prima di avviare il servizio AD FS.
 
 ## <a name="version-release-history"></a>Cronologia delle versioni
+
+### <a name="version-10810"></a>Versione: 1.0.81.0
+Versione: Aprile 2019
+
+**Problemi risolti:**
+
+
+- Correzioni di bug per il backup del certificato e ripristino
+- Informazioni di traccia aggiuntivi nel file di log
+
 
 ### <a name="version-10750"></a>Versione: 1.0.75.0
 Versione: Agosto 2018

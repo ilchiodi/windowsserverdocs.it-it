@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7bc890c744de5cd86d4e8b0418e75512518f656c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880942"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192112"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importare un certificato di autenticazione server nel sito Web predefinito
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dopo aver ottenuto un server di certificato di autenticazione da un'autorità di certificazione \(CA\), è necessario installare manualmente quel certificato nel sito Web predefinito per ogni server federativo o proxy server federativo in una server farm.  
   
@@ -48,13 +46,13 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 7.  Immettere una password per il certificato e quindi fare clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Elenco di controllo: Configurazione di un Proxy Server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Requisiti dei certificati per i server federativi](https://technet.microsoft.com/library/dd807040.aspx)  
   
-[Requisiti dei certificati per i Server federativi](https://technet.microsoft.com/library/dd807054.aspx)  
+[Requisiti dei certificati per i proxy server federativi](https://technet.microsoft.com/library/dd807054.aspx)  
    
   
 

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b85f49ac0556bf9b3542a23514d7fcbf82d2d88e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7454279f234f65136b9fe6649a6e96ea53e5d51
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865142"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191515"
 ---
 # <a name="federated-web-sso-design"></a>Progetto SSO Web federativo
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Singolo Web federata\-Sign\-sul \(SSO\) progettazione in Active Directory Federation Services \(ADFS\) implica una comunicazione protetta che si estende su più firewall, perimetrale le reti e il nome\-server per la risoluzione, oltre all'intera infrastruttura di routing Internet.  
   
@@ -37,13 +35,13 @@ In questo progetto Web SSO federativo, due server federativi \(uno in Fabrikam e
   
 In questo esempio Fabrikam è il provider di identità (o di account). La parte di Fabrikam di Web SSO federativo utilizza l'obiettivo di distribuzione di ADFS seguente:  
   
--   [Fornire l'accesso agli utenti di Active Directory per le applicazioni e servizi di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
+-   [Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
   
 Contoso è il provider di risorse. La parte di Contoso di Web SSO federativo raggiunge gli obiettivi di distribuzione di ADFS seguenti:  
   
--   [Fornire agli utenti in un'altra organizzazione l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
--   [Fornire agli utenti di Active Directory accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
 Per un elenco di attività dettagliate che è possibile usare per pianificare e distribuire il progetto SSO Web federativo, vedere [elenco di controllo: Implementazione di un progetto SSO Web federativo](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   

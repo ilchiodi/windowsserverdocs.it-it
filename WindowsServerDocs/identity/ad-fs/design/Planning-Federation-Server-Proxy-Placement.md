@@ -9,32 +9,30 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 79bf9fd21cc61ba41a22caa11d4e5a920b509720
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a145e6c10cd5bd9ebf259bdd2c15404345fbd10a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865322"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191149"
 ---
 # <a name="planning-federation-server-proxy-placement"></a>Pianificazione del posizionamento del proxy server federativo
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 Dopo aver raccolto tutte le informazioni che si utilizzerà per la progettazione di Active Directory Federation Services \(ADFS\) infrastruttura e dopo aver pianificato la strategia di server Web e il server federativo, è possibile pianificare quando e dove posizionare proxy server federativo nel nuovo progetto. Le informazioni negli argomenti seguenti consentono di determinare quando e dove posizionare una federazione server proxy e se si desidera configurarlo per l'account partner ruolo o ruolo di partner risorse:  
   
--   [Rivedere il ruolo del Server federativo nel Partner Account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
+-   [Rivedere il ruolo del server federativo nel partner account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
--   [Rivedere il ruolo del Proxy Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+-   [Rivedere il ruolo del proxy server federativo nel partner risorse](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
 -   [Quando creare un Proxy Server federativo](When-to-Create-a-Federation-Server-Proxy.md)  
   
--   [Dove posizionare un Proxy Server federativo](Where-to-Place-a-Federation-Server-Proxy.md)  
+-   [Dove posizionare un proxy server federativo](Where-to-Place-a-Federation-Server-Proxy.md)  
   
 -   [Questa opzione per creare una Farm Proxy Server federativo](When-to-Create-a-Federation-Server-Proxy-Farm.md)  
   
--   [Requisiti dei certificati per i Server federativi](Certificate-Requirements-for-Federation-Server-Proxies.md)  
+-   [Requisiti dei certificati per i proxy server federativi](Certificate-Requirements-for-Federation-Server-Proxies.md)  
   
--   [Requisiti di risoluzione dei nomi per i Server federativi](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)  
+-   [Requisiti per la risoluzione dei nomi per i proxy server federativi](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)  
   
 > [!NOTE]  
 > Anche se queste informazioni possono risultare utili pianificazione della posizione per i proxy server federativo, non spiega come determinare il numero adeguato di proxy e i requisiti hardware di proxy per ogni progettazione di AD FS.  

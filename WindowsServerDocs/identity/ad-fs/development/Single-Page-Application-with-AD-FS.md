@@ -1,5 +1,5 @@
 ---
-title: Compilare un'applicazione web a pagina singola con OAuth e ADAL. JS con AD FS 2016
+title: Compilare un'applicazione web a pagina singola con OAuth e ADAL. JS con AD FS 2016 o versione successiva
 description: Una procedura dettagliata che fornisce istruzioni per l'autenticazione in AD FS Usa ADAL per JavaScript proteggere una AngularJS basata applicazione a pagina singola
 author: billmath
 ms.author: billmath
@@ -8,16 +8,14 @@ ms.date: 06/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 78ab9f5d7c3e75650a4efb171d3b9281c56c63d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1292c7e6cd1dec6926516880c34fe60fb97a9ec8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865302"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190497"
 ---
-# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016"></a>Compilare un'applicazione web a pagina singola con OAuth e ADAL. JS con AD FS 2016
-
->Si applica a: Windows Server 2016
+# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Compilare un'applicazione web a pagina singola con OAuth e ADAL. JS con AD FS 2016 o versione successiva
 
 Questa procedura dettagliata fornisce istruzioni per l'autenticazione in AD FS Usa ADAL per proteggere una AngularJS JavaScript basato su applicazione a singola pagina, implementata con un back-end API Web ASP.NET.
 
@@ -157,7 +155,7 @@ Modificare appsettings come indicato di seguito:
 ## <a name="running-the-solution"></a>Esecuzione della soluzione
 Pulire la soluzione, ricompilare la soluzione ed eseguirla. Se si desidera visualizzare le tracce dettagliate, avviare Fiddler e abilitare la decrittografia HTTPS.
 
-Il browser verrà caricata l'applicazione a singola pagina e verrà visualizzata la schermata seguente:
+Il browser (usare browser Chrome) verrà caricata l'applicazione a singola pagina e verrà visualizzata la schermata seguente:
 
 ![Registrare il client](media/Single-Page-Application-with-AD-FS/singleapp3.PNG)
 
@@ -174,4 +172,4 @@ Sarà possibile a questo punto chiamare l'API back-end per aggiungere elementi e
 ![Fiddler](media/Single-Page-Application-with-AD-FS/singleapp6.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Sviluppare AD FS](../../ad-fs/AD-FS-Development.md)  
+[Sviluppo di AD FS](../../ad-fs/AD-FS-Development.md)  

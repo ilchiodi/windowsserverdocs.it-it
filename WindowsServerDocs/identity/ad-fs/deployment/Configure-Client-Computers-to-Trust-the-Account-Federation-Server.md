@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfb086c8177e72c074ac5b5b1a38aac49c4082c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e28d050a9aa40c015af16a665e90535cb810b4ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886752"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192335"
 ---
 # <a name="configure-client-computers-to-trust-the-account-federation-server"></a>Configurare i computer Client per considerare attendibile il Server federativo di Account
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In modo che i computer client possono accedere alle applicazioni federate con Active Directory Federation Services \(ADFS\), è innanzitutto necessario configurare le impostazioni di Internet Explorer in ogni computer client in modo che considera attendibile il browser il server federativo di account. È possibile farlo manualmente o tramite criteri di gruppo, a seconda delle preferenze amministrative, completando una delle procedure riportate di seguito.  
   

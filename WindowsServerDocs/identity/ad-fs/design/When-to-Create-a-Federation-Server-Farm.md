@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e7c991cf87bc0e6914e158f0878bcadbede3c22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91a0122198639bf75e9e43e9da9edf68dd0453d9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816232"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190684"
 ---
 # <a name="when-to-create-a-federation-server-farm"></a>Quando creare una server farm federativa
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È consigliabile creare una server farm federativa in Active Directory Federation Services \(ADFS\) quando si dispone di una distribuzione più ampia di AD FS e si vuole fornire tolleranza di errore, il carico\-bilanciamento del carico o scalabilità per il Servizio federativo dell'organizzazione. L'atto di creazione di due o più server federativi nella stessa rete, configurare ognuno di essi di utilizzare lo stesso servizio federativo e l'aggiunta di token di chiave pubblica di ogni server della\-firma dei certificati per lo snap di gestione di AD FS\-in Crea una server farm federativa.  
   

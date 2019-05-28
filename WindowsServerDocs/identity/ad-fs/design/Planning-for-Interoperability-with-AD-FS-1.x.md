@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f287261ce6cb56e40385ef4de922045153819a23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a1082b873f65a9f98b25425a392b2c62de8ca22
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877562"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191010"
 ---
 # <a name="planning-for-interoperability-with-ad-fs-1x"></a>Pianificazione per l'interoperabilità con AD FS 1.x
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory Federation Services \(ADFS\) che esegue Windows Server® 2012 server federativi possono interagire con entrambi un'istanza di ADFS 1.0 \(installata con Windows Server 2003 R2\) servizio federativo e un'istanza di ADFS 1.1 \(installato con Windows Server 2008 o Windows Server 2008 R2\) servizio federativo. Sono supportate le seguenti combinazioni di interoperabilità:  
   

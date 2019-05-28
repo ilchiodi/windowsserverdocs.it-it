@@ -9,16 +9,14 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0b0d4d085a94631b70df81fd53bff974d8425611
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877762"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188734"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD ADFS Single Sign-On Settings
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Single Sign-On (SSO) consente agli utenti di autenticarsi una sola volta e accedere alle risorse più senza che vengano richieste le credenziali aggiuntive.  Questo articolo descrive l'impostazione predefinita, il comportamento di AD FS per SSO, nonché le impostazioni di configurazione che consentono di personalizzare tale comportamento.  
 

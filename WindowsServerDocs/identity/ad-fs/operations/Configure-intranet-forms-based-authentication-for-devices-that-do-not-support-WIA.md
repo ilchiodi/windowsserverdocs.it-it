@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cddc5d890114dec7e0053b16701db6f03c3cbbdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889852"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189695"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Configurazione autenticazione intranet basata su form per i dispositivi che non supportano WIA
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2
 
 Per impostazione predefinita, l'autenticazione integrata Windows (WIA) sia attivato in Active Directory Federation Services (ADFS) in Windows Server 2012 R2 per le richieste di autenticazione che si verificano nella rete interna dell'organizzazione (intranet) per qualsiasi applicazione che utilizza un browser per l'autenticazione. Può trattarsi, ad esempio, le applicazioni basate su browser che utilizzano WS-Federation o SAML protocolli e rich applicazioni che usano il protocollo OAuth. WIA fornisce agli utenti finali con accesso trasparente alle applicazioni senza dover immettere manualmente le proprie credenziali. Tuttavia, alcuni dispositivi e browser non sono in grado di supportare WIA e di conseguenza non le richieste di autenticazione da tali dispositivi. Inoltre, l'esperienza in alcuni browser che negoziano NTLM non è auspicabile. L'approccio consigliato è di fallback per l'autenticazione basata su form per tali dispositivi e browser.
 
