@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6d4c7763d7204dd2340d10a234e48f47c96788dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b2ed7a09bbc50c83d3bf6f8f2688152ed5202abc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841842"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190825"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-resource-partner"></a>Rivedere il ruolo del server federativo nel partner risorse
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il server federativo nell'organizzazione partner risorse intercetta i token di sicurezza in ingresso inviati da un server federativo di account, convalida e li firma e quindi rilascia i propri token di sicurezza destinati a Web\-basato su applicazione.  
   

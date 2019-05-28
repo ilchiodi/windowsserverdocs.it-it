@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2b60ce593c2ca7eb902595ee6a42850cb7605d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbceb19d31738bdc5b628a9a2b069e5d3022d145
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870842"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190948"
 ---
 # <a name="review-the-role-of-the-federation-server-proxy-in-the-account-partner"></a>Rivedere il ruolo del proxy server federativo nel partner account
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il ruolo primario del proxy server federativo nella rete perimetrale dell'organizzazione partner account in Active Directory Federation Services \(ADFS\) di raccogliere le credenziali di autenticazione da un computer client che esegue l'accesso la rete Internet e passarle al server federativo, che si trova all'interno della rete azienda dell'organizzazione partner account. L'account del computer client viene archiviato nell'archivio di attributi del partner account.  
   

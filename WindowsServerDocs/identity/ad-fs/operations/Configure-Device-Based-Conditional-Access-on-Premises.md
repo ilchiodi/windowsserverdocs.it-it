@@ -9,16 +9,15 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fa96fbeed1445b1add2e5de3aad45ad369a6cafa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0df290248f049b3f8a823e902cefa860fa074091
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847222"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189849"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Configura On-Premise accesso condizionale utilizzando i dispositivi registrati
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2  
 
 Il documento seguente costituisce una Guida per l'installazione e configurazione dell'accesso condizionale locale con i dispositivi registrati.
 
@@ -155,7 +154,7 @@ Il comando precedente crea gli oggetti seguenti per la scrittura di dispositivo 
 - Contenitore del servizio Registrazione dispositivi e sull'oggetto configurazione--> Servizi--> Configurazione registrazione del dispositivo  
 
 ### <a name="enable-device-write-back-in-azure-ad-connect"></a>Abilitare la scrittura di dispositivo in Azure AD Connect  
-Se non è pertanto, prima di fatto, abilitare la scrittura di dispositivo in Azure AD Connect eseguendo la procedura guidata una seconda volta e scegliendo **"Personalizzare le opzioni di sincronizzazione"**, quindi selezionando la casella per la scrittura di dispositivo indietro e selezionare la foresta in cui è stato eseguito il cmdlet precedente  
+Se non è pertanto, prima di fatto, abilitare la scrittura di dispositivo in Azure AD Connect eseguendo la procedura guidata una seconda volta e scegliendo **"Personalizzare le opzioni di sincronizzazione"** , quindi selezionando la casella per la scrittura di dispositivo indietro e selezionare la foresta in cui è stato eseguito il cmdlet precedente  
 
 ### <a name="configure-device-authentication-in-ad-fs"></a>Configurare l'autenticazione del dispositivo in ADFS  
 Utilizzando un prompt dei comandi PowerShell con privilegi elevato, configurare i criteri di ADFS eseguendo il comando seguente  

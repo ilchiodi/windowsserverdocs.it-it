@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b4ec08182e2523b0fcb16088ec9c1d094a5923fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4a13332cd7cf6361824f05ead4568a45211cc70a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836532"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191023"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Quando si è un amministratore nell'organizzazione partner risorse in Active Directory Federation Services \(ADFS\) e si dispone di un obiettivo di distribuzione per fornire l'accesso federato per gli utenti in un'altra organizzazione \(il organizzazione partner account\) a delle attestazioni\-consapevole o un'applicazione Web\-basato su servizio che si trova all'interno dell'organizzazione \(organizzazione partner risorse\):  
   

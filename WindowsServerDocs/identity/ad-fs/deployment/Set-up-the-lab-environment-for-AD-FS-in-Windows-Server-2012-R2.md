@@ -9,27 +9,26 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 049a1a1b0a419b0194edfe56b356a9f1e8b4b058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c08b5bc9917c0eee01342ce71106aae1cc00967d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832322"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191948"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Configurare l'ambiente lab per AD FS in Windows Server 2012 R2
 
->Si applica a: Windows Server 2012 R2
 
 In questo argomento sono illustrati i passaggi per configurare un ambiente di testing che può essere usato per completare le procedure dettagliate nelle guide agli scenari seguenti:
 
--   [Scenario: Aggiunta alla rete con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+-   [Scenario: Aggiungere alla rete aziendale con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
--   [Scenario: Aggiunta alla rete con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+-   [Scenario: Aggiungere alla rete aziendale con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
 
--   [Guida allo scenario: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+-   [Procedura dettagliata: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 
--   [Guida allo scenario: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni sensibili](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+-   [Procedura dettagliata: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni sensibili](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 > [!NOTE]
 > Non è consigliabile installare il server Web e il server federativo nello stesso computer.
@@ -162,7 +161,7 @@ Nel passaggio successivo viene configurato il servizio DRS sul server ADFS1. Per
     Initialize-ADDeviceRegistration
     ```
 
-    Quando viene chiesto di specificare un account del servizio, digitare **contoso\fsgmsa$**.
+    Quando viene chiesto di specificare un account del servizio, digitare **contoso\fsgmsa$** .
 
     Ora eseguire il cmdlet di Windows PowerShell.
 
@@ -175,7 +174,7 @@ Nel passaggio successivo viene configurato il servizio DRS sul server ADFS1. Per
 ### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Aggiungere i record di risorse host (A) e alias (CNAME) al DNS
 È necessario assicurarsi che su DC1 vengano creati i record DNS (Domain Name System) seguenti per il servizio DRS (Device Registration Service).
 
-|Voce|Tipo|Address|
+|Voce|Type|Address|
 |---------|--------|-----------|
 |adfs1|Host (A)|Indirizzo IP del server AD FS|
 |enterpriseregistration|Alias (CNAME)|adfs1.contoso.com|
@@ -188,13 +187,13 @@ L'appartenenza al gruppo Administrators o a un gruppo equivalente è il requisit
 
 1.  Su DC1, nel menu **Strumenti** di Server Manager fare clic su **DNS** per aprire lo snap-in DNS.
 
-2.  Nell'albero della console espandere DC1, espandere **Zone di ricerca diretta**, fare clic con il pulsante destro del mouse su **contoso.com** e quindi scegliere **Nuovo host (A o AAAA)**.
+2.  Nell'albero della console espandere DC1, espandere **Zone di ricerca diretta**, fare clic con il pulsante destro del mouse su **contoso.com** e quindi scegliere **Nuovo host (A o AAAA)** .
 
 3.  In **Nome** digitare il nome che si vuole usare per la farm ADFS. Per questa procedura dettagliata digitare **adfs1**.
 
 4.  In **Indirizzo IP**digitare l'indirizzo IP del server ADFS1. Fare clic su **Aggiungi host**.
 
-5.  Fare clic con il pulsante destro del mouse su **contoso.com**e quindi scegliere **Nuovo alias (CNAME)**.
+5.  Fare clic con il pulsante destro del mouse su **contoso.com**e quindi scegliere **Nuovo alias (CNAME)** .
 
 6.  Nella finestra di dialogo **Nuovo record di risorse** digitare **enterpriseregistration** nella casella **Nome alias**.
 
@@ -238,7 +237,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 5.  Nella pagina **Selezione server di destinazione** fare clic su **Selezionare un server dal pool di server**, verificare che il computer di destinazione sia selezionato e quindi fare clic su **Avanti**.
 
-6.  Nella pagina **Selezione ruoli server** selezionare la casella di controllo accanto a **Server Web (IIS)**, fare clic su **Aggiungi funzionalità**e quindi su **Avanti**.
+6.  Nella pagina **Selezione ruoli server** selezionare la casella di controllo accanto a **Server Web (IIS)** , fare clic su **Aggiungi funzionalità**e quindi su **Avanti**.
 
 7.  Nella pagina **Selezione funzionalità** selezionare **Windows Identity Foundation 3.5** e quindi fare clic su **Avanti**.
 
@@ -291,7 +290,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 4.  **Configurare Gestione IIS**
 
-    1.  Aprire **Gestione Internet Information Services (IIS)**.
+    1.  Aprire **Gestione Internet Information Services (IIS)** .
 
     2.  Passare a **Pool di applicazioni**, fare clic con il pulsante destro del mouse su **DefaultAppPool** e selezionare **Impostazioni avanzate**. Impostare **Carica profilo utente** su **True** e quindi fare clic su **OK**.
 
@@ -309,7 +308,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
     1.  Eseguire FedUtil.exe disponibile in **C:\Program Files (x86)\Windows Identity Foundation SDK\v3.5**.
 
-    2.  Impostare il percorso di configurazione dell'applicazione su **C:\inetput\claimapp\web.config** e impostare l'URI dell'applicazione sull'URL del sito  **https://webserv1.contoso.com /claimapp/**. Fare clic su **Avanti**.
+    2.  Impostare il percorso di configurazione dell'applicazione su **C:\inetput\claimapp\web.config** e impostare l'URI dell'applicazione sull'URL del sito  **https://webserv1.contoso.com /claimapp/** . Fare clic su **Avanti**.
 
     3.  Selezionare **utilizzare un STS esistente** e passare all'URL dei metadati del server AD FS **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml**. Fare clic su **Avanti**.
 

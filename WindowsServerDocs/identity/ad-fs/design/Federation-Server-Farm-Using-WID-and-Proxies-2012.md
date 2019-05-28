@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bd815daccdd72a8c612b9b728ce12378c1926e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19e73e43a863ec60fbc9da09b24173220bb331ed
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817622"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191364"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Server farm federativa che usa Database interno di Windows e proxy
-
->Si applica a: Windows Server 2012
 
 Questa topologia di distribuzione di Active Directory Federation Services \(ADFS\) è identica alla server farm federativa con Database interno di Windows \(WID\) topologia, ma aggiunge i proxy server federativi alla rete perimetrale per supportare gli utenti esterni. I proxy server federativi reindirizzano le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa.  
   

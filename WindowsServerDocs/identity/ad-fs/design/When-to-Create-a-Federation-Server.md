@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8013764b88a1061cfcaa3a507466c111bfd59aad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e61c734780baa1482670af3f24697c10345b292
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864812"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190594"
 ---
 # <a name="when-to-create-a-federation-server"></a>Quando creare un server federativo
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Quando si crea un Active Directory Federation Services di serverin federation \(ADFS\), si fornisce un mezzo con cui l'organizzazione può:  
   
@@ -38,9 +36,9 @@ Quando un server federativo viene posizionato nella rete aziendale del partner r
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Determinare quale progettazione di AD FS distribuire  
 È consigliabile creare i server federativi nell'organizzazione ogni volta che si vuole distribuire uno qualsiasi dei progetti di ADFS seguenti:  
   
--   [Progettazione di Web SSO](Web-SSO-Design.md)  
+-   [Progetto di Web SSO](Web-SSO-Design.md)  
   
--   [Progetto SSO Web federativo](Federated-Web-SSO-Design.md)  
+-   [Progetto di Web SSO federativo](Federated-Web-SSO-Design.md)  
   
 Se necessario, un'organizzazione che distribuisce un progetto SSO Web federativo può configurare un server federativo singolo in modo che operi sia il ruolo di partner account e il ruolo del partner risorse. In questo caso, il server federativo può produrre Security Assertion Markup Language \(SAML\) token, basati sugli account utente nella propria organizzazione, o reindirizzare le richieste di token all'organizzazione, in base in cui si trovano gli account degli utenti .  
   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 74701cbaa403611b081942f016b21db1c0b3ff70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2776cc29b8c9ede884a6b304cd541f700f516ca
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845462"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191264"
 ---
 # <a name="name-resolution-requirements-for-federation-servers"></a>Requisiti di risoluzione dei nomi per i server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I computer client nella rete aziendale quando tentano di accedere a un'applicazione o un servizio Web protetto da Active Directory Federation Services \(ADFS\), devono prima autenticarsi a un server federativo. Un modo per eseguire l'autenticazione è affinché i client di rete aziendale di accedere a un server federativo locale tramite l'autenticazione integrata di Windows.  
   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e7fb8e71afed1c0eb6b55857835d95f2dd0ec9d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca0b25480eedfc6471837ab8ae83b0d1d522e61e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875722"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191661"
 ---
 # <a name="certificate-requirements-for-federation-server-proxies"></a>Requisiti dei certificati per i proxy server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I server che eseguono il ruolo proxy server federativo in Active Directory Federation Services \(ADFS\) sono necessari per utilizzare Secure Sockets Layer \(SSL\) certificati di autenticazione server. I proxy server federativi usano i certificati di autenticazione server per proteggere le comunicazioni tra il traffico dei server Web e i client Web.  
   

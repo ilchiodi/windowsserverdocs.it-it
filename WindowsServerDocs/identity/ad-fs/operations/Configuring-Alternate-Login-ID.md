@@ -9,16 +9,15 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 615faf4153949aa4ad989f017068d1809fca26b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820872"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189665"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="what-is-alternate-login-id"></a>Che cos'è l'ID di accesso alternativo?
 Nella maggior parte degli scenari, gli utenti usano il proprio UPN (nomi dell'entità utente) all'account di accesso agli account. Tuttavia, in alcuni ambienti a causa dei criteri aziendali o dipendenze delle applicazioni line-of-business locali, gli utenti stia usando un'altra forma di accesso. 
@@ -39,7 +38,7 @@ Negli scenari sopra indicati, ID alternativo con AD FS consente agli utenti di a
 ## <a name="end-user-experience-with-alternate-login-id"></a>Esperienza dell'utente finale con ID di accesso alternativo
 L'esperienza utente finale varia a seconda del metodo di autenticazione usato con id di accesso alternativo.  Attualmente esiste tre diversi modi in cui possono essere realizzati con id di accesso alternativo.  Sono:
 
-- **Autenticazione regolare (Legacy)**-utilizza il protocollo di autenticazione di base.
+- **Autenticazione regolare (Legacy)** -utilizza il protocollo di autenticazione di base.
 - **L'autenticazione moderna** -offre accesso aggiuntivo basato su Active Directory Authentication Library (adal) alle applicazioni. In questo modo funzionalità di accesso, ad esempio multi-Factor Authentication (MFA), basato su SAML dei provider di identità di terze parti con le applicazioni client di Office, smart card e l'autenticazione basata su certificato.
 - **L'autenticazione moderna ibrida** : Elenca tutti i vantaggi dell'autenticazione moderna e offre agli utenti la possibilità di accedere alle applicazioni locali tramite i token di autorizzazione ottenuti dal cloud.
 
@@ -127,18 +126,19 @@ Configurazione di directory per l'accesso SSO con id alternativo tramite id alte
 
 Con la seguente configurazione aggiuntiva, l'esperienza utente risulta migliorata in modo significativo, ed è possibile ottenere quasi zero richieste di autenticazione per gli utenti di id alternativo all'interno dell'organizzazione.
 
-##### <a name="step-1-update-to-required-office-version"></a>Passaggio 1. L'aggiornamento alla versione di office necessari
-Versione di Office 1712 (non build 8827.2148) e versioni successive hanno aggiornato la logica di autenticazione per gestire lo scenario di id alternativo. Per sfruttare la nuova logica, le macchine client devono essere aggiornati alla versione di office 1712 (non build 8827.2148) e versioni successive.
+##### <a name="step-1-update-to-required-office-version"></a>Passaggio 1. Aggiornamento alla versione di Office richiesta
+Versione di Office 1712 (non build 8827.2148) e versioni successive hanno aggiornato la logica di autenticazione per gestire lo scenario di id alternativo. Per sfruttare la nuova logica, le macchine client devono essere aggiornati alla versione di Office 1712 (non build 8827.2148) e versioni successive.
 
-##### <a name="step-2-configure-registry-for-impacted-users-using-group-policy"></a>Passaggio 2. Configurazione del Registro di sistema per gli utenti interessati usando criteri di gruppo
+##### <a name="step-2-update-to-required-windows-version"></a>Passaggio 2. Aggiornamento alla versione Windows richiesta
+Windows versione 1709 e versioni successive hanno aggiornato la logica di autenticazione per gestire lo scenario di id alternativo. Per sfruttare la nuova logica, i computer client devono essere aggiornate per Windows versione 1709 e versioni successive.
+
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Passaggio 3. Configurazione del Registro di sistema per gli utenti interessati usando criteri di gruppo
 Le applicazioni di office si basano sulle informazioni inserite dall'amministratore di directory per identificare l'ambiente di id alternativo. Le chiavi del Registro di sistema seguenti devono essere configurate per consentire le applicazioni di office di autenticare l'utente con id alternativo senza visualizzare prompt aggiuntivi
 
 |RegKey da aggiungere|Nome data Regkey, tipo e valore|Windows 7/8|Windows 10|Descrizione|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatorio|Obbligatorio|Il valore di questa regkey è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso corp può fornire un valore di Contoso.com in questo regkey se Contoso.com è uno dei nomi di dominio personalizzato verificato nel tenant Contoso.onmicrosoft.com.|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Obbligatorio per Outlook 2016 ProPlus|Obbligatorio per Outlook 2016 ProPlus|Il valore di questa regkey può essere 1 o 0 per indicare all'applicazione Outlook se è necessario coinvolgere la logica di autenticazione migliorato id alternativo.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableADALatopWAMOverride</br>REG_DWORD</br>1|Non applicabile|Obbligatorio.|Ciò garantisce che Office non utilizza WAM come alt-id non è supportato dal Web.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableAADWAM</br>REG_DWORD</br>1|Non applicabile|Obbligatorio.|Ciò garantisce che Office non utilizza WAM come alt-id non è supportato dal Web.|
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatorio|Obbligatorio|Questo regkey utilizzabile per impostare il servizio token di sicurezza come un'area attendibile nelle impostazioni di internet. Distribuzione di ad FS standard consiglia di aggiungere lo spazio dei nomi di ad FS all'area Intranet locale di Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nuovo flusso di autenticazione dopo la configurazione aggiuntiva

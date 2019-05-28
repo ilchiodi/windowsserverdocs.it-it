@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 618dc9419be965dedaaf7dc946da436a5001f121
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 569bea74fe7750eaf2b410a552876e0862b1e24b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839632"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191087"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Pianificazione della capacità per i server federativi
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Pianificazione della capacità per i server federativi aiuta a stimare:  
   
@@ -56,7 +54,7 @@ Allo scopo di semplificare il processo per i server federativi di pianificazione
 > Il numero di server federativi che consiglia questo foglio di calcolo è basato sulle specifiche hardware e di rete che il team del prodotto AD FS usato durante i test. Pertanto, il numero di server federativi che consiglia il foglio di calcolo deve essere compresa all'interno di questo contesto.  Per altre informazioni sulle specifiche del usato durante i test, vedere l'argomento intitolato [pianificazione della capacità dei Server AD FS](Planning-for-AD-FS-Server-Capacity.md).  
   
 ### <a name="using-the-ad-fs-capacity-planning-sizing-spreadsheet"></a>Usando la capacità di ADFS pianificazione foglio di calcolo di ridimensionamento  
-Quando si usa questo foglio di calcolo, sarà necessario selezionare un valore \(entrambe **40%**, **60%**, oppure **80%** \) che meglio rappresenta la percentuale di numero totale di utenti che invierà le richieste di autenticazione per i server federativi durante i periodi di utilizzo.  
+Quando si usa questo foglio di calcolo, sarà necessario selezionare un valore \(entrambe **40%** , **60%** , oppure **80%** \) che meglio rappresenta la percentuale di numero totale di utenti che invierà le richieste di autenticazione per i server federativi durante i periodi di utilizzo.  
   
 Quindi, sarà necessario selezionare un valore \(entrambe **minuto**, **15 minuti**, oppure **1 ora** \) che meglio rappresenta l'intervallo di tempo previsto il periodo di picco di utilizzo per ultimo. È ad esempio, potrebbe essere stimare 40% come valore per il numero totale di utenti che hanno eseguito l'accesso entro un periodo di 15 minuti, o che il 60% degli utenti l'accesso entro un periodo di 1 ora. Insieme, questi valori definiscono il profilo di carico di picco mediante il quale verranno calcolata le indicazioni di ridimensionamento.  
   
@@ -75,7 +73,7 @@ Successivamente, è necessario specificare il numero totale di utenti che richie
   
 1.  Scaricare e aprire il [AD FS capacità ridimensionamento foglio di calcolo pianificazione per Windows Server 2012 R2](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacityPlanning.xlsx) o nella [AD FS capacità ridimensionamento foglio di calcolo pianificazione per Windows Server 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
   
-2.  Nella cella a destra del **durante il periodo di utilizzo del sistema di picco, prevedere questa percentuale degli utenti per l'autenticazione** cella, fare clic sulla cella e quindi usare il trascinamento\-giù per selezionare la percentuale di utilizzo di sistema stimati il livello, ovvero **40%**, **60%** oppure **80%** per la distribuzione.  
+2.  Nella cella a destra del **durante il periodo di utilizzo del sistema di picco, prevedere questa percentuale degli utenti per l'autenticazione** cella, fare clic sulla cella e quindi usare il trascinamento\-giù per selezionare la percentuale di utilizzo di sistema stimati il livello, ovvero **40%** , **60%** oppure **80%** per la distribuzione.  
   
 3.  Nella cella a destra del **entro il periodo di tempo seguente** cella, fare clic sulla cella e quindi usare il trascinamento\-freccia giù per selezionare uno **1 minuto**, **a15minuti**, oppure **1 ora** per selezionare la durata del carico di picco.  
   
