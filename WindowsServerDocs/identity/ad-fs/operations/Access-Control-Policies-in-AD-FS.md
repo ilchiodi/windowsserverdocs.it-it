@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 101cab68d7c79bb107f1d6ef73900d9a4475b6ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861302"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190343"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Criteri di controllo di accesso in AD FS per Windows Server 2016
-
->Si applica a: Windows Server 2016
 
   
 ## <a name="access-control-policy-templates-in-ad-fs"></a>Modelli di criteri di controllo di accesso in ADFS  
@@ -123,7 +121,7 @@ Per creare un controllo di accesso ai criteri con un'eccezione utilizzare la pro
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:  Consentire agli utenti autenticati dispositivi ma non gestito.  
+2.  Immettere un nome e una descrizione.  Ad esempio:   Consentire agli utenti autenticati dispositivi ma non gestito.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   
@@ -150,7 +148,7 @@ Per creare un criterio di controllo di accesso con autorizzazione più condizion
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:   Consentire agli utenti con una determinata attestazione e dal gruppo specifico.  
+2.  Immettere un nome e una descrizione.  Ad esempio:  Consentire agli utenti con una determinata attestazione e dal gruppo specifico.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   

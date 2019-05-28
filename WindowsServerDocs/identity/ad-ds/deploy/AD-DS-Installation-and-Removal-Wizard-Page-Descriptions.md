@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 52e4b215c406eeae11dbab41e367f6ce4cd83507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4df753a1635a0935e70a76278b097d2f9f70142
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849252"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66009095"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Descrizioni delle pagine delle procedure guidate di installazione e rimozione di Servizi di dominio Active Directory
 
@@ -61,7 +61,7 @@ Quando viene creata una nuova foresta, vengono visualizzate le opzioni seguenti.
   
 -   Quando viene creata una nuova foresta, è necessario specificare un nome per il dominio radice della foresta. Non può essere il nome dominio radice della foresta con etichetta singola (ad esempio, deve essere "contoso.com" invece di "contoso"). È necessario usare le convenzioni di denominazione dei domini DNS consentite. È possibile specificare un nome IDN. Per ulteriori informazioni sulle convenzioni di denominazione dei domini DNS, vedere [KB 909264](https://support.microsoft.com/kb/909264).  
   
--   Non creare nuove foreste Active Directory con lo stesso nome del DNS esterno. Ad esempio, se è l'URL del DNS Internet http://contoso.com, è necessario scegliere un nome diverso per la foresta interna evitare problemi di compatibilità futura. Il nome deve essere univoco e non scontato per il traffico Web, ad esempio corp.contoso.com.  
+-   Non creare nuove foreste Active Directory con lo stesso nome del DNS esterno. Ad esempio, se l'URL del DNS Internet è http: \/ /contoso.com, è necessario scegliere un nome diverso per la foresta interna evitare problemi di compatibilità futura. Il nome deve essere univoco e non scontato per il traffico Web, ad esempio corp.contoso.com.  
   
 -   È necessario essere membro del gruppo Administrators nel server in cui si intende creare una nuova foresta.  
   

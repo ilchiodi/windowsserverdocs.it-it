@@ -11,12 +11,12 @@ ms.assetid: a9ee931d-91fc-40cf-9a15-ed6fa6965cb6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 944f8e9d902953ab4d6da0750603a2c40fa9e96d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a574275f6d3495a9cc9bff36fa785f28a7cd8d6f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844892"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222878"
 ---
 # <a name="feature-descriptions-for-linux-and-freebsd-virtual-machines-on-hyper-v"></a>Forniscono le descrizioni per le macchine virtuali Linux e FreeBSD in Hyper-V
 
@@ -24,7 +24,7 @@ ms.locfileid: "59844892"
 
 Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio core, funzionalità di rete, archiviazione e memoria quando si usa Linux e FreeBSD in una macchina virtuale.
 
-## <a name="BKMK_core"></a>Core
+## <a name="core"></a>Core
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
@@ -37,7 +37,7 @@ Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio
 |Dispositivo di archiviazione specifico di Hyper-V|Questa funzionalità concede l'accesso ad alte prestazioni per i dispositivi di archiviazione collegati a una macchina virtuale.|
 |Dispositivo di rete specifico di Hyper-V|Questa funzionalità concede l'accesso ad alte prestazioni alle schede di rete associati a una macchina virtuale.|
 
-## <a name="BKMK_Networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
@@ -50,7 +50,7 @@ Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio
 |Grandi ricezione Offload (e)|Aumenta la velocità effettiva in ingresso di connessioni a banda larga da aggregare più pacchetti in un buffer più grande, riducendo l'overhead della CPU.|
 |SR-IOV|I dispositivi di Single Root i/o usano DDA per consentire l'accesso guest a parti di schede di interfaccia di rete specifiche che consente di aumentare la velocità effettiva e latenza ridotta. SR-IOV richiede driver di funzione fisico aggiornati (FP) nell'host e di funzioni virtual (VF) nel guest.|
 
-## <a name="BKMK_Storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
@@ -60,7 +60,7 @@ Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio
 |Supporto per TRIM|Gli hint TRIM notificare l'unità che alcuni settori che sono stati allocati in precedenza non sono più necessari per l'app e possono essere eliminati. Questo processo viene in genere usato quando un'app rende le allocazioni di spazio di grandi dimensioni tramite un file e quindi self-consente di gestire le allocazioni del file, ad esempio, ai file di disco rigido virtuale.|
 |WWN SCSI|Il driver storvsc estrae le informazioni di nome universale (WWN) dalla porta e il nodo dei dispositivi collegati alla macchina virtuale e crea i file sysfs appropriato. |
 
-## <a name="BKMK_Memory"></a>Memoria
+## <a name="memory"></a>Memoria
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
@@ -70,13 +70,13 @@ Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio
 |Memoria dinamica - Ballooning|L'host in modo dinamico può aumentare o diminuire la quantità di memoria disponibile per una macchina virtuale mentre è in operazione. Prima del provisioning, l'amministratore abilita la memoria dinamica nel pannello impostazioni della macchina virtuale e specificare la memoria di avvio, memoria minima e massima di memoria per la macchina virtuale. Quando la macchina virtuale è operazione che non è possibile disabilitare la memoria dinamica e solo le impostazioni minimo e massimo può essere modificato. (È consigliabile specificare le dimensioni della memoria in multipli di 128MB).<br /><br />Quando la macchina virtuale è iniziata disponibile è uguale a memoria di **memoria di avvio**. Man mano che aumenta la richiesta di memoria a causa di carichi di lavoro dell'applicazione Hyper-V in modo dinamico può allocare più memoria per la macchina virtuale tramite il meccanismo di aggiunta a caldo (sopra). Come la richiesta di memoria riduce Hyper-V può automaticamente il deprovisioning memoria dalla macchina virtuale tramite il meccanismo di fumetto. Hyper-V non comporta il deprovisioning di memoria riportata di seguito il **memoria minima** parametro.<br /><br />La scheda di memoria di Hyper-V manager verrà visualizzata la quantità di memoria assegnata alla macchina virtuale, ma le statistiche di memoria all'interno della macchina virtuale verranno Mostra la quantità massima di memoria allocata.<br /><br />Per ulteriori informazioni, vedere [Panoramica della memoria dinamica di Hyper-V](https://technet.microsoft.com/library/hh831766.aspx).<br /><br />|
 |Ridimensionamento della memoria di runtime|Un amministratore può impostare la quantità di memoria disponibile per una macchina virtuale mentre è attivo, aumentando la memoria ("caldo") o ridurlo ("a caldo rimuovere"). Memoria verrà restituita a Hyper-V tramite il driver a forma di fumetto (vedere "Dinamica della memoria – Ballooning"). Il driver fumetto mantiene una quantità minima di memoria libera dopo ballooning, denominata "piano", assegnati in modo tale memoria non può essere ridotto di sotto la domanda corrente oltre questa quantità floor. La scheda di memoria di Hyper-V manager verrà visualizzata la quantità di memoria assegnata alla macchina virtuale, ma le statistiche di memoria all'interno della macchina virtuale verranno Mostra la quantità massima di memoria allocata. (È consigliabile specificare i valori di memoria in multipli di 128MB).|
 
-## <a name="BKMK_Video"></a>Video
+## <a name="video"></a>Video
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
 |Dispositivo video specifico Hyper-V|Questa funzionalità offre grafica ad alte prestazioni e risoluzione superiore per le macchine virtuali. Questo dispositivo non fornisce le funzionalità RemoteFX o modalità sessione avanzata.|
 
-## <a name="BKMK_Misc"></a>Varie
+## <a name="miscellaneous"></a>Varie
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
@@ -87,7 +87,7 @@ Questo articolo descrive le funzionalità disponibili nei componenti, ad esempio
 |Socket di Hyper-V|Si tratta di un canale di comunicazione aggiuntivo tra il sistema operativo host e guest. Per caricare e utilizzare il modulo kernel Sockets Hyper-V, vedere [rendere i propri servizi di integrazione](https://msdn.microsoft.com/virtualization/hyperv_on_windows/develop/make_mgmt_service).|
 |Pass-through/DDA PCI|Con Windows Server 2016 gli amministratori possono passare attraverso dispositivi PCI Express tramite il meccanismo di assegnazione dispositivo discreti. Dispositivi comuni sono le schede di rete, schede grafiche e i dispositivi di archiviazione speciale. La macchina virtuale richiederà il driver appropriato per utilizzare l'hardware esposto. L'hardware deve essere assegnato alla macchina virtuale per poter essere utilizzato.<br /><br />Per ulteriori informazioni, vedere [discreti dispositivo assegnazione - descrizione e lo sfondo](https://blogs.technet.microsoft.com/virtualization/2015/11/19/discrete-device-assignment-description-and-background/).<br /><br />DDA è un prerequisito per la rete SR-IOV. Le porte virtuali dovranno essere assegnati alla macchina virtuale e la macchina virtuale è necessario utilizzare driver VF (Virtual Function) per il multiplexing di dispositivo.|
 
-## <a name="BKMK_gen2"></a>Macchine virtuali di generazione 2
+## <a name="generation-2-virtual-machines"></a>Macchine virtuali di seconda generazione
 
 |**Funzionalità**|**Descrizione**|
 |-|-|

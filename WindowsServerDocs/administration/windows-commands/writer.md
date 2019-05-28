@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87b10952c6a851b5536a1589b994b265e8699f59
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 94be02aa25867845436b83d052c4990ff9212975
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826402"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564677"
 ---
 # <a name="writer"></a>agente di scrittura
 
@@ -47,11 +47,11 @@ Per verificare un writer, specificando il relativo GUID (ad esempio, 4dc3bdd4-ab
 ```
 writer verify {4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f}
 ```
-Per escludere un writer con il nome "Writer del sistema? Tipo:
+Per escludere un writer con il nome "Del Writer del sistema", digitare:
 ```
 writer exclude "System Writer"
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

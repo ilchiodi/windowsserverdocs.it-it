@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: febcd6ab0744a7fddd024e1f0afdb93711e8939a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6effaf7c2d197c08b4930e09c3ada96462b17d6f
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829542"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476184"
 ---
 # <a name="quota-management"></a>Gestione delle quote
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Nel nodo **Gestione quote** dello snap-in Microsoft<sup>®</sup> Management Console (MMC) Gestione risorse file server, è possibile eseguire le attività seguenti:
 
@@ -33,17 +33,17 @@ Ad esempio, puoi:
 
 Questa sezione include gli argomenti seguenti:
 
--   [Creare una Quota](create-quota.md)
--   [Creare un'Auto della Quota di applicazione](create-auto-apply-quota.md)
+-   [Creare una quota](create-quota.md)
+-   [Creare una quota automatica](create-auto-apply-quota.md)
 -   [Creare un modello Quota](create-quota-template.md)
--   [Modifica proprietà modello di Quota](edit-quota-template-properties.md)
--   [Modifica automaticamente le proprietà delle quote](edit-auto-apply-quota-properties.md)
+-   [Modificare le proprietà dei modelli quota](edit-quota-template-properties.md)
+-   [Modificare le proprietà delle quote automatiche](edit-auto-apply-quota-properties.md)
 
 > [!Note]
 > Per impostare notifiche tramite posta elettronica e funzionalità di creazione di rapporti, è innanzitutto necessario configurare le opzioni generali di Gestione risorse file server.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 
 

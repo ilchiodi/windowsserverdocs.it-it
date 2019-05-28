@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8750094e7357a3aefa307d24abd1470fbf8d2a71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867172"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564685"
 ---
 # <a name="manage-bde-wipefreespace"></a>manage-bde: WipeFreeSpace
 
 
 
-Cancella lo spazio libero nel volume di rimozione di tutti i frammenti di dati presenti nello spazio. Esecuzione del comando in un volume che è stato crittografato utilizzando "solo lo spazio utilizzato? metodo di crittografia fornisce lo stesso livello di protezione di "Full Volume Encryption? metodo di crittografia. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Cancella lo spazio libero nel volume di rimozione di tutti i frammenti di dati presenti nello spazio. Questo comando in un volume che era stato crittografato mediante il metodo di crittografia "Solo spazio utilizzato" fornisce lo stesso livello di protezione come metodo di crittografia "Full Volume Encryption". Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-manage-bde –WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -49,12 +49,12 @@ Nell'esempio seguente viene illustrato l'utilizzo di **-w** cancellazione di com
 ```
 manage-bde -w C:
 ```
-Nell'esempio seguente viene illustrato l'utilizzo di **-w** comando con il **– Annulla** parametro per annullare la cancellazione di spazio libero nell'unità C.
+Nell'esempio seguente viene illustrato l'utilizzo di **-w** con il **-Annulla** parametro per annullare la cancellazione di spazio libero nell'unità C.
 ```
 manage-bde -w -Cancel C:
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Gestire-bde](manage-bde.md)

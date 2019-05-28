@@ -14,16 +14,16 @@ manager: dougkim
 ms.author: helohr
 ms.date: 05/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8695862cd046c235ce99f92648a740230935e2cb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 341262243b5bbe8ed046382d7490a6e5c39b8965
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864102"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188129"
 ---
 # <a name="remote-desktop-clients"></a>Client Desktop remoto
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Puoi usare un client Desktop remoto Microsoft per connetterti a un PC remoto e alle risorse di lavoro praticamente da qualsiasi postazione e usando dispositivi di qualsiasi tipo. È possibile, ad esempio, connettersi al PC di lavoro e avere accesso a tutte le app, tutti i file e tutte le risorse di rete disponibili quando si è in ufficio. È possibile lasciare aperte le app al lavoro e visualizzare poi quelle stesse app a casa usando il client Desktop remoto.
 
@@ -38,10 +38,10 @@ Sono disponibili le seguenti app del client:
 | iOS      | [client di iOS in iTunes store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)     | [Guida introduttiva al client Desktop remoto in iOS](remote-desktop-ios.md)         |
 | macOS    | [client macOS in iTunes store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) | [Guida introduttiva al client Desktop remoto su Mac](remote-desktop-mac.md)         |
 
-
 ## <a name="configuring-the-remote-pc"></a>Configurazione del computer remoto
 
 Per configurare il computer remoto prima di accedervi in remoto, [consenti l'accesso al computer](remote-desktop-allow-access.md).
 
 ## <a name="remote-desktop-client-uri-scheme"></a>Schema URI client Desktop remoto
+
 È possibile integrare le funzionalità di client Desktop remoto tra piattaforme abilitando una combinazione di Uniform Resource Identifier (URI). Estrarre il [supportati gli attributi URI](remote-desktop-uri.md) che è possibile utilizzare con i client Android, iOS e Mac.

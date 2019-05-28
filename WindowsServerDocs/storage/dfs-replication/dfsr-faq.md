@@ -6,17 +6,17 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: f1d77b6640bc0d6a5832a5a19c80d9d0af5d2b00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832662"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476064"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
 
 
-Aggiornamento: 9 ottobre 2013
+Aggiornamento: 30 aprile 2019
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -631,7 +631,7 @@ Se si usa Windows Server 2008 o Windows Server 2003 R2, è possibile simulare un
 
 ### <a name="is-there-a-way-to-force-a-complete-replication-of-all-files-including-unchanged-files"></a>È disponibile un modo per forzare una replica completa di tutti i file inclusi i file non modificati?
 
-No. Se replica DFS considera identici i file, non replicherà li. Se i file modificati non sono stati replicati, replica DFS verranno automaticamente replicati quando configurato per farlo. Per sovrascrivere la pianificazione configurata, utilizzare il metodo WMI **ForceReplicate()**. Si tratta tuttavia solo eseguire l'override di una pianificazione, e non impone la replica dei file invariati o identici.
+No. Se replica DFS considera identici i file, non replicherà li. Se i file modificati non sono stati replicati, replica DFS verranno automaticamente replicati quando configurato per farlo. Per sovrascrivere la pianificazione configurata, utilizzare il metodo WMI **ForceReplicate()** . Si tratta tuttavia solo eseguire l'override di una pianificazione, e non impone la replica dei file invariati o identici.
 
 ### <a name="what-happens-if-the-primary-member-suffers-a-database-loss-during-initial-replication"></a>Cosa accade se il membro primario subisce una perdita di database durante la replica iniziale?
 
@@ -728,9 +728,9 @@ Se qualsiasi parte del file già viene trasmesso, replica DFS continua la trasmi
 </colgroup>
 <thead>
 <tr class="header">
-<th>Data</th>
+<th>Date</th>
 <th>Descrizione</th>
-<th>Motivo</th>
+<th>`Reason`</th>
 </tr>
 </thead>
 <tbody>

@@ -9,23 +9,25 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ecf3cb5703a90976dce15abbd0c9fdd1d4aa24ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48099ad15465b885ccaf562bcf94b4bafdeff388
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812632"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772635"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Risolvere i problemi di spazi di archiviazione diretta
+
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Usare le informazioni seguenti per risolvere i problemi di distribuzione di spazi di archiviazione diretta.
 
 In generale, iniziare con la procedura seguente:
 
-1. Confermare che il marca o modello di unità SSD è certificato per Windows Server 2016 tramite il catalogo di Windows Server. Verificare il fornitore che sono supportate le unità per spazi di archiviazione diretta.
+1. Confermare che il marca o modello di unità SSD è certificato per Windows Server 2016 e Windows Server 2019 utilizzando il catalogo di Windows Server. Verificare il fornitore che sono supportate le unità per spazi di archiviazione diretta.
 2. Controllare lo spazio di archiviazione per tutte le unità difettose. Usare il software di gestione di archiviazione per controllare lo stato delle unità. Se una delle unità sono difettosi, rivolgersi al fornitore. 
 3. Aggiornare l'archiviazione e unità del firmware se necessario.
-   Verificare che gli ultimi aggiornamenti di Windows sono installati in tutti i nodi. È possibile ottenere gli aggiornamenti più recenti per Windows Server 2016 da [ https://aka.ms/update2016 ](https://aka.ms/update2016).
+   Verificare che gli ultimi aggiornamenti di Windows sono installati in tutti i nodi. È possibile ottenere gli aggiornamenti più recenti per Windows Server 2016 da [Windows 10 e Windows Server 2016 aggiornamento della cronologia](https://aka.ms/update2016) e per Windows Server 2019 dal [Windows 10 e Windows Server 2019 aggiornare la cronologia](https://support.microsoft.com/help/4464619).
 4. Aggiornare il firmware e driver di schede di rete.
 5. Eseguire la convalida del cluster e vedere la sezione dello spazio di archiviazione diretta, assicurarsi che le unità che verranno utilizzate per la cache vengono segnalate correttamente e senza errori.
 
@@ -195,7 +197,8 @@ Per altre informazioni, vedere [integrità risoluzione dei problemi di spazi di 
     
 ## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Evento 5120 con STATUS_IO_TIMEOUT c00000b5 
 
->[! Importante} per ridurre la possibilità di realizzare questi sintomi applicando l'aggiornamento con la correzione, è consigliabile usare la procedura di modalità manutenzione dell'archiviazione seguente per installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016 ](https://support.microsoft.com/help/4462928) o versione successiva quando i nodi attualmente installato un aggiornamento cumulativo di Windows Server 2016 che è stato rilasciato dal [all'8 maggio 2018](https://support.microsoft.com/help/4103723) al [9 ottobre 2018](https://support.microsoft.com/help/KB4462917).
+> [!Important]
+> **Per Windows Server 2016:** Per ridurre la possibilità di realizzare questi sintomi applicando l'aggiornamento con la correzione, è consigliabile usare la procedura di modalità manutenzione dell'archiviazione seguente per installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928)o versione successiva quando i nodi attualmente installato un aggiornamento cumulativo di Windows Server 2016 che è stato rilasciato dal [all'8 maggio 2018](https://support.microsoft.com/help/4103723) al [9 ottobre 2018](https://support.microsoft.com/help/KB4462917).
 
 Si potrebbero ottenere eventi 5120 con STATUS_IO_TIMEOUT c00000b5 dopo il riavvio di un nodo in Windows Server 2016 con aggiornamento cumulativo che sono stati rilasciati dal [all'8 maggio 2018 KB 4103723](https://support.microsoft.com/help/4103723) a [9 ottobre 2018 KB 4462917](https://support.microsoft.com/help/4462917)installato.
 
@@ -217,11 +220,7 @@ Event ID: 1135
 Description: Cluster node 'NODENAME'was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
-È stata introdotta una modifica nell'aggiornamento cumulativo di all'8 maggio 2018, per aggiungere gestisce resiliente SMB per le sessioni di rete SMB all'interno del cluster spazi di archiviazione diretta. Ciò permette di migliorare la resilienza agli errori di rete temporanei e migliorare la modalità di gestione traffico di rete intenso RoCE.
-
-Questi miglioramenti aumenta anche inavvertitamente attese a timeout e timeout quando le connessioni SMB tenta di riconnettersi quando un nodo viene riavviato. Questi problemi possono influire su un sistema che è in condizioni di stress. Durante i tempi di inattività non pianificato, le pause dei / o di un massimo di 60 secondi sono anche state osservate quando il sistema è in attesa per le connessioni al timeout.
-
-Per risolvere questo problema, installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928) o versione successiva.
+Una modifica introdotta in all'8 maggio 2018 per Windows Server 2016, che è stata un aggiornamento cumulativo per aggiungere gestisce resiliente SMB per le sessioni di rete SMB all'interno del cluster spazi di archiviazione diretta. Ciò permette di migliorare la resilienza agli errori di rete temporanei e migliorare la modalità di gestione traffico di rete intenso RoCE. Questi miglioramenti aumenta anche inavvertitamente attese a timeout e timeout quando le connessioni SMB tenta di riconnettersi quando un nodo viene riavviato. Questi problemi possono influire su un sistema che è in condizioni di stress. Durante i tempi di inattività non pianificato, le pause dei / o di un massimo di 60 secondi sono anche state osservate quando il sistema è in attesa per le connessioni al timeout. Per risolvere questo problema, installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928) o versione successiva.
 
 *Nota* questo aggiornamento consente di allineare i valori di timeout CSV con i timeout di connessione di SMB per risolvere il problema. Non implementa le modifiche per disabilitare la generazione di dump in tempo reale indicata nella sezione soluzione alternativa.
     
@@ -455,4 +454,4 @@ Abbiamo identificato un problema grave che interessa alcuni utenti di spazi di a
 >[!NOTE]
 > Singoli OEM potrebbe essere dispositivi basati su della famiglia Intel P3x00 di dispositivi NVMe con le stringhe di versione del firmware univoco. Per altre informazioni dell'ultima versione del firmware, contattare l'OEM.
 
-Se si usa hardware nella distribuzione di base della famiglia Intel P3x00 dei dispositivi NVMe, è consigliabile applicare immediatamente il firmware più recente disponibile (almeno 8 Release di manutenzione). Ciò [articolo del supporto Microsoft](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fornisce informazioni aggiuntive su questo problema. 
+Se si usa hardware nella distribuzione di base della famiglia Intel P3x00 dei dispositivi NVMe, è consigliabile applicare immediatamente il firmware più recente disponibile (almeno 8 Release di manutenzione). Ciò [articolo del supporto Microsoft](https://support.microsoft.com/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fornisce informazioni aggiuntive su questo problema. 

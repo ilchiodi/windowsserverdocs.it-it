@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 73beb1539420f4b4aad818ffe0b0bdaabe901748
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63037dd7e32320b6e640396e20344e5678ed91dd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870262"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034436"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Eseguire la migrazione della distribuzione di Servizi Desktop remoto a Windows Server 2016
 
@@ -28,8 +28,8 @@ La migrazione di una distribuzione di Servizi Desktop remoto è supportata dai s
 
 Per altre informazioni sul processo di aggiornamento e i requisiti, vedere [l'aggiornamento delle distribuzioni di Servizi Desktop remoto a Windows Server 2016](upgrade-to-rds-2016.md).
 
-Usare la procedura seguente per eseguire la migrazione della distribuzione di Servizi Desktop remoto: 
-- [Eseguire la migrazione di Gestore connessione desktop remoto](#migrate-rd-connection-broker-servers) 
+Usare la procedura seguente per eseguire la migrazione della distribuzione di Servizi Desktop remoto:
+- [Eseguire la migrazione di Gestore connessione desktop remoto](#migrate-rd-connection-broker-servers)
 - [Eseguire la migrazione di insiemi di sessioni](#migrate-session-collections)
 - [Eseguire la migrazione di insiemi di desktop virtuali](#migrate-virtual-desktop-collections)
 - [Eseguire la migrazione di server Accesso Web desktop remoto](#migrate-rd-web-access-servers)
@@ -54,7 +54,7 @@ Questo è il primo e più importante passaggio per la migrazione: migrazione di 
 
 Seguire questi passaggi per eseguire la migrazione di un insieme di sessioni in Windows Server 2012 R2 a un insieme di sessioni di Windows Server 2016.
 > [!IMPORTANT] 
-> Eseguire la migrazione di insiemi di sessioni solo dopo aver completato il passaggio precedente, [eseguire la migrazione di Gestore connessione desktop remoto](#Migrate-RD-Connection-Broker-servers).
+> Eseguire la migrazione di insiemi di sessioni solo dopo aver completato il passaggio precedente, [eseguire la migrazione di Gestore connessione desktop remoto](#migrate-rd-connection-broker-servers).
 
 1. [Aggiornare l'insieme di sessioni](Upgrade-to-RDSH-2016.md) da Windows Server 2012 R2 a Windows Server 2016.
 2. Aggiungere il nuovo server Host sessione Desktop remoto che esegue Windows Server 2016 all'insieme di sessioni.
@@ -69,7 +69,7 @@ Seguire questi passaggi per eseguire la migrazione di un insieme di sessioni in 
 Seguire questi passaggi per eseguire la migrazione di un insieme di desktop virtuali da un server di origine esegue Windows Server 2012 R2 a un server di destinazione che esegue Windows Server 2016.
 
 > [!IMPORTANT] 
-> Eseguire la migrazione di insiemi di desktop virtuali solo dopo aver completato il passaggio precedente, [eseguire la migrazione di Gestore connessione desktop remoto](#Migrate-RD-Connection-Broker-servers).
+> Eseguire la migrazione di insiemi di desktop virtuali solo dopo aver completato il passaggio precedente, [eseguire la migrazione di Gestore connessione desktop remoto](#migrate-rd-connection-broker-servers).
 
 1. [Aggiornare l'insieme di desktop virtuali](Upgrade-to-RDVH-2016.md) dal server che esegue Windows Server 2012 R2 a Windows Server 2016.
 2. Aggiungere i nuovi server Host di virtualizzazione Desktop remoto di Windows Server 2016 all'insieme di desktop virtuali.
@@ -85,14 +85,14 @@ Seguire questi passaggi per eseguire la migrazione di un insieme di desktop virt
 Seguire questi passaggi per la migrazione di server di accesso Web desktop remoto:
 - Aggiungere i server di destinazione che esegue Windows Server 2016 per la distribuzione di Servizi Desktop remoto e installare il ruolo Web desktop remoto
 - Uso [strumento di distribuzione Web IIS](https://www.iis.net/) per eseguire la migrazione delle impostazioni del sito Web di Web desktop remoto dai server Accesso Web desktop remoto corrente per i server di destinazione che eseguono Windows Server 2016.
-- [Eseguire la migrazione di certificati](#Migrate-certificates) ai server di destinazione che esegue Windows Server 2016.
+- [Eseguire la migrazione di certificati](#migrate-certificates) ai server di destinazione che esegue Windows Server 2016.
 - Rimuovere i server di origine dalla distribuzione di Servizi Desktop remoto  
 
 ## <a name="migrate-rdgateway-servers"></a>Eseguire la migrazione dei server Gateway Desktop remoto
 Seguire questi passaggi per eseguire la migrazione di server Gateway Desktop remoto:
 - Aggiungere i server di destinazione che esegue Windows Server 2016 per la distribuzione di Servizi Desktop remoto e installare il ruolo Gateway Desktop remoto
 - Uso [strumento di distribuzione Web IIS](https://www.iis.net/) per migrare le impostazioni di endpoint di Gateway Desktop remoto da correnti dei server Gateway Desktop remoto ai server di destinazione che esegue Windows Server 2016.
-- [Eseguire la migrazione di certificati](#Migrate-certificates) ai server di destinazione che esegue Windows Server 2016.
+- [Eseguire la migrazione di certificati](#migrate-certificates) ai server di destinazione che esegue Windows Server 2016.
 - Rimuovere i server di origine dalla distribuzione di Servizi Desktop remoto  
 
 ## <a name="migrate-rdlicensing-servers"></a>Eseguire la migrazione dei server licenze Desktop remoto

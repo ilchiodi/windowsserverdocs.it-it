@@ -5,34 +5,30 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.date: 01/05/2017
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2827f332-44d4-4785-8b13-98429087dcc7
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b504c3396200502a09467ae97a36f9de613e4820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830332"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976627"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
 
 >Si applica a: Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Questa sezione illustra le funzionalità nuove e modificate di Windows Server&reg; 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione.  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-## <a name="computevirtualizationvirtualizationmd"></a>[Calcolo](../virtualization/virtualization.md)  
+<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Per altre informazioni sulle funzionalità più recenti di Windows, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server&reg; 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione.  
+
+## <a name="computevirtualizationvirtualizationmd"></a>[Calcolo](../virtualization/virtualization.md)
+
 L'area Virtualizzazione include funzionalità e prodotti di virtualizzazione per i professionisti IT che consentono di progettare, distribuire e gestire Windows Server.  
 
 ### <a name="general"></a>Generale  
@@ -67,7 +63,7 @@ Windows Server 2016 offre una nuova macchina virtuale schermata basata su Hyper-
 
 Per altre informazioni e istruzioni per l'uso di macchine virtuali schermate, vedere [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Guida alle macchine virtuali schermate e alla convalida delle infrastrutture controllate per Windows Server 2016 (TPM)).  
 
-## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identità e degli accessi](../identity/Identity-and-Access.md)  
+## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identità e accesso](../identity/Identity-and-Access.md)  
 Le nuove funzionalità di Identità migliorano la capacità delle organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni solo cloud e ibride, in cui alcune applicazioni e alcuni servizi sono ospitati nel cloud e altri sono ospitati in locale.  
 
 ### <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory  
@@ -208,5 +204,5 @@ Tre nuove funzionalità sono state aggiunte in Microsoft Windows 10 e Windows Se
 
 
 ## <a name="see-also"></a>Vedere anche  
--   [Note sulla versione: Problemi importanti in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
+-   [Note sulla versione: problemi importanti di Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 

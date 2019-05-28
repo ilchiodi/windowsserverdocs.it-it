@@ -1,27 +1,42 @@
 ---
 title: Estensione dei volumi in Spazi di archiviazione diretta
-ms.assetid: fa48f8f7-44e7-4a0b-b32d-d127eff470f0
+description: Come ridimensionare i volumi in spazi di archiviazione diretta tramite Windows Admin Center e PowerShell.
 ms.prod: windows-server-threshold
-ms.author: cosmosdarwin
-ms.manager: eldenc
-ms.technology: storage-spaces
-ms.topic: article
+ms.reviewer: cosmosdarwin
 author: cosmosdarwin
-ms.date: 01/23/2017
-ms.localizationpriority: medium
-ms.openlocfilehash: 51f58ec23c55a6cb1664d800d6f4a75dae545899
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: cosdar
+manager: eldenc
+ms.technology: storage-spaces
+ms.date: 05/07/2019
+ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824972"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613231"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Estensione dei volumi in Spazi di archiviazione diretta
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Questo argomento fornisce istruzioni per il ridimensionamento dei volumi in [Spazi di archiviazione diretta](storage-spaces-direct-overview.md).
+Questo argomento fornisce istruzioni per il ridimensionamento dei volumi in un [spazi di archiviazione diretta](storage-spaces-direct-overview.md) cluster utilizzando Windows Admin Center.
 
-## <a name="prerequisites"></a>Prerequisiti
+Guardare un video rapido su come ridimensionare un volume.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
+
+## <a name="extending-volumes-using-windows-admin-center"></a>Estensione dei volumi utilizzando Windows Admin Center
+
+1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
+2. Nella pagina di volumi, selezionare la **inventario** scheda e quindi selezionare il volume che si intende ridimensionare.
+
+    Nella pagina dei dettagli di volume, è indicata la capacità di archiviazione per il volume. È anche possibile aprire la pagina dei dettagli volumi direttamente dal Dashboard. Nel Dashboard, nel riquadro avvisi, selezionare l'avviso, che avvisa l'utente se un volume è quasi esaurito la capacità di archiviazione, e quindi selezionare **passare al Volume**.
+
+4. Nella parte superiore della pagina di dettaglio di volumi, selezionare **ridimensionare**.
+5. Immettere una nuova dimensione maggiore e quindi selezionare **ridimensionare**.
+
+    Nella pagina dei dettagli di volumi, viene indicata la capacità di archiviazione più grande per il volume e viene cancellato l'avviso sul Dashboard.
+
+## <a name="extending-volumes-using-powershell"></a>Estensione dei volumi con PowerShell
 
 ### <a name="capacity-in-the-storage-pool"></a>Capacità nel pool di archiviazione
 
@@ -49,7 +64,7 @@ Ad esempio, ecco come arrivare da un disco virtuale fino al volume:
 Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
 ```
 
-## <a name="step-1--resize-the-virtual-disk"></a>Passaggio 1: ridimensionare il disco virtuale
+### <a name="step-1--resize-the-virtual-disk"></a>Passaggio 1: ridimensionare il disco virtuale
 
 Il disco virtuale può utilizzare i livelli di archiviazione o meno, a seconda di come è stato creato.
 
@@ -61,7 +76,7 @@ Get-VirtualDisk <FriendlyName> | Get-StorageTier
 
 Se il cmdlet non restituisce valori, il disco virtuale non utilizza i livelli di archiviazione.
 
-### <a name="no-storage-tiers"></a>Nessun livello di archiviazione
+#### <a name="no-storage-tiers"></a>Nessun livello di archiviazione
 
 Se il disco virtuale non dispone di livelli di archiviazione, puoi ridimensionarlo direttamente tramite il cmdlet **Resize-VirtualDisk**.
 
@@ -75,7 +90,7 @@ Quando ridimensioni **VirtualDisk**, anche **Disk** segue automaticamente e vien
 
 ![Resize-VirtualDisk](media/resize-volumes/Resize-VirtualDisk.gif)
 
-### <a name="with-storage-tiers"></a>Con livelli di archiviazione
+#### <a name="with-storage-tiers"></a>Con livelli di archiviazione
 
 Se il disco virtuale utilizza livelli di archiviazione, puoi ridimensionare ogni livello separatamente mediante il cmdlet **Resize-StorageTier**.
 
@@ -98,7 +113,7 @@ Quando ridimensioni **StorageTier**, anche **VirtualDisk** e **Disk** seguono au
 
 ![Resize-StorageTier](media/resize-volumes/Resize-StorageTier.gif)
 
-## <a name="step-2--resize-the-partition"></a>Passaggio 2: ridimensionare la partizione
+### <a name="step-2--resize-the-partition"></a>Passaggio 2: ridimensionare la partizione
 
 Successivamente, ridimensiona la partizione utilizzando il cmdlet **Resize-Partition**. Normalmente il disco virtuale dispone di due partizioni: la prima è riservata e non deve essere modificata; quella da ridimensionare ha **PartitionNumber = 2** e **Type = Basic**.
 
@@ -129,3 +144,4 @@ La procedura è terminata.
 - [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
 - [Pianificazione di volumi in spazi di archiviazione diretta](plan-volumes.md)
 - [Creazione di volumi in spazi di archiviazione diretta](create-volumes.md)
+- [Eliminazione dei volumi in spazi di archiviazione diretta](delete-volumes.md)

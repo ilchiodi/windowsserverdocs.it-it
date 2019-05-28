@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fd075c5b7d1bfce89cc27c4917a016e7e5037ce5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4b70b0b048f66f9a8ba19cd7990dde57e0655ae4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888292"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192233"
 ---
 # <a name="create-a-stand-alone-federation-server"></a>Creare un server federativo autonomo
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dopo avere installato il servizio ruolo servizio federativo e configurare i certificati necessari in un computer, si è pronti a configurare il computer come un server federativo. È possibile utilizzare la procedura seguente per configurare il computer come un supporto\-server federativo da solo. L'atto di creare un supporto\-server federativo da solo consente anche di creare un nuovo servizio federativo. Si crea un server federativo con configurazione guidata Server federativo AD FS.  
   
@@ -35,7 +33,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
     -   In qualsiasi momento dopo l'installazione guidata è completata, aprire Esplora Windows, passare al **c:\\Windows\\ADFS** cartella e quindi fare doppio\-fare clic su **FsConfigWizard.exe**.  
   
-2.  Nella pagina iniziale **** verificare che sia selezionata l'opzione per creare un nuovo servizio federativo, quindi fare clic su **Avanti**.****  
+2.  Nella **pagina iniziale** verificare che sia selezionata l'opzione per **creare un nuovo servizio federativo**, quindi fare clic su **Avanti**.  
   
 3.  Nel **selezionare in evidenza\-Alone o distribuzione di Farm** pagina, fare clic su **Stand\-server federativo da solo**e quindi fare clic su **successivo**.  
   
@@ -59,6 +57,6 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 7.  Esaminare i risultati nella pagina **Risultati di configurazione**. Al termine di tutti i passaggi di configurazione, fare clic su **Chiudi** per uscire dalla procedura guidata.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

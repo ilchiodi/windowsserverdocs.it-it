@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afb4b10a0d347367780dbaf19b764f2cabd480d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb5c9650b95703f1316e6f5f179b910d22574f68
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819542"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222958"
 ---
 # <a name="echo"></a>echo
 
@@ -26,7 +26,7 @@ ms.locfileid: "59819542"
 
 Visualizza i messaggi o attiva o disattiva la ripetizione dei comandi. Se utilizzata senza parametri, **echo** Visualizza l'impostazione corrente.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -49,9 +49,9 @@ echo [on | off]
 -   Quando **echo** è disattivato, il prompt dei comandi non viene visualizzato nella finestra del prompt dei comandi. Per visualizzare il prompt dei comandi, digitare **l'aggiornamento.**
 -   Se utilizzato in un file batch, **echo in** e **echo off** non influisce sull'impostazione al prompt dei comandi.
 -   Per evitare la ripetizione di un comando specifico in un file batch, inserire un simbolo di chiocciola (@) prima il comando. Per evitare la ripetizione di tutti i comandi in un file batch, includere il **echo off** comando all'inizio del file.
--   Per visualizzare una pipe (**|**) o carattere di reindirizzamento (**<** o **>**) quando si utilizza **echo**, utilizzare un accento circonflesso (^) immediatamente prima del carattere pipe o reindirizzamento (ad esempio, **^|**, **^>**, o **^<**). Per visualizzare un punto di inserimento, digitare due accenti circonflessi in successione (**^^**).
+-   Per visualizzare una pipe ( **|** ) o carattere di reindirizzamento ( **<** o **>** ) quando si utilizza **echo**, utilizzare un accento circonflesso (^) immediatamente prima del carattere pipe o reindirizzamento (ad esempio, **^|** , **^>** , o **^<** ). Per visualizzare un punto di inserimento, digitare due accenti circonflessi in successione ( **^^** ).
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per la visualizzazione corrente **echo** impostazione, digitare:
 ```
@@ -106,4 +106,4 @@ File3.txt
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

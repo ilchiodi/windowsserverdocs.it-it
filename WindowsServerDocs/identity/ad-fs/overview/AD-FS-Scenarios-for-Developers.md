@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a2a88608f3989522b1ec1c123f29bd679db7e318
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877942"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188822"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>Scenari di AD FS per gli sviluppatori
 
->Si applica a: Windows Server 2016
 
 ADFS in Windows Server 2016 [AD FS 2016] consente di aggiungere settore standard OpenID Connect e OAuth 2.0 basato su autenticazione e autorizzazione alle applicazioni sviluppate e dispone di tali applicazioni autenticare gli utenti direttamente in ADFS.    
   
@@ -127,7 +126,7 @@ redirect_uri|URI di reindirizzamento dell'applicazione nativa in gruppo di appli
   
 **Risposta richiesta di autorizzazione:**  
 Se l'utente non è firmato precedenza, l'utente verrà richieste le credenziali.    
-ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri.  Ad esempio:  Protocollo HTTP/1.1 302 trovato percorso:  **http://redirect_uri:80/?code=&lt; codice&gt;.**  
+ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri.  Ad esempio: Protocollo HTTP/1.1 302 trovato percorso:  **http://redirect_uri:80/?code=&lt; codice&gt;.**  
   
 2.  Il client nativo invia quindi il codice, con i seguenti parametri, all'endpoint del token di ADFS:  
   

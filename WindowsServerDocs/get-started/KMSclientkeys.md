@@ -4,19 +4,19 @@ description: Chiavi necessarie per attivare i prodotti Windows da un server del 
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: jaimeo
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 10/02/2018
-ms.tgt_pltfrm: na
+ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 57ce4c4d7623c2a424efbdf0ff117ede8fad726b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847032"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976533"
 ---
-# <a name="kms-client-setup-keys"></a>Chiavi di configurazione di client del Servizio di gestione delle chiavi
+# <a name="kms-client-setup-keys"></a>Chiavi di configurazione di client del servizio di gestione delle chiavi
 
 >Si applica a: Windows Server 2019, Windows Server Semi-Annual Channel, Windows Server 2016, Windows 10
 
@@ -29,9 +29,9 @@ I computer che eseguono versioni con contratti multilicenza di Windows Server, W
 
 Se si converte un computer in un client KMS a partire da un host KMS, un codice ad attivazione multipla (MAK) o un'edizione retail di Windows, installare la chiave di configurazione corrispondente (GVLK) selezionandola dalle tabelle seguenti. Per installare una chiave di configurazione client, aprire un prompt dei comandi amministrativo nel client, digitare **slmgr /ipk \<chiave di configurazione\>**  e quindi premere **invio**.
 
-| Per…                                                                                                                                                                                          | …usare queste risorse                                                                                                         |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Attivare Windows al di fuori di uno scenario di attivazione di contratti multilicenza, ovvero se stai provando ad attivare una versione definitiva di Windows, **queste chiavi non funzioneranno**.                                                     | Per le versioni definitive di Windows, usare i collegamenti seguenti:                                                                              |
+| Per…    | …usare queste risorse   |
+|--------------------|------------------------|
+| Attivare Windows al di fuori di uno scenario di attivazione di contratti multilicenza, ovvero se stai provando ad attivare una versione definitiva di Windows, **queste chiavi non funzioneranno**. | Per le versioni definitive di Windows, usare i collegamenti seguenti: |
 | Correggere l'errore che si ottiene quando si tenta di attivare un Windows 8.1, Windows Server 2012 R2 o un sistema più recente: "Errore: 0xC004F050. Servizio gestione licenze software: codice "Product Key" non valido" | [Installare questo aggiornamento](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) nell'host di servizi di gestione delle chiavi se è in esecuzione Windows 8.1, Windows Server 2012 R2, Windows 8 o Windows Server 2012. |
 
 -   [Scarica Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
@@ -43,15 +43,14 @@ Se si converte un computer in un client KMS a partire da un host KMS, un codice 
 
 >   Se esegui Windows Server 2008 R2 o Windows 7, è consigliabile eseguire un aggiornamento per supportarne l'uso come host del servizio di gestione delle chiavi per i client Windows 10.
 
-
 ## <a name="windows-server-semi-annual-channel-versions"></a>Versioni canale semestrale di Windows Server
 
-### <a name="windows-server-version-1809"></a>Windows Server, versione 1809
-| Sistema operativo/edizione       | Chiave di configurazione client KMS          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D  | 
-| Windows Server Standard | N2KJX-J94YW-TQVFB-DG9YT-724CC  |
+### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, versione 1903 e Windows Server, versione 1809
 
+| Sistema operativo/edizione  | Chiave di configurazione client KMS          |
+|---------------------------|-------------------------------|
+| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D |
+| Windows Server Standard   | N2KJX-J94YW-TQVFB-DG9YT-724CC |
 
 ### <a name="windows-server-version-1803"></a>Windows Server, versione 1803
 

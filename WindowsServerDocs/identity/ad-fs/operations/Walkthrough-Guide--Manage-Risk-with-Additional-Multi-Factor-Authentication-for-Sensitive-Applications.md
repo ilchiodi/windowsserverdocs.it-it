@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 414f37e86f0072863e5fa2f107c39e5518e560ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: bd21f2d6e8dcb167aa2c614d096807305a7728d6
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860862"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188892"
 ---
 # <a name="walkthrough-guide-manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Guida allo scenario: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari
 
->Si applica a: Windows Server 2012 R2
+
 
 
 ## <a name="about-this-guide"></a>Informazioni sulla guida

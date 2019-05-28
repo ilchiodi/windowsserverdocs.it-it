@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: aa205c46bf67dc25a55232b799bdd39fee4ac3c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f26e256793d30936496f7a936550acb7b20025
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812212"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188349"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>Quando usare una regola di pass-through o di filtro delle attestazioni
 È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando è necessario richiedere un tipo di attestazione in ingresso specifico e quindi applicare un'azione che determina il tipo di output deve essere eseguita in base ai valori nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si filtrano le eventuali attestazioni corrispondenti alla logica della regola nella tabella seguente, in base all'opzione configurata nella regola.  
   
@@ -117,7 +115,7 @@ c:[type == “http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
   
 |Proprietà attestazione|Descrizione|  
 |------------------|---------------|  
-|Tipo|Il tipo di attestazione \(generalmente rappresentato come un Uri\) riflette un accordo tra partner in una federazione su quale tipo di informazioni viene comunicato nell'attestazione implicito. Ad esempio, le attestazioni di tipo http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identità\/attestazioni\/emailaddress conterrà l'espulsione\-l'indirizzo dell'utente di posta elettronica.|  
+|Type|Il tipo di attestazione \(generalmente rappresentato come un Uri\) riflette un accordo tra partner in una federazione su quale tipo di informazioni viene comunicato nell'attestazione implicito. Ad esempio, le attestazioni di tipo http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identità\/attestazioni\/emailaddress conterrà l'espulsione\-l'indirizzo dell'utente di posta elettronica.|  
 |Value|Valore dell'attestazione. Ad esempio, un'attestazione di tipo http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identità\/attestazioni\/emailaddress può avere un valore di johndoe@fabrikam.com|  
 |ValueType|ValueType rappresenta il modo in cui le informazioni contenute nel valore dell'attestazione devono essere interpretate. In genere ValueType verrà impostato su http:\/\/www.w3.org\/2001\/XMLSchema\#stringa, ma il valore dell'attestazione potrebbe contenere dati Base64Binary codificato \(, ad esempio, un'immagine \) o una data, Boolean e così via.|  
 |Issuer|L'emittente rappresenta la parte che ha rilasciato per ultima le attestazioni relative all'utente. Se le attestazioni sono state ricevute da un server federativo del provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata su "LOCAL AUTHORITY". Se le attestazioni sono state ricevute da un server federativo di un provider federativo, l'autorità emittente delle attestazioni verrà impostata sull'identificatore del provider di attestazioni del provider di attestazioni che ha firmato il token. Di conseguenza, durante l'elaborazione delle regole sulle attestazioni ricevute da un provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata sullo stesso valore. Durante la creazione delle regole per una relying party, la proprietà Issuer può essere usata per distinguere le attestazioni originate da diversi provider di attestazioni.|  

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 83383d3e1c75c7a6e6c8b42c010a17ceebf51e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ec111954bbe39a3089072f41778990546b6287e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848112"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191287"
 ---
 # <a name="identifying-your-ad-fs-deployment-goals"></a>Identificazione degli obiettivi di distribuzione di AD FS
-
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Identificazione corretta di Active Directory Federation Services \(ADFS\) degli obiettivi di distribuzione è essenziale per il successo del progetto di progettazione di AD FS. A seconda delle dimensioni dell'organizzazione e il livello di coinvolgimento che si desidera specificare per l'information technology \(IT\) di gestione del personale in tutte le organizzazioni partner, formare un team di progetto che possa articolare reale\-problemi di distribuzione globale in una dichiarazione della visione. Assicurarsi che i membri di questo team abbiano chiaro l'orientamento in cui il progetto di distribuzione necessario per raggiungere gli obiettivi di distribuzione di AD FS.  
   

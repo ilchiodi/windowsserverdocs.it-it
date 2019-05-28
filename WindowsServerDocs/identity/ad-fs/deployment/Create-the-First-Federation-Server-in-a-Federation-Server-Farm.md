@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: af0aa61f0d16d4ca567b140c95d74445d09f1cf3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e16289142ea2e53adba52a4ed8f6c01a929a530d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879302"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192216"
 ---
 # <a name="create-the-first-federation-server-in-a-federation-server-farm"></a>Creare il primo server federativo in una server farm federativa
-
- >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dopo avere installato il servizio ruolo servizio federativo e configurare i certificati necessari in un computer, si è pronti a configurare il computer come un server federativo. È possibile utilizzare la procedura seguente per configurare il computer diventi il primo server federativo in una nuova server farm federativa utilizzando Configurazione guidata Server federativo AD FS.  
   
@@ -37,7 +35,7 @@ Il requisito minimo per completare la procedura è l'appartenenza al gruppo di a
   
     -   In qualsiasi momento dopo l'installazione guidata è completata, aprire Esplora Windows, passare al **c:\\Windows\\ADFS** cartella e quindi fare doppio\-fare clic su **FsConfigWizard.exe**.  
   
-2.  Nella pagina iniziale **** verificare che sia selezionata l'opzione per creare un nuovo servizio federativo, quindi fare clic su **Avanti**.****  
+2.  Nella **pagina iniziale** verificare che sia selezionata l'opzione per **creare un nuovo servizio federativo**, quindi fare clic su **Avanti**.  
   
 3.  Nel **seleziona in evidenza\-Alone o distribuzione della Farm** pagina, fare clic su **nuova server farm federativa**e quindi fare clic su **successivo**.  
   
@@ -66,6 +64,6 @@ Il requisito minimo per completare la procedura è l'appartenenza al gruppo di a
     > Per motivi di sicurezza della distribuzione, le opzioni per la risoluzione di elementi e il rilevamento delle risposte sono disabilitate quando si usa la Configurazione guidata server federativo ADFS per configurare una server farm federativa. La procedura guidata configura automaticamente il database interno di Windows per l'archiviazione dei dati di configurazione del servizio. È potrebbero, tuttavia, erroneamente annullarle abilitando l'endpoint di risoluzione artefatto usando il **endpoint** nodo nello snap di gestione di AD FS\-in o consentire\-cmdlet ADFSEndpoint in Windows PowerShell. Prestare attenzione a non riconfigurare l'impostazione predefinita in modo che questo endpoint rimanga disabilitato quando si usa una server farm federativa insieme al database interno di Windows.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un Server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

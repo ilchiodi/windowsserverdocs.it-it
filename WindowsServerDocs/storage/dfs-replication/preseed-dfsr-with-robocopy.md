@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a7a14b1a1e0f91002b201869e4c68187ffaf3f8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eaec563157a77fd4e782842a81e5b59e49a5ea09
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865082"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621294"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Usare Robocopy per eseguito il preseeding file per la replica DFS
 
@@ -28,9 +28,9 @@ L'utilità della riga di comando Robocopy (copia File affidabile) è incluso in 
 
 Usare Robocopy per eseguito il preseeding file per la replica DFS, seguire questa procedura:
 
-1. [Scaricare e installare l'ultima versione di Robocopy.](#step-1:-download-and-install-the-latest-version-of-robocopy)
-2. [Stabilizzare i file che verranno replicati.](#step-2:-stabilize-files-that-will-be-replicated)
-3. [Copiare i file replicati nel server di destinazione.](#step-3:-copy-the-replicated-files-to-the-destination-server)
+1. [Scaricare e installare l'ultima versione di Robocopy.](#step-1-download-and-install-the-latest-version-of-robocopy)
+2. [Stabilizzare i file che verranno replicati.](#step-2-stabilize-files-that-will-be-replicated)
+3. [Copiare i file replicati nel server di destinazione.](#step-3-copy-the-replicated-files-to-the-destination-server)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ Poiché preseeding non implicano direttamente la replica DFS, è sufficiente sod
 
 - È necessario un account membro del gruppo Administrators locale nel server di origine e destinazione.
 
-- Installare la versione più recente di Robocopy nel server che userà per copiare i file, ovvero il server di origine o il server di destinazione. è necessario installare la versione più recente per la versione del sistema operativo. Per istruzioni, vedere [passaggio 2: Stabilizzare i file che verranno replicati](#step-2:-stabilize-files-that-will-be-replicated). A meno che non si sono preseeding file da un server che esegue Windows Server 2003 R2, è possibile eseguire Robocopy nel server di origine o destinazione. Il server di destinazione, in genere con la versione più recente del sistema operativo, consente di accedere alla versione più recente di Robocopy.
+- Installare la versione più recente di Robocopy nel server che userà per copiare i file, ovvero il server di origine o il server di destinazione. è necessario installare la versione più recente per la versione del sistema operativo. Per istruzioni, vedere [passaggio 2: Stabilizzare i file che verranno replicati](#step-2-stabilize-files-that-will-be-replicated). A meno che non si sono preseeding file da un server che esegue Windows Server 2003 R2, è possibile eseguire Robocopy nel server di origine o destinazione. Il server di destinazione, in genere con la versione più recente del sistema operativo, consente di accedere alla versione più recente di Robocopy.
 
 - Assicurarsi che sia disponibile nell'unità di destinazione spazio di archiviazione sufficiente. Non creare una cartella nel percorso che si intende copiare: Robocopy è necessario creare la cartella radice.
     
@@ -63,7 +63,7 @@ In alternativa, è possibile individuare e installare l'hotfix più recente per 
     
     ```robocopy.exe kbqfe "<operating system version>"```
     
-    Ad esempio, immettere **robocopy.exe barra "Windows Server 2008 R2"**.
+    Ad esempio, immettere **robocopy.exe barra "Windows Server 2008 R2"** .
 
 3. Individuare e scaricare l'hotfix con il numero di ID più alto (vale a dire, la versione più recente).
 
@@ -105,7 +105,7 @@ Dopo che ridurre al minimo i blocchi sui file che verranno replicati, è possibi
     |"\<destinazione replicata percorso della cartella\>"|Specifica il percorso della cartella in cui verrà archiviati i file preseeded.<br><br>La cartella di destinazione non deve esistere già nel server di destinazione. Per ottenere l'hash dei file corrispondenti, Robocopy deve creare la cartella radice quando lo preseeds i file.|
     |/e|Copia le sottodirectory e i file, nonché le sottodirectory vuote.|
     |/ b|Copia i file in modalità Backup.|
-    |/ copyal|Copia tutte le informazioni di file, inclusi dati, attributi, timestamp, l'elenco di controllo di accesso (ACL) alle NTFS, informazioni sul proprietario e le informazioni di controllo.|
+    |/COPYALL|Copia tutte le informazioni di file, inclusi dati, attributi, timestamp, l'elenco di controllo di accesso (ACL) alle NTFS, informazioni sul proprietario e le informazioni di controllo.|
     |/r:6|Esegue l'operazione di sei tentativi quando si verifica un errore.|
     |/w:5|Attende 5 secondi tra i tentativi.|
     |MT:64|Copia i 64 file contemporaneamente.|

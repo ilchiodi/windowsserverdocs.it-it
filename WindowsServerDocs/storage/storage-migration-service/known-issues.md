@@ -4,16 +4,16 @@ description: Problemi noti e risoluzione dei problemi il supporto per il servizi
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 02/27/2019
+ms.date: 05/14/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f5fefab2c1b7ba8b62ffd6734217eab9a13ae95e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
+ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888872"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65699691"
 ---
 # <a name="storage-migration-service-known-issues"></a>Servizio di migrazione archiviazione problemi noti
 
@@ -54,7 +54,7 @@ Questo problema è causato da un difetto del codice in Windows Server 2019. Il p
 
 Per risolvere questo problema, installare il servizio di migrazione di archiviazione in un computer Windows Server 2019 che non è la destinazione di migrazione desiderato, quindi connettersi al server con Windows Admin Center ed eseguire la migrazione.
 
-Si prevede di risolvere il problema in una versione successiva di Windows Server. Aprire un caso di supporto tramite [supporto tecnico Microsoft](https://support.microsoft.com) per richiedere un esegue il backporting di questa soluzione venga creato.
+Questo è stato risolto in una versione successiva di Windows Server. Aprire un caso di supporto tramite [supporto tecnico Microsoft](https://support.microsoft.com) per richiedere un esegue il backporting di questa soluzione venga creato.
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-edition"></a>Il servizio di migrazione di archiviazione non è incluso nell'edizione di valutazione di Windows Server 2019
 
@@ -103,14 +103,82 @@ Si prevede di modificare questo comportamento nelle versioni successive di Windo
 
 ## <a name="cutover-fails-when-migrating-between-networks"></a>Cutover si verifica un errore durante la migrazione tra le reti
 
-Durante la migrazione a una macchina virtuale di destinazione in esecuzione in una rete diversa rispetto all'origine, ad esempio un'istanza IaaS di Azure, migrazione completa non viene completata quando l'origine usava un indirizzo IP statico. 
+Durante la migrazione a un computer di destinazione in esecuzione in una rete diversa rispetto all'origine, ad esempio un'istanza IaaS di Azure, migrazione completa non viene completata quando l'origine usava un indirizzo IP statico. 
 
 Questo comportamento è per impostazione predefinita, per evitare problemi di connettività dopo la migrazione da utenti, applicazioni e gli script che si connettono tramite indirizzo IP. Quando l'indirizzo IP viene spostato dal computer di origine precedente alla nuova destinazione di destinazione, non corrisponderà le nuove informazioni di subnet di rete, ad esempio DNS e WINS.
 
 Per risolvere questo problema, eseguire la migrazione in un computer nella stessa rete. Quindi passare tale computer a una nuova rete e riassegnare le relative informazioni IP. Ad esempio, se la migrazione ad Azure IaaS, prima di tutto la migrazione a una macchina virtuale locale, quindi usare Azure Migrate per spostare la macchina virtuale in Azure.  
 
-Questo problema è stato risolto in una versione successiva di Windows Server 2019. A questo punto si sarà consentono di specificare le migrazioni che non modificano le impostazioni di rete del server di destinazione. È possibile rilasciare un aggiornamento alla versione esistente di Windows Server 2019 come parte del ciclo di aggiornamento mensile normale. 
+Questo problema è stato risolto in una versione successiva di Windows Admin Center. A questo punto si sarà consentono di specificare le migrazioni che non modificano le impostazioni di rete del server di destinazione. L'estensione aggiornata verrà elencata qui quando rilasciato. 
 
+## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Avvisi di convalida per i privilegi amministrativi di proxy e le credenziali destinazione
+
+Quando la convalida di un processo di trasferimento, verranno visualizzati gli avvisi seguenti:
+
+ > **La credenziale con privilegi amministrativi.**
+ > Avviso: Azione non è disponibile in modalità remota.
+ > **Il proxy di destinazione viene registrato.**
+ > Avviso: Il proxy di destinazione non è stato trovato.
+
+Se non è installato il servizio di archiviazione della migrazione del servizio Proxy nel computer di destinazione Windows Server 2019 o il computer di destinazione è Windows Server 2016 o Windows Server 2012 R2, questo comportamento è per impostazione predefinita. È consigliabile eseguire la migrazione a un computer Windows Server 2019 con il proxy di installazione per ottenere prestazioni significativamente migliorate trasferimento.  
+
+## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Alcuni file non di inventario o trasferimento, errore 5 "accesso negato"
+
+Quando eseguire l'inventario o il trasferimento dei file di origine ai computer di destinazione, i file da cui un utente ha rimosso le autorizzazioni del gruppo Administrators non eseguire la migrazione. Analisi del debug Proxy del Servizio archiviazione migrazione illustra:
+
+  Nome registro:      Origine Microsoft-Windows-StorageMigrationService-Proxy/Debug:        Microsoft-Windows-StorageMigrationService-Proxy Date:          2/26/2019:04 9:00 l'ID evento:      Categoria attività 10000: Nessuno di livello:         Parole chiave di errore:      
+  Utente:          Computer servizio di rete: srv1.contoso.com descrizione:
+
+  Errore di trasferimento 02/26/2019-09:00:04.860 [errore] per \\srv1.contoso.com\public\indy.png: (5) accesso negato.
+Analisi dello stack: A Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile (stringa fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) in Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (percorso della stringa) in Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (file FileInfo) in Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo() in Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() in Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
+
+
+Questo problema è causato da un difetto del codice nel servizio di migrazione di archiviazione in cui è non stato viene richiamato il privilegio di backup. 
+
+Per risolvere questo problema, installare [Windows Update 2 aprile 2019: KB4490481 (17763.404 di Build del sistema operativo)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481) nel computer dell'agente di orchestrazione e il computer di destinazione se è installato il servizio di proxy non esiste. Assicurarsi che l'account utente di origine della migrazione è un amministratore locale nel computer di origine e l'agente di orchestrazione del servizio di migrazione di archiviazione. Assicurarsi che l'account utente della migrazione di destinazione sia un amministratore locale nel computer di destinazione e l'agente di orchestrazione del servizio di migrazione di archiviazione. 
+
+## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Mancata corrispondenza hash di replica DFS quando si usa il servizio di migrazione di archiviazione per eseguito il preseeding dei dati
+
+Quando si usa il servizio di migrazione di archiviazione per trasferire i file in una nuova destinazione, quindi configurare la replica DFS (DFSR) per replicare i dati con un server di replica DFS esistente tramite la replica presseded o del database DFSR la clonazione, tutti i file experiemce un hash mancata corrispondenza e vengono nuovamente replicate. I flussi di dati, flussi di sicurezza, le dimensioni e attributi sembrano corrispondere perfettamente dopo l'utilizzo di SMS per il trasferimento. Analisi dei file con ICACLS o il log di debug clonazione del Database DFSR rivela:
+
+File di origine:
+
+  Icacls d:\test\Source:
+
+  d:\test\thatcher.png icacls/Salva txt /t thatcher.png D:AI(A;; FA;; BA) (A; 0 x1200a9;; 1!d D) (A; 0 x1301bf;; 1!d U) (A; ID; FA;; BA) (A; ID; FA;; SY) (A; ID; 0X1200A9;; BU)
+
+File di destinazione:
+
+  d:\test\thatcher.png icacls/Salva txt /t thatcher.png D:AI(A;; FA;; BA) (A; 0 x1301bf;; 1!d U) (A; 0 x1200a9;; 1!d D) (A; ID; FA;; BA) (A; ID; FA;; SY) (A; ID; 0X1200A9;; BU)**S:PAINO_ACCESS_CONTROL**
+
+Log di Debug per replica DFS:
+
+  20190308 10:18:53.116 3948 4045 DBCL [avviso] DBClone::IDTableImportUpdate mancata corrispondenza record è stato trovato. 
+
+  Hash: 1BCDFE03 ACL locale-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 32: attributi 
+
+  Clonare l'hash ACL:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 32: attributi 
+
+Questo problema è causato da un difetto del codice in una libreria usata dal servizio di migrazione di archiviazione per impostare il controllo di sicurezza ACL (SACL). Un SACL non null involontariamente viene impostato quando l'elenco SACL è vuoto, replica DFS per identificare correttamente una mancata corrispondenza hash iniziali. 
+
+Per risolvere questo problema, continuare a usare Robocopy per [DFSR pre-seeding e operazioni di clonazione del Database DFSR](../dfs-replication/preseed-dfsr-with-robocopy.md) anziché il servizio di migrazione di archiviazione. Si sta esaminando questo problema e si prevede di risolvere il problema in una versione successiva di Windows Server ed eventualmente un eseguito il backport Windows Update. 
+
+## <a name="error-404-when-downloading-csv-logs"></a>Log degli errori 404 durante il download di CSV
+
+Quando si tenta di scaricare i log di trasferimento o di errore alla fine di un'operazione di trasferimento, viene visualizzato l'errore:
+
+  $jobname: Trasferimento di log: errore di ajax 404
+
+Questo errore è previsto se non è stata abilitata la regola del firewall "Condivisione File e stampanti (SMB-In)" nel server di orchestrator. Download di file Windows Admin Center richiedono la porta TCP/445 (SMB) nei computer connessi.  
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Errore "non è stato possibile trasferire archiviazione in uno qualsiasi degli endpoint" quando il trasferimento da Windows Server 2008 R2
+
+Quando si tenta di trasferire i dati da un computer di origine Windows Server 2008 R2, nessun trasnfers dati e viene visualizzato errore:  
+
+  Non è stato possibile trasferire l'archiviazione in uno qualsiasi degli endpoint.
+0x9044
+
+Questo errore è previsto se il computer Windows Server 2008 R2 non è completamente aggiornato con tutte le critici e importanti aggiornamenti da Windows Update. Indipendentemente dal servizio di migrazione di archiviazione, è sempre consigliabile l'applicazione di patch un computer Windows Server 2008 R2 per motivi di sicurezza, come sistema operativo non contiene i miglioramenti della protezione di versioni più recenti di Windows Server.
 
 ## <a name="see-also"></a>Vedere anche
 

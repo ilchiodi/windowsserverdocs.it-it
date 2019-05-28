@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 553ff059693c7b0c0e6f0364d82c1adbca661097
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e3d1e5d86afbef2fdabd211047f513d31a40300
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887252"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190317"
 ---
 # <a name="ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication"></a>Supporto di AD FS per l'associazione di nomi host alternativi per l'autenticazione del certificato
-
->Si applica a: Windows Server 2016
 
 In molte reti i criteri firewall locali potrebbero non consentire il traffico attraverso le porte non standard come 49443. Questo è diventato un problema durante il tentativo di eseguire l'autenticazione del certificato con AD FS prima di ADFS in Windows Server 2016. Questo avviene perché potrebbe non avere associazioni diverse per l'autenticazione del dispositivo e l'autenticazione del certificato utente nello stesso host. La porta predefinita 443 è associata a ricevere i certificati del dispositivo e non può essere modificata per supportare l'associazione più il canale stesso. I risultati sono stati che non è possibile utilizzare l'autenticazione della smart card e gli utenti erano consapevoli di ciò che si è verificato poiché non esiste alcuna indicazione di cosa è successo veramente.  
   
