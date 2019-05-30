@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 4ca50ea8-6987-4081-acd5-5bf9ead62acd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d8568defaf0b282c264b2e6fa80c6eab4f9a3c39
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34f6ec2b50e38042a7530e94915ed6d29d5f76a6
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865162"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266793"
 ---
 # <a name="step-1-plan-directaccess-infrastructure"></a>Passaggio 1 piano l'infrastruttura DirectAccess
 
@@ -37,7 +37,7 @@ Il primo passaggio della pianificazione della distribuzione di base di Accesso r
   
 L'esecuzione di queste attività di pianificazione non richiede un ordine specifico.  
   
-## <a name="bkmk_1_1_Network_svr_top_settings"></a>Pianificare la topologia di rete e impostazioni  
+## <a name="plan-network-topology-and-settings"></a>Pianificare la topologia di rete e le impostazioni  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Pianificare le schede di rete e gli indirizzi IP  
   
@@ -57,7 +57,7 @@ L'esecuzione di queste attività di pianificazione non richiede un ordine specif
   
 3.  Configurare le schede e gli indirizzi necessari in base alla seguente tabella. Per le distribuzioni dietro un dispositivo NAT con una sola scheda di rete, configurare gli indirizzi IP usando solo la colonna 'scheda di rete interna'.  
   
-    ||Scheda di rete esterna|Scheda di rete interna<sup>1</sup>|Requisiti di routing|  
+    ||Scheda di rete esterna|Scheda di rete interna|Requisiti di routing|  
     |-|--------------|--------------------|------------|  
     |Intranet IPv4 e Internet IPv4|Configurare quanto segue:<br /><br />-Un indirizzo IPv4 pubblico statico con la subnet mask appropriate.<br />-Un gateway predefinito IPv4 indirizzo del firewall Internet o router dei provider di servizi Internet locale.|Configurare quanto segue:<br /><br />-Un indirizzo intranet IPv4 con subnet mask appropriata.<br />-Un suffisso DNS specifico della connessione dello spazio dei nomi intranet. È necessario configurare anche un server DNS nell'interfaccia interna.<br />-Non si configura un gateway predefinito in alcuna interfaccia intranet.|Per configurare il server di Accesso remoto in modo da raggiungere tutte le subnet nella rete IPv4 interna, eseguire le operazioni seguenti:<br /><br />1.  Elencare gli spazi degli indirizzi IPv4 per tutti i percorsi nella Intranet.<br />2.  Usare il comando **route add -p** o **netsh interface ipv4 add route** per aggiungere gli spazi degli indirizzi IPv4 come route statiche nella tabella di routing IPv4 del server di Accesso remoto.|  
     |Internet IPv6 e Intranet IPv6|Configurare quanto segue:<br /><br />-Usare la configurazione automatica degli indirizzi fornita dall'ISP.<br />-Usare il **route print** comando per verificare l'esistenza di una route IPv6 predefinita che punta al router ISP nella tabella di routing IPv6.<br />-Determinare se i router ISP e intranet utilizzano preferenze del router predefinite descritte in RFC 4191 e una preferenza predefinita superiore rispetto ai router intranet locali. Se entrambe queste condizioni sono vere, non sono richieste altre configurazioni per la route predefinita. La preferenza superiore per il router ISP garantisce che la route IPv6 predefinita attiva del server di Accesso remoto punta alla rete Internet IPv6.<br /><br />Poiché il server di Accesso remoto è un router IPv6, se si ha un'infrastruttura IPv6 nativa, anche l'interfaccia Internet può raggiungere i controller di dominio sulla Intranet. In questo caso, aggiungere filtri pacchetti al controller di dominio nella rete perimetrale per impedire la connettività all'indirizzo IPv6 dell'interfaccia con connessione Internet del server di Accesso remoto.|Configurare quanto segue:<br /><br />-Se non si usa livelli di preferenza predefiniti, configurare le interfacce intranet con il **netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = abilitato** comando. Il comando verifica che route predefinite aggiuntive che puntano ai router della Intranet non verranno aggiunte alla tabella di routing IPv6. È possibile ottenere l'elemento InterfaceIndex delle interfacce Intranet dalla visualizzazione del comando netsh interface show interface.|Se si ha una Intranet IPv6, per configurare il server di Accesso remoto in modo da raggiungere tutti i percorsi IPv6, eseguire le operazioni seguenti:<br /><br />1.  Elencare gli spazi degli indirizzi IPv6 per tutti i percorsi nella Intranet.<br />2.  Usare il comando **netsh interface ipv6 add route** per aggiungere gli spazi degli indirizzi IPv6 come route statiche nella tabella di routing IPv6 del server di Accesso remoto.|  
@@ -90,7 +90,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
   
 -   TCP/UDP per tutto il traffico IPv4/IPv6  
   
-### <a name="bkmk_1_2_CAs_and_certs"></a>Pianificare i requisiti dei certificati  
+### <a name="plan-certificate-requirements"></a>Pianificare i requisiti dei certificati  
 I requisiti dei certificati per IPsec includono un certificato del computer usato dai computer client DirectAccess quando stabiliscono la connessione IPsec tra il client e il server di Accesso remoto e un certificato del computer usato dai server di Accesso remoto per stabilire le connessioni IPsec con i client DirectAccess. L'uso di questi certificati IPsec non è obbligatorio per DirectAccess in Windows Server 2012. L'Abilitazione guidata DirectAccess consente di configurare il server di Accesso remoto in modo da fungere da proxy Kerberos per eseguire l'autenticazione IPsec senza necessità di certificati.  
   
 1.  **Server IP-HTTPS** -quando si configura accesso remoto, il server di accesso remoto viene configurato automaticamente per funzionare come listener web IP-HTTPS. Il sito IP-HTTPS richiede un certificato del sito Web e i computer client devono riuscire a contattare il sito dell'elenco di revoche di certificati (CRL) per il certificato. L'Abilitazione guidata DirectAccess prova a usare il certificato VPN SSTP. Se SSTP non è configurato, verifica la presenza di un certificato per IP-HTTPS nell'archivio personale sul computer. Se non sono disponibili certificati, viene creato automaticamente un certificato autofirmato.  
@@ -105,7 +105,7 @@ I requisiti di certificazione per ogni scenario sono riepilogati nella seguente 
 ||Autorità di certificazione interna, è possibile usare una CA interna per emettere il certificato IP-HTTPS. Tuttavia, è necessario assicurarsi che il punto di distribuzione CRL sia disponibile esternamente.|Auto-firmato del certificato: È possibile usare un certificato autofirmato per il sito Web server percorsi di rete; Tuttavia, è possibile utilizzare un certificato autofirmato in distribuzioni multisito.|  
 ||Auto-firmato del certificato: È possibile usare un certificato autofirmato per il server IP-HTTPS. Tuttavia, è necessario assicurarsi che il punto di distribuzione CRL sia disponibile esternamente. Non è possibile usare un certificato autofirmato in una distribuzione multisito.||  
   
-#### <a name="bkmk_website_cert_IPHTTPS"></a>Pianificare i certificati per IP-HTTPS  
+#### <a name="plan-certificates-for-ip-https"></a>Pianificare i certificati per IP-HTTPS  
 Il server di Accesso remoto funge da listener IP-HTTPS ed è necessario installare manualmente un certificato del sito Web HTTPS nel server. Durante la pianificazione tenere presente quanto segue:  
   
 -   L'uso di una CA pubblica è consigliato perché consente di avere subito disponibili gli elenchi di revoche di certificati (CRL).  
@@ -174,7 +174,7 @@ In una distribuzione di Accesso remoto, è richiesto il DNS per quanto segue:
   
 -   Per i client DirectAccess, è necessario utilizzare un server DNS che esegue Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 o qualsiasi server DNS che supporti IPv6.  
   
-### <a name="bkmk_1_6_AD"></a>Pianificare Active Directory  
+### <a name="plan-active-directory"></a>Pianificare Active Directory  
 Accesso remoto Usa Active Directory e gli oggetti Criteri di gruppo Active Directory come segue:  
   
 -   **Autenticazione** -Active Directory viene usato per l'autenticazione. Il tunnel Intranet usa l'autenticazione Kerberos in modo che l'utente possa accedere alle risorse interne.  
@@ -207,7 +207,7 @@ Durante la pianificazione di Active Directory per una distribuzione di Accesso r
 > -   Il server di Accesso remoto non può essere un controller di dominio.  
 > -   Il controller di dominio di Active Directory usato per Accesso remoto non deve essere raggiungibile dalla scheda di rete Internet esterna del server di Accesso remoto (la scheda di rete non deve trovarsi nel profilo del dominio di Windows Firewall).  
   
-### <a name="bkmk_1_7_GPOs"></a>Oggetti Criteri di gruppo del piano  
+### <a name="plan-group-policy-objects"></a>Pianificare gli oggetti Criteri di gruppo  
 Le impostazioni di DirectAccess configurate quando si configura Accesso remoto vengono raccolte in oggetti Criteri di gruppo. Tre diversi oggetti Criteri di gruppo vengono popolati con impostazioni DirectAccess e distribuiti come segue:  
   
 -   **GRUPPO di client DirectAccess** -questo oggetto Criteri di gruppo contiene le impostazioni client, incluse impostazioni della tecnologia di transizione IPv6, le voci NRPT e Windows Firewall con regole di sicurezza di connessione di sicurezza avanzata. L'oggetto Criteri di gruppo viene applicato ai gruppi di sicurezza specificati per i computer client.  

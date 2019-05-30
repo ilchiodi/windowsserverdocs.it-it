@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: d6dc2739ae45b29bdfd854c1b81b0c8962c8f107
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891412"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266700"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Ottimizzazione delle prestazioni per file server
 
@@ -94,7 +94,7 @@ Le impostazioni REG\_DWORD seguenti del Registro di sistema possono incidere sul
 
     Il valore predefinito è 10 secondi. Si tratta del timeout della cache delle directory.
 
-    **Nota**   Questo parametro controlla la memorizzazione nella cache dei metadati di directory in assenza di lease di directory.
+    > [!Note]   Questo parametro controlla la memorizzazione nella cache dei metadati di directory in assenza di lease di directory.
 
      
 

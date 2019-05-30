@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 460837c79c0e0d2c48331ddaaffcd118fd16ebc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55dd38c966fea8448231b06cde9c1dd63b024197
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870612"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266764"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Criteri di autenticazione e silo di criteri di autenticazione
 
@@ -88,7 +88,7 @@ Il tipo di account Active Directory determina il ruolo del chiamante come uno de
 
 I criteri per gli oggetti di Active Directory per utenti, computer e servizi, sono definiti dallo schema nella tabella seguente.
 
-|Tipo|Nome visualizzato|Descrizione|
+|Type|Nome visualizzato|Descrizione|
 |----|--------|--------|
 |Condizione|Authentication Policy|Un'istanza di questa classe definisce i comportamenti dei criteri di autenticazione per le entità di sicurezza assegnate.|
 |Condizione|Authentication Policies|Un contenitore di questa classe può includere oggetti di criteri di autenticazione.|
@@ -230,7 +230,7 @@ Nella tabella seguente sono descritti gli eventi associati al gruppo di sicurezz
 
 Gli eventi sono registrati nei registri relativi ad applicazioni e servizi in **Microsoft\Windows\Authentication**.
 
-Per procedure di risoluzione dei problemi che usano questi eventi, vedere [Risolvere i problemi relativi ai criteri di autenticazione](how-to-configure-protected-accounts.md#BKMK_TroubleshootAuthnPolicies) e [Risolvere i problemi degli eventi relativi a Utenti protetti](how-to-configure-protected-accounts.md#BKMK_TrubleshootingEvents).
+Per procedure di risoluzione dei problemi che usano questi eventi, vedere [Risolvere i problemi relativi ai criteri di autenticazione](how-to-configure-protected-accounts.md#troubleshoot-authentication-policies) e [Risolvere i problemi degli eventi relativi a Utenti protetti](how-to-configure-protected-accounts.md#troubleshoot-events-related-to-protected-users).
 
 |ID e registro eventi|Descrizione|
 |----------|--------|
@@ -245,6 +245,6 @@ Per procedure di risoluzione dei problemi che usano questi eventi, vedere [Risol
 
 [Gestione e protezione delle credenziali](credentials-protection-and-management.md)
 
-[Gruppo di sicurezza utenti protetti](protected-users-security-group.md)
+[Gruppo di sicurezza Utenti protetti](protected-users-security-group.md)
 
 

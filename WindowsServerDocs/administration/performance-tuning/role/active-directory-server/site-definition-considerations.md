@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e5c5f8b7cf5c028fbfa5d72c4bc1218565d4087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814022"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266633"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Esatto posizionamento dei controller di dominio e considerazioni sul sito
 
@@ -64,7 +64,7 @@ Attendibilità tra domini gli scenari sono un'area in cui è stato in modo coere
 
     -   Utilizzare DnsAvoidRegisterRecords per eliminare in modo inadeguato prestazioni o ad alta latenza controller di dominio, ad esempio quelli in siti satellite, grazie alla pubblicità per i localizzatori generici. Per altre informazioni, vedi [come ottimizzare la posizione di un controller di dominio o un catalogo globale che si trova di fuori di un sito del client](https://support.microsoft.com/kb/306602).
 
-        **Nota**    è previsto un limite pratico di circa 50 al numero di controller di dominio può usare il client. Deve trattarsi di maggiore capacità sito ottimali e massimi i controller di dominio.
+        > [!Note]   È previsto un limite pratico di circa 50 al numero di controller di dominio che può usare il client. Deve trattarsi di maggiore capacità sito ottimali e massimi i controller di dominio.
 
          
 
@@ -78,7 +78,7 @@ Per tutti gli scenari di attendibilità, le credenziali vengono indirizzate in b
 
 ## <a name="see-also"></a>Vedere anche
 - [Server Active Directory l'ottimizzazione delle prestazioni](index.md)
-- [Considerazioni relative all'hardware](hardware-considerations.md)
-- [Considerazioni di LDAP](ldap-considerations.md)
-- [Risoluzione dei problemi delle prestazioni di ADDS](troubleshoot.md) 
-- [Pianificazione della capacità per servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Considerazioni relative ai requisiti hardware](hardware-considerations.md)
+- [Considerazioni relative a LDAP](ldap-considerations.md)
+- [Risoluzione dei problemi delle prestazioni di Active Directory Domain Services](troubleshoot.md) 
+- [Pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

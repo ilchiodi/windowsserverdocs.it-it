@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cd94c1a05ba52a590d6f84122f81764f52b1ae47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01005b5d69a48b01a1735e690a4a97c46094da23
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880962"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266781"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Passaggio 1 piano, l'infrastruttura DirectAccess avanzato
 
@@ -26,27 +26,27 @@ ms.locfileid: "59880962"
 
 Il primo passaggio della pianificazione della distribuzione avanzata DirectAccess in un solo server consiste nel pianificare l'infrastruttura necessaria per la distribuzione. In questo argomento vengono descritti i passaggi per la pianificazione dell'infrastruttura. Il completamento di queste attività di pianificazione non richiede un ordine specifico.  
   
-|Attività|Descrizione|  
+|Attività|Descrizione| 
 |----|--------|  
-|[1.1 pianificare la topologia di rete e impostazioni](#bkmk_11Networksvrtopsettings)|Decidere dove collocare il server DirectAccess (alla periferia o dietro un dispositivo Network Address Translation (NAT) o un firewall) e pianificare gli indirizzi IP, il routing e il tunneling forzato.|  
-|[1.2 pianificare i requisiti del firewall](#bkmk_ConfigFirewalls)|Pianificare il passaggio del traffico DirectAccess attraverso i firewall periferici.|  
-|[1.3 pianificare i requisiti dei certificati](#bkmk_12CAsandCerts)|Decidere se usare Kerberos o i certificati per l'autenticazione client e pianificare i certificati del sito Web. IP-HTTPS è un protocollo di transizione usato dai client DirectAccess per eseguire il tunneling del traffico IPv6 in reti IPv4. Decidere se autenticare al server IP-HTTPS con un certificato emesso da un'autorità di certificazione (CA) o con un certificato autofirmato emesso automaticamente dal server DirectAccess.|  
-|[1.4 pianificare i requisiti DNS](#bkmk_14Dns)|Pianificare le impostazioni Domain Name System (DNS) per il server DirectAccess, i server dell'infrastruttura, le opzioni di risoluzione dei nomi locali e la connettività client.|  
-|[1.5 pianificare il server dei percorsi di rete](#bkmk_14NLS)|Il server dei percorsi di rete viene usato dai client DirectAccess per determinare se si trovano sulla rete interna. Decidere dove collocare il sito Web del server dei percorsi di rete nell'organizzazione (nel server DirectAccess o in un server alternativo) e pianificare i requisiti dei certificati se il server dei percorsi di rete si trova nel server DirectAccess.|  
-|[1.6 pianificare i server di gestione](#bkmk_15mgmtservers)|È possibile gestire in remoto i computer client DirectAccess che si trovano all'esterno della rete aziendale su Internet. Pianificare i server di gestione, ad esempio i server di aggiornamento, utilizzati durante la gestione remota dei client.|  
-|[1.7 pianificare Active Directory Domain Services](#bkmk_16AD)|Pianificare i controller di dominio, i requisiti di Active Directory, l'autenticazione client e più di un dominio.|  
-|[1.8 oggetti Criteri di gruppo pianificare](#bkmk_17GPOs)|Decidere quali oggetti Criteri di gruppo sono necessari nell'organizzazione e come creare o modificare gli oggetti Criteri di gruppo.|  
+|[1.1 pianificare la topologia di rete e impostazioni](#11-plan-network-topology-and-settings)|Decidere dove collocare il server DirectAccess (alla periferia o dietro un dispositivo Network Address Translation (NAT) o un firewall) e pianificare gli indirizzi IP, il routing e il tunneling forzato.|  
+|[1.2 pianificare i requisiti del firewall](#12-plan-firewall-requirements)|Pianificare il passaggio del traffico DirectAccess attraverso i firewall periferici.|  
+|[1.3 pianificare i requisiti dei certificati](#13-plan-certificate-requirements)|Decidere se usare Kerberos o i certificati per l'autenticazione client e pianificare i certificati del sito Web. IP-HTTPS è un protocollo di transizione usato dai client DirectAccess per eseguire il tunneling del traffico IPv6 in reti IPv4. Decidere se autenticare al server IP-HTTPS con un certificato emesso da un'autorità di certificazione (CA) o con un certificato autofirmato emesso automaticamente dal server DirectAccess.|  
+|[1.4 pianificare i requisiti DNS](#14-plan-dns-requirements)|Pianificare le impostazioni Domain Name System (DNS) per il server DirectAccess, i server dell'infrastruttura, le opzioni di risoluzione dei nomi locali e la connettività client.|  
+|[1.5 pianificare il server dei percorsi di rete](#15-plan-the-network-location-server)|Il server dei percorsi di rete viene usato dai client DirectAccess per determinare se si trovano sulla rete interna. Decidere dove collocare il sito Web del server dei percorsi di rete nell'organizzazione (nel server DirectAccess o in un server alternativo) e pianificare i requisiti dei certificati se il server dei percorsi di rete si trova nel server DirectAccess.|  
+|[1.6 pianificare i server di gestione](#16-plan-management-servers)|È possibile gestire in remoto i computer client DirectAccess che si trovano all'esterno della rete aziendale su Internet. Pianificare i server di gestione, ad esempio i server di aggiornamento, utilizzati durante la gestione remota dei client.|  
+|[1.7 pianificare Active Directory Domain Services](#17-plan-active-directory-domain-services)|Pianificare i controller di dominio, i requisiti di Active Directory, l'autenticazione client e più di un dominio.|  
+|[1.8 oggetti Criteri di gruppo pianificare](#18-plan-group-policy-objects)|Decidere quali oggetti Criteri di gruppo sono necessari nell'organizzazione e come creare o modificare gli oggetti Criteri di gruppo.|  
   
-## <a name="bkmk_11Networksvrtopsettings"></a>1.1 pianificare la topologia di rete e impostazioni  
+## <a name="11-plan-network-topology-and-settings"></a>1.1 Pianificare la topologia di rete e le impostazioni  
 In questa sezione viene spiegato come pianificare la rete, incluse le seguenti operazioni:  
   
--   [1.1.1 pianificare le schede di rete e gli indirizzi IP](#BKMK_NA)  
+-   [1.1.1 pianificare le schede di rete e gli indirizzi IP](#111-plan-network-adapters-and-ip-addressing)  
   
--   [1.1.2 pianificare la connettività intranet IPv6](#bkmk_intranet)  
+-   [1.1.2 pianificare la connettività intranet IPv6](#112-plan-ipv6-intranet-connectivity)  
   
--   [1.1.3 pianificare il tunneling forzato](#bkmk_force)  
+-   [1.1.3 pianificare il tunneling forzato](#113-plan-for-force-tunneling)  
   
-### <a name="BKMK_NA"></a>1.1.1 pianificare le schede di rete e gli indirizzi IP  
+### <a name="111-plan-network-adapters-and-ip-addressing"></a>1.1.1 Pianificare le schede di rete e gli indirizzi IP  
   
 1.  Identificare la topologia delle schede di rete da usare. DirectAccess può essere impostato con una delle seguenti topologie:  
   
@@ -76,7 +76,7 @@ In questa sezione viene spiegato come pianificare la rete, incluse le seguenti o
     > -   Se il server DirectAccess ha una sola scheda di rete, Teredo non può essere usato.  
     > -   I computer client IPv6 nativi possono connettersi al server DirectAccess con un IPv6 nativo e non è richiesta alcuna tecnologia di transizione.  
   
-### <a name="bkmk_intranet"></a>1.1.2 pianificare la connettività intranet IPv6  
+### <a name="112-plan-ipv6-intranet-connectivity"></a>1.1.2 Pianificare la connettività Intranet IPv6  
 Per gestire i client DirectAccess remoti è necessario IPv6. IPv6 consente ai server di gestione DirectAccess di connettersi ai client DirectAccess che si trovano su Internet per gestirli in remoto.  
   
 > [!NOTE]  
@@ -85,7 +85,7 @@ Per gestire i client DirectAccess remoti è necessario IPv6. IPv6 consente ai se
 > -   Il protocollo ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) non è supportato nelle distribuzioni DirectAccess.  
 > -   Quando si usa IPv6, è possibile abilitare le query dei record di risorse dell'host IPv6 (AAAA) per DNS64 con il seguente comando di Windows PowerShell:   **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**.  
   
-### <a name="bkmk_force"></a>1.1.3 pianificare il tunneling forzato  
+### <a name="113-plan-for-force-tunneling"></a>1.1.3 Pianificare il tunneling forzato  
 Per impostazione predefinita, con IPv6 e la tabella dei criteri di risoluzione dei nomi (NRPT), i client DirectAccess separano il traffico Intranet e Internet come segue:  
   
 -   Lo scambio delle query relative ai nomi DNS per i nomi di dominio completi (FQDN) e di tutto il traffico Intranet avviene attraverso i tunnel creati con il server DirectAccess o direttamente con i server della Intranet. Il traffico Intranet dai client DirectAccess è traffico di tipo IPv6.  
@@ -113,7 +113,7 @@ L'abilitazione del tunneling forzato presente la seguenti conseguenze:
 > 1.  Aggiungere una voce NRPT per ipv6.msftncsi.com e risolverla con DNS64 in un sito Web interno (ad esempio, un sito Web IPv4).  
 > 2.  Aggiungere una voce NRPT per dns.msftncsi.com e risolverla con un server DNS aziendale per restituire il record di risorse dell'host IPv6 (AAAA) fd3e:4f5a:5b81::1. (L'uso di DNS64 per il solo invio di query dei record di risorse dell'host (A) per questo nome di dominio completo potrebbe non funzionare perché è configurato nelle distribuzioni solo IPv4, quindi è necessario configurarlo per la risoluzione diretta con il DNS aziendale).  
   
-## <a name="bkmk_ConfigFirewalls"></a>1.2 pianificare i requisiti del firewall  
+## <a name="12-plan-firewall-requirements"></a>1.2 Pianificare i requisiti firewall  
 Se il server DirectAccess è protetto da un firewall periferico, sono necessarie le seguenti eccezioni per il traffico di Accesso remoto quando il server DirectAccess si trova nella rete Internet IPv4:  
   
 -   Porta di destinazione Datagram Protocol (UDP) 3544 utente di traffico Teredo in entrata e porta UDP di origine 3544 in uscita.  
@@ -145,20 +145,20 @@ Quando si usano altri firewall, applicare le seguenti eccezioni firewall della r
   
 -   ICMP per tutto il traffico IPv4 e IPv6 (solo quando si usa Teredo)  
   
-## <a name="bkmk_12CAsandCerts"></a>1.3 pianificare i requisiti dei certificati  
+## <a name="13-plan-certificate-requirements"></a>1.3 Pianificare i requisiti dei certificati  
 Quando si distribuisce un server DirectAccess singolo, i certificati sono richiesti in tre scenari:  
   
--   [1.3.1 pianificare i certificati del computer per l'autenticazione IPsec](#BKMK_compcert)  
+-   [1.3.1 pianificare i certificati del computer per l'autenticazione IPsec](#131-plan-computer-certificates-for-ipsec-authentication)  
   
     I requisiti dei certificati per IPsec includono un certificato del computer usato dai computer client DirectAccess quando stabiliscono la connessione IPsec tra il client e il server DirectAccess e un certificato del computer usato dal server DirectAccess per stabilire le connessioni IPsec con i client DirectAccess.  
   
     L'utilizzo di questi certificati IPsec non è obbligatorio per DirectAccess in Windows Server 2012. In alternativa, il server DirectAccess può fungere da proxy Kerberos per eseguire l'autenticazione IPsec senza necessità di certificati. Se viene usato, il protocollo Kerberos viene eseguito su SSL e il proxy Kerberos usa il certificato configurato per IP-HTTPS a questo scopo. In alcuni scenari di grandi imprese (incluse la distribuzione multisito e l'autenticazione client con One-Time Password, OTP) è richiesta l'autenticazione dei certificati e non il protocollo Kerberos.  
   
--   [1.3.2 pianificare i certificati per IP-HTTPS](#bkmk_iph)  
+-   [1.3.2 pianificare i certificati per IP-HTTPS](#132-plan-certificates-for-ip-https)  
   
     Quando si configura Accesso remoto, il server DirectAccess viene configurato automaticamente per funzionare come listener IP-HTTPS. Il sito IP-HTTPS richiede un certificato del sito Web e i computer client devono riuscire a contattare il sito dell'elenco di revoche di certificati (CRL) per il certificato.  
   
--   [1.3.3 pianificare i certificati del sito Web per il server dei percorsi di rete](#bkmk_webnlc)  
+-   [1.3.3 pianificare i certificati del sito Web per il server dei percorsi di rete](#133-plan-website-certificates-for-the-network-location-server)  
   
     Il server dei percorsi rete è un sito Web usato per rilevare se i computer client si trovano nella rete aziendale. Il server dei percorsi di rete richiede un certificato di sito Web. I client DirectAccess devono poter contattare il sito CRL per il certificato.  
   
@@ -170,7 +170,7 @@ I requisiti dell'autorità di certificazione (CA) per ogni scenario sono riepilo
 ||Certificato autofirmato:<br /><br />È possibile usare un certificato autofirmato per il server IP-HTTPS, però è necessario verificare che il punto di distribuzione CRL sia disponibile esternamente.<br /><br />Un certificato autofirmato non può essere usato in distribuzioni multisito.|Certificato autofirmato:<br /><br />È possibile usare un certificato autofirmato per il sito Web del server dei percorsi di rete.<br /><br />Un certificato autofirmato non può essere usato in distribuzioni multisito.|  
 ||**Consigliato**<br /><br />CA pubblica:<br /><br />Si consiglia di usare una CA pubblica per emettere il certificato IP-HTTPS perché assicura che il punto di distribuzione CRL sia disponibile esternamente.|  
   
-### <a name="BKMK_compcert"></a>1.3.1 pianificare i certificati del computer per l'autenticazione IPsec  
+### <a name="131-plan-computer-certificates-for-ipsec-authentication"></a>1.3.1 Pianificare i certificati del computer per l'autenticazione IPsec  
 Se si usa l'autenticazione IPsec basata su certificato, il server e i client DirectAccess devono ottenere un certificato del computer. Il modo più semplice per installare i certificati consiste nel configurare una registrazione automatica basata sui Criteri di gruppo per i certificati del computer. In questo modo, tutti i membri del dominio ottengono un certificato da una CA globale (enterprise). Se non è una CA impostato all'interno dell'organizzazione, vedere [Servizi certificati Active Directory](https://technet.microsoft.com/library/cc770357.aspx).  
   
 Questo certificato ha i seguenti requisiti:  
@@ -179,7 +179,7 @@ Questo certificato ha i seguenti requisiti:
   
 -   I certificati client e server devono essere concatenati allo stesso certificato radice, che deve essere selezionato nelle impostazioni di configurazione DirectAccess.  
   
-### <a name="bkmk_iph"></a>1.3.2 pianificare i certificati per IP-HTTPS  
+### <a name="132-plan-certificates-for-ip-https"></a>1.3.2 Pianificare i certificati per IP-HTTPS  
 Il server DirectAccess funge da listener IP-HTTPS ed è necessario installare un certificato del sito Web HTTPS nel server. Durante la pianificazione, prendere in considerazione gli elementi seguenti:  
   
 -   L'uso di una CA pubblica è consigliato perché consente di avere subito disponibili gli elenchi di revoche di certificati (CRL).  
@@ -190,7 +190,7 @@ Il server DirectAccess funge da listener IP-HTTPS ed è necessario installare un
   
 -   Per il **Enhanced Key Usage** campo, utilizzare l'identificatore di oggetto (OID) autenticazione server.  
   
--   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)**, specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
+-   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
   
 -   Il certificato IP-HTTPS deve avere una chiave privata.  
   
@@ -284,26 +284,26 @@ Per usare IP-HTTPS in una porta non standard, eseguire i passaggi seguenti nel c
   
 Per completare la procedura manuale per l'utilizzo di una porta non standard IP-HTTPS, eseguire **gpupdate /force** sul computer client e il server DirectAccess.  
   
-### <a name="bkmk_webnlc"></a>1.3.3 pianificare i certificati del sito Web per il server dei percorsi di rete  
+### <a name="133-plan-website-certificates-for-the-network-location-server"></a>1.3.3 Pianificare i certificati del sito Web per il server dei percorsi di rete  
 Quando si pianifica il sito Web del server dei percorsi di rete, tenere presente quanto segue:  
   
 -   Nel **soggetto** specificare l'indirizzo IP dell'interfaccia intranet del server dei percorsi di rete o il nome di dominio COMPLETO dell'URL del percorso di rete.  
   
 -   Nel **Enhanced Key Usage** campo, usare l'OID di autenticazione Server.  
   
--   Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)**, usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
+-   Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
   
 -   Se si pianifica la successiva configurazione di una distribuzione multisito o cluster, il nome del certificato non deve corrispondere al nome interno dei server DirectAccess aggiunti alla distribuzione.  
   
     > [!NOTE]  
     > Verificare che i certificati per IP-HTTPS e il server dei percorsi di rete abbiano un **nome soggetto**. Se il certificato non dispone di un **nome soggetto**, ma ha un **nome alternativo**, non verrà accettato dalla procedura guidata accesso remoto.  
   
-## <a name="bkmk_14Dns"></a>1.4 pianificare i requisiti DNS  
+## <a name="14-plan-dns-requirements"></a>1.4 Pianificare i requisiti DNS  
 In questa sezione vengono spiegati i requisiti DNS per le richieste dei client DirectAccess e i server dell'infrastruttura in una distribuzione di Accesso remoto. Sono incluse le sottosezioni seguenti:  
   
--   [1.4.1 pianificare i requisiti del server DNS](#bkmk_dnsserverrequirements)  
+-   [1.4.1 pianificare i requisiti del server DNS](#141-plan-for-dns-server-requirements)  
   
--   [1.4.2 pianificare la risoluzione dei nomi locali](#bkmk_dnslocalname)  
+-   [1.4.2 pianificare la risoluzione dei nomi locali](#142-plan-for-local-name-resolution)  
   
 **Richieste dei client DirectAccess**  
   
@@ -361,7 +361,7 @@ Il rilevamento automatico funziona in questo modo:
   
     È possibile creare altri strumenti di verifica della connettività con altri indirizzi Web su HTTP o usando **ping**. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
   
-### <a name="bkmk_dnsserverrequirements"></a>1.4.1 pianificare i requisiti del server DNS  
+### <a name="141-plan-for-dns-server-requirements"></a>1.4.1 Pianificare i requisiti del server DNS  
 Di seguito sono descritti i requisiti per DNS quando si distribuisce DirectAccess.  
   
 -   Per i client DirectAccess, è necessario utilizzare un server DNS che esegue Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 o qualsiasi altro server DNS che supporti IPv6.  
@@ -373,7 +373,7 @@ Di seguito sono descritti i requisiti per DNS quando si distribuisce DirectAcces
   
 -   Il nome di dominio completo per i punti di distribuzione CRL accessibili da Internet deve essere risolvibile con i server DNS Internet. Ad esempio, se URL https://crl.contoso.com/crld/corp-DC1-CA.crl è il **punti di distribuzione CRL** campo del certificato IP-HTTPS del server DirectAccess, è necessario assicurarsi che il nome di dominio completo crld.contoso.com sia risolvibile mediante server DNS Internet.  
   
-### <a name="bkmk_dnslocalname"></a>1.4.2 pianificare la risoluzione dei nomi locali  
+### <a name="142-plan-for-local-name-resolution"></a>1.4.2 Pianificare la risoluzione dei nomi locali  
 Quando si pianifica la risoluzione dei nomi locali, tenere presenti i seguenti problemi:  
   
 **NRPT**  
@@ -421,11 +421,11 @@ La risoluzione dei nomi locali è in genere necessaria per la connettività peer
   
 -   **Utilizzare la risoluzione dei nomi locali se il nome non esiste nel DNS**. Questa opzione è la più sicura perché il client DirectAccess esegue la risoluzione dei nomi locali solo per i nomi dei server che non possono essere risolti dal server DNS Intranet. Se i server DNS Intranet sono raggiungibili, i nomi di server Intranet vengono risolti. Se i server DNS Intranet non sono raggiungibili o se si verificano altri tipi di errori DNS, i nomi di server Intranet non vengono comunicati alla subnet mediante la risoluzione dei nomi locali.  
   
--   **Usa risoluzione dei nomi locali se il nome non esiste nel DNS o i server DNS non sono raggiungibili quando il computer client si trova in una rete privata (opzione consigliata)**. Questa opzione è consigliata perché consente l'uso della risoluzione dei nomi locali in una rete privata solo quando i server DNS Intranet non sono raggiungibili.  
+-   **Usa risoluzione dei nomi locali se il nome non esiste nel DNS o i server DNS non sono raggiungibili quando il computer client si trova in una rete privata (opzione consigliata)** . Questa opzione è consigliata perché consente l'uso della risoluzione dei nomi locali in una rete privata solo quando i server DNS Intranet non sono raggiungibili.  
   
--   **Utilizzare la risoluzione dei nomi locali per qualsiasi tipo di errore di risoluzione DNS (opzione meno sicura)**. Si tratta dell'opzione meno sicura, poiché i nomi dei server della rete Intranet possono essere comunicati alla subnet locale mediante risoluzione dei nomi locali.  
+-   **Utilizzare la risoluzione dei nomi locali per qualsiasi tipo di errore di risoluzione DNS (opzione meno sicura)** . Si tratta dell'opzione meno sicura, poiché i nomi dei server della rete Intranet possono essere comunicati alla subnet locale mediante risoluzione dei nomi locali.  
   
-## <a name="bkmk_14NLS"></a>1.5 pianificare il server dei percorsi di rete  
+## <a name="15-plan-the-network-location-server"></a>1.5 Pianificare il server dei percorsi di rete  
 Il server dei percorsi di rete è un sito Web usato per rilevare se i client DirectAccess si trovano nella rete aziendale. I client nella rete aziendale non usano DirectAccess per raggiungere le risorse interne, ma vi si connettono direttamente.  
   
 Il sito Web del server dei percorsi di rete può essere ospitato nel server DirectAccess o in un altro server dell'organizzazione. Se si ospita il server dei percorsi di rete nel server DirectAccess, il sito Web viene creato automaticamente quando si installa il ruolo server Accesso remoto. Se si ospita il server dei percorsi di rete in un altro server dell'organizzazione che esegue un sistema operativo Windows, verificare che Internet Information Services (IIS) sia installato nel server e che il sito Web sia stato creato. DirectAccess non configura le impostazioni in un server dei percorsi di rete remoto.  
@@ -451,12 +451,12 @@ Quando si richiede il certificato del sito Web da usare per il server dei percor
   
 2.  Nel **Enhanced Key Usage** campo, usare l'OID di autenticazione Server.  
   
-3.  Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)**, usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
+3.  Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
   
 ### <a name="152-plan-dns-for-the-network-location-server"></a>1.5.2 Pianificare il DNS per il server dei percorsi di rete  
 I client DirectAccess tentano di raggiungere il server dei percorsi di rete per determinare se si trovano sulla rete interna. I client nella rete interna devono poter risolvere il nome del server dei percorsi di rete, ma non quello del percorso in cui si trovano sulla rete Internet. Per verificarlo, il nome di dominio completo del server dei percorsi di rete viene aggiunto per impostazione predefinita come regola di esenzione nella tabella dei criteri di risoluzione dei nomi.  
   
-## <a name="bkmk_15mgmtservers"></a>1.6 pianificare i server di gestione  
+## <a name="16-plan-management-servers"></a>1.6 Pianificare i server di gestione  
 I client DirectAccess avviano le comunicazioni con i server di gestione che forniscono servizi quali Windows Update e gli aggiornamenti antivirus. I client DirectAccess usano anche il protocollo Kerberos per contattare i controller di dominio per l'autenticazione prima dell'accesso alla rete interna. Durante la gestione remota dei client DirectAccess, i server di gestione comunicano con i computer client per eseguire funzioni di gestione quali le valutazioni degli inventari software o hardware. Accesso remoto può individuare automaticamente alcuni server di gestione, tra cui:  
   
 -   Dominio controller--l'individuazione automatica dei controller di dominio viene eseguita per tutti i domini nella stessa foresta come i computer client e server DirectAccess.  
@@ -471,12 +471,12 @@ I controller di dominio e i server System Center Configuration Manager vengono r
   
 -   I server di gestione che avviano connessioni ai client DirectAccess devono supportare completamente IPv6 con un indirizzo IPv6 nativo o usando un altro indirizzo assegnato da ISATAP.  
   
-## <a name="bkmk_16AD"></a>1.7 pianificare Active Directory Domain Services  
+## <a name="17-plan-active-directory-domain-services"></a>1.7 Pianificare Servizi di dominio Active Directory  
 Questa sezione illustra come viene usato Servizi di dominio Active Directory (AD DS) in DirectAccess e comprende le seguenti sottosezioni:  
   
--   [1.7.1 pianificare l'autenticazione client](#bkmk_clientauth)  
+-   [1.7.1 pianificare l'autenticazione client](#171-plan-client-authentication)  
   
--   [1.7.2 pianificare più domini](#bkmk_multiple)  
+-   [1.7.2 pianificare più domini](#172-plan-multiple-domains)  
   
 DirectAccess utilizza oggetti Criteri di dominio Active Directory e Active Directory gruppo (GPO) come indicato di seguito:  
   
@@ -518,7 +518,7 @@ Quando si pianifica AD DS per una distribuzione DirectAccess, tenere presenti i 
 > -   Il server DirectAccess non può essere un controller di dominio.  
 > -   Il controller di dominio AD DS usato per DirectAccess non deve essere raggiungibile dalla scheda Internet esterna del server DirectAccess (la scheda non deve trovarsi nel profilo di dominio di Windows Firewall).  
   
-### <a name="bkmk_clientauth"></a>1.7.1 pianificare l'autenticazione client  
+### <a name="171-plan-client-authentication"></a>1.7.1 Pianificare l'autenticazione client  
 DirectAccess consente di scegliere se usare i certificati per l'autenticazione dei computer IPsec o un proxy Kerberos incorporato che esegue l'autenticazione con nomi utente e password.  
   
 Se si sceglie di usare le credenziali Ad DS per l'autenticazione, DirectAccess usa un tunnel di sicurezza con Kerberos computer per la prima autenticazione e Kerberos utente per la seconda. Quando si usa questa modalità per l'autenticazione, DirectAccess usa un solo tunnel di sicurezza che fornisce l'accesso al server DNS, al controller di dominio e ad altri server sulla rete interna.  
@@ -535,7 +535,7 @@ Quando DirectAccess sceglie di consentire l'accesso ai client che eseguono Windo
   
 -   Il tunnel Intranet usa le credenziali del certificato del computer per la prima autenticazione e Kerberos utente per la seconda.  
   
-### <a name="bkmk_multiple"></a>1.7.2 pianificare più domini  
+### <a name="172-plan-multiple-domains"></a>1.7.2 Pianificare più domini  
 L'elenco dei server di gestione deve includere i controller di dominio di tutti i domini che contengono gruppi di sicurezza con computer client DirectAccess. Deve contenere tutti i domini con account utente che potrebbero usare i computer configurati come client DirectAccess. In questo modo, si assicura gli utenti non presenti nello stesso dominio del computer client che stanno usando vengano autenticati con un controller di dominio nel dominio utente. Questa operazione viene eseguita automaticamente se i domini si trovano nella stessa foresta.  
   
 > [!NOTE]  
@@ -543,20 +543,20 @@ L'elenco dei server di gestione deve includere i controller di dominio di tutti 
   
 Dove possibile, aggiungere i suffissi dei nomi di dominio comuni alla tabella dei criteri di risoluzione dei nomi (NRPT) durante la distribuzione di Accesso remoto. Ad esempio, se si hanno due domini, domain1.corp.contoso.com e domain2.corp.contoso.com, è possibile aggiungere una voce del suffisso DNS comune con il suffisso del nome di dominio corp.contoso.com, invece di due voci nella tabella dei criteri di risoluzione dei nomi. Questa operazione è automatica nei domini nella stessa radice, mentre i domini che non si trovano nella stessa radice devono essere aggiunti manualmente.  
   
-Se Windows Internet Name Service (WINS) viene distribuito in un ambiente con più domini, è necessario distribuire una zona di ricerca diretta WINS in DNS. Per ulteriori informazioni, vedere **i nomi con etichetta singola** nel [1.4.2 pianificare la risoluzione dei nomi locali](#bkmk_dnslocalname) in precedenza in questo documento.  
+Se Windows Internet Name Service (WINS) viene distribuito in un ambiente con più domini, è necessario distribuire una zona di ricerca diretta WINS in DNS. Per ulteriori informazioni, vedere **i nomi con etichetta singola** nel [1.4.2 pianificare la risoluzione dei nomi locali](#142-plan-for-local-name-resolution) in precedenza in questo documento.  
   
-## <a name="bkmk_17GPOs"></a>1.8 oggetti Criteri di gruppo pianificare  
+## <a name="18-plan-group-policy-objects"></a>1.8 Pianificare gli oggetti Criteri di gruppo  
 Questa sezione illustra il ruolo degli oggetti Criteri di gruppo nell'infrastruttura di Accesso remoto e comprende le seguenti sottosezioni:  
   
--   [1.8.1 configurare oggetti Criteri di gruppo creati automaticamente](#bkmk_autoGPO)  
+-   [1.8.1 configurare oggetti Criteri di gruppo creati automaticamente](#181-configure-automatically-created-gpos)  
   
--   [1.8.2 configurare oggetti Criteri di gruppo creati manualmente](#bkmk_manualGPO)  
+-   [1.8.2 configurare oggetti Criteri di gruppo creati manualmente](#182-configure-manually-created-gpos)  
   
--   [1.8.3 gestire oggetti Criteri di gruppo in un ambiente multidominio controller](#bkmk_multiDC)  
+-   [1.8.3 gestire oggetti Criteri di gruppo in un ambiente multidominio controller](#183-manage-gpos-in-a-multi-domain-controller-environment)  
   
--   [1.8.4 gestire GPO di accesso remoto con autorizzazioni limitate](#bkmk_manageGPO)  
+-   [1.8.4 gestire GPO di accesso remoto con autorizzazioni limitate](#184-manage-remote-access-gpos-with-limited-permissions)  
   
--   [1.8.5 ripristinare da un oggetto Criteri di gruppo eliminato](#bkmk_delGPO)  
+-   [1.8.5 ripristinare da un oggetto Criteri di gruppo eliminato](#185-recover-from-a-deleted-gpo)  
   
 Le impostazioni DirectAccess configurate durante la configurazione di Accesso remoto vengono raccolte negli oggetti Criteri di gruppo. I seguenti tipi di oggetti Criteri di gruppo vengono popolati con le impostazioni DirectAccess e distribuiti come segue:  
   
@@ -588,7 +588,7 @@ Se si usano oggetti Criteri di gruppo configurati automaticamente o manualmente,
   
 Se non esistono autorizzazioni corrette (elencate nelle seguenti sezioni) per il collegamento degli oggetti Criteri di gruppo, viene emesso un avviso. L'operazione di Accesso remoto continua, ma il collegamento non verrà eseguito. Se viene emesso questo avviso non verranno creati automaticamente i collegamenti, nemmeno dopo che saranno state aggiunte le autorizzazioni. L'amministratore dovrà invece creare i collegamenti manualmente.  
   
-### <a name="bkmk_autoGPO"></a>1.8.1 configurare oggetti Criteri di gruppo creati automaticamente  
+### <a name="181-configure-automatically-created-gpos"></a>1.8.1 Configurare gli oggetti Criteri di gruppo creati automaticamente  
 Tenere presente quanto segue quando si usano gli oggetti Criteri di gruppo creati automaticamente.  
   
 Gli oggetti Criteri di gruppo creati automaticamente vengono applicati secondo i parametri di percorso e destinazione collegamento, come segue:  
@@ -611,7 +611,7 @@ Inoltre, sono necessarie le seguenti autorizzazioni:
   
 -   È consigliabile che l'amministratore di Accesso remoto disponga delle autorizzazioni di lettura dell'oggetto Criteri di gruppo per ogni dominio richiesto. Ciò consente ad Accesso remoto di verificare che non esistano oggetti Criteri di gruppo con nomi duplicati durante la creazione degli oggetti Criteri di gruppo.  
   
-### <a name="bkmk_manualGPO"></a>1.8.2 configurare oggetti Criteri di gruppo creati manualmente  
+### <a name="182-configure-manually-created-gpos"></a>1.8.2 Configurare gli oggetti Criteri di gruppo creati manualmente  
 Tenere presente quanto segue quando si usano gli oggetti Criteri di gruppo creati manualmente:  
   
 -   Gli oggetti Criteri di gruppo devono essere presenti prima di eseguire la Configurazione guidata Accesso remoto.  
@@ -620,7 +620,7 @@ Tenere presente quanto segue quando si usano gli oggetti Criteri di gruppo creat
   
 -   Viene eseguita una ricerca nell'intero dominio per un collegamento all'oggetto Criteri di gruppo. Se l'oggetto Criteri di gruppo non è collegato nel dominio, verrà automaticamente creato un collegamento nel dominio radice. Se le autorizzazioni richieste per creare il collegamento non sono disponibili verrà emesso un avviso.  
   
-### <a name="bkmk_multiDC"></a>1.8.3 gestire oggetti Criteri di gruppo in un ambiente multidominio controller  
+### <a name="183-manage-gpos-in-a-multi-domain-controller-environment"></a>1.8.3 Gestire gli oggetti Criteri di gruppo in un ambiente con più controller di dominio  
 Ogni oggetto Criteri di gruppo viene gestito da uno specifico controller di dominio, come descritto di seguito:  
   
 -   L'oggetto Criteri di gruppo del server viene gestito da uno dei controller di dominio nel sito Active Directory associato al server. Se i controller di dominio nel sito sono di sola lettura, l'oggetto Criteri di gruppo del server viene gestito dal controller di dominio con autorizzazioni di scrittura più prossimo al server DirectAccess.  
@@ -651,7 +651,7 @@ In alternativa, è possibile modificare l'impostazione predefinita dalla finestr
     Save-NetGPO -GpoSession $gpoSession  
     ```  
   
-### <a name="bkmk_manageGPO"></a>1.8.4 gestire GPO di accesso remoto con autorizzazioni limitate  
+### <a name="184-manage-remote-access-gpos-with-limited-permissions"></a>1.8.4 Gestire gli oggetti Criteri di gruppo di Accesso remoto con autorizzazioni limitate  
 Per gestire una distribuzione di Accesso remoto, all'amministratore di Accesso remoto sono necessarie le autorizzazioni complete per gli oggetti Criteri di gruppo (autorizzazioni di sicurezza di lettura, modifica ed eliminazione) usati nella distribuzione. Ciò è richiesto perché la Console di gestione Accesso remoto e i moduli PowerShell di Accesso remoto leggono e scrivono la configurazione negli oggetti Criteri di gruppo di Accesso remoto (cioè, gli oggetti Criteri di gruppo del client, del server e del server applicazioni).  
   
 In molte organizzazioni, l'amministratore di dominio responsabile delle operazioni con gli oggetti Criteri di gruppo non coincide con l'amministratore di Accesso remoto responsabile della configurazione di Accesso remoto. Queste organizzazioni possono avere dei criteri che limitano le autorizzazioni dell'amministratore di Accesso remoto sugli oggetti Criteri di gruppo nel dominio. All'amministratore di dominio può essere anche richiesto di esaminare la configurazione dei criteri prima di applicarla a tutti i computer nel dominio.  
@@ -668,7 +668,7 @@ Questa configurazione viene illustrata nel seguente diagramma.
   
 ![Gestire oggetti Criteri di gruppo di accesso remoto](../../../media/Step-1-Plan-the-DirectAccess-Infrastructure/DA_Plan_Advanced_Step1_GPOS.png)  
   
-### <a name="bkmk_delGPO"></a>1.8.5 ripristinare da un oggetto Criteri di gruppo eliminato  
+### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Eseguire un ripristino da un oggetto Criteri di gruppo eliminato  
 Se un oggetto Criteri di gruppo del client, del server DirectAccess o del server applicazioni è stato eliminato per errore e non è disponibile un backup, è necessario rimuovere le impostazioni di configurazione e riconfigurarle. Se è disponibile un backup sarà possibile ripristinare l'oggetto Criteri di gruppo.  
   
 La Console di gestione Accesso remoto visualizza il seguente messaggio di errore: **Oggetto Criteri di gruppo <GPO name> nebyla nalezena**. Per rimuovere le impostazioni di configurazione eseguire la procedura seguente:  
@@ -679,7 +679,7 @@ La Console di gestione Accesso remoto visualizza il seguente messaggio di errore
   
 3.  Verrà visualizzato un messaggio di errore che informa che l'oggetto Criteri di gruppo non è stato trovato. Fare clic su **rimuovere impostazioni di configurazione**. Al termine, verrà ripristinato lo stato non configurato del server.  
   
-## <a name="BKMK_Links"></a>Passaggio successivo  
+## <a name="next-step"></a>Passaggio successivo  
   
 -   [Passaggio 2: Pianificare le distribuzioni di DirectAccess](da-adv-plan-s2-deployments.md)  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8d23cc1bb5739b47c755d90c927cbcf82b8da7f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5e1ee9b7c1ade184cf17b867b7fce10ab8885f0f
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64771886"
 ---
 # <a name="color"></a>color
 
@@ -44,25 +44,27 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>Note
 
--   Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per *B* e *F*.  
-    |Value|Colore|
-    |-----|-----|
-    |0|Nero|
-    |1|Blu|
-    |2|Verde|
-    |3|Aqua|
-    |4|Rossa|
-    |5|Viola|
-    |6|Giallo|
-    |7|Bianco|
-    |8|Grigio|
-    |9|Azzurro|
-    |A|Verde chiaro|
-    |B|Azzurro|
-    |C|Rosso|
-    |D|Viola chiaro|
-    |E|Giallo|
-    |F|Sfondo bianco|
+-   Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per *B* e *F*.
+
+|Value|Colore|
+|-----|-----|
+|0|Nero|
+|1|Blu|
+|2|Verde|
+|3|Aqua|
+|4|Rossa|
+|5|Viola|
+|6|Giallo|
+|7|Bianco|
+|8|Grigio|
+|9|Azzurro|
+|A|Verde chiaro|
+|B|Azzurro|
+|C|Rosso|
+|D|Viola chiaro|
+|E|Giallo|
+|F|Sfondo bianco|
+    
 -   Non utilizzare caratteri di spazio tra *B* e *F*.
 -   Se si specifica solo una cifra esadecimale, il colore corrispondente viene utilizzato come colore di primo piano e il colore di sfondo è impostato il colore predefinito.
 -   Per impostare il colore predefinito della finestra prompt dei comandi, fare clic nell'angolo superiore sinistro della finestra del prompt dei comandi, fare clic su **impostazioni predefinite**, fare clic sui **colori** scheda e quindi scegliere i colori che si desidera utilizzare per il **testo visualizzato sullo schermo** e **dello sfondo**.
@@ -84,4 +86,4 @@ color e
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

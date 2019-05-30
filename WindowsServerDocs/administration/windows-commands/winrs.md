@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9224e2572d7d5efded149cd113730dabc1624299
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c54a747f4dde1113fa735c1408f48dbfaf2e74dc
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843612"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260265"
 ---
 # <a name="winrs"></a>winrs
 
@@ -32,12 +32,12 @@ winrs [/<parameter>[:<value>]] <command>
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|[/remote]:\<endpoint>|Specifica l'endpoint di destinazione utilizzando un nome NetBIOS o la connessione standard:<br /><br />-   <url>: [\<transport > ://]\<destinazione > [:\<porta >]<br /><br />Se non specificato, **/r:localhost** viene usato.|  
-|/unencrypted]|Specifica che i messaggi alla shell remota non verranno crittografati. Ciò è utile per la risoluzione dei problemi o quando il traffico di rete è già stato crittografato utilizzando **ipsec**, o quando viene applicata la protezione fisica.<br /><br />Per impostazione predefinita, i messaggi vengono crittografati usando chiavi Kerberos o NTLM.<br /><br />Questa opzione della riga di comando viene ignorata quando viene selezionato il trasporto HTTPS.|  
-|/username]:\<username>|Specifica il nome utente nella riga di comando.<br /><br />Se non specificato, lo strumento userà l'autenticazione con negoziazione o prompt dei comandi per il nome.<br /><br />Se **/username** omette **/password** deve anche essere specificato.|  
-|/password]:\<password>|Specifica la password nella riga di comando.<br /><br />Se **/password** non è specificato ma **/username** è, lo strumento verrà chiesta la password.<br /><br />Se **/password** omette **/username** deve anche essere specificato.|  
+|/remote:\<endpoint>|Specifica l'endpoint di destinazione utilizzando un nome NetBIOS o la connessione standard:<br /><br />-   <url>: [\<transport > ://]\<destinazione > [:\<porta >]<br /><br />Se non specificato, **/r:localhost** viene usato.|  
+|/unencrypted|Specifica che i messaggi alla shell remota non verranno crittografati. Ciò è utile per la risoluzione dei problemi o quando il traffico di rete è già stato crittografato utilizzando **ipsec**, o quando viene applicata la protezione fisica.<br /><br />Per impostazione predefinita, i messaggi vengono crittografati usando chiavi Kerberos o NTLM.<br /><br />Questa opzione della riga di comando viene ignorata quando viene selezionato il trasporto HTTPS.|  
+|/UserName:\<username >|Specifica il nome utente nella riga di comando.<br /><br />Se non specificato, lo strumento userà l'autenticazione con negoziazione o prompt dei comandi per il nome.<br /><br />Se **/username** omette **/password** deve anche essere specificato.|  
+|/password:\<password>|Specifica la password nella riga di comando.<br /><br />Se **/password** non è specificato ma **/username** è, lo strumento verrà chiesta la password.<br /><br />Se **/password** omette **/username** deve anche essere specificato.|  
 |/timeout:\<seconds>|Questa opzione è deprecata.|  
-|/directory:\<path>|Specifica directory di avvio per la shell remota.<br /><br />Se non specificato, la shell remota verrà avviata nella directory home dell'utente definite dalla variabile di ambiente **% USERPROFILE %**.|  
+|/directory:\<path>|Specifica directory di avvio per la shell remota.<br /><br />Se non specificato, la shell remota verrà avviata nella directory home dell'utente definite dalla variabile di ambiente **% USERPROFILE %** .|  
 |/Environment:\<stringa > =<value>|Specifica una variabile di ambiente single impostato quando viene avviata di shell, che consente di modificare l'ambiente predefinito per la shell.<br /><br />Più occorrenze di questa opzione devono essere usate per specificare più variabili di ambiente.|  
 |/noecho|Specifica che echo deve essere disabilitata. Ciò potrebbe essere necessario per garantire che le risposte dell'utente a richiesta remote non vengono visualizzate in locale.<br /><br />Per impostazione predefinita echo è "on".|  
 |/noprofile|Specifica che il profilo dell'utente non deve essere caricato.<br /><br />Per impostazione predefinita, il server tenterà di caricare il profilo utente.<br /><br />Se l'utente remoto non è un amministratore locale nel sistema di destinazione, quindi questa opzione sarà necessaria (il valore predefinito verrà generato errore).|  
@@ -87,5 +87,5 @@ winrs /r:myserver /ad /u:administrator /p:$%fgh7 dir \\anotherserver\share
 ```  
 
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

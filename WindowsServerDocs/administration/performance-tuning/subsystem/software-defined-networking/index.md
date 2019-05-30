@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: dfb8d997c6e04381e5be0ba2c3a7ca27a851df50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e173039c45faa100a434b69a9faa736ff7c9b53
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891322"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034131"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Ottimizzazione delle prestazioni di reti software-defined
 
@@ -30,7 +30,7 @@ Per essere certi che al traffico delle macchine virtuali venga data priorità in
 
 ## <a name="hyper-v-host-networking"></a>Reti host Hyper-V
 
-Le indicazioni fornite nella sezione relativa alle [prestazioni di I/O delle reti Hyper-V](#netio) della guida dedicata all'[ottimizzazione delle prestazioni per i server Hyper-V](../../role/remote-desktop/session-hosts.md) sono applicabili quando è in uso SDN. In questa sezione vengono tuttavia fornite altre linee guida da seguire per garantire prestazioni ottimali quando si usa SDN.
+Le indicazioni fornite nella sezione relativa alle prestazioni di I/O delle reti Hyper-V della guida dedicata all'[ottimizzazione delle prestazioni per i server Hyper-V](../../role/remote-desktop/session-hosts.md) sono applicabili quando è in uso SDN. In questa sezione vengono tuttavia fornite altre linee guida da seguire per garantire prestazioni ottimali quando si usa SDN.
 
 ### <a name="physical-network-adapter-nic-teaming"></a>Gruppi di schede di rete fisiche
 

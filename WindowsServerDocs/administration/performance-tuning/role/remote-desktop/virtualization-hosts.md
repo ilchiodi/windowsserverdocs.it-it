@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1893c0d2689657a5213b2d59e8d83cea0fc3a0db
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 0aa359644f5e9bf85f4e013e6571276716ed0218
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63722717"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266620"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Gli host di virtualizzazione Desktop remoto l'ottimizzazione delle prestazioni
 
@@ -40,14 +40,14 @@ Quando appropriato, usare la deduplicazione dei dischi e la memorizzazione nella
 
 Introdotta in Windows Server 2012 R2, la deduplicazione dati supporta l'ottimizzazione dei file aperti. Per usare macchine virtuali in esecuzione su un volume deduplicato, i file di macchina virtuale devono essere archiviati in un host separato dall'host Hyper-V. Se Hyper-V e la deduplicazione siano in esecuzione nello stesso computer, le due funzionalità verranno si contendono le risorse di sistema e influire negativamente sulle prestazioni complessive.
 
-Il volume deve essere configurato anche per usare la "Virtual Desktop Infrastructure (VDI)? tipo di ottimizzazione della deduplicazione. È possibile configurare questa impostazione tramite Server Manager (**servizi File e archiviazione**  - &gt; **volumi**  - &gt; **impostazionidideduplicazione**) In alternativa, con il comando Windows PowerShell seguente comando:
+Il volume deve essere configurato anche per usare il tipo di ottimizzazione di deduplicazione "Virtual Desktop Infrastructure (VDI)". È possibile configurare questa impostazione tramite Server Manager (**servizi File e archiviazione**  - &gt; **volumi**  - &gt; **impostazionidideduplicazione**) In alternativa, con il comando Windows PowerShell seguente comando:
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
-**Nota**    ottimizzazione della deduplicazione dei dati di file aperti è supportata solo per scenari VDI con Hyper-V usando l'archiviazione remota tramite SMB 3.0.
-
+> [!Note]
+> Ottimizzazione della deduplicazione dei dati di file aperti è supportata solo per scenari VDI con Hyper-V usando l'archiviazione remota tramite SMB 3.0.
 
 ### <a name="memory"></a>Memoria
 

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188334"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260251"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -128,6 +128,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
 
 Informazioni sulle ultime funzionalità rilasciate:
 
+- Versione 1904.1 - manutenzione aggiornata per migliorare la stabilità dei plug-in gateway.
 - Versione [1904](https://aka.ms/wac1904) è la versione disponibile a livello generale più recente che introduce lo strumento Servizi ibridi di Azure e offre funzionalità che erano in precedenza in anteprima per il canale a livello generale.
 - Versione [1903](https://aka.ms/wac1903) offre notifiche tramite posta elettronica da monitoraggio di Azure, la possibilità di aggiungere connessioni Server o un PC da Active Directory e i nuovi strumenti per gestire Active Directory, DHCP e DNS.
 - Versione [1902](https://aka.ms/wac1902) aggiunto un elenco di connessioni condivise e i miglioramenti alla gestione di rete (SDN) software definito, tra cui nuovi strumenti SDN per gestire gli ACL, le connessioni del gateway e reti logiche.

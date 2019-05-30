@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ad399e62e1aa76b76b6109e28845b2615efa0fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882282"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266711"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Passaggio 2 pianificare la distribuzione di accesso remoto
 
@@ -31,11 +31,11 @@ Dopo aver pianificato l'infrastruttura che si intende usare per configurare il s
   
 |Attività|Descrizione|  
 |----|--------|  
-|[Pianificare una strategia di distribuzione client](#bkmk_21client)|Stabilire quali computer gestiti saranno configurati come client DirectAccess.|  
-|[Pianificare una strategia di distribuzione di server di accesso remoto](#bkmk_22server)|Pianificare la modalità di distribuzione del server di Accesso remoto.|  
-|[Pianificare le configurazioni dei server dell'infrastruttura](#bkmk_23Infservers)|Pianificare i server dell'infrastruttura nella distribuzione di accesso remoto, tra cui il server dei percorsi di rete DirectAccess, server DNS e server di Gestione DirectAccess.|  
+|[Pianificare una strategia di distribuzione client](#plan-a-client-deployment-strategy)|Stabilire quali computer gestiti saranno configurati come client DirectAccess.|  
+|[Pianificare una strategia di distribuzione di server di accesso remoto](#plan-a-remote-access-server-deployment-strategy)|Pianificare la modalità di distribuzione del server di Accesso remoto.|  
+|[Pianificare le configurazioni dei server dell'infrastruttura](#plan-the-infrastructure-servers-configurations)|Pianificare i server dell'infrastruttura nella distribuzione di accesso remoto, tra cui il server dei percorsi di rete DirectAccess, server DNS e server di Gestione DirectAccess.|  
   
-## <a name="bkmk_21client"></a>Pianificare una strategia di distribuzione client  
+## <a name="plan-a-client-deployment-strategy"></a>Pianificare una strategia di distribuzione client  
 Nel pianificare la distribuzione del client sarà necessario prendere tre decisioni:  
   
 1.  DirectAccess sarà disponibile ai computer portatili, o a tutti i computer in un gruppo di sicurezza specificato?  
@@ -70,7 +70,7 @@ Nel pianificare la distribuzione del client sarà necessario prendere tre decisi
   
         I client richiedono un mezzo per la risoluzione dei nomi in locale. Se si consente ai client DirectAccess di usare la risoluzione dei nomi locali, gli utenti finali possono usare i server DNS locali per risolvere i nomi. Quando gli utenti finali scegliere di usare i server DNS locali per la risoluzione dei nomi, DirectAccess non invia le richieste di risoluzione di nomi con etichetta singola per il server DNS aziendale interno. Usa invece la risoluzione dei nomi locale (usando il Link-Local Multicast Name LLMNR (Resolution) e NetBios su protocolli TCP/IP).  
   
-## <a name="bkmk_22server"></a>Pianificare una strategia di distribuzione di server di accesso remoto  
+## <a name="plan-a-remote-access-server-deployment-strategy"></a>Pianificare una strategia di distribuzione di server di accesso remoto  
 Le decisioni che è necessario apportare quando si prevede di distribuire il server di accesso remoto includono:  
   
 -   **Topologia di rete**  
@@ -110,7 +110,7 @@ Le decisioni che è necessario apportare quando si prevede di distribuire il ser
   
     Prima di configurare accesso remoto, decidere se si desidera fornire ai client remoti l'accesso VPN. È necessario fornire l'accesso VPN se si dispone di computer client all'interno dell'organizzazione che non supportano la connettività DirectAccess (ad esempio, non sono gestiti o eseguono un sistema operativo per cui DirectAccess non è supportata). La configurazione guidata Server di accesso remoto consente di configurare la modalità di assegnazione degli indirizzi IP (mediante il protocollo DHCP o da un pool di indirizzi statici) e la modalità di autenticazione client VPN (tramite Active Directory o un server RADIUS).  
   
-## <a name="bkmk_23Infservers"></a>Pianificare le configurazioni dei server dell'infrastruttura  
+## <a name="plan-the-infrastructure-servers-configurations"></a>Pianificare le configurazioni dei server dell'infrastruttura  
 Accesso remoto richiede tre tipi di server di infrastruttura:  
   
 -   **Server dei percorsi di rete**  
@@ -119,7 +119,7 @@ Accesso remoto richiede tre tipi di server di infrastruttura:
   
 -   **Server di gestione** 
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Passaggio 1: Pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   

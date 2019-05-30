@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cc24893b1a227501959002ea2d81c62813855d4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883632"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308550"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>Messaggi WSUS e suggerimenti per la risoluzione dei problemi
 
@@ -57,7 +57,7 @@ Quando si tenta di aprire i servizi di aggiornamento nel server WSUS viene visua
 
 > Errore durante il tentativo di connettersi al server WSUS. Questo errore può verificarsi per diversi motivi. Se il problema persiste, contattare l'amministratore di rete. Fare clic su Reimposta il nodo del Server per connettersi al server di nuovo.
 
-Inoltre, tenta di accedere all'URL per il sito Web di amministrazione di WSUS (ad esempio, http://CM12CAS:8530) ha esito negativo con errore:
+Inoltre, tenta di accedere all'URL per il sito Web di amministrazione di WSUS (ad esempio, `http://CM12CAS:8530`) ha esito negativo con errore:
 
 > Errore HTTP 503. Il servizio è disponibile
 

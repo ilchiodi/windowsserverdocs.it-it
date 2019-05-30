@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/24/2019
-ms.openlocfilehash: c9af38720df79918bed3404995e81a7f93a10744
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.date: 05/29/2019
+ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222891"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308600"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>Funzionalità su richiesta di compatibilità dell'app Server Core
 
@@ -156,7 +156,7 @@ Il DOM di compatibilità delle App può essere installato solo in Server Core. N
 1. Scaricare i file di immagine ISO DOM Server e Windows Server in una cartella locale in un computer Windows.
 
    - Se si dispone di un contratto multilicenza è possibile scaricare i file di immagine Windows Server e Server DOM ISO dal [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
-   - Il file di immagine ISO DOM Server è disponibile anche nella [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) o scegliere il [portale di Visual Studio](https://visualstudio.microsoft.com) per i sottoscrittori.
+   - Il file di immagine ISO DOM Server è disponibile anche per Long-Term Servicing Channel rilascia nel [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) o scegliere il [portale di Visual Studio](https://visualstudio.microsoft.com) per i sottoscrittori.
 
 2. Aprire una sessione di PowerShell come amministratore e quindi usare i comandi seguenti per montare i file di immagine come unità:
 

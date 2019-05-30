@@ -7,22 +7,24 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7619d2e2ce394c7f06826d6ebe36bccfa43344ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842572"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266722"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Gateway Desktop remoto l'ottimizzazione delle prestazioni
 
-**Nota**    In Windows 8 e versioni successive e Windows Server 2012 R2 +, Gateway Desktop remoto (Gateway Desktop remoto) supporta TCP, UDP e trasporti RPC legacy. La maggior parte dei dati seguenti sia per quanto riguarda il trasporto RPC legacy. Se non viene utilizzato il trasporto RPC legacy, in questa sezione non è applicabile.
+> [!Note]
+> In Windows 8 e versioni successive e Windows Server 2012 R2 +, Gateway Desktop remoto (Gateway Desktop remoto) supporta TCP, UDP e trasporti RPC legacy. La maggior parte dei dati seguenti sia per quanto riguarda il trasporto RPC legacy. Se non viene utilizzato il trasporto RPC legacy, in questa sezione non è applicabile.
 
 Questo argomento descrive i parametri relativi alle prestazioni che consentono di migliorare le prestazioni di una distribuzione dei clienti e se che si basano su modelli di utilizzo di rete del cliente.
 
 In sostanza, Gateway Desktop remoto consente di eseguire pacchetti molte operazioni tra le istanze di connessione Desktop remoto e le istanze del server Host sessione Desktop remoto all'interno di rete del cliente di inoltro.
 
-**Nota**    i parametri seguenti si applicano solo trasporto RPC.
+> [!Note]
+> I parametri seguenti si applicano a solo il trasporto RPC.
 
 Internet Information Services (IIS) e Gateway Desktop remoto Esporta i parametri del Registro di sistema seguenti per contribuire a migliorare le prestazioni del sistema in Gateway Desktop remoto.
 

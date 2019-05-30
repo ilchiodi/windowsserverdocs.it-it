@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9032988c65581ea602451d224f40719b932ab7f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821692"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266624"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Considerazioni sulla LDAP in ottimizzazione delle prestazioni di ADDS
 
@@ -49,7 +49,7 @@ L'indicizzazione degli attributi è utile quando si cercano oggetti con il nome 
 
     -   **NTDS\\latenza richiesta** – si tratta di soggetti a quanto tempo impiegato per elaborare la richiesta. Active Directory verifica il timeout delle richieste dopo 120 secondi (impostazione predefinita), tuttavia, la maggior parte deve essere eseguito più velocemente e le query con esecuzione estremamente prolungata deve ottenere nascosto nei numeri di complessivo. Cercare le modifiche apportate in questa linea di base, anziché le soglie assolute.
 
-        **Nota**    qui i valori elevati possono anche essere indicatori di ritardi di "inoltro dei dati? richieste ad altri domini e i controlli di CRL.
+        > [!Note]   Valori elevati qui possono essere anche gli indicatori di ritardi nelle richieste di "inoltro" ad altri domini e i controlli di CRL.
 
 
     -   **NTDS\\stimato ritardo coda** – ciò dovrebbe essere idealmente vicini a 0 per ottenere prestazioni ottimali perché ciò significa che le richieste di impiegare alcun tempo di attesa di essere gestite.
@@ -64,7 +64,7 @@ Questi scenari possono essere rilevati tramite uno o più degli approcci seguent
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Pack Advisor per Active Directory
 
--   Esegue la ricerca usando qualsiasi filtro oltre a "(objectClass =\*)? che utilizzano l'indice di predecessori.
+-   Esegue la ricerca usando qualsiasi filtro oltre a "(objectClass =\*)" che utilizzano l'indice di predecessori.
 
 ### <a name="other-index-considerations"></a>Altre considerazioni sull'indice
 
@@ -101,7 +101,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 ## <a name="see-also"></a>Vedere anche
 - [Server Active Directory l'ottimizzazione delle prestazioni](index.md)
-- [Considerazioni relative all'hardware](hardware-considerations.md)
+- [Considerazioni relative ai requisiti hardware](hardware-considerations.md)
 - [Esatto posizionamento dei controller di dominio e considerazioni sul sito](site-definition-considerations.md)
-- [Risoluzione dei problemi delle prestazioni di ADDS](troubleshoot.md) 
-- [Pianificazione della capacità per servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Risoluzione dei problemi delle prestazioni di Active Directory Domain Services](troubleshoot.md) 
+- [Pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

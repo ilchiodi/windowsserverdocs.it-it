@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b11064e6b3bd2590d5712afdb7afc69de1ed83f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889702"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266783"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Usare i criteri DNS per la gestione del traffico basata sulla geolocalizzazione con distribuzioni primarie-secondarie
 
@@ -28,7 +28,7 @@ Il server secondario utilizza i protocolli di trasferimento zona autorevole tras
 >[!NOTE]
 >Per ulteriori informazioni su AXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 5936](https://tools.ietf.org/rfc/rfc5936.txt). Per ulteriori informazioni su IXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 1995](https://tools.ietf.org/html/rfc1995).  
   
-## <a name="bkmk_example"></a>La posizione geografica primario secondario basato su esempio Gestione traffico  
+## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>La posizione geografica primario secondario basato su esempio Gestione traffico  
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS in una distribuzione primario secondario per ottenere il reindirizzamento del traffico in base al percorso fisico del client che esegue una query DNS.  
   
 In questo esempio utilizza due società fittizia - servizi Cloud di Contoso, che fornisce web e dominio che ospita soluzioni. e servizi di ristorazione Woodgrove, che fornisce servizi per alimentare la distribuzione in più città in tutto il mondo e che dispone di un sito Web denominato woodgrove.com.  
@@ -45,14 +45,14 @@ Nella figura seguente viene illustrato questo scenario.
   
 ![La posizione geografica primario secondario basato su esempio Gestione traffico](../../media/Dns-Policy_PS1/dns_policy_primarysecondary1.jpg)  
    
-## <a name="bkmk_works"></a>Come funziona il sistema primario secondario DNS
+## <a name="how-the-dns-primary-secondary-system-works"></a>Funzionamento del sistema primario secondario DNS
 
 Quando si distribuisce gestione del traffico basato su posizione geografica in una distribuzione DNS primario, secondario, è importante comprendere come normale zona primaria secondaria prima di imparare i trasferimenti di zona ambito livello si verificano trasferimenti. Nelle sezioni seguenti vengono forniscono informazioni sulla zona e i trasferimenti di zona ambito livello.  
   
-- [Trasferimenti di zona in una distribuzione primario secondario DNS](#bkmk_zone)  
-- [Ambito livello i trasferimenti di zona in una distribuzione primario secondario DNS](#bkmk_scope)  
+- [Trasferimenti di zona in una distribuzione primario secondario DNS](#zone-transfers-in-a-dns-primary-secondary-deployment)  
+- [Ambito livello i trasferimenti di zona in una distribuzione primario secondario DNS](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
   
-### <a name="bkmk_zone"></a>Trasferimenti di zona in una distribuzione primario secondario DNS
+### <a name="zone-transfers-in-a-dns-primary-secondary-deployment"></a>Trasferimenti di zona in una distribuzione di DNS primario, secondario
 
 È possibile creare una distribuzione di DNS primario, secondario e sincronizzare le zone con i passaggi seguenti.  
 1. Quando si installa DNS, viene creata la zona primaria nel server DNS primario.  
@@ -62,7 +62,7 @@ Quando si distribuisce gestione del traffico basato su posizione geografica in u
 5. Quando richiesto, i server primario di inviano notifiche per i server secondari sugli aggiornamenti di zona.  
 6. Server secondario effettuare una richiesta di trasferimento di zona incrementale (IXFR). Per questo motivo, i server secondari rimangano sincronizzati con il server primario.   
   
-### <a name="bkmk_scope"></a>Ambito livello i trasferimenti di zona in una distribuzione primario secondario DNS
+### <a name="zone-scope-level-transfers-in-a-dns-primary-secondary-deployment"></a>Ambito livello i trasferimenti di zona in una distribuzione di DNS primario, secondario
 
 Lo scenario di gestione del traffico richiede passaggi aggiuntivi per partizionare le zone in ambiti diversi zona. Per questo motivo, sono necessari per trasferire i dati all'interno di ambiti di zona per i server secondari e per trasferire i criteri e subnet del Client DNS per i server secondari passaggi aggiuntivi.   
   
@@ -78,7 +78,7 @@ Dopo questo processo, il server primario mantiene un elenco dei database seconda
   
 Per qualsiasi ulteriore aggiornamento in un ambito di una zona, viene inviata una notifica IXFR per i server secondari, con il record di risorse OPT stesso. L'ambito di zona notifica che effettua la richiesta IXFR contenente tale RR OPT e segue lo stesso processo come descritto in precedenza.  
   
-## <a name="bkmk_config"></a>Come configurare criteri DNS per la gestione del traffico basato su posizione geografica primario secondario
+## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Come configurare criteri di DNS per gestione del traffico basato su posizione geografica primaria secondaria
 
 Prima di iniziare, assicurarsi di aver completato tutti i passaggi nell'argomento [utilizzare DNS criteri per la gestione del traffico in base a posizione geografica con i server primari](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), e il server DNS primario è configurato con le zone, zona ambiti, subnet del Client DNS e criteri DNS.  
   
@@ -87,11 +87,11 @@ Prima di iniziare, assicurarsi di aver completato tutti i passaggi nell'argoment
   
 Per configurare criteri DNS per le risposte alle query primaria secondaria la posizione geografica in base, è necessario eseguire la procedura seguente.  
   
-- [Creare le zone secondarie](#bkmk_secondary)  
-- [Configurare le impostazioni di trasferimento di zona per la zona primaria](#bkmk_zonexfer)  
-- [Copia la subnet del Client DNS](#bkmk_client)  
-- [Creare gli ambiti di zona nel Server secondario](#bkmk_zonescopes)  
-- [Configurare criteri DNS](#bkmk_dnspolicy)  
+- [Creare le zone secondarie](#create-the-secondary-zones)  
+- [Configurare le impostazioni di trasferimento di zona per la zona primaria](#configure-the-zone-transfer-settings-on-the-primary-zone)  
+- [Copia la subnet del Client DNS](#copy-the-dns-client-subnets)  
+- [Creare gli ambiti di zona nel Server secondario](#create-the-zone-scopes-on-the-secondary-server)  
+- [Configurare criteri DNS](#configure-dns-policy)  
   
 Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.  
   
@@ -99,7 +99,7 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
 ><br>L'appartenenza a **DnsAdmins**, o equivalente, è necessario per eseguire le procedure seguenti.  
   
-### <a name="bkmk_secondary"></a>Creare le zone secondarie
+### <a name="create-the-secondary-zones"></a>Creare le zone secondarie
 
 È possibile creare la copia secondaria della zona da replicare SecondaryServer1 e SecondaryServer2 (presupponendo che i cmdlet vengono eseguiti in modalità remota da un client di gestione singolo).   
   
@@ -115,7 +115,7 @@ Ad esempio, è possibile creare la copia secondaria di www.woodgrove.com Seconda
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerSecondaryZone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps).  
   
-### <a name="bkmk_zonexfer"></a>Configurare le impostazioni di trasferimento di zona per la zona primaria
+### <a name="configure-the-zone-transfer-settings-on-the-primary-zone"></a>Configurare le impostazioni di trasferimento di zona per la zona primaria
 
 È necessario configurare le impostazioni di zona primaria in modo che:
 
@@ -134,7 +134,7 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerSecondaryZone](https://doc
 Per ulteriori informazioni, vedere [DnsServerPrimaryZone Set](https://docs.microsoft.com/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps).  
   
   
-### <a name="bkmk_client"></a>Copia la subnet del Client DNS
+### <a name="copy-the-dns-client-subnets"></a>Copia la subnet del Client DNS
 
 È necessario copiare la subnet del Client DNS dal server primario per i server secondari.
   
@@ -148,7 +148,7 @@ Per ulteriori informazioni, vedere [DnsServerPrimaryZone Set](https://docs.micro
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_zonescopes"></a>Creare gli ambiti di zona nel Server secondario
+### <a name="create-the-zone-scopes-on-the-secondary-server"></a>Creare gli ambiti di zona nel Server secondario
 
 È necessario creare gli ambiti di zona sui server secondari. Nel sistema DNS, gli ambiti di zona anche avviare richiesta XFRs dal server primario. Con le eventuali modifiche apportate gli ambiti di zona nel server primario, viene inviata una notifica contenente le informazioni sull'ambito di zona per i server secondari. I server secondari possono aggiornare i relativi ambiti zona con modifiche incrementali.  
   
@@ -165,7 +165,7 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_dnspolicy"></a>Configurare criteri DNS
+### <a name="configure-dns-policy"></a>Configurare i criteri di DNS
 
 Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e le partizioni, in modo che quando una query provenga da un'origine in una delle subnet dei client DNS, la risposta alla query verrà restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping tra l'ambito di orario predefinito.  
   

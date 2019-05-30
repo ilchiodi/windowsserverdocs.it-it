@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b402195f90977aa63299c1a2a550ba310a4513
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 081e5caeb7fb458b367f035b9995929de84a5528
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832342"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266564"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
@@ -41,14 +41,14 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 
 ## <a name="more-information"></a>Ulteriori informazioni
 
--   Il token **eof** è un valore di lunghezza valida entro le coppie di offset e lunghezza di  *\<RangeList >*. Indica al servizio di leggere alla fine del file specificato.
+-   Il token **eof** è un valore di lunghezza valida entro le coppie di offset e lunghezza di  *\<RangeList >* . Indica al servizio di leggere alla fine del file specificato.
 -   Si noti che AddFileWithRanges avrà esito negativo con codice di errore 0x8020002c quando viene specificato un intervallo di lunghezza zero insieme a un altro intervallo con offset stesso, ad esempio: C:\bits > bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0, 100:5
 
     Messaggio di errore: Impossibile aggiungere file al processo - 0x8020002c. L'elenco di intervalli di byte contiene alcuni intervalli sovrapposti, che non sono supportati.
 
     Soluzione alternativa: non si specifica innanzitutto l'intervallo di lunghezza zero. Ad esempio: bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5, 100:0.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente indica a BITS per trasferire 100 byte dall'offset 0, 100 byte dall'offset 2000 e i byte rimanenti da offset 5000 alla fine del file.
 ```
@@ -57,4 +57,4 @@ C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

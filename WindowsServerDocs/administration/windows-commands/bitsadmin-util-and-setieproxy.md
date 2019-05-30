@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4f6ab2e52284895d2e7918364c24bbb69f2b1c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81bb333e2bb776bc75789b52ab41d7ef64016f51
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853512"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266470"
 ---
 # <a name="bitsadmin-util-and-setieproxy"></a>SETIEPROXY e bitsadmin util
 
@@ -47,7 +47,7 @@ Ogni chiamata successiva mediante questa opzione sostituisce l'utilizzo specific
 > [!IMPORTANT]
 > È necessario eseguire questo comando da un prompt dei comandi con privilegi elevati venga completata correttamente.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente imposta l'utilizzo di proxy per l'account del SERVIZIO di RETE.
 
@@ -64,4 +64,4 @@ bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80 ""
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
