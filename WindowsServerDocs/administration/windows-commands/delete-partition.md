@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf9f456ad6ab3010493154da843b2b519754e250
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b47338b74cf71a4754b7320d6b3842f342d324d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816332"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436147"
 ---
 # <a name="delete-partition"></a>Elimina partizione
 
@@ -43,8 +43,8 @@ delete partition [noerr] [override]
 
 > [!CAUTION]
 > L'eliminazione di una partizione su un disco dinamico, è possibile eliminare tutti i volumi dinamici sul disco, pertanto la distruzione di tutti i dati e del disco in uno stato danneggiato. Per eliminare un volume dinamico, usare sempre la **eliminare il volume** invece di comando. Le partizioni possono essere eliminate dal dischi dinamici, ma non deve essere create. Ad esempio, è possibile eliminare una partizione di tabella di partizione GUID (GPT) non riconosciuta in un disco GPT dinamico. Eliminazione di una partizione non determina lo spazio liberato diventi disponibile. Questo comando è pensato per consentirti di spazio reclame su un disco dinamico offline danneggiato in una situazione di emergenza in cui il **pulita** Impossibile utilizzare il comando Diskpart.
--   È possibile eliminare la partizione di sistema, la partizione di avvio o qualsiasi partizione che contiene le active arresto anomalo o un file di dump informazioni di paging.
--   Per eseguire questa operazione, è necessario selezionare una partizione. Usare la **Seleziona partizione** comando per selezionare una partizione e spostare lo stato attivo a esso.
+> -   È possibile eliminare la partizione di sistema, la partizione di avvio o qualsiasi partizione che contiene le active arresto anomalo o un file di dump informazioni di paging.
+> -   Per eseguire questa operazione, è necessario selezionare una partizione. Usare la **Seleziona partizione** comando per selezionare una partizione e spostare lo stato attivo a esso.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -55,5 +55,5 @@ delete partition
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

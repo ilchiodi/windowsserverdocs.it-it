@@ -1,23 +1,25 @@
 ---
 title: Installare Windows Admin Center
-description: Installare Windows Admin Center
+description: Come installare Windows Admin Center in un PC Windows o in un server in modo che più utenti possono accedere a Windows Admin Center tramite un web browser.
 ms.technology: manage
 ms.topic: article
 author: jwwool
 ms.author: jeffrew
-ms.date: 03/07/2019
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 94ac1281ca94a49ae54ce28d86dd4d95ff1d5574
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a9eb7944cd35dfa68e3c36cdc6c016f483a9f1e1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866922"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811960"
 ---
 # <a name="install-windows-admin-center"></a>Installare Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+> Si applica a: Windows Admin Center, Windows Admin Center anteprima
+
+In questo argomento viene descritto come installare Windows Admin Center in un PC Windows o in un server in modo che più utenti possono accedere a Windows Admin Center tramite un web browser.
 
 > [!Tip]
 > Novità di Windows Admin Center
@@ -25,14 +27,14 @@ ms.locfileid: "59866922"
 
 ## <a name="determine-your-installation-type"></a>Determinare il tipo di installazione
 
-Esaminare i [le opzioni di installazione](..\plan\installation-options.md) che include il [sistemi operativi supportati](..\plan\installation-options.md#supported-operating-systems-installation).
+Esaminare i [le opzioni di installazione](../plan/installation-options.md) che include il [sistemi operativi supportati](../plan/installation-options.md#supported-operating-systems-installation). Per installare Windows Admin Center in una macchina virtuale in Azure, vedere [Deploy Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
 
 ## <a name="install-on-windows-10"></a>Installare su Windows 10
 
 Quando si installa Windows Admin Center in Windows 10, utilizza la porta 6516 per impostazione predefinita, ma è possibile specificare una porta diversa. Puoi anche creare un collegamento sul desktop e consentire a Windows Admin Center di gestire il TrustedHosts.
 
 > [!NOTE]
-> La modifica di TrustedHosts è necessaria in un ambiente di gruppo di lavoro o quando si usano credenziali di amministratore locale in un dominio. Se scegli di ignorare questa impostazione, dovrai [configurare manualmente TrustedHosts](../use/troubleshooting.md#configure-trustedhosts).
+> La modifica di TrustedHosts è necessaria in un ambiente di gruppo di lavoro o quando si usano credenziali di amministratore locale in un dominio. Se scegli di ignorare questa impostazione, dovrai [configurare manualmente TrustedHosts](../support/troubleshooting.md#configure-trustedhosts).
 
 Quando si avvia Windows Admin Center dal menu **Start** , viene aperto nel browser predefinito.
 
@@ -43,7 +45,7 @@ Quando si avvia Windows Admin Center per la prima volta, vedrai un'icona nell'ar
 In Windows Server Windows Admin Center è installato come un servizio di rete. Devi specificare la porta su cui è in ascolto il servizio e richiede un certificato per il protocollo HTTPS. Un certificato autofirmato può essere creato dal programma di installazione a scopo di test oppure puoi specificare l'identificazione personale di un certificato già installato nel computer. Se utilizzi il certificato generato, corrisponderà al nome DNS del server. Se si usa il proprio certificato, assicurarsi che il nome specificato nel certificato corrisponde al nome del computer (carattere jolly non sono supportati i certificati). Si viene fornita anche la possibilità di gestire Windows Admin Center il TrustedHosts.
 
 > [!NOTE]
-> La modifica di TrustedHosts è necessaria in un ambiente di gruppo di lavoro o quando si usano credenziali di amministratore locale in un dominio. Se scegli di ignorare questa impostazione, dovrai [configurare manualmente TrustedHosts](../use/troubleshooting.md#configure-trustedhosts).
+> La modifica di TrustedHosts è necessaria in un ambiente di gruppo di lavoro o quando si usano credenziali di amministratore locale in un dominio. Se scegli di ignorare questa impostazione, dovrai [configurare manualmente TrustedHosts](../support/troubleshooting.md#configure-trustedhosts).
 
 Una volta completata l'installazione, aprire un browser da un computer remoto e passare all'URL presentato nel passaggio precedente del programma di installazione.
 
@@ -73,5 +75,7 @@ msiexec /i <WindowsAdminCenterInstallerName>.msi /qn /L*v log.txt SME_PORT=<port
 > Non richiamare `msiexec` da PowerShell utilizzando una notazione in percorso relativo punto-barra (ad esempio, `.\<WindowsAdminCenterInstallerName>.msi`). Tale notazione non è supportata, quindi l'installazione avrà esito negativo. Rimuovi il prefisso `.\` o specifica il percorso completo per il file MSI.
 
 ## <a name="updating-windows-admin-center"></a>L'aggiornamento Windows Admin Center
+
+È possibile aggiornare le versioni non di anteprima di Windows Admin Center tramite Microsoft Update oppure installare manualmente. 
 
 Le impostazioni vengono mantenute durante l'aggiornamento a una nuova versione di Windows Admin Center. Non è ufficialmente supportato l'aggiornamento Insider Preview le versioni di Windows Admin Center: Riteniamo che si consiglia di eseguire un'installazione pulita, ma è non bloccarlo.

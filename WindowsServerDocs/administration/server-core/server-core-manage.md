@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 6836e5db36727294d215f7f98e0faeede55a612a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 761bfc681d7e39059884977cd99997ea9996268b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869302"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811361"
 ---
 # <a name="manage-a-server-core-server"></a>Gestire un Server server Core
  
@@ -61,15 +61,17 @@ Per utilizzare uno snap-in MMC per gestire un server Server Core che è membro d
 Utilizzare uno snap-in MMC per gestire un server Server Core che è *non* un membro del dominio: 
 
 1. Definire credenziali alternative da usare per connettersi al computer Server Core digitando il comando seguente al prompt dei comandi nel computer remoto:
+1. 
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
    ```
+
    Se si desidera venga richiesta una password, omettere il **/passare** opzione.
 
 2. Quando richiesto, digitare la password per il nome utente specificato.
    Se il firewall del server Server Core non è già configurato per consentire lo snap-in MMC per la connessione, attenersi alla procedura seguente per configurare Windows Firewall per consentire lo snap-in di MMC. Procedere quindi al passaggio 3.
 3. In un altro computer, avviare uno snap-in MMC, ad esempio **Gestione Computer**.
-4. Nel riquadro sinistro, fare doppio clic sullo snap-in e quindi fare clic su **Connetti a un altro computer**. (Ad esempio, nell'esempio di gestione di Computer, è necessario fare doppio clic **Gestione Computer (locale)**.)
+4. Nel riquadro sinistro, fare doppio clic sullo snap-in e quindi fare clic su **Connetti a un altro computer**. (Ad esempio, nell'esempio di gestione di Computer, è necessario fare doppio clic **Gestione Computer (locale)** .)
 5. Nelle **un altro computer**, digitare il nome del computer del server Server Core e quindi fare clic su **OK**. È ora possibile utilizzare lo snap-in MMC per gestire il server in modalità Server Core come si farebbe con qualsiasi altro computer dotato di sistema operativo Windows Server.
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>Per configurare Windows Firewall per consentire la connessione degli snap-in MMC
@@ -120,14 +122,17 @@ Si consentirà così alla modalità Desktop remoto per amministrazione di accett
 Per aggiungere hardware a un Server server Core, seguire le istruzioni fornite dal fornitore dell'hardware per l'installazione di nuovo hardware. 
 
 Se l'hardware non plug and play, è necessario installare manualmente il driver. A tale scopo, copiare i file dei driver in un percorso temporaneo nel server e quindi eseguire il comando seguente:
+
 ```
 pnputil –i –a <driverinf>
 ```
+
 In cui *driverinf* è il nome file del file. inf del driver.
 
 Se richiesto, riavviare il computer.
 
 Per verificare quali driver sono installati, eseguire il comando seguente: 
+
 ```
 sc query type= driver
 ```
@@ -135,7 +140,8 @@ sc query type= driver
 > [!NOTE] 
 > Perché il comando venga correttamente completato, è necessario includere uno spazio dopo il segno di uguale.
 
-Per disabilitare un driver di dispositivo, eseguire le operazioni seguenti: 
+Per disabilitare un driver di dispositivo, eseguire le operazioni seguenti:
+
 ```
 sc delete <service_name>
 ```

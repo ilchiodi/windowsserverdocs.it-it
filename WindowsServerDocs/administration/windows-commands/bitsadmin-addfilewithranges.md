@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 081e5caeb7fb458b367f035b9995929de84a5528
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: d5e1e4f8af9117928f9ab044d29e65f57aa5a119
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266564"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811274"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
@@ -51,6 +51,7 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 ## <a name="examples"></a>Esempi
 
 Nell'esempio seguente indica a BITS per trasferire 100 byte dall'offset 0, 100 byte dall'offset 2000 e i byte rimanenti da offset 5000 alla fine del file.
+
 ```
 C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,2000:100,5000:eof"
 ```

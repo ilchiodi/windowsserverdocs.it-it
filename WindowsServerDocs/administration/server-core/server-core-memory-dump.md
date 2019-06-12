@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: bd22378ec7ce5a1ff4e39546246e6e85ca859c45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235df6f681de51a12f82b9fad019dd2db45fd486
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828842"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435554"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Configurare i file di dump di memoria per l'installazione Server Core
 
@@ -39,7 +39,7 @@ Non è necessario avere il file di paging nella partizione in cui è installato 
 3. Fare clic su **Modifica > Nuovo > valore stringa**.
 4. Denominare il nuovo valore **DedicatedDumpFile**, quindi premere INVIO.
 5. Fare doppio clic su **DedicatedDumpFile**, quindi fare clic su **Modify**.
-6. Nelle **dati valore** tipo  **\<Drive\>:\\\<Dedicateddumpfile.sys\>**, quindi fare clic su **OK**.
+6. Nelle **dati valore** tipo  **\<Drive\>:\\\<Dedicateddumpfile.sys\>** , quindi fare clic su **OK**.
 
    >[!NOTE] 
    > Sostituire \<unità\> con un'unità con sufficiente disco spazio per il file di paging, quindi sostituire \<Dedicateddumpfile.dmp\> con il percorso completo del file dedicato.
@@ -49,8 +49,8 @@ Non è necessario avere il file di paging nella partizione in cui è installato 
 9. Fare doppio clic su **DumpFileSize**, quindi fare clic su **Modify**.
 10. Nelle **Modifica valore DWORD**, in **Base**, fare clic su **Decimal**.
 11. Nelle **dati valore**, digitare il valore appropriato e quindi fare clic su **OK**.
-   >[!NOTE]
-   > La dimensione del file di dump è espressa in megabyte (MB).
+    >[!NOTE]
+    > La dimensione del file di dump è espressa in megabyte (MB).
 12. Chiudere l'Editor del Registro di sistema.
 
 Dopo aver individuato la posizione della partizione del dump della memoria, configurare il percorso di destinazione per il file di paging. Per visualizzare il percorso di destinazione corrente per il file di paging, eseguire il comando seguente:

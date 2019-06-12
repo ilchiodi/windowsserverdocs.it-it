@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: cf66a306c7f023852cec93d6458e74a99c46c831
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266783"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812108"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Usare i criteri DNS per la gestione del traffico basata sulla geolocalizzazione con distribuzioni primarie-secondarie
 
@@ -25,8 +25,8 @@ Lo scenario precedente, [usare i criteri DNS per la gestione del traffico basato
   
 Il server secondario utilizza i protocolli di trasferimento zona autorevole trasferimento (AXFR) e il trasferimento di zona incrementale (IXFR) per richiedere e ricevere gli aggiornamenti di zona che includono nuove modifiche apportate alle aree dei server DNS primari.   
   
->[!NOTE]
->Per ulteriori informazioni su AXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 5936](https://tools.ietf.org/rfc/rfc5936.txt). Per ulteriori informazioni su IXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 1995](https://tools.ietf.org/html/rfc1995).  
+> [!NOTE]
+> Per ulteriori informazioni su AXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 5936](https://tools.ietf.org/rfc/rfc5936.txt). Per ulteriori informazioni su IXFR, vedere Internet Engineering Task Force (IETF) [richiesta di commenti 1995](https://tools.ietf.org/html/rfc1995).  
   
 ## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>La posizione geografica primario secondario basato su esempio Gestione traffico  
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS in una distribuzione primario secondario per ottenere il reindirizzamento del traffico in base al percorso fisico del client che esegue una query DNS.  
@@ -82,7 +82,7 @@ Per qualsiasi ulteriore aggiornamento in un ambito di una zona, viene inviata un
 
 Prima di iniziare, assicurarsi di aver completato tutti i passaggi nell'argomento [utilizzare DNS criteri per la gestione del traffico in base a posizione geografica con i server primari](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), e il server DNS primario è configurato con le zone, zona ambiti, subnet del Client DNS e criteri DNS.  
   
->[!NOTE]
+> [!NOTE]
 > Le istruzioni in questo argomento per copiare subnet del Client DNS, gli ambiti di zona e i criteri DNS dal server primario DNS dei server DNS secondari sono per la configurazione DNS iniziale e la convalida. In futuro si potrebbe voler modificare la subnet del Client DNS, gli ambiti di zona e impostazioni dei criteri nel server primario. In questo caso, è possibile creare script di automazione per mantenere i server secondari sincronizzati con il server primario.  
   
 Per configurare criteri DNS per le risposte alle query primaria secondaria la posizione geografica in base, è necessario eseguire la procedura seguente.  
@@ -95,9 +95,10 @@ Per configurare criteri DNS per le risposte alle query primaria secondaria la po
   
 Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.  
   
->[!IMPORTANT]
->Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
-><br>L'appartenenza a **DnsAdmins**, o equivalente, è necessario per eseguire le procedure seguenti.  
+> [!IMPORTANT]
+> Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
+> 
+> L'appartenenza a **DnsAdmins**, o equivalente, è necessario per eseguire le procedure seguenti.  
   
 ### <a name="create-the-secondary-zones"></a>Creare le zone secondarie
 
@@ -124,8 +125,8 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerSecondaryZone](https://doc
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per configurare le impostazioni di trasferimento di zona in zona primaria.
   
->[!NOTE]
->Il comando di esempio seguente, il parametro **-notifica** indica che il server principale invia le notifiche sugli aggiornamenti all'elenco di selezione dei database secondari.  
+> [!NOTE]
+> Il comando di esempio seguente, il parametro **-notifica** indica che il server principale invia le notifiche sugli aggiornamenti all'elenco di selezione dei database secondari.  
   
     
     Set-DnsServerPrimaryZone -Name "woodgrove.com" -Notify Notify -SecondaryServers "10.0.0.2,10.0.0.3" -SecureSecondaries TransferToSecureServers -ComputerName PrimaryServer  
@@ -160,8 +161,8 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs
     Get-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName PrimaryServer|Add-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName SecondaryServer2 -ErrorAction Ignore  
   
 
->[!NOTE]
->In questi comandi di esempio, il **- ErrorAction ignora** è incluso, perché esiste un ambito di zona predefinito per ogni zona. L'ambito di zona predefinito non può essere creato o eliminato. Il pipelining comporterà un tentativo di creare tale ambito e avrà esito negativo. In alternativa, è possibile creare gli ambiti non predefiniti zona in due zone secondarie.  
+> [!NOTE]
+> In questi comandi di esempio, il **- ErrorAction ignora** è incluso, perché esiste un ambito di zona predefinito per ogni zona. L'ambito di zona predefinito non può essere creato o eliminato. Il pipelining comporterà un tentativo di creare tale ambito e avrà esito negativo. In alternativa, è possibile creare gli ambiti non predefiniti zona in due zone secondarie.  
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   

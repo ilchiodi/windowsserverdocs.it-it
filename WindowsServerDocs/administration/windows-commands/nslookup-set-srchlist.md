@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3bc06f82f557f136850872180a5c430f70da5fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b28e7d43df2427caae46d323cd30f03b6b484c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888482"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436569"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
@@ -31,18 +31,20 @@ modifica il sistema DNS (Domain Name) dominio nome e la ricerca elenco predefini
 Set srchlist=<DomainName>[/...]
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|<DomainName>|Specifica i nuovi nomi per l'elenco di ricerca e di dominio DNS predefinito. Il valore di nome di dominio predefinito si basa sul nome host. È possibile specificare un massimo di sei nomi separati da barre (/).|
-|{help &#124; ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+
+|    Parametro    |                                                                                        Descrizione                                                                                        |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <DomainName>   | Specifica i nuovi nomi per l'elenco di ricerca e di dominio DNS predefinito. Il valore di nome di dominio predefinito si basa sul nome host. È possibile specificare un massimo di sei nomi separati da barre (/). |
+| {help &#124; ?} |                                                                   Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                                                                   |
+
 ## <a name="remarks"></a>Note
--   Il **impostare srchlist**comando esegue l'override di DNS dominio nome e la ricerca elenco predefinito delle **dominio set** comando. Usare la **imposta tutti** comando per visualizzare l'elenco.
-## <a name="BKMK_examples"></a>Esempi
-L'esempio seguente imposta il dominio DNS costr.carrega.com e l'elenco di ricerca per i nomi di tre:
-```
-set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
-```
-## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[dominio set nslookup](nslookup-set-domain.md)
-[tutti i set nslookup](nslookup-set-all.md)
+- Il **impostare srchlist**comando esegue l'override di DNS dominio nome e la ricerca elenco predefinito delle **dominio set** comando. Usare la **imposta tutti** comando per visualizzare l'elenco.
+  ## <a name="BKMK_examples"></a>Esempi
+  L'esempio seguente imposta il dominio DNS costr.carrega.com e l'elenco di ricerca per i nomi di tre:
+  ```
+  set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
+  ```
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [dominio set nslookup](nslookup-set-domain.md)
+  [tutti i set nslookup](nslookup-set-all.md)

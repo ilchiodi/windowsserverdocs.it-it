@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
 description: Questo articolo descrive i livelli di affinità e antiAffinity cluster di failover
-ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 67929e6d3399633ebfec0b908463131973aecaf7
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476059"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453032"
 ---
 # <a name="cluster-affinity"></a>Affinità di cluster
 
@@ -69,7 +69,7 @@ Il valore "0" indica che è disabilitato e non possano essere applicate.  Il val
 
 Quando entrambi sono impostate, il gruppo verrà impedito assemblati in linea.  Se sono nello stesso nodo, si tratta di quella che si vedrebbe in Gestione Cluster di Failover.
 
-![Affinità di cluster](media\Cluster-Affinity\Cluster-Affinity-1.png)
+![Affinità di cluster](media/Cluster-Affinity/Cluster-Affinity-1.png)
 
 In un elenco di PowerShell dei gruppi, si vedrà in questo:
 

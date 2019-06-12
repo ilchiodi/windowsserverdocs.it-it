@@ -12,12 +12,12 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872172"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435909"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Usare Accesso Web remoto in Windows Server Essentials
 
@@ -139,21 +139,21 @@ ms.locfileid: "59872172"
   
 ###### <a name="to-upload-files"></a>Per caricare file  
   
-1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
-2.  Nell'elenco di file e cartelle disponibili nella cartella condivisa fare clic sulla cartella in cui si vuole caricare il file, quindi fare clic su **Carica**.  
+2. Nell'elenco di file e cartelle disponibili nella cartella condivisa fare clic sulla cartella in cui si vuole caricare il file, quindi fare clic su **Carica**.  
   
-3.  Se lo strumento di caricamento standard non è già stato caricato, fare clic su **Usa metodo di caricamento standard**.  
+3. Se lo strumento di caricamento standard non è già stato caricato, fare clic su **Usa metodo di caricamento standard**.  
   
-4.  Fare clic su **Sfoglia**  per trovare un file nel computer.  
+4. Fare clic su **Sfoglia**  per trovare un file nel computer.  
   
-5.  Spostarsi tra le cartelle del computer per individuare il file da caricare e quindi fare clic su **Apri**.  
+5. Spostarsi tra le cartelle del computer per individuare il file da caricare e quindi fare clic su **Apri**.  
   
-6.  Ripetere i passaggi 2 e 3 per ogni file da caricare.  
+6. Ripetere i passaggi 2 e 3 per ogni file da caricare.  
   
-7.  Dopo avere aggiunto tutti i file da caricare, fare clic su **Carica**.  
+7. Dopo avere aggiunto tutti i file da caricare, fare clic su **Carica**.  
   
- Lo strumento caricamento semplice file semplifica il processo di caricamento di file nel server che esegue Windows Server Essentials. È possibile aggiungere il numero desiderato di file allo strumento caricamento semplice file tramite la funzionalità di trascinamento della selezione, quindi caricarli nelle cartelle condivise nel server.  
+   Lo strumento caricamento semplice file semplifica il processo di caricamento di file nel server che esegue Windows Server Essentials. È possibile aggiungere il numero desiderato di file allo strumento caricamento semplice file tramite la funzionalità di trascinamento della selezione, quindi caricarli nelle cartelle condivise nel server.  
   
 > [!NOTE]
 >  Il caricamento di più file è supportato in modalità nativa nei Web browser compatibili con HTML5. Questo strumento è necessario solo se il Web browser non supporta HTML5.  
@@ -178,39 +178,39 @@ ms.locfileid: "59872172"
   
 ###### <a name="to-download-a-single-file"></a>Per scaricare un singolo file  
   
-1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
-2.  Nell'elenco di file di cartelle condivise fare clic sulla casella di controllo accanto al file da scaricare nel computer di casa.  
+2. Nell'elenco di file di cartelle condivise fare clic sulla casella di controllo accanto al file da scaricare nel computer di casa.  
   
-3.  Fare clic su **Scarica** per avviare il download.  
+3. Fare clic su **Scarica** per avviare il download.  
   
-4.  Nella finestra di dialogo **Download del file** fare clic su **Salva** per salvare il file nel computer.  
+4. Nella finestra di dialogo **Download del file** fare clic su **Salva** per salvare il file nel computer.  
   
-5.  Nella finestra di dialogo **Salva con nome** selezionare il percorso in cui salvare il file, quindi fare clic su **Salva**. Un file singolo non sarà compresso prima del download.  
+5. Nella finestra di dialogo **Salva con nome** selezionare il percorso in cui salvare il file, quindi fare clic su **Salva**. Un file singolo non sarà compresso prima del download.  
   
- Per il download di più file o cartelle sono disponibili due opzioni. Scegliere l'opzione adatta alle proprie esigenze:  
+   Per il download di più file o cartelle sono disponibili due opzioni. Scegliere l'opzione adatta alle proprie esigenze:  
   
 > [!NOTE]
 >  Queste opzioni sono disponibili solo se si scaricano più file o cartelle nel computer.  
   
--   **File eseguibile autoestraente (.exe)**  
+- **File eseguibile autoestraente (.exe)**  
   
-    > [!NOTE]
-    >   In questa sezione si applica a un server che esegue Windows Server Essentials.  
+  > [!NOTE]
+  >   In questa sezione si applica a un server che esegue Windows Server Essentials.  
   
-     Un file eseguibile autoestraente è un file scaricabile che unisce il programma di decompressione (eseguibile) ai file compressi. Quando lo si esegue, il programma eseguibile decomprime automaticamente i file compressi (autoestraente). Si tratta di una modalità comune per distribuire i dati compressi senza doversi preoccupare della disponibilità o meno dell'utilità di compressione corretta da parte del destinatario.  
+   Un file eseguibile autoestraente è un file scaricabile che unisce il programma di decompressione (eseguibile) ai file compressi. Quando lo si esegue, il programma eseguibile decomprime automaticamente i file compressi (autoestraente). Si tratta di una modalità comune per distribuire i dati compressi senza doversi preoccupare della disponibilità o meno dell'utilità di compressione corretta da parte del destinatario.  
   
-    > [!NOTE]
-    >  Questa opzione supporta i caratteri Unicode.  
+  > [!NOTE]
+  >  Questa opzione supporta i caratteri Unicode.  
   
--   **Cartella Windows compressa (zip)**  
+- **Cartella Windows compressa (zip)**  
   
-     La compressione di un file permette di creare una versione compressa del file, con dimensioni inferiori a quelle del file originale. La versione compressa del file avrà un nome file con estensione zip. I tipi di file per cui si ottiene la compressione maggiore sono i file orientati al testo, ad esempio i file con estensione txt, doc, xls, e i file di immagine che usano tipi di file non compressi, ad esempio i file con estensione bmp. Alcuni file di immagine, ad esempio i file con estensione jpg e gif, usano già la compressione, quindi la compressione permetterà solo una riduzione minima delle dimensioni dei file. Se si comprime un documento di Word contenente un numero elevato di elementi grafici si otterrà una riduzione minore rispetto alla compressione di un documento che include principalmente testo.  
+   La compressione di un file permette di creare una versione compressa del file, con dimensioni inferiori a quelle del file originale. La versione compressa del file avrà un nome file con estensione zip. I tipi di file per cui si ottiene la compressione maggiore sono i file orientati al testo, ad esempio i file con estensione txt, doc, xls, e i file di immagine che usano tipi di file non compressi, ad esempio i file con estensione bmp. Alcuni file di immagine, ad esempio i file con estensione jpg e gif, usano già la compressione, quindi la compressione permetterà solo una riduzione minima delle dimensioni dei file. Se si comprime un documento di Word contenente un numero elevato di elementi grafici si otterrà una riduzione minore rispetto alla compressione di un documento che include principalmente testo.  
   
-    > [!NOTE]
-    >  Questa opzione offre un supporto limitato per nomi di file internazionali in Windows Server Essentials.  
+  > [!NOTE]
+  >  Questa opzione offre un supporto limitato per nomi di file internazionali in Windows Server Essentials.  
   
- Prima dell'inizio del download effettivo, sarà creato il file con estensione exe o zip. In base al numero di file e alla dimensione totale dei file da scaricare, questa operazione potrebbe richiedere alcuni minuti. Dopo la creazione del file di download, i file saranno scaricati in background. Ciò permette di continuare a lavorare durante il completamento del processo di download.  
+  Prima dell'inizio del download effettivo, sarà creato il file con estensione exe o zip. In base al numero di file e alla dimensione totale dei file da scaricare, questa operazione potrebbe richiedere alcuni minuti. Dopo la creazione del file di download, i file saranno scaricati in background. Ciò permette di continuare a lavorare durante il completamento del processo di download.  
   
 ###### <a name="to-download-multiple-files-or-folders"></a>Per scaricare più file o cartelle  
   
@@ -326,13 +326,13 @@ ms.locfileid: "59872172"
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>Per tornare alla versione di Accesso Web remoto per dispositivi mobili  
   
-1.  Esegue la disconnessione.  
+1. Esegue la disconnessione.  
   
-2.  Aprire un Web browser e digitare **https://***<NomeDominio\>*** remoto/m** nella barra degli indirizzi. Assicurarsi di includere i dispositivi in https.  
+2. Aprire un Web browser e digitare **https://***<NomeDominio\>*** remoto/m** nella barra degli indirizzi. Assicurarsi di includere i dispositivi in https.  
   
-3.  Viene visualizzata la versione per dispositivi mobili di accesso Web remoto. Nella pagina di accesso di accesso Web remoto, digitare il nome utente e password nelle caselle di testo e quindi fare clic sulla freccia. Si è connessi alla versione per dispositivi mobili di accesso Web remoto.  
+3. Viene visualizzata la versione per dispositivi mobili di accesso Web remoto. Nella pagina di accesso di accesso Web remoto, digitare il nome utente e password nelle caselle di testo e quindi fare clic sulla freccia. Si è connessi alla versione per dispositivi mobili di accesso Web remoto.  
   
- È possibile cercare file e cartelle nelle cartelle condivise sul server.  
+   È possibile cercare file e cartelle nelle cartelle condivise sul server.  
   
 ###  <a name="BKMK_9"></a> Web browser supportati per i dispositivi mobili  
  I Web browser supportati per i dispositivi mobili includono i seguenti:  

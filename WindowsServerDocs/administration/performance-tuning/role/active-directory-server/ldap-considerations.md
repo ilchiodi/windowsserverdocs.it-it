@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7ac9453159fe97dc15ecbb2ab858214664a2a197
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266624"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811529"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Considerazioni sulla LDAP in ottimizzazione delle prestazioni di ADDS
 
->[!Important]
+> [!IMPORTANT]
 > Di seguito è riportato un riepilogo dei principali requisiti e considerazioni per ottimizzare l'hardware del server per i carichi di lavoro di Active Directory trattati in modo più approfondito nel [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) articolo. I lettori sono altamente consigliabile rivedere [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) per una maggiore conoscenza tecnica e le implicazioni di queste indicazioni.
 
 ## <a name="verify-ldap-queries"></a>Verificare le query LDAP
@@ -45,14 +45,14 @@ L'indicizzazione degli attributi è utile quando si cercano oggetti con il nome 
 
 -   Una query sta impiegando molto tempo e non è stata completata in un intervallo di tempo accettabile per il client a causa di mancanza di indici di copertura.
 
--   Grandi volumi di query con tempi di esecuzione lunghi causano il consumo e all'esaurimento dei thread ATQ LDAP. Monitorare i contatori delle prestazioni seguenti:
+- Grandi volumi di query con tempi di esecuzione lunghi causano il consumo e all'esaurimento dei thread ATQ LDAP. Monitorare i contatori delle prestazioni seguenti:
 
-    -   **NTDS\\latenza richiesta** – si tratta di soggetti a quanto tempo impiegato per elaborare la richiesta. Active Directory verifica il timeout delle richieste dopo 120 secondi (impostazione predefinita), tuttavia, la maggior parte deve essere eseguito più velocemente e le query con esecuzione estremamente prolungata deve ottenere nascosto nei numeri di complessivo. Cercare le modifiche apportate in questa linea di base, anziché le soglie assolute.
+    - **NTDS\\latenza richiesta** – si tratta di soggetti a quanto tempo impiegato per elaborare la richiesta. Active Directory verifica il timeout delle richieste dopo 120 secondi (impostazione predefinita), tuttavia, la maggior parte deve essere eseguito più velocemente e le query con esecuzione estremamente prolungata deve ottenere nascosto nei numeri di complessivo. Cercare le modifiche apportate in questa linea di base, anziché le soglie assolute.
 
-        > [!Note]   Valori elevati qui possono essere anche gli indicatori di ritardi nelle richieste di "inoltro" ad altri domini e i controlli di CRL.
+        > [!NOTE]
+        > Valori elevati qui possono essere anche gli indicatori di ritardi nelle richieste di "inoltro" ad altri domini e i controlli di CRL.
 
-
-    -   **NTDS\\stimato ritardo coda** – ciò dovrebbe essere idealmente vicini a 0 per ottenere prestazioni ottimali perché ciò significa che le richieste di impiegare alcun tempo di attesa di essere gestite.
+    - **NTDS\\stimato ritardo coda** – ciò dovrebbe essere idealmente vicini a 0 per ottenere prestazioni ottimali perché ciò significa che le richieste di impiegare alcun tempo di attesa di essere gestite.
 
 Questi scenari possono essere rilevati tramite uno o più degli approcci seguenti:
 
@@ -98,8 +98,8 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 -   [Attributi indicizzati](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-
 ## <a name="see-also"></a>Vedere anche
+
 - [Server Active Directory l'ottimizzazione delle prestazioni](index.md)
 - [Considerazioni relative ai requisiti hardware](hardware-considerations.md)
 - [Esatto posizionamento dei controller di dominio e considerazioni sul sito](site-definition-considerations.md)

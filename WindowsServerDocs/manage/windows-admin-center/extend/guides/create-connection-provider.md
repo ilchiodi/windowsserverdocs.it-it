@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/18/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 883fba96fcb71cb1c6e8162c1564d66924c4e24d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b79e832ee45990d18baf4c211ab68b907134ceb7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885652"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811842"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Creare un provider di connessione per un'estensione della soluzione
 
@@ -83,19 +83,17 @@ Un punto di ingresso di tipo "connnectionProvider" indica che l'elemento in cors
 | description | Immettere una breve descrizione del punto di ingresso. |
 | connectionType | Rappresenta il tipo di connessione che il provider verrà caricato. Il valore immesso in questo caso verrà anche utilizzabile per specificare che la soluzione possa caricare tali connessioni nel punto di ingresso di soluzione. Il valore immesso in questo caso verrà anche utilizzabile per indicare che lo strumento è compatibile con questo tipo in punti di ingresso dello strumento. Questo valore immesso verrà anche essere utilizzato l'oggetto di connessione che viene inviato a RPC chiamare su "Aggiungi finestra" nel passaggio di implementazione di livello applicazione. |
 | connectionTypeName | Utilizzato nella tabella connessioni per rappresentare una connessione che utilizza il Provider di connessione. È previsto il nome plurale del tipo. |
-| connectionTypeUrlName | Usato nella creazione di URL per rappresentare la soluzione caricata, dopo che Windows Admin Center è connesso a un'istanza. Questa voce viene utilizzata dopo le connessioni e prima della destinazione. In questo esempio, "connectionexample" è in cui questo valore viene visualizzato nell'URL: http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
-| connectionTypeDefaultSolution | Rappresenta il componente predefinito che deve essere caricato dal Provider di connessione. Questo valore è una combinazione di: [a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome del punto di ingresso di soluzione.    Per un progetto con nome "msft.sme.mySample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
-| connectionTypeDefaultTool | Rappresenta il valore predefinito dello strumento che deve essere caricato in una connessione ha esito positivo. Valore di questa proprietà è costituito da due parti, simile al connectionTypeDefaultSolution. Questo valore è una combinazione di: [a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; [b] punto esclamativo (!); [c] il nome di punto di ingresso dello strumento per lo strumento che deve essere caricato inizialmente. Per un progetto con nome "msft.sme.solutionExample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
+| connectionTypeUrlName | Usato nella creazione di URL per rappresentare la soluzione caricata, dopo che Windows Admin Center è connesso a un'istanza. Questa voce viene utilizzata dopo le connessioni e prima della destinazione. In questo esempio, "connectionexample" è in cui questo valore viene visualizzato nell'URL: `http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com` |
+| connectionTypeDefaultSolution | Rappresenta il componente predefinito che deve essere caricato dal Provider di connessione. Questo valore è una combinazione di: <br>[a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; <br>[b] punto esclamativo (!); <br>[c] il nome del punto di ingresso di soluzione.    <br>Per un progetto con nome "msft.sme.mySample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
+| connectionTypeDefaultTool | Rappresenta il valore predefinito dello strumento che deve essere caricato in una connessione ha esito positivo. Valore di questa proprietà è costituito da due parti, simile al connectionTypeDefaultSolution. Questo valore è una combinazione di: <br>[a] il nome del pacchetto di estensione definito nella parte superiore del manifesto; <br>[b] punto esclamativo (!); <br>[c] il nome di punto di ingresso dello strumento per lo strumento che deve essere caricato inizialmente. <br>Per un progetto con nome "msft.sme.solutionExample-extension" e un punto di ingresso di soluzione con nome "example", questo valore sarà "msft.sme.solutionExample-extension esempio". |
 | connectionStatusProvider | Vedere la sezione "Definiscono il Provider di stato di connessione" |
 
 ## <a name="define-connection-status-provider"></a>Definire il Provider di stato di connessione
 
 Il Provider di stato di connessione è il meccanismo mediante il quale una destinazione viene convalidata per essere online e disponibile, anche verificare che l'utente che esegue la connessione abbia le autorizzazioni di accesso di destinazione. Esistono attualmente due tipi di provider di stato di connessione:  PowerShell e RelativeGatewayUrl.
 
-*   Provider di stato connessione PowerShell
-    *   Determina se una destinazione sia online e accessibile con uno script di PowerShell. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
-*   Provider di stato connessione RelativeGatewayUrl
-    *   Determina se una destinazione sia online e accessibile con una chiamata rest. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
+*   <strong>Il Provider di stato connessione PowerShell</strong> -determina se una destinazione sia online e accessibile con uno script di PowerShell. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
+*   <strong>Il Provider di stato connessione RelativeGatewayUrl</strong> -determina se una destinazione sia online e accessibile con una chiamata rest. Il risultato deve essere restituito in un oggetto con una singola proprietà "status", definiti di seguito.
 
 ### <a name="define-status"></a>Definire lo stato
 
@@ -113,25 +111,22 @@ I provider di stato di connessione sono necessari per restituire un oggetto con 
 
 Proprietà di stato:
 
-* Label
-    * Tipo restituito di un'etichetta che descrive lo stato. Si noti che i valori per etichetta possono essere mappati in fase di esecuzione. Per vedere la voce sotto i valori di mapping in fase di esecuzione.
+* <strong>Etichetta</strong> - un'etichetta che descrive il tipo restituito di stato. Si noti che i valori per etichetta possono essere mappati in fase di esecuzione. Per vedere la voce sotto i valori di mapping in fase di esecuzione.
 
-* Tipo
-    * Il tipo restituito di stato. Tipo presenta i seguenti valori di enumerazione. Per qualsiasi valore 2 o versione successiva, la piattaforma non passerà a oggetto connesso e verrà visualizzato un errore nell'interfaccia utente.
+* <strong>Tipo</strong> -lo stato di tipo restituito. Tipo presenta i seguenti valori di enumerazione. Per qualsiasi valore 2 o versione successiva, la piattaforma non passerà a oggetto connesso e verrà visualizzato un errore nell'interfaccia utente.
 
-Tipi:
+   Tipi:
 
-| Value | Descrizione |
-| ----- | ----------- |
-| 0 | Online |
-| 1 | Avviso |
-| 2 | Non autorizzato |
-| 3 | Errore |
-| 4 | Errore irreversibile |
-| 5 | Sconosciuta |
+  | Value | Descrizione |
+  | ----- | ----------- |
+  | 0 | Online |
+  | 1 | Avviso |
+  | 2 | Non autorizzato |
+  | 3 | Errore |
+  | 4 | Errore irreversibile |
+  | 5 | Sconosciuta |
 
-* Dettagli
-    * Tipo restituiscono che descrive lo stato di dettagli aggiuntivi.
+* <strong>Dettagli</strong> - dettagli aggiuntivi che descrivono il tipo restituito di stato.
 
 ### <a name="powershell-connection-status-provider-script"></a>Script di PowerShell Provider dello stato della connessione
 
@@ -139,7 +134,7 @@ Lo script di PowerShell di Provider dello stato di connessione determina se una 
 
 Script di PowerShell di esempio:
 
-``` ts
+```PowerShell
 ## Get-My-Status ##
 
 function Get-Status()

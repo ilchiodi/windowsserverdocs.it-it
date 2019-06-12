@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a49fdaba89a01c8daf6483f72dbc88daa91452b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843242"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435597"
 ---
 # <a name="hyper-v-processor-performance"></a>Prestazioni del processore di Hyper-V
 
@@ -69,19 +69,19 @@ NUMA virtuale e la memoria dinamica sono due caratteristiche che non possono ess
 
 Per altre informazioni su NUMA virtuale, vedere [Panoramica su NUMA virtuale Hyper-V](https://technet.microsoft.com/library/dn282282.aspx).
 
-##<a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
--   [Configurazione del server Hyper-V](configuration.md)
+-   [Configurazione dei server Hyper-V](configuration.md)
 
 -   [Prestazioni della memoria di Hyper-V](memory-performance.md)
 
--   [Archiviazione di Hyper-V delle prestazioni dei / o](storage-io-performance.md)
+-   [Prestazioni di I/O dell'archiviazione di Hyper-V](storage-io-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Rilevamento dei colli di bottiglia in un ambiente virtualizzato](detecting-virtualized-environment-bottlenecks.md)
 

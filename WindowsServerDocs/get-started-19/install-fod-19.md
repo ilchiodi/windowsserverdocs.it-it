@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/29/2019
-ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.date: 06/07/2019
+ms.openlocfilehash: 747258601aa05885d209aacde6947eb7b05e8121
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308600"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810800"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>Funzionalità su richiesta di compatibilità dell'app Server Core
 
@@ -64,7 +64,7 @@ Componenti del sistema operativo che sono disponibili come parte dei Server Core
 
         -   Per eseguire Gestione Cluster di Failover, immettere **cluadmin** al prompt dei comandi.
 
-I server che esegue Windows Server, 1903 e versioni successive supportano anche i componenti seguenti:
+Server che eseguono Windows Server, versione 1903 e versioni successive inoltre supporta i seguenti componenti (quando si usa la stessa versione di App compatibilità DOM):
 
 - Gestione di Hyper-V (virtmgmt.msc)
 - Utilità di pianificazione (Taskschd. msc)
@@ -104,7 +104,7 @@ Il DOM di compatibilità delle App può essere installato solo in Server Core. N
 
 8. Al termine dell'indicatore di stato, riavviare il sistema operativo.
 
- Per altre informazioni sui comandi DISM, vedere [usare DISM in Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
+   Per altre informazioni sui comandi DISM, vedere [usare DISM in Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
 
 ## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>Facoltativamente, aggiungere Internet Explorer 11 per Server Core (dopo l'aggiunta di Server Core App compatibilità DOM)
 
@@ -148,8 +148,8 @@ Il DOM di compatibilità delle App può essere installato solo in Server Core. N
 
 - Come un punto generale di indicazioni, quando installare le App in Server Core (con o senza questi pacchetti facoltativi), talvolta è necessario usare le istruzioni e le opzioni di installazione invisibile all'utente. 
     
- - Ad esempio, SQL Server Management Studio per SQL Server 2016 e SQL Server 2017 possono essere installato in Server Core e funziona perfettamente quando è presente il DOM di compatibilità delle App.  Vedere [installare SQL Server dal Prompt dei comandi](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
- - Se SQL Server Management Studio non è desiderato, quindi non è necessario installare Server Core App compatibilità DOM.  Vedere [installare SQL Server in Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
+  - Ad esempio, SQL Server Management Studio per SQL Server 2016 e SQL Server 2017 possono essere installato in Server Core e funziona perfettamente quando è presente il DOM di compatibilità delle App.  Vedere [installare SQL Server dal Prompt dei comandi](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
+  - Se SQL Server Management Studio non è desiderato, quindi non è necessario installare Server Core App compatibilità DOM.  Vedere [installare SQL Server in Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
 
 ## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Aggiunta di funzionalità e pacchetti facoltativi in un'immagine di base del Server WIM offline
 

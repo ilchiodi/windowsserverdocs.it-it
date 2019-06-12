@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eb5c9650b95703f1316e6f5f179b910d22574f68
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: bfe6c936ee5606e286aab076bea08db04b8b6500
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222958"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811172"
 ---
 # <a name="echo"></a>echo
 
@@ -54,10 +54,13 @@ echo [on | off]
 ## <a name="examples"></a>Esempi
 
 Per la visualizzazione corrente **echo** impostazione, digitare:
+
 ```
 echo
 ```
+
 Per ripetere una riga vuota nella schermata, digitare:
+
 ```
 echo.
 ```
@@ -66,6 +69,7 @@ echo.
 > Non includere uno spazio prima del periodo. In caso contrario, verrà visualizzato il periodo invece di una riga vuota.
 
 Per impedire la visualizzazione di comandi al prompt dei comandi, digitare:
+
 ```
 echo off 
 ```
@@ -74,14 +78,19 @@ echo off
 > Quando **echo** è disattivato, il prompt dei comandi non viene visualizzato nella finestra del prompt dei comandi. Per visualizzare nuovamente il prompt dei comandi, digitare **echo in**.
 
 Per impedire che tutti i comandi in un file batch (incluso il **echo off** comando) da visualizzare sullo schermo, alla prima riga del tipo di file batch:
+
 ```
 @echo off
 ```
+
 È possibile utilizzare il **echo** comando come parte di un **Se** istruzione. Ad esempio, per cercare la directory corrente per qualsiasi file con estensione rpt e un messaggio echo se viene trovato uno di questi file, digitare:
+
 ```
 if exist *.rpt echo The report has arrived.
 ```
+
 Il seguente file batch cerca nella directory corrente per i file con estensione txt e viene visualizzato un messaggio che indica i risultati della ricerca:
+
 ```
 @echo off
 if not exist *.txt (
@@ -92,11 +101,15 @@ echo This directory contains no text files.
    dir /b *.txt
    )
 ```
+
 Se quando viene eseguito il file batch, viene trovato alcun file con estensione txt, viene visualizzato il messaggio seguente:
+
 ```
 This directory contains no text files.
 ```
+
 Se vengono trovati file con estensione txt quando viene eseguito il file batch consente di visualizzare l'output seguente (per questo esempio, si supponga che i file File1. txt, file2 e File3.txt esiste):
+
 ```
 This directory contains the following text files:
 File1.txt

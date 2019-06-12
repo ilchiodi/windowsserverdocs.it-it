@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: e2366133c4699f43731c9a4e8a7a8238fc83031d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f5253700f2932b2afa725163121e64ea4c1748d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815252"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434586"
 ---
 # <a name="call"></a>chiamare
 
@@ -39,21 +39,21 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|[\<Drive>:][<Path>]<FileName>|Specifica il percorso e nome del programma batch che si desidera chiamare. Il *FileName* parametro è obbligatorio e deve avere un'estensione. bat o cmd.|
-|\<BatchParameters>|Specifica le informazioni della riga di comando necessari per il programma batch.|
-|:\<Etichetta >|Specifica l'etichetta da un controllo del programma batch a cui passare.|
-|\<argomenti >|Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, iniziando in corrispondenza *: etichetta.*|
-|/?|Visualizza la guida al prompt dei comandi.|
+|           Parametro           |                                                                         Descrizione                                                                          |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:][<Path>]<FileName> | Specifica il percorso e nome del programma batch che si desidera chiamare. Il *FileName* parametro è obbligatorio e deve avere un'estensione. bat o cmd. |
+|      \<BatchParameters>       |                                            Specifica le informazioni della riga di comando necessari per il programma batch.                                             |
+|           :\<Etichetta >           |                                            Specifica l'etichetta da un controllo del programma batch a cui passare.                                             |
+|         \<argomenti >          |                     Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, iniziando in corrispondenza *: etichetta.*                     |
+|              /?               |                                                             Visualizza la guida al prompt dei comandi.                                                             |
 
 ## <a name="batch-parameters"></a>Parametri di batch
 
-I riferimenti agli argomenti di script batch (**%0**, **%1**,...) sono elencati nelle tabelle seguenti.
+I riferimenti agli argomenti di script batch ( **%0**, **%1**,...) sono elencati nelle tabelle seguenti.
 
-**%*** in un batch dello script fa riferimento a tutti gli argomenti (ad esempio, **%1**, **%2**, **%3**...)
+**%** * in un batch dello script fa riferimento a tutti gli argomenti (ad esempio, **%1**, **%2**, **%3**...)
 
-È possibile usare la sintassi facoltativi seguenti come le sostituzioni per i parametri di batch (**%n**):
+È possibile usare la sintassi facoltativi seguenti come le sostituzioni per i parametri di batch ( **%n**):
 
 |Parametro di batch|Descrizione|
 |---------------|-----------|
@@ -78,19 +78,19 @@ Nella tabella seguente viene illustrato come è possibile combinare i modificato
 |%~dp$PATH:1|Cerca directory elencate nella variabile di ambiente PATH per **%1**e quindi si espande la lettera di unità e percorso della directory prima disponibile.|
 |%~ftza1|Si espande **%1** per visualizzare l'output simile al **dir** comando.|
 
-Negli esempi precedenti, **%1** e percorso può essere sostituito da altri valori validi. Il **%~** sintassi viene terminata da un numero di argomento valido. Il **%~** modificatori non possono essere usati con **% \***.
+Negli esempi precedenti, **%1** e percorso può essere sostituito da altri valori validi. Il <strong>%~</strong> sintassi viene terminata da un numero di argomento valido. Il <strong>%~</strong> i modificatori non possono essere usati con * * %\\* * *.
 
 ## <a name="remarks"></a>Note
 
 -   Utilizzo di parametri di batch
 
-    Parametri batch possono contenere qualsiasi informazione che è possibile passare a un file batch, incluse le opzioni della riga di comando, i nomi di file, i parametri di batch **%0** attraverso **%9**, variabili e (ad esempio **% baud %**).
+    Parametri batch possono contenere qualsiasi informazione che è possibile passare a un file batch, incluse le opzioni della riga di comando, i nomi di file, i parametri di batch **%0** attraverso **%9**, variabili e (ad esempio **% baud %** ).
 -   Usando il *etichetta* parametro
 
     Usando **chiamare** con il *etichetta* parametro, creare un nuovo contesto di file batch e passare il controllo all'istruzione dopo l'etichetta specificata. La prima volta che viene rilevata la fine del file batch (vale a dire, dopo il passaggio all'etichetta), controllo viene restituito all'istruzione dopo il **chiamare** istruzione. La seconda volta che viene rilevata la fine del file batch, il batch viene terminato.
 -   Usando pipe e i simboli di reindirizzamento
 
-    Non usare pipe (**|**) e simboli di reindirizzamento (**<** oppure **>**) con **chiamare**.
+    Non usare pipe ( **|** ) e simboli di reindirizzamento ( **<** oppure **>** ) con **chiamare**.
 -   Effettua una chiamata ricorsiva
 
     È possibile creare un file batch che chiama se stessa. Tuttavia, è necessario specificare una condizione di uscita. In caso contrario, i programmi di batch padre e figlio un ciclo infinito.
@@ -113,4 +113,4 @@ call checknew %1 %2
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

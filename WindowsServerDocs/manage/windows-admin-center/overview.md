@@ -5,21 +5,21 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 04/12/2019
+ms.date: 06/07/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
-ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.openlocfilehash: 2314e336cbf9ad44b07f3f94d7a866b48b5e9bff
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66260251"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811803"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+> Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
-**Windows Admin Center** (nome in codice **Honolulu progetto**) è un'evoluzione di Windows Server nella finestra di strumenti di gestione; è un singolo riquadro che consente di consolidare tutti gli aspetti della gestione dei server locali e remoti. In quanto esperienza di gestione basata su browser e distribuita localmente, non sono necessari una connessione Internet e Azure. Windows Admin Center ti offre il controllo completo di tutti gli aspetti della distribuzione, incluse le reti private non connesse a Internet.
+**Windows Admin Center** (noto in precedenza **Honolulu progetto**) è un'evoluzione di Windows Server nella finestra di strumenti di gestione; è un singolo riquadro che consente di consolidare tutti gli aspetti della gestione dei server locali e remoti. In quanto esperienza di gestione basata su browser e distribuita localmente, non sono necessari una connessione Internet e Azure. Windows Admin Center ti offre il controllo completo di tutti gli aspetti della distribuzione, incluse le reti private non connesse a Internet.
 
 ## <a name="introduction"></a>Introduzione
 
@@ -75,6 +75,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <ul>
             <li><a href="configure/settings.md">Impostazioni di Windows Admin Center</a>
             <li><a href="configure/user-access-control.md">Le autorizzazioni e controllo di accesso utente</a>
+            <li><a href="configure/shared-connections.md">Connessioni condivise</a>
             <li><a href="configure/using-extensions.md">Estensioni</a>
             </ul>
         </td>

@@ -11,12 +11,12 @@ ms.assetid: 75c32e42-97f7-48df-aac9-1d82d34825e1
 author: KBDAzure
 ms.author: kathydav
 ms.date: 01/17/2017
-ms.openlocfilehash: a33912e09d664296f6eda964c40177353718d49c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9be61fbc860e9d8c5cbc020d6dd4082722e32509
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851542"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812093"
 ---
 # <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Utilizzare live migration senza Clustering di Failover per spostare una macchina virtuale
 
@@ -28,11 +28,13 @@ Per poter eseguire questa operazione, è necessario:
 
 - Un account utente che è un membro del gruppo amministratori Hyper-V locale o il gruppo Administrators nel computer di origine e di destinazione. 
   
-- Il ruolo Hyper-V in Windows Server 2016 o Windows Server 2012 R2 installato nel server di origine e destinazione e configurazione per migrazioni in tempo reale. È possibile eseguire una migrazione in tempo reale tra host che eseguono Windows Server 2016 e Windows Server 2012 R2, se la macchina virtuale sia almeno la versione 5. <br>Per istruzioni sull'aggiornamento di versione, vedere [versione aggiornamento macchina virtuale in Hyper-V in Windows 10 o Windows Server 2016](..\deploy\Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Per istruzioni sull'installazione, vedere [configurare gli host per live migration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md). 
-  
+- Il ruolo Hyper-V in Windows Server 2016 o Windows Server 2012 R2 installato nel server di origine e destinazione e configurazione per migrazioni in tempo reale. È possibile eseguire una migrazione in tempo reale tra host che eseguono Windows Server 2016 e Windows Server 2012 R2, se la macchina virtuale sia almeno la versione 5.
+
+    Per istruzioni sull'aggiornamento di versione, vedere [versione aggiornamento macchina virtuale in Hyper-V in Windows 10 o Windows Server 2016](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Per istruzioni sull'installazione, vedere [configurare gli host per live migration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md).
+
 - Gli strumenti di gestione di Hyper-V installati in un computer che eseguono Windows Server 2016 o Windows 10, a meno che gli strumenti vengono installati in server di origine o destinazione e si eseguirà li da lì.  
    
-## <a name="BKMK_Step3"></a>Utilizzare Gestione Hyper-V per spostare una macchina virtuale in esecuzione  
+## <a name="use-hyper-v-manager-to-move-a-running-virtual-machine"></a>Gestione di Hyper-V consente di spostare una macchina virtuale in esecuzione  
   
 1.  Aprire la console di gestione di Hyper-V. (Da Server Manager, fare clic su **Strumenti** >>**Hyper-V Manager**.)  
   
@@ -76,8 +78,8 @@ Non è riuscito a stabilire una connessione all'host *nome computer*: Le credenz
 3. Controllare **migrazione a un computer con una versione diversa del processore**.
 4. Fare clic su **OK**.
  
- Per utilizzare Windows PowerShell, utilizzare il [Set-VMProcessor](https://technet.microsoft.com/library/hh848533.aspx) cmdlet:
+   Per utilizzare Windows PowerShell, utilizzare il [Set-VMProcessor](https://technet.microsoft.com/library/hh848533.aspx) cmdlet:
  
-  ```
-  PS C:\> Set-VMProcessor TestVM -CompatibilityForMigrationEnabled $true
-  ```
+   ```
+   PS C:\> Set-VMProcessor TestVM -CompatibilityForMigrationEnabled $true
+   ```

@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 781ed17fb07d2aecd4bb0b7bc672056096ab8060
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e94659c62db574dc8779c8246d471ab401414ddb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837062"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435802"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Introduzione alla raccolta eventi di configurazione e avvio
 
@@ -311,7 +311,7 @@ Il log per il servizio agente di raccolta dati stesso (che è diverso dal progra
   
 ||Errore|Descrizione dell'errore|Sintomo|Potenziale problema|  
 |-|---------|---------------------|-----------|---------------------|  
-|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features &#124;? { $_-corrispondono "avvio"}**. Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
+|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features &#124;? { $_-corrispondono "avvio"}** . Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
 |Dism.exe|0x800f080c|Funzionalità \<name > è sconosciuto.||Come sopra|  
   
 ### <a name="troubleshooting-the-collector"></a>Risoluzione dei problemi l'agente di raccolta  
@@ -335,23 +335,23 @@ A livello di debug, potrebbe essere utile scrivere il log in un file anziché te
       
  **Un approccio consigliato alla risoluzione dei problemi l'agente di raccolta:**  
    
- 1. In primo luogo, verificare che l'agente di raccolta ha ricevuto la connessione dalla destinazione (creerà il file solo quando la destinazione viene avviato l'invio dei messaggi) con   
-```  
-Get-SbecForwarding  
-```  
-Se viene restituito è disponibile una connessione di destinazione che il problema potrebbe essere nelle impostazioni di autologger. Se restituisce nothing, il problema è iniziare con la connessione KDNET. Per diagnosticare problemi di connessione KDNET, controllare la connessione da entrambe le estremità (vale a dire dall'agente di raccolta dati e dalla destinazione).  
+1. In primo luogo, verificare che l'agente di raccolta ha ricevuto la connessione dalla destinazione (creerà il file solo quando la destinazione viene avviato l'invio dei messaggi) con   
+   ```  
+   Get-SbecForwarding  
+   ```  
+   Se viene restituito è disponibile una connessione di destinazione che il problema potrebbe essere nelle impostazioni di autologger. Se restituisce nothing, il problema è iniziare con la connessione KDNET. Per diagnosticare problemi di connessione KDNET, controllare la connessione da entrambe le estremità (vale a dire dall'agente di raccolta dati e dalla destinazione).  
   
 2. Per vedere diagnostica estesa dall'agente di raccolta dati, aggiungere questa opzione per il \<collector > elemento del file di configurazione:  
-\<agente di raccolta dati... minlog = "verbose" >  
-In questo modo i messaggi relativi a ogni pacchetto ricevuto.  
+   \<agente di raccolta dati... minlog = "verbose" >  
+   In questo modo i messaggi relativi a ogni pacchetto ricevuto.  
 3. Controllare se i pacchetti vengono ricevuti affatto. Facoltativamente, è possibile scrivere il log in modalità dettagliata direttamente in un file anziché tramite ETW. A tale scopo, aggiungere quanto segue per il \<collector > elemento del file di configurazione:  
-\<agente di raccolta dati... minlog = "verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
+   \<agente di raccolta dati... minlog = "verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
 4. Controllare i registri eventi per tutti i messaggi sui pacchetti ricevuti. Controllare se i pacchetti vengono ricevuti affatto. Se i pacchetti ricevuti ma non corretto, controllare i messaggi di evento per i dettagli.  
 5. Dal lato di destinazione, KDNET scrive alcune informazioni diagnostiche nel Registro di sistema. Cerca   
-**HKLM\SYSTEM\CurrentControlSet\Services\kdnet** per i messaggi.  
-  KdInitStatus (DWORD) = 0 in caso di riuscita e verrà visualizzata un codice di errore in caso di errore  
-  KdInitErrorString = spiegazione dell'errore (contiene inoltre i messaggi informativi se nessun errore)  
+   **HKLM\SYSTEM\CurrentControlSet\Services\kdnet** per i messaggi.  
+   KdInitStatus (DWORD) = 0 in caso di riuscita e verrà visualizzata un codice di errore in caso di errore  
+   KdInitErrorString = spiegazione dell'errore (contiene inoltre i messaggi informativi se nessun errore)  
   
 6. Eseguire Ipconfig.exe nella destinazione e controllo per il nome del dispositivo che segnala. Se KDNET è stato caricato correttamente, il nome del dispositivo deve essere simile a "kdnic" anziché il nome di carta originale del distributore.  
 7. Controlla se DHCP è configurato per la destinazione. KDNET è assolutamente necessario DHCP.  

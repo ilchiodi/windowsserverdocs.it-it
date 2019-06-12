@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 453579589f3fd3cc2c9fa835b50bfb59e33bc3dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 86b56386ba9bed2486cdf8cdbb4486fcec6c6265
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872582"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435156"
 ---
 # <a name="auditpol-clear"></a>auditpol chiaro
 
@@ -31,10 +31,12 @@ Elimina i criteri di controllo per utente per tutti gli utenti, il sistema di co
 auditpol /clear [/y]
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|/y|Elimina la richiesta di confermare se tutte le impostazioni di criteri di controllo devono essere cancellate.|
-|/?|Visualizza la guida al prompt dei comandi.|
+
+| Parametro |                                   Descrizione                                    |
+|-----------|----------------------------------------------------------------------------------|
+|    /y     | Elimina la richiesta di confermare se tutte le impostazioni di criteri di controllo devono essere cancellate. |
+|    /?     |                       Visualizza la guida al prompt dei comandi.                       |
+
 ## <a name="remarks"></a>Note
 per operazioni di cancellazione per il criterio per ogni utente e criteri di sistema, è necessario avere scrivere o dell'autorizzazione controllo completo su tale oggetto impostato nel descrittore di sicurezza. È anche possibile eseguire l'operazione di cancellazione dal desiderio di **gestione file registro di controllo e protezione** diritto utente (SeSecurityPrivilege). Tuttavia, questo diritto consente accesso aggiuntivo che non è necessario eseguire l'operazione di cancellazione.
 ## <a name="BKMK_examples"></a>Esempi
@@ -48,5 +50,5 @@ auditpol /clear /y
 ```
 > [!NOTE]
 > Nell'esempio precedente è utile quando si usa uno script per eseguire questa operazione.
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+> #### <a name="additional-references"></a>Riferimenti aggiuntivi
+> [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

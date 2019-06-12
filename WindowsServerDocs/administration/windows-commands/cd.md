@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f907b6162e6767820e23222e287b933397397d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861102"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434606"
 ---
 # <a name="cd"></a>cd
 
@@ -53,16 +53,16 @@ chdir [..]
 ## <a name="remarks"></a>Note
 
 Se sono abilitate le estensioni dei comandi, le condizioni seguenti si applicano per la **cd** comando:
--   Per usare la stessa combinazione come i nomi del disco viene convertita nella stringa di directory corrente. Ad esempio, `cd C:\TEMP` imposterebbe la directory corrente a C:\Temp, se in questo caso sul disco.
--   Gli spazi non vengono considerati come delimitatori, così *percorso* possono contenere spazi non racchiuso tra virgolette. Ad esempio:  
-    ```
-    cd username\programs\start menu
-    ```  
-    equivale a:  
-    ```
-    cd "username\programs\start menu"
-    ```  
-    Le virgolette sono necessarie, tuttavia, se le estensioni sono disabilitate.
+- Per usare la stessa combinazione come i nomi del disco viene convertita nella stringa di directory corrente. Ad esempio, `cd C:\TEMP` imposterebbe la directory corrente a C:\Temp, se in questo caso sul disco.
+- Gli spazi non vengono considerati come delimitatori, così *percorso* possono contenere spazi non racchiuso tra virgolette. Ad esempio:  
+  ```
+  cd username\programs\start menu
+  ```  
+  equivale a:  
+  ```
+  cd "username\programs\start menu"
+  ```  
+  Le virgolette sono necessarie, tuttavia, se le estensioni sono disabilitate.
 
 Per disabilitare le estensioni dei comandi, digitare:
 ```
@@ -86,4 +86,4 @@ cd [<Drive>:]
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

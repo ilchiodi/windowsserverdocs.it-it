@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a5f28c317f1d58fd1889fb55d345463dc8a62999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b95e39af63e284d0147335faabfb740c0dd175bc
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816422"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812298"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Esportare una configurazione di NPS per l'importazione in un altro Server
 
@@ -26,13 +26,13 @@ Per esportare la configurazione dei criteri di rete, usare uno degli strumenti s
 - In Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, è possibile usare Netsh o è possibile usare Windows PowerShell.
 - In Windows Server 2008 R2 e Windows Server 2008, è possibile usare Netsh.
 
->[!IMPORTANT]
->Non utilizzare questa procedura se il database dei criteri di rete di origine ha un numero di versione superiore rispetto al numero di versione del database dei criteri di rete di destinazione. È possibile visualizzare il numero di versione del database dei criteri di rete dalla visualizzazione del **netsh nps Mostra config** comando.
+> [!IMPORTANT]
+> Non utilizzare questa procedura se il database dei criteri di rete di origine ha un numero di versione superiore rispetto al numero di versione del database dei criteri di rete di destinazione. È possibile visualizzare il numero di versione del database dei criteri di rete dalla visualizzazione del **netsh nps Mostra config** comando.
 
 Poiché le configurazioni dei criteri di rete non sono crittografate nel file XML esportato, inviarli in una rete potrebbe comportare un rischio per la sicurezza, pertanto, adottare precauzioni quando si sposta il file XML dal server di origine per i server di destinazione. Ad esempio, aggiungere il file in un file di archivio protetto password crittografata, prima di spostare il file. Inoltre, è possibile archiviare il file in un luogo sicuro per impedire a utenti malintenzionati di accedervi.
 
->[!NOTE]
->Se la registrazione di SQL Server è configurata nell'origine dei criteri di rete, le impostazioni di registrazione di SQL Server non vengono esportate nel file XML. Dopo aver importato il file in un altro dei criteri di rete, è necessario configurare manualmente la registrazione di SQL Server.
+> [!NOTE]
+> Se la registrazione di SQL Server è configurata nell'origine dei criteri di rete, le impostazioni di registrazione di SQL Server non vengono esportate nel file XML. Dopo aver importato il file in un altro dei criteri di rete, è necessario configurare manualmente la registrazione di SQL Server.
 
 ## <a name="export-and-import-the-nps-configuration-by-using-windows-powershell"></a>Esportare e importare la configurazione dei criteri di rete tramite Windows PowerShell
 
@@ -46,7 +46,7 @@ La tabella seguente elenca i parametri per il **Export-NpsConfiguration** cmdlet
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Percorso|Specifica il nome e percorso del file XML a cui si desidera esportare la configurazione dei criteri di rete.|
+|`Path`|Specifica il nome e percorso del file XML a cui si desidera esportare la configurazione dei criteri di rete.|
 
 **Credenziali amministrative**
 
@@ -80,8 +80,8 @@ Per altre informazioni, vedere [Import-NpsConfiguration](https://technet.microso
 
 Quando la **netsh nps importare** comando viene eseguito, dei criteri di rete viene aggiornato automaticamente con le impostazioni di configurazione aggiornato. Non è necessario arrestare dei criteri di rete nel computer di destinazione per eseguire la **netsh nps importare** comando, tuttavia se la console Criteri di rete o lo snap-in NPS MMC è aperto durante l'importazione di configurazione, le modifiche alla configurazione del server non sono visibili fino a aggiornare la vista. 
 
->[!NOTE]
->Quando si usa la **netsh nps export** comando, è necessario fornire il parametro del comando **exportPSK** con il valore **Sì**. Questo parametro e il valore in modo esplicito lo stato di aver compreso che si sta esportando la configurazione dei criteri di rete e che contiene il file XML esportato non crittografato i segreti condivisi per i client RADIUS e i membri di gruppi di server RADIUS remoti.
+> [!NOTE]
+> Quando si usa la **netsh nps export** comando, è necessario fornire il parametro del comando **exportPSK** con il valore **Sì**. Questo parametro e il valore in modo esplicito lo stato di aver compreso che si sta esportando la configurazione dei criteri di rete e che contiene il file XML esportato non crittografato i segreti condivisi per i client RADIUS e i membri di gruppi di server RADIUS remoti.
 
 **Credenziali amministrative**
 
@@ -93,13 +93,13 @@ Per completare questa procedura, è necessario essere un membro del gruppo Admin
 
 2. Nel **netsh** , digitare **nps**, e quindi premere INVIO. 
 
-3. Nel **netsh nps** , digitare **esportare filename =**"*path\file.xml*" **exportPSK = YES**, dove *percorso* è il percorso della cartella in cui si desidera salvare il file di configurazione dei criteri di rete, e *file* è il nome del file XML che si desidera salvare. Premi INVIO. 
+3. Nel **netsh nps** , digitare **esportare filename =** "*path\file.xml*" **exportPSK = YES**, dove *percorso* è il percorso della cartella in cui si desidera salvare il file di configurazione dei criteri di rete, e *file* è il nome del file XML che si desidera salvare. Premi INVIO. 
 
 Consente di archiviare le impostazioni di configurazione \(incluse le impostazioni del Registro di sistema\) in un file XML. Il percorso può essere assoluto o relativo, o può essere un Universal Naming Convention \(UNC\) percorso. Dopo aver premuto INVIO, viene visualizzato un messaggio che indicano se l'esportazione in file ha avuto esito positivo.
 
 4. Copiare il file che è stato creato per la destinazione dei criteri di rete.
 
-5. Al prompt dei comandi nella destinazione dei criteri di rete, digitare **netsh nps importare filename =**"*path\file.xml*", quindi premere INVIO. Viene visualizzato un messaggio che indicano se l'importazione dal file XML ha avuto esito positivo.
+5. Al prompt dei comandi nella destinazione dei criteri di rete, digitare **netsh nps importare filename =** "*path\file.xml*", quindi premere INVIO. Viene visualizzato un messaggio che indicano se l'importazione dal file XML ha avuto esito positivo.
 
 Per altre informazioni su netsh, vedere [Network Shell (Netsh)](../netsh/netsh.md).
 

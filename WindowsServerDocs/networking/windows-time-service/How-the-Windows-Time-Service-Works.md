@@ -9,12 +9,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 67c3471a726df354e0faa9e3aced491c4084e9e3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864342"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812401"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funzionamento del servizio Ora di Windows
 
@@ -22,13 +22,13 @@ ms.locfileid: "59864342"
 
 **In questa sezione**  
   
--   [Architettura del servizio Windows ora](#w2k3tr_times_how_rrfo)  
+-   [Architettura del servizio Windows ora](#windows-time-service-architecture)  
   
--   [Protocolli ora servizio ora di Windows](#w2k3tr_times_how_ekoc)  
+-   [Protocolli ora servizio ora di Windows](#windows-time-service-time-protocols)  
   
--   [Windows ora servizio processi e interazioni](#w2k3tr_times_how_izcr)  
+-   [Windows ora servizio processi e interazioni](#windows-time-service-processes-and-interactions)  
   
--   [Porte di rete usate dal servizio ora di Windows](#w2k3tr_times_how_ydum)  
+-   [Porte di rete usate dal servizio ora di Windows](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
 > In questo argomento viene illustrato solo come funziona il servizio ora di Windows (W32Time). Per informazioni su come configurare il servizio ora di Windows, vedere [configurazione dei sistemi per verificarne l'accuratezza elevata](configuring-systems-for-high-accuracy.md).
@@ -57,7 +57,7 @@ Il livello a cui l'ora del computer sia precisa viene chiamato un strato. L'orig
   
 Quando il gestore W32Time riceve esempi, utilizza algoritmi speciali in NTP per determinare quale degli esempi di tempo risulta più appropriato per l'utilizzo. Il servizio ora utilizza anche un altro set di algoritmi per determinare quale delle origini ora configurata è il più accurato. Quando il servizio ora ha determinato quali time è migliore, in base ai criteri precedenti, modifica la frequenza di clock locale per consentire la convergenza verso l'ora corretta. Se la differenza tra l'orologio locale e l'esempio di ora esatta selezionato (detto anche il tempo di inclinazione) è troppo grande per correggere regolando la frequenza di clock locale, il servizio ora imposta l'orologio locale sull'ora corretta. Questa regolazione della frequenza di clock o modifica dell'ora dell'orologio diretto è noto come disciplina di orologio.  
   
-## <a name="w2k3tr_times_how_rrfo"></a>Architettura del servizio Windows ora  
+## <a name="windows-time-service-architecture"></a>Architettura del servizio Ora di Windows  
 Il servizio ora di Windows include i componenti seguenti:  
   
 -   Gestione controllo servizi  
@@ -88,7 +88,7 @@ Il processo di sincronizzazione ora prevede i passaggi seguenti:
   
 Se un computer è stato designato come un server, può inviare il tempo a qualsiasi computer che richiede la sincronizzazione dell'ora in qualsiasi punto del processo.  
   
-## <a name="w2k3tr_times_how_ekoc"></a>Protocolli ora servizio ora di Windows  
+## <a name="windows-time-service-time-protocols"></a>Protocolli ora servizio ora di Windows  
 
 Protocolli ora determinano in quale misura due computer orologi vengono sincronizzati. Un protocollo di tempo è responsabile di determinare le migliori informazioni disponibili per l'ora e convergenti gli orologi per garantire il mantenimento di un'ora coerenza nei sistemi separati.  
   
@@ -144,7 +144,7 @@ Il servizio ora di Windows può interagire con i computer che eseguono Windows N
   
 Windows NT 4.0 utilizza un meccanismo più semplice per la sincronizzazione dell'ora rispetto a usato dal servizio ora di Windows. Pertanto, per garantire la sincronizzazione dell'ora precisa in tutta la rete, è consigliabile aggiornare qualsiasi controller di dominio Windows NT 4.0 a Windows 2000 o Windows Server 2003.  
   
-## <a name="w2k3tr_times_how_izcr"></a>Windows ora servizio processi e interazioni  
+## <a name="windows-time-service-processes-and-interactions"></a>Ora di Windows, processi e interazioni  
 
 Il servizio ora di Windows è progettato per sincronizzare gli orologi dei computer in una rete. Il processo di sincronizzazione ora di rete, l'acronimo di convergenza di tempo, si verifica in una rete come ogni volta che accede a computer da un server più accurato. Convergenza ora prevede un processo mediante il quale un server autorevole fornisce l'ora corrente per i computer client sotto forma di pacchetti NTP. Le informazioni fornite all'interno di un pacchetto indicano se un intervento di regolazione deve apportate all'ora corrente del computer in modo che siano sincronizzato con il server più accurato.  
   
@@ -252,7 +252,7 @@ Solo i server che sono considerati attendibili dai client, anche se non sono sta
 ### <a name="disabling-the-windows-time-service"></a>Disabilitazione del servizio ora di Windows  
 Il servizio ora di Windows (W32Time) può essere completamente disattivato. Se si sceglie di implementare un prodotto di sincronizzazione ora di terze parti che utilizza NTP, è necessario disabilitare il servizio ora di Windows. In questo modo tutti i server NTP richiedono l'accesso alla porta di protocollo UDP (User Datagram) 123 e fino a quando il servizio ora di Windows è in esecuzione nel sistema operativo Windows Server 2003, la porta 123 rimane riservata ora di Windows.  
   
-## <a name="w2k3tr_times_how_ydum"></a>Porte di rete usate dal servizio ora di Windows  
+## <a name="network-ports-used-by-windows-time-service"></a>Porte di rete utilizzata dal servizio ora di Windows  
 Il servizio ora di Windows comunica in una rete per identificare le origini di ora affidabile, ottenere informazioni sull'ora e fornire le informazioni ad altri computer. Questa comunicazione viene eseguita come definito dal NTP e SNTP RFC.  
   
 **Assegnazioni delle porte per il servizio ora di Windows**  

@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 01/10/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d9e6828584f4027aa32cec26572c2290098ab6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830102"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453191"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Pianificazione dei volumi in Spazi di archiviazione diretta
 
-> Si applica a: Windows Server 2016, Windows Server 2019
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Questo argomento fornisce indicazioni su come pianificare i volumi in Spazi di archiviazione diretta per soddisfare le esigenze di capacità e prestazioni dei carichi di lavoro, inclusa la scelta del file system, del tipo di resilienza e delle dimensioni.
 
@@ -31,7 +31,7 @@ I volumi sono archivi dati in cui inserisci i file necessari ai carichi di lavor
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Tutti i volumi sono accessibili da tutti i server del cluster nello stesso momento. Una volta creati, verranno visualizzati in **C:\ClusterStorage\** su tutti i server.
+Tutti i volumi sono accessibili da tutti i server del cluster nello stesso momento. Una volta creata, vengono visualizzati nella **C:\ClusterStorage\\**  in tutti i server.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -87,9 +87,9 @@ Il tipo di resilienza da usare dipende dalle esigenze del carico di lavoro. Ecco
 
 | **Tipo di resilienza**| **Efficienza della capacità**| **Velocità**| **Carichi di lavoro**
 |--------------------|--------------------------------|--------------------------------|--------------------------
-| **Mirror**         | ![Che mostra l'efficienza di archiviazione 33%](media\plan-volumes\3-way-mirror-storage-efficiency.png)<br>Tre vie: 33% <br>Bidirezionale-bidirezionali-mirror: 50%     |![Visualizzazione prestazioni 100%](media\plan-volumes\three-way-mirror-perf.png)<br> Prestazioni più elevate  | Carichi di lavoro virtualizzati<br> Database<br>Altri carichi di lavoro ad alte prestazioni |
-| **Parità con accelerazione mirror** |![Visualizzazione di circa il 50% l'efficienza di archiviazione](media\plan-volumes\mirror-accelerated-parity-storage-efficiency.png)<br> Dipende dalla percentuale di mirror e parità | ![Visualizzazione di circa il 20% delle prestazioni](media\plan-volumes\mirror-accelerated-parity-perf.png)<br>Molto più lento rispetto a eseguire il mirroring, ma fino a due volte più velocemente con doppia parità<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata     |
-| **Doppia parità**               | ![Efficienza di archiviazione Mostra circa 80%](media\plan-volumes\dual-parity-storage-efficiency.png)<br>4 server: 50% <br>16 server: fino all'80% | ![Visualizzazione di circa il 10% delle prestazioni](media\plan-volumes\dual-parity-perf.png)<br>Massima latenza dei / o e utilizzo della CPU in operazioni di scrittura<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata  |
+| **Mirror**         | ![Che mostra l'efficienza di archiviazione 33%](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Tre vie: 33% <br>Bidirezionale-bidirezionali-mirror: 50%     |![Visualizzazione prestazioni 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Prestazioni più elevate  | Carichi di lavoro virtualizzati<br> Database<br>Altri carichi di lavoro ad alte prestazioni |
+| **Parità accelerata con mirror** |![Visualizzazione di circa il 50% l'efficienza di archiviazione](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Dipende dalla percentuale di mirror e parità | ![Visualizzazione di circa il 20% delle prestazioni](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Molto più lento rispetto a eseguire il mirroring, ma fino a due volte più velocemente con doppia parità<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata     |
+| **Doppia parità**               | ![Efficienza di archiviazione Mostra circa 80%](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 server: 50% <br>16 server: fino all'80% | ![Visualizzazione di circa il 10% delle prestazioni](media/plan-volumes/dual-parity-perf.png)<br>Massima latenza dei / o e utilizzo della CPU in operazioni di scrittura<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata  |
 
 #### <a name="when-performance-matters-most"></a>Quando le prestazioni sono l'elemento più importante
 
@@ -199,4 +199,4 @@ Vedi [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
 - [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
 - [Scelta unità spazi di archiviazione diretta](choosing-drives.md)
-- [Efficienza di archiviazione e la tolleranza di errore](storage-spaces-fault-tolerance.md)
+- [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)

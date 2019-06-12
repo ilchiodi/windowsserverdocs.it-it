@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883032"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812690"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS
 
@@ -32,7 +32,7 @@ Questo argomento descrive il primo passaggio nella distribuzione di Cartelle di 
 -   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Per configurare AD FS per l'uso con le Cartelle di lavoro, utilizza le seguenti procedure.  
   
@@ -113,7 +113,7 @@ Per installare AD FS, esegui le seguenti operazioni:
   
 2.  Nella pagina **Ruoli server** seleziona il ruolo **Active Directory Federation Services** e quindi fai clic su **Avanti**.  
   
-3.  Nella pagina **Active Directory Federation Services (AD FS)**, verrà visualizzato un messaggio in cui è indicato che il ruolo Proxy dell'applicazione Web non può essere installato nello stesso computer di AD FS. Fare clic su **Avanti**.  
+3.  Nella pagina **Active Directory Federation Services (AD FS)** , verrà visualizzato un messaggio in cui è indicato che il ruolo Proxy dell'applicazione Web non può essere installato nello stesso computer di AD FS. Fare clic su **Avanti**.  
   
 4.  Fai clic su **Installa** nella pagina di conferma.  
   

@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/24/2019
 description: Condivisioni file di controllo consentono di usare una condivisione file di voto di quorum del cluster. Questo argomento descrive le nuove funzionalità, incluso l'uso di un'unità USB connessa a un router come controllo di condivisione file e condivisioni file di controllo.
 ms.localizationpriority: medium
-ms.openlocfilehash: 1888142f96208800a0417c9caeea89e8a0472e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831752"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453041"
 ---
 # <a name="deploy-a-file-share-witness"></a>Distribuire una condivisione file di controllo
 
@@ -61,26 +61,26 @@ Altre note:
 
 Alla [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/), [DataOn archiviazione](http://www.dataonstorage.com/) è stato rilevato un Cluster di spazi di archiviazione diretta in base alla relativa area per chiosco multimediale.  In questo cluster è stato connesso a un [NetGear](https://www.netgear.com) Nighthawk X4S Wi-Fi Router utilizza la porta USB di un file di controllo analogo al seguente di condivisione.
 
-![Controllo del mirroring NetGear](media\File-Share-Witness\FSW1.png)
+![Controllo del mirroring NetGear](media/File-Share-Witness/FSW1.png)
 
 I passaggi per la creazione di un controllo di condivisione file usando un dispositivo USB su questo particolare router sono elencati di seguito.  Si noti che questa procedura su altri router e i dispositivi NAS varia e deve essere eseguita mediante il fornitore fornito le direzioni.
 
 
 1. Accedere al router con il dispositivo USB collegato.
 
-   ![Interfaccia NetGear](media\File-Share-Witness\FSW2.png)
+   ![Interfaccia NetGear](media/File-Share-Witness/FSW2.png)
 
 2. Nell'elenco delle opzioni, selezionare ReadySHARE ovvero dove è possibile creare condivisioni.
 
-   ![NetGear ReadySHARE](media\File-Share-Witness\FSW3.png)
+   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
 
 3. Per un controllo di condivisione file, una condivisione di base è tutto ciò che serve.  Selezione del pulsante di modifica viene visualizzata una finestra di dialogo in cui è possibile creare la condivisione nel dispositivo USB.
 
-   ![Interfaccia NetGear condivisione](media\File-Share-Witness\FSW4.png)
+   ![Interfaccia NetGear condivisione](media/File-Share-Witness/FSW4.png)
 
 4. Dopo aver selezionato il pulsante Applica, la condivisione viene creata e può essere visualizzata nell'elenco.
 
-   ![Condivisioni NetGear](media\File-Share-Witness\FSW5.png)
+   ![Condivisioni NetGear](media/File-Share-Witness/FSW5.png)
 
 5. Dopo aver creata la condivisione, Creazione condivisione file di controllo per il Cluster viene eseguita con PowerShell.
 

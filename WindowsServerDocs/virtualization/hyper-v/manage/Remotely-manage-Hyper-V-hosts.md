@@ -11,12 +11,12 @@ ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: df66f308ee7999f97fe7e57a8b52256f2561faa2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d4d9f2dd3727e196bb6893fd5041fa3f08c30796
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453186"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Gestire in remoto gli host Hyper-V con gestione Hyper-V
 
@@ -24,7 +24,7 @@ ms.locfileid: "59870232"
 
 Questo articolo elenca le combinazioni supportate di host Hyper-V e le versioni di Hyper-V Manager e viene descritto come connettersi agli host Hyper-V locali e remoti in modo da poterli gestire. 
 
-Gestione di Hyper-V consente di gestire un numero ridotto di host Hyper-V, locali e remoti. È installato quando si installa gli strumenti di gestione di Hyper-V, ed è possibile farlo tramite una procedura completa di installazione di Hyper-V o un'installazione di soli strumenti. Esegue un metodo di installazione di soli strumenti, è possibile usare gli strumenti in computer che non soddisfano i requisiti hardware per host Hyper-V. Per informazioni dettagliate sull'hardware per gli host Hyper-V, vedere [requisiti di sistema](..\System-requirements-for-Hyper-V-on-Windows.md).
+Gestione di Hyper-V consente di gestire un numero ridotto di host Hyper-V, locali e remoti. È installato quando si installa gli strumenti di gestione di Hyper-V, ed è possibile farlo tramite una procedura completa di installazione di Hyper-V o un'installazione di soli strumenti. Esegue un metodo di installazione di soli strumenti, è possibile usare gli strumenti in computer che non soddisfano i requisiti hardware per host Hyper-V. Per informazioni dettagliate sull'hardware per gli host Hyper-V, vedere [requisiti di sistema](../System-requirements-for-Hyper-V-on-Windows.md).
 
 Se non è installato Hyper-V Manager, vedere la [istruzioni](#install-hyper-v-manager) sotto.
 
@@ -59,8 +59,8 @@ Gestione di Hyper-V non vengono elencati tutti i computer che ospitano Hyper-V f
 
 Se non è possibile connettersi:
 
-* È possibile che solo gli strumenti di Hyper-V siano installati. Per verificare che la piattaforma Hyper-V sia installata, cercare il servizio di gestione delle macchine virtuali. \(Aprire l'app desktop di servizi: fare clic su **avviare**, fare clic sul **Inizia ricerca** , digitare **Services. msc**, quindi premere **invio**. Se il servizio di gestione delle macchine virtuali non è elencato, installare la piattaforma Hyper-V seguendo le istruzioni disponibili nel [installare Hyper-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md).\)
-* Verificare che l'hardware soddisfi i requisiti. Visualizzare [requisiti di sistema](..\System-requirements-for-Hyper-V-on-Windows.md).
+* È possibile che solo gli strumenti di Hyper-V siano installati. Per verificare che la piattaforma Hyper-V sia installata, cercare il servizio di gestione delle macchine virtuali. / (Aprire l'app desktop di servizi di: fare clic su **inizio**, fare clic sul **Inizia ricerca** , digitare **Services. msc**, quindi premere **invio**. Se il servizio di gestione delle macchine virtuali non è elencato, installare la piattaforma Hyper-V seguendo le istruzioni disponibili nel [installare Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).
+* Verificare che l'hardware soddisfi i requisiti. Visualizzare [requisiti di sistema](../System-requirements-for-Hyper-V-on-Windows.md).
 * Verificare che l'account utente appartenga al gruppo Administrators o al gruppo amministratori Hyper-V.
 
 ## <a name="manage-hyper-v-hosts-remotely"></a>Gestire gli host Hyper-V in modalità remota  
@@ -171,5 +171,5 @@ add-windowsfeature rsat-hyper-v-tools
 
 ## <a name="see-also"></a>Vedere anche  
  
-[Installazione di Hyper-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md) 
+[Installazione di Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

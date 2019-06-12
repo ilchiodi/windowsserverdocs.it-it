@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 894ea8b134ae5b871a2978e3f72e683c12346fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8571c2220f804a27e4e1a6b744e8e15e38bd53a3
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850202"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453082"
 ---
 # <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Configurazioni supportate per Servizi Desktop remoto in Windows Server 2016
 
@@ -90,7 +90,7 @@ Servizi Desktop remoto di Windows Server 2016 supporta due esperienze SSO princi
  - All'interno dell'applicazione (applicazione Desktop remoto in Windows, iOS, Android e Mac)
  - Web SSO
  
-Uso dell'applicazione Desktop remoto, è possibile archiviare come parte delle informazioni di connessione delle credenziali ([Mac](clients\remote-desktop-mac.md)) o come parte di account gestiti ([iOS](clients\remote-desktop-ios.md#manage-your-user-accounts), [Android](clients\remote-desktop-android.md#manage-your-user-accounts), Windows) in modo sicuro tramite i meccanismi univoci per ogni sistema operativo.
+Uso dell'applicazione Desktop remoto, è possibile archiviare come parte delle informazioni di connessione delle credenziali ([Mac](clients/remote-desktop-mac.md)) o come parte di account gestiti ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts), [Android](clients/remote-desktop-android.md#manage-your-user-accounts), Windows) in modo sicuro tramite i meccanismi univoci per ogni sistema operativo.
 
 Per connettersi a desktop e RemoteApp con SSO tramite il client connessione Desktop remoto della posta in arrivo in Windows, è necessario connettersi alla pagina Web desktop remoto tramite Internet Explorer. Sono necessarie le seguenti opzioni di configurazione sul lato server. Nessun altre configurazioni sono supportate per l'accesso SSO Web:
 

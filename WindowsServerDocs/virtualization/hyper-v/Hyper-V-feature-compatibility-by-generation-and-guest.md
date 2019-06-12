@@ -11,12 +11,12 @@ ms.assetid: 81c1f32d-7814-4992-8a66-dd4b77c939b4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 1863c1736d3c8573b3d11c6bef492c6645d28a77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5950a75da4569979794a5848bd41ab349dc34676
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859762"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812660"
 ---
 # <a name="hyper-v-feature-compatibility-by-generation-and-guest"></a>Compatibilità con la funzionalità di Hyper-V per la generazione e guest
 
@@ -27,7 +27,7 @@ Le tabelle in questo articolo mostrano le generazioni e sistemi operativi compat
 Tenere presente che alcune funzionalità si basano su hardware o un'altra infrastruttura. Per dettagli sull'hardware, vedere [requisiti di sistema per Hyper-V in Windows Server 2016](System-requirements-for-Hyper-V-on-Windows.md). In alcuni casi, una funzionalità è utilizzabile con qualsiasi sistema operativo guest supportato. Per informazioni dettagliate in cui sono supportati i sistemi operativi, vedere:  
   
 * [Macchine virtuali Linux e FreeBSD supportate](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
-* [Sistemi operativi guest Windows supportati](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)  
+* [Sistemi operativi guest di Windows supportati](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)  
   
 ## <a name="availability-and-backup"></a>Backup e disponibilità  
   
@@ -49,7 +49,7 @@ NUMA virtuale | 1 e 2 | Qualsiasi guest supportati
 ## <a name="development-and-test"></a>Sviluppo e test  
 Funzionalità  | Generazione | Sistema operativo guest  
 ------------- | ------------- | -----------  
-Porte COM/seriali | 1 e 2 <br>**Nota:** Per la generazione 2, usare Windows PowerShell per configurare. Per informazioni dettagliate, vedere [aggiungere una porta COM per il debug del kernel](./plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v.md#BKMK_Debug). | Qualsiasi guest supportati  
+Porte COM/seriali | 1 e 2 <br>**Nota:** Per la generazione 2, usare Windows PowerShell per configurare. Per informazioni dettagliate, vedere [aggiungere una porta COM per il debug del kernel](./plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v.md#add-a-com-port-for-kernel-debugging). | Qualsiasi guest supportati  
   
 ## <a name="mobility"></a>Mobilità  
   

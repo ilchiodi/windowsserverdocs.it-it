@@ -12,12 +12,12 @@ ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9b0d11be08840ecedabab6fd4e96f5d453ea4857
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 52ec9bf1caa4cb4c7ed661eec1448f3f2a4be980
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848192"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436056"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Risolvere i problemi di connessione dei computer al server in Windows Server Essentials
 
@@ -165,7 +165,7 @@ ms.locfileid: "59848192"
   
  Questo problema può verificarsi se la data e l'ora nel computer connesso non sono sincronizzate con la data e l'ora nel server.  Windows Server Essentials e Windows Server Essentials è possibile usare il servizio di sincronizzazione ora per sincronizzare la data e ora del computer in esecuzione in una rete di Windows Server Essentials o Windows Server Essentials. L'ora sincronizzata è di importanza critica dal momento che il protocollo di autenticazione predefinito utilizza l'ora del server nell'ambito del processo di autenticazione. Ad esempio, se l'orologio in un computer client non verrà sincronizzato con la data e l'ora, Windows Server Essentials o l'autenticazione di Windows Server Essentials potrebbe essere erroneamente interpretato interpretare una richiesta di accesso come tentativo di intrusione e negare l'accesso all'utente.  
   
- Questa situazione può verificarsi se la memoria libera s server è inferiore al 5%.  
+ Questa situazione può verificarsi se la memoria disponibile nel server è inferiore al 5%.  
   
  Il problema può verificarsi se è già stata stabilita una connessione VPN al server Windows Essentials e si tenta di configurare il software Connettore non in locale usando un indirizzo di dominio.  
   
@@ -179,17 +179,17 @@ ms.locfileid: "59848192"
   
 #### <a name="to-change-the-date-and-time-on-the-client-computer"></a>Per modificare la data e l'ora nel computer client  
   
-1.  Nella pagina iniziale del computer client aprire il **Pannello di controllo**.  
+1. Nella pagina iniziale del computer client aprire il **Pannello di controllo**.  
   
-2.  Nel Pannello di controllo fare clic su **Orologio e opzioni internazionali**e quindi su **Data e ora**.  
+2. Nel Pannello di controllo fare clic su **Orologio e opzioni internazionali**e quindi su **Data e ora**.  
   
-3.  Fare clic su **Modifica data e ora**, impostare la data e l'ora corrette e quindi fare clic su **OK**.  
+3. Fare clic su **Modifica data e ora**, impostare la data e l'ora corrette e quindi fare clic su **OK**.  
   
-4.  Fare clic su **OK** e quindi chiudere il Pannello di controllo.  
+4. Fare clic su **OK** e quindi chiudere il Pannello di controllo.  
   
-5.  Provare di nuovo a connettere il computer client al server. Per istruzioni, vedere Connettere computer al server.  
+5. Provare di nuovo a connettere il computer client al server. Per istruzioni, vedere Connettere computer al server.  
   
- Se ancora non è possibile connettere il computer client al server, verificare che la data e l'ora nel server siano corrette. Se la data e l'ora non sono corrette, modificarle.  
+   Se ancora non è possibile connettere il computer client al server, verificare che la data e l'ora nel server siano corrette. Se la data e l'ora non sono corrette, modificarle.  
   
 #### <a name="to-change-the-date-and-time-on-the-server"></a>Per modificare la data e l'ora nel server  
   

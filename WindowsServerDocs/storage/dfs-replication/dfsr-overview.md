@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 17fa97e28d099806c9280e42dd900e8d6c708641
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd381c04b02889a7f2e7b8992ff6050d1b0f078a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850242"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453058"
 ---
 # <a name="dfs-replication-overview"></a>Panoramica della replica DFS
 
@@ -25,7 +25,7 @@ Per altre informazioni sulla replica di SYSVOL con replica DFS, vedere [eseguire
 
 Per usare la replica DFS, è necessario creare gruppi di replica e aggiungere le cartelle replicate ai gruppi. I gruppi di replica, le cartelle replicate e membri sono illustrati nella figura seguente.
 
-![Un gruppo di replica che contiene una connessione tra due membri, ognuno dei quali con un paio di cartelle replicate](media\dfsr-overview.gif)
+![Un gruppo di replica che contiene una connessione tra due membri, ognuno dei quali con un paio di cartelle replicate](media/dfsr-overview.gif)
 
 La figura seguente mostra che un gruppo di replica è un set di server, noti come membri, che partecipa alla replica di uno o più cartelle replicate. Una cartella replicata è una cartella che resta sincronizzata in ogni membro. Nella figura, sono presenti due cartelle replicate: I progetti e proposte. Se i dati viene modificato in tutte le cartelle replicate, le modifiche vengono replicate nelle connessioni tra i membri del gruppo di replica. Le connessioni tra tutti i membri formano la topologia di replica.
 Creazione di più cartelle replicate in un singolo gruppo di replica semplifica il processo di distribuzione di cartelle replicate poiché la topologia, la pianificazione e limitazione per il gruppo di replica larghezza di banda vengono applicate a ogni cartella replicata. Per distribuire altre cartelle replicate, è possibile utilizzare Dfsradmin.exe o un, seguire le istruzioni in una procedura guidata per definire il percorso locale e le autorizzazioni per la nuova cartella replicata.

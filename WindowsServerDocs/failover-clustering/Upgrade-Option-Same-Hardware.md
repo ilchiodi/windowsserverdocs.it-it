@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: Questo articolo descrive l'aggiornamento di un Cluster di Failover 2 nodi con lo stesso hardware
 ms.localizationpriority: medium
-ms.openlocfilehash: 0bfeb05c8cbc205745dc16bc7ef04052481668ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854832"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453056"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>L'aggiornamento di cluster di Failover sullo stesso hardware
 
@@ -29,7 +29,7 @@ L'aggiornamento del sistema operativo in un caso di failover esistente cluster �
 
 Prima di eseguire qualsiasi aggiornamento del cluster di failover, consultare il [centro aggiornamento Windows](https://www.microsoft.com/upgradecenter).  Quando si aggiorna un Server di Windows sul posto, si sposta da una versione del sistema operativo esistente a una versione più recente rimanendo sullo stesso hardware. Windows Server può essere aggiornato sul posto almeno uno e a volte due versioni di rollforward. Ad esempio, Windows Server 2012 R2 e Windows Server 2016 possono essere aggiornati sul posto a Windows Server 2019.  Inoltre, tenere presente che il [migrazione guidata Cluster](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) può essere usato ma è supportato solo un massimo di due versioni nuovamente. La figura seguente illustra i percorsi di aggiornamento per Windows Server. Le frecce verso il basso di puntamento rappresentano il percorso di aggiornamento supportato lo spostamento da versioni precedenti fino a Windows Server 2019.
 
-![Diagramma di aggiornamento sul posto](media\In-Place-Upgrade\In-Place-Upgrade-1.png)
+![Diagramma di aggiornamento sul posto](media/In-Place-Upgrade/In-Place-Upgrade-1.png)
 
 I passaggi seguenti sono un esempio di passare da un server di cluster di failover di Windows Server 2012 a Windows Server 2019 Usa lo stesso hardware.  
 
@@ -41,11 +41,11 @@ Nell'esempio seguente, il nome del cluster di failover è CLUSTER e i nomi dei n
 
 1. In Gestione Cluster di Failover, svuotare tutte le risorse da NODE1 a NODE2 destro del mouse facendo clic sul nodo e selezionando **pausa** e **svuotare ruoli**.  In alternativa, è possibile usare il comando di PowerShell [SUSPEND-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).
 
-    ![Svuotamento nodo](media\In-Place-Upgrade\In-Place-Upgrade-2.png)
+    ![Svuotamento nodo](media/In-Place-Upgrade/In-Place-Upgrade-2.png)
 
 2. Rimuovere il nodo 1 dal Cluster destro del mouse, scegliere il nodo, quindi selezionare **altre azioni** e **rimozione**.  In alternativa, è possibile usare il comando di PowerShell [REMOVE-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode).
 
-    ![Svuotamento nodo](media\In-Place-Upgrade\In-Place-Upgrade-3.png)
+    ![Svuotamento nodo](media/In-Place-Upgrade/In-Place-Upgrade-3.png)
 
 3. Come precauzione, scollegare NODE1 dalla risorsa di archiviazione in uso.  In alcuni casi, disconnettendo i cavi dell'archiviazione dalla macchina è sufficiente.  Rivolgersi al fornitore di archiviazione per i passaggi la disconnessione appropriata se necessario.  A seconda delle risorse di archiviazione, ciò potrebbe non essere necessario.
 
@@ -53,11 +53,11 @@ Nell'esempio seguente, il nome del cluster di failover è CLUSTER e i nomi dei n
 
 5. Creare un nuovo cluster denominato CLUSTER1 con NODE1.  Aprire Gestione Cluster di Failover e il **Management** riquadro, scegliere **crea Cluster** e seguire le istruzioni della procedura guidata.
 
-    ![Svuotamento nodo](media\In-Place-Upgrade\In-Place-Upgrade-4.png)
+    ![Svuotamento nodo](media/In-Place-Upgrade/In-Place-Upgrade-4.png)
 
 6. Dopo aver creato il Cluster, i ruoli dovrà essere eseguita la migrazione dal cluster originale al nuovo cluster.  Nel nuovo cluster, con il pulsante destro del mouse fare clic sul nome del cluster (CLUSTER1) e selezionando **altre azioni** e **copia ruoli Cluster**.  Seguire la procedura guidata per eseguire la migrazione di ruoli.
 
-    ![Svuotamento nodo](media\In-Place-Upgrade\In-Place-Upgrade-5.png)
+    ![Svuotamento nodo](media/In-Place-Upgrade/In-Place-Upgrade-5.png)
 
 7.  Dopo che tutte le risorse sono state migrate, spegnere NODE2 (cluster originale) e scollegare la risorsa di archiviazione in modo da non causare eventuali interferenze.  Connettere l'archiviazione a NODE1.  Dopo tutto è connesso, connettere tutte le risorse e assicurarsi che funzionino come necessario.
 
@@ -75,7 +75,7 @@ Dopo avere verificato che funzionino come previsto, ricompilabile a Windows Serv
 
    c. Quando si sceglie OK o applica, verrà visualizzato il seguente popup della finestra.
 
-    ![Svuotamento nodo](media\In-Place-Upgrade\In-Place-Upgrade-6.png)
+    ![Svuotamento nodo](media/In-Place-Upgrade/In-Place-Upgrade-6.png)
 
     d. Il servizio Cluster verrà arrestato e deve essere riavviato per completare la ridenominazione.
 

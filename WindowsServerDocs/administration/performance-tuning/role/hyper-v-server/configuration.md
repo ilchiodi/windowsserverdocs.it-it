@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e5e55ad492439fcb7150469d9a35b639f5ff9a2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435660"
 ---
 # <a name="hyper-v-configuration"></a>Configurazione di Hyper-V
 
@@ -76,30 +76,30 @@ Hyper-V vengono pubblicati i contatori delle prestazioni per la descrizione del 
 
 È necessario sempre misurare l'utilizzo della CPU del sistema fisico tramite i contatori delle prestazioni processore logico Hypervisor Hyper-V. L'utilizzo della CPU contatori tale report in Gestione attività e Performance Monitor nella radice e partizioni figlio non riflettere l'effettivo utilizzo della CPU fisica. Usare i contatori delle prestazioni seguenti per monitorare le prestazioni:
 
--   **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione totale** il tempo di inattività totale dei processori logici
+- **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione totale** il tempo di inattività totale dei processori logici
 
--   **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione Guest** impiegato il tempo di esecuzione cicli all'interno di un utente guest o host
+- **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione Guest** impiegato il tempo di esecuzione cicli all'interno di un utente guest o host
 
--   **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione Hypervisor** il tempo impiegato in esecuzione all'interno dell'hypervisor
+- **Processore logico Hypervisor Hyper-V (\*)\\% tempo di esecuzione Hypervisor** il tempo impiegato in esecuzione all'interno dell'hypervisor
 
--   **Processore virtuale radice di Hypervisor Hyper-V (\*)\\ \***  misura l'utilizzo della CPU della partizione radice
+- **Processore virtuale radice di Hypervisor Hyper-V (\*)\\\\** * misura l'utilizzo della CPU della partizione radice
 
--   **Processore virtuale Hypervisor Hyper-V (\*)\\ \***  misura l'utilizzo della CPU delle partizioni di guest
+- **Processore virtuale Hypervisor Hyper-V (\*)\\\\** * misura l'utilizzo della CPU delle partizioni di guest
 
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
 -   [Prestazioni del processore di Hyper-V](processor-performance.md)
 
 -   [Prestazioni della memoria di Hyper-V](memory-performance.md)
 
--   [Archiviazione di Hyper-V delle prestazioni dei / o](storage-io-performance.md)
+-   [Prestazioni di I/O dell'archiviazione di Hyper-V](storage-io-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Rilevamento dei colli di bottiglia in un ambiente virtualizzato](detecting-virtualized-environment-bottlenecks.md)
 

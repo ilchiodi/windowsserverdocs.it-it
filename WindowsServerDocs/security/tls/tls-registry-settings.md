@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 0d618d465ee45245e98fbc6aa58b32b974be08e8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32068319aae7545675e126eed6e1ab4c914bcbcf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880882"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812641"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Le impostazioni del Registro di sistema Layer Security (TLS) di trasporto
 
@@ -25,9 +25,13 @@ ms.locfileid: "59880882"
 
 Questo argomento destinato ai professionisti IT di riferimento contiene informazioni sulle impostazioni del Registro di sistema supportate per l'implementazione Windows del protocollo Transport Layer Security (TLS) e il protocollo Secure Sockets Layer (SSL) grazie al supporto sicurezza Schannel Provider (SSP). Le sottochiavi del Registro di sistema e le voci illustrate in questo argomento della Guida amministrare e risolvere i problemi di SSP Schannel, in particolare i protocolli TLS e SSL. 
 
->[!Caution]
->Queste informazioni vengono fornite come riferimento utilizzabile durante la risoluzione dei problemi o quando si verifica che le impostazioni obbligatorie siano applicate. È consigliabile non modificare direttamente il Registro di sistema, a meno che non ci siano altre alternative.
->Le modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o dal sistema operativo Windows prima di essere applicate. Di conseguenza, è possibile che vengano archiviati valori non corretti, che possono causare errori irreversibili del sistema. Se possibile, invece di modificare direttamente il Registro di sistema, usare Criteri di gruppo o altri strumenti di Windows, come Microsoft Management Console (MMC), per eseguire queste attività. Se è necessario modificare il Registro di sistema, usare la massima cautela. 
+> [!CAUTION]
+> Queste informazioni vengono fornite come riferimento utilizzabile durante la risoluzione dei problemi o quando si verifica che le impostazioni obbligatorie siano applicate.
+> È consigliabile non modificare direttamente il Registro di sistema, a meno che non ci siano altre alternative.
+> Le modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o dal sistema operativo Windows prima di essere applicate.
+> Di conseguenza, è possibile che vengano archiviati valori non corretti, che possono causare errori irreversibili del sistema.
+> Se possibile, invece di modificare direttamente il Registro di sistema, usare Criteri di gruppo o altri strumenti di Windows, come Microsoft Management Console (MMC), per eseguire queste attività.
+> Se è necessario modificare il Registro di sistema, usare la massima cautela.
 
 ## <a name="certificatemappingmethods"></a>CertificateMappingMethods 
 
@@ -57,7 +61,7 @@ Crittografia TLS/SSL deve essere controllata configurando l'ordine dei pacchetti
 
 Per informazioni sull'ordine di gruppi di pacchetti di crittografia predefiniti usati da SSP Schannel, vedere [pacchetti di crittografia in TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
 
-##<a name="ciphersuites"></a>CipherSuites
+## <a name="ciphersuites"></a>CipherSuites
 
 Configurazione di pacchetti di crittografia TLS/SSL deve essere eseguita tramite criteri di gruppo, MDM o PowerShell, vedere [configurazione TLS Cipher Suite ordine](manage-tls.md#configuring-tls-cipher-suite-order) per informazioni dettagliate.
 
@@ -100,8 +104,8 @@ Per disabilitare, impostare il valore DWORD su 0:
 
 "EnableOcspStaplingForSni"=dword:00000000
 
->[!NOTE] 
->L'abilitazione di questa chiave del Registro di sistema ha un impatto potenziale sulle prestazioni.
+> [!NOTE] 
+> L'abilitazione di questa chiave del Registro di sistema ha un impatto potenziale sulle prestazioni.
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
@@ -207,7 +211,7 @@ Questa voce non è disponibile nel Registro di sistema per impostazione predefin
 
 Comportamento di invio dell'elenco di autorità di certificazione attendibili predefinito
 
-| Versione di Windows | Tempo |
+| Versione di Windows | Time |
 |-----------------|------|
 | Windows Server 2012 e Windows 8 e versioni successive | FALSE |
 | Windows Server 2008 R2 e Windows 7 e versioni precedenti | TRUE |

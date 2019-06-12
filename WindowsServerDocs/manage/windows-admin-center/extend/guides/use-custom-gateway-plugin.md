@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c9b2e9201d58472286b42a9c89a36423f40d143d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452606"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento
 
@@ -23,7 +23,7 @@ In questo articolo si userà un plug-in di gateway personalizzato in un'estensio
 
 ## <a name="prepare-your-environment"></a>Preparazione dell'ambiente ##
 
-Se hai già fatto, seguire le istruzioni disponibili nel [sviluppare un'estensione per strumento](..\develop-tool.md) per preparare l'ambiente e creare un nuovo, vuoto estensione degli strumenti.
+Se hai già fatto, seguire le istruzioni disponibili nel [sviluppare un'estensione per strumento](../develop-tool.md) per preparare l'ambiente e creare un nuovo, vuoto estensione degli strumenti.
 
 ## <a name="add-a-module-to-your-project"></a>Aggiungere un modulo al progetto ##
 
@@ -62,6 +62,9 @@ export class PluginService {
 ```
 
 Modificare i riferimenti a ```Sample Uno``` e ```Sample%20Uno``` al nome di funzionalità come appropriato.
+
+[!WARNING]
+> È consigliabile che incorporato ```this.appContextService.node``` viene usata per chiamare qualsiasi API che è definito nel plug-in gateway personalizzato. Questo garantisce che se le credenziali sono necessarie all'interno del plug-in gateway che verranno gestiti correttamente.
 
 ### <a name="modify-modulets"></a>Modificare Module
 
@@ -142,4 +145,4 @@ Il file html, aggiungere il contenuto seguente:
 
 ## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
 
-A questo punto si è pronti per [compilazione e sul lato carico](..\develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center.
+A questo punto si è pronti per [compilazione e sul lato carico](../develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center.

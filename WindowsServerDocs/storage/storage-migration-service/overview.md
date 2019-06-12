@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976652"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453175"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica del servizio di migrazione archiviazione
 
@@ -32,7 +32,7 @@ Usare il servizio di migrazione di archiviazione perché si ha un server (o un n
 - Facoltativamente, assumere l'identità del server di origine (anche noto come il cutting failover) in modo che gli utenti e le app non sia necessario modificare alcuna operazione per accedere ai dati esistenti
 - Gestire uno o più migrazioni dall'interfaccia utente di Windows Admin Center
 
-![Diagramma che illustra la migrazione dei file del servizio di migrazione di archiviazione e la configurazione dal server di origine per sincronizzazione File di Azure, macchine virtuali di Azure o i server di destinazione.](media\overview\storage-migration-service-diagram.png)
+![Diagramma che illustra la migrazione dei file del servizio di migrazione di archiviazione e la configurazione dal server di origine per sincronizzazione File di Azure, macchine virtuali di Azure o i server di destinazione.](media/overview/storage-migration-service-diagram.png)
 
 **Figura 1: Archiviazione servizio di migrazione delle origini e destinazioni**
 

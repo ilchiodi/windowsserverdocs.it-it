@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 581e9a3bad8323c79839a4487b7da045e9cfec21
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192593"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811240"
 ---
 # <a name="cmd"></a>Cmd
 
@@ -76,10 +76,12 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
 -   Uso di più comandi
 
-    Per utilizzare più comandi per \<String >, è necessario separarli con il separatore di comandi **&&** e racchiuderle tra virgolette. Ad esempio:  
+    Per utilizzare più comandi per \<String >, è necessario separarli con il separatore di comandi **&&** e racchiuderle tra virgolette. Ad esempio:
+
     ```
     "<Command>&&<Command>&&<Command>"
-    ```  
+    ``` 
+ 
 -   L'elaborazione tra virgolette
 
     Se si specifica **/c** o **/k**, **cmd** elabora la parte restante di *stringa,* e racchiusi tra virgolette vengono mantenute solo se tutti i valori sono i seguenti le condizioni sono soddisfatte:  

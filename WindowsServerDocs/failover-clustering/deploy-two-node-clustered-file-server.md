@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 02/01/2019
 description: Questo articolo descrive la creazione di un cluster di due nodi file server
-ms.openlocfilehash: fbfde60f60df64514a6a0f514cbabd005544af84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f50470b379bd0ab05834eb3c5a35be0f5e9e93a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846412"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453004"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Distribuzione di due nodi file server in cluster
 
@@ -28,11 +28,11 @@ Server in un cluster di failover possono funzionare in un'ampia gamma di ruoli, 
 
 Un cluster di failover include in genere un'unità di archiviazione connessa fisicamente a tutti i server del cluster, sebbene ogni volume dell'archiviazione sia accessibile solo da un server alla volta. Nel diagramma seguente viene mostrato un cluster di failover a due nodi connesso a un'unità di archiviazione.
 
-![Cluster a due nodi](media\Cluster-File-Server\Cluster-FS-Overview.png)
+![Cluster a due nodi](media/Cluster-File-Server/Cluster-FS-Overview.png)
 
 I volumi di archiviazione o i numeri di unità logica (LUN) esposti ai nodi in un cluster non devono essere esposti ad altri server, inclusi i server in un altro cluster, come illustrato nel diagramma seguente.
 
-![Unità logiche di archiviazione](media\Cluster-File-Server\Cluster-FS-LUNs.png)
+![Unità logiche di archiviazione](media/Cluster-File-Server/Cluster-FS-LUNs.png)
 
 Per ottenere la massima disponibilità di qualsiasi server, è importante seguire le procedure consigliate per la gestione dei server, che prevedono ad esempio di gestire in modo oculato l'ambiente fisico dei server, eseguire test sulle modifiche del software prima di implementarle e tenere traccia in modo efficace degli aggiornamenti software e delle modifiche alla configurazione in tutti i server del cluster.
 
@@ -167,7 +167,7 @@ In questo passaggio verrà installata la funzionalità cluster ruolo e il failov
 
 1. Aprire **Server Manager** e sotto il **Gestisci** elenco a discesa, selezionare **Aggiungi ruoli e funzionalità**.
 
-   ![Aggiungere funzionalità](media\Cluster-File-Server\Cluster-FS-Add-Feature.png)
+   ![Aggiungere funzionalità](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
 
 2. Se il **prima di iniziare** verrà visualizzata la finestra, scegliere **successivo**.
 
@@ -177,11 +177,11 @@ In questo passaggio verrà installata la funzionalità cluster ruolo e il failov
 
 5. Per il ruolo di Server, nell'elenco dei ruoli, aprire **servizi File**, selezionare **File Server**, e **Next**.
 
-   ![Aggiungere il ruolo](media\Cluster-File-Server\Cluster-FS-Add-FS-Role-1.png)
+   ![Aggiungere il ruolo](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
 6. Per le funzionalità, nell'elenco delle funzionalità, selezionare **Clustering di Failover**.  Verrà visualizzata una finestra di dialogo popup che elenca gli strumenti di amministrazione installati anche.  Mantieni tutto selezionato, scegliere **Aggiungi funzionalità** e **successivo**.
 
-   ![Aggiungere funzionalità](media\Cluster-File-Server\Cluster-FS-Add-WSFC-1.png)
+   ![Aggiungere funzionalità](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
 
 7. Nella pagina di conferma, scegliere Installa.
 
@@ -191,7 +191,7 @@ In questo passaggio verrà installata la funzionalità cluster ruolo e il failov
 
 #### <a name="using-powershell"></a>Mediante PowerShell
 
-1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)**.
+1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)** .
 2. Per installare il ruolo File Server, eseguire il comando:
 
     ```PowerShell
@@ -233,7 +233,7 @@ Prima di creare un cluster, è consigliabile convalidare la configurazione. La c
 
 4. Nel **selezione dei server o un Cluster** finestra, aggiungere i nomi dei due computer che rappresenteranno i nodi del cluster.  Ad esempio, se i nomi sono NODE1 e NODE2, immettere il nome e selezionare **Add**.  È anche possibile scegliere il **esplorare** pulsante per cercare i nomi di Active Directory.  Quando entrambi sono elencati sotto **i server selezionati**, scegliere **successivo**.
 
-5. Nel **opzioni di Testing** finestra, seleziona **Esegui tutti i test (scelta consigliati)**, e **Avanti**.
+5. Nel **opzioni di Testing** finestra, seleziona **Esegui tutti i test (scelta consigliati)** , e **Avanti**.
 
 6. Nel **conferma** pagina, verrà visualizzato l'elenco di tutti i test verrà verificata la validità.  Scegli **successivo** iniziare i test.
 
@@ -245,7 +245,7 @@ Prima di creare un cluster, è consigliabile convalidare la configurazione. La c
 
 #### <a name="using-powershell"></a>Mediante PowerShell
 
-1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)**.
+1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)** .
 
 2. Per convalidare le macchine (ad esempio, i nomi di computer da NODE1 e NODE2) per il Clustering di Failover, eseguire il comando:
 
@@ -283,7 +283,7 @@ Di seguito verrà creato un cluster all'esterno le macchine e della configurazio
 
 #### <a name="using-powershell"></a>Mediante PowerShell
 
-1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)**.
+1. Aprire una sessione amministrativa di PowerShell facendo clic sul pulsante Start e quindi selezionando **Windows PowerShell (Admin)** .
 
 2. Eseguire il comando seguente per creare il cluster, se si usa indirizzi IP statici.  Ad esempio, i nomi computer sono NODE1 e NODE2, il nome del cluster è CLUSTER e l'indirizzo IP sarà 1.1.1.1.
 
@@ -315,7 +315,7 @@ Per configurare un cluster di failover di file server, seguire i passaggi riport
 
 7. Il tipo di File Server, selezionare **File Server per utilizzo generico** e **successivo**.<br>Per informazioni relative a Scale-Out File Server, vedere [Panoramica di Scale-Out File Server](sofs-overview.md).
 
-   ![Tipo di file Server](media\Cluster-File-Server\Cluster-FS-File-Server-Type.png)
+   ![Tipo di file Server](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
 8. Nel **punto di accesso Client** finestra, immettere il nome del file server verrà utilizzato.  Si noti che questo non è il nome del cluster.  Questo vale per la connettività di condivisione file.  Ad esempio, se vuole connettere \\SERVER, il nome immesso è SERVER.
 

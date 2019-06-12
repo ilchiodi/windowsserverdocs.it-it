@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47c68ffaad68ff3e29e8060fdb75adf46165c982
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1fc33d2d20d6d2532c5ed1f33e27a768935d1e85
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885522"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434646"
 ---
 # <a name="bootcfg-timeout"></a>bootcfg timeout
 
@@ -31,13 +31,15 @@ modifica il valore di timeout del sistema operativo.
 bootcfg /timeout <timeOutValue> [/s <computer> [/u <Domain\User>/p <Password>]]
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|/timeout <timeOutValue>|Specifica il valore di timeout nella sezione [boot loader]. Il <timeOutValue> è il numero di secondi, l'utente deve selezionare un sistema operativo dalla schermata del caricatore di avvio prima di NTLDR carica il valore predefinito. Intervallo valido per <timeOutValue> è compreso tra 0 e 999. Se il valore è 0, NTLDR avvia immediatamente il sistema operativo predefinito senza visualizzare la schermata del caricatore di avvio.|
-|/s <computer>|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
-|/u < dominio\utente >|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
-|/p <Password>|Specifica il <Password> dell'account utente specificato nella **/u** parametro.|
-|/?|Visualizza la guida al prompt dei comandi.|
+
+|        Parametro        |                                                                                                                                                                                  Descrizione                                                                                                                                                                                   |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /timeout <timeOutValue> | Specifica il valore di timeout nella sezione [boot loader]. Il <timeOutValue> è il numero di secondi, l'utente deve selezionare un sistema operativo dalla schermata del caricatore di avvio prima di NTLDR carica il valore predefinito. Intervallo valido per <timeOutValue> è compreso tra 0 e 999. Se il valore è 0, NTLDR avvia immediatamente il sistema operativo predefinito senza visualizzare la schermata del caricatore di avvio. |
+|      /s <computer>      |                                                                                                                               Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.                                                                                                                               |
+|    /u < dominio\utente >     |                                                                                       Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.                                                                                        |
+|      /p <Password>      |                                                                                                                                            Specifica il <Password> dell'account utente specificato nella **/u** parametro.                                                                                                                                             |
+|           /?            |                                                                                                                                                                      Visualizza la guida al prompt dei comandi.                                                                                                                                                                      |
+
 ## <a name="BKMK_examples"></a>Esempi
 Gli esempi seguenti illustrano come utilizzare il **bootcfg /timeout** comando:
 ```
@@ -45,4 +47,4 @@ bootcfg /timeout 30
 bootcfg /s srvmain /u maindom\hiropln /p p@ssW23 /timeout 50
 ```
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

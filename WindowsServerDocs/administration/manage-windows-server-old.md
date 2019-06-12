@@ -8,19 +8,19 @@ author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4faadb811927626c26a5b01e2ce0598d40792b68
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846762"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452822"
 ---
 # <a name="manage-windows-server"></a>Gestire Windows Server
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
  <ul class="cardse panelContent cols cols3">
     <li>
@@ -118,5 +118,5 @@ Windows PowerShell è una shell da riga di comando, nonché un linguaggio di scr
 Gli strumenti da riga di comando di Windows vengono utilizzati per eseguire attività amministrative in Windows. Puoi utilizzare la guida di riferimento ai comandi per acquisire familiarità con gli strumenti da riga di comando, ottenere informazioni sulla shell dei comandi e automatizzare le attività da riga di comando utilizzando file batch o strumenti di scripting.
 
 ## <a name="windows-server-insider-preview"></a>Anteprima Windows Server Insider
-### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Informazioni di sistema](..\manage\system-insights\overview.md)
+### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Informazioni dettagliate di sistema](../manage/system-insights/overview.md)
 Informazioni dettagliate di sistema è una nuova funzionalità che introduce analisi predittiva in modo nativo in Windows Server. Tali funzionalità di previsione consentono di analizzare localmente i dati di sistema di Windows Server, ad esempio i contatori delle prestazioni o gli eventi ETW, aiutando in modo proattivo gli amministratori IT a rilevare e risolvere i problemi di funzionamento nelle loro distribuzioni. 

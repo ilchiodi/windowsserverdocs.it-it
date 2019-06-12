@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba04bdc8c469ef80853b6092b8745defa1f3f19e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4a95354bf041777e43a9eac5f16e693b02c185c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877302"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434298"
 ---
 # <a name="compact-vdisk"></a>compact vdisk
 
@@ -27,21 +27,21 @@ ms.locfileid: "59877302"
 Riduce le dimensioni fisiche di un file di disco rigido virtuale (VHD) ad espansione dinamica. Questo parametro è utile perché i dischi rigidi virtuali aumento delle dimensioni a espansione dinamica è possibile aggiungere file, ma non automaticamente riducono le dimensioni quando si eliminano file.
 > [!NOTE]
 > Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.
-## <a name="syntax"></a>Sintassi
-```
-compact vdisk
-```
-## <a name="remarks"></a>Note
--   Per eseguire questa operazione, è necessario selezionare un disco rigido Virtuale ad espansione dinamica. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.
--   È solo possibile compattare i dischi rigidi virtuali che vengono scollegati o collegati in sola lettura a espansione dinamica.
-## <a name="BKMK_Examples"></a>Esempi
-Per compattare un disco rigido Virtuale ad espansione dinamica, digitare:
-```
-compact vdisk
-```
-## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [attach vdisk](attach-vdisk.md)
+> ## <a name="syntax"></a>Sintassi
+> ```
+> compact vdisk
+> ```
+> ## <a name="remarks"></a>Note
+> - Per eseguire questa operazione, è necessario selezionare un disco rigido Virtuale ad espansione dinamica. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.
+> - È solo possibile compattare i dischi rigidi virtuali che vengono scollegati o collegati in sola lettura a espansione dinamica.
+>   ## <a name="BKMK_Examples"></a>Esempi
+>   Per compattare un disco rigido Virtuale ad espansione dinamica, digitare:
+>   ```
+>   compact vdisk
+>   ```
+>   ## <a name="additional-references"></a>Riferimenti aggiuntivi
+> - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+> - [attach vdisk](attach-vdisk.md)
 
 -   [detail vdisk](detail-vdisk.md)
 -   [Detach vdisk](detach-vdisk.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0aa359644f5e9bf85f4e013e6571276716ed0218
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: da528a742a7f49513c50b22a25970d65b9e1885f
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266620"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811377"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Gli host di virtualizzazione Desktop remoto l'ottimizzazione delle prestazioni
 
@@ -23,11 +23,11 @@ Windows Server 2016 supporta due tipi di desktop virtuali, i desktop virtuali pe
 
 **In questo argomento:**
 
--   [Considerazioni generali](#general)
+-   [Considerazioni generali](#general-considerations)
 
--   [Ottimizzazioni delle prestazioni](#perfopt)
+-   [Ottimizzazioni delle prestazioni](#performance-optimizations)
 
-## <a href="" id="general"></a>Considerazioni generali
+## <a name="general-considerations"></a>Considerazioni generali
 
 
 ### <a name="storage"></a>Archiviazione
@@ -46,7 +46,7 @@ Il volume deve essere configurato anche per usare il tipo di ottimizzazione di d
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
-> [!Note]
+> [!NOTE]
 > Ottimizzazione della deduplicazione dei dati di file aperti è supportata solo per scenari VDI con Hyper-V usando l'archiviazione remota tramite SMB 3.0.
 
 ### <a name="memory"></a>Memoria
@@ -175,8 +175,7 @@ Contatori delle prestazioni seguenti sono disponibili nel server RemoteFX per mi
 
 Oltre ai contatori di prestazioni RemoteFX virtuali GPU, è anche possibile misurare l'utilizzo della GPU usando Process Explorer, che mostra l'utilizzo della memoria video e l'utilizzo della GPU.
 
-## <a href="" id="perfopt"></a>Ottimizzazioni delle prestazioni
-
+## <a name="performance-optimizations"></a>Ottimizzazioni delle prestazioni
 
 ### <a name="dynamic-memory"></a>Memoria dinamica
 
@@ -220,13 +219,11 @@ Ogni specifico servizio deve essere valutato in modo appropriato prima di eventu
 | Provider gruppo home                          | Servizi centrati sul consumer                                                                                                                                                                                  |
 | Condivisione connessione Internet                  | Servizi centrati sul consumer                                                                                                                                                                                  |
 | Media Center extended services               | Servizi centrati sul consumer                                                                                                                                                                                  |
+> [!NOTE]
+> Questo elenco non deve essere un elenco completo, in quanto tutte le modifiche riguardano gli obiettivi previsti e scenari. Per altre informazioni, vedi [frequente off pressioni, scaricarlo ora, lo script di ottimizzazione di Windows 8 VDI, per conoscenza del PFE!](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
 
- 
+ 
+> [!NOTE]
+> SuperFetch in Windows 8 è abilitato per impostazione predefinita. È in grado di riconoscere un'infrastruttura VDI e non deve essere disabilitata. SuperFetch è possibile ridurre ulteriormente il consumo di memoria tramite la condivisione delle pagine di memoria, che è utile per l'infrastruttura VDI. Desktop virtuali in pool che eseguono Windows 7, SuperFetch deve essere disabilitata, ma per desktop personali virtuali che eseguono Windows 7, deve essere lasciato connesso.
 
-**Nota**    questo elenco non deve essere un elenco completo, in quanto tutte le modifiche riguardano gli obiettivi previsti e scenari. Per altre informazioni, vedi [frequente off pressioni, scaricarlo ora, lo script di ottimizzazione di Windows 8 VDI, per conoscenza del PFE!](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
-
- 
-
-**Nota**    SuperFetch in Windows 8 è abilitato per impostazione predefinita. È in grado di riconoscere un'infrastruttura VDI e non deve essere disabilitata. SuperFetch è possibile ridurre ulteriormente il consumo di memoria tramite la condivisione delle pagine di memoria, che è utile per l'infrastruttura VDI. Desktop virtuali in pool che eseguono Windows 7, SuperFetch deve essere disabilitata, ma per desktop personali virtuali che eseguono Windows 7, deve essere lasciato connesso.
-
- 
+ 

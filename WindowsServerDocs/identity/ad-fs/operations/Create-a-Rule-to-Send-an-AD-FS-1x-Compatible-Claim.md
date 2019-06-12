@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189404"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453018"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Creare una regola per l'invio di un'attestazione compatibile di AD FS 1. x
 
@@ -42,9 +42,6 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 > [!NOTE]  
 > Per questa regola a funzionare come previsto, assicurarsi che il trust della relying party o trust del provider di attestazioni in cui si sta creando questa regola è stato configurato per usare la **profilo ADFS 1.0 e 1.1**. 
-
-
-
 
 ## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per il rilascio di ADFS 1. *x* ID Nome attestazione utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in un Trust della Relying Party in Windows Server 2016 
 
@@ -125,11 +122,10 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
     -   **Pass-through solo dei valori attestazione che iniziano con un valore specifico**  
-![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
+![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
 
 10. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 
-  
 
 ## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per trasformare un'attestazione in ingresso in un Trust della Relying Party in Windows Server 2016 
 
@@ -139,13 +135,13 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 ![Crea regola](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
 3.  Destra\-fare clic sul trust selezionato e quindi fare clic su **Modifica criteri di rilascio dell'attestazione**.
-![Crea regola](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
+![Crea regola](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  Nel **Modifica criteri di rilascio dell'attestazione** nella finestra di dialogo **regole di trasformazione rilascio** fare clic su **Aggiungi regola** per avviare la creazione guidata regola. 
-![Crea regola](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
+![Crea regola](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
 
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **trasformare un'attestazione in ingresso** dall'elenco, quindi fare clic su **Avanti**.  
-![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
+![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
 
 6.  Nel **configurare la regola** digitare un nome di regola attestazione.  
   
@@ -168,7 +164,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
     -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
   
     -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
-![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
+![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 
@@ -273,7 +269,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
     -   **Pass-through solo dei valori attestazione che iniziano con un valore specifico**  
-![Crea regola](media/\Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)   
+![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
 
 10. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 

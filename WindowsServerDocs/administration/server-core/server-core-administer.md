@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: 39fbb92645d39a46613f2142d0258c78a6ba425b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50fa737db5862132c1dde5cb6eb6b83674b3f02e
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842662"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811391"
 ---
 # <a name="administer-a-server-core-server"></a>Amministrare un Server server Core
 
@@ -80,19 +80,19 @@ Usare i cmdlet seguenti per aggiungere un computer a un dominio.
 Utilizzare la procedura seguente per rinominare il server.
 
 1. Determinare il nome corrente del server con il **hostname** oppure **ipconfig** comando.
-2. Eseguire **Rename-Computer - ComputerName \<new_name\>**.
+2. Eseguire **Rename-Computer - ComputerName \<new_name\>** .
 3. Riavviare il computer.
 
 ### <a name="activate-the-server"></a>Attivare il server
 
-Eseguire **slmgr. vbs – ipk\<productkey\>**. Quindi eseguire **slmgr. vbs – ato**. Se l'attivazione ha esito positivo, si otterranno un messaggio.
+Eseguire **slmgr. vbs – ipk\<productkey\>** . Quindi eseguire **slmgr. vbs – ato**. Se l'attivazione ha esito positivo, si otterranno un messaggio.
 
 > [!NOTE]
 > È anche possibile attivare il server dal telefono, usando un [server del servizio di gestione delle chiavi (KMS)](../../get-started/server-2016-activation.md), o in remoto. Per attivare in remoto, eseguire il cmdlet seguente da un computer remoto: 
-
->```powershell
->**cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
->```
+> 
+> ```powershell
+> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
  
 ### <a name="configure-windows-firewall"></a>Configurare Windows Firewall
 
@@ -102,35 +102,34 @@ Eseguire **slmgr. vbs – ipk\<productkey\>**. Quindi eseguire **slmgr. vbs – 
 
 È possibile abilitare la comunicazione remota di Windows PowerShell, che consente di eseguire in un computer i comandi digitati in Windows PowerShell in un altro computer. Abilitare la comunicazione remota di Windows PowerShell con **Enable-PSRemoting**.
 
-Per altre informazioni, vedere [About_remote_faq](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1)
-</br>
+Per altre informazioni, vedere [About_remote_faq](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1).
 
 ## <a name="administrative-tasks-from-the-command-line"></a>Attività amministrative dalla riga di comando
 Usare le informazioni di riferimento seguente per eseguire attività amministrative dalla riga di comando.
 
 ### <a name="configuration-and-installation"></a>Configurazione e installazione
-|Attività | Comando |
-|-----|-------|
-|Impostare la password amministrativa locale| **Amministratore utenti NET** \* |
-|Aggiungere un computer a un dominio| **netdom join %computername%** **/domain:\<domain\> /userd:\<domain\\username\> /passwordd:**\* <br> Riavviare il computer.|
-|Verificare che il dominio è stato modificato| **set** |
-|Rimuovere un computer da un dominio|**Netdom remove \<computername\>**| 
-|Aggiungere un utente al gruppo Administrators locale|**net localgroup amministratori /Add \<dominio\\username\>** |
-|Rimuovere un utente dal gruppo Administrators locale|**net localgroup amministratori /delete \<dominio\\username\>** |
-|Aggiungere un utente al computer locale|**utente NET \<dominio\nomeutente\> * / aggiungere** |
-|Aggiungere un gruppo al computer locale|**net localgroup \<nome gruppo\> / aggiungere**|
-|Modificare il nome di un computer aggiunto a un dominio|**Netdom renamecomputer % computername % /NewName:\<nuovo nome del computer\> /userd:\<domain\\username\> /passwordd:** * |
-|Confermare il nuovo nome del computer|**set**| 
-|Modificare il nome di un computer in un gruppo di lavoro|**Netdom renamecomputer \<NomeComputerCorrente\> /NewName:\<NuovoNomeComputer\>** <br>Riavviare il computer.|
-|Disabilitare la gestione del file di paging|**wmic computersystem where name="\<computername\>" set AutomaticManagedPagefile=False**| 
-|Configurare il file di paging|**WMIC pagefileset dove nome = "\<path/filename\>" impostare InitialSize =\<initialsize\>, MaximumSize =\<maxsize\>** <br>In cui *path/filename* è il percorso e nome del file di paging *initialsize* è la dimensione iniziale del file di paging, in byte, e *maxsize* è la dimensione massima del file di paging, in byte.|
-|Passare a un indirizzo IP statico|**ipconfig /all** <br>Registra le informazioni rilevanti o reindirizzarlo a un file di testo (**ipconfig /all > ipconfig.txt**).<br>**interfacce di netsh interface ipv4 show**<br>Verificare che sia presente un elenco delle interfacce.<br>**netsh interface ipv4 set nome dell'indirizzo \<ID dall'elenco delle interfacce\> source = indirizzo statico =\<preferito indirizzo IP\> gateway =\<indirizzo gateway\>**<br>Eseguire **ipconfig /all** a vierfy che DHCP abilitato è impostata su **No**.|
-|Impostare un indirizzo DNS statico.|**netsh interface ipv4 aggiungere dnsserver nome =\<nome o l'ID della scheda di interfaccia di rete\> indirizzo =\<indirizzo IP del server DNS primario\> indice = 1 <br>** netsh interface ipv4 aggiungere dnsserver nome =\<nome del server DNS secondario\> indirizzo =\<indirizzo IP del server DNS secondario\> indice = 2 * * <br> Ripetere base alle esigenze aggiungere altri server.<br>Eseguire **ipconfig /all** per verificare che gli indirizzi siano corretti.|
-|Sostituire un indirizzo IP statico con un indirizzo IP fornito da DHCP|**netsh interface ipv4 set nome indirizzo =\<indirizzo IP del sistema locale\> origine = DHCP** <br>Eseguire **Ipconfig /all** per verificare che DHCP abilitato è impostata su **Yes**.|
-|Immettere un codice Product Key|**slmgr. vbs – ipk \<"product key"\>**| 
-|Attivare il server localmente|**slmgr.vbs -ato**| 
-|Attivare il server in remoto|**cscript slmgr. vbs – ipk \<codice product key\>\<nome server\>\<username\>\<password\>** <br>**cscript slmgr.vbs -ato \<servername\> \<username\> \<password\>** <br>Ottiene il GUID del computer eseguendo **cscript slmgr. vbs-stato** <br> Eseguire **cscript slmgr. vbs - dli \<GUID\>** <br>Verificare che lo stato delle licenze sia impostato su **(attivato) concesso in licenza**.
 
+|                             Attività                              |                                                                                                                                                                                                                 Comando                                                                                                                                                                                                                 |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|             Impostare la password amministrativa locale             |                                                                                                                                                                                                      **Amministratore utenti NET** \*                                                                                                                                                                                                      |
+|                  Aggiungere un computer a un dominio                  |                                                                                                                                                       **netdom join %computername%** **/domain:\<domain\> /userd:\<domain\\username\> /passwordd:** \* <br> Riavviare il computer.                                                                                                                                                        |
+|              Verificare che il dominio è stato modificato              |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|                Rimuovere un computer da un dominio                |                                                                                                                                                                                                   **Netdom remove \<computername\>**                                                                                                                                                                                                    |
+|         Aggiungere un utente al gruppo Administrators locale          |                                                                                                                                                                                       **net localgroup amministratori /Add \<dominio\\username\>**                                                                                                                                                                                       |
+|       Rimuovere un utente dal gruppo Administrators locale       |                                                                                                                                                                                     **net localgroup amministratori /delete \<dominio\\username\>**                                                                                                                                                                                      |
+|               Aggiungere un utente al computer locale                |                                                                                                                                                                                                **utente NET \<dominio\nomeutente\> \* / aggiungere**                                                                                                                                                                                                 |
+|               Aggiungere un gruppo al computer locale               |                                                                                                                                                                                                 **net localgroup \<nome gruppo\> / aggiungere**                                                                                                                                                                                                  |
+|          Modificare il nome di un computer aggiunto a un dominio          |                                                                                                                                                           **Netdom renamecomputer % computername % /NewName:\<nuovo nome del computer\> /userd:\<domain\\username\> /passwordd:** \*                                                                                                                                                            |
+|                 Confermare il nuovo nome del computer                 |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|         Modificare il nome di un computer in un gruppo di lavoro         |                                                                                                                                                                **Netdom renamecomputer \<NomeComputerCorrente\> /NewName:\<NuovoNomeComputer\>** <br>Riavviare il computer.                                                                                                                                                                 |
+|                Disabilitare la gestione del file di paging                 |                                                                                                                                                                        **wmic computersystem where name="\<computername\>" set AutomaticManagedPagefile=False**                                                                                                                                                                         |
+|                   Configurare il file di paging                   |                                                            **WMIC pagefileset dove nome = "\<path/filename\>" impostare InitialSize =\<initialsize\>, MaximumSize =\<maxsize\>** <br>In cui *path/filename* è il percorso e nome del file di paging *initialsize* è la dimensione iniziale del file di paging, in byte, e *maxsize* è la dimensione massima del file di paging, in byte.                                                             |
+|                 Passare a un indirizzo IP statico                 | **ipconfig /all** <br>Registra le informazioni rilevanti o reindirizzarlo a un file di testo (**ipconfig /all > ipconfig.txt**).<br>**interfacce di netsh interface ipv4 show**<br>Verificare che sia presente un elenco delle interfacce.<br>**netsh interface ipv4 set nome dell'indirizzo \<ID dall'elenco delle interfacce\> source = indirizzo statico =\<preferito indirizzo IP\> gateway =\<indirizzo gateway\>**<br>Eseguire **ipconfig /all** per verificare che DHCP abilitato è impostata su **No**. |
+|                   Impostare un indirizzo DNS statico.                   |   <strong>netsh interface ipv4 aggiungere dnsserver nome =\<nome o l'ID della scheda di interfaccia di rete\> indirizzo =\<indirizzo IP del server DNS primario\> indice = 1 <br></strong>netsh interface ipv4 aggiungere dnsserver nome =\<nome del server DNS secondario\> indirizzo =\<indirizzo IP del server DNS secondario\> indice = 2\*\* <br> Ripetere base alle esigenze aggiungere altri server.<br>Eseguire **ipconfig /all** per verificare che gli indirizzi siano corretti.   |
+| Sostituire un indirizzo IP statico con un indirizzo IP fornito da DHCP |                                                                                                                                      **netsh interface ipv4 set nome indirizzo =\<indirizzo IP del sistema locale\> origine = DHCP** <br>Eseguire **ipconfig /all** per verificare che DHCP abilitato è impostata su **Yes**.                                                                                                                                      |
+|                      Immettere un codice Product Key                      |                                                                                                                                                                                                   **slmgr. vbs – ipk \<"product key"\>**                                                                                                                                                                                                    |
+|                  Attivare il server localmente                  |                                                                                                                                                                                                           **slmgr.vbs -ato**                                                                                                                                                                                                            |
+|                 Attivare il server in remoto                  |                                            **cscript slmgr. vbs – ipk \<codice product key\>\<nome server\>\<username\>\<password\>** <br>**cscript slmgr.vbs -ato \<servername\> \<username\> \<password\>** <br>Ottiene il GUID del computer eseguendo **cscript slmgr. vbs-stato** <br> Eseguire **cscript slmgr. vbs - dli \<GUID\>** <br>Verificare che lo stato delle licenze sia impostato su **(attivato) concesso in licenza**.                                             |
 
 ### <a name="networking-and-firewall"></a>Rete e firewall
 
@@ -153,25 +152,25 @@ Usare le informazioni di riferimento seguente per eseguire attività amministrat
 
 ### <a name="updates-error-reporting-and-feedback"></a>Gli aggiornamenti, segnalazione errori e commenti e suggerimenti
 
-|Attività|Comando| 
-|----|-------|
-|Installare un aggiornamento|**wusa \<update\>.msu /quiet**| 
-|Elencare gli aggiornamenti installati|**systeminfo**| 
-|Rimuovere un aggiornamento|**expand /f:\* \<update\>.msu c:\test** <br>Passare a c:\test\ e aprire \<aggiornare\>. XML in un editor di testo.<br>Sostituire **installare** con **rimuovere** e salvare il file.<br>**pkgmgr /n:\<update\>.xml**|
-|Configurare gli aggiornamenti automatici|To verify the current setting: **cscript %systemroot%\system32\scregedit.wsf /AU /v **<br>Per abilitare gli aggiornamenti automatici: **cscript scregedit.wsf /AU 4** <br>Per disabilitare gli aggiornamenti automatici: **cscript %systemroot%\system32\scregedit.wsf /AU 1**| 
-|Abilitare la segnalazione di errori|Per verificare l'impostazione corrente: **serverWerOptin /query** <br>Per inviare automaticamente rapporti dettagliati: **serverWerOptin / dettagliate** <br>Per inviare automaticamente rapporti brevi: **serverWerOptin /Summary.** <br>Per disabilitare segnalazione errori: **serverWerOptin /disable**|
-|Partecipare al programma Analisi utilizzo software|Per verificare l'impostazione corrente: **serverCEIPOptin /query** <br>Per abilitare analisi utilizzo software: **serverCEIPOptin /enable** <br>Per disabilitare analisi utilizzo software: **serverCEIPOptin /disable**|
+|                               Attività                                |                                                                                                                               Comando                                                                                                                                |
+|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                         Installare un aggiornamento                         |                                                                                                                    **wusa \<update\>.msu /quiet**                                                                                                                    |
+|                      Elencare gli aggiornamenti installati                       |                                                                                                                            **systeminfo**                                                                                                                            |
+|                         Rimuovere un aggiornamento                          |                                 **expand /f:\* \<update\>.msu c:\test** <br>Passare a c:\test\ e aprire \<aggiornare\>. XML in un editor di testo.<br>Sostituire **installare** con **rimuovere** e salvare il file.<br>**pkgmgr /n:\<update\>.xml**                                 |
+|                    Configurare gli aggiornamenti automatici                    |          Per verificare l'impostazione corrente: **cscript %systemroot%\system32\scregedit.wsf /AU /v \* \* <br>per abilitare gli aggiornamenti automatici: \* \*cscript scregedit.wsf /AU 4** <br>Per disabilitare gli aggiornamenti automatici: **cscript %systemroot%\system32\scregedit.wsf /AU 1**          |
+|                      Abilitare la segnalazione di errori                       | Per verificare l'impostazione corrente: **serverWerOptin /query** <br>Per inviare automaticamente rapporti dettagliati: **serverWerOptin / dettagliate** <br>Per inviare automaticamente rapporti brevi: **serverWerOptin /Summary.** <br>Per disabilitare segnalazione errori: **serverWerOptin /disable** |
+| Partecipare al programma Analisi utilizzo software |                                                     Per verificare l'impostazione corrente: **serverCEIPOptin /query** <br>Per abilitare analisi utilizzo software: **serverCEIPOptin /enable** <br>Per disabilitare analisi utilizzo software: **serverCEIPOptin /disable**                                                      |
 
 ### <a name="services-processes-and-performance"></a>Servizi, processi e prestazioni
 
-|Attività|Comando| 
-|----|-------|
-|Elencare i servizi in esecuzione|**query sc** o **net start**| 
-|Avviare un servizio|**inizio sc \<nome del servizio\>**  oppure **net start \<nome servizio\>**| 
-|Arrestare un servizio|**arresto di sc \<nome del servizio\>**  oppure **net stop \<nome servizio\>**| 
-|Recuperare un elenco di applicazioni in esecuzione e di processi associati|**tasklist**||Arrestare un processo in modo forzato|Eseguire **tasklist** recuperare l'ID processo (PID), quindi eseguire **taskkill /PID \<ID processo\>**|
-|Avviare Gestione attività|**taskmgr**| 
-|Creare e gestire registri di sessione e le prestazioni di traccia eventi|Per creare un contatore, traccia, la raccolta dei dati di configurazione o l'API: **logman creare** <br>Cercare le proprietà dell'agente di raccolta dati: **logman query** <br>Per avviare o arrestare la raccolta dei dati: **logman start\|arrestare** <br>Per eliminare un agente di raccolta: **logman delete** <br> Per aggiornare le proprietà di un agente di raccolta: **logman update** <br>Per importare un set di agenti di raccolta dati da un file XML o esportarli in un file XML: **logman import\|esportare**|
+|                               Attività                               |                                                                                                                                                                                                             Comando                                                                                                                                                                                                              |
+|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                    Elencare i servizi in esecuzione                     |                                                                                                                                                                                                  **query sc** o **net start**                                                                                                                                                                                                   |
+|                         Avviare un servizio                          |                                                                                                                                                                                 **inizio sc \<nome del servizio\>**  oppure **net start \<nome servizio\>**                                                                                                                                                                                  |
+|                          Arrestare un servizio                          |                                                                                                                                                                                  **arresto di sc \<nome del servizio\>**  oppure **net stop \<nome servizio\>**                                                                                                                                                                                   |
+| Recuperare un elenco di applicazioni in esecuzione e di processi associati |                                                                                                                                                                                                           **tasklist**                                                                                                                                                                                                           |
+|                        Avviare Gestione attività                        |                                                                                                                                                                                                           **taskmgr**                                                                                                                                                                                                            |
+|    Creare e gestire registri di sessione e le prestazioni di traccia eventi    | Per creare un contatore, traccia, la raccolta dei dati di configurazione o l'API: **logman creare** <br>Cercare le proprietà dell'agente di raccolta dati: **logman query** <br>Per avviare o arrestare la raccolta dei dati: **logman start\|arrestare** <br>Per eliminare un agente di raccolta: **logman delete** <br> Per aggiornare le proprietà di un agente di raccolta: **logman update** <br>Per importare un set di agenti di raccolta dati da un file XML o esportarli in un file XML: **logman import\|esportare** |
 
 ### <a name="event-logs"></a>Registri eventi
 
@@ -185,18 +184,18 @@ Usare le informazioni di riferimento seguente per eseguire attività amministrat
 
 ### <a name="disk-and-file-system"></a>Disco e file system
 
-|Attività|Comando|
-|----|-------|
-|Gestire le partizioni del disco|Per un elenco completo dei comandi, eseguire **diskpart /?**|  
-|Gestire RAID software|Per un elenco completo dei comandi, eseguire **diskraid /?**|  
-|Gestire punti di montaggio dei volumi|Per un elenco completo dei comandi, eseguire **mountvol /?**| 
-|Deframmentare un volume|Per un elenco completo dei comandi, eseguire **defrag /?**|  
-|Convertire un volume al file system NTFS|**convertire \<lettera di volume\> /FS: NTFS**| 
-|Comprimere un file|Per un elenco completo dei comandi, eseguire **compact /?**|  
-|Amministrare file aperti|Per un elenco completo dei comandi, eseguire **openfiles /?**|  
-|Amministrare cartelle VSS|Per un elenco completo dei comandi, eseguire **vssadmin /?**| 
-|Amministrare il file system|Per un elenco completo dei comandi, eseguire **fsutil /?**||Verificare una firma di file|**sigverif /?**| 
-|Diventare proprietario di un file o di una cartella|Per un elenco completo dei comandi, eseguire **icacls /?**| 
+|                   Attività                   |                        Comando                        |
+|------------------------------------------|-------------------------------------------------------|
+|          Gestire le partizioni del disco          | Per un elenco completo dei comandi, eseguire **diskpart /?**  |
+|           Gestire RAID software           | Per un elenco completo dei comandi, eseguire **diskraid /?**  |
+|        Gestire punti di montaggio dei volumi        | Per un elenco completo dei comandi, eseguire **mountvol /?**  |
+|           Deframmentare un volume            |  Per un elenco completo dei comandi, eseguire **defrag /?**   |
+| Convertire un volume al file system NTFS |        **convertire \<lettera di volume\> /FS: NTFS**         |
+|              Comprimere un file              |  Per un elenco completo dei comandi, eseguire **compact /?**  |
+|          Amministrare file aperti           | Per un elenco completo dei comandi, eseguire **openfiles /?** |
+|          Amministrare cartelle VSS          | Per un elenco completo dei comandi, eseguire **vssadmin /?**  |
+|        Amministrare il file system        |  Per un elenco completo dei comandi, eseguire **fsutil /?**   |
+|    Diventare proprietario di un file o di una cartella    |  Per un elenco completo dei comandi, eseguire **icacls /?**   |
  
 ### <a name="hardware"></a>Hardware
 

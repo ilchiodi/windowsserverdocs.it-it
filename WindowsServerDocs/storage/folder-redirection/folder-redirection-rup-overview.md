@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 89506d0f7445f0df230945f45a31d4f58390c5c1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475910"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812416"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Panoramica di reindirizzamento cartelle, file offline e profili utente mobili
 
@@ -46,11 +46,11 @@ Gli amministratori possono usare il reindirizzamento cartelle, i file offline e 
 
 Nella tabella seguente vengono descritte alcune delle principali modifiche introdotte per il reindirizzamento cartelle, i file offline e i profili utente mobili, disponibili in questa versione.
 
-|Caratteristica/funzionalità|Novità o aggiornamento|Descrizione|
-|---|---|---|
-|Modalità sempre offline|Nuova|Consente l'accesso più rapido ai file e un minore utilizzo della larghezza di banda utilizzando sempre la modalità offline, anche in presenza di una connessione alla rete ad alta velocità.|
-|Sincronizzazione che tiene conto dei costi|Nuova|Gli utenti possono evitare i costi elevati di utilizzo dei dati correlati alla sincronizzazione quando utilizzano connessioni a consumo con limiti di utilizzo o durante il roaming nella rete di un altro provider.|
-|Supporto del computer primario|Nuova|Consente di limitare l'utilizzo del reindirizzamento cartelle, dei profili utente mobili o di entrambe le funzionalità ai soli computer primari degli utenti.|
+| Caratteristica/funzionalità | Novità o aggiornamento | Descrizione |
+| --- | --- | --- |
+| Modalità sempre offline | Nuova | Consente l'accesso più rapido ai file e un minore utilizzo della larghezza di banda utilizzando sempre la modalità offline, anche in presenza di una connessione alla rete ad alta velocità. |
+| Sincronizzazione che tiene conto dei costi | Nuova | Gli utenti possono evitare i costi elevati di utilizzo dei dati correlati alla sincronizzazione quando utilizzano connessioni a consumo con limiti di utilizzo o durante il roaming nella rete di un altro provider. |
+| Supporto del computer primario | Nuova | Consente di limitare l'utilizzo del reindirizzamento cartelle, dei profili utente mobili o di entrambe le funzionalità ai soli computer primari degli utenti. |
 
 ## <a name="always-offline-mode"></a>Modalità sempre offline
 
@@ -75,8 +75,8 @@ Per altre informazioni, vedere [Enable the Always Offline Mode to Provide Faster
 
 Con la sincronizzazione che tiene conto dei costi, la sincronizzazione in background viene disabilitata automaticamente quando l'utente utilizza una connessione di rete a consumo, come una rete mobile 4G e l'abbonato è prossimo al limite di larghezza di banda o l'ha superato oppure è in roaming sulla rete di un altro provider.
 
->[!NOTE]
->Le connessioni di rete a consumo presentano in genere latenze di rete di andata/ritorno inferiori al valore di latenza predefinito 35 millisecondi per il passaggio alla modalità Offline (connessione lenta) in Windows 8, Windows Server 2019, Windows Server 2016 e Windows Server 2012. Per questo motivo, queste connessioni passano di solito automaticamente alla modalità Offline (connessione lenta).
+> [!NOTE]
+> Le connessioni di rete a consumo presentano in genere latenze di rete di andata/ritorno inferiori al valore di latenza predefinito 35 millisecondi per il passaggio alla modalità Offline (connessione lenta) in Windows 8, Windows Server 2019, Windows Server 2016 e Windows Server 2012. Per questo motivo, queste connessioni passano di solito automaticamente alla modalità Offline (connessione lenta).
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>Valore aggiunto da sincronizzazione che tiene conto dei costi?
 
@@ -129,10 +129,10 @@ Per designare i computer primari, l'ambiente deve soddisfare i requisiti seguent
 
 Per altre informazioni correlate, vedere le risorse seguenti.
 
-|Tipo di contenuto|Riferimenti|
-|---|---|
-|Valutazione del prodotto|[Supporto degli Information Worker con servizi File affidabili e archiviazione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Novità in file Offline](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 e Windows Server 2008 R2)<br>[Novità in file Offline per Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Le modifiche ai file non in linea in Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine)|
-|Distribuzione|[Distribuire reindirizzamento cartelle, file Offline e profili utente mobili](deploy-folder-redirection.md)<br>[Implementazione di una soluzione di centralizzazione dei dati dell'utente finale: Convalida della tecnologia file Offline e reindirizzamento cartelle e la distribuzione](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Gestione Roaming Guida alla distribuzione di dati utente](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guida dettagliata alla configurazione di nuove funzionalità File non in linea per computer Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Uso del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementazione di reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003)|
-|Strumenti e impostazioni|[File offline su MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Riferimento criteri di gruppo di file offline](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000)|
-|Risorse della community|[Forum servizi file e archiviazione](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hey, Scripting Guy! Come si usa la funzionalità file Offline in Windows?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy! Come è possibile abilitare e disabilitare i file Offline?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)|
-Tecnologie correlate|[Identità e accesso in Windows Server](../../identity/identity-and-access.md)<br>[Archiviazione in Windows Server](../storage.md)<br>[Gestione di accesso e il server remoto](../../remote/index.md)|
+| Tipo di contenuto | Riferimenti |
+| --- | --- |
+| Valutazione del prodotto | [Supporto degli Information Worker con servizi File affidabili e archiviazione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Novità in file Offline](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 e Windows Server 2008 R2)<br>[Novità in file Offline per Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Le modifiche ai file non in linea in Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine) |
+| Distribuzione | [Distribuire reindirizzamento cartelle, file Offline e profili utente mobili](deploy-folder-redirection.md)<br>[Implementazione di una soluzione di centralizzazione dei dati dell'utente finale: Convalida della tecnologia file Offline e reindirizzamento cartelle e la distribuzione](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Gestione Roaming Guida alla distribuzione di dati utente](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guida dettagliata alla configurazione di nuove funzionalità File non in linea per computer Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Uso del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementazione di reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
+| Strumenti e impostazioni | [File offline su MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Riferimento criteri di gruppo di file offline](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
+| Risorse della community | [Forum servizi file e archiviazione](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hey, Scripting Guy! Come si usa la funzionalità file Offline in Windows?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy! Come è possibile abilitare e disabilitare i file Offline?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
+| Tecnologie correlate|[Identità e accesso in Windows Server](../../identity/identity-and-access.md)<br>[Archiviazione in Windows Server](../storage.md)<br>[Gestione di accesso e il server remoto](../../remote/index.md) |

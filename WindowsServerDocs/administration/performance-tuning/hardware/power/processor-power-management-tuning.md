@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a2ef4fd39554446aaac686e142ad24f53b4efaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 9b8af89992f01712e16d0ef503c8cbbac915df1d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863052"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811585"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Risparmio energia dei processori (PPM) di ottimizzazione per il piano di risparmio di energia bilanciata di Windows Server
 
@@ -20,7 +20,7 @@ A partire da Windows Server 2008, Windows Server sono disponibili tre combinazio
 
 Se si esegue un sistema server che include caratteristiche del carico di lavoro notevolmente differente o le prestazioni e requisiti di risparmio energia rispetto a questi carichi di lavoro, si potrebbe voler provare a ottimizzare le impostazioni di risparmio energia predefinite (ad esempio, creare un piano di risparmio di energia personalizzata). Un'unica fonte di informazioni utili di ottimizzazione è la [considerazioni relative all'alimentazione Hardware Server](../power.md). In alternativa, è possibile decidere che la **ad alte prestazioni** risparmio di energia è la scelta giusta per l'ambiente, riconoscendo che probabilmente si avrà una significativa energia raggiunto in cambio un certo livello di aumento della velocità di risposta.
 
->[!Important]
+> [!IMPORTANT]
 > È consigliabile usare i criteri di risparmio energia che sono inclusi in Windows Server a meno che non si dispone di un'esigenza specifica per crearne uno personalizzato e avere una conoscenza molto buona che i risultati variano a seconda delle caratteristiche del carico di lavoro.
 
 ## <a name="windows-processor-power-tuning-methodology"></a>Metodologia di ottimizzazione di Windows processore Power
@@ -28,7 +28,7 @@ Se si esegue un sistema server che include caratteristiche del carico di lavoro 
 
 ### <a name="tested-workloads"></a>Carichi di lavoro testati
 
-I carichi di lavoro sono selezionati per coprire un set di sforzo di tipiche"? Carichi di lavoro di Windows Server. Ovviamente questo set non intende essere rappresentativi dell'intera gamma di ambienti server reale.
+I carichi di lavoro sono selezionati per coprire un set di migliore dei carichi di lavoro di Windows Server "tipiche". Ovviamente questo set non intende essere rappresentativi dell'intera gamma di ambienti server reale.
 
 L'ottimizzazione in ogni criterio di risparmio energia è data dai carichi di cinque lavoro seguenti:
 
@@ -60,12 +60,12 @@ Per ogni versione di Windows, server di produzione più recente vengono usati ne
 
 Dato che la maggior parte dei server vengono vendute con i socket di processore da 1 a 4 e poiché il server di scalabilità verticale sono meno soggette a efficienza energetica come un problema primario, i test di ottimizzazione dell'alimentazione piano vengono eseguiti principalmente su sistemi a 2 e 4 socket. La quantità di RAM, disco e le risorse di rete per ogni test vengono scelti per consentire ogni sistema per l'esecuzione fino relativo piena capacità, mentre tenendo in considerazione le restrizioni di costi che sarebbero normalmente in atto per ambienti di server nel mondo reale, ad esempio mantenendo il configurazioni ragionevole.
 
->[!Important]
+> [!IMPORTANT]
 > Anche se il sistema può eseguire al relativo carico di picco, sarà in genere ottimizzato per i livelli di carico inferiore, poiché i server eseguiti in modo coerente con i livelli di carico di picco sarebbe particolarmente consigliabile usare la **ad alte prestazioni** il risparmio di energia a meno che non energia l'efficienza è una priorità alta.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
-Tutti i benchmark testati utilizzano velocità effettiva come la metrica di prestazioni. Tempo di risposta viene considerato come un requisito di contratto di servizio per questi carichi di lavoro (ad eccezione di SAP, in cui è una metrica primaria). Ad esempio, un'esecuzione del benchmark è considerato "valido? Se il valore medio o tempo di risposta massimo è minore di certo valore.
+Tutti i benchmark testati utilizzano velocità effettiva come la metrica di prestazioni. Tempo di risposta viene considerato come un requisito di contratto di servizio per questi carichi di lavoro (ad eccezione di SAP, in cui è una metrica primaria). Ad esempio, un'esecuzione di benchmark viene considerata "valid" se il valore medio o tempo di risposta massimo è minore di certo valore.
 
 Pertanto, il PPM anche analisi di ottimizzazione Usa velocità effettiva come metrica delle prestazioni.  Al livello di carico massimo (utilizzo della CPU del 100%), il nostro obiettivo è che la velocità effettiva non deve diminuire più di una piccola percentuale a causa delle ottimizzazioni di gestione dell'alimentazione. Ma la considerazione principale consiste nel migliorare l'efficienza di risparmio energia (come definita di seguito) a livelli di carico medio e basso.
 
@@ -73,7 +73,7 @@ Pertanto, il PPM anche analisi di ottimizzazione Usa velocità effettiva come me
 
 In esecuzione le memorie centrali CPU con frequenze più basse riduce il consumo di energia. Tuttavia, in genere le frequenze inferiori diminuire la velocità effettiva e aumentare il tempo di risposta. Per il **bilanciato** risparmio di energia, un compromesso intenzionale di velocità di risposta e risparmio energetico. I test di carico di lavoro SAP, nonché il tempo di risposta i contratti di servizio su altri carichi di lavoro, assicurarsi che l'aumento di tempo di risposta non superi una determinata soglia (5% come esempio) per questi carichi di lavoro specifici.
 
->[!Note]
+> [!NOTE]
 > Se il carico di lavoro utilizza tempo di risposta come la metrica di prestazioni, il sistema deve si passa al **High Performance** risparmio di energia o modifiche **bilanciato** risparmio di energia come suggerito in [ Consiglia di parametri di piano di risparmio di energia bilanciata per tempi di risposta rapidi](recommended-balanced-plan-parameters.md).
 
 ### <a name="tuning-results"></a>Risultati dell'ottimizzazione
@@ -98,20 +98,20 @@ A causa di un numero e la complessità dei parametri, potrebbe trattarsi di un'a
 
 -   **Tempo di riduzione delle prestazioni processore** – valori più grandi più gradualmente riducono le prestazioni durante i periodi di inattività
 
--   **Criteri di aumento delle prestazioni del processore** : "singolo? criteri rallenta la risposta prestazioni maggiori e prolungate attività. "Rocket? criteri reagisce rapidamente a un incremento dell'attività
+-   **Criteri di aumentare le prestazioni del processore** – i criteri di "Single" rallenta la risposta delle prestazioni per una maggiore e prolungate attività; il criterio "Rocket" reagisce rapidamente a una maggiore attività
 
--   **Criteri di riduzione delle prestazioni del processore** : "singolo? criteri più diminuiscono le prestazioni i periodi di inattività più; "Rocket? criteri scende di potenza molto rapidamente quando si immette un periodo di inattività
+-   **Criteri di ridurre le prestazioni del processore** – i criteri di "Single" più diminuiscono le prestazioni i periodi di inattività più; il criterio "Rocket" scende di potenza molto rapidamente quando si immette un periodo di inattività
 
 >[!Important]
 > Prima di iniziare qualsiasi esperimenti, è necessario innanzitutto comprendere i carichi di lavoro, che consentono di operare delle scelte PPM parametro e ridurre le operazioni di ottimizzazione.
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Determinare i requisiti di risparmio energia e dettagliato delle prestazioni
 
-Se il carico di lavoro "in tempo reale? (ad esempio, soggetto ad anomalie al o altro visibili per l'utente finale influisce su) o ha il requisito di velocità di risposta molto ridotto (ad esempio, una di intermediazione) e se il consumo di energia non è un criterio principale per l'ambiente, è probabile che deve passare al **Ad alte prestazioni** risparmio di energia. In caso contrario, si dovrebbe comprendere i requisiti di tempo di risposta dei carichi di lavoro e ottimizzare i parametri PPM per la migliore efficienza power possibili che continui a soddisfare tali requisiti.
+Se il carico di lavoro è "tempo reale" (ad esempio, soggetto ad anomalie al o altro visibili per l'utente finale influisce su) o ha il requisito di velocità di risposta molto ridotto (ad esempio, una di intermediazione) e se il consumo di energia non è un criterio principale per l'ambiente, sarà probabilmente necessario passare semplicemente al **ad alte prestazioni** risparmio di energia. In caso contrario, si dovrebbe comprendere i requisiti di tempo di risposta dei carichi di lavoro e ottimizzare i parametri PPM per la migliore efficienza power possibili che continui a soddisfare tali requisiti.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Comprendere le caratteristiche del carico di lavoro sottostante
 
-È necessario conoscere i carichi di lavoro e i set di parametri esperimento per l'ottimizzazione di progettazione. Ad esempio, se le frequenze dei core della CPU necessario utilizzare il molto veloce (ad esempio si dispone di un carico di lavoro bursty con periodi di inattività significativi, ma necessaria velocità di risposta molto rapido quando subentra una nuova transazione), quindi le prestazioni del processore aumentare dei criteri potrebbe essere necessario sia impostato su "rocket? (che, come suggerisce il nome, emette la frequenza di core della CPU per il valore massimo consentito, piuttosto che l'esecuzione un periodo di tempo).
+È necessario conoscere i carichi di lavoro e i set di parametri esperimento per l'ottimizzazione di progettazione. Ad esempio, se le frequenze dei core della CPU necessario utilizzare il molto veloce (ad esempio si dispone di un carico di lavoro bursty con periodi di inattività significativi, ma necessaria velocità di risposta molto rapido quando subentra una nuova transazione), quindi le prestazioni del processore aumentare dei criteri potrebbe essere necessario sia impostato su "rocket" (ovvero, come suggerisce il nome, emette la frequenza di core della CPU per il valore massimo consentito, piuttosto che l'esecuzione un periodo di tempo).
 
 Se il carico di lavoro è molto bursty, è possibile ridurre l'intervallo di controllo PPM per rendere la frequenza della CPU di avviare l'esecuzione di istruzioni subito dopo l'arrivo di un burst. Se il carico di lavoro non dispone di concorrenza di thread elevato, quindi parcheggio core può essere abilitata per forzare il carico di lavoro da eseguire in un minor numero di memorie centrali, che potrebbe potenzialmente migliorare riscontri cache del processore rapporti.
 
@@ -127,7 +127,7 @@ Questo è il motivo per cui Windows fornisce un **bilanciato** il risparmio di e
 
 ## <a name="see-also"></a>Vedere anche
 - [Considerazioni sulle prestazioni dell'Hardware di server](../index.md)
-- [Considerazioni relative all'alimentazione Hardware server](../power.md)
+- [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power-performance-tuning.md)
-- [Processore Power Management di ottimizzazione](processor-power-management-tuning.md)
-- [Parametri bilanciato piano consigliato](recommended-balanced-plan-parameters.md)
+- [Ottimizzazione di Risparmio energia del processore](processor-power-management-tuning.md)
+- [Parametri della combinazione per il risparmio di energia Bilanciato](recommended-balanced-plan-parameters.md)

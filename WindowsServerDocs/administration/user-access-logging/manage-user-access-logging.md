@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d65a40e229fe4b0a1b27db496523dfe7a9419752
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886792"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435352"
 ---
 # <a name="manage-user-access-logging"></a>Gestire Registrazione accesso utenti
 
@@ -195,7 +195,7 @@ Nel primo giorno dell'anno, Registrazione accesso utenti creerà un nuovo *GUID.
   
 2.  Premere il tasto logo Windows + R e quindi digitare **cmd** per aprire una finestra del prompt dei comandi.  
   
-3.  Aggiungere il valore del Registro di sistema:  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)**.  
+3.  Aggiungere il valore del Registro di sistema:  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** .  
   
     > [!WARNING]  
     > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, è consigliabile eseguire il backup dei dati importanti nel computer.  
@@ -211,13 +211,13 @@ Registrazione accesso utenti non è progettato come componente cruciale. È pens
   
 #### <a name="to-delete-data-logged-by-ual"></a>Per eliminare i dati registrati da Registrazione accesso utenti  
   
-1.  Arrestare il Servizio registrazione accessi utente.  
+1. Arrestare il Servizio registrazione accessi utente.  
   
-2.  Aprire Esplora risorse.  
+2. Aprire Esplora risorse.  
   
-3.  Passare a **\Windows\System32\Logfiles\SUM\**.  
+3. Passare a **\Windows\System32\Logfiles\SUM\\** .  
   
-4.  Eliminare tutti i file nella cartella.  
+4. Eliminare tutti i file nella cartella.  
   
 ## <a name="managing-ual-in-high-volume-environments"></a>Gestione di Registrazione accesso utenti in ambienti con volumi elevati  
 In questa sezione viene descritto cosa può aspettarsi un amministratore quando si usa Registrazione accesso utenti in un server con un volume elevato di client:  

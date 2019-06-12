@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 5cd345230ce5c0fc556bfd8b421d866bd827507b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222866"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812450"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Convertire un disco GPT in un disco MBR
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I dischi MBR (Master Boot Record) usano la tabella di partizione BIOS standard. I dischi GPT (GUID Partition Table) utilizzano Unified Extensible Firmware Interface (UEFI). I dischi MBR non supportano più di quattro partizioni in ciascun disco. Il metodo di partizione MBR non è consigliato per i dischi più grandi di due terabyte (TB).
 
@@ -56,16 +56,12 @@ I dischi MBR (Master Boot Record) usano la tabella di partizione BIOS standard. 
 
 7.  Al prompt **DISKPART** digita `convert mbr`.
 
-<br />
-
-| Value | Descrizione |
-| --- | --- |
-| <p>**disco di elenco**</p> | <p>Visualizza un elenco di dischi e le relative informazioni, ad esempio le dimensioni, quantità di spazio libero, se il disco è un disco di base o dinamico e se il disco usa lo stile di partizione MBR (Record di avvio principale, Master Boot Record) o GPT (Tabella di partizione GUID, GUID Partition Table). Il disco contrassegnato con un asterisco (*) ha lo stato attivo.</p> |
-| <p>**Selezionare disco**</p> | <p>Seleziona il disco specificato, dove <em>disknumber</em> è il numero del disco, assegnandogli lo stato attivo.</p> | <p>**clean**</p> | <p>Rimuove tutte le partizioni o volumi dal disco con lo stato attivo.</p> |
-| <p>**Convertire mbr**</p> | <p>Converte un disco di base vuoto con lo stile di partizione GPT in un disco di base con lo stile di partizione MBR.</p>
+|                Value                  |      Descrizione   |
+| ------------------------------------- | -----------------  |
+|  <strong>disco di elenco</strong>  | Visualizza un elenco di dischi e le relative informazioni, ad esempio le dimensioni, quantità di spazio libero, se il disco è un disco di base o dinamico e se il disco usa lo stile di partizione MBR (Record di avvio principale, Master Boot Record) o GPT (Tabella di partizione GUID, GUID Partition Table). Il disco contrassegnato con un asterisco (\*) ha lo stato attivo. |
+| <strong>Selezionare disco</strong> |                                                                                                          Seleziona il disco specificato, dove <em>disknumber</em> è il numero del disco, assegnandogli lo stato attivo.                                                                                                           |
+| <strong>Convertire mbr</strong> |                                                                               Converte un disco di base vuoto con lo stile di partizione GPT in un disco di base con lo stile di partizione MBR.                                                                                |
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Notazione della sintassi della riga di comando](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

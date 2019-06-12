@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7aa09636f8c23678f003bfa5ebf8be164e7fc683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53b72459d497ac5d079336c2a00ba65634b2e3a6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879522"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436330"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -43,12 +43,12 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 
 Preparazione preliminare è obbligatorio. Prima di usare questo comando, è necessario completare le attività seguenti:
 
-1.  Creare una directory per i driver da installare. Ad esempio, creare una cartella nel **C:\Drivers\Video** per i driver della scheda video.
-2.  Scaricare ed estrarre il pacchetto di driver per il dispositivo. Copiare il contenuto della sottocartella contenente il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video che è stato creato. Ad esempio, copiare i file di driver video C:\Drivers\Video.
-3.  Aggiungere una variabile di ambiente path di sistema per la cartella creata nel passaggio 1. ad esempio, **C:\Drivers\Video**.
-4.  Creare la seguente chiave del Registro di sistema, quindi per il **DriverPaths** chiave create, impostare il **dati valore** a **1**.
--   Per Windows® 7 passare al percorso del Registro di sistema: **su HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion.\**, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\**
--   Per Windows Vista, passare al percorso del Registro di sistema: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion.\**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths** .
+1. Creare una directory per i driver da installare. Ad esempio, creare una cartella nel **C:\Drivers\Video** per i driver della scheda video.
+2. Scaricare ed estrarre il pacchetto di driver per il dispositivo. Copiare il contenuto della sottocartella contenente il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video che è stato creato. Ad esempio, copiare i file di driver video C:\Drivers\Video.
+3. Aggiungere una variabile di ambiente path di sistema per la cartella creata nel passaggio 1. ad esempio, **C:\Drivers\Video**.
+4. Creare la seguente chiave del Registro di sistema, quindi per il **DriverPaths** chiave create, impostare il **dati valore** a **1**.
+5. Per Windows® 7 passare al percorso del Registro di sistema: **Su HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion.\\** e quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\**
+6. Per Windows Vista, passare al percorso del Registro di sistema: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion.\\** , quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Esempi
 
@@ -60,4 +60,4 @@ pnpunattend auditsystem /s /l
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

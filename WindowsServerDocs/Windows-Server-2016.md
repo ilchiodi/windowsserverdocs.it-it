@@ -1,11 +1,11 @@
 ---
 redirect_url: /windows-server/windows-server
-ms.openlocfilehash: 6f6e0d21fdf43ce3cf9f713d5731cfea5bb069de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a852dfdda87aa37b403176483ea85f9bdb059e68
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812272"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436005"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -19,54 +19,40 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016">
-        <img height=145 src="media/whats-new-highlight.png" alt="What's new icon" title="Novità di Windows Server 16"/></a>
-        <br/>Novità
+      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016"> &lt;altezza IMG = 145 src =&quot;multimediali/novità-nuova-highlight.png&quot; alt =&quot;cosa&#39;icona nuovo s&quot; titolo =&quot;novità in Windows Server 16?&quot;/&gt;</a>
+        <br/>Cosa&#39;New s?
     </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/server-basics">
-        <img height=145 src="media/1-getstarted.png" alt="get started icon" title="Informazioni di base su Windows Server 16" /></a>
+      <a href="/windows-server/get-started/server-basics"> &lt;altezza IMG = 145 src =&quot;multimediali/1-getstarted.png&quot; alt =&quot;icona di introduzione get&quot; titolo =&quot;Introduzione a Windows Server 16&quot; /&gt;</a>
       <br/>Introduzione </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/administration/index">
-        <img height=145 src="media/8-management.png" alt="administer icon" title="Amministrare Windows Server" /></a>
+      <a href="/windows-server/administration/index"> &lt;altezza IMG = 145 src =&quot;multimediali/8-management.png&quot; alt =&quot;amministrare icona&quot; titolo =&quot;amministrare Windows Server&quot; /&gt;</a>
       <br/>Amministra </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/failover-clustering/failover-clustering-overview">
-        <img height=145 src="media/3-failover.png" alt="Failover clustering icon" title="Clustering di failover di Windows Server" /></a>
+      <a href="/windows-server/failover-clustering/failover-clustering-overview"> &lt;altezza IMG = 145 src =&quot;multimediali/3-failover&quot; alt =&quot;icona clustering di Failover&quot; titolo =&quot;Windows Server Failover clustering&quot; /&gt;</a>
       <br/>Clustering di failover </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/identity/identity-and-access">
-        <img height=145 src="media/4-identity.png" alt="Identity and access icon" title="Identità e accesso in Windows Server" /></a>
+      <a href="/windows-server/identity/identity-and-access"> &lt;altezza IMG = 145 src =&quot;multimediali/4-identity.png&quot; alt =&quot;icona identità e degli accessi&quot; titolo =&quot;identità di Windows Server e degli accessi&quot; /&gt;</a>
       <br>Identità e accesso </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/networking/networking">
-        <img height=145 src="media/6-networking.png" alt="Networking icon" title="Funzionalità di rete in Windows Server" />
-        </a>
+      <a href="/windows-server/networking/networking"> &lt;altezza IMG = 145 src =&quot;multimediali/6-networking.png&quot; alt =&quot;l'icona&quot; titolo =&quot;rete di Windows Server&quot; /&gt; </a>
       <br/>Rete </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/remote/index">
-        <img height=145 src="media/remote.png" alt="remote icon" title="Gestione di accesso remoto e server" />
-        </a>
+      <a href="/windows-server/remote/index"> &lt;altezza IMG = 145 src =&quot;media/remote.png&quot; alt =&quot;icona remoto&quot; titolo =&quot;Gestione accesso e il server remoto&quot; /&gt; </a>
       <br/>Accesso remoto </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/security/security-and-assurance">
-        <img height=145 src="media/5-security.png" alt="Security icon" title="Sicurezza e controllo in Windows Server" />
-      </a>
+      <a href="/windows-server/security/security-and-assurance"> &lt;altezza IMG = 145 src =&quot;multimediali/5-Security. PNG&quot; alt =&quot;icona sicurezza&quot; titolo =&quot;Assurance e sicurezza di Windows Server&quot; /&gt; </a>
       <br/>Sicurezza e controllo </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">&nbsp;</td>
     <td align='center' style="width:25%; border:0;"><br>
-      <a href="/windows-server/storage/storage">
-        <img height=145 src="media/7-storage.png" alt="Storage icon" title="Windows Server Storage" />
-      </a>
+      <a href="/windows-server/storage/storage"> &lt;altezza IMG = 145 src =&quot;multimediali/7-storage.png&quot; alt =&quot;icona di archiviazione&quot; titolo =&quot;archiviazione in Windows Server&quot; /&gt; </a>
       <br/>Archiviazione </td>
    <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/virtualization/virtualization">
-        <img height=145 src="media/virtualization.png" alt="virtualization icon" title="Windows Server Virtualization" /></a>
+      <a href="/windows-server/virtualization/virtualization"> &lt;altezza IMG = 145 src =&quot;media/virtualization.png&quot; alt =&quot;icona virtualizzazione&quot; titolo =&quot;virtualizzazione di Windows Server&quot; /&gt;</a>
       <br/>Virtualizzazione </td>
     <td align='center' style="width:25%; border:0;">&nbsp; </td>
   </tr>

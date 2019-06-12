@@ -14,18 +14,18 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: cd00f92254f9e55f83442f5e68e344e0aa7579a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d148c99911be0cebfc29429d93241f24c2b9606
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855502"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453010"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>Introduzione a Servizi Desktop remoto 
 
 Servizi Desktop remoto (RDS) è la piattaforma ideale per la creazione di soluzioni di virtualizzazione per ogni esigenza dei clienti finali, tra cui la distribuzione di applicazioni virtualizzate singoli, che fornisce l'accesso desktop remoto e per dispositivi mobile sicura e fornire agli utenti finali di possibilità di eseguire le applicazioni e i desktop dal cloud.
 
-![Panoramica di Servizi Desktop remoto](.\media\rds-overview.png)
+![Panoramica di Servizi Desktop remoto](./media/rds-overview.png)
 
 Servizi Desktop remoto offre flessibilità nella distribuzione, l'efficienza e l'estendibilità dei costi, ovvero fruibile attraverso un'ampia gamma di opzioni di distribuzione, tra cui Windows Server 2016 per le distribuzioni locali, Microsoft Azure per distribuzioni cloud e una matrice di partner affidabile soluzioni.
 

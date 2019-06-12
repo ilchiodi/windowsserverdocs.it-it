@@ -1,25 +1,25 @@
 ---
 title: Ridurre un volume di base
 description: Questo articolo descrive come ridurre un volume di base
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e54632b78fd67a65b51147323565130881d8d81b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9073632a656f512bdb49ebe4eeefd4cd5f4eaadf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885332"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812526"
 ---
 # <a name="shrink-a-basic-volume"></a>Ridurre un volume di base
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-È possibile diminuire lo spazio utilizzato da unità logiche e partizioni primarie riducendole nello spazio contiguo adiacente sullo stesso disco. Se ad esempio si individua l'esigenza di una partizione aggiuntiva, ma non si dispone di dischi aggiuntivi, è possibile ridurre la partizione esistente dalla fine del volume in modo da creare nuovo spazio non allocato utilizzabile per una nuova partizione. L'operazione di riduzione può essere bloccata dalla presenza di determinati tipi di file. Per altre informazioni, vedi [Considerazioni aggiuntive](#addcon) 
+È possibile diminuire lo spazio utilizzato da unità logiche e partizioni primarie riducendole nello spazio contiguo adiacente sullo stesso disco. Se ad esempio si individua l'esigenza di una partizione aggiuntiva, ma non si dispone di dischi aggiuntivi, è possibile ridurre la partizione esistente dalla fine del volume in modo da creare nuovo spazio non allocato utilizzabile per una nuova partizione. L'operazione di riduzione può essere bloccata dalla presenza di determinati tipi di file. Per altre informazioni, vedere [considerazioni aggiuntive](#additional-considerations) 
 
 Quando si riduce una partizione, tutti i file ordinari vengono rilocati automaticamente nel disco in modo da creare nuovo spazio non allocato. Non è necessario riformattare il disco per ridurre la partizione.
 
@@ -28,13 +28,9 @@ Quando si riduce una partizione, tutti i file ordinari vengono rilocati automati
 
 ## <a name="shrinking-a-basic-volume"></a>Riduzione di un volume di base
 
--   [Tramite l'interfaccia di Windows](#BKMK_WINUI)
--   [Tramite la riga di comando](#BKMK_CMD)
-
 > [!NOTE]
 > Per completare questi passaggi, devi essere un membro del gruppo **Backup Operators** o **Administrators**.
 
-<a id="BKMK_WINUI"></a>
 #### <a name="to-shrink-a-basic-volume-using-the-windows-interface"></a>Per ridurre un volume di base tramite l'interfaccia di Windows
 
 1.  In Gestione disco fai clic sul volume di base che desideri ridurre.
@@ -43,12 +39,10 @@ Quando si riduce una partizione, tutti i file ordinari vengono rilocati automati
 
 3.  Segui le istruzioni visualizzate.
 
-<br />
 
 > [!NOTE]
 > Puoi ridurre solo i volumi di base senza file system o che utilizzano il file system NTFS.
 
-<a id="BKMK_CMD"></a>
 #### <a name="to-shrink-a-basic-volume-using-a-command-line"></a>Per ridurre un volume di base tramite la riga di comando
 
 1.  Aprire un prompt dei comandi e digitare `diskpart`.
@@ -59,17 +53,13 @@ Quando si riduce una partizione, tutti i file ordinari vengono rilocati automati
 
 4.  Al prompt **DISKPART** digita `shrink [desired=<desiredsize>] [minimum=<minimumsize>]`. Il volume selezionato viene ridotto da *desiredsize* (dimensionidesiderate) in megabyte (MB), se possibile, o a *minimumsize* (dimensioniminime) se *desiredsize* è troppo grande.
 
-<br />
-
-| Value | Descrizione|
-|---|---|
-| <p>**volume di elenco**</p> | <p>Visualizza un elenco di volumi di base e dinamici su tutti i dischi.</p>|
-| <p>**Selezionare volume**</p> | <p>Seleziona il volume specificato, dove <em>volumenumber</em> è il numero del volume, assegnandogli lo stato attivo. Se non è specificato alcun volume, il comando **select** visualizza un elenco di volumi correnti con stato attivo. È possibile specificare il volume in base al numero, alla lettera di unità o al percorso del punto di montaggio. Su un disco di base la selezione di un volume imposta anche lo stato attivo della partizione corrispondente.</p> |
-| <p>**shrink**</p> | <p>Riduce il volume con lo stato attivo per creare spazio non allocato. Non si verifica alcuna perdita di dati. Se la partizione include file fissi (ad esempio, il file di paging o l'area di archiviazione della copia shadow), il volume verrà ridotto fino al punto in cui si trovano i file fissi. |
-| <p>**desired=** <em>desiredsize</em></p> | <p>La quantità di spazio, in megabyte, da recuperare per la partizione corrente.</p> |
-| <p>**minimum=** <em>minimumsize</em></p> | <p>La quantità di spazio minima, in megabyte, da recuperare per la partizione corrente. Se non si specifica una dimensione minima o desiderata, il comando recupererà la quantità massima di spazio possibile.</p> 
-
-<a id="addcon"></a>
+| Value             | Descrizione |
+| ---               | ----------- |
+| **volume di elenco** | Visualizza un elenco di volumi di base e dinamici su tutti i dischi. |
+| **Selezionare volume** | Seleziona il volume specificato, dove <em>volumenumber</em> è il numero del volume, assegnandogli lo stato attivo. Se non è specificato alcun volume, il comando **select** visualizza un elenco di volumi correnti con stato attivo. È possibile specificare il volume in base al numero, alla lettera di unità o al percorso del punto di montaggio. Su un disco di base la selezione di un volume imposta anche lo stato attivo della partizione corrispondente. |
+| **shrink** | Riduce il volume con lo stato attivo per creare spazio non allocato. Non si verifica alcuna perdita di dati. Se la partizione include file fissi (ad esempio, il file di paging o l'area di archiviazione della copia shadow), il volume verrà ridotto fino al punto in cui si trovano i file fissi. |
+| **desired=** <em>desiredsize</em> | La quantità di spazio, in megabyte, da recuperare per la partizione corrente. |
+| **minimum=** <em>minimumsize</em> | La quantità di spazio minima, in megabyte, da recuperare per la partizione corrente. Se non si specifica una dimensione minima o desiderata, il comando recupererà la quantità massima di spazio possibile. |
 
 ## <a name="additional-considerations"></a>Considerazioni aggiuntive
 

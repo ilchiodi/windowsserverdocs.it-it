@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ed5ecddbaef91f127846825e408a9a6ec65ff741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 268a7d2833f73e9fab006501e9b3dc261d1b1d9e
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452570"
 ---
 # <a name="develop-a-solution-extension"></a>Sviluppare un'estensione della soluzione
 
@@ -71,10 +71,10 @@ Al termine, aver configurato tutto il che necessario per caricare la nuova esten
 
 Ora che è stata creata un'estensione con l'interfaccia CLI di Windows Admin Center, si è pronti per personalizzare il contenuto.  Per esempi di operazioni possibili, vedere le guide seguenti:
 
-- Aggiungere un [modulo vuoto](guides\add-module.md)
-- Aggiungere un [iFrame](guides\add-iframe.md)
-- Creare un [provider di connessione personalizzata](guides\create-connection-provider.md)
-- Modificare [radice comportamento di navigazione](guides\modify-root-navigation.md)
+- Aggiungere un [modulo vuoto](guides/add-module.md)
+- Aggiungere un [iFrame](guides/add-iframe.md)
+- Creare un [provider di connessione personalizzata](guides/create-connection-provider.md)
+- Modificare [radice comportamento di navigazione](guides/modify-root-navigation.md)
  
 Sono disponibili anche altri esempi nostri [sito GitHub SDK](https://aka.ms/wacsdk):
 -  [Strumenti di sviluppo](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) è un'estensione completamente funzionante che può essere caricate in sideload in Windows Admin Center e contiene un'ampia raccolta di esempi di funzionalità e lo strumento di esempio che è possibile esplorare e utilizzare in un'estensione personalizzata.
