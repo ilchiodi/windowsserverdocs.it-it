@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 7af6d68b02367d349580eacb27405c6f37e97ff8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0c2f85fbbeca9e8ac5d40bbcb71f286fabfb65c
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871992"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501665"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>La gestione dei tipi dell'utilità di pianificazione di hypervisor Hyper-V
 
@@ -141,14 +141,14 @@ Windows Server 2016 Hyper-V Usa il modello di utilità di pianificazione di hype
 
 ## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Valore predefinito è Windows Server 2019 Hyper-V usando l'utilità di pianificazione di base
 
-Per assicurare che gli host Hyper-V distribuiti nel lt;{0}&gt una sicurezza ottimale, Windows Server 2019 Hyper-V utilizzerà ora il modello fondamentale di utilità di pianificazione hypervisor per impostazione predefinita. L'amministratore di host può configurare facoltativamente l'host per usare l'utilità di pianificazione classico legacy. Gli amministratori devono attentamente letto e compreso prendere in considerazione l'impatto di che ogni tipo di pianificazione ha sulla sicurezza e prestazioni degli host di virtualizzazione prima di eseguire l'override le impostazioni predefinite del tipo dell'utilità di pianificazione.  Visualizzare [selezione del tipo di informazioni su Hyper-V utilità di pianificazione](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) per altre informazioni.
+Per assicurare che gli host Hyper-V vengono distribuiti nella configurazione di una sicurezza ottimale, Windows Server 2019 Hyper-V utilizzerà ora il modello fondamentale di utilità di pianificazione hypervisor per impostazione predefinita. L'amministratore di host può configurare facoltativamente l'host per usare l'utilità di pianificazione classico legacy. Gli amministratori devono attentamente letto e compreso prendere in considerazione l'impatto di che ogni tipo di pianificazione ha sulla sicurezza e prestazioni degli host di virtualizzazione prima di eseguire l'override le impostazioni predefinite del tipo dell'utilità di pianificazione.  Visualizzare [selezione del tipo di informazioni su Hyper-V utilità di pianificazione](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) per altre informazioni.
 
 ### <a name="required-updates"></a>Aggiornamenti necessari
 
 >[!NOTE]
 >Gli aggiornamenti seguenti sono necessari per usare le funzionalità di hypervisor dell'utilità di pianificazione descritte in questo documento. Questi aggiornamenti includono modifiche per supportare la nuova opzione di BCD 'hypervisorschedulertype', che è necessaria per la configurazione dell'host.
 
-| Versione | Rilascio  | Aggiornamento richiesto | Articolo della Knowledge Base |
+| Version | Rilascio  | Aggiornamento richiesto | Articolo della Knowledge Base |
 |--------------------|------|---------|-------------:|
 |Windows Server 2016 | 1607 | 2018.07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018.07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
@@ -169,6 +169,7 @@ In cui `type` è uno di:
 
 * Classico
 * Core
+* Root
 
 Qualsiasi per il tipo di hypervisor dell'utilità di pianificazione per rendere effettive le modifiche, è necessario riavviare il sistema.
 
@@ -177,7 +178,7 @@ Qualsiasi per il tipo di hypervisor dell'utilità di pianificazione per rendere 
 
 ## <a name="determining-the-current-scheduler-type"></a>Determinazione del tipo dell'utilità di pianificazione corrente
 
-È possibile determinare il tipo di utilità di pianificazione hypervisor corrente in uso, esaminare il log di memorizzazione nel Visualizzatore eventi per l'evento di avvio più recente di hypervisor ID 2, che segnala il tipo di hypervisor dell'utilità di pianificazione configurato al momento del lancio di hypervisor. Eventi di lancio di hypervisor possono essere ottenuti dal Visualizzatore eventi Windows, o tramite PowerShell.
+È possibile determinare il tipo di utilità di pianificazione hypervisor corrente in uso, esaminare il Registro di sistema nel Visualizzatore eventi per l'evento di avvio più recente di hypervisor ID 2, che segnala il tipo di hypervisor dell'utilità di pianificazione configurato al momento del lancio di hypervisor. Eventi di lancio di hypervisor possono essere ottenuti dal Visualizzatore eventi Windows, o tramite PowerShell.
 
 Evento di lancio di hypervisor ID 2 indica il tipo dell'utilità di pianificazione di hypervisor, dove:
 

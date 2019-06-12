@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33b782ded2ae1bdd8b00c08b81e4e0ee7f885899
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 62b366b8fa388319a758ab853d28d1c49cb1bf06
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188832"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719714"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurare Azure MFA come provider di autenticazione con AD FS
 
@@ -65,17 +65,14 @@ Come descritto in precedenza, qualsiasi utente di AD FS che non è ancora regist
 Quando si utilizza l'autenticazione a più Fattori di Azure per l'autenticazione con ADFS, sono necessari i seguenti prerequisiti:  
   
 - Un [sottoscrizione di Azure con Azure Active Directory](https://azure.microsoft.com/pricing/free-trial/).  
-- [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)  
-- Proxy applicazione Web è in grado di comunicare con il codice seguente sulle porte 80 e 443:
-
-    - https://adnotifications.windowsazure.com
-    - https://login.microsoftonline.com
+- [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) 
 
 
 > [!NOTE]
 > Azure AD e autenticazione a più Fattori di Azure sono incluse in Azure AD Premium ed Enterprise Mobility Suite (EMS).  Se si dispone di uno di questi elementi non è necessario sottoscrizioni individuali.
+
 - Un ambiente locale di ADFS di Windows Server 2016.  
-   - Il server deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
+   - Il server deve essere in grado di comunicare con gli URL seguenti sulla porta 443.
       - https://adnotifications.windowsazure.com
       - https://login.microsoftonline.com
 - L'ambiente locale è [federata con Azure AD.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs)  

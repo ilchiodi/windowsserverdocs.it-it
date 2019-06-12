@@ -12,12 +12,12 @@ ms.assetid: d94de050-3300-4323-a5ea-c824cb9cecc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c6abc11ba2ce8a9f1d32c6a884db6332586de78b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62f31f859ed3fd0f77baf37d3467d4702b24ad95
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822642"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432910"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Aggiungere i computer per il nuovo network1 di Windows Server Essentials
 
@@ -27,13 +27,13 @@ ms.locfileid: "59822642"
  Il passaggio successivo del processo di migrazione è aggiungere i computer client alla nuova rete Windows Server Essentials e aggiornare le impostazioni di criteri di gruppo.  
   
 ### <a name="domain-joined-client-computers"></a>Computer client aggiunti a un dominio  
- Passare a **http://***nome-server-destinazione***/Connect** e installare il software connettore Windows Server come se fosse un nuovo computer. Il processo di installazione è lo stesso per i computer client aggiunti a un dominio o non aggiunti a un dominio.  
+ Passare a **http://** <em>nome-server-destinazione</em> **/connect** e installare il software Connettore di Windows Server come se fosse un nuovo computer. Il processo di installazione è lo stesso per i computer client aggiunti a un dominio o non aggiunti a un dominio.  
   
 > [!NOTE]
 >  Il software Connettore Windows Server non supporta computer che eseguono Windows XP o Windows Vista. Se al dominio sono già stati aggiunti computer che eseguono Windows XP o Windows Vista, è possibile saltare questo passaggio.  
   
 ### <a name="non-domain-joined-client-computers"></a>Computer client non aggiunti a un dominio  
- Passare a **http://***nome-server-destinazione***/Connect** e installare il software connettore Windows Server come se fosse un nuovo computer. Il processo di installazione è lo stesso per i computer client aggiunti a un dominio o non aggiunti a un dominio.  
+ Passare a **http://** <em>nome-server-destinazione</em> **/connect** e installare il software Connettore di Windows Server come se fosse un nuovo computer. Il processo di installazione è lo stesso per i computer client aggiunti a un dominio o non aggiunti a un dominio.  
   
 > [!NOTE]
 >  Il software Connettore Windows Server non supporta computer che eseguono Windows XP o Windows Vista. Se al dominio sono già stati aggiunti computer che eseguono Windows XP o Windows Vista, è possibile saltare questo passaggio.  
@@ -49,7 +49,7 @@ ms.locfileid: "59822642"
   
 2.  Al prompt dei comandi digitare **GPRESULT /R** e quindi premere INVIO.  
   
-3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **Destinationsrv**. Ad esempio:   
+3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **Destinationsrv**. Ad esempio:  
   
     ```  
     USER SETTINGS  

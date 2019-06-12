@@ -12,12 +12,12 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e5a8db44f80c333d589e0c1664174c394701f90d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432574"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Passaggio 4: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -46,41 +46,41 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Per copiare i dati dal server di origine a quello di destinazione  
   
-1.  Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra del prompt dei comandi o un prompt dei comandi di Windows PowerShell.  
+1. Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra del prompt dei comandi o un prompt dei comandi di Windows PowerShell.  
   
-2.  Se si usa la finestra del prompt dei comandi, digitare il comando seguente e quindi premere INVIO:  
+2. Se si usa la finestra del prompt dei comandi, digitare il comando seguente e quindi premere INVIO:  
   
-    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
+   `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-     Dove:  
+    Dove:  
   
-    -   \<SourceServerName\> è il nome del Server di origine  
+   - \<SourceServerName\> è il nome del Server di origine  
   
-    -   \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine  
+   - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine  
   
-    -   \<PathOfTheDestination\> è il percorso assoluto in cui si desidera spostare la cartella  
+   - \<PathOfTheDestination\> è il percorso assoluto in cui si desidera spostare la cartella  
   
-    -   \<SharedDestinationFolderName\> è la cartella nel Server di destinazione in cui verranno copiati i dati  
+   - \<SharedDestinationFolderName\> è la cartella nel Server di destinazione in cui verranno copiati i dati  
   
      Ad esempio,  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
-3.  Se si usa Windows PowerShell, digitare il comando seguente e quindi premere INVIO.  
+3. Se si usa Windows PowerShell, digitare il comando seguente e quindi premere INVIO.  
   
-     `Add-Wssfolder  Path \ -Name  -KeepPermission`  
+    `Add-Wssfolder  Path \ -Name  -KeepPermission`  
   
-4.  Ripetere questa procedura per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.  
+4. Ripetere questa procedura per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.  
   
 ##  <a name="BKMK_Network"></a> Configurare la rete  
   
 #### <a name="to-configure-the-network"></a>Per configurare la rete  
   
-1.  Nel server di destinazione aprire il dashboard.  
+1. Nel server di destinazione aprire il dashboard.  
   
-2.  Nella pagina **Home** del dashboard fare clic su **Configura**, fare clic su **Configura Accesso remoto via Internet** e scegliere l'opzione **Fare clic per configurare Accesso remoto via Internet**.  
+2. Nella pagina **Home** del dashboard fare clic su **Configura**, fare clic su **Configura Accesso remoto via Internet** e scegliere l'opzione **Fare clic per configurare Accesso remoto via Internet**.  
   
-3.  Verrà visualizzata la procedura guidata Configura Accesso remoto via Internet. Completare le istruzioni della procedura guidata per configurare il router e i nomi di dominio.  
+3. Verrà visualizzata la procedura guidata Configura Accesso remoto via Internet. Completare le istruzioni della procedura guidata per configurare il router e i nomi di dominio.  
   
- Se il router non supporta il framework UPnP o se il framework UPnP è disabilitato, accanto al nome del router verrà visualizzata un'icona di avviso gialla. Verificare che le seguenti porte siano aperte e impostate sull'indirizzo IP del server di destinazione:  
+   Se il router non supporta il framework UPnP o se il framework UPnP è disabilitato, accanto al nome del router verrà visualizzata un'icona di avviso gialla. Verificare che le seguenti porte siano aperte e impostate sull'indirizzo IP del server di destinazione:  
   
 -   Porta 80: Traffico Web HTTP  
   

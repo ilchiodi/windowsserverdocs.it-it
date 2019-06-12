@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 227906685d77c31587c66d1c292f20ca94775058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881052"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501643"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Scelta delle unità per Spazi di archiviazione diretta
 
->Si applica a: Windows Server 2016
+>Si applica a: Windows 2019, Windows Server 2016
 
 In questo argomento vengono fornite indicazioni su come scegliere le unità per [Spazi di archiviazione diretta](storage-spaces-direct-overview.md) per soddisfare i tuoi requisiti di capacità e prestazioni.
 
@@ -116,7 +116,7 @@ La cache deve essere dimensionata per contenere il working set delle applicazion
 
 Consigliamo di limitare la capacità di archiviazione totale per server a circa 100 terabyte (TB). Maggiore è la capacità di archiviazione per server, maggiore è il tempo necessario per risincronizzare i dati dopo un periodo di inattività o un riavvio, ad esempio quando si esegue un aggiornamento software.
 
-L'attuale dimensione massima per pool di archiviazione 1 petabyte (PB) o 1.000 terabyte.
+Le dimensioni massime correnti per ogni pool di archiviazione sono 4 petabyte (PB) (4,000 TB) per Windows Server 2019 o fino a 1 petabyte per Windows Server 2016.
 
 ## <a name="see-also"></a>Vedere anche
 
@@ -124,4 +124,4 @@ L'attuale dimensione massima per pool di archiviazione 1 petabyte (PB) o 1.000 t
 - [Comprendere la cache in spazi di archiviazione diretta](understand-the-cache.md)
 - [Requisiti hardware diretto di spazi di archiviazione](storage-spaces-direct-hardware-requirements.md)
 - [Pianificazione di volumi in spazi di archiviazione diretta](plan-volumes.md)
-- [Efficienza di archiviazione e la tolleranza di errore](storage-spaces-fault-tolerance.md)
+- [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)

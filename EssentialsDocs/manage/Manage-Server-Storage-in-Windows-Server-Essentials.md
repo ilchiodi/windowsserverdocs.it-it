@@ -12,12 +12,12 @@ ms.assetid: 1836682e-c7bb-4dd5-a2b5-6ff032693574
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e0f65dfd25afbd584764d33904ba82e4da4c5443
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 38843a511548cd11c154dd5c130a0b2da88b59eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842452"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433232"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Gestire l'archiviazione server in Windows Server Essentials
 
@@ -44,19 +44,19 @@ ms.locfileid: "59842452"
 ##  <a name="BKMK_1"></a> Gestire i dischi rigidi tramite il Dashboard  
  Windows Server Essentials consente di gestire tutti i dischi rigidi connessi al server tramite il dashboard. Sulla scheda **Archiviazione** del dashboard, in **Unità disco rigido** sono visualizzati tutti i dischi rigidi disponibili nel server per l'archiviazione dei dati e dei backup del server. Il server monitora lo spazio disponibile in ogni disco rigido e visualizza un avviso se lo spazio sta per esaurirsi. La scheda **Unità disco rigido** mostra le informazioni seguenti:  
   
--   Nome di ogni disco rigido  
+- Nome di ogni disco rigido  
   
--   Capacità di ogni disco rigido  
+- Capacità di ogni disco rigido  
   
--   Quantità di spazio usato in ogni disco rigido  
+- Quantità di spazio usato in ogni disco rigido  
   
--   Quantità di spazio disponibile in ogni disco rigido  
+- Quantità di spazio disponibile in ogni disco rigido  
   
--   Stato di ogni disco rigido (se lo stato è vuoto significa che il disco rigido funziona correttamente)  
+- Stato di ogni disco rigido (se lo stato è vuoto significa che il disco rigido funziona correttamente)  
   
--   Riquadro dei dettagli, che mostra tutte le informazioni sullo stack di archiviazione (per pool di archiviazione, spazio di archiviazione e disco rigido) se il disco rigido selezionato si trova in uno spazio di archiviazione (e non in un disco fisico)  
+- Riquadro dei dettagli, che mostra tutte le informazioni sullo stack di archiviazione (per pool di archiviazione, spazio di archiviazione e disco rigido) se il disco rigido selezionato si trova in uno spazio di archiviazione (e non in un disco fisico)  
   
- La tabella seguente elenca le attività di gestione dei dischi rigidi che è possibile eseguire dal dashboard, con le relative descrizioni. Alcune attività vengono visualizzate solo quando viene selezionato un disco rigido.  
+  La tabella seguente elenca le attività di gestione dei dischi rigidi che è possibile eseguire dal dashboard, con le relative descrizioni. Alcune attività vengono visualizzate solo quando viene selezionato un disco rigido.  
   
 ### <a name="available-hard-drive-management-tasks"></a>Attività di gestione dei dischi rigidi disponibili  
   
@@ -118,7 +118,7 @@ ms.locfileid: "59842452"
   
 2.  Formattare il disco rigido e configurarlo per il backup del server. Se si sceglie questa opzione, viene avviata la procedura guidata Configura backup server, che indica i passaggi per la configurazione del backup del server.  
   
-3.  Se esiste una t lo spazio di archiviazione, usare il nuovo disco rigido per creare uno spazio di archiviazione. Per creare uno spazio di archiviazione, è necessario avere almeno due dischi rigidi.  
+3.  Se non esiste uno spazio di archiviazione, usare il nuovo disco rigido per creare uno spazio di archiviazione. Per creare uno spazio di archiviazione, è necessario avere almeno due dischi rigidi.  
   
 4.  Se è già presente uno spazio di archiviazione, usare il nuovo disco rigido per aumentare la capacità di un pool di archiviazione. Questa opzione viene visualizzata solo se nel server è già stato creato uno spazio di archiviazione. Se si sceglie questa opzione, la procedura guidata aggiungerà il disco rigido al pool di archiviazione.  
   
@@ -136,41 +136,41 @@ ms.locfileid: "59842452"
   
 ##### <a name="to-store-server-folders"></a>Per archiviare le cartelle del server  
   
-1.  Aprire il dashboard.  
+1. Aprire il dashboard.  
   
-2.  Fare clic sulla scheda **ARCHIVIAZIONE** e quindi su **Cartelle server**.  
+2. Fare clic sulla scheda **ARCHIVIAZIONE** e quindi su **Cartelle server**.  
   
-3.  Nel riquadro **Attività Cartelle server** eseguire una delle operazioni seguenti:  
+3. Nel riquadro **Attività Cartelle server** eseguire una delle operazioni seguenti:  
   
-    1.  Per aggiungere una cartella del server, fare clic su **Aggiungi una cartella**.  
+   1.  Per aggiungere una cartella del server, fare clic su **Aggiungi una cartella**.  
   
-    2.  Per spostare una cartella del server, selezionare la cartella che si vuole spostare nel nuovo disco rigido e quindi fare clic su **Sposta una cartella**.  
+   2.  Per spostare una cartella del server, selezionare la cartella che si vuole spostare nel nuovo disco rigido e quindi fare clic su **Sposta una cartella**.  
   
-    > [!NOTE]
-    >  Se si passa al disco rigido e lo si seleziona come percorso della cartella del server senza creare una cartella, viene visualizzato il messaggio di errore seguente: **Una directory radice (ad esempio c:\\, unità d:\\) non può essere aggiunto come una cartella del server. Creare una nuova cartella o selezionarne uno esistente nella directory radice e quindi ripetere l'operazione**. Per risolvere l'errore, creare una nuova cartella nel disco rigido appena aggiunto e quindi selezionare la nuova cartella come percorso di archiviazione delle cartelle del server.  
+   > [!NOTE]
+   >  Se si passa al disco rigido e lo si seleziona come percorso della cartella del server senza creare una cartella, viene visualizzato il messaggio di errore seguente: **Una directory radice (ad esempio c:\\, unità d:\\) non può essere aggiunto come una cartella del server. Creare una nuova cartella o selezionarne uno esistente nella directory radice e quindi ripetere l'operazione**. Per risolvere l'errore, creare una nuova cartella nel disco rigido appena aggiunto e quindi selezionare la nuova cartella come percorso di archiviazione delle cartelle del server.  
   
-4.  Seguire le istruzioni per completare la procedura guidata.  
+4. Seguire le istruzioni per completare la procedura guidata.  
   
- Per altre informazioni sullo spostamento delle cartelle del server, vedere [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+   Per altre informazioni sullo spostamento delle cartelle del server, vedere [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 ###  <a name="BKMK_4b"></a> Usare il nuovo disco rigido per archiviare i backup del server  
  È possibile usare il nuovo disco rigido aggiunto per archiviare i backup del server.  
   
 ##### <a name="to-store-server-backups"></a>Per archiviare i backup del server  
   
-1.  Aprire il dashboard.  
+1. Aprire il dashboard.  
   
-2.  Fare clic sulla scheda **Dispositivi**, selezionare il server nel riquadro elenco e quindi dal riquadro attività eseguire una delle operazioni seguenti:  
+2. Fare clic sulla scheda **Dispositivi**, selezionare il server nel riquadro elenco e quindi dal riquadro attività eseguire una delle operazioni seguenti:  
   
-    1.  Se nel server non è configurato il backup del server, fare clic su **Configura Backup server**.  
+   1. Se nel server non è configurato il backup del server, fare clic su **Configura Backup server**.  
   
-    2.  Se nel server è configurato il backup del server, fare clic su **Personalizza Backup server**.  
+   2. Se nel server è configurato il backup del server, fare clic su **Personalizza Backup server**.  
   
-     Verrà visualizzata la procedura guidata Configura Backup server.  
+      Verrà visualizzata la procedura guidata Configura Backup server.  
   
-3.  Nella pagina **Seleziona destinazione del backup** selezionare il nuovo disco rigido come destinazione del backup.  
+3. Nella pagina **Seleziona destinazione del backup** selezionare il nuovo disco rigido come destinazione del backup.  
   
-4.  Seguire le istruzioni per completare la procedura guidata.  
+4. Seguire le istruzioni per completare la procedura guidata.  
   
 ###  <a name="BKMK_4c"></a> Usare il nuovo disco rigido per aumentare la capacità del pool di archiviazione  
  Quando la capacità del pool di archiviazione sta per esaurirsi, viene visualizzato un avviso che informa che è possibile aumentare la capacità del pool di archiviazione aggiungendo un nuovo disco rigido al pool tramite la procedura guidata Aumenta capacità di un pool di archiviazione.  
@@ -191,7 +191,7 @@ ms.locfileid: "59842452"
 5.  Seguire le istruzioni per completare la procedura guidata.  
   
 ##  <a name="BKMK_5"></a> Panoramica di spazi di archiviazione  
- La funzionalità Spazi di archiviazione consente di raggruppare i dischi in un pool di archiviazione. È quindi possibile usare la capacità del pool per creare spazi di archiviazione. Gli spazi di archiviazione sono unità virtuali visualizzate nella scheda **Unità disco rigido** del dashboard. È possibile usare spazi di archiviazione come qualsiasi altra unità, pertanto è facile lavorare con i file su di essi. Quando la capacità del pool sta per esaurirsi, è possibile creare spazi di archiviazione di grandi dimensioni e aggiungere altre unità al pool di archiviazione. Se si dispone di due o più dischi nel pool di archiviazione, è possibile creare spazi di archiviazione con mirroring a due vie che non saranno interessate da un guasto? o anche l'errore di due unità? se si crea uno spazio di archiviazione tre vie.  
+ La funzionalità Spazi di archiviazione consente di raggruppare i dischi in un pool di archiviazione. È quindi possibile usare la capacità del pool per creare spazi di archiviazione. Gli spazi di archiviazione sono unità virtuali visualizzate nella scheda **Unità disco rigido** del dashboard. È possibile usare spazi di archiviazione come qualsiasi altra unità, pertanto è facile usare i file su di essi. Quando la capacità del pool sta per esaurirsi, è possibile creare spazi di archiviazione di grandi dimensioni e aggiungere altre unità al pool di archiviazione. Se si dispone di due o più dischi nel pool di archiviazione, è possibile creare spazi di archiviazione con mirroring a due vie che non saranno interessate da un guasto? o anche l'errore di due unità? se si crea uno spazio di archiviazione tre vie.  
   
  Per creare uno spazio di archiviazione, sono sufficienti una o più unità aggiuntive oltre all'unità in cui è installato Windows. Queste unità possono essere dischi rigidi interni o esterni oppure unità SSD (Solid State Drive). È possibile usare diversi tipi di unità per gli spazi di archiviazione, tra cui unità USB, SATA e SAS.  
   
@@ -212,29 +212,29 @@ ms.locfileid: "59842452"
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Per creare uno spazio di archiviazione in Windows Server Essentials  
   
-1.  Aggiungere o connettere tutte le unità da raggruppare con Spazi di archiviazione nel server che esegue Windows Server Essentials.  
+1. Aggiungere o connettere tutte le unità da raggruppare con Spazi di archiviazione nel server che esegue Windows Server Essentials.  
   
-2.  Dal Dashboard, fare clic su **avanzate: Gestire spazi di archiviazione**.  
+2. Dal Dashboard, fare clic su **avanzate: Gestire spazi di archiviazione**.  
   
-3.  Fare clic su **Crea nuovo pool e spazio di archiviazione**.  
+3. Fare clic su **Crea nuovo pool e spazio di archiviazione**.  
   
-4.  Selezionare le unità da aggiungere al nuovo spazio di archiviazione e quindi fare clic su **Crea pool**.  
+4. Selezionare le unità da aggiungere al nuovo spazio di archiviazione e quindi fare clic su **Crea pool**.  
   
-5.  Assegnare all'unità un nome e una lettera e quindi scegliere un layout. **Mirroring a 2 vie**, **Mirroring a 3 vie** e **Parità** possono aiutare a proteggere i file nello spazio di archiviazione in caso di errori delle unità.  
+5. Assegnare all'unità un nome e una lettera e quindi scegliere un layout. **Mirroring a 2 vie**, **Mirroring a 3 vie** e **Parità** possono aiutare a proteggere i file nello spazio di archiviazione in caso di errori delle unità.  
   
-6.  Immettere la dimensione massima per lo spazio di archiviazione e quindi fare clic su **Crea spazio di archiviazione**.  
+6. Immettere la dimensione massima per lo spazio di archiviazione e quindi fare clic su **Crea spazio di archiviazione**.  
   
- In Windows Server Essentials, è possibile creare uno spazio di archiviazione bidirezionale con mirroring utilizzando la creazione una procedura guidata lo spazio di archiviazione dal Dashboard.  
+   In Windows Server Essentials, è possibile creare uno spazio di archiviazione bidirezionale con mirroring utilizzando la creazione una procedura guidata lo spazio di archiviazione dal Dashboard.  
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Per creare uno spazio di archiviazione in Windows Server Essentials  
   
-1.  Aggiungere o connettere tutte le unità da raggruppare con Spazi di archiviazione nel server che esegue Windows Server Essentials.  
+1. Aggiungere o connettere tutte le unità da raggruppare con Spazi di archiviazione nel server che esegue Windows Server Essentials.  
   
-2.  Dal dashboard fare clic su **Gestione spazi di archiviazione**. Verrà visualizzata la procedura guidata Crea spazio di archiviazione.  
+2. Dal dashboard fare clic su **Gestione spazi di archiviazione**. Verrà visualizzata la procedura guidata Crea spazio di archiviazione.  
   
-3.  Seguire le istruzioni per completare la procedura guidata.  
+3. Seguire le istruzioni per completare la procedura guidata.  
   
- Per informazioni su come aumentare la capacità del pool di archiviazione, vedere [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Per informazioni su come aumentare la capacità del pool di archiviazione, vedere [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Vedere anche  
   

@@ -11,18 +11,27 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/06/2019
+ms.date: 06/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2b79a1f914bdbc971299493ca00680e2504fbd3
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
+ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476027"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736532"
 ---
 # <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Che cosa sono le novità per il client Desktop remoto in Android?
 
 Viene aggiornato regolarmente le [client Desktop remoto per Android](remote-desktop-android.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
+
+## <a name="updates-for-version-8171"></a>Aggiornamenti per la versione 8.1.71
+
+*Data di pubblicazione: 06/05/2019*
+
+- Rimozione del supporto per le versioni di Android 4.0.3 e 4.0.4.
+- Risolto un problema in cui le risorse remote lo stesso nome non veniva visualizzato correttamente.
+- Aggiornare l'icona dell'app.
+- Miglioramenti e correzioni di bug minori.
 
 ## <a name="updates-for-version-8170"></a>Aggiornamenti per la versione 8.1.70
 

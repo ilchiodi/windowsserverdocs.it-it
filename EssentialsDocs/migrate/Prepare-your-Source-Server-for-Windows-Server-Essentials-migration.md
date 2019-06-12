@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 929c7506c78667646e429c4f28df7e5642c575ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93f5bdb615adf56b81a1c4c93f802f6da4e48c1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841152"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432608"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Preparare il Server di origine per Windows Server Essentials migration1
 
@@ -89,20 +89,20 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>Per usare Windows Server Solutions BPA per l'analisi del server di origine  
   
-1.  Scaricare e installare [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) nell'Area download Microsoft.  
+1. Scaricare e installare [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) nell'Area download Microsoft.  
   
-2.  Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi** e quindi **SBS Best Practices Analyzer Tool**.  
+2. Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi** e quindi **SBS Best Practices Analyzer Tool**.  
   
-    > [!NOTE]
-    >  Prima di procedere all'analisi del server, verificare la disponibilità di aggiornamenti.  
+   > [!NOTE]
+   >  Prima di procedere all'analisi del server, verificare la disponibilità di aggiornamenti.  
   
-3.  Nel riquadro di spostamento fare clic su **Avvia un'analisi**.  
+3. Nel riquadro di spostamento fare clic su **Avvia un'analisi**.  
   
-4.  Nel riquadro dei dettagli digitare l'etichetta dell'analisi e quindi fare clic su **Avvia l'analisi**. L'etichetta dell'analisi è il nome del report di analisi, ad esempio **SBS BPA Scan 1Jul2012**.  
+4. Nel riquadro dei dettagli digitare l'etichetta dell'analisi e quindi fare clic su **Avvia l'analisi**. L'etichetta dell'analisi è il nome del report di analisi, ad esempio **SBS BPA Scan 1Jul2012**.  
   
-5.  Al termine dell'analisi, fare clic su **Visualizza un rapporto di questa analisi Best Practices**.  
+5. Al termine dell'analisi, fare clic su **Visualizza un rapporto di questa analisi Best Practices**.  
   
- Dopo aver raccolto informazioni sulla configurazione del server, Windows Server Solutions BPA verifica che le informazioni siano corrette e quindi presenta agli amministratori un elenco di informazioni e problemi ordinati per gravità. L'elenco descrive ogni problema e offre un suggerimento o una possibile soluzione. Sono disponibili tre tipi di rapporti:  
+   Dopo aver raccolto informazioni sulla configurazione del server, Windows Server Solutions BPA verifica che le informazioni siano corrette e quindi presenta agli amministratori un elenco di informazioni e problemi ordinati per gravità. L'elenco descrive ogni problema e offre un suggerimento o una possibile soluzione. Sono disponibili tre tipi di rapporti:  
   
 |Tipo di rapporto|Descrizione|  
 |-----------------|-----------------|  
@@ -140,25 +140,25 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
 ##### <a name="to-verify-that-you-have-the-appropriate-permissions-to-run-the-tool-on-the-source-server"></a>Per verificare di disporre delle autorizzazioni necessarie per eseguire lo strumento sul server di origine  
   
-1.  Sul server di origine, fare clic su **Start**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Utenti e computer di Active Directory**.  
+1. Sul server di origine, fare clic su **Start**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Utenti e computer di Active Directory**.  
   
-2.  Nell'albero della console fare clic per espandere il dominio e quindi fare clic su **Utenti**.  
+2. Nell'albero della console fare clic per espandere il dominio e quindi fare clic su **Utenti**.  
   
-3.  Fare clic sull'account amministratore che si utilizza per la migrazione e fare clic su **Proprietà**.  
+3. Fare clic sull'account amministratore che si utilizza per la migrazione e fare clic su **Proprietà**.  
   
-4.  Fare clic sulla scheda **Membro di** e verificare che i gruppi Enterprise Admins, Schema Admins e Domain Admins siano elencati nella casella di testo **Membro di**.  
+4. Fare clic sulla scheda **Membro di** e verificare che i gruppi Enterprise Admins, Schema Admins e Domain Admins siano elencati nella casella di testo **Membro di**.  
   
-5.  Se i gruppi non sono presenti nell'elenco, fare clic su **Aggiungi** e aggiungere ciascun gruppo non presente nell'elenco.  
+5. Se i gruppi non sono presenti nell'elenco, fare clic su **Aggiungi** e aggiungere ciascun gruppo non presente nell'elenco.  
   
-    > [!NOTE]
-    >  -   Se il servizio Netlogon non è stato avviato, si potrebbe un messaggio di errore relativo alle autorizzazioni.  
-    > -   È necessario disconnettersi dal server e quindi riconnettersi per applicare le modifiche.  
+   > [!NOTE]
+   > - Se il servizio Netlogon non è stato avviato, si potrebbe un messaggio di errore relativo alle autorizzazioni.  
+   >   -   È necessario disconnettersi dal server e quindi riconnettersi per applicare le modifiche.  
   
-     È possibile utilizzare la versione più recente dell'agente di Windows Update affinché il processo di aggiornamento del server venga eseguito correttamente.  
+    È possibile utilizzare la versione più recente dell'agente di Windows Update affinché il processo di aggiornamento del server venga eseguito correttamente.  
   
- È possibile utilizzare la versione più recente dell'agente di Windows Update affinché il processo di aggiornamento del server venga eseguito correttamente.  
+   È possibile utilizzare la versione più recente dell'agente di Windows Update affinché il processo di aggiornamento del server venga eseguito correttamente.  
   
- Prima di installare l'agente Windows Update nel Server di origine, è innanzitutto necessario installare Windows PowerShell 2.0 e Microsoft Baseline Configuration Analyzer 2.0.  
+   Prima di installare l'agente Windows Update nel Server di origine, è innanzitutto necessario installare Windows PowerShell 2.0 e Microsoft Baseline Configuration Analyzer 2.0.  
   
 -   Per scaricare e installare Windows PowerShell 2.0, vedere [articolo 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) nella Microsoft Knowledge Base.  
   
@@ -168,34 +168,34 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>Per installare lo strumento di preparazione alla migrazione sul server di origine  
   
-1.  Inserire Windows Server Essentials DVD1 nell'unità DVD nel Server di origine.  
+1. Inserire Windows Server Essentials DVD1 nell'unità DVD nel Server di origine.  
   
-2.  Aprire Esplora risorse, accedere alla cartella **\support\tools** del DVD e fare doppio clic sul file **sourcetool.msi**.  
+2. Aprire Esplora risorse, accedere alla cartella **\support\tools** del DVD e fare doppio clic sul file **sourcetool.msi**.  
   
-    > [!NOTE]
-    >  -   Se lo strumento di preparazione alla migrazione è già installato nel server, eseguirlo dal menu **Start**.  
-    > -   Per accertarsi che la migrazione venga eseguita senza problemi, è consigliabile scegliere di installare l'aggiornamento più recente.  
+   > [!NOTE]
+   > - Se lo strumento di preparazione alla migrazione è già installato nel server, eseguirlo dal menu **Start**.  
+   >   -   Per accertarsi che la migrazione venga eseguita senza problemi, è consigliabile scegliere di installare l'aggiornamento più recente.  
   
-     La procedura guidata installa lo strumento di preparazione alla migrazione sul server di origine. Una volta completata l'installazione, lo strumento di preparazione alla migrazione viene eseguito automaticamente installa gli aggiornamenti più recenti.  
+    La procedura guidata installa lo strumento di preparazione alla migrazione sul server di origine. Una volta completata l'installazione, lo strumento di preparazione alla migrazione viene eseguito automaticamente installa gli aggiornamenti più recenti.  
   
-3.  In Strumento di preparazione alla migrazione selezionare **Ho una copia di backup e sono pronto a procedere** e quindi fare clic su **Avanti**.  
+3. In Strumento di preparazione alla migrazione selezionare **Ho una copia di backup e sono pronto a procedere** e quindi fare clic su **Avanti**.  
   
-    > [!WARNING]
-    >  Se si riceve un messaggio di errore relativo a un'installazione di hotfix, vedere il metodo 2: Rinominare la cartella Catroot2 [articolo 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) nella Microsoft Knowledge Base.  
+   > [!WARNING]
+   >  Se si riceve un messaggio di errore relativo a un'installazione di hotfix, vedere il metodo 2: Rinominare la cartella Catroot2 [articolo 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) nella Microsoft Knowledge Base.  
   
-     Lo strumento di preparazione alla migrazione prepara il dominio di origine per la migrazione estendendo lo schema di Active Directory. Una volta completata l'attività, fare clic su **Avanti** per continuare.  
+    Lo strumento di preparazione alla migrazione prepara il dominio di origine per la migrazione estendendo lo schema di Active Directory. Una volta completata l'attività, fare clic su **Avanti** per continuare.  
   
-4.  Dopo aver preparato il dominio di origine, lo strumento di preparazione alla migrazione analizza il server di origine per identificare due tipi di potenziali problemi.  
+4. Dopo aver preparato il dominio di origine, lo strumento di preparazione alla migrazione analizza il server di origine per identificare due tipi di potenziali problemi.  
   
-    -   **Errori** rilevati sul Server di origine che può causare la migrazione ad avere esito negativo o bloccare la migrazione. Seguire le istruzioni visualizzate nel messaggio di errore per risolvere i problemi e quindi fare clic su **Esegui nuova ricerca**.  
+   - **Errori** rilevati sul Server di origine che può causare la migrazione ad avere esito negativo o bloccare la migrazione. Seguire le istruzioni visualizzate nel messaggio di errore per risolvere i problemi e quindi fare clic su **Esegui nuova ricerca**.  
   
-    -   **Avvisi** rilevati sul Server di origine che possono provocare problemi funzionali durante la migrazione. È consigliabile seguire le istruzioni visualizzare nel messaggio per risolvere i problemi prima di procedere con la migrazione.  
+   - **Avvisi** rilevati sul Server di origine che possono provocare problemi funzionali durante la migrazione. È consigliabile seguire le istruzioni visualizzare nel messaggio per risolvere i problemi prima di procedere con la migrazione.  
   
      Dopo aver risolto o valutato tutti i problemi, fare clic su **Avanti**.  
   
-5.  Nella finestra Strumento di preparazione alla migrazione, fare clic su **Fine**.  
+5. Nella finestra Strumento di preparazione alla migrazione, fare clic su **Fine**.  
   
-6.  Al termine dell'esecuzione lo strumento di preparazione alla migrazione, potrebbe richiesto di riavviare il Server di origine prima di iniziare la migrazione a Windows Server Essentials.  
+6. Al termine dell'esecuzione lo strumento di preparazione alla migrazione, potrebbe richiesto di riavviare il Server di origine prima di iniziare la migrazione a Windows Server Essentials.  
   
 > [!NOTE]
 >  È necessario completare un'esecuzione corretta dello strumento di preparazione alla migrazione nel Server di origine entro due settimane dall'installazione di Windows Server Essentials nel Server di destinazione. In caso contrario, installazione di Windows Server Essentials nel Server di destinazione verrà bloccata. In questo caso, è necessario eseguire di nuovo lo strumento di preparazione alla migrazione sul server di origine.  

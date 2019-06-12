@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0b937debf2d9156c50f3c0ae51fdab8bd2a2bf2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c245c5a6b2165385096f32713a92916236cdddfb
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863482"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719701"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Appendice l: Eventi da monitorare
 
@@ -174,7 +174,7 @@ Una criticità potenziale di alto livello significa che una occorrenza dell'even
 |4707|611|Bassa|Una relazione di trust a un dominio è stato rimosso.|  
 |4709|N/D|Bassa|IPsec è stato avviato.|  
 |4710|N/D|Bassa|I servizi di IPsec è stato disabilitato.|  
-|4711|N/D|Bassa|Può contenere uno dei seguenti: Motore PAStore applicati copia memorizzato nella cache locale del criterio IPsec di archiviazione di Active Directory nel computer. Motore PAStore applicati criteri IPsec di archiviazione di Active Directory nel computer. Motore PAStore applicati i criteri IPsec di archiviazione del Registro di sistema locale nel computer. Motore PAStore non è riuscito ad applicare una copia della cache locale del criterio IPsec di archiviazione di Active Directory nel computer. Motore PAStore non è riuscito ad applicare i criteri IPsec di archiviazione di Active Directory nel computer. Motore PAStore non è stato possibile applicare i criteri IPsec di archiviazione del Registro di sistema locale nel computer. Motore PAStore non è riuscito ad applicare alcune regole dei criteri IPsec attivo nel computer. Motore PAStore non è stato possibile caricare i criteri IPsec nel computer di archiviazione di directory. Motore PAStore caricato archiviazione directory criteri IPsec nel computer. Motore PAStore non è riuscito a caricare una risorsa di archiviazione locale dei criteri IPsec nel computer. Motore PAStore caricato archiviazione locale dei criteri IPsec nel computer. Motore PAStore eseguito il polling delle modifiche per il criterio IPsec e non rilevata nessuna modifica.|  
+|4711|N/D|Bassa|Può contenere uno dei seguenti: Motore PAStore applicati copia memorizzato nella cache locale del criterio IPsec di archiviazione di Active Directory nel computer. Motore PAStore applicati criteri IPsec di archiviazione di Active Directory nel computer. Motore PAStore applicati i criteri IPsec di archiviazione del Registro di sistema locale nel computer. Motore PAStore non è riuscito ad applicare una copia della cache locale del criterio IPsec di archiviazione di Active Directory nel computer. Motore PAStore non è riuscito ad applicare i criteri IPsec di archiviazione di Active Directory nel computer. Motore PAStore non è stato possibile applicare i criteri IPsec di archiviazione del Registro di sistema locale nel computer. Motore PAStore non è riuscito ad applicare alcune regole dei criteri IPsec attivo nel computer. Motore PAStore non è stato possibile caricare i criteri IPsec nel computer di archiviazione di directory. Motore PAStore caricato archiviazione directory criteri IPsec nel computer. Motore PAStore non è riuscito a caricare una risorsa di archiviazione locale dei criteri IPsec nel computer. Motore PAStore caricato archiviazione locale dei criteri IPsec nel computer. Motore PAStore eseguito il polling delle modifiche per il criterio IPsec e non rilevata nessuna modifica. |  
 |4712|N/D|Bassa|IPsec si è verificato un errore potenzialmente grave.|  
 |4717|621|Bassa|Accesso di sicurezza di sistema è stato concesso a un account.|  
 |4718|622|Bassa|Accesso di sicurezza di sistema è stato rimosso da un account.|  

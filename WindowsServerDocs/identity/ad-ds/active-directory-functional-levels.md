@@ -11,12 +11,12 @@ ms.prod: windows-server-threshold
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: ea56c718394d145a36145d32e5769661a62efd56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: cb9b5b9448f364760c3d2a7e43edd01a5a9f7f9d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841002"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719671"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Livelli di funzionalità foresta e dominio
 
@@ -34,7 +34,7 @@ In Windows Server 2008 e più livelli funzionali di dominio, replica del file sy
 
 Non esistono nuova foresta o livelli funzionali del dominio aggiunti in questa versione.
 
-Il requisito minimo per aggiungere un Controller di dominio di Windows Server 2019 è un livello di funzionalità di Windows Server 2008 R2.
+Il requisito minimo per aggiungere un Controller di dominio di Windows Server 2019 è un livello di funzionalità di Windows Server 2008. Inoltre, il dominio deve utilizzare DFS-R come motore per la replica di SYSVOL.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -139,25 +139,27 @@ Sistema operativo di Controller di dominio supportati:
 ### <a name="windows-server-2008-domain-functional-level-features"></a>Funzionalità a livello funzionalità dominio di Windows Server 2008
 
 * Tutti del valore predefinito di dominio Active Directory features, tutte le funzionalità a livello funzionale di dominio di Windows Server 2003, e sono disponibili le seguenti funzionalità:
-   * Supporto della replica Distributed File System (DFS) per Windows Server 2003 System Volume (SYSVOL)
-      * Supporto della replica DFS consente una replica più affidabile e dettagliata del contenuto SYSVOL.
-        [!NOTE]>
-        >A partire da Windows Server 2012 R2, servizio Replica File (FRS) è deprecato. Un nuovo dominio creato in un controller di dominio che esegue almeno Windows Server 2012 R2 deve essere impostato sul livello funzionale di dominio di Windows Server 2008 o versione successiva.
+  * Supporto della replica Distributed File System (DFS) per Windows Server 2003 System Volume (SYSVOL)
+    * Supporto della replica DFS consente una replica più affidabile e dettagliata del contenuto SYSVOL.
 
-   * Basato su dominio spazi dei nomi DFS in esecuzione in modalità Windows Server 2008, che include il supporto per l'enumerazione basata sull'accesso e una maggiore scalabilità. Spazi dei nomi basati su dominio in modalità Windows Server 2008 richiedono anche la foresta di usare il livello di funzionalità foresta Windows Server 2003. Per altre informazioni, vedere [scegliere un tipo di Namespace](https://go.microsoft.com/fwlink/?LinkId=180400).
-   * Advanced Encryption Standard (AES 128 e AES a 256) supporto per il protocollo Kerberos. Affinché TGT essere eseguiti utilizzando AES, il livello funzionale del dominio deve essere Windows Server 2008 o versione successiva e la password del dominio deve essere modificato. 
-      * Per altre informazioni, vedere [miglioramenti a Kerberos](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
-        [!NOTE]>
-        >Errori di autenticazione possono verificarsi in un controller di dominio dopo viene generato il livello funzionale del dominio a Windows Server 2008 o versione successiva se il controller di dominio è già stata replicata la modifica di funzionalità del dominio ma non è stato ancora aggiornato la password krbtgt. In questo caso, riavviare il servizio KDC nel controller di dominio verrà attivano un aggiornamento in memoria della nuova password krbtgt e risolvere gli errori di autenticazione correlate.
+      > [!NOTE]
+      > A partire da Windows Server 2012 R2, servizio Replica File (FRS) è deprecato. Un nuovo dominio creato in un controller di dominio che esegue almeno Windows Server 2012 R2 deve essere impostato sul livello funzionale di dominio di Windows Server 2008 o versione successiva.
 
-   * [Ultimo accesso interattivo](https://go.microsoft.com/fwlink/?LinkId=180387) informazioni vengono visualizzate le informazioni seguenti:
-      * Il numero totale di tentativi di accesso a un server di Windows Server 2008 aggiunto al dominio o una workstation Windows Vista
-      * Il numero totale di tentativi di accesso non riuscito dopo l'accesso a un server Windows Server 2008 o una workstation Windows Vista
-      * L'ora dell'ultimo tentativo di accesso non riuscito a Windows Server 2008 o una workstation Windows Vista
-      * Data e ora dell'ultimo accesso riuscito tentativo a un server Windows Server 2008 o una workstation Windows Vista
-   * I criteri granulari per le password consentono di specificare i criteri di blocco degli account e password per gli utenti e gruppi di sicurezza globali in un dominio. Per altre informazioni, vedere [Guida dettagliata alla configurazione dei criteri di blocco degli Account e Password specifici per le](https://go.microsoft.com/fwlink/?LinkID=91477).
-   * Desktop virtuali personali
-      * Per usare la funzionalità aggiuntiva fornita dalla scheda Desktop virtuale personale nella finestra di dialogo Proprietà Account utente in Active Directory Users and Computers, deve essere esteso lo schema di Active Directory Domain Services per Windows Server 2008 R2 (versione dell'oggetto schema = 47). Per altre informazioni, vedere [distribuzione di desktop virtuali personali utilizzando Connessione RemoteApp e Guida dettagliata alla connessione di Desktop](https://go.microsoft.com/fwlink/?LinkId=183552).
+  * Basato su dominio spazi dei nomi DFS in esecuzione in modalità Windows Server 2008, che include il supporto per l'enumerazione basata sull'accesso e una maggiore scalabilità. Spazi dei nomi basati su dominio in modalità Windows Server 2008 richiedono anche la foresta di usare il livello di funzionalità foresta Windows Server 2003. Per altre informazioni, vedere [scegliere un tipo di Namespace](https://go.microsoft.com/fwlink/?LinkId=180400).
+  * Advanced Encryption Standard (AES 128 e AES a 256) supporto per il protocollo Kerberos. Affinché TGT essere eseguiti utilizzando AES, il livello funzionale del dominio deve essere Windows Server 2008 o versione successiva e la password del dominio deve essere modificato. 
+    * Per altre informazioni, vedere [miglioramenti a Kerberos](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
+
+      > [!NOTE]
+      >Errori di autenticazione possono verificarsi in un controller di dominio dopo viene generato il livello funzionale del dominio a Windows Server 2008 o versione successiva se il controller di dominio è già stata replicata la modifica di funzionalità del dominio ma non è stato ancora aggiornato la password krbtgt. In questo caso, riavviare il servizio KDC nel controller di dominio verrà attivano un aggiornamento in memoria della nuova password krbtgt e risolvere gli errori di autenticazione correlate.
+
+  * [Ultimo accesso interattivo](https://go.microsoft.com/fwlink/?LinkId=180387) informazioni vengono visualizzate le informazioni seguenti:
+     * Il numero totale di tentativi di accesso a un server di Windows Server 2008 aggiunto al dominio o una workstation Windows Vista
+     * Il numero totale di tentativi di accesso non riuscito dopo l'accesso a un server Windows Server 2008 o una workstation Windows Vista
+     * L'ora dell'ultimo tentativo di accesso non riuscito a Windows Server 2008 o una workstation Windows Vista
+     * Data e ora dell'ultimo accesso riuscito tentativo a un server Windows Server 2008 o una workstation Windows Vista
+  * I criteri granulari per le password consentono di specificare i criteri di blocco degli account e password per gli utenti e gruppi di sicurezza globali in un dominio. Per altre informazioni, vedere [Guida dettagliata alla configurazione dei criteri di blocco degli Account e Password specifici per le](https://go.microsoft.com/fwlink/?LinkID=91477).
+  * Desktop virtuali personali
+     * Per usare la funzionalità aggiuntiva fornita dalla scheda Desktop virtuale personale nella finestra di dialogo Proprietà Account utente in Active Directory Users and Computers, deve essere esteso lo schema di Active Directory Domain Services per Windows Server 2008 R2 (versione dell'oggetto schema = 47). Per altre informazioni, vedere [distribuzione di desktop virtuali personali utilizzando Connessione RemoteApp e Guida dettagliata alla connessione di Desktop](https://go.microsoft.com/fwlink/?LinkId=183552).
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 

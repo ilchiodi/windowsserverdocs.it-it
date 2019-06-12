@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ffd7131f7f3772ab47b62c9755008fe3b1c4b274
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501611"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Pianificare l'accesso condizionale locale basato su dispositivo
 
@@ -30,7 +30,7 @@ ADFS fornisce il componente locale dei criteri di accesso condizionale in uno sc
 ### <a name="types-of-registered-devices"></a>Tipi di dispositivi registrati  
 Esistono tre tipi di dispositivi registrati, ognuno dei quali sono rappresentati come oggetti dispositivo in Azure AD e può essere usato per l'accesso condizionale con AD FS in locale anche.  
 
-| |Aggiunta di lavoro o dell'istituto di istruzione  |Aggiunta ad Azure AD  |Join Domian Windows 10    
+| |Aggiunta di lavoro o dell'istituto di istruzione  |Aggiunta ad Azure AD  |Windows 10 Domain Join    
 | --- | --- |--- | --- |
 |Descrizione    |  Gli utenti aggiungere il proprio lavoro o dell'istituto di istruzione al dispositivo BYOD in modo interattivo.  **Nota:** Aggiungere l'Account aziendale o dell'istituto di istruzione è la sostituzione di Workplace Join in Windows 8/8.1       | Gli utenti di aggiungere il dispositivo di lavoro di Windows 10 ad Azure AD.|Registrare automaticamente i dispositivi aggiunti a un dominio di Windows 10 con Azure AD.|           
 |Modo in cui gli utenti accedono al dispositivo     |  Nessun account di accesso a Windows come account aziendale o dell'istituto di istruzione.  Account di accesso usando un account Microsoft.       |   Account di accesso di Windows dell'account (aziendale o dell'istituto di istruzione) che la registrazione del dispositivo.      |     Account di accesso tramite account di Active Directory.|      

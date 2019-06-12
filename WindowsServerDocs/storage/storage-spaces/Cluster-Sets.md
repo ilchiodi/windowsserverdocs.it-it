@@ -8,24 +8,24 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Questo articolo viene descritto lo scenario di set di Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 2deeb6968f910e80bacb2354ad2e575060a7797a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 349b69835ae68c626e886cad30f4d5a89d358372
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833952"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719711"
 ---
 # <a name="cluster-sets"></a>Set di cluster
 
-> Si applica a: Build di Windows Server Insider Preview 17650 e versioni successive
+> Si applica a: Windows Server 2019
 
-Set di cluster è la nuova tecnologia di tipo scale-out di cloud in questa versione di anteprima che consentono di aumentare il numero di nodi del cluster in un unico cloud Software definito Data Center (SDDC) per gli ordini di grandezza. Un set di cluster è un raggruppamento a regime di controllo di più cluster di Failover: calcolo, archiviazione convergente o iperconvergente. Cluster imposta tecnologia Abilita fluidità di macchina virtuale tra cluster di membro all'interno di un set di cluster e uno spazio dei nomi archiviazione unificata nel set per il supporto della fluidità di macchina virtuale. 
+Set di cluster è la nuova tecnologia di tipo scale-out cloud nella versione di Windows Server 2019 che aumenta il numero di nodi del cluster in un unico cloud Software definito Data Center (SDDC) di ordini di grandezza. Un set di cluster è un raggruppamento a regime di controllo di più cluster di Failover: calcolo, archiviazione convergente o iperconvergente. Cluster imposta tecnologia Abilita fluidità di macchina virtuale tra cluster di membro all'interno di un set di cluster e uno spazio dei nomi archiviazione unificata nel set per il supporto della fluidità di macchina virtuale.
 
-Anche se si verifica nel mantenimento gestione Cluster di Failover esistenti nei cluster di membro, un'istanza del set di cluster sono inoltre disponibili principali casi d'uso per la gestione del ciclo di vita nell'aggregazione. Questa Guida alla valutazione di Windows Server Preview Scenario fornisce le informazioni necessarie in background insieme alle istruzioni dettagliate per valutare la tecnologia di set di cluster tramite PowerShell. 
+Anche se si verifica nel mantenimento gestione Cluster di Failover esistenti nei cluster di membro, un'istanza del set di cluster sono inoltre disponibili principali casi d'uso per la gestione del ciclo di vita nell'aggregazione. Questa Guida alla valutazione di Windows Server 2019 Scenario fornisce le informazioni necessarie in background insieme alle istruzioni dettagliate per valutare la tecnologia di set di cluster tramite PowerShell.
 
 ## <a name="technology-introduction"></a>Introduzione di tecnologie
 
-Tecnologia di set di cluster è stata sviluppata per soddisfare le richieste dei clienti specifici gestione di Software definito Datacenter (SDDC) cloud su larga scala. Proposta di valore di set di cluster in questa versione di anteprima può essere riepilogato come segue:  
+Tecnologia di set di cluster è stata sviluppata per soddisfare le richieste dei clienti specifici gestione di Software definito Datacenter (SDDC) cloud su larga scala. Proposta di valore di set di cluster può essere riepilogato come indicato di seguito:  
 
 - Aumentare notevolmente la scalabilità cloud SDDC supportata per l'esecuzione di macchine virtuali a disponibilità elevata tramite la combinazione di più cluster più piccoli in un'unica infrastruttura di grandi dimensioni, pur mantenendo il limite di errore software in un singolo cluster
 - Gestire l'intero ciclo di vita del Cluster di Failover tra cui onboarding e la rimozione dei cluster, senza influire sulla disponibilità delle macchine virtuali tenant, tramite agevolmente la migrazione delle macchine virtuali tra questa infrastruttura di grandi dimensioni
@@ -35,7 +35,7 @@ Tecnologia di set di cluster è stata sviluppata per soddisfare le richieste dei
 
 Da una vista di alto livello, si tratta quali cluster sono simili a set.
 
-![Cluster imposta soluzione visualizzazione](media\Cluster-sets-Overview\Cluster-sets-solution-View.png)
+![Cluster imposta soluzione visualizzazione](media/Cluster-sets-Overview/Cluster-sets-solution-View.png)
 
 Di seguito viene fornita un breve riepilogo della ognuno degli elementi nell'immagine precedente:
 
@@ -49,7 +49,7 @@ Un cluster di membro in un set di cluster è in genere un cluster iperconvergent
 
 **Cluster impostato lo spazio dei nomi riferimento SOFS**
 
-Un riferimento di spazio dei nomi di set di cluster (Cluster Set Namespace) SOFS è un File Server di scalabilità orizzontale in cui ogni condivisione SMB sul SOFS Namespace impostare Cluster è una condivisione di riferimento: di tipo 'SimpleReferral' appena introdotta in questa versione di anteprima.  Questo rinvio consente l'accesso alla destinazione di condivisione SMB ospitata nel cluster SOFS membro i client Server Message Block (SMB). Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze.
+Un riferimento di spazio dei nomi di set di cluster (Cluster Set Namespace) SOFS è un File Server di scalabilità orizzontale in cui ogni condivisione SMB sul SOFS Namespace impostare Cluster è una condivisione di riferimento: di tipo 'SimpleReferral' appena introdotta in Windows Server 2019. Questo rinvio consente l'accesso alla destinazione di condivisione SMB ospitata nel cluster SOFS membro i client Server Message Block (SMB). Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze.
 
 **Cluster di imposta il nodo master**
 
@@ -100,7 +100,7 @@ In Windows Server 2019, vi è un nuovo ruolo di server di scalabilità orizzonta
 
 Le considerazioni seguenti si applicano a un ruolo di infrastruttura SOFS:
 
-1.  In un Cluster di Failover possono essere presenti al massimo un solo ruolo del cluster SOFS dell'infrastruttura. Ruolo SOFS infrastruttura viene creato specificando la "**-infrastruttura**" passare parametri per il **Add-ClusterScaleOutFileServerRole** cmdlet.  Ad esempio: 
+1.  In un Cluster di Failover possono essere presenti al massimo un solo ruolo del cluster SOFS dell'infrastruttura. Ruolo SOFS infrastruttura viene creato specificando la " **-infrastruttura**" passare parametri per il **Add-ClusterScaleOutFileServerRole** cmdlet.  Ad esempio:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -112,7 +112,7 @@ Dopo aver creato un set di cluster, lo spazio dei nomi di set di cluster si basa
 
 Al momento un cluster del membro viene aggiunto a un set di cluster, se ne esiste già, l'amministratore specifica il nome di un SOFS infrastruttura in tale cluster. Se il SOFS infrastruttura non esiste, viene creato un nuovo ruolo di infrastruttura SOFS nel nuovo cluster membro da questa operazione. Se esiste già un ruolo SOFS infrastruttura nel cluster di membro, l'operazione di aggiunta in modo implicito viene rinominato con il nome specificato in base alle esigenze. Qualsiasi server SMB singleton esistenti, o i ruoli non - infrastruttura SOFS nel membro del cluster vengono lasciati inutilizzate per il set di cluster. 
 
-In fase di creazione del set di cluster, l'amministratore ha la possibilità di usare un oggetto computer di Active Directory già esistente come radice dello spazio dei nomi nel cluster di gestione. Operazioni di creazione di set di cluster create il ruolo del cluster SOFS infrastruttura nel cluster di gestione o Rinomina il ruolo infrastruttura SOFS esistente semplicemente come descritto in precedenza per i cluster di membro. SOFS infrastruttura nel cluster di gestione viene utilizzato come cluster di set di riferimento dello spazio dei nomi (Cluster Set Namespace) SOFS. Significa semplicemente che ogni condivisione SMB nel cluster di impostare lo spazio dei nomi che SOFS è una condivisione di riferimento, di tipo 'SimpleReferral' - appena introdotta in questa versione di anteprima.  Questo rinvio consente l'accesso ai client SMB per la destinazione di condivisione SMB ospitata nel cluster SOFS membro. Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze
+In fase di creazione del set di cluster, l'amministratore ha la possibilità di usare un oggetto computer di Active Directory già esistente come radice dello spazio dei nomi nel cluster di gestione. Operazioni di creazione di set di cluster create il ruolo del cluster SOFS infrastruttura nel cluster di gestione o Rinomina il ruolo infrastruttura SOFS esistente semplicemente come descritto in precedenza per i cluster di membro. SOFS infrastruttura nel cluster di gestione viene utilizzato come cluster di set di riferimento dello spazio dei nomi (Cluster Set Namespace) SOFS. Significa semplicemente che ogni condivisione SMB nel cluster di impostare lo spazio dei nomi che SOFS è una condivisione di riferimento, di tipo 'SimpleReferral' - appena introdotta in Windows Server 2019.  Questo rinvio consente l'accesso ai client SMB per la destinazione di condivisione SMB ospitata nel cluster SOFS membro. Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze
 
 ## <a name="creating-a-cluster-set"></a>Creazione di un Set di Cluster
 
@@ -120,7 +120,7 @@ In fase di creazione del set di cluster, l'amministratore ha la possibilità di 
 
 Durante la creazione di un cluster di set, è consigliabile si dei prerequisiti seguenti:
 
-1. Configurare un client di gestione che esegue la versione più recente di Windows Server Insider.
+1. Configurare un client di gestione che esegue Windows Server 2019.
 2. Installare gli strumenti di Cluster di Failover sul server di gestione.
 3. Creare i membri del cluster (almeno due cluster con almeno due volumi condivisi del Cluster in ogni cluster)
 4. Creare un cluster di gestione (fisico o guest) che attraversa i cluster di membro.  Questo approccio assicura che i set di Cluster piano di gestione continua a essere disponibile indipendentemente dagli errori di cluster possibili membro.
@@ -258,7 +258,11 @@ In tempo reale la migrazione di una macchina virtuale tra cluster diversi set di
 2. migrazione in tempo reale della macchina virtuale a un nodo membro di un cluster diverso.
 3. aggiungere la macchina virtuale al cluster come un nuovo ruolo di macchina virtuale.
 
-Con i set di Cluster non sono necessari questi passaggi e solo un comando è necessaria.  Ad esempio, desidera spostare una macchina virtuale di Cluster impostato dal CLUSTER1 in NODE2 CL3 su CLUSTER3.  Il singolo comando sarà:
+Con i set di Cluster non sono necessari questi passaggi e solo un comando è necessaria.  In primo luogo, è necessario impostare tutte le reti siano disponibili per la migrazione con il comando:
+
+    Set-VMHost -UseAnyNetworkMigration $true
+
+Ad esempio, desidera spostare una macchina virtuale di Cluster impostato dal CLUSTER1 in NODE2 CL3 su CLUSTER3.  Il singolo comando sarà:
 
         Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
 
@@ -327,7 +331,7 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 **Domanda:** È possibile gestire il Cluster impostato tramite System Center Virtual Machine Manager? <br>
 **Risposta:** System Center Virtual Machine Manager non supporta attualmente i set di Cluster <br><br> **Domanda:** Possono Windows Server 2012 R2 o 2016 cluster coesistere nello stesso set di cluster? <br>
 **Domanda:** È possibile migrare i carichi di lavoro disattivare Windows Server 2012 R2 o 2016 cluster per la disponibilità di tali cluster partecipare allo stesso Set di Cluster? <br>
-**Risposta:** Set di cluster è una nuova tecnologia introdotte in Windows Server Preview build, pertanto, di conseguenza, non esiste nelle versioni precedenti. I cluster basati su sistemi operativi legacy non è possibile aggiungere un set di cluster. Tuttavia, la tecnologia degli aggiornamenti in sequenza del sistema operativo del Cluster deve fornire la funzionalità di migrazione che si sta cercando eseguendo l'aggiornamento di questi cluster a Windows Server 2019.
+**Risposta:** Set di cluster è una nuova tecnologia introdotta in Windows Server 2019, pertanto, di conseguenza, non esiste nelle versioni precedenti. I cluster basati su sistemi operativi legacy non è possibile aggiungere un set di cluster. Tuttavia, la tecnologia degli aggiornamenti in sequenza del sistema operativo del Cluster deve fornire la funzionalità di migrazione che si sta cercando eseguendo l'aggiornamento di questi cluster a Windows Server 2019.
 
 **Domanda:** Possibile set di Cluster consente la scalabilità di archiviazione o di calcolo (da sole)? <br>
 **Risposta:** Sì, aggiungendo semplicemente un spazio di archiviazione diretta o cluster Hyper-V tradizionale. Con i set di cluster, è una semplice modifica del rapporto di calcolo-a-Storage anche in un set di cluster iperconvergente.
@@ -360,7 +364,7 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 **Risposta:** Tutti i cluster di membro devono essere nella stessa foresta Active Directory.
 
 **Domanda:** Il numero di nodi o cluster può essere parte di un singolo cluster impostata? <br>
-**Risposta:** In anteprima, cluster di set di stati testati e supportati al massimo 64 nodi del cluster complessivo. Tuttavia, cluster imposta architettura scale molto ampi e non è un elemento che è hardcoded per un limite. Comunicarlo a Microsoft se scala più ampia è essenziale è e come si prevede di usarlo.
+**Risposta:** In Windows Server 2019, cluster di set di stati testati e supportati al massimo 64 nodi del cluster complessivo. Tuttavia, cluster imposta architettura scale molto ampi e non è un elemento che è hardcoded per un limite. Comunicarlo a Microsoft se scala più ampia è essenziale è e come si prevede di usarlo.
 
 **Domanda:** Tutti i cluster di spazi di archiviazione diretta in un set di cluster costituiranno un unico pool di archiviazione? <br>
 **Risposta:** No. La tecnologia Direct degli spazi di archiviazione funziona comunque all'interno di un singolo cluster e non in cluster di membro in un set di cluster.
@@ -372,4 +376,4 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 **Risposta:** No. Lo spazio dei nomi di set di cluster offre uno spazio dei nomi di sovrapposizione dei riferimenti all'interno di un set di cluster, ovvero a livello concettuale, ad esempio Distributed File System gli spazi dei nomi (DFSN). A differenza DFSN, tutti i metadati di riferimento dello spazio dei nomi di set di cluster è non popolata automaticamente e aggiornate automaticamente in tutti i nodi senza alcun intervento dell'amministratore, pertanto non è quasi alcun overhead di prestazioni nel percorso di accesso di archiviazione. 
 
 **Domanda:** Come è possibile il backup dei metadati di set di cluster? <br>
-**Risposta:** Questo materiale sussidiario è analoga a quella del Cluster di Failover. Il Backup dello stato del sistema verrà backup nonché lo stato del cluster.  Tramite Windows Server Backup, è possibile eseguire ripristini di solo i database cluster del nodo (che non deve essere mai necessario a causa di una serie di funzionalità di riparazione automatica per la logica è disponibile) o eseguire un ripristino autorevole per ripristinare il database intero cluster in tutti i nodi. Nel caso di set di cluster, si consiglia di fare innanzitutto tali un ripristino autorevole nel cluster di membro e quindi il cluster di gestione, se necessario. 
+**Risposta:** Questo materiale sussidiario è analoga a quella del Cluster di Failover. Il Backup dello stato del sistema verrà backup nonché lo stato del cluster.  Tramite Windows Server Backup, è possibile eseguire ripristini di solo i database cluster del nodo (che non deve essere mai necessario a causa di una serie di funzionalità di riparazione automatica per la logica è disponibile) o eseguire un ripristino autorevole per ripristinare il database intero cluster in tutti i nodi. Nel caso di set di cluster, si consiglia di fare innanzitutto tali un ripristino autorevole nel cluster di membro e quindi il cluster di gestione, se necessario.

@@ -8,12 +8,12 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: 5469d663f64fdb453e03863f409b675473d3f6aa
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: f72156b050aa943cfafaf1fa2539911d6d1e089e
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308566"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501476"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Nuove funzionalità di archiviazione in Windows Server
 
@@ -21,7 +21,7 @@ ms.locfileid: "66308566"
 
 In questo argomento illustra le funzionalità nuove e modificate nell'archiviazione in Windows Server 2019, Windows Server 2016 e versioni canale semestrale di Windows Server.
 
-## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1903"></a>Novità nell'archiviazione in Windows Server 2019 e Windows Server, versione 1903
+## <a name="whats-new-in-storage-in-windows-server-version-1903"></a>Novità nell'archiviazione in Windows Server, versione 1903
 
 Questa versione di Windows Server consente di aggiungere le modifiche e le tecnologie seguenti.
 

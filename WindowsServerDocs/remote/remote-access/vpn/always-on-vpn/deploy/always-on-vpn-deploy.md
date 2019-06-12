@@ -9,24 +9,21 @@ ms.localizationpriority: medium
 ms.date: 12/20/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7cb60bdc6d6f3ff074f04827aa95c9e8e8abf35b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 533f0273f6802be209ae5ad79b57f46dd6775149
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859622"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749468"
 ---
 # <a name="always-on-vpn-deployment-for-windows-server-and-windows-10"></a>Distribuzione VPN Always On per Windows Server e Windows 10
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Precedente:** Accesso remoto](../../../Remote-Access.md)<br>
-&#187; [**Next:** Scopri le funzionalità VPN Always On](../../vpn-map-da.md)
+- [**Precedente:** Accesso remoto](../../../Remote-Access.md)<br>
+- [**prossimo:** Scopri le funzionalità VPN Always On](../../vpn-map-da.md)
 
-
-VPN Always On fornisce un'unica soluzione coerente per l'accesso remoto e supporta appartenenti a un dominio, aggiunto non di dominio (gruppo di lavoro) o Active Directory-dispositivi aggiunti ad Azure, anche i dispositivi personali.  Con VPN Always On, il tipo di connessione non deve essere esclusivamente utente o dispositivo, ma può essere una combinazione di entrambi. Ad esempio, è possibile abilitare l'autenticazione del dispositivo per la gestione dei dispositivi remoti e quindi abilitare l'autenticazione utente per la connettività a servizi e siti aziendali interne.
-
-
+VPN Always On fornisce un'unica soluzione coerente per l'accesso remoto e supporta appartenenti a un dominio, aggiunto non di dominio (gruppo di lavoro) o Active Directory-dispositivi aggiunti ad Azure, anche i dispositivi personali. Con VPN Always On, la connessione non deve essere esclusivamente di tipo utente o dispositivo, ma può essere una combinazione di entrambi. È ad esempio possibile abilitare l'autenticazione dei dispositivi per la gestione dei dispositivi remoti e quindi abilitare l'autenticazione utente per la connettività a servizi e siti aziendali interni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,39 +40,32 @@ VPN Always On fornisce un'unica soluzione coerente per l'accesso remoto e suppor
 - Esaminare le guide di progettazione e distribuzione per ognuna delle tecnologie usate. Queste guide consentono di determinare se gli scenari di distribuzione forniscono i servizi e configurazione necessarie per la rete dell'organizzazione. Per altre informazioni, vedere [sempre su VPN Cenni preliminari sulla tecnologia](../always-on-vpn-technology-overview.md).
 - Piattaforma di gestione preferito per distribuire la configurazione VPN Always On in quanto il CSP non è specifico del fornitore.
 
-
 >[!IMPORTANT]
 >Per questa distribuzione, non è un requisito che i server di infrastruttura, ad esempio i computer che eseguono servizi di dominio Active Directory, servizi certificati Active Directory e Server dei criteri di rete, siano in esecuzione Windows Server 2016. È possibile usare le versioni precedenti di Windows Server, ad esempio Windows Server 2012 R2, per il server di infrastruttura e per il server che esegue l'accesso remoto.
 >
->Non tentare di distribuire accesso remoto in una macchina virtuale \(VM\) in Microsoft Azure. Uso di accesso remoto in Microsoft Azure non è supportato, inclusi l'accesso remoto VPN e DirectAccess. Per altre informazioni, vedere [supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>Non tentare di distribuire accesso remoto in una macchina virtuale (VM) in Microsoft Azure. Uso di accesso remoto in Microsoft Azure non è supportato, inclusi l'accesso remoto VPN e DirectAccess. Per altre informazioni, vedere [supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
+## <a name="about-this-deployment"></a>Su questa distribuzione
 
-## <a name="bkmk_about"></a>Su questa distribuzione
-
-Le istruzioni fornite consentono di eseguire la distribuzione di accesso remoto come un singolo tenant VPN RAS Gateway per il punto\-a\-le connessioni VPN, usando uno degli scenari indicati di seguito, per i computer client remoti che eseguono Windows del sito 10. È inoltre possibile trovare istruzioni per la modifica di alcune dell'infrastruttura esistente per la distribuzione. Anche in questa distribuzione, è trovare i collegamenti che consentono di approfondire il processo di connessione VPN, server da configurare, nodo ProfileXML VPNv2 CSP e altre tecnologie per la distribuzione VPN Always On.
+Le istruzioni fornite consentono di eseguire la distribuzione di accesso remoto come un singolo tenant VPN RAS Gateway per le connessioni VPN point-to-site, usando uno degli scenari indicati di seguito, per i computer client remoti che eseguono Windows 10. È inoltre possibile trovare istruzioni per la modifica di alcune dell'infrastruttura esistente per la distribuzione. Anche in questa distribuzione, è trovare i collegamenti che consentono di approfondire il processo di connessione VPN, server da configurare, nodo ProfileXML VPNv2 CSP e altre tecnologie per la distribuzione VPN Always On.
 
 **Scenari di distribuzione VPN Always On:**
 
 1. Distribuire sempre in una VPN solo.
 2. Distribuire VPN Always On con accesso condizionale per la connettività VPN con Azure AD.
 
-
 Per altre informazioni e degli scenari presentati del flusso di lavoro, vedere [distribuire VPN Always On](always-on-vpn-deploy-deployment.md).
 
-
-## <a name="bkmk_not"></a>Che cosa non viene fornita in questa distribuzione
+## <a name="what-isnt-provided-in-this-deployment"></a>Ciò che non è offerto in questa distribuzione
 
 Questa distribuzione non vengono fornite istruzioni per:
 
-- Servizi di dominio Active Directory \(Active Directory Domain Services\).
-- Servizi certificati Active Directory \(Servizi certificati Active Directory\) e un'infrastruttura a chiave pubblica \(PKI\).
-- Dynamic Host Configuration Protocol \(DHCP\). 
+- Active Directory Domain Services (AD DS).
+- Servizi certificati Active Directory (AD CS) e un'infrastruttura a chiave pubblica (PKI).
+- Dynamic Host Configuration Protocol (DHCP).
 - Hardware, ad esempio cavi Ethernet, i firewall, commutatori e hub di rete.
 - Risorse di rete aggiuntive, ad esempio applicazioni e file server, che gli utenti remoti possono accedere tramite una connessione VPN Always On.
 - Connettività Internet o l'accesso condizionale per la connettività Internet usando Azure AD. Per informazioni dettagliate, vedere [accesso condizionale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
-
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -88,6 +78,3 @@ Questa distribuzione non vengono fornite istruzioni per:
 - [Altre informazioni relative alle tecnologie VPN Always On](../always-on-vpn-technology-overview.md)
 
 - [Iniziare a pianificare la distribuzione VPN Always On](always-on-vpn-deploy-deployment.md)
-
-
----

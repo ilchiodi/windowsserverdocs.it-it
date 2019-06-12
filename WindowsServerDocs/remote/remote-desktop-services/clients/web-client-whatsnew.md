@@ -13,19 +13,19 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 5be9b05da1e78cc54e12254f43d0f44f7ff65c5d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976333"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804877"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>Novità per il client di web Desktop remoto?
 
 Viene aggiornato regolarmente le [client web Desktop remoto](remote-desktop-web-client.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
 
-   >[!NOTE]
-    >È stato modificato il sistema di controllo delle versioni per il client web. A partire dalla versione 1.0.18.0, tutte le versioni di rilascio di client web conterrà i numeri (nel formato "W.x.y. z"). I numeri di versione per il client di web Desktop remoto termina sempre con il valore 0 (ad esempio, W.X.Y.0). Ogni versione del client web Windows Desktop virtuale verrà modificato l'ultima cifra finché la prossima versione di client di Desktop remoto web (ad esempio, 1.0.18.1).
+> [!NOTE]
+> È stato modificato il sistema di controllo delle versioni per il client web. A partire dalla versione 1.0.18.0, tutte le versioni di rilascio di client web conterrà i numeri (nel formato "W.x.y. z"). I numeri di versione per il client di web Desktop remoto termina sempre con il valore 0 (ad esempio, W.X.Y.0). Ogni versione del client web Windows Desktop virtuale verrà modificato l'ultima cifra finché la prossima versione di client di Desktop remoto web (ad esempio, 1.0.18.1).
 
 ## <a name="updates-for-version-10180"></a>Aggiornamenti per la versione 1.0.18.0
 *Data di pubblicazione: 5/14/2019*
@@ -38,7 +38,7 @@ Viene aggiornato regolarmente le [client web Desktop remoto](remote-desktop-web-
 - Messaggio di errore aggiornate per gli utenti che tentano di eseguire l'autenticazione con una password scaduta.
 - Feed aggiornato dell'interfaccia utente nella pagina tutte le risorse.
 - Risolti dialoghi sovrapposti che si sono verificati durante la sessione di ristabilire la connessione.
-- Correzione di ridimensionamento sull'icona di risorsa remota nella barra delle applicazioni di risorse. 
+- Correzione di ridimensionamento sull'icona di risorsa remota nella barra delle applicazioni di risorse.
 
 ## <a name="updates-for-version-1011"></a>Aggiornamenti per la versione 1.0.11
 *Data di pubblicazione: 2/22/2019*
@@ -58,7 +58,7 @@ Viene aggiornato regolarmente le [client web Desktop remoto](remote-desktop-web-
 - Bug di accessibilità fisso, consentendo agli utenti con particolari di usare il client web.
 - Migliorati i messaggi di errore visualizzati all'utente per gli errori di feed.
 - Aggiunta Ctrl + Alt + Fine (Windows) e fn + controllo + opzione + tasti di scelta rapida CANC (Mac) per richiamare Ctrl + Alt + Canc nel computer remoto.
-- Dati di telemetria migliorate per gli eventi di arresto anomalo del sistema. 
+- Dati di telemetria migliorate per gli eventi di arresto anomalo del sistema.
 - Migliorate le pipeline di compilazione e gli strumenti di compilazione.
 - Varie correzioni di bug.
 
@@ -86,7 +86,7 @@ Viene aggiornato regolarmente le [client web Desktop remoto](remote-desktop-web-
 
 - Esperienza all'interno del client web di accesso nuove.
 - Non sono più richieste le credenziali quando si avvia una connessione desktop o nell'app (Single sign-on).
-- Spostare il client web a un nuovo URL: **https://server_FQDN/RDWeb/webclient/index.html**
+- Spostare il client web a un nuovo URL: <https://server_FQDN/RDWeb/webclient/index.html>
 - Reindirizzamento aggiunto fuso orario.
 - Varie correzioni di bug.
 

@@ -14,20 +14,20 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ec1b0a17c578f2d8ac55d1704af6b267b6bb8e5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865932"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804954"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Domande frequenti su client di Desktop remoto
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Ora che è stato configurato il client Desktop remoto nel dispositivo (Android, Mac, iOS o Windows), è possibile domande. Di seguito sono fornite le risposte alle domande più frequenti sul client Desktop remoto. 
 
-- [Configurazione di](#Setting-up)
+- [Configurazione di](#setting-up)
 - [Le connessioni, gateway e reti](#connection-gateway-and-networks)
 - [client Web](#web-client)
 - [Audio, monitor e mouse](#monitors-audio-and-mouse)
@@ -81,18 +81,20 @@ Ecco alcune possibili soluzioni a problemi comuni che possono verificarsi quando
 - **Si è verificato un problema con la rete.** Assicurarsi di avere accesso a Internet. 
 - **La porta di Desktop remoto potrebbe essere bloccata da un firewall.** Se si utilizza Windows Firewall, seguire questi passaggi:
 
-   1. Aprire Windows Firewall. 
-   2. Fare clic su **Consenti app o funzionalità attraverso Windows Firewall**. 
-   3. Fare clic su **modificare le impostazioni**. È possibile che venga richiesto per una password di amministratore o di confermare la scelta.
-   4. In **applicazioni e funzionalità consentiti**, selezionare **Desktop remoto**, e quindi toccare o fare clic su **OK**.
+  1. Aprire Windows Firewall. 
+  2. Fare clic su **Consenti app o funzionalità attraverso Windows Firewall**. 
+  3. Fare clic su **modificare le impostazioni**. È possibile che venga richiesto per una password di amministratore o di confermare la scelta.
+  4. In **applicazioni e funzionalità consentiti**, selezionare **Desktop remoto**, e quindi toccare o fare clic su **OK**.
 
-   Se si utilizza un firewall diverso, assicurarsi che la porta per Desktop remoto (in genere la 3389) sia aperta.
+     Se si utilizza un firewall diverso, assicurarsi che la porta per Desktop remoto (in genere la 3389) sia aperta.
 - **Le connessioni remote potrebbero non essere configurate nel computer remoto.** Per risolvere questo problema, scorrere tornando alla [come configuro un PC per Desktop remoto?](#how-do-i-set-up-a-pc-for-remote-desktop) domanda in questo argomento.
 - **Sul computer remoto potrebbe consentire solo PC per la connessione con autenticazione a livello di rete impostato.** 
 - **Sul computer remoto potrebbe essere spento.** Non è possibile connettersi a un computer è spento, nello stato di sospensione o ibernazione, quindi verificare che le impostazioni di sospensione e ibernazione nel computer remoto è impostate su **mai** (modalità di sospensione non è disponibile in tutti i PC.).
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Impossibile trovare o connettersi al computer.
+
 Verificare quanto segue:
+
 - È il PC in e attivi?
 - È stato immesso il nome corretto o l'indirizzo IP?
 
@@ -105,9 +107,11 @@ Verificare quanto segue:
    > Windows XP Home Edition, Windows Media Center Edition, Windows Vista e Windows 7 Home o Starter non sono supportate senza 3 software di terze parti.
 
 ### <a name="why-cant-i-sign-in-to-a-remote-pc"></a>Perché non posso accedere a un computer remoto?
+
 Se è possibile visualizzare la schermata di accesso del PC remoto, ma non è possibile accedere, è possibile che non sono state aggiunte al gruppo utenti Desktop remoto o a qualsiasi gruppo con diritti di amministratore nel computer remoto. Chiedere all'amministratore di sistema per eseguire questa operazione.
 
 ### <a name="which-connection-methods-are-supported-for-company-networks"></a>Sono supportati i metodi di connessione per reti aziendali?
+
 Se si desidera accedere al desktop di office dall'esterno della rete aziendale, la società deve fornire un mezzo di accesso remoto. Il Client desktop remoto supporta attualmente le operazioni seguenti:
 
 - Gateway di Terminal Server o Gateway Desktop remoto
@@ -124,9 +128,11 @@ Controllare gli altri elementi:
 - **VPN è configurato correttamente.** Una configurazione errata del server VPN può essere il motivo le connessioni VPN mai lavorano o ha smesso di funzionare dopo un certo tempo. Assicurarsi che il test con iOS, web browser del dispositivo o un PC o Mac nella stessa rete in questo caso.
 
 ### <a name="how-can-i-test-if-vpn-is-working-properly"></a>Come posso verificare se funziona correttamente VPN?
+
 Verificare che sia abilitata la VPN nel dispositivo. Passare a una pagina Web nella rete interna o utilizzando un servizio web disponibile solo tramite la connessione VPN, è possibile testare la connessione VPN.
 
 ### <a name="how-do-i-configure-l2tp-or-pptp-vpn-connections"></a>Configurazione delle connessioni VPN PPTP o L2TP
+
 Se si utilizza L2TP o PPTP nella VPN, assicurarsi di impostare **Invia tutto il traffico** a **via** nella configurazione VPN.
 
 ## <a name="web-client"></a>client Web

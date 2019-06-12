@@ -7,22 +7,22 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 04/12/2018
+ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2031afada302c0f73621a75f572c8547620db16
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849322"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501663"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
-> Si applica a: Windows Server 2016, Windows Server Insider Preview
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Questo argomento descrive i requisiti hardware minimi per spazi di archiviazione diretta.
 
-Per la produzione, Microsoft consiglia queste [Windows Server Software-Defined](https://microsoft.com/wssd) offre hardware e software dei partner, tra cui strumenti di distribuzione e procedure. Sono progettate, assemblati e convalidare l'architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Altre informazioni, vedi [ https://microsoft.com/wssd ](https://microsoft.com/wssd).
+Per la produzione, Microsoft consiglia di acquisto di una soluzione di hardware e software convalidati dai nostri partner, quali includono procedure e strumenti di distribuzione. Queste soluzioni sono progettate, assemblate e convalidate in base a nostra architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Per le soluzioni Windows Server 2019, visitare il [sito Web di soluzioni di Azure Stack uomo](https://azure.microsoft.com/overview/azure-stack/hci). Per le soluzioni Windows Server 2016, altre informazioni, vedi [Windows Server Software-Defined](https://microsoft.com/wssd).
 
 ![logo dei nostri partner di Windows Server Software Defined](media/hardware-requirements/wssd-partners.png)
 
@@ -79,25 +79,27 @@ Spazi di archiviazione diretta è compatibile con collegamento diretto SATA, SAS
 - sono supportate 512n, 512e e unità native a 4 KB
 - È necessario fornire le unità SSD [protezione contro la perdita dell'alimentazione](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
 - Stesso numero e tipi di unità in ogni server – vedere [unità considerazioni simmetria](drive-symmetry-considerations.md)
+- I dispositivi della cache devono essere 32 GB o superiore
+- Quando si usano dispositivi di memoria persistente come dispositivo di cache, è necessario usare i dispositivi NVMe o unità SSD capacità (è possibile usare HDD)
 - NVMe driver di Microsoft nella casella o NVMe driver aggiornato.
 - Consigliato: Numero di unità di capacità è un multiplo intero del numero di unità di cache
 - Consigliato: Le unità di cache devono avere resistenza scrittura elevata: almeno 3 unità di operazioni di scrittura-al giorno (DWPD) o almeno 4 terabyte scritti (TBW) al giorno: vedere [unità Understanding scrive al giorno (DWPD), terabyte scritto (TBW) e il valore minimo consigliato per l'archiviazione Gli spazi diretti](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 Ecco come le unità possono essere connesse per spazi di archiviazione diretta:
 
-1. Direct-attached unità SATA
-2. Unità NVMe collegato direttamente
-3. Scheda di firma di accesso condiviso bus host (HBA) con unità SAS
-4. Scheda di firma di accesso condiviso bus host (HBA) con unità SATA
-5. **NON È SUPPORTATO:** RAID schede dei controller o SAN (Fibre Channel, iSCSI, FCoE) archiviazione. Bus host (HBA) schede devono implementare una semplice modalità pass-through.
+- Direct-attached unità SATA
+- Unità NVMe collegato direttamente
+- Scheda di firma di accesso condiviso bus host (HBA) con unità SAS
+- Scheda di firma di accesso condiviso bus host (HBA) con unità SATA
+- **NON È SUPPORTATO:** RAID schede dei controller o SAN (Fibre Channel, iSCSI, FCoE) archiviazione. Bus host (HBA) schede devono implementare una semplice modalità pass-through.
 
 ![diagramma dell'unità supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-1.png)
 
 Le unità possono essere interne al server o in un dispositivo esterno che è connesso a un solo server. I servizi SES (SCSI Enclosure) è obbligatorio per l'identificazione e mapping degli slot. Ciascun alloggiamento esterno deve presentare un identificatore univoco (ID univoco).
 
-1. Unità interna al server
-2. Le unità in un dispositivo esterno "JBOD (") connesso a un server
-3. **NON È SUPPORTATO:** Enclosure SAS condivisi connesso a più server o qualsiasi forma di Multipath i/o (MPIO) in cui le unità sono accessibili da più percorsi.
+- Unità interna al server
+- Le unità in un dispositivo esterno "JBOD (") connesso a un server
+- **NON È SUPPORTATO:** Enclosure SAS condivisi connesso a più server o qualsiasi forma di Multipath i/o (MPIO) in cui le unità sono accessibili da più percorsi.
 
 ![diagramma dell'unità supportate interconnessioni](media/hardware-requirements/drive-interconnect-support-2.png)
 
@@ -108,8 +110,10 @@ Le unità possono essere interne al server o in un dispositivo esterno che è co
 
 | Tipi di unità presenti   | Numero minimo necessario |
 |-----------------------|-------------------------|
+| Tutta la memoria persistente (stesso modello) | memoria persistente 4 |
 | Tutte le unità NVMe (stesso modello) | 4 NVMe                  |
 | Tutte le unità SSD (stesso modello)  | 4 SSD                   |
+| Memoria persistente + NVMe o unità SSD | memoria persistente 2 + 4 NVMe o unità SSD |
 | Unità NVMe + SSD            | Due unità NVMe + quattro SSD          |
 | Unità NVMe + HDD            | Due unità NVMe + quattro HDD          |
 | Unità SSD + unità disco rigido             | Due unità SSD + quattro unità HDD           |
@@ -120,5 +124,7 @@ Le unità possono essere interne al server o in un dispositivo esterno che è co
 
 ### <a name="maximum-capacity"></a>Capacità massima
 
-- Consigliato: Capacità massima di archiviazione non elaborato 100 terabyte (TB) per ogni server
-- 1 petabyte (1.000 TB) non elaborati capacità massima del pool di archiviazione
+| Valori massimi                | Windows Server 2019  | Windows Server 2016  |
+| ---                     | ---------            | ---------            |
+| Capacità non elaborata per ogni server | 100 TB               | 100 TB               |
+| Capacità del pool           | 4 PB (4,000 TB)      | 1 PB                 |

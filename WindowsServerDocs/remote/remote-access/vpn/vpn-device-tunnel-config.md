@@ -9,12 +9,12 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 005721873ad3a0df942bc9e23eba13728965ccba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 989216f90e78689b464240cff957bab1d9c1229b
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864552"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749563"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Configurare il tunnel di dispositivo VPN in Windows 10
 
@@ -92,22 +92,23 @@ Seguito è riportato il profileXML VPN di esempio.
 A seconda delle esigenze di ogni scenario di distribuzione specifico, è un'altra funzionalità VPN che può essere configurata con il tunnel della periferica [rilevamento rete attendibile](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection).
 
 ```
- <!-- inside/outside detection --> 
-  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection> 
+ <!-- inside/outside detection -->
+  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 ```
 
 ## <a name="deployment-and-testing"></a>Distribuzione e test
 
-È possibile configurare tunnel di dispositivo utilizzando uno script di Windows PowerShell e tramite la Strumentazione gestione Windows \(WMI\) bridge. Il tunnel del dispositivo VPN Always On deve essere configurato nel contesto del **LOCALSYSTEM** account. A tale scopo, sarà necessario usare [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec), uno delle [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) inclusi nel [Sysinternals](https://docs.microsoft.com/sysinternals/) suite di utilità.
+È possibile configurare tunnel di dispositivo usando uno script di Windows PowerShell e usando il bridge di Strumentazione gestione Windows (WMI). Il tunnel del dispositivo VPN Always On deve essere configurato nel contesto del **LOCALSYSTEM** account. A tale scopo, sarà necessario usare [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec), uno delle [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) inclusi nel [Sysinternals](https://docs.microsoft.com/sysinternals/) suite di utilità.
 
-Per le linee guida su come distribuire una per ogni dispositivo `(.\Device)` e una per ogni utente `(.\User)` del profilo, vedere [Using PowerShell scripting con il Provider di Bridge WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider). 
+Per le linee guida su come distribuire una per ogni dispositivo `(.\Device)` e una per ogni utente `(.\User)` del profilo, vedere [Using PowerShell scripting con il Provider di Bridge WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
 
 Eseguire il comando di Windows PowerShell seguente per verificare di aver correttamente distribuito un profilo di dispositivo:
 
-    `Get-VpnConnection -AllUserConnection`
+  ```powershell
+  Get-VpnConnection -AllUserConnection
+  ```
 
 L'output viene visualizzato un elenco del dispositivo\-wide profili VPN distribuiti nel dispositivo.
-
 
 ### <a name="example-windows-powershell-script"></a>Esempio di Script Windows PowerShell
 
@@ -170,15 +171,15 @@ Di seguito sono risorse aggiuntive per agevolare la distribuzione VPN.
 
 ### <a name="vpn-client-configuration-resources"></a>Risorse di configurazione client VPN
 
-Queste sono le risorse di configurazione del client VPN.
+Di seguito sono le risorse di configurazione del client VPN.
 
 - [Come creare profili VPN in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles)
 - [Configurare sempre i Client Windows 10 su connessioni VPN](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [Opzioni del profilo VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 
-### <a name="remote-access-server-ras-gateway-resources"></a>Server di accesso remoto \(RAS\) risorse del Gateway
+### <a name="remote-access-server-gateway-resources"></a>Risorse Gateway Server di accesso remote
 
-Di seguito sono le risorse Gateway RAS.
+Di seguito sono le risorse Gateway Server di accesso remoto (RAS).
 
 - [Configurare RRAS con un certificato di autenticazione](https://technet.microsoft.com/library/dd458982.aspx)
 - [Risoluzione dei problemi relativi a connessioni VPN IKEv2](https://technet.microsoft.com/library/dd941612.aspx)
@@ -187,4 +188,3 @@ Di seguito sono le risorse Gateway RAS.
 >[!IMPORTANT]
 >Quando si usano dispositivi Tunnel con un gateway RAS di Microsoft, è necessario configurare il server RRAS per supportare l'autenticazione del certificato computer IKEv2, abilitando il **Consenti autenticazione del certificato computer per IKEv2** metodo di autenticazione come descritto [qui](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Dopo aver abilitata questa impostazione, è fortemente consigliabile che il **Set-VpnAuthProtocol** cmdlet di PowerShell, insieme al **RootCertificateNameToAccept** parametro facoltativo, viene utilizzato per garantire che Connessioni IKEv2 RRAS sono consentite solo per i certificati client VPN concatenati a una definite in modo esplicito interne/private autorità di certificazione radice. In alternativa, il **autorità di certificazione radice attendibili** store nel server RRAS deve essere modificati per assicurarsi che non contiene le autorità di certificazione pubblica come illustrato [qui](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/). Metodi simili potrebbe essere necessario anche da considerare per altri gateway VPN.
 
----

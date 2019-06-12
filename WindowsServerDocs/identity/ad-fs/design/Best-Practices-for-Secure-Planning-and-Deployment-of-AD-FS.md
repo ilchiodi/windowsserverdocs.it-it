@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191674"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501584"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Procedure consigliate per la pianificazione e la distribuzione sicure di ADFS
 
@@ -23,7 +23,12 @@ In questo argomento fornisce informazioni sulle procedure consigliate per facili
   
 ## <a name="core-security-best-practices-for-ad-fs"></a>Procedure consigliate per la sicurezza di base per ADFS  
 Le procedure consigliate di base seguenti sono comuni a tutte le installazioni di AD FS in cui si desidera migliorare o estendere la sicurezza della progettazione o della distribuzione:  
-  
+
+-   **Protezione di AD FS come un sistema di "Livello 0"** 
+
+    AD FS è, fondamentalmente, un sistema di autenticazione.  In questo modo, si deve essere considerato un sistema di "Livello 0" come altro sistema di identità nella rete.  [Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) contiene ulteriori informazioni sul modello di livello amministrativo di Active Directory. 
+
+
 -   **Utilizzare la configurazione guidata sicurezza da applicare AD FS specifiche di sicurezza consigliate per i server federativi e computer proxy server federativo**  
   
     La configurazione guidata impostazioni di sicurezza è uno strumento che viene fornito preinstallato in tutti i Windows Server 2008, Windows Server 2008 R2 e i computer Windows Server 2012. È possibile usarla per applicare le procedure consigliate per la sicurezza che contribuiscono a ridurre la superficie di attacco di un server in base ai ruoli del server installati.  

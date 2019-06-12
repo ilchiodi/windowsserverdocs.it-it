@@ -15,25 +15,25 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 14ef17ab403cc4e7c9891f4ede48e41c25e8522d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dc24f0275e8639ffd972ae24550d0ada38eff4f1
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851562"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749635"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Passaggio 7.2. Creare i certificati radice per l'autenticazione VPN di accesso condizionale con Azure AD
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Precedente:** Passaggio 7.1. Configurare EAP-TLS per ignorare il controllo elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)<br>
-&#187; [ **Next:** Passaggio 7.3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
+- [**Precedente:** Passaggio 7.1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)
+- [**prossimo:** Passaggio 7.3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
 
 In questo passaggio si configura i certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD, che crea automaticamente un'app Cloud denominata Server VPN nel tenant. Per configurare l'accesso condizionale per la connettività VPN, è necessario:
 
 1. Creare un certificato VPN nel portale di Azure (è possibile creare più di un certificato).
 2. Scaricare il certificato VPN.
-2. Distribuire il certificato per i server dei criteri di rete e VPN.
+3. Distribuire il certificato per i server dei criteri di rete e VPN.
 
 Quando si tenta una connessione VPN, il client VPN effettua una chiamata nel Web Account Manager Web sul client Windows 10. WAM effettua una chiamata all'app cloud Server VPN. Quando vengono soddisfatte le condizioni e i controlli nei criteri di accesso condizionale, Azure AD rilascia un token sotto forma di un certificato (1 ora) di breve durata per il Web. Il WAM inserisce il certificato nell'archivio certificati dell'utente e passa il controllo al client VPN.  
 
@@ -53,7 +53,7 @@ Nel portale di Azure, è creare due certificati per gestire la transizione quand
 
     ![Selezionare accesso condizionale](../../media/Always-On-Vpn/02.png)
 
-4. Nel **accesso condizionale** nella pagina il **Gestisci** fare clic su **connettività VPN (anteprima)**.
+4. Nel **accesso condizionale** nella pagina il **Gestisci** fare clic su **connettività VPN (anteprima)** .
 
     ![Selezionare connettività VPN](../../media/Always-On-Vpn/03.png)
 
@@ -69,9 +69,8 @@ Nel portale di Azure, è creare due certificati per gestire la transizione quand
 
     b. Per la **primari**, selezionare **Yes**.
 
-    c. Fare clic su **Crea**.
+    c. Selezionare **Create**.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
+
 [Passaggio 7.3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md): In questo passaggio si configura il criterio di accesso condizionale per la connettività VPN. 
-
----

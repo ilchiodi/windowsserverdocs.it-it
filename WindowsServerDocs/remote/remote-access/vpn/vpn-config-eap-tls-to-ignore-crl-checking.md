@@ -15,19 +15,19 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: ac59c554c69a6138a106a648c3fab3ed4fe05b7b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 781239f45b9b260b7d374c2a6972cdb8faad2879
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836422"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749598"
 ---
 # <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>Passaggio 7.1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Precedente:** Passaggio 7. (Facoltativo) Accesso condizionale per la connettività VPN con Azure AD](ad-ca-vpn-connectivity-windows10.md)<br>
-&#187; [ **Next:** Passaggio 7.2. Creare i certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Precedente:** Passaggio 7. (Facoltativo) Accesso condizionale per la connettività VPN con Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [**prossimo:** Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >Se non si implementa questa modifica del Registro di sistema causerà connessioni IKEv2, uso di certificati di cloud con PEAP per avere esito negativo, ma le connessioni IKEv2 usando i certificati di autenticazione Client emessi dall'autorità di certificazione locale continuerà a funzionare.
@@ -47,11 +47,11 @@ Poiché il metodo di autenticazione EAP-TLS, questo valore del Registro di siste
 
 2. Passare a **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
 
-3. Fare clic su **Modifica > New** e selezionare **valore DWORD (32 bit)** e digitare **IgnoreNoRevocationCheck**.
+3. Selezionare **Modifica > New** e selezionare **valore DWORD (32 bit)** e immettere **IgnoreNoRevocationCheck**.
 
 4. Fare doppio clic su **IgnoreNoRevocationCheck** e impostare il valore **1**.
 
-5. Fare clic su **OK** e riavviare il server. Riavviare i servizi RRAS e dei criteri di rete non è sufficiente.
+5. Selezionare **OK** e riavviare il server. Riavviare i servizi RRAS e dei criteri di rete non è sufficiente.
 
 Per altre informazioni, vedere [come abilitare o disabilitare la verifica della revoca dei certificati (CRL) nei client](https://technet.microsoft.com/library/bb680540.aspx).
 
@@ -62,8 +62,6 @@ Per altre informazioni, vedere [come abilitare o disabilitare la verifica della 
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\25     |PEAP         |
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\26     |EAP-MSCHAP v2         |
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 7.2. Creare i certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md): In questo passaggio si configura i certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD, che crea automaticamente un'app cloud di Server VPN nel tenant. 
-
----
+[Passaggio 7.2. Creare i certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md): In questo passaggio si configura i certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD, che crea automaticamente un'app cloud di Server VPN nel tenant.

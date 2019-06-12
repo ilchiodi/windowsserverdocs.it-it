@@ -13,12 +13,12 @@ ms.assetid: f67d195e-36f6-495a-8361-6d5faa889441
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f93d7b28177f96725f2e62c40f9c81cbf186ee6d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50995f0d03b400d6e44d16389afc69e5f25465ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819382"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432976"
 ---
 # <a name="enable-folder-redirection-on-the-windows-server-essentials-destination-server1"></a>Abilitare il reindirizzamento cartelle nel server1 di destinazione Windows Server Essentials
 
@@ -42,14 +42,14 @@ ms.locfileid: "59819382"
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Per eliminare la vecchia impostazione di Criteri di gruppo per il reindirizzamento cartelle  
   
-1.  Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
+1. Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
   
-2.  Nelle **Gestione criteri di gruppo**, espandere **foresta: * * * YourNetworkDomainName*, espandere **domini**, espandere *YourNetworkDomainName* , quindi espandere **oggetti Criteri di gruppo**.  
+2. In **Gestione Criteri di gruppo**espandere **Foresta:** <em>YourNetworkDomainName</em>espandere **Domini**espandere *YourNetworkDomainName*, quindi **Oggetti Criteri di gruppo**.  
   
-3.  Fare clic con il pulsante destro del mouse su **Reindirizzamento cartelle di W7PVP**e quindi scegliere **Elimina**.  
+3. Fare clic con il pulsante destro del mouse su **Reindirizzamento cartelle di W7PVP**e quindi scegliere **Elimina**.  
   
-4.  Leggere l'avviso e quindi fare clic su **Sì**.  
+4. Leggere l'avviso e quindi fare clic su **Sì**.  
   
-5.  Chiudere **Gestione Criteri di gruppo**.  
+5. Chiudere **Gestione Criteri di gruppo**.  
   
- Per applicare la modifica al reindirizzamento cartelle, gli utenti di rete devono disconnettere i computer e quindi riconnettersi. Questo garantisce il trasferimento di tutte le cartelle reindirizzate al server di destinazione.
+   Per applicare la modifica al reindirizzamento cartelle, gli utenti di rete devono disconnettere i computer e quindi riconnettersi. Questo garantisce il trasferimento di tutte le cartelle reindirizzate al server di destinazione.
