@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 91bc02e5edbdfbbbf3ccf600f3536a783e49eb79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4ad58e9b477f61844dedd9f6638efb12f1a96500
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814912"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811571"
 ---
 # <a name="power-and-performance-tuning"></a>Risparmio energia e ottimizzazione delle prestazioni
 
@@ -60,7 +60,7 @@ Per stabilire una linea di base, è necessario misurare l'energia medio obbligat
 
 **PowerCfg.exe** supporta un'opzione della riga di comando che è possibile usare per analizzare l'efficienza energetica di inattività del server. Quando si esegue PowerCfg.exe con il **/energy** opzione, lo strumento esegue un test di 60 secondi per rilevare i problemi di efficienza energetica potenziale. Lo strumento genera un semplice rapporto HTML nella directory corrente.
 
->[!Important]
+> [!Important]
 > Per garantire un'analisi accurata, assicurarsi che tutte le app locali siano chiuse prima di eseguire **PowerCfg.exe**. 
 
 Abbreviati tassi di segni di graduazione del timer, driver di supporto di risparmio energia mancanza e utilizzo eccessivo della CPU sono solo alcuni dei problemi funzionali che vengono rilevati mediante il **powercfg /energy** comando. Questo strumento fornisce un modo semplice per identificare e risolvere i problemi di gestione di alimentazione, causando potenzialmente risparmi significativi sui costi in un Data Center di grandi dimensioni.
@@ -71,10 +71,10 @@ Per altre informazioni sulle PowerCfg.exe, vedi [utilizzo di PowerCfg per valuta
 
 Windows Server 2016 ha tre combinazioni risparmio di energia predefinite progettate per soddisfare diversi set di esigenze aziendali. Questi piani forniscono un modo semplice per personalizzare un server per soddisfare gli obiettivi di alimentazione o prestazioni. Nella tabella seguente descrive i piani, sono elencati gli scenari comuni in cui usare ogni piano e offre alcuni dettagli di implementazione per ogni piano.
 
-| **Piano** | **Descrizione** | **Scenari comuni applicabili** | **Fondamenti dell'implementazione** |
+| **Pianificare** | **Descrizione** | **Scenari comuni applicabili** | **Fondamenti dell'implementazione** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Bilanciamento (scelta consigliata) | Impostazione predefinita. Ha come destinazione l'efficienza energetica buona con impatto minimo sulle prestazioni. | Attività di elaborazione generali | Corrisponde a una capacità a richiesta. Le funzionalità di risparmio energia bilanciare il risparmio energia e le prestazioni. |
-| Prestazioni elevate | Aumenta le prestazioni a discapito di consumo di energia elevata. Risparmio energia e limitazioni termiche, operativo spese e considerazioni sull'affidabilità si applicano. | Le app a bassa latenza e il codice di app che è sensibile alle modifiche delle prestazioni processore | Processori rimangono sempre lo stato delle prestazioni più alto (incluso "turbo? frequenze). Tutti i core sono unparked. Output termico potrebbe essere significativo. |
+| Prestazioni elevate | Aumenta le prestazioni a discapito di consumo di energia elevata. Risparmio energia e limitazioni termiche, operativo spese e considerazioni sull'affidabilità si applicano. | Le app a bassa latenza e il codice di app che è sensibile alle modifiche delle prestazioni processore | Processori rimangono sempre lo stato delle prestazioni più alto (incluse frequenze "turbo"). Tutti i core sono unparked. Output termico potrebbe essere significativo. |
 | Risparmio di energia | Limita le prestazioni per risparmiare energia e ridurre i costi operativi. Non è consigliabile senza eseguire test approfonditi per migliorare le prestazioni che è sufficiente. | Distribuzioni con budget di alimentazione limitate e vincoli termici | Frequenza del processore in percentuale del valore massimo (se supportata) per le coperture e Abilita altre funzionalità di risparmio energia. |
 
 
@@ -82,7 +82,7 @@ Questi piani di risparmio energia in Windows esistono per corrente alternata (CA
 
 Per altre informazioni sul risparmio di energia e le configurazioni di criteri di risparmio energia, vedere [configurazione dei criteri di risparmio energia e la distribuzione in Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx).
 
->[!Note]
+> [!Note]
 > Alcuni produttori di server hanno le proprie opzioni di risparmio energia disponibili tramite le impostazioni del BIOS. Se il sistema operativo non dispone di controllo del risparmio di energia, la modifica di risparmio di energia in Windows non influirà sulle prestazioni e alimentazione del sistema.
 
 ## <a name="tuning-processor-power-management-parameters"></a>Parametri di regolazione processor power management
@@ -97,7 +97,7 @@ Tecnologie Intel Turbo Boost e AMD Turbo CORE sono funzionalità che consentono 
 
 La modalità Turbo è abilitata per i piani di risparmio energia ad alte prestazioni su tutti i processori Intel e AMD ed è disabilitata per i piani di risparmio energia di risparmio di energia. Per i piani di risparmio di energia bilanciata nei sistemi che si basano su gestione frequenza tradizionali basate su P-sullo stato, la modalità Turbo è abilitata per impostazione predefinita solo se la piattaforma supporta il registro EPB.
 
->[!Note]
+> [!Note]
 > Il registratore di cassa EPB è supportata solo in Intel Westmere e processori più avanti.
 
 Per i processori Nehalem Intel e AMD, la modalità Turbo è disabilitata per impostazione predefinita su piattaforme basate su P-state. Tuttavia, se un sistema supporta la collaborazione processore prestazioni controllo (CPPC), che è una nuova modalità alternative di comunicazione delle prestazioni tra il sistema operativo e l'hardware (definito nella versione 5.0 ACPI), la modalità Turbo potrebbe essere attivata se il funzionamento di Windows sistema richiede in modo dinamico l'hardware per offrire i più alti livelli di prestazioni possibili.
@@ -106,7 +106,7 @@ Per abilitare o disabilitare la funzionalità Turbo Boost, il parametro di modal
 
 Per un controllo basato sugli P-stati, le scelte disponibili sono disabilitate, Enabled (la modalità Turbo è disponibile per l'hardware ogni volta che vengano richiesto nominale delle prestazioni), efficiente e (la modalità Turbo è disponibile solo se viene implementato il registro EPB).
 
-Per un controllo basato su CPPC, le scelte disponibili sono disabilitate, attivate efficaci (Windows indica la quantità esatta di Turbo per fornire) e stile di Guida aggressivo (Windows chiede per "ottenere prestazioni ottimali? Per abilitare la modalità Turbo).
+Per un controllo basato su CPPC, le scelte disponibili sono disabilitate, attivate efficaci (Windows indica la quantità esatta di Turbo per fornire) e stile di Guida aggressivo (richiede Windows "numero massimo delle prestazioni" per abilitare la modalità Turbo).
 
 In Windows Server 2016, il valore predefinito per la modalità di aumento di priorità è 3.
 
@@ -118,7 +118,7 @@ In Windows Server 2016, il valore predefinito per la modalità di aumento di pri
 | 3 (efficiente abilitato) | Efficiente | Efficiente abilitata |
 | 4 (efficiente aggressiva) | Efficiente | Aggressiva |
 
- 
+ 
 I comandi seguenti abilitano la modalità di aumento di priorità le prestazioni del processore nel risparmio di energia corrente (specifica il criterio utilizzando un alias GUID):
 
 ``` syntax
@@ -126,9 +126,10 @@ Powercfg -setacvalueindex scheme_current sub_processor PERFBOOSTMODE 1
 Powercfg -setactive scheme_current
 ```
 
->[!Important]  È necessario eseguire la **powercfg - setactive** comando per abilitare le nuove impostazioni. Non necessario il riavvio del server.
+> [!Important]
+> È necessario eseguire la **powercfg - setactive** comando per abilitare le nuove impostazioni. Non necessario il riavvio del server.
 
-Per impostare questo valore per i piani di risparmio energia diverso dal piano selezionato, è possibile usare gli alias, ad esempio lo schema\_MAX (risparmio di energia), uno schema\_MIN (prestazioni elevate) e lo schema\_BILANCIATO (bilanciato) al posto di schema\_Corrente. Sostituire "dello schema corrente? nei comandi - setactive powercfg illustrati in precedenza con l'alias desiderato per abilitare il risparmio di energia.
+Per impostare questo valore per i piani di risparmio energia diverso dal piano selezionato, è possibile usare gli alias, ad esempio lo schema\_MAX (risparmio di energia), uno schema\_MIN (prestazioni elevate) e lo schema\_BILANCIATO (bilanciato) al posto di schema\_Corrente. Sostituire "dello schema corrente" nei comandi - setactive powercfg illustrato in precedenza con l'alias desiderato per abilitare il risparmio di energia.
 
 Ad esempio, per modificare la modalità di aumento di priorità nel piano di risparmio di energia e rendere il risparmio di energia è il piano corrente, eseguire i comandi seguenti:
 
@@ -157,7 +158,7 @@ Powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 75
 Powercfg -setactive scheme_current
 ```
 
->[!Note]
+> [!Note]
 > Limitando le prestazioni del processore in percentuale del valore massimo richiede il supporto del processore. Consultare la documentazione di processore per determinare la presenza di tale supporto o visualizzare il contatore di Performance Monitor **% della frequenza massima** nel **processore** gruppo per vedere se sono stati eventuali limiti di frequenza applicato.
 
 ## <a name="processor-performance-increase-and-decrease-of-thresholds-and-policies"></a>Le prestazioni del processore aumentata o ridotta di soglie e criteri
@@ -168,9 +169,9 @@ La velocità con cui uno stato prestazioni del processore aumenta o diminuisce �
 
 -   **Soglia di riduzione delle prestazioni processore** definisce il valore di utilizzo seguente questo modo verrà ridotto lo stato delle prestazioni del processore. I valori maggiori aumentano la velocità di diminuzione per lo stato delle prestazioni durante i periodi di inattività.
 
--   **Criteri di aumentare le prestazioni del processore e riduzione delle prestazioni processore** criteri determinano quali lo stato delle prestazioni deve essere impostato quando si verifica una modifica. "Singolo? Questo significa che sceglie lo stato successivo. "Rocket? indica lo stato delle prestazioni power massimo o minimo. "Ideale? prova a trovare un equilibrio tra potenza e le prestazioni.
+-   **Criteri di aumentare le prestazioni del processore e riduzione delle prestazioni processore** criteri determinano quali lo stato delle prestazioni deve essere impostato quando si verifica una modifica. Criteri di "Single" significa che sceglie lo stato successivo. "Rocket" significa che lo stato delle prestazioni power massimo o minimo. "Ideale" tenta di trovare un equilibrio tra potenza e le prestazioni.
 
-Ad esempio, se il server richiede una latenza estremamente bassa pur volendo comunque possibile trarre vantaggio dal basso consumo durante i periodi di inattività, si potrebbe quicken l'aumento dello stato delle prestazioni per un aumento del carico e rallentare la diminuzione quando carico si arresta. I comandi seguenti impostano i criteri di aumento per "Rocket? per uno stato più veloce aumentare e diminuire l'impostazione "Single?. Le soglie di aumento e riduzione sono impostate rispettivamente su 10 e 8.
+Ad esempio, se il server richiede una latenza estremamente bassa pur volendo comunque possibile trarre vantaggio dal basso consumo durante i periodi di inattività, si potrebbe quicken l'aumento dello stato delle prestazioni per un aumento del carico e rallentare la diminuzione quando carico si arresta. I comandi seguenti impostare i criteri di aumento per "Rocket" per un aumento di stato più veloce e impostare i criteri di diminuzione per "Single". Le soglie di aumento e riduzione sono impostate rispettivamente su 10 e 8.
 
 ``` syntax
 Powercfg.exe -setacvalueindex scheme_current sub_processor PERFINCPOL 2
@@ -221,6 +222,6 @@ Powercfg -setactive scheme_current
 
 ## <a name="see-also"></a>Vedere anche
 - [Considerazioni sulle prestazioni dell'Hardware di server](../index.md)
-- [Considerazioni relative all'alimentazione Hardware server](../power.md)
-- [Processore Power Management di ottimizzazione](processor-power-management-tuning.md)
-- [Parametri bilanciato piano consigliato](recommended-balanced-plan-parameters.md)
+- [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
+- [Ottimizzazione di Risparmio energia del processore](processor-power-management-tuning.md)
+- [Parametri della combinazione per il risparmio di energia Bilanciato](recommended-balanced-plan-parameters.md)

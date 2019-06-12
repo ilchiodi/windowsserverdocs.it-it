@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7aec08a19759c98150cf7518643f634947c5133d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266711"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805003"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Passaggio 2 pianificare la distribuzione di accesso remoto
 
@@ -56,7 +56,7 @@ Nel pianificare la distribuzione del client sarà necessario prendere tre decisi
   
     -   **Strumenti di verifica della connettività**  
   
-        Viene creato probe Web predefinito che i client usano per convalidare la connettività alla rete interna. Il nome predefinito è https://directaccess-WebProbeHost.<domain_name>. Il nome deve essere registrato manualmente in DNS. È possibile creare altri strumenti di verifica della connettività che usano altri indirizzi web su HTTP oppure PING. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
+        Viene creato probe Web predefinito che i client usano per convalidare la connettività alla rete interna. Il nome predefinito è `https://directaccess-WebProbeHost.<domain_name>`. Il nome deve essere registrato manualmente in DNS. È possibile creare altri strumenti di verifica della connettività che usano altri indirizzi web su HTTP oppure PING. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
   
     -   **Consentire l'indirizzo di posta elettronica di supporto tecnico**  
   

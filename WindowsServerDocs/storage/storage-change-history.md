@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 description: Argomenti nuovi e aggiornati nella documentazione di archiviazione locale per Windows Server per i professionisti IT.
-ms.openlocfilehash: fa3da6e14c36fecfa48c3688a36518babb257920
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192680"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501491"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Cronologia delle modifiche per gli argomenti relativi all'archiviazione in Windows Server
 
@@ -22,13 +22,19 @@ ms.locfileid: "66192680"
 
 Questo argomento vengono elencati argomenti nuovi e aggiornati nel [archiviazione](storage.md) documentazione di Windows Server.
 
-> Se sta cercando cronologia degli aggiornamenti per Windows Server, vedere [Windows 10 e Windows Server 2016 aggiornamento cronologia](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+> Se sta cercando cronologia degli aggiornamenti per Windows Server, vedere [storico aggiornamenti di Windows 10 e Windows Server 2019](https://support.microsoft.com/help/4464619) oppure [cronologia aggiornamenti di Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+
+## <a name="june-2019"></a>Giugno 2019
+
+| Argomento nuovo o modificato                                        | Descrizione|
+| ---                                                         | ---           |
+| [Domande frequenti sul servizio di migrazione di archiviazione](storage-migration-service/faq.md#consolidate-servers) | Aggiunte informazioni sull'ottimizzazione delle prestazioni. |
 
 ## <a name="may-2019"></a>Maggio 2019
 
 |Argomento nuovo o modificato                                        |Descrizione|
 |---                                                         |---           |
-|[Eliminare i volumi](storage-spaces/delete-volumes.md)| Nuova        |
+|[Eliminare volumi](storage-spaces/delete-volumes.md)| Nuova        |
 |[Creare volumi](storage-spaces/create-volumes.md)| Stati aggiunti i passaggi e video per la creazione di un volume in Windows Admin Center.|
 |[Estendere volumi](storage-spaces/resize-volumes.md)| Stati aggiunti i passaggi e video per il ridimensionamento di un volume in Windows Admin Center.|
 
@@ -36,7 +42,7 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [archiviazion
 
 |Argomento nuovo o modificato                                        |Descrizione|
 |---                                                         |---           |
-|[Monitoraggio con monitoraggio di Azure](storage-spaces/configure-azure-monitor.md)| Nuova|
+|[Eseguire il monitoraggio con Monitoraggio di Azure](storage-spaces/configure-azure-monitor.md)| Nuova|
 |[Eseguire l'aggiornamento di un cluster di Spazi di archiviazione diretta a Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Nuova        |
 |[Replica DFS](dfs-replication/dfsr-overview.md)        | Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) libreria|
 
@@ -105,7 +111,7 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [archiviazion
 |[Distribuire spazi di archiviazione in un server autonomo](storage-spaces/deploy-standalone-storage-spaces.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Panoramica di NTFS](file-server/ntfs-overview.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Usare Robocopy per eseguire il preseeding dei file per la replica DFS](dfs-replication/preseed-dfsr-with-robocopy.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
-|[Vssadmin - strumento da riga di comando le versioni precedenti](..\administration\windows-commands\vssadmin.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
+|[Vssadmin - strumento da riga di comando le versioni precedenti](../administration/windows-commands/vssadmin.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Panoramica di gestione risorse file Server](fsrm/fsrm-overview.md)| Aggiunte informazioni su una nuova impostazione del Registro di sistema in Windows Server 2016, versione 1803.|
 |[Replica di archiviazione da server a server](storage-replica/server-to-server-storage-replication.md)|Aggiunte informazioni sull'uso di Windows Admin Center.|
 |[Problemi noti di Replica di archiviazione](storage-replica/storage-replica-known-issues.md)|Aggiunte nuove informazioni.|
@@ -195,13 +201,13 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [archiviazion
 
 ## <a name="may-2017"></a>Maggio 2017
 
-|Argomento nuovo o modificato|Descrizione|
-|---|---|
-|[Panoramica di Deduplicazione dati](data-deduplication/overview.md) e <br>[Installare deduplicazione dati](data-deduplication/install-enable.md)|Aggiornati i requisiti di sistema per includere un aggiornamento software più recente. |
-|[Distribuzione di Cartelle di lavoro](work-folders/deploy-work-folders.md)|Aggiunte informazioni sui passaggi necessari aggiornati e sul supporto del proxy applicazione di Azure AD.|
-|[Distribuzione di spazi di archiviazione diretta](storage-spaces/deploy-storage-spaces-direct.md)|Aggiunta del passaggio 1.3 con le funzionalità necessarie e correzione di un parametro obsoleto in Enable-NetAdapterQos.||[Panoramica di Replica di archiviazione](storage-replica/storage-replica-overview.md) (e altri argomenti relativi alla Replica di archiviazione)|Aggiunto un consiglio per l'uso dell'archiviazione esclusiva e veloce dei log di Replica archiviazione.|
-|[Domande frequenti su Replica archiviazione](storage-replica/storage-replica-frequently-asked-questions.md)|Aggiunta di informazioni su come scegliere tra le diverse topologie di replica.|
-|[Requisiti hardware diretto di spazi di archiviazione](storage-spaces/storage-spaces-direct-hardware-requirements.md)|Modificati i requisiti di resistenza dell'unità per i dispositivi di cache.|
+|                                                           Argomento nuovo o modificato                                                           |                                          Descrizione                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [Panoramica di Deduplicazione dati](data-deduplication/overview.md) e <br>[Installare deduplicazione dati](data-deduplication/install-enable.md) |              Aggiornati i requisiti di sistema per includere un aggiornamento software più recente.               |
+|                                      [Distribuzione di Cartelle di lavoro](work-folders/deploy-work-folders.md)                                       |         Aggiunte informazioni sui passaggi necessari aggiornati e sul supporto del proxy applicazione di Azure AD.          |
+|                            [Distribuzione di spazi di archiviazione diretta](storage-spaces/deploy-storage-spaces-direct.md)                             | Aggiunta del passaggio 1.3 con le funzionalità necessarie e correzione di un parametro obsoleto in Enable-NetAdapterQos. |
+|               [Domande frequenti su Replica archiviazione](storage-replica/storage-replica-frequently-asked-questions.md)                |             Aggiunta di informazioni su come scegliere tra le diverse topologie di replica.              |
+|               [Requisiti hardware diretto di spazi di archiviazione](storage-spaces/storage-spaces-direct-hardware-requirements.md)               |                    Modificati i requisiti di resistenza dell'unità per i dispositivi di cache.                     |
 
 ## <a name="april-2017"></a>Aprile 2017
 

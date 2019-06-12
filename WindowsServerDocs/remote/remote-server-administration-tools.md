@@ -12,12 +12,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 748010e80cf2b54926ca226a7af8c49f1aa16800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 30ca0a1e8a2f17f54a8f05d7270bf9512be7a8dc
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192639"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805181"
 ---
 # <a name="remote-server-administration-tools"></a>Strumenti di amministrazione server remoto
 
@@ -97,30 +97,30 @@ Se si dispone di una versione di Windows 10 prima di ottobre 2018 aggiornamento 
 
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>Per disinstallare gli strumenti di amministrazione remota del Server per Windows 10 (dopo l'installazione del pacchetto RSAT)
 
-1.  Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows** e infine su **Pannello di controllo**.
+1. Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows** e infine su **Pannello di controllo**.
 
-2.  In **Programmi** fai clic su **Disinstalla un programma**.
+2. In **Programmi** fai clic su **Disinstalla un programma**.
 
-3.  Fare clic su **Visualizza aggiornamenti installati**.
+3. Fare clic su **Visualizza aggiornamenti installati**.
 
-4.  Fare clic con il pulsante destro del mouse su **Aggiornamento per Microsoft Windows (KB2693643)** e scegliere **Disinstalla**.
+4. Fare clic con il pulsante destro del mouse su **Aggiornamento per Microsoft Windows (KB2693643)** e scegliere **Disinstalla**.
 
-5.  Quando viene richiesto di confermare la disinstallazione dell'aggiornamento, fare clic su **Sì**.
-S
-##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Per disattivare strumenti specifici (dopo aver installato il pacchetto RSAT)
+5. Quando viene richiesto di confermare la disinstallazione dell'aggiornamento, fare clic su **Sì**.
+   S
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Per disattivare strumenti specifici (dopo aver installato il pacchetto RSAT)
 
-1.  Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows** e infine su **Pannello di controllo**.
+6. Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows** e infine su **Pannello di controllo**.
 
-2.  Fare clic su **Programmi**e quindi, in **Programmi e funzionalità** , fare clic su **Attivazione o disattivazione delle funzionalità Windows**.
+7. Fare clic su **Programmi**e quindi, in **Programmi e funzionalità** , fare clic su **Attivazione o disattivazione delle funzionalità Windows**.
 
-3.  Nella finestra di dialogo **Funzionalità Windows** espandere **Strumenti di amministrazione remota del server**, quindi espandere **Strumenti di amministrazione ruoli** o **Strumenti di amministrazione funzionalità**.
+8. Nella finestra di dialogo **Funzionalità Windows** espandere **Strumenti di amministrazione remota del server**, quindi espandere **Strumenti di amministrazione ruoli** o **Strumenti di amministrazione funzionalità**.
 
-4.  Deselezionare le caselle di controllo per tutti gli strumenti che si desidera disattivare.
+9. Deselezionare le caselle di controllo per tutti gli strumenti che si desidera disattivare.
 
-    > [!NOTE]
-    > Se disattivare Gestione Server, è necessario riavviare il computer e gli strumenti che fosse accessibile dal **strumenti** dal menu di Server Manager deve essere aperto dal **Strumenti di amministrazione** cartella.
+   > [!NOTE]
+   > Se disattivare Gestione Server, è necessario riavviare il computer e gli strumenti che fosse accessibile dal **strumenti** dal menu di Server Manager deve essere aperto dal **Strumenti di amministrazione** cartella.
 
-5.  Terminata la disattivazione degli strumenti che non si desidera utilizzare, fare clic su **OK**.
+10. Terminata la disattivazione degli strumenti che non si desidera utilizzare, fare clic su **OK**.
 
 ### <a name="run-remote-server-administration-tools"></a>Eseguire Strumenti di amministrazione remota del server
 
@@ -158,7 +158,7 @@ Anche se non sono elencati nella console di Server Manager **strumenti** menu, i
 ### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problema**: Installazione RSAT FOD ha esito negativo con codice di errore 0x800f0954
 
 > **Impatto**: FODs di amministrazione remota del server in Windows 10 1809 (aggiornamento di ottobre 2018) negli ambienti di WSUS/SCCM
-
+> 
 > **Risoluzione**: Per installare FODs in un PC aggiunti a un dominio che riceve gli aggiornamenti tramite WSUS o SCCM, è necessario modificare un'impostazione di criteri di gruppo per abilitare il download FODs direttamente da Windows Update o una condivisione locale. Per altre informazioni e istruzioni su come modificare tale impostazione, vedere [come rendere le funzionalità su richiesta e language pack disponibili quando si usa WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
 
 ---
@@ -166,7 +166,7 @@ Anche se non sono elencati nella console di Server Manager **strumenti** menu, i
 ### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problema**: Installazione RSAT FOD tramite app per le impostazioni non viene visualizzato lo stato/stato di avanzamento
 
 > **Impatto**: FODs di amministrazione remota del server in Windows 10 1809 (aggiornamento di ottobre 2018)
-
+> 
 > **Risoluzione**: Per visualizzare lo stato dell'installazione, fare clic il **nuovamente** pulsante per visualizzare lo stato sulle **Gestisci funzionalità facoltative** pagina.
 
 ---
@@ -174,7 +174,7 @@ Anche se non sono elencati nella console di Server Manager **strumenti** menu, i
 ### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problema**: La disinstallazione RSAT FOD tramite app per le impostazioni potrebbe non riuscire
 
 > **Impatto**: FODs di amministrazione remota del server in Windows 10 1809 (aggiornamento di ottobre 2018)
-
+> 
 > **Risoluzione**: In alcuni casi, gli errori di disinstallazione sono a causa della necessità di disinstallare manualmente le dipendenze. In particolare, se lo strumento di amministrazione remota del server A è necessario dallo strumento di amministrazione remota del server B, scegliendo la disinstallazione di un strumento di amministrazione remota del server avrà esito negativo se lo strumento di amministrazione remota del server B è ancora installato. In questo caso, disinstallare prima lo strumento di amministrazione remota del server B e quindi disinstallare r. lo strumento di amministrazione remota del server Visualizzare l'elenco di FODs amministrazione remota del server, incluse le dipendenze.
 
 ---
@@ -182,7 +182,7 @@ Anche se non sono elencati nella console di Server Manager **strumenti** menu, i
 ### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problema**: La disinstallazione RSAT FOD sembra avere esito positivo, ma è ancora installato lo strumento
 
 > **Impatto**: FODs di amministrazione remota del server in Windows 10 1809 (aggiornamento di ottobre 2018)
-
+> 
 > **Risoluzione**: Riavviare il PC verrà completata la rimozione dello strumento.
 
 ---
@@ -190,7 +190,7 @@ Anche se non sono elencati nella console di Server Manager **strumenti** menu, i
 ### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problema**: Amministrazione remota del server mancante dopo l'aggiornamento a Windows 10
 
 > **Impatto**: Qualsiasi amministrazione remota del server. Installazione di (precedente a FODs RSAT) MSU pacchetto reinstallati automaticamente
-
+> 
 > **Risoluzione**: Un'installazione di amministrazione remota del server non può essere persistente tra gli aggiornamenti del sistema operativo a causa di amministrazione remota del server. MSU vengono recapitati come pacchetto di Windows Update. Installare amministrazione remota del server dopo l'aggiornamento di Windows 10. Si noti che questa limitazione è uno dei motivi per cui siamo passati alla FODs a partire da Windows 10 1809. FODs di amministrazione remota del server che vengono installati verranno mantenuti nei futuri aggiornamenti di versione di Windows 10.
 
 ## <a name="see-also"></a>Vedere anche

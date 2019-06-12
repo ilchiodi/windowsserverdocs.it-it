@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 648b179f5b2feb8a7585c815aee47804e3bf1532
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e35d3a3e85ed046fb658bbf5a97ab5fc5eec6d3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882272"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442015"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -36,6 +36,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
 ## <a name="parameters"></a>Parametri
+
 |Parametro|Descrizione|
 |-------|--------|
 |/sha1 \<hash>|Specifica l'identificazione personale, ovvero l'hash di Secure Hash Algorithm 1 (SHA1) del certificato di firma che è incluso nell'archivio certificati.|
@@ -55,20 +56,20 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 -   Se qualsiasi file con estensione rdp non possono essere letti o scritto, lo strumento continuerà al file successivo se sono stati specificati più file.
 
 ## <a name="BKMK_examples"></a>Esempi
--   Per firmare un file con estensione rdp è denominato File1.rdp, passare alla cartella in cui è stato salvato il file con estensione rdp e quindi digitare il comando seguente:
-    ```
-    rdpsign /sha1 hash file1.rdp
-    ```
-    > [!NOTE]
-    > Il *hash* valore rappresenta l'identificazione personale certificato SHA1, senza spazi.
--   Per verificare se la firma digitale avrà esito positivo per un file con estensione rdp senza effettivamente la firma del file, digitare quanto segue:
-    ```
-    rdpsign /sha1 hash /l file1.rdp
-    ```
--   Per accedere più file con estensione rdp, separare i nomi dei file da spazi. Ad esempio, per accedere più file con estensione rdp che sono denominati File1.rdp File2.rdp e File3.rdp, digitare quanto segue:
-    ```
-    rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
-    ```
-## <a name="see-also"></a>Vedere anche
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)
+- Per firmare un file con estensione rdp è denominato File1.rdp, passare alla cartella in cui è stato salvato il file con estensione rdp e quindi digitare il comando seguente:
+  ```
+  rdpsign /sha1 hash file1.rdp
+  ```
+  > [!NOTE]
+  > Il *hash* valore rappresenta l'identificazione personale certificato SHA1, senza spazi.
+- Per verificare se la firma digitale avrà esito positivo per un file con estensione rdp senza effettivamente la firma del file, digitare quanto segue:
+  ```
+  rdpsign /sha1 hash /l file1.rdp
+  ```
+- Per accedere più file con estensione rdp, separare i nomi dei file da spazi. Ad esempio, per accedere più file con estensione rdp che sono denominati File1.rdp File2.rdp e File3.rdp, digitare quanto segue:
+  ```
+  rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
+  ```
+  ## <a name="see-also"></a>Vedere anche
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)

@@ -12,12 +12,12 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 293b392203269a65efffcefb3744bedc659f71c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432418"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Risolvere i problemi relativi all'installazione di Windows Server Essentials
 
@@ -79,26 +79,26 @@ In questo argomento contiene informazioni sulla risoluzione di problemi che si v
   
 ##### <a name="to-manually-install-a-storage-controller-driver"></a>Per installare manualmente un driver del controller di archiviazione  
   
-1.  Trovare i driver per il controller di archiviazione. Questi vengono forniti dal produttore dell'hardware e potrebbero essere disponibili sul sito Web del produttore.  
+1. Trovare i driver per il controller di archiviazione. Questi vengono forniti dal produttore dell'hardware e potrebbero essere disponibili sul sito Web del produttore.  
   
-2.  Creare una cartella denominata DRIVERS su un disco floppy o un'unità flash USB e quindi copiare i driver nella cartella.  
+2. Creare una cartella denominata DRIVERS su un disco floppy o un'unità flash USB e quindi copiare i driver nella cartella.  
   
-3.  Collegare al computer l'unità floppy o l'unità flash USB con i driver  
+3. Collegare al computer l'unità floppy o l'unità flash USB con i driver  
   
-4.  Avviare il computer dal DVD di Windows Server Essentials.  
+4. Avviare il computer dal DVD di Windows Server Essentials.  
   
-     Se mancano alcuni driver di controller di archiviazione, viene visualizzata la finestra di dialogo di errore di installazione di Windows Server Essentials.  
+    Se mancano alcuni driver di controller di archiviazione, viene visualizzata la finestra di dialogo di errore di installazione di Windows Server Essentials.  
   
-5.  Nella finestra di dialogo Errore di installazione di Windows Server Essentials, fare clic su **Sì** per caricare i driver di archiviazione aggiuntivo.  
+5. Nella finestra di dialogo Errore di installazione di Windows Server Essentials, fare clic su **Sì** per caricare i driver di archiviazione aggiuntivo.  
   
-6.  Alla richiesta di **selezionare il file inf del driver** , passare al file INF nella cartella DRIVERS sul disco floppy o sull'unità flash USB, selezionare il file, fare clic con il pulsante destro del mouse sul nome del file e quindi scegliere **Apri**. Il driver viene caricato.  
+6. Alla richiesta di **selezionare il file inf del driver** , passare al file INF nella cartella DRIVERS sul disco floppy o sull'unità flash USB, selezionare il file, fare clic con il pulsante destro del mouse sul nome del file e quindi scegliere **Apri**. Il driver viene caricato.  
   
-    > [!NOTE]
-    >  Prima di provare a caricare il file, verificare che l'estensione di file sia in lettere minuscole (.inf). Questa operazione fa distinzione tra maiuscole e minuscole e il file di driver non verrà caricato se l'estensione è in lettere maiuscole.  
+   > [!NOTE]
+   >  Prima di provare a caricare il file, verificare che l'estensione di file sia in lettere minuscole (.inf). Questa operazione fa distinzione tra maiuscole e minuscole e il file di driver non verrà caricato se l'estensione è in lettere maiuscole.  
   
-7.  Quando chiesto fare clic su **Sì** per rendere disponibile il driver di archiviazione durante la fase di installazione in modalità testo.  
+7. Quando chiesto fare clic su **Sì** per rendere disponibile il driver di archiviazione durante la fase di installazione in modalità testo.  
   
- Il programma di installazione dovrebbe continuare normalmente.  
+   Il programma di installazione dovrebbe continuare normalmente.  
   
 ###  <a name="BKMK_AddingNICdrivers"></a> Aggiunta di driver per schede di rete  
  Se una scheda di rete nel computer non è supportata da Windows Server Essentials, il server non disporranno della connettività di rete dopo l'installazione viene completata e non sarà in grado di connettere i computer al server.  

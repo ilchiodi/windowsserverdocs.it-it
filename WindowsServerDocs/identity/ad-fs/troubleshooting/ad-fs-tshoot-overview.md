@@ -8,12 +8,12 @@ ms.date: 01/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 60ecf94b72e58aed4d3718b19f6007cdad1c9578
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6410d510085d1772ca6d8ced47226e00239a1a02
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840952"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443905"
 ---
 # <a name="troubleshooting-ad-fs"></a>Risoluzione dei problemi relativi ad ADFS
 ADFS dispone di molte parti in movimento, interessa molti aspetti diversi e presenta numerose dipendenze diversi.  Naturalmente, ciò può dar luogo a diversi problemi.  Questo documento è progettato per iniziare a usare sulla risoluzione di questi problemi.  Questo documento verrà presentate le aree tipiche che è necessario concentrarsi, come abilitare le funzionalità per altre informazioni e vari strumenti che possono essere utilizzati per tenere traccia dei problemi.  
@@ -27,7 +27,7 @@ Prima di approfondire la risoluzione dei problemi approfondita, esistono alcuni 
 - **Configurazione DNS** -è possibile risolvere il nome del servizio federativo?  Questo dovrebbe risolvere indirizzo IP di uno di load balancer o l'indirizzo IP di uno dei server AD FS nella farm.  Per altre informazioni, vedere [AD FS risoluzione dei problemi - DNS](ad-fs-tshoot-dns.md).
 - **Gli endpoint di AD FS** -è possibile accedere agli endpoint di AD FS?  Passando a ciò è possibile determinare se il server web AD FS risponda alle richieste.  Se è possibile ottenere questo file, si saprà che AD FS è soddisfare le richieste tramite la porta 443 correttamente.  Per altre informazioni, vedere [AD FS risoluzione dei problemi - endpoint](ad-fs-tshoot-endpoints.md).
 - **Sign On avviato dal provider di identità** -possibile accedere e autenticarsi tramite la pagina Idp-Initiated Sign On?  È necessario assicurarsi che questa pagina è stata abilitata perché è disabilitato per impostazione predefinita.  Usare `Set-AdfsProperties -EnableIdPInitiatedSignOn $true` per abilitare la pagina.  Se è possibile accedere e autenticarsi si sa che AD FS funziona in quest'area.  Per altre informazioni, vedere [AD FS risoluzione dei problemi - SignOn](ad-fs-tshoot-initiatedsignon.md).
-##  <a name="common-troubleshooting-areas"></a>Aree di risoluzione dei problemi comuni
+  ##  <a name="common-troubleshooting-areas"></a>Aree di risoluzione dei problemi comuni
 
 |Nome|Descrizione|
 |-----|-----|

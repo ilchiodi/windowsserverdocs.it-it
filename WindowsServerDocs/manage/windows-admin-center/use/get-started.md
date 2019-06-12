@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: bd35e439ee3c76af1306bbbd712d754dd79f555f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222725"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446096"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Introduzione a Windows Admin Center
 
@@ -52,17 +52,17 @@ Dopo aver completato l'installazione di Windows Admin Center, è possibile aggiu
 
  **Aggiungere un singolo server o un cluster come un nodo gestito**
 
- 1. Fare clic su **+ Aggiungi** sotto **tutte le connessioni**.
+1. Fare clic su **+ Aggiungi** sotto **tutte le connessioni**.
 
-    ![](../media/launch/addserver0.png)
+   ![](../media/launch/addserver0.png)
 
- 2. Scegliere di aggiungere una connessione Server, Cluster di Failover o Hyper-Converged Cluster:
+2. Scegliere di aggiungere una connessione Server, Cluster di Failover o Hyper-Converged Cluster:
     
-    ![](../media/launch/addserver1.png)
+   ![](../media/launch/addserver1.png)
 
- 3. Digitare il nome del server o del cluster per gestire e fare clic su **Submit**. Server o del cluster verrà aggiunto all'elenco di connessione nella pagina di panoramica.
+3. Digitare il nome del server o del cluster per gestire e fare clic su **Submit**. Server o del cluster verrà aggiunto all'elenco di connessione nella pagina di panoramica.
 
-    ![](../media/launch/addserver2.png)
+   ![](../media/launch/addserver2.png)
 
    **-OPPURE-**
 
@@ -96,7 +96,7 @@ Windows Admin Center supporta diversi meccanismi per l'autenticazione con un nod
 
 **Accesso Single sign-on quando viene distribuita come servizio in Windows Server**
 
-Se è stato installato Windows Admin Center su Windows Server, è necessaria per il single sign-on configurazione aggiuntiva.  [Configurare l'ambiente per la delega](..\configure\user-access-control.md)
+Se è stato installato Windows Admin Center su Windows Server, è necessaria per il single sign-on configurazione aggiuntiva.  [Configurare l'ambiente per la delega](../configure/user-access-control.md)
 
 **-OPPURE-**
 

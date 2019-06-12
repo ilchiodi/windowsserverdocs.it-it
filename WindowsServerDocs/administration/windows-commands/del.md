@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1c2756e53d9f047160ddd037b3868e47d6e3181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433894"
 ---
 # <a name="del"></a>del
 
@@ -51,29 +51,29 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!CAUTION]
 > Se si utilizza **CANC** per eliminare un file dal disco, non è possibile recuperarlo.
--   Se si usa **/p**, **CANC** Visualizza il nome di un file e invia il messaggio seguente:
+> -   Se si usa **/p**, **CANC** Visualizza il nome di un file e invia il messaggio seguente:
 
     `FileName, Delete (Y/N)?`
 
-    Per confermare l'eliminazione, premere Y. Per annullare l'eliminazione e visualizza il successivo nome del file (ovvero, se è stato specificato un gruppo di file), premere N. Per arrestare il **CANC** comando, premere CTRL + C.
--   Se si disabilita le estensioni dei comandi, **/s** vengono visualizzati i nomi di tutti i file che non sono stati trovati anziché visualizzare i nomi dei file da eliminare (ovvero, il comportamento viene invertito).
--   Se si specifica una cartella in *nomi*, vengono eliminati tutti i file nella cartella. Ad esempio, il seguente comando Elimina tutti i file nella cartella \Work:  
-    ```
-    del \work
-    ```  
--   È possibile usare caratteri jolly (**&#42;** e **?**) per eliminare più file contemporaneamente. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
-    ```
-    del *.*
-    ```  
-    Il **CANC** verrà visualizzato il messaggio seguente:
+    To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
+- Se si disabilita le estensioni dei comandi, **/s** vengono visualizzati i nomi di tutti i file che non sono stati trovati anziché visualizzare i nomi dei file da eliminare (ovvero, il comportamento viene invertito).
+- Se si specifica una cartella in *nomi*, vengono eliminati tutti i file nella cartella. Ad esempio, il seguente comando Elimina tutti i file nella cartella \Work:  
+  ```
+  del \work
+  ```  
+- È possibile usare caratteri jolly ( **&#42;** e **?** ) per eliminare più file contemporaneamente. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
+  ```
+  del *.*
+  ```  
+  Il **CANC** verrà visualizzato il messaggio seguente:
 
-    `Are you sure (Y/N)?`
+  `Are you sure (Y/N)?`
 
-    Per eliminare tutti i file nella directory corrente, premere Y e quindi premere INVIO. Per annullare l'eliminazione, premere N, quindi premere INVIO.
+  Per eliminare tutti i file nella directory corrente, premere Y e quindi premere INVIO. Per annullare l'eliminazione, premere N, quindi premere INVIO.
 
 > [!NOTE]
 > Prima di utilizzare caratteri jolly con il **CANC** comando, utilizzare gli stessi caratteri jolly con il **dir** comando per elencare tutti i file che verranno eliminati.
--   Il **CANC** comando con parametri diversi, è disponibile dalla Console di ripristino.
+> -   Il **CANC** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -84,7 +84,7 @@ del c:\test\*.*
 ```
 Per eliminare tutti i file con estensione. bat dalla directory corrente, digitare:
 ```
-del *.bak
+del *.bat
 ```
 Per eliminare tutti i file di sola lettura nella directory corrente, digitare:
 ```
@@ -93,4 +93,4 @@ del /a:r *.*
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

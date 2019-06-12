@@ -12,12 +12,12 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884622"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433638"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automazione dell’installazione di componenti aggiuntivi durante l’installazione
 
@@ -69,13 +69,13 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  È possibile utilizzare l'operazione di disinstallazione personalizzata per:  
   
--   Sostituire la finestra di dialogo di conferma predefinita.  
+- Sostituire la finestra di dialogo di conferma predefinita.  
   
--   Inserire i dati nelle finestre di dialogo personalizzare prima della disinstallazione.  
+- Inserire i dati nelle finestre di dialogo personalizzare prima della disinstallazione.  
   
--   Eseguire alcune attività prima della disinstallazione.  
+- Eseguire alcune attività prima della disinstallazione.  
   
- Per implementare l'operazione di disinstallazione, aggiungere il seguente contenuto nel file addin.xml (direttamente in Package):  
+  Per implementare l'operazione di disinstallazione, aggiungere il seguente contenuto nel file addin.xml (direttamente in Package):  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -103,22 +103,22 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  In questa fase, l'exefile può fare quanto segue:  
   
--   Visualizzare alcune finestre di dialogo per consentire l'interazione utente.  
+- Visualizzare alcune finestre di dialogo per consentire l'interazione utente.  
   
--   Eseguire alcune attività in background.  
+- Eseguire alcune attività in background.  
   
- Dal codice di uscita del file exe dipende l'andamento del processo di disinstallazione:  
+  Dal codice di uscita del file exe dipende l'andamento del processo di disinstallazione:  
   
--   0: il processo di disinstallazione prosegue senza inserire i dati nella finestra di conferma predefinita, come già confermato dall'utente. Questo approccio può essere utilizzato per ignorare la finestra di conferma predefinita;  
+- 0: il processo di disinstallazione prosegue senza inserire i dati nella finestra di conferma predefinita, come già confermato dall'utente. Questo approccio può essere utilizzato per ignorare la finestra di conferma predefinita;  
   
--   1: il processo di disinstallazione viene annullato e visualizza un messaggio per informare l'utente. Nulla cambia;  
+- 1: il processo di disinstallazione viene annullato e visualizza un messaggio per informare l'utente. Nulla cambia;  
   
--   Altro: il processo di disinstallazione prosegue con la finestra di conferma predefinita, come se l'operazione di disinstallazione personalizzata non fosse presente.  
+- Altro: il processo di disinstallazione prosegue con la finestra di conferma predefinita, come se l'operazione di disinstallazione personalizzata non fosse presente.  
   
- Qualsiasi errore che si verifica mentre viene richiamato exefile provoca lo stesso risultato che si ottiene quando exefile restituisce un codice diverso da 0 o 1.  
+  Qualsiasi errore che si verifica mentre viene richiamato exefile provoca lo stesso risultato che si ottiene quando exefile restituisce un codice diverso da 0 o 1.  
   
 ## <a name="see-also"></a>Vedere anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

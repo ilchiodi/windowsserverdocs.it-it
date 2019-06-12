@@ -12,12 +12,12 @@ ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2b0cd926b15d65e5cd4c784681c40df29b18a48f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433209"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Gestire il backup dei server in Windows Server Essentials
 
@@ -48,7 +48,7 @@ ms.locfileid: "59890142"
   
 1.  Contattare il proprietario dei file o delle cartelle e annotare la data e l'ora in cui i file o le cartelle sono stati aggiunti o modificati. Utilizzare queste date e ore come punto di partenza.  
   
-2.  Nella pagina **Scegliere un'opzione di ripristino** nella procedura guidata Ripristino file o cartelle fare clic su **Ripristina da un backup selezionato (utenti esperti)**.  
+2.  Nella pagina **Scegliere un'opzione di ripristino** nella procedura guidata Ripristino file o cartelle fare clic su **Ripristina da un backup selezionato (utenti esperti)** .  
   
 3.  A seconda che si voglia ripristinare una versione meno recente o più recente dei file o delle cartelle, selezionare il backup più adatto alle date e alle ore annotate nel passaggio 1.  
   
@@ -75,17 +75,17 @@ ms.locfileid: "59890142"
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>Per usare Accesso Web remoto per gestire il server  
   
-1.  Aprire un Web browser.  
+1. Aprire un Web browser.  
   
-2.  Nella casella degli indirizzi digitare il nome del dominio di Windows Server Essentials.  
+2. Nella casella degli indirizzi digitare il nome del dominio di Windows Server Essentials.  
   
-3.  Quando richiesto, immettere nome utente e password.  
+3. Quando richiesto, immettere nome utente e password.  
   
-4.  Quando si fa clic sul nome del server in accesso Web remoto, verrà visualizzata la pagina di accesso per il Dashboard.  
+4. Quando si fa clic sul nome del server in accesso Web remoto, verrà visualizzata la pagina di accesso per il Dashboard.  
   
-5.  Accedere al dashboard come amministratore, quindi fare clic su **Dispositivi**.  
+5. Accedere al dashboard come amministratore, quindi fare clic su **Dispositivi**.  
   
- Per altre informazioni su accesso Web remoto, vedere [Panoramica di accesso Web remoto](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
+   Per altre informazioni su accesso Web remoto, vedere [Panoramica di accesso Web remoto](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
 ##  <a name="BKMK_4"></a> Disabilitare il backup dei server  
  È consigliabile proteggere automaticamente il server e i relativi dati pianificando backup giornalieri. Si consiglia di mantenere un piano di backup giornaliero poiché la maggior parte delle organizzazioni non può permettersi di perdere i dati creati in diversi giorni.  
@@ -138,12 +138,12 @@ ms.locfileid: "59890142"
   
 > [!NOTE]
 >  Nell'installazione predefinita di Windows Server Essentials il server è configurato per l'esecuzione automatica di una deframmentazione una volta alla settimana. Ciò può generare backup di dimensioni superiori al normale, se si usa un software di imaging non Microsoft. Se non è necessario deframmentare il server regolarmente, è possibile eseguire questa procedura per disattivare la pianificazione della deframmentazione:  
->   
->  1.  Premere il tasto WINDOWS+W per aprire la **Ricerca**.  
-> 2.  Nella casella di testo di ricerca digitare **Defragment**.  
-> 3.  Nella sezione dei risultati fare clic su **Deframmenta e ottimizza unità**.  
-> 4.  Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
-> 5.  Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
+> 
+> 1. Premere il tasto WINDOWS+W per aprire la **Ricerca**.  
+>    2. Nella casella di testo di ricerca digitare **Defragment**.  
+>    3. Nella sezione dei risultati fare clic su **Deframmenta e ottimizza unità**.  
+>    4. Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
+>    5. Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
   
 ### <a name="items-to-be-backed-up"></a>Elementi di cui eseguire il backup  
  Per impostazione predefinita, tutti i file e le cartelle del sistema operativo sono selezionati per il backup. È possibile scegliere di eseguire il backup di tutti i dischi rigidi, i file e le cartelle sul server oppure selezionare solo alcuni elementi per il backup. Per aggiungere o rimuovere elementi per il backup, eseguire una delle operazioni seguenti:  

@@ -12,12 +12,12 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860172"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433356"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Gestire le applicazioni in Windows Server Essentials
 
@@ -32,21 +32,21 @@ ms.locfileid: "59860172"
 ##  <a name="BKMK_1"></a> Attività di gestione dell'applicazione nel Dashboard  
  La pagina di gestione **Applicazioni** del dashboard contiene:  
   
--   Un elenco di componenti aggiuntivi installati, che visualizza:  
+- Un elenco di componenti aggiuntivi installati, che visualizza:  
   
-    -   Il nome del servizio online o del componente aggiuntivo  
+  -   Il nome del servizio online o del componente aggiuntivo  
   
-    -   Lo stato di aggiornamento del componente aggiuntivo  
+  -   Lo stato di aggiornamento del componente aggiuntivo  
   
-    -   Lo stato della sottoscrizione del componente aggiuntivo  
+  -   Lo stato della sottoscrizione del componente aggiuntivo  
   
-    -   Il nome della società o dell'entità di pubblicazione che rende disponibile il componente aggiuntivo  
+  -   Il nome della società o dell'entità di pubblicazione che rende disponibile il componente aggiuntivo  
   
--   Un riquadro attività che include una serie di attività per la gestione di un componente aggiuntivo selezionato  
+- Un riquadro attività che include una serie di attività per la gestione di un componente aggiuntivo selezionato  
   
--   Un elenco di componenti aggiuntivi disponibili per il download e l'installazione in Microsoft Pinpoint  
+- Un elenco di componenti aggiuntivi disponibili per il download e l'installazione in Microsoft Pinpoint  
   
- La tabella seguente descrive le varie attività di gestione dei componenti aggiuntivi disponibili nel dashboard del server. Alcune attività sono specifiche del componente aggiuntivo, quindi sono visibili solo se si seleziona un componente aggiuntivo nell'elenco.  
+  La tabella seguente descrive le varie attività di gestione dei componenti aggiuntivi disponibili nel dashboard del server. Alcune attività sono specifiche del componente aggiuntivo, quindi sono visibili solo se si seleziona un componente aggiuntivo nell'elenco.  
   
 |Nome attività|Descrizione|  
 |---------------|-----------------|  

@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433530"
 ---
 # <a name="customize-shared-folders"></a>Personalizzazione delle cartelle condivise
 
@@ -25,33 +25,33 @@ ms.locfileid: "59823472"
 
 Per impostazione predefinita, le cartelle server vengono create sulla partizione dati più grande sul Disco 0. I partner possono personalizzare il percorso e specificare altre cartelle server utilizzando la seguente procedura:  
   
-1.  Utilizzando una configurazione di partizioni personalizzata, creare l'immagine produttore computer e la nuova chiave Storage del Registro di sistema prima di utilizzare sysprep. Durante la configurazione iniziale, l'attività di configurazione iniziale relativa all'archiviazione verifica la presenza di questa chiave del Registro di sistema. Se è presente, vengono create le cartelle server predefinite nella directory C:\ServerFolders.  
+1. Utilizzando una configurazione di partizioni personalizzata, creare l'immagine produttore computer e la nuova chiave Storage del Registro di sistema prima di utilizzare sysprep. Durante la configurazione iniziale, l'attività di configurazione iniziale relativa all'archiviazione verifica la presenza di questa chiave del Registro di sistema. Se è presente, vengono create le cartelle server predefinite nella directory C:\ServerFolders.  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>Creazione di una nuova chiave Storage del Registro di sistema  
+   #### <a name="to-create-a-new-storage-registry-key"></a>Creazione di una nuova chiave Storage del Registro di sistema  
   
-    1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
+   1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
   
-    2.  Nella casella di ricerca digitare **regedit**e quindi fare clic sull'applicazione **Regedit** .  
+   2.  Nella casella di ricerca digitare **regedit**e quindi fare clic sull'applicazione **Regedit** .  
   
-    3.  Nel riquadro di spostamento, espandere **HKEY_LOCAL_MACHINE**, poi espandere **SOFTWARE**, quindi espandere **Microsoft**.  
+   3.  Nel riquadro di spostamento, espandere **HKEY_LOCAL_MACHINE**, poi espandere **SOFTWARE**, quindi espandere **Microsoft**.  
   
-    4.  Fare clic con il pulsante destro del mouse su **Windows Server**, fare clic su **Nuovo**, quindi fare clic su **Chiave**.  
+   4.  Fare clic con il pulsante destro del mouse su **Windows Server**, fare clic su **Nuovo**, quindi fare clic su **Chiave**.  
   
-    5.  Assegnare alla chiave il nome **Storage**.  
+   5.  Assegnare alla chiave il nome **Storage**.  
   
-    6.  Nel riquadro di spostamento, fare clic con il pulsante destro del mouse sulla nuova chiave di registro Storage, fare clic su **Nuovo**, quindi fare clic su **Valore DWORD (32 bit)**.  
+   6.  Nel riquadro di spostamento, fare clic con il pulsante destro del mouse sulla nuova chiave di registro Storage, fare clic su **Nuovo**, quindi fare clic su **Valore DWORD (32 bit)** .  
   
-    7.  Assegnare alla stringa il nome **CreateFoldersOnSystem**.  
+   7.  Assegnare alla stringa il nome **CreateFoldersOnSystem**.  
   
-    8.  Fare clic con il pulsante destro del mouse su **CreateFoldersOnSystem**, quindi fare clic su **Modifica**. Verrà visualizzata la finestra di dialogo **Modifica stringa**.  
+   8.  Fare clic con il pulsante destro del mouse su **CreateFoldersOnSystem**, quindi fare clic su **Modifica**. Verrà visualizzata la finestra di dialogo **Modifica stringa**.  
   
-    9. Impostare il valore della nuova chiave su **1**, quindi fare clic su **OK**.  
+   9. Impostare il valore della nuova chiave su **1**, quindi fare clic su **OK**.  
   
-2.  Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da postic. cmd usando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2. Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da postic. cmd usando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3.  Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 2: Creare una cartella personalizzata e spostamento di una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3. Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 2: Creare una cartella personalizzata e spostamento di una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
   
- Facoltativamente, i partner possono lasciare le cartelle dati sull'unità C. In questo modo si permette all'utente finale o al rivenditore di stabilire il layout delle cartelle dati sulle unità dati.  
+   Facoltativamente, i partner possono lasciare le cartelle dati sull'unità C. In questo modo si permette all'utente finale o al rivenditore di stabilire il layout delle cartelle dati sulle unità dati.  
   
 ###  <a name="BKMK_Example1"></a> Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da PostIC.cmd usando Windows PowerShell  
   
@@ -147,4 +147,4 @@ static void Main(string[] args)
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

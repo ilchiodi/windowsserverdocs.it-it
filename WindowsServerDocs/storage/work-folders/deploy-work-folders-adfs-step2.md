@@ -6,14 +6,14 @@ ms.topic: article
 manager: klaasl
 ms.author: jeffpatt
 author: JeffPatt24
-ms.date: 4/5/2017
+ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 87fdcf06c601d3362488eaf6a83e4f88ad191305
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828232"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812681"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS
 
@@ -32,11 +32,12 @@ Questo argomento descrive il secondo passaggio nella distribuzione di Cartelle d
 -   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+> Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Nel passaggio 1, è stato installato e configurato AD FS. A questo punto, è necessario eseguire i seguenti passaggi di post-configurazione per AD FS.  
   
-## <a name="configure-dns-entries"></a>Configurare le voci DNS  
+## <a name="configure-dns-entries"></a>Configurare le voci DNS
+
 È necessario creare due voci DNS per AD FS. Queste sono le stesse due voci che sono state usate nei passaggi di pre-installazione quando hai creato il certificato con nome alternativo del soggetto (SAN).  
   
 Le voci DNS si presentano nel formato:  
@@ -53,12 +54,13 @@ Nell'esempio di test, i valori sono:
   
 -   **enterpriseregistration.contoso.com**  
   
-## <a name="create-the-a-and-cname-records-for-ad-fs"></a>Creare i record di A e CNAME per AD FS  
+## <a name="create-the-a-and-cname-records-for-ad-fs"></a>Creare i record di A e CNAME per AD FS
+
 Per creare i record di A e CNAME per AD FS, segui questi passaggi:  
   
 1.  Nel tuo controller di dominio apri Gestore DNS.  
   
-2.  Espandi la cartella Zone di ricerca diretta, fai clic col tasto destro del mouse su dominio e seleziona **Nuovo Host (A)**.  
+2.  Espandi la cartella Zone di ricerca diretta, fai clic col tasto destro del mouse su dominio e seleziona **Nuovo Host (A)** .  
   
 3.  Verrà visualizzata la finestra di dialogo **Nuovo Host**. Nel campo **Nome**, immetti l'alias per il nome del servizio AD FS. Nell'esempio di test, si tratta di **blueadfs**.  
   
@@ -66,10 +68,10 @@ Per creare i record di A e CNAME per AD FS, segui questi passaggi:
   
     > [!IMPORTANT]  
     > Quando si configura AD FS utilizzando l'interfaccia utente di Windows Server invece di Windows PowerShell, è necessario creare un record di A anziché un record di CNAME per AD FS. Il motivo è che il nome dell'entità servizio (SPN) creato tramite l'interfaccia utente contiene solo l'alias utilizzato per configurare il servizio AD FS come host.  
-    >   
+
 4.  Nell' **indirizzo IP**, immetti l'indirizzo IP per il server AD FS. Nell'esempio di test, si tratta di **192.168.0.160**. Fare clic su **Aggiungi host**.  
   
-5.  Nella cartella Zone di ricerca diretta, fai clic col tasto destro del mouse nuovamente sul tuo dominio e seleziona **Nuovo alias (CNAME)**.  
+5.  Nella cartella Zone di ricerca diretta, fai clic col tasto destro del mouse nuovamente sul tuo dominio e seleziona **Nuovo alias (CNAME)** .  
   
 6.  Nella finestra **Nuovo Record di risorse**, aggiungi il nome dell'alias **enterpriseregistration** e immetti il FQDN per il server AD FS. Questo alias viene utilizzato per l'aggiunta del dispositivo e deve essere chiamato **enterpriseregistration**.
   
@@ -77,12 +79,13 @@ Per creare i record di A e CNAME per AD FS, segui questi passaggi:
   
 Per eseguire i passaggi equivalenti tramite Windows PowerShell, usa il seguente comando. Il comando deve essere eseguito sul controller di dominio.  
   
-```powershell  
+```Powershell  
 Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name blueadfs -A -IPv4Address 192.168.0.160   
-Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistration -CName  -HostNameAlias 2016-ADFS.contoso.com   
+Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistration -CName  -HostNameAlias 2016-ADFS.contoso.com
 ```  
   
-## <a name="set-up-the-ad-fs-relying-party-trust-for-work-folders"></a>Configurare il trust della relying party di AD FS per Cartelle di lavoro  
+## <a name="set-up-the-ad-fs-relying-party-trust-for-work-folders"></a>Configurare il trust della relying party di AD FS per Cartelle di lavoro
+
 È possibile impostare e configurare il trust della relying party per Cartelle di lavoro, anche se Cartelle di lavoro non è stata ancora configurata. Per abilitare le Cartelle di lavoro all'utilizzo di AD FS è necessario impostare il trust della relying party. Dato che ti trovi nel processo di impostazione di AD FS, ora è il momento ideale per eseguire questo passaggio.  
   
 Per configurare il trust della relying party:  
@@ -101,7 +104,7 @@ Per configurare il trust della relying party:
   
 7.  Nella pagina **Configura URL**, fai clic su **Avanti**.  
   
-8. Nel **Configura identificatori** pagina, aggiungere il seguente identificatore: **https://windows-server-work-folders/V1**. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fare clic su **Avanti**.  
+8. Nel **Configura identificatori** pagina, aggiungere il seguente identificatore: `https://windows-server-work-folders/V1`. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fare clic su **Avanti**.  
   
 9. Nella pagina Scegliere Criteri di controllo di accesso, seleziona **Consenti tutti gli utenti** quindi fai clic su **Avanti**.  
   
@@ -131,7 +134,8 @@ Per configurare il trust della relying party:
   
 18. Scegliere **Fine**. Potrai visualizzare la regola WorkFolders elencata nella Scheda Regole di trasformazione rilascio e fai clic su **OK**.  
   
-### <a name="set-relying-part-trust-options"></a>Impostare le opzioni dell'attendibilità componente  
+### <a name="set-relying-part-trust-options"></a>Impostare le opzioni dell'attendibilità componente
+
 Dopo che è stata configurata l'attendibilità della relying party per AD FS, è necessario completare la configurazione eseguendo i cinque comandi in Windows PowerShell. Questi comandi impostano le opzioni necessarie per Cartelle di lavoro per comunicare correttamente con AD FS e non possono essere impostate tramite l'interfaccia utente. Le opzioni sono:  
   
 -   Abilitare l'uso di JSON Web Token (JWT)  
@@ -154,7 +158,8 @@ Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders
 Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://windows-server-work-folders/V1" -AllowAllRegisteredClients -ScopeNames openid,profile  
 ```  
   
-## <a name="enable-workplace-join"></a>Abilitare Workplace Join  
+## <a name="enable-workplace-join"></a>Abilitare Workplace Join
+
 L'abilitazione di Workplace Join è facoltativa, ma può essere utile quando desideri che gli utenti siano in grado di usare i propri dispositivi personali per accedere alle risorse dell'area di lavoro.  
   
 Per abilitare la registrazione dei dispositivi per Workplace Join, è necessario eseguire i seguenti comandi di Windows PowerShell, che consentiranno di configurare la registrazione dei dispositivi e impostare i criteri di autenticazione globali:  
@@ -165,7 +170,8 @@ Initialize-ADDeviceRegistration -ServiceAccountName <your AD FS service account>
 Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true   
 ```  
   
-## <a name="export-the-ad-fs-certificate"></a>Esportare il certificato AD FS  
+## <a name="export-the-ad-fs-certificate"></a>Esportare il certificato AD FS
+
 Successivamente, esporta il certificato AD FS auto\-firmato in modo che possa essere installato nei seguenti computer nell'ambiente di test:  
   
 -   Il server utilizzato per Cartelle di lavoro  
@@ -188,13 +194,13 @@ Per esportare il certificato, segui questi passaggi:
   
 5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
-6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
+6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
 7.  Fare clic su **OK**.  
   
 8.  Espandi la cartella **Console Root\Certificates\(Local Computer) \Personal\Certificates**.  
   
-9.  Fai clic con il pulsante destro del mouse sul **certificato AD FS**, fai clic su **Tutte le attività**, quindi fai clic su **Esporta...**.  
+9.  Fai clic con il pulsante destro del mouse sul **certificato AD FS**, fai clic su **Tutte le attività**, quindi fai clic su **Esporta...** .  
   
 10. Verrà visualizzata l'Esportazione guidata certificati. Seleziona **Sì, esporta la chiave privata**.  
   
@@ -206,7 +212,8 @@ Per esportare il certificato, segui questi passaggi:
   
 L'installazione del certificato viene descritta in seguito nella procedura di distribuzione.  
   
-## <a name="manage-the-private-key-setting"></a>Gestisci l'impostazione della chiave privata  
+## <a name="manage-the-private-key-setting"></a>Gestisci l'impostazione della chiave privata
+
 È necessario assegnare l'autorizzazione dell'account di servizio AD FS per accedere alla chiave privata del nuovo certificato. È necessario concedere nuovamente questa autorizzazione quando si sostituisce il certificato di comunicazione dopo la scadenza. Per concedere l'autorizzazione, segui questi passaggi:  
   
 1.  Fare clic su **Start**, quindi scegliere **Esegui**.  
@@ -219,7 +226,7 @@ L'installazione del certificato viene descritta in seguito nella procedura di di
   
 5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
-6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
+6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
 7.  Fare clic su **OK**.  
   
@@ -237,14 +244,13 @@ L'installazione del certificato viene descritta in seguito nella procedura di di
   
 Se non si ha la possibilità di gestire le chiavi private, è necessario eseguire il comando seguente: `certutil -repairstore my *`  
   
-## <a name="verify-that-ad-fs-is-operational"></a>Verificare che AD FS sia operativo  
-Per verificare che ADFS sia operativo, aprire una finestra del browser e passare a https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
+## <a name="verify-that-ad-fs-is-operational"></a>Verificare che AD FS sia operativo
+
+Per verificare che ADFS sia operativo, aprire una finestra del browser e passare a `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, la modifica dell'URL per adattarli all'ambiente.
   
 I metadati del server federativo verranno visualizzati nella finestra del browser senza alcuna formattazione. Se è possibile visualizzare i dati senza errori o avvisi SSL, il server federativo è operativo.  
   
 Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
 ## <a name="see-also"></a>Vedere anche  
-[Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
-  
-
+[Panoramica di cartelle di lavoro](Work-Folders-Overview.md)

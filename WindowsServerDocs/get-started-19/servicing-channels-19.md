@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 625d71edd00ce404cee9525e06a2237d8be4cfcb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: dee19cd5a30b7d913a7faeeaa38368cee8a91895
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976464"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442291"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server i canali di manutenzione: Configurazione superficie di attacco e LTSC
 
@@ -52,14 +52,15 @@ Ecco le due principali differenze da prendere in considerazione:
 
 Nella tabella seguente sono riepilogate le differenze principali tra i canali:
 
-|  | Long-Term Servicing Channel (Windows Server 2019) |Canale semestrale (Windows Server) |
-| ------------------- | ------------------------------------ | ------------------------------------------------- |
-|Scenari consigliati | Generici file server, Microsoft e carichi di lavoro non Microsoft, App tradizionale, ruoli dell'infrastruttura, definiti software Datacenter e infrastruttura hyper convergenza | Applicazioni in contenitori, host contenitore e scenari di applicazioni che traggono vantaggio da un'innovazione più rapida |
-| Nuove versioni | Ogni 2-3 anni |Ogni 6 mesi |
-| Supporto |5 anni di supporto "Mainstream", più 5 anni di supporto "Extended" | 18 mesi |
-| Edizioni | Tutte le edizioni di Windows Server disponibili | Edizione standard e Datacenter |
-| Chi può utilizzare | Tutti i clienti attraverso tutti i canali | Software Assurance e cloud i clienti |
-| Opzioni di installazione | Server Core e Server con esperienza Desktop | Server Core di host contenitore e immagine e Server aspetti contenitore immagine |                |
+
+|                       |                                                              Long-Term Servicing Channel (Windows Server 2019)                                                               |                                   Canale semestrale (Windows Server)                                   |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Scenari consigliati | Generici file server, Microsoft e carichi di lavoro non Microsoft, App tradizionale, ruoli dell'infrastruttura, definiti software Datacenter e infrastruttura hyper convergenza | Applicazioni in contenitori, host contenitore e scenari di applicazioni che traggono vantaggio da un'innovazione più rapida |
+|     Nuove versioni      |                                                                               Ogni 2-3 anni                                                                                |                                              Ogni 6 mesi                                              |
+|        Supporto        |                                                       5 anni di supporto "Mainstream", più 5 anni di supporto "Extended"                                                        |                                                18 mesi                                                 |
+|       Edizioni        |                                                                    Tutte le edizioni di Windows Server disponibili                                                                     |                                     Edizione standard e Datacenter                                     |
+|      Chi può utilizzare      |                                                                      Tutti i clienti attraverso tutti i canali                                                                      |                               Software Assurance e cloud i clienti                                |
+| Opzioni di installazione  |                                                                Server Core e Server con esperienza Desktop                                                                |                 Server Core di host contenitore e immagine e Server aspetti contenitore immagine                 |
 
 ## <a name="device-compatibility"></a>Compatibilità dei dispositivi
 

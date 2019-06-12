@@ -5,23 +5,23 @@ ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 03/19/2019
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b19657f4ce1a1a2cfb94f7234f07805ba0abd42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850572"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811930"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurare le autorizzazioni e controllo di accesso utente
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+> Si applica a: Windows Admin Center, Windows Admin Center anteprima
 
 Se hai già fatto, acquisire familiarità con la [le opzioni di controllo di accesso utente in Windows Admin Center](../plan/user-access-options.md)
 
->[!NOTE]
+> [!NOTE]
 > Accesso basato su gruppo in Windows Admin Center non è supportato in ambienti gruppi di lavoro o tra domini non trusted.
 
 ## <a name="gateway-access-role-definitions"></a>Definizioni di ruolo di accesso di gateway
@@ -41,7 +41,7 @@ Per impostazione predefinita, Active Directory o i gruppi di computer locale ven
 
 Nel **utenti** scheda è possibile controllare chi può accedere a Windows Admin Center come utente di gateway. Per impostazione predefinita, e se non si specifica un gruppo di sicurezza, qualsiasi utente che accede l'URL del gateway può accedere. Dopo aver aggiunto uno o più gruppi di sicurezza all'elenco di utenti, l'accesso è limitato ai membri di tali gruppi.
 
-Se non si usa un dominio Active Directory nell'ambiente in uso, l'accesso viene controllato per il ```Users``` e ```Administrators``` gruppi locali nel computer del gateway Windows Admin Center.
+Se non si usa un dominio Active Directory nell'ambiente in uso, l'accesso viene controllato per il `Users` e `Administrators` gruppi locali nel computer del gateway Windows Admin Center.
 
 ### <a name="smartcard-authentication"></a>Autenticazione tramite smart card
 
@@ -143,6 +143,7 @@ Configurazione di RBAC è costituito da 2 passaggi: abilitazione del supporto ne
 
 Il modello di distribuzione singolo computer è ideale per ambienti più semplici con solo pochi computer da gestire.
 Configurazione di una macchina con il supporto per controllo degli accessi in base al ruolo comporterà le modifiche seguenti:
+
 -   I moduli di PowerShell con le funzioni richiesti da Windows Admin Center verranno installati nell'unità di sistema, in `C:\Program Files\WindowsPowerShell\Modules`. Tutti i moduli inizieranno con **Microsoft.Sme**
 -   Desired State Configuration eseguirà una configurazione una tantum per configurare un endpoint di Just Enough Administration nel computer, denominato **Microsoft.Sme.PowerShell**. Questo endpoint definisce i 3 ruoli utilizzati da Windows Admin Center e verrà eseguito come amministratore locale temporaneo quando un utente si connette a esso.
 -   Per controllare quali utenti con accesso a quali ruoli verranno creati 3 nuovi gruppi locali:
@@ -191,6 +192,7 @@ Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoi
 ```
 
 Quando si espande l'archivio zip, si noterà la struttura di cartelle seguente:
+
 - InstallJeaFeatures.ps1
 - JustEnoughAdministration (directory)
 - Moduli (directory)
@@ -198,6 +200,7 @@ Quando si espande l'archivio zip, si noterà la struttura di cartelle seguente:
     - WindowsAdminCenter.Jea (directory)
 
 Per configurare il supporto per il controllo di accesso basato sui ruoli in un nodo, è necessario eseguire le azioni seguenti:
+
 1.  Copiare il JustEnoughAdministration, Microsoft.SME. \*e i moduli WindowsAdminCenter.Jea per la directory del modulo PowerShell nel computer di destinazione. Si tratta in genere disponibile all'indirizzo `C:\Program Files\WindowsPowerShell\Modules`.
 2.  Update **InstallJeaFeature.ps1** file in modo che corrisponda alla configurazione desiderata per l'endpoint RBAC.
 3.  Eseguire InstallJeaFeature.ps1 per compilare la risorsa DSC.

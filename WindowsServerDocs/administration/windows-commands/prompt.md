@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 320e12fd30deda30ccc0da1ad6e5bea6f9a19d8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818442"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442143"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Prompt dei comandi Cmd.exe viene modificato. Se utilizzata senza parametri, **prompt dei comandi** Reimposta il prompt dei comandi per l'impostazione predefinita, che è la lettera di unità corrente e directory seguito dal segno di maggiore (**>**).
+Prompt dei comandi Cmd.exe viene modificato. Se utilizzata senza parametri, **prompt dei comandi** Reimposta il prompt dei comandi per l'impostazione predefinita, che è la lettera di unità corrente e directory seguito dal segno di maggiore ( **>** ).
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -46,31 +46,32 @@ prompt [<Text>]
 È possibile personalizzare il prompt dei comandi per visualizzare il testo desiderato, incluse informazioni quali il nome della directory corrente, l'ora e data e il numero di versione di Microsoft Windows.
 
 Nella tabella seguente sono elencate le combinazioni di caratteri che è possibile includere anziché o in aggiunta, uno o più stringhe di caratteri nel *testo* parametro. L'elenco include una breve descrizione del testo o le informazioni che ogni combinazione di caratteri aggiunge al prompt dei comandi.  
-|Carattere|Descrizione|
-|---------|-----------|
-|$q|= (segno di uguale)|
-|$$|$ (segno di dollaro)|
-|$t|Ora corrente|
-|$d|Data corrente|
-|$p|Percorso e l'unità corrente|
-|$v|Numero di versione di Windows|
-|$n|Unità corrente|
-|$g|> (segno di maggiore di)|
-|$l|< (segno di minore di)|
-|$b|| (barra verticale)|
-|$_|IMMETTERE CON AVANZAMENTO DI RIGA|
-|$e|Codice di escape ANSI (codice di 27)|
-|$h|Carattere backspace (per eliminare un carattere che è stata scritta nella riga di comando)|
-|$un|& (e commerciale)|
-|$c|((parentesi)|
-|$f|) (parentesi)|
-|$s|Spazio|
+
+| Carattere |                                 Descrizione                                 |
+|-----------|-----------------------------------------------------------------------------|
+|    $q     |                               = (segno di uguale)                                |
+|    $$     |                               $ (segno di dollaro)                               |
+|    $t     |                                Ora corrente                                 |
+|    $d     |                                Data corrente                                 |
+|    $p     |                           Percorso e l'unità corrente                            |
+|    $v     |                           Numero di versione di Windows                            |
+|    $n     |                                Unità corrente                                |
+|    $g     |                            > (segno di maggiore di)                            |
+|    $l     |                             < (segno di minore di)                              |
+|    $b     |                                                                             |
+|    $_     |                               IMMETTERE CON AVANZAMENTO DI RIGA                                |
+|    $e     |                         Codice di escape ANSI (codice di 27)                          |
+|    $h     | Carattere backspace (per eliminare un carattere che è stata scritta nella riga di comando) |
+|    $un     |                                & (e commerciale)                                |
+|    $c     |                            ((parentesi)                             |
+|    $f     |                            ) (parentesi)                            |
+|    $s     |                                    Spazio                                    |
 
 Quando sono abilitate le estensioni dei comandi (vale a dire l'impostazione predefinita) il **prompt dei comandi** comando supporta i caratteri di formattazione seguenti:  
 
 |Carattere|Descrizione|
 |---------|-----------|
-|$+|Zero o più segno (**+**) caratteri, a seconda la profondità del **pushd** stack directory (un carattere per ogni livello push).|
+|$+|Zero o più segno ( **+** ) caratteri, a seconda la profondità del **pushd** stack directory (un carattere per ogni livello push).|
 |$m|Il nome remoto associato con la lettera di unità corrente o una stringa vuota se l'unità corrente non è un'unità di rete.|
 
 Se si include il **$p** caratteri nel parametro di testo viene letto il disco dopo ogni comando, per determinare l'unità corrente e il percorso, immesso. Ciò può richiedere tempo aggiuntivo, in particolare per le unità disco floppy.
@@ -97,4 +98,4 @@ prompt $p$g
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

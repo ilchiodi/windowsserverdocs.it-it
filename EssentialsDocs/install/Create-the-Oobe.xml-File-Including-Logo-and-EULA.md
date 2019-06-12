@@ -12,12 +12,12 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8f99a2051e114b3c890f1cdac23aebf58689980
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884652"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433614"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Creare il file Oobe.xml con logo ed EULA
 
@@ -29,41 +29,41 @@ ms.locfileid: "59884652"
   
 #### <a name="to-add-your-company-eula-and-logo"></a>Aggiunta dell'EULA e del logo della società  
   
-1.  Aprire il file Oobe.xml in un editor di testo, come Blocco note.  
+1. Aprire il file Oobe.xml in un editor di testo, come Blocco note.  
   
-2.  All'interno di < logopath\>< / logopath\> tag, immettere il percorso assoluto del file del logo. Questo file deve contenere un file .png a 32 bit (portable network graphics) di 240x 100 pixel.  
+2. All'interno di < logopath\>< / logopath\> tag, immettere il percorso assoluto del file del logo. Questo file deve contenere un file .png a 32 bit (portable network graphics) di 240x 100 pixel.  
   
-3.  All'interno di < eulafilename\>< / eulafilename\> tag, immettere il percorso assoluto del file EULA. Il file EULA deve essere in formato di testo .rtf (rich-text-format).  
+3. All'interno di < eulafilename\>< / eulafilename\> tag, immettere il percorso assoluto del file EULA. Il file EULA deve essere in formato di testo .rtf (rich-text-format).  
   
-4.  All'interno di < nome\>< / name\> tag, immettere il nome della società.  
+4. All'interno di < nome\>< / name\> tag, immettere il nome della società.  
   
-     Nell'esempio seguente sono illustrati i tag contenuti in un file Oobe.xml:  
+    Nell'esempio seguente sono illustrati i tag contenuti in un file Oobe.xml:  
   
-    ```  
+   ```  
   
-    <FirstExperience>  
-       <oobe>  
-          <oem>  
-             <name>Fabrikam</name>  
-             <logopath>c:\fabrikam\fabrikam.png</logopath>  
-             <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
-          </oem>  
-       </oobe>  
-    </FirstExperience>  
+   <FirstExperience>  
+      <oobe>  
+         <oem>  
+            <name>Fabrikam</name>  
+            <logopath>c:\fabrikam\fabrikam.png</logopath>  
+            <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
+         </oem>  
+      </oobe>  
+   </FirstExperience>  
   
-    ```  
+   ```  
   
-5.  Salvare il file.  
+5. Salvare il file.  
   
-6.  Collocare il file Oobe.xml in uno dei seguenti percorsi:  
+6. Collocare il file Oobe.xml in uno dei seguenti percorsi:  
   
-    |Percorso Oobe.Xml|Condizione per la determinazione del percorso|  
-    |-----------------------|----------------------------------------|  
-    |%WINDIR%\System32\Oobe\Info\|il server è destinato in un unico paese/area geografica e un unico sistema linguistico.|  
-    |%windir%\system32\oobe\info\default\\<language\>|Il server è destinato ad un unico paese/area geografica o a un sistema multilingua.|  
-    |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e %windir%\system32\oobe\info\\< paese/area geografica >\\< linguaggio\>\|il server è destinato a più di un paese / area e le impostazioni richiedono personalizzazioni in base al paese/regione, ognuno con una sola lingua. Dove < paese/area geografica > corrisponde alla versione decimale dell'identificatore della posizione geografica (GeoID) del paese / area geografica in cui viene distribuito il server, e < language\> corrisponde alla versione decimale dell'identificatore delle impostazioni locali (LCID).|  
+   |Percorso Oobe.Xml|Condizione per la determinazione del percorso|  
+   |-----------------------|----------------------------------------|  
+   |%WINDIR%\System32\Oobe\Info\|il server è destinato in un unico paese/area geografica e un unico sistema linguistico.|  
+   |%windir%\system32\oobe\info\default\\<language\>|Il server è destinato ad un unico paese/area geografica o a un sistema multilingua.|  
+   |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e %windir%\system32\oobe\info\\< paese/area geografica >\\< linguaggio\>\|il server è destinato a più di un paese / area e le impostazioni richiedono personalizzazioni in base al paese/regione, ognuno con una sola lingua. Dove < paese/area geografica > corrisponde alla versione decimale dell'identificatore della posizione geografica (GeoID) del paese / area geografica in cui viene distribuito il server, e < language\> corrisponde alla versione decimale dell'identificatore delle impostazioni locali (LCID).|  
   
- Se si dispone di un logo aziendale alternativo con del testo bianco, la visualizzazione durante la procedura di installazione potrebbe essere migliore in virtù dello sfondo di colore blu.  È possibile specificare questo logo impostando un chiave del Registro di sistema con relativo valore.  
+   Se si dispone di un logo aziendale alternativo con del testo bianco, la visualizzazione durante la procedura di installazione potrebbe essere migliore in virtù dello sfondo di colore blu.  È possibile specificare questo logo impostando un chiave del Registro di sistema con relativo valore.  
   
 #### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>Per specificare un logo aziendale impostando la chiave del Registro di sistema OEM  
   
@@ -92,4 +92,4 @@ ms.locfileid: "59884652"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

@@ -12,12 +12,12 @@ ms.assetid: f70a79de-9c56-4496-89b5-20a1bff2293e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2cc603f5e0303ada245956a524151393c538b27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2322fa3f4617e8a8450aaf7fd5ead702574bf759
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433128"
 ---
 # <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Informazioni generali sul dashboard in Windows Server Essentials
 
@@ -25,39 +25,39 @@ ms.locfileid: "59881572"
  
  Windows Server Essentials e Windows Server 2012 R2 Standard con il ruolo Esperienza Windows Server Essentials abilitato includono un dashboard di amministrazione che semplifica le attività eseguite per gestire la rete e il server Windows Server Essentials. Con il dashboard di Windows Server Essentials Dashboard, è possibile:  
   
--   Completare la configurazione del server  
+- Completare la configurazione del server  
   
--   Accedere ed eseguire comuni attività amministrative  
+- Accedere ed eseguire comuni attività amministrative  
   
--   Visualizzare gli avvisi del server e intraprendere le azioni necessarie  
+- Visualizzare gli avvisi del server e intraprendere le azioni necessarie  
   
--   Configurare e modificare le impostazioni del server  
+- Configurare e modificare le impostazioni del server  
   
--   Accedere o cercare gli argomenti della Guida sul Web  
+- Accedere o cercare gli argomenti della Guida sul Web  
   
--   Accedere alle risorse della community sul Web  
+- Accedere alle risorse della community sul Web  
   
--   Gestire gli account utente  
+- Gestire gli account utente  
   
--   Gestire dispositivi e backup  
+- Gestire dispositivi e backup  
   
--   Gestire l'accesso e le impostazioni delle cartelle e dei dischi rigidi del server  
+- Gestire l'accesso e le impostazioni delle cartelle e dei dischi rigidi del server  
   
--   Visualizzare e gestire le applicazioni dei componenti aggiuntivi  
+- Visualizzare e gestire le applicazioni dei componenti aggiuntivi  
   
--   Integrare i Microsoft Online Services  
+- Integrare i Microsoft Online Services  
   
- Contenuto dell'argomento:  
+  Contenuto dell'argomento:  
   
--   [Funzionalità di base del Dashboard](#BKMK_Design)  
+- [Funzionalità di base del Dashboard](#BKMK_Design)  
   
--   [Funzionalità della Home page del Dashboard](#BKMK_Home)  
+- [Funzionalità della Home page del Dashboard](#BKMK_Home)  
   
--   [Sezioni amministrative del Dashboard](#BKMK_Features)  
+- [Sezioni amministrative del Dashboard](#BKMK_Features)  
   
--   [Accedere al Dashboard di Windows Server Essentials](#BKMK_AccessDb)  
+- [Accedere al Dashboard di Windows Server Essentials](#BKMK_AccessDb)  
   
--   [Usare la modalità provvisoria](#BKMK_UseSafeMode)  
+- [Usare la modalità provvisoria](#BKMK_UseSafeMode)  
   
 ##  <a name="BKMK_Design"></a> Funzionalità di base del Dashboard  
  Il dashboard di Windows Server Essentials consente di accedere rapidamente alle principali informazioni e alle funzionalità di gestione del server. Il Dashboard include diverse sezioni. Nella tabella seguente descrive le sezioni.  
@@ -90,7 +90,7 @@ ms.locfileid: "59881572"
   
  La tabella seguente descrive le sezioni amministrative del dashboard disponibili per impostazione predefinita dopo l'installazione. Elenca inoltre le attività disponibili all'interno di ogni sezione.  
   
-|Sezione|Descrizione|  
+|`Section`|Descrizione|  
 |-------------|-----------------|  
 |Home|La pagina **Home** viene visualizzata per impostazione predefinita ogni volta che si apre il dashboard. Include attività e informazioni delle categorie seguenti:<br /><br /> **Il programma di installazione** œ completare le attività in questa categoria per configurare il server per la prima volta. Per informazioni su queste attività, vedere [installare e configurare Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md).<br /><br /> **Messaggio di posta elettronica** œ scegliere un'opzione in questa categoria per integrare un servizio di posta elettronica con il server.<br /><br /> **Nota:** Questa categoria è disponibile solo in Windows Server Essentials.<br /><br /> **SERVIZI** œ scegliere un'attività di questa categoria per integrare i Microsoft online services con il server.<br /><br /> **Nota:** Questa categoria è solo disponibile in Windows Server Essentials e Windows Server 2012 R2 Standard con il ruolo esperienza Windows Server Essentials abilitato.<br /><br /> **ADD-INS** œ fare clic su questa categoria per installare componenti aggiuntivi importanti per la tua azienda.<br /><br /> **RIEPILOGO sullo stato** œ Visualizza lo stato di alto livello di server. Fare clic su uno stato per visualizzare informazioni e opzioni di configurazione per la funzionalità corrispondente. Se si completano tutte le attività della categoria CONFIGURAZIONE, questa categoria viene visualizzata nella parte superiore del riquadro Categoria.<br /><br /> **Guida in linea** œ usare la casella di ricerca per cercare informazioni della Guida sul Web. Fare clic su un collegamento per visitare il sito Web corrispondente all'opzione di supporto selezionata.|  
 |Utenti|Per consentire agli utenti di accedere alle risorse fornite da Windows Server Essentials, è necessario creare gli account utente tramite il dashboard di Windows Server Essentials. Dopo aver creato gli account utente, è possibile gestirli con le attività disponibili nella pagina **Utenti** del dashboard. Le attività che è possibile eseguire in questa pagina includono:<br /><br /> : Consente di visualizzare un elenco di account utente.<br /><br /> : Consente di visualizzare e gestire le proprietà dell'account utente.<br /><br /> -Attivare o disattivare gli account utente.<br /><br /> -Aggiungere o rimuovere gli account utente.<br /><br /> -Assegnare account di rete locali per account Microsoft online services se il server è integrato con Office 365.<br /><br /> -Modificare le password degli account utente e gestire i criteri password.<br /><br /> Per informazioni sulla gestione degli account utente, vedere [Manage User Accounts](Manage-User-Accounts-in-Windows-Server-Essentials.md).|  

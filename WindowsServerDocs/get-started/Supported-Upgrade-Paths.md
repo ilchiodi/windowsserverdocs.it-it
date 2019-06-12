@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 796ee001e20cff5587c5409f7571d223ff7900a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857942"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810580"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>Opzioni di aggiornamento e conversione per Windows Server 2016
 
@@ -109,7 +109,8 @@ Se nel server è in esecuzione una versione di valutazione di Windows Server 201
 
 Per la versione di valutazione di Windows Server 2016 Standard, è anche possibile eseguire la conversione alla versione definitiva di Windows Server 2016 Datacenter in un unico passaggio usando lo stesso comando e il codice Product Key appropriato.
 
-> Suggerimento: per altre informazioni su Dism.exe, vedere [Opzioni di DISM della riga di comando](https://go.microsoft.com/fwlink/?LinkId=192466).
+> [!TIP] 
+> Per altre informazioni sulle Dism.exe, vedere [opzioni della riga di comando DISM](https://go.microsoft.com/fwlink/?LinkId=192466).
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>Conversione da una versione definitiva corrente a un'altra versione definitiva corrente
 
@@ -125,7 +126,3 @@ In qualsiasi momento dopo l'installazione di Windows Server 2016 puoi eseguire l
 A tale scopo, da un prompt dei comandi con privilegi elevati eseguire: **slmgr /ipk \<codice\>**
 
 Dove \<codice\> corrisponde al codice Product Key per attivazione singola, per contratti multilicenza oppure OEM.
-
-
- 
-

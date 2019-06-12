@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4a6b378bc4aef180ebedd260008febaa2f2a76ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1f5c724d041a9f64c3b2697a8b5acd17a2a7bd9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856212"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445817"
 ---
 # <a name="claims-transformation-rules-language"></a>Linguaggio delle regole di trasformazione delle attestazioni
 
@@ -225,75 +225,75 @@ Regole di trasformazione delle attestazioni vengono analizzate da un parser pers
   
 In questa sezione vengono illustrati alcuni esempi di regole che vengono scritti gli errori generati dal parser con sintassi non corretta e la sintassi corrispondente.  
   
-1.  Esempio:  
+1. Esempio:  
   
-    ```  
-    c1;[]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1;[]=>Issue(claim=c1);  
+   ```  
   
-    Questo esempio è presente un punto e virgola in modo non corretto usato al posto di un carattere due punti.   
-    **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: Token di 2, errore:;. Riga: ' c1; [] = > Issue(claim=c1);'.*  
-    *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto ';', era previsto uno dei seguenti: ':'.'*  
+   Questo esempio è presente un punto e virgola in modo non corretto usato al posto di un carattere due punti.   
+   **Messaggio di errore:**  
+   *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+   *Numero di riga: 1, numero di colonna: Token di 2, errore:;. Riga: ' c1; [] = > Issue(claim=c1);'.*  
+   *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto ';', era previsto uno dei seguenti: ':'.'*  
   
-2.  Esempio:  
+2. Esempio:  
   
-    ```  
-    c1:[]=>Issue(claim=c2);  
-    ```  
+   ```  
+   c1:[]=>Issue(claim=c2);  
+   ```  
   
-    In questo esempio, il tag di identificazione nell'istruzione di rilascio di copia non è definito.   
-    **Messaggio di errore**:   
-    *POLICY0011: Nessuna condizione nella regola di attestazione corrispondono al tag di condizione specificato nel CopyIssuanceStatement: 'c2'.*  
+   In questo esempio, il tag di identificazione nell'istruzione di rilascio di copia non è definito.   
+   **Messaggio di errore**:   
+   *POLICY0011: Nessuna condizione nella regola di attestazione corrispondono al tag di condizione specificato nel CopyIssuanceStatement: 'c2'.*  
   
-3.  Esempio:  
+3. Esempio:  
   
-    ```  
-    c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
-    ```  
+   ```  
+   c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
+   ```  
   
-    "bool" non è un terminale nel linguaggio e non è un tipo valore valido. I terminali validi sono elencati nel messaggio di errore seguente.   
-    **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
-    Numero di riga: 1, numero di colonna: Token di 39, errore: "bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
-    *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto 'STRING', è previsto uno dei seguenti: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
+   "bool" non è un terminale nel linguaggio e non è un tipo valore valido. I terminali validi sono elencati nel messaggio di errore seguente.   
+   **Messaggio di errore:**  
+   *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+   Numero di riga: 1, numero di colonna: Token di 39, errore: "bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
+   *Errore del parser: 'POLICY0030: Errore di sintassi imprevisto 'STRING', è previsto uno dei seguenti: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
   
-4.  Esempio:  
+4. Esempio:  
   
-    ```  
-    c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
+   ```  
   
-    Il numerale **1** in questo esempio non è un token valido nel linguaggio e tale utilizzo non è consentita in una condizione di corrispondenza. Deve essere racchiuso tra virgolette doppie per renderla una stringa.   
-    **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: 23, token di errore: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.**Parser error: 'POLICY0029: Input imprevisto.*  
+   Il numerale **1** in questo esempio non è un token valido nel linguaggio e tale utilizzo non è consentita in una condizione di corrispondenza. Deve essere racchiuso tra virgolette doppie per renderla una stringa.   
+   **Messaggio di errore:**  
+   *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+   *Numero di riga: 1, numero di colonna: 23, token di errore: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.* <em>Parser error: 'POLICY0029: Input imprevisto.</em>  
   
-5.  Esempio:  
+5. Esempio:  
   
-    ```  
-    c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
+   ```  
+   c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
   
-         Issue(type = c1.type, value="0", valuetype == "boolean");  
-    ```  
+        Issue(type = c1.type, value="0", valuetype == "boolean");  
+   ```  
   
-    In questo esempio viene utilizzato un segno di uguale doppio (= =) anziché un solo segno di uguale (=).   
-    **Messaggio di errore:**  
-    *POLICY0002: Impossibile analizzare i dati dei criteri.*  
-    *Numero di riga: 1, numero di colonna: Errore 91, il token: = =. Line: 'c1:[type=="x1", value=="1",*  
-    *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
-    *Errore del parser: 'POLICY0030: Errore di sintassi, non previsto '= =', è previsto uno dei seguenti: '='*  
+   In questo esempio viene utilizzato un segno di uguale doppio (= =) anziché un solo segno di uguale (=).   
+   **Messaggio di errore:**  
+   *POLICY0002: Impossibile analizzare i dati dei criteri.*  
+   *Numero di riga: 1, numero di colonna: Errore 91, il token: = =. Line: 'c1:[type=="x1", value=="1",*  
+   *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
+   *Errore del parser: 'POLICY0030: Errore di sintassi, non previsto '= =', è previsto uno dei seguenti: '='*  
   
-6.  Esempio:  
+6. Esempio:  
   
-    ```  
-    c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
+   ```  
+   c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
   
-          Issue(type=c1.type, value=c1.value, valuetype = "string");  
-    ```  
+         Issue(type=c1.type, value=c1.value, valuetype = "string");  
+   ```  
   
-    In questo esempio è sintatticamente e semanticamente corretto. Tuttavia, l'utilizzo di "boolean" come valore stringa è associato a generare confusione e si consiglia di evitarlo. Come accennato in precedenza, usando i terminali di linguaggio come valori delle attestazioni devono essere evitati laddove possibile.  
+   In questo esempio è sintatticamente e semanticamente corretto. Tuttavia, l'utilizzo di "boolean" come valore stringa è associato a generare confusione e si consiglia di evitarlo. Come accennato in precedenza, usando i terminali di linguaggio come valori delle attestazioni devono essere evitati laddove possibile.  
   
 ## <a name="BKMK_LT"></a>Terminali di linguaggio  
 La tabella seguente elenca il set completo di stringhe terminale e i terminali associate a una lingua che vengono usati nel linguaggio delle regole di trasformazione attestazioni. Queste definizioni usino le stringhe UTF-16 tra maiuscole e minuscole.  

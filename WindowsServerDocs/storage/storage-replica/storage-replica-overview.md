@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 1897b57e1f4cf05d222732278835483791f1109b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64773540"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812651"
 ---
 # <a name="storage-replica-overview"></a>Panoramica di Replica di archiviazione
 
@@ -85,31 +85,31 @@ Lo scenario **da server a server** consente la replica sincrona e asincrona tra 
 
 Replica di archiviazione include le funzionalità seguenti:  
 
-|Funzionalità|Dettagli|  
-|-----------|-----------|  
-|Type|Basata su host|  
-|Sincrono|Yes|  
-|Asincrono|Yes|  
-|Indipendente dall'hardware di archiviazione|Yes|  
-|Unità di replica|Volume (partizione)|  
-|Windows Server allungare la creazione del cluster|Yes|  
-|Replica da server a server|Yes|  
-|Replica da cluster a cluster|Yes|  
-|Transport|SMB3|  
-|Rete|TCP/IP o RDMA|
-|Supporto per vincoli di rete|Yes|  
-|RDMA*|iWARP, InfiniBand, RoCE v2|  
-|Requisiti firewall per la porta di rete della replica|Porta IANA singola (TCP 445 o 5445)|  
-|Multipath/multicanale|Sì (SMB3)|  
-|Supporto per Kerberos|Sì (SMB3)|  
-|Crittografia e firma tramite rete|Sì (SMB3)|  
-|Failover in base al volume consentiti|Yes|
-|Supporto di archiviazione con thin provisioning|Yes|
-|Interfaccia utente di gestione inclusa|PowerShell, Gestione cluster di failover|  
+| Funzionalità | Dettagli |
+| ----------- | ----------- |  
+| Type | Basata su host |
+| Sincrono | Yes |
+| Asincrono | Yes |
+| Indipendente dall'hardware di archiviazione | Yes |
+| Unità di replica | Volume (partizione) |
+| Windows Server allungare la creazione del cluster | Yes |
+| Replica da server a server | Yes |
+| Replica da cluster a cluster | Yes |
+| Transport | SMB3 |
+| Rete | TCP/IP o RDMA |
+| Supporto per vincoli di rete | Yes |
+| RDMA* | iWARP, InfiniBand, RoCE v2 |
+| Requisiti firewall per la porta di rete della replica | Porta IANA singola (TCP 445 o 5445) |
+| Multipath/multicanale | Sì (SMB3) |
+| Supporto per Kerberos | Sì (SMB3) |
+| Crittografia e firma tramite rete|Sì (SMB3) |
+| Failover in base al volume consentiti | Yes |
+| Supporto di archiviazione con thin provisioning | Yes |
+| Interfaccia utente di gestione inclusa | PowerShell, Gestione cluster di failover |
 
 *Potrebbe richiedere apparecchiature e cablaggi prolungati aggiuntivi.  
 
-## <a name="BKMK_SR3"></a> Prerequisiti di Replica archiviazione  
+## <a name="BKMK_SR3"></a> Prerequisiti di Replica archiviazione
 
 * Foresta di Active Directory Domain Services.
 * Spazi di archiviazione con JBOD SAS, Spazi di archiviazione diretta, SAN fibre channel, VHDX condiviso, destinazione iSCSI o archiviazione SCSI/SAS o SATA locale. Unità SSD o unità più veloci consigliate per le unità di log della replica. Microsoft consiglia una velocità di archiviazione dei log superiore a quella dell'archiviazione dei dati. I volumi di log non devono essere utilizzati per altri carichi di lavoro.
@@ -122,33 +122,37 @@ Replica di archiviazione include le funzionalità seguenti:
   * Replica di archiviazione viene replicato un singolo volume invece di un numero illimitato di volumi.
   * I volumi possono avere dimensioni fino a 2 TB invece di dimensioni illimitate.
 
-##  <a name="BKMK_SR4"> </a> Background  
+##  <a name="BKMK_SR4"> </a> Background
+
 Questa sezione include informazioni sui termini di settore di alto livello, la replica sincrona e asincrona e i comportamenti chiave.
 
-### <a name="high-level-industry-terms"></a>Termini di settore di alto livello  
+### <a name="high-level-industry-terms"></a>Termini di settore di alto livello
+
 Il termine ripristino di emergenza (DR) fa riferimento a un piano di emergenza per il ripristino da catastrofi del sito in modo che l'azienda continui a funzionare. Il ripristino di emergenza dei dati crea più copie dei dati di produzione in un percorso fisico separato. Ad esempio, un cluster esteso in cui metà dei nodi sono presenti in un sito e metà sono presenti in un altro. Il termine Preparazione alle emergenze (DP) fa riferimento a un piano di emergenza per lo spostamento preventivo dei carichi di lavoro in un altro percorso prima di un'emergenza incombente, ad esempio un uragano.  
 
 Il termine Contratti di servizio (SLA) definisce la disponibilità delle applicazioni di un'azienda e la relativa tolleranza all'inattività e alla perdita di dati durante le interruzioni pianificate e non pianificate. Il termine Obiettivo del tempo di ripristino (RTO) definisce quanto tempo l'azienda è in grado di tollerare l'inaccessibilità totale ai dati. Il termine Obiettivo del punto di ripristino (RPO) definisce la quantità di dati che l'azienda può permettersi di perdere.  
 
-### <a name="synchronous-replication"></a>Replica sincrona  
+### <a name="synchronous-replication"></a>Replica sincrona
+
 La replica sincrona garantisce che l'applicazione scriva i dati in due posizioni alla volta prima del completamento delle operazioni di I/O. Questa replica risulta più appropriata per i dati importanti, poiché richiede investimenti di archiviazione e di rete nonché un rischio di prestazioni ridotte delle applicazioni.  
 
 Quando si verificano operazioni di scrittura dell'applicazione nella copia dei dati di origine, l'archiviazione di origine non riconosce immediatamente le operazioni di I/O. Al contrario, le modifiche ai dati replicano la copia di destinazione remota e restituiscono un riconoscimento. Solo a questo punto l'applicazione riceverà il riconoscimento delle operazioni di I/O. Ciò garantisce la costante sincronizzazione del sito remoto con il sito di origine, estendendo effettivamente l'archiviazione delle operazioni di I/O nella rete. In caso di errore del sito di origine, le applicazioni possono eseguire il failover al sito remoto e riprendere le operazioni con la garanzia di poter conservare tutti i dati.  
 
-|Modalità|Diagramma|Passaggi|  
-|--------|-----------|---------|  
-|**Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO|![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre|  
+| Modalità | Diagramma | Passaggi |
+| -------- | ----------- | --------- |
+| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre |
 
-### <a name="asynchronous-replication"></a>Replica asincrona  
+### <a name="asynchronous-replication"></a>Replica asincrona
+
 Al contrario, la replica asincrona comporta che, quando l'applicazione scrive i dati, tali dati vengano replicati nel sito remoto senza garanzie di riconoscimento immediate. Questa modalità consente tempi di risposta più rapidi per l'applicazione, nonché una soluzione di ripristino di emergenza che funziona geograficamente.  
 
 Quando l'applicazione scrive i dati, il motore di replica acquisisce la scrittura e invia immediatamente il riconoscimento all'applicazione. I dati acquisiti vengono quindi replicati al percorso remoto. Il nodo remoto elabora la copia dei dati e invia il riconoscimento in modo differito alla copia di origine. Poiché le prestazioni di replica non sono più nel percorso delle operazioni di I/O dell'applicazione, la velocità di risposta del sito remoto e la distanza sono fattori meno importanti. Vi è rischio di perdita di dati se i dati di origine vanno persi e la copia di destinazione dei dati è ancora in buffer senza aver lasciato l'origine.  
 
 Con il suo RPO maggiore di zero, la replica asincrona è meno adatta per le soluzioni a disponibilità elevata come cluster di failover, perché sono progettate per operazioni continue con ridondanza e nessuna perdita dei dati.  
 
-|Modalità|Diagramma|Passaggi|  
-|--------|-----------|---------|  
-|**Asincrono**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO|![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre|  
+| Modalità | Diagramma | Passaggi |
+| -------- | ----------- | --------- |
+| **Asincrono**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>I comportamenti e punti di valutazione principali  
 
@@ -156,7 +160,7 @@ Con il suo RPO maggiore di zero, la replica asincrona è meno adatta per le solu
 
 -   Il volume di destinazione non è accessibile durante la replica in Windows Server 2016. Quando si configura la replica, il volume di destinazione si smonta, rendendolo inaccessibile a letture o scritture da parte degli utenti. La lettera dell'unità potrebbe essere visibile in interfacce tipiche, ad esempio Esplora File, ma un'applicazione non può accedere al volume stesso. Le tecnologie di replica a livello di blocco non sono compatibili con l'accesso al file system montato della destinazione in un volume. NTFS e ReFS non supportano la scrittura dei dati nel volume mentre i blocchi cambiano al di sotto di essi. 
 
-In Windows Server 2019 (e Windows Server, versione 1709) di **Failover di Test** è stato aggiunto il cmdlet. Adesso supporta temporaneamente il montaggio di uno snapshot di lettura / scrittura del volume di destinazione per i backup, test e così via. Vedere https://aka.ms/srfaq per altre informazioni.
+Il **Failover di Test** cmdlet debutto in Windows Server, versione 1709 ed è stato anche incluso in Windows Server 2019. Adesso supporta temporaneamente il montaggio di uno snapshot di lettura / scrittura del volume di destinazione per i backup, test e così via. Vedere https://aka.ms/srfaq per altre informazioni.
 
 -   L'implementazione Microsoft della replica asincrona è diversa rispetto alla maggior parte delle implementazioni. La maggior parte delle implementazioni della replica asincrona nel settore si basano sulla replica basata su snapshot, in cui trasferimenti differenziali periodici si muovono sull'altro nodo e si uniscono. La replica di Replica archiviazione asincrona funziona come la replica sincrona, ad eccezione del fatto che elimina la necessità di un riconoscimento sincrono serializzato dalla destinazione. Ciò significa che Replica di archiviazione possiede teoricamente un RPO inferiore, poiché esegue continuamente la replica. Tuttavia, ciò significa che si basa su garanzie di coerenza interne dell'applicazione invece di usare gli snapshot per forzare la coerenza nei file dell'applicazione. Replica di archiviazione assicura una coerenza per arresto anomalo del sistema in tutte le modalità di replica  
 
@@ -185,6 +189,7 @@ Questa guida usa frequentemente i termini seguenti:
 Per un elenco delle nuove funzionalità di Replica di archiviazione in Windows Server 2019, vedere [nuove funzionalità di archiviazione](../whats-new-in-storage.md#storage-replica2019)
 
 ## <a name="see-also"></a>Vedere anche
+
 - [Replica di Cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 - [Replica di archiviazione da server a Server](server-to-server-storage-replication.md)  
 - [Replica di archiviazione da cluster a Cluster](cluster-to-cluster-storage-replication.md)  

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c8070268fdf58fbbb71c159a7360b488222ef740
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e2ccf6187e4480f94b30632b6f8f9f092052541
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852182"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811081"
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -31,22 +31,31 @@ Il **PowerShell.exe** lo strumento da riga di comando avvia una sessione di Wind
 È possibile usare la **PowerShell.exe** lo strumento da riga di comando per avviare una sessione di Windows PowerShell in una finestra del prompt dei comandi.
 
 - Per avviare una sessione di Windows PowerShell in una finestra del prompt dei comandi, digitare `PowerShell`. Oggetto **PS** prefisso viene aggiunto al prompt dei comandi per indicare che sei in una sessione di Windows PowerShell.
-- Per avviare una sessione con un criterio di esecuzione specifico, usare il **ExecutionPolicy** parametro.  
+
+- Per avviare una sessione con un criterio di esecuzione specifico, usare il **ExecutionPolicy** parametro.
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
-- Per avviare una sessione di Windows PowerShell senza i profili di Windows PowerShell, usare il **NoProfile** parametro.  
+    ```
+
+- Per avviare una sessione di Windows PowerShell senza i profili di Windows PowerShell, usare il **NoProfile** parametro.
+
     ```
     PowerShell.exe -NoProfile
-    ```  
-- Per avviare una sessione, usare il **ExecutionPolicy** parametro.  
+    ```
+  
+- Per avviare una sessione, usare il **ExecutionPolicy** parametro.
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
+    ```
+  
 - Per visualizzare il PowerShell.exe file della Guida, usare il comando nel formato seguente.  
+    
     ```
     PowerShell.exe -help, -?, /?
-    ```  
+    ```
+
 - Per terminare una sessione di Windows PowerShell in una finestra del prompt dei comandi, digitare `exit`. Restituisce il prompt dei comandi tipico.
 
 Per un elenco completo delle **PowerShell.exe** parametri della riga di comando, vedere [about_PowerShell.Exe](https://go.microsoft.com/fwlink/?LinkID=113439).

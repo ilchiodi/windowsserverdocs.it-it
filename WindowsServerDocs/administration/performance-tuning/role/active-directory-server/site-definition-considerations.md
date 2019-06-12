@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9861703e5ae88dcaec5e76d9fab426b928d0cb9a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266633"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811502"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Esatto posizionamento dei controller di dominio e considerazioni sul sito
 
@@ -64,11 +64,11 @@ Attendibilità tra domini gli scenari sono un'area in cui è stato in modo coere
 
     -   Utilizzare DnsAvoidRegisterRecords per eliminare in modo inadeguato prestazioni o ad alta latenza controller di dominio, ad esempio quelli in siti satellite, grazie alla pubblicità per i localizzatori generici. Per altre informazioni, vedi [come ottimizzare la posizione di un controller di dominio o un catalogo globale che si trova di fuori di un sito del client](https://support.microsoft.com/kb/306602).
 
-        > [!Note]   È previsto un limite pratico di circa 50 al numero di controller di dominio che può usare il client. Deve trattarsi di maggiore capacità sito ottimali e massimi i controller di dominio.
+        > [!NOTE]
+        > È previsto un limite pratico di circa 50 al numero di controller di dominio che può usare il client. Deve trattarsi di maggiore capacità sito ottimali e massimi i controller di dominio.
 
-         
-
-    -   È consigliabile inserire i controller di dominio da domini trusted e trusting nella stessa posizione fisica.
+    
+    -  È consigliabile inserire i controller di dominio da domini trusted e trusting nella stessa posizione fisica.
 
 Per tutti gli scenari di attendibilità, le credenziali vengono indirizzate in base al dominio specificato nelle richieste di autenticazione. Questo vale anche per le query le LsaLookupNames LookupAccountName per (, oltre ad altri utenti, questi vengono semplicemente più comunemente utilizzati) le API. Quando i parametri di dominio per queste API vengono passati un valore NULL, verrà effettuato un tentativo di trovare il nome dell'account specificato in ogni dominio trusted disponibile il controller di dominio.
 

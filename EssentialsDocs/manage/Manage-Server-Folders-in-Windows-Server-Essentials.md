@@ -12,12 +12,12 @@ ms.assetid: 090cf1b8-7b9b-48b9-ae85-b98477b8d7cc
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e1f3640f21b95acafa850b2204cd52f9c0f324e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859332"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433201"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Gestire le cartelle server in Windows Server Essentials
 
@@ -42,23 +42,23 @@ ms.locfileid: "59859332"
 ##  <a name="BKMK_2"></a> Gestire le cartelle del server tramite il Dashboard  
  Windows Server Essentials permette di eseguire le attività amministrative comuni tramite il dashboard. La pagina **Cartelle server** del dashboard offre le informazioni seguenti:  
   
--   Un elenco di cartelle del server, che include:  
+- Un elenco di cartelle del server, che include:  
   
-    -   Il nome della cartella.  
+  -   Il nome della cartella.  
   
-    -   Una descrizione della cartella.  
+  -   Una descrizione della cartella.  
   
-    -   La posizione della cartella.  
+  -   La posizione della cartella.  
   
-    -   La quantità di spazio disponibile presente nel percorso della cartella.  
+  -   La quantità di spazio disponibile presente nel percorso della cartella.  
   
-    -   Brevi informazioni sullo stato per ogni attività in esecuzione nella cartella. Il campo **Stato** sarà vuoto se la cartella è integra e se non sono in esecuzione attività.  
+  -   Brevi informazioni sullo stato per ogni attività in esecuzione nella cartella. Il campo **Stato** sarà vuoto se la cartella è integra e se non sono in esecuzione attività.  
   
--   Un riquadro dei dettagli che offre informazioni aggiuntive su una cartella selezionata.  
+- Un riquadro dei dettagli che offre informazioni aggiuntive su una cartella selezionata.  
   
--   Un riquadro attività che include un insieme di attività amministrative correlate alle cartelle.  
+- Un riquadro attività che include un insieme di attività amministrative correlate alle cartelle.  
   
- La tabella seguente illustra le diverse attività relative alle cartelle del server disponibili nel Dashboard di Windows Server Essentials. La maggior parte delle attività è specifica per la cartella e le attività saranno visualizzate solo quando si seleziona una cartella nell'elenco.  
+  La tabella seguente illustra le diverse attività relative alle cartelle del server disponibili nel Dashboard di Windows Server Essentials. La maggior parte delle attività è specifica per la cartella e le attività saranno visualizzate solo quando si seleziona una cartella nell'elenco.  
   
 ### <a name="server-folder-tasks-on-the-dashboard"></a>Attività relative alle cartelle del server nel dashboard  
   
@@ -77,13 +77,13 @@ ms.locfileid: "59859332"
   
  L'uso delle cartelle del server per l'archiviazione dei file permette di ottenere i risultati seguenti:  
   
--   Eseguire il backup della cartella del server tramite il backup e il ripristino del server per semplificare la protezione da un errore completo del server.  
+- Eseguire il backup della cartella del server tramite il backup e il ripristino del server per semplificare la protezione da un errore completo del server.  
   
--   Accedere a file archiviati nella cartella del server da qualsiasi posizione tramite un browser Internet mediante Accesso Web remoto oppure tramite le app My Server per Windows Phone e Windows 8.  
+- Accedere a file archiviati nella cartella del server da qualsiasi posizione tramite un browser Internet mediante Accesso Web remoto oppure tramite le app My Server per Windows Phone e Windows 8.  
   
--   Accedere a una nuova cartella del server da qualsiasi computer client.  
+- Accedere a una nuova cartella del server da qualsiasi computer client.  
   
- È possibile gestire l'accesso a qualsiasi cartella del server disponibile sul server tramite le attività nella scheda **Cartelle server** del dashboard. Nella tabella seguente sono elencate le cartelle del server create per impostazione predefinita quando si installa Windows Server Essentials o si attivano i flussi multimediali sul server.  
+  È possibile gestire l'accesso a qualsiasi cartella del server disponibile sul server tramite le attività nella scheda **Cartelle server** del dashboard. Nella tabella seguente sono elencate le cartelle del server create per impostazione predefinita quando si installa Windows Server Essentials o si attivano i flussi multimediali sul server.  
   
 |Nome della cartella del server|Descrizione|  
 |------------------------|-----------------|  
@@ -188,43 +188,43 @@ ms.locfileid: "59859332"
   
  Se necessario, è possibile **spostare una cartella del server** disponibile nel server primario che esegue Windows Server Essentials e visualizzata nella scheda **Cartelle server** del dashboard in un altro disco rigido usando la procedura guidata Sposta una cartella. È possibile spostare una cartella del server in un altro indirizzo del percorso del disco rigido se si verificano le condizioni seguenti:  
   
--   Lo spazio disponibile nel disco rigido di dati non è più sufficiente per l'archiviazione dei dati.  
+- Lo spazio disponibile nel disco rigido di dati non è più sufficiente per l'archiviazione dei dati.  
   
--   Si vuole modificare il percorso di archiviazione predefinito. Per uno spostamento più rapido, prendere in considerazione lo spostamento della cartella del server quando ancora non include dati.  
+- Si vuole modificare il percorso di archiviazione predefinito. Per uno spostamento più rapido, prendere in considerazione lo spostamento della cartella del server quando ancora non include dati.  
   
--   Si vuole rimuovere il disco rigido esistente senza perdere le cartelle del server incluse.  
+- Si vuole rimuovere il disco rigido esistente senza perdere le cartelle del server incluse.  
   
- Prima di spostare la cartella, verificare quanto segue:  
+  Prima di spostare la cartella, verificare quanto segue:  
   
--   Verificare che il backup del server sia stato eseguito.  
+- Verificare che il backup del server sia stato eseguito.  
   
--   Se si prevede di spostare la cartella Backup computer client, verificare che tutti i backup dei client siano stati interrotti e non siano in esecuzione. Durante lo spostamento della cartella Backup computer client, il server non sarà in grado di eseguire il backup dei computer client fino al termine dello spostamento della cartella.  
+- Se si prevede di spostare la cartella Backup computer client, verificare che tutti i backup dei client siano stati interrotti e non siano in esecuzione. Durante lo spostamento della cartella Backup computer client, il server non sarà in grado di eseguire il backup dei computer client fino al termine dello spostamento della cartella.  
   
--   Verificare che il server non stia eseguendo operazioni critiche per il sistema. È consigliabile completare eventuali aggiornamenti o backup in corso prima di avviare lo spostamento di una cartella. In caso contrario, il completamento del processo potrebbe richiedere più tempo.  
+- Verificare che il server non stia eseguendo operazioni critiche per il sistema. È consigliabile completare eventuali aggiornamenti o backup in corso prima di avviare lo spostamento di una cartella. In caso contrario, il completamento del processo potrebbe richiedere più tempo.  
   
--   Nessuno dei file della cartella da spostare deve essere in uso. Non sarà possibile accedere alla cartella del server durante lo spostamento.  
+- Nessuno dei file della cartella da spostare deve essere in uso. Non sarà possibile accedere alla cartella del server durante lo spostamento.  
   
- Lo spostamento di una cartella da NTFS a ReFS non è supportato se i file nelle cartelle del server implementano le tecnologie seguenti:  
+  Lo spostamento di una cartella da NTFS a ReFS non è supportato se i file nelle cartelle del server implementano le tecnologie seguenti:  
   
--   Flussi di dati alternativi  
+- Flussi di dati alternativi  
   
--   ID oggetto  
+- ID oggetto  
   
--   Nomi brevi (nomi in formato 8.3)  
+- Nomi brevi (nomi in formato 8.3)  
   
--   Compressione  
+- Compressione  
   
--   Crittografia EFS  
+- Crittografia EFS  
   
--   NTFS transazionale, TxF (introdotto con Windows Vista)  
+- NTFS transazionale, TxF (introdotto con Windows Vista)  
   
--   File sparse  
+- File sparse  
   
--   Collegamenti reali  
+- Collegamenti reali  
   
--   Attributi estesi  
+- Attributi estesi  
   
--   Quote  
+- Quote  
   
 ###  <a name="BKMK_6"></a> Posizione in cui aggiungere o spostare una cartella del server  
  In genere è consigliabile aggiungere o spostare le cartelle del server nel disco rigido in cui è disponibile la quantità massima di spazio. Se possibile, evitare di aggiungere o spostare una cartella condivisa nell'unità di sistema, ad esempio C:, poiché ciò potrebbe ridurre lo spazio sull'unità necessario per il sistema operativo e i relativi aggiornamenti. Evitare anche di aggiungere o spostare le cartelle del server in un disco rigido esterno, poiché queste unità possono essere disconnesse con facilità ed è quindi possibile che non si riesca ad accedere ai file. È invece consigliabile creare la cartella in un'unità interna.  
@@ -254,17 +254,17 @@ ms.locfileid: "59859332"
   
 ##### <a name="to-add-a-server-folder"></a>Per aggiungere una cartella del server  
   
-1.  Aprire il dashboard.  
+1. Aprire il dashboard.  
   
-2.  Fare clic su **ARCHIVIAZIONE**, quindi su **Cartelle server**.  
+2. Fare clic su **ARCHIVIAZIONE**, quindi su **Cartelle server**.  
   
-3.  In **Attività cartelle server** fare clic su **Aggiungi una cartella**. Sarà visualizzata la procedura guidata Aggiungi cartella.  
+3. In **Attività cartelle server** fare clic su **Aggiungi una cartella**. Sarà visualizzata la procedura guidata Aggiungi cartella.  
   
-4.  Seguire le istruzioni per completare la procedura guidata.  
+4. Seguire le istruzioni per completare la procedura guidata.  
   
-    > [!NOTE]
-    >  -   Se si cerca una cartella specifica tramite il pulsante Sfoglia per specificare il percorso della cartella del server, la cartella selezionata sarà aggiunta come cartella del server.  
-    > -   È possibile definire le cartelle del server che saranno accessibili tramite il servizio Accesso Web remoto. Per altre informazioni, vedere [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
+   > [!NOTE]
+   > - Se si cerca una cartella specifica tramite il pulsante Sfoglia per specificare il percorso della cartella del server, la cartella selezionata sarà aggiunta come cartella del server.  
+   >   -   È possibile definire le cartelle del server che saranno accessibili tramite il servizio Accesso Web remoto. Per altre informazioni, vedere [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-move-a-server-folder"></a>Per spostare una cartella del server  
   
@@ -294,13 +294,13 @@ ms.locfileid: "59859332"
 ##  <a name="BKMK_Shadow"></a> Informazioni sulle copie shadow  
  Le copie shadow del server permettono agli utenti di visualizzare i file e le cartelle condivisi disponibili in determinati momenti passati. L'accesso a versioni precedenti dei file ovvero alle copie shadow è utile poiché permette agli utenti di eseguire le operazioni seguenti:  
   
-1.  **Ripristinare file eliminati accidentalmente**. Se un file è stato eliminato accidentalmente, è possibile aprire una versione precedente e copiarla in una posizione sicura.  
+1. **Ripristinare file eliminati accidentalmente**. Se un file è stato eliminato accidentalmente, è possibile aprire una versione precedente e copiarla in una posizione sicura.  
   
-2.  **Ripristinare un file sovrascritto accidentalmente**. Se si sovrascrive accidentalmente un file, è possibile eseguire il ripristino di una versione precedente del file (il numero delle versioni dipende da quanti snapshot sono stati creati).  
+2. **Ripristinare un file sovrascritto accidentalmente**. Se si sovrascrive accidentalmente un file, è possibile eseguire il ripristino di una versione precedente del file (il numero delle versioni dipende da quanti snapshot sono stati creati).  
   
-3.  **Confrontare diverse versioni di un file durante l'utilizzo**. È possibile utilizzare le versioni precedenti quando si desidera verificare le modifiche apportate tra le diverse versioni di un file.  
+3. **Confrontare diverse versioni di un file durante l'utilizzo**. È possibile utilizzare le versioni precedenti quando si desidera verificare le modifiche apportate tra le diverse versioni di un file.  
   
- Per usare le copie shadow, in un computer client fare clic con il pulsante destro del mouse su una cartella condivisa del server, quindi scegliere **Ripristina versione precedente**.  
+   Per usare le copie shadow, in un computer client fare clic con il pulsante destro del mouse su una cartella condivisa del server, quindi scegliere **Ripristina versione precedente**.  
   
 ## <a name="see-also"></a>Vedere anche  
   

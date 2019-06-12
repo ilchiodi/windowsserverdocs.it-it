@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e8c5da1960d0e3129b5520e65c2d5ecf45eef778
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886952"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804945"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Introduzione a Desktop remoto su Mac
 
@@ -27,7 +27,7 @@ ms.locfileid: "59886952"
 
 È possibile usare il client Desktop remoto per Mac per lavorare con le app, risorse e desktop Windows dal computer Mac. Usare le informazioni seguenti per iniziare - e consultare il [domande frequenti su](remote-desktop-client-faq.md) se hai domande.
 
->[!Note]
+>[!NOTE]
 > - Conoscere le nuove versioni per i client macOS? Scopri [novità di Desktop remoto su Mac?](mac-whatsnew.md)
 > - Viene eseguito il client Mac nei computer che eseguono macOS 10.10 e versioni successive.
 > - Le informazioni in questo articolo si applicano principalmente per la versione completa del client Mac - la versione disponibile in Mac App Store. Provare le nuove funzionalità, scaricare l'app di anteprima di seguito: [note sulla versione di client beta](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
@@ -47,17 +47,17 @@ Se hai già il client, è possibile cercare gli aggiornamenti per assicurarsi di
 ## <a name="add-a-remote-desktop-connection"></a>Aggiungere una connessione Desktop remoto
 Per creare una connessione desktop remoto:
 
-1. Nel Centro connessioni, fare clic su **+**, quindi fare clic su **Desktop**.
+1. Nel Centro connessioni, fare clic su **+** , quindi fare clic su **Desktop**.
 2. Immettere le informazioni seguenti:
    - **Nome PC** -il nome del computer.
       - Può trattarsi di un nome di computer Windows (disponibili nel **sistema** impostazioni), un nome di dominio o un indirizzo IP.
       - È anche possibile aggiungere informazioni sulla porta alla fine di questo nome, ad esempio *MyDesktop:3389*.
    - **Account utente** -aggiungere l'account utente usato per accedere al computer remoto.
-      - Per Active Directory (AD) aggiunti a un computer o account locali, usare uno dei seguenti formati: *user_name*, *DOMINIO\nome_utente.*, o *user_name@domain.com*.
-      - Per Azure Active Directory (AAD) unita in join i computer, usare uno dei formati seguenti: *AzureAD\user_name* oppure *AzureAD\user_name@domain.com*.
-      - È anche possibile scegliere se richiedere una password.
-      - Quando si gestiscono più account utente con lo stesso nome utente, impostare un nome descrittivo per distinguere gli account.
-      - Gestire gli account utente salvato nelle preferenze dell'app. 
+     - Per Active Directory (AD) aggiunti a un computer o account locali, usare uno dei seguenti formati: *user_name*, *DOMINIO\nome_utente.* , o <em>user_name@domain.com</em>.
+     - Per Azure Active Directory (AAD) unita in join i computer, usare uno dei formati seguenti: *AzureAD\user_name* oppure <em>AzureAD\user_name@domain.com</em>.
+     - È anche possibile scegliere se richiedere una password.
+     - Quando si gestiscono più account utente con lo stesso nome utente, impostare un nome descrittivo per distinguere gli account.
+     - Gestire gli account utente salvato nelle preferenze dell'app. 
 
 3. È anche possibile impostare queste impostazioni facoltative per la connessione:
    - Impostare un nome descrittivo 
@@ -82,7 +82,7 @@ Per avviare la connessione, semplicemente fare doppio clic. Lo stesso vale per l
 
 Utilizzare la procedura seguente per importare un desktop remoto. File con estensione RDP.
 
-1. Nella barra dei menu, fare clic su **File > Importa**.
+1. Nella barra dei menu, fare clic su **File** > **importazione**.
 2. Individuare il. File con estensione RDP.
 3. Fare clic su **Apri**.
 
@@ -94,7 +94,7 @@ Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop 
 
 Per aggiungere una risorsa remota:
 
-1. Nella fare clic su Centro connessioni **+**, quindi fare clic su **aggiungere risorse Remote**. 
+1. Nella fare clic su Centro connessioni **+** , quindi fare clic su **aggiungere risorse Remote**. 
 2. Immettere le informazioni per la risorsa remota:
    - **URL del feed** -l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendale in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
    - **Nome utente** -il nome utente da utilizzare per il server Accesso Web desktop remoto si è connessi.
@@ -113,8 +113,8 @@ Per configurare un nuovo gateway nelle preferenze:
 
 1. Nel Centro connessioni, fare clic su **Preferenze > gateway**. 
 2. Scegliere il **+** nella parte inferiore della tabella immettere le informazioni seguenti:
-  - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
-  - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
+   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+   - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
 
 
 ## <a name="manage-your-user-accounts"></a>Gestire gli account utente
@@ -136,10 +136,10 @@ Per creare un nuovo account utente:
 
 1. Nel Centro connessioni, fare clic su **Preferenze**.
 2. Fare clic su **risoluzione**. 
-3. Fare clic su **+**.
+3. Fare clic su **+** .
 4. Immettere una risoluzione altezza e la larghezza e quindi fare clic su **OK.**
 
-Per eliminare la risoluzione, selezionarlo e quindi fare clic su **-**.
+Per eliminare la risoluzione, selezionarlo e quindi fare clic su **-** .
 
 **Consente di visualizzare deve contenere spazi separati** se è in esecuzione Mac OS X 10.9 e disabilitati **consente di visualizzare deve contenere spazi separati** in Mavericks (**preferenze di sistema > Mission Control**), è necessario configurare Questa impostazione del client di desktop remoto con la stessa opzione.
 

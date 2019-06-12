@@ -12,20 +12,20 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7fed7e71f7ac163437fe5d32da7c867f93fbcf00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc83686f76c49773203d63a88894841f65ffd1d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869972"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433764"
 ---
-#<a name="whats-new-in-windows-server-2016-essentials"></a>Novità di Windows Server 2016 Essentials
+# <a name="whats-new-in-windows-server-2016-essentials"></a>Novità di Windows Server 2016 Essentials
 
 > Si applica a: Windows Server 2016 Essentials
 
 Seguito sono nuove e migliorate funzionalità in Windows Server 2016 Essentials.
 
-##<a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Integrazione con servizi di Azure Site Recovery](azure-site-recovery-services-integration.md)
+## <a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Integrazione con servizi di Azure Site Recovery](azure-site-recovery-services-integration.md)
 
 **Cosa** , ovvero quando una macchina virtuale che è protetta ha esito negativo o il server host che viene eseguita la macchina virtuale protetta in ha esito negativo, eseguire il failover con servizi di Azure Site Recovery gestisce la continuità aziendale finché la macchina virtuale locale su o server host è corretto e disponibile. 
 
@@ -40,7 +40,7 @@ Seguito sono nuove e migliorate funzionalità in Windows Server 2016 Essentials.
 
 
 
-##<a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Supporto per distribuzioni di grandi dimensioni](support-for-larger-deployments.md) 
+## <a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Supporto per distribuzioni di grandi dimensioni](support-for-larger-deployments.md) 
 
 Alcune aziende di piccole dimensioni più grandi necessarie altre funzionalità e la capacità di implementare in modo efficace di Windows Server Essentials. Windows Server 2016 Essentials offre maggiore facilità di gestione di domini, utenti e dispositivi mediante l'aggiunta di supporto per distribuzioni più grandi con:                                                                                                                                                                                                 
 

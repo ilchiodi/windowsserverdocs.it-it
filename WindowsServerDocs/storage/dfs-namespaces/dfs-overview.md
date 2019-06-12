@@ -6,14 +6,14 @@ ms.manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 description: Questo articolo descrive Spazi dei nomi DFS, ovvero un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente.
-ms.openlocfilehash: 33b5a36c9f13179286a95735621272f79983231c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: b16d8145d766cbb9b12feaaa2e5e9443813a69f2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613192"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812575"
 ---
 # <a name="dfs-namespaces-overview"></a>Informazioni generali su Spazi dei nomi DFS
 
@@ -55,11 +55,11 @@ I server che eseguono i seguenti sistemi operativi possono ospitare un singolo s
 
 La tabella seguente descrive i fattori aggiuntivi da considerare nella scelta dei server per ospitare uno spazio dei nomi.
 
-|Server che ospita spazi dei nomi autonomi|Server che ospita spazi dei nomi basati sul dominio|
-|---|---|
-|Deve contenere un volume NTFS per ospitare lo spazio dei nomi.|Deve contenere un volume NTFS per ospitare lo spazio dei nomi.|
-|Può essere un server membro o controller di dominio.|Deve essere un server membro o controller di dominio nel dominio in cui è configurato lo spazio dei nomi. Questo requisito si applica a ogni server dello spazio dei nomi che ospita un determinato spazio dei nomi basato sul dominio.|
-|Può essere ospitato da un cluster di failover per aumentare la disponibilità dello spazio dei nomi.|Lo spazio dei nomi non può essere una risorsa in cluster in un cluster di failover. Tuttavia, è possibile individuare lo spazio dei nomi in un server che funge anche da nodo in un cluster di failover se si configura lo spazio dei nomi solo per l'utilizzo di risorse locali su tale server.|
+| Server che ospita spazi dei nomi autonomi | Server che ospita spazi dei nomi basati sul dominio |
+| ---                                   |        ---                                |
+| Deve contenere un volume NTFS per ospitare lo spazio dei nomi.|Deve contenere un volume NTFS per ospitare lo spazio dei nomi. |
+| Può essere un server membro o controller di dominio.|Deve essere un server membro o controller di dominio nel dominio in cui è configurato lo spazio dei nomi. Questo requisito si applica a ogni server dello spazio dei nomi che ospita un determinato spazio dei nomi basato sul dominio. |
+| Può essere ospitato da un cluster di failover per aumentare la disponibilità dello spazio dei nomi.|Lo spazio dei nomi non può essere una risorsa in cluster in un cluster di failover. Tuttavia, è possibile individuare lo spazio dei nomi in un server che funge anche da nodo in un cluster di failover se si configura lo spazio dei nomi solo per l'utilizzo di risorse locali su tale server. |
 
 ## <a name="installing-dfs-namespaces"></a>Installazione di Spazi dei nomi DFS
 
@@ -89,10 +89,10 @@ Aprire una sessione di Windows PowerShell con diritti utente elevati e quindi di
 Install-WindowsFeature <name>
 ```
 
-|Servizio ruolo o funzionalità|Nome|
-|---|---|
-|Spazi dei nomi DFS|`FS-DFS-Namespace`|
-|Strumenti di gestione DFS|`RSAT-DFS-Mgmt-Con`|
+| Servizio ruolo o funzionalità | Nome |
+| ----------------------- | ---- |
+| Spazi dei nomi DFS          | `FS-DFS-Namespace` |
+| Strumenti di gestione DFS    | `RSAT-DFS-Mgmt-Con` |
 
 Per installare, ad esempio, il componente Strumenti per File system distribuito (DFS) della funzionalità Strumenti di amministrazione remota del server, digitare:
 
@@ -120,12 +120,12 @@ Per altre informazioni introduttive sulle macchine virtuali di Azure, vedi la [d
 
 Per altre informazioni correlate, vedere le risorse seguenti.
 
-|Tipo di contenuto|Riferimenti|
-|------------------|----------------|
-|**Valutazione del prodotto**|[Che cosa sono le novità di spazi dei nomi DFS e replica DFS in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx)|
-|**Distribuzione**|[Considerazioni sulla scalabilità Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx)|
-|**Operazioni**|[Spazi dei nomi DFS: domande frequenti](https://technet.microsoft.com/library/ee404780.aspx)|
-|**Risorse della community**|[Servizi File e archiviazione TechNet Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/)|
-|**Protocolli**|[Protocolli di Windows Server per servizi file](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (deprecata)|
-|**Tecnologie correlate**| [Clustering di failover](../../failover-clustering/failover-clustering-overview.md)|
-|**Supporto tecnico**|[Windows IT Pro supporto](https://www.microsoft.com/itpro/windows/support)|
+| Tipo di contenuto        | Riferimenti |
+| ------------------  | ----------------|
+| **Valutazione del prodotto** | [Che cosa sono le novità di spazi dei nomi DFS e replica DFS in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
+| **Distribuzione**    | [Considerazioni sulla scalabilità Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Operazioni**    | [Spazi dei nomi DFS: domande frequenti](https://technet.microsoft.com/library/ee404780.aspx) |
+| **Risorse della community** | [Servizi File e archiviazione TechNet Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
+| **Protocolli**        | [Protocolli di Windows Server per servizi file](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (deprecata) |
+| **Tecnologie correlate** | [Clustering di failover](../../failover-clustering/failover-clustering-overview.md)|
+| **Supporto tecnico** | [Windows IT Pro supporto](https://www.microsoft.com/itpro/windows/support)|

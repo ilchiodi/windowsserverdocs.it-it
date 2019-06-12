@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: d304ee3456f8db1e5b202c1d9221d1374a5251be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7c2d7113847cc44f18c5234502b58becde1dcb9f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831012"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446516"
 ---
 # <a name="device-health-attestation"></a>Attestazione dell'integrità dei dispositivi
 
@@ -58,15 +58,15 @@ Il servizio DHA si integra con le soluzioni MDM e offre quanto segue:
 Di seguito è riportato un esempio che illustra come è possibile usare DHA per aumentare il livello di protezione di protezione delle risorse dell'organizzazione.
 
 1. Creare un criterio che controlla la configurazione e gli attributi di avvio riportati di seguito:
-  - Avvio protetto
-  - BitLocker
-  - ELAM
+   - Avvio protetto
+   - BitLocker
+   - ELAM
 2. La soluzione MDM applica questo criterio e attiva un'azione correttiva in base ai dati del report DHA.  Ad esempio, può verificare quanto segue:
-  - L'avvio protetto è stato abilitato, il dispositivo ha caricato codice attendibile e autenticato e il caricatore d'avvio di Windows non è stato manomesso.
-  - L'avvio sicuro ha verificato correttamente la firma digitale del kernel di Windows e i componenti che sono stati caricati durante l'avvio al dispositivo.
-  - L'avvio con misurazioni ha creato un itinerario di controllo protetto da TPM che può essere verificato in modalità remota.
-  - BitLocker è stato attivato e ha protetto i dati quando il dispositivo è stato spento.
-  - La funzionalità ELAM è stata attivata nelle prime fasi di avvio e sta monitorando il runtime.
+   - L'avvio protetto è stato abilitato, il dispositivo ha caricato codice attendibile e autenticato e il caricatore d'avvio di Windows non è stato manomesso.
+   - L'avvio sicuro ha verificato correttamente la firma digitale del kernel di Windows e i componenti che sono stati caricati durante l'avvio al dispositivo.
+   - L'avvio con misurazioni ha creato un itinerario di controllo protetto da TPM che può essere verificato in modalità remota.
+   - BitLocker è stato attivato e ha protetto i dati quando il dispositivo è stato spento.
+   - La funzionalità ELAM è stata attivata nelle prime fasi di avvio e sta monitorando il runtime.
   
 #### <a name="dha-cloud-service"></a>Servizio DHA cloud
 

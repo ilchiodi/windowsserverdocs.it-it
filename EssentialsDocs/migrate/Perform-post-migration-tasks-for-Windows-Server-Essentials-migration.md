@@ -12,12 +12,12 @@ ms.assetid: f2d236a4-0d62-4961-9d1f-332054e06f6d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 535a547ded55cb4afc0942259eadf5222a815274
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93d07938435ab1ce7686b1960974696582a2924c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432666"
 ---
 # <a name="perform-post-migration-tasks-for-windows-server-essentials-migration1"></a>Eseguire le attività di post-migrazione per Windows Server Essentials migration1
 
@@ -84,7 +84,7 @@ Le attività seguenti aiutano a completare la configurazione del server di desti
   
 2.  Fare clic sulla scheda **Connessioni**, su **Impostazioni LAN** e quindi eseguire una delle operazioni seguenti:  
   
-    -   Se non si userà un server proxy nella rete, deselezionare tutte le caselle di controllo nella finestra di dialogo **Impostazioni rete locale (LAN)**.  
+    -   Se non si userà un server proxy nella rete, deselezionare tutte le caselle di controllo nella finestra di dialogo **Impostazioni rete locale (LAN)** .  
   
     -   Se si vuole usare un nuovo server proxy nella rete:  
   
@@ -105,21 +105,21 @@ Le attività seguenti aiutano a completare la configurazione del server di desti
   
 #### <a name="to-give-the-built-in-administrators-group-the-right-to-log-on-as-a-batch-job"></a>Per concedere al gruppo Administrators interno il diritto di accedere come processo batch  
   
-1.  Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
+1. Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
   
-2.  Nel **Gestione criteri di gruppo** albero della Console, espandere **foresta:** *< nomeserver\>*, domini e infine il server.  
+2. Nel **Gestione criteri di gruppo** albero della Console, espandere **foresta:** *< nomeserver\>* , domini e infine il server.  
   
-3.  Espandere **Controller di dominio**, fare clic con il pulsante destro del mouse su **Criterio controller di dominio predefiniti** e quindi scegliere **Modifica**.  
+3. Espandere **Controller di dominio**, fare clic con il pulsante destro del mouse su **Criterio controller di dominio predefiniti** e quindi scegliere **Modifica**.  
   
-4.  Nelle **Editor Gestione criteri di gruppo**, fare clic su **criterio controller di dominio predefiniti ***< ServerName\>*** criteri**, quindi espandere  **Configurazione computer**.  
+4. Nelle **Editor Gestione criteri di gruppo**, fare clic su **criterio controller di dominio predefiniti**<em>< nomeserver\></em>**criterio**, e infine **configurazione Computer**.  
   
-5.  Espandere **Criteri**, **Impostazioni di Windows** e infine **Impostazioni di protezione**.  
+5. Espandere **Criteri**, **Impostazioni di Windows** e infine **Impostazioni di protezione**.  
   
-6.  Nell'albero **Impostazioni di protezione** espandere **Criteri locali** e quindi fare clic su **Assegnazione diritti utente**.  
+6. Nell'albero **Impostazioni di protezione** espandere **Criteri locali** e quindi fare clic su **Assegnazione diritti utente**.  
   
-7.  Nel riquadro risultati fare clic con il pulsante destro del mouse su **Accesso come processo batch** e quindi scegliere Proprietà.  
+7. Nel riquadro risultati fare clic con il pulsante destro del mouse su **Accesso come processo batch** e quindi scegliere Proprietà.  
   
-8.  Nella pagina delle proprietà di **Accesso come processo batch** fare clic su **Aggiungi utente o gruppo**.  
+8. Nella pagina delle proprietà di **Accesso come processo batch** fare clic su **Aggiungi utente o gruppo**.  
   
 9. Nella finestra di dialogo **Aggiungi utente o gruppo** fare clic su **Sfoglia**.  
   
@@ -132,9 +132,9 @@ Le attività seguenti aiutano a completare la configurazione del server di desti
 
 -   [Eseguire la migrazione da Windows SBS 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
--   [Eseguire la migrazione di dati del Server a Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [Eseguire la migrazione dei dati del server a Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 
 -   [Eseguire la migrazione da Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
--   [Eseguire la migrazione di dati del Server a Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [Eseguire la migrazione dei dati del server a Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

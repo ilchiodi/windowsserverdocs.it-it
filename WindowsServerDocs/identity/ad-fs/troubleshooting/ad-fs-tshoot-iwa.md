@@ -8,12 +8,12 @@ ms.date: 02/21/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91f252f5b0eca0f4c44e0b1a4564037298bf023c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9703a8652b0e0bbafe48858cbfbcc8aa9aa31ef8
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814062"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812043"
 ---
 # <a name="ad-fs-troubleshooting---integrated-windows-authentication"></a>Risoluzione dei problemi di AD FS - autenticazione di Windows integrata
 L'autenticazione integrata di Windows consente agli utenti di accedere con le credenziali di Windows e l'esperienza single sign-on (SSO), tramite Kerberos o NTLM.
@@ -24,7 +24,7 @@ Esistono tre eseguita principalmente perché l'autenticazione integrata di windo
     - Token di associazione di canale
     - Configurazione di Internet Explorer
 
-## <a name="spn-misonfiguration"></a>SPN misonfiguration
+## <a name="spn-misconfiguration"></a>Errore di configurazione SPN
 Un nome dell'entità servizio (SPN) è un identificatore univoco di un'istanza del servizio. I nomi SPN vengono utilizzati dall'autenticazione Kerberos per associare un'istanza del servizio con un account di accesso del servizio. In questo modo un'applicazione client di richiedere che il servizio di autenticazione di un account anche se il client non ha il nome dell'account.
 
 Un esempio di un nome SPN viene usato con AD FS è come segue:
@@ -67,13 +67,14 @@ Per impostazione predefinita, Internet explorer avranno le seguenti:
 
 Esistono 2 elementi principali che possono impedire questa happeing.
    - Abilitare che l'autenticazione integrata di Windows non è selezionata nelle proprietà di Internet Explorer.  Ciò che si trova in Opzioni Internet -> Avanzate -> sicurezza.
-![integrated](media/ad-fs-tshoot-iwa/iwa4.png)
+   
+   ![Integrato](media/ad-fs-tshoot-iwa/iwa4.png)
    
    - Le aree di sicurezza non sono configurate correttamente
        - Nomi di dominio completi non sono presenti nell'area intranet
        - URL di AD FS non è presente nell'area intranet.
 
-![Integrato](media/ad-fs-tshoot-iwa/iwa5.png)
+      ![Integrato](media/ad-fs-tshoot-iwa/iwa5.png)
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi di AD FS](ad-fs-tshoot-overview.md)
+- [Risoluzione dei problemi relativi ad AD FS](ad-fs-tshoot-overview.md)

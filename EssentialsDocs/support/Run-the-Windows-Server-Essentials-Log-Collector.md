@@ -12,12 +12,12 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6b49fee7ca4a19d5a501cf96c1ce356f8242c81f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830922"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432496"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Eseguire Windows Server Essentials Log Collector
 È possibile eseguire Windows Server Essentials Log Collector dal server o da un computer in rete. Se si esegue Log Collector dal server, è possibile raccogliere i registri solo dal server. Se si esegue Log Collector da un computer di rete, è possibile scegliere di raccogliere i registri dal server, oltre a quelli per tale computer.  
@@ -26,20 +26,20 @@ ms.locfileid: "59830922"
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>Per eseguire Log Collector sul server usando la procedura guidata  
   
-1.  Nel **avviare** pagina del server, fare clic su **Windows Server Essentials Log Collector**.  
+1. Nel **avviare** pagina del server, fare clic su **Windows Server Essentials Log Collector**.  
   
-    > [!NOTE]
-    >  -   Se il programma Log Collector non viene visualizzato nei **avviare** pagina, passare alla **%system%\Program file (x86) \Windows Server Essentials Log Collector**e quindi fare doppio clic su **LogCollector** .  
-    > -   Se non si è connessi al server con privilegi amministrativi, Log Collector chiede di immettere le credenziali.  
+   > [!NOTE]
+   > - Se il programma Log Collector non viene visualizzato nei **avviare** pagina, passare alla **%system%\Program file (x86) \Windows Server Essentials Log Collector**e quindi fare doppio clic su **LogCollector** .  
+   >   -   Se non si è connessi al server con privilegi amministrativi, Log Collector chiede di immettere le credenziali.  
   
-2.  Quando viene chiesto il percorso salvare i file di log raccolti, è possibile scegliere il percorso predefinito,  **\\ \\< nomeserver\>\logs**, oppure specificare un'altra posizione. Per accettare la posizione predefinita, fare clic su **Next**. Per cambiare la posizione, fare clic su **Browse**, passare alla cartella in cui si vuole salvare i file di log e quindi fare clic su **Save**.  
+2. Quando viene chiesto il percorso salvare i file di log raccolti, è possibile scegliere il percorso predefinito,  **\\ \\< nomeserver\>\logs**, oppure specificare un'altra posizione. Per accettare la posizione predefinita, fare clic su **Next**. Per cambiare la posizione, fare clic su **Browse**, passare alla cartella in cui si vuole salvare i file di log e quindi fare clic su **Save**.  
   
-    > [!NOTE]
-    >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome dell'insieme di file zip concatenando il nome del computer e il timestamp del file.  
+   > [!NOTE]
+   >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome dell'insieme di file zip concatenando il nome del computer e il timestamp del file.  
   
-3.  Durante la raccolta dei registri viene visualizzato un indicatore di stato.  
+3. Durante la raccolta dei registri viene visualizzato un indicatore di stato.  
   
-4.  Per visualizzare il contenuto del file della raccolta dei log, selezionare la casella di controllo **Aprire il percorso file in cui sono stati salvati i file di log** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei log.  
+4. Per visualizzare il contenuto del file della raccolta dei log, selezionare la casella di controllo **Aprire il percorso file in cui sono stati salvati i file di log** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei log.  
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>Per eseguire Log Collector su un computer di rete usando la procedura guidata  
   

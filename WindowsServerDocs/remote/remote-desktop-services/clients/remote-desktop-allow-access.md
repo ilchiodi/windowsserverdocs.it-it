@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: af41304e08f19ca155f6fd13c9258e9a8f20c163
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817012"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804996"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Desktop remoto - consentire l'accesso al computer
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 È possibile usare Desktop remoto per connettersi a e controllare il PC da un dispositivo remoto utilizzando un [client Desktop remoto Microsoft](remote-desktop-clients.md) (disponibile per Windows, iOS, macOS e Android). Se si consentono le connessioni remote al computer, è possibile utilizzare un altro dispositivo di connettersi al computer e avere accesso a tutte le app, i file e le risorse di rete come se si utilizzasse dalla propria scrivania.  
 
@@ -64,7 +64,7 @@ Tenere presente che quando si abilita l'accesso a Desktop remoto, si concede a t
 È necessario assicurarsi che ogni account che dispone dell'accesso al computer sia configurato con una password complessa.
 
 ## <a name="why-allow-connections-only-with-network-level-authentication"></a>Il motivo per cui consentire le connessioni solo con l'autenticazione a livello di rete? 
- 
-Se si desidera limitare l'accesso al computer, scegliere di consentire l'accesso solo con livello di autenticazione NLA (Network). Quando si abilita questa opzione, gli utenti devono autenticarsi su rete prima di potersi connettere al computer. Consentire le connessioni solo da computer che eseguono Desktop remoto con NLA è un metodo di autenticazione più sicuro che consente di proteggere il computer dal software e gli utenti malintenzionati. Per altre informazioni su NLA e Desktop remoto, estrarre [NLA configurare per le connessioni RDS](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx). 
+
+Se si desidera limitare l'accesso al computer, scegliere di consentire l'accesso solo con livello di autenticazione NLA (Network). Quando si abilita questa opzione, gli utenti devono autenticarsi su rete prima di potersi connettere al computer. Consentire le connessioni solo da computer che eseguono Desktop remoto con NLA è un metodo di autenticazione più sicuro che consente di proteggere il computer dal software e gli utenti malintenzionati. Per altre informazioni su NLA e Desktop remoto, estrarre [NLA configurare per le connessioni RDS](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx).
 
 Se ci si connette a un PC in remoto nella rete domestica all'esterno di tale rete, non selezionare questa opzione.

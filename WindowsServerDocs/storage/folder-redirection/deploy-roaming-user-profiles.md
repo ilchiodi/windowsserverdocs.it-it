@@ -6,14 +6,14 @@ ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
-ms.date: 07/09/2018
+ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: c662b8c44e3603ec972e06f3fb0ddbd55e1af904
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192723"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812492"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Distribuzione di profili utente mobili
 
@@ -23,8 +23,8 @@ Questo argomento descrive come usare Windows Server per distribuire [profili ute
 
 Per un elenco delle modifiche recenti apportate a questo argomento, vedere la [cronologia modifiche](#change-history) sezione di questo argomento.
 
->[!IMPORTANT]
->A causa della protezione modifiche apportate [MS16 072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), sono stati aggiornati [passaggio 4: Facoltativamente, creare un oggetto Criteri di gruppo per i profili utente mobili](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) in questo argomento in modo che Windows possa applicare correttamente il criterio dei profili utente mobili (e non è stato ripristinato a criteri locali nei computer interessati).
+> [!IMPORTANT]
+> A causa della protezione modifiche apportate [MS16 072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), sono stati aggiornati [passaggio 4: Facoltativamente, creare un oggetto Criteri di gruppo per i profili utente mobili](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) in questo argomento in modo che Windows possa applicare correttamente il criterio dei profili utente mobili (e non è stato ripristinato a criteri locali nei computer interessati).
 
 > [!IMPORTANT]
 >  Le personalizzazioni dell'utente per l'avvio viene perso dopo un aggiornamento sul posto del sistema operativo nella configurazione seguente:
@@ -77,14 +77,15 @@ Per apportare queste modifiche, usare la procedura seguente.
 
     - Windows 8.1 o Windows Server 2012 R2: installare l'aggiornamento del software descritto nell'articolo [2887595](http://support.microsoft.com/kb/2887595) della Microsoft Knowledge Base (quando rilasciato).
     - Windows 8 o Windows Server 2012: installare l'aggiornamento del software descritto nell'articolo [2887239](http://support.microsoft.com/kb/2887239) della Microsoft Knowledge Base.
+
 2. In tutti i computer che eseguono Windows 8.1, Windows 8, Windows Server 2012 R2 o Windows Server 2012 nei quali si useranno i profili utente mobili, utilizzare l'Editor del Registro di sistema o criteri di gruppo per creare il seguente del Registro di sistema chiave DWORD e impostarla per `1`. Per informazioni sulla creazione delle chiavi del Registro di sistema con i Criteri di gruppo, vedere [Configurare un elemento Registro di sistema](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
-    ```PowerShell
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ProfSvc\Parameters\UseProfilePathExtensionVersion
     ```
 
-    >[!WARNING]
-    >La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+    > [!WARNING]
+    > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 3. Riavviare i computer.
 
 ## <a name="step-2-create-a-roaming-user-profiles-security-group"></a>Passaggio 2: Creare un gruppo di sicurezza dei profili utente mobili
@@ -103,6 +104,7 @@ Di seguito viene illustrato come creare un gruppo di sicurezza per i profili ute
 
     - Digitare il nome del gruppo di sicurezza in **Nome gruppo**, ad esempio: **Utenti e computer profili utente mobili**.
     - Nella **ambito del gruppo**, selezionare **Security**, quindi selezionare **Global**.
+
 5. Nel **membri** sezione, selezionare **Add**. Verrà visualizzata la finestra di dialogo Selezione utenti, computer, account servizio o gruppi.
 6. Se si desidera includere account computer nel gruppo di sicurezza, selezionare **tipi di oggetti**, selezionare la **computer** casella di controllo e quindi selezionare **OK**.
 7. Digitare i nomi di utenti, gruppi, e/o computer a cui si desidera distribuire i profili utente, selezionare **OK**, quindi selezionare **OK** nuovamente.
@@ -111,8 +113,8 @@ Di seguito viene illustrato come creare un gruppo di sicurezza per i profili ute
 
 Se non si dispone già di una condivisione file separata per il roaming profili utente mobili (indipendenti da tutte le condivisioni per le cartelle reindirizzate per prevenire l'involontaria memorizzazione nella cache della cartella del profilo mobile), utilizzare la procedura seguente per creare una condivisione file in un server che esegue Windows Server.
 
->[!NOTE]
->Alcune funzionalità potrà differire o non essere disponibili a seconda della versione di Windows Server in uso.
+> [!NOTE]
+> Alcune funzionalità potrà differire o non essere disponibili a seconda della versione di Windows Server in uso.
 
 Di seguito viene illustrato come creare una condivisione file in Windows Server:
 
@@ -122,14 +124,15 @@ Di seguito viene illustrato come creare una condivisione file in Windows Server:
 4. Nella pagina **Percorso condivisione** selezionare il server e il volume sui quali creare la condivisione.
 5. Nella pagina **Nome condivisione** digitare un nome per la condivisione (ad esempio **Profili utente$** ) nella casella **Nome condivisione**.
 
-    >[!TIP]
-    >Quando si crea la condivisione, nasconderla inserendo ```$``` dopo il nome condivisione. In tal modo, la condivisione verrà nascosta dai browser casuali.
+    > [!TIP]
+    > Quando si crea la condivisione, nasconderla inserendo ```$``` dopo il nome condivisione. In tal modo, la condivisione verrà nascosta dai browser casuali.
+
 6. Nella pagina **Altre impostazioni** deselezionare la casella di controllo **Abilita disponibilità continua**, se disponibile e selezionare facoltativamente le caselle di controllo **Abilita enumerazione basata sull'accesso** e **Crittografa accesso ai dati**.
 7. Nel **le autorizzazioni** pagina, selezionare **personalizzare le autorizzazioni...** . Viene visualizzata la finestra di dialogo Impostazioni di protezione avanzate.
 8. Selezionare **Disabilita ereditarietà**, quindi selezionare **Converti autorizzazioni ereditate in autorizzazioni esplicite per questo oggetto**.
 9. Impostare le autorizzazioni come descritto in [autorizzazioni necessarie per il file di condividono che ospita i profili utente mobili](#required-permissions-for-the-file-share-hosting-roaming-user-profiles) e visualizzate nella schermata riportata di seguito, la rimozione delle autorizzazioni per gli account e gruppi rimossi dall'elenco e l'aggiunta di speciali autorizzazioni per il gruppo di computer e agli utenti di profili utente mobili creato nel passaggio 1.
     
-    ![Finestra Impostazioni di sicurezza che mostra le autorizzazioni come descritto nella tabella 1 avanzato](media\advanced-security-user-profiles.jpg)
+    ![Finestra Impostazioni di sicurezza che mostra le autorizzazioni come descritto nella tabella 1 avanzato](media/advanced-security-user-profiles.jpg)
     
     **Figura 1** Impostare le autorizzazioni per la condivisione dei profili utente mobili
 10. Se si sceglie il profilo **Condivisione SMB - avanzata** selezionare il valore Utilizzo cartelle **File utente** nella pagina **Proprietà gestione** .
@@ -138,9 +141,8 @@ Di seguito viene illustrato come creare una condivisione file in Windows Server:
 
 ### <a name="required-permissions-for-the-file-share-hosting-roaming-user-profiles"></a>Autorizzazioni necessarie per i file share hosting i profili utente mobili
 
-|       |       |       |
-|   -   |   -   |   -   |
 | Account utente | Accesso | Si applica a |
+|   -   |   -   |   -   |
 |   Sistema    |  Controllo completo     |  Questa cartella, le sottocartelle e i file     |
 |  Administrators     |  Controllo completo     |  Solo questa cartella     |
 |  Autore/proprietario     |  Controllo completo     |  Solo sottocartelle e file     |
@@ -172,8 +174,8 @@ Di seguito viene illustrato come creare un oggetto Criteri di gruppo per i profi
 
 Se si distribuiscono profili utente mobili agli account utente, usare la procedura seguente per specificare i profili utente mobili per gli account utente in Servizi di dominio Active Directory. Se si distribuiscono profili utente mobili ai computer, come avviene in genere per Servizi Desktop remoto o le distribuzioni di desktop virtualizzate, utilizzare invece la procedura documentata al [passaggio 6: Configurare facoltativamente i profili utente mobili sui computer](#step-6-optionally-set-up-roaming-user-profiles-on-computers).
 
->[!NOTE]
->Se si configurano profili utente mobili sugli account utente usando Active Directory e sui computer usando Criteri di gruppo, l'impostazione criterio basata sul computer ha la precedenza.
+> [!NOTE]
+> Se si configurano profili utente mobili sugli account utente usando Active Directory e sui computer usando Criteri di gruppo, l'impostazione criterio basata sul computer ha la precedenza.
 
 Di seguito viene illustrato come configurare i profili utente mobili sugli account utente:
 
@@ -186,10 +188,10 @@ Di seguito viene illustrato come configurare i profili utente mobili sugli accou
     Per specificare un profilo utente mobile obbligatorio, specificare il percorso del file Ntuser. man creato in precedenza, ad esempio, `fs1.corp.contoso.comUser Profiles$default`. Per altre informazioni, vedere [creare i profili utente obbligatori](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
 4. Scegliere **OK**.
 
->[!NOTE]
->Per impostazione predefinita, la distribuzione di tutte le app basate su Windows® Runtime (Windows Store) è consentita durante l'uso dei profili utente mobili. Quando però si usa un profilo speciale, le app non vengono distribuite per impostazione predefinita. I profili speciali sono profili utente in cui le modifiche vengono rimosse subito dopo la disconnessione dell'utente:
-><br><br>Per rimuovere le limitazioni alla distribuzione delle app per i profili speciali, abilitare l'impostazione criterio **Allow deployment operations in special profiles** (nel percorso Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Distribuzione di pacchetti di app). Le app distribuite in questo scenario lasceranno comunque alcuni dati archiviati sul computer, che potrebbero accumularsi, ad esempio, se un unico computer è usato da centinaia di utenti. Per eliminare le app, trovare o sviluppare uno strumento che utilizza il [CleanupPackageForUserAsync](https://msdn.microsoft.com/library/windows/apps/windows.management.deployment.packagemanager.cleanuppackageforuserasync.aspx) API per pulire i pacchetti dell'app per gli utenti che non hanno più un profilo sul computer.
-><br><br>Per altre informazioni di carattere generale sulle app di Windows Store vedere [Gestisci l'accesso client a Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
+> [!NOTE]
+> Per impostazione predefinita, la distribuzione di tutte le app basate su Windows® Runtime (Windows Store) è consentita durante l'uso dei profili utente mobili. Quando però si usa un profilo speciale, le app non vengono distribuite per impostazione predefinita. I profili speciali sono profili utente in cui le modifiche vengono rimosse subito dopo la disconnessione dell'utente:
+> <br><br>Per rimuovere le limitazioni alla distribuzione delle app per i profili speciali, abilitare l'impostazione criterio **Allow deployment operations in special profiles** (nel percorso Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Distribuzione di pacchetti di app). Le app distribuite in questo scenario lasceranno comunque alcuni dati archiviati sul computer, che potrebbero accumularsi, ad esempio, se un unico computer è usato da centinaia di utenti. Per eliminare le app, trovare o sviluppare uno strumento che utilizza il [CleanupPackageForUserAsync](https://msdn.microsoft.com/library/windows/apps/windows.management.deployment.packagemanager.cleanuppackageforuserasync.aspx) API per pulire i pacchetti dell'app per gli utenti che non hanno più un profilo sul computer.
+> <br><br>Per altre informazioni di carattere generale sulle app di Windows Store vedere [Gestisci l'accesso client a Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
 
 ## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Passaggio 6: Configurare facoltativamente i profili utente mobili sui computer
 
@@ -197,8 +199,8 @@ Se si distribuiscono profili utente mobili ai computer, come di norma è possibi
 
 È possibile utilizzare criteri di gruppo per applicare i profili utente mobili ai computer che eseguono Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008.
 
->[!NOTE]
->Se si configurano profili utente mobili sui computer usando Criteri di gruppo e sugli account utente usando Active Directory, l'impostazione criterio basata sul computer ha la precedenza.
+> [!NOTE]
+> Se si configurano profili utente mobili sui computer usando Criteri di gruppo e sugli account utente usando Active Directory, l'impostazione criterio basata sul computer ha la precedenza.
 
 Di seguito viene illustrato come configurare i profili utente mobili sui computer:
 
@@ -210,7 +212,7 @@ Di seguito viene illustrato come configurare i profili utente mobili sui compute
     > [!TIP]
     > La home directory di un utente, se configurata, è la cartella predefinita usata da alcuni programmi come Windows PowerShell. È possibile configurare un percorso di rete o locale alternativo in base al numero di utenti con la sezione **Home directory** delle proprietà dell'account utente in Servizi di dominio Active Directory. Per configurare il percorso della home directory per tutti gli utenti di un computer che esegue Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un ambiente di desktop virtuale, abilitare il **imposta home directory utente**  impostazione dei criteri, quindi specificare la lettera di unità e condivisione di file per eseguire il mapping (oppure specificare una cartella locale). Non usare variabili di ambiente o puntini di sospensione. L'alias dell'utente viene aggiunto alla fine del percorso specificato durante l'accesso dell'utente.
 6. Nel **delle proprietà** finestra di dialogo **abilitato**
-7. Nel **gli utenti accedono al computer devono utilizzare il percorso profilo mobile seguente** immettere il percorso della condivisione file in cui si desidera archiviare profilo utente mobile dell'utente, seguito da `%username%` (che verrà automaticamente sostituito con l'ora il primo nome utente di accesso dell'utente). Ad esempio: 
+7. Nel **gli utenti accedono al computer devono utilizzare il percorso profilo mobile seguente** immettere il percorso della condivisione file in cui si desidera archiviare profilo utente mobile dell'utente, seguito da `%username%` (che verrà automaticamente sostituito con l'ora il primo nome utente di accesso dell'utente). Ad esempio:
 
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
 
@@ -229,14 +231,14 @@ Per specificare un layout avviare, eseguire le operazioni seguenti:
 3. Usare criteri di gruppo per applicare il layout Start personalizzato per l'oggetto Criteri di gruppo creato per i profili utente mobili. A tale scopo, vedere [usare i criteri di gruppo per applicare un layout Start personalizzato in un dominio](https://docs.microsoft.com/windows/configuration/customize-windows-10-start-screens-by-using-group-policy#bkmk-domaingpodeployment).
 4. Usare criteri di gruppo per impostare il valore del Registro di sistema seguente nei PC Windows 10. A tale scopo, vedere [configurare una voce del Registro di sistema](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
-| **Azione** | **Aggiornamento** |
-|------------|------------|
-|Hive|**HKEY_LOCAL_MACHINE**|
-|Percorso della chiave|**Software\Microsoft\Windows\CurrentVersion\Explorer**|
-|Nome del valore|**SpecialRoamingOverrideAllowed**|
-|Tipo di valore|**REG_DWORD**|
-|Dati valore|**1** (o **0** disabilitare)|
-|Base|**Decimal**|
+| **Azione**   | **Aggiornamento**                  |
+| ------------ | ------------                |
+| Hive         | **HKEY_LOCAL_MACHINE**      |
+| Percorso della chiave     | **Software\Microsoft\Windows\CurrentVersion\Explorer** |
+| Nome del valore   | **SpecialRoamingOverrideAllowed** |
+| Tipo di valore   | **REG_DWORD**               |
+| Dati valore   | **1** (o **0** disabilitare) |
+| Base         | **Decimal**                 |
 
 5. (Facoltativo) Abilita le ottimizzazioni di primo accesso rendere l'accesso più rapido per gli utenti. A tale scopo, vedere [applicare i criteri per migliorare i tempi di accesso](https://docs.microsoft.com/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time).
 6. (Facoltativo) Consente di ridurre ulteriormente i tempi di accesso tramite la rimozione di App non necessari dall'immagine di base di Windows 10 che consente di distribuire i PC client. 2019 Server Windows e Windows Server 2016 non sono presenti App pre-provisioning, in modo che è possibile ignorare questo passaggio nelle immagini di server.
@@ -285,18 +287,18 @@ Di seguito viene illustrato come testare i profili utente mobili:
 
 ## <a name="appendix-a-checklist-for-deploying-roaming-user-profiles"></a>Appendice A: Elenco di controllo per la distribuzione dei profili utente mobili
 
-|Stato|Azione|
-|:---:|---|
-|☐<br>☐<br>☐<br>☐<br>☐|1. Preparare il dominio<br>-Aggiungere computer al dominio<br>-Abilitare l'uso di versioni di profili separati<br>-Creare account utente<br>-(Facoltativo) distribuire reindirizzamento cartelle|
-|☐<br><br><br>|2. Creare un gruppo di sicurezza per i profili utente mobili<br>-Nome gruppo:<br>-Membri:|
-|☐<br><br>|3. Creare una condivisione file per i profili utente mobili<br>-Nome della condivisione file:|
-|☐<br><br>|4. Creare un oggetto Criteri di gruppo per i profili utente mobili<br>-Nome oggetto Criteri di gruppo:|
-|☐|5. Configurare le impostazioni criterio dei profili utente mobili|
-|☐<br>☐<br>☐|6. Abilitare i profili utente<br>-Abilitati in Active Directory Domain Services per gli account utente?<br>-Abilitati in Criteri di gruppo sugli account computer?<br>|
-|☐|7. (Facoltativo) Specificare un layout avviare obbligatorio per i PC Windows 10|
-|☐<br>☐<br><br>☐<br><br>☐|8. (Facoltativo) Abilita supporto del computer primario<br>-Designare i computer primari per gli utenti<br>-Percorso dell'utente e di mapping dei computer primari:<br>-(Facoltativo) abilitare il supporto del computer primario per il reindirizzamento cartelle<br>-Basata sul computer o basata sull'utente?<br>-(Facoltativo) abilitare il supporto del computer primario per i profili utente mobili|
-|☐|9. Abilitare l'oggetto Criteri di gruppo dei profili utente mobili|
-|☐|10. Testare i profili utente mobili|
+| Stato                     | Azione                                                |
+| ---                        | ------                                                |
+| ☐<br>☐<br>☐<br>☐<br>☐   | 1. Preparare il dominio<br>-Aggiungere computer al dominio<br>-Abilitare l'uso di versioni di profili separati<br>-Creare account utente<br>-(Facoltativo) distribuire reindirizzamento cartelle |
+| ☐<br><br><br>             | 2. Creare un gruppo di sicurezza per i profili utente mobili<br>-Nome gruppo:<br>-Membri: |
+| ☐<br><br>                 | 3. Creare una condivisione file per i profili utente mobili<br>-Nome della condivisione file: |
+| ☐<br><br>                 | 4. Creare un oggetto Criteri di gruppo per i profili utente mobili<br>-Nome oggetto Criteri di gruppo:|
+| ☐                         | 5. Configurare le impostazioni criterio dei profili utente mobili    |
+| ☐<br>☐<br>☐              | 6. Abilitare i profili utente<br>-Abilitati in Active Directory Domain Services per gli account utente?<br>-Abilitati in Criteri di gruppo sugli account computer?<br> |
+| ☐                         | 7. (Facoltativo) Specificare un layout avviare obbligatorio per i PC Windows 10 |
+| ☐<br>☐<br><br>☐<br><br>☐ | 8. (Facoltativo) Abilita supporto del computer primario<br>-Designare i computer primari per gli utenti<br>-Percorso dell'utente e di mapping dei computer primari:<br>-(Facoltativo) abilitare il supporto del computer primario per il reindirizzamento cartelle<br>-Basata sul computer o basata sull'utente?<br>-(Facoltativo) abilitare il supporto del computer primario per i profili utente mobili |
+| ☐                        | 9. Abilitare l'oggetto Criteri di gruppo dei profili utente mobili                |
+| ☐                        | 10. Testare i profili utente mobili                         |
 
 ## <a name="appendix-b-profile-version-reference-information"></a>Appendice B: Informazioni di riferimento relative alla versione del profilo
 
@@ -304,53 +306,53 @@ Ogni profilo è una versione del profilo che corrisponde approssimativamente all
 
 Nella tabella seguente è indicato il percorso dei profili utente mobili su varie versioni di Windows.
 
-|Versione del sistema operativo|Percorso del profilo utente mobile|
-|---|---|
-|Windows XP e Windows Server 2003|```\\<servername>\<fileshare>\<username>```|
-|Windows Vista e Windows Server 2008|```\\<servername>\<fileshare>\<username>.V2```|
-|Windows 7 e Windows Server 2008 R2|```\\<servername>\<fileshare>\<username>.V2```|
-|Windows 8 e Windows Server 2012|```\\<servername>\<fileshare>\<username>.V3``` (dopo aver applicato la chiave del Registro di sistema e aggiornamento software)<br>```\\<servername>\<fileshare>\<username>.V2``` (prima il software di aggiornamento e del Registro di sistema la chiave vengono applicati)|
-|Windows 8.1 e Windows Server 2012 R2|```\\<servername>\<fileshare>\<username>.V4``` (dopo aver applicato la chiave del Registro di sistema e aggiornamento software)<br>```\\<servername>\<fileshare>\<username>.V2``` (prima il software di aggiornamento e del Registro di sistema la chiave vengono applicati)|
-|Windows 10|```\\<servername>\<fileshare>\<username>.V5```|
-|Windows 10, versione 1703 e versione 1607|```\\<servername>\<fileshare>\<username>.V6```|
+| Versione del sistema operativo | Percorso del profilo utente mobile |
+| --- | --- |
+| Windows XP e Windows Server 2003 | ```\\<servername>\<fileshare>\<username>``` |
+| Windows Vista e Windows Server 2008 | ```\\<servername>\<fileshare>\<username>.V2``` |
+| Windows 7 e Windows Server 2008 R2 | ```\\<servername>\<fileshare>\<username>.V2``` |
+| Windows 8 e Windows Server 2012 | ```\\<servername>\<fileshare>\<username>.V3``` (dopo aver applicato la chiave del Registro di sistema e aggiornamento software)<br>```\\<servername>\<fileshare>\<username>.V2``` (prima il software di aggiornamento e del Registro di sistema la chiave vengono applicati) |
+| Windows 8.1 e Windows Server 2012 R2 | ```\\<servername>\<fileshare>\<username>.V4``` (dopo aver applicato la chiave del Registro di sistema e aggiornamento software)<br>```\\<servername>\<fileshare>\<username>.V2``` (prima il software di aggiornamento e del Registro di sistema la chiave vengono applicati) |
+| Windows 10 | ```\\<servername>\<fileshare>\<username>.V5``` |
+| Windows 10, versione 1703 e versione 1607 | ```\\<servername>\<fileshare>\<username>.V6``` |
 
 ## <a name="appendix-c-working-around-reset-start-menu-layouts-after-upgrades"></a>Appendice C: Lavoro circa Reimposta il layout di menu Start dopo gli aggiornamenti
 
 Ecco alcuni modi per aggirare i layout di menu Start introduzione reimpostati dopo un aggiornamento sul posto:
 
- - Se solo un utente utilizza sempre il dispositivo e l'amministratore IT utilizza una strategia di distribuzione del sistema operativo gestita, ad esempio SCCM è possibile eseguire le operazioni seguenti:
+- Se solo un utente utilizza sempre il dispositivo e l'amministratore IT utilizza una strategia di distribuzione del sistema operativo gestita, ad esempio SCCM è possibile eseguire le operazioni seguenti:
     
-    1. Esportare il layout del menu Start con Export-Startlayout prima dell'aggiornamento 
-    2. Importare il layout del menu Start con Import-StartLayout dopo la configurazione guidata, ma prima che l'utente accede  
+  1. Esportare il layout del menu Start con Export-Startlayout prima dell'aggiornamento 
+  2. Importare il layout del menu Start con Import-StartLayout dopo la configurazione guidata, ma prima che l'utente accede  
  
-    > [!NOTE] 
-    > L'importazione di un StartLayout consente di modificare il profilo utente predefinito. Tutti i profili utente creati dopo l'operazione di importazione otterranno il Layout Start importato.
+     > [!NOTE] 
+     > L'importazione di un StartLayout consente di modificare il profilo utente predefinito. Tutti i profili utente creati dopo l'operazione di importazione otterranno il Layout Start importato.
  
- - Gli amministratori IT possono scegliere di gestire il Layout dell'inizio con i criteri di gruppo. Usare criteri di gruppo offre una soluzione di gestione centralizzata per applicare un Layout avviare standardizzati per gli utenti. Sono disponibili 2 modalità per le modalità per tramite criteri di gruppo per la gestione di inizio. Blocco completa e blocco parziale. Lo scenario di blocco completa impedisce all'utente di apportare modifiche al layout dell'avvio. Lo scenario di blocco parziale consente di apportare modifiche a un'area specifica di inizio. Per altre informazioni, vedi [esportazione layout Start e Personalizza](https://docs.microsoft.com/windows/configuration/customize-and-export-start-layout).
+- Gli amministratori IT possono scegliere di gestire il Layout dell'inizio con i criteri di gruppo. Usare criteri di gruppo offre una soluzione di gestione centralizzata per applicare un Layout avviare standardizzati per gli utenti. Sono disponibili 2 modalità per le modalità per tramite criteri di gruppo per la gestione di inizio. Blocco completa e blocco parziale. Lo scenario di blocco completa impedisce all'utente di apportare modifiche al layout dell'avvio. Lo scenario di blocco parziale consente di apportare modifiche a un'area specifica di inizio. Per altre informazioni, vedi [esportazione layout Start e Personalizza](https://docs.microsoft.com/windows/configuration/customize-and-export-start-layout).
         
-    > [!NOTE]
-    > Le modifiche apportate utente nello scenario di blocco parziale continuerà a essere perse durante l'aggiornamento.
+   > [!NOTE]
+   > Le modifiche apportate utente nello scenario di blocco parziale continuerà a essere perse durante l'aggiornamento.
 
- -  Consentire l'avvio Reimposta layout si verificano e consentire agli utenti finali riconfigurare l'inizio. Una notifica tramite posta elettronica o altre notifiche da inviare agli utenti finali a prevedere i layout Start per essere reimpostato dopo il sistema operativo esegue l'aggiornamento a impatto ridotto a icona. 
+- Consentire l'avvio Reimposta layout si verificano e consentire agli utenti finali riconfigurare l'inizio. Una notifica tramite posta elettronica o altre notifiche da inviare agli utenti finali a prevedere i layout Start per essere reimpostato dopo il sistema operativo esegue l'aggiornamento a impatto ridotto a icona. 
 
 # <a name="change-history"></a>Cronologia delle modifiche
 
 La tabella seguente include un riepilogo di alcune delle più importanti modifiche apportate a questo argomento.
 
-|Date|Descrizione |`Reason`|
-|--- |---         |---   |
-|1 ° maggio 2019|Aggiunta degli aggiornamenti per 2019|
-|Il 10 aprile 2018|Discussione su aggiunto quando vengono perse le personalizzazioni dell'utente per l'avvio dopo un aggiornamento sul posto del sistema operativo|Problema noto di callout.|
-|13 marzo 2018 |Aggiornato per Windows Server 2016 | Spostati di fuori della libreria di versioni precedenti e aggiornato per la versione corrente di Windows Server.|
-|13 aprile 2017|Aggiunte informazioni sul profilo di Windows 10 versione 1703 ed è stato chiarito come roaming del profilo versioni lavoro durante l'aggiornamento di sistemi operativi, vedere [considerazioni sull'uso di profili utente mobili su più versioni di Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows).|Commenti e suggerimenti dei clienti.|
-|Il 14 marzo 2017|Passaggio facoltativo aggiuntivo per specificare un layout avviare obbligatorio per i PC Windows 10 in [appendice a: Elenco di controllo per la distribuzione dei profili utente mobili](#appendix-a-checklist-for-deploying-roaming-user-profiles).|Modifiche apportate alle funzionalità nell'aggiornamento più recente di Windows.|
-|23 gennaio 2017|Aggiungere un passaggio per [passaggio 4: Facoltativamente, creare un oggetto Criteri di gruppo per i profili utente](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) per delegare le autorizzazioni di lettura agli utenti autenticati, che è ora necessario a causa di un aggiornamento della sicurezza dei criteri di gruppo.|Relative alla sicurezza per l'elaborazione di criteri di gruppo.|
-|29 dicembre 2016|Aggiunto un collegamento in [passaggio 8: Abilitare il GPO di profili utente mobili](#step-8-enable-the-roaming-user-profiles-gpo) per renderne più semplice ottenere informazioni su come impostare criteri di gruppo per i computer primari. Corretti anche alcuni riferimenti non corretto i passaggi 5 e 6 con i numeri.|Commenti e suggerimenti dei clienti.|
-|Il 5 dicembre 2016|Informazioni aggiunte che descrive delle impostazioni dal menu Start roaming problema.|Commenti e suggerimenti dei clienti.|
-|6 luglio 2016|Aggiunta di suffissi della versione del profilo Windows 10 in [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information). Rimosso anche dall'elenco dei sistemi operativi Windows XP e Windows Server 2003.|Aggiornamenti per le nuove versioni di Windows e rimosse le informazioni sulle versioni di Windows che non sono più supportate.|
-|7 luglio 2015|Aggiunta di requisiti e passaggi per disabilitare la disponibilità continua quando si usa un file server in cluster.|Le condivisioni di file in cluster offrono migliori prestazioni per scritture di piccola entità (tipiche con i profili utente mobili) quando la disponibilità continua è disabilitata.|
-|19 marzo 2014|Scritto in lettere maiuscole nei suffissi della versione del profilo (. V2. V3. V4) nel [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information).|Anche se Windows è maiuscole e minuscole, se si usa NFS con la condivisione file, è importante avere la corretta grafia (maiuscole) del suffisso del profilo.|
-|9 ottobre 2013|Rivisto per Windows Server 2012 R2 e Windows 8.1, spiegazione di alcuni elementi e aggiungere il [considerazioni sull'uso dei profili utente mobili su più versioni di Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) e [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information) sezioni.|Aggiornamenti per la nuova versione; commenti e suggerimenti dei clienti.|
+| Date | Descrizione |`Reason`|
+| --- | ---         | ---   |
+| 1 ° maggio 2019 | Aggiunta degli aggiornamenti per Windows Server 2019 |
+| Il 10 aprile 2018 | Discussione su aggiunto quando vengono perse le personalizzazioni dell'utente per l'avvio dopo un aggiornamento sul posto del sistema operativo|Problema noto di callout. |
+| 13 marzo 2018 | Aggiornato per Windows Server 2016 | Spostati di fuori della libreria di versioni precedenti e aggiornato per la versione corrente di Windows Server. |
+| 13 aprile 2017 | Aggiunte informazioni sul profilo di Windows 10 versione 1703 ed è stato chiarito come roaming del profilo versioni lavoro durante l'aggiornamento di sistemi operativi, vedere [considerazioni sull'uso di profili utente mobili su più versioni di Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows). | Commenti e suggerimenti dei clienti. |
+| Il 14 marzo 2017 | Passaggio facoltativo aggiuntivo per specificare un layout avviare obbligatorio per i PC Windows 10 in [appendice a: Elenco di controllo per la distribuzione dei profili utente mobili](#appendix-a-checklist-for-deploying-roaming-user-profiles). |Modifiche apportate alle funzionalità nell'aggiornamento più recente di Windows. |
+| 23 gennaio 2017 | Aggiungere un passaggio per [passaggio 4: Facoltativamente, creare un oggetto Criteri di gruppo per i profili utente](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) per delegare le autorizzazioni di lettura agli utenti autenticati, che è ora necessario a causa di un aggiornamento della sicurezza dei criteri di gruppo.|Relative alla sicurezza per l'elaborazione di criteri di gruppo. |
+| 29 dicembre 2016 | Aggiunto un collegamento in [passaggio 8: Abilitare il GPO di profili utente mobili](#step-8-enable-the-roaming-user-profiles-gpo) per renderne più semplice ottenere informazioni su come impostare criteri di gruppo per i computer primari. Corretti anche alcuni riferimenti non corretto i passaggi 5 e 6 con i numeri.|Commenti e suggerimenti dei clienti. |
+| Il 5 dicembre 2016 | Informazioni aggiunte che descrive delle impostazioni dal menu Start roaming problema. | Commenti e suggerimenti dei clienti. |
+| 6 luglio 2016 | Aggiunta di suffissi della versione del profilo Windows 10 in [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information). Rimosso anche dall'elenco dei sistemi operativi Windows XP e Windows Server 2003. | Aggiornamenti per le nuove versioni di Windows e rimosse le informazioni sulle versioni di Windows che non sono più supportate. |
+| 7 luglio 2015 | Aggiunta di requisiti e passaggi per disabilitare la disponibilità continua quando si usa un file server in cluster. | Le condivisioni di file in cluster offrono migliori prestazioni per scritture di piccola entità (tipiche con i profili utente mobili) quando la disponibilità continua è disabilitata. |
+| 19 marzo 2014 | Scritto in lettere maiuscole nei suffissi della versione del profilo (. V2. V3. V4) nel [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information). | Anche se Windows è maiuscole e minuscole, se si usa NFS con la condivisione file, è importante avere la corretta grafia (maiuscole) del suffisso del profilo. |
+| 9 ottobre 2013 | Rivisto per Windows Server 2012 R2 e Windows 8.1, spiegazione di alcuni elementi e aggiungere il [considerazioni sull'uso dei profili utente mobili su più versioni di Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) e [appendice b: Informazioni di riferimento di versione del profilo](#appendix-b-profile-version-reference-information) sezioni. | Aggiornamenti per la nuova versione; commenti e suggerimenti dei clienti. |
 
 ## <a name="more-information"></a>Altre informazioni
 

@@ -8,12 +8,12 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6f85c447ac0816c46e07145dbe9a491a29e17c0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 228ef34ab25276c1cf98f9b2b64e997390023c87
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444016"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>Risoluzione dei problemi di AD FS - Azure AD
 Con la crescita del cloud, molte aziende hanno stati lo spostamento di usare Azure AD per le App e servizi diversi.  La federazione con Azure AD è diventata una procedura standard con molte organizzazioni.  Questo documento illustra alcuni degli aspetti di risoluzione dei problemi che si verificano con questa federazione.  Alcuni degli argomenti nel documento di risoluzione dei problemi generale ancora relativi alla federazione con Azure in modo che questo documento verrà illustrato sola specifiche con Azure AD e l'interazione di AD FS.
@@ -31,11 +31,11 @@ Se il reindirizzamento avviene non che sono presenti alcuni aspetti da controlla
 
 ![](media/ad-fs-tshoot-azure/azure2.png)
 
-   2.  Assicurarsi che il dominio personalizzato viene verificato, fare clic sul dominio accanto alla federazione nel portale di Azure.
-![](media/ad-fs-tshoot-azure/azure3.png)
+1. Assicurarsi che il dominio personalizzato viene verificato, fare clic sul dominio accanto alla federazione nel portale di Azure.
+   ![](media/ad-fs-tshoot-azure/azure3.png)
 
-   3. Infine, si desidera controllare [DNS](ad-fs-tshoot-dns.md) e assicurarsi che il server AD FS o server WAP stanno risolvendo da internet.  Verificare che questo venga risolto e che sia possibile passare a tale percorso.
-   4. È anche possibile usare il cmdlet di PowerShell `Get-AzureADDomain` per ottenere queste informazioni anche.
+2. Infine, si desidera controllare [DNS](ad-fs-tshoot-dns.md) e assicurarsi che il server AD FS o server WAP stanno risolvendo da internet.  Verificare che questo venga risolto e che sia possibile passare a tale percorso.
+3. È anche possibile usare il cmdlet di PowerShell `Get-AzureADDomain` per ottenere queste informazioni anche.
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -48,14 +48,14 @@ Per imporre un metodo di autenticazione, usare uno dei metodi seguenti:
 - Per WS-Federation, usare una stringa di query WAUTH per forzare un metodo di autenticazione preferito.
 
 - Per SAML2.0, usare il comando seguente:
-```
-<saml:AuthnContext>
-<saml:AuthnContextClassRef>
-urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-</saml:AuthnContextClassRef>
-</saml:AuthnContext>
-```
-Quando il metodo di autenticazione applicato viene inviato con un valore non corretto o se tale metodo di autenticazione non è supportato su AD FS o servizio token di sicurezza, viene visualizzato un messaggio di errore prima che l'utente sia autenticato.
+  ```
+  <saml:AuthnContext>
+  <saml:AuthnContextClassRef>
+  urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+  </saml:AuthnContextClassRef>
+  </saml:AuthnContext>
+  ```
+  Quando il metodo di autenticazione applicato viene inviato con un valore non corretto o se tale metodo di autenticazione non è supportato su AD FS o servizio token di sicurezza, viene visualizzato un messaggio di errore prima che l'utente sia autenticato.
 
 |Metodo di autenticazione desiderato|wauth URI|
 |-----|-----|
@@ -145,4 +145,4 @@ Di seguito è riportato un rapido elenco di elementi da controllare se si sono v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi di AD FS](ad-fs-tshoot-overview.md)
+- [Risoluzione dei problemi relativi ad AD FS](ad-fs-tshoot-overview.md)

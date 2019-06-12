@@ -7,23 +7,23 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266722"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811430"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Gateway Desktop remoto l'ottimizzazione delle prestazioni
 
-> [!Note]
+> [!NOTE]
 > In Windows 8 e versioni successive e Windows Server 2012 R2 +, Gateway Desktop remoto (Gateway Desktop remoto) supporta TCP, UDP e trasporti RPC legacy. La maggior parte dei dati seguenti sia per quanto riguarda il trasporto RPC legacy. Se non viene utilizzato il trasporto RPC legacy, in questa sezione non è applicabile.
 
 Questo argomento descrive i parametri relativi alle prestazioni che consentono di migliorare le prestazioni di una distribuzione dei clienti e se che si basano su modelli di utilizzo di rete del cliente.
 
 In sostanza, Gateway Desktop remoto consente di eseguire pacchetti molte operazioni tra le istanze di connessione Desktop remoto e le istanze del server Host sessione Desktop remoto all'interno di rete del cliente di inoltro.
 
-> [!Note]
+> [!NOTE]
 > I parametri seguenti si applicano a solo il trasporto RPC.
 
 Internet Information Services (IIS) e Gateway Desktop remoto Esporta i parametri del Registro di sistema seguenti per contribuire a migliorare le prestazioni del sistema in Gateway Desktop remoto.
@@ -68,7 +68,6 @@ I parametri seguenti consentono di ottimizzare le chiamate di procedura remota (
 
 ## <a name="monitoring-and-data-collection"></a>Monitoraggio e la raccolta dati
 
-
 Il seguente elenco di contatori delle prestazioni è considerato un set di contatori di base quando si monitora l'utilizzo delle risorse Gateway Desktop remoto:
 
 -   \\Gateway di Servizi terminal\\\*
@@ -107,6 +106,6 @@ Contatori delle prestazioni seguenti sono applicabili solo per il trasporto RPC 
 
 -   \\W3SVC\_W3WP\\\* RPC
 
-**Nota**    se applicabile, aggiungere il \\IPv6\\ \* e \\TCPv6\\ \* oggetti. ReplaceThisText
+> [!NOTE]
+> Se applicabile, aggiungere il \\IPv6\\ \* e \\TCPv6\\ \* oggetti. ReplaceThisText
 
- 

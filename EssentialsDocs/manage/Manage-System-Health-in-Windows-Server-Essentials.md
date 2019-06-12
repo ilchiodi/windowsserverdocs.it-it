@@ -12,12 +12,12 @@ ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91635a58c64fbf74d3b0139be7c9c36365487319
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d9002a1530e114f490ddf1cfb0e5706ddec52431
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433150"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Gestire l'integrità del sistema in Windows Server Essentials
 
@@ -28,7 +28,7 @@ ms.locfileid: "59842052"
 > [!NOTE]
 >  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, gli avvisi sull'integrità per i computer client nella rete e server non sono più visualizzati nel Visualizzatore avvisi, ma saranno disponibili su di  **Report sull'integrità** scheda della finestra di **Home** pagina.  
   
- Windows Server Essentials monitora attivamente ogni computer in cui è connesso al server e avvisa l'amministratore per i problemi relativi all'integrità del sistema s, inclusi aggiornamenti critici, malware protection, le definizioni di virus non aggiornate nel client mancante i computer e altri problemi importanti che richiedono un'azione. Questi problemi sono visualizzati come avvisi nel Visualizzatore avvisi, che può essere avviato dal server s Dashboard o s Launchpad in Windows Server Essentials o nel computer client il **report sull'integrità** scheda in Windows Server Essentials. Per impostazione predefinita, gli avvisi sono aggiornati ogni trenta minuti, ma è possibile verificare la presenza di avvisi di rete in qualsiasi momento facendo clic su **Aggiorna** nel Visualizzatore avvisi oppure nella scheda **Rapporti di stato**.  
+ Windows Server Essentials monitora attivamente ogni computer in cui è connesso al server e avvisa l'amministratore per i problemi relativi all'integrità del sistema, inclusi aggiornamenti critici, mancante malware protection, le definizioni di virus non aggiornate nel client i computer e altri problemi importanti che richiedono un'azione. Questi problemi sono visualizzati come avvisi nel Visualizzatore avvisi, che può essere avviato dal Dashboard del server o Launchpad del computer client in Windows Server Essentials o nel **report sull'integrità** scheda in Windows Server Essentials. Per impostazione predefinita, gli avvisi sono aggiornati ogni trenta minuti, ma è possibile verificare la presenza di avvisi di rete in qualsiasi momento facendo clic su **Aggiorna** nel Visualizzatore avvisi oppure nella scheda **Rapporti di stato**.  
   
  Gli argomenti seguenti permettono di comprendere, visualizzare e rispondere agli avvisi del Visualizzatore avvisi e offrono anche istruzioni per configurare il server per la ricezione di notifiche di avviso tramite posta elettronica:  
   
@@ -56,7 +56,7 @@ ms.locfileid: "59842052"
 > [!NOTE]
 >  **Windows Server Essentials:** È possibile scaricare il componente aggiuntivo rapporto di stato per Windows Server Essentials dal [Microsoft Download Center](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
 >   
->  **Windows Server Essentials:** Per impostazione predefinita, il componente aggiuntivo rapporto di stato è integrato con Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, e i report sull'integrità vengono visualizzati nei **report sull'integrità** scheda del Dashboard 1!s **Home** pagina.  
+>  **Windows Server Essentials:** Per impostazione predefinita, il componente aggiuntivo rapporto di stato è integrato con Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, e i report sull'integrità vengono visualizzati nei **report sull'integrità** scheda del dashboard **Home** pagina.  
   
 ###  <a name="BKMK_Generate"></a> Generare un report su richiesta o in pianificazione  
  Dopo l'installazione del componente aggiuntivo Rapporto di stato e il riavvio del dashboard, una nuova scheda **Rapporti** sarà aggiunta al dashboard. È possibile generare un rapporto di stato su richiesta in qualsiasi momento, facendo clic sull'attività **Genera rapporto di stato** nella scheda **Rapporti** .  
@@ -68,21 +68,21 @@ ms.locfileid: "59842052"
 ###  <a name="BKMK_Customize"></a> Personalizzare il contenuto del report  
  Il rapporto di stato include gli elementi seguenti:  
   
--   **Avvisi critici e normali** Si tratta degli stessi elementi disponibili nel Visualizzatore avvisi nel dashboard. Gli avvisi informativi non sono inclusi nel rapporto di stato.  
+- **Avvisi critici e normali** Si tratta degli stessi elementi disponibili nel Visualizzatore avvisi nel dashboard. Gli avvisi informativi non sono inclusi nel rapporto di stato.  
   
--   **Errori critici dei registri eventi** Le applicazioni e i registri dei servizi vengono analizzati e gli errori registrati nelle ultime 24 ore saranno inclusi nella sezione **Dettagli** del rapporto.  
+- **Errori critici dei registri eventi** Le applicazioni e i registri dei servizi vengono analizzati e gli errori registrati nelle ultime 24 ore saranno inclusi nella sezione **Dettagli** del rapporto.  
   
--   **Backup del server** Le informazioni sul backup più recente del server sono disponibili nella sezione **Dettagli** del rapporto.  
+- **Backup del server** Le informazioni sul backup più recente del server sono disponibili nella sezione **Dettagli** del rapporto.  
   
--   **Servizi ad avvio automatico non in esecuzione** Se un servizio ad avvio automatico non è in esecuzione nel momento in cui è generato il rapporto, le informazioni su questo servizio saranno disponibili nella sezione **Dettagli** del rapporto.  
+- **Servizi ad avvio automatico non in esecuzione** Se un servizio ad avvio automatico non è in esecuzione nel momento in cui è generato il rapporto, le informazioni su questo servizio saranno disponibili nella sezione **Dettagli** del rapporto.  
   
--   **Aggiornamenti** È possibile visualizzare lo stato di aggiornamento del server e di tutti i computer client nella sezione **Dettagli**.  
+- **Aggiornamenti** È possibile visualizzare lo stato di aggiornamento del server e di tutti i computer client nella sezione **Dettagli**.  
   
--   **Archiviazione** L'elenco di unità e delle rispettive capacità è disponibile nella sezione **Dettagli**.  
+- **Archiviazione** L'elenco di unità e delle rispettive capacità è disponibile nella sezione **Dettagli**.  
   
- Nel Rapporto di stato è necessario visualizzare prima di tutto il **Riepilogo**, quindi fare clic sul collegamento **Dettagli** sulla stessa riga degli elementi associati a un'icona di errore rossa o a un'icona di avviso gialla per visualizzare i dettagli specifici.  
+  Nel Rapporto di stato è necessario visualizzare prima di tutto il **Riepilogo**, quindi fare clic sul collegamento **Dettagli** sulla stessa riga degli elementi associati a un'icona di errore rossa o a un'icona di avviso gialla per visualizzare i dettagli specifici.  
   
- Se non si è interessati ad alcuni punti dati inclusi nel rapporto per impostazione predefinita, è possibile personalizzare i contenuti del rapporto facendo clic su **Personalizza le impostazioni del rapporto di stato** nel riquadro attività e quindi sulla scheda **Contenuto**. Deselezionare le caselle di controllo per il contenuto che non si t da visualizzare nel report. Ad esempio, se hai il proprio piano di backup di server e don t da visualizzare gli avvisi relativi a backup di server, sarà possibile escluderli i backup del server dal rapporto deselezionando la **backup Server** casella di controllo.  
+  Se non si è interessati ad alcuni punti dati inclusi nel rapporto per impostazione predefinita, è possibile personalizzare i contenuti del rapporto facendo clic su **Personalizza le impostazioni del rapporto di stato** nel riquadro attività e quindi sulla scheda **Contenuto**. Deselezionare le caselle di controllo per il contenuto che non si vuole visualizzare nel report. Ad esempio, se disponibile il proprio piano di backup di server e non si vuole visualizzare gli avvisi sui backup del server, sarà possibile escluderli i backup del server dal rapporto deselezionando la **backup Server** casella di controllo.  
   
 ###  <a name="BKMK_emailreport"></a> Il report di posta elettronica  
  Accedere al dashboard per leggere i rapporti risulta scomodo per alcuni amministratori, in particolare se devono gestire più server. Se si attiva la funzionalità relativa alla posta elettronica, un messaggio di posta elettronica che include il contenuto del rapporto sarà inviato a un elenco di indirizzi di posta elettronica specificati dopo la generazione di un rapporto. L'amministratore può visualizzare con facilità questo rapporto da qualsiasi dispositivo o applicazione client, in modo da verificare che il server sia in esecuzione con lo stato ottimale.  
@@ -140,13 +140,13 @@ ms.locfileid: "59842052"
   
 ##### <a name="to-ignore-an-alert"></a>Per ignorare un avviso  
   
-1.  Aprire la finestra di avvio nel computer connesso al server di Windows Server Essentials.  
+1. Aprire la finestra di avvio nel computer connesso al server di Windows Server Essentials.  
   
-2.  Nella finestra di avvio fare clic su una delle icone di avviso visualizzate (messaggio critico, di avviso o informativo). Verrà aperto il Visualizzatore avvisi.  
+2. Nella finestra di avvio fare clic su una delle icone di avviso visualizzate (messaggio critico, di avviso o informativo). Verrà aperto il Visualizzatore avvisi.  
   
-3.  Nel Visualizzatore avvisi selezionare l'avviso da ignorare, quindi nella sezione **Attività** fare clic su **Ignora avviso**.  
+3. Nel Visualizzatore avvisi selezionare l'avviso da ignorare, quindi nella sezione **Attività** fare clic su **Ignora avviso**.  
   
- Per rispondere a un avviso disabilitato, sarà prima di tutto necessario abilitarlo.  
+   Per rispondere a un avviso disabilitato, sarà prima di tutto necessario abilitarlo.  
   
 ###  <a name="BKMK_5"></a> Abilitare un avviso  
  È possibile abilitare un avviso ignorato in precedenza. Dopo l'abilitazione, sarà possibile risolvere l'avviso o eliminarlo, in base alla necessità. Un avviso è visualizzato come disabilitato quando lo si contrassegna in modo che sia ignorato. Quando si abilita un avviso disabilitato in precedenza, l'avviso tornerà attivo e sarà incluso di nuovo nella valutazione complessiva dello stato dei computer.  
@@ -276,7 +276,7 @@ ms.locfileid: "59842052"
   
 4.  Nella finestra **Impostazioni SMTP** eseguire le operazioni seguenti:  
   
-    1.  Per **Indirizzo di posta elettronica mittente** digitare l'indirizzo di posta elettronica da usare per inviare gli avvisi tramite posta elettronica. Questo indirizzo di posta elettronica verrà visualizzato come l'indirizzo mittente nella notifica di avviso.  
+    1.  Per **Indirizzo di posta elettronica mittente** digitare l'indirizzo di posta elettronica da usare per inviare gli avvisi tramite posta elettronica. Questo indirizzo di posta elettronica sarà visualizzato come indirizzo del mittente nella notifica di avviso.  
   
     2.  Per **Nome server SMTP**digitare nella casella di testo **Indirizzo di posta elettronica mittente** il nome del server SMTP specificato nel passaggio 4a. Per un elenco di nomi server SMTP, vedere la Tabella 1.  
   
@@ -309,7 +309,7 @@ ms.locfileid: "59842052"
  Questa sezione illustra come configurare le impostazioni di SMTP per il server, in modo che sia possibile ricevere rapporti di stato tramite posta elettronica.  
   
 > [!NOTE]
->  Per impostazione predefinita, il componente aggiuntivo rapporto di stato è integrato con Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, e i report sull'integrità vengono visualizzati nei **report sull'integrità** scheda del Dashboard 1!s **Home** pagina.  
+>  Per impostazione predefinita, il componente aggiuntivo rapporto di stato è integrato con Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, e i report sull'integrità vengono visualizzati nei **report sull'integrità** scheda del dashboard **Home** pagina.  
   
 ##### <a name="to-set-up-email-notification-for-health-reports"></a>Per configurare le notifiche di posta elettronica per i rapporti di stato  
   
@@ -321,7 +321,7 @@ ms.locfileid: "59842052"
   
 4.  Nella sezione **Posta elettronica** della scheda **Pianifica e invia tramite posta elettronica** eseguire le operazioni seguenti:  
   
-    1.  Fare clic su **Abilita**, quindi digitare l'indirizzo di posta elettronica da usare per l'invio dei rapporti di stato. Questo indirizzo di posta elettronica verrà visualizzato come l'indirizzo mittente nei rapporti di stato che vengono inviati tramite posta elettronica.  
+    1.  Fare clic su **Abilita**, quindi digitare l'indirizzo di posta elettronica da usare per l'invio dei rapporti di stato. Questo indirizzo di posta elettronica sarà visualizzato come indirizzo del mittente nei rapporti di stato che vengono inviati tramite posta elettronica.  
   
         1.  Per **Nome server SMTP** digitare il nome del server SMTP. Per un elenco di nomi server SMTP, vedere la Tabella 1.  
   

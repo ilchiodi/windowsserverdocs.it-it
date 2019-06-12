@@ -7,13 +7,13 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.date: 05/21/2019
-ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/04/2019
+ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976549"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810771"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Novità di Windows Server 2019
 
@@ -21,9 +21,17 @@ ms.locfileid: "65976549"
 
 In questo argomento vengono descritte alcune delle nuove funzionalità di Windows Server 2019. Windows Server 2019 si basa la solida base di Windows Server 2016 e include numerose innovazioni di quattro temi principali: Cloud ibrido, sicurezza, piattaforma di applicazioni e infrastruttura Iperconvergente (HCL).
 
-Per scoprire nuove funzionalità di versioni canale semestrale di Windows Server, vedere [What ' s New in Windows Server](../get-started/whats-new-in-windows-server.md). 
+Per scoprire nuove funzionalità di versioni canale semestrale di Windows Server, vedere [What ' s New in Windows Server](../get-started/whats-new-in-windows-server.md).
 
 ## <a name="general"></a>Generale
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Windows Admin Center è un'app distribuita in locale e basata su browser che consente di gestire server, cluster, infrastruttura iperconvergente e PC Windows 10. Non prevede costi aggiuntivi rispetto a Windows ed è pronta per essere usata in produzione.
+
+È possibile installare Windows Admin Center in Windows Server 2019 così come Windows 10 e versioni precedenti di Windows e Windows Server e usarlo per gestire server e cluster che esegue Windows Server 2008 R2 e versioni successive.
+
+Per altre informazioni, vedi [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
 
 ### <a name="desktop-experience"></a>Esperienza desktop
 
@@ -60,8 +68,6 @@ Sensori avanzati della piattaforma e azioni di risposta di ATP espongono agli at
 -   [Accesso controllato alle cartelle](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc) protegge i dati sensibili da ransomware impedendo l'accesso di processi non attendibili alle cartelle protette.
 
 -   [Protezione dagli exploit](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) è un gruppo di misure di prevenzione per gli exploit di vulnerabilità (in sostituzione di EMET) che è possibile configurare facilmente per proteggere il sistema e le applicazioni.
-
-
 
 [Controllo di applicazioni di Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (noto anche come criteri di integrità del codice) è stato rilasciato in Windows Server 2016.
 Sulla base dei feedback forniti dai clienti l'idea è ottima, ma difficile da implementare.
@@ -111,7 +117,7 @@ Il servizio di migrazione della risorsa di archiviazione è una nuova tecnologia
 
 ### <a name="storage-spaces-direct"></a>Spazi di archiviazione diretta
 
-Ecco un elenco delle novità in Spazi di archiviazione diretta. Per altre informazioni, vedi [Novità in Spazi di archiviazione diretta](../storage/whats-new-in-storage.md#storage-spaces-direct).
+Ecco un elenco delle novità in Spazi di archiviazione diretta. Per altre informazioni, vedi [Novità in Spazi di archiviazione diretta](../storage/whats-new-in-storage.md#storage-spaces-direct). Vedere anche [Azure Stack uomo](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview) per informazioni sull'acquisizione convalidati i sistemi di spazi di archiviazione diretta.
 
 - **La deduplicazione e compressione per i volumi ReFS**
 - **Supporto nativo per la memoria persistente**

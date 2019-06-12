@@ -12,12 +12,12 @@ ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a67cda9e4b04e8d861232b48f45915fb2b460d1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0240abfff58baedd79ab038af93b107dbb898eb2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836412"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432947"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Aggiungere i computer per il nuovo server1 di Windows Server Essentials
 
@@ -31,7 +31,7 @@ ms.locfileid: "59836412"
   
  Il processo per connettere un computer client al server è lo stesso per i computer aggiunti a un dominio o non aggiunti a un dominio:  
   
--   Passare a **http://***nome-server-destinazione***/Connect** e installare il software connettore Windows Server come se fosse un nuovo computer.  
+- Passare a **http://** <em>nome-server-destinazione</em> **/connect** e installare il software Connettore di Windows Server come se fosse un nuovo computer.  
   
 > [!NOTE]
 >  Il software Connettore Windows Server non supporta computer che eseguono Windows XP o Windows Vista. Se al dominio sono già stati aggiunti computer che eseguono Windows XP o Windows Vista, è possibile saltare questo passaggio.  
@@ -47,7 +47,7 @@ ms.locfileid: "59836412"
   
 2.  Al prompt dei comandi digitare **GPRESULT /R** e quindi premere INVIO.  
   
-3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **Destinationsrv**. Ad esempio:   
+3.  Esaminare l'output risultante per la sezione criteri di gruppo applicato da: e verificare che sia elencato il Server di destinazione, ad esempio **Destinationsrv**. Ad esempio:  
   
     ```  
     USER SETTINGS  

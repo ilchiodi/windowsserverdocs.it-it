@@ -12,12 +12,12 @@ ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 4author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ac547f97b48e4cd0ebf87e0935cadc2c539b4d0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2bbc7bf7af71c671153bf7ba3356ddc08dcc38b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855002"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433629"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Creare un DVD di ripristino del server per il supporto multilingue
 
@@ -30,20 +30,20 @@ ms.locfileid: "59855002"
   
  La configurazione è composta da due fasi: Ambiente preinstallazione di Windows (Windows PE) e la configurazione iniziale. Per impostazione predefinita, la pagina per la selezione della lingua non viene visualizzata nella configurazione iniziale.  
   
--   Per uno scenario con una preinstallazione OEM o un'installazione OEM gestita in remoto, è necessario aggiungere una chiave del Registro di sistema tramite il seguente comando per visualizzare la pagina di selezione della lingua nella configurazione iniziale.  
+- Per uno scenario con una preinstallazione OEM o un'installazione OEM gestita in remoto, è necessario aggiungere una chiave del Registro di sistema tramite il seguente comando per visualizzare la pagina di selezione della lingua nella configurazione iniziale.  
   
-    ```  
-    %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
-    ```  
+  ```  
+  %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
+  ```  
   
-    > [!IMPORTANT]
-    >  Quando gli OEM creano un’immagine in laboratorio, devono scegliere **Inglese** come lingua da utilizzare durante la fase di installazione di Windows PE.  
+  > [!IMPORTANT]
+  >  Quando gli OEM creano un’immagine in laboratorio, devono scegliere **Inglese** come lingua da utilizzare durante la fase di installazione di Windows PE.  
   
--   In uno scenario relativo a Reseller Option Kit (ROK), i clienti ricevono un DVD e, talvolta, alcuni componenti hardware. Il cliente dovrebbe essere in grado di selezionare la lingua durante la configurazione di Windows PE e la pagina di selezione della lingua non viene più visualizzata durante la configurazione iniziale.  
+- In uno scenario relativo a Reseller Option Kit (ROK), i clienti ricevono un DVD e, talvolta, alcuni componenti hardware. Il cliente dovrebbe essere in grado di selezionare la lingua durante la configurazione di Windows PE e la pagina di selezione della lingua non viene più visualizzata durante la configurazione iniziale.  
   
- È possibile fornire un unico DVD dual-layer contenente più lingue.  
+  È possibile fornire un unico DVD dual-layer contenente più lingue.  
   
- In questa sezione viene descritto come aggiungere il supporto linguistico a Installazione di Windows. Lo strumento principale per la personalizzazione di Windows PE 3.0 è Gestione e manutenzione immagini distribuzione, uno strumento da riga di comando. Questa soluzione rende possibili gli scenari seguenti:  
+  In questa sezione viene descritto come aggiungere il supporto linguistico a Installazione di Windows. Lo strumento principale per la personalizzazione di Windows PE 3.0 è Gestione e manutenzione immagini distribuzione, uno strumento da riga di comando. Questa soluzione rende possibili gli scenari seguenti:  
   
 1.  Creazione di installazioni multilingue  
   
@@ -112,10 +112,10 @@ ms.locfileid: "59855002"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)
 
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](../install/Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](../install/Testing-the-Customer-Experience.md)
 

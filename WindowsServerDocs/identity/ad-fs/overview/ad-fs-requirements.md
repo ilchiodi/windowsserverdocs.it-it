@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 235030ea913f2fe1860efaa00bdb4641ac56750d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188679"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444099"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -191,16 +191,16 @@ Nella tabella seguente viene fornito un riepilogo di quanti server ADFS sono sup
 ## <a name="BKMK_6"></a>Requisiti del browser  
 Quando viene eseguita l'autenticazione di ADFS tramite un browser o un controllo browser, il browser deve essere conforme ai requisiti seguenti:  
   
--   È necessario abilitare JavaScript  
+- È necessario abilitare JavaScript  
   
--   Per single sign-on, il browser client deve essere configurato per consentire i cookie  
+- Per single sign-on, il browser client deve essere configurato per consentire i cookie  
   
--   Indicazione del nome del server \(SNI\) devono essere supportate  
+- Indicazione del nome del server \(SNI\) devono essere supportate  
   
--   Per certificato & dispositivo autenticazione dei certificati utente, il browser deve supportare l'autenticazione del certificato client SSL  
+- Per certificato & dispositivo autenticazione dei certificati utente, il browser deve supportare l'autenticazione del certificato client SSL  
 
--   Per l'accesso trasparente utilizzando l'autenticazione integrata di Windows, il nome del servizio federativo (ad esempio https:\/\/fs.contoso.com) devono essere configurate nella zona intranet locale o siti attendibili.
-## <a name="BKMK_7"></a>Requisiti di rete  
+- Per l'accesso trasparente utilizzando l'autenticazione integrata di Windows, il nome del servizio federativo (ad esempio https:\/\/fs.contoso.com) devono essere configurate nella zona intranet locale o siti attendibili.
+  ## <a name="BKMK_7"></a>Requisiti di rete  
  
 **Requisiti del firewall**  
   
@@ -210,7 +210,7 @@ Inoltre, se l'autenticazione del certificato client utente \(autenticazione clie
 
 Per altre informazioni sulla porta ibrida requisiti, vedere [protocolli e porte di identità ibrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
-Per altre informazioni vedere [procedure consigliate per la protezione di Active Directory Federation Services](..\deployment\Best-Practices-Securing-AD-FS.md)
+Per altre informazioni vedere [procedure consigliate per la protezione di Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **Requisiti DNS**  
   

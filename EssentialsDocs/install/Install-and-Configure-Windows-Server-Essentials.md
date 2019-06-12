@@ -12,12 +12,12 @@ ms.assetid: e95cf219-46a4-4041-bd81-0c4c2a0622cf
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cdad118c30fbf303b55ec7ea25bbe3e209c016db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48fa18d5baf7d4b48b14cbda5a513c487920d70a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870162"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433472"
 ---
 # <a name="install-and-configure-windows-server-essentials"></a>Installazione e configurazione di Windows Server Essentials
 
@@ -53,32 +53,32 @@ ms.locfileid: "59870162"
   
 ##### <a name="to-install-the-operating-system"></a>Per installare il sistema operativo  
   
-1.  Connettere il computer alla rete utilizzando un cavo di rete.  
+1. Connettere il computer alla rete utilizzando un cavo di rete.  
   
-    > [!IMPORTANT]
-    >  Non disconnettere il computer dalla rete durante la procedura di installazione per evitare che l'installazione non venga completata correttamente.  
+   > [!IMPORTANT]
+   >  Non disconnettere il computer dalla rete durante la procedura di installazione per evitare che l'installazione non venga completata correttamente.  
   
-2.  Accendere il computer e quindi inserire il DVD di Windows Server Essentials nell'unità DVD.  
+2. Accendere il computer e quindi inserire il DVD di Windows Server Essentials nell'unità DVD.  
   
-     Se si esegue un'installazione automatica, connettere il supporto rimovibile (ad esempio, un floppy disk o un'unità flash USB) che contiene i file di risposte. In base al contenuto del file di risposte, è possibile che le schermate di installazione non vengano visualizzate o ne venga visualizzata solo una parte.  
+    Se si esegue un'installazione automatica, connettere il supporto rimovibile (ad esempio, un floppy disk o un'unità flash USB) che contiene i file di risposte. In base al contenuto del file di risposte, è possibile che le schermate di installazione non vengano visualizzate o ne venga visualizzata solo una parte.  
   
-3.  Riavviare il computer. Quando viene visualizzato il messaggio **Premere un tasto per avviare da CD o DVD** , premere un qualsiasi tasto.  
+3. Riavviare il computer. Quando viene visualizzato il messaggio **Premere un tasto per avviare da CD o DVD** , premere un qualsiasi tasto.  
   
-    > [!NOTE]
-    >  Se il computer non è in grado di avviarsi da DVD, verificare che l'unità CD-ROM sia elencata per prima nella sequenza di avvio del BIOS. Per ulteriori informazioni sulla sequenza di avvio del BIOS, consultare la documentazione fornita dal produttore del computer.  
+   > [!NOTE]
+   >  Se il computer non è in grado di avviarsi da DVD, verificare che l'unità CD-ROM sia elencata per prima nella sequenza di avvio del BIOS. Per ulteriori informazioni sulla sequenza di avvio del BIOS, consultare la documentazione fornita dal produttore del computer.  
   
-4.  Selezionare i valori desiderati per **Lingua**, **Formato ora e valuta** e **Layout di tastiera o metodo di input**, quindi fare clic su **Avanti**.  
+4. Selezionare i valori desiderati per **Lingua**, **Formato ora e valuta** e **Layout di tastiera o metodo di input**, quindi fare clic su **Avanti**.  
   
-5.  Fare clic su **Installa ora**.  
+5. Fare clic su **Installa ora**.  
   
-6.  In **Immettere il codice "Product Key"**, digitare il codice Product Key.  
+6. In **Immettere il codice "Product Key"** , digitare il codice Product Key.  
   
-7.  Leggere le **Condizioni di licenza**. Se le si accetta, selezionare la casella di controllo **Accetto le condizioni di licenza** , quindi fare clic su **Avanti**.  
+7. Leggere le **Condizioni di licenza**. Se le si accetta, selezionare la casella di controllo **Accetto le condizioni di licenza** , quindi fare clic su **Avanti**.  
   
-    > [!NOTE]
-    >  Se si sceglie di non accettarle, l'installazione viene interrotta.  
+   > [!NOTE]
+   >  Se si sceglie di non accettarle, l'installazione viene interrotta.  
   
-8.  Nelle **il tipo di installazione procedere?**, fare clic su **personalizzato: Installa solo Windows (avanzate)**  
+8. Nelle **il tipo di installazione procedere?** , fare clic su **personalizzato: Installa solo Windows (avanzate)**  
   
 9. In **Specificare il percorso in cui installare Windows**, selezionare l'unità disco rigido su cui installare il sistema operativo Windows. Verificare che tutte le unità disco rigido interne siano disponibili per l'installazione.  
   
@@ -93,24 +93,24 @@ ms.locfileid: "59870162"
     1.  Per eliminare una partizione, selezionarla, quindi fare clic su **Opzioni unità (avanzate)** e infine su **Elimina**. Dopo aver eliminato la partizione di sistema, crearne una nuova seguendo le istruzioni nel passaggio **b** o **c**.  
   
         > [!NOTE]
-        >  Dopo aver fatto clic su **Opzioni unità (avanzate)**, quella opzione non verrà più visualizzata. In questo caso, ignorare la parte del passaggio che riguarda le opzioni dell'unità.  
+        >  Dopo aver fatto clic su **Opzioni unità (avanzate)** , quella opzione non verrà più visualizzata. In questo caso, ignorare la parte del passaggio che riguarda le opzioni dell'unità.  
   
-    2.  Per creare una partizione da uno spazio non partizionato, fare clic sul disco rigido che si desidera partizionare, selezionare **Opzioni unità (avanzate)**, quindi **Nuovo** e infine, nella casella di testo **Dimensione**, digitare la dimensione per la partizione che si desidera creare. Ad esempio, per utilizzare il valore consigliato per la partizione pari a 120 gigabyte (GB), digitare **122880**, quindi fare clic su **Applica**. Dopo aver creato la partizione, fare clic su **Avanti**. La partizione viene formattata prima che l'installazione prosegua.  
+    2.  Per creare una partizione da uno spazio non partizionato, fare clic sul disco rigido che si desidera partizionare, selezionare **Opzioni unità (avanzate)** , quindi **Nuovo** e infine, nella casella di testo **Dimensione**, digitare la dimensione per la partizione che si desidera creare. Ad esempio, per utilizzare il valore consigliato per la partizione pari a 120 gigabyte (GB), digitare **122880**, quindi fare clic su **Applica**. Dopo aver creato la partizione, fare clic su **Avanti**. La partizione viene formattata prima che l'installazione prosegua.  
   
-    3.  Per creare una partizione che utilizza tutto lo spazio non partizionato, fare clic sul disco rigido che si desidera partizionare, selezionare **Opzioni unità (avanzate)**, quindi fare clic su **Nuovo** e infine su **Applica** per accettare la dimensione predefinita. Dopo aver creato la partizione, fare clic su **Avanti**. La partizione viene formattata prima che l'installazione prosegua.  
+    3.  Per creare una partizione che utilizza tutto lo spazio non partizionato, fare clic sul disco rigido che si desidera partizionare, selezionare **Opzioni unità (avanzate)** , quindi fare clic su **Nuovo** e infine su **Applica** per accettare la dimensione predefinita. Dopo aver creato la partizione, fare clic su **Avanti**. La partizione viene formattata prima che l'installazione prosegua.  
   
         > [!IMPORTANT]
         >  Non è possibile spostare il sistema operativo su un'altra partizione dopo aver completato questo passaggio.  
   
- Durante l'installazione, i file temporanei vengono copiati in una cartella di installazione sul computer e l'operazione può richiedere circa 30 minuti. Dopo aver installato il sistema operativo Windows Server Essentials, il computer viene riavviato. A questo punto, si è pronti a configurare il sistema operativo Windows Server Essentials.  
+   Durante l'installazione, i file temporanei vengono copiati in una cartella di installazione sul computer e l'operazione può richiedere circa 30 minuti. Dopo aver installato il sistema operativo Windows Server Essentials, il computer viene riavviato. A questo punto, si è pronti a configurare il sistema operativo Windows Server Essentials.  
   
 ###  <a name="BKMK_Step2Configure"></a> Passaggio 2: Configurare il sistema operativo Windows Server Essentials  
   
 > [!IMPORTANT]
 >  Se si esegue la migrazione da una versione precedente di Windows Small Business Server a Windows Server Essentials, è necessario seguire un processo diverso. Per informazioni sulle installazioni con migrazione, vedere:  
->   
->  -   [Eseguire la migrazione da Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
-> -   [Eseguire la migrazione da Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
+> 
+> - [Eseguire la migrazione da Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
+>   -   [Eseguire la migrazione da Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
   
  Durante questa fase dell'installazione, l'utente viene invitato a rispondere ad alcune domande sulla sua organizzazione. Queste informazioni vengono utilizzate per configurare il sistema operativo.  
   

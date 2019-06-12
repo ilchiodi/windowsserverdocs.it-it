@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b0b72734d1456e3cf877ebc2ff267a7dd56ad
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190655"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501677"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Compilare sul lato server dell'applicazione tramite i client riservati OAuth con AD FS 2016 o versioni successive
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>Per aggiornare il file di database  
 
-1.  Aprire il progetto in Visual Studio, verrà visualizzata una finestra popup che informa che l'applicazione richiede SQL Server 2102 Express o sarà necessario aggiornare il database.  Fare clic su Ok.  
+1.  Aprire il progetto in Visual Studio, verrà visualizzata una finestra popup che informa che l'app richiede SQL Server 2012 Express o sarà necessario aggiornare il database.  Fare clic su Ok.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -226,25 +226,25 @@ In questa sezione verranno testate le soluzioni client riservato.  Utilizzare la
 
 #### <a name="testing-the-confidential-client-solution"></a>Test della soluzione client riservato  
 
-1.  Nella parte superiore di Visual Studio, verificare che Internet Explorer sia selezionata e fare clic sulla freccia verde.  
+1. Nella parte superiore di Visual Studio, verificare che Internet Explorer sia selezionata e fare clic sulla freccia verde.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2.  Una volta che viene visualizzata la pagina ASP.Net, fare clic su **registrare** in alto a destra della pagina.  Immettere un nome utente e password e quindi fare clic su **registrare** pulsante.  Consente di creare un account locale nel database SQL.  
+2. Una volta che viene visualizzata la pagina ASP.Net, fare clic su **registrare** in alto a destra della pagina.  Immettere un nome utente e password e quindi fare clic su **registrare** pulsante.  Consente di creare un account locale nel database SQL.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-4.  Si noti che a questo punto, il sito ASP.NET afferma Hello abby@contoso.com!.  Fare clic su **profilo**.  
+3. Si noti che a questo punto, il sito ASP.NET afferma Hello abby@contoso.com!.  Fare clic su **profilo**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 
-5.  Questo consente di visualizzare una pagina senza le informazioni e che è necessario fare clic qui per accedere.  Fare clic su **qui**.  
+4. Questo consente di visualizzare una pagina senza le informazioni e che è necessario fare clic qui per accedere.  Fare clic su **qui**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
 
-6.  Verrà richiesto di accedere ad ADFS.  
+5. Verrà richiesto di accedere ad ADFS.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Sviluppo di AD FS](../../ad-fs/AD-FS-Development.md)  

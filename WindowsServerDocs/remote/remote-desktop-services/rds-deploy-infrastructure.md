@@ -13,16 +13,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: acfdd99fa67e218f58fe650de5607f2a5ba97bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833832"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805135"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Distribuire l'ambiente Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 Usare la procedura seguente per distribuire i server di Desktop remoto nell'ambiente in uso. È possibile installare i ruoli del server su computer fisici o macchine virtuali, a seconda se si siano creando un on-premise, basati sul cloud o ambiente ibrido. 
 
@@ -30,11 +30,11 @@ Se si usa macchine virtuali per uno qualsiasi dei server di Servizi Desktop remo
   
   
 1.  Aggiungere tutti i server di cui che si intende usare per Servizi Desktop remoto a Server Manager:  
-    1.  In Server Manager fare clic su **Gestisci > Aggiungi server**.  
+    1.  In Server Manager fare clic su **Manage** > **Aggiungi server**.  
     2.  Fare clic su **trova**.  
     3.  Fare clic su ogni server nella distribuzione (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Sh1 di Contoso) e fare clic su **OK**.  
 2.  Creare una distribuzione basata su sessione per distribuire i componenti Servizi Desktop remoto:  
-    1.  In Server Manager fare clic su **Gestisci > Aggiungi ruoli e funzionalità**.  
+    1.  In Server Manager fare clic su **Manage** > **Aggiungi ruoli e funzionalità**.  
     2.  Fare clic su **installazione di Servizi Desktop remoto**, **Standard Deployment**, e **distribuzione desktop basati su sessione**.  
     3.  Selezionare i server appropriati per il server Gestore connessione desktop remoto, accesso Web desktop remoto e server Host sessione Desktop remoto (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Contoso-SH1, rispettivamente).  
     4.  Selezionare **riavvia automaticamente il server di destinazione se necessario**, quindi fare clic su **Distribuisci**.  

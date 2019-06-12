@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6804c25af04907edc8180b6a37be7efcc470f259
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51b01f80259a7b83e1999b47164108dbe174b887
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869362"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441899"
 ---
 # <a name="relog"></a>relog
 
@@ -33,31 +33,31 @@ relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName
 
 ### <a name="parameters"></a>Parametri  
 
-|Parametro|Descrizione|
-|--|--|
-|*Nome del file* [*... FileName*]|Specifica il percorso di un log dei contatori delle prestazioni esistente. È possibile specificare più file di input.|
-|-a |Accoda output file anziché sovrascrivere. Questa opzione non è applicabile al formato SQL in cui il valore predefinito è sempre da accodare.  |
-|-c *tracciato* [*percorso...* ]|Specifica il percorso del contatore delle prestazioni da registrare. Per specificare più percorsi dei contatori, separarli con uno spazio e racchiudere tra virgolette i percorsi dei contatori (ad esempio, **"* * * PercorsoContatore1* * * PercorsoContatore2 **"**)|  
-|-cf *nomefile*|Specifica il percorso del file di testo in cui sono elencati i contatori delle prestazioni da includere in un file di relog. Utilizzare questa opzione per elencare i percorsi dei contatori in un file di input, uno per riga. Impostazione predefinita è che tutti i contatori nel file di registro originale vengano nuovamente registrati.|  
-|-f {bin\| csv\|tsv\|SQL}|Specifica il percorso del formato di file di output. Il formato predefinito è **bin**. Per un database SQL, specifica il file di output di *DSN! CounterLog*. È possibile specificare il percorso del database utilizzando la gestione di ODBC per configurare il DSN (Database System Name).  |
-|-t *valore*|Specifica gli intervalli di campionamento in "*N*" record. Include ogni punto dati ennesima nel file di relog. Valore predefinito è ogni punto dati.|  
-|-o {*FileOutput* \| *"SQL:DSN! Registro_contatori*} dove DSN è un DSN ODMC definito nel sistema.|Specifica il percorso del file di output o database SQL in cui verranno scritti i contatori. <br>Nota: Per le versioni a 64 bit e a 32 bit di Relog.exe, è necessario definire un DSN nell'origine dati ODBC (64 bit e a 32 bit rispettivamente)|
-|-b \< *M*/*1!d*/*aaaa*> [[*HH*:]*MM*:]*SS*|Specifica ora di inizio della copia del primo record dal file di input. Data e ora deve essere nel formato esatto *M***/*** 1!d***/*** YYYYHH ***:*** MM ***:*** SS*.|  
-|-e \< *M*/*1!d*/*aaaa*> [[*HH*:]*MM*:]*SS* |Specifica l'ora di fine per la copia dell'ultimo record dal file di input. Data e ora deve essere nel formato esatto *M***/*** 1!d***/*** YYYYHH ***:*** MM ***:*** SS*.|  
-|-config {*nomefile* \| *posso*}|Specifica il percorso del file di impostazioni che contiene i parametri della riga di comando. Utilizzare *-i* nel file di configurazione come segnaposto per un elenco dei file di input che può essere inserito nella riga di comando. Nella riga di comando, tuttavia, non devi usare *è*. È anche possibile usare caratteri jolly, ad esempio *. blg per specificare molti nomi di file di input.|  
-|-q|Consente di visualizzare i contatori delle prestazioni e intervalli di tempo di log file specificati nel file di input.|  
-|-y|Bypass chiedere conferma rispondendo "Sì" per tutte le domande.|  
-|/?|Visualizza la guida al prompt dei comandi.|
+|                                         Parametro                                          |                                                                                                                                                                  Descrizione                                                                                                                                                                   |
+|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                *Nome del file* [ *... FileName*]                                 |                                                                                                                      Specifica il percorso di un log dei contatori delle prestazioni esistente. È possibile specificare più file di input.                                                                                                                      |
+|                                             -a                                             |                                                                                                          Accoda output file anziché sovrascrivere. Questa opzione non è applicabile al formato SQL in cui il valore predefinito è sempre da accodare.                                                                                                           |
+|                                   -c *tracciato* [*percorso...* ]                                   |                                                       Specifica il percorso del contatore delle prestazioni da registrare. Per specificare più percorsi dei contatori, separarli con uno spazio e racchiudere tra virgolette i percorsi dei contatori (ad esempio, **"** <em>PercorsoContatore1</em> <em>PercorsoContatore2</em> **"** )                                                       |
+|                                       -cf *nomefile*                                       |                                            Specifica il percorso del file di testo in cui sono elencati i contatori delle prestazioni da includere in un file di relog. Utilizzare questa opzione per elencare i percorsi dei contatori in un file di input, uno per riga. Impostazione predefinita è che tutti i contatori nel file di registro originale vengano nuovamente registrati.                                            |
+|                                  -f {bin\| csv\|tsv\|SQL}                                  |                                       Specifica il percorso del formato di file di output. Il formato predefinito è **bin**. Per un database SQL, specifica il file di output di *DSN! CounterLog*. È possibile specificare il percorso del database utilizzando la gestione di ODBC per configurare il DSN (Database System Name).                                        |
+|                                         -t *valore*                                         |                                                                                                           Specifica gli intervalli di campionamento in "*N*" record. Include ogni punto dati ennesima nel file di relog. Valore predefinito è ogni punto dati.                                                                                                           |
+| -o {*FileOutput* \| *"SQL:DSN! Registro_contatori*} dove DSN è un DSN ODMC definito nel sistema. |                                                   Specifica il percorso del file di output o database SQL in cui verranno scritti i contatori. <br>Nota: Per le versioni a 64 bit e a 32 bit di Relog.exe, è necessario definire un DSN nell'origine dati ODBC (64 bit e a 32 bit rispettivamente)                                                   |
+|                          -b \< *M*/*1!d*/*aaaa*> [[*HH*:]*MM*:]*SS*                           |                                                                          Specifica ora di inizio della copia del primo record dal file di input. Data e ora deve essere nel formato esatto <em>M</em> **/** <em>1!d</em> **/** <em>YYYYHH</em> **:** <em>MM</em> **:** <em>SS</em>.                                                                          |
+|                          -e \< *M*/*1!d*/*aaaa*> [[*HH*:]*MM*:]*SS*                           |                                                                           Specifica l'ora di fine per la copia dell'ultimo record dal file di input. Data e ora deve essere nel formato esatto <em>M</em> **/** <em>1!d</em> **/** <em>YYYYHH</em> **:** <em>MM</em> **:** <em>SS</em>.                                                                            |
+|                                -config {*nomefile* \| *posso*}                                 | Specifica il percorso del file di impostazioni che contiene i parametri della riga di comando. Utilizzare *-i* nel file di configurazione come segnaposto per un elenco dei file di input che può essere inserito nella riga di comando. Nella riga di comando, tuttavia, non devi usare *è*. È anche possibile usare caratteri jolly, ad esempio \*blg per specificare molti nomi di file di input. |
+|                                             -q                                             |                                                                                                                          Consente di visualizzare i contatori delle prestazioni e intervalli di tempo di log file specificati nel file di input.                                                                                                                           |
+|                                             -y                                             |                                                                                                                                            Bypass chiedere conferma rispondendo "Sì" per tutte le domande.                                                                                                                                             |
+|                                             /?                                             |                                                                                                                                                      Visualizza la guida al prompt dei comandi.                                                                                                                                                      |
 
 ## <a name="remarks"></a>Note  
 Formato del percorso del contatore:  
--   Il formato generale per i percorsi dei contatori è il seguente: [\\\<computer >] \\ \<oggetto > [\<padre >\\< istanza #Index >] \\ \< Contatore >] in cui il padre, istanza, indice e componenti dei contatori del formato possono contenere un nome valido o un carattere jolly. Il computer, padre, istanza e i componenti dell'indice non sono necessari per tutti i contatori.  
--   Determinare i percorsi dei contatori da utilizzare in base al contatore stesso. Ad esempio, l'oggetto disco logico ha un'istanza <Index>, pertanto è necessario fornire < #index > o un carattere jolly. Pertanto, è possibile utilizzare il formato seguente: **\LogicalDisk (\*/\*#\*)\\\***  
--   In confronto, l'oggetto processo non richiede un'istanza \<Index >. Pertanto, è possibile utilizzare il seguente formato: **\Processo (\*) \ID processo**  
--   Se viene specificato un carattere jolly nel nome del padre, verranno restituite tutte le istanze dell'oggetto specificato che corrispondono ai campi del contatore e istanza specificata.  
--   Se viene specificato un carattere jolly nel nome dell'istanza, tutte le istanze dell'oggetto specificato e oggetto padre verranno restituite se il carattere jolly corrispondano a tutti i nomi di istanza corrispondente all'indice specificato.  
--   Se viene specificato un carattere jolly nel nome del contatore, vengono restituiti tutti i contatori dell'oggetto specificato.  
--   Percorso stringa le corrispondenze parziali contatori (ad esempio, pro *) non sono supportate.  
+- Il formato generale per i percorsi dei contatori è il seguente: [\\\<computer >] \\ \<oggetto > [\<padre >\\< istanza #Index >] \\ \< Contatore >] in cui il padre, istanza, indice e componenti dei contatori del formato possono contenere un nome valido o un carattere jolly. Il computer, padre, istanza e i componenti dell'indice non sono necessari per tutti i contatori.  
+- Determinare i percorsi dei contatori da utilizzare in base al contatore stesso. Ad esempio, l'oggetto disco logico ha un'istanza <Index>, pertanto è necessario fornire < #index > o un carattere jolly. Pertanto, è possibile utilizzare il formato seguente: **\LogicalDisk (\*/\*#\*)\\\\** *  
+- In confronto, l'oggetto processo non richiede un'istanza \<Index >. Pertanto, è possibile utilizzare il seguente formato: **\Processo (\*) \ID processo**  
+- Se viene specificato un carattere jolly nel nome del padre, verranno restituite tutte le istanze dell'oggetto specificato che corrispondono ai campi del contatore e istanza specificata.  
+- Se viene specificato un carattere jolly nel nome dell'istanza, tutte le istanze dell'oggetto specificato e oggetto padre verranno restituite se il carattere jolly corrispondano a tutti i nomi di istanza corrispondente all'indice specificato.  
+- Se viene specificato un carattere jolly nel nome del contatore, vengono restituiti tutti i contatori dell'oggetto specificato.  
+- Percorso stringa le corrispondenze parziali contatori (ad esempio, pro *) non sono supportate.  
 
 File dei contatori:  
 -   I file dei contatori sono file di testo in cui sono elencati uno o più dei contatori delle prestazioni nel registro esistente. Copiare il nome completo del contatore dal registro o la **/q** dell'output in \<computer >\\\<oggetto >\\\<istanza >\\ \< Contatore > formato. elencare un percorso di contatore per ogni riga.  
@@ -89,7 +89,7 @@ relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_lo
 ```
 
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 <!---
 -   The following is a list of the possible formats:  

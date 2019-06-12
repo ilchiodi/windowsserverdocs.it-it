@@ -7,15 +7,15 @@ ms.technology: storage-spaces
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 8/16/2018
+ms.date: 06/07/2019
 description: Istruzioni dettagliate per distribuire archiviazione software-defined con spazi di archiviazione diretta in Windows Server come infrastruttura iperconvergente o infrastruttura convergente (noto anche come disaggregata).
 ms.localizationpriority: medium
-ms.openlocfilehash: 55cfa0e066506d7174f9e5b1e61cc0aa290706d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4159c85be23025ef57084b47dcc77d4f749888f
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865412"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812360"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Distribuire spazi di archiviazione diretta
 
@@ -24,7 +24,7 @@ ms.locfileid: "59865412"
 In questo argomento vengono fornite istruzioni dettagliate per distribuire [spazi di archiviazione diretta](storage-spaces-direct-overview.md).
 
 > [!Tip]
-> Se si desidera per acquisire Hyper-Converged infrastruttura, Microsoft consiglia queste [Windows Server Software-Defined](https://microsoft.com/wssd) soluzioni dei partner. Sono progettate, assemblati e convalidare l'architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità.
+> Se si desidera per acquisire Hyper-Converged infrastruttura, Microsoft consiglia di acquistare una soluzione di hardware e software convalidati dai nostri partner, tra cui procedure e strumenti di distribuzione. Queste soluzioni sono progettate, assemblate e convalidate in base a nostra architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Per le soluzioni Windows Server 2019, visitare il [sito Web di soluzioni di Azure Stack uomo](https://azure.microsoft.com/overview/azure-stack/hci). Per le soluzioni Windows Server 2016, altre informazioni, vedi [Windows Server Software-Defined](https://microsoft.com/wssd).
 
 > [!Tip]
 > È possibile usare macchine virtuali Hyper-V, incluso in Microsoft Azure, al [valutare spazi di archiviazione diretta senza hardware](storage-spaces-direct-in-vm.md). È anche possibile esaminare il comodo [script di distribuzione di Windows Server lab rapido](https://aka.ms/wslab), che viene usato per il training.
@@ -51,7 +51,7 @@ Raccogliere le informazioni seguenti:
 
 Il primo passaggio è installare Windows Server in ogni server che saranno nel cluster. Spazi di archiviazione diretta richiede Windows Server 2016 Datacenter Edition. È possibile usare l'opzione di installazione Server Core o Server con esperienza Desktop.
 
-Quando si installa Windows Server usando l'installazione guidata, è possibile scegliere tra *Windows Server* (riferimento a Server Core) e *Windows Server (Server con esperienza Desktop)*, che è l'equivalente del *completo* opzione di installazione disponibile in Windows Server 2012 R2. Se non si sceglie, si otterrà l'opzione di installazione Server Core. Per altre informazioni, vedere [opzioni di installazione per Windows Server 2016](../../get-started/Windows-Server-2016.md).
+Quando si installa Windows Server usando l'installazione guidata, è possibile scegliere tra *Windows Server* (riferimento a Server Core) e *Windows Server (Server con esperienza Desktop)* , che è l'equivalente del *completo* opzione di installazione disponibile in Windows Server 2012 R2. Se non si sceglie, si otterrà l'opzione di installazione Server Core. Per altre informazioni, vedere [opzioni di installazione per Windows Server 2016](../../get-started/Windows-Server-2016.md).
 
 ### <a name="step-12-connect-to-the-servers"></a>Passaggio 1.2: Connettersi ai server
 
@@ -229,7 +229,7 @@ Dopo aver creato il cluster, la replica della voce DNS per il nome del cluster p
 
 Per altre info, vedi i seguenti argomenti:
 
-- [Configurazione e la gestione del quorum](../../failover-clustering/manage-cluster-quorum.md)
+- [Configurare e gestire il quorum](../../failover-clustering/manage-cluster-quorum.md)
 - [Distribuire un Cloud di controllo per un Cluster di Failover](../../failover-clustering/deploy-cloud-witness.md)
 
 ### <a name="step-35-enable-storage-spaces-direct"></a>Passaggio 3.5: Abilitare Spazi di archiviazione diretta
@@ -297,15 +297,15 @@ Il passaggio successivo nella configurazione di servizi cluster per il file serv
 
 #### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>Per creare un ruolo di tipo Scale-Out File Server tramite Server Manager
 
-1.  In Gestione Cluster di Failover, selezionare il cluster, passare a **ruoli**, quindi fare clic su **Configura ruolo...** .<br>Viene visualizzata la configurazione guidata disponibilità elevata.
-2.  Nel **selezionare il ruolo** pagina, fare clic su **File Server**.
-3.  Nel **tipo di File Server** pagina, fare clic su **Scale-Out File Server per i dati dell'applicazione**.
-4.  Nel **punto di accesso Client** , digitare un nome per il File Server di scalabilità orizzontale.
-5.  Verificare che il ruolo è stato configurato correttamente passando a **ruoli** e conferma che il **stato** colonna Mostra **esecuzione** accanto al ruolo cluster file server è stato creato, come illustrato nella figura 1.
+1. In Gestione Cluster di Failover, selezionare il cluster, passare a **ruoli**, quindi fare clic su **Configura ruolo...** .<br>Viene visualizzata la configurazione guidata disponibilità elevata.
+2. Nel **selezionare il ruolo** pagina, fare clic su **File Server**.
+3. Nel **tipo di File Server** pagina, fare clic su **Scale-Out File Server per i dati dell'applicazione**.
+4. Nel **punto di accesso Client** , digitare un nome per il File Server di scalabilità orizzontale.
+5. Verificare che il ruolo è stato configurato correttamente passando a **ruoli** e conferma che il **stato** colonna Mostra **esecuzione** accanto al ruolo cluster file server è stato creato, come illustrato nella figura 1.
 
-    ![Screenshot di gestione Cluster di Failover che mostra il File Server di scalabilità orizzontale](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "gestione Cluster di Failover che mostra il File Server di scalabilità orizzontale")
+   ![Screenshot di gestione Cluster di Failover che mostra il File Server di scalabilità orizzontale](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "gestione Cluster di Failover che mostra il File Server di scalabilità orizzontale")
 
-     **Figura 1** gestione Cluster di Failover con Scale-Out File Server con lo stato di esecuzione
+    **Figura 1** gestione Cluster di Failover con Scale-Out File Server con lo stato di esecuzione
 
 > [!NOTE]
 >  Dopo aver creato il ruolo del cluster, potrebbe essere presenti alcuni rete ritardi di propagazione che potrebbero impedire la creazione di condivisioni file su di esso per alcuni minuti, o potenzialmente lunga.  

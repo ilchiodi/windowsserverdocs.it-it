@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9533204-ad7e-4e49-81c1-559324a16aeb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7a5761cafff0a4bf148958a7f14aeaf311075b2e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66931d2196b741e469cb726929f7b58985b8d0cd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839782"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812146"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Utilizzare criteri DNS per DNS "split brain" in Active Directory
 
@@ -25,7 +25,7 @@ In Windows Server 2016, supporto per i criteri DNS è stato esteso per Active Di
 
 In precedenza, questo scenario richiede che gli amministratori DNS mantenere due server DNS diversi, ogni che fornisce servizi per ogni set di utenti interni ed esterni. Se solo alcuni record all'interno della zona sono state suddivise\-se non o entrambe le istanze della zona (interna ed esterna) sono state delegate allo stesso dominio padre, questo è diventato un problema di gestione.
 
->[!NOTE]
+> [!NOTE]
 > - Le distribuzioni DNS vengono suddivise\-brain quando sono presenti due versioni di una singola zona, una versione per gli utenti interni su intranet dell'organizzazione e una versione per gli utenti esterni, che sono in genere, gli utenti su Internet.
 > - L'argomento [usare i criteri DNS per la distribuzione DNS Split-Brain](split-brain-DNS-deployment.md) illustra come è possibile usare i criteri DNS e gli ambiti di zona per distribuire una divisione\-brain sistema DNS in un unico server DNS di Windows Server 2016.
 
@@ -124,8 +124,8 @@ I record \(entrambi interna predefinita di zona ambito e l'ambito di zona estern
     
     Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "10.0.0.39”
 
->[!NOTE]
->Il **– ZoneScope** parametro non è incluso quando il record viene aggiunto all'ambito predefinito zona. Questa azione è uguale all'aggiunta di record a una zona normale.
+> [!NOTE]
+> Il **– ZoneScope** parametro non è incluso quando il record viene aggiunto all'ambito predefinito zona. Questa azione è uguale all'aggiunta di record a una zona normale.
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
@@ -133,18 +133,18 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://do
 
 Dopo aver identificato le interfacce di server per la rete esterna e la rete interna e siano stati creati gli ambiti di zona, è necessario creare criteri DNS che si connettono gli ambiti di zona interni ed esterni.
 
->[!NOTE]
->Questo esempio Usa l'interfaccia del server \(il parametro - ServerInterface nel comando riportato di seguito viene riportato di seguito\) come criterio di distinguere tra i client interni ed esterni. Un altro metodo per distinguere tra i client interni ed esterni consiste nell'usare una subnet del client come criterio. Se è possibile identificare la subnet a cui appartengono i client interni, è possibile configurare criteri DNS per distinguere in base alle subnet del client. Per informazioni su come configurare Gestione traffico usando criteri di subnet client, vedere [usare i criteri DNS per la gestione del traffico basato su posizione geografica con i server primari](primary-geo-location.md).
+> [!NOTE]
+> Questo esempio Usa l'interfaccia del server \(il parametro - ServerInterface nel comando riportato di seguito viene riportato di seguito\) come criterio di distinguere tra i client interni ed esterni. Un altro metodo per distinguere tra i client interni ed esterni consiste nell'usare una subnet del client come criterio. Se è possibile identificare la subnet a cui appartengono i client interni, è possibile configurare criteri DNS per distinguere in base alle subnet del client. Per informazioni su come configurare Gestione traffico usando criteri di subnet client, vedere [usare i criteri DNS per la gestione del traffico basato su posizione geografica con i server primari](primary-geo-location.md).
 
 Dopo aver configurato i criteri, quando una query DNS viene ricevuta sull'interfaccia pubblica, la risposta viene restituita dall'ambito esterno della zona. 
 
->[!NOTE]
->Criteri non sono necessari per il mapping di ambito predefinito zona interno. 
+> [!NOTE]
+> Criteri non sono necessari per il mapping di ambito predefinito zona interno. 
 
     Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -ServerInterface "eq,208.84.0.53" -ZoneScope "external,1" -ZoneName contoso.com
 
->[!NOTE]
->208.84.0.53 è l'indirizzo IP nell'interfaccia di rete pubblica.
+> [!NOTE]
+> 208.84.0.53 è l'indirizzo IP nell'interfaccia di rete pubblica.
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 

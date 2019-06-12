@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 97e1fa441c5fe4fb7d23743387392732663326de
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188734"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501592"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD ADFS Single Sign-On Settings
 
@@ -56,7 +56,7 @@ Abilitare o disabilitare l'accesso SSO persistente | ```` Set-AdfsProperties –
 
 
 ## <a name="ad-fs-2016---single-sign-on-and-authenticated-devices"></a>AD FS 2016 - Single Sign-On e dispositivi autenticati
-AD FS 2016 passa il PSSO quando il richiedente esegue l'autenticazione da un dispositivo registrato, aumentando al numero massimo di 90 giorni, ma che richiedono un authenticvation entro un periodo di 14 giorni (finestra di utilizzo di dispositivi).
+AD FS 2016 passa il PSSO quando il richiedente esegue l'autenticazione da un dispositivo registrato, aumentando al numero massimo di 90 giorni, ma che richiedono l'autenticazione entro un periodo di 14 giorni (finestra di utilizzo di dispositivi).
 Dopo aver fornito le credenziali per la prima volta, per impostazione predefinita gli utenti con dispositivi registrati ottenere single Sign-On per un periodo massimo di 90 giorni, condizione che utilizzino il dispositivo per accedere alle risorse di AD FS almeno una volta ogni 14 giorni.  Se rimangono in attesa 15 giorni dopo l'immissione di credenziali, gli utenti verranno richiesto nuovamente le credenziali.  
 
 L'accesso SSO persistente è abilitato per impostazione predefinita. Se è disabilitato, non verrà scritto alcun cookie PSSO. |  
@@ -103,23 +103,23 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ## <a name="psso-revocation"></a>Revoca PSSO  
  Per garantire sicurezza, AD FS rifiuterà qualsiasi cookie SSO persistente emesso in precedenza quando vengono soddisfatte le condizioni seguenti. Questo richiederà all'utente di fornire le proprie credenziali per eseguire l'autenticazione con AD FS. 
   
--   Cambia la password utente  
+- Cambia la password utente  
   
--   Impostazione SSO persistente è disabilitata in AD FS  
+- Impostazione SSO persistente è disabilitata in AD FS  
   
--   Dispositivo è disabilitato dall'amministratore in caso di perdita o furto  
+- Dispositivo è disabilitato dall'amministratore in caso di perdita o furto  
   
--   AD FS riceve un cookie SSO persistente che viene eseguito per un utente registrato, ma l'utente o il dispositivo non è più registrato  
+- AD FS riceve un cookie SSO persistente che viene eseguito per un utente registrato, ma l'utente o il dispositivo non è più registrato  
   
--   AD FS riceve un cookie SSO persistente per un utente registrato ma registrati di nuovo l'utente  
+- AD FS riceve un cookie SSO persistente per un utente registrato ma registrati di nuovo l'utente  
   
--   AD FS riceve un cookie SSO persistente che viene generato come risultato "Mantieni l'accesso" ma "Mantieni l'accesso" impostazione è disabilitata in AD FS  
+- AD FS riceve un cookie SSO persistente che viene generato come risultato "Mantieni l'accesso" ma "Mantieni l'accesso" impostazione è disabilitata in AD FS  
   
--   AD FS riceve un cookie SSO persistente che viene eseguito per un utente registrato ma certificato del dispositivo è mancante o modificata durante l'autenticazione  
+- AD FS riceve un cookie SSO persistente che viene eseguito per un utente registrato ma certificato del dispositivo è mancante o modificata durante l'autenticazione  
   
--   Amministratore di AD FS è impostato un tempo di cambio data per l'accesso SSO persistente. Quando questo viene configurato, ADFS non verrà accettata qualsiasi cookie SSO persistente rilasciati prima dell'ora  
+- Amministratore di AD FS è impostato un tempo di cambio data per l'accesso SSO persistente. Quando questo viene configurato, ADFS non verrà accettata qualsiasi cookie SSO persistente rilasciati prima dell'ora  
   
- Per impostare l'ora di cambio data, eseguire il cmdlet di PowerShell seguente:  
+  Per impostare l'ora di cambio data, eseguire il cmdlet di PowerShell seguente:  
   
 
 ``` powershell
@@ -163,7 +163,7 @@ Per riepilogare:
     <th>SÌ</th>
   </tr>
  <tr align="center">
-    <td>SSO = > impostare Token di aggiornamento = ></td>
+    <td>SSO =&gt;impostare Token di aggiornamento =&gt;</td>
     <td>8 ore</td>
     <td>N/D</td>
     <td>N/D</td>
@@ -174,7 +174,7 @@ Per riepilogare:
   </tr>
 
  <tr align="center">
-    <td>PSSO = > impostare Token di aggiornamento = ></td>
+    <td>PSSO =&gt;impostare Token di aggiornamento =&gt;</td>
     <td>N/D</td>
     <td>24 ore</td>
     <td>7 giorni</td>

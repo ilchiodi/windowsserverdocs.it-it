@@ -12,12 +12,12 @@ ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9c240320d990652a4669499d99c1fc3eba9e06fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4dd32d57f6f36bdbf94c763fe0cbd1f37ff990b8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883592"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433115"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Panoramica della finestra di avvio in Windows Server Essentials
 
@@ -29,20 +29,20 @@ La finestra di avvio di Windows Server Essentials è una piccola applicazione in
   
  I sistemi operativi Windows seguenti supportano l'uso della finestra di avvio di Windows Server Essentials:  
   
--   **Windows 8**: Tutte le edizioni.  
+- **Windows 8**: Tutte le edizioni.  
   
--   **Windows 7**: Tutte le edizioni.  
--   **Windows 10**: Tutte le edizioni. 
+- **Windows 7**: Tutte le edizioni.  
+- **Windows 10**: Tutte le edizioni. 
   
- I sistemi operativi seguenti non supportano l'uso della finestra di avvio di Windows Server Essentials:  
+  I sistemi operativi seguenti non supportano l'uso della finestra di avvio di Windows Server Essentials:  
   
--   **Server aggiuntivi**: Non è possibile eseguire la finestra di avvio di Windows Server Essentials in computer aggiuntivi che eseguono un sistema operativo Windows Server.  
+- **Server aggiuntivi**: Non è possibile eseguire la finestra di avvio di Windows Server Essentials in computer aggiuntivi che eseguono un sistema operativo Windows Server.  
   
- In questo argomento  
+  In questo argomento  
   
--   [Utilizzare la finestra di avvio](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
+- [Utilizzare la finestra di avvio](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
   
--   [Usare la finestra di avvio con un computer Mac](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
+- [Usare la finestra di avvio con un computer Mac](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
   
 ##  <a name="BKMK_Launchpad"></a> Utilizzare la finestra di avvio  
  Nella finestra di avvio di Windows Server Essentials sono disponibili i collegamenti e le informazioni seguenti.  
@@ -50,13 +50,13 @@ La finestra di avvio di Windows Server Essentials è una piccola applicazione in
 ### <a name="backup"></a>Backup  
  Fare clic su **Backup** per aprire le **Proprietà backup** per il computer. Nella pagina **Proprietà backup** è possibile eseguire le operazioni seguenti:  
   
--   Avviare o arrestare un backup.  
+- Avviare o arrestare un backup.  
   
--   Visualizzare lo stato e i dettagli del backup più recente.  
+- Visualizzare lo stato e i dettagli del backup più recente.  
   
--   Specificare come gestire il risparmio energia del computer quando è in esecuzione il backup.  
+- Specificare come gestire il risparmio energia del computer quando è in esecuzione il backup.  
   
- Per informazioni su come usare Launchpad per eseguire il backup del computer, vedere [Manage Backup Client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
+  Per informazioni su come usare Launchpad per eseguire il backup del computer, vedere [Manage Backup Client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
   
 ### <a name="remote-web-access"></a>Accesso Web remoto  
  Fare clic su **Accesso Web remoto** per aprire il Web browser e visualizzare il sito Accesso Web remoto. Il sito Accesso Web remoto permette di connettersi ad altri computer e di accedere ad alcune risorse di rete quando ci si trova in ufficio o da qualsiasi posizione remota con un computer abilitato a Internet. Per altre informazioni su accesso Web remoto, vedere [Manage Remote Web Access](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md).  

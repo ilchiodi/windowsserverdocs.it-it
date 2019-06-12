@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e7a61fe34965ecf47505e6825a5c03680b1b40d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4cc669fee4fbd31edc8813f16761ecb9f90532df
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841322"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810915"
 ---
 # <a name="windows-server-2019-activation"></a>Windows Server 2019 Activation
 
@@ -33,9 +33,9 @@ Gli host del servizio di gestione delle chiavi non devono necessariamente essere
 Un host del Servizio di gestione delle chiavi eseguito in Windows 10 o Windows 8.1 può attivare solo computer che eseguono sistemi operativi client.
 La tabella seguente riepiloga i requisiti host e il client KMS per le reti che includono i client di Windows Server 2016, Windows Server 2019 e Windows 10.
 
->[!NOTE]
->- Per supportare l'attivazione di uno di questi client più recenti, potrebbe essere necessario aggiornare il server del Servizio di gestione delle chiavi. Se vengono visualizzati errori di attivazione, verificare che siano stati installati gli aggiornamenti appropriati elencati dopo questa tabella.
->- Se si lavora con le macchine virtuali, vedere [Automatic Virtual Machine Activation](vm-activation-19.md) per informazioni e le chiavi di questa funzionalità.
+> [!NOTE]
+> - Per supportare l'attivazione di uno di questi client più recenti, potrebbe essere necessario aggiornare il server del Servizio di gestione delle chiavi. Se vengono visualizzati errori di attivazione, verificare che siano stati installati gli aggiornamenti appropriati elencati dopo questa tabella.
+> - Se si lavora con le macchine virtuali, vedere [Automatic Virtual Machine Activation](vm-activation-19.md) per informazioni e le chiavi di questa funzionalità.
 
 |Gruppo del codice Product Key|Il Servizio di gestione delle chiavi può essere ospitato in|Versioni di Windows attivate da questo host del Servizio di gestione delle chiavi|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
@@ -45,11 +45,11 @@ La tabella seguente riepiloga i requisiti host e il client KMS per le reti che i
 |Contratto multilicenza per "Windows Server 2012 R2 per Windows 10"|Windows Server 2008 R2<br /><br /> Windows Server 2012 Standard<br /><br /> Windows Server 2012 Datacenter<br /><br /> Windows Server 2012 R2 Standard<br /><br />Windows Server 2012 R2 Datacenter|Windows 10 Professional<br /><br /> Windows 10 Enterprise<br /><br />Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (tutte le edizioni)<br /><br /> Windows 8.1 Professional<br /><br /> Windows 8.1 Enterprise<br /><br /> Windows Server 2012 (tutte le edizioni)<br /><br /> Windows Server 2008 R2 (tutte le edizioni)<br /><br /> Windows Server 2008 (tutte le edizioni)<br /><br />Windows 7 Professional<br /><br /> Windows 7 Enterprise|
 
 > [!NOTE]  
->A seconda del sistema operativo eseguito dal server del Server di gestione delle chiavi e dei sistemi operativi che si intende attivare, potrebbe essere necessario installare uno o più degli aggiornamenti seguenti:
->- Le installazioni del Servizio di gestione delle chiavi in Windows 7 o Windows Server 2008 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10. Per altre informazioni, vedere [aggiornamento che consente a Windows 7 e Windows Server 2008 R2 KMS host di attivare Windows 10](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10).  
->- Le installazioni del KMS su Windows Server 2012 devono essere aggiornate per supportare l'attivazione di client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi server e client più recente. Per altre informazioni, vedere [luglio 2016 aggiornamento cumulativo per Windows Server 2012](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012). 
->- Le installazioni del KMS su Windows 8.1 o Windows Server 2012 R2 devono essere aggiornate per supportare l'attivazione di client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi server e client più recente. Per altre informazioni, vedere [luglio 2016 aggiornamento cumulativo per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2).  
->- Windows Server 2008 R2 non può essere aggiornato per supportare l'attivazione dei client che eseguono Windows Server 2016, Windows Server 2019 o sistemi operativi più recenti. 
+> A seconda del sistema operativo eseguito dal server del Server di gestione delle chiavi e dei sistemi operativi che si intende attivare, potrebbe essere necessario installare uno o più degli aggiornamenti seguenti:
+> - Le installazioni del Servizio di gestione delle chiavi in Windows 7 o Windows Server 2008 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10. Per altre informazioni, vedere [aggiornamento che consente a Windows 7 e Windows Server 2008 R2 KMS host di attivare Windows 10](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10).  
+> - Le installazioni del KMS su Windows Server 2012 devono essere aggiornate per supportare l'attivazione di client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi server e client più recente. Per altre informazioni, vedere [luglio 2016 aggiornamento cumulativo per Windows Server 2012](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012). 
+> - Le installazioni del KMS su Windows 8.1 o Windows Server 2012 R2 devono essere aggiornate per supportare l'attivazione di client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi server e client più recente. Per altre informazioni, vedere [luglio 2016 aggiornamento cumulativo per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2).  
+> - Windows Server 2008 R2 non può essere aggiornato per supportare l'attivazione dei client che eseguono Windows Server 2016, Windows Server 2019 o sistemi operativi più recenti. 
 
 Uno stesso host del servizio di gestione delle chiavi è in grado di supportare un numero illimitato di client del servizio di gestione delle chiavi. Se sono presenti più di 50 client ti consigliamo di disporre di almeno due host del Servizio di gestione delle chiavi, nel caso che la disponibilità di uno dei due venga a mancare. L'intera infrastruttura della maggior parte delle organizzazioni è normalmente in grado di funzionare con appena due host del servizio di gestione delle chiavi.
 
@@ -68,8 +68,8 @@ Dopo l'attivazione del primo host del servizio di gestione delle chiavi, con il 
 
 Se l'organizzazione ha bisogno di più di sei host del servizio di gestione delle chiavi è necessario richiedere attivazioni aggiuntive per il codice Product Key, ad esempio se dieci posizioni fisiche sono comprese in un unico contratto multilicenza e si desidera che ciascuna abbia un host del servizio di gestione delle chiavi locale.
 
->[!NOTE] 
->Per richiedere questa eccezione, contattare il call center dell'attivazione. Per altre informazioni, vedere [Contratti multilicenza Microsoft](https://go.microsoft.com/fwlink/?LinkID=73076).
+> [!NOTE] 
+> Per richiedere questa eccezione, contattare il call center dell'attivazione. Per altre informazioni, vedere [Contratti multilicenza Microsoft](https://go.microsoft.com/fwlink/?LinkID=73076).
 
 Computer che eseguono versioni con contratti multilicenza di Windows 10, Windows Server 2019, Windows Server 2016, Windows 8.1, Windows Server 2012 R2, Windows Server 2012, Windows 7, Windows Server 2008 R2 sono, per impostazione predefinita, i client KMS senza alcuna configurazione aggiuntiva necessario.
 

@@ -11,12 +11,12 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 239cce3c9f1acb2d45935e0f60fb1875b004485b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3591e17c9485fc8f9e365f6322c4f48e783db8ce
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880952"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442236"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Scegliere tra i checkpoint standard o di produzione in Hyper-V
 
@@ -29,7 +29,7 @@ A partire da Windows 10 e Windows Server 2016, è possibile scegliere tra i chec
   
 - I checkpoint standard acquisire la configurazione hardware, dati e lo stato di una macchina virtuale in esecuzione e devono essere utilizzati in scenari di sviluppo e test. I checkpoint standard possono essere utili se è necessario ricreare un stato specifico o una condizione di una macchina virtuale in esecuzione in modo che è possibile risolvere un problema.  
  
- ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>Modificare i checkpoint in produzione o checkpoint standard  
+  ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>Modificare i checkpoint in produzione o checkpoint standard  
   
 1.  In **di gestione di Hyper-V**, fare clic sulla macchina virtuale e fare clic su **impostazioni**.  
   

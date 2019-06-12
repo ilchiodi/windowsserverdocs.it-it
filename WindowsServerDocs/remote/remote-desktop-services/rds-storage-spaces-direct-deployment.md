@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 8af3a389ec726bbb5ebd62db57d9b3a9861ac63f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890962"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805196"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Distribuire un server di scalabilità orizzontale di spazi di archiviazione diretta due nodi per l'archiviazione UPD in Azure
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 Servizi Desktop remoto (RDS) richiede un dominio file server per i dischi dei profili utente (UPD). Per distribuire un server a disponibilità elevata appartenenti a un dominio di file di scalabilità orizzontale (SOFS) in Azure, usare spazi di archiviazione diretta con Windows Server 2016. Se non si ha familiarità con gli UPD o Servizi Desktop remoto, estrarre [Benvenuti in Servizi Desktop remoto](welcome-to-rds.md).
 
@@ -66,7 +66,7 @@ Usare la procedura seguente per creare un controller di dominio (noi l'abbiamo d
       - Usare una rete virtuale generata automaticamente.
       - Seguire i passaggi per installare Active Directory Domain Services.
 5. Configurare i nodi del cluster file server. È possibile farlo tramite la distribuzione di [cluster SOFS diretta di Windows Server 2016 archiviazione spazi modello di Azure](https://azure.microsoft.com/resources/templates/301-storage-spaces-direct/) oppure seguendo i passaggi da 6 a 11 per distribuire manualmente.
-5. Per configurare manualmente i nodi del cluster file server:
+6. Per configurare manualmente i nodi del cluster file server:
    1. Creare il primo nodo: 
       1. Creare una nuova macchina virtuale usando l'immagine di Windows Server 2016. (Fare clic su **nuovo > macchine virtuali > Windows Server 2016.** Selezionare **Resource Manager**, quindi fare clic su **crea**.)
       2. Impostare la configurazione di base come segue:
@@ -80,59 +80,59 @@ Usare la procedura seguente per creare un controller di dominio (noi l'abbiamo d
    2. Creare il secondo nodo. Ripetere il passaggio precedente con le modifiche seguenti:
       - Nome: my-fsn2
       - Disponibilità elevata - selezionare che il set di disponibilità creato in precedenza.  
-6. [Collegare dischi dati](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) per macchine virtuali del nodo cluster in base a utente alle esigenze (come illustrato nella tabella precedente). Dopo che i dati vengono creati e collegati alla VM, impostare i dischi **ospitare la memorizzazione nella cache** al **None**.
-7. Impostare gli indirizzi IP per tutte le macchine virtuali **statici**. 
+7. [Collegare dischi dati](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) per macchine virtuali del nodo cluster in base a utente alle esigenze (come illustrato nella tabella precedente). Dopo che i dati vengono creati e collegati alla VM, impostare i dischi **ospitare la memorizzazione nella cache** al **None**.
+8. Impostare gli indirizzi IP per tutte le macchine virtuali **statici**. 
    1. Nel gruppo di risorse, selezionare una macchina virtuale e quindi fare clic su **interfacce di rete** (sotto **impostazioni**). Selezionare l'interfaccia di rete elencata e quindi fare clic su **configurazioni IP**. Selezionare la configurazione IP elencata, selezionare **statici**, quindi fare clic su **salvare**.
    2. Si noti il dominio controller (my-controller di dominio per questo esempio) indirizzo IP privato (10.x.x.x).
-8. Impostare indirizzo server DNS primario su schede di rete di macchine virtuali del nodo cluster per il server di risorse del controller di dominio. Selezionare la macchina virtuale e quindi fare clic su **interfacce di rete > server DNS > DNS personalizzato**. Immettere l'indirizzo IP privato è indicato in precedenza e quindi fare clic su **salvare**.
-9. Creare un [account di archiviazione di Azure per il cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Se si usano istruzioni collegate, arrestata quando si arriva alla "Configurazione di Cloud di controllo con Failover Cluster Manager GUI" - lo faremo tale passaggio riportato di seguito).
-10. Configurare il file server di spazi di archiviazione diretta. Connettersi a un nodo della macchina virtuale e quindi eseguire i seguenti cmdlet di Windows PowerShell.
-   1. Installare la funzionalità Clustering di Failover e la funzionalità File Server in due file server cluster macchine virtuali del nodo:
+9. Impostare indirizzo server DNS primario su schede di rete di macchine virtuali del nodo cluster per il server di risorse del controller di dominio. Selezionare la macchina virtuale e quindi fare clic su **interfacce di rete > server DNS > DNS personalizzato**. Immettere l'indirizzo IP privato è indicato in precedenza e quindi fare clic su **salvare**.
+10. Creare un [account di archiviazione di Azure per il cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Se si usano istruzioni collegate, arrestata quando si arriva alla "Configurazione di Cloud di controllo con Failover Cluster Manager GUI" - lo faremo tale passaggio riportato di seguito).
+11. Configurare il file server di spazi di archiviazione diretta. Connettersi a un nodo della macchina virtuale e quindi eseguire i seguenti cmdlet di Windows PowerShell.
+    1. Installare la funzionalità Clustering di Failover e la funzionalità File Server in due file server cluster macchine virtuali del nodo:
 
-      ```powershell
-      $nodes = ("my-fsn1", "my-fsn2")
-      icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
-      icm $nodes {Install-WindowsFeature FS-FileServer} 
-      ```
-   2. Convalidare macchine virtuali del nodo cluster e creare i cluster SOFS a 2 nodi:
+       ```powershell
+       $nodes = ("my-fsn1", "my-fsn2")
+       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
+       icm $nodes {Install-WindowsFeature FS-FileServer} 
+       ```
+    2. Convalidare macchine virtuali del nodo cluster e creare i cluster SOFS a 2 nodi:
 
-      ```powershell
-      Test-Cluster -node $nodes
-      New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
-      ``` 
-   3. Configurare il controllo del cloud. Utilizzare la cloud witness accesso e il nome chiave dell'account.
+       ```powershell
+       Test-Cluster -node $nodes
+       New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
+       ``` 
+    3. Configurare il controllo del cloud. Utilizzare la cloud witness accesso e il nome chiave dell'account.
 
-      ```powershell
-      Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
-      ```
-   4. Abilitare spazi di archiviazione diretta.
+       ```powershell
+       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
+       ```
+    4. Abilitare spazi di archiviazione diretta.
 
-      ```powershell
-      Enable-ClusterS2D 
-      ```
+       ```powershell
+       Enable-ClusterS2D 
+       ```
       
-   5. Creare un volume del disco virtuale.
+    5. Creare un volume del disco virtuale.
 
-      ```powershell
-      New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
-      ```
-      Per visualizzare informazioni sul volume condiviso cluster nel cluster SOFS, eseguire il cmdlet seguente:
+       ```powershell
+       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
+       ```
+       Per visualizzare informazioni sul volume condiviso cluster nel cluster SOFS, eseguire il cmdlet seguente:
 
-      ```powershell
-      Get-ClusterSharedVolume
-      ```
+       ```powershell
+       Get-ClusterSharedVolume
+       ```
    
-   6. Creare il server di scalabilità orizzontale (SOFS):
+    6. Creare il server di scalabilità orizzontale (SOFS):
 
-      ```powershell
-      Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
-      ```
+       ```powershell
+       Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
+       ```
 
-   7. Creare una nuova condivisione file SMB nel cluster SOFS.
+    7. Creare una nuova condivisione file SMB nel cluster SOFS.
 
-      ```powershell
-      New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
-      New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
-      ```
+       ```powershell
+       New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
+       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
+       ```
 
-È ora disponibile una condivisione in &#92;\my-sofs1\UpdStorage, che è possibile usare per l'archiviazione UPD quando si [abilitare UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) per gli utenti. 
+È ora disponibile una condivisione nella `\\my-sofs1\UpdStorage`, che è possibile usare per l'archiviazione UPD quando si [abilitare UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) per gli utenti. 

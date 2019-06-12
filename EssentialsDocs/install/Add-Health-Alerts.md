@@ -12,12 +12,12 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cf0c062b92c687f5f7b33b419eafdca2dd3bbbfc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433722"
 ---
 # <a name="add-health-alerts"></a>Aggiunta di avvisi di integrità
 
@@ -32,13 +32,13 @@ Un componente aggiuntivo per lo stato del sistema fornisce le definizioni di avv
   
 #### <a name="to-install-the-xml-files-on-the-server"></a>Per installare i file XML nel server  
   
-1.  Creare una nuova cartella denominata **MyHealthAddIn** nella cartella **%ProgramFiles%\Windows Server\Bin\Feature Definitions**. È possibile assegnare a tale cartella un nome qualsiasi. Si consiglia di denominare la cartella utilizzando lo stesso nome della funzione.  
+1. Creare una nuova cartella denominata **MyHealthAddIn** nella cartella **%ProgramFiles%\Windows Server\Bin\Feature Definitions**. È possibile assegnare a tale cartella un nome qualsiasi. Si consiglia di denominare la cartella utilizzando lo stesso nome della funzione.  
   
-2.  Copiare i file Definition.xml e Definition.xml.config nella nuova cartella.  
+2. Copiare i file Definition.xml e Definition.xml.config nella nuova cartella.  
   
-3.  Se sono stati creati file binari per condizioni o azioni, è inoltre necessario copiare tali file in **%ProgramFiles%\Windows Server\Bin**.  
+3. Se sono stati creati file binari per condizioni o azioni, è inoltre necessario copiare tali file in **%ProgramFiles%\Windows Server\Bin**.  
   
- I computer client eseguono ogni 6 ore un'attività pianificata che inserisce i file XML nella posizione appropriata. È possibile forzare la sincronizzazione tra il computer client e il server eseguendo manualmente l'attività.  
+   I computer client eseguono ogni 6 ore un'attività pianificata che inserisce i file XML nella posizione appropriata. È possibile forzare la sincronizzazione tra il computer client e il server eseguendo manualmente l'attività.  
   
 #### <a name="to-install-the-xml-files-on-the-client-computer"></a>Per installare i file XML nel computer client  
   
@@ -53,4 +53,4 @@ Un componente aggiuntivo per lo stato del sistema fornisce le definizioni di avv
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

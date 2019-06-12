@@ -11,12 +11,12 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 55114821b5ac2f1cc028c662217f4bee6980c923
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 97fb1b9003705ba8ad26c2b3e71eda34e88642ee
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845202"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812613"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>Requisiti di sistema per Hyper-V in Windows Server
 
@@ -44,7 +44,7 @@ Indipendentemente dalla funzionalità di Hyper-V che si desidera utilizzare, è 
 
   - È necessario rendere disponibile e abilitare Protezione esecuzione programmi applicata a livello di hardware. Per i sistemi Intel, si tratta XD bit (execute disable bit). Per i sistemi AMD, non si tratta di NX bit (execute).
 
-## <a name="bkmk_CheckReq"></a>Come verificare la presenza di requisiti di Hyper-V
+## <a name="how-to-check-for-hyper-v-requirements"></a>Come verificare la presenza di requisiti di Hyper-V
 
 Aprire Windows PowerShell o un prompt dei comandi e digitare:
 

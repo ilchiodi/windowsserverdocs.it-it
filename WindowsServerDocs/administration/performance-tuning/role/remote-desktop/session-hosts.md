@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e45d1abb545ad46e654c811a0347c589bd12adf0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863242"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811416"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Host sessione Desktop remoto l'ottimizzazione delle prestazioni
 
@@ -21,13 +21,13 @@ In questo argomento viene illustrato come selezionare l'hardware Host sessione D
 
 **In questo argomento:**
 
--   [Selezionare l'hardware corretto per le prestazioni](#hw)
+-   [Selezionare l'hardware corretto per le prestazioni](#selecting-the-proper-hardware-for-performance)
 
--   [Ottimizzazione delle applicazioni per Host sessione Desktop remoto](#apps)
+-   [Ottimizzazione delle applicazioni per Host sessione Desktop remoto](#tuning-applications-for-remote-desktop-session-host)
 
--   [Parametri di regolazione Host sessione Desktop remoto](#host)
+-   [Parametri di regolazione Host sessione Desktop remoto](#remote-desktop-session-host-tuning-parameters)
 
-## <a href="" id="hw"></a>Selezionare l'hardware corretto per le prestazioni
+## <a name="selecting-the-proper-hardware-for-performance"></a>Selezione dell'hardware appropriato per le prestazioni
 
 
 Per una distribuzione di server Host sessione Desktop remoto, la scelta dell'hardware è disciplinata dal set di applicazioni e come utenti le usano. I fattori chiave che influisce sul numero di utenti e la loro esperienza sono CPU, memoria, disco e grafica. In questa sezione contiene le ulteriori linee guida specifiche per i server Host sessione Desktop remoto e viene per lo più correlata all'ambiente con più utenti del server Host sessione Desktop remoto.
@@ -72,7 +72,7 @@ Uso della rete per un server Host sessione Desktop remoto include due categorie 
 
     Il volume e il profilo di traffico di rete è specifico per ogni distribuzione.
 
-## <a href="" id="apps"></a>Ottimizzazione delle applicazioni per Host sessione Desktop remoto
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>Ottimizzazione delle applicazioni per Host sessione Desktop remoto
 
 
 La maggior parte dell'utilizzo della CPU in un server Host sessione Desktop remoto è basato sulle app. Le app desktop sono in genere ottimizzate verso la velocità di risposta con l'obiettivo di ridurre al minimo il tempo impiegato da un'applicazione di rispondere a una richiesta dell'utente. Tuttavia in un ambiente server, è ugualmente importante per ridurre al minimo la quantità totale di utilizzo della CPU necessario per completare un'azione per evitare di influire negativamente sulle altre sessioni.
@@ -111,7 +111,7 @@ Per il consumo di memoria, è necessario considerare quanto segue:
 
     Quando possibile, applica tecniche simili ad altri motori di esecuzione analoghi.
 
-## <a href="" id="host"></a>Parametri di regolazione Host sessione Desktop remoto
+## <a name="remote-desktop-session-host-tuning-parameters"></a>Parametri di regolazione Host sessione Desktop remoto
 
 
 ### <a name="page-file"></a>File di paging

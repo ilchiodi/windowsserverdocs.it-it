@@ -13,25 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 26af9527b7b16b42fd9d389f3409143dfc3e9aa9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ba58970e76497f6e91c53c73a429eb65a275b2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858082"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442101"
 ---
 # <a name="prnqctl"></a>prnqctl
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Consente di stampare una pagina di test, sospende o riprende una stampante e cancella la coda di stampa.  
-  
+
 ## <a name="syntax"></a>Sintassi  
 ```  
 cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]   
 [-p <printerName>] [-u <UserName>] [-w <Password>]  
 ```  
 ## <a name="parameters"></a>Parametri  
+
 |Parametro|Descrizione|  
 |-------|--------|  
 |-z|Interrompe la stampa su stampante specificata con il **-p** parametro.|  
@@ -44,11 +45,11 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]
 |/?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  
--   Il **prnqctl** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file prnqctl, o cambiare le directory nella cartella appropriata. Ad esempio:   
-    ```  
-    cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnqctl  
-    ```  
--   Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).  
+- Il **prnqctl** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file prnqctl, o cambiare le directory nella cartella appropriata. Ad esempio:  
+  ```  
+  cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnqctl  
+  ```  
+- Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).  
 
 ## <a name="BKMK_examples"></a>Esempi  
 Per stampare una pagina test nella stampante Laserprinter1 condivisa dal \\\Server1 computer, digitare:  
@@ -65,5 +66,5 @@ cscript Prnqctl -x -p Laserprinter1
 ```  
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
 [Riferimenti ai comandi di stampa](print-command-reference.md)  

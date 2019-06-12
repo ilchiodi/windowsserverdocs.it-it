@@ -12,12 +12,12 @@ ms.assetid: 119a7fbc-2c76-4aa3-8a7f-c7073d461b5b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 83a7f45e91516621400e94c873d59d7cb6976702
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4c89a508745c8db36272aa8d6c646878618656f6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846602"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432885"
 ---
 # <a name="migrate-windows-small-business-server-2003-to-windows-server-essentials"></a>Eseguire la migrazione da Windows Small Business Server 2003 a Windows Server Essentials
 
@@ -27,14 +27,14 @@ Questa guida descrive come eseguire la migrazione di un dominio Windows SBS 2003
   
 > [!IMPORTANT]
 >   Windows Server Essentials richiede un ambiente a 64 bit.  Windows Server Essentials non supporta un ambiente a 32 bit.  
-  
+> 
 > [!NOTE]
 >  Per evitare problemi durante la migrazione, il team di sviluppo del prodotto Windows Server Essentials consiglia di leggere questo documento prima di iniziare la migrazione.  
-  
+> 
 > [!NOTE]
-
+> 
 >  Per eseguire la migrazione dei dati del server per la versione più recente di Windows Server Essentials, vedere [eseguire la migrazione a Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-
+> 
 >  Per eseguire la migrazione dei dati del server per la versione più recente di Windows Server Essentials, vedere [eseguire la migrazione a Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
   

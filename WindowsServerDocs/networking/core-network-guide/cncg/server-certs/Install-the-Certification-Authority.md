@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 84e4b2fe0b59820b9e51229335f3539bcbeeec90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1774d235703bd75d810f2649cb8ed3f2f92622d5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860742"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811601"
 ---
 # <a name="install-the-certification-authority"></a>Installare l'Autorità di certificazione
 
@@ -38,8 +38,8 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 ### <a name="to-install-active-directory-certificate-services"></a>Per installare Servizi certificati Active Directory  
 
->[!TIP]
->Se si desidera utilizzare Windows PowerShell per installare Servizi certificati Active Directory, vedere [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) per cmdlet e parametri facoltativi.
+> [!TIP]
+> Se si desidera utilizzare Windows PowerShell per installare Servizi certificati Active Directory, vedere [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) per cmdlet e parametri facoltativi.
   
 1.  Accedere come membro del gruppo Enterprise Admins e del gruppo Domain Admins del dominio radice.  
   

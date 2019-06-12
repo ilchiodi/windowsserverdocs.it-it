@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: f3e0553b1919a7f9129d47616d0ffb66b6ff48f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874442"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442897"
 ---
 # <a name="directory-services-component-updates"></a>Aggiornamenti dei componenti di Servizi directory
 
@@ -161,12 +161,12 @@ Utilizzare il parametro - Modalitàdominio con Install-ADDSForest o i cmdlet Ins
 ### <a name="overview"></a>Panoramica  
 L'algoritmo di ottimizzazione query LDAP è stata rivalutata e ulteriormente ottimizzato.  Il risultato è il miglioramento delle prestazioni nell'efficienza della ricerca LDAP e durata ricerca LDAP delle query complesse.  
   
-> [!NOTE]  
-> **Da parte dello sviluppatore:** miglioramenti delle prestazioni delle ricerche attraverso i miglioramenti nel mapping da LDAP di query a query ESE.  Indice con ottimizzazione per la selezione, risultante in modo significativo calo delle prestazioni (x 1000 o superiore) impedita dai filtri LDAP oltre un certo livello di complessità. Questa modifica consente di modificare il modo in cui si selezionano gli indici per le query LDAP evitare questo problema.  
-  
-> [!NOTE]  
+> [!NOTE]
+> <strong>Da parte dello sviluppatore:</strong>miglioramenti delle prestazioni delle ricerche attraverso i miglioramenti nel mapping da LDAP di query a query ESE.  Indice con ottimizzazione per la selezione, risultante in modo significativo calo delle prestazioni (x 1000 o superiore) impedita dai filtri LDAP oltre un certo livello di complessità. Questa modifica consente di modificare il modo in cui si selezionano gli indici per le query LDAP evitare questo problema.  
+> 
+> [!NOTE]
 > Una revisione completa dell'algoritmo, query optimizer LDAP query risultante:  
->   
+> 
 > -   Tempi di ricerca  
 > -   Consentire l'aumento della produttività controller di dominio eseguire altre operazioni  
 > -   Meno chiamate al supporto tecnico problemi relative alle prestazioni di Active Directory  

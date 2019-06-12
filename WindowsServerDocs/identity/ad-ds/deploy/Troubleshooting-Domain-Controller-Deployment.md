@@ -5,35 +5,31 @@ description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
-ms.date: 05/31/2017
+ms.date: 03/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 54ae67c520f2874199982ca790ced5db346f0c16
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 15ba8b9d17dfcaf5893086c83811d864c019dac6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443127"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Risoluzione dei problemi relativi alla distribuzione di controller di dominio
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2016
 
 In questo argomento viene illustrata la metodologia dettagliata per la risoluzione dei problemi di configurazione e distribuzione dei controller di dominio.  
-  
--   [Introduzione alla risoluzione dei problemi](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md#BKMK_Intro)  
-  
--   [Opzioni di risoluzione dei problemi](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md#BKMK_Options)  
-  
-## <a name="BKMK_Intro"></a>Introduzione alla risoluzione dei problemi  
+
+## <a name="introduction-to-troubleshooting"></a>Introduzione alla risoluzione dei problemi
+
 ![Risoluzione dei problemi](media/Troubleshooting-Domain-Controller-Deployment/adds_deploy_troubleshooting.png)  
-  
-## <a name="BKMK_Options"></a>Opzioni di risoluzione dei problemi  
-  
-### <a name="logging-options"></a>Opzioni di registrazione  
+
+## <a name="built-in-logs-for-troubleshooting"></a>Log predefiniti per la risoluzione dei problemi
+
 I log predefiniti rappresentano lo strumento più importante per la risoluzione dei problemi di innalzamento e abbassamento di livello dei controller di dominio. Per impostazione predefinita, tutti questi log sono abilitati e configurati per il massimo livello di dettaglio.  
-  
+
 |Fase|Log|  
 |---------|-------|  
 |Operazioni di Server Manager o di ADDSDeployment per Windows PowerShell|-   %systemroot%\debug\dcpromoui.log<br /><br />-   %systemroot%\debug\dcpromoui*.log|  
@@ -41,320 +37,324 @@ I log predefiniti rappresentano lo strumento più importante per la risoluzione 
 |Aggiornamento della foresta o del dominio|-   %systemroot%\debug\adprep\\<datetime>\adprep.log<br /><br />-   %systemroot%\debug\adprep\\<datetime>\csv.log<br /><br />-   %systemroot%\debug\adprep\\<datetime>\dspecup.log<br /><br />-   %systemroot%\debug\adprep\\<datetime>\ldif.log*|  
 |Motore di distribuzione di Server Manager o di ADDSDeployment per Windows PowerShell|-Event Visualizzatore eventi\log di applicazioni e servizi servizi\microsoft\windows\directoryservices-deployment\operational|  
 |Manutenzione pacchetti Windows|-   %systemroot%\Logs\CBS\\*<br /><br />-   %systemroot%\servicing\sessions\sessions.xml<br /><br />-   %systemroot%\winsxs\poqexec.log<br /><br />-   %systemroot%\winsxs\pending.xml|  
-  
-### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Strumenti e comandi per la risoluzione dei problemi di configurazione dei controller di dominio  
+
+### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Strumenti e comandi per la risoluzione dei problemi di configurazione dei controller di dominio
+
 Per risolvere i problemi non spiegati dai log, usare gli strumenti seguenti come punto di partenza:  
-  
+
 -   Dcdiag.exe  
-  
+
 -   Repadmin.exe  
-  
+
 -   [AutoRuns.exe](https://technet.microsoft.com/sysinternals/bb963902.aspx), Gestione attività e MSInfo32.exe  
-  
+
 -   [Network Monitor 3.4](https://www.microsoft.com/download/en/details.aspx?displaylang=en&id=4865) (o uno strumento di acquisizione e analisi di terze parti)  
-  
+
 ### <a name="general-methodology-for-troubleshooting-domain-controller-configuration"></a>Metodologia generale per la risoluzione dei problemi di configurazione dei controller di dominio  
-  
+
 1.  Il problema è stato causato da un semplice errore di sintassi?  
-  
+
     1.  L'argomento è stato digitato in modo errato o non è stato fornito ad ADDSDeployment per Windows PowerShell? Se ad esempio è stato usato ADDSDeployment per Windows PowerShell, si è dimenticato di aggiungere l'argomento obbligatorio **-domainname** con un nome di dominio valido?  
-  
+
     2.  Esaminare attentamente l'output della console di Windows PowerShell per vedere esattamente perché l'analisi della riga di comando fornita non riesce.  
-  
+
 2.  Si tratta di un errore relativo ai prerequisiti?  
-  
+
     1.  Molti errori visualizzati come risultati di innalzamento di livello irreversibili ora vengono evitati grazie allo strumento di controllo dei prerequisiti.  
-  
+
     2.  Esaminare attentamente il testo degli errori dei prerequisiti che specificano le indicazioni necessarie per la risoluzione della maggior parte dei problemi, poiché si tratta di scenari controllati.  
-  
+
 3.  Si tratta di un errore di innalzamento di livello e pertanto irreversibile?  
-  
+
     1.  Esaminare attentamente i risultati: per molti errori esistono spiegazioni semplici, ad esempio password errate, risoluzione del nome di rete o controller di dominio offline critici.  
-  
+
     2.  Aprire i file di log Dcpromoui.log e dcpromo.log per esaminare gli errori visualizzati nell'output, quindi procedere a ritroso per individuare le indicazioni relative alla causa dell'errore.  
-  
+
         1.  Eseguire sempre il confronto con un log di esempio funzionante  
-  
+
         2.  Esaminare gli errori nei log ADPrep solo se nei risultati viene indicato un problema relativo all'estensione dello schema o alla preparazione della foresta o del dominio.  
-  
+
         3.  Esaminare gli errori inclusi nel registro eventi DirectoryServices-Deployment solo se nel file Dcpromoui.log mancano dettagli o se termina in modo arbitrario a causa di un'eccezione non gestita nel processo di configurazione.  
-  
+
     3.  Esaminare i registri eventi dei servizi directory, del sistema e dell'applicazione per altre indicazioni relative a un errore di configurazione. Spesso, l'innalzamento di livello del controller di dominio è solo un sintomo di altri errori di configurazione della rete che interessano tutti i sistemi distribuiti.  
-  
+
     4.  Usare dcdiag.exe e repadmin.exe per convalidare l'integrità della foresta complessiva e individuare gli errori di configurazione che potrebbero impedire ulteriori innalzamenti di livello del controller di dominio.  
-  
+
     5.  Usare AutoRuns.exe, Gestione attività o MSinfo32.exe per esaminare il computer e individuare eventuali software di terze parti che potrebbero interferire.  
-  
+
         1.  Rimuovere il software di terze parti (non limitarsi a disabilitarlo, in quanto ciò non impedisce il caricamento dei driver).  
-  
+
     6.  Installare NetMon 3.4 nel computer in cui l'innalzamento di livello non riesce e nel controller di dominio del partner di replica e analizzare il processo di innalzamento di livello con acquisizioni di rete su due lati.  
-  
+
         1.  Confrontare i risultati con l'ambiente lab di lavoro per visualizzare l'aspetto di un corretto innalzamento di livello e individuare la posizione dell'errore.  
-  
+
         2.  A questo punto, è probabile che gli errori interessino gli oggetti della foresta, modifiche alla sicurezza non predefinite o la rete e il nuovo controller di dominio è una vittima di errori di configurazione del DNS, dei firewall, del software di prevenzione intrusioni o altri fattori esterni.  
-  
-### <a name="troubleshooting-specific-problems"></a>Risoluzione di problemi specifici  
-  
-#### <a name="events-and-error-messages"></a>Eventi e messaggi di errore  
+
+## <a name="troubleshooting-events-and-error-messages"></a>Risoluzione dei problemi relativi a eventi e messaggi di errore
+
 L'innalzamento e l'abbassamento di livello dei controller di dominio restituisce un codice al termine dell'operazione e, diversamente da molti altri programmi, non restituisce zero in caso di esito positivo. Per visualizzare il codice alla fine della configurazione di un controller di dominio, sono disponibili varie opzioni:  
-  
-1.  Se si usa Server Manager, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico.  
-  
-2.  Se si usa ADDSDeployment per Windows PowerShell, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico. In alternativa, scegliere di non riavviare automaticamente al completamento. Per rendere più leggibile l'output, aggiungere la pipeline **Format-List**. Ad esempio:  
-  
-    ```  
-    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list  
-  
-    ```  
-  
-    Gli errori nella convalida e nella verifica dei prerequisiti non continuano dopo il riavvio, pertanto sono visibili in tutti i casi. Ad esempio:   
-  
-  ![Risoluzione dei problemi](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)  
-  
-3.  In qualsiasi scenario, esaminare i file dcpromo.log e dcpromoui.log.  
-  
-    > [!NOTE]  
-    > Alcuni degli errori elencati di seguito non sono più possibili a causa delle modifiche di configurazione del sistema operativo o del controller di dominio nei sistemi operativi successivi. I nuovi codici di ADDSDeployment per Windows PowerShell consentono inoltre di prevenire alcuni errori, ma dcpromo.exe /unattend non lo permette. Questo è un altro motivo per trasferire tutta l'automazione corrente da DCPromo, ormai deprecato, ad ADDSDeployment per Windows PowerShell.  
-  
-In caso di esito positivo delle operazioni di innalzamento e abbassamento di livello, vengono restituiti i codici di messaggio seguenti.  
-  
+
+1. Se si usa Server Manager, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico.  
+
+2. Se si usa ADDSDeployment per Windows PowerShell, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico. In alternativa, scegliere di non riavviare automaticamente al completamento. Per rendere più leggibile l'output, aggiungere la pipeline **Format-List**. Ad esempio:  
+
+   ```  
+   Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list  
+
+   ```  
+
+   Gli errori nella convalida e nella verifica dei prerequisiti non continuano dopo il riavvio, pertanto sono visibili in tutti i casi. Ad esempio:  
+
+   ![Risoluzione dei problemi](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)  
+
+3. In qualsiasi scenario, esaminare i file dcpromo.log e dcpromoui.log.  
+
+   > [!NOTE]  
+   > Alcuni degli errori elencati di seguito non sono più possibili a causa delle modifiche di configurazione del sistema operativo o del controller di dominio nei sistemi operativi successivi. I nuovi codici di ADDSDeployment per Windows PowerShell consentono inoltre di prevenire alcuni errori, ma dcpromo.exe /unattend non lo permette. Questo è un altro motivo per trasferire tutta l'automazione corrente da DCPromo, ormai deprecato, ad ADDSDeployment per Windows PowerShell.  
+
+### <a name="promotion-and-demotion-success-codes"></a>Codici di riuscita di innalzamento e abbassamento di livello
+
 |Codice di errore|Spiegazione|Nota|  
 |--------------|---------------|--------|  
 |1|Uscita, operazione riuscita|È sempre necessario riavviare, questo indica semplicemente che il flag del riavvio automatico è stato rimosso|  
 |2|Uscita, operazione riuscita, occorre riavviare||  
 |3|Uscita, operazione riuscita con errore non critico|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<br /><br />-creatednsdelegation:$false|  
 |4|Uscita, operazione riuscita con un errore non critico, occorre riavviare|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<br /><br />-creatednsdelegation:$false|  
-  
+
+### <a name="promotion-and-demotion-failure-codes"></a>Codici di errore di innalzamento e abbassamento di livello
+
 L'innalzamento e l'abbassamento di livello restituiscono i codici di messaggio di errore seguenti. È anche possibile che vengano visualizzati messaggi di errore estesi. Leggere sempre con attenzione l'intero errore e non solo la parte numerica.  
-  
-|Codice di errore|Spiegazione|Soluzione suggerita|  
-|--------------|---------------|------------------------|  
-|11|L'innalzamento di livello del controller di dominio è già in esecuzione|Non eseguire contemporaneamente più di un'istanza dell'innalzamento di livello del controller di dominio per lo stesso computer di destinazione|  
-|12|L'utente deve essere un amministratore|Eseguire l'accesso come membro del gruppo Administrators predefinito e verificare di disporre di privilegi elevati con la funzionalità Controllo dell'account utente|  
-|13|L'autorità di certificazione (CA) è installata|Non è possibile abbassare di livello questo controller di dominio perché è anche un'Autorità di certificazione (CA) Non rimuovere la CA prima di averne verificato attentamente l'utilizzo: se rilascia certificati, la rimozione del ruolo causerà un'interruzione del servizio. L'esecuzione di CA nei controller di dominio è una pratica sconsigliata|  
-|14|Esecuzione in modalità di avvio provvisoria|Avviare il server in modalità normale|  
-|15|La modifica del ruolo è in corso o occorre riavviare|È necessario riavviare il server (a causa di modifiche di configurazione precedenti) prima dell'innalzamento di livello|  
-|16|Esecuzione nella piattaforma errata|*Probabilmente non si verifichi questo errore*|  
-|17|Non esistono unità NTFS 5|Non è possibile che questo errore si verifichi in Windows Server 2012, che richiede che almeno l'%unità di sistema% sia formattata con NTFS|  
-|18|Spazio insufficiente in windir|Liberare spazio nel volume dell'%unità di sistema% mediante cleanmgr.exe|  
-|19|Modifica del nome in sospeso. È necessario un riavvio.|Riavviare il server|  
-|20|La sintassi del nome computer non è valida|Assegnare un nome valido al computer|  
-|21|Questo controller di dominio riveste ruoli FSMO, è un server di catalogo globale e/o è un server DNS|Aggiungere **- demoteoperationmasterrole** quando si usa **- forceremoval**.|  
-|22|TCP/IP deve essere installato o non funziona|Verificare che nel computer il protocollo TCP/IP sia configurato, associato e che funzioni correttamente|  
-|23|È prima necessario configurare le impostazioni del client DNS|Impostare un server DNS primario durante l'aggiunta di un nuovo controller di dominio a un dominio|  
-|24|Le credenziali specificate non sono valide o sono incomplete|Verificare che il nome utente e la password siano corretti|  
-|25|Impossibile individuare un controller di dominio per il dominio specificato|Verificare le impostazioni del client DNS e le regole del firewall|  
-|26|Impossibile leggere l'elenco dei domini dalla foresta|Verificare le impostazioni del client DNS, le funzionalità LDAP e le regole del firewall|  
-|27|Nome di dominio mancante|Specificare un dominio durante l'innalzamento o l'abbassamento di livello|  
-|28|Nome di dominio errato|Scegliere un nome di dominio DNS valido diverso per l'innalzamento di livello|  
-|29|Il dominio padre non esiste|Verificare il dominio padre specificato al momento della creazione di un nuovo dominio figlio o dominio albero|  
-|30|Il dominio specificato non esiste nella foresta|Verificare il nome di dominio fornito|  
-|31|Il dominio figlio esiste già|Specificare un altro nome di dominio|  
-|32|Nome di dominio NetBIOS errato|Specificare un nome di dominio NetBIOS valido|  
-|33|Il percorso dei file IFM non è valido|Verificare il percorso della cartella Installa da supporto|  
-|34|Il database IFM non è valido|Usare la cartella Installa da supporto corretta per il sistema operativo e il ruolo, ovvero stessa versione del sistema operativo, stesso tipo di controller di dominio: controller di dominio di sola lettura o controller di dominio di lettura e scrittura|  
-|35|SYSKEY mancante|La cartella Installa da supporto è crittografata e per usarla è necessario specificare una chiave di sistema valida|  
-|37|Il percorso del database NTDS o dei relativi registri non è valido|Impostare il percorso di database e registri su un volume NTFS fisso anziché su un'unità mappata o un percorso UNC|  
-|38|Nel volume non è disponibile spazio sufficiente per il database o i registri NTDS|Liberare spazio usando cleanmgr.exe, aggiungere altro spazio su disco, liberare spazio manualmente spostando altrove i dati non necessari|  
-|39|Percorso per SYSVOL non valido|Impostare il percorso della cartella SYSVOL su un volume NTFS fisso anziché su un'unità mappata o un percorso UNC|  
-|40|Nome di sito non valido|Specificare un nome di sito esistente|  
-|41|È necessario specificare una password per la modalità provvisoria|Specificare una password per l'account della modalità ripristino servizi directory perché non è possibile lasciarla vuota indipendentemente da come sono stati configurati i criteri password|  
-|42|La password per la modalità provvisoria non soddisfa i criteri (solo innalzamento di livello)|Specificare una password per l'account della modalità ripristino servizi directory che soddisfi le regole configurate per i criteri password|  
-|43|La password amministratore non soddisfa i criteri (solo abbassamento di livello)|Specificare una password per l'account amministratore locale che soddisfi le regole configurate per i criteri password|  
-|44|Il nome specificato per la foresta non è valido|Specificare un nome di dominio DNS radice della foresta valido|  
-|45|Esiste già una foresta con il nome specificato|Scegliere un nome di dominio DNS radice della foresta diverso|  
-|46|Il nome specificato per l'albero non è valido|Specificare un nome di dominio DNS dell'albero valido|  
-|47|Esiste già un albero con il nome specificato|Scegliere un nome di dominio DNS dell'albero diverso|  
-|48|Il nome dell'albero non è appropriato per la struttura della foresta|Scegliere un nome di dominio DNS dell'albero diverso|  
-|49|Il dominio specificato non esiste|Verificare che il nome di dominio digitato sia corretto|  
-|50|Durante l'abbassamento di livello, è stato rilevato l'ultimo controller di dominio anche se non lo era o è stato specificato l'ultimo controller di dominio ma non lo è|Non specificare **Ultimo controller di dominio nel dominio** (**-lastdomaincontrollerindomain**) a meno che non sia vero. Uso **- ignorelastdcindomainmismatch** per eseguire l'override se si tratta davvero l'ultimo controller di dominio e dei metadati di controller di dominio fantasma|  
-|51|In questo controller di dominio esistono partizioni di directory applicative|Specificare l'opzione **Rimuovi partizioni applicative** (**-removeapplicationpartitions**)|  
-|52|Un argomento obbligatorio della riga di comando è mancante (significa che è necessario specificare un file di risposte nella riga di comando)|*Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*|  
-|53|L'operazione di innalzamento/abbassamento di livello non è riuscita. Per eseguire la pulizia del computer è necessario riavviare|Esaminare i registri e i messaggi di errore estesi|  
-|54|Innalzamento/abbassamento di livello non riuscito|Esaminare i registri e i messaggi di errore estesi|  
-|55|L'operazione di innalzamento/abbassamento di livello è stata annullata dall'utente|Esaminare i registri e i messaggi di errore estesi|  
-|56|L'operazione di innalzamento/abbassamento di livello è stata annullata. Per eseguire la pulizia del computer è necessario riavviare|Esaminare i registri e i messaggi di errore estesi|  
-|58|Durante l'innalzamento di livello del controller di dominio di sola lettura è necessario specificare un nome di sito|Per un controller di dominio di sola lettura è necessario specificare un sito, in quanto non viene rilevato automaticamente come per un controller di dominio di lettura e scrittura|  
-|59|Durante l'abbassamento di livello, questo controller di dominio è l'ultimo server DNS per una delle relative zone|Specificare che si tratta dell'**Ultimo server DNS nel dominio** o usare **-ignorelastdnsserverfordomain**|  
-|60|Nel dominio deve essere presente un controller di dominio che esegue Windows Server 2008 per poter installare un controller di dominio di sola lettura|Alzare di livello almeno un controller di dominio scrivibile che esegue Windows Server 2008 o versione successiva|  
-|61|Impossibile installare Servizi di dominio Active Directory con DNS in un dominio esistente che non ospita già DNS|*Non è possibile visualizzare questo errore*|  
-|62|Il file di risposte non include la sezione [DCInstall]|*Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente.*|  
-|63|Livello di funzionalità della foresta è inferiore a Windows Server 2003|Aumentare il livello di funzionalità della foresta ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati|  
-|64|L'innalzamento di livello non è riuscito a causa del mancato rilevamento del binario del componente|Installare il ruolo Servizi di dominio Active Directory|  
-|65|L'innalzamento di livello non è riuscito a causa della mancata installazione del binario del componente|Installare il ruolo Servizi di dominio Active Directory|  
-|66|L'innalzamento di livello non è riuscito a causa del mancato rilevamento del sistema operativo|Esaminare i registri e i messaggi di errore estesi. Il server non riesce a restituire la versione del sistema operativo in uso. È probabile che sia necessario reinstallare il computer, in quanto l'integrità complessiva risulta ambigua|  
-|68|Il partner di replica specificato non è valido|Usare repadmin.exe o la **Get-ADReplication\***  Windows PowerShell per convalidare l'integrità del controller di dominio partner|  
-|69|La porta necessaria è già usata da altre applicazioni|Usare **netstat.exe -anob** per individuare i processi erroneamente assegnati alle porte di Servizi di dominio Active Directory riservate|  
-|70|Il controller di dominio radice della foresta deve essere un server di catalogo globale|*Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*|  
-|71|Servizio Server DNS già installato|Non specificare di installare il DNS (**-installDNS**) se il servizio DNS è già installato|  
-|72|Nel computer è in esecuzione Servizi Desktop remoto in modalità non amministrativa|Non è possibile alzare di livello questo controller di dominio, perché è anche un server Servizi Desktop remoto configurato per più di due utenti amministratore. Non rimuovere Servizi Desktop remoto prima di averne verificato attentamente l'utilizzo: se è usato da applicazioni o utenti finali, la rimozione causerà un'interruzione del servizio|  
-|73|Il livello di funzionalità specificato per la foresta non è valido.|Specificare un livello di funzionalità della foresta valido|  
-|74|Il livello di funzionalità specificato per il dominio non è valido.|Specificare un livello di funzionalità del dominio valido|  
-|75|Impossibile determinare i criteri di replica password predefiniti.|Verificare che i criteri di replica password del controller di dominio di sola lettura esistano e che siano accessibili|  
-|76|I gruppi di sicurezza replicati/non replicati specificati non sono validi|Verificare che durante la definizione dei criteri di replica password siano stati digitati un dominio e account utente validi|  
-|77|L'argomento specificato non è valido.|Esaminare i registri e i messaggi di errore estesi|  
-|78|Impossibile esaminare la foresta di Active Directory|Esaminare i registri e i messaggi di errore estesi|  
-|79|Non è possibile alzare di livello il controller di dominio di sola lettura perché non è stato eseguito rodcprep|Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /rodcprep**|  
-|80|Domainprep non è stato eseguito|Usare Windows Server 2012 per preparare il dominio o eseguire **adprep.exe /domainprep**|  
-|81|Forestprep non è stato eseguito|Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /forestprep**|  
-|82|Mancata corrispondenza degli schemi della foresta|Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /forestprep**|  
-|83|SKU non supportata|*Probabilmente non si verifichi questo errore*|  
-|84|Non è possibile rilevare un account del controller di dominio|Verificare che per i controller di dominio esistenti siano stati impostati gli attributi di controllo dell'account utente corretti.|  
-|85|Non è possibile selezionare un account del controller di dominio per la fase 2|Questo errore viene restituito quando si specifica l'opzione "Usa account esistente" ma non viene trovato alcun account o si verifica un errore durante la ricerca dell'account. Verificare di avere specificato l'account preconfigurato del controller di dominio di sola lettura corretto|  
-|86|È necessario eseguire l'innalzamento di livello alla fase 2|Questo errore viene restituito se si innalza di livello un altro controller di dominio quando è già presente un account esistente e l'opzione "Consenti reinstallazione" non è stata specificata|  
-|87|È presente un account del controller di dominio di tipo in conflitto|Se non si tenta di collegarsi a un controller di dominio non occupato, Rinominare il computer prima di eseguire l'innalzamento di livello. È necessario collegare all'account del controller dominio non occupato usando **- useexistingaccount** e l'argomento di sola lettura o scrivibile corretto, a seconda del tipo di account|  
-|88|L'amministratore del server specificato non è valido|È stato specificato un account non valido per la delega dell'amministrazione del controller di dominio di sola lettura. Verificare che l'account specificato sia un utente o un gruppo valido|  
-|89|Il master RID per il dominio specificato è offline.|Usare **netdom.exe query fsmo** per rilevare il master RID. Portarlo online e renderlo accessibile al controller di dominio che si sta innalzando di livello|  
-|90|Il master per la denominazione dei domini è offline.|Usare **netdom.exe query fsmo** per rilevare il master per la denominazione dei domini. Portarlo online e renderlo accessibile al controller di dominio che si sta innalzando di livello|  
-|91|Impossibile rilevare se il processo corrente è in esecuzione in WOW64|*Non è possibile visualizzare questo errore più, il sistema operativo è a 64 bit*|  
-|92|Il processo WOW64 non è supportato|*Non è possibile visualizzare questo errore più, il sistema operativo è a 64 bit*|  
-|93|Il servizio Controller di dominio non è in esecuzione per l'abbassamento di livello non forzato|Avviare il servizio Servizi di dominio Active Directory|  
-|94|La password dell'amministratore locale non soddisfa i requisiti perché è vuota o non è richiesta|Specificare una password non vuota e verificare che i criteri password locali richiedano una password|  
-|95|Non è possibile abbassare di livello l'ultimo controller di dominio Windows Server 2008 o versione successiva nel dominio in cui sono presenti controller di dominio di sola lettura attivi|È innanzitutto necessario abbassare di livello tutti i controller di dominio di sola lettura prima di poter abbassare di livello tutti i controller di dominio scrivibili Windows Server 2008 o versione successiva|  
-|96|Non è possibile disinstallare i file binari di Servizi di dominio Active Directory|*Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*|  
-|97|La versione del livello di funzionalità della foresta è successiva a quella del sistema operativo del dominio figlio|Specificare un livello di funzionalità del dominio figlio maggiore o uguale a quello della foresta|  
-|98|L'installazione o la disinstallazione del binario del componente è in corso.|*Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*|  
-|99|Il livello di funzionalità della foresta è troppo basso (questo errore si verifica solo in Windows Server 2012)|Aumentare il livello di funzionalità della foresta ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati|  
-|100|Il livello di funzionalità del dominio è troppo basso (questo errore si verifica solo in Windows Server 2012)|Aumentare il livello di funzionalità del dominio ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati|  
-  
-#### <a name="knownlikely-issues-and-support-scenarios"></a>Problemi noti e probabili e scenari di supporto  
+
+
+| Codice di errore |                                                           Spiegazione                                                            |                                                                                                                            Soluzione suggerita                                                                                                                            |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     11     |                                          L'innalzamento di livello del controller di dominio è già in esecuzione                                          |                                                                                 Non eseguire contemporaneamente più di un'istanza dell'innalzamento di livello del controller di dominio per lo stesso computer di destinazione                                                                                  |
+|     12     |                                                    L'utente deve essere un amministratore                                                    |                                                                                        Eseguire l'accesso come membro del gruppo Administrators predefinito e verificare di disporre di privilegi elevati con la funzionalità Controllo dell'account utente                                                                                        |
+|     13     |                                               L'autorità di certificazione (CA) è installata                                               | Non è possibile abbassare di livello questo controller di dominio perché è anche un'Autorità di certificazione (CA) Non rimuovere la CA prima di averne verificato attentamente l'utilizzo: se rilascia certificati, la rimozione del ruolo causerà un'interruzione del servizio. L'esecuzione di CA nei controller di dominio è una pratica sconsigliata |
+|     14     |                                                    Esecuzione in modalità di avvio provvisoria                                                     |                                                                                                                      Avviare il server in modalità normale                                                                                                                      |
+|     15     |                                            La modifica del ruolo è in corso o occorre riavviare                                            |                                                                                             È necessario riavviare il server (a causa di modifiche di configurazione precedenti) prima dell'innalzamento di livello                                                                                              |
+|     16     |                                                    Esecuzione nella piattaforma errata                                                     |                                                                                                                       *Probabilmente non si verifichi questo errore*                                                                                                                       |
+|     17     |                                                      Non esistono unità NTFS 5                                                      |                                                                            Non è possibile che questo errore si verifichi in Windows Server 2012, che richiede che almeno l'%unità di sistema% sia formattata con NTFS                                                                             |
+|     18     |                                                    Spazio insufficiente in windir                                                    |                                                                                                        Liberare spazio nel volume dell'%unità di sistema% mediante cleanmgr.exe                                                                                                        |
+|     19     |                                                Modifica del nome in sospeso. È necessario un riavvio.                                                 |                                                                                                                             Riavviare il server                                                                                                                              |
+|     20     |                                                 La sintassi del nome computer non è valida                                                  |                                                                                                                   Assegnare un nome valido al computer                                                                                                                    |
+|     21     |                             Questo controller di dominio riveste ruoli FSMO, è un server di catalogo globale e/o è un server DNS                             |                                                                                                      Aggiungere **- demoteoperationmasterrole** quando si usa **- forceremoval**.                                                                                                      |
+|     22     |                                        TCP/IP deve essere installato o non funziona                                         |                                                                                                    Verificare che nel computer il protocollo TCP/IP sia configurato, associato e che funzioni correttamente                                                                                                     |
+|     23     |                                             È prima necessario configurare le impostazioni del client DNS                                              |                                                                                                  Impostare un server DNS primario durante l'aggiunta di un nuovo controller di dominio a un dominio                                                                                                  |
+|     24     |                                  Le credenziali specificate non sono valide o sono incomplete                                   |                                                                                                               Verificare che il nome utente e la password siano corretti                                                                                                                |
+|     25     |                                 Impossibile individuare un controller di dominio per il dominio specificato                                  |                                                                                                                Verificare le impostazioni del client DNS e le regole del firewall                                                                                                                |
+|     26     |                                        Impossibile leggere l'elenco dei domini dalla foresta                                         |                                                                                                      Verificare le impostazioni del client DNS, le funzionalità LDAP e le regole del firewall                                                                                                      |
+|     27     |                                                       Nome di dominio mancante                                                        |                                                                                                                Specificare un dominio durante l'innalzamento o l'abbassamento di livello                                                                                                                 |
+|     28     |                                                         Nome di dominio errato                                                          |                                                                                                          Scegliere un nome di dominio DNS valido diverso per l'innalzamento di livello                                                                                                          |
+|     29     |                                                   Il dominio padre non esiste                                                   |                                                                                             Verificare il dominio padre specificato al momento della creazione di un nuovo dominio figlio o dominio albero                                                                                             |
+|     30     |                                                       Il dominio specificato non esiste nella foresta                                                       |                                                                                                                      Verificare il nome di dominio fornito                                                                                                                       |
+|     31     |                                                   Il dominio figlio esiste già                                                    |                                                                                                                      Specificare un altro nome di dominio                                                                                                                       |
+|     32     |                                                     Nome di dominio NetBIOS errato                                                      |                                                                                                                    Specificare un nome di dominio NetBIOS valido                                                                                                                     |
+|     33     |                                                 Il percorso dei file IFM non è valido                                                 |                                                                                                            Verificare il percorso della cartella Installa da supporto                                                                                                             |
+|     34     |                                                     Il database IFM non è valido                                                      |                                                          Usare la cartella Installa da supporto corretta per il sistema operativo e il ruolo, ovvero stessa versione del sistema operativo, stesso tipo di controller di dominio: controller di dominio di sola lettura o controller di dominio di lettura e scrittura                                                          |
+|     35     |                                                          SYSKEY mancante                                                          |                                                                                             La cartella Installa da supporto è crittografata e per usarla è necessario specificare una chiave di sistema valida                                                                                              |
+|     37     |                                          Il percorso del database NTDS o dei relativi registri non è valido                                           |                                                                                          Impostare il percorso di database e registri su un volume NTFS fisso anziché su un'unità mappata o un percorso UNC                                                                                           |
+|     38     |                                   Nel volume non è disponibile spazio sufficiente per il database o i registri NTDS                                    |                                                                              Liberare spazio usando cleanmgr.exe, aggiungere altro spazio su disco, liberare spazio manualmente spostando altrove i dati non necessari                                                                              |
+|     39     |                                                    Percorso per SYSVOL non valido                                                    |                                                                                            Impostare il percorso della cartella SYSVOL su un volume NTFS fisso anziché su un'unità mappata o un percorso UNC                                                                                             |
+|     40     |                                                        Nome di sito non valido                                                         |                                                                                                                      Specificare un nome di sito esistente                                                                                                                       |
+|     41     |                                             È necessario specificare una password per la modalità provvisoria                                             |                                                                                Specificare una password per l'account della modalità ripristino servizi directory perché non è possibile lasciarla vuota indipendentemente da come sono stati configurati i criteri password                                                                                 |
+|     42     |                                    La password per la modalità provvisoria non soddisfa i criteri (solo innalzamento di livello)                                    |                                                                                         Specificare una password per l'account della modalità ripristino servizi directory che soddisfi le regole configurate per i criteri password                                                                                          |
+|     43     |                                      La password amministratore non soddisfa i criteri (solo abbassamento di livello)                                       |                                                                                  Specificare una password per l'account amministratore locale che soddisfi le regole configurate per i criteri password                                                                                  |
+|     44     |                                           Il nome specificato per la foresta non è valido                                           |                                                                                                                Specificare un nome di dominio DNS radice della foresta valido                                                                                                                 |
+|     45     |                                         Esiste già una foresta con il nome specificato                                          |                                                                                                               Scegliere un nome di dominio DNS radice della foresta diverso                                                                                                               |
+|     46     |                                            Il nome specificato per l'albero non è valido                                            |                                                                                                                    Specificare un nome di dominio DNS dell'albero valido                                                                                                                    |
+|     47     |                                          Esiste già un albero con il nome specificato                                           |                                                                                                                  Scegliere un nome di dominio DNS dell'albero diverso                                                                                                                   |
+|     48     |                                       Il nome dell'albero non è appropriato per la struttura della foresta                                       |                                                                                                                  Scegliere un nome di dominio DNS dell'albero diverso                                                                                                                   |
+|     49     |                                               Il dominio specificato non esiste                                                |                                                                                                                       Verificare che il nome di dominio digitato sia corretto                                                                                                                        |
+|     50     | Durante l'abbassamento di livello, è stato rilevato l'ultimo controller di dominio anche se non lo era o è stato specificato l'ultimo controller di dominio ma non lo è |        Non specificare **Ultimo controller di dominio nel dominio** ( **-lastdomaincontrollerindomain**) a meno che non sia vero. Uso **- ignorelastdcindomainmismatch** per eseguire l'override se si tratta davvero l'ultimo controller di dominio e dei metadati di controller di dominio fantasma        |
+|     51     |                                          In questo controller di dominio esistono partizioni di directory applicative                                          |                                                                                              Specificare l'opzione **Rimuovi partizioni applicative** ( **-removeapplicationpartitions**)                                                                                               |
+|     52     |            Un argomento obbligatorio della riga di comando è mancante (significa che è necessario specificare un file di risposte nella riga di comando)             |                                                                                              *Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*                                                                                              |
+|     53     |                               L'operazione di innalzamento/abbassamento di livello non è riuscita. Per eseguire la pulizia del computer è necessario riavviare                                |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     54     |                                                  Innalzamento/abbassamento di livello non riuscito                                                   |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     55     |                                         L'operazione di innalzamento/abbassamento di livello è stata annullata dall'utente                                          |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     56     |                      L'operazione di innalzamento/abbassamento di livello è stata annullata. Per eseguire la pulizia del computer è necessario riavviare                       |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     58     |                                       Durante l'innalzamento di livello del controller di dominio di sola lettura è necessario specificare un nome di sito                                        |                                                                                           Per un controller di dominio di sola lettura è necessario specificare un sito, in quanto non viene rilevato automaticamente come per un controller di dominio di lettura e scrittura                                                                                           |
+|     59     |                        Durante l'abbassamento di livello, questo controller di dominio è l'ultimo server DNS per una delle relative zone                         |                                                                                    Specificare che si tratta dell'**Ultimo server DNS nel dominio** o usare **-ignorelastdnsserverfordomain**                                                                                     |
+|     60     |         Nel dominio deve essere presente un controller di dominio che esegue Windows Server 2008 per poter installare un controller di dominio di sola lettura          |                                                                                             Alzare di livello almeno un controller di dominio scrivibile che esegue Windows Server 2008 o versione successiva                                                                                             |
+|     61     |        Impossibile installare Servizi di dominio Active Directory con DNS in un dominio esistente che non ospita già DNS         |                                                                                                                      *Non è possibile visualizzare questo errore*                                                                                                                      |
+|     62     |                                         Il file di risposte non include la sezione [DCInstall]                                          |                                                                                             *Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente.*                                                                                              |
+|     63     |                                       Livello di funzionalità della foresta è inferiore a Windows Server 2003                                       |                                                            Aumentare il livello di funzionalità della foresta ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati                                                             |
+|     64     |                                      L'innalzamento di livello non è riuscito a causa del mancato rilevamento del binario del componente                                      |                                                                                                                           Installare il ruolo Servizi di dominio Active Directory                                                                                                                           |
+|     65     |                                    L'innalzamento di livello non è riuscito a causa della mancata installazione del binario del componente                                     |                                                                                                                           Installare il ruolo Servizi di dominio Active Directory                                                                                                                           |
+|     66     |                                      L'innalzamento di livello non è riuscito a causa del mancato rilevamento del sistema operativo                                      |                                  Esaminare i registri e i messaggi di errore estesi. Il server non riesce a restituire la versione del sistema operativo in uso. È probabile che sia necessario reinstallare il computer, in quanto l'integrità complessiva risulta ambigua                                   |
+|     68     |                                                  Il partner di replica specificato non è valido                                                  |                                                                             Usare repadmin.exe o la **Get-ADReplication\\**  \* Windows PowerShell per convalidare l'integrità del controller di dominio partner                                                                              |
+|     69     |                                    La porta necessaria è già usata da altre applicazioni                                     |                                                                                    Usare **netstat.exe -anob** per individuare i processi erroneamente assegnati alle porte di Servizi di dominio Active Directory riservate                                                                                     |
+|     70     |                                          Il controller di dominio radice della foresta deve essere un server di catalogo globale                                          |                                                                                              *Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*                                                                                              |
+|     71     |                                                 Servizio Server DNS già installato                                                  |                                                                                          Non specificare di installare il DNS ( **-installDNS**) se il servizio DNS è già installato                                                                                           |
+|     72     |                                  Nel computer è in esecuzione Servizi Desktop remoto in modalità non amministrativa                                   |        Non è possibile alzare di livello questo controller di dominio, perché è anche un server Servizi Desktop remoto configurato per più di due utenti amministratore. Non rimuovere Servizi Desktop remoto prima di averne verificato attentamente l'utilizzo: se è usato da applicazioni o utenti finali, la rimozione causerà un'interruzione del servizio         |
+|     73     |                                        Il livello di funzionalità specificato per la foresta non è valido.                                         |                                                                                                                  Specificare un livello di funzionalità della foresta valido                                                                                                                   |
+|     74     |                                        Il livello di funzionalità specificato per il dominio non è valido.                                         |                                                                                                                  Specificare un livello di funzionalità del dominio valido                                                                                                                   |
+|     75     |                                   Impossibile determinare i criteri di replica password predefiniti.                                   |                                                                                                Verificare che i criteri di replica password del controller di dominio di sola lettura esistano e che siano accessibili                                                                                                 |
+|     76     |                                 I gruppi di sicurezza replicati/non replicati specificati non sono validi                                  |                                                                                Verificare che durante la definizione dei criteri di replica password siano stati digitati un dominio e account utente validi                                                                                |
+|     77     |                                                L'argomento specificato non è valido.                                                 |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     78     |                                            Impossibile esaminare la foresta di Active Directory                                             |                                                                                                                    Esaminare i registri e i messaggi di errore estesi                                                                                                                     |
+|     79     |                                 Non è possibile alzare di livello il controller di dominio di sola lettura perché non è stato eseguito rodcprep                                  |                                                                                               Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /rodcprep**                                                                                                |
+|     80     |                                                Domainprep non è stato eseguito                                                 |                                                                                              Usare Windows Server 2012 per preparare il dominio o eseguire **adprep.exe /domainprep**                                                                                               |
+|     81     |                                                Forestprep non è stato eseguito                                                 |                                                                                              Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /forestprep**                                                                                               |
+|     82     |                                                      Mancata corrispondenza degli schemi della foresta                                                      |                                                                                              Usare Windows Server 2012 per preparare la foresta o eseguire **adprep.exe /forestprep**                                                                                               |
+|     83     |                                                         SKU non supportata                                                          |                                                                                                                       *Probabilmente non si verifichi questo errore*                                                                                                                       |
+|     84     |                                           Non è possibile rilevare un account del controller di dominio                                           |                                                                                         Verificare che per i controller di dominio esistenti siano stati impostati gli attributi di controllo dell'account utente corretti.                                                                                         |
+|     85     |                                     Non è possibile selezionare un account del controller di dominio per la fase 2                                     |                                                 Questo errore viene restituito quando si specifica l'opzione "Usa account esistente" ma non viene trovato alcun account o si verifica un errore durante la ricerca dell'account. Verificare di avere specificato l'account preconfigurato del controller di dominio di sola lettura corretto                                                 |
+|     86     |                                                  È necessario eseguire l'innalzamento di livello alla fase 2                                                   |                                                                       Questo errore viene restituito se si innalza di livello un altro controller di dominio quando è già presente un account esistente e l'opzione "Consenti reinstallazione" non è stata specificata                                                                       |
+|     87     |                                      È presente un account del controller di dominio di tipo in conflitto                                      |   Se non si tenta di collegarsi a un controller di dominio non occupato, Rinominare il computer prima di eseguire l'innalzamento di livello. È necessario collegare all'account del controller dominio non occupato usando **- useexistingaccount** e l'argomento di sola lettura o scrivibile corretto, a seconda del tipo di account    |
+|     88     |                                             L'amministratore del server specificato non è valido                                              |                                                                           È stato specificato un account non valido per la delega dell'amministrazione del controller di dominio di sola lettura. Verificare che l'account specificato sia un utente o un gruppo valido                                                                           |
+|     89     |                                         Il master RID per il dominio specificato è offline.                                          |                                                                 Usare **netdom.exe query fsmo** per rilevare il master RID. Portarlo online e renderlo accessibile al controller di dominio che si sta innalzando di livello                                                                  |
+|     90     |                                                 Il master per la denominazione dei domini è offline.                                                 |                                                            Usare **netdom.exe query fsmo** per rilevare il master per la denominazione dei domini. Portarlo online e renderlo accessibile al controller di dominio che si sta innalzando di livello                                                             |
+|     91     |                                             Impossibile rilevare se il processo corrente è in esecuzione in WOW64                                             |                                                                                                  *Non è possibile visualizzare questo errore più, il sistema operativo è a 64 bit*                                                                                                  |
+|     92     |                                                  Il processo WOW64 non è supportato                                                  |                                                                                                  *Non è possibile visualizzare questo errore più, il sistema operativo è a 64 bit*                                                                                                  |
+|     93     |                                Il servizio Controller di dominio non è in esecuzione per l'abbassamento di livello non forzato                                |                                                                                                                          Avviare il servizio Servizi di dominio Active Directory                                                                                                                           |
+|     94     |                           La password dell'amministratore locale non soddisfa i requisiti perché è vuota o non è richiesta                           |                                                                                         Specificare una password non vuota e verificare che i criteri password locali richiedano una password                                                                                         |
+|     95     |              Non è possibile abbassare di livello l'ultimo controller di dominio Windows Server 2008 o versione successiva nel dominio in cui sono presenti controller di dominio di sola lettura attivi              |                                                                             È innanzitutto necessario abbassare di livello tutti i controller di dominio di sola lettura prima di poter abbassare di livello tutti i controller di dominio scrivibili Windows Server 2008 o versione successiva                                                                             |
+|     96     |                                                 Non è possibile disinstallare i file binari di Servizi di dominio Active Directory                                                  |                                                                                              *Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*                                                                                              |
+|     97     |                      La versione del livello di funzionalità della foresta è successiva a quella del sistema operativo del dominio figlio                       |                                                                                           Specificare un livello di funzionalità del dominio figlio maggiore o uguale a quello della foresta                                                                                            |
+|     98     |                                        L'installazione o la disinstallazione del binario del componente è in corso.                                        |                                                                                              *Visualizzato solo con dcpromo /Unattend, che è deprecato. Vedere la documentazione precedente*                                                                                              |
+|     99     |                              Il livello di funzionalità della foresta è troppo basso (questo errore si verifica solo in Windows Server 2012)                              |                                                            Aumentare il livello di funzionalità della foresta ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati                                                             |
+|    100     |                              Il livello di funzionalità del dominio è troppo basso (questo errore si verifica solo in Windows Server 2012)                              |                                                            Aumentare il livello di funzionalità del dominio ad almeno Windows Server 2003 nativo. I sistemi operativi Windows 2000 e Windows NT 4.0 non sono più supportati                                                             |
+
+## <a name="known-issues-and-common-support-scenarios"></a>Problemi noti e i comuni scenari di supporto
+
 Di seguito sono riportati gli errori comuni riscontrati durante il processo di sviluppo di Windows Server 2012. Tutti questi problemi sono "da progettazione" e prevedono una soluzione alternativa valida o una tecnica più appropriata per evitarli del tutto. Molti di questi comportamenti sono identici in Windows Server 2008 R2 e nei sistemi operativi precedenti, ma la nuova distribuzione di Servizi di dominio Active Directory presenta maggiore sensibilità nei confronti di questi problemi.  
-  
+
 |Problema|In seguito all'abbassamento di livello del controller di dominio, il DNS viene eseguito senza zone|  
 |---------|-----------------------------------------------------------------|  
 |Sintomi|Il server risponde ancora alle richieste DNS ma non dispone di informazioni sulla zona|  
 |Risoluzione e note|Quando si rimuove il ruolo Servizi di dominio Active Directory rimuovere anche il ruolo Server DNS o disabilitare il servizio Server DNS Ricordare di indirizzare il client DNS a un server diverso da se stesso. Se si usa Windows PowerShell, dopo avere abbassato di livello il server eseguire i comandi seguenti:<br /><br />Codice - dns-windowsfeature disinstallare<br /><br />oppure<br /><br />Codice - dns - starttype set-service disabilitata<br />Interrompi servizio dns|  
-  
+
 |Problema|Durante l'innalzamento di livello di un controller di dominio Windows Server 2012 a un dominio con etichetta singola esistente non viene configurato updatetopleveldomain=1 o allowsinglelabeldnsdomain=1|  
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------|  
 |Sintomi|Non si verifica la registrazione dinamica dei record DNS|  
 |Risoluzione e note|Impostare questi valori usando i criteri di gruppo Netlogon e DNS. Microsoft ha iniziato a bloccare la creazione dei domini con etichetta singola a partire da Windows Server 2008. È possibile usare ADMT o lo strumento di ridenominazione dei domini per passare a una struttura di dominio DNS approvata.|  
-  
+
 |Problema|L'abbassamento di livello dell'ultimo controller di dominio in un dominio ha esito negativo se sono presenti account del controller di dominio di sola lettura non occupati creati in modo preliminare|  
 |---------|------------------------------------------------------------------------------------------------------------|  
 |Sintomi|L'abbassamento di livello non riesce e viene visualizzato il messaggio seguente:<br /><br />**Dcpromo.General.54**<br /><br />Servizi di dominio Active Directory non è riuscito a trovare un altro controller di dominio Active Directory per trasferire i dati rimanenti nella partizione di directory CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com.<br /><br />"Il formato del nome di dominio specificato non è valido."|  
 |Risoluzione e note|Rimuovere gli eventuali account del controller di dominio di sola lettura creati in modo preliminare prima di abbassare di livello un dominio usando **Dsa.msc** o **Ntdsutil.exe metadata cleanup**.|  
-  
+
 |Problema|La preparazione automatica della foresta e del dominio non esegue GPPREP|  
 |---------|---------------------------------------------------------------|  
 |Sintomi|La funzionalità di pianificazione per più domini per Criteri di gruppo, la Modalità di pianificazione RSOP (Gruppo di criteri risultante), richiede autorizzazioni sul file system e per Active Directory aggiornate per i Criteri di gruppo esistenti. Senza GPPREP non è possibile usare la modalità pianificazione di Gruppo di criteri risultante per più domini.|  
 |Risoluzione e note|Eseguire **adprep.exe /gpprep** manualmente per tutti i domini non preparati in precedenza per Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2. È consigliabile che gli amministratori eseguano GPPrep una sola volta nella cronologia di un dominio e non a ogni aggiornamento. Questa operazione non viene eseguita automaticamente da adprep perché se sono già state impostate autorizzazioni personalizzate adeguate, tutto il contenuto di SYSVOL verrebbe nuovamente replicato in tutti i controller di dominio.|  
-  
+
 |Problema|La verifica dell'installazione non riesce quando punta a un percorso UNC|  
 |---------|------------------------------------------------------------------|  
 |Sintomi|Errore restituito:<br /><br />Codice - non è stato possibile convalidare il percorso di supporto. Eccezione durante la chiamata "GetDatabaseInfo" con gli argomenti "2". La cartella non è valida.|  
 |Risoluzione e note|È necessario archiviare i file IFM in un disco locale e non in un percorso UNC remoto. Questo blocco intenzionale consente di prevenire l'innalzamento di livello del server parziale a causa di un'interruzione di rete.|  
-  
+
 |Problema|L'avviso di delega DNS viene visualizzato due volte durante l'innalzamento di livello del controller di dominio|  
 |---------|-------------------------------------------------------------------------|  
 |Sintomi|Avviso restituito *due volte* durante l'innalzamento di livello usando addsdeployment per Windows PowerShell:<br /><br />Codice - "non è possibile creare una delega per questo server DNS perché la zona padre autorevole non viene trovata o non può essere eseguito Windows DNS server. Se si sta integrando con un'infrastruttura DNS esistente, è necessario creare manualmente una delega a questo server DNS nella zona padre per garantire la risoluzione dei nomi affidabile dall'esterno del dominio. In caso contrario, è richiesta alcuna azione."|  
 |Risoluzione e note|Ignorarlo. ADDSDeployment per Windows PowerShell visualizza l'avviso una volta durante la verifica dei prerequisiti e una seconda durante la configurazione del controller di dominio. Se non si vuole configurare la delega DNS, usare l'argomento seguente:<br /><br />Code - -creatednsdelegation:$false<br /><br />*Non* ignorare le verifiche dei prerequisiti per eliminare il messaggio|  
-  
+
 |Problema|Quando si specificano credenziali UPN o non di dominio durante la configurazione, vengono restituiti errori ingannevoli|  
 |---------|--------------------------------------------------------------------------------------------|  
 |Sintomi|Server Manager restituisce l'errore:<br /><br />Code: eccezione durante la chiamata "DNSOption" con gli argomenti "6"<br /><br />ADDSDeployment per Windows PowerShell restituisce l'errore:<br /><br />Non è riuscita codice: verifica delle autorizzazioni utente. È necessario fornire il nome del dominio a cui appartiene questo account utente.|  
 |Risoluzione e note|Verificare di avere specificato credenziali di dominio valide nel formato **dominio\utente**.|  
-  
+
 |Problema|Se si rimuove il ruolo DirectoryServices-DomainController con Dism.exe, il server risulta non avviabile|  
 |---------|---------------------------------------------------------------------------------------------------|  
 |Sintomi|Se si usa Dism.exe per rimuovere il ruolo Servizi di dominio Active Directory prima di abbassare di livello un controller di dominio normalmente, il server non si avvia più normalmente e viene visualizzato l'errore:<br /><br />Codice - stato: 0x000000000<br />Info: Si è verificato un errore imprevisto.|  
 |Risoluzione e note|Eseguire l'avvio in modalità di ripristino dei servizi directory premendo *MAIUSC+F8*. Aggiungere di nuovo il ruolo Servizi di dominio Active Directory e abbassare di livello in modo forzato il controller di dominio. In alternativa, ripristinare lo stato del sistema dal backup. Non usare Dism.exe per la rimozione del ruolo Servizi di dominio Active Directory, in quanto questa utilità non riconosce i controller di dominio.|  
-  
+
 |Problema|L'installazione di una foresta non riesce quando ForestMode è impostato su Win2012|  
 |---------|--------------------------------------------------------------------|  
 |Sintomi|L'innalzamento di livello con ADDSDeployment per Windows PowerShell restituisce l'errore:<br /><br />Code -  Test.VerifyDcPromoCore.DCPromo.General.74<br /><br />Verifica dei prerequisiti per la promozione del Controller di dominio non riuscita. Il livello funzionale del dominio specificato non è valido|  
 |Risoluzione e note|Non specificare una modalità di funzionalità della foresta di Win2012 senza specificare *anche* una modalità di funzionalità del dominio di Win2012. Di seguito è riportato un esempio che funziona senza errori:<br /><br />Codice - - forestmode Win2012 - domainmode Win2012]|  
-  
+
 |||  
 |-|-|  
 |Problema|Quando si fa clic su Verifica nell'area di selezione Installa da supporto, sembra che non accada nulla|  
 |Sintomi|Quando si specifica un percorso a una cartella IFM e si fa clic sul pulsante **Verifica**, non viene restituito alcun messaggio e sembra che non accada nulla.|  
 |Risoluzione e note|Il pulsante **Verifica** restituisce un errore solo in presenza di errori. In caso contrario, se è stato specificato un percorso IFM, il pulsante **Avanti** diventa selezionabile. Se è stato selezionato IFM, è necessario fare clic su **Verifica** per poter continuare.|  
-  
+
 |||  
 |-|-|  
 |Problema|L'abbassamento di livello con Server Manager non restituisce alcun messaggio fino al termine dell'operazione.|  
 |Sintomi|Quando si usa Server Manager per rimuovere il ruolo Servizi di dominio Active Directory e abbassare di livello un controller di dominio, non vengono visualizzati messaggi fino al completamento dell'operazione, con esito positivo o negativo.|  
 |Risoluzione e note|Si tratta di una limitazione di Server Manager. Per visualizzare messaggi sullo stato dell'operazione, usare il cmdlet ADDSDeployment di Windows PowerShell:<br /><br />Codice - addsdomaincontroller disinstallare|  
-  
+
 |||  
 |-|-|  
 |Problema|La verifica dell'installazione dal supporto non rileva il supporto del controller di dominio di sola lettura per il controller di dominio scrivibile o viceversa.|  
 |Sintomi|Quando si innalza di livello un nuovo controller di dominio tramite IFM e si specifica un supporto non corretto, ad esempio un supporto per il controller di dominio di sola lettura per un controller di dominio scrivibile o un supporto per il controller di dominio di lettura e scrittura per un controller di dominio di sola lettura, il pulsante Verifica non restituisce un errore. Successivamente, l'innalzamento di livello non riesce e viene visualizzato l'errore seguente:<br /><br />Codice - si è verificato un errore durante il tentativo di configurare questo computer come controller di dominio. <br />Impossibile avviare l'innalzamento di livello dal supporto di installazione di un controller di dominio di sola lettura perché il database di origine specificato non è consentito. Solo i database da altri controller possono essere usati per promozione di IFM di un controller di dominio.|  
 |Risoluzione e note|La verifica convalida solo l'integrità complessiva di IFM. Non specificare il tipo di IFM errato al server. Riavviare il server prima di ripetere l'operazione di innalzamento di livello con il supporto corretto.|  
-  
+
 |||  
 |-|-|  
 |Problema|L'innalzamento di livello di un controller di dominio di sola lettura in un account computer creato in modo preliminare non riesce|  
 |Sintomi|Quando si usa ADDSDeployment di Windows PowerShell per innalzare di livello un nuovo controller di dominio di sola lettura con un account computer preconfigurato, viene restituito l'errore:<br /><br />Codice - set di parametri non può essere risolto utilizzando i parametri denominati specificati.    <br />InvalidArgument: ParameterBindingException<br />    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.DirectoryServices.Deployment.PowerShell.Commands.Install|  
 |Risoluzione e note|Non fornire parametri già definiti in un account del controller di dominio di sola lettura creato in modo preliminare. tra cui:<br /><br />Codice - - readonlyreplica<br />-installdns<br />-donotconfigureglobalcatalog<br />-sitename<br />-installdns|  
-  
+
 |||  
 |-|-|  
 |Problema|Quando si seleziona/deseleziona "Riavvia automaticamente il server di destinazione se necessario" non accade nulla|  
 |Sintomi|Quando si seleziona (o se non si seleziona) l'opzione di Server Manager **riavvia automaticamente i server di destinazione se necessario** whendemoting un controller di dominio tramite rimozione del ruolo, il server viene sempre riavviato, indipendentemente dall'opzione selezionata.|  
 |Risoluzione e note|Si tratta di un comportamento intenzionale. Il processo di abbassamento di livello determina un riavvio del server indipendentemente da questa impostazione.|  
-  
+
 |||  
 |-|-|  
 |Problema|Nel file Dcpromo.log viene visualizzato "[errore] l'impostazione della sicurezza sui file del server non riuscita con 2"|  
 |Sintomi|L'abbassamento di livello di un controller di dominio viene completato senza errori, ma se si esamina il registro dcpromo viene visualizzato l'errore seguente:<br /><br />Codice - [error] impostazione della protezione per i file server non è riuscita con 2|  
 |Risoluzione e note|Ignorarlo, l'errore è previsto e cosmetico.|  
-  
+
 |||  
 |-|-|  
 |Problema|La verifica dei prerequisiti con adprep non riesce e viene visualizzato l'errore "Impossibile eseguire la verifica dei conflitti dello schema di Exchange"|  
 |Sintomi|Quando si tenta di alzare di livello un controller di dominio Windows Server 2012 in una foresta di Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2, la verifica dei prerequisiti non riesce e viene visualizzato l'errore:<br /><br />Non è riuscita codice - verifica dei prerequisiti per la preparazione di Active Directory. Impossibile eseguire la verifica dei conflitti dello schema di Exchange per dominio *<domain name>* (eccezione: il server RPC non disponibile)<br /><br />Nel file adprep.log viene visualizzato l'errore:<br /><br />Codice - Adprep è stato possibile recuperare i dati dal server *<domain controller>*<br /><br />tramite Strumentazione gestione Windows (WMI).|  
 |Risoluzione e note|Il nuovo controller di dominio non può accedere a WMI tramite i protocolli DCOM/RPC sui controller di dominio esistenti. A oggi, vi sono tre cause per questo comportamento:<br /><br />-Una regola del firewall blocchi accesso ai controller di dominio esistente<br /><br />-L'account del servizio di rete è presente il "accesso come servizio" con privilegi (SeServiceLogonRight) nei controller di dominio esistente<br /><br />-NTLM è stata disabilitata nei controller di dominio usando criteri di sicurezza descritti in [Introduzione alla restrizione dell'autenticazione NTLM](https://technet.microsoft.com/library/dd560653(WS.10).aspx)|  
-  
+
 |||  
 |-|-|  
 |Problema|Durante la creazione di una nuova foresta di Servizi di dominio Active Directory viene sempre visualizzato un avviso relativo al DNS|  
 |Sintomi|Durante la creazione di una nuova foresta di Servizi di dominio Active Directory e della zona DNS nel nuovo controller di dominio, viene sempre visualizzato un messaggio di avviso:<br /><br />Codice di errore - è stato rilevato nella configurazione DNS. <br />Nessuno dei server DNS usati da questo computer ha risposto entro l'intervallo di timeout.<br />(codice di errore 0x000005B4 "ERROR_TIMEOUT")|  
 |Risoluzione e note|Ignorarlo. Questo avviso è intenzionale per il primo controller di dominio nel dominio radice di una nuova foresta, nel caso in cui si intenda puntare a un server e a una zona DNS esistenti.|  
-  
+
 |||  
 |-|-|  
 |Problema|L'argomento -whatif di Windows PowerShell restituisce informazioni sul server DNS non corrette|  
 |Sintomi|Se si usa l'argomento **-whatif** durante la configurazione di un controller di dominio con **-installdns:$true** implicito o esplicito, nell'output risultante viene visualizzato quanto segue:<br /><br />Codice - "il Server DNS: No"|  
 |Risoluzione e note|Ignorarlo. Il DNS è installato e configurato correttamente.|  
-  
+
 |||  
 |-|-|  
 |Problema|Dopo l'innalzamento di livello, l'accesso non riesce e viene visualizzato l'errore "Memoria insufficiente per eseguire il comando"|  
 |Sintomi|Quando si innalza di livello un nuovo controller di dominio, si esegue la disconnessione e si tenta di eseguire l'accesso in modo interattivo, viene visualizzato l'errore seguente:<br /><br />Codice - memoria insufficiente è disponibile per elaborare il comando|  
 |Risoluzione e note|Il controller di dominio non è stato riavviato dopo l'innalzamento di livello a causa di un errore o perché è stato specificato l'argomento di ADDSDeployment per Windows PowerShell **-norebootoncompletion**. Riavviare il controller di dominio.|  
-  
+
 |||  
 |-|-|  
 |Problema|Il pulsante Avanti non è disponibile nella pagina Opzioni Controller di dominio|  
 |Sintomi|Anche se è stata impostata una password, il pulsante **Avanti** nella pagina **Opzioni Controller di dominio** in Server Manager non è disponibile. Nel menu **Nome sito** non è elencato alcun sito.|  
-|Risoluzione e note|Sono presenti più siti di Servizi di dominio Active Directory e in almeno uno mancano le subnet. Questo futuro controller di dominio appartiene a una di queste subnet. È necessario selezionare manualmente la subnet dal menu a discesa Nome sito. È inoltre opportuno verificare tutti i siti di Active Directory tramite DSSITE.MSC o usare il comando di Windows PowerShell seguente per trovare tutti i siti in cui mancano le subnet:<br /><br />Code - get-adreplicationsite -filter * -property subnets &#124; where-object {!$_.subnets -eq "\*"} &#124; format-table name|  
-  
+|Risoluzione e note|Sono presenti più siti di Servizi di dominio Active Directory e in almeno uno mancano le subnet. Questo futuro controller di dominio appartiene a una di queste subnet. È necessario selezionare manualmente la subnet dal menu a discesa Nome sito. È inoltre opportuno verificare tutti i siti di Active Directory tramite DSSITE.MSC o usare il comando di Windows PowerShell seguente per trovare tutti i siti in cui mancano le subnet:<br /><br />Codice - get-adreplicationsite-filtro \* -subnet proprietà &#124; where-object {! $_.subnets - eq "\*"} &#124; nome tabella di formato|  
+
 |||  
 |-|-|  
 |Problema|L'operazione di innalzamento o abbassamento di livello non riesce e viene visualizzato il messaggio "Impossibile avviare il servizio"|  
 |Sintomi|Se si tenta di eseguire un'operazione di innalzamento di livello, abbassamento di livello o clonazione di un controller di dominio, viene visualizzato l'errore:<br /><br />Codice - Impossibile avviare il servizio, perché è disabilitato o non con nessun periferiche abilitate associate con essa"(0x80070422)<br /><br />L'errore potrebbe essere interattivo, potrebbe trattarsi di un evento o potrebbe essere scritto in un file di registro, ad esempio dcpromoui.log o dcpromo.log|  
 |Risoluzione e note|Il servizio Ruolo server DS (DsRoleSvc) è disabilitato. Per impostazione predefinita, questo servizio viene installato durante l'installazione del ruolo di Servizi di dominio Active Directory ed è impostato sul tipo di avvio manuale. Non disabilitare questo servizio. Impostarlo di nuovo su Manuale e consentire alle operazioni del ruolo DS di avviarlo e arrestarlo su richiesta. Questo comportamento è da progettazione.|  
-  
+
 |||  
 |-|-|  
 |Problema|Server Manager visualizza ancora l'avviso che indica che è necessario alzare di livello un controller di dominio|  
 |Sintomi|Se si innalza di livello un controller di dominio usando la funzionalità dcpromo.exe /unattend deprecata o si esegue l'aggiornamento di un controller di dominio esistente a Windows Server 2008 R2 anziché a Windows Server 2012, Server Manager visualizza ancora l'attività di configurazione post-distribuzione **Alza di livello il server a controller di dominio**.|  
 |Risoluzione e note|Fare clic sul collegamento dell'avviso post-distribuzione per non visualizzare più il messaggio. Questo comportamento è cosmetico e previsto.|  
-  
+
 |||  
 |-|-|  
 |Problema|Manca l'installazione del ruolo dallo script di distribuzione di Server Manager|  
 |Sintomi|Se si usa Server Manager per alzare di livello un controller di dominio e si salva lo script di distribuzione di Windows PowerShell, il cmdlet di installazione del ruolo e gli argomenti (install-windowsfeature -name ad-domain-services -includemanagementtools) non sono inclusi. Senza il ruolo, non è possibile configurare il controller di dominio.|  
 |Risoluzione e note|Aggiungere manualmente il cmdlet e gli argomenti a qualsiasi script. Questo comportamento è previsto e da progettazione.|  
-  
+
 |||  
 |-|-|  
 |Problema|Allo script di distribuzione di Server Manager non è assegnato il nome PS1|  
 |Sintomi|Se si usa Server Manager per alzare di livello un controller di dominio e si salva lo script di distribuzione di Windows PowerShell, il file viene denominato con un nome temporaneo casuale e non come file PS1.|  
 |Risoluzione e note|Rinominare manualmente il file. Questo comportamento è previsto e da progettazione.|  
-  
+
 |Problema|Dcpromo /unattend consente livelli di funzionalità non supportati|  
 |-|-|  
 |Sintomi|Se alza di livello un controller di dominio usando dcpromo /unattend con il file di risposte di esempio seguente:<br /><br />Codice:<br /><br />[DCInstall]<br />NewDomain=Forest<br /><br />ReplicaOrNewDomain=Domain<br /><br />NewDomainDNSName=corp.contoso.com<br /><br />SafeModeAdminPassword=Safepassword@6<br /><br />DomainNetbiosName=corp<br /><br />DNSOnNetwork=Yes<br /><br />AutoConfigDNS = Sì<br /><br />RebootOnSuccess=NoAndNoPromptEither<br /><br />RebootOnCompletion=No<br /><br />*DomainLevel=0*<br /><br />*ForestLevel=0*<br /><br />L'innalzamento di livello non riesce e nel file dcpromoui.log vengono visualizzati gli errori seguenti:<br /><br />Codice - 13:31:50.783 dcpromoui EA4.5B8 0089 DomainLevel CArgumentsSpec::ValidateArgument invio<br /><br />Dcpromoui EA4.5B8 008A 13:31:50.783 valore DomainLevel è 0<br /><br />Dcpromoui EA4.5B8 008B 13:31:50.783 codice di uscita è 77<br /><br />Dcpromoui EA4.5B8 008C 13:31:50.783 l'argomento specificato non è valido.<br /><br />log di chiusura 13:31:50.783 008D EA4.5B8 Dcpromoui<br /><br />Dcpromoui EA4.5B8 0032 13:31:50.830 codice di uscita è 77<br /><br />Il livello 0 corrisponde a Windows 2000, che non è supportato in Windows Server 2012.|  

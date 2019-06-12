@@ -7,22 +7,22 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/09/2019
-ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.date: 06/06/2019
+ms.openlocfilehash: 85eca06a5d8c103851596055099876cb53a902ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613221"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810560"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Creazione di volumi in Spazi di archiviazione diretta
 
->Si applica a: Windows Server 2019, Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 In questo argomento viene descritto come creare i volumi in un cluster di spazi di archiviazione diretta tramite Windows Admin Center, PowerShell o gestione Cluster di Failover.
 
-   >[!TIP]
-   >  Se non lo hai già fatto, consulta prima [Pianificazione dei volumi in Spazi di archiviazione diretta](plan-volumes.md).
+> [!TIP]
+> Se non lo hai già fatto, consulta prima [Pianificazione dei volumi in Spazi di archiviazione diretta](plan-volumes.md).
 
 ## <a name="create-a-three-way-mirror-volume"></a>Creare un volume con mirroring a tre vie
 
@@ -105,14 +105,14 @@ Il cmdlet **New-Volume** prevede quattro parametri che dovrai sempre fornire:
 - **StoragePoolFriendlyName:** Il nome dello spazio di archiviazione del pool, ad esempio *"S2D in ClusterName"*
 - **Dimensioni:** Le dimensioni del volume, ad esempio *"10 TB"*
 
-   >[!NOTE]
-   >  Windows, incluso PowerShell, conta con numeri binari (in base 2), mentre le unità sono spesso etichettate con numeri decimali (in base 10). Questo spiega perché un'unità da "un terabyte", definita come 1.000.000.000.000 byte, viene visualizzata in Windows come circa "909 GB". Si tratta di un comportamento previsto. Durante la creazione di volumi tramite **New-Volume**, devi specificare il parametro **Size** in numeri binari (in base 2). Ad esempio, se specifichi "909GB" o "0,909495TB", verrà creato un volume di circa 1.000.000.000.000 byte.
+   > [!NOTE]
+   > Windows, incluso PowerShell, conta con numeri binari (in base 2), mentre le unità sono spesso etichettate con numeri decimali (in base 10). Questo spiega perché un'unità da "un terabyte", definita come 1.000.000.000.000 byte, viene visualizzata in Windows come circa "909 GB". Si tratta di un comportamento previsto. Durante la creazione di volumi tramite **New-Volume**, devi specificare il parametro **Size** in numeri binari (in base 2). Ad esempio, se specifichi "909GB" o "0,909495TB", verrà creato un volume di circa 1.000.000.000.000 byte.
 
 ### <a name="example-with-2-or-3-servers"></a>Esempio: Con server 2 o 3
 
 Per semplificare le cose, se la distribuzione include solo due server, Spazi di archiviazione diretta userà automaticamente il mirroring a 2 vie per la resilienza. Se la distribuzione include solo tre server, userà automaticamente il mirroring a 3 vie.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
@@ -124,7 +124,7 @@ Se disponi di quattro o più server, puoi utilizzare il parametro facoltativo **
 
 Nell'esempio seguente, *"Volume2"* usa il mirroring a 3 vie e *"Volume3"* usa la doppia parità (spesso detta "codifica di cancellazione").
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
@@ -137,7 +137,7 @@ Per facilitare la creazione di tali volumi, Spazi di archiviazione diretta forni
 
 Puoi vederli eseguendo il cmdlet **Get-StorageTier**.
 
-```
+```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
@@ -145,7 +145,7 @@ Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedund
 
 Per creare volumi a livelli, fai riferimento a questi modelli di livello usando i parametri **StorageTierFriendlyNames** e **StorageTierSizes** del cmdlet **New-Volume**. Ad esempio, il cmdlet seguente crea un solo volume che combina il mirroring a 3 vie e la doppia parità in proporzioni di 30:70.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 

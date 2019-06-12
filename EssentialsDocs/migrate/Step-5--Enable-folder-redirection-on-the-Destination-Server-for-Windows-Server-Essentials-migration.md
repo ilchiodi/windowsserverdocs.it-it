@@ -12,12 +12,12 @@ ms.assetid: d3925f80-552d-431f-b2a6-2af202e50ca4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 98b1a7adc23fca15c06ae9588d52bc9bcd532252
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815382"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432595"
 ---
 # <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Passaggio 5: Abilitare il reindirizzamento cartelle nella migrazione di Server di destinazione per Windows Server Essentials
 
@@ -41,17 +41,17 @@ Se il reindirizzamento cartelle è abilitato nel server di origine, è possibile
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Per eliminare la vecchia impostazione di Criteri di gruppo per il reindirizzamento cartelle  
   
-1.  Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
+1. Nel server di destinazione aprire lo strumento di amministrazione **Gestione Criteri di gruppo**.  
   
-2.  Nelle **Gestione criteri di gruppo**, espandere **foresta:***YourNetworkDomainName*, espandere **domini**, espandere *YourNetworkDomainName* , quindi espandere **oggetti Criteri di gruppo**.  
+2. In **Gestione Criteri di gruppo**espandere **Foresta:** <em>YourNetworkDomainName</em>espandere **Domini**espandere *YourNetworkDomainName*, quindi **Oggetti Criteri di gruppo**.  
   
-3.  Fare clic con il pulsante destro del mouse sui criteri da eliminare e quindi scegliere **Elimina**.  
+3. Fare clic con il pulsante destro del mouse sui criteri da eliminare e quindi scegliere **Elimina**.  
   
-4.  Leggere l'avviso e quindi fare clic su **Sì**.  
+4. Leggere l'avviso e quindi fare clic su **Sì**.  
   
-5.  Chiudere **Gestione Criteri di gruppo**.  
+5. Chiudere **Gestione Criteri di gruppo**.  
   
- Per applicare la modifica del reindirizzamento cartelle, gli utenti di rete devono disconnettere i computer e quindi riconnettersi. Questo garantisce il trasferimento di tutte le cartelle reindirizzate al server di destinazione.  
+   Per applicare la modifica del reindirizzamento cartelle, gli utenti di rete devono disconnettere i computer e quindi riconnettersi. Questo garantisce il trasferimento di tutte le cartelle reindirizzate al server di destinazione.  
   
 ## <a name="next-steps"></a>Passaggi successivi  
  È stato abilitato il reindirizzamento delle cartelle nel server di destinazione. Passare quindi a [passaggio 6: Abbassare di livello e rimuovere il Server di origine dalla nuova rete Windows Server Essentials](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  

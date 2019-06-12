@@ -12,12 +12,12 @@ ms.assetid: 9378bffa-487c-43ca-9ec3-7e7864d2dd9a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6906c1dafc6d4131e07c008b9db47ebebe9b7770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 87ec5218455672cbfd2bc1d77244fd263b91362c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864692"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433307"
 ---
 # <a name="manage-digital-media-in-windows-server-essentials"></a>Gestire i supporti digitali in Windows Server Essentials
 
@@ -72,7 +72,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
 ##  <a name="BKMK_2"></a> Gestire i server dei contenuti multimediali usando il Dashboard  
   Windows Server Essentials rende possibile eseguire attività amministrative comuni tramite il Dashboard di Windows Server Essentials. La scheda **Media** della pagina **Impostazioni** del dashboard contiene quanto segue:  
   
-|Sezione|Funzionalità|  
+|`Section`|Funzionalità|  
 |-------------|-------------------|  
 |Server dei contenuti multimediali|Il pulsante **Attiva/Disattiva** consente di attivare o disattivare i flussi multimediali.|  
 |Qualità flusso video|Questa freccia a discesa consente di scegliere la qualità del flusso dei video riprodotti dal server.|  
@@ -85,25 +85,25 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
  Se si attiva il server dei contenuti multimediali, i contenuti condivisi nei cataloghi multimediali saranno disponibili per la riproduzione nei dispositivi della rete in grado di ricevere flussi multimediali dal server. È possibile trasmettere la maggior parte dei tipi di file multimediali digitali. I tipi di file più comuni includono:  
   
--   Formati Windows Media (.asf, .wma, .wmv, .wm)  
+- Formati Windows Media (.asf, .wma, .wmv, .wm)  
   
--   Audio Visual Interleave (.avi)  
+- Audio Visual Interleave (.avi)  
   
--   Moving Pictures Experts Group (.mpeg, .mpg, .mp3)  
+- Moving Pictures Experts Group (.mpeg, .mpg, .mp3)  
   
--   Audio per Windows (.wav)  
+- Audio per Windows (.wav)  
   
--   CD Audio Track (.cda)  
+- CD Audio Track (.cda)  
   
- Per riprodurre un file, individuare e fare doppio clic su un brano, un video o un'immagine in una cartella condivisa. Il contenuto verrà trasmesso dal server e riprodotto nel computer. Per informazioni su come trovare e riprodurre i file multimediali digitali archiviati sul server, vedere [riprodurre file multimediali digitali](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
+  Per riprodurre un file, individuare e fare doppio clic su un brano, un video o un'immagine in una cartella condivisa. Il contenuto verrà trasmesso dal server e riprodotto nel computer. Per informazioni su come trovare e riprodurre i file multimediali digitali archiviati sul server, vedere [riprodurre file multimediali digitali](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
   
- Per trasmettere i flussi multimediali, sono necessari i componenti hardware seguenti:  
+  Per trasmettere i flussi multimediali, sono necessari i componenti hardware seguenti:  
   
--   Una rete privata cablata o wireless.  
+- Una rete privata cablata o wireless.  
   
--   Un altro computer della rete o un dispositivo chiamato ricevitore multimediale digitale o lettore multimediale digitale di rete. Ricevitori multimediali digitali sono dispositivi hardware connessi alla rete cablata o wireless che è possibile controllare tramite computer in uso? anche se il computer si trova in un'altra chat room.  
+- Un altro computer della rete o un dispositivo chiamato ricevitore multimediale digitale o lettore multimediale digitale di rete. Ricevitori multimediali digitali sono dispositivi hardware connessi alla rete cablata o wireless che è possibile controllare tramite computer in uso? anche se il computer si trova in un'altra chat room.  
   
- Per altre informazioni, vedere [attivare o disattivare i flussi multimediali](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).  
+  Per altre informazioni, vedere [attivare o disattivare i flussi multimediali](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).  
   
 ##  <a name="BKMK_4"></a> Attivare o disattivare i flussi multimediali  
  È possibile condividere musica, video e immagini da Windows Server Essentials trasmettendo i file in qualsiasi ricevitore multimediale digitale supportato (ricevitore), ad esempio computer, telefoni cellulari, televisori, ricevitori multimediali digitali, dispositivi Extender per Windows Media Center (tra cui Xbox 360) e altri dispositivi elettronici digitali.  
@@ -115,21 +115,21 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 ####  <a name="BKMK_2.5"></a> Per attivare o disattivare i flussi multimediali  
   
-1.  Aprire il Dashboard di Windows Server Essentials.  
+1. Aprire il Dashboard di Windows Server Essentials.  
   
-2.  Fare clic su **Impostazioni**, su **Media** e quindi eseguire una delle operazioni seguenti:  
+2. Fare clic su **Impostazioni**, su **Media** e quindi eseguire una delle operazioni seguenti:  
   
-    -   Fare clic su **Attiva** per iniziare a condividere tutti i file archiviati nel catalogo multimediale del server.  
+   -   Fare clic su **Attiva** per iniziare a condividere tutti i file archiviati nel catalogo multimediale del server.  
   
-    -   Fare clic su **Disattiva** per interrompere la condivisione di tutti i file archiviati nel catalogo multimediale del server.  
+   -   Fare clic su **Disattiva** per interrompere la condivisione di tutti i file archiviati nel catalogo multimediale del server.  
   
-3.  Se si vogliono condividere altre cartelle del catalogo multimediale, fare clic su **Personalizza** e quindi selezionare **Sì** per ogni cartella condivisa da includere nel catalogo.  
+3. Se si vogliono condividere altre cartelle del catalogo multimediale, fare clic su **Personalizza** e quindi selezionare **Sì** per ogni cartella condivisa da includere nel catalogo.  
   
-4.  Scegliere **OK** per salvare le modifiche.  
+4. Scegliere **OK** per salvare le modifiche.  
   
- Per informazioni sui tipi di file multimediali digitali supportati da Windows Media Player, vedere [Tipi di file supportati da Windows Media Player](https://support.microsoft.com/kb/316992).  
+   Per informazioni sui tipi di file multimediali digitali supportati da Windows Media Player, vedere [Tipi di file supportati da Windows Media Player](https://support.microsoft.com/kb/316992).  
   
- Per altre informazioni, vedere [Consentire o limitare l'accesso a un catalogo multimediale nel server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
+   Per altre informazioni, vedere [Consentire o limitare l'accesso a un catalogo multimediale nel server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
   
 ##  <a name="BKMK_5"></a> Aggiungere file multimediali digitali al server  
  L'amministratore del server è possibile aggiungere file multimediali digitali alle cartelle condivise nel catalogo multimediale tramite l'accesso diretto al server, oppure usando il sito accesso Web remoto per accedere al Dashboard. Altri utenti possono aggiungere file multimediali al server usando il **cartelle condivise** connessione nella finestra di avvio, tramite il sito accesso Web remoto o tramite l'app My Server per Windows Phone. Per informazioni sulla riproduzione di contenuti multimediali, vedere [riprodurre file multimediali digitali](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
@@ -151,7 +151,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 ##  <a name="BKMK_6"></a> Consentire o limitare l'accesso a un catalogo multimediale nel server  
   
--   Quando si attiva la condivisione di file multimediali, vengono create quattro cartelle predefinite: Musica, Immagini, Video e Registrazioni TV. Se una di queste cartelle preesiste nel server, viene riutilizzata come cartella condivisa per la condivisione di file multimediali. Tutte la cartella s supporti contenuto e l'utente le autorizzazioni esistenti vengono conservate e vengono condivise con tutti gli utenti di rete.  
+-   Quando si attiva la condivisione di file multimediali, vengono create quattro cartelle predefinite: Musica, Immagini, Video e Registrazioni TV. Se una di queste cartelle preesiste nel server, viene riutilizzata come cartella condivisa per la condivisione di file multimediali. Le autorizzazioni di utente e il contenuto multimediale tutte della cartella esistente vengono conservate e vengono condivise con tutti gli utenti di rete.  
   
 -   Prima di attivare la condivisione del catalogo multimediale per una cartella condivisa, tenere presente che questo tipo di condivisione ignora qualsiasi tipo di accesso basato su account utente impostato per la cartella condivisa. Si supponga ad esempio di attivare la condivisione del catalogo multimediale per la cartella condivisa **Foto** e impostare **Foto** su **Nessun accesso** per un account utente chiamato Federico. Federico può comunque trasmettere qualsiasi file multimediale digitale dalla cartella condivisa **Video** in qualsiasi ricevitore o lettore multimediale digitale supportato. Se non si vuole trasmettere in questo modo alcuni file multimediali digitali, archiviarli in una cartella per cui la condivisione del catalogo multimediale non è attivata.  
   
@@ -204,21 +204,21 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
  Il formato e la velocità in bit scelti per la transcodifica dipendono in larga misura dalle prestazioni del processore del server. Le prestazioni del processore vengono identificate nell'ambito dell'Indice prestazioni Windows. Per determinare l'indice di prestazioni del proprio server, eseguire una delle operazioni seguenti:  
   
--   In un computer di rete che esegue Windows 7 o Windows 8 dotato dello stesso processore del server, passare al **Pannello di controllo**, fare clic su **informazioni sulle prestazioni e gli strumenti**e quindi esaminare le informazioni di **Velocità e migliorare le prestazioni del computer s** pagina.  
+- In un computer di rete che esegue Windows 7 o Windows 8 dotato dello stesso processore del server, passare al **Pannello di controllo**, fare clic su **informazioni sulle prestazioni e gli strumenti**e quindi esaminare le informazioni di **Velocità e migliorare le prestazioni del computer** pagina.  
   
--   Contattare il produttore del processore.  
+- Contattare il produttore del processore.  
   
- Per l'esperienza utente ottimale, scegliere una qualità di risoluzione dei flussi video appropriata per il processore del server. Il server adeguerà automaticamente la velocità in bit a una di queste impostazioni:  
+  Per l'esperienza utente ottimale, scegliere una qualità di risoluzione dei flussi video appropriata per il processore del server. Il server adeguerà automaticamente la velocità in bit a una di queste impostazioni:  
   
--   **Bassa** se il punteggio del processore è minore di 3,6.  
+- **Bassa** se il punteggio del processore è minore di 3,6.  
   
--   **Media** se il punteggio del processore è maggiore di 3,6 e minore di 4,2.  
+- **Media** se il punteggio del processore è maggiore di 3,6 e minore di 4,2.  
   
--   **Alta** se il punteggio del processore è maggiore di 4,2 e minore di 6,0.  
+- **Alta** se il punteggio del processore è maggiore di 4,2 e minore di 6,0.  
   
--   **Massima** se il punteggio del processore è maggiore di 6,0.  
+- **Massima** se il punteggio del processore è maggiore di 6,0.  
   
- Se si sceglie una risoluzione dei flussi video che richiede una potenza di elaborazione maggiore di quella offerta dal server, potrebbero verificarsi buffer e interruzioni durante la trasmissione di contenuti multimediali dal server.  
+  Se si sceglie una risoluzione dei flussi video che richiede una potenza di elaborazione maggiore di quella offerta dal server, potrebbero verificarsi buffer e interruzioni durante la trasmissione di contenuti multimediali dal server.  
   
 > [!NOTE]
 >  Per trasmettere video in alta definizione tramite Accesso Web remoto, è necessario un processore con un punteggio di almeno 6,0.  

@@ -9,18 +9,18 @@ ms.date: 05/21/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: f13690056a13a751b5ef4770c2aac11cecc2d4ae
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 6133e30b7f3db460cf6174a103c4ce1040e791b6
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976618"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810636"
 ---
 # <a name="windows-server-release-information"></a>Informazioni sulle versioni di Windows Server
 
 Microsoft ha aggiornato il modello di manutenzione. Canale semestrale è un'opzione di aggiornamento delle funzionalità rilasciata due volte l'anno, con tempi di manutenzione di 18 mesi per ogni rilascio. Questa pagina è progettata per aiutarti a determinare la data di fine supporto per i rilasci di Canale semestrale.
 
-Canale semestrale offre opportunità per i clienti che sono l'innovazione rapida possa sfruttare i vantaggi delle nuove funzionalità del sistema operativo a un ritmo più veloce, entrambi nelle applicazioni, in particolare quelle basate su contenitori e microservizi. Per altre informazioni vedere la [confronto dei canali di manutenzione](..\get-started-19\servicing-channels-19.md). I clienti possono anche scegliere di continuare a usare i rilasci Long-Term Servicing Channel, che continuano a essere rilasciati ogni 2-3 anni. Per ogni rilascio Long-Term Servicing Channel sono previsti 5 anni di supporto Mainstream e 5 anni di supporto Extended.
+Canale semestrale offre opportunità per i clienti che sono l'innovazione rapida possa sfruttare i vantaggi delle nuove funzionalità del sistema operativo a un ritmo più veloce, entrambi nelle applicazioni, in particolare quelle basate su contenitori e microservizi. Per altre informazioni vedere la [confronto dei canali di manutenzione](../get-started-19/servicing-channels-19.md). I clienti possono anche scegliere di continuare a usare i rilasci Long-Term Servicing Channel, che continuano a essere rilasciati ogni 2-3 anni. Per ogni rilascio Long-Term Servicing Channel sono previsti 5 anni di supporto Mainstream e 5 anni di supporto Extended.
 
 ## <a name="windows-server-current-versions-by-servicing-option"></a>Versioni correnti di Windows Server per opzione di manutenzione
 
@@ -32,5 +32,5 @@ Canale semestrale offre opportunità per i clienti che sono l'innovazione rapida
 | Windows Server, versione 1803 (Canale semestrale) (Datacenter, Standard)| 1803 |17134.1.180410-1804 |30/04/2018| 12/11/2019|Vedi nota|
 | Windows Server 2016 (Long-Term Servicing Channel)| 1607 | 14393.0 | 15/10/2016 |11/01/2022| 11/01/2027|
 
->[!NOTE]
-> Windows Server, versione 1803 e versioni successive sono regolate dalle [criteri del ciclo di vita moderni](https://support.microsoft.com/help/30881). Vedere le [domande frequenti sul ciclo di vita di Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) e [confronto dei canali di manutenzione](..\get-started-19\servicing-channels-19.md) per informazioni dettagliate sulla manutenzione requisiti e altre importanti informazioni.
+> [!NOTE]
+> Windows Server, versione 1803 e versioni successive sono regolate dalle [criteri del ciclo di vita moderni](https://support.microsoft.com/help/30881). Vedere le [domande frequenti sul ciclo di vita di Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) e [confronto dei canali di manutenzione](../get-started-19/servicing-channels-19.md) per informazioni dettagliate sulla manutenzione requisiti e altre importanti informazioni.

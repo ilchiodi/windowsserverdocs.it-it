@@ -12,12 +12,12 @@ ms.assetid: 99e258bc-0695-48c9-b694-a7f3cbe2a2d0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f5042204cd189e3101f5e0126fd98e786a49032d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e15cb8591fc701094dde884d0a55e08d2cf422bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844122"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433607"
 ---
 # <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>Creazione del file PostIC.cmd per eseguire le attività successive alla configurazione iniziale
 
@@ -25,13 +25,13 @@ ms.locfileid: "59844122"
 
 È possibile aggiungere personalizzazioni alla configurazione post-iniziale scrivendo un proprio codice e quindi richiamandolo da un file script chiamato PostIC.cmd. Quando si utilizza il file PostIC.cmd, è necessario seguire queste linee guida:  
   
--   Il codice di personalizzazione deve essere eseguito in modo automatico (non è possibile visualizzare un'interfaccia utente).  
+- Il codice di personalizzazione deve essere eseguito in modo automatico (non è possibile visualizzare un'interfaccia utente).  
   
--   Non è possibile riavviare il server con il codice di personalizzazione. Come ultima attività, con la configurazione iniziale verrà riavviato il server.  
+- Non è possibile riavviare il server con il codice di personalizzazione. Come ultima attività, con la configurazione iniziale verrà riavviato il server.  
   
--   Il codice di personalizzazione deve essere eseguito in un massimo di tre minuti.  
+- Il codice di personalizzazione deve essere eseguito in un massimo di tre minuti.  
   
- Impostare il file PostIC.cmd in modo che restituisca il valore 0 se il codice viene eseguito correttamente. Se vengono restituiti altri valori, il sistema operativo ricerca un file denominato [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure), nel quale è contenuto il codice da eseguire qualora il file PostIC.cmd non venga eseguito correttamente. Entrambi i file PostIC.cmd e SetupFailure.cmd devono trovarsi in C:\Windows\Setup\Scripts.  
+  Impostare il file PostIC.cmd in modo che restituisca il valore 0 se il codice viene eseguito correttamente. Se vengono restituiti altri valori, il sistema operativo ricerca un file denominato [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure), nel quale è contenuto il codice da eseguire qualora il file PostIC.cmd non venga eseguito correttamente. Entrambi i file PostIC.cmd e SetupFailure.cmd devono trovarsi in C:\Windows\Setup\Scripts.  
   
 #### <a name="to-define-post-initial-configuration-customizations"></a>Per definire le personalizzazioni successive alla configurazione iniziale  
   
@@ -59,4 +59,4 @@ ms.locfileid: "59844122"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

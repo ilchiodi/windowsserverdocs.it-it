@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 29183c62830cbe9e26cce4e0ce4543b554f0ed65
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837312"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810592"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -27,10 +27,8 @@ ms.locfileid: "59837312"
 
 Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Windows Server&reg; 2016 o Windows Server, versione 1709.
 
-
-> [!Note]  
+> [!NOTE]  
 > In questa versione è consigliabile eseguire installazioni pulite.  
->   
 
 > [!NOTE]  
 > Se al momento dell'installazione si sceglie di procedere con l'opzione Server Core è necessario essere consapevoli che nessun componente GUI è installato e che non sarà possibile installare o disinstallare tali elementi con Server Manager. Se sono necessarie funzionalità GUI, quando si installa Windows Server 2016 assicurarsi di scegliere l'opzione "Server con Esperienza desktop". Per altre informazioni, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md)  
@@ -79,13 +77,13 @@ Di seguito sono indicati i requisiti **minimi** di spazio su disco stimati per l
 
 **Minimo**: 32 GB  
 
-   > [!NOTE]  
-    > Tenere presente che 32 GB deve essere considerato un *valore minimo assoluto* affinché l'installazione venga completata. Questo requisito minimo dovrebbe consentire l'installazione di Windows Server 2016 in modalità Server Core con il ruolo server Servizi Web (IIS). Un server con l'installazione dei componenti di base del server ha dimensioni di circa 4 GB inferiori rispetto allo stesso server nella modalità server con GUI. 
-    >   
-    > La partizione di sistema richiederà spazio aggiuntivo in presenza di una o più delle circostanze seguenti:  
-    >   
-    > -   Se si installa il sistema in una rete.  
-    > -   Nei computer con più di 16 GB di RAM è necessario ulteriore spazio su disco per i file di paging, di ibernazione e di dettagli.  
+> [!NOTE]
+> Tenere presente che 32 GB deve essere considerato un *valore minimo assoluto* affinché l'installazione venga completata. Questo requisito minimo dovrebbe consentire l'installazione di Windows Server 2016 in modalità Server Core con il ruolo server Servizi Web (IIS). Un server con l'installazione dei componenti di base del server ha dimensioni di circa 4 GB inferiori rispetto allo stesso server nella modalità server con GUI. 
+> 
+> La partizione di sistema richiederà spazio aggiuntivo in presenza di una o più delle circostanze seguenti:  
+> 
+> -   Se si installa il sistema in una rete.  
+> -   Nei computer con più di 16 GB di RAM è necessario ulteriore spazio su disco per i file di paging, di ibernazione e di dettagli.  
 
 ## <a name="network-adapter-requirements"></a>Requisiti della scheda di rete  
 
@@ -97,8 +95,6 @@ Le schede di rete usate con questa versione devono includere queste funzionalit�
 - Supporto per Pre-Boot Execution Environment (PXE).  
 
 Una scheda di rete che supporta il debugging di rete (KDNet) è utile, ma non costituisce un requisito minimo.   
-
-
 
 ## <a name="other-requirements"></a>Altri requisiti  
 I computer che eseguono questa versione devono disporre anche di quanto segue:  
@@ -117,13 +113,13 @@ Gli elementi seguenti non sono effettivamente obbligatori, ma necessari per alcu
 
 -   Accesso a Internet (la connessione potrebbe essere a pagamento)  
 
->[!NOTE]  
+> [!NOTE]  
 > Un chip Trusted Platform Module (TPM) non è strettamente necessario per installare questa versione, anche se è necessario per usare determinate funzionalità come Crittografia unità BitLocker. Se il computer usa TPM, è necessario soddisfare questi requisiti:  
 >  
->- I TPM basati su hardware devono implementare la versione 2.0 delle specifiche TPM.  
->- I TPM che implementano la versione 2.0 devono disporre di un certificato EK che viene sottoposto al provisioning anticipato per il TPM dal fornitore dell'hardware o essere in grado di essere recuperati dal dispositivo durante il primo avvio.  
->- I TPM che implementano la versione 2.0 devono disporre delle banche SHA-256 PCR e implementare PCR tra 0 e 23 per SHA-256. È possibile distribuire i TPM con una singola banca PCR commutabile che può essere utilizzata per le misurazioni SHA-1 e SHA-256.  
->- La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
+> - I TPM basati su hardware devono implementare la versione 2.0 delle specifiche TPM.  
+> - I TPM che implementano la versione 2.0 devono disporre di un certificato EK che viene sottoposto al provisioning anticipato per il TPM dal fornitore dell'hardware o essere in grado di essere recuperati dal dispositivo durante il primo avvio.  
+> - I TPM che implementano la versione 2.0 devono disporre delle banche SHA-256 PCR e implementare PCR tra 0 e 23 per SHA-256. È possibile distribuire i TPM con una singola banca PCR commutabile che può essere utilizzata per le misurazioni SHA-1 e SHA-256.  
+> - La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
 
 ## <a name="installation-of-nano-server"></a>Installazione di Nano Server  
 Per passaggi dettagliati per installare Windows Server 2016 come Nano Server, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
@@ -131,5 +127,5 @@ Per passaggi dettagliati per installare Windows Server 2016 come Nano Server, ve
 ## <a name="additional-resources"></a>Risorse aggiuntive
 - [Requisiti del processore di Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
 - [Confronto delle edizioni Standard e Datacenter di Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
-- [Requisiti di sistema di Windows 10 ](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
+- [Requisiti di sistema di Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [Scarica il foglio dati sulle licenze di Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

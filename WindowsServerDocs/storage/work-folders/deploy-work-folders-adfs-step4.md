@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: 1f452fd1e2f054c449660eb0ee12642fefe4da8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4cbf85f8413353801f048f253859c9f3ef9c7691
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865052"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812557"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, Proxy applicazione Web di configurazione
 
@@ -32,7 +32,7 @@ Questo argomento descrive il quarto passaggio nella distribuzione di Cartelle di
 -   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
->   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Per configurare Proxy applicazione Web per l'utilizzo con Cartelle di lavoro, utilizzare le procedure seguenti.  
   
@@ -53,7 +53,7 @@ Per installare i certificati, effettuare le seguenti operazioni:
   
 5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
-6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
+6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
 7.  Fare clic su **OK**.  
   
@@ -108,47 +108,47 @@ Per configurare Proxy applicazione Web, attenersi alla seguente procedura:
 ## <a name="publish-the-work-folders-web-application"></a>Pubblicare l'applicazione Web di Cartelle di lavoro  
 Il passaggio successivo consiste nel pubblicare un'applicazione Web che renderà Cartelle di lavoro disponibile ai client. Per pubblicare l'applicazione Web di Cartelle di lavoro, attenersi alla seguente procedura:  
   
-1.  Aprire **Server Manager**e nel menu **Strumenti**, fare clic su **Gestione accesso remoto** per aprire la console di gestione Accesso remoto.  
+1. Aprire **Server Manager**e nel menu **Strumenti**, fare clic su **Gestione accesso remoto** per aprire la console di gestione Accesso remoto.  
   
-2.  In **Configurazione**, fare clic su **Proxy applicazione Web**.  
+2. In **Configurazione**, fare clic su **Proxy applicazione Web**.  
   
-3.  In **Attività**, fare clic su **Pubblica**. Si apre Pubblicazione guidata nuova applicazione.  
+3. In **Attività**, fare clic su **Pubblica**. Si apre Pubblicazione guidata nuova applicazione.  
   
-4.  Nella pagina iniziale, fare clic su **Avanti**.  
+4. Nella pagina iniziale, fare clic su **Avanti**.  
   
-5.  Nella pagina **Preautenticazione**, selezionare **Active Directory Federation Services (AD FS)**, quindi fare clic su **Avanti**.  
+5. Nella pagina **Preautenticazione**, selezionare **Active Directory Federation Services (AD FS)** , quindi fare clic su **Avanti**.  
   
-6.  Nella pagina **Supporta client**, selezionare **OAuth2** e fare clic su **Avanti**.
+6. Nella pagina **Supporta client**, selezionare **OAuth2** e fare clic su **Avanti**.
 
-7.  Nella pagina **Relying Party**, selezionare **Cartelle di lavoro**, quindi fare clic su **Avanti**. Questo elenco viene pubblicato su Proxy applicazione Web da AD FS.  
+7. Nella pagina **Relying Party**, selezionare **Cartelle di lavoro**, quindi fare clic su **Avanti**. Questo elenco viene pubblicato su Proxy applicazione Web da AD FS.  
   
-8.  Nella pagina **Impostazioni di pubblicazione**, immettere quanto segue, quindi fare clic su **Avanti**:  
+8. Nella pagina **Impostazioni di pubblicazione**, immettere quanto segue, quindi fare clic su **Avanti**:  
   
-    -   Il nome che si desidera utilizzare per l'applicazione Web  
+   -   Il nome che si desidera utilizzare per l'applicazione Web  
   
-    -   L'URL esterno di Cartelle di lavoro  
+   -   L'URL esterno di Cartelle di lavoro  
   
-    -   Il nome del certificato di Cartelle di lavoro  
+   -   Il nome del certificato di Cartelle di lavoro  
   
-    -   L'URL di back-end di Cartelle di lavoro  
+   -   L'URL di back-end di Cartelle di lavoro  
   
-    Per impostazione predefinita, la procedura guidata rende uguali l'URL di back-end e l'URL esterno.  
+   Per impostazione predefinita, la procedura guidata rende uguali l'URL di back-end e l'URL esterno.  
   
-    Nell'esempio di test, usare questi valori:  
+   Nell'esempio di test, usare questi valori:  
   
-    Nome: **WorkFolders**  
+   Nome: **WorkFolders**  
   
-    URL esterno: **https://workfolders.contoso.com**  
+   URL esterno: **https://workfolders.contoso.com**  
   
-    Certificato esterno: **Il certificato di cartelle di lavoro che è stato installato in precedenza**  
+   Certificato esterno: **Il certificato di cartelle di lavoro che è stato installato in precedenza**  
   
-    URL server back-end: **https://workfolders.contoso.com**  
+   URL server back-end: **https://workfolders.contoso.com**  
   
-9.  La pagina di conferma mostra il comando di Windows PowerShell che consentirà di eseguire la pubblicazione dell'applicazione. Fare clic su **Pubblica**.  
+9. La pagina di conferma mostra il comando di Windows PowerShell che consentirà di eseguire la pubblicazione dell'applicazione. Fare clic su **Pubblica**.  
   
 10. Nella pagina **Risultati**, si dovrebbe osservare l'avvenuta pubblicazione dell'applicazione.
-   >[!NOTE]
-   > Se si dispone di più server Cartelle di lavoro, è necessario pubblicare un'applicazione Web Cartelle di lavoro per ogni server Cartelle di lavoro (ripetere i passaggi da 1 a 10).  
+    >[!NOTE]
+    > Se si dispone di più server Cartelle di lavoro, è necessario pubblicare un'applicazione Web Cartelle di lavoro per ogni server Cartelle di lavoro (ripetere i passaggi da 1 a 10).  
   
 Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   

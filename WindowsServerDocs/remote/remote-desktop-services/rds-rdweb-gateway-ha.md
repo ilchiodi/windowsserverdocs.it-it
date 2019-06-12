@@ -12,16 +12,16 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: fa09532e0b327b24ebb1c0e155c26c25d1043b63
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854602"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805141"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ottenere una disponibilità elevata in primo piano web di Web desktop remoto e Gateway
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 
 È possibile distribuire un accesso Web Desktop remoto (accesso Web desktop remoto) e farm di Gateway Desktop remoto (Gateway Desktop remoto) per migliorare la disponibilità e scalabilità di una distribuzione di Windows Server Servizi Desktop remoto (RDS) 
@@ -46,15 +46,15 @@ Configurare un server di agire come un aggiuntive Web desktop remoto e Gateway D
     4. Nella pagina di conferma, selezionare **riavviare i computer remoti in base alle esigenze**, quindi fare clic su **Aggiungi**.  
     5. Ripetere questi passaggi per aggiungere il server Gateway Desktop remoto, ma scegliere **server Gateway Desktop remoto** nel passaggio b.
 4. Installare nuovamente i certificati per i server Gateway Desktop remoto:
-    1.  In Server Manager sul server RDBMS, scegliere **Servizi Desktop remoto > Panoramica > attività > modificare le proprietà di distribuzione**.  
-    2.  Espandere **certificati**.  
-    3.  Scorrere verso il basso nella tabella. Fare clic su desktop remoto **servizio ruolo Gateway > selezionare un certificato esistente.**  
-    4.  Fare clic su **scegliere un certificato diverso** e quindi selezionare il percorso di certificato. Ad esempio, \Contoso-CB1\Certificates). Selezionare il file del certificato per il server Web desktop remoto e Gateway durante i prerequisiti (ad esempio ContosoRdGwCert) creato e quindi fare clic su **aperto**.  
-    5.  Immettere la password per il certificato, seleziona **consentire il certificato da aggiungere all'archivio certificati Autorità di certificazione radice attendibili nel computer di destinazione**, quindi fare clic su **OK**.  
-    6.  Fare clic su **Applica**.
-    > [!Note] 
-    > Si potrebbe essere necessario riavviare manualmente il servizio TSGateway in esecuzione in ogni server Gateway Desktop remoto, tramite Server Manager o Gestione attività.
-    7.  Ripetere i passaggi da a f per il servizio ruolo Accesso Web desktop remoto.
+   1. In Server Manager sul server RDBMS, scegliere **Servizi Desktop remoto > Panoramica > attività > modificare le proprietà di distribuzione**.  
+   2. Espandere **certificati**.  
+   3. Scorrere verso il basso nella tabella. Fare clic su desktop remoto **servizio ruolo Gateway > selezionare un certificato esistente.**  
+   4. Fare clic su **scegliere un certificato diverso** e quindi selezionare il percorso di certificato. Ad esempio, \Contoso-CB1\Certificates). Selezionare il file del certificato per il server Web desktop remoto e Gateway durante i prerequisiti (ad esempio ContosoRdGwCert) creato e quindi fare clic su **aperto**.  
+   5. Immettere la password per il certificato, seleziona **consentire il certificato da aggiungere all'archivio certificati Autorità di certificazione radice attendibili nel computer di destinazione**, quindi fare clic su **OK**.  
+   6. Fare clic su **Applica**.
+      > [!NOTE] 
+      > Si potrebbe essere necessario riavviare manualmente il servizio TSGateway in esecuzione in ogni server Gateway Desktop remoto, tramite Server Manager o Gestione attività.
+   7. Ripetere i passaggi da a f per il servizio ruolo Accesso Web desktop remoto.
 
 ## <a name="step-2-configure-rd-web-and-rd-gateway-properties-on-the-new-server"></a>Passaggio 2: Configurare le proprietà di Web desktop remoto e Gateway Desktop remoto nel nuovo server
 1. Configurare il server come parte di una farm di Gateway Desktop remoto:
@@ -68,7 +68,7 @@ Configurare un server di agire come un aggiuntive Web desktop remoto e Gateway D
 2. Configurare il server come parte di una farm di accesso Web desktop remoto. I passaggi seguenti configurano la convalida e decrittografia le chiavi del computer per essere lo stesso per entrambi i siti RDWeb.
     1.  In Server Manager sul server RDBMS, scegliere **tutti i server**. Fare doppio clic il primo server di accesso Web desktop remoto (ad esempio, Contoso-WebGw1) e quindi fare clic su **connessione Desktop remoto**.  
     2.  Accedere al server Accesso Web desktop remoto usando un account di amministratore di dominio.  
-    3.  In Server Manager nel server di accesso Web desktop remoto, fare clic su **strumenti > Gestione Internet Information Services (IIS)**.  
+    3.  In Server Manager nel server di accesso Web desktop remoto, fare clic su **strumenti > Gestione Internet Information Services (IIS)** .  
     4.  Nel riquadro sinistro di gestione IIS, espandere la **Server (ad esempio, Contoso-WebGw1) > siti > sito Web predefinito**, quindi fare clic su **RDWeb**.  
     5.  Fare doppio clic su **chiave del computer**, quindi fare clic su **Apri funzionalità**.
     6.  Nella pagina chiave del computer nel **azioni** riquadro, selezionare **genera chiavi**, quindi fare clic su **applica**.
@@ -90,7 +90,7 @@ Configurare un server di agire come un aggiuntive Web desktop remoto e Gateway D
 
 Se si utilizza dell'infrastruttura di Azure, è possibile creare un servizio di bilanciamento del carico esterno di Azure; in caso contrario, è possibile configurare un separato bilanciamento del carico hardware o software. Il bilanciamento del carico è chiave in modo che il traffico sarà uniformemente distribuite le connessioni dai client di Desktop remoto, attraverso il Gateway Desktop remoto, ai server che gli utenti verranno eseguiti i carichi di lavoro di lunga durate.
 
-> [!Note] 
+> [!NOTE] 
 > Se il server precedente che esegue Web desktop remoto e Gateway Desktop remoto è stato già configurato dietro un servizio di bilanciamento del carico esterno, proseguire con il passaggio per passaggio 4, selezionare il pool back-end esistente e aggiungere il nuovo server al pool.
 
 1.  Creare un servizio di bilanciamento del carico di Azure:  

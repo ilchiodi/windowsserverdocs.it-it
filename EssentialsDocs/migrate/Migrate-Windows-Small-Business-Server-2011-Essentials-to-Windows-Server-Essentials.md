@@ -12,12 +12,12 @@ ms.assetid: 32fc90d8-31c5-4c7e-9fe3-483cf3c35f78
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d65429e31e43aa15d1631878ae7e1486e9fd60f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f41efde192ea039a6ee9c7f9f3a4b49bedf4f48
+ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835152"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826998"
 ---
 # <a name="migrate-windows-small-business-server-2011-essentials-to-windows-server-essentials"></a>Eseguire la migrazione da Windows Small Business Server 2011 Essentials a Windows Server Essentials
 
@@ -27,11 +27,11 @@ Questa guida descrive come eseguire la migrazione di un dominio Windows Small Bu
   
 > [!NOTE]
 >  Per evitare problemi durante la migrazione, il team di sviluppo del prodotto Windows Server Essentials consiglia di leggere questo documento prima di iniziare la migrazione.  
-  
+> 
 > [!NOTE]
-
+> 
 >  Per eseguire la migrazione dei dati del server per la versione più recente di Windows Server Essentials, vedere [eseguire la migrazione a Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-
+> 
 >  Per eseguire la migrazione dei dati del server per la versione più recente di Windows Server Essentials, vedere [eseguire la migrazione a Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
   
@@ -53,7 +53,7 @@ Questa guida descrive come eseguire la migrazione di un dominio Windows Small Bu
   
 3.  [Aggiungere computer al nuovo server Windows Server Essentials](Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Questa sezione viene illustrata l'aggiunta di computer client al nuovo server Windows Server Essentials e l'aggiornamento delle impostazioni di criteri di gruppo.  
   
-4.  [Spostare dati e impostazioni di SBS 2011 Essentials nel Server di destinazione](Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine.  
+4.  [Spostare dati e impostazioni di SBS 2011 Essentials nel Server di destinazione](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine.  
   
 5.  [Abilitare il reindirizzamento cartelle nel Server di destinazione Windows Server Essentials](Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Se il reindirizzamento cartelle è abilitato nel server di origine, è possibile abilitarlo nel server di destinazione e quindi eliminare l'impostazione dei Criteri di gruppo per il reindirizzamento cartelle.  
   
@@ -69,7 +69,7 @@ Questa guida descrive come eseguire la migrazione di un dominio Windows Small Bu
   
 3.  [Aggiungere computer al nuovo server Windows Server Essentials](../migrate/Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Questa sezione viene illustrata l'aggiunta di computer client al nuovo server Windows Server Essentials e l'aggiornamento delle impostazioni di criteri di gruppo.  
   
-4.  [Spostare dati e impostazioni di SBS 2011 Essentials nel Server di destinazione](../migrate/Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine.  
+4.  [Spostare dati e impostazioni di SBS 2011 Essentials nel Server di destinazione](../migrate/Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine.  
   
 5.  [Abilitare il reindirizzamento cartelle nel Server di destinazione Windows Server Essentials](../migrate/Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Se il reindirizzamento cartelle è abilitato nel server di origine, è possibile abilitarlo nel server di destinazione e quindi eliminare l'impostazione dei Criteri di gruppo per il reindirizzamento cartelle.  
   
