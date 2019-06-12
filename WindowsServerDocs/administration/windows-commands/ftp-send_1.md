@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3dca11f0d534eb875a71fa2c39cdd4dc674ad788
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39423aff3c64f41c4fc0f8998484e6dcc38f822e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862122"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438446"
 ---
 # <a name="ftp-send1"></a>ftp: send_1
 
@@ -30,21 +30,23 @@ Copia un file locale nel computer remoto usando il tipo di trasferimento di file
 send <LocalFile> [<remoteFile>]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<LocalFile>|Specifica il file locale da copiare.|  
-|<remoteFile>|Specifica il nome da utilizzare nel computer remoto.|  
+
+|  Parametro   |                    Descrizione                    |
+|--------------|---------------------------------------------------|
+| <LocalFile>  |         Specifica il file locale da copiare.         |
+| <remoteFile> | Specifica il nome da utilizzare nel computer remoto. |
+
 ## <a name="remarks"></a>Note  
--   Il **inviare** è identico al comando il **put** comando.  
--   Se *FileRemoto* non viene specificato, il file viene assegnato il *FileLocale* nome.  
-## <a name="BKMK_Examples"></a>Esempi  
-copiare il file locale **test. txt** e denominarlo **test1.txt** nel computer remoto.  
-```  
-send test.txt test1.txt  
-```  
-copiare il file locale **program.exe** al computer remoto.  
-```  
-send program.exe  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- Il **inviare** è identico al comando il **put** comando.  
+- Se *FileRemoto* non viene specificato, il file viene assegnato il *FileLocale* nome.  
+  ## <a name="BKMK_Examples"></a>Esempi  
+  copiare il file locale **test. txt** e denominarlo **test1.txt** nel computer remoto.  
+  ```  
+  send test.txt test1.txt  
+  ```  
+  copiare il file locale **program.exe** al computer remoto.  
+  ```  
+  send program.exe  
+  ```  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

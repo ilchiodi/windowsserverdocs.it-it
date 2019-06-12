@@ -13,12 +13,12 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: ec41e85949cb61c8130d8765b4786eefe39ebd0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855592"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447030"
 ---
 # <a name="whats-new-in-credential-protection"></a>Nuove funzionalità di protezione delle credenziali
 
@@ -49,7 +49,7 @@ Protezioni di dominio richiedono un dominio Active Directory.
 
 A partire da Windows 10 versione 1507 e Windows Server 2016, se un dispositivo aggiunto al dominio è in grado di registrare la propria chiave pubblica associata con un controller di dominio (DC) di Windows Server 2016, quindi il dispositivo può eseguire l'autenticazione con la chiave pubblica usando Kerberos PKINIT autenticazione a un controller di dominio di Windows Server 2016.
 
-A partire da Windows Server 2016, KDC supportano l'autenticazione tramite trust chiavi Kerberos.  
+A partire da Windows Server 2016, KDC supportano l'autenticazione tramite trust chiavi Kerberos.  
 
 [Altre informazioni sul supporto di chiavi pubblico per i dispositivi aggiunti a un dominio e attendibilità chiavi Kerberos](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
@@ -63,7 +63,7 @@ A partire da Windows Server 2016, i KDC può supportare l'estensione freshness P
 
 ### <a name="rolling-public-key-only-users-ntlm-secrets"></a>In sequenza i segreti NTLM pubblico chiave solo dell'utente
 
-A partire da livello funzionale del dominio Windows Server 2016 (funzionalità del dominio), i controller di dominio può supportare in sequenza i segreti NTLM pubblico chiave solo un utente. Questa funzionalità è originaria in DFLs inferiore.
+A partire da livello funzionale del dominio Windows Server 2016 (funzionalità del dominio), i controller di dominio può supportare in sequenza i segreti NTLM pubblico chiave solo un utente. Questa funzionalità è originaria in DFLs inferiore.
 
 > [!WARNING] 
 > Aggiunta di un controller di dominio a un dominio con in sequenza i segreti NTLM attivati prima che il controller di dominio è stata aggiornata con almeno l'8 novembre 2016 per la manutenzione viene eseguito il rischio che il controller di dominio di un arresto anomalo. 
@@ -73,7 +73,7 @@ Configurazione: Per i nuovi domini, questa funzionalità è abilitata per impost
 1. Dal centro amministrativo di Active Directory, fare clic sul dominio nel riquadro sinistro e selezionare **proprietà**.
 
     ![Proprietà di dominio](../media/Credentials-Protection-And-Management/domain-properties.png)
-    
+
 2. Selezionare **abilitare in sequenza dei segreti NTLM in scadenza durante l'accesso, per gli utenti che hanno richiesto l'uso di Microsoft Passport o una smart card per l'accesso interattivo**.
 
     ![Segreti NTLM Autoroll in scadenza](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)

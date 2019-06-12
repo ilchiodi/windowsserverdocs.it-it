@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: bf346844337740f7585070ff78de4e7f61f25624
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476037"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447267"
 ---
 # <a name="data-deduplication-overview"></a>Panoramica di Deduplicazione dati
 
@@ -28,7 +28,7 @@ La deduplicazione dei dati, spesso definito di deduplicazione per brevità, è u
 
 ## <a name="why-is-dedup-useful"></a>Perché è utile la deduplicazione dei dati?
 
-La deduplicazione dei dati consente agli amministratori di archiviazione di ridurre i costi associati alla duplicazione dei dati. I set di dati di grandi dimensioni hanno spesso **<u>molti</u>** dati duplicati, che aumentano i costi di archiviazione. Ad esempio: 
+La deduplicazione dei dati consente agli amministratori di archiviazione di ridurre i costi associati alla duplicazione dei dati. I set di dati di grandi dimensioni hanno spesso **<u>molti</u>** dati duplicati, che aumentano i costi di archiviazione. Ad esempio:
 
 - Le condivisioni file utente possono contenere molte copie dello stesso file o di file simili.
 - I guest di virtualizzazione possono essere quasi identici da una macchina virtuale a un'altra.
@@ -69,7 +69,7 @@ I server VDI, ad esempio <a href="https://technet.microsoft.com/library/cc725560
                     <li><b>Accesso remoto</b>: Gli utenti possono accedere le applicazioni aziendali da dispositivi, ad esempio computer di casa, chioschi multimediali, hardware a basso consumo e sistemi operativi diversi da Windows.</li>
                     <li><b>Accesso delle succursali</b>: Le distribuzioni VDI possono offrire prestazioni ottimizzate per il ramo impiegati, che devono accedere agli archivi dati centralizzati. Le applicazioni a elevato uso di dati talvolta non hanno protocolli client/server ottimizzati per connessioni a bassa velocità.</li>
                 </ul>
-Le distribuzioni VDI sono ottime candidate per la deduplicazione dei dati perché i dischi rigidi virtuali che consentono il funzionamento dei desktop remoti per gli utenti sono essenzialmente identici. La deduplicazione dei dati può essere utile anche per il cosiddetto *boot storm* della VDI, la riduzione delle prestazioni di archiviazione quando molti utenti eseguono l'accesso al desktop nello stesso momento, all'inizio della giornata.
+Le distribuzioni VDI sono ottime candidate per la deduplicazione dei dati perché i dischi rigidi virtuali che consentono il funzionamento dei desktop remoti per gli utenti sono essenzialmente identici. La deduplicazione dei dati può essere utile anche per il cosiddetto <em>boot storm</em> della VDI, la riduzione delle prestazioni di archiviazione quando molti utenti eseguono l'accesso al desktop nello stesso momento, all'inizio della giornata.
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@ Le applicazioni di backup, ad esempio <a href="https://technet.microsoft.com/lib
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
             <td style="vertical-align:top">
                 <b>Altri carichi di lavoro</b><br />
-                [Anche altri carichi di lavoro possono essere adatti alla deduplicazione dei dati](install-enable.md#enable-dedup-candidate-workloads).
+                <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">Anche altri carichi di lavoro possono essere adatti alla deduplicazione dei dati</a>.
             </td>
         </tr>
     </tbody>

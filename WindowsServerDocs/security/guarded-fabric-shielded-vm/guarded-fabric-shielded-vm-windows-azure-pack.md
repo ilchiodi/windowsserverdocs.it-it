@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: e0372cb5b1f891bb724f246a3f8a7931619ce7ba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 600ccd74c379daa281f438b1200179dcae210817
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847192"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447354"
 ---
 # <a name="shielded-vms--for-tenants---deploying-a-shielded-vm-by-using-windows-azure-pack"></a>Macchine virtuali schermate per i tenant - distribuzione di una macchina virtuale schermata usando Microsoft Azure Pack
 
@@ -31,20 +31,20 @@ Completare i passaggi seguenti:
 
     [Uso di macchine virtuali schermate](https://technet.microsoft.com/library/mt720674.aspx), che è descritti negli argomenti seguenti:
 
-    - [Creare i dati di schermatura](https://technet.microsoft.com/library/mt720672.aspx) (e caricare il file di dati di schermatura, come descritto nella seconda procedura nell'argomento).
+   - [Creare i dati di schermatura](https://technet.microsoft.com/library/mt720672.aspx) (e caricare il file di dati di schermatura, come descritto nella seconda procedura nell'argomento).
     
-    > [!NOTE]
-    > Come parte della creazione di dati di schermatura, si scaricherà il file di chiave di sorveglianza, che sarà un file XML in formato UTF-8. Non modificare il file in UTF-16.
+     > [!NOTE]
+     > Come parte della creazione di dati di schermatura, si scaricherà il file di chiave di sorveglianza, che sarà un file XML in formato UTF-8. Non modificare il file in UTF-16.
     
-    - [Creare una macchina virtuale schermata](https://technet.microsoft.com/library/mt720673.aspx) : con **creazione rapida**, tramite un modello schermato o tramite un modello normale.
+   - [Creare una macchina virtuale schermata](https://technet.microsoft.com/library/mt720673.aspx) : con **creazione rapida**, tramite un modello schermato o tramite un modello normale.
     
-        > [!WARNING]
-        > Se si [creare una macchina virtuale schermata usando un modello normale](https://technet.microsoft.com/library/mt720673.aspx#Anchor_2), è importante notare che è stato effettuato il provisioning della macchina virtuale *eseguendolo*. Ciò significa che il disco modello non viene verificato rispetto all'elenco dei dischi attendibili nel file di dati di schermatura, né vengono utilizzati i segreti nel file di dati di schermatura per il provisioning della VM. Se è disponibile un modello schermato, è preferibile distribuire una macchina virtuale schermata con un modello schermato per garantire la protezione end-to-end dei segreti.
+       > [!WARNING]
+       > Se si [creare una macchina virtuale schermata usando un modello normale](https://technet.microsoft.com/library/mt720673.aspx#Anchor_2), è importante notare che è stato effettuato il provisioning della macchina virtuale *eseguendolo*. Ciò significa che il disco modello non viene verificato rispetto all'elenco dei dischi attendibili nel file di dati di schermatura, né vengono utilizzati i segreti nel file di dati di schermatura per il provisioning della VM. Se è disponibile un modello schermato, è preferibile distribuire una macchina virtuale schermata con un modello schermato per garantire la protezione end-to-end dei segreti.
     
-    - [Convertire una macchina virtuale di generazione 2 in una macchina virtuale schermata](https://technet.microsoft.com/library/mt720670.aspx)
+   - [Convertire una macchina virtuale di generazione 2 in una macchina virtuale schermata](https://technet.microsoft.com/library/mt720670.aspx)
     
-        > [!NOTE]
-        > Se si converte una macchina virtuale in una macchina virtuale schermata, backup e i checkpoint esistenti non vengono crittografati. È consigliabile eliminare i checkpoint precedenti quando è possibile impedire l'accesso ai dati precedenti, decrittografati.
+       > [!NOTE]
+       > Se si converte una macchina virtuale in una macchina virtuale schermata, backup e i checkpoint esistenti non vengono crittografati. È consigliabile eliminare i checkpoint precedenti quando è possibile impedire l'accesso ai dati precedenti, decrittografati.
 
 ## <a name="see-also"></a>Vedere anche
 

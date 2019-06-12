@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ed11e702aeae66458f888e454c1bc1d1bc22630
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 757b218ad3a88cc10c4d1bcfed15a83bfd34cc74
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887082"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437031"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
@@ -30,13 +30,15 @@ Utilizzando Gestione bilanciamento carico di rete, è possibile configurare e ge
 nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
 ```
 ### <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|/help|Visualizza la guida al prompt dei comandi.|
-|/noping|Impedisce il ping gli host prima di tentare di contattarli tramite Strumentazione gestione Windows (WMI) di gestione del bilanciamento del carico di rete. Usare questa opzione se è stata disabilitata messaggio protocollo ICMP (Internet Control) in tutte le schede di rete disponibile. Se Gestione bilanciamento carico di rete tenta di contattare un host che non è disponibile, si verificherà un ritardo quando si usa questa opzione.|
-|/hostlist <filename>|Carica gli host specificati nel nome del file in Gestione bilanciamento carico di rete.|
-|/autorefresh <interval>|Fa sì che Gestione bilanciamento carico rete aggiornare le informazioni di host e cluster ogni <interval> secondi. Se non viene specificato alcun intervallo, le informazioni vengono aggiornate ogni 60 secondi.|
-|/?|Visualizza la guida al prompt dei comandi.|
+
+|        Parametro        |                                                                                                                                                                                                Descrizione                                                                                                                                                                                                |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          /help          |                                                                                                                                                                                   Visualizza la guida al prompt dei comandi.                                                                                                                                                                                    |
+|         /noping         | Impedisce il ping gli host prima di tentare di contattarli tramite Strumentazione gestione Windows (WMI) di gestione del bilanciamento del carico di rete. Usare questa opzione se è stata disabilitata messaggio protocollo ICMP (Internet Control) in tutte le schede di rete disponibile. Se Gestione bilanciamento carico di rete tenta di contattare un host che non è disponibile, si verificherà un ritardo quando si usa questa opzione. |
+|  /hostlist <filename>   |                                                                                                                                                                Carica gli host specificati nel nome del file in Gestione bilanciamento carico di rete.                                                                                                                                                                 |
+| /autorefresh <interval> |                                                                                                          Fa sì che Gestione bilanciamento carico rete aggiornare le informazioni di host e cluster ogni <interval> secondi. Se non viene specificato alcun intervallo, le informazioni vengono aggiornate ogni 60 secondi.                                                                                                          |
+|           /?            |                                                                                                                                                                                   Visualizza la guida al prompt dei comandi.                                                                                                                                                                                    |
+
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dddf694aaceab93bd102456dbe86df17a001cb01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a668a39990b79862b99c2c7d9aeaf6540fa376d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879882"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447368"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Esaminare i prerequisiti per il servizio sorveglianza Host
 
@@ -32,7 +32,7 @@ Questo argomento illustra i prerequisiti HGS e passaggi iniziali per preparare p
 
 -   **I ruoli del server**: Servizio sorveglianza host e i ruoli del server di supporto.
 
--   **Configurazione delle autorizzazioni/privilegi per il dominio dell'infrastruttura (host)**: È necessario configurare l'inoltro di DNS tra il dominio dell'infrastruttura (host) e il servizio HGS. 
+-   **Configurazione delle autorizzazioni/privilegi per il dominio dell'infrastruttura (host)** : È necessario configurare l'inoltro di DNS tra il dominio dell'infrastruttura (host) e il servizio HGS. 
     
 ## <a name="upgrading-hgs"></a>L'aggiornamento di HGS
 
@@ -40,5 +40,5 @@ Se già stato distribuito HGS e si vuole eseguire l'aggiornamento del sistema op
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Ottenere i certificati per HGS](guarded-fabric-obtain-certs.md)
+> [!div class="nextstepaction"]
+> [Ottenere i certificati per HGS](guarded-fabric-obtain-certs.md)

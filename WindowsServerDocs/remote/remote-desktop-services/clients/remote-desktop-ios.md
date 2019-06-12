@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a1939c7fd6d25d756369c85e4adaa6c15195b37
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889632"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446699"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>Introduzione a Desktop remoto in iOS
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 È possibile usare il client Desktop remoto per iOS per lavorare con le app, risorse e desktop Windows da un dispositivo iOS (iPhone e iPad).
 
@@ -48,16 +48,16 @@ Nel dispositivo iOS, seguire [queste istruzioni](https://aka.ms/rdiosbeta) per s
 ### <a name="add-a-remote-desktop-connection"></a>Aggiungere una connessione Desktop remoto
 
 Per creare una connessione desktop remoto: 
-1. Nella scelta dei Centro connessioni **+**, e quindi toccare **aggiungere computer o Server**.
+1. Nella scelta dei Centro connessioni **+** , e quindi toccare **aggiungere computer o Server**.
 2. Immettere le informazioni seguenti per la connessione desktop remoto:
-  - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-  - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. È possibile usare i seguenti formati: *user_name*, *DOMINIO\nome_utente.*, o *user_name@domain.com*. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
+   - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
+   - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. È possibile usare i seguenti formati: *user_name*, *DOMINIO\nome_utente.* , o <em>user_name@domain.com</em>. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
 3. È inoltre possibile impostare le opzioni aggiuntive seguenti:
-  - **Nome descrittivo (facoltativo)** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
-  - **Gateway (facoltativo)** -gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
-  - **Suono** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto oppure non funziona.
-  - **Scambia i pulsanti del mouse** : ogni volta che un movimento del mouse viene inviato un comando con il pulsante sinistro del mouse, invia lo stesso comando con il pulsante destro del mouse. Ciò è necessario se il computer remoto è configurato per la modalità mouse battitori.
-  - **Modalità amministratore** -connettersi a una sessione di amministrazione in un server che esegue Windows Server 2003 o versione successiva.
+   - **Nome descrittivo (facoltativo)** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
+   - **Gateway (facoltativo)** -gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
+   - **Suono** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto oppure non funziona.
+   - **Scambia i pulsanti del mouse** : ogni volta che un movimento del mouse viene inviato un comando con il pulsante sinistro del mouse, invia lo stesso comando con il pulsante destro del mouse. Ciò è necessario se il computer remoto è configurato per la modalità mouse battitori.
+   - **Modalità amministratore** -connettersi a una sessione di amministrazione in un server che esegue Windows Server 2003 o versione successiva.
 4. Toccare **salvare**.
 
 È necessario modificare queste impostazioni? Premere e tenere i desktop che si desidera modificare e quindi toccare l'icona di impostazioni. 
@@ -70,7 +70,7 @@ Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop 
 
 Per aggiungere una risorsa remota:
 
-1. Nella schermata connessione Center toccare **+**, e quindi toccare **aggiungere risorse Remote**. 
+1. Nella schermata connessione Center toccare **+** , e quindi toccare **aggiungere risorse Remote**. 
 2. Immettere le informazioni per la risorsa remota:
    - **URL del feed** -l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendale in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
    - **Nome utente** -il nome utente da utilizzare per il server Accesso Web desktop remoto si è connessi.
@@ -89,8 +89,8 @@ Per impostare un nuovo gateway:
 1. Nel Centro connessioni, toccare **Impostazioni > gateway**. 
 2. Toccare **gateway Desktop remoto aggiungere**.
 3. Immettere le informazioni seguenti:
-  - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
-  - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
+   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+   - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
 
 
 ## <a name="manage-your-user-accounts"></a>Gestire gli account utente 

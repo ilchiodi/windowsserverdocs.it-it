@@ -12,12 +12,12 @@ ms.assetid: 1b4776e8-9504-4b98-ae80-11da797d9819
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d184c97e47f04b9d7434aaeb0d328761bcfac1c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4249273c42e07fea980af3e97ae59b31db243e56
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839272"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433352"
 ---
 # <a name="manage-client-computer-backup-in-windows-server-essentials"></a>Gestire il backup dei computer client in Windows Server Essentials
 
@@ -109,7 +109,7 @@ ms.locfileid: "59839272"
 4.  Dopo avere configurato il backup per il computer, fare clic su **Chiudi** .  
   
 ### <a name="critical-system-files"></a>File di sistema critici  
- Quando si installa il sistema operativo Windows, il programma di installazione crea cartelle nell'unità di sistema in cui inserisce i file necessari per l'avvio e l'esecuzione del sistema. I file di sistema critici includono i file con estensioni dll, exe, ocx e sys. Alcuni di questi file sono tipi di carattere True Type. Inoltre, i file di stato di sistema, ad esempio il sistema s del Registro di sistema, sono necessari per il sistema operativo eseguire correttamente.  
+ Quando si installa il sistema operativo Windows, il programma di installazione crea cartelle nell'unità di sistema in cui inserisce i file necessari per l'avvio e l'esecuzione del sistema. I file di sistema critici includono i file con estensioni dll, exe, ocx e sys. Alcuni di questi file sono tipi di carattere True Type. Inoltre, i file di stato di sistema, ad esempio il Registro di sistema, sono necessari per il sistema operativo eseguire correttamente.  
   
 ### <a name="find-the-file-you-are-looking-for"></a>Individuare un file specifico  
  È possibile ripristinare tutte le cartelle di un computer, più file e cartelle o un singolo file o cartella da un backup esistente.  
@@ -119,17 +119,17 @@ ms.locfileid: "59839272"
 ### <a name="why-am-i-unable-to-select-some-items"></a>Perché non è possibile selezionare alcuni elementi?  
  La casella di controllo nel menu di selezione della pagina **Seleziona elementi per il backup** può indicare stati diversi per ogni cartella. Se la casella di controllo è:  
   
--   **Selezionata**, la cartella associata e i contenuti della cartella saranno selezionati per il backup.  
+- **Selezionata**, la cartella associata e i contenuti della cartella saranno selezionati per il backup.  
   
--   **Deselezionata**, la cartella associata e i contenuti della cartella saranno esclusi dal backup.  
+- **Deselezionata**, la cartella associata e i contenuti della cartella saranno esclusi dal backup.  
   
--   **Piena**, la cartella associata è selezionata per il backup, ma uno o più elementi della cartella sono esclusi dal backup.  
+- **Piena**, la cartella associata è selezionata per il backup, ma uno o più elementi della cartella sono esclusi dal backup.  
   
- Se non è possibile selezionare una cartella specifica:  
+  Se non è possibile selezionare una cartella specifica:  
   
--   Il volume potrebbe essere configurato per il backup, ma potrebbe essere offline. Ciò accade spesso per le unità USB rimovibili. I volumi offline sono visualizzati con testo di colore grigio.  
+- Il volume potrebbe essere configurato per il backup, ma potrebbe essere offline. Ciò accade spesso per le unità USB rimovibili. I volumi offline sono visualizzati con testo di colore grigio.  
   
--   Si può eseguire il backup di dati solo da un'unità locale formattata come file system NTFS. Le unità formattate come file system FAT (incluso FAT32) o ReFS non saranno visualizzate nell'elenco di unità di cui eseguire un backup.  
+- Si può eseguire il backup di dati solo da un'unità locale formattata come file system NTFS. Le unità formattate come file system FAT (incluso FAT32) o ReFS non saranno visualizzate nell'elenco di unità di cui eseguire un backup.  
   
 > [!IMPORTANT]
 >  Il servizio Copia Shadow del volume (VSS, Volume Shadow Copy Service) non supporta la creazione di una copia shadow di una macchina virtuale e del volume host nello stesso set istantanee. VSS supporta la creazione di snapshot dei volumi in un disco rigido virtuale (VHD, Virtual Hard Disk), se il backup del volume virtuale è necessario. Per altre informazioni, vedere [Eseguire la manutenzione e il backup di dischi rigidi virtuali](https://go.microsoft.com/fwlink/p/?LinkId=256577).  
@@ -265,30 +265,30 @@ ms.locfileid: "59839272"
   
 #### <a name="to-disable-backup-for-a-computer"></a>Per disabilitare il backup per un computer  
   
-1.  Aprire il **Dashboard**.  
+1. Aprire il **Dashboard**.  
   
-2.  Fare clic sulla scheda **Dispositivi**.  
+2. Fare clic sulla scheda **Dispositivi**.  
   
-3.  Fare clic sul nome del computer per cui si vuole disabilitare il backup.  
+3. Fare clic sul nome del computer per cui si vuole disabilitare il backup.  
   
-4.  Nel riquadro attività fare clic su **Personalizza backup del computer**. Sarà visualizzata la procedura guidata per la personalizzazione del backup.  
+4. Nel riquadro attività fare clic su **Personalizza backup del computer**. Sarà visualizzata la procedura guidata per la personalizzazione del backup.  
   
-5.  Fare clic su **Disabilita backup del computer**, quindi specificare se si vogliono mantenere o eliminare i file di backup esistenti.  
+5. Fare clic su **Disabilita backup del computer**, quindi specificare se si vogliono mantenere o eliminare i file di backup esistenti.  
   
-6.  Fare clic su **Salva modifiche**, quindi su **Chiudi**.  
+6. Fare clic su **Salva modifiche**, quindi su **Chiudi**.  
   
- Per informazioni su come abilitare il backup per un computer dopo la disabilitazione del backup, vedere [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
+   Per informazioni su come abilitare il backup per un computer dopo la disabilitazione del backup, vedere [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
   
 ##  <a name="BKMK_10"></a> Eseguire l'attività di pulizia backup  
  L'esecuzione dell'attività di pulizia del backup del computer client è pianificata ogni sabato alle 23:59, al termine di tutti i backup. L'attività di pulizia elimina i backup dal database di backup del computer client, in base ai criteri di conservazione dei backup. Le impostazioni predefinite per i criteri di conservazione dei backup sono le seguenti:  
   
--   Numero di giorni per cui saranno conservati i backup giornalieri: 5 giorni  
+- Numero di giorni per cui saranno conservati i backup giornalieri: 5 giorni  
   
--   Numero di settimane per cui sarà conservato il backup settimanale più recente: 4 settimane  
+- Numero di settimane per cui sarà conservato il backup settimanale più recente: 4 settimane  
   
--   Numero di mesi per cui sarà conservato il backup mensile più recente: 6 months  
+- Numero di mesi per cui sarà conservato il backup mensile più recente: 6 months  
   
- Per informazioni sulla modifica dei criteri di conservazione dei backup, vedere [Modificare i criteri di conservazione dei backup del computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
+  Per informazioni sulla modifica dei criteri di conservazione dei backup, vedere [Modificare i criteri di conservazione dei backup del computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   
 #### <a name="to-run-the-client-backup-database-cleanup-task"></a>Per eseguire l'attività di pulizia del database di backup del computer client  
   

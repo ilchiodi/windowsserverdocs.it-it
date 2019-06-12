@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6b5f6231273fb9fe9a99a1cd1bf72dbd0bad71af
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813192"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433908"
 ---
 # <a name="defrag"></a>defrag
 
@@ -35,6 +35,7 @@ defrag <volumes> | /C | /E <volumes> /X [/H] [/M [n]| [/U] [/V]]
 defrag <volume> [/<Parameter>]*
 ```
 ## <a name="parameters"></a>Parametri
+
 |Parametro|Descrizione|
 |-------|--------|
 |`<volume>`|Specifica il percorso di punto di montaggio o lettera di unità del volume da deframmentare o l'analisi.|
@@ -56,20 +57,20 @@ defrag <volume> [/<Parameter>]*
 |?|Consente di visualizzare queste informazioni della Guida.|
 
 ## <a name="remarks"></a>Note
--   È in grado di deframmentare tipi specifici di unità o volumi di file system:
-    -   È possibile deframmentare i volumi che ha bloccato il file system.
-    -   È Impossibile deframmentare volumi che il file system è contrassegnato come modificato, che indica un possibile danneggiamento. È necessario eseguire **chkdsk** in un volume danneggiato prima di deframmentare. È possibile determinare se un volume è danneggiato, utilizzare il **fsutil** dirty comando di query. Per altre informazioni sulle **chkdsk** e **fsutil** dirty, vedere [riferimenti aggiuntivi](defrag.md#BKMK_additionalRef).
-    -   È possibile deframmentare le unità di rete.
-    -   È possibile deframmentare cdROMs.
-    -   È possibile deframmentare i volumi di file system che non sono **NTFS**, **ReFS**, **Fat** oppure **Fat32**.
--   Con Windows Server 2008 R2, Windows Server 2008 e Windows Vista, è possibile pianificare per deframmentare un volume. Tuttavia, non è possibile pianificare per deframmentare un volume su un disco rigido virtuale (VHD) che risiede in un'unità SSD o un solido stato unità SSD.
--   Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, è consigliabile usare **runas** per eseguire questa procedura.
--   Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **la deframmentazione** Usa quest'area come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
--   Mentre **defrag** è l'analisi e la deframmentazione di un volume, viene visualizzato un cursore lampeggiante. Quando **defrag** termine dell'analisi e la deframmentazione del volume, Visualizza il report di analisi, il rapporto di deframmentazione o entrambi i report e quindi viene chiusa al prompt dei comandi.
--   Per impostazione predefinita, **defrag** Visualizza un riepilogo dei report di analisi e deframmentazione se non si specifica il **/a** o **/v** parametri.
--   È possibile inviare i report in un file di testo digitando **>** *FileName.txt*, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
--   Per interrompere il processo di deframmentazione, dalla riga di comando, premere **CTRL + C**.
--   In esecuzione la **defrag** comando e utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue la **defrag** comando in una riga di comando, il **defrag** comando ha esito negativo. Viceversa, se si esegue la **defrag** comando e aprire Utilità di deframmentazione dischi, non sono disponibili le opzioni di utilità di deframmentazione dischi.
+- È in grado di deframmentare tipi specifici di unità o volumi di file system:
+  -   È possibile deframmentare i volumi che ha bloccato il file system.
+  -   È Impossibile deframmentare volumi che il file system è contrassegnato come modificato, che indica un possibile danneggiamento. È necessario eseguire **chkdsk** in un volume danneggiato prima di deframmentare. È possibile determinare se un volume è danneggiato, utilizzare il **fsutil** dirty comando di query. Per altre informazioni sulle **chkdsk** e **fsutil** dirty, vedere [riferimenti aggiuntivi](defrag.md#BKMK_additionalRef).
+  -   È possibile deframmentare le unità di rete.
+  -   È possibile deframmentare cdROMs.
+  -   È possibile deframmentare i volumi di file system che non sono **NTFS**, **ReFS**, **Fat** oppure **Fat32**.
+- Con Windows Server 2008 R2, Windows Server 2008 e Windows Vista, è possibile pianificare per deframmentare un volume. Tuttavia, non è possibile pianificare per deframmentare un volume su un disco rigido virtuale (VHD) che risiede in un'unità SSD o un solido stato unità SSD.
+- Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, è consigliabile usare **runas** per eseguire questa procedura.
+- Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **la deframmentazione** Usa quest'area come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
+- Mentre **defrag** è l'analisi e la deframmentazione di un volume, viene visualizzato un cursore lampeggiante. Quando **defrag** termine dell'analisi e la deframmentazione del volume, Visualizza il report di analisi, il rapporto di deframmentazione o entrambi i report e quindi viene chiusa al prompt dei comandi.
+- Per impostazione predefinita, **defrag** Visualizza un riepilogo dei report di analisi e deframmentazione se non si specifica il **/a** o **/v** parametri.
+- È possibile inviare i report in un file di testo digitando **>** <em>nomefile</em>, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
+- Per interrompere il processo di deframmentazione, dalla riga di comando, premere **CTRL + C**.
+- In esecuzione la **defrag** comando e utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue la **defrag** comando in una riga di comando, il **defrag** comando ha esito negativo. Viceversa, se si esegue la **defrag** comando e aprire Utilità di deframmentazione dischi, non sono disponibili le opzioni di utilità di deframmentazione dischi.
 
 ## <a name="BKMK_examples"></a>Esempi
 Per deframmentare il volume dell'unità C, fornendo lo stato di avanzamento e l'output dettagliato, digitare:
@@ -105,4 +106,4 @@ La deframmentazione pianificati dell'esecuzione dell'attività come attività di
 -   [chkdsk](chkdsk.md)
 -   [fsutil](fsutil.md)
 -   [fsutil dirty](fsutil-dirty.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

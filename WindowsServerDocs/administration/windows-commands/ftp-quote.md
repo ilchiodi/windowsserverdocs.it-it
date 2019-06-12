@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b1aaf9eadfd9c51048ad41106ce6532f6f9588b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f468bfc384673818dc53be303f82cd4803cb2eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865882"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438496"
 ---
 # <a name="ftp-quote"></a>ftp: quote
 
@@ -30,9 +30,11 @@ Invia testualmente gli argomenti per il server ftp remoto. Viene restituito un c
 quote <Argument>[ ]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<Argument>|Specifica l'argomento da inviare al server ftp.|  
+
+| Parametro  |                    Descrizione                    |
+|------------|---------------------------------------------------|
+| <Argument> | Specifica l'argomento da inviare al server ftp. |
+
 ## <a name="remarks"></a>Note  
 Il **virgoletta** è identico al comando il **letterale** comando.  
 ## <a name="BKMK_Examples"></a>Esempi  
@@ -42,4 +44,4 @@ quote quit
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   [ftp: literal_1](ftp-literal_1.md)  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

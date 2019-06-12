@@ -12,12 +12,12 @@ ms.assetid: 6141fa69-5952-4e3c-a868-40ef3f4badd2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7bfe1686ac84962cdb4ab1cde8d6ca5226cb9d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 999887f09c27c1df481cb5e46579942424a2847b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844352"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433625"
 ---
 # <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Creare un DVD di ripristino del server per server amministrati da postazione remota
 
@@ -83,11 +83,11 @@ ms.locfileid: "59844352"
 ####  <a name="BKMK_Collecting"></a> Passaggio 2: Raccolta delle immagini e dei file XML per il ripristino delle impostazioni di fabbrica  
  Per riportare un server alle impostazioni predefinite di fabbrica, è necessario acquisire le due immagini riportate di seguito:  
   
--   L'immagine dell'unità di sistema  
+- L'immagine dell'unità di sistema  
   
--   La partizione riservata per il sistema  
+- La partizione riservata per il sistema  
   
- Per l’acquisizione di queste immagini viene fornito lo strumento GenDiskXML.exe. GenDiskXML.exe acquisisce anche un file denominato disk.xml, che viene utilizzato dal processo di ripristino per ricreare la configurazione del disco.  
+  Per l’acquisizione di queste immagini viene fornito lo strumento GenDiskXML.exe. GenDiskXML.exe acquisisce anche un file denominato disk.xml, che viene utilizzato dal processo di ripristino per ricreare la configurazione del disco.  
   
 1.  Dopo Sysprep, riavviare il sistema utilizzando una qualsiasi versione a 64 bit di Windows PE.  
   
@@ -117,29 +117,29 @@ ms.locfileid: "59844352"
 > [!NOTE]
 >  I nomi file elencati devono corrispondere esattamente.  
   
-1.  Nella pagina della procedura guidata è presente un collegamento alla guida aggiuntiva. Se è presente questo file .chm, sostituisce FWLink per la guida Web. Il file della guida si trova in:  
+1. Nella pagina della procedura guidata è presente un collegamento alla guida aggiuntiva. Se è presente questo file .chm, sostituisce FWLink per la guida Web. Il file della guida si trova in:  
   
-     < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\RestartHelp.chm  
+    < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\RestartHelp.chm  
   
-2.  Questo file contiene il testo che sarà visibile al cliente nella pagina della procedura guidata. Il testo deve spiegare come avviare il server in modalità di ripristino. Il controllo è scorrevole; ciò pone soltanto un limite pratico alla quantità di testo che è possibile aggiungere.  
+2. Questo file contiene il testo che sarà visibile al cliente nella pagina della procedura guidata. Il testo deve spiegare come avviare il server in modalità di ripristino. Il controllo è scorrevole; ciò pone soltanto un limite pratico alla quantità di testo che è possibile aggiungere.  
   
-     Il file seguente viene utilizzato per sostituire l’immagine campione nella procedura guidata e concerne principalmente la personalizzazione. Deve essere un file .png. Le dimensioni del file devono essere 256x256 pixel; in caso contrario, il file verrà ritagliato al momento della visualizzazione nella procedura guidata.  
+    Il file seguente viene utilizzato per sostituire l’immagine campione nella procedura guidata e concerne principalmente la personalizzazione. Deve essere un file .png. Le dimensioni del file devono essere 256x256 pixel; in caso contrario, il file verrà ritagliato al momento della visualizzazione nella procedura guidata.  
   
-     < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\RestartInstructions.rtf  
+    < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\RestartInstructions.rtf  
   
-3.  < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\ServerImage.png  
+3. < DVD Root\>\\$OEM$ \Customization\\< nome delle impostazioni cultura\>\ServerImage.png  
   
- Durante la conversione del DVD di ripristino server per il supporto multilingue, assicurarsi di effettuare le seguenti operazioni:  
+   Durante la conversione del DVD di ripristino server per il supporto multilingue, assicurarsi di effettuare le seguenti operazioni:  
   
-1.  Deve essere sempre presente la cartella en-us. Se l’applicazione di ripristino del server non trova i file relativi alle impostazioni cultura che corrispondono al computer client sul quale è in esecuzione, viene utilizzata la cartella en-us.  
+4. Deve essere sempre presente la cartella en-us. Se l’applicazione di ripristino del server non trova i file relativi alle impostazioni cultura che corrispondono al computer client sul quale è in esecuzione, viene utilizzata la cartella en-us.  
   
-2.  In ogni cartella di impostazioni cultura creata, aggiungere i tre file di personalizzazione (.png, .chm e .rtf).  
+5. In ogni cartella di impostazioni cultura creata, aggiungere i tre file di personalizzazione (.png, .chm e .rtf).  
   
-3.  Copiare entrambe le cartelle di lingua da Language Pack\\< CultureName\>\Server Recovery nella radice del DVD di ripristino del server. Ad esempio: Le cartelle ES ed ES-ES verranno entrambe copiate nella radice del DVD per supportare lo spagnolo.  
+6. Copiare entrambe le cartelle di lingua da Language Pack\\< CultureName\>\Server Recovery nella radice del DVD di ripristino del server. Ad esempio:  Le cartelle ES ed ES-ES verranno entrambe copiate nella radice del DVD per supportare lo spagnolo.  
   
-4.  Finalizzazione del file ISO.  
+7. Finalizzazione del file ISO.  
   
- I nomi delle impostazioni cultura supportati includono:  
+   I nomi delle impostazioni cultura supportati includono:  
 
 |-|-|  
 |-cs-CZ<br /><br /> -de-DE<br /><br /> -en-US<br /><br /> -es-ES<br /><br /> -fr-FR<br /><br /> -hu-HU<br /><br /> -it-IT<br /><br /> -ja-JP<br /><br /> -ko-KR<br /><br /> - nl-NL|- pl-PL<br /><br /> -pt-BR<br /><br /> -pt-PT<br /><br /> -ru-RU<br /><br /> -sv-SE<br /><br /> -tr-TR<br /><br /> - zh-CN<br /><br /> - zh-HK<br /><br /> - zh-TW
@@ -172,4 +172,4 @@ ms.locfileid: "59844352"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

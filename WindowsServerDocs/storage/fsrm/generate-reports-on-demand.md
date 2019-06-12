@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e91bfbc306d1d2712f7b35ec48114b3a8a84ec83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b51ab0ad2a9c670aa63c4c86f7ff2c052139cb95
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445970"
 ---
 # <a name="generate-reports-on-demand"></a>Generare rapporti su richiesta
 
@@ -28,46 +28,46 @@ Quando si generano rapporti su richiesta, questi vengono salvati in un percorso 
 
 ## <a name="to-generate-reports-immediately"></a>Per generare rapporti immediatamente
 
-1.  Fare clic sul nodo **Gestione rapporti di archiviazione**.
+1. Fare clic sul nodo **Gestione rapporti di archiviazione**.
 
-2.  Fare clic con il pulsante destro del mouse su **Gestione rapporti di archiviazione**, quindi scegliere **Genera rapporti** (o selezionare **Genera rapporti** nel riquadro **Azioni**). Verrà visualizzata la finestra di dialogo **Proprietà attività rapporto archiviazione**.
+2. Fare clic con il pulsante destro del mouse su **Gestione rapporti di archiviazione**, quindi scegliere **Genera rapporti** (o selezionare **Genera rapporti** nel riquadro **Azioni**). Verrà visualizzata la finestra di dialogo **Proprietà attività rapporto archiviazione**.
 
-3.  Per selezionare volumi o cartelle su cui si desidera generare rapporti:
+3. Per selezionare volumi o cartelle su cui si desidera generare rapporti:
 
-    -   In **Ambito** fare clic su **Aggiungi**.
-    -   Visualizzare il volume o la cartella in cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
-    -   Aggiungere tutti i volumi o tutte le cartelle che si desidera includere nei rapporti. Per rimuovere un volume o una cartella, fare clic sul percorso, quindi fare clic su **Rimuovi**.
+   -   In **Ambito** fare clic su **Aggiungi**.
+   -   Visualizzare il volume o la cartella in cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
+   -   Aggiungere tutti i volumi o tutte le cartelle che si desidera includere nei rapporti. Per rimuovere un volume o una cartella, fare clic sul percorso, quindi fare clic su **Rimuovi**.
 
-4.  Per specificare i rapporti da generare:
+4. Per specificare i rapporti da generare:
 
-     -   In **Dati rapporto** selezionare tutti i rapporti che si desidera includere.
+    -   In **Dati rapporto** selezionare tutti i rapporti che si desidera includere.
 
-    Per modificare i parametri di un rapporto:
+   Per modificare i parametri di un rapporto:
 
-    -   Fare clic sull'etichetta del rapporto, quindi fare clic su **Modifica parametri**.
-    -   Nella finestra di dialogo **Parametri rapporto** modificare i parametri in base alle esigenze e fare clic su **OK**.
-    -  Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**, quindi su **Chiudi**.
+   -   Fare clic sull'etichetta del rapporto, quindi fare clic su **Modifica parametri**.
+   -   Nella finestra di dialogo **Parametri rapporto** modificare i parametri in base alle esigenze e fare clic su **OK**.
+   -  Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**, quindi su **Chiudi**.
  
-5.  Per specificare i formati in cui salvare i rapporti:
+5. Per specificare i formati in cui salvare i rapporti:
 
-    -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in HTML dinamico (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito per i rapporti su richiesta.
+   -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in HTML dinamico (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito per i rapporti su richiesta.
 
-6.  Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
+6. Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
 
-    -  Nella scheda **Recapito** selezionare la casella di controllo **Invia rapporti agli amministratori seguenti**, quindi immettere i nomi degli account amministrativi a cui verranno inviati i rapporti. 
-    - Usare il formato *account@domain* e separare gli account con un punto e virgola.
+   - Nella scheda **Recapito** selezionare la casella di controllo **Invia rapporti agli amministratori seguenti**, quindi immettere i nomi degli account amministrativi a cui verranno inviati i rapporti. 
+   - Usare il formato <em>account@domain</em> e separare gli account con un punto e virgola.
 
-7.  Per raccogliere i dati e generare i rapporti, fare clic su **OK**. Verrà visualizzata la finestra di dialogo **Genera rapporti archiviazione**.
+7. Per raccogliere i dati e generare i rapporti, fare clic su **OK**. Verrà visualizzata la finestra di dialogo **Genera rapporti archiviazione**.
 
-8.  Selezionare la modalità di generazione dei rapporti su richiesta:
+8. Selezionare la modalità di generazione dei rapporti su richiesta:
 
-    -   Se si desidera visualizzare i rapporti subito dopo la loro generazione, fare clic su **Attendi che i rapporti vengano generati, quindi visualizzali**. Ogni rapporto si apre nella relativa finestra.
-    -   Per visualizzare i rapporti in un secondo momento, fare clic su **Genera rapporti in background**.
+   -   Se si desidera visualizzare i rapporti subito dopo la loro generazione, fare clic su **Attendi che i rapporti vengano generati, quindi visualizzali**. Ogni rapporto si apre nella relativa finestra.
+   -   Per visualizzare i rapporti in un secondo momento, fare clic su **Genera rapporti in background**.
 
-    Entrambe le opzioni consentono di salvare i rapporti e, se è stato abilitato il recapito tramite posta elettronica, inviano i rapporti agli amministratori nei formati selezionati.
+   Entrambe le opzioni consentono di salvare i rapporti e, se è stato abilitato il recapito tramite posta elettronica, inviano i rapporti agli amministratori nei formati selezionati.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione rapporti archiviazione](storage-reports-management.md)
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti di archiviazione](storage-reports-management.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 

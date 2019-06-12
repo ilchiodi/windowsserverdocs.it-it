@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Come distribuire spazi di archiviazione diretta in un cluster guest di macchina virtuale, ad esempio, in Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: a741475d09ab7f7ab29f158ef55378ca9a37beac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447816"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilizzo di spazi di archiviazione diretta in cluster di macchine virtuali guest
 
@@ -81,4 +81,4 @@ Le considerazioni seguenti riguardano la distribuzione di spazi di archiviazione
 
 [Modelli di macchina virtuale Iaas di Azure aggiuntivi per la distribuzione di spazi di archiviazione diretta, video e guide dettagliate](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
 
-[Spazi di archiviazione aggiuntivi diretta Overview] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Panoramica di spazi di ulteriore spazio di archiviazione diretta](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

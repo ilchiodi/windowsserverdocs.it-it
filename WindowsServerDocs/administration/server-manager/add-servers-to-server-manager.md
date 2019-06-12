@@ -14,12 +14,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a663e7dbb3ee84c09fc14ba23a50e6de16c4c7b5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840692"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435457"
 ---
 # <a name="add-servers-to-server-manager"></a>Add Servers to Server Manager
 
@@ -31,9 +31,9 @@ In questo argomento viene descritto come aggiungere server al pool di server di 
 
 > [!NOTE]
 > Secondo i nostri test, Server Manager in Windows Server 2012 e versioni successive di Windows Server può essere usato per gestire fino a 100 server configurati con un carico di lavoro tipico. Il numero di server che è possibile gestire tramite un'unica console di Server Manager può variare a seconda della quantità di dati richiesti dai server gestiti e le risorse hardware e di rete disponibili nel computer che esegue Server Manager. Quando la quantità di dati da visualizzare si avvicina alla capacità delle risorse del computer, possono verificarsi rallentamenti nelle risposte di Server Manager e ritardi nel completamento degli aggiornamenti. Per aumentare il numero di server gestibile con Server Manager, si consiglia di limitare i dati dell'evento che Server Manager ottiene dai server gestiti usando le impostazioni nella finestra di dialogo **Configura dati evento**. La finestra di dialogo Configura dati evento può essere aperta dal menu **Attività** nel riquadro **Eventi** . Se è necessario gestire un numero di livello aziendale di server nell'organizzazione, è consigliabile valutare i prodotti di [suite di Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
->
+> 
 > Server Manager può ricevere lo stato solo online o offline dai server che eseguono Windows Server 2003. Sebbene sia possibile utilizzare Server Manager per eseguire attività di gestione su server che eseguono Windows Server 2008 R2 o Windows Server 2008, è possibile aggiungere ruoli e funzionalità per i server che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
-
+> 
 > Server Manager può essere utilizzata per gestire una versione più recente del sistema operativo Windows Server. Server Manager in esecuzione in Windows Server 2012 R2, Windows Server 2012, Windows 8.1 o Windows 8 non può essere usato per gestire i server che eseguono Windows Server 2016.
 
 In questo argomento sono incluse le sezioni seguenti.

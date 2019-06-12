@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: d63726e7046896c9ef7aa0c3b3d85237bc3f788d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e1ef34370b1459cd55705bc0069b49a572de303
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879062"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447535"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Guida introduttiva per la distribuzione dell'infrastruttura sorvegliata
 
@@ -107,7 +107,7 @@ Per la modalità TPM, sono necessari tre elementi:
 
 1.  Oggetto _chiave pubblica di verifica dell'autenticità_ (o _EKpub_) da TPM 2.0 in ogni host Hyper-V. Per acquisire il EKpub, usare `Get-PlatformIdentifier`. 
 2.  Oggetto _linea di base di hardware_. Se ognuno degli host Hyper-V è identico, una singola linea di base è tutto quello che serve. Se non lo sono, quindi è necessario uno per ogni classe dell'hardware. La linea di base è sotto forma di un file di log di Trustworthy Computing Group o TCGlog. Il TCGlog contiene tutto ciò che l'host è stato fatto, dal firmware UEFI, attraverso il kernel, fino a destra in cui l'host è completamente avviato. Per acquisire la linea di base di hardware, installare il ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza Host e utilizzare `Get-HgsAttestationBaselinePolicy`. 
-3.  Oggetto _criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, un singolo criterio di integrazione continua è tutto quello che serve. Se non lo sono, quindi è necessario uno per ogni classe dell'hardware. Windows Server 2016 e Windows 10 sia disponibile un nuovo modulo di imposizione per i criteri degli elementi di configurazione, chiamato _l'integrità di codice applicata da Hypervisor (HVCI)_. HVCI garantisce l'applicazione avanzata e assicura che un host è consentito solo per l'esecuzione dei file binari che un amministratore attendibile ha consentito l'esecuzione. Queste istruzioni vengono eseguito il wrapping in un criterio di integrazione continua che viene aggiunto al servizio HGS. HGS misura criteri degli elementi di configurazione di ciascun host prima che si autorizzati a eseguire VM schermate. Per acquisire un criterio di integrazione continua, usare `New-CIPolicy`. Il criterio deve quindi essere convertito per il formato binario usando `ConvertFrom-CIPolicy`.
+3.  Oggetto _criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, un singolo criterio di integrazione continua è tutto quello che serve. Se non lo sono, quindi è necessario uno per ogni classe dell'hardware. Windows Server 2016 e Windows 10 sia disponibile un nuovo modulo di imposizione per i criteri degli elementi di configurazione, chiamato _l'integrità di codice applicata da Hypervisor (HVCI)_ . HVCI garantisce l'applicazione avanzata e assicura che un host è consentito solo per l'esecuzione dei file binari che un amministratore attendibile ha consentito l'esecuzione. Queste istruzioni vengono eseguito il wrapping in un criterio di integrazione continua che viene aggiunto al servizio HGS. HGS misura criteri degli elementi di configurazione di ciascun host prima che si autorizzati a eseguire VM schermate. Per acquisire un criterio di integrazione continua, usare `New-CIPolicy`. Il criterio deve quindi essere convertito per il formato binario usando `ConvertFrom-CIPolicy`.
 
 ![Estrarre le identità, linea di base e degli elementi di configurazione dei criteri](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
@@ -165,5 +165,5 @@ Creazione di macchine virtuali schermate differisce molto poco da macchine virtu
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Prerequisiti HGS](guarded-fabric-prepare-for-hgs.md)
+> [!div class="nextstepaction"]
+> [Prerequisiti HGS](guarded-fabric-prepare-for-hgs.md)

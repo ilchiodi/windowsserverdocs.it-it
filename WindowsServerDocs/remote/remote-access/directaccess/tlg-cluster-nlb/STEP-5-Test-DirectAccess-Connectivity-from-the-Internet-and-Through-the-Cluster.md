@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 8399bdfa-809a-45e4-9963-f9b6a631007f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 49b3f6f68bf30ff197b51643f9f1b8f36cc76f19
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3077aa54163ed9548ae3f45f8c673c731b8ef73b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825972"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446651"
 ---
 # <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>PASSAGGIO 5 testare la connettività DirectAccess da Internet e tramite il Cluster
 
@@ -35,27 +35,27 @@ CLIENT1 è ora pronto per il testing di DirectAccess.
   
 ## <a name="test-directaccess-connectivity-from-the-internet"></a>Testare la connettività DirectAccess da Internet  
   
-1.  Scollegare CLIENT1 dal commutatore della rete aziendale e connetterla al commutatore Internet. Attendere 30 secondi.  
+1. Scollegare CLIENT1 dal commutatore della rete aziendale e connetterla al commutatore Internet. Attendere 30 secondi.  
   
-2.  In una finestra di Windows PowerShell con privilegi elevata, digitare **ipconfig /flushdns** e premere INVIO. Ciò elimina voci di risoluzione dei nomi ancora esistenti nella cache DNS del client da quando il computer client era connesso alla rete aziendale.  
+2. In una finestra di Windows PowerShell con privilegi elevata, digitare **ipconfig /flushdns** e premere INVIO. Ciò elimina voci di risoluzione dei nomi ancora esistenti nella cache DNS del client da quando il computer client era connesso alla rete aziendale.  
   
-3.  Nella finestra di Windows PowerShell, digitare **Get-DnsClientNrptPolicy** e premere INVIO.  
+3. Nella finestra di Windows PowerShell, digitare **Get-DnsClientNrptPolicy** e premere INVIO.  
   
-    L'output visualizza le impostazioni correnti per la tabella dei criteri di risoluzione dei nomi (NRPT). Queste impostazioni indicano che tutte le connessioni a. corp.contoso.com devono essere risolte dal server DNS di accesso remoto, con 2001:db8:1::2 l'indirizzo IPv6. Inoltre, annotare la voce NRPT che indica un'esenzione per il nome nls.corp.contoso.com; i nomi nell'elenco delle esenzioni non ricevono risposta dal server DNS di Accesso remoto. È possibile effettuare il ping di indirizzo IP del server DNS di accesso remoto per confermare la connettività al server di accesso remoto. ad esempio, è possibile effettuare il ping di 2001:db8:1::2.  
+   L'output visualizza le impostazioni correnti per la tabella dei criteri di risoluzione dei nomi (NRPT). Queste impostazioni indicano che tutte le connessioni a. corp.contoso.com devono essere risolte dal server DNS di accesso remoto, con 2001:db8:1::2 l'indirizzo IPv6. Inoltre, annotare la voce NRPT che indica un'esenzione per il nome nls.corp.contoso.com; i nomi nell'elenco delle esenzioni non ricevono risposta dal server DNS di Accesso remoto. È possibile effettuare il ping di indirizzo IP del server DNS di accesso remoto per confermare la connettività al server di accesso remoto. ad esempio, è possibile effettuare il ping di 2001:db8:1::2.  
   
-4.  Nella finestra di Windows PowerShell, digitare **ping app1** e premere INVIO. Dovrebbe essere risposte dall'indirizzo IPv6 di APP1, che in questo caso è 2001:db8:1::3.  
+4. Nella finestra di Windows PowerShell, digitare **ping app1** e premere INVIO. Dovrebbe essere risposte dall'indirizzo IPv6 di APP1, che in questo caso è 2001:db8:1::3.  
   
-5.  Nella finestra di Windows PowerShell, digitare **ping app2** e premere INVIO. Vengono visualizzate le risposte dall'indirizzo NAT64 assegnato da EDGE1 ad APP2 che, in questo caso, corrisponde a fdc9:9f4e:eb1b:7777::a00:4.  
+5. Nella finestra di Windows PowerShell, digitare **ping app2** e premere INVIO. Vengono visualizzate le risposte dall'indirizzo NAT64 assegnato da EDGE1 ad APP2 che, in questo caso, corrisponde a fdc9:9f4e:eb1b:7777::a00:4.  
   
-    La possibilità di effettuare il ping APP2 è importante, perché la riuscita indica che è stato possibile stabilire una connessione con NAT64 o DNS64, APP2 è una risorsa sola IPv4.  
+   La possibilità di effettuare il ping APP2 è importante, perché la riuscita indica che è stato possibile stabilire una connessione con NAT64 o DNS64, APP2 è una risorsa sola IPv4.  
   
-6.  Lasciare la finestra di Windows PowerShell aperta per la procedura successiva.  
+6. Lasciare la finestra di Windows PowerShell aperta per la procedura successiva.  
   
-7.  Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer, immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
+7. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer, immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
   
-8.  Nella barra degli indirizzi di Internet Explorer, immettere **https://app2/** e premere INVIO. Viene visualizzato il sito Web predefinito in APP2.  
+8. Nella barra degli indirizzi di Internet Explorer, immettere **https://app2/** e premere INVIO. Viene visualizzato il sito Web predefinito in APP2.  
   
-9. Nel **avviare** digitare**\\\App2\Files**, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo.  
+9. Nel **avviare** digitare<strong>\\\App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo.  
   
     Ciò dimostra che è stato in grado di connettersi a un server solo IPv4 con SMB per ottenere una risorsa nel dominio delle risorse.  
   
@@ -69,20 +69,20 @@ CLIENT1 è ora pronto per il testing di DirectAccess.
   
 ## <a name="test-directaccess-client-connectivity-through-the-cluster"></a>Testare la connettività dei client DirectAccess tramite il cluster  
   
-1.  Eseguire una chiusura normale su EDGE2.  
+1. Eseguire una chiusura normale su EDGE2.  
   
-    È possibile utilizzare Gestione bilanciamento carico di rete per visualizzare lo stato dei server durante l'esecuzione dei test.  
+   È possibile utilizzare Gestione bilanciamento carico di rete per visualizzare lo stato dei server durante l'esecuzione dei test.  
   
-2.  In CLIENT1 nella finestra di Windows PowerShell, digitare **ipconfig /flushdns** e premere INVIO. Ciò elimina voci di risoluzione dei nomi ancora esistenti nella cache DNS al client.  
+2. In CLIENT1 nella finestra di Windows PowerShell, digitare **ipconfig /flushdns** e premere INVIO. Ciò elimina voci di risoluzione dei nomi ancora esistenti nella cache DNS al client.  
   
-3.  Nella finestra di Windows PowerShell, eseguire il ping APP1 e APP2. Si dovrebbero ricevere risposte da entrambe queste risorse.  
+3. Nella finestra di Windows PowerShell, eseguire il ping APP1 e APP2. Si dovrebbero ricevere risposte da entrambe queste risorse.  
   
-4.  Nel **avviare** digitare**\\\app2\files**. Si dovrebbe essere la cartella condivisa nel computer APP2. La possibilità di aprire la condivisione di file su APP2 indica che il secondo tunnel, che richiede l'autenticazione Kerberos per l'utente, funzioni correttamente.  
+4. Nel **avviare** digitare<strong>\\\app2\files</strong>. Si dovrebbe essere la cartella condivisa nel computer APP2. La possibilità di aprire la condivisione di file su APP2 indica che il secondo tunnel, che richiede l'autenticazione Kerberos per l'utente, funzioni correttamente.  
   
-5.  Aprire Internet Explorer e quindi aprire i siti Web https://app1/ e https://app2/. La possibilità di aprire entrambi i siti Web conferma che entrambi i primi e il secondo tunnel sono backup e il funzionamento. Chiudere Internet Explorer.  
+5. Aprire Internet Explorer e quindi aprire i siti Web https://app1/ e https://app2/. La possibilità di aprire entrambi i siti Web conferma che entrambi i primi e il secondo tunnel sono backup e il funzionamento. Chiudere Internet Explorer.  
   
-6.  Avviare il computer EDGE2.  
+6. Avviare il computer EDGE2.  
   
-7.  Eseguire un arresto normale su EDGE1.  
+7. Eseguire un arresto normale su EDGE1.  
   
-8.  Attendere 5 minuti e quindi tornare a CLIENT1. Eseguire i passaggi 2 e 5. In questo modo viene confermato che CLIENT1 è stato in grado di eseguire in modo trasparente failover EDGE2 dopo EDGE1 non erano più disponibili.
+8. Attendere 5 minuti e quindi tornare a CLIENT1. Eseguire i passaggi 2 e 5. In questo modo viene confermato che CLIENT1 è stato in grado di eseguire in modo trasparente failover EDGE2 dopo EDGE1 non erano più disponibili.

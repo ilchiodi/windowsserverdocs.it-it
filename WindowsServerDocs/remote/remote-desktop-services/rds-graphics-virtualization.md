@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: 7cf7fdf3510fcaaa955bd0031fb3564fe4372472
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875802"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447115"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>La tecnologia di virtualizzazione della grafica è adatta a te?
 
@@ -43,12 +43,12 @@ Per ulteriori informazioni su DDA, consultare [pianificare la distribuzione disc
 ## <a name="remotefx-vgpu"></a>vGPU RemoteFX 
 GPU virtualizzata RemoteFX è una tecnologia di virtualizzazione di grafica che consente la potenza di elaborazione di una GPU per essere suddivise tra diversi sistemi operativi guest per abilitare scenari di lavoro della Knowledge Base (vedere la prima figura precedente). Miglioramenti in Windows Server 2016 consentono ulteriori miglioramenti per gli scenari di burst GPU, ad esempio per la visualizzazione della finestra di progettazione di applicazioni e i dati. Altri miglioramenti apportati alle funzionalità includono:
 
--   Supporto per la generazione 2 guest, le macchine virtuali, macchine virtuali guest di Windows Server 2016 e Windows Client Hyper-V host.
-   >[!NOTE] 
-   > Host sessione Desktop remoto non è supportato in Windows Server 2016 guest VM; 1 sola sessione può essere ospitata per ogni macchina virtuale guest Windows Server 2016.
+- Supporto per la generazione 2 guest, le macchine virtuali, macchine virtuali guest di Windows Server 2016 e Windows Client Hyper-V host.
+  >[!NOTE] 
+  > Host sessione Desktop remoto non è supportato in Windows Server 2016 guest VM; 1 sola sessione può essere ospitata per ogni macchina virtuale guest Windows Server 2016.
 
--   Compatibilità delle applicazioni migliorate e la stabilità.
--   VM connettersi modalità sessione avanzata, che consente il reindirizzamento USB e Appunti tramite la connessione della macchina virtuale a una macchina virtuale abilitata per la GPU virtualizzata RemoteFX.
+- Compatibilità delle applicazioni migliorate e la stabilità.
+- VM connettersi modalità sessione avanzata, che consente il reindirizzamento USB e Appunti tramite la connessione della macchina virtuale a una macchina virtuale abilitata per la GPU virtualizzata RemoteFX.
 
 Per altre informazioni, consultare [impostare e configurare GPU virtualizzata RemoteFX per Servizi Desktop remoto](rds-remotefx-vgpu.md).
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: faaf936e4c23579e908e12543c07d0764a2cdcc1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7a602472d30f19cb2d4a802423635e5788e78a43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192620"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434548"
 ---
 # <a name="certutil"></a>certutil
 
@@ -145,14 +145,15 @@ Tornare a [Menu](#menu)
 
 Nella tabella seguente vengono descritti la notazione utilizzata per indicare la sintassi della riga di comando.
 
-|Notazione|Descrizione|
-|--------|-----------|
-|Testo senza parentesi quadre o parentesi graffe|Elementi che come illustrato, è necessario digitare|
-|\<Testo all'interno di parentesi angolari >|Segnaposto per il quale è necessario specificare un valore|
-|[Testo all'interno delle parentesi quadre]|Elementi facoltativi|
-|{Testo tra parentesi graffe}|Set di elementi richiesti; Scegliere una|
-|Barra (verticale|)|Separatore per gli elementi si escludono a vicenda; Scegliere una|
-|Puntini di sospensione (…)|Elementi che possono essere ripetuti|
+
+|            Notazione             |                  Descrizione                  |
+|---------------------------------|-----------------------------------------------|
+| Testo senza parentesi quadre o parentesi graffe |         Elementi che come illustrato, è necessario digitare          |
+|  \<Testo all'interno di parentesi angolari >  | Segnaposto per il quale è necessario specificare un valore |
+|  [Testo all'interno delle parentesi quadre]  |                Elementi facoltativi                 |
+|      {Testo tra parentesi graffe}       |       Set di elementi richiesti; Scegliere una       |
+|         Barra (verticale          |                       )                       |
+|          Puntini di sospensione (…)           |          Elementi che possono essere ripetuti           |
 
 Tornare a [Menu](#menu)
 

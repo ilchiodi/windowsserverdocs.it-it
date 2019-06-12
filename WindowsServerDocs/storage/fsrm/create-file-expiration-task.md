@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b3aa535128786d0de5c1a5ef7186e26aa62b478d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b816dbe759d94980b2cc27284fd2e0ec7787d0b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859302"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445998"
 ---
 # <a name="create-a-file-expiration-task"></a>Creare un'attività di scadenza dei file
 
@@ -27,57 +27,57 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
 ## <a name="to-create-a-file-expiration-task"></a>Per creare un'attività di gestione dei file in scadenza
 
-1.  Fare clic sul nodo **Attività di gestione file**.
+1. Fare clic sul nodo **Attività di gestione file**.
 
-2.  Fare clic con il pulsante destro del mouse su **Attività di gestione file**, quindi fare clic su **Crea attività di gestione file** (oppure fare clic su **Crea attività di gestione file** nel riquadro **Azioni**). Verrà visualizzata la finestra di dialogo **Crea attività di gestione file**.
+2. Fare clic con il pulsante destro del mouse su **Attività di gestione file**, quindi fare clic su **Crea attività di gestione file** (oppure fare clic su **Crea attività di gestione file** nel riquadro **Azioni**). Verrà visualizzata la finestra di dialogo **Crea attività di gestione file**.
 
-3.  Nella scheda **Generale** immettere le informazioni seguenti:
+3. Nella scheda **Generale** immettere le informazioni seguenti:
 
-    -   **Nome**. Immettere un nome per la nuova attività.  
+   -   **Nome**. Immettere un nome per la nuova attività.  
 
-    -   **Descrizione**. Immettere una descrizione facoltativa per l'attività.  
+   -   **Descrizione**. Immettere una descrizione facoltativa per l'attività.  
     
-    -   **Ambito**. Aggiungere le directory in cui questa attività dovrebbe essere eseguita utilizzando il pulsante **Aggiungi**. Se lo si desidera, le directory possono essere rimosse dall'elenco utilizzando il pulsante **Rimuovi**. L'attività di gestione dei file verrà applicata a tutte le cartelle e sottocartelle in questo elenco.
+   -   **Ambito**. Aggiungere le directory in cui questa attività dovrebbe essere eseguita utilizzando il pulsante **Aggiungi**. Se lo si desidera, le directory possono essere rimosse dall'elenco utilizzando il pulsante **Rimuovi**. L'attività di gestione dei file verrà applicata a tutte le cartelle e sottocartelle in questo elenco.
 
-4.  Nella scheda **Azione** immettere le informazioni seguenti:
+4. Nella scheda **Azione** immettere le informazioni seguenti:
 
-    -   **Tipo**. Selezionare **Scadenza file** nella casella di riepilogo a discesa.
+   - **Tipo**. Selezionare **Scadenza file** nella casella di riepilogo a discesa.
 
-    -   **Directory file in scadenza**. Selezionare una directory in cui posizionare i file in scadenza.
+   - **Directory file in scadenza**. Selezionare una directory in cui posizionare i file in scadenza.
 
      > [!Warning]
      > Non selezionare una directory nell'ambito dell'attività, in base a quanto definito nel passaggio precedente, altrimenti potrebbe verificarsi un ciclo iterativo con il rischio di instabilità del sistema e perdita di dati.
 
-5.  Facoltativamente, nella scheda **Notifica** fare clic su **Aggiungi** per inviare notifiche per posta elettronica, registrare un evento o eseguire un comando o uno script per un numero minimo di giorni specificato prima che l'attività esegua un'azione su un file.
+5. Facoltativamente, nella scheda **Notifica** fare clic su **Aggiungi** per inviare notifiche per posta elettronica, registrare un evento o eseguire un comando o uno script per un numero minimo di giorni specificato prima che l'attività esegua un'azione su un file.
 
-    -   Nella casella combinata **Giorni prima di eseguire l'attività per l'invio della notifica**, digitare o selezionare un valore per specificare il numero minimo di giorni prima di eseguire su un file l'attività di invio della notifica.
+   - Nella casella combinata **Giorni prima di eseguire l'attività per l'invio della notifica**, digitare o selezionare un valore per specificare il numero minimo di giorni prima di eseguire su un file l'attività di invio della notifica.
 
      > [!Note]
      > Le notifiche vengono inviate solo quando viene eseguita un'attività. Se il numero minimo di giorni specificato per inviare una notifica non coincide con un'attività pianificata, la notifica verrà inviata il giorno dell'attività pianificata precedente.
 
-    -   Per configurare le notifiche tramite posta elettronica, fare clic sulla scheda **Messaggio posta elettronica** e immettere le informazioni seguenti:
+   - Per configurare le notifiche tramite posta elettronica, fare clic sulla scheda **Messaggio posta elettronica** e immettere le informazioni seguenti:
 
-        -   Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account@domain* e separare gli account con un punto e virgola.  
+     - Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato <em>account@domain</em> e separare gli account con un punto e virgola.  
 
-        -   Per inviare un messaggio di posta elettronica all'utente i cui file stanno per scadere, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file stanno per scadere**.
+     - Per inviare un messaggio di posta elettronica all'utente i cui file stanno per scadere, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file stanno per scadere**.
 
-        -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[Source File Owner\]** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+     - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[Source File Owner\]** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
 
-        -   Per allegare un elenco dei file che stanno per scadere, fare clic su **Allega a elenco di file inviati per posta elettronica su cui verrà eseguita l'azione** e digitare o selezionare un valore per **Numero massimo di file nell'elenco**.
+     - Per allegare un elenco dei file che stanno per scadere, fare clic su **Allega a elenco di file inviati per posta elettronica su cui verrà eseguita l'azione** e digitare o selezionare un valore per **Numero massimo di file nell'elenco**.
 
-        -   Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.  
+     - Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.  
 
-    -   Per registrare un evento, fare clic sulla scheda **Registro eventi** e selezionare la casella di controllo **Invia avviso al registro eventi** e quindi modificare la voce di registro predefinita.  
+   - Per registrare un evento, fare clic sulla scheda **Registro eventi** e selezionare la casella di controllo **Invia avviso al registro eventi** e quindi modificare la voce di registro predefinita.  
 
-    -   Per eseguire un comando o uno script, fare clic sulla scheda **Comando** e selezionare la casella di controllo **Esegui il comando o lo script seguente**. Quindi, digitare il comando o fare clic su **Sfoglia** per cercare il percorso in cui è archiviato lo script. È inoltre possibile immettere argomenti comando, selezionare una directory di lavoro per il comando o script o modificare l'impostazione di sicurezza del comando.
+   - Per eseguire un comando o uno script, fare clic sulla scheda **Comando** e selezionare la casella di controllo **Esegui il comando o lo script seguente**. Quindi, digitare il comando o fare clic su **Sfoglia** per cercare il percorso in cui è archiviato lo script. È inoltre possibile immettere argomenti comando, selezionare una directory di lavoro per il comando o script o modificare l'impostazione di sicurezza del comando.
 
-6.  Facoltativamente, utilizzare la scheda **Rapporto** per generare uno o più registri o rapporti di archiviazione.
+6. Facoltativamente, utilizzare la scheda **Rapporto** per generare uno o più registri o rapporti di archiviazione.
 
-    -   Per generare i registri, selezionare la casella di controllo **Generazione registro** e quindi selezionare uno o più registri disponibili.  
+   - Per generare i registri, selezionare la casella di controllo **Generazione registro** e quindi selezionare uno o più registri disponibili.  
 
-    -   Per generare rapporti, selezionare la casella di controllo **Genera rapporto** e quindi selezionare uno o più formati di rapporto disponibili.  
+   - Per generare rapporti, selezionare la casella di controllo **Genera rapporto** e quindi selezionare uno o più formati di rapporto disponibili.  
 
-    -   Per creare rapporti di archiviazione o registri generati tramite posta elettronica, selezionare la casella di controllo **Invia rapporti ai seguenti amministratori** e digitare uno o più destinatari di posta elettronica amministrativi usando il formato *account@domain*. Separare più indirizzi con un punto e virgola.
+   - Per creare rapporti di archiviazione o registri generati tramite posta elettronica, selezionare la casella di controllo **Invia rapporti ai seguenti amministratori** e digitare uno o più destinatari di posta elettronica amministrativi usando il formato <em>account@domain</em>. Separare più indirizzi con un punto e virgola.
 
      > [!Note]
      > Il rapporto verrà salvato nel percorso predefinito dei rapporti di operazioni non consentite, che può essere modificato nella finestra di dialogo **Opzioni Gestione risorse file server**.
@@ -94,9 +94,9 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
     -   **Effettivo a partire dal giorno**. Impostare la data in cui questa attività di gestione dei file deve iniziare l'elaborazione dei file. Questa opzione è utile per posticipare l'attività fino a quando non sarà possibile inviare notifiche agli utenti o effettuare altre attività preliminari di preparazione.
 
-8.  Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla. Al termine della configurazione della pianificazione, fare clic su **OK** e quindi fare clic nuovamente su **OK**.
+8. Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla. Al termine della configurazione della pianificazione, fare clic su **OK** e quindi fare clic nuovamente su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione classificazioni](classification-management.md)
+-   [Gestione delle classificazioni](classification-management.md)
 -   [Attività di gestione file](file-management-tasks.md)

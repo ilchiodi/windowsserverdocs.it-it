@@ -10,17 +10,17 @@ ms.topic: landing-page
 author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
-ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840062"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447947"
 ---
 # <a name="virtualization"></a>Virtualizzazione
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 <HR />
 
@@ -41,7 +41,7 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
                     <div class="cardText">
                         <h3>Infrastruttura protetta e VM schermate</h3>
 <HR />
-                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio di sorveglianza Host \(HGS\) -in genere, un cluster di tre nodi - più di uno o più host sorvegliati e un set di macchine virtuali schermate.</p>
+                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio sorveglianza Host (HGS), in genere, un cluster di tre nodi - e uno o più protetta a host e un set di macchine virtuali schermate.</p>
                      </div>
                   </div>
               </div>

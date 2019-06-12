@@ -8,12 +8,12 @@ ms.date: 09/07/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 270fb6efd63e6355c410ee45d09e6fd16b14222b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2380060894ff2f365451bbabfd41b8aa7e6792a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445290"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Autenticazione composta e attestazioni di Active Directory Domain Services in AD FS
 Windows Server 2012 migliora l'autenticazione Kerberos con l'introduzione di autenticazione composta.  L'autenticazione composta consente a una richiesta Kerberos Ticket-Granting Service (TGS) da includere due identità: 
@@ -87,21 +87,21 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >In una farm SQL basata, il comando di PowerShell può essere eseguito su qualsiasi server AD FS che è un membro della farm.
 
 ### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Passaggio 5:  Aggiungere la descrizione di attestazione ad AD FS
-1.  Aggiungere la descrizione di attestazione seguenti nella farm. Questa descrizione di attestazione non è presente per impostazione predefinita in ad FS 2012 R2 e deve essere aggiunta manualmente.
-2.  In Gestione AD FS, sotto **assistenza**, fare doppio clic su **descrizione attestazione** e selezionare **Aggiungi descrizione attestazione**
-3.  Immettere le informazioni seguenti nella descrizione dell'attestazione
-    - Nome visualizzato: 'Il gruppo di dispositivi di Windows' 
-    - Descrizione di attestazione: 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' '
+1. Aggiungere la descrizione di attestazione seguenti nella farm. Questa descrizione di attestazione non è presente per impostazione predefinita in ad FS 2012 R2 e deve essere aggiunta manualmente.
+2. In Gestione AD FS, sotto **assistenza**, fare doppio clic su **descrizione attestazione** e selezionare **Aggiungi descrizione attestazione**
+3. Immettere le informazioni seguenti nella descrizione dell'attestazione
+   - Nome visualizzato: 'Il gruppo di dispositivi di Windows' 
+   - Descrizione di attestazione: '<https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup>' '
 4. Inserire un segno di spunta in entrambe le caselle.
 5. Fare clic su **OK**.
 
 ![Descrizione di attestazione](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc6.png)
 
 6. Uso di PowerShell è possibile usare la **Add-AdfsClaimDescription** cmdlet.
-``` powershell
-Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
--ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
-```
+   ``` powershell
+   Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
+   -ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
+   ```
 
 
 >[!NOTE]
@@ -118,7 +118,7 @@ Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schema
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Riavviare il servizio ad FS.
+2. Riavviare il servizio ad FS.
 
 >[!NOTE]
 >Una volta 'CompoundIdentitySupported' è impostata su true, installazione dei gMSA stesso nel nuovo server (2012 R2 o 2016) ha esito negativo con l'errore seguente: **Install-ADServiceAccount: Non è possibile installare l'account del servizio. Messaggio di errore: 'Il contesto fornito non corrisponde la destinazione'.** .
@@ -137,15 +137,15 @@ Disabilitazione CompoundIdentitySupported e quindi riabilitare riavvio del servi
 ![Descrizione di attestazione](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc7.png)
 
 ### <a name="step-8-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Passaggio 8: Nella Relying Party in cui si prevede le attestazioni 'WindowsDeviceGroup', aggiungere una regola di attestazione 'Pass-through' o 'Transform' simile.
-2.  Nella **gestione di AD FS**, fare clic su **Relying Party Trusts** e nel riquadro di destra, con clic l'applicazione relying Party e selezionare **Edit Claim Rules**.
-3.  Nel **regole di trasformazione rilascio** fare clic su **Add Rule**.
-4.  Nel **Nell'Aggiunta guidata regole attestazione di trasformazione** selezionate **Pass Through or Filter an Incoming Claim** e fare clic su **Avanti**.
-5.  Aggiungere un nome visualizzato e selezionare **gruppo di dispositivi di Windows** dalle **tipo di attestazione in ingresso** elenco a discesa.
-6.  Scegliere **Fine**.  Fare clic su **applicano** e **Ok**.
-![Descrizione di attestazione](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
+2. Nella **gestione di AD FS**, fare clic su **Relying Party Trusts** e nel riquadro di destra, con clic l'applicazione relying Party e selezionare **Edit Claim Rules**.
+3. Nel **regole di trasformazione rilascio** fare clic su **Add Rule**.
+4. Nel **Nell'Aggiunta guidata regole attestazione di trasformazione** selezionate **Pass Through or Filter an Incoming Claim** e fare clic su **Avanti**.
+5. Aggiungere un nome visualizzato e selezionare **gruppo di dispositivi di Windows** dalle **tipo di attestazione in ingresso** elenco a discesa.
+6. Scegliere **Fine**.  Fare clic su **applicano** e **Ok**.
+   ![Descrizione di attestazione](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
 
 
-##<a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Passaggi per la configurazione di ADFS in Windows Server 2016
+## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Passaggi per la configurazione di ADFS in Windows Server 2016
 Di seguito illustra in dettaglio i passaggi per configurare l'autenticazione composta su AD FS per Windows Server 2016.
 
 ### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Passaggio 1:  Abilitare il supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos su criterio Controller di dominio predefinito
@@ -189,7 +189,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Riavviare il servizio ad FS.
+2. Riavviare il servizio ad FS.
 
 >[!NOTE]
 >Una volta 'CompoundIdentitySupported' è impostata su true, installazione dei gMSA stesso nel nuovo server (2012 R2 o 2016) ha esito negativo con l'errore seguente: **Install-ADServiceAccount: Non è possibile installare l'account del servizio. Messaggio di errore: 'Il contesto fornito non corrisponde la destinazione'.** .
@@ -208,11 +208,11 @@ Disabilitazione CompoundIdentitySupported e quindi riabilitare riavvio del servi
 
 
 ### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Passaggio 6: Nella Relying Party in cui si prevede le attestazioni 'WindowsDeviceGroup', aggiungere una regola di attestazione 'Pass-through' o 'Transform' simile.
-2.  Nella **gestione di AD FS**, fare clic su **Relying Party Trusts** e nel riquadro di destra, con clic l'applicazione relying Party e selezionare **Edit Claim Rules**.
-3.  Nel **regole di trasformazione rilascio** fare clic su **Add Rule**.
-4.  Nel **Nell'Aggiunta guidata regole attestazione di trasformazione** selezionate **Pass Through or Filter an Incoming Claim** e fare clic su **Avanti**.
-5.  Aggiungere un nome visualizzato e selezionare **gruppo di dispositivi di Windows** dalle **tipo di attestazione in ingresso** elenco a discesa.
-6.  Scegliere **Fine**.  Fare clic su **applicano** e **Ok**.
+2. Nella **gestione di AD FS**, fare clic su **Relying Party Trusts** e nel riquadro di destra, con clic l'applicazione relying Party e selezionare **Edit Claim Rules**.
+3. Nel **regole di trasformazione rilascio** fare clic su **Add Rule**.
+4. Nel **Nell'Aggiunta guidata regole attestazione di trasformazione** selezionate **Pass Through or Filter an Incoming Claim** e fare clic su **Avanti**.
+5. Aggiungere un nome visualizzato e selezionare **gruppo di dispositivi di Windows** dalle **tipo di attestazione in ingresso** elenco a discesa.
+6. Scegliere **Fine**.  Fare clic su **applicano** e **Ok**.
 
 ## <a name="validation"></a>Convalida
 Per convalidare il rilascio di attestazioni 'WindowsDeviceGroup', creare un test di attestazioni con riconoscimento dell'applicazione con .net 4.6. Con Windows Identity Foundation SDK 4.0.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65ccaf23b0e19319383952f3a1ca436aaf4d06fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856462"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436324"
 ---
 # <a name="path"></a>path
 
@@ -37,12 +37,12 @@ path ;
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|[\<Drive>:]<Path>|Specifica l'unità e directory da impostare nel percorso del comando.|
-|;|Consente di separare le directory nel percorso del comando. Se usato senza altri parametri **;** Cancella i percorsi di comandi esistenti dalla variabile di ambiente PATH e indirizza Cmd.exe per la ricerca solo nella directory corrente.|
-|% PATH %|Aggiunge il percorso del comando al set esistente di directory elencate nella variabile di ambiente PATH.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|     Parametro     |                                                                                                     Descrizione                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                            Specifica l'unità e directory da impostare nel percorso del comando.                                                                             |
+|         ;         | Consente di separare le directory nel percorso del comando. Se usato senza altri parametri **;** Cancella i percorsi di comandi esistenti dalla variabile di ambiente PATH e indirizza Cmd.exe per la ricerca solo nella directory corrente. |
+|      % PATH %       |                                                         Aggiunge il percorso del comando al set esistente di directory elencate nella variabile di ambiente PATH.                                                         |
+|        /?         |                                                                                         Visualizza la guida al prompt dei comandi.                                                                                         |
 
 ## <a name="remarks"></a>Note
 
@@ -62,4 +62,4 @@ Per cercare i percorsi per i comandi esterni C:\User\Taxes B:\User\Invest e B:\B
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

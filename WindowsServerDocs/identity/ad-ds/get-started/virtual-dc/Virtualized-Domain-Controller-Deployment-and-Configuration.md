@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d692e58d616376149e62fbce611fe2a9ac80c743
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863252"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443211"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Distribuzione e configurazione di controller di dominio virtualizzati
 
@@ -280,7 +280,7 @@ Eseguire il cmdlet nel controller di dominio proposto che si intende clonare. Il
 ||-PreferredWINSServer|Specifica l'indirizzo IPv4 statico del computer WINS primario. Tipo di dati stringa.|  
 ||-AlternateWINSServer|Specifica l'indirizzo IPv4 statico del computer WINS secondario. Tipo di dati stringa.|  
 ||-IPv6DNSResolver|Specifica le voci DNS IPv6 statiche del computer clonato in un elenco di valori delimitati da virgole. Non è possibile impostare informazioni statiche Ipv6 nella clonazione di controller di dominio virtualizzati. Tipo di dati matrice.|  
-||-Offline|Non esegue i test di convalida e sovrascrive eventuali file dccloneconfig.xml esistenti. Non ha parametri. Per ulteriori informazioni, vedere [Esecuzione di New-ADDCCloneConfigFile in modalità offline](../../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode).|  
+||-Offline|Non esegue i test di convalida e sovrascrive eventuali file dccloneconfig.xml esistenti. Non ha parametri.|  
 ||*-Static*|Obbligatorio se si specificano gli argomenti IP statici IPv4SubnetMask, IPv4SubnetMask o IPv4DefaultGateway. Non ha parametri.|  
   
 Test eseguiti durante l'esecuzione in modalità online:  
@@ -546,7 +546,7 @@ copy-item <xml file path><destination path>\dccloneconfig.xml
 dismount-vhd <disk path>  
 ```  
   
-Ad esempio:   
+Ad esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
@@ -604,7 +604,7 @@ Per importare con lo snap-in Gestione Hyper-V:
   
 3.  Nella pagina **Seleziona macchina virtuale** fare clic sul computer di origine.  
   
-4.  Nella pagina **Scegli il tipo di importazione** fare clic su **Copia macchina virtuale (crea nuovo ID univoco)**, quindi su **Fine**.  
+4.  Nella pagina **Scegli il tipo di importazione** fare clic su **Copia macchina virtuale (crea nuovo ID univoco)** , quindi su **Fine**.  
   
 5.  Rinominare la VM importata, se l'importazione viene eseguita nello stesso host Hyper-V. Dovrà avere lo stesso nome del controller di dominio di origine esportato.  
   
@@ -644,11 +644,11 @@ Ad esempio:
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
-> [!WARNING]  
+> [!WARNING]
 > Assicurarsi che, quando si importa il computer, gli indirizzi MAC statici non siano stati assegnati al controller di dominio di origine. Se viene clonato un computer di origine con un indirizzo MAC statico, i computer copiati non invieranno né riceveranno correttamente traffico di rete. Impostare un nuovo indirizzo MAC univoco, statico o dinamico, se questo è il caso. È possibile verificare se una VM usa indirizzi MAC statici con il comando:  
->   
+> 
 > **Get-VM -VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \***  
+>  ***test-vm* | Get-VMNetworkAdapter | fl \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Passaggio 9 - Creare la nuova macchina virtuale  
 Facoltativamente, prima di iniziare la clonazione, avviare il controller di dominio di origine offline. Assicurarsi che l'emulatore PDC sia online, in ogni caso.  
@@ -664,7 +664,7 @@ Se si usa Windows PowerShell per avviare una VM, il nuovo cmdlet del modulo Hype
 Start-VM  
 ```  
   
-Ad esempio:   
+Ad esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   

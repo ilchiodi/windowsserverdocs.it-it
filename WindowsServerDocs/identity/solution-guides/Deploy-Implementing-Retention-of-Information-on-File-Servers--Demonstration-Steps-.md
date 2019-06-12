@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e0f79dd72190888340144bc5c109ee31fa301937
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870802"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445763"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -57,7 +57,7 @@ In questo passaggio si abilita il periodo di memorizzazione e le proprietà di e
   
 5.  Fare clic con il pulsante destro del mouse su **Esposizione al rilevamento**, quindi scegliere **Abilita**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -79,7 +79,7 @@ In questo passaggio si usa Gestione risorse file server per configurare il serve
   
 3.  Aprire Gestione risorse file server. In Server Manager fare clic su **Strumenti** e quindi su **Gestione risorse file server**.  
   
-4.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)**, quindi scegliere **Configura opzioni**.  
+4.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)** , quindi scegliere **Configura opzioni**.  
   
 5.  Nella scheda **Notifiche posta elettronica** configurare gli elementi seguenti:  
   
@@ -91,7 +91,7 @@ In questo passaggio si usa Gestione risorse file server per configurare il serve
   
 6.  Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -142,7 +142,7 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
 11. Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -185,7 +185,7 @@ In questo passaggio si classifica manualmente un file da sottoporre a blocco a f
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Implementare la conservazione delle informazioni nei File server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [Scenario: Implementare la conservazione delle informazioni nei file server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [Pianificare la conservazione delle informazioni nei File server](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   

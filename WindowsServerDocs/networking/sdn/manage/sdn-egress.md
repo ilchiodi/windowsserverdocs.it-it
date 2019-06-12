@@ -1,6 +1,6 @@
 ---
 title: Misurazione in uscita nella rete virtuale
-description: 'Un aspetto fondamentale di monetizzazione rete cloud è in uscita della larghezza di banda di rete. Ad esempio: dati in uscita trasferisce il modello di business In Microsoft Azure. Dati in uscita viene addebitati in base alla quantità totale di dati spostati esternamente Data Center di Azure tramite Internet in un determinato ciclo di fatturazione.'
+description: 'Un aspetto fondamentale di monetizzazione rete cloud è in uscita della larghezza di banda di rete. Ad esempio: dati in uscita trasferisce il modello di business In Microsoft Azure. Dati in uscita viene addebitati in base alla quantità totale di dati spostati esternamente Data Center di Azure tramite Internet in un determinato ciclo di fatturazione.'
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: ad1bed11308420e271b8e06410d5a4548181314a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50aee16b0b5797f28ebcdf61494b09669699873f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876422"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446326"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Misurazione in uscita in una rete virtuale
 
 >Si applica a: Windows Server 2019
 
 
-Un aspetto fondamentale di monetizzazione rete cloud è in grado di fatturare dall'utilizzo della larghezza di banda di rete. Dati in uscita viene addebitati in base alla quantità totale di dati spostati esternamente il data center tramite Internet in un determinato ciclo di fatturazione.
+Un aspetto fondamentale di monetizzazione rete cloud è in grado di fatturare dall'utilizzo della larghezza di banda di rete. Dati in uscita viene addebitati in base alla quantità totale di dati spostati esternamente il data center tramite Internet in un determinato ciclo di fatturazione.
 
 Controllo del traffico in uscita per il traffico di rete SDN in Windows Server 2019 offre la possibilità di offrire i contatori di utilizzo per i trasferimenti di dati in uscita. Il traffico di rete che esce da ogni rete virtuale, ma restano all'interno dei data center possono da rilevati separatamente, in modo che è possibile escludere dai calcoli di fatturazione. Per gli indirizzi IP di destinazione che non sono inclusi in uno degli intervalli di indirizzi non fatturati i pacchetti vengono rilevati fatturati i trasferimenti di dati in uscita.
 
@@ -61,7 +61,7 @@ L'output sarà simile al seguente:
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1"
     $vnet.Properties.UnbilledAddressRanges = "10.10.2.0/24,10.10.3.0/24"
     ```
-    
+
     >[!TIP]
     >Se si aggiungono più subnet IP, usare una virgola tra ogni subnet IP.  Non includere spazi prima o dopo la virgola.
 
@@ -78,55 +78,57 @@ L'output sarà simile al seguente:
     'Microsoft.Windows.NetworkController.VirtualNetwork' via
     'https://sdn.contoso.com/networking/v3/virtualNetworks/VNet1'. Are you sure you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-    
-    
-    Tags             :
-    ResourceRef      : /virtualNetworks/VNet1
-    InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
-    Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
-    ResourceMetadata :
-    ResourceId       : VNet1
-    Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
-    ```
 
 
-3.  Controllare la rete virtuale per visualizzare l'applicazione configurata **UnbilledAddressRanges**.
+~~~
+Tags             :
+ResourceRef      : /virtualNetworks/VNet1
+InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
+Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
+ResourceMetadata :
+ResourceId       : VNet1
+Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
+```
+~~~
 
-    ```PowerShell
-    (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
-    ```
 
-    L'output avrà un aspetto simile al seguente:
-    ```
-    AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
-    DhcpOptions            :
-    UnbilledAddressRanges  : 10.10.2.0/24,192.168.2.0/24
-    ConfigurationState     :
-    ProvisioningState      : Succeeded
-    Subnets                : {21e71701-9f59-4ee5-b798-2a9d8c2762f0, 5f4758ef-9f96-40ca-a389-35c414e996cc,
-                         29fe67b8-6f7b-486c-973b-8b9b987ec8b3}
-    VirtualNetworkPeerings :
-    EncryptionCredential   :
-    LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
-    ```
+3. Check the Virtual Network to see the configured **UnbilledAddressRanges**.
 
-## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Controllare il fatturato l'utilizzo in uscita resoconti di una rete virtuale
+   ```PowerShell
+   (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
+   ```
 
-Dopo aver configurato il **UnbilledAddressRanges** proprietà, è possibile controllare l'utilizzo in uscita fatturati e resoconti di ogni subnet all'interno di una rete virtuale. Il traffico in uscita Aggiorna ogni quattro minuti con i byte totali degli intervalli di fatturato e resoconti.
+   Your output will now look similar to this:
+   ```
+   AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
+   DhcpOptions            :
+   UnbilledAddressRanges  : 10.10.2.0/24,192.168.2.0/24
+   ConfigurationState     :
+   ProvisioningState      : Succeeded
+   Subnets                : {21e71701-9f59-4ee5-b798-2a9d8c2762f0, 5f4758ef-9f96-40ca-a389-35c414e996cc,
+                        29fe67b8-6f7b-486c-973b-8b9b987ec8b3}
+   VirtualNetworkPeerings :
+   EncryptionCredential   :
+   LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
+   ```
 
-Le proprietà seguenti sono disponibili per ogni subnet virtuale:
+## Check the billed the unbilled egress usage of a virtual network
 
--   **UnbilledEgressBytes** Mostra il numero di byte non fatturati inviati da interfacce di rete connesse a questa subnet virtuale. Byte resoconti vengono inviati a intervalli di indirizzi che fanno parte di byte i **UnbilledAddressRanges** proprietà della rete virtuale padre.
+After you configure the **UnbilledAddressRanges** property, you can check the billed and unbilled egress usage of each subnet within a virtual network. Egress traffic updates every four minutes with the total bytes of the billed and unbilled ranges.
 
--   **BilledEgressBytes** Mostra numero di byte fatturati inviati da interfacce di rete connesse a questa subnet virtuale. Fatturato byte sono byte inviati a intervalli di indirizzi che non sono in parte i **UnbilledAddressRanges** proprietà della rete virtuale padre.
+The following properties are available for each virtual subnet:
 
-Utilizzare il seguente esempio di utilizzo in uscita di query:
+-   **UnbilledEgressBytes** shows the number of unbilled bytes sent by network interfaces connected to this virtual subnet. Unbilled bytes are bytes sent to address ranges that are part of the **UnbilledAddressRanges** property of the parent virtual network.
+
+-   **BilledEgressBytes** shows Number of billed bytes sent by network interfaces connected to this virtual subnet. Billed bytes are bytes sent to address ranges that are not part of the **UnbilledAddressRanges** property of the parent virtual network.
+
+Use the following example to query egress usage:
 
 ```PowerShell
 (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties.subnets.properties | ft AddressPrefix,BilledEgressBytes,UnbilledEgressBytes
 ```
 
-L'output sarà simile al seguente:
+Your output will look similar to this:
 ```
 AddressPrefix BilledEgressBytes UnbilledEgressBytes
 ------------- ----------------- -------------------
@@ -134,6 +136,6 @@ AddressPrefix BilledEgressBytes UnbilledEgressBytes
 10.0.2.0/24           781733019                   0
 10.0.4.0/24                   0                   0
 ```
-    
+
 
 ---

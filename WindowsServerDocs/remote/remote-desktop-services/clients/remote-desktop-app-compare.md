@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c10cf6c9355b5f7457a5f17babdfb44aaa679b2
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 0e001b590f524711185e3dd70db3bc52a9b8d9af
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976793"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447120"
 ---
 # <a name="compare-the-client-apps"></a>Confrontare le app client
 
@@ -35,12 +35,13 @@ Se è remoto nel desktop personali, vi sono altri reindirizzamenti che è possib
 
 ### <a name="input-redirection"></a>Reindirizzamento dell'input
 
-| Reindirizzamento | Desktop remoto<br> Connessione | Universale | Android | iOS | macOS | client Web |
-|-------------|-------------------------------|-----------|---------|-----|-------|------------|
-| Tastiera    | x                             | X         | X       | X   | X     | x          |
-| Mouse       | x                             | X         | x       | X*    | x     | x          |
-| Tocco       | x                             | X         | X       | x   |       | X (Microsoft Edge e IE non supportato) |
-| Altro       | Penna                           |           |         |     |       |            |
+| Reindirizzamento | Desktop remoto<br> Connessione | Universale | Android | iOS | macOS |          client Web           |
+|-------------|-------------------------------|-----------|---------|-----|-------|-------------------------------|
+|  Tastiera   |               x               |     X     |    X    |  X  |   X   |               x               |
+|    Mouse    |               x               |     X     |    x    | X\* |   x   |               x               |
+|    Tocco    |               x               |     X     |    X    |  x  |       | X (Microsoft Edge e IE non supportato) |
+|    Altro    |              Penna              |           |         |     |       |                               |
+
 * Visualizzare la [elenco dei dispositivi di input supportati per il client di Desktop remoto iOS Beta](remote-desktop-ios.md#supported-input-devices).
 
 ### <a name="port-redirection"></a>Reindirizzamento delle porte   

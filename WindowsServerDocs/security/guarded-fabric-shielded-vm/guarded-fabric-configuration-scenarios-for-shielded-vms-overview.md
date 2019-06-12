@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: fa6da3f4a98686f83fff3937c2dc44fd4d623fe3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9badbfcb709c29451425aaecc56b46ac98837e18
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871012"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443798"
 ---
 # <a name="deploy-shielded-vms"></a>Distribuire macchine virtuali schermate
 
@@ -40,8 +40,8 @@ Gli argomenti seguenti descrivono il funzionamento di un tenant con le macchine 
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Creare un modello di macchina virtuale schermata](guarded-fabric-create-a-shielded-vm-template.md)
+> [!div class="nextstepaction"]
+> [Creare un modello di macchina virtuale schermata](guarded-fabric-create-a-shielded-vm-template.md)
 
 ## <a name="see-also"></a>Vedere anche
 

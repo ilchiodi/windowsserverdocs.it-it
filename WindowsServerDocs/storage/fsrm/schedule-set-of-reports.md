@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 15b69e723af3a30375beae73782ab122c68f8880
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 681939409b9b8b952179992a2a86415e737ee675
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879722"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447704"
 ---
 # <a name="schedule-a-set-of-reports"></a>Pianificare una serie di rapporti
 
@@ -28,50 +28,50 @@ I rapporti pianificati vengono salvati in un percorso predefinito, che è possib
 
 ## <a name="to-schedule-a-report-task"></a>Per pianificare un'attività rapporto
 
-1.  Fare clic sul nodo **Gestione rapporti di archiviazione**.
+1. Fare clic sul nodo **Gestione rapporti di archiviazione**.
 
-2.  Fare clic con il pulsante destro del mouse su **Gestione rapporti di archiviazione**, quindi scegliere **Pianifica una nuova attività rapporto**. In alternativa, è possibile selezionare **Pianifica una nuova attività rapporto** nel riquadro **Azioni**. Verrà visualizzata la finestra di dialogo **Proprietà attività rapporto archiviazione**.
+2. Fare clic con il pulsante destro del mouse su **Gestione rapporti di archiviazione**, quindi scegliere **Pianifica una nuova attività rapporto**. In alternativa, è possibile selezionare **Pianifica una nuova attività rapporto** nel riquadro **Azioni**. Verrà visualizzata la finestra di dialogo **Proprietà attività rapporto archiviazione**.
 
-3.  Per selezionare volumi o cartelle su cui si desidera generare rapporti:
+3. Per selezionare volumi o cartelle su cui si desidera generare rapporti:
 
-    -   In **Ambito** fare clic su **Aggiungi**.
-    -   Visualizzare il volume o la cartella in cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
-    -   Aggiungere tutti i volumi o tutte le cartelle che si desidera includere nei rapporti. Per rimuovere un volume o una cartella, fare clic sul percorso, quindi fare clic su **Rimuovi**.
+   -   In **Ambito** fare clic su **Aggiungi**.
+   -   Visualizzare il volume o la cartella in cui si desidera generare i rapporti, selezionarla, quindi fare clic su **OK** per aggiungere il percorso all'elenco.
+   -   Aggiungere tutti i volumi o tutte le cartelle che si desidera includere nei rapporti. Per rimuovere un volume o una cartella, fare clic sul percorso, quindi fare clic su **Rimuovi**.
 
-4.  Per specificare i rapporti da generare:
+4. Per specificare i rapporti da generare:
 
-    -  In **Dati rapporto** selezionare tutti i rapporti che si desidera includere. Per impostazione predefinita, tutti i rapporti vengono generati per un'attività rapporto pianificata.
+   -  In **Dati rapporto** selezionare tutti i rapporti che si desidera includere. Per impostazione predefinita, tutti i rapporti vengono generati per un'attività rapporto pianificata.
 
-    Per modificare i parametri di un rapporto:
+   Per modificare i parametri di un rapporto:
 
-    -   Fare clic sull'etichetta del rapporto, quindi fare clic su **Modifica parametri**.
-    -   Nella finestra di dialogo **Parametri rapporto** modificare i parametri in base alle esigenze e fare clic su **OK**.
+   -   Fare clic sull'etichetta del rapporto, quindi fare clic su **Modifica parametri**.
+   -   Nella finestra di dialogo **Parametri rapporto** modificare i parametri in base alle esigenze e fare clic su **OK**.
 
-    -   Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**. e quindi fare clic su **Chiudi**.
+   -   Per visualizzare un elenco di parametri per tutti i rapporti selezionati, fare clic su **Visualizza rapporti selezionati**. e quindi fare clic su **Chiudi**.
 
-5.  Per specificare i formati in cui salvare i rapporti:
+5. Per specificare i formati in cui salvare i rapporti:
 
-    -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in HTML dinamico (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito dei rapporti pianificati.
+   -  In **Formati rapporto** selezionare uno o più formati per i rapporti pianificati. Per impostazione predefinita, i rapporti vengono generati in HTML dinamico (DHTML). È possibile selezionare anche HTML, XML, CSV e formati di testo. I rapporti vengono salvati nel percorso predefinito dei rapporti pianificati.
 
-6.  Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
+6. Per recapitare copie dei rapporti agli amministratori tramite posta elettronica:
 
-    - Nella scheda **Recapito** selezionare la casella di controllo **Invia rapporti agli amministratori seguenti**, quindi immettere i nomi degli account amministrativi a cui verranno inviati i rapporti. 
-    - Usare il formato *account@domain* e separare gli account con un punto e virgola.
+   - Nella scheda **Recapito** selezionare la casella di controllo **Invia rapporti agli amministratori seguenti**, quindi immettere i nomi degli account amministrativi a cui verranno inviati i rapporti. 
+   - Usare il formato <em>account@domain</em> e separare gli account con un punto e virgola.
 
-7.  Per pianificare i rapporti:
+7. Per pianificare i rapporti:
 
-    Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla.
+   Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla.
 
-    -   Per specificare una frequenza di generazione dei rapporti, selezionare un intervallo dall'elenco a discesa **Attività pianificazione**.
-        È possibile pianificare rapporti giornalmente, settimanalmente o mensilmente oppure generarli una sola volta. I rapporti possono essere generati anche all'avvio del sistema o al momento dell'accesso oppure dopo che il computer è rimasto inattivo per un periodo di tempo specificato.
-    -   Per fornire informazioni di pianificazione aggiuntive per l'intervallo selezionato, modificare o impostare i valori delle opzioni **Attività pianificazione**.
-        Queste opzioni variano in base all'intervallo scelto. Per un rapporto settimanale, ad esempio, è possibile specificare il numero di settimane tra i rapporti e i giorni della settimana in cui generare i rapporti.
-    -   Per specificare l'ora del giorno in cui si desidera generare il rapporto, digitare o selezionare il valore nella casella **Ora di inizio**.
-    -   Per accedere a opzioni di pianificazione aggiuntive, incluse una data di inizio e una data di fine per l'attività, fare clic su **Avanzate**.
-    -   Per salvare la pianificazione, fare clic su **OK**.
-    -  Per creare una pianificazione aggiuntiva per un'attività o per modificare una pianificazione esistente, fare clic su **Modifica pianificazione** nella scheda **Pianificazione**.
+   -   Per specificare una frequenza di generazione dei rapporti, selezionare un intervallo dall'elenco a discesa **Attività pianificazione**.
+       È possibile pianificare rapporti giornalmente, settimanalmente o mensilmente oppure generarli una sola volta. I rapporti possono essere generati anche all'avvio del sistema o al momento dell'accesso oppure dopo che il computer è rimasto inattivo per un periodo di tempo specificato.
+   -   Per fornire informazioni di pianificazione aggiuntive per l'intervallo selezionato, modificare o impostare i valori delle opzioni **Attività pianificazione**.
+       Queste opzioni variano in base all'intervallo scelto. Per un rapporto settimanale, ad esempio, è possibile specificare il numero di settimane tra i rapporti e i giorni della settimana in cui generare i rapporti.
+   -   Per specificare l'ora del giorno in cui si desidera generare il rapporto, digitare o selezionare il valore nella casella **Ora di inizio**.
+   -   Per accedere a opzioni di pianificazione aggiuntive, incluse una data di inizio e una data di fine per l'attività, fare clic su **Avanzate**.
+   -   Per salvare la pianificazione, fare clic su **OK**.
+   -  Per creare una pianificazione aggiuntiva per un'attività o per modificare una pianificazione esistente, fare clic su **Modifica pianificazione** nella scheda **Pianificazione**.
 
-8.  Per salvare l'attività rapporto, fare clic su **OK**.
+8. Per salvare l'attività rapporto, fare clic su **OK**.
 
 L'attività rapporto viene aggiunta al nodo **Gestione rapporti di archiviazione**. Le attività vengono identificate dai rapporti che devono essere generati, dallo spazio dei nomi da includere nel rapporto e dalla pianificazione dei rapporti.
 
@@ -79,7 +79,7 @@ Inoltre, è possibile visualizzare lo stato corrente del rapporto, indipendentem
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione rapporti archiviazione](storage-reports-management.md)
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti di archiviazione](storage-reports-management.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9ca9f41770c977b6e7c4900b090471dbfe11a450
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 156832087bc7af0c95a92cab9a0c1501264d47a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855722"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447498"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
 
@@ -52,7 +52,7 @@ Installare e configurare Windows Azure Pack (WAP) nel computer in cui si vuole o
 
 3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: Portale e API Express** sotto la **prodotti** scheda. Fare clic su **Add**, quindi **installare** nella parte inferiore della finestra.
 
-4.  Proseguire con l'installazione. Al termine dell'installazione, il sito di configurazione (*https://&lt;wapserver&gt;: 30101 /*) apre nel browser web. In questo sito Web, forniscono informazioni sull'istanza di SQL server e completare la configurazione di WAP.
+4.  Proseguire con l'installazione. Al termine dell'installazione, il sito di configurazione (*https://&lt;wapserver&gt;: 30101 /* ) apre nel browser web. In questo sito Web, forniscono informazioni sull'istanza di SQL server e completare la configurazione di WAP.
 
 Per ulteriori informazioni sulla configurazione di Windows Azure Pack, vedere [installare una distribuzione con installazione rapida di Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -77,37 +77,37 @@ Prima di utilizzare Windows Azure Pack, si dovrebbe già installato e configurat
 
 Per consentire ai tenant di creare le VM in WAP, è innanzitutto necessario creare un piano di hosting a cui i tenant possano sottoscriversi. I piani di definiscono il cloud di macchine Virtuali consentiti, modelli, reti ed entità di fatturazione per i tenant.
 
-1.  Nel riquadro inferiore del portale, fare clic su **+ nuovo** &gt; **piano** &gt; **crea piano**.
+1. Nel riquadro inferiore del portale, fare clic su **+ nuovo** &gt; **piano** &gt; **crea piano**.
 
-2.  Nel primo passaggio della procedura guidata, scegliere un nome per il piano. Si tratta del nome che di tenant verrà visualizzato quando la sottoscrizione.
+2. Nel primo passaggio della procedura guidata, scegliere un nome per il piano. Si tratta del nome che di tenant verrà visualizzato quando la sottoscrizione.
 
-3.  Nel secondo passaggio, selezionare **cloud di macchine VIRTUALI** come uno dei servizi da offrire nel piano.
+3. Nel secondo passaggio, selezionare **cloud di macchine VIRTUALI** come uno dei servizi da offrire nel piano.
 
-4.  Ignorare il passaggio sulla selezione di tutti i componenti aggiuntivi per il piano.
+4. Ignorare il passaggio sulla selezione di tutti i componenti aggiuntivi per il piano.
 
-5.  Fare clic su **OK** (segno di spunta) per creare il piano. Anche se si crea il piano, non è ancora presente in uno stato configurato.
+5. Fare clic su **OK** (segno di spunta) per creare il piano. Anche se si crea il piano, non è ancora presente in uno stato configurato.
 
-    ![I piani in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
+   ![I piani in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
 
-6.  Per iniziare a configurare il piano, fare clic sul relativo nome.
+6. Per iniziare a configurare il piano, fare clic sul relativo nome.
 
-7.  Nella pagina successiva, sotto **servizi del piano**, fare clic su **Virtual Machine Clouds**. Verrà visualizzata la pagina in cui è possibile configurare le quote per questo piano.
+7. Nella pagina successiva, sotto **servizi del piano**, fare clic su **Virtual Machine Clouds**. Verrà visualizzata la pagina in cui è possibile configurare le quote per questo piano.
 
-8.  Sotto **base**, selezionare il Server di gestione VMM e il Cloud di macchine virtuali che si desidera offrire ai tenant. Verranno visualizzati con i cloud che possono offrire le macchine virtuali schermate **(schermatura supportata)** accanto al nome.
+8. Sotto **base**, selezionare il Server di gestione VMM e il Cloud di macchine virtuali che si desidera offrire ai tenant. Verranno visualizzati con i cloud che possono offrire le macchine virtuali schermate **(schermatura supportata)** accanto al nome.
 
-9.  Selezionare le quote da applicare in questo piano. (Ad esempio, i limiti per core della CPU e utilizzo della RAM). Assicurarsi di lasciare il **consentire le macchine virtuali per essere schermata** casella di controllo selezionata.
+9. Selezionare le quote da applicare in questo piano. (Ad esempio, i limiti per core della CPU e utilizzo della RAM). Assicurarsi di lasciare il **consentire le macchine virtuali per essere schermata** casella di controllo selezionata.
 
-    ![Impostazioni per il cloud di macchine virtuali in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
+   ![Impostazioni per il cloud di macchine virtuali in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
     
-10.  Scorrere fino alla sezione intitolata **modelli**e quindi selezionare uno o più modelli per offrire ai tenant. È possibile offrire entrambi schermate e i modelli schermati ai tenant, ma un modello schermato deve essere offerti per offrire garanzie di end-to-end sull'integrità della VM e i propri segreti tenant.
+10. Scorrere fino alla sezione intitolata **modelli**e quindi selezionare uno o più modelli per offrire ai tenant. È possibile offrire entrambi schermate e i modelli schermati ai tenant, ma un modello schermato deve essere offerti per offrire garanzie di end-to-end sull'integrità della VM e i propri segreti tenant.
 
-11.  Nel **reti** sezione, aggiungere una o più reti per i tenant.
+11. Nel **reti** sezione, aggiungere una o più reti per i tenant.
 
-12.  Dopo l'impostazione altri impostazioni o le quote per il piano, fare clic su **salvare** nella parte inferiore.
+12. Dopo l'impostazione altri impostazioni o le quote per il piano, fare clic su **salvare** nella parte inferiore.
 
-13.  Nella parte superiore sinistra della schermata, fare clic sulla freccia per consentono di eseguire il backup per il **pianificare** pagina.
+13. Nella parte superiore sinistra della schermata, fare clic sulla freccia per consentono di eseguire il backup per il **pianificare** pagina.
 
-14.  Nella parte inferiore della schermata, modificare il piano da in corso **privati** al **pubblico** in modo che i tenant possono sottoscrivere il piano.
+14. Nella parte inferiore della schermata, modificare il piano da in corso **privati** al **pubblico** in modo che i tenant possono sottoscrivere il piano.
 
     ![Modificare l'accesso per un piano in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-04-change-access.png)
 

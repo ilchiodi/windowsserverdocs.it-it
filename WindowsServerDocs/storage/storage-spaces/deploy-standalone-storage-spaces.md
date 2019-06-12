@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7090657a0936aed0f4b2e79007f69d7b082b0b8f
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f9b5d2b0d5acfcbde52131c29704e38d835d048e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63750656"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447554"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Distribuire spazi di archiviazione in un server autonomo
 
@@ -150,16 +150,16 @@ In questo passaggio è necessario creare uno o più dischi virtuali dal pool di 
 
 8. Nel **specificare il tipo di provisioning** pagina, selezionare una delle opzioni seguenti, quindi selezionare **successivo**.
     
-      - **Thin**
+   - **Thin**
         
-        Con il thin provisioning, lo spazio viene allocato in base alla necessità. In questo modo viene ottimizzato l'uso dello spazio di archiviazione disponibile. Tuttavia è necessario monitorare attentamente lo spazio su disco disponibile perché questa opzione consente di allocare lo spazio di archiviazione in eccesso.
+     Con il thin provisioning, lo spazio viene allocato in base alla necessità. In questo modo viene ottimizzato l'uso dello spazio di archiviazione disponibile. Tuttavia è necessario monitorare attentamente lo spazio su disco disponibile perché questa opzione consente di allocare lo spazio di archiviazione in eccesso.
     
-      - **Fixed**
+   - **Fixed**
         
-        Con il provisioning fisso, la capacità di archiviazione viene allocata immediatamente, durante la creazione del disco virtuale. Il provisioning fisso, quindi, usa uno spazio del pool di archiviazione pari alle dimensioni del disco virtuale.
+     Con il provisioning fisso, la capacità di archiviazione viene allocata immediatamente, durante la creazione del disco virtuale. Il provisioning fisso, quindi, usa uno spazio del pool di archiviazione pari alle dimensioni del disco virtuale.
     
-    >[!TIP]
-    >Con gli spazi di archiviazione è possibile creare dischi virtuali con thin provisioning e provisioning fisso nello stesso pool di archiviazione. Ad esempio, si può usare un disco virtuale con thin provisioning per ospitare un database e un disco virtuale con provisioning fisso per i file di log associati.
+     >[!TIP]
+     >Con gli spazi di archiviazione è possibile creare dischi virtuali con thin provisioning e provisioning fisso nello stesso pool di archiviazione. Ad esempio, si può usare un disco virtuale con thin provisioning per ospitare un database e un disco virtuale con provisioning fisso per i file di log associati.
 
 9. Nella pagina **Specificare le dimensioni del disco virtuale**, eseguire le operazioni seguenti:
     

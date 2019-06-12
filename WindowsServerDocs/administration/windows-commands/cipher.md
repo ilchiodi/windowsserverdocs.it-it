@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: baf527d3590a4ec52a51260d3083419ab27d548d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d801d6e6286e97319766c879f7289f6191cc7101
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887182"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434330"
 ---
 # <a name="cipher"></a>cipher
 
@@ -45,24 +45,24 @@ cipher /rekey [PathName [...]]
 
 ## <a name="parameters"></a>Parametri
 
-|Parametri|Descrizione|
-|----------|-----------|
-|/ b|Interrompe se viene rilevato un errore. Per impostazione predefinita, **cipher** continua a funzionare anche se vengono rilevati errori.|
-|/c|Visualizza le informazioni sul file crittografato.|
-|/d|Consente di decrittografare il file specificati o una directory.|
-|/e|Crittografa il file specificati o una directory. Le directory vengono contrassegnate in modo che i file aggiunti successivamente verranno crittografati.|
-|/h|Vengono visualizzati i file con nascosto o gli attributi di sistema. Per impostazione predefinita, questi file non crittografati o decrittografati.|
-|/k|Crea un nuovo certificato e una chiave per l'utilizzo con i file Encrypting File System (EFS). Se il **/k** viene specificato, tutti gli altri parametri vengono ignorati.|
-|r:\<FileName > [/smartcard]|Genera una chiave agente recupero dati EFS e un certificato, quindi li scrive in un file con estensione pfx (contenente certificato e chiave privata) e un file con estensione CER (contenente solo il certificato). Se **/smartcard** è specificato, scrive la chiave di ripristino e il certificato in una smart card e viene generato alcun file con estensione pfx.|
-|/s:\<Directory>|Esegue l'operazione specificata su tutte le sottodirectory specificate nella *Directory*.|
-|/u [/n]|Trova tutti i file crittografati su unità locali. Se utilizzato con il **/n** parametro, non vengono effettuati aggiornamenti. Se utilizzato senza **/n**, **/u** Confronta chiave di crittografia dell'utente o la chiave dell'agente recupero dati a quelle esistenti e li aggiorna se sono stati modificati. Questo parametro funziona solo con **/n**.|
-|/w:\<Directory>|Rimuove i dati dallo spazio disponibile su disco inutilizzato dell'intero volume. Se si utilizza il **/w** parametro, tutti gli altri parametri vengono ignorati. La directory specificata può trovarsi in qualsiasi punto in un volume locale. Se è un montaggio punti o punti a una directory in un altro volume, i dati in tale volume viene rimossa.|
-|/x[:efsfile] [\<FileName>]|Esegue il backup del certificato EFS e chiavi per il nome file specificato. Se utilizzato con **: efsfile**, **/x** esegue il backup dei certificati dell'utente che sono stati utilizzati per crittografare il file. In caso contrario, l'utente corrente certificato EFS e le chiavi vengono eseguito il backup.|
-|/y|Visualizza l'anteprima certificato EFS corrente nel computer locale.|
-|/AddUser [/ certhash:\<Hash > | /certfile:<FileName>]|Aggiunge un utente nei file crittografati specificati. Se utilizzato con **/certhash**, **cipher** Cerca un certificato con l'hash SHA1 specificato. Se utilizzato con **/certfile**, **cipher** estrae il certificato dal nome del file specificato.|
-|/rekey|Aggiorna i file crittografati specificati per utilizzare la chiave EFS attualmente configurata.|
-|/CertHash /RemoveUser:\<hash >|Rimuove un utente dal file specificati. Il *Hash* previste **/certhash** deve essere l'hash SHA1 del certificato da rimuovere.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|          Parametri           |                                                                                                                                                   Descrizione                                                                                                                                                    |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              / b               |                                                                                                    Interrompe se viene rilevato un errore. Per impostazione predefinita, **cipher** continua a funzionare anche se vengono rilevati errori.                                                                                                    |
+|              /c               |                                                                                                                                   Visualizza le informazioni sul file crittografato.                                                                                                                                    |
+|              /d               |                                                                                                                                   Consente di decrittografare il file specificati o una directory.                                                                                                                                   |
+|              /e               |                                                                                          Crittografa il file specificati o una directory. Le directory vengono contrassegnate in modo che i file aggiunti successivamente verranno crittografati.                                                                                           |
+|              /h               |                                                                                                     Vengono visualizzati i file con nascosto o gli attributi di sistema. Per impostazione predefinita, questi file non crittografati o decrittografati.                                                                                                     |
+|              /k               |                                                                            Crea un nuovo certificato e una chiave per l'utilizzo con i file Encrypting File System (EFS). Se il **/k** viene specificato, tutti gli altri parametri vengono ignorati.                                                                            |
+|  r:\<FileName > [/smartcard]  |   Genera una chiave agente recupero dati EFS e un certificato, quindi li scrive in un file con estensione pfx (contenente certificato e chiave privata) e un file con estensione CER (contenente solo il certificato). Se **/smartcard** è specificato, scrive la chiave di ripristino e il certificato in una smart card e viene generato alcun file con estensione pfx.   |
+|        /s:\<Directory>        |                                                                                                               Esegue l'operazione specificata su tutte le sottodirectory specificate nella *Directory*.                                                                                                               |
+|            /u [/n]            |  Trova tutti i file crittografati su unità locali. Se utilizzato con il **/n** parametro, non vengono effettuati aggiornamenti. Se utilizzato senza **/n**, **/u** Confronta chiave di crittografia dell'utente o la chiave dell'agente recupero dati a quelle esistenti e li aggiorna se sono stati modificati. Questo parametro funziona solo con **/n**.  |
+|        /w:\<Directory>        | Rimuove i dati dallo spazio disponibile su disco inutilizzato dell'intero volume. Se si utilizza il **/w** parametro, tutti gli altri parametri vengono ignorati. La directory specificata può trovarsi in qualsiasi punto in un volume locale. Se è un montaggio punti o punti a una directory in un altro volume, i dati in tale volume viene rimossa. |
+|  /x[:efsfile] [\<FileName>]   |                                 Esegue il backup del certificato EFS e chiavi per il nome file specificato. Se utilizzato con **: efsfile**, **/x** esegue il backup dei certificati dell'utente che sono stati utilizzati per crittografare il file. In caso contrario, l'utente corrente certificato EFS e le chiavi vengono eseguito il backup.                                 |
+|              /y               |                                                                                                                      Visualizza l'anteprima certificato EFS corrente nel computer locale.                                                                                                                      |
+|  /AddUser [/ certhash:\<Hash >  |                                                                                                                                              /certfile:<FileName>]                                                                                                                                               |
+|            /rekey             |                                                                                                                 Aggiorna i file crittografati specificati per utilizzare la chiave EFS attualmente configurata.                                                                                                                 |
+| /CertHash /RemoveUser:\<hash > |                                                                                       Rimuove un utente dal file specificati. Il *Hash* previste **/certhash** deve essere l'hash SHA1 del certificato da rimuovere.                                                                                       |
+|              /?               |                                                                                                                                       Visualizza la guida al prompt dei comandi.                                                                                                                                       |
 
 ## <a name="remarks"></a>Note
 
@@ -107,4 +107,4 @@ Si noti che la directory privata è contrassegnata come crittografata.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

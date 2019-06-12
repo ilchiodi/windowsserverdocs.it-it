@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bb122990c1baf1db8a2edbbbecba8b8cdf8a264d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa82ba8e2fc3fe19b9e73f602605d3ef76f4b9a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833762"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446905"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Generare un report di utilizzo per i client remoti usando i dati cronologici
 
@@ -49,7 +49,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
   
 2.  Fare clic su **REPORTING** per passare a **Remote Access Reporting** nel **Console Gestione accesso remoto**.  
   
-3.  Nel riquadro centrale, fare clic su date nel calendario per selezionare il periodo di tempo **Data di inizio:** e **Data di fine:**, quindi fare clic su **Genera Report**.  
+3.  Nel riquadro centrale, fare clic su date nel calendario per selezionare il periodo di tempo **Data di inizio:** e **Data di fine:** , quindi fare clic su **Genera Report**.  
   
 4.  Verrà visualizzato l'elenco di utenti connessi al server di accesso remoto all'interno di tempo selezionato e le statistiche dettagliate. Fare clic sulla prima riga nell'elenco. Quando si seleziona una riga, nel riquadro di anteprima viene visualizzata l'attività dell'utente remoto. Selezionare il **le statistiche di carico del Server** scheda nel riquadro di anteprima per visualizzare il carico cronologico nel server.  
   
@@ -60,7 +60,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
 >   
 > Accounting di accesso remoto si basa sul concetto di **sessioni**. A differenza di un **connessione**,  **sessione** è identificata da una combinazione di nome utente e all'indirizzo IP del client remoto. Ad esempio, se un tunnel del computer è costituito dal client remoto, denominato Client1, una sessione verrà creata e archiviata nel database di accounting. Quando si passa a un utente denominato User1 si connette da tale client dopo un certo tempo, ma il tunnel del computer è ancora attivo, la sessione viene registrata come una sessione separata. La distinzione di sessioni consiste nel mantenere la distinzione tra tunnel del computer e utente tunnel.  
   
-![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

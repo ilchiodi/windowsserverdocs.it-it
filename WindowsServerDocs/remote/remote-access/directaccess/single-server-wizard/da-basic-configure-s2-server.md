@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fc0abf849d43c8ba6ec86e17b9ed86fce573ed47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9983fb475143109d191f3b6d69afef48d109472a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813382"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446956"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Passaggio 2 configurare il Server DirectAccess di base
 
@@ -54,7 +54,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 7.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il seguente cmdlet Windows PowerShell o i cmdlet installa il ruolo Accesso remoto: 
 
@@ -122,7 +122,7 @@ Il seguente cmdlet Windows PowerShell o i cmdlet installa il ruolo Accesso remot
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 1: Configurare l'infrastruttura DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
+-   [Passaggio 1: Configurare l'infrastruttura di DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Passaggio successivo  
   

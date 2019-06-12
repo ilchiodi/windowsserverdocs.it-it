@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5c74a9277af3853d709a8ecd58c1e53e1bccc719
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 009ded50b156162ad1f3397fc0708ef8075c6a6f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446830"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Passaggio 3 configurare la distribuzione Multisita
 
@@ -67,7 +67,7 @@ Dopo aver configurato l'infrastruttura multisito seguire questi passaggi per con
 11.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
   
 I passaggi 1-3 devono essere eseguiti manualmente e non vengono eseguiti utilizzando questo cmdlet Windows PowerShell.  
@@ -183,7 +183,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 1.  Nel server DNS: Nel **avviare** digitare **dnsmgmt. msc**, quindi premere INVIO.  
   
-2.  Nel riquadro a sinistra di **gestore DNS** console, aprire l'area di ricerca diretta per la rete interna. Fare clic con il pulsante destro zona pertinente e fare clic su **Nuovo Host (A o AAAA)**.  
+2.  Nel riquadro a sinistra di **gestore DNS** console, aprire l'area di ricerca diretta per la rete interna. Fare clic con il pulsante destro zona pertinente e fare clic su **Nuovo Host (A o AAAA)** .  
   
 3.  Nel **Nuovo Host** della finestra di dialogo di **nome (utilizza nome del dominio padre se vuoto)** immettere il nome utilizzato per il server del percorso di rete per il primo server di accesso remoto. Nel **indirizzo IP** casella, immettere l'indirizzo IPv4 con connessione intranet del server di accesso remoto e quindi fare clic su **Aggiungi Host**. Nel **DNS** la finestra di dialogo, fare clic su **OK**.  
   
@@ -261,7 +261,7 @@ Per configurare una distribuzione multisito, abilitare la funzionalità multisit
   
 10. Nel **Abilitazione della distribuzione multisito** la finestra di dialogo, fare clic su **Chiudi** e quindi scegliere la procedura guidata Abilita distribuzione multisito, **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -343,7 +343,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
   
 16. Ripetere questa procedura dal passaggio 2 per ogni punto di ingresso che si desidera aggiungere alla distribuzione multisita.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

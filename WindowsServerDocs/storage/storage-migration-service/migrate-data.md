@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 966f25eb0bd43513b3c544fb3dc97115ed668b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872752"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447654"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usa il servizio di migrazione di archiviazione per eseguire la migrazione di un server
 
@@ -55,18 +55,18 @@ In questo passaggio, specificare quali server per eseguire la migrazione e quind
 
 In questo passaggio trasferire i dati dopo aver specificato la posizione in cui inserirlo nel server di destinazione.
 
- 1. Nel **trasferire i dati** > **immettere le credenziali** , digitare le credenziali di amministratore che funzionano nei server di destinazione si vuole eseguire la migrazione a e quindi selezionare **Next**.
- 1. Nel **aggiungere un dispositivo di destinazione e i mapping** pagina, il primo server di origine è presente. Digitare il nome del server a cui si desidera eseguire la migrazione e quindi selezionare **Cerca nel dispositivo**.
- 1. Mappare i volumi di origine al volume di destinazione, deselezionare il **inclusione** casella di controllo per tutte le condivisioni non si vuole trasferire (tra cui eventuali condivisioni amministrative che si trova nella cartella di sistema Windows) e quindi selezionare **successivo** .
-    ![Screenshot che illustra un server di origine e i relativi volumi e condivisioni e in cui sarà essere trasferite a nella destinazione](media/migrate/transfer.png) **figura 3: Un server di origine e in cui verrà trasferito lo spazio di archiviazione**
- 1. Aggiungere un server di destinazione e i mapping per eventuali altri server di origine e quindi selezionare **successivo**.
- 1. Facoltativamente, modificare le impostazioni di trasferimento e quindi selezionare **successivo**.
- 1. Selezionare **Validate** e quindi selezionare **successivo**.
- 1. Selezionare **avviare trasferimento** per avviare il trasferimento dei dati.<br>La prima volta che si trasferiscono, abbiamo sposterai tutti i file esistenti in una destinazione in una cartella di backup. Nei successivi trasferimenti, per impostazione predefinita che verrà aggiornata la destinazione senza eseguirne il backup prima. <br>Inoltre, il servizio di migrazione di archiviazione è abbastanza intelligente da affrontare sovrapposti condivisioni, copiamo non stesse cartelle due volte nello stesso processo.
- 1. Dopo aver completato il trasferimento, consultare il server di destinazione per assicurarsi che tutti gli elementi trasferito correttamente. Selezionare **solo i log degli errori** se si desidera scaricare un log di tutti i file che non sono state trasferite.
+1. Nel **trasferire i dati** > **immettere le credenziali** , digitare le credenziali di amministratore che funzionano nei server di destinazione si vuole eseguire la migrazione a e quindi selezionare **Next**.
+2. Nel **aggiungere un dispositivo di destinazione e i mapping** pagina, il primo server di origine è presente. Digitare il nome del server a cui si desidera eseguire la migrazione e quindi selezionare **Cerca nel dispositivo**.
+3. Mappare i volumi di origine al volume di destinazione, deselezionare il **inclusione** casella di controllo per tutte le condivisioni non si vuole trasferire (tra cui eventuali condivisioni amministrative che si trova nella cartella di sistema Windows) e quindi selezionare **successivo** .
+   ![Screenshot che illustra un server di origine e i relativi volumi e condivisioni e in cui sarà essere trasferite a nella destinazione](media/migrate/transfer.png) **figura 3: Un server di origine e in cui verrà trasferito lo spazio di archiviazione**
+4. Aggiungere un server di destinazione e i mapping per eventuali altri server di origine e quindi selezionare **successivo**.
+5. Facoltativamente, modificare le impostazioni di trasferimento e quindi selezionare **successivo**.
+6. Selezionare **Validate** e quindi selezionare **successivo**.
+7. Selezionare **avviare trasferimento** per avviare il trasferimento dei dati.<br>La prima volta che si trasferiscono, abbiamo sposterai tutti i file esistenti in una destinazione in una cartella di backup. Nei successivi trasferimenti, per impostazione predefinita che verrà aggiornata la destinazione senza eseguirne il backup prima. <br>Inoltre, il servizio di migrazione di archiviazione è abbastanza intelligente da affrontare sovrapposti condivisioni, copiamo non stesse cartelle due volte nello stesso processo.
+8. Dopo aver completato il trasferimento, consultare il server di destinazione per assicurarsi che tutti gli elementi trasferito correttamente. Selezionare **solo i log degli errori** se si desidera scaricare un log di tutti i file che non sono state trasferite.
 
-  > [!NOTE]
-  > Se si vuole mantenere un audit trail di trasferimenti o si prevede di eseguire più di un trasferimento in un processo, fare clic su **registro trasferimenti** per salvare una copia CSV. Tutti i successivi trasferimenti sovrascrive le informazioni sul database di un'esecuzione precedente. 
+   > [!NOTE]
+   > Se si vuole mantenere un audit trail di trasferimenti o si prevede di eseguire più di un trasferimento in un processo, fare clic su **registro trasferimenti** per salvare una copia CSV. Tutti i successivi trasferimenti sovrascrive le informazioni sul database di un'esecuzione precedente. 
 
 A questo punto, sono disponibili tre opzioni:
 

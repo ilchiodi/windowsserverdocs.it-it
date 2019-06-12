@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c4e1ed4697666062bb90f4a9c65054a3dd73661
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f2f787915f2b941d6c098d44de1bb0e04dbd491
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436908"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
@@ -30,12 +30,14 @@ Cambia il server predefinito per il dominio del sistema DNS (Domain Name) specif
 lserver <DNSDomain> 
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|<DNSDomain>|Specifica il nuovo dominio DNS per il server predefinito.|
-|{help &#124; ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+
+|    Parametro    |                      Descrizione                      |
+|-----------------|-------------------------------------------------------|
+|   <DNSDomain>   | Specifica il nuovo dominio DNS per il server predefinito.  |
+| {help &#124; ?} | Viene visualizzato un breve riepilogo di **nslookup** sottocomandi. |
+
 ## <a name="remarks"></a>Note
--   Il **lserver** comando Usa il primo server per cercare le informazioni sul dominio DNS specificato. È in contrasto con la **server** comando, che usa il server predefinito corrente.
-## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[server nslookup](nslookup-server.md)
+- Il **lserver** comando Usa il primo server per cercare le informazioni sul dominio DNS specificato. È in contrasto con la **server** comando, che usa il server predefinito corrente.
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [server nslookup](nslookup-server.md)

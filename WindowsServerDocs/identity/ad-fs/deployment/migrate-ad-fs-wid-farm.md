@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dbef7d07041a1fd32656c95947d5202b566c068a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c85a02ae6a71cf31fd172ec012a14cd81c126e16
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868322"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445656"
 ---
 # <a name="migrate-an-ad-fs-20-wid-farm"></a>Eseguire la migrazione di una farm database interno di Windows di AD FS 2.0  
 Questo documento vengono fornite informazioni dettagliate sulla migrazione di un'istanza di AD farm ADFS 2.0 Windows Internal Database (WID) per Windows Server 2012.
@@ -30,7 +30,7 @@ Per migrare una farm database interno di Windows a Windows Server 2012, seguire 
 > [!IMPORTANT]
 >  In seguito all'aggiornamento del sistema operativo, la configurazione di ADFS nel server andrà persa e viene rimosso il ruolo di server 2.0 AD FS. Suo posto verrà installato il ruolo server AD FS di Windows Server 2012, ma non è configurato. È necessario creare la configurazione originale di ADFS e ripristinare le impostazioni di ADFS rimanenti per completare la migrazione del server federativo.  
   
-4.  Creare la configurazione originale di ADFS nel server.  
+4. Creare la configurazione originale di ADFS nel server.  
   
 È possibile creare la configurazione originale di ADFS tramite il **configurazione guidata Server federativo di AD FS** per aggiungere un server federativo a una farm database interno di Windows. Per altre informazioni, vedere [Aggiungere un server federativo a una server farm federativa](add-a-federation-server-to-a-federation-server-farm.md).  
   
@@ -39,13 +39,13 @@ Per migrare una farm database interno di Windows a Windows Server 2012, seguire 
 >  
 > Quando si raggiunge il **specificare il nome del servizio federativo** pagina, assicurarsi di selezionare lo stesso certificato SSL registrato nel "prepararsi per la migrazione di una farm database interno di Windows" in [preparare la migrazione di AD FS 2.0 Federation Server](prepare-to-migrate-a-wid-farm.md).  
   
-5.  Aggiornare le pagine Web di ADFS nel server Se è stato eseguito il backup delle pagine Web di ADFS durante la preparazione per la migrazione, è necessario usare i dati di backup per sovrascrivere le pagine Web di ADFS che sono state create per impostazione predefinita nel **%systemdrive%\inetpub\adfs\ls** directory come un risultato della configurazione di AD FS in Windows Server 2012.  
+5. Aggiornare le pagine Web di ADFS nel server Se è stato eseguito il backup delle pagine Web di ADFS durante la preparazione per la migrazione, è necessario usare i dati di backup per sovrascrivere le pagine Web di ADFS che sono state create per impostazione predefinita nel **%systemdrive%\inetpub\adfs\ls** directory come un risultato della configurazione di AD FS in Windows Server 2012.  
   
-6.  Aggiungere il server appena aggiornato a Windows Server 2012 per il bilanciamento del carico.  
+6. Aggiungere il server appena aggiornato a Windows Server 2012 per il bilanciamento del carico.  
   
-7.  Ripetere i passaggi da 1 a 6 per i restanti server secondari nella farm database interno di Windows.  
+7. Ripetere i passaggi da 1 a 6 per i restanti server secondari nella farm database interno di Windows.  
   
-8.  Alzare di livello uno dei server secondari aggiornati convertendolo nel server primario della farm Database interno di Windows. A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente: `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`.  
+8. Alzare di livello uno dei server secondari aggiornati convertendolo nel server primario della farm Database interno di Windows. A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente: `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`.  
   
 9. Rimuovere il server primario originale della farm Database interno di Windows dal bilanciamento del carico.  
   
@@ -76,4 +76,4 @@ Per migrare una farm database interno di Windows a Windows Server 2012, seguire 
  [Preparare la migrazione del Proxy Server 2.0 Federation di AD FS](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione di AD Server federativo ADFS 2.0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del Proxy Server 2.0 Federation di AD FS](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Eseguire la migrazione di AD agenti Web ADFS 1.1](migrate-the-ad-fs-web-agent.md)
+ [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

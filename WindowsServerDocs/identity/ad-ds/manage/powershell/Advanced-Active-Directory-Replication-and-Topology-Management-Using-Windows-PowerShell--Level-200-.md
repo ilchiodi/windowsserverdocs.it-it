@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5454f91394dbdc659db85a675d1c8bfac18b2a86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d56bc89189c3b17367549aeb076633a6ea0e1007
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853922"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442738"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Gestione avanzata della topologia e della replica di Active Directory mediante Windows PowerShell (Livello 200)
 
@@ -82,7 +82,7 @@ Per un elenco completo di tutti i cmdlet di Windows PowerShell per Active Direct
 Get-command -module ActiveDirectory  
 ```  
   
-Per un elenco completo di tutti gli argomenti dei cmdlet di Windows PowerShell per Active Directory, fare riferimento alla guida. Ad esempio:   
+Per un elenco completo di tutti gli argomenti dei cmdlet di Windows PowerShell per Active Directory, fare riferimento alla guida. Ad esempio:  
   
 ```  
 Get-help New-ADReplicationSite  
@@ -228,7 +228,7 @@ Mentre Repadmin.exe funziona bene per restituire le informazioni relative alla t
   
 Ad esempio, dopo l'espansione rapida di nuove succursali, in combinazione con il consolidamento delle altre, potrebbe essere necessario implementare centinaia di modifiche del sito in base alla sede fisica, alle modifiche alla rete e ai nuovi requisiti in termini di capacità. Invece di usare Dssites.msc e Adsiedit.msc per apportare le modifiche, è possibile automatizzare le operazioni. Questo è particolarmente utile quando si inizia con un foglio di calcolo di dati fornito dai team della rete e delle strutture.  
   
-Il **Get-Adreplication\***  cmdlet di restituire le informazioni sulla topologia di replica e sono utili per la canalizzazione nel **Set-Adreplication\***  cmdlet in bulk. **Ottenere** i cmdlet di non modificano i dati, li mostrano solo o di Windows PowerShell di creare gli oggetti di sessione che possono essere canalizzati **Set-Adreplication\***  cmdlet. I cmdlet **New** e **Remove** sono utili per creare o rimuovere oggetti della topologia di Active Directory.  
+Il **Get-Adreplication\\** * cmdlet restituiscono informazioni sulla topologia di replica e sono utili per la canalizzazione nel **Set-Adreplication\\** * cmdlet in bulk. **Ottenere** i cmdlet di non modificano i dati, li mostrano solo o di Windows PowerShell di creare gli oggetti di sessione che possono essere canalizzati **Set-Adreplication\\** * cmdlet. I cmdlet **New** e **Remove** sono utili per creare o rimuovere oggetti della topologia di Active Directory.  
   
 È ad esempio possibile creare nuovi siti tramite un file CSV:  
   

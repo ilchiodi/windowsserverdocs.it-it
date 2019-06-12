@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b86726fd6e9ee37dbfd43357d8040b43b8dfb200
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fb7b5f7ae6e10d1007317949a42c48b4765f35c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853342"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446066"
 ---
-#<a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Passaggio 1 piano, l'infrastruttura DirectAccess base
+# <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Passaggio 1 piano, l'infrastruttura DirectAccess base
 Il primo passaggio per una distribuzione DirectAccess base in un singolo server consiste nel pianificare l'infrastruttura necessaria per la distribuzione. In questo argomento vengono descritti i passaggi per la pianificazione dell'infrastruttura:  
   
 |Attività|Descrizione|  
@@ -253,5 +253,5 @@ Se un server DirectAccess, client o server applicazioni oggetto Criteri di grupp
   
 ### <a name="BKMK_Links"></a>Passaggio successivo  
   
--   [Passaggio 2: Pianificare la distribuzione di DirectAccess di base](da-basic-plan-s2-deployment.md)  
+-   [Passaggio 2: Pianificare la distribuzione di base di DirectAccess](da-basic-plan-s2-deployment.md)  
   

@@ -8,12 +8,12 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: web-app-proxy
-ms.openlocfilehash: c7dab1dbf97d2dcbda1fe0375e61300f2a1cc373
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4d8661f8f0252334bdecbde85603d8af5e2d2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862242"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446816"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Pubblicazione delle applicazioni con la preautenticazione di AD FS
 
@@ -128,7 +128,7 @@ Questa procedura descrive come pubblicare un'applicazione basata su attestazioni
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -210,7 +210,7 @@ Questa procedura descrive come pubblicare un'applicazione che utilizza l'autenti
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -310,7 +310,7 @@ La procedura seguente illustra come pubblicare le applicazioni di base HTTP.
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -441,7 +441,7 @@ Add-WebApplicationProxyApplication
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Risoluzione dei problemi di Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Risoluzione dei problemi relativi a Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
   
 -   [Pubblicare applicazioni mediante Proxy applicazione Web](https://technet.microsoft.com/library/dn383659.aspx)  
   

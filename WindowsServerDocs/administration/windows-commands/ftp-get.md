@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 798317f3921cd0e5ff12b69b972e2ea423fa6b3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28961ccf0ae04b52586728f9c68a9b2ca3e69b1d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816732"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438772"
 ---
 # <a name="ftp-get"></a>ftp: get
 
@@ -30,10 +30,12 @@ Copia un file remoto nel computer locale usando il tipo di trasferimento di file
 get <remoteFile> [<LocalFile>]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<remoteFile>|Specifica il file remoto da copiare.|  
-|[<LocalFile>]|Specifica il nome del file da utilizzare nel computer locale. Se *LocalFile* non viene specificato, il file viene assegnato il *FileRemoto* nome.|  
+
+|   Parametro   |                                                              Descrizione                                                               |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| <remoteFile>  |                                                   Specifica il file remoto da copiare.                                                   |
+| [<LocalFile>] | Specifica il nome del file da utilizzare nel computer locale. Se *LocalFile* non viene specificato, il file viene assegnato il *FileRemoto* nome. |
+
 ## <a name="remarks"></a>Note  
 Il **ottenere** è identico al comando il **recv** comando.  
 ## <a name="BKMK_Examples"></a>Esempi  
@@ -48,4 +50,4 @@ Get test.txt test1.txt
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [ftp: binary](ftp-binary.md)  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e075569f6ce5983838edde26f928d41606ac44bb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f835e27a80e661ff1f066af4779bd7c033cddc99
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824132"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446618"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Passaggio 3 configurare un Cluster con bilanciamento del carico
 
@@ -101,7 +101,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
     > [!NOTE]  
     > Se viene utilizzato il bilanciamento del carico esterno, annotare gli indirizzi IP virtuali e inserirle in servizi di bilanciamento del carico esterno.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -137,7 +137,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 6.  Nel **esportazione della chiave privata** pagina, fare clic su **Sì, Esporta la chiave privata**, e quindi fare clic su **Avanti**.  
   
-7.  Nel **Formato File di esportazione** pagina, fare clic su **scambio informazioni personali - PKCS #12 (. PFX)**, quindi fare clic su **Avanti**.  
+7.  Nel **Formato File di esportazione** pagina, fare clic su **scambio informazioni personali - PKCS #12 (. PFX)** , quindi fare clic su **Avanti**.  
   
 8.  Nel **sicurezza** pagina, selezionare il **Password** casella di controllo, immettere una password nel **Password** casella e confermare la password e quindi fare clic su **Avanti**.  
   
@@ -248,7 +248,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 12. Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -278,7 +278,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -299,7 +299,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Nel **disabilitare il bilanciamento del carico** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

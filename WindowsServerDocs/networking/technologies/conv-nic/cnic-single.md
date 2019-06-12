@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/14/2018
-ms.openlocfilehash: 7777278f374984f242e44fd8a8fa94388df88a30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93d317534af46c87c4b2e874a5a5475687e2efa0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447063"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configurazione di interfaccia di rete convergente con una sola scheda di rete
 
@@ -36,12 +36,14 @@ Assicurarsi che fisico NIC possa connettersi all'host di destinazione. Questo te
    ```PowerShell
    Get-NetAdapter
    ```
-   
-   _**Risultati:**_  
 
-   |Nome|InterfaceDescription|ifIndex|Stato|MacAddress|LinkSpeed|
-   |-----|--------------------|-------|-----|----------|---------|
-   |M1|Mellanox ConnectX-3 Pro...| 4| Su|7C-FE-90-93-8F-A1|40 Gbps|
+   _**Risultati:** _  
+
+
+   | Nome |    InterfaceDescription     | ifIndex | Stato |    MacAddress     | LinkSpeed |
+   |------|-----------------------------|---------|--------|-------------------|-----------|
+   |  M1  | Mellanox ConnectX-3 Pro... |    4    |   Su   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
+
    ---
 
 2. Visualizzare le proprietà di adapter aggiuntivi, tra cui l'indirizzo IP.
@@ -50,7 +52,7 @@ Assicurarsi che fisico NIC possa connettersi all'host di destinazione. Questo te
    Get-NetAdapter M1 | fl *
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
    ```PowerShell   
     MacAddress   : 7C-FE-90-93-8F-A1
@@ -108,19 +110,21 @@ In questo passaggio si usa la **Test-NetConnection** comando Windows PowerShell,
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-   
-   _**Risultati:**_
 
-   |Parametro|Value|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|M1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|True|
-   |PingReplyDetails \(RTT\)|0 ms|
+   _**Risultati:** _
+
+
+   |        Parametro         |    Value    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      |     M1      |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    True     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
-   
+
    In alcuni casi, potrebbe essere necessario disabilitare Windows Firewall con sicurezza avanzata per eseguire correttamente questo test. Se si disabilita il firewall, infatti, sicurezza e assicurarsi che la configurazione soddisfi i requisiti di sicurezza dell'organizzazione.
 
 2. Disabilitare tutti i profili del firewall.
@@ -128,23 +132,25 @@ In questo passaggio si usa la **Test-NetConnection** comando Windows PowerShell,
    ```PowerShell
    Set-NetFirewallProfile -All -Enabled False
    ```
-    
+
 3. Dopo aver disabilitato i profili firewall, verificare nuovamente la connessione. 
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Parametro|Value|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|Test-40G-1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|False|
-   |PingReplyDetails \(RTT\)|0 ms|
+
+   |        Parametro         |    Value    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      | Test-40G-1  |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    False    |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
 
 
@@ -173,17 +179,19 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
 
    >[!IMPORTANT]
    >Non eseguire questo comando se si è connessi all'host in modalità remota su questa interfaccia, perché ciò comporta una perdita di accesso all'host.
-    
+
    ```PowerShell
    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "101"
    Get-NetAdapterAdvancedProperty -Name M1 | Where-Object {$_.RegistryKeyword -eq "VlanID"} 
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |DisplayName| DisplayValue| RegistryKeyword |RegistryValue|
-   |----|-----------|------------|---------------|-------------|
-   |M1|ID VLAN|101|VlanID|{101}|
+
+   | Nome | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |------|-------------|--------------|-----------------|---------------|
+   |  M1  |   ID VLAN   |     101      |     VlanID      |     {101}     |
+
    ---
 
 2. Riavviare la scheda di rete per applicare il ID. VLAN
@@ -197,12 +205,14 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    ```PowerShell
    Get-NetAdapter -Name "M1"
    ```
-   
-   _**Risultati:**_
 
-   |Nome|InterfaceDescription|ifIndex| Stato|MacAddress|LinkSpeed|
-   |----|--------------------|-------|------|----------| ---------|
-   |M1|Ada Ethernet Pro Mellanox ConnectX-3...|4|Su|7C-FE-90-93-8F-A1|40 Gbps|
+   _**Risultati:** _
+
+
+   | Nome |          InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
+   |------|-----------------------------------------|---------|--------|-------------------|-----------|
+   |  M1  | Ada Ethernet Pro Mellanox ConnectX-3... |    4    |   Su   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
+
    ---
 
    >[!IMPORTANT]
@@ -213,7 +223,7 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-    
+
 ## <a name="step-4-configure-quality-of-service-qos"></a>Passaggio 4. Configurare la qualità del servizio \(QoS\)
 
 >[!NOTE]
@@ -232,25 +242,27 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
 
    - **Facoltativo** le configurazioni di rete che utilizzano iWarp.
    - **Obbligatorio** le configurazioni di rete che utilizzano RoCE.
-   
+
    Nel comando riportato di seguito viene riportato di seguito, il valore "3" è arbitrario. È possibile usare qualsiasi valore compreso tra 1 e 7, purché si utilizzino in modo coerente lo stesso valore in tutta la configurazione dei criteri QoS.
 
    ```PowerShell
    New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Parametro|Value|
-   |---------|-----|
-   |Nome |SMB|
-   |Proprietario|Criteri di gruppo \(macchina\)|
-   |NetworkProfile|Tutte|
-   |Precedenza|127|
-   |JobObject|&nbsp;| 
-   |NetDirectPort|445 |
-   |PriorityValue|3 |
- ---
+
+   |   Parametro    |          Value           |
+   |----------------|--------------------------|
+   |      Nome      |           SMB            |
+   |     Proprietario      | Criteri di gruppo \(macchina\) |
+   | NetworkProfile |           Tutte            |
+   |   Precedenza   |           127            |
+   |   JobObject    |          &nbsp;          |
+   | NetDirectPort  |           445            |
+   | PriorityValue  |            3             |
+
+   ---
 
 3. Per le distribuzioni RoCE, attivare **controllo di flusso priorità** per il traffico SMB, che non è necessaria per iWarp.
 
@@ -259,18 +271,20 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    Get-NetQosFlowControl
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Priority|Enabled|PolicySet|IfIndex|IfAlias|
-   |---------|-----|--------- |-------| -------|
-   |0 |False |Globale|&nbsp;|&nbsp;|
-   |1 |False |Globale|&nbsp;|&nbsp;|
-   |2 |False |Globale|&nbsp;|&nbsp;|
-   |3 |True  |Globale|&nbsp;|&nbsp;|
-   |4 |False |Globale|&nbsp;|&nbsp;|
-   |5 |False |Globale|&nbsp;|&nbsp;|
-   |6 |False |Globale|&nbsp;|&nbsp;|
-   |7 |False |Globale|&nbsp;|&nbsp;|
+
+   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   |----------|---------|-----------|---------|---------|
+   |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  Globale   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    6     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+
    ---
 
 4. Abilitare QoS per le schede di rete locale e di destinazione.
@@ -283,38 +297,44 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    Get-NetAdapterQos -Name "M1"
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
    **Nome**: M1  
    **Enabled**: True  
 
-   _**Funzionalità:**_   
+   _**Funzionalità:** _   
 
-   |Parametro|Hardware|Corrente|
-   |---------|--------|-------|
-   |MacSecBypass|NotSupported|NotSupported|
-   |DcbxSupport|Nessuno|Nessuno|
-   |NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
-   ---
- 
-   _**OperationalTrafficClasses:**_ 
 
-   |TC|TSA|Bandwidth|Priorità|
-   |----|-----|--------|-------|
-   |0| ETS|70%|0-2,4-7|
-   |1|ETS|30%|3 |
+   |      Parametro      |   Hardware   |   Corrente    |
+   |---------------------|--------------|--------------|
+   |    MacSecBypass     | NotSupported | NotSupported |
+   |     DcbxSupport     |     Nessuno     |     Nessuno     |
+   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+
    ---
 
-   _**OperationalFlowControl:**_  
-   
+   _**OperationalTrafficClasses:** _ 
+
+
+   | TC | TSA | Bandwidth | Priorità |
+   |----|-----|-----------|------------|
+   | 0  | ETS |    70%    |  0-2,4-7   |
+   | 1  | ETS |    30%    |     3      |
+
+   ---
+
+   _**OperationalFlowControl:** _  
+
    Con priorità 3 abilitata  
 
-   _**OperationalClassifications:**_  
+   _**OperationalClassifications:** _  
 
-   |Protocollo|Porta/tipo|Priority|
-   |--------|---------|--------|
-   |Impostazione predefinita|&nbsp;|0|
-   |NetDirect| 445|3|
+
+   | Protocol  | Porta/tipo | Priority |
+   |-----------|-----------|----------|
+   |  Impostazione predefinita  |  &nbsp;   |    0     |
+   | NetDirect |    445    |    3     |
+
    ---
 
 5. Riserva una percentuale della larghezza di banda per SMB diretto \(RDMA\).
@@ -325,11 +345,13 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    New-NetQosTrafficClass "SMB" -Priority 3 -BandwidthPercentage 30 -Algorithm ETS
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome|Algoritmo |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |SMB | ETS     | 30 |3 |Globale |&nbsp;|&nbsp;|
+
+   | Nome | Algoritmo | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |------|-----------|--------------|----------|-----------|---------|---------|
+   | SMB  |    ETS    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
+
    ---                                      
 
 6. Visualizzare le impostazioni di prenotazione della larghezza di banda.  
@@ -338,12 +360,14 @@ L'immagine seguente mostra due host Hyper-V, ognuna con una scheda di rete fisic
    Get-NetQosTrafficClass
    ```
 
-   _**Risultati:**_
- 
-   |Nome|Algoritmo |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |[Predefinito]|ETS|70 |0-2,4-7| Globale|&nbsp;|&nbsp;| 
-   |SMB      |ETS|30 |3 |Globale|&nbsp;|&nbsp;| 
+   _**Risultati:** _
+
+
+   |   Nome    | Algoritmo | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |-----------|-----------|--------------|----------|-----------|---------|---------|
+   | [Predefinito] |    ETS    |      70      | 0-2,4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   |    SMB    |    ETS    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
+
    ---
 
 ## <a name="step-5-optional-resolve-the-mellanox-adapter-debugger-conflict"></a>Passaggio 5. (Facoltativo) Risolvere il conflitto di debugger scheda Mellanox 
@@ -367,11 +391,13 @@ L'immagine seguente mostra lo stato corrente degli host Hyper-V.
    ```PowerShell
    Get-NetAdapterRdma
    ```
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |InterfaceDescription |Enabled|
-   |----|--------------------|-------|
-   |M1| Scheda Ethernet Pro Mellanox ConnectX-3 |True|
+
+   | Nome |           InterfaceDescription           | Enabled |
+   |------|------------------------------------------|---------|
+   |  M1  | Scheda Ethernet Pro Mellanox ConnectX-3 |  True   |
+
    ---
 
 2. Determinare il **ifIndex** valore l'adattatore di destinazione.<p>È consigliabile usare questo valore nei passaggi successivi quando si esegue lo script scaricato.
@@ -380,11 +406,13 @@ L'immagine seguente mostra lo stato corrente degli host Hyper-V.
    Get-NetIPConfiguration -InterfaceAlias "M*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
    ```
 
-   _**Risultati:**_ 
+   _**Risultati:** _ 
 
-   |InterfaceAlias |InterfaceIndex |Indirizzo IPv4|
-   |-------------- |-------------- |-----------|
-   |M2 |14 |{192.168.1.5}|
+
+   | InterfaceAlias | InterfaceIndex |  Indirizzo IPv4  |
+   |----------------|----------------|---------------|
+   |       M2       |       14       | {192.168.1.5} |
+
    ---
 
 3. Scaricare il [DiskSpd.exe utilità](https://aka.ms/diskspd) e decomprimerlo in c:\test.\.
@@ -392,10 +420,10 @@ L'immagine seguente mostra lo stato corrente degli host Hyper-V.
 4. Scaricare il [script di powershell Test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) in una cartella di test nell'unità locale, ad esempio, c:\test.\.
 
 5. Eseguire la **Test-Rdma.ps1** script di PowerShell per passare il valore di ifIndex allo script, con l'indirizzo IP della scheda remota nella stessa VLAN.<p>In questo esempio, lo script passa il **ifIndex** pari a 14 sull'indirizzo IP della scheda di rete remoto 192.168.1.5.
-   
+
    ```PowerShell
     C:\TEST\Test-RDMA.PS1 -IfIndex 14 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
-    
+
     VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\\diskspd.exe
     VERBOSE: The adapter M2 is a physical adapter
     VERBOSE: Underlying adapter is RoCE. Checking if QoS/DCB/PFC is configured on each physical adapter(s)
@@ -423,7 +451,7 @@ L'immagine seguente mostra lo stato corrente degli host Hyper-V.
 Impostare in preparazione per la creazione di Hyper-V, è necessario rimuovere le impostazioni VLAN che è stato installato in precedenza.  
 
 1. Rimuovere l'impostazione di accesso VLAN dall'interfaccia di rete fisica per impedire l'assegnazione automatica di tag il traffico in uscita con l'ID di VLAN non corretto. l'interfaccia di rete<p>Rimuovere questa impostazione impedisce inoltre il filtraggio del traffico in ingresso corrisponde all'ID accesso VLAN.
-    
+
    ```PowerShell
    Set-NetAdapterAdvancedProperty -Name M1 -RegistryKeyword VlanID -RegistryValue "0"
    ```    
@@ -447,11 +475,13 @@ L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
    ```PowerShell
    New-VMSwitch -Name VMSTEST -NetAdapterName "M1" -AllowManagementOS $true
    ```
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |SwitchType |NetAdapterInterfaceDescription|
-   |---- |---------- |------------------------------|
-   |VMSTEST |Esterno |Scheda Ethernet Pro Mellanox ConnectX-3|
+
+   |  Nome   | SwitchType |      NetAdapterInterfaceDescription      |
+   |---------|------------|------------------------------------------|
+   | VMSTEST |  Esterno  | Scheda Ethernet Pro Mellanox ConnectX-3 |
+
    ---
 
 2. Visualizzare le proprietà scheda di rete.
@@ -460,11 +490,13 @@ L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
    Get-NetAdapter | ft -AutoSize
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |InterfaceDescription | ifIndex |Stato |MacAddress |LinkSpeed|
-   |---- |-------------------- |-------| ------|----------|---------|
-   |vEthernet \(VMSTEST\) |Adattatore Ethernet virtuale Hyper-V #2|27 |Su |E4-1D-2D-07-40-71 |40 Gbps|
+
+   |         Nome          |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
+   |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet \(VMSTEST\) | Adattatore Ethernet virtuale Hyper-V #2 |   27    |   Su   | E4-1D-2D-07-40-71 |  40 Gbps  |
+
    ---
 
 3. Gestire la scheda di rete virtuale host in uno dei due modi. 
@@ -476,12 +508,14 @@ L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
    Get-VMNetworkAdapter –ManagementOS | ft -AutoSize
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |IsManagementOs |VMName |SwitchName |MacAddress |Stato |IPAddresses|
-   |----|-------------- |------ |----------|----------|------ |-----------|
-   |CORP-External-opzione |True |CORP-External-opzione| 001B785768AA |{Ok} |&nbsp;|
-   |VMSTEST |True |VMSTEST | E41D2D074071| {Ok} | &nbsp;| 
+
+   |         Nome         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | Stato | IPAddresses |
+   |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
+   | CORP-External-opzione |      True      | CORP-External-opzione | 001B785768AA |    {Ok}    | &nbsp; |             |
+   |       VMSTEST        |      True      |       VMSTEST        | E41D2D074071 |    {Ok}    | &nbsp; |             |
+
    ---
 
 4. Testare la connessione.
@@ -490,7 +524,7 @@ L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Risultati:**_ 
+   _**Risultati:** _ 
 
    ```
     ComputerName   : 192.168.1.5
@@ -502,27 +536,29 @@ L'immagine seguente mostra Hyper-V Host 1 con un commutatore virtuale.
    ```
 
 5. Assegnare e visualizzare le impostazioni della scheda di rete VLAN.
-    
+
    ```PowerShell
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
    Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
    ```    
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |VMName |VMNetworkAdapterName |Modalità |VlanList|
-   |------ |-------------------- |---- |--------|
-   |&nbsp;|VMSTEST |Accesso |101   |
+
+   | VMName | VMNetworkAdapterName |  Modalità  | VlanList |
+   |--------|----------------------|--------|----------|
+   | &nbsp; |       VMSTEST        | Accesso |   101    |
+
    ---  
- 
+
 6. Testare la connessione.<p>Potrebbe richiedere alcuni secondi per il completamento prima che è possibile effettuare correttamente il ping di altri adapter.  
 
    ```PowerShell    
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Risultati:**_
-     
+   _**Risultati:** _
+
    ```
     ComputerName   : 192.168.1.5
     RemoteAddress  : 192.168.1.5
@@ -545,8 +581,8 @@ L'immagine seguente visualizza lo stato corrente degli host Hyper-V, tra cui il 
    Set-VMNetworkAdapter -ManagementOS -Name "VMSTEST" -IeeePriorityTag on
    Get-VMNetworkAdapter -ManagementOS -Name "VMSTEST" | fl Name,IeeePriorityTag
    ```  
-   
-   _**Risultati:**_
+
+   _**Risultati:** _
 
     Nome: IeeePriorityTag VMSTEST: Attivato
 
@@ -557,16 +593,18 @@ L'immagine seguente visualizza lo stato corrente degli host Hyper-V, tra cui il 
    Get-NetAdapterRdma
    ```   
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |InterfaceDescription |Enabled |
-   |---- |-------------------- |-------|
-   |vEthernet \(VMSTEST\)| Adattatore Ethernet virtuale Hyper-V #2|False|
+
+   |         Nome          |        InterfaceDescription         | Enabled |
+   |-----------------------|-------------------------------------|---------|
+   | vEthernet \(VMSTEST\) | Adattatore Ethernet virtuale Hyper-V #2 |  False  |
+
    ---
 
    >[!NOTE]
    >Se il parametro **Enabled** ha il valore **False**, significa che RDMA non è abilitato.
-    
+
 
 3. Visualizzare le informazioni di scheda di rete.
 
@@ -574,11 +612,13 @@ L'immagine seguente visualizza lo stato corrente degli host Hyper-V, tra cui il 
    Get-NetAdapter
    ```
 
-   _**Risultati:**_   
- 
-   |Nome |InterfaceDescription |ifIndex |Stato |MacAddress |LinkSpeed|
-   |----|--------------------|-------|------|----------|---------|
-   |vEthernet (VMSTEST)|Adattatore Ethernet virtuale Hyper-V #2|27|Su|E4-1D-2D-07-40-71|40 Gbps|
+   _**Risultati:** _   
+
+
+   |        Nome         |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
+   |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet (VMSTEST) | Adattatore Ethernet virtuale Hyper-V #2 |   27    |   Su   | E4-1D-2D-07-40-71 |  40 Gbps  |
+
    ---
 
 
@@ -589,11 +629,13 @@ L'immagine seguente visualizza lo stato corrente degli host Hyper-V, tra cui il 
    Get-NetAdapterRdma -Name "vEthernet (VMSTEST)"
    ```
 
-   _**Risultati:**_
+   _**Risultati:** _
 
-   |Nome |InterfaceDescription |Enabled |
-   |---- |-------------------- |-------|
-   |vEthernet \(VMSTEST\)| Adattatore Ethernet virtuale Hyper-V #2|True|
+
+   |         Nome          |        InterfaceDescription         | Enabled |
+   |-----------------------|-------------------------------------|---------|
+   | vEthernet \(VMSTEST\) | Adattatore Ethernet virtuale Hyper-V #2 |  True   |
+
    ---
 
    >[!NOTE]

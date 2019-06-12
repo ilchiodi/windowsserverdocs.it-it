@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 002af67ab721d308cfc6421b37a089536ab61862
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 217ff23b8724464670520d0b2d5b196df5a4af47
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837212"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440305"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Utilizzando il comando remove /InfFile
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> 
+> 
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Rimuove un pacchetto driver da un server.
 ## <a name="syntax"></a>Sintassi
@@ -33,11 +33,13 @@ Rimuove un pacchetto driver da un server.
 wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
-|[/ DriverPackage:<Name>]|Specifica il nome del pacchetto driver da rimuovere.|
-|[/ PackageId:<ID>]|Specifica l'ID di servizi di distribuzione Windows del pacchetto driver da rimuovere. Se il pacchetto driver non può essere identificato in modo univoco in base al nome, è necessario specificare l'ID.|
+
+|        Parametro        |                                                                            Descrizione                                                                             |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [/Server:<Server name>] |              Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.              |
+| [/ DriverPackage:<Name>] |                                                        Specifica il nome del pacchetto driver da rimuovere.                                                         |
+|    [/ PackageId:<ID>]    | Specifica l'ID di servizi di distribuzione Windows del pacchetto driver da rimuovere. Se il pacchetto driver non può essere identificato in modo univoco in base al nome, è necessario specificare l'ID. |
+
 ## <a name="BKMK_examples"></a>Esempi
 Per visualizzare informazioni sulle immagini, digitare uno dei seguenti:
 ```

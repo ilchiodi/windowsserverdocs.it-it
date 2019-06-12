@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b0d5414cb5b60face5245d7ea22d66c8629bfcb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a0945477bc4fce907b5ec4a697c7a2ec2f59557
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873732"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436113"
 ---
 # <a name="delete-shadows"></a>eliminare le ombreggiature
 
@@ -34,15 +34,15 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|tutti|Elimina tutte le copie shadow.|
-|volume \<Volume >|Elimina tutte le copie shadow del volume specificato.|
-|meno recente \<Volume >|Elimina la copia shadow meno recente del volume specificato.|
-|set \<SetID>|Elimina le copie shadow in un Set di copia Shadow dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente.|
-|id \<ShadowID>|Elimina una copia dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente.|
-|esposti {\<Drive > | <MountPoint>}|Elimina la copia shadow esposta nel punto di montaggio o lettera di unità specificata. Specificare i punti di montaggio come c:\mountPoint o la lettera di unità, ad esempio p.|
+|     Parametro     |                                                                             Descrizione                                                                              |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        tutti        |                                                                      Elimina tutte le copie shadow.                                                                      |
+| volume \<Volume >  |                                                            Elimina tutte le copie shadow del volume specificato.                                                            |
+| meno recente \<Volume >  |                                                         Elimina la copia shadow meno recente del volume specificato.                                                          |
+|   set \<SetID>    | Elimina le copie shadow in un Set di copia Shadow dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente. |
+|  id \<ShadowID>   |              Elimina una copia dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente.               |
+| esposti {\<Drive > |                                                                            <MountPoint>}                                                                             |
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

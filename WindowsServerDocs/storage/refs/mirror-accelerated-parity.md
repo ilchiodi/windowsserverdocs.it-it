@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ba7454f58255ba7a66624a5c59b062da9f871063
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f4fb73941c5d6667d3c13356b6f29178d73788f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865942"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447678"
 ---
 # <a name="mirror-accelerated-parity"></a>Parità accelerata con mirror
 
@@ -100,12 +100,12 @@ La compattazione ReFS risolve questi problemi di prestazioni liberando spazio ne
 ### <a name="performance-counters"></a>Contatori di prestazioni
 
 ReFS gestisce contatori delle prestazioni per valutare le prestazioni della parità accelerata con mirroring. 
--   Come descritto in precedenza nella sezione Scritture in parità, ReFS scriverà direttamente nella parità quando non trova spazio sufficiente nel mirroring. In genere, ciò si verifica quando il livello di mirroring si riempie più velocemente di quanto ReFS possa ruotare i dati in parità. In altre parole, la rotazione ReFS non è in grado di tenere il passo con la frequenza di inserimento. I contatori delle prestazioni seguenti identificano il momento in cui ReFS scrive direttamente in parità:
-```
-ReFS\Data allocations slow tier/sec
-ReFS\Metadata allocations slow tier/sec
-```
--   Se questi contatori sono diverso da zero, ReFS non ruota i dati in modo sufficientemente veloce all'esterno del mirroring. Per evitare questo problema, è possibile modificare l'aggressività della rotazione o aumentare le dimensioni del livello con mirroring.
+- Come descritto in precedenza nella sezione Scritture in parità, ReFS scriverà direttamente nella parità quando non trova spazio sufficiente nel mirroring. In genere, ciò si verifica quando il livello di mirroring si riempie più velocemente di quanto ReFS possa ruotare i dati in parità. In altre parole, la rotazione ReFS non è in grado di tenere il passo con la frequenza di inserimento. I contatori delle prestazioni seguenti identificano il momento in cui ReFS scrive direttamente in parità:
+  ```
+  ReFS\Data allocations slow tier/sec
+  ReFS\Metadata allocations slow tier/sec
+  ```
+- Se questi contatori sono diverso da zero, ReFS non ruota i dati in modo sufficientemente veloce all'esterno del mirroring. Per evitare questo problema, è possibile modificare l'aggressività della rotazione o aumentare le dimensioni del livello con mirroring.
 
 ### <a name="rotation-aggressiveness"></a>Aggressività di rotazione
 

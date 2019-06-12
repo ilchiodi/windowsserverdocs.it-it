@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 83175d8529d9204c6b6d969a3db2aee2775bd0c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0bec8cf64a3c7f261c792a07da603cba4366e1a7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852382"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436431"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -43,16 +43,16 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/s \<system >|Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando.|
-|/u [\<Domain>\]<UserName>|Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.|
-|/p [\<Password>]|Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.|
-|/ID \<OpenFileID >|Disconnette i file aperti per l'ID del file specificato. Il carattere jolly (**&#42;**) può essere utilizzato con questo parametro.</br>Nota: È possibile usare la **openfiles /query** comando per trovare l'ID file.|
-|/a \<AccessedBy>|Disconnette tutti i file aperti associati con il nome utente specificato nella *utenteconnesso* parametro. Il carattere jolly (**&#42;**) può essere utilizzato con questo parametro.|
-|/o {lettura \| scrivere \| lettura/scrittura}|Disconnette tutti i file aperti con il valore di aprire la modalità specificata. I valori validi sono di lettura, scrittura o lettura/scrittura. Il carattere jolly (**&#42;**) può essere utilizzato con questo parametro.|
-|/Op. \<OpenFile >|Disconnette tutte le connessioni di aprire file creati da un nome di file specifico. Il carattere jolly (**&#42;**) può essere utilizzato con questo parametro.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|            Parametro             |                                                                                                                                 Descrizione                                                                                                                                  |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           /s \<system >           | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
+|    /u [\<Domain>\]<UserName>     |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
+|         /p [\<Password>]         |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
+|        /ID \<OpenFileID >         |                                       Disconnette i file aperti per l'ID del file specificato. Il carattere jolly ( **&#42;** ) può essere utilizzato con questo parametro.</br>Nota: È possibile usare la **openfiles /query** comando per trovare l'ID file.                                       |
+|         /a \<AccessedBy>         |                                                Disconnette tutti i file aperti associati con il nome utente specificato nella *utenteconnesso* parametro. Il carattere jolly ( **&#42;** ) può essere utilizzato con questo parametro.                                                 |
+| /o {lettura \| scrivere \| lettura/scrittura} |                                               Disconnette tutti i file aperti con il valore di aprire la modalità specificata. I valori validi sono di lettura, scrittura o lettura/scrittura. Il carattere jolly ( **&#42;** ) può essere utilizzato con questo parametro.                                                |
+|         /Op. \<OpenFile >          |                                                           Disconnette tutte le connessioni di aprire file creati da un nome di file specifico. Il carattere jolly ( **&#42;** ) può essere utilizzato con questo parametro.                                                           |
+|                /?                |                                                                                                                     Visualizza la guida al prompt dei comandi.                                                                                                                     |
 
 ### <a name="examples"></a>Esempi
 
@@ -89,15 +89,15 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/s \<system >|Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando.|
-|/u [\<Domain>\]<UserName>|Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.|
-|/p [\<Password>]|Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.|
-|[/fo {tabella \| elenco \| CSV}]|Visualizza l'output nel formato specificato. I valori validi per *formato* sono:</br>TAVOLO:  Visualizza l'output in una tabella.</br>ELENCO: Visualizza l'output in un elenco.</br>CSV: Visualizza l'output in formato valori separati da virgole.|
-|/NH|Omette le intestazioni di colonna nell'output. Valido solo quando il **/fo** parametro è impostato su **TABELLA** o **CSV**.|
-|/v|Specifica le informazioni dettagliate visualizzate nell'output.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|          Parametro           |                                                                                                                                 Descrizione                                                                                                                                  |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         /s \<system >         | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
+|  /u [\<Domain>\]<UserName>   |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
+|       /p [\<Password>]       |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
+| [/fo {tabella \| elenco \| CSV}] |                             Visualizza l'output nel formato specificato. I valori validi per *formato* sono:</br>TAVOLO:  Visualizza l'output in una tabella.</br>ELENCO: Visualizza l'output in un elenco.</br>CSV: Visualizza l'output in formato valori separati da virgole.                              |
+|             /NH              |                                                                                Omette le intestazioni di colonna nell'output. Valido solo quando il **/fo** parametro è impostato su **TABELLA** o **CSV**.                                                                                 |
+|              /v              |                                                                                                       Specifica le informazioni dettagliate visualizzate nell'output.                                                                                                        |
+|              /?              |                                                                                                                     Visualizza la guida al prompt dei comandi.                                                                                                                     |
 
 ### <a name="examples"></a>Esempi
 
@@ -169,4 +169,4 @@ openfiles /local off
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

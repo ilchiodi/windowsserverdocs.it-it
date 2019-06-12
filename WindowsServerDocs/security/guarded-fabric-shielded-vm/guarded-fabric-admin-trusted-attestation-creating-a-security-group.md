@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ba547dff862a283b68ff105a14b14ed367891745
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb84720b94746a3c5757037ceb5c9bc8c965ff7f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816342"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447158"
 ---
 # <a name="create-a-security-group-for-guarded-hosts-and-register-the-group-with-hgs"></a>Creare un gruppo di sicurezza per gli host sorvegliati e registrare il gruppo con HGS
 
@@ -53,8 +53,8 @@ In questo argomento vengono descritti i passaggi intermedi per preparare gli hos
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Verificare che l'attestazione](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [!div class="nextstepaction"]
+> [Confermare l'attestazione](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
 ## <a name="see-also"></a>Vedere anche

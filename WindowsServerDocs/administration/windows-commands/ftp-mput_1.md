@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99b938618deb2d1e779fd20c504c01a13a2d3f8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd19a97246aa6155182cb055deceb4b5a5019f6c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868162"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438586"
 ---
 # <a name="ftp-mput1"></a>ftp: mput_1
 
@@ -30,9 +30,11 @@ Tipo di trasferimento copia i file locali in computer remoto utilizzando il file
 mput <LocalFile>[ ]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<LocalFile>|Specifica il file locale da copiare nel computer remoto.|  
+
+|  Parametro  |                       Descrizione                        |
+|-------------|----------------------------------------------------------|
+| <LocalFile> | Specifica il file locale da copiare nel computer remoto. |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 Copia **Program1.exe** e **Program2.exe** al computer remoto usando il tipo di trasferimento di file corrente.  
 ```  
@@ -41,4 +43,4 @@ mput Program1.exe Program2.exe
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [ftp: binary](ftp-binary.md)  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

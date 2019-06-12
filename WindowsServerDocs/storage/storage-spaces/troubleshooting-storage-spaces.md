@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 48099ad15465b885ccaf562bcf94b4bafdeff388
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 44bcf48f3e4a3b4b49ff027d3aa3e5704865e7b5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772635"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447878"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Risolvere i problemi di spazi di archiviazione diretta
 
@@ -35,7 +35,7 @@ Se si verificano ancora problemi, esaminare gli scenari seguenti.
 
 ## <a name="virtual-disk-resources-are-in-no-redundancy-state"></a>Le risorse del disco virtuale sono in stato di ridondanza n
 I nodi di un sistema spazi di archiviazione diretta riavviato in modo imprevisto a causa di un errore di arresto anomalo del sistema o all'alimentazione. Quindi, uno o più dei dischi virtuali che non vengano portate online e noterete che la descrizione "informazioni non sono sufficienti ridondanza".
-    
+
 |FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Dimensione| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
 |Disk4| Mirror| OK|  Integro| True|  10 TB|  Node-01.conto...|
@@ -52,7 +52,7 @@ Inoltre, dopo un tentativo di portare online il disco virtuale, le informazioni 
 ``` 
 
 Il **stato operativo ridondanza n** può verificarsi se un disco non è riuscita o se il sistema è in grado di accedere ai dati nel disco virtuale. Questo problema può verificarsi se si verifica un riavvio in un nodo durante la manutenzione sui nodi.
-    
+
 Per risolvere questo problema, seguire questa procedura:
 
 1. Rimuovere i dischi virtuali interessate da file CSV. Questo verrà inserirle nel gruppo "Archiviazione disponibile" nel cluster e la visualizzazione come un tipo di risorsa del "Disco fisico."
@@ -91,8 +91,8 @@ Per risolvere questo problema, seguire questa procedura:
    ```
 
 **DiskRecoveryAction** è un'opzione di override che consente di collegare il volume di spazio in modalità lettura / scrittura senza alcun controllo. La proprietà consente di eseguire la diagnostica in perché un volume non verrà portato online. È molto simile alla modalità di manutenzione, ma è possibile richiamarlo su una risorsa in uno stato di errore. Consente inoltre di accedere ai dati, che possono essere utili nelle situazioni, ad esempio "N ridondanza", dove è possibile ottenere l'accesso a tutti i dati è possibile e copiarlo. La proprietà DiskRecoveryAction è stato aggiunto nel 22 febbraio 2018, update, 4077525 KB.
-    
-    
+
+
 ## <a name="detached-status-in-a-cluster"></a>Stato scollegato in un cluster 
 
 Quando si esegue la **Get-VirtualDisk** cmdlet, il OperationalStatus uno o più spazi di archiviazione diretta è scollegare i dischi virtuali. Tuttavia, il HealthStatus segnalati dal **Get-PhysicalDisk** cmdlet indica che tutti i dischi fisici siano in uno stato integro.
@@ -122,7 +122,7 @@ Data on the disk is out-of-sync and a data integrity scan is required.
 
 To start the scan, run the following command:   
 Get-ScheduledTask -TaskName "Data Integrity Scan for Crash Recovery" | Start-ScheduledTask                
-             
+
 Once you have resolved the condition listed above, you can online the disk by using the following commands in PowerShell:   
 
 Get-VirtualDisk | ?{ $_.ObjectId -Match "{GUID}" } | Get-Disk | Set-Disk -IsReadOnly $false 
@@ -152,7 +152,7 @@ Volume Name:
 ``` 
 
 Il **scollegati stato operativo** può verificarsi se l'area dirty (DRT) di rilevamento registro è pieno. Spazi di archiviazione utilizza area dirty (DRT) di rilevamento per gli spazi con mirroring per garantire che, quando si verifica un'interruzione dell'alimentazione, eventuali aggiornamenti in corso dei metadati vengono registrati per assicurarsi che lo spazio di archiviazione può ripristinare o annullare le operazioni per riportare lo spazio di archiviazione in un flessibili e lo stato coerente quando l'alimentazione viene ripristinata e il sistema torna allo stato attivo. Se il log DRT è pieno, il disco virtuale non possa essere portato online fino a quando la variabile metadata DRT sincronizzata e scaricata. Questo processo richiede l'esecuzione di un'analisi completa, che può richiedere diverse ore.
-    
+
 Per risolvere questo problema, seguire questa procedura:
 1. Rimuovere i dischi virtuali interessate da file CSV.
 
@@ -172,9 +172,9 @@ Per risolvere questo problema, seguire questa procedura:
    ```
    Questa attività deve essere avviata in tutti i nodi in cui il volume disconnesso è online. Un ripristino dovrebbe essere avviato automaticamente. Attendere il ripristino alla fine. Potrebbe entrare in uno stato sospeso e avviare di nuovo. Per monitorare lo stato di avanzamento: 
    - Eseguire **Get-StorageJob** per monitorare lo stato del ripristino e vedere quando è completata.
-   -  Eseguire **Get-VirtualDisk** e verificare lo spazio restituisce HealthStatus integro.
-    - Il "ripristino dei dati integrità analizza per arresto anomalo del sistema" è un'attività venga visualizzato come un processo di archiviazione e non vi è alcun indicatore di stato. Se l'attività viene visualizzato come in esecuzione, è in esecuzione. Al termine, verrà visualizzato completato.
-    
+   - Eseguire **Get-VirtualDisk** e verificare lo spazio restituisce HealthStatus integro.
+     - Il "ripristino dei dati integrità analizza per arresto anomalo del sistema" è un'attività venga visualizzato come un processo di archiviazione e non vi è alcun indicatore di stato. Se l'attività viene visualizzato come in esecuzione, è in esecuzione. Al termine, verrà visualizzato completato.
+
        Inoltre, è possibile visualizzare lo stato di un'attività di pianificazione in esecuzione usando il cmdlet seguente: 
        ```powershell
        Get-ScheduledTask | ? State -eq running
@@ -189,12 +189,12 @@ Per risolvere questo problema, seguire questa procedura:
    ```powershell
    Add-ClusterSharedVolume -name "VdiskName"
    ```  
-**Valore DiskRunChkdsk 7** viene usato per collegare il volume dello spazio e avere la partizione in modalità sola lettura. In questo modo gli spazi da soli individuare e riparare attivando una correzione. Repair eseguirà automaticamente una volta montata. Consente inoltre di accedere ai dati, che possono essere utili per ottenere l'accesso a tutti i dati è possibile specificare se per copiare. Per alcune condizioni di errore, ad esempio un log DRT completo, è necessario eseguire l'analisi dell'integrità dei dati per l'attività pianificata di arresto anomalo del sistema di ripristino.
-    
+   **Valore DiskRunChkdsk 7** viene usato per collegare il volume dello spazio e avere la partizione in modalità sola lettura. In questo modo gli spazi da soli individuare e riparare attivando una correzione. Repair eseguirà automaticamente una volta montata. Consente inoltre di accedere ai dati, che possono essere utili per ottenere l'accesso a tutti i dati è possibile specificare se per copiare. Per alcune condizioni di errore, ad esempio un log DRT completo, è necessario eseguire l'analisi dell'integrità dei dati per l'attività pianificata di arresto anomalo del sistema di ripristino.
+
 **Analisi dell'integrità dei dati per attività di ripristino di arresto anomalo** viene usato per sincronizzare e cancellare un log area completo dirty (DRT) di rilevamento. Questa attività può richiedere diverse ore. Il "ripristino dei dati integrità analizza per arresto anomalo del sistema" è un'attività venga visualizzato come un processo di archiviazione e non vi è alcun indicatore di stato. Se l'attività viene visualizzato come in esecuzione, è in esecuzione. Al termine, verrà visualizzato come completata. Se si annulla l'attività o riavvia un nodo durante l'esecuzione di questa attività, sarà necessario ricominciare dall'inizio dell'attività.
 
 Per altre informazioni, vedere [integrità risoluzione dei problemi di spazi di archiviazione diretta e gli stati operativi](storage-spaces-states.md).
-    
+
 ## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Evento 5120 con STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
@@ -223,7 +223,7 @@ Description: Cluster node 'NODENAME'was removed from the active failover cluster
 Una modifica introdotta in all'8 maggio 2018 per Windows Server 2016, che è stata un aggiornamento cumulativo per aggiungere gestisce resiliente SMB per le sessioni di rete SMB all'interno del cluster spazi di archiviazione diretta. Ciò permette di migliorare la resilienza agli errori di rete temporanei e migliorare la modalità di gestione traffico di rete intenso RoCE. Questi miglioramenti aumenta anche inavvertitamente attese a timeout e timeout quando le connessioni SMB tenta di riconnettersi quando un nodo viene riavviato. Questi problemi possono influire su un sistema che è in condizioni di stress. Durante i tempi di inattività non pianificato, le pause dei / o di un massimo di 60 secondi sono anche state osservate quando il sistema è in attesa per le connessioni al timeout. Per risolvere questo problema, installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928) o versione successiva.
 
 *Nota* questo aggiornamento consente di allineare i valori di timeout CSV con i timeout di connessione di SMB per risolvere il problema. Non implementa le modifiche per disabilitare la generazione di dump in tempo reale indicata nella sezione soluzione alternativa.
-    
+
 ### <a name="shutdown-process-flow"></a>Flusso del processo di arresto:
 
 1. Eseguire il cmdlet Get-VirtualDisk e assicurarsi che il valore HealthStatus è integro.
@@ -293,14 +293,14 @@ Per disabilitare la generazione di dump in tempo reale (ad esempio, quando viene
 (Get-Cluster).DumpPolicy = ((Get-Cluster).DumpPolicy -band 0xFFFFFFFFFFFFFFFE)
 ```
 Questo cmdlet ha effetto immediato su tutti i nodi del cluster senza dover riavviare il computer.
-    
+
 ## <a name="slow-io-performance"></a>Rallentamento delle prestazioni dei / o
 
 Se si riscontrano rallentamento delle prestazioni dei / o, controllare se cache è abilitata nella configurazione di spazi di archiviazione diretta. 
 
 Esistono due modi per controllare: 
-     
- 
+
+
 1. Uso del log del cluster. Aprire il registro cluster nell'editor di testo preferito e cercare "[=== dischi SBL ===]." Questo sarà un elenco del disco nel nodo che è stato generato il log. 
 
      Cache abilitata dischi esempio: Si noti che lo stato è CacheDiskStateInitializedAndBound e vi è un GUID presentano qui. 
@@ -338,7 +338,7 @@ Esistono due modi per controllare:
    |NVMe INTEL SSDPE7KX02 |PHLF7330001J2P0LGN |SSD| False| OK| Integro| Auto-Select| 1.82 TB|
    |NVMe INTEL SSDPE7KX02| PHLF733000302P0LGN |SSD| False| OK|Integro| Auto-Select| 1.82 TB|
    |NVMe INTEL SSDPE7KX02| PHLF7330004D2P0LGN |SSD| False| OK| Integro| Auto-Select |1.82 TB|
-    
+
 ## <a name="how-to-destroy-an-existing-cluster-so-you-can-use-the-same-disks-again"></a>Come eliminare un cluster esistente in modo che è possibile usare nuovamente gli stessi dischi
 
 In un cluster di spazi di archiviazione diretta, una volta disabilitare la funzionalità spazi di archiviazione diretta e usare la procedura di pulizia descritta nel [Pulisci unità](deploy-storage-spaces-direct.md#step-31-clean-drives), il pool di archiviazione in cluster rimane in uno stato Offline e il servizio integrità viene rimosso da grappolo.
@@ -370,7 +370,7 @@ Ora, se si esegue **Get-PhysicalDisk** su uno dei nodi, si noterà che sono stat
 ||Virtu msft... ||Integro| Offline| 100 GB| NON ELABORATI|
 ||Virtu msft... ||Integro| Offline| 100 GB| NON ELABORATI|
 
-    
+
 ## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Messaggio di errore su "tipo di supporto non supportato" quando si crea un cluster di spazi di archiviazione diretta tramite Enable-ClusterS2D  
 
 Si potrebbero verificare errori simili al seguente quando si esegue la **Enable-ClusterS2D** cmdlet:
@@ -378,32 +378,33 @@ Si potrebbero verificare errori simili al seguente quando si esegue la **Enable-
 ![Messaggio di errore dello scenario 6](media/troubleshooting/scenario-error-message.png)
 
 Per risolvere questo problema, assicurarsi che la scheda HBA viene configurata in modalità scheda HBA. Nessuna scheda bus host deve essere configurato in modalità RAID.  
-    
+
 ## <a name="enable-clusterstoragespacesdirect-hangs-at-waiting-until-sbl-disks-are-surfaced-or-at-27"></a>Enable-ClusterStorageSpacesDirect si blocca a 'In attesa fino a SBL dischi vengono replicati' o a 27%
 
 Verranno visualizzate le seguenti informazioni nel report di convalida:
 
     Disk <identifier> connected to node <nodename> returned a SCSI Port Association and the corresponding enclosure device could not be found. The hardware is not compatible with Storage Spaces Direct (S2D), contact the hardware vendor to verify support for SCSI Enclosure Services (SES). 
-    
-  
+
+
 Il problema riguarda la scheda espansore SAS HPE che risiede tra i dischi e la scheda HBA. Espansore SAS consente di creare un ID duplicato tra la prima unità connesse al pulsante di espansione e di espansione stesso.  Questo è stato risolto [HPE Smart matrice controller SAS Expander Firmware: 4.02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
-    
+
 ## <a name="intel-ssd-dc-p4600-series-has-a-non-unique-nguid"></a>Intel SSD DC P4600 serie dispone di un NGUID non univoco
 È possibile visualizzare un problema in cui un dispositivo serie Intel SSD DC P4600 sembra essere reporting byte 16 NGUID simile per più spazi dei nomi, ad esempio 0100000001000000E4D25C000014E214 o 0100000001000000E4D25C0000EEE214 nell'esempio seguente.
 
-|uniqueid| ID dispositivo |MediaType| BusType| numero di serie| dimensioni|canpool| FriendlyName| OperationalStatus|
-|-|-|-|-|-|-|-|-|-
-|5000CCA251D12E30| 0| Unità disco rigido| SAS| 7PKR197G|                  10000831348736 |False|HGST| HUH721010AL4200| OK|
-|eui.0100000001000000E4D25C000014E214 |4|SSD| NVMe|   0100_0000_0100_0000_E4D2_5C00_0014_E214.|1600321314816|True| INTEL| SSDPE2KE016T7|  OK|
-|eui.0100000001000000E4D25C000014E214 |5|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_0014_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
-|eui.0100000001000000E4D25C0000EEE214| 6|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
-|eui.0100000001000000E4D25C0000EEE214| 7|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
+
+|               uniqueid               | ID dispositivo | MediaType | BusType |               numero di serie               |      dimensioni      | canpool | FriendlyName | OperationalStatus |
+|--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
+|           5000CCA251D12E30           |    0     |    Unità disco rigido    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
+| eui.0100000001000000E4D25C000014E214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
+| eui.0100000001000000E4D25C000014E214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
+| eui.0100000001000000E4D25C0000EEE214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
+| eui.0100000001000000E4D25C0000EEE214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
 
 Per risolvere questo problema, aggiornare il firmware sulle unità Intel la versione più recente.  Versione del firmware QDV101B1 dal mese di maggio 2018 è noto per risolvere il problema.
 
 Il [mese di maggio 2018 versione dello strumento Intel SSD Data Center](https://downloadmirror.intel.com/27778/eng/Intel_SSD_Data_Center_Tool_3_0_12_Release_Notes_330715-026.pdf) include un aggiornamento del firmware, QDV101B1, per la serie di Intel SSD DC P4600.
 
-    
+
 ## <a name="physical-disk-healthy-and-operational-status-is-removing-from-pool"></a>"Integro" disco fisico e lo stato operativo è "Rimozione dal Pool" 
 
 In un cluster Windows Server 2016 spazi di archiviazione diretta, si potrebbe vedere il HealthStatus per i dischi fisici a uno o più "Integro", mentre il OperationalStatus è "(rimozione dal Pool, OK)". 
@@ -416,7 +417,7 @@ In un cluster Windows Server 2016 spazi di archiviazione diretta, si potrebbe ve
 Di seguito sono riportati alcuni esempi che illustrano come eseguire lo script:
 
 - Usare la **SerialNumber** parametro per specificare il disco è necessario impostare su integro. È possibile ottenere il numero di serie da **WMI MSFT_PhysicalDisk** oppure **Get-PhysicalDIsk**. (Solo utilizziamo lt;0s&gt per il numero di serie seguente.)
-   
+
    ```powershell
    Clear-PhysicalDiskHealthData -Intent -Policy -SerialNumber 000000000000000 -Verbose -Force
     ```
@@ -446,7 +447,7 @@ Se si desidera testare le prestazioni di spazi di archiviazione diretta, è cons
 Se si eseguono macchine virtuali di Azure, è possibile ignorare questo evento:
 
     Event ID 32: The driver detected that the device \Device\Harddisk5\DR5 has its write cache enabled. Data corruption may occur. 
-    
+
 ## <a name="slow-performance-or-lost-communication-io-error-detached-or-no-redundancy-errors-for-deployments-that-use-intel-p3x00-nvme-devices"></a>Rallentamento delle prestazioni o "Comunicazione perduta," "Errore dei / o", "Scollegato," o "N ridondanza" errori per le distribuzioni che usano dispositivi NVMe P3x00 Intel
 
 Abbiamo identificato un problema grave che interessa alcuni utenti di spazi di archiviazione diretta che usano componenti hardware in base alla famiglia Intel P3x00 di NVM Express (NVMe) nei dispositivi con versioni di firmware prima "Manutenzione versione 8". 

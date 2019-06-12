@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 127f715620321354792d46f024ee12a06925d866
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5ac95b795d1c5a59f8917bf851ab08fb4d7c1e7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881312"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439178"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -37,14 +37,14 @@ forfiles [/p <Path>] [/m <SearchMask>] [/s] [/c "<Command>"] [/d [{+|-}][{<Date>
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/p \<Path>|Specifica il percorso da cui iniziare la ricerca. Per impostazione predefinita, la ricerca inizia nella directory di lavoro corrente.|
-|/m \<SearchMask>|Cerca i file in base alla maschera di ricerca specificati. La maschera di ricerca predefinito è **\*.\***.|
-|/s|Indica il **forfiles** comando per la ricerca in modo ricorsivo le sottodirectory.|
-|/c "\<comando >"|Esegue il comando specificato su ogni file. Stringhe di comando devono essere racchiusa tra virgolette. Il comando predefinito è **"cmd /c echo @file"**.|
-|/d&nbsp;[{+\|-}]&#8288;[{\<data >\|&#8288;\<giorni >}]|Seleziona i file con una data dell'ultima modifica intervallo di tempo specificato.</br>-Consente di selezionare i file con una data dell'ultima modifica successiva o uguale a (**+**) o precedente o uguale a (**-**) la data specificata, in cui *Data* è nel formato MM/GG/AAAA.</br>-Consente di selezionare i file con una data dell'ultima modifica successiva o uguale a (**+**) la data corrente più il numero di giorni specificati, o precedente o uguale a (**-**) la data corrente meno il numero di giorni specificato.</br>-I valori validi per *giorni* includere qualsiasi numero compreso nell'intervallo 0-32, 768. Se non viene specificato alcun segno, **+** viene utilizzato per impostazione predefinita.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|                     Parametro                      |                                                                                                                                                                                                                                                                                                    Descrizione                                                                                                                                                                                                                                                                                                     |
+|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                     /p \<Path>                     |                                                                                                                                                                                                                                                 Specifica il percorso da cui iniziare la ricerca. Per impostazione predefinita, la ricerca inizia nella directory di lavoro corrente.                                                                                                                                                                                                                                                  |
+|                  /m \<SearchMask>                  |                                                                                                                                                                                                                                                           Cerca i file in base alla maschera di ricerca specificati. La maschera di ricerca predefinito è **\*.\\** \*.                                                                                                                                                                                                                                                           |
+|                         /s                         |                                                                                                                                                                                                                                                                   Indica il **forfiles** comando per la ricerca in modo ricorsivo le sottodirectory.                                                                                                                                                                                                                                                                    |
+|                  /c "\<comando >"                   |                                                                                                                                                                                                                                  Esegue il comando specificato su ogni file. Stringhe di comando devono essere racchiusa tra virgolette. Il comando predefinito è **"cmd /c echo @file"** .                                                                                                                                                                                                                                   |
+| /d&nbsp;[{+\|-}]&#8288;[{\<data >\|&#8288;\<giorni >}] | Seleziona i file con una data dell'ultima modifica intervallo di tempo specificato.</br>-Consente di selezionare i file con una data dell'ultima modifica successiva o uguale a ( **+** ) o precedente o uguale a ( **-** ) la data specificata, in cui *Data* è nel formato MM/GG/AAAA.</br>-Consente di selezionare i file con una data dell'ultima modifica successiva o uguale a ( **+** ) la data corrente più il numero di giorni specificati, o precedente o uguale a ( **-** ) la data corrente meno il numero di giorni specificato.</br>-I valori validi per *giorni* includere qualsiasi numero compreso nell'intervallo 0-32, 768. Se non viene specificato alcun segno, **+** viene utilizzato per impostazione predefinita. |
+|                         /?                         |                                                                                                                                                                                                                                                                                        Visualizza la guida al prompt dei comandi.                                                                                                                                                                                                                                                                                        |
 
 ## <a name="remarks"></a>Note
 
@@ -97,4 +97,4 @@ forfiles /s /m *.* /c "cmd /c echo The extension of @file is 0x09@ext"
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a565a1d5fa1bc3ff57d1578fb54cfa4553e3bb26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ebd65fb56114bff9e6ae4b6a76376561c686dfa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818872"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439559"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -95,7 +95,7 @@ Specifica il numero LUN da aggiungere come plex a LUN attualmente selezionato.
 > [!CAUTION]
 > Tutti i dati nel LUN verrà pertanto aggiunto come un plessi verranno eliminati.
 
-**portale di gestione della TPGROUP = * * * n*
+**portale di gestione della TPGROUP =** <em>n</em>
 
 Specifica il numero del portale di destinazione iSCSI da aggiungere al gruppo del portale di destinazione iSCSI attualmente selezionato.
 
@@ -742,7 +742,7 @@ Specifica il tipo di account di accesso per l'esecuzione: **manuali**, **permane
 
 **persistente** - automaticamente usare lo stesso accesso quando il computer viene riavviato.
 
-**Boot** -(questa opzione è per lo sviluppo futuro e non è attualmente usata *.*)
+**Boot** -(questa opzione è per lo sviluppo futuro e non è attualmente usata<em>.</em>)
 
 **chap**
 

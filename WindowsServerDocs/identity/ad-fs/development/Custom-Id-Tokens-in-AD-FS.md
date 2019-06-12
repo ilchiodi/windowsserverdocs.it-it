@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: c4f9a2880aa91b7a600cdb40238bead7d565e6bc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 04573aa13689a0e6744b01a0fbf8b11b622b2706
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976959"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445477"
 ---
 # <a name="customize-claims-to-be-emitted-in-idtoken-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personalizzare le attestazioni per essere emessa nel token ID quando si usa OAuth o OpenID Connect con AD FS 2016 o versione successiva
 
@@ -57,29 +57,29 @@ Attenersi alla procedura seguente per creare e configurare l'applicazione in AD 
 
 2. Creazione guidata gruppo di applicazioni, immettere il nome **ADFSSSO** e selezionare in Client-Server applicazioni di **applicazione nativa che accede a un'applicazione web** modello. Fare clic su **Avanti**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
 3. Copia il **identificatore Client** valore.  E verrà essere utilizzato in un secondo momento come valore di ida: ClientId nel file Web. config delle applicazioni.
 
 4. Immettere le informazioni seguenti per **URI di reindirizzamento:**  -  **https://localhost:44320/** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
 5. Nel **configurare Web API** schermata, immettere le informazioni seguenti per **Identifier** -  **https://contoso.com/WebApp** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato successivamente per **ida: ResourceID** nel file Web. config dell'applicazione.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
 6. Nel **scegliere Criteri di controllo di accesso** selezionare **consentire tutti gli utenti** e fare clic su **Avanti**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
 
 7. Nel **configurare le autorizzazioni applicazione** schermata, assicurarsi che **openid** e **allatclaims** siano selezionate e fare clic su **successivo**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
 
 8. Nel **riepilogo** schermata, fare clic su **Avanti**.  
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
 
 9. Nel **Complete** schermata, fare clic su **Chiudi**.
 
@@ -89,20 +89,20 @@ Attenersi alla procedura seguente per creare e configurare l'applicazione in AD 
 
 11. Sul **ADFSSSO - proprietà dell'API Web** schermata, seleziona **regole di trasformazione rilascio** scheda e fare clic su **Aggiungi regola...**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
 
 12. Sul **Nell'Aggiunta guidata regole attestazione di trasformazione** schermata, seleziona **inviare attestazioni mediante una regola personalizzata** dall'elenco a discesa e fare clic su **successivo**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
 
 13. Sul **aggiunta trasformare guidata regole attestazione** schermata, immettere **ForCustomIDToken** nelle **nome regola attestazione** e regola di attestazione seguenti **regola personalizzata**. Fare clic su **fine**
 
-  ```  
-  x:[]
-  => issue(claim=x);  
-  ```
+    ```  
+    x:[]
+    => issue(claim=x);  
+    ```
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
 
 ```
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 023bd81b93106a091fb9f26d97cf7eda75f0f633
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c26d42410e5466950ede4f9aa059e315030588
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888462"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435032"
 ---
 # <a name="autochk"></a>autochk
 
@@ -35,12 +35,12 @@ Viene eseguito dopo che il computer viene avviato e versioni precedenti a Window
 
 > -   [!WARNING]
 >     Il **Autochk** lo strumento da riga di comando non è possibile eseguire direttamente dalla riga di comando. Usare invece i **Chkntfs** dello strumento da riga di comando per configurare nel modo desiderato **Autochk** da eseguire all'avvio.
--   È possibile usare **Chkntfs** con il **/x** parametro per evitare **Autochk** dall'esecuzione in un volume specifico o più volumi.
--   Usare la **Chkntfs.exe** dello strumento da riga di comando con il **/t** parametro per modificare il ritardo Autochk da 0 secondi a un massimo di 3 giorni (259200 secondi). Tuttavia, un ritardo prolungato indica che il computer non viene avviato finché non trascorre il tempo o fino a quando non si preme un tasto per annullare **Autochk**.
+> -   È possibile usare **Chkntfs** con il **/x** parametro per evitare **Autochk** dall'esecuzione in un volume specifico o più volumi.
+> -   Usare la **Chkntfs.exe** dello strumento da riga di comando con il **/t** parametro per modificare il ritardo Autochk da 0 secondi a un massimo di 3 giorni (259200 secondi). Tuttavia, un ritardo prolungato indica che il computer non viene avviato finché non trascorre il tempo o fino a quando non si preme un tasto per annullare **Autochk**.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [CHKDSK](chkdsk.md)
 

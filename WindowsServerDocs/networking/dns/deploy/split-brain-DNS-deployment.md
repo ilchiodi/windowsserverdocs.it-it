@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ec4bc8e77e8411101b9a2b83a85ad5e1a0765b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c74bb2ee2f1647716c8c38e392434a5b7f01805f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873502"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446388"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Usare i criteri DNS per divisione\-Brain distribuzione DNS
 
@@ -33,7 +33,7 @@ In questo argomento sono incluse le sezioni seguenti.
 - [Esempio di distribuzione di DNS "split Brain"](#bkmk_sbexample)
 - [Esempio di controllo di ricorsione selettiva DNS](#bkmk_recursion)
 
-##<a name="bkmk_sbexample"></a>Esempio di distribuzione di DNS "split Brain"
+## <a name="bkmk_sbexample"></a>Esempio di distribuzione di DNS "split Brain"
 Ecco un esempio di come è possibile utilizzare criteri DNS per eseguire lo scenario descritto in precedenza di DNS "split Brain".
 
 Questa sezione descrive gli argomenti seguenti:
@@ -57,7 +57,7 @@ Nella figura seguente viene illustrato questo scenario.
 ![Distribuzione di DNS "split Brain"](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-##<a name="bkmk_sbhow"></a>Funzionamento della distribuzione di DNS "split Brain"
+## <a name="bkmk_sbhow"></a>Funzionamento della distribuzione di DNS "split Brain"
 
 Quando il server DNS è configurato con i criteri necessari DNS, viene valutato ogni richiesta di risoluzione nome con i criteri nel server DNS.
 
@@ -67,7 +67,7 @@ Se l'interfaccia del server su cui viene ricevuta la query corrisponde a uno qua
 
 Pertanto, nel nostro esempio, le query DNS per www.career.contoso.com ricevuti sull'indirizzo IP privato (10.0.0.56) ricevano una risposta DNS contenente un indirizzo IP interno. e le query DNS che vengono ricevute nell'interfaccia di rete pubblica ricevano una risposta DNS che contiene l'indirizzo IP pubblico nell'ambito di zona predefinito (questo è quello utilizzato per la risoluzione di query normali).  
 
-##<a name="bkmk_sbconfigure"></a>Come configurare la distribuzione DNS "split Brain"
+## <a name="bkmk_sbconfigure"></a>Come configurare la distribuzione DNS "split Brain"
 Per configurare la distribuzione DNS Split-Brain tramite criteri di DNS, è necessario utilizzare la procedura seguente.
 
 - [Creare gli ambiti di zona](#bkmk_zscopes)  
@@ -79,12 +79,12 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >[!IMPORTANT]
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi. 
 
-###<a name="bkmk_zscopes"></a>Creare gli ambiti di zona
+### <a name="bkmk_zscopes"></a>Creare gli ambiti di zona
 
 Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con diversi indirizzi IP o gli stessi indirizzi IP. 
 
->[!NOTE]
->Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito. In questo ambito di zona predefinito ospiterà la versione di www.career.contoso.com esterna.
+> [!NOTE]
+> Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito. In questo ambito di zona predefinito ospiterà la versione di www.career.contoso.com esterna.
 
 È possibile usare il comando seguente per partizionare l'ambito di zona contoso.com per creare un ambito di zona interno. L'ambito di zona interno verrà utilizzato per mantenere la versione interna del www.career.contoso.com.
 
@@ -92,11 +92,11 @@ Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere 
 
 Per altre informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona
+### <a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona
 
 Il passaggio successivo consiste nell'aggiungere i record che rappresenta l'host del server Web in ambiti due zone - interni e predefinito (per i client esterni). 
 
-Nell'ambito di zona interno, il record **www.career.contoso.com** viene aggiunto con l'indirizzo IP 10.0.0.39, ovvero un indirizzo IP privato; e nell'ambito di zona predefinito lo stesso record **www.career.contoso.com**, è aggiunta con l'indirizzo IP 65.55.39.10.
+Nell'ambito di zona interno, il record <strong>www.career.contoso.com</strong> viene aggiunto con l'indirizzo IP 10.0.0.39, ovvero un indirizzo IP privato; e nell'ambito di zona predefinito lo stesso record <strong>www.career.contoso.com</strong>, è aggiunta con l'indirizzo IP 65.55.39.10.
 
 No **– ZoneScope** nei comandi di esempio seguente viene fornito parametro quando il record viene aggiunto all'ambito di zona predefinito. È simile all'aggiunta di record a una zona "vanilla".
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies"></a>Creare i criteri DNS
+### <a name="bkmk_policies"></a>Creare i criteri DNS
 
 Dopo aver identificato le interfacce di server per la rete esterna e la rete interna e siano stati creati gli ambiti di zona, è necessario creare criteri DNS che si connettono gli ambiti di zona interni ed esterni.
 

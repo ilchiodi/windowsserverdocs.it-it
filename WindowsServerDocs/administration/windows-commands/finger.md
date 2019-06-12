@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42622fdf19cdd50b76d32989769874cbd05e9f4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 526363db3ecff4a9138c9cf13cbf330196e14ced
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826942"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439255"
 ---
 # <a name="finger"></a>finger
 
@@ -30,12 +30,14 @@ Visualizza informazioni su una o più utenti in un computer remoto specificato (
 finger [-l] [<User>] [@<Host>] [...]
 ```
 ### <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|-l|Visualizza le informazioni utente in formato lungo.|
-|<User>|Specifica l'utente sul quale si desiderano informazioni. Se si omette il *utente* parametro **dito** Visualizza informazioni su tutti gli utenti sul computer specificato.|
-|@<Host>|Specifica il computer remoto che esegue il servizio con un dito in cui si sta cercando informazioni utente. È possibile specificare un indirizzo IP o il nome del computer.|
-|/?|Visualizza la guida al prompt dei comandi.|
+
+| Parametro |                                                                            Descrizione                                                                            |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    -l     |                                                          Visualizza le informazioni utente in formato lungo.                                                           |
+|  <User>   | Specifica l'utente sul quale si desiderano informazioni. Se si omette il *utente* parametro **dito** Visualizza informazioni su tutti gli utenti sul computer specificato. |
+|  @<Host>  |        Specifica il computer remoto che esegue il servizio con un dito in cui si sta cercando informazioni utente. È possibile specificare un indirizzo IP o il nome del computer.        |
+|    /?     |                                                               Visualizza la guida al prompt dei comandi.                                                                |
+
 ## <a name="remarks"></a>Note
 Più User@Host parametri possono essere specificati.
 È necessario anteporre **dito** parametri con un trattino (-) anziché una barra (/).
@@ -51,4 +53,4 @@ Per visualizzare informazioni per tutti gli utenti del computer utenti.microsoft
 finger @users.microsoft.com
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

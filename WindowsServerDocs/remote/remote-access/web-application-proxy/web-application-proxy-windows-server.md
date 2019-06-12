@@ -8,12 +8,12 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: web-app-proxy
-ms.openlocfilehash: 2f24e1b8605503d338b15f385017bbeacce682fb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4e4eb73b7d50c7618ad2c998ee484e660bcfef1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872212"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446759"
 ---
 # <a name="web-application-proxy-in-windows-server-2016"></a>Proxy applicazione Web in Windows Server 2016
 
@@ -25,43 +25,43 @@ In questa sezione vengono descritte le nuove e modificate nel Proxy applicazione
   
 ## <a name="web-application-proxy-new-features-in-windows-server-2016"></a>Nuove funzionalità Proxy di applicazione Web in Windows Server 2016
   
--   Preautenticazione per la pubblicazione delle applicazioni di base HTTP  
+- Preautenticazione per la pubblicazione delle applicazioni di base HTTP  
   
-    Base HTTP è il protocollo di autorizzazione utilizzato da numerosi protocolli, tra cui ActiveSync, per la connessione rich client, tra cui Smartphone, la cassetta postale di Exchange. Proxy applicazione Web in genere interagisce con AD FS mediante reindirizzamenti che non è supportato nei client di ActiveSync. Questa nuova versione di Proxy applicazione Web fornisce il supporto per pubblicare un'app tramite HTTP di base, consentendo all'app HTTP di ricevere un non-attestazioni trust della relying party per l'applicazione per il servizio federativo.  
+  Base HTTP è il protocollo di autorizzazione utilizzato da numerosi protocolli, tra cui ActiveSync, per la connessione rich client, tra cui Smartphone, la cassetta postale di Exchange. Proxy applicazione Web in genere interagisce con AD FS mediante reindirizzamenti che non è supportato nei client di ActiveSync. Questa nuova versione di Proxy applicazione Web fornisce il supporto per pubblicare un'app tramite HTTP di base, consentendo all'app HTTP di ricevere un non-attestazioni trust della relying party per l'applicazione per il servizio federativo.  
   
-    Per ulteriori informazioni sulla pubblicazione di base HTTP, vedere [pubblicazione di applicazioni mediante la preautenticazione di ADFS](Publishing-Applications-using-AD-FS-Preauthentication.md#publish-an-application-that-uses-http-basic)  
+  Per ulteriori informazioni sulla pubblicazione di base HTTP, vedere [pubblicazione di applicazioni mediante la preautenticazione di ADFS](Publishing-Applications-using-AD-FS-Preauthentication.md#publish-an-application-that-uses-http-basic)  
   
--   Pubblicazione del dominio con caratteri jolly di applicazioni  
+- Pubblicazione del dominio con caratteri jolly di applicazioni  
   
-    Per supportare scenari, ad esempio SharePoint 2013, l'URL esterno per l'applicazione può ora include un carattere jolly che consente di pubblicare più applicazioni dall'interno di un dominio specifico, ad esempio, https://*.sp-apps.contoso.com. Ciò semplifica la pubblicazione di applicazioni SharePoint.  
+  Per supportare scenari, ad esempio SharePoint 2013, l'URL esterno per l'applicazione può ora include un carattere jolly che consente di pubblicare più applicazioni dall'interno di un dominio specifico, ad esempio, https://*.sp-apps.contoso.com. Ciò semplifica la pubblicazione di applicazioni SharePoint.  
   
--   HTTP per il reindirizzamento HTTPS  
+- HTTP per il reindirizzamento HTTPS  
   
-    Per assicurarsi che gli utenti possano accedere all'app, anche se essi trascura digitare l'URL HTTPS, Proxy applicazione Web supporta HTTP per il reindirizzamento HTTPS.  
+  Per assicurarsi che gli utenti possano accedere all'app, anche se essi trascura digitare l'URL HTTPS, Proxy applicazione Web supporta HTTP per il reindirizzamento HTTPS.  
   
--   Pubblicazione HTTP  
+- Pubblicazione HTTP  
   
-    È ora possibile pubblicare le applicazioni HTTP mediante la preautenticazione pass-through  
+  È ora possibile pubblicare le applicazioni HTTP mediante la preautenticazione pass-through  
   
--   Pubblicazione di applicazioni di Gateway Desktop remoto  
+- Pubblicazione di applicazioni di Gateway Desktop remoto  
   
-    Per ulteriori informazioni su RDG nel Proxy di applicazione Web, vedere [pubblicazione di applicazioni con SharePoint, Exchange e RDG](../web-application-proxy/Publishing-Applications-with-SharePoint,-Exchange-and-RDG.md)  
+  Per ulteriori informazioni su RDG nel Proxy di applicazione Web, vedere [pubblicazione di applicazioni con SharePoint, Exchange e RDG](../web-application-proxy/Publishing-Applications-with-SharePoint,-Exchange-and-RDG.md)  
   
--   Nuovo registro di debug per una migliore risoluzione dei problemi e migliorare il servizio Registro di itinerario di controllo completo e la gestione degli errori migliorata  
+- Nuovo registro di debug per una migliore risoluzione dei problemi e migliorare il servizio Registro di itinerario di controllo completo e la gestione degli errori migliorata  
   
-    Per ulteriori informazioni sulla risoluzione dei problemi, vedere [risoluzione dei problemi di Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
+  Per ulteriori informazioni sulla risoluzione dei problemi, vedere [risoluzione dei problemi di Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
   
--   Miglioramenti di interfaccia Utente della Console di amministrazione  
+- Miglioramenti di interfaccia Utente della Console di amministrazione  
   
--   Propagazione dell'indirizzo IP del client per applicazioni back-end  
+- Propagazione dell'indirizzo IP del client per applicazioni back-end  
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Quali sono le novità in Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
+-   [Novità di Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
   
--   [Pubblicazione di applicazioni mediante la preautenticazione di ADFS](../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md)  
+-   [Pubblicazione delle applicazioni con la preautenticazione di AD FS](../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md)  
   
--   [Risoluzione dei problemi di Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Risoluzione dei problemi relativi a Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
   
 
 

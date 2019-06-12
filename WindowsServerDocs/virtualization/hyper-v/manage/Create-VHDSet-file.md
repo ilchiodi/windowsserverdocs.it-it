@@ -11,12 +11,12 @@ ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: 61f2450857cbeaffd7f75f7b259e9f9de06ba5c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5a6f79d362b9058ca29d979457a1dcdfc0c9f82
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870402"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445696"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>Creare i file di disco rigido virtuale di Hyper-V impostato
 I file di disco rigido virtuale impostato sono un nuovo modello di disco virtuale condiviso per i cluster guest in Windows Server 2016. File disco rigido virtuale impostato supportano il ridimensionamento online di dischi virtuali condivisi, supportano la Replica Hyper-V e possono essere incluso nel Checkpoint coerente con l'applicazione. 
@@ -45,20 +45,20 @@ PS c:\>New-VHD -Path c:\base.vhds -SizeBytes 10GB
 
 La migrazione di un file VHDX condiviso esistente in un VHD, è necessario portare offline la macchina virtuale. Questo è il processo consigliato usando Windows PowerShell:
 
-1.  Rimuovere il file VHDX dalla macchina virtuale. Ad esempio, eseguire: 
-  ``` PowerShell
-  PS c:\>Remove-VMHardDiskDrive existing.vhdx
-  ```
+1. Rimuovere il file VHDX dalla macchina virtuale. Ad esempio, eseguire: 
+   ``` PowerShell
+   PS c:\>Remove-VMHardDiskDrive existing.vhdx
+   ```
   
-2.  Convertire il disco VHDX in un VHD. Ad esempio, eseguire:
-  ``` PowerShell
-  PS c:\>Convert-VHD existing.vhdx new.vhds
-  ```
+2. Convertire il disco VHDX in un VHD. Ad esempio, eseguire:
+   ``` PowerShell
+   PS c:\>Convert-VHD existing.vhdx new.vhds
+   ```
   
-3.  Aggiungere i dischi rigidi VIRTUALI per la macchina virtuale. Ad esempio, eseguire:
-  ``` PowerShell
-  PS c:\>Add-VMHardDiskDrive new.vhds
-  ```
+3. Aggiungere i dischi rigidi VIRTUALI per la macchina virtuale. Ad esempio, eseguire:
+   ``` PowerShell
+   PS c:\>Add-VMHardDiskDrive new.vhds
+   ```
   
 
 

@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 744c2d7ff2965474b90686f88c21f7e6d87deced
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813662"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446125"
 ---
 # <a name="manage-client-access-licenses"></a>Gestire licenze di accesso client
-Ogni stazione che si connette a un sistema MultiPoint Services, tra cui il computer che esegue MultiPoint Services viene usato come stazione, deve avere un Desktop remoto per ogni utente valido *licenza di accesso client (CAL)*.
+Ogni stazione che si connette a un sistema MultiPoint Services, tra cui il computer che esegue MultiPoint Services viene usato come stazione, deve avere un Desktop remoto per ogni utente valido *licenza di accesso client (CAL)* .
 
 Se si usa desktop virtuali stazione invece di stazioni fisiche, è necessario installare una licenza CAL per ogni desktop virtuale stazione.  
   
@@ -39,15 +39,15 @@ Se non è configurato correttamente la configurazione di servizi MultiPoint rich
 2. Nel riquadro a sinistra, passare a **criteri del Computer locale -> Configurazione Computer - > modelli amministrativi -> Windows -> componenti di Remote Desktop Services - > Host sessione Desktop remoto -> licenze**.
 
 3. Nel riquadro di destra, fare clic con il pulsante destro **usare il server licenze Desktop remoto specificato** e selezionare **modificare**:
-  - Nella finestra di editor Criteri di gruppo, selezionare **abilitato**
-  - Immettere il nome del computer locale nel **licenze server da usare** campo.
-  - Selezionare **OK**
+   - Nella finestra di editor Criteri di gruppo, selezionare **abilitato**
+   - Immettere il nome del computer locale nel **licenze server da usare** campo.
+   - Selezionare **OK**
   
 4. Nel riquadro di destra, fare clic con il pulsante destro **impostare la modalità gestione licenze Desktop remoto** e selezionare **modifica**
- - Nella finestra di editor Criteri di gruppo, selezionare **abilitato**
- - Impostare il **modalità di gestione licenze** a per ogni dispositivo / per ogni utente
- - Selezionare **OK** 
+   - Nella finestra di editor Criteri di gruppo, selezionare **abilitato**
+   - Impostare il **modalità di gestione licenze** a per ogni dispositivo / per ogni utente
+   - Selezionare **OK** 
 
-  
+  
 ## <a name="see-also"></a>Vedere anche  
 [Gestire le attività di sistema tramite Gestione MultiPoint](Manage-System-Tasks-Using-MultiPoint-Manager.md)

@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613177"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443548"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Aggiornamento e installazione di Windows Server
 
@@ -46,10 +46,10 @@ La conversione delle licenze in alcune versioni di sistemi operativi consente di
 
 ## <a name="upgrade"></a>Aggiornamento
 Se desideri mantenere lo stesso hardware e tutti i ruoli del server che hai configurato senza rendere flat il server, l'**aggiornamento** è una possibilità e può essere eseguito in tanti modi. Nell'aggiornamento classico, si passa da un sistema operativo precedente a una versione più recente, mantenendo intatti impostazioni, ruoli del server e dati. Ad esempio, se nel server è in esecuzione Windows Server 2012 R2, è possibile aggiornarlo a Windows Server 2016. Tuttavia, non tutti i sistemi operativi precedenti hanno un percorso alla versione più recente.
- 
+ 
 >[!NOTE]
 >L'aggiornamento funziona meglio in macchine virtuali in cui non sono necessari specifici driver hardware originali per l'aggiornamento.
- 
+ 
 È possibile effettuare l'aggiornamento da una versione di valutazione del sistema operativo a una versione definitiva, da una versione definitiva precedente a una più recente oppure, in alcuni casi, da un'edizione del sistema operativo con contratto multilicenza a una normale edizione definitiva.
 
 Prima di iniziare a eseguire un aggiornamento, osserva le tabelle riportate in questa pagina per informazioni su come eseguire il processo.
@@ -58,14 +58,14 @@ Per informazioni sulle differenze tra le opzioni di installazione disponibili pe
 
 >[!NOTE]
 >Ogni volta che si esegue la migrazione o l'aggiornamento a una qualsiasi versione di Windows Server, è necessario rivedere e comprendere i [criteri relativi al ciclo di vita del supporto](https://support.microsoft.com/lifecycle) e l'intervallo di tempo per tale versione e pianificare di conseguenza. È possibile [cercare le informazioni sul ciclo di vita](https://support.microsoft.com/lifecycle) per la versione specifica di Windows Server a cui si è interessati.
- 
- 
+ 
+ 
 ## <a name="upgrading-to-windows-server-2016"></a>Aggiornamento a Windows Server 2016
 Per informazioni dettagliate, inclusi avvisi importanti e limitazioni sull'aggiornamento, la conversione della licenza tra le varie versioni di Windows Server 2016 e la conversione delle edizioni di valutazione in edizioni finali, vedere [Opzioni di aggiornamento e conversione per Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828602).
- 
+ 
 >[!NOTE]
 >Nota: Gli aggiornamenti che prevedono il passaggio da un'installazione Server Core a un'installazione Server con Esperienza desktop (e viceversa) non sono supportati. Se il sistema operativo precedente a cui si esegue l'aggiornamento o la conversione è un'installazione Server Core, il risultato sarà comunque un'installazione Server Core del sistema operativo più recente.
- 
+ 
 Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edizioni finali precedenti di Windows Server alle edizioni finali di Windows Server 2016:
 
 
@@ -81,7 +81,7 @@ Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edi
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 R2 Workgroup|Windows Storage Server 2016 Workgroup|
- 
+ 
 ### <a name="license-conversion"></a>Conversione della licenza
 È possibile convertire Windows Server 2016 Standard (definitiva) in Windows Server 2016 Datacenter (definitiva).
 
@@ -90,7 +90,7 @@ Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edi
 È possibile convertire la versione di valutazione di Windows Server 2016 Standard a Windows Server 2016 Standard (definitiva) o Datacenter (definitiva).
 
 È possibile convertire la versione di valutazione di Windows Server 2016 Datacenter alla versione definitiva.
- 
+ 
 ## <a name="upgrading-to-windows-server-2012-r2"></a>Aggiornamento a Windows Server 2012 R2
 Per informazioni dettagliate, inclusi avvisi importanti e limitazioni sull'aggiornamento, la conversione della licenza tra le varie versioni di Windows Server 2012 R2 e la conversione delle edizioni di valutazione in edizioni finali, vedere [Opzioni di aggiornamento per Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
 
@@ -115,7 +115,7 @@ Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edi
 
 ## <a name="upgrading-to-windows-server-2012"></a>Aggiornamento a Windows Server 2012
 Per informazioni dettagliate, inclusi avvisi importanti e limitazioni sull'aggiornamento e la conversione delle edizioni di valutazione a edizioni finali, vedere [Versioni di prova e opzioni di aggiornamento di Windows Server 2012](https://technet.microsoft.com/library/jj574204.aspx).
- 
+ 
 Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edizioni finali precedenti di Windows Server alle edizioni finali di Windows Server 2012:
 
 |Se si utilizza:|Edizioni a cui è possibile eseguire l'aggiornamento|

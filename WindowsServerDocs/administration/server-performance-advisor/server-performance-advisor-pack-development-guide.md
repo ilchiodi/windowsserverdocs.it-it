@@ -5,12 +5,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c647e8a335aac924067d92dcb41ab4d17e0cceef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c27dd0602c5993fd84e6956c2f50f6e2bfec8691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884862"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435468"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Guida di sviluppo Server Performance Advisor Pack
 
@@ -276,7 +276,8 @@ KeytypeId | Smallint NON NULL | Id di tipo interno
 Value | Nvarchar (4000) NON NULL | Tutti i valori
 
 Il **KeytypeID** colonna può avere uno dei tipi seguenti:
-ID | Tipo
+
+ID | Type
 --- | ---
 1 | Stringa
 2 | expandString
@@ -363,7 +364,7 @@ Il **intervallo** attributo è un'impostazione globale necessaria per tutti i co
 
 Nell'esempio precedente, contatore \\disco fisico (\*)\\Media Trasferimenti disco/sec interrogato ogni secondo.
 
-È possibile che due istanze: **\_Totale** e **c 0: Unità d:**, e l'output potrebbe essere come segue:
+È possibile che due istanze: **\_Totale** e **c 0: Unità d:** , e l'output potrebbe essere come segue:
 
 timestamp | CategoryName | CounterName | Valore dell'istanza di totale | Valore dell'istanza di c 0: D:
 ---- | ---- | ---- | ---- | ----
@@ -449,7 +450,7 @@ Ecco un esempio di una regola semplice s:
 
 ``` syntax
 <advisorPack>
-   
+
   <reportDefinition>
     <thresholds>
       <threshold  />
@@ -589,7 +590,7 @@ Il gruppo a valore singolo seguente include un attributo, **sezione**, e può pu
 
 Un gruppo singolo valore e una tabella di valori di elenco contengono diversi tipi di dati, ad esempio string, int e float. Poiché questi valori sono archiviati nel database di SQL Server, è possibile definire un tipo di dati SQL per ogni proprietà di dati. Tuttavia, la definizione di un tipo di dati SQL è piuttosto complicata. È necessario specificare la lunghezza o precisione, che potrà essere soggetta a modifica.
 
-Per definire i tipi di dati logico, è possibile utilizzare il primo elemento figlio di **&lt;reportDefinition /&gt;**, ovvero in cui è possibile definire un mapping del tipo di dati SQL e il tipo di logico.
+Per definire i tipi di dati logico, è possibile utilizzare il primo elemento figlio di **&lt;reportDefinition /&gt;** , ovvero in cui è possibile definire un mapping del tipo di dati SQL e il tipo di logico.
 
 Nell'esempio seguente definisce due tipi di dati. Uno è **stringa** e l'altro è **companyCode**.
 
@@ -610,7 +611,7 @@ Il nome di un tipo di dati può essere qualsiasi stringa valida. Ecco un elenco 
 
 * date
 
-* Data/ora
+* datetime
 
 * datetime2
 
@@ -668,7 +669,7 @@ Un singolo valore deve avere un attributo di nome univoco globale. In questo ese
 
 Anche se è possibile definire più gruppi di singolo valore, non due nomi di valore singolo possono essere lo stesso, anche se sono in gruppi diversi. Il nome del singolo valore viene utilizzato il report di script SQL per impostare il valore di conseguenza.
 
-È possibile definire un tipo di dati per ogni singolo valore. L'input consentito per **tipo** definito nella  **&lt;datatype /&gt;**. Il report finale può avere un aspetto simile al seguente:
+È possibile definire un tipo di dati per ogni singolo valore. L'input consentito per **tipo** definito nella  **&lt;datatype /&gt;** . Il report finale può avere un aspetto simile al seguente:
 
 **Fact**
 
@@ -702,7 +703,7 @@ L'interfaccia Utente fittizio della relazione finale potrebbe apparire come segu
 
 **Informazioni scheda di rete fisica**
 
-ID | Nome | Tipo | Velocità (Mbps) | Indirizzo MAC
+ID | Nome | Type | Velocità (Mbps) | Indirizzo MAC
 --- | --- | --- | --- | ---
  | <br> | | |
  | | | |
@@ -941,7 +942,7 @@ DECLARE @freediskSize FLOat
 exec dbo.GetThreshold N freediskSize , @freediskSize output
 
 if (@freediskSizeInGB < @freediskSize)
- 
+
 ```
 
 ### <a name="set-or-remove-the-single-value"></a>Per impostare o rimuovere il valore singolo
@@ -1033,7 +1034,7 @@ INSERT INTO #NetworkAdapterInformation (
   MACaddress
 )
 VALUES (
-   
+
 )
 ```
 
@@ -1091,7 +1092,7 @@ La console SPA può essere eseguita in due modalità, Debug o rilascio. Modalit�
 
     **Nota** è anche possibile premere F11 per eseguire l'istruzione precedente ed eseguire il debug.
 
-     
+
 
 Esecuzione di \[dbo\].\[DebugReportScript\] restituisce più set di risultati, tra cui:
 
@@ -1109,9 +1110,9 @@ Esecuzione di \[dbo\].\[DebugReportScript\] restituisce più set di risultati, t
 
 ### <a name="naming-convention-and-styles"></a>Convenzione di denominazione e stili
 
-La convenzione Pascal maiuscole e minuscole | Convenzione camel | lettere maiuscole
---- | ---- | ---
-<ul><li>Nomi di Provisionmetadata</li><li>Stored procedure</li><li>Funzioni</li><li>Nomi delle viste</li><li>Nomi delle tabelle temporanee</li></ul> | <ul><li>Nomi dei parametri</li><li>Variabili locali</li></ul> | Utilizzo per tutte le parole chiave riservate di SQL
+|                                                                 La convenzione Pascal maiuscole e minuscole                                                                 |                       Convenzione camel                        |             lettere maiuscole             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
+| <ul><li>Nomi di Provisionmetadata</li><li>Stored procedure</li><li>Funzioni</li><li>Nomi delle viste</li><li>Nomi delle tabelle temporanee</li></ul> | <ul><li>Nomi dei parametri</li><li>Variabili locali</li></ul> | Utilizzo per tutte le parole chiave riservate di SQL |
 
 ### <a name="other-recommendations"></a>Altri suggerimenti
 
@@ -1143,13 +1144,13 @@ Nell'esempio seguente viene illustrato il flusso di lavoro per l'esecuzione di d
 
 Insieme di raccolta dati unione è solo per la raccolta dei contatori delle prestazioni e le origini dati ETW. Si applicano le regole di unione seguenti:
 
-1.  SPA accetta la maggiore durata come la nuova durata.
+1. SPA accetta la maggiore durata come la nuova durata.
 
-2.  In cui sono presenti conflitti di unione, vengono seguite le regole seguenti:
+2. In cui sono presenti conflitti di unione, vengono seguite le regole seguenti:
 
-    1.  Accettare l'intervallo più piccolo come il nuovo intervallo.
+   1. Accettare l'intervallo più piccolo come il nuovo intervallo.
 
-    2.  Richiedere l'insieme completo dei contatori delle prestazioni. Ad esempio, con **processo (\*)\\% tempo processore** e **processo (\*)\\\*,\\processo (\*)\\ \***  restituisce più dati, pertanto **processo (\*)\\% tempo processore** e **processo (\*)\\ \***  viene rimosso dal set di agenti di raccolta dati uniti.
+   2. Richiedere l'insieme completo dei contatori delle prestazioni. Ad esempio, con **processo (\*)\\% tempo processore** e **processo (\*)\\\*,\\processo (\*)\\ \\** * restituisce più dati, pertanto **processo (\*)\\% tempo processore** e **processo (\*)\\ \\** * viene rimosso dal set di agenti di raccolta dati uniti.
 
 ### <a name="collect-dynamic-data"></a>Raccogliere i dati dinamici
 
@@ -1169,7 +1170,7 @@ Restituisce un elenco di oggetti scheda di rete. Ogni oggetto dispone di una pro
 ROOT\*ISatAP\0001
 PCI\VEN_8086&DEV_4238&SUBSYS_11118086&REV_35\4&372A6B86&0&00E4
 ROOT\*IPHTTPS\0000
- 
+
 ```
 
 Per trovare le **FriendlyName** valore, aprire l'editor del Registro di sistema e passare all'impostazione del Registro di sistema combinando **HKEY\_locale\_macchina\\sistema\\ CurrentControlSet\\Enum\\**  con ogni riga nell'esempio precedente. Per esempio: **HKEY\_locale\_MACHINE\\SYSTEM\\CurrentControlSet\\Enum\\ radice\\\*IPHTTPS\\0000**.
@@ -1188,7 +1189,7 @@ Per convertire i passaggi precedenti in SPA provisioning metadati, aggiungere lo
 </managementpaths>
 ```
 
-In questo esempio, viene innanzitutto aggiungere una query WMI sotto managementpaths e definire il nome della chiave **NetworkAdapter**. È necessario aggiungere una chiave del Registro di sistema e fare riferimento a **NetworkAdapter** utilizzando la sintassi **$(NetworkAdapter.PNPDeviceID)**.
+In questo esempio, viene innanzitutto aggiungere una query WMI sotto managementpaths e definire il nome della chiave **NetworkAdapter**. È necessario aggiungere una chiave del Registro di sistema e fare riferimento a **NetworkAdapter** utilizzando la sintassi **$(NetworkAdapter.PNPDeviceID)** .
 
 Nella tabella seguente definisce se un agente di raccolta dati in SPA supporta dati dinamici e se è possibile farvi riferimento da altri agenti di raccolta dati:
 
@@ -1216,7 +1217,7 @@ E un esempio di WMI:
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-Per definire un agente di raccolta dati dipendenti, utilizzare la sintassi seguente: $(*{nome}*.*{attributo}*).
+Per definire un agente di raccolta dati dipendenti, utilizzare la sintassi seguente: $( *{nome}* . *{attributo}* ).
 
 *{nome}* e *{attributo}* sono segnaposto.
 
@@ -1311,7 +1312,7 @@ Qui s come definire ETW in un file Provisionmetadata XML:
 
 Gli attributi di provider seguenti sono disponibili per la raccolta di ETW:
 
-Attributo | Tipo | Descrizione
+Attributo | Type | Descrizione
 --- | --- | ---
 GUID | GUID | GUID del provider
 sessione | string | Nome della sessione ETW (facoltativo, richiesto solo per gli eventi del kernel)

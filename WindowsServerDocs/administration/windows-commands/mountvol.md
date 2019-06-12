@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e31a167d98203b684917aceee2603a29dd478a3e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03e7cefc7c7a00338972fc365b7c25d9c795c83e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846322"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437287"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -42,18 +42,18 @@ mountvol <Drive>: /s
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|[\<Drive>:]<Path>|Specifica la directory NTFS esistente in cui risiederà il punto di montaggio.|
-|\<VolumeName>|Specifica il nome del volume di destinazione del punto di montaggio. Il nome del volume viene utilizzata la sintassi seguente, dove *GUID* è un identificatore univoco globale:</br>`\\\\?\Volume\{GUID}\`</br>Sono necessarie le parentesi {}.|
-|/d|Rimuove il punto di montaggio del volume dalla cartella specificata.|
-|/l|Elenca il nome del volume montate per la cartella specificata.|
-|/ p|Rimuove il punto di montaggio del volume della directory specificata e lo Smonta il volume di base accetta il volume di base non in linea, rendendolo non montabile. Se altri processi usano il volume **mountvol** chiude tutti gli handle aperti prima di smontare il volume.|
-|/r|Rimuove le directory di punto di montaggio di volume e le impostazioni del Registro di sistema per i volumi che non sono più nel sistema, impedisce che venga montato automaticamente e dato il loro volume precedente quando aggiunto nuovamente al sistema i punti di montaggio.|
-|/n|Disabilita il montaggio automatico dei nuovi volumi di base. I nuovi volumi non vengono montati automaticamente quando aggiunto al sistema.|
-|/e|Abilita nuovamente il montaggio automatico dei nuovi volumi di base.|
-|/s|Consente di montare la partizione di sistema EFI nell'unità specificata. Disponibili solo i computer basati su Itanium.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|     Parametro     |                                                                                                                           Descrizione                                                                                                                            |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                                             Specifica la directory NTFS esistente in cui risiederà il punto di montaggio.                                                                                             |
+|   \<VolumeName>   |                     Specifica il nome del volume di destinazione del punto di montaggio. Il nome del volume viene utilizzata la sintassi seguente, dove *GUID* è un identificatore univoco globale:</br>`\\\\?\Volume\{GUID}\`</br>Sono necessarie le parentesi {}.                      |
+|        /d         |                                                                                                    Rimuove il punto di montaggio del volume dalla cartella specificata.                                                                                                     |
+|        /l         |                                                                                                     Elenca il nome del volume montate per la cartella specificata.                                                                                                      |
+|        / p         | Rimuove il punto di montaggio del volume della directory specificata e lo Smonta il volume di base accetta il volume di base non in linea, rendendolo non montabile. Se altri processi usano il volume **mountvol** chiude tutti gli handle aperti prima di smontare il volume. |
+|        /r         |             Rimuove le directory di punto di montaggio di volume e le impostazioni del Registro di sistema per i volumi che non sono più nel sistema, impedisce che venga montato automaticamente e dato il loro volume precedente quando aggiunto nuovamente al sistema i punti di montaggio.              |
+|        /n         |                                                                      Disabilita il montaggio automatico dei nuovi volumi di base. I nuovi volumi non vengono montati automaticamente quando aggiunto al sistema.                                                                       |
+|        /e         |                                                                                                       Abilita nuovamente il montaggio automatico dei nuovi volumi di base.                                                                                                        |
+|        /s         |                                                                                Consente di montare la partizione di sistema EFI nell'unità specificata. Disponibili solo i computer basati su Itanium.                                                                                |
+|        /?         |                                                                                                               Visualizza la guida al prompt dei comandi.                                                                                                               |
 
 ## <a name="remarks"></a>Note
 
@@ -70,4 +70,4 @@ mountvol \sysmount \\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

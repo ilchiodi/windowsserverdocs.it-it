@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a76ea6ede1237b05a7f7dd95fdb9f7c1560a922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858252"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436966"
 ---
 # <a name="nslookup-finger-command"></a>nslookup finger Command
 
@@ -34,12 +34,12 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<Nome utente >|Specifica il nome dell'utente da cercare.|
-|\<FileName>|Specifica un nome di file in cui salvare l'output. È possibile usare il simbolo di maggiore (>) e double maggiore di (>>) per reindirizzare l'output nel modo usuale.|
-|Guida { | ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+|  Parametro  |                                                                               Descrizione                                                                               |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \<Nome utente > |                                                               Specifica il nome dell'utente da cercare.                                                                |
+| \<FileName> | Specifica un nome di file in cui salvare l'output. È possibile usare il simbolo di maggiore (>) e double maggiore di (>>) per reindirizzare l'output nel modo usuale. |
+|    Guida {    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

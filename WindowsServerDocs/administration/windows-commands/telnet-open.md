@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a87c4bac000a63af806705e9371a79d7370a34c1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838242"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441122"
 ---
 # <a name="telnet-open"></a>Telnet: aprire
 
@@ -30,14 +30,16 @@ Si connette a un server telnet.
 o[pen] <hostname> [<Port>]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<hostname>|Specifica il nome del computer o indirizzo IP.|  
-|[<Port>]|Specifica la porta TCP che il server telnet è in ascolto. Il valore predefinito è la porta TCP 23.|  
+
+| Parametro  |                                        Descrizione                                         |
+|------------|--------------------------------------------------------------------------------------------|
+| <hostname> |                         Specifica il nome del computer o indirizzo IP.                         |
+|  [<Port>]  | Specifica la porta TCP che il server telnet è in ascolto. Il valore predefinito è la porta TCP 23. |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 Connettersi a un server telnet in telnet.microsoft.com.  
 ```  
 o telnet.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

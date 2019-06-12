@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0257c4d15db4fc54e55ef430f6f2eea9cea2ec4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65a272873a60d74efcf417a16fdc84670f5878da
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882822"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446998"
 ---
 # <a name="realm-names"></a>Nomi delle aree di autenticazione
 
@@ -28,7 +28,7 @@ In un altro esempio, se l'attributo RADIUS User-Name contiene il nome utente use
 
 - **Example\user1**. In questo esempio, il nome dell'area di autenticazione **riportato** è un prefisso; ed è anche il nome di un server Active Directory&reg; servizi di dominio \(Active Directory Domain Services\) dominio.
 
-- **user1@example.com**. In questo esempio, il nome dell'area di autenticazione **example.com** è un suffisso; ed è un nome di dominio DNS o il nome di un dominio di Active Directory Domain Services.
+- <strong>user1@example.com</strong>. In questo esempio, il nome dell'area di autenticazione **example.com** è un suffisso; ed è un nome di dominio DNS o il nome di un dominio di Active Directory Domain Services.
 
 È possibile usare nomi di area di autenticazione configurati in Criteri di richiesta di connessione durante la progettazione e distribuzione dell'infrastruttura RADIUS per garantire che le richieste di connessione vengano indirizzate da client RADIUS, chiamato anche i server di accesso di rete, per i server RADIUS che può essere autenticare e autorizzare la richiesta di connessione.
 

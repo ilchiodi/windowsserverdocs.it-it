@@ -13,12 +13,12 @@ ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: fcd37ebb3739f1d7118ce41dfc61764486c920d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 97c20fd07d06b609686daf4d6308a9f248873036
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844962"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446347"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Clustering guest in una rete virtuale
 
@@ -143,7 +143,7 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    Import-module failoverclusters
 
    $ClusterName = "MyCluster"
-   
+   
    $ClusterNetworkName = "Cluster Network 1"
    $IPResourceName =  
    $ILBIP = “192.168.2.100” 
@@ -182,6 +182,6 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    Add-ClusterNode $nodes[1]
    ```
 
-_**Il cluster è attivo.**_ Viene indirizzato il traffico verso l'indirizzo VIP sulla porta specificata in corrispondenza del nodo attivo.
+_**Il cluster è attivo.** _ Viene indirizzato il traffico verso l'indirizzo VIP sulla porta specificata in corrispondenza del nodo attivo.
 
 ---

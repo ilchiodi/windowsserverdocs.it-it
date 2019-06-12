@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861212"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447244"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Impostazioni avanzate di Deduplicazione dati
 
@@ -76,7 +76,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
     </thead>
     <tbody>
         <tr>
-            <td>Tipo</td>
+            <td>Type</td>
             <td>Il tipo di processo che deve essere pianificato</td>
             <td>
                 <ul>
@@ -97,7 +97,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
                     <li>Bassa</li>
                 </ul>
             </td>
-            <td>Questo valore consente al sistema di determinare la modalità di allocazione del tempo della CPU. *Alto* userà più tempo della CPU, *Basso* ne userà il minimo.</td>
+            <td>Questo valore consente al sistema di determinare la modalità di allocazione del tempo della CPU. <em>Alto</em> userà più tempo della CPU, <em>Basso</em> ne userà il minimo.</td>
         </tr>
         <tr>
             <td>Days</td>
@@ -123,7 +123,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>DurationHours</td>
             <td>Numero massimo di ore consentite per l'esecuzione di un processo</td>
             <td>Numeri interi positivi</td>
-            <td>Per evitare che un processo venga eseguito fuori dall'orario di inattività di un carico di lavoro</td>
+            <td>Per evitare che un processo per l'esecuzione in un carico di lavoro&#39;s ore di inattività</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>InputOutputThrottle</td>
             <td>Specifica la quantità di limitazione di input/output applicata al processo</td>
             <td>Numeri interi da 0 a 100 (indica una percentuale)</td>
-            <td>La limitazione garantisce che i processi non interferiscano con altri processi ad uso intensivo di I/O.</td>
+            <td>La limitazione assicura che don processi&#39;t interferire con altri processi dei / O intensivo.</td>
         </tr>
         <tr>
             <td>Memoria</td>
@@ -164,8 +164,8 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
         <tr>
             <td>Inizio</td>
             <td>Specifica l'ora in cui un processo deve iniziare</td>
-            <td>`System.DateTime`</td>
-            <td>La parte *date* del `System.Datetime` trasmesso a *Start* è irrilevante (purché sia nel passato), ma la parte *time* specifica quando deve iniziare il processo.</td>
+            <td><code>System.DateTime</code></td>
+            <td>Il <em>data</em> fa parte del <code>System.Datetime</code> fornito al <em>Start</em> è irrilevante (fino al momento&#39;s nel passato), ma il <em>ora</em> parte specifica quando deve iniziare il processo .</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,9 +208,9 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot indica che i cosiddetti blocchi "hot" a cui si fa riferimento di frequente usano più percorsi di accesso per migliorare i tempi di accesso.</td>
+            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot è che le cosiddette &quot;hot&quot; blocchi di cui si fa spesso riferimento con più percorsi di accesso per migliorare i tempi di accesso.</td>
             <td>Numeri interi positivi</td>
-            <td>Il motivo principale per cui si modifica questo numero è incrementare la percentuale di riduzione per i volumi con elevata duplicazione. In generale, il valore predefinito (100) è l'impostazione consigliata e non è necessario modificarlo.</td>
+            <td>Il motivo principale per cui si modifica questo numero è incrementare la percentuale di riduzione per i volumi con elevata duplicazione. In generale, il valore predefinito (100) è l'impostazione consigliata e non si deve&#39;t necessario modificarlo.</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,13 +228,13 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
             <td>InputOutputScale</td>
             <td>Specifica il livello di parallelizzazione IO (code IO) per la deduplicazione dei dati da usare in un volume durante un processo di post-elaborazione</td>
             <td>Numeri interi positivi da 1 a 36</td>
-            <td>Il motivo principale per cui si modifica questo valore è ridurre l'impatto sulle prestazioni di un elevato carico di lavoro IO limitando il numero di code IO che la deduplicazione dei dati può usare in un volume. Si noti che la modifica di questa impostazione dal valore predefinito può rallentare l'esecuzione dei processi di post-elaborazione della deduplicazione dei dati.</td>
+            <td>Il motivo principale per cui si modifica questo valore è ridurre l'impatto sulle prestazioni di un elevato carico di lavoro IO limitando il numero di code IO che la deduplicazione dei dati può usare in un volume. Si noti che la modifica di questa impostazione dal valore predefinito può causare la deduplicazione dei dati&#39;s esecuzione dei processi di post-elaborazione.</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
             <td>Numero di giorni dopo la creazione del file prima che il file sia considerato conforme ai criteri per l'ottimizzazione.</td>
             <td>Numeri interi positivi (incluso zero)</td>
-            <td>I tipi di uso **predefinito** e **HyperV** impostano questo valore su 3 per ottimizzare le prestazioni sui file attivi o creati di recente. È consigliabile modificare il valore per rendere più aggressiva la deduplicazione dei dati o se non è rilevante la latenza aggiuntiva associata alla deduplicazione.</td>
+            <td>I tipi di uso <strong>predefinito</strong> e <strong>HyperV</strong> impostano questo valore su 3 per ottimizzare le prestazioni sui file attivi o creati di recente. È consigliabile modificare il valore per rendere più aggressiva la deduplicazione dei dati o se non è rilevante la latenza aggiuntiva associata alla deduplicazione.</td>
         </tr>
         <tr>
             <td>MinimumFileSize</td>
@@ -258,7 +258,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
             <td>OptimizeInUseFiles</td>
             <td>Se abilitata, i file con handle verranno considerati conformi ai criteri per l'ottimizzazione.</td>
             <td>True/false</td>
-            <td>Abilitare questa impostazione se il carico di lavoro tiene aperti i file per lunghi periodi di tempo. Se questa impostazione non è abilitata, un file non verrà mai ottimizzato se il carico di lavoro ha un handle aperto per il file, anche se è solo occasionalmente l'accodamento dei dati alla fine.</td>
+            <td>Abilitare questa impostazione se il carico di lavoro tiene aperti i file per lunghi periodi di tempo. Se questa impostazione non è abilitata, un file non verrà mai ottimizzato se il carico di lavoro ha un handle aperto, anche se è&#39;s solo occasionalmente l'accodamento dei dati alla fine.</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -310,9 +310,9 @@ Ad esempio, è possibile disattivare completamente Garbage Collection. Altre inf
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Questa impostazione consente di configurare l'intervallo in cui i processi di Garbage Collection normali diventano [processi di Garbage Collection completi](advanced-settings.md#faq-full-v-regular-gc). L'impostazione n significa ogni <sup>n</sup> processi si ha un processo di Garbage Collection completo. Nota che un Garbage Collection completo è sempre disabilitato (indipendentemente dal valore del Registro di sistema) per i volumi con il [il tipo di utilizzo Backup](understand.md#usage-type-backup). `Start-DedupJob -Type GarbageCollection -Full` può essere utilizzato se non si desidera completa di Garbage Collection in un volume di Backup.</td>
+            <td>Questa impostazione consente di configurare l'intervallo in cui i processi di Garbage Collection normali diventano <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">processi di Garbage Collection completi</a>. L'impostazione n significa ogni <sup>n</sup> processi si ha un processo di Garbage Collection completo. Nota che un Garbage Collection completo è sempre disabilitato (indipendentemente dal valore del Registro di sistema) per i volumi con il <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">il tipo di utilizzo Backup</a>. <code>Start-DedupJob -Type GarbageCollection -Full</code> può essere utilizzato se non si desidera completa di Garbage Collection in un volume di Backup.</td>
             <td>Numeri interi (-1 indica disabilitato)</td>
-            <td>Vedere [questa domanda nelle Domande frequenti](advanced-settings.md#faq-why-disable-full-gc)</td>
+            <td>Vedere <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">questa domanda nelle Domande frequenti</a></td>
         </tr>
     </tbody>
 </table>

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c66f21f55201d9d784b1ab0d7b729bc272589e5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72d80fdf6eca1262a858cbe2a98ed8c9c421bff6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822972"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434085"
 ---
 # <a name="create-volume-mirror"></a>creare mirror volume
 
@@ -39,12 +39,12 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
   
 ## <a name="parameters"></a>Parametri  
   
-|Parametro|Descrizione|  
-|-------|--------|  
-|size\=<n>|Specifica la quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.|  
-|disk\=<n>,<n>\[,<n>,...\]|Specifica i dischi dinamici in cui viene creato il volume con mirroring. Sono necessari due dischi dinamici per creare un volume con mirroring. Una quantità di spazio che è uguale a quella specificata con il **dimensioni** parametro allocato su ogni disco.|  
-|align\=<n>|Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. Questo parametro viene in genere utilizzato con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino.|  
-|NOERR|Usato solo negli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un errore.|  
+|         Parametro         |                                                                                                                                     Descrizione                                                                                                                                     |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         size\=<n>         |                 Specifica la quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.                 |
+| disk\=<n>,<n>\[,<n>,...\] |                       Specifica i dischi dinamici in cui viene creato il volume con mirroring. Sono necessari due dischi dinamici per creare un volume con mirroring. Una quantità di spazio che è uguale a quella specificata con il **dimensioni** parametro allocato su ogni disco.                        |
+|        align\=<n>         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. Questo parametro viene in genere utilizzato con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
+|           NOERR           |                                        Usato solo negli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un errore.                                         |
   
 ## <a name="remarks"></a>Note  
   
@@ -58,7 +58,7 @@ create volume mirror size=1000 disk=1,2
 ```  
   
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 
   

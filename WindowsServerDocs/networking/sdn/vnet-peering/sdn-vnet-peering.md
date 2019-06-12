@@ -9,12 +9,12 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 58596387d79f3f212a472f00c2785bacc278e855
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aab4ec7c69ec5b52eae926cd1065d777415b1124
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821912"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446215"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -36,20 +36,20 @@ I vantaggi dell'uso di peering di rete virtuale includono:
 
 Peering di rete virtuale presenta alcuni requisiti e vincoli:
 
--   Reti virtuali con peering devono:
+- Reti virtuali con peering devono:
 
-    -   Avere spazi di indirizzi IP non sovrapposte
+  -   Avere spazi di indirizzi IP non sovrapposte
 
-    -   Essere gestite dallo stesso Controller di rete
+  -   Essere gestite dallo stesso Controller di rete
 
--   Dopo che è il peering di una rete virtuale con un'altra rete virtuale, è possibile aggiungere o eliminare intervalli di indirizzi nello spazio degli indirizzi.
+- Dopo che è il peering di una rete virtuale con un'altra rete virtuale, è possibile aggiungere o eliminare intervalli di indirizzi nello spazio degli indirizzi.
 
-   >[!TIP]
-   >Se è necessario aggiungere gli intervalli di indirizzi:<ol><li>Rimuovere il peering.</li><li>Aggiungere lo spazio degli indirizzi.</li><li>Riaggiungere il peering.</li></ol>
+  >[!TIP]
+  >Se è necessario aggiungere gli intervalli di indirizzi:<ol><li>Rimuovere il peering.</li><li>Aggiungere lo spazio degli indirizzi.</li><li>Riaggiungere il peering.</li></ol>
 
--   Poiché il peering di rete virtuale è comprese tra due reti virtuali, non vi è alcuna relazione transitiva derivata nei peering. Ad esempio, se vengono eseguiti con virtualNetworkB e virtualNetworkB con peering è il peering, quindi vengono eseguiti non ottenere il peering con peering.
+- Poiché il peering di rete virtuale è comprese tra due reti virtuali, non vi è alcuna relazione transitiva derivata nei peering. Ad esempio, se vengono eseguiti con virtualNetworkB e virtualNetworkB con peering è il peering, quindi vengono eseguiti non ottenere il peering con peering.
 
-    [immagine qui]
+  [immagine qui]
 
 ## <a name="connectivity"></a>Connettività
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 191a7e87e5c881495a1e070a5ea9bd8504dc6674
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: de7f508eaff92ad7b3e12aef8549a185bd2ba381
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851012"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437017"
 ---
 # <a name="nslookup-exit-command"></a>nslookup exit Command
 
@@ -34,10 +34,10 @@ Nslookup /exit
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Guida { | ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+| Parametro | Descrizione |
+|-----------|-------------|
+|   Guida {   |     ?}      |
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

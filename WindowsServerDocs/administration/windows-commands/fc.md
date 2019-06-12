@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 98fd96c73b962a13c0e715420ebbe6f3cd19a42b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7ccc3d268b58bfa5e848f2336f4315baae8b4e1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439316"
 ---
 # <a name="fc"></a>fc
 
@@ -37,22 +37,22 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/a|Abbrevia l'output di un confronto ASCII. Invece di visualizzare tutte le righe che sono diverse, **fc** viene visualizzata solo la riga e il cognome di ogni gruppo di differenze.|
-|/ b|Confronta i due file in modalità binaria, byte per byte e non tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto tra i file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.|
-|/c|Ignora le maiuscole/minuscole.|
-|/l|Confronta i file in modalità ASCII, riga per riga e tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto dei file, ad eccezione dei file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.|
-|/lb\<N>|Imposta il numero di righe per il buffer interno *N*. La lunghezza del buffer di riga predefinita è 100 righe. Se i file che si desidera confrontare più di 100 righe diverse volte consecutive, **fc** annullerà il confronto.|
-|/n|Visualizza i numeri di riga durante un confronto ASCII.|
-|/ [offline]|Non ignorare i file che sono impostato l'attributo non in linea.|
-|/t|Impedisce **fc** dalla conversione tabulazioni in spazi. Il comportamento predefinito consiste nel considerare schede come spazi, con interruzioni ogni otto caratteri.|
-|/u|Confronta i file come file di testo Unicode.|
-|/w|Comprime gli spazi vuoti (vale a dire, schede e spazi) durante il confronto. Se una riga contiene molti spazi consecutivi o nelle schede, **/w** li considererà come spazio singolo. Se utilizzato con **/w**, **fc** Ignora gli spazi vuoti all'inizio e fine riga.|
-|/\<NNNN>|Specifica il numero di righe consecutive che deve corrispondere in seguito una mancata corrispondenza prima **fc** considera i file essere risincronizzata. Se il numero di righe corrispondenti nei file è minore di *NNNN*, **fc** righe saranno visualizzate come differenze. Il valore predefinito è 2.|
-|[\<Drive1>:][<Path1>]<FileName1>|Specifica il percorso e nome del primo file o set di file da confrontare. *FileName1* è obbligatorio.|
-|[\<Drive2>:][<Path2>]<FileName2>|Specifica il percorso e nome del secondo file o set di file da confrontare. *FileName2* è obbligatorio.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|            Parametro             |                                                                                                                                     Descrizione                                                                                                                                      |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                /a                |                                                 Abbrevia l'output di un confronto ASCII. Invece di visualizzare tutte le righe che sono diverse, **fc** viene visualizzata solo la riga e il cognome di ogni gruppo di differenze.                                                  |
+|                / b                |             Confronta i due file in modalità binaria, byte per byte e non tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto tra i file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.              |
+|                /c                |                                                                                                                               Ignora le maiuscole/minuscole.                                                                                                                               |
+|                /l                |               Confronta i file in modalità ASCII, riga per riga e tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto dei file, ad eccezione dei file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.                |
+|             /lb\<N>              |                         Imposta il numero di righe per il buffer interno *N*. La lunghezza del buffer di riga predefinita è 100 righe. Se i file che si desidera confrontare più di 100 righe diverse volte consecutive, **fc** annullerà il confronto.                         |
+|                /n                |                                                                                                                Visualizza i numeri di riga durante un confronto ASCII.                                                                                                                 |
+|            / [offline]            |                                                                                                               Non ignorare i file che sono impostato l'attributo non in linea.                                                                                                               |
+|                /t                |                                                                    Impedisce **fc** dalla conversione tabulazioni in spazi. Il comportamento predefinito consiste nel considerare schede come spazi, con interruzioni ogni otto caratteri.                                                                    |
+|                /u                |                                                                                                                        Confronta i file come file di testo Unicode.                                                                                                                         |
+|                /w                |         Comprime gli spazi vuoti (vale a dire, schede e spazi) durante il confronto. Se una riga contiene molti spazi consecutivi o nelle schede, **/w** li considererà come spazio singolo. Se utilizzato con **/w**, **fc** Ignora gli spazi vuoti all'inizio e fine riga.         |
+|             /\<NNNN>             | Specifica il numero di righe consecutive che deve corrispondere in seguito una mancata corrispondenza prima **fc** considera i file essere risincronizzata. Se il numero di righe corrispondenti nei file è minore di *NNNN*, **fc** righe saranno visualizzate come differenze. Il valore predefinito è 2. |
+| [\<Drive1>:][<Path1>]<FileName1> |                                                                                        Specifica il percorso e nome del primo file o set di file da confrontare. *FileName1* è obbligatorio.                                                                                        |
+| [\<Drive2>:][<Path2>]<FileName2> |                                                                                       Specifica il percorso e nome del secondo file o set di file da confrontare. *FileName2* è obbligatorio.                                                                                        |
+|                /?                |                                                                                                                         Visualizza la guida al prompt dei comandi.                                                                                                                         |
 
 ## <a name="remarks"></a>Note
 
@@ -76,7 +76,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
     Il valore di *XXXXXXXX* specifica l'indirizzo esadecimale relativo per la coppia di byte, misurato dall'inizio del file. Gli indirizzi iniziano a 00000000. Valore esadecimale per *AA* e *ZZ* rappresentano i byte non corrispondenti da *FileName1* e *FileName2*, rispettivamente.
 -   Utilizzo di caratteri jolly
 
-    È possibile usare caratteri jolly (**&#42;** e **?**) in *FileName1* e *FileName2*. Se si utilizza un carattere jolly nel *FileName1*, **fc** Confronta tutti i file specificati nel file o un set di file specificato da *FileName2*. Se si utilizza un carattere jolly nel *FileName2*, **fc** utilizza il valore corrispondente dal *FileName1*.
+    È possibile usare caratteri jolly ( **&#42;** e **?** ) in *FileName1* e *FileName2*. Se si utilizza un carattere jolly nel *FileName1*, **fc** Confronta tutti i file specificati nel file o un set di file specificato da *FileName2*. Se si utilizza un carattere jolly nel *FileName2*, **fc** utilizza il valore corrispondente dal *FileName1*.
 -   Utilizzo di memoria
 
     Quando si confrontano file ASCII **fc** Usa un buffer interno (sufficientemente grande da contenere 100 righe) come risorsa di archiviazione. Se i file sono maggiori del buffer, **fc** Confronta ciò che è possibile caricare nel buffer. Se **fc** non viene trovata una corrispondenza in parti di caricamento dei file, interrompe e viene visualizzato il messaggio seguente:
@@ -126,4 +126,4 @@ fc c:*.bat d:*.bat
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

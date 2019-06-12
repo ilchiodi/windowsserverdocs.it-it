@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976804"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447793"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurazione client
 
@@ -75,21 +75,21 @@ Per installare i certificati, effettuare le seguenti operazioni:
 ### <a name="configure-work-folders-on-the-client"></a>Configurazione di Cartelle di lavoro nel client  
 Per configurare cartelle di lavoro sul computer client, procedere come segue:  
   
-1.  Nel computer client, aprire **Pannello di controllo** e fare clic su **Cartelle di lavoro**.  
+1. Nel computer client, aprire **Pannello di controllo** e fare clic su **Cartelle di lavoro**.  
   
-2.  Fare clic su **Installa Cartelle di lavoro**.  
+2. Fare clic su **Installa Cartelle di lavoro**.  
   
-3.  Nel **immettere l'indirizzo di posta elettronica ufficio** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test, https:\//workfolders.contoso.com) e quindi fare clic su  **Avanti**.  
+3. Nel **immettere l'indirizzo di posta elettronica ufficio** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test, https:\//workfolders.contoso.com) e quindi fare clic su  **Avanti**.  
   
-4.  Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
+4. Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
   
-5.  In seguito all'autenticazione, viene visualizzata la pagina **Introduzione a Cartelle di lavoro**, in cui è possibile modificare facoltativamente il percorso della directory di Cartelle di lavoro. Fare clic su **Avanti**.  
+5. In seguito all'autenticazione, viene visualizzata la pagina **Introduzione a Cartelle di lavoro**, in cui è possibile modificare facoltativamente il percorso della directory di Cartelle di lavoro. Fare clic su **Avanti**.  
   
-6.  Nella pagina **Criteri di sicurezza** vengono elencati i criteri di sicurezza configurati per Cartelle di lavoro. Fare clic su **Avanti**.  
+6. Nella pagina **Criteri di sicurezza** vengono elencati i criteri di sicurezza configurati per Cartelle di lavoro. Fare clic su **Avanti**.  
   
-7.  Viene visualizzato un messaggio che informa che Cartelle di lavoro ha iniziata la sincronizzazione con il PC. Fare clic su **Chiudi**.  
+7. Viene visualizzato un messaggio che informa che Cartelle di lavoro ha iniziata la sincronizzazione con il PC. Fare clic su **Chiudi**.  
   
-8.  La pagina **Gestisci Cartelle di lavoro** mostra lo spazio disponibile sul server, lo stato di sincronizzazione e così via. Se necessario, qui è possibile immettere nuovamente le credenziali. Chiudere la finestra.  
+8. La pagina **Gestisci Cartelle di lavoro** mostra lo spazio disponibile sul server, lo stato di sincronizzazione e così via. Se necessario, qui è possibile immettere nuovamente le credenziali. Chiudere la finestra.  
   
 9. La cartella di Cartelle di lavoro si apre automaticamente. È possibile aggiungere contenuti in questa cartella per la sincronizzazione tra i dispositivi.  
   

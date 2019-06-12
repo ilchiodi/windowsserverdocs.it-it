@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: d03407292a797b1cd511937ba40fc0fa373f5dc0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447575"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Domande frequenti su Replica archiviazione
 
@@ -83,7 +83,7 @@ Per i vincoli della rete di configurazione in un cluster esteso:
 No, Replica archiviazione supporta la replica da uno a uno solo di un server, cluster o nodo del cluster esteso. Questo limite potrebbe venire superato nelle versioni successive. Naturalmente, è possibile configurare la replica tra i vari server di una coppia di volumi specifica, in entrambe le direzioni. Ad esempio, Server 1 può replicare il volume D su Server 2 e il volume E su Server 3.
 
 ## <a name="FAQ5"></a> È possibile aumentare o ridurre i volumi replicati tramite Replica archiviazione?  
-Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinita, Replica di archiviazione impedisce agli amministratori di estendere i volumi replicati. Utilizza l'opzione `Set-SRGroup -AllowVolumeResize $TRUE` nel gruppo di origine, prima del ridimensionamento. Ad esempio: 
+Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinita, Replica di archiviazione impedisce agli amministratori di estendere i volumi replicati. Utilizza l'opzione `Set-SRGroup -AllowVolumeResize $TRUE` nel gruppo di origine, prima del ridimensionamento. Ad esempio:
 
 1. Usare in base al computer di origine: `Set-SRGroup -Name YourRG -AllowVolumeResize $TRUE`
 2. Espandere il volume utilizzando la tecnica preferita
@@ -227,7 +227,7 @@ Sfortunatamente, non è supportata la creazione di un *nuovo* partnership tra Wi
 Tuttavia, per ottenere le prestazioni di replica di Windows Server 2019, tutti i membri della relazione devono eseguire Windows Server 2019 ed è necessario eliminare relazioni esistenti e i gruppi di replica associati e quindi crearli di nuovo con dati di seeding (sia Quando si crea la partnership in Windows Admin Center o il cmdlet New-SRPartnership).
 
 ## <a name="FAQ17"></a> Come segnalare un problema con la Replica di archiviazione o questa Guida?  
-Per assistenza tecnica relativa a Replica di archiviazione, è possibile pubblicare un post nei [forum di Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). È inoltre possibile inviare un'e-mail all'indirizzo srfeed@microsoft.com per domande su Replica archiviazione o problemi relativi a questa documentazione. Il https://windowsserver.uservoice.com sito diventi preferito per le richieste di modifica di progettazione, in quanto consente ai clienti fornire commenti e suggerimenti e supporto per le tue idee.
+Per assistenza tecnica relativa a Replica di archiviazione, è possibile pubblicare un post nei [forum di Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). È inoltre possibile inviare un'e-mail all'indirizzo srfeed@microsoft.com per domande su Replica archiviazione o problemi relativi a questa documentazione. Il <https://windowsserver.uservoice.com> sito diventi preferito per le richieste di modifica di progettazione, in quanto consente ai clienti fornire commenti e suggerimenti e supporto per le tue idee.
 
 
 

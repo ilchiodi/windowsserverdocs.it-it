@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 58a0cedc48e8d4504af8aa873dbb745394ff3940
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c6591819129fe1a3047982905a041eca974aa53
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859312"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438758"
 ---
 # <a name="ftpdebug"></a>ftp:debug
 
@@ -32,12 +32,12 @@ debug
 ### <a name="parameters"></a>Parametri  
 nessuno  
 ## <a name="remarks"></a>Note  
--   Per impostazione predefinita, il debug è disattivato.  
--   Quando il debug è attivato, viene visualizzato ogni comando viene inviato al computer remoto, preceduto dal carattere maggiore di (>).  
-## <a name="BKMK_Examples"></a>Esempi  
-Attiva/Disattiva modalità di debug e disattivare.  
-```  
-debug  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- Per impostazione predefinita, il debug è disattivato.  
+- Quando il debug è attivato, viene visualizzato ogni comando viene inviato al computer remoto, preceduto dal carattere maggiore di (>).  
+  ## <a name="BKMK_Examples"></a>Esempi  
+  Attiva/Disattiva modalità di debug e disattivare.  
+  ```  
+  debug  
+  ```  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef4f10a6ac1998850758f2c9db86bfd950c1ad70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15da16094a47a2492dc9054e0671c3709fe23362
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833282"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446450"
 ---
 # <a name="install-the-web-server-web1"></a>Installare il server Web WEB1
 
@@ -40,8 +40,8 @@ Per completare questa procedura, è necessario essere un membro del **amministra
 **Nota**   
 Il **prima di iniziare** pagina l'aggiunta guidata ruoli e funzionalità non viene visualizzata se è stato eseguito in precedenza l'aggiunta guidata ruoli e funzionalità sono stati selezionati **Ignora questa pagina per impostazione predefinita** in quel momento.  
 
-3.  Nella pagina **Tipo di installazione** fare clic su **Avanti**.  
-4.  Nel **selezione del Server** pagina, fare clic su **successivo**.  
-5.  Nel **ruoli predefiniti del Server** pagina, selezionare **Server Web (IIS)** e quindi fare clic su **Next**.  
-6.  Fare clic su **Avanti** fino a quando non è stato accettato tutte l'impostazione predefinita le impostazioni del server web e quindi fare clic su **installare**.  
-7.  Verificare che tutte le installazioni hanno avuto esito positivo e quindi fare clic su **Chiudi**.
+3. Nella pagina **Tipo di installazione** fare clic su **Avanti**.  
+4. Nel **selezione del Server** pagina, fare clic su **successivo**.  
+5. Nel **ruoli predefiniti del Server** pagina, selezionare **Server Web (IIS)** e quindi fare clic su **Next**.  
+6. Fare clic su **Avanti** fino a quando non è stato accettato tutte l'impostazione predefinita le impostazioni del server web e quindi fare clic su **installare**.  
+7. Verificare che tutte le installazioni hanno avuto esito positivo e quindi fare clic su **Chiudi**.

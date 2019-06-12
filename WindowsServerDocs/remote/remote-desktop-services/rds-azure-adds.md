@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: e60cf70f1f91ad87046bedf024fe9afc459075b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446587"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Integrare Azure AD Domain Services con la distribuzione di Servizi Desktop remoto
 
@@ -51,26 +51,26 @@ Usare la procedura seguente per distribuire Azure Active Directory e servizi des
 2. Configurare Servizi Desktop remoto. È possibile usare un modello di Azure o distribuire servizi desktop remoto manualmente.
    - Usare la [Existing AD modello](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Assicurarsi di personalizzare quanto segue:
    
-      - **Impostazioni**
-         - **Gruppo di risorse**: Usare il gruppo di risorse in cui si desidera creare le risorse di servizi desktop remoto.
+     - **Impostazioni**
+       - **Gruppo di risorse**: Usare il gruppo di risorse in cui si desidera creare le risorse di servizi desktop remoto.
          > [!NOTE] 
          > Attualmente, deve essere stesso gruppo di risorse in cui è presente la rete virtuale di Azure resource manager.
 
-         - **Prefisso con etichetta DNS**: Immettere l'URL che si desidera che gli utenti da usare per accesso Web desktop remoto.
-         - **Nome di dominio ad**: Immettere il nome completo dell'istanza di Azure AD, ad esempio, "contoso.onmicrosoft.com" o "contoso.com".
-         - **Nome della rete virtuale di Active Directory** e **nome Subnet Ad**: Immettere gli stessi valori che è utilizzato per creare la rete virtuale di Azure resource manager. Si tratta della subnet a cui dovranno connettersi le risorse di servizi desktop remoto.
-         - **Nome utente amministratore** e **Admin Password**: Immettere le credenziali per un utente amministratore che è un membro del **AAD DC Administrators** gruppo in Azure AD.
+       - **Prefisso con etichetta DNS**: Immettere l'URL che si desidera che gli utenti da usare per accesso Web desktop remoto.
+       - **Nome di dominio ad**: Immettere il nome completo dell'istanza di Azure AD, ad esempio, "contoso.onmicrosoft.com" o "contoso.com".
+       - **Nome della rete virtuale di Active Directory** e **nome Subnet Ad**: Immettere gli stessi valori che è utilizzato per creare la rete virtuale di Azure resource manager. Si tratta della subnet a cui dovranno connettersi le risorse di servizi desktop remoto.
+       - **Nome utente amministratore** e **Admin Password**: Immettere le credenziali per un utente amministratore che è un membro del **AAD DC Administrators** gruppo in Azure AD.
    
-      - **modello**
-         - Rimuovere tutte le proprietà del **dnsServers**: dopo aver selezionato **modifica modello** dalla pagina del modello di avvio rapido di Azure, cercare "dnsServers" e rimuovere la proprietà. 
+     - **modello**
+        - Rimuovere tutte le proprietà del **dnsServers**: dopo aver selezionato **modifica modello** dalla pagina del modello di avvio rapido di Azure, cercare "dnsServers" e rimuovere la proprietà. 
 
-            Ad esempio, prima di rimuovere il **dnsServers** proprietà:
+           Ad esempio, prima di rimuovere il **dnsServers** proprietà:
       
-            ![Modello di avvio rapido di Azure con la proprietà dnsSettings](media/rds-remove-dnssettings-before.png)
+           ![Modello di avvio rapido di Azure con la proprietà dnsSettings](media/rds-remove-dnssettings-before.png)
 
-            Ed ecco lo stesso file dopo la rimozione della proprietà:
+           Ed ecco lo stesso file dopo la rimozione della proprietà:
 
-            ![Modello di avvio rapido di Azure con la proprietà dnsSettings rimosso](media/rds-remove-dnssettings-after.png)
+           ![Modello di avvio rapido di Azure con la proprietà dnsSettings rimosso](media/rds-remove-dnssettings-after.png)
    
    - [Distribuire servizi desktop remoto manualmente](rds-deploy-infrastructure.md). 
 

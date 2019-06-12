@@ -9,12 +9,12 @@ ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: 618c2c4da60decc94f84c2a40cd4d2aa80d5f26b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d29a98e24b475c38fee61972bf9efbd5a2528974
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446266"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>Gestire i certificati per Software Defined Networking
 
@@ -128,13 +128,13 @@ Quando si configura un modello di certificato nel passaggio successivo, assicura
 **Gli utenti** o locale **Administrators** l'appartenenza al gruppo minimo necessario per completare questa procedura.
 
 1. Aprire lo snap-in certificati per un computer.
-2. Nell'albero della console, fare clic su **certificati \(Computer locale\)**. Selezionare il **personali** archivio certificati.
-3. Nel **azione** dal menu * * tutte le attività * * e quindi fare clic su **Richiedi nuovo certificato** per avviare la procedura guidata registrazione certificato. Fare clic su **Avanti**.
+2. Nell'albero della console, fare clic su **certificati \(Computer locale\)** . Selezionare il **personali** archivio certificati.
+3. Nel **azione** dal menu * * tutte le attività<strong>, quindi fare clic su * * Richiedi nuovo certificato</strong> per avviare la procedura guidata registrazione certificato. Fare clic su **Avanti**.
 4. Selezionare il **configurato dall'amministratore** criteri di registrazione certificato e fare clic su **successivo**.
 5. Selezionare il **criteri di registrazione Active Directory** \(basato sul modello di autorità di certificazione configurato nella sezione precedente\).
 6. Espandere la **dettagli** sezione e configurare gli elementi seguenti.
-    1. Assicurarsi che **utilizzo chiavi** include sia * * firma digitale * * e **crittografia chiave**.
-    2. Assicurarsi che **i criteri di applicazione** include sia **autenticazione Server** \(1.3.6.1.5.5.7.3.1\) e **l'autenticazione Client** \(1.3.6.1.5.5.7.3.2\).
+   1. Assicurarsi che **utilizzo chiavi** include sia <strong>firma digitale * * e * * crittografia chiave</strong>.
+   2. Assicurarsi che **i criteri di applicazione** include sia **autenticazione Server** \(1.3.6.1.5.5.7.3.1\) e **l'autenticazione Client** \(1.3.6.1.5.5.7.3.2\).
 7. Scegliere **Proprietà**.
 8. Nel **Subject** nella scheda **nome soggetto**, in **tipo**, selezionare **nome comune**. In valore, specificare **Endpoint REST del Controller di rete**.
 9. Fare clic su **Applica** e quindi su **OK**.

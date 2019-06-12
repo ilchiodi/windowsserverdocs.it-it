@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63bdd16263c64f823530119754c31de24e395159
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38cd5a2e9878a8e43393befc5cbd4fc47c65ec53
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820792"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436599"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
@@ -30,12 +30,14 @@ modifica il nome del server principale usato per le query.
 set root=<RootServer>
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|<RootServer>|Specifica il nuovo nome per il server principale. Il valore predefinito è DDN.mil.|
-|{help &#124; ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+
+|    Parametro    |                                   Descrizione                                    |
+|-----------------|----------------------------------------------------------------------------------|
+|  <RootServer>   | Specifica il nuovo nome per il server principale. Il valore predefinito è DDN.mil. |
+| {help &#124; ?} |              Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.               |
+
 ## <a name="remarks"></a>Note
--   Il **radice del set** sottocomando interessa le **radice** sottocomando.
-## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[nslookup radice](nslookup-root.md)
+- Il **radice del set** sottocomando interessa le **radice** sottocomando.
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [nslookup radice](nslookup-root.md)

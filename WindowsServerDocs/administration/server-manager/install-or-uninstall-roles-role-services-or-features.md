@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 526acaadc257d5e8b1dea342756cdeeec240c1dd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222980"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435463"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità
 
@@ -100,53 +100,53 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>Per installare ruoli e funzionalità mediante il cmdlet Install-WindowsFeature  
   
-1.  Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
+1. Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
   
-    > [!NOTE]  
-    > Se si installano ruoli e funzionalità in un server remoto, non è necessario eseguire Windows PowerShell con diritti utente elevati.  
+   > [!NOTE]  
+   > Se si installano ruoli e funzionalità in un server remoto, non è necessario eseguire Windows PowerShell con diritti utente elevati.  
   
-    -   Nel desktop di Windows fare clic con il pulsante destro del mouse su **Windows PowerShell** nella barra delle applicazioni e scegliere **Esegui come amministratore**.  
+   -   Nel desktop di Windows fare clic con il pulsante destro del mouse su **Windows PowerShell** nella barra delle applicazioni e scegliere **Esegui come amministratore**.  
   
-    -   In Windows **avviare** schermata, fare clic sul riquadro per Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
+   -   In Windows **avviare** schermata, fare clic sul riquadro per Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
   
-2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>** , in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
+2. Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <** <em>nome_computer</em> **>** , in cui *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
   
-    > [!NOTE]  
-    > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
+   > [!NOTE]  
+   > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
   
-3.  tipo di **Get-help Install-WindowsFeature**, quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il `Install-WindowsFeature` cmdlet.  
+3. tipo di **Get-help Install-WindowsFeature**, quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il `Install-WindowsFeature` cmdlet.  
   
-4.  digitare il comando seguente e quindi premere **invio**, dove *nome_funzionalità* rappresenta il nome di comando di un ruolo o funzionalità che si desidera installare (ottenuto nel passaggio 2), e *nome_computer* rappresenta un computer remoto in cui si desidera installare ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dall'installazione del ruolo o della funzionalità.  
+4. digitare il comando seguente e quindi premere **invio**, dove *nome_funzionalità* rappresenta il nome di comando di un ruolo o funzionalità che si desidera installare (ottenuto nel passaggio 2), e *nome_computer* rappresenta un computer remoto in cui si desidera installare ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dall'installazione del ruolo o della funzionalità.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Per installare ruoli e funzionalità in un disco rigido virtuale offline, aggiungere il parametro `computerName` e il parametro `VHD` . Se non si aggiunge il parametro `computerName`, il cmdlet parte dal presupposto che il computer locale sia montato per accedere al disco rigido virtuale. Il parametro `computerName` contiene il nome del server in cui montare il disco rigido virtuale e il parametro `VHD` contiene il percorso del file VHD nel server specificato.  
+   Per installare ruoli e funzionalità in un disco rigido virtuale offline, aggiungere il parametro `computerName` e il parametro `VHD` . Se non si aggiunge il parametro `computerName`, il cmdlet parte dal presupposto che il computer locale sia montato per accedere al disco rigido virtuale. Il parametro `computerName` contiene il nome del server in cui montare il disco rigido virtuale e il parametro `VHD` contiene il percorso del file VHD nel server specificato.  
   
-    > [!NOTE]  
-    > È necessario aggiungere il `computerName` parametro se si esegue il cmdlet da un computer che esegue un sistema operativo client Windows.  
-    >   
-    > Per installare ruoli e funzionalità in dischi rigidi virtuali offline, i dischi rigidi virtuali di destinazione devono soddisfare i requisiti seguenti.  
-    >   
-    > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
-    > -   I dischi rigidi virtuali non possono contenere più di un volume o una partizione di sistema.  
-    > -   La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
-    >   
-    >     -   Accesso in **Lettura/Scrittura** alla finestra di dialogo **Condivisione file**.  
-    >     -   **Controllo completo** accesso il **sicurezza** scheda, file o cartella **proprietà** la finestra di dialogo.  
+   > [!NOTE]  
+   > È necessario aggiungere il `computerName` parametro se si esegue il cmdlet da un computer che esegue un sistema operativo client Windows.  
+   >   
+   > Per installare ruoli e funzionalità in dischi rigidi virtuali offline, i dischi rigidi virtuali di destinazione devono soddisfare i requisiti seguenti.  
+   >   
+   > -   I dischi rigidi virtuali devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager è in esecuzione. Vedere la nota riportata all'inizio della [installare ruoli, servizi ruolo e funzionalità mediante l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
+   > -   I dischi rigidi virtuali non possono contenere più di un volume o una partizione di sistema.  
+   > -   La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
+   >   
+   >     -   Accesso in **Lettura/Scrittura** alla finestra di dialogo **Condivisione file**.  
+   >     -   **Controllo completo** accesso il **sicurezza** scheda, file o cartella **proprietà** la finestra di dialogo.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Esempio:** Il cmdlet seguente installa il ruolo Servizi di dominio di active directory e la funzionalità Gestione criteri di gruppo in un server remoto, ContosoDC1. Vengono aggiunti strumenti di gestione e snap-in usando il parametro `IncludeManagementTools`, e il server di destinazione viene riavviato automaticamente, se richiesto dal processo di installazione.  
+   **Esempio:** Il cmdlet seguente installa il ruolo Servizi di dominio di active directory e la funzionalità Gestione criteri di gruppo in un server remoto, ContosoDC1. Vengono aggiunti strumenti di gestione e snap-in usando il parametro `IncludeManagementTools`, e il server di destinazione viene riavviato automaticamente, se richiesto dal processo di installazione.  
   
-    ```  
-    Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Al termine dell'installazione, verificare l'installazione aprendo il **tutti i server** pagina in Server Manager, selezionando un server in cui è installato i ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
+5. Al termine dell'installazione, verificare l'installazione aprendo il **tutti i server** pagina in Server Manager, selezionando un server in cui è installato i ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
 ## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>rimuovere ruoli, servizi ruolo e funzionalità tramite la rimozione guidata ruoli e funzionalità  
 In qualità di amministratore per disinstallare ruoli, servizi ruolo e funzionalità, è necessario essere connessi a un server. Se si è connessi al computer locale con un account che non dispone di diritti di amministratore nel server di destinazione della disinstallazione, fare clic con il pulsante destro del mouse sul server di destinazione nel riquadro **Server** e quindi scegliere **Account di gestione** per specificare un account con diritti di amministratore. Il server in cui si desidera montare un disco rigido virtuale offline deve essere aggiunto a Server Manager ed è necessario disporre di diritti di amministratore per tale server.  
@@ -191,49 +191,49 @@ I cmdlet di distribuzione di Server Manager per la funzione di Windows PowerShel
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>Per rimuovere ruoli e funzionalità mediante il cmdlet Uninstall-WindowsFeature  
   
-1.  Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
+1. Per aprire una sessione di Windows PowerShell con diritti utente elevati, eseguire una di queste operazioni.  
   
-    > [!NOTE]  
-    > Se si disinstallano ruoli e funzionalità da un server remoto, non è necessario eseguire Windows PowerShell con diritti utente elevati.  
+   > [!NOTE]  
+   > Se si disinstallano ruoli e funzionalità da un server remoto, non è necessario eseguire Windows PowerShell con diritti utente elevati.  
   
-    -   Nel desktop di Windows fare clic con il pulsante destro del mouse su **Windows PowerShell** nella barra delle applicazioni e scegliere **Esegui come amministratore**.  
+   -   Nel desktop di Windows fare clic con il pulsante destro del mouse su **Windows PowerShell** nella barra delle applicazioni e scegliere **Esegui come amministratore**.  
   
-    -   Nella finestra di Windows **avviare** schermata, fare clic sul riquadro Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
+   -   Nella finestra di Windows **avviare** schermata, fare clic sul riquadro Windows PowerShell e quindi nella barra dell'app, fare clic su **Esegui come amministratore**.  
   
-2.  Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <***computer_name***>** , in cui  *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
+2. Digitare **Get-WindowsFeature** e quindi premere **INVIO** per visualizzare un elenco dei ruoli e delle funzionalità disponibili e installati nel server locale. Se il computer locale non è un server o se si vogliono ottenere informazioni su un server remoto, eseguire **Get-WindowsFeature - computerName <** <em>nome_computer</em> **>** , in cui *computer_name* rappresenta il nome di un computer remoto che esegue Windows Server 2016. I risultati del cmdlet contengono i nomi di comando dei ruoli e funzionalità che si aggiungono al cmdlet nel passaggio 4.  
   
-    > [!NOTE]  
-    > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
+   > [!NOTE]  
+   > In Windows PowerShell 3.0 e versioni successive di Windows PowerShell, non è necessario per importare il modulo di cmdlet di Server Manager nella sessione di Windows PowerShell prima di eseguire i cmdlet che fanno parte del modulo. Un modulo viene importato automaticamente alla prima esecuzione di un cmdlet che fa parte del modulo. Inoltre, i cmdlet di Windows PowerShell né i nomi di funzionalità utilizzati con i cmdlet di maiuscole e minuscole.  
   
-3.  tipo di **Get-help Uninstall-WindowsFeature**, quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il `Uninstall-WindowsFeature` cmdlet.  
+3. tipo di **Get-help Uninstall-WindowsFeature**, quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il `Uninstall-WindowsFeature` cmdlet.  
   
-4.  Digitare quanto segue, quindi premere **INVIO**, dove *nome_funzionalità* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (come descritto nel passaggio 2) e *computer_name* rappresenta il computer remoto da cui rimuovere ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dalla rimozione del ruolo o della funzionalità.  
+4. Digitare quanto segue, quindi premere **INVIO**, dove *nome_funzionalità* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (come descritto nel passaggio 2) e *computer_name* rappresenta il computer remoto da cui rimuovere ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dalla rimozione del ruolo o della funzionalità.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Per rimuovere ruoli e funzionalità da un disco rigido virtuale offline, aggiungere il parametro `computerName` e il parametro `VHD`. Se non si aggiunge il parametro `computerName`, il cmdlet parte dal presupposto che il computer locale sia montato per accedere al disco rigido virtuale. Il parametro `computerName` contiene il nome del server in cui montare il disco rigido virtuale e il parametro `VHD` contiene il percorso del file VHD nel server specificato.  
+   Per rimuovere ruoli e funzionalità da un disco rigido virtuale offline, aggiungere il parametro `computerName` e il parametro `VHD`. Se non si aggiunge il parametro `computerName`, il cmdlet parte dal presupposto che il computer locale sia montato per accedere al disco rigido virtuale. Il parametro `computerName` contiene il nome del server in cui montare il disco rigido virtuale e il parametro `VHD` contiene il percorso del file VHD nel server specificato.  
   
-    > [!NOTE]  
-    > È necessario aggiungere il `computerName` parametro se si esegue il cmdlet da un computer che esegue un sistema operativo client Windows.  
-    >   
-    > La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
-    >   
-    > -   Accesso in **Lettura/Scrittura** alla finestra di dialogo **Condivisione file**.  
-    > -   **Controllo completo** accesso il **sicurezza** scheda, file o cartella **proprietà** la finestra di dialogo.  
+   > [!NOTE]  
+   > È necessario aggiungere il `computerName` parametro se si esegue il cmdlet da un computer che esegue un sistema operativo client Windows.  
+   >   
+   > La cartella condivisa di rete in cui è archiviato il file VHD deve concedere i dritti di accesso seguenti all'account computer (o sistema locale) del server selezionato per montare il disco rigido virtuale. L'accesso con account solo utente non è sufficiente. La condivisione può concedere le autorizzazioni **Lettura** e **Scrittura** al gruppo **Everyone** per consentire l'accesso al disco rigido virtuale, ma si tratta di un'impostazione sconsigliata per motivi di sicurezza.  
+   >   
+   > -   Accesso in **Lettura/Scrittura** alla finestra di dialogo **Condivisione file**.  
+   > -   **Controllo completo** accesso il **sicurezza** scheda, file o cartella **proprietà** la finestra di dialogo.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Esempio:** Il cmdlet seguente rimuove il ruolo Servizi di dominio di active directory e la funzionalità Gestione criteri di gruppo da un server remoto, ContosoDC1. Vengono anche rimossi strumenti di gestione e snap-in, e il server di destinazione viene riavviato automaticamente, se richiesto dal processo di rimozione.  
+   **Esempio:** Il cmdlet seguente rimuove il ruolo Servizi di dominio di active directory e la funzionalità Gestione criteri di gruppo da un server remoto, ContosoDC1. Vengono anche rimossi strumenti di gestione e snap-in, e il server di destinazione viene riavviato automaticamente, se richiesto dal processo di rimozione.  
   
-    ```  
-    Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Termine della rimozione, verificare che i ruoli e funzionalità sono stati effettivamente rimossi aprendo la **tutti i server** pagina in Server Manager, selezionando il server da cui sono stati rimossi ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
+5. Termine della rimozione, verificare che i ruoli e funzionalità sono stati effettivamente rimossi aprendo la **tutti i server** pagina in Server Manager, selezionando il server da cui sono stati rimossi ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire la `Get-WindowsFeature` cmdlet come destinata il server selezionato (Get-WindowsFeature - computerName <*nome_computer*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
 ## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell  
 Anche se è possibile utilizzare l'aggiunta guidata ruoli e funzionalità per installare ruoli, servizi ruolo e funzionalità in più di un server di destinazione in una singola sessione, è possibile usare uno script di Windows PowerShell per installare ruoli, servizi ruolo e funzionalità in più di destinazione server che si siano gestendo tramite Server Manager. Lo script che consente di eseguire una distribuzione di batch, questo processo viene chiamato, punta a un file di configurazione XML che è possibile creare facilmente tramite l'aggiunta guidata ruoli e funzionalità e scegliendo **Esporta impostazioni di configurazione** dopo raggiunto la procedura guidata per la **Conferma selezioni per l'installazione** pagina l'aggiunta guidata ruoli e funzionalità.  
@@ -337,25 +337,25 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
   
 ### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>Installare .NET Framework 3.5 usando l'aggiunta guidata ruoli e funzionalità  
   
-1.  Nel **Manage** dal menu in Server Manager fare clic su **Aggiungi ruoli e funzionalità**.  
+1. Nel **Manage** dal menu in Server Manager fare clic su **Aggiungi ruoli e funzionalità**.  
   
-2.  Selezionare un server di destinazione che esegue Windows Server 2016.  
+2. Selezionare un server di destinazione che esegue Windows Server 2016.  
   
-3.  Nel **Selezione funzionalità** pagina l'aggiunta guidata ruoli e funzionalità, selezionare **.NET Framework 3.5**.  
+3. Nel **Selezione funzionalità** pagina l'aggiunta guidata ruoli e funzionalità, selezionare **.NET Framework 3.5**.  
   
-4.  Se le impostazioni di Criteri di gruppo del computer locale lo consentono, il processo di installazione tenta di recuperare i file di funzionalità mancanti tramite Windows Update. Fare clic su **Installa**. Non è necessario procedere al passaggio successivo.  
+4. Se le impostazioni di Criteri di gruppo del computer locale lo consentono, il processo di installazione tenta di recuperare i file di funzionalità mancanti tramite Windows Update. Fare clic su **Installa**. Non è necessario procedere al passaggio successivo.  
   
-    Se le impostazioni di criteri di gruppo non lo consentono, o si desidera utilizzare un'altra origine per i file di funzionalità di .NET Framework 3.5, nella **Conferma selezioni per l'installazione** pagina della procedura guidata, fare clic su **specificare un percorso di origine alternativo** .  
+   Se le impostazioni di criteri di gruppo non lo consentono, o si desidera utilizzare un'altra origine per i file di funzionalità di .NET Framework 3.5, nella **Conferma selezioni per l'installazione** pagina della procedura guidata, fare clic su **specificare un percorso di origine alternativo** .  
   
-5.  Immettere un percorso a un archivio affiancato (denominato **SxS**) nel supporto di installazione o a un file WIM. Nell'esempio seguente il supporto di installazione è posizionato nell'unità D.  
+5. Immettere un percorso a un archivio affiancato (denominato **SxS**) nel supporto di installazione o a un file WIM. Nell'esempio seguente il supporto di installazione è posizionato nell'unità D.  
   
-    **D:\Sources\SxS\\**  
+   **D:\Sources\SxS\\**  
   
-    Per specificare un file WIM, aggiungere un prefisso **WIM:** e aggiungere l'indice dell'immagine da utilizzare nel file WIM come un suffisso, come mostrato nell'esempio seguente.  
+   Per specificare un file WIM, aggiungere un prefisso **WIM:** e aggiungere l'indice dell'immagine da utilizzare nel file WIM come un suffisso, come mostrato nell'esempio seguente.  
   
-    **WIM:\\\\***nome_server***\share\install.wim:3**  
+   **WIM:\\\\** <em>nome_server</em> **\share\install.wim:3**  
   
-6.  Fare clic su **OK**e quindi su **Installa**.  
+6. Fare clic su **OK**e quindi su **Installa**.  
   
 ### <a name="to-install-net-framework-35-by-using-dism"></a>Per installare .NET Framework 3.5 utilizzando DISM  
   
@@ -395,23 +395,23 @@ L'impostazione di Criteri di gruppo descritta in questa sezione specifica i perc
   
 ##### <a name="to-configure-a-default-alternate-source-path-in-group-policy"></a>Per configurare un percorso di origine alternativo predefinito in Criteri di gruppo  
   
-1.  In editor Criteri di gruppo locali o nella Console Gestione criteri di gruppo, aprire l'impostazione dei criteri seguenti.  
+1. In editor Criteri di gruppo locali o nella Console Gestione criteri di gruppo, aprire l'impostazione dei criteri seguenti.  
   
-    **computer Configurazione computer\Modelli amministrativi\sistema\specifica le impostazioni per l'installazione del componente facoltativo e il ripristino**  
+   **computer Configurazione computer\Modelli amministrativi\sistema\specifica le impostazioni per l'installazione del componente facoltativo e il ripristino**  
   
 2. Selezionare **abilitato** per abilitare l'impostazione di criteri, se non è già abilitato.  
   
-3.  Nella casella di testo **Percorso file di origine alternativo** dell'area **Opzioni** specificare un percorso completo a una cartella condivisa o a un file WIM. Per specificare un file WIM come percorso file di origine alternativo, aggiungere il prefisso **WIM:** al percorso, quindi aggiungere l'indice dell'immagine da utilizzare nel file WIM come suffisso. Di seguito sono illustrati alcuni esempi di valori che è possibile specificare.  
+3. Nella casella di testo **Percorso file di origine alternativo** dell'area **Opzioni** specificare un percorso completo a una cartella condivisa o a un file WIM. Per specificare un file WIM come percorso file di origine alternativo, aggiungere il prefisso **WIM:** al percorso, quindi aggiungere l'indice dell'immagine da utilizzare nel file WIM come suffisso. Di seguito sono illustrati alcuni esempi di valori che è possibile specificare.  
   
-    -   percorso di una cartella condivisa: * *\\\\***nome_server***\share\\* * * nome_cartella*  
+   - percorso di una cartella condivisa: **\\ \\** <em>nome_server</em> **\share\\** <em>nome_cartella</em>  
   
-    -   percorso di un file WIM, in cui **3** rappresenta l'indice dell'immagine in cui si trovano i file delle funzionalità:  **WIM:\\\\***nome_server***\share\install.wim:3**  
+   - percorso di un file WIM, in cui **3** rappresenta l'indice dell'immagine in cui si trovano i file delle funzionalità:  **WIM:\\\\** <em>nome_server</em> **\share\install.wim:3**  
   
-4.  Se non si desidera che i computer controllati da questa impostazione di criterio cerchino per file di funzionalità mancanti in Windows Update, selezionare **tentare mai di scaricare payload da Windows Update**.  
+4. Se non si desidera che i computer controllati da questa impostazione di criterio cerchino per file di funzionalità mancanti in Windows Update, selezionare **tentare mai di scaricare payload da Windows Update**.  
   
-5.  Se i computer controllati da questa impostazione di criterio in genere ricevono aggiornamenti tramite WSUS ma per trovare i file di funzionalità mancanti si preferisce utilizzare Windows Update, selezionare **Contatta direttamente Windows Update invece di Windows Server Update Services (WSUS) per scaricare il contenuto di ripristino**.  
+5. Se i computer controllati da questa impostazione di criterio in genere ricevono aggiornamenti tramite WSUS ma per trovare i file di funzionalità mancanti si preferisce utilizzare Windows Update, selezionare **Contatta direttamente Windows Update invece di Windows Server Update Services (WSUS) per scaricare il contenuto di ripristino**.  
   
-6.  Al termine della modifica dell'impostazione di criterio, fare clic su **OK** e chiudere l'Editor Criteri di gruppo.  
+6. Al termine della modifica dell'impostazione di criterio, fare clic su **OK** e chiudere l'Editor Criteri di gruppo.  
   
 ## <a name="see-also"></a>Vedere anche  
 [Opzioni di installazione di Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=241573)  

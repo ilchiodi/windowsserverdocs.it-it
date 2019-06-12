@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 77fb8cc6e13cb82e4d07808c3ae77757a4b2de79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 8d1ea7a428b2d03649a7a9347421d717be3f468a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826782"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445828"
 ---
 # <a name="deploy-automatic-file-classification-demonstration-steps"></a>Deploy Automatic File Classification (Demonstration Steps)
 
@@ -56,7 +56,7 @@ Le proprietà delle risorse Impatto e Informazioni personali vengono abilitate i
   
 5.  Fare clic con il pulsante destro del mouse su **Informazioni personali** e quindi scegliere **Abilita**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell equivalente comandi****  
+![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -107,7 +107,7 @@ Una regola di classificazione di contenuto di tipo stringa cerca una stringa spe
   
 13. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -155,7 +155,7 @@ Una regola di classificazione di contenuto di tipo espressione regolare cerca in
   
 12. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -186,7 +186,7 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Conoscenza approfondita dei dati mediante la classificazione](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
+-   [Scenario: Comprendere i dati mediante la classificazione](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
 -   [Pianificare la classificazione automatica dei File](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 

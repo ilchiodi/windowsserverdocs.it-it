@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c150a7e27242f4ef082150b89156c7b5ed81568
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87c4466ba1bf89f9eb548d7d7ed134246c810811
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873372"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438696"
 ---
 # <a name="ftp-hash1"></a>FTP: hash_1
 
@@ -32,12 +32,12 @@ hash
 ### <a name="parameters"></a>Parametri  
 nessuno  
 ## <a name="remarks"></a>Note  
--   La dimensione di un blocco di dati è 2048 byte.  
--   Per impostazione predefinita, **hash** è disattivata.  
-## <a name="BKMK_Examples"></a>Esempi  
-Attivare o disattivare simbolo di cancelletto (#) stampa per ogni blocco di dati trasferiti.  
-```  
-hash  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- La dimensione di un blocco di dati è 2048 byte.  
+- Per impostazione predefinita, **hash** è disattivata.  
+  ## <a name="BKMK_Examples"></a>Esempi  
+  Attivare o disattivare simbolo di cancelletto (#) stampa per ogni blocco di dati trasferiti.  
+  ```  
+  hash  
+  ```  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

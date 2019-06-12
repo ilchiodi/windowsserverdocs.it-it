@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 06e7aa1309b453da649537d5ae9b22acce830530
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816862"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447199"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Impostare il metodo di ordinamento delle destinazioni nei riferimenti
 
@@ -36,9 +36,9 @@ Usa la procedura seguente per impostare il metodo di ordinamento nella radice de
 
 > [!NOTE]
 > Per usare Windows PowerShell per impostare il metodo di ordinamento per le destinazioni nei riferimenti alla radice dello spazio dei nomi, usa il cmdlet [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) con uno dei parametri seguenti:
-   -   **EnableSiteCosting** specifica il metodo di ordinamento **Costo minimo**
-   -   **EnableInsiteReferrals** specifica il metodo di ordinamento **Escludi destinazioni esterne al sito del client**
-   -   L'omissione di un parametro specifica il metodo di ordinamento **Ordine casuale** 
+>    -   **EnableSiteCosting** specifica il metodo di ordinamento **Costo minimo**
+>    -   **EnableInsiteReferrals** specifica il metodo di ordinamento **Escludi destinazioni esterne al sito del client**
+>    -   L'omissione di un parametro specifica il metodo di ordinamento **Ordine casuale** 
 
 Il modulo DFSN Windows PowerShell è stato introdotto in Windows Server 2012.
    
@@ -91,5 +91,5 @@ In questo metodo il riferimento contiene solo le destinazioni presenti nello ste
 
 ## <a name="see-also"></a>Vedere anche 
 
--   [Ottimizzazione di spazi dei nomi DFS](tuning-dfs-namespaces.md)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Ottimizzazione di Spazi dei nomi DFS](tuning-dfs-namespaces.md)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)

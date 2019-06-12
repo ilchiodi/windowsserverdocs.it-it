@@ -7,12 +7,12 @@ ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c102fa0503e6aac279235e1243b55e0e3cf81e1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0fb257f693cc27c0bc6dd18fc89e8dc6328ee638
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812412"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447347"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Risoluzione dei problemi mediante lo strumento di diagnostica dell'infrastruttura sorvegliata
 
@@ -154,11 +154,11 @@ Prima di eseguire diagnosi manuale, è necessario assicurarsi che gli amministra
 
 Come indicato di seguito sono riportati i passaggi per eseguire una diagnosi manuale:
 
-1. Richiesta che ogni amministratore host eseguire `Get-HgsTrace` specificando una determinata `-Path` e l'elenco di diagnostica si prevede di eseguire le tracce risultante.  Ad esempio: 
+1. Richiesta che ogni amministratore host eseguire `Get-HgsTrace` specificando una determinata `-Path` e l'elenco di diagnostica si prevede di eseguire le tracce risultante.  Ad esempio:
 
- ```PowerShell
- Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
- ```
+   ```PowerShell
+   Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
+   ```
 2. Richiedere che ogni amministratore host cartella traces risultante del pacchetto e inviarlo all'utente.  Questo processo può essere determinato tramite posta elettronica, tramite le condivisioni file, o qualsiasi altro meccanismo di base i criteri e procedure stabilite dall'organizzazione operativa.
 
 3. Unire tutte le tracce ricevute in una singola cartella, con nessun altro contenuto o le cartelle.
@@ -179,11 +179,11 @@ Come indicato di seguito sono riportati i passaggi per eseguire una diagnosi man
          |- [..]
       ```
 
-4. Eseguire la diagnostica, che fornisce il percorso della cartella di traccia assemblati nella `-Path` parametro e specificare il `-RunDiagnostics` passare oltre tali per cui è richiesto agli amministratori per raccogliere le tracce di diagnostica.  Diagnostica presupporrà che non possa accedere gli host disponibili all'interno del percorso e quindi proverà a usare soltanto le tracce di pre-raccolte.  Se tutte le tracce sono mancanti o danneggiati, diagnostica avrà esito negativo solo i test interessati e proseguono normalmente.  Ad esempio: 
+4. Eseguire la diagnostica, che fornisce il percorso della cartella di traccia assemblati nella `-Path` parametro e specificare il `-RunDiagnostics` passare oltre tali per cui è richiesto agli amministratori per raccogliere le tracce di diagnostica.  Diagnostica presupporrà che non possa accedere gli host disponibili all'interno del percorso e quindi proverà a usare soltanto le tracce di pre-raccolte.  Se tutte le tracce sono mancanti o danneggiati, diagnostica avrà esito negativo solo i test interessati e proseguono normalmente.  Ad esempio:
 
- ```PowerShell
- Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
- ```
+   ```PowerShell
+   Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
+   ```
 
 ### <a name="mixing-saved-traces-with-additional-targets"></a>Combinazione di salvare le tracce con destinazioni aggiuntive
 

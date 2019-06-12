@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 735377e809b51a9b69962b4233d4c748eb8cf30a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ef14c647534c92a97abdcc9ee8df50c64a72e5f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856862"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438795"
 ---
 # <a name="ftp-cd"></a>FTP: cd
 
@@ -30,9 +30,11 @@ modifica la directory di lavoro nel computer remoto.
 cd <remotedirectory>  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<remotedirectory>|Specifica la directory sul computer remoto a cui si desidera modificare.|  
+
+|     Parametro     |                                 Descrizione                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| <remotedirectory> | Specifica la directory sul computer remoto a cui si desidera modificare. |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 modificare la directory sul computer remoto a cui **Docs**.  
 ```  
@@ -43,4 +45,4 @@ modificare la directory sul computer remoto a cui **video potrebbe**.
 cd  May Videos  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

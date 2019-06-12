@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 03a7f0cf36539272140ea39903bab585b4bc5c72
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e9e71a21acac73aa27e8a936360c6a1e9f9b754
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889582"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436160"
 ---
 # <a name="prnjobs"></a>prnjobs
 
@@ -33,35 +33,37 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 ```
 
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|-z|Sospende il processo di stampa specificato con il **-j** parametro.|
-|-m|Riprende il processo di stampa specificato con il **-j** parametro.|
-|-x|Annulla il processo di stampa specificato con il **-j** parametro.|
-|-l|Elenca tutti i processi di stampa in una coda di stampa.|
-|-s \<nomeserver >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene utilizzato il computer locale.|
-|-p \<nomestampante >|Specifica il nome della stampante che si desidera gestire. Obbligatorio.|
-|-j \<JobID>|Specifica (numero di ID) che si desidera annullare il processo di stampa.|
-|-u \<nomeutente > -w <Password>|Specifica un account con autorizzazioni sufficienti per connettersi al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è anche possibile concedere le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario essere connessi con un account con queste autorizzazioni per il comando lavorare.|
-|/?|Visualizza la guida al prompt dei comandi.|
+
+|          Parametro           |                                                                                                                                                                                        Descrizione                                                                                                                                                                                        |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              -z              |                                                                                                                                                                 Sospende il processo di stampa specificato con il **-j** parametro.                                                                                                                                                                 |
+|              -m              |                                                                                                                                                                Riprende il processo di stampa specificato con il **-j** parametro.                                                                                                                                                                 |
+|              -x              |                                                                                                                                                                Annulla il processo di stampa specificato con il **-j** parametro.                                                                                                                                                                 |
+|              -l              |                                                                                                                                                                        Elenca tutti i processi di stampa in una coda di stampa.                                                                                                                                                                         |
+|       -s \<nomeserver >       |                                                                                                                  Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene utilizzato il computer locale.                                                                                                                  |
+|      -p \<nomestampante >       |                                                                                                                                                           Specifica il nome della stampante che si desidera gestire. Obbligatorio.                                                                                                                                                            |
+|         -j \<JobID>          |                                                                                                                                                                Specifica (numero di ID) che si desidera annullare il processo di stampa.                                                                                                                                                                 |
+| -u \<nomeutente > -w <Password> | Specifica un account con autorizzazioni sufficienti per connettersi al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è anche possibile concedere le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario essere connessi con un account con queste autorizzazioni per il comando lavorare. |
+|              /?              |                                                                                                                                                                           Visualizza la guida al prompt dei comandi.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Note
 -   Il **prnjobs** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file prnjobs, o cambiare le directory nella cartella appropriata. Ad esempio:
     ```
-    cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs
+    cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs.vbs
     ```
 -   Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).
 
 ## <a name="BKMK_examples"></a>Esempi
 Per sospendere un processo di stampa con un ID di processo pari a 27 inviate al computer remoto denominato ServerRU per la stampa su stampante denominata StampanteColori, digitare:
 ```
-cscript prnjobs -z -s HRServer -p colorprinter -j 27
+cscript prnjobs.vbs -z -s HRServer -p colorprinter -j 27
 ```
 Per elencare tutti i processi di stampa correnti nella coda per la stampante locale denominata StampanteColori_2, digitare:
 ```
-cscript prnjobs -l -p colorprinter_2
+cscript prnjobs.vbs -l -p colorprinter_2
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[riferimenti ai comandi di stampa](print-command-reference.md)
+
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Informazioni di riferimento sui comandi di stampa](print-command-reference.md)

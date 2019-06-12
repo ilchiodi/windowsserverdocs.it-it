@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: c72fd2c3a72a304fe8372afb93468fc451b3f2bc
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: e353ea0b444c07557de99db4472f565decb37349
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222658"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447756"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Macchine virtuali Oracle Linux supportate in Hyper-V
 
@@ -167,10 +167,9 @@ Oracle Linux Unbreakable Enterprise Kernel (UEK) è solo a 64 bit e con il suppo
 
 13. Le macchine virtuali introdotte Server 2012 R2Generation 2 è avvio protetto abilitato per impostazione predefinita e alcune macchine virtuali di Linux non verranno avviate se l'opzione di avvio protetto è disabilitata. È possibile disabilitare l'avvio protetto nel **Firmware** sezione delle impostazioni per la macchina virtuale in **di gestione di Hyper-V** o è possibile disabilitarlo con Powershell:
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
     Il download di Linux Integration Services può essere applicato alle macchine virtuali di 2 generazione esistente ma non applicare la funzionalità di generazione 2.
 

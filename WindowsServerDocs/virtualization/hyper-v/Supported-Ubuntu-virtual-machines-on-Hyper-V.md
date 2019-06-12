@@ -11,12 +11,12 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: b58193ec570cf0d94b6c95018b8c00c813331986
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 662541658fe6e7b99e66fe31344450e0a1cbd201
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222647"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447832"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Macchine virtuali Ubuntu supportate in Hyper-V
 
@@ -91,7 +91,6 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    12.04 non è un kernel virtuale separato. Per installare il kernel HWE generico 12.04, eseguire i comandi seguenti come radice (o sudo):
@@ -99,7 +98,6 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
-
    ```
 
    Ubuntu 12.04 il daemon di Hyper-V seguenti sono in un pacchetto installato separatamente:
@@ -112,7 +110,6 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 
    ```bash
    # apt-get install hv-kvp-daemon-init linux-tools-lts-trusty linux-cloud-tools-generic-lts-trusty
-
    ```
 
    Ogni volta che viene aggiornato il kernel, è necessario riavviare la macchina virtuale per poterlo utilizzare.
@@ -124,7 +121,6 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    Ogni volta che viene aggiornato il kernel, è necessario riavviare la macchina virtuale per poterlo utilizzare.
@@ -143,42 +139,37 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 
 11. In Windows Server 2012 R2, macchine virtuali di generazione 2 è avvio protetto abilitato per impostazione predefinita e alcune Linux macchine virtuali non verranno avviate se l'opzione di avvio protetto è disabilitata. È possibile disabilitare l'avvio protetto nel **Firmware** sezione delle impostazioni per la macchina virtuale in **di gestione di Hyper-V** o è possibile disabilitarlo con Powershell:
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
 12. Prima di tentare di copiare il disco rigido Virtuale di una macchina virtuale di generazione 2 VHD esistente per creare nuove macchine virtuali di generazione 2, seguire questi passaggi:
 
-   1. Accedere alla macchina virtuale esistente generazione 2.
+    1. Accedere alla macchina virtuale esistente generazione 2.
 
-   2. Cambiare directory nella directory di avvio EFI:
+    2. Cambiare directory nella directory di avvio EFI:
 
-      ```bash
-      # cd /boot/efi/EFI
+       ```bash
+       # cd /boot/efi/EFI
+       ```
 
-      ```
+    3. Copiare la directory ubuntu in una nuova directory denominata avvio:
 
-   3. Copiare la directory ubuntu in una nuova directory denominata avvio:
+       ```bash
+       # sudo cp -r ubuntu/ boot
+       ```
 
-      ```bash
-      # sudo cp -r ubuntu/ boot
+    4. Passare alla directory nella directory di avvio appena creata:
 
-      ```
+       ```bash
+       # cd boot
+       ```
 
-   4. Passare alla directory nella directory di avvio appena creata:
+    5. Rinominare il file shimx64.efi:
 
-      ```bash
-      # cd boot
-
-      ```
-
-   5. Rinominare il file shimx64.efi:
-
-      ```bash
-      # sudo mv shimx64.efi bootx64.efi
-
-      ```
+       ```bash
+       # sudo mv shimx64.efi bootx64.efi
+       ```
 
 ## <a name="see-also"></a>Vedere anche
 

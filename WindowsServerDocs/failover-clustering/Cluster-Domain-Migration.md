@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Questo articolo descrive lo spostamento di un cluster di Windows Server 2019 da un dominio a altro
 ms.localizationpriority: medium
-ms.openlocfilehash: bcfd458c94d33820f434cde3313dc069fc42ffd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875942"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452935"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migrazione del dominio Cluster di failover
 
@@ -46,7 +46,7 @@ Per ottenere tale cambiamento, sono disponibili due opzioni.
 
 La prima opzione prevede l'eliminazione definitiva del cluster e la ricompilazione del nuovo dominio.
 
-![Eliminare e ricompilare](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-1.gif)
+![Eliminare e ricompilare](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-1.gif)
 
 Come mostra l'animazione, questa opzione è distruttiva con i passaggi in corso:
 
@@ -56,7 +56,7 @@ Come mostra l'animazione, questa opzione è distruttiva con i passaggi in corso:
 
 La seconda opzione è meno distruttiva ma richiede hardware aggiuntivo perché sarebbe necessario un nuovo cluster da compilare nel nuovo dominio.  Una volta il cluster nel nuovo dominio, eseguire la migrazione guidata Cluster per eseguire la migrazione di risorse. Si noti che questo non eseguire la migrazione dei dati, è necessario usare un altro strumento per la migrazione dei dati, ad esempio [servizio di migrazione archiviazione](../storage/storage-migration-service/overview.md)(dopo aver aggiunto il supporto di cluster).
 
-![Compilare ed eseguire la migrazione](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-2.gif)
+![Compilare ed eseguire la migrazione](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-2.gif)
 
 Come mostra l'animazione, questa opzione non è distruttiva ma richiedono un hardware diverso o un nodo dal cluster esistente che è stato rimosso.
 
@@ -76,7 +76,7 @@ Lo spostamento di un cluster da un dominio è un processo molto semplice. A tale
 
 Il processo per eseguire questa operazione consiste nel modificare il cluster da un dominio a un gruppo di lavoro e tornare al nuovo dominio.  La necessità di eliminare un cluster, ricreare un cluster, installare le applicazioni e così via non è un requisito. Ad esempio, sarebbe simile al seguente:
 
-![Eseguire la migrazione](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-3.gif)
+![Eseguire la migrazione](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-3.gif)
 
 ## <a name="migrating-a-cluster-to-a-new-domain"></a>Migrazione di un cluster a un nuovo dominio
 

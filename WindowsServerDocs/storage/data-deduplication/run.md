@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 0421faaa910a1d679d809b88c0b4d2c94ba694b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e2e4975c4ab9ebb7ec68834f380255292426393
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447222"
 ---
 # <a name="running-data-deduplication"></a>Esecuzione della deduplicazione dati
 
@@ -49,10 +49,10 @@ Poiché la deduplicazione dati usa un modello di postelaborazione, è importante
 
 Uno degli indicatori dell'esito negativo del [processo di ottimizzazione](understand.md#job-info-optimization) è una frequenza di ottimizzazione tendente al basso, che può indicare che il processo di ottimizzazione non riesce a stare al passo con la frequenza delle modifiche o con la varianza. È possibile controllare la frequenza di ottimizzazione usando il cmdlet PowerShell [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx).
 
-> [!Important]  
+> [!Important]
 > `Get-DedupStatus` sono presenti due campi rilevanti per la frequenza di ottimizzazione: `OptimizedFilesSavingsRate` e `SavingsRate`. Questi sono entrambi valori importanti di cui tenere traccia, ma ciascuno ha un significato univoco.
-- `OptimizedFilesSavingsRate` si applica solo ai file che sono 'dei criteri' per l'ottimizzazione (`space used by optimized files after optimization / logical size of optimized files`).
-- `SavingsRate` si applica all'intero volume (`space used by optimized files after optimization / total logical size of the optimization`).
+> - `OptimizedFilesSavingsRate` si applica solo ai file che sono 'dei criteri' per l'ottimizzazione (`space used by optimized files after optimization / logical size of optimized files`).
+> - `SavingsRate` si applica all'intero volume (`space used by optimized files after optimization / total logical size of the optimization`).
 
 ## <a id="disabling-dedup"></a>Disabilitazione della deduplicazione dati
 Per disattivare Deduplicazione dati, eseguire il [processo di annullamento dell'ottimizzazione](understand.md#job-info-unoptimization). Per annullare l'ottimizzazione del volume, eseguire il comando seguente:

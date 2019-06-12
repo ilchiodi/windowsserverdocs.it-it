@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5868a73b3720d83b39ba581c809aec6bcf009300
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5825a398d43f1a615ba0146ef2681558b7f23108
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438865"
 ---
 # <a name="ftp-rmdir1"></a>ftp: rmdir_1
 
@@ -30,13 +30,15 @@ Elimina una directory remota.
 rmdir <directory>  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<directory>|Specifica il nome della directory remota da eliminare.|  
+
+|  Parametro  |                      Descrizione                      |
+|-------------|-------------------------------------------------------|
+| <directory> | Specifica il nome della directory remota da eliminare. |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 eliminare il **immagini** directory remota.  
 ```  
 rmdir Pictures  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
