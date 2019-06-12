@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 109d162e8d5c4bdd59871a21f16b6f568df4fbd6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861662"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436315"
 ---
 # <a name="pause"></a>Sospendi
 
@@ -44,16 +44,16 @@ pause
 
 ## <a name="remarks"></a>Note
 
--   Quando si esegue la **sospendere** comando, viene visualizzato il messaggio seguente:  
-    ```
-    Press any key to continue . . .
-    ```  
--   Se si preme CTRL + C per interrompere un programma batch, viene visualizzato il messaggio seguente:  
-    ```
-    Terminate batch job (Y/N)?
-    ```  
-    Se si preme Y (per Sì) in risposta a questo messaggio, il programma batch verrà interrotta e il controllo restituisce al sistema operativo.
--   È possibile inserire il **sospendere** comando prima di una sezione del file batch che non è possibile elaborare. Quando **sospendere** sospende l'elaborazione del programma batch, è possibile premere CTRL + C e quindi premere Y per arrestare il programma batch.
+- Quando si esegue la **sospendere** comando, viene visualizzato il messaggio seguente:  
+  ```
+  Press any key to continue . . .
+  ```  
+- Se si preme CTRL + C per interrompere un programma batch, viene visualizzato il messaggio seguente:  
+  ```
+  Terminate batch job (Y/N)?
+  ```  
+  Se si preme Y (per Sì) in risposta a questo messaggio, il programma batch verrà interrotta e il controllo restituisce al sistema operativo.
+- È possibile inserire il **sospendere** comando prima di una sezione del file batch che non è possibile elaborare. Quando **sospendere** sospende l'elaborazione del programma batch, è possibile premere CTRL + C e quindi premere Y per arrestare il programma batch.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -70,4 +70,4 @@ In questo esempio, tutti i file su disco nell'unità vengono copiati nella direc
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

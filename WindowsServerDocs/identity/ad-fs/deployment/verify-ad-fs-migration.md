@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a3e8e444f715fe2ae0f0ccd858d90e8664be00c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38e44ab2f803d8ec8940dbba7574a9f37389112a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877772"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444467"
 ---
 # <a name="verify-the-ad-fs-20-migration-to-windows-server-2012-r2"></a>Verificare di AD FS 2.0 migrazione a Windows Server 2012 R2
 
@@ -27,7 +27,7 @@ Per eseguire questa procedura è richiesta almeno l'appartenenza al gruppo **Use
   
 Se nella finestra del browser è possibile vedere i metadati del server federativo senza errori o avvisi SSL, ciò indica che il server federativo è operativo.  
   
-2.  È inoltre possibile passare alla pagina di accesso di ADFS (nome del servizio federativo con l'aggiunta di `adfs/ls/idpinitiatedsignon.htm`, ad esempio `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  Verrà visualizzata la pagina di accesso di ADFS nella quale è possibile accedere con le credenziali di amministratore di dominio.  
+2. È inoltre possibile passare alla pagina di accesso di ADFS (nome del servizio federativo con l'aggiunta di `adfs/ls/idpinitiatedsignon.htm`, ad esempio `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  Verrà visualizzata la pagina di accesso di ADFS nella quale è possibile accedere con le credenziali di amministratore di dominio.  
   
 > [!IMPORTANT]
 >  Assicurarsi di configurare le impostazioni del browser in modo da considerare attendibile il ruolo del server federativo, aggiungendo il nome del servizio federativo (ad esempio `https://fs.contoso.com`) all'area Intranet locale del browser.  

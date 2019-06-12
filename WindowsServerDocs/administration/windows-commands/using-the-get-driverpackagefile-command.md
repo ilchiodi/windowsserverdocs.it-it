@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9518fae07745502d01dc0084b7443a1332db83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859802"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440507"
 ---
 # <a name="using-the-get-driverpackagefile-command"></a>Utilizzando il comando get-DriverPackageFile
 
@@ -34,11 +34,11 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/ InfFile:\<percorso del Inf File >|Specifica il nome di file e percorso completo del file di pacchetto di driver inf.|
-|[/Architecture:{x86 | ia64 | x64}]|Specifica l'architettura del pacchetto driver.|
-|[/Show: {driver | File | All}]|Indica le informazioni sul pacchetto da visualizzare. Se **/Mostra** non viene specificato, il valore predefinito è per restituire solo i driver dei metadati del pacchetto. **I driver** Visualizza l'elenco dei driver nel pacchetto. **File** consente di visualizzare l'elenco dei file nel pacchetto. **Tutti** Visualizza driver e file.|
+|         Parametro         |                              Descrizione                               |
+|---------------------------|------------------------------------------------------------------------|
+| / InfFile:\<percorso del Inf File > | Specifica il nome di file e percorso completo del file di pacchetto di driver inf. |
+|    [/Architecture:{x86    |                                  ia64                                  |
+|     [/Show: {driver      |                                 File                                  |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -49,4 +49,4 @@ WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

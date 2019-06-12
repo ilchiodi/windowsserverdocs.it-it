@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cce07ba5b3d2cc89f1363bbb2af5acd048c0466
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839252"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445946"
 ---
 # <a name="control-your-tools-visibility-in-a-solution"></a>Controllare la visibilità dello strumento in una soluzione #
 
@@ -90,10 +90,10 @@ il SDK include un set di proprietà dell'inventario è possibile usare per compi
 | operatingSystemVersion | version_string (eg: "10.1.*") |
 | productType | number |
 | clusterFqdn | string |
-| isHyperVRoleInstalled | booleano |
-| isHyperVPowershellInstalled | booleano |
-| isManagementToolsAvailable | booleano |
-| isWmfInstalled | booleano |
+| isHyperVRoleInstalled | boolean |
+| isHyperVPowershellInstalled | boolean |
+| isManagementToolsAvailable | boolean |
+| isWmfInstalled | boolean |
 
 Ogni oggetto nella matrice di inventario deve essere conforme per la struttura json seguente:
 
@@ -124,12 +124,12 @@ Ogni oggetto nella matrice di inventario deve essere conforme per la struttura j
 
 Opzioni disponibili per la proprietà 'type':
 
-| Tipo | Descrizione |
+| Type | Descrizione |
 | ---- | ----------- |
 | version | un numero di versione (ad esempio: 10.1.*) |
 | number | un valore numerico |
 | string | valore stringa |
-| booleano | true o false |
+| boolean | true o false |
 
 #### <a name="value-types"></a>Tipi di valore ####
 
@@ -137,7 +137,7 @@ La proprietà 'value' accetta questi tipi:
 
 * string
 * number
-* booleano
+* boolean
 
 Un set di condizioni di inventario in formato corretto è simile alla seguente:
 
@@ -194,6 +194,7 @@ Infine, è possibile eseguire uno script di PowerShell personalizzato per identi
 }
 ```
 La proprietà stato è il valore importante che consentono di controllare la decisione per mostrare o nascondere l'estensione nell'elenco degli strumenti.  I valori consentiti sono:
+
 | Value | Descrizione |
 | ---- | ----------- |
 | Disponibile | L'estensione deve essere visualizzato nell'elenco degli strumenti. |

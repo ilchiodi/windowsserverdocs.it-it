@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: d243994a68c0bf4f0584f68475a185acb9cb73d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0e3852b4ea5f1080a3798c0806e5c87ca808c3be
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865492"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446526"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>Scalare orizzontalmente la distribuzione di Servizi Desktop remoto mediante l'aggiunta di una farm Host sessione Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 È possibile migliorare la disponibilità e la scala della distribuzione di servizi desktop remoto mediante l'aggiunta di una farm Host sessione Desktop remoto (RDSH).   
   
@@ -30,7 +30,7 @@ Per aggiungere un altro Host sessione Desktop remoto alla distribuzione, procede
   
 1. Creare un server per ospitare il secondo Host sessione Desktop remoto. Se si usa macchine virtuali di Azure, assicurarsi di includere la nuova macchina virtuale nello stesso set di disponibilità che contiene il primo Host sessione Desktop remoto.
 2. Abilitare la gestione remota nel nuovo server o macchina virtuale:
-   1. In Server Manager fare clic su **Server locale > impostazione corrente di gestione remota (disabilitata)**. 
+   1. In Server Manager fare clic su **Server locale > impostazione corrente di gestione remota (disabilitata)** . 
    2. Selezionare **abilitare la gestione remota per questo server**, quindi fare clic su **OK**. 
    3. Facoltativo: È possibile impostare temporaneamente Windows Update per scaricare e installare gli aggiornamenti automaticamente. In tal modo le modifiche e diversi riavvii del sistema mentre si distribuisce il server host sessione Desktop remoto. In Server Manager fare clic su **Server locale > impostazione corrente di Windows Update**. Fare clic su **Advanced options > rinviare gli aggiornamenti**. 
 3. Aggiungere il server o macchina virtuale al dominio:
@@ -39,8 +39,8 @@ Per aggiungere un altro Host sessione Desktop remoto alla distribuzione, procede
    3. Immettere le credenziali di amministratore di dominio. 
    4. Riavviare il server o macchina virtuale.
 4. Aggiungere il nuovo Host sessione Desktop remoto alla farm:
->[!NOTE] 
-> Passaggio 1, creazione di un indirizzo IP pubblico per la macchina virtuale RDBMS, è necessario solo se si usa una macchina virtuale per il RDBMS e se dispone già di un indirizzo IP assegnato.
+   >[!NOTE] 
+   > Passaggio 1, creazione di un indirizzo IP pubblico per la macchina virtuale RDBMS, è necessario solo se si usa una macchina virtuale per il RDBMS e se dispone già di un indirizzo IP assegnato.
    
    1. Creare un indirizzo IP pubblico per la macchina virtuale in esecuzione servizi di gestione Desktop remoto (RDBMS). La macchina virtuale RDBMS sarà in genere la macchina virtuale che esegue la prima istanza del ruolo di Gestore connessione desktop remoto.  
        1. Nel portale di Azure, fare clic su **Sfoglia > gruppi di risorse**, fare clic sul gruppo di risorse per la distribuzione e quindi fare clic su macchina virtuale RDBMS (ad esempio, Contoso-Cb1).  

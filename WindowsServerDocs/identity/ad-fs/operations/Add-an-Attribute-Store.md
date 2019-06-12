@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 103ee707c88f4e88b231a833f739cf75b6503e18
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8d3027c419e85d1aec4b3b0308926a86bb37620d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190102"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445097"
 ---
 # <a name="add-an-attribute-store"></a>Aggiungere un archivio attributi
 
@@ -33,20 +33,20 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 ![aggiungere l'archivio di attributi](media/Add-an-Attribute-Store/addstore1.PNG)
   
-3.  Nel **aggiungere un archivio attributi** finestra di dialogo, configurare le seguenti proprietà per l'archivio di attributi che si desidera aggiungere:  
+3. Nel **aggiungere un archivio attributi** finestra di dialogo, configurare le seguenti proprietà per l'archivio di attributi che si desidera aggiungere:  
   
-    -   In **nome**, digitare il nome che si desidera utilizzare per identificare l'archivio di attributi.  
+   -   In **nome**, digitare il nome che si desidera utilizzare per identificare l'archivio di attributi.  
   
-    -   Nelle **tipo di archivio attributo**, selezionare un tipo di archivio attributo supportato tra **Active Directory**, **LDAP**, oppure **SQL**.  
+   -   In **il tipo di archivio di attributi**, selezionare un tipo di archivio attributo supportato tra **Active Directory**, **LDAP**, o **SQL**.  
   
-    -   In **stringa di connessione**, se è stato selezionato un protocollo di accesso di Directory di Lightweight \(LDAP\) store o un Structured Query Language \(SQL\) archivio, immettere la stringa utilizzata per stabilire una connessione all'archivio di attributi. Per gli archivi di attributi di Active Directory, non è necessaria; nessuna stringa di connessione di conseguenza, questo campo è disabilitato.  
+   -   In **stringa di connessione**, se è stato selezionato un protocollo di accesso di Directory di Lightweight \(LDAP\) store o un Structured Query Language \(SQL\) archivio, immettere la stringa utilizzata per stabilire una connessione all'archivio di attributi. Per gli archivi di attributi di Active Directory, non è necessaria; nessuna stringa di connessione Pertanto, questo campo è disabilitato.  
   
-        > [!NOTE]  
-        > Per impostazione predefinita, ADFS crea automaticamente un archivio attributi di Active Directory.  
+       > [!NOTE]  
+       > ADFS crea automaticamente un archivio di attributi di Active Directory, per impostazione predefinita.  
  
 ![aggiungere l'archivio di attributi](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4.  Fare clic su **OK**.  
+4. Fare clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 

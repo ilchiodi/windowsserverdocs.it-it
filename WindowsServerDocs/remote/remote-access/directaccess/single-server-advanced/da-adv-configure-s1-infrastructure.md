@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: edd59208237f9b1042427dfecba0a407a34b30a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d19ac813280981341019330470cc5d53ee00778
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835812"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446117"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess avanzato
 
@@ -199,7 +199,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 -   Per il **Enhanced Key Usage** campo, utilizzare l'identificatore di oggetto (OID) autenticazione server.  
   
--   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)**, specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
+-   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
   
 -   Il certificato IP-HTTPS deve avere una chiave privata.  
   
@@ -246,11 +246,11 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 1.  Nel server DNS della rete interna: Nel **avviare** digitare**dnsmgmt. msc**, quindi premere INVIO.  
   
-2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)**.  
+2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)** .  
   
 3.  Nella casella **Indirizzo IP** della finestra di dialogo **Nuovo host**:  
   
-    -   Nella casella **Nome (se vuoto, utilizza il nome del dominio padre)**, immettere il nome DNS del sito Web del server dei percorsi di rete (cioè il nome usato dai client DirectAccess per connettersi al server dei percorsi di rete).  
+    -   Nella casella **Nome (se vuoto, utilizza il nome del dominio padre)** , immettere il nome DNS del sito Web del server dei percorsi di rete (cioè il nome usato dai client DirectAccess per connettersi al server dei percorsi di rete).  
   
     -   Immettere l'indirizzo IPv4 o IPv6 del server dei percorsi di rete, quindi fare clic su **Aggiungi host** e **OK**.  
   
@@ -264,7 +264,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 5.  Nel **DNS** la finestra di dialogo, fare clic su **OK**, e quindi fare clic su **eseguita**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -336,7 +336,7 @@ Il server DirectAccess e tutti i computer client DirectAccess devono essere aggi
   
 10. Quando viene richiesto di riavviare il computer, fare clic su **Riavvia ora**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -425,7 +425,7 @@ Dopo che l'amministratore di Accesso remoto completa le modifiche alla configura
   
     10. Nella pagina **Analisi del backup**, scegliere **Avanti**, quindi fare clic su **Fine**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -556,7 +556,7 @@ Per entrambi i tipi di certificato, sono necessari i seguenti elementi, se non e
   
 ## <a name="BKMK_Links"></a>Passaggio successivo  
   
--   [Passaggio 2: Configurare i server DirectAccess avanzato](da-adv-configure-s2-servers.md)  
+-   [Passaggio 2: Configurare i server avanzati di DirectAccess](da-adv-configure-s2-servers.md)  
   
 
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fd0bea5da83ca9351d5ea1028c94392bdb40422
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08a9754b6bb11c50e21ba0d30543761be1866326
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440257"
 ---
 # <a name="wbadmin-enable-backup"></a>Abilita backup Wbadmin
 
@@ -76,7 +76,6 @@ wbadmin enable backup
 [-password:<Password>]
 [-quiet] 
 [-allowDeleteOldBackups]
-
 ```
 
 ## <a name="parameters"></a>Parametri
@@ -109,28 +108,28 @@ Per visualizzare il valore dell'identificatore del disco per i dischi, digitare 
 Gli esempi seguenti illustrano come il **abilitare il backup wbadmin** comando possa essere usato in diversi scenari di backup:
 
 Scenario di #1
--   Pianificare i backup dei dischi rigidi e:, d:\mountpoint, e \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
--   Salvare i file sul disco DiskID
--   Esegui backup ogni giorno alle ore 9:00 e le 18.00
-```
-wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-Scenario 2 #
--   Pianificare i backup di d:\documents la cartella nel percorso di rete \\ \\backupshare\backup1
--   Usare le credenziali di rete per l'amministratore di backup Aaren Ekelund (aekel), che è un membro del dominio CONTOSOEAST per autenticare l'accesso alla condivisione di rete. Password del Aaren *hM 3 dollari 9 ^ 5lp*.
--   Esegui backup ogni giorno alle 12:00. e le 21.00
-```
-wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
-```
-Scenario 3 #
--   Pianificare i backup del volume d:\documents t: e la cartella per l'unità h, ma ne esclude le d:\documents cartella\~tmp
--   Eseguire un backup completo usando il servizio Copia Shadow del Volume.
--   Esegui backup ogni giorno all'1:00 AM.
-```
-wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
-```
+- Pianificare i backup dei dischi rigidi e:, d:\mountpoint, e \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+- Salvare i file sul disco DiskID
+- Esegui backup ogni giorno alle ore 9:00 e le 18.00
+  ```
+  wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  Scenario 2 #
+- Pianificare i backup di d:\documents la cartella nel percorso di rete \\ \\backupshare\backup1
+- Usare le credenziali di rete per l'amministratore di backup Aaren Ekelund (aekel), che è un membro del dominio CONTOSOEAST per autenticare l'accesso alla condivisione di rete. Password del Aaren *hM 3 dollari 9 ^ 5lp*.
+- Esegui backup ogni giorno alle 12:00. e le 21.00
+  ```
+  wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
+  ```
+  Scenario 3 #
+- Pianificare i backup del volume d:\documents t: e la cartella per l'unità h, ma ne esclude le d:\documents cartella\~tmp
+- Eseguire un backup completo usando il servizio Copia Shadow del Volume.
+- Esegui backup ogni giorno all'1:00 AM.
+  ```
+  wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
+  ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

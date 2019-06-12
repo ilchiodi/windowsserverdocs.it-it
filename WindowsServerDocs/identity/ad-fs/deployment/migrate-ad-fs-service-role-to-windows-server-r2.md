@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 478729a7b6560beba5f04a1a15ad035561ad31f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34eab7d5e0325a4ad8268a900738eea30b944ebb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847952"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444564"
 ---
 # <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>Eseguire la migrazione di servizi ruolo di Active Directory Federation Services a Windows Server 2012 R2
  Questo documento vengono fornite istruzioni per eseguire la migrazione i seguenti servizi ruolo di Active Directory Federation Services (ADFS) installata con Windows Server 2012 R2:  
@@ -25,13 +25,13 @@ ms.locfileid: "59847952"
 ## <a name="supported-migration-scenarios"></a>Scenari di migrazione supportati  
  Le istruzioni per la migrazione in questa guida includono le attività seguenti:  
   
--   Esportazione dei dati di configurazione 2.0 AD FS dal server che esegue Windows Server 2008, Windows Server 2008 R2 o Windows Server 2012  
+- Esportazione dei dati di configurazione 2.0 AD FS dal server che esegue Windows Server 2008, Windows Server 2008 R2 o Windows Server 2012  
   
--   Eseguire un aggiornamento sul posto del sistema operativo del server da Windows Server 2008, Windows Server 2008 R2 o Windows Server 2012 a Windows Server 2012 R2. 
+- Eseguire un aggiornamento sul posto del sistema operativo del server da Windows Server 2008, Windows Server 2008 R2 o Windows Server 2012 a Windows Server 2012 R2. 
   
--   Ricreare la configurazione originale di ADFS e il ripristino di AD FS rimanenti del servizio delle impostazioni nel server che esegue il ruolo server ADFS installato con Windows Server 2012 R2.  
+- Ricreare la configurazione originale di ADFS e il ripristino di AD FS rimanenti del servizio delle impostazioni nel server che esegue il ruolo server ADFS installato con Windows Server 2012 R2.  
   
- Questa guida non include istruzioni per la migrazione di un server che esegue più ruoli. Se nel server vengono eseguiti più ruoli, è consigliabile progettare un processo di migrazione personalizzato specifico del proprio ambiente server, basandosi sulle informazioni disponibili in altre guide alla migrazione dei ruoli. Le guide alla migrazione per altri ruoli sono disponibili nel [portale della migrazione per Windows Server](https://go.microsoft.com/fwlink/?LinkId=247608).  
+  Questa guida non include istruzioni per la migrazione di un server che esegue più ruoli. Se nel server vengono eseguiti più ruoli, è consigliabile progettare un processo di migrazione personalizzato specifico del proprio ambiente server, basandosi sulle informazioni disponibili in altre guide alla migrazione dei ruoli. Le guide alla migrazione per altri ruoli sono disponibili nel [portale della migrazione per Windows Server](https://go.microsoft.com/fwlink/?LinkId=247608).  
   
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati  
  Sistema operativo server di destinazione:  
@@ -50,9 +50,9 @@ ms.locfileid: "59847952"
 |Basato su x64|Server Core e opzioni di installazione completa di Windows Server 2012|  
   
 > [!NOTE]
->  -   Le versioni dei sistemi operativi elencate nella tabella precedente corrispondono alle combinazioni meno recenti di sistemi operativi e Service Pack supportate.  
-> -   Le edizioni Foundation, Standard, Enterprise e Datacenter del sistema operativo Windows Server sono supportate come origine o il server di destinazione.  
-> -   Sono supportate le migrazioni tra sistemi operativi fisici e sistemi operativi virtuali.  
+> - Le versioni dei sistemi operativi elencate nella tabella precedente corrispondono alle combinazioni meno recenti di sistemi operativi e Service Pack supportate.  
+>   -   Le edizioni Foundation, Standard, Enterprise e Datacenter del sistema operativo Windows Server sono supportate come origine o il server di destinazione.  
+>   -   Sono supportate le migrazioni tra sistemi operativi fisici e sistemi operativi virtuali.  
   
 ### <a name="supported-ad-fs-role-services-and-features"></a>Funzionalità e servizi ruolo ADFS supportate  
  Nella tabella seguente vengono descritti gli scenari di migrazione dei servizi ruolo ADFS e delle rispettive impostazioni descritte in questa Guida.  

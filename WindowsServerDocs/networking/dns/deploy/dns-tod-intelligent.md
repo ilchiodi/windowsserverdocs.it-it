@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33fd9447a79346127714a5e5e73977611eba483c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c36475dacb8664352f4ab270878357118d281c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446427"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Usare i criteri DNS per risposte DNS intelligenti basate sull'ora del giorno
 
@@ -107,7 +107,7 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.mi
 #### <a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona  
 È ora necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.  
   
-Ad esempio, in **SeattleZoneScope**, il record **www.contosogiftservices.com** viene aggiunto con l'indirizzo IP 192.0.0.1, che si trova in un datacenter di Seattle. Analogamente, nel **DublinZoneScope**, il record **www.contosogiftservices.com** viene aggiunto con l'indirizzo IP 141.1.0.3 nel Data Center Dublino  
+Ad esempio, in **SeattleZoneScope**, il record <strong>www.contosogiftservices.com</strong> viene aggiunto con l'indirizzo IP 192.0.0.1, che si trova in un datacenter di Seattle. Analogamente, nel **DublinZoneScope**, il record <strong>www.contosogiftservices.com</strong> viene aggiunto con l'indirizzo IP 141.1.0.3 nel Data Center Dublino  
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per aggiungere record per gli ambiti di zona.  
   

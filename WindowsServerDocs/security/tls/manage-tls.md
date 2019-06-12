@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 8053a14a74797cccce4c441d41f1f1623ba0ad6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 872647f09898bf8ae08ee69f28b717d28abf7c78
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879442"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447300"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gestire Transport Layer Security (TLS)
 
@@ -39,22 +39,22 @@ Le modifiche apportate all'ordine TLS cipher suite saranno effettive all'avvio s
 
 È possibile utilizzare le impostazioni di criteri di gruppo dell'ordine di SSL Cipher Suite per configurare l'ordine predefinito TLS cipher suite.
 
-1.  Da Console Gestione criteri di gruppo, passare a **configurazione Computer** > **modelli amministrativi** > **reti**  >  **Le impostazioni di configurazione di SSL**.
-2.  Fare doppio clic su **ordine dei pacchetti di crittografia SSL**, quindi fare clic sui **abilitato** opzione.
-3.  Fare doppio clic su **pacchetti di crittografia SSL** e selezionare **Seleziona tutto** nel menu a comparsa.
+1. Da Console Gestione criteri di gruppo, passare a **configurazione Computer** > **modelli amministrativi** > **reti**  >  **Le impostazioni di configurazione di SSL**.
+2. Fare doppio clic su **ordine dei pacchetti di crittografia SSL**, quindi fare clic sui **abilitato** opzione.
+3. Fare doppio clic su **pacchetti di crittografia SSL** e selezionare **Seleziona tutto** nel menu a comparsa.
 
-    ![Impostazione di Criteri di gruppo](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
+   ![Impostazione di Criteri di gruppo](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4.  Il testo selezionato e scegliere **copia** nel menu a comparsa.
-5.  Incollare il testo in un editor di testo, ad esempio notepad.exe e aggiornamento con il nuovo elenco di ordini cipher suite.
+4. Il testo selezionato e scegliere **copia** nel menu a comparsa.
+5. Incollare il testo in un editor di testo, ad esempio notepad.exe e aggiornamento con il nuovo elenco di ordini cipher suite.
 
-    > [!NOTE]
-    > Elenco degli ordini TLS cipher suite deve essere in formato delimitato da virgole di tipo strict. Ogni stringa di crittografia suite terminerà con una virgola (,) sul lato destro di esso. 
+   > [!NOTE]
+   > Elenco degli ordini TLS cipher suite deve essere in formato delimitato da virgole di tipo strict. Ogni stringa di crittografia suite terminerà con una virgola (,) sul lato destro di esso. 
+   > 
+   > Inoltre, l'elenco dei pacchetti di crittografia è limitato a 1.023 caratteri.
 
-    > Inoltre, l'elenco dei pacchetti di crittografia è limitato a 1.023 caratteri.
-
-6.  Sostituire l'elenco nel **pacchetti di crittografia SSL** con l'elenco ordinato aggiornato.
-7.  Fare clic su **OK** o **applicare**.
+6. Sostituire l'elenco nel **pacchetti di crittografia SSL** con l'elenco ordinato aggiornato.
+7. Fare clic su **OK** o **applicare**.
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Configurazione TLS Cipher Suite ordine tramite MDM
 
@@ -124,7 +124,7 @@ Il processo per la distribuzione di una curva è:
 1.  In Windows 10 e Windows Server 2016, usare **certutil.exe** per aggiungere una curva denominata registrata nuovi per Windows.
 2.  Da quel computer stesso, aprire la Console Gestione criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
 3.  Passare a **configurazione Computer | Preferenze | Le impostazioni di Windows | Registro di sistema**.  Fare doppio clic su **Registro di sistema**. Passare il mouse su **New** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in base al nome della curva. Si creerà un elemento della raccolta del Registro di sistema per ogni chiave di registro *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Configurare la raccolta del Registro di sistema preferenza di criteri di gruppo appena creato aggiungendo una nuova **elemento Registro di sistema** per ogni valore del Registro di sistema elencata sotto *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[curveName]*.
+4.  Configurare la raccolta del Registro di sistema preferenza di criteri di gruppo appena creato aggiungendo una nuova **elemento Registro di sistema** per ogni valore del Registro di sistema elencata sotto *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[curveName]* .
 5.  Distribuire l'oggetto Criteri di gruppo che contiene elementi di raccolta del Registro di sistema dei criteri di gruppo per computer Windows 10 e Windows Server 2016 che deve ricevere le curve denominate nuovo.
 
     ![GPP distribuire curve](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

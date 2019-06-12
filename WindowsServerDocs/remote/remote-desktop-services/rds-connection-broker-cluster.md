@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034423"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805148"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Aggiungere il server Gestore connessione Desktop remoto alla distribuzione e configurare la disponibilità elevata
 
@@ -27,7 +27,7 @@ ms.locfileid: "65034423"
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-Configurare un server di agire come una seconda connessione desktop remoto: può trattarsi di un server fisico o una macchina virtuale.
+Configurare un server di agire come un secondo Gestore connessione desktop remoto, può trattarsi di un server fisico o una macchina virtuale.
 
 Impostare un database per il gestore di connessione. È possibile usare [Database SQL di Azure](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database) istanza o SQL Server nell'ambiente locale. Si parla con Azure SQL riportato di seguito, ma i passaggi sono comunque applicabili a SQL Server. È necessario trovare la stringa di connessione per il database e assicurarsi di avere il driver ODBC corretto.
 
@@ -36,21 +36,23 @@ Impostare un database per il gestore di connessione. È possibile usare [Databas
 1. Trovare la stringa di connessione per il database che è stato creato, è necessario sia per identificare la versione del driver ODBC è necessario e in un secondo momento, quando si configura il gestore di connessione se stesso (passaggio 3), quindi è necessario salvare la stringa di una posizione in cui è possibile utilizzarlo come riferimento facilmente. Ecco come trovare la stringa di connessione per SQL di Azure:  
     1. Nel portale di Azure, fare clic su **Sfoglia > gruppi di risorse** e fare clic sul gruppo di risorse per la distribuzione.   
     2. Selezionare il database SQL che appena creato (ad esempio, DB1-CB).   
-    3. Fare clic su **Impostazioni > Proprietà > Mostra stringhe di connessione database**.   
+    3. Fare clic su **le impostazioni** > **delle proprietà** > **Mostra stringhe di connessione database**.   
     4. Copiare la stringa di connessione **ODBC (include Node. js)** , quali dovrebbe essere simile al seguente:   
       
-        Driver = {SQL Server Native Client 13.0}; Server = tcp:cb-sqls1.database.windows.net,1433; Database = CB-DB1; UID =sqladmin@contoso; Pwd = {your_password_here}; Crittografare = yes; TrustServerCertificate = no. Timeout di connessione = 30.   
+        ```
+        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+        ```
   
     5. Sostituire "your_password_here" con la password effettiva. Si userà questa stringa intera, con la password, inclusa quando ci si connette al database. 
 2. Installare il driver ODBC nel nuovo gestore di connessione: 
    1. Se si usa una macchina virtuale per il gestore di connessione, creare un indirizzo IP pubblico per il primo gestore connessione desktop remoto. (È sufficiente eseguire questa operazione se la macchina virtuale RDBMS non possieda già un indirizzo IP pubblico per consentire le connessioni RDP.)
-       1. Nel portale di Azure, fare clic su **Sfoglia > gruppi di risorse**, fare clic sul gruppo di risorse per la distribuzione e quindi fare clic sulla prima macchina virtuale Gestore connessione desktop remoto (ad esempio, Contoso-Cb1).
+       1. Nel portale di Azure, fare clic su **esplorare** > **gruppi di risorse**, fare clic sul gruppo di risorse per la distribuzione e quindi fare clic sulla prima macchina virtuale di Gestore connessione desktop remoto (ad esempio, Contoso-Cb1).
        2. Fare clic su **Impostazioni > interfacce di rete**, quindi scegliere l'interfaccia di rete corrispondente.
        3. Fare clic su **Impostazioni > indirizzo IP**.
        4. Per **indirizzo IP pubblico**, selezionare **Enabled**, quindi fare clic su **indirizzo IP**.
        5. Se si dispone di un indirizzo IP pubblico esistente da utilizzare, selezionarlo dall'elenco. In caso contrario, fare clic su **Create new**, immettere un nome e quindi fare clic su **OK** e quindi **salvare**.
    2. Connettersi al primo gestore connessione desktop remoto:
-       1. Nel portale di Azure, fare clic su **Sfoglia > gruppi di risorse**, fare clic sul gruppo di risorse per la distribuzione e quindi fare clic sulla prima macchina virtuale Gestore connessione desktop remoto (ad esempio, Contoso-Cb1).
+       1. Nel portale di Azure, fare clic su **esplorare** > **gruppi di risorse**, fare clic sul gruppo di risorse per la distribuzione e quindi fare clic sulla prima macchina virtuale di Gestore connessione desktop remoto (ad esempio, Contoso-Cb1).
        2. Fare clic su **Connetti > aprire** per aprire il client Desktop remoto.
        3. Nel client, fare clic su **Connect**, quindi fare clic su **utilizza un altro account utente**. Immettere il nome utente e la password per un account di amministratore di dominio.
        4. Fare clic su **Sì** quando l'avviso sul certificato.

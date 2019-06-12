@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf5fffdedbc25ad97e9e96a84d3ff1bbdaf87b2a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b41b6dcc52c3e6700d1d18c61eceea8b990ecdf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440587"
 ---
 # <a name="using-the-convert-riprepimage-command"></a>Usando il comando Converti RiprepImage
 
@@ -40,10 +40,10 @@ WDSUTIL [Options] /Convert-RIPrepImage /FilePath:<File path and name>
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/ FilePath:\<percorso e nome File >|Specifica il nome di file e percorso completo del file. sif che corrisponde all'immagine RIPrep. Questo file viene in genere chiamato sif e viene trovato nella sottocartella \Templates della cartella che contiene l'immagine RIPrep.|
-|/DestinationImage|Specifica le impostazioni per l'immagine di destinazione, utilizzando le opzioni seguenti.</br>-/FilePath:\<percorso e nome file >-imposta il percorso completo del file per il nuovo file. Ad esempio:  **C:\Temp\convert.wim**</br>-[/Name:\<nome >]-imposta il nome visualizzato dell'immagine. Se non viene specificato alcun nome visualizzato, verrà utilizzato il nome visualizzato dell'immagine di origine.</br>-[/ Descrizione: \<Descrizione >]-imposta la descrizione dell'immagine.</br>-[/InPlace] - Specifica che la conversione deve essere eseguito su immagine RIPrep originale e non su una copia dell'immagine originale, ovvero il comportamento predefinito.</br>-[/Overwrite: {Sì | No | Aggiungere}] - determina se il file specificato nella **/DestinationImage** opzione deve essere sovrascritti se esiste già un file esistente con lo stesso nome in /FilePath. **Sì** sovrascrive il file esistente. **Non** (impostazione predefinita) causa un errore si verifica se un altro file con lo stesso nome esiste già. **Accodare** collega l'immagine generata come una nuova immagine all'interno del file con estensione wim esistente.|
+|            Parametro            |                                                                                                                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                                                                                                                |
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| / FilePath:\<percorso e nome File > |                                                                                                                                                                                                       Specifica il nome di file e percorso completo del file. sif che corrisponde all'immagine RIPrep. Questo file viene in genere chiamato sif e viene trovato nella sottocartella \Templates della cartella che contiene l'immagine RIPrep.                                                                                                                                                                                                       |
+|        /DestinationImage        | Specifica le impostazioni per l'immagine di destinazione, utilizzando le opzioni seguenti.</br>-/FilePath:\<percorso e nome file >-imposta il percorso completo del file per il nuovo file. Ad esempio:  **C:\Temp\convert.wim**</br>-[/Name:\<nome >]-imposta il nome visualizzato dell'immagine. Se non viene specificato alcun nome visualizzato, verrà utilizzato il nome visualizzato dell'immagine di origine.</br>-[/ Descrizione: \<Descrizione >]-imposta la descrizione dell'immagine.</br>-[/InPlace] - Specifica che la conversione deve essere eseguito su immagine RIPrep originale e non su una copia dell'immagine originale, ovvero il comportamento predefinito.</br>-[/Overwrite: {Sì |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -64,4 +64,4 @@ WDSUTIL /Verbose /Progress /Convert-RiPrepImage /FilePath:"\\Server
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,23 +1,23 @@
 ---
 title: Risoluzione dei problemi relativi a Gestione disco
 description: Questo articolo descrive come risolvere i problemi di Gestione disco
-ms.date: 12/22/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c234828706d999fe049626a2fd98db70e612766f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4d9448cc642ef522fa129dcfe97e2286f16bad1b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192745"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812538"
 ---
 # <a name="troubleshooting-disk-management"></a>Risoluzione dei problemi relativi a Gestione disco
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows 7, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows 7, Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento sono elencati alcuni problemi comuni che possono verificarsi quando si utilizza Gestione disco.
 
@@ -26,7 +26,7 @@ In questo argomento sono elencati alcuni problemi comuni che possono verificarsi
 
 ## <a name="a-disks-status-is-not-initialized-or-the-disk-is-missing"></a>Stato del disco non inizializzato o il disco manca
 
-![Gestione disco che mostra un disco sconosciuto che deve essere inizializzato.](media\uninitialized-disk.PNG)
+![Gestione disco che mostra un disco sconosciuto che deve essere inizializzato.](media/uninitialized-disk.PNG)
 
 **Causa:** Se si dispone di un disco non viene visualizzato in Esplora File ed è elencato in Gestione disco come *non inizializzata*, è possibile che il disco non ha una firma valida. In sostanza, ciò significa che il disco sia mai stato inizializzato e formattato, o la formattazione del disco è stata danneggiata in qualche modo. 
 
@@ -39,24 +39,25 @@ Esistono una serie di motivi un disco potrebbe essere mancante o non è possibil
 1. Esaminare il disco in Gestione disco. Se viene visualizzato *Offline* come illustrato in questo caso, provare a facendovi e selezionando **Online**.
 
     ![Disco appare offline](media/offline-disk.png)
-1. Se il disco viene visualizzato in Gestione disco come *Online*, e ha una partizione primaria elencato come *integro*, come illustrato di seguito, che è un buon segno.
+2. Se il disco viene visualizzato in Gestione disco come *Online*, e ha una partizione primaria elencato come *integro*, come illustrato di seguito, che è un buon segno.
 
     ![Disco indicato come online con un volume integro](media/healthy-volume.png)
     - Se la partizione è un file system, ma senza lettera di unità (ad esempio, /e:), vedere [modifica di una lettera di unità](change-a-drive-letter.md) per aggiungere manualmente una lettera di unità.
     - Se non dispone di un file system (NTFS, ReFS, FAT32 o exFAT) e si conosce il disco è vuoto, la partizione e scegliere **formato**. Formattazione di un disco Cancella tutti i dati su di esso, pertanto non se si sta provando a ripristinare i file dal disco, invece, andare al passaggio successivo.
-1. Se si dispone di un riferimento esterno del disco, scollegare il disco, il plug-in e quindi selezionare **azione** > **Ripeti analisi dischi**. 
-2. Arresta il PC, disattivare il disco rigido esterno (se si tratta di un disco esterno con un cavo di alimentazione) e quindi riattivare il PC e il disco.
+3. Se si dispone di un riferimento esterno del disco, scollegare il disco, il plug-in e quindi selezionare **azione** > **Ripeti analisi dischi**. 
+4. Arresta il PC, disattivare il disco rigido esterno (se si tratta di un disco esterno con un cavo di alimentazione) e quindi riattivare il PC e il disco.
     Per disattivare il PC in Windows 10, selezionare il pulsante Start, selezionare il pulsante di alimentazione e quindi selezionare **arrestare**.
-1. Collegare il disco di una porta USB differente che è direttamente sul PC (non in un hub).
+5. Collegare il disco di una porta USB differente che è direttamente sul PC (non in un hub).
     In alcuni casi i dischi USB non ottenere alimentazione sufficiente da alcune porte o di altri problemi con porte specifiche. Questo avviene in genere con gli hub USB, ma in alcuni casi esistono le differenze tra le porte in un PC, pertanto, se disponibili, provare a poche porte diverse.
-1. Provare un cavo diversi.
+6. Provare un cavo diversi.
     Potrebbe sembrare non avere senso, ma i cavi molto esito negativo, quindi provare a usare un cavo diversi per collegare il disco. Se presente un disco interno in un PC desktop, si sarà probabilmente necessario arrestare il computer prima di cambiare i cavi, vedere il manuale del PC per i dettagli.
-1. Controllare Gestione dispositivi per i problemi.
+7. Controllare Gestione dispositivi per i problemi.
     Premere e tenere premuto il pulsante Start, quindi selezionare Gestione di dispositivi dal menu di scelta rapida (o fare doppio clic su). Cercare tutti i dispositivi con un punto esclamativo accanto, o altri problemi, fare doppio clic sul dispositivo e quindi leggere il relativo stato.
 
     Ecco un elenco di [codici di errore in Gestione dispositivi](https://support.microsoft.com/help/310123/error-codes-in-device-manager-in-windows), ma un approccio che a volte works consiste nel fare clic sul dispositivo problematico, selezionare **dispositivo Disinstalla**e quindi **azione**  >  **Rileva modifiche hardware**.
-    ![Gestione di dispositivi che mostra un dispositivo USB sconosciuto](media\device-manager.PNG)
-1. Collegare il disco in un computer diverso.
+
+    ![Gestione di dispositivi che mostra un dispositivo USB sconosciuto](media/device-manager.PNG)
+8. Collegare il disco in un computer diverso.
     
     Se il disco non funziona in un altro computer, è un buon segno che c'è un valore non valido in corso il disco e non al computer. Nessun divertente, sappiamo. Esistono alcuni altri passaggi in cui è possibile provare [errore di unità USB esterna "È necessario inizializzare il disco prima che Gestione dischi logici relativi diritti di accesso"](https://social.technet.microsoft.com/Forums/windows/en-US/2b069948-82e9-49ef-bbb7-e44ec7bfebdb/forum-faq-external-usb-drive-error-you-must-initialize-the-disk-before-logical-disk-manager-can?forum=w7itprohardware), ma può essere ora per cercare e richiedere la Guida al [community di Microsoft](https://answers.microsoft.com/en-us/windows) del sito oppure contattare il produttore del disco.
 
@@ -64,9 +65,9 @@ Esistono una serie di motivi un disco potrebbe essere mancante o non è possibil
 
 > [!IMPORTANT]
 > Errore dei dischi, molto spesso, pertanto è importante eseguire regolarmente il backup tutti i file che si è interessati. Se si dispone di un disco che a volte non viene visualizzato o fornisce gli errori, prendere in considerazione questo promemoria per controllare i metodi di backup. Se si è leggermente indietro - tutti Affrontiamo è OK. La migliore soluzione di backup è quello che viene utilizzato, quindi è consigliabile per trovare quello più adatto per l'utente e prosegue con quello.
-
+> 
 > [!TIP]
-Per informazioni su come usare le app integrate di Windows per i file di backup in un'unità esterna, ad esempio un'unità USB, vedi [backup e ripristino dei file](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). È anche possibile salvare i file in Microsoft OneDrive, che esegue la sincronizzazione dei file dal computer nel cloud. Se il disco rigido non riesce, sarà comunque in grado di ottenere tutti i file archiviati in OneDrive da OneDrive.com. Per altre informazioni, vedi [OneDrive nel PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
+> Per informazioni su come usare le app integrate di Windows per i file di backup in un'unità esterna, ad esempio un'unità USB, vedi [backup e ripristino dei file](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). È anche possibile salvare i file in Microsoft OneDrive, che esegue la sincronizzazione dei file dal computer nel cloud. Se il disco rigido non riesce, sarà comunque in grado di ottenere tutti i file archiviati in OneDrive da OneDrive.com. Per altre informazioni, vedi [OneDrive nel PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
 
 ## <a name="a-basic-or-dynamic-disks-status-is-unreadable"></a>Stato del disco di base o dinamico è illeggibile
 
@@ -177,10 +178,8 @@ Quando lo stato del volume è **Integro (a rischio)** , lo stato di un disco sot
 2. Per gestire i dischi in computer remoti che supportano VDS, devi configurare Windows Defender Firewall sia nel computer locale (su cui è eseguito Gestione disco) sia nel computer remoto.
 3. Nel computer locale configura Windows Defender Firewall per abilitare l'eccezione Gestione volumi remota.
 
-
 > [!NOTE]
 > L'eccezione Gestione volumi remota include le eccezioni per Vds.exe, Vdsldr.exe e la porta TCP 135.
 
-
- > [!NOTE]
- > Le connessioni remote in gruppi di lavoro non sono supportate. Il computer locale e il computer remoto devono essere entrambi membri di un dominio.
+> [!NOTE]
+> Le connessioni remote in gruppi di lavoro non sono supportate. Il computer locale e il computer remoto devono essere entrambi membri di un dominio.

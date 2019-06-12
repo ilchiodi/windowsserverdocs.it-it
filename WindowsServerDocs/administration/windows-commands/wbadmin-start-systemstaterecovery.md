@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c99a934987e320baaec0e56c69f36eda5a32819
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4282da2011c39daec0315a7f3836d5517f29debb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440201"
 ---
 # <a name="wbadmin-start-systemstaterecovery"></a>Comando Wbadmin start systemstaterecovery
 
@@ -74,17 +74,17 @@ wbadmin start systemstaterecovery
 
 ## <a name="BKMK_examples"></a>Esempi
 
--   Per eseguire un ripristino dello stato di sistema di backup da 31/03/2013 alle 9:00, digitare:  
-    ```
-    wbadmin start systemstaterecovery -version:03/31/2013-09:00
-    ```  
--   Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. che viene archiviato nella risorsa condivisa \\ \\servername\share per server01, tipo:  
-    ```
-    wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
-    ```
+- Per eseguire un ripristino dello stato di sistema di backup da 31/03/2013 alle 9:00, digitare:  
+  ```
+  wbadmin start systemstaterecovery -version:03/31/2013-09:00
+  ```  
+- Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. che viene archiviato nella risorsa condivisa \\ \\servername\share per server01, tipo:  
+  ```
+  wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
+  ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Inizio WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx) cmdlet

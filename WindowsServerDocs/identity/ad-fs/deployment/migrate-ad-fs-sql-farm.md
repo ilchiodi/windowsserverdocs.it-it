@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8433219850793aa34b646a3bf14cba42d3de4988
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: afecbf80d78688b66b2392647ea3195be95e9f54
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445609"
 ---
 # <a name="migrate-an-ad-fs-20-wid-farm"></a>Eseguire la migrazione di una farm database interno di Windows di AD FS 2.0  
 Questo documento fornisce informazioni dettagliate sulla migrazione di una farm AD FS 2.0 SQL a Windows Server 2012.
@@ -31,7 +31,7 @@ Questo documento fornisce informazioni dettagliate sulla migrazione di una farm 
 > [!IMPORTANT]
 >  In seguito all'aggiornamento del sistema operativo, la configurazione di ADFS nel server andrà persa e viene rimosso il ruolo di server 2.0 AD FS. Suo posto verrà installato il ruolo server AD FS di Windows Server 2012, ma non è configurato. Manualmente, è necessario creare la configurazione originale di ADFS e ripristinare le impostazioni di ADFS rimanenti per completare la migrazione del server federativo.  
   
-4.  Creare la configurazione originale di ADFS in questo server nella farm di SQL Server usando i cmdlet di AD FS Windows PowerShell per aggiungere un server a una farm esistente.  
+4. Creare la configurazione originale di ADFS in questo server nella farm di SQL Server usando i cmdlet di AD FS Windows PowerShell per aggiungere un server a una farm esistente.  
   
 > [!IMPORTANT]
 >  È necessario usare Windows PowerShell per creare la configurazione originale di ADFS, se si usa SQL Server per archiviare il database di configurazione di AD FS.  
@@ -40,18 +40,18 @@ Questo documento fornisce informazioni dettagliate sulla migrazione di una farm 
   - Immettere il nome e la password dell'account del servizio registrato durante la preparazione della farm SQL Server per la migrazione.  
   - Eseguire il comando seguente: `Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"`, dove `Data Source` è il valore dell'origine dati nel valore stringa connessione all'archivio criteri nel seguente file: `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`.  
   
-5.  Aggiungere il server appena aggiornato a Windows Server 2012 per il bilanciamento del carico.  
+5. Aggiungere il server appena aggiornato a Windows Server 2012 per il bilanciamento del carico.  
   
-6.  Ripetere i passaggi da 2 a 6 per i restanti nodi nella farm SQL Server.  
+6. Ripetere i passaggi da 2 a 6 per i restanti nodi nella farm SQL Server.  
   
-7.  Quando tutti i server nella farm di SQL Server vengono aggiornati a Windows Server 2012, ripristinare eventuali personalizzazioni di ADFS rimanenti, ad esempio gli archivi di attributi personalizzati.  
+7. Quando tutti i server nella farm di SQL Server vengono aggiornati a Windows Server 2012, ripristinare eventuali personalizzazioni di ADFS rimanenti, ad esempio gli archivi di attributi personalizzati.  
 
 ## <a name="next-steps"></a>Passaggi successivi
  [Preparare la migrazione di AD Server federativo ADFS 2.0](prepare-to-migrate-ad-fs-fed-server.md)   
  [Preparare la migrazione del Proxy Server 2.0 Federation di AD FS](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione di AD Server federativo ADFS 2.0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del Proxy Server 2.0 Federation di AD FS](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Eseguire la migrazione di AD agenti Web ADFS 1.1](migrate-the-ad-fs-web-agent.md)
+ [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)
 
 
 

@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: 4acc5e284d5ca7a62335a1c52f341cda3dfb547e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308550"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439736"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>Messaggi WSUS e suggerimenti per la risoluzione dei problemi
 
@@ -48,13 +48,13 @@ I motivi più comuni sono:
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>Message ID 6703 - WSUS Synchronization Failed
 > Messaggio: La richiesta non è riuscita con codice di stato HTTP 503: Servizio non disponibile.
-
+> 
 > Origine: Microsoft.UpdateServices.Administration.AdminProxy.createUpdateServer.
 
 Quando si tenta di aprire i servizi di aggiornamento nel server WSUS viene visualizzato l'errore seguente:
 
 > Errore: Errore di connessione
-
+> 
 > Errore durante il tentativo di connettersi al server WSUS. Questo errore può verificarsi per diversi motivi. Se il problema persiste, contattare l'amministratore di rete. Fare clic su Reimposta il nodo del Server per connettersi al server di nuovo.
 
 Inoltre, tenta di accedere all'URL per il sito Web di amministrazione di WSUS (ad esempio, `http://CM12CAS:8530`) ha esito negativo con errore:
@@ -88,8 +88,8 @@ Per risolvere questo problema, concedere le autorizzazioni di amministratore di 
 
 - **Servizio SQL:** Ogni servizio, ad eccezione del servizio selfupdate richiede che il servizio SQL è in esecuzione. Se uno qualsiasi dei file di log indicano problemi di connessione SQL, verificare innanzitutto il servizio SQL. Per accedere al servizio SQL, fare clic su **avviare**, scegliere **strumenti di amministrazione**, fare clic su **Services**, quindi cercare i possibili valori sono i seguenti:
     
-    -   **MSSQLSERver** (se si usa WMSDE o MSDE, o se si usa SQL Server e Usa il nome dell'istanza predefinito per il nome dell'istanza)
+  - **MSSQLSERver** (se si usa WMSDE o MSDE, o se si usa SQL Server e Usa il nome dell'istanza predefinito per il nome dell'istanza)
     
-    -   **MSSQL$ WSUS** (se si utilizza un database di SQL Server e ha assegnato un nome dell'istanza del database "Windows Server Update Services")
+  - **MSSQL$ WSUS** (se si utilizza un database di SQL Server e ha assegnato un nome dell'istanza del database "Windows Server Update Services")
     
     Il pulsante destro del servizio e quindi fare clic su **avviare** se il servizio non è in esecuzione, o **riavviare** per aggiornare il servizio se è in esecuzione.

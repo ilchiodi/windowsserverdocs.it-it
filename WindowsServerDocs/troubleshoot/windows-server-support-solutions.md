@@ -10,17 +10,17 @@ ms.date: 03/16/2018
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 1a4d28e168e7ce328ac125d12a07cb0c133e2d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc87bf87a79f5f7e13069ad1a58be0dc940a558e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852122"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447786"
 ---
 # <a name="top-support-solutions-for-windows-server"></a>Principali soluzioni di supporto per Windows Server
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 Microsoft rilascia regolarmente gli aggiornamenti e le soluzioni per Windows Server. Per garantire che i server ricevano gli aggiornamenti futuri, inclusi gli aggiornamenti della sicurezza, è importante mantenerli aggiornati. Consulta la pagina [Cronologia degli aggiornamenti di Windows 10 e Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history) per un elenco completo di aggiornamenti rilasciati.
 
@@ -84,10 +84,9 @@ Ecco le principali soluzioni del Supporto tecnico Microsoft per la maggior parte
                         <p><a href="https://technet.microsoft.com/library/ee939272.aspx">Come risolvere il servizio di gestione di chiavi (KMS)</a></p>
 <hr>
                         <p><a href="https://technet.microsoft.com/library/ff793439.aspx">Risoluzione dei problemi di Volume Activation</a></p>
-<hr>                       
-                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Codici di errore di attivazione</a></p>
+<hr><br/>                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Codici di errore di attivazione</a></p>
 <hr>
-                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Installazione di Windows potrebbe non riuscire con l'errore "il codice product key immesso non corrisponde ad alcuna delle immagini Windows disponibili per l'installazione. Immettere un diverso codice product key"</a></p>
+                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Installazione di Windows potrebbe non riuscire con l'errore &quot;il codice product key immesso non corrisponde a qualsiasi immagine Windows disponibili per l'installazione. Immetterne un altro prodotto&quot;</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +112,7 @@ Ecco le principali soluzioni del Supporto tecnico Microsoft per la maggior parte
 <hr>
                         <p><a href="https://support.microsoft.com/kb/255504">Uso di Ntdsutil.exe per assegnare o trasferire ruoli FSMO a un controller di dominio</a></p>
 <hr>
-                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Risoluzione dei problemi di distribuzione del Controller di dominio</a></p>
+                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Risoluzione dei problemi relativi alla distribuzione di controller di dominio</a></p>
 <hr>
                         <p><a href="https://msdn.microsoft.com/library/bb727058.aspx">Risoluzione dei problemi di installazione guidata di Active Directory</a></p>
 <hr>
@@ -138,10 +137,9 @@ Ecco le principali soluzioni del Supporto tecnico Microsoft per la maggior parte
                         <a href="/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup">Come configurare la registrazione automatica dei dispositivi aggiunti a un dominio di Windows con Azure Active Directory</a>
 <hr>
                         <p><a href="/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims">Configurare il rilascio delle attestazioni</a></p>
-<hr>  
-                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Configurare AD FS per l'autenticazione degli utenti memorizzati nelle directory LDAP</a></p>
+<hr><br/>                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Configurare AD FS per l'autenticazione di utenti memorizzati nelle directory LDAP</a></p>
 <hr>
-                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">Supporto di ADFS per l'associazione di nomi host alternativi per l'autenticazione del certificato</a></p>
+                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">Supporto di AD FS per l'associazione di nomi host alternativi per l'autenticazione del certificato</a></p>
 <hr>
                         <p><a href="https://blogs.technet.microsoft.com/tspring/2017/01/20/federated-to-microsoft-cloud-and-account-lockouts/">Protezione contro gli attacchi alle password</a>
                         <a href="../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md">l'aggiornamento a AD FS in Windows Server 2016 tramite un database interno di Windows</a></p>

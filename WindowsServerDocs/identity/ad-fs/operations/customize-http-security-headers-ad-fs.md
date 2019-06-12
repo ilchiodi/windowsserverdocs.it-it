@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 231c8783032f51f607565922d90ea7f7eb877cfd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188774"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444692"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare intestazioni della risposta HTTP protezione con AD FS 2019 
  
@@ -39,7 +39,7 @@ Prima di illustrare le intestazioni, è possibile esaminare alcuni scenari, crea
 ## <a name="http-security-response-headers"></a>Intestazioni di risposta di sicurezza HTTP 
 Le intestazioni di risposta sono inclusi nella risposta HTTP in uscita inviata da AD FS in un web browser. Le intestazioni possono essere elencate usando la `Get-AdfsResponseHeaders` cmdlet come illustrato di seguito.  
 
-![Risposta di intestazione](media\customize-http-security-headers-ad-fs\header1.png)
+![Risposta di intestazione](media/customize-http-security-headers-ad-fs/header1.png)
 
 Il `ResponseHeaders` nello screenshot precedente che identifica le intestazioni di sicurezza che verranno incluso da AD FS in ogni risposta HTTP. Le intestazioni di risposta verranno inviate solo se `ResponseHeadersEnabled` è impostata su `True` (valore predefinito). Il valore può essere impostato su `False` per impedire qualsiasi delle intestazioni di sicurezza incluso nella risposta HTTP di AD FS. Tuttavia questa operazione è sconsigliata.  A scopo, utilizzare la seguente:
 
@@ -218,7 +218,7 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
 
 Una volta impostato, la nuova intestazione viene inviata in risposta AD FS (fiddler frammento di codice riportato di seguito).  
  
-![Fiddler](media\customize-http-security-headers-ad-fs\header2.png)
+![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
 ## <a name="web-browswer-compatibility"></a>Compatibilità browswer Web
 Usare la tabella e i collegamenti seguenti per determinare quali browser web sono compatibili con ognuna delle intestazioni di risposta di sicurezza.

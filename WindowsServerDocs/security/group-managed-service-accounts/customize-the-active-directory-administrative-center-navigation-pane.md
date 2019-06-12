@@ -11,12 +11,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e7b1128d93912f724225905bedd38131f8aab0b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4cab0246226cf22a1b7212b832a902783952407
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854842"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446501"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Personalizzare il riquadro di spostamento di centro di amministrazione di Active Directory
 
@@ -33,21 +33,21 @@ ms.locfileid: "59854842"
 
 ### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Per personalizzare il riquadro di spostamento di centro di amministrazione di Active Directory
 
-1.  Nel riquadro di spostamento di centro di amministrazione di Active Directory, con il pulsante destro\-fare clic sul nodo che si desidera modificare. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del nodo.
+1. Nel riquadro di spostamento di centro di amministrazione di Active Directory, con il pulsante destro\-fare clic sul nodo che si desidera modificare. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del nodo.
 
-2.  Fare clic su uno dei seguenti comandi:
+2. Fare clic su uno dei seguenti comandi:
 
-    -   **Rinomina**
+   -   **Rinomina**
 
-    -   **Crea nodo duplicato**
+   -   **Crea nodo duplicato**
 
-    -   **Rimuovi**
+   -   **Rimuovi**
 
-    -   **Spostare verso l'alto**
+   -   **Spostare verso l'alto**
 
-    -   **Sposta giù**
+   -   **Sposta giù**
 
- Utilizzando la visualizzazione elenco, è possibile sfruttare l'usati di recente \(MRU\) elenco. L'elenco viene visualizzato automaticamente sotto un nodo di navigazione quando si visita almeno un contenitore in questo nodo di navigazione. È anche possibile visualizzare l'elenco MRU corrente espandendo la barra di navigazione nella parte superiore della finestra di centro di amministrazione di Active Directory. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un determinato nodo di spostamento. Ogni volta che si seleziona un determinato contenitore, tale contenitore viene aggiunto al primo posto dell'elenco dei contenitori utilizzati più di recente e l'ultimo contenitore visualizzato nell'elenco viene rimosso dall'elenco.
+   Utilizzando la visualizzazione elenco, è possibile sfruttare l'usati di recente \(MRU\) elenco. L'elenco viene visualizzato automaticamente sotto un nodo di navigazione quando si visita almeno un contenitore in questo nodo di navigazione. È anche possibile visualizzare l'elenco MRU corrente espandendo la barra di navigazione nella parte superiore della finestra di centro di amministrazione di Active Directory. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un determinato nodo di spostamento. Ogni volta che si seleziona un determinato contenitore, tale contenitore viene aggiunto al primo posto dell'elenco dei contenitori utilizzati più di recente e l'ultimo contenitore visualizzato nell'elenco viene rimosso dall'elenco.
 
   
 

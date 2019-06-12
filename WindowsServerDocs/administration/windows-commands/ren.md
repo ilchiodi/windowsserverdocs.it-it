@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c239dd1f1f8d03d761e45505634da10f19ed08cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34c761cb08916d277f8f7f1c58d57a05ed2c8daf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441815"
 ---
 # <a name="ren"></a>ren
 
@@ -37,19 +37,19 @@ rename [<Drive>:][<Path>]<FileName1> <FileName2>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive>:][\<Path>]\<FileName1>|Specifica il percorso e nome del file o set di file che si desidera rinominare. *FileName1* può includere caratteri jolly (**&#42;** e **?**).|
+|[\<Drive>:][\<Path>]\<FileName1>|Specifica il percorso e nome del file o set di file che si desidera rinominare. *FileName1* può includere caratteri jolly ( **&#42;** e **?** ).|
 |\<FileName2>|Specifica il nuovo nome per il file. È possibile utilizzare caratteri jolly per specificare un nuovo nome per più file.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   È possibile specificare una nuova unità o percorso quando la ridenominazione dei file.
--   Non è possibile utilizzare il **ren** comando per rinominare i file su unità disco o spostare file in una directory diversa.
--   È possibile usare caratteri jolly (**&#42;** e **?**) in uno *FileName* parametro. I caratteri sono rappresentati da caratteri jolly in *FileName2* siano identici ai caratteri corrispondenti in *FileName1*.
--   *FileName2* deve essere un nome file univoco. Se *FileName2* corrisponde a un nome di file esistente, **ren** Visualizza il messaggio seguente:  
-    ```
-    Duplicate file name or file not found
-    ```
+- È possibile specificare una nuova unità o percorso quando la ridenominazione dei file.
+- Non è possibile utilizzare il **ren** comando per rinominare i file su unità disco o spostare file in una directory diversa.
+- È possibile usare caratteri jolly ( **&#42;** e **?** ) in uno *FileName* parametro. I caratteri sono rappresentati da caratteri jolly in *FileName2* siano identici ai caratteri corrispondenti in *FileName1*.
+- *FileName2* deve essere un nome file univoco. Se *FileName2* corrisponde a un nome di file esistente, **ren** Visualizza il messaggio seguente:  
+  ```
+  Duplicate file name or file not found
+  ```
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -64,4 +64,4 @@ ren chap10 part10
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

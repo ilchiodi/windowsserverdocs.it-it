@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 541ceec25e8cb0fae0b55c3de3be269982546c54
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820352"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447667"
 ---
 # <a name="configure-e-mail-notifications"></a>Configurare le notifiche tramite posta elettronica
 
@@ -25,21 +25,21 @@ Per inviare queste notifiche e i rapporti di archiviazione, è necessario specif
 
 ## <a name="to-configure-e-mail-options"></a>Per configurare le opzioni di posta elettronica
 
-1.  Nell'albero della console, fare clic con il pulsante destro del mouse su **Gestione risorse file server**, quindi scegliere **Configura opzioni**. Verrà visualizzata la finestra di dialogo **Gestione risorse file server**.
+1. Nell'albero della console, fare clic con il pulsante destro del mouse su **Gestione risorse file server**, quindi scegliere **Configura opzioni**. Verrà visualizzata la finestra di dialogo **Gestione risorse file server**.
 
-2.  Nella scheda **Notifiche posta elettronica**, in **Nome server SMTP o indirizzo IP**, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica e i rapporti di archiviazione.
+2. Nella scheda **Notifiche posta elettronica**, in **Nome server SMTP o indirizzo IP**, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica e i rapporti di archiviazione.
 
-3.  Se si vuole avvisare regolarmente alcuni amministratori in merito a eventi di quota o screening dei file o rapporti di archiviazione tramite posta elettronica, in **Destinatari amministratori predefiniti** digitare l'indirizzo di posta elettronica di ognuno.
+3. Se si vuole avvisare regolarmente alcuni amministratori in merito a eventi di quota o screening dei file o rapporti di archiviazione tramite posta elettronica, in **Destinatari amministratori predefiniti** digitare l'indirizzo di posta elettronica di ognuno.
 
-    Usare il formato *account@domain*. Utilizzare il segno di punto e virgola per separare più account.
+   Usare il formato <em>account@domain</em>. Utilizzare il segno di punto e virgola per separare più account.
 
-4.  Per specificare un diverso indirizzo "Da" per le notifiche tramite posta elettronica e i rapporti di archiviazione inviati da Gestione risorse file server, in **"Indirizzo di posta elettronica "Da" predefinito**, digitare l'indirizzo di posta elettronica che si desidera venga visualizzato nel messaggio.
+4. Per specificare un diverso indirizzo "Da" per le notifiche tramite posta elettronica e i rapporti di archiviazione inviati da Gestione risorse file server, in **"Indirizzo di posta elettronica "Da" predefinito**, digitare l'indirizzo di posta elettronica che si desidera venga visualizzato nel messaggio.
 
-5.  Per testare le impostazioni, fare clic su **Invia messaggio di prova**.
+5. Per testare le impostazioni, fare clic su **Invia messaggio di prova**.
 
-6.  Fare clic su **OK**.
+6. Fare clic su **OK**.
 
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)

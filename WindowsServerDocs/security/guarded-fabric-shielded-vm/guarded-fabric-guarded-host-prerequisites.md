@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5f2c3ec4b2c434ea945d86c4b1593e2e416a5123
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447471"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Prerequisiti per gli host sorvegliati
 
@@ -45,15 +45,15 @@ Gli host sorvegliati usando la modalità TPM devono soddisfare i prerequisiti se
 > La funzionalità di supporto Hyper-V per sorveglianza Host abilita la protezione basata sulla virtualizzazione di integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È fortemente consigliabile testare questa configurazione nell'ambiente lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per altre informazioni, vedere [hardware compatibile con protezione basata su Windows Server Virtualization di integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Passaggio successivo:** 
->[!div class="nextstepaction"]
-[Acquisire informazioni sul TPM](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [!div class="nextstepaction"]
+> [Acquisire informazioni sul TPM](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
 ## <a name="host-key-attestation"></a>Attestazione chiave host
 
 Gli host sorvegliati usando l'attestazione chiave host devono soddisfare i prerequisiti seguenti:
 
 - **Hardware**: Qualsiasi server in grado di eseguire l'inizio di Hyper-V con Windows Server 2019
-- **Sistema operativo**: Windows Server 2019 Datacenter edition
+- **Sistema operativo**: Windows Server 2019 Datacenter Edition
 - **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza Host 
 
 L'host può essere unita a un dominio o un gruppo di lavoro. 
@@ -61,8 +61,8 @@ L'host può essere unita a un dominio o un gruppo di lavoro.
 Per l'attestazione chiave host, HGS deve essere in esecuzione Windows Server 2019 e funziona con l'attestazione v2. Per altre informazioni, vedere [prerequisiti HGS](guarded-fabric-prepare-for-hgs.md#prerequisites). 
 
 **Passaggio successivo:** 
->[!div class="nextstepaction"]
-[Creare una coppia di chiavi](guarded-fabric-create-host-key.md)
+> [!div class="nextstepaction"]
+> [Creare una coppia di chiavi](guarded-fabric-create-host-key.md)
 
 ## <a name="admin-trusted-attestation"></a>Attestazione amministratore
 
@@ -84,5 +84,5 @@ Host Hyper-V devono soddisfare i prerequisiti seguenti per la modalità di AD:
 > La funzionalità di supporto Hyper-V per sorveglianza Host abilita la protezione basata sulla virtualizzazione di integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È fortemente consigliabile testare questa configurazione nell'ambiente lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per altre informazioni, vedere [componenti hardware compatibili con protezione basata sulla virtualizzazione di Windows Server 2016 di integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Passaggio successivo:** 
->[!div class="nextstepaction"]
-[Posizionare gli host sorvegliati in un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [!div class="nextstepaction"]
+> [Posizionare gli host sorvegliati in un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)

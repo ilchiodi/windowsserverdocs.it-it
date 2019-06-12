@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52b3012a39409f9d48ae8aa7608e7bd0af5787d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e72b4be1b265d682d489cf372cdfe5ef54bb444d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858822"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441238"
 ---
 # <a name="shift"></a>shift
 
@@ -43,11 +43,11 @@ shift [/n <N>]
 
 ## <a name="remarks"></a>Note
 
--   Il **shift** comando Modifica i valori dei parametri di batch **%0** tramite **%9** mediante la copia di ogni parametro in quella precedente, ovvero il valore di **%1** viene copiato **%0**, il valore di **%2** viene copiato **%1**e così via. Ciò è utile per la scrittura di un file batch che esegue la stessa operazione su un qualsiasi numero di parametri.
--   Se sono abilitate le estensioni dei comandi, il **shift** comando supporta la **/n** opzione della riga di comando. Il **/n** opzione specifica per iniziare lo spostamento l'ennesimo argomento, dove **N** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **MAIUSC /2** comporterebbe un cambiamento **%3** al **%2**, **%4** a **%3**e così via e lasciare **%0** e **%1** interessate. Le estensioni comando sono abilitate per impostazione predefinita.
--   È possibile usare la **MAIUSC** comando per creare un file batch che può accettare parametri batch più di 10. Se si specificano più di 10 parametri nella riga di comando, quelli che vengono visualizzati dopo il decimo (**%9**) saranno spostate uno alla volta nel **%9**.
--   Il **shift** comando non ha alcun effetto **% \*** batch parametro.
--   Non è non con le versioni precedenti **MAIUSC** comando. Dopo aver implementato il **shift** comando, non sarà possibile recuperare il parametro batch (**%0**) che esisteva prima il turno.
+- Il **shift** comando Modifica i valori dei parametri di batch **%0** tramite **%9** mediante la copia di ogni parametro in quella precedente, ovvero il valore di **%1** viene copiato **%0**, il valore di **%2** viene copiato **%1**e così via. Ciò è utile per la scrittura di un file batch che esegue la stessa operazione su un qualsiasi numero di parametri.
+- Se sono abilitate le estensioni dei comandi, il **shift** comando supporta la **/n** opzione della riga di comando. Il **/n** opzione specifica per iniziare lo spostamento l'ennesimo argomento, dove **N** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **MAIUSC /2** comporterebbe un cambiamento **%3** al **%2**, **%4** a **%3**e così via e lasciare **%0** e **%1** interessate. Le estensioni comando sono abilitate per impostazione predefinita.
+- È possibile usare la **MAIUSC** comando per creare un file batch che può accettare parametri batch più di 10. Se si specificano più di 10 parametri nella riga di comando, quelli che vengono visualizzati dopo il decimo ( **%9**) saranno spostate uno alla volta nel **%9**.
+- Il **shift** comando non ha alcun effetto **% \\** * batch parametro.
+- Non è non con le versioni precedenti **MAIUSC** comando. Dopo aver implementato il **shift** comando, non sarà possibile recuperare il parametro batch ( **%0**) che esisteva prima il turno.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -71,4 +71,4 @@ echo All done
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

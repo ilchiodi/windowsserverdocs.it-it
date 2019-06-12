@@ -7,18 +7,18 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: c48979440ab7c5cfa86aa1287b354a1e43692f48
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1644a61c87953e465895e23c3c8454bae7f3a056
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867442"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443379"
 ---
 # <a name="express-updates-for-windows-server-2016-re-enabled-for-november-2018-update"></a>Degli aggiornamenti rapidi per Windows Server 2016 riabilitato per mese di novembre 2018 update
 
->Da Joel Frauenheim
-
->Si applica a: Windows Server 2016
+> Da Joel Frauenheim
+> 
+> Si applica a: Windows Server 2016
 
 A partire con 13 novembre 2018 martedì dedicato all'aggiornamento, Windows verrà nuovamente pubblicare gli aggiornamenti di Express per Windows Server 2016. Gli aggiornamenti rapidi per Windows Server 2016 è arrestato in metà del 2017 dopo che è stato rilevato un problema significativo che conservati gli aggiornamenti da installare in modo corretto. Anche se il problema è stato risolto in novembre 2017, il team di aggiornamento ha impiegato un approccio conservativo per pubblicare i pacchetti Express per garantire maggior parte dei clienti sarebbe necessario aggiorna il 14 novembre 2017 ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) installato nel proprio server gli ambienti e non interessate dal problema.
 

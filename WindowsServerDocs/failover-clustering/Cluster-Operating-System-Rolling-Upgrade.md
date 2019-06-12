@@ -7,16 +7,16 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: 60dacf63f1a355b961f84169060dbd7122a6fd32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f56c036768de7c1afcf3327135a7ff7d7a690a8b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842732"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440138"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Aggiornamento in sequenza del cluster del sistema operativo consente agli amministratori di aggiornare il sistema operativo dei nodi del cluster senza interrompere i carichi di lavoro di Scale-Out File Server o Hyper-V. Usando questa funzionalità, è possibile evitare le sanzioni per il tempo di inattività previste dai contratti di servizio.
 
@@ -226,12 +226,12 @@ Aggiornamento in sequenza del sistema operativo del cluster include i passaggi s
         ![Schermata che mostra l'output del cmdlet Get-VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **Figura 21: Visualizzare le versioni di configurazione della macchina virtuale Hyper-V supportate dall'host**  
 
-   3.  In ogni nodo di host Hyper-V nel cluster, è possibile aggiornare versioni della configurazione della macchina virtuale Hyper-V, la pianificazione di una finestra di manutenzione breve con gli utenti, backup, la disattivazione di macchine virtuali e in esecuzione la [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) cmdlet (vedere Figura 22). Questo verrà aggiornare la versione di macchina virtuale e abilitare le nuove funzionalità di Hyper-V, eliminando la necessità per gli aggiornamenti futuri di componenti di integrazione Hyper-V (IC). Questo cmdlet può essere eseguito dal nodo Hyper-V che ospita la macchina virtuale, o `-ComputerName` parametro può essere usato per aggiornare la versione della macchina virtuale in modalità remota. In questo esempio, qui abbiamo aggiornamento la versione di configurazione di VM1 da 5.0 a 7.0 per sfruttare i vantaggi di molte nuove funzionalità di Hyper-V associata a questa versione di configurazione della macchina virtuale, ad esempio i checkpoint di produzione (backup coerenti con l'applicazione) e binario della macchina virtuale file di configurazione.  
+   3. In ogni nodo di host Hyper-V nel cluster, è possibile aggiornare versioni della configurazione della macchina virtuale Hyper-V, la pianificazione di una finestra di manutenzione breve con gli utenti, backup, la disattivazione di macchine virtuali e in esecuzione la [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) cmdlet (vedere Figura 22). Questo verrà aggiornare la versione di macchina virtuale e abilitare le nuove funzionalità di Hyper-V, eliminando la necessità per gli aggiornamenti futuri di componenti di integrazione Hyper-V (IC). Questo cmdlet può essere eseguito dal nodo Hyper-V che ospita la macchina virtuale, o `-ComputerName` parametro può essere usato per aggiornare la versione della macchina virtuale in modalità remota. In questo esempio, qui abbiamo aggiornamento la versione di configurazione di VM1 da 5.0 a 7.0 per sfruttare i vantaggi di molte nuove funzionalità di Hyper-V associata a questa versione di configurazione della macchina virtuale, ad esempio i checkpoint di produzione (backup coerenti con l'applicazione) e binario della macchina virtuale file di configurazione.  
 
-        ![Schermata che mostra il cmdlet Update-VMVersion in azione](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
-        **Figura 22: Aggiornamento della versione della macchina virtuale usando il cmdlet PowerShell Update-VMVersion**  
+       ![Schermata che mostra il cmdlet Update-VMVersion in azione](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **Figura 22: Aggiornamento della versione della macchina virtuale usando il cmdlet PowerShell Update-VMVersion**  
 
-4.  I pool di archiviazione possono essere aggiornati usando il [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) cmdlet di PowerShell - si tratta di un'operazione online.  
+6. I pool di archiviazione possono essere aggiornati usando il [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) cmdlet di PowerShell - si tratta di un'operazione online.  
 
 Anche se vengono esaminate scenari di Cloud privato, in particolare Hyper-V e cluster di tipo Scale-out File Server, che può essere aggiornato senza tempi di inattività, il processo di aggiornamento in sequenza del Cluster del sistema operativo possono essere utilizzati per tutti i ruoli del cluster.  
 
@@ -278,6 +278,6 @@ Anche se vengono esaminate scenari di Cloud privato, in particolare Hyper-V e cl
     Sì, è possibile automatizzare il processo di aggiornamento in sequenza del Cluster del sistema operativo con VMM in System Center 2016.  
 
 ## <a name="see-also"></a>Vedere anche  
--   [Note sulla versione: Problemi importanti in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
--   [Quali sono le novità in Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
+-   [Note sulla versione: problemi importanti di Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
+-   [Novità di Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [What ' s New in Failover Clustering in Windows Server](whats-new-in-failover-clustering.md)  

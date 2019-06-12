@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab5bee55975b803a77db0b6cdb179b76590e1d83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445919"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guida di stile per la progettazione e il testo dell'interfaccia utente di Windows Admin Center
 
@@ -40,7 +40,7 @@ Per l'uso delle [maiuscole e minuscole](https://docs.microsoft.com/style-guide/c
 
 ## <a name="colons"></a>Due punti
 
-Usare i due punti per introdurre gli elenchi. Ad esempio: 
+Usare i due punti per introdurre gli elenchi. Ad esempio:
 
     Choose one of the following:
     Cats
@@ -134,7 +134,7 @@ Gli sviluppatori di Microsoft devono usare un FWLink tranne quando è un collega
 
 - Usare frasi intere.
 - Non includere la punteggiatura, ad eccezione di punti interrogativi finale. 
-- Non è necessario usare lo stesso testo come il titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma occorre assicurarsi che vi sia una connessione logica tra i due. Ad esempio:  
+- Non è necessario usare lo stesso testo come il titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma occorre assicurarsi che vi sia una connessione logica tra i due. Ad esempio: 
 - Collegamento alla Guida: Quali sono i rischi di autorizzazione delle eccezioni? 
 - Titolo dell'argomento della Guida: "Consentendo a un programma di comunicare tramite Windows Firewall"
 - Sia il più preciso possibile sul contenuto dell'argomento della Guida. 
@@ -199,12 +199,12 @@ Stato null si verifica quando i dati del cliente o il contenuto è assente dall'
 
 ### <a name="guidelines"></a>Linee guida
 
- - Se possibile, usare situazioni dello stato null come un'opportunità per informare gli utenti su come usare la funzionalità (ad esempio, come aggiungere musica, dove per cercare immagini e così via.)  
-- Se si dispone di un titolo nell'interfaccia utente, descrivere l'azione da eseguire "corretti" stato null (ad esempio, "aggiungere alcuni musica") 
-- Buon divertimento con il testo. Quest'area può essere un'opportunità per fornire apprezzate dagli poiché probabile che non verrà visualizzato più volte. 
-- Evitare di "ci sono." Si tratta sad ed è stato eccessivo. 
-- Evitare di domande come "Non sono connesse la stampante?" Ideale per usare una sola volta, ma questo formato tende a ottenere eccessivo e domande inserire onere comporti un utilizzo elevato del cliente. Può anche risultare condescending. 
-- Diversi nel testo di stato null sono un fatto positivo. 
+- Se possibile, usare situazioni dello stato null come un'opportunità per informare gli utenti su come usare la funzionalità (ad esempio, come aggiungere musica, dove per cercare immagini e così via.)  
+  - Se si dispone di un titolo nell'interfaccia utente, descrivere l'azione da eseguire "corretti" stato null (ad esempio, "aggiungere alcuni musica") 
+  - Buon divertimento con il testo. Quest'area può essere un'opportunità per fornire apprezzate dagli poiché probabile che non verrà visualizzato più volte. 
+  - Evitare di "ci sono." Si tratta sad ed è stato eccessivo. 
+  - Evitare di domande come "Non sono connesse la stampante?" Ideale per usare una sola volta, ma questo formato tende a ottenere eccessivo e domande inserire onere comporti un utilizzo elevato del cliente. Può anche risultare condescending. 
+  - Diversi nel testo di stato null sono un fatto positivo. 
 
 ### <a name="examples"></a>Esempi
 
@@ -247,7 +247,7 @@ Le descrizioni comandi devono essere utilizzati con moderazione o non ereditarli
 
 |    Contesto                                 |    Come scrivere le descrizioni comandi    |
 |    -----------------------                 |    -------------------------    |
-|Quando un controllo o elemento dell'interfaccia utente è senza etichetta...|Usare un semplice e descrittivo sintagma nominale. Ad esempio: <br> L'evidenziazione della penna |
+|Quando un controllo o elemento dell'interfaccia utente è senza etichetta...|Usare un semplice e descrittivo sintagma nominale. Ad esempio:<br> L'evidenziazione della penna |
 |Quando un elemento dell'interfaccia utente con l'etichetta, ma il suo scopo è necessario un chiarimento...|<ul><li>Descrivere brevemente operazioni possibili con questo elemento dell'interfaccia utente. </li><li>Usare il formato verbo imperativa. Ad esempio, "Trova testo in questo file" (non "trova il testo nel file").</li><li>Non includere la punteggiatura finale, a meno che non sono presenti più frasi complete.</li> </ul>|
 |Quando un'etichetta di testo è troncata o probabilità per il troncamento in alcune lingue...|<ul><li>Specificare l'etichetta non troncato nella descrizione comando.</li><li>Facoltativo: In un'altra riga, fornire una descrizione e chiarire, ma solo se necessario.</li><li>Non fornire una descrizione comando se le informazioni non troncata viene fornita in un' posizione nella pagina o nel flusso.</li></ul>|
 |Se un tasto di scelta rapida è disponibile...|<ul><li>Facoltativo: Fornire il tasto di scelta rapida in parentesi che seguono l'etichetta o la frase descrittiva, ad esempio "Print (Ctrl + P)" o "Trova testo in questo file (Ctrl + F)"</li><li>È anche possibile aggiungere una scelta rapida da tastiera utili a una descrizione comando e chiarire, ma evitare di aggiungere una descrizione comandi solo per mostrare i tasti di scelta rapida. </li></ul>|

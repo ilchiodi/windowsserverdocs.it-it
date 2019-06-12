@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: c947375b58c0ad88781335b799055e101bd2a193
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034447"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447104"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Eseguire la migrazione delle licenze CAL Servizi Desktop remoto
 
@@ -70,19 +70,19 @@ Esistono tre meccanismi per eseguire la migrazione delle licenze per il server l
 
 ### <a name="using-a-web-browser"></a>Usando un web browser
 1. Nel **ottenere il Client licenze Key Pack** fare clic sul collegamento ipertestuale per connettersi al sito Web licenze Servizi Desktop remoto.
-Se si esegue Gestione licenze Desktop remoto in un computer che non hanno connettività Internet, prendere nota dell'indirizzo per il sito Web licenze Servizi Desktop remoto e quindi connettersi al sito Web da un computer con connettività Internet. 
+   Se si esegue Gestione licenze Desktop remoto in un computer che non hanno connettività Internet, prendere nota dell'indirizzo per il sito Web licenze Servizi Desktop remoto e quindi connettersi al sito Web da un computer con connettività Internet. 
 2. Nella pagina Web licenze Servizi Desktop remoto sotto **selezionare un'opzione**, selezionare **gestire le licenze CAL**e quindi fare clic su **Next**.
 3. Specificare le informazioni richieste, quindi fare clic su **successivo**:
     - **ID del Server licenze di destinazione**: Un numero di cifre 35, nei gruppi di 5, che viene visualizzato nel **ottenere il Client licenze Key Pack** pagina della procedura guidata di gestire le licenze CAL Servizi Desktop remoto.
     - **Motivo per il ripristino**: Scegliere il motivo per la migrazione di licenze CAL Servizi Desktop remoto.
     - **Programma di licenza**: Scegliere il programma tramite cui sono state acquistate le licenze CAL Servizi Desktop remoto.
 4. Specificare le informazioni richieste, quindi fare clic su **successivo**:
-    - Ultimo nome o cognome
-    - Nome o il nome specificato
-    - Nome della società
-    - Paese/area geografica
+   - Ultimo nome o cognome
+   - Nome o il nome specificato
+   - Nome della società
+   - Paese/area geografica
 
-    È anche possibile fornire le informazioni facoltative, ad esempio l'indirizzo della società, indirizzo di posta elettronica e numero di telefono. Nel campo unità organizzativa, è possibile descrivere l'unità all'interno dell'organizzazione che viene utilizzato questo server licenze.
+     È anche possibile fornire le informazioni facoltative, ad esempio l'indirizzo della società, indirizzo di posta elettronica e numero di telefono. Nel campo unità organizzativa, è possibile descrivere l'unità all'interno dell'organizzazione che viene utilizzato questo server licenze.
 
 5. Il programma di licenza che nella pagina precedente è stato selezionato determina quali informazioni è necessario specificare nella pagina successiva. Nella maggior parte dei casi, è necessario fornire un codice di licenza o un numero di contratto. Consultare la documentazione fornita al momento dell'acquisto delle licenze CAL Servizi Desktop remoto. Inoltre, è necessario specificare quale tipo di licenze CAL Servizi Desktop remoto e la quantità che si desidera eseguire la migrazione al server licenze.
 6. Dopo avere immesso le informazioni necessarie, fare clic su **Avanti**.

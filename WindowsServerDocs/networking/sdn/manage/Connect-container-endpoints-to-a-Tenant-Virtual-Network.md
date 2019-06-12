@@ -13,12 +13,12 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb9c7157ffb07233e41e1c933f6775f1cd0766a9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872742"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446355"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connettere gli endpoint del contenitore a una rete virtuale del tenant
 
@@ -34,9 +34,11 @@ Criteri di rete (ACL, l'incapsulamento e QoS) per questi endpoint contenitore so
 
 La differenza tra il *l2bridge* e *l2tunnel* driver sono:
 
-| l2bridge | l2tunnel |
-| --- | --- |
-|Endpoint del contenitore che si trovano in: <ul><li>Lo stesso contenitore host macchina virtuale e nella stessa subnet ha tutto il traffico di rete con bridging nel commutatore virtuale Hyper-V. </li><li>Contenitore diverso ospitare le macchine virtuali o in subnet diverse hanno il traffico inoltrato all'host Hyper-V fisico. </li></ul>Criteri di rete non ottenere applicato poiché il traffico di rete tra i contenitori nello stesso host e nella stessa subnet non vengono indirizzate all'host fisico. Criteri di rete si applicano il traffico di rete di contenitori solo su cross-host o tra subnet. | *Tutti i* viene inoltrato il traffico di rete tra due endpoint di contenitore nell'host Hyper-V fisici indipendentemente dall'host o la subnet. Criteri di rete si applicano al traffico di rete tra subnet e cross-host. |
+
+|                                                                                                                                                                                                                                                                            l2bridge                                                                                                                                                                                                                                                                            |                                                                                                 l2tunnel                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Endpoint del contenitore che si trovano in: <ul><li>Lo stesso contenitore host macchina virtuale e nella stessa subnet ha tutto il traffico di rete con bridging nel commutatore virtuale Hyper-V. </li><li>Contenitore diverso ospitare le macchine virtuali o in subnet diverse hanno il traffico inoltrato all'host Hyper-V fisico. </li></ul>Criteri di rete non ottenere applicato poiché il traffico di rete tra i contenitori nello stesso host e nella stessa subnet non vengono indirizzate all'host fisico. Criteri di rete si applicano il traffico di rete di contenitori solo su cross-host o tra subnet. | *Tutti i* viene inoltrato il traffico di rete tra due endpoint di contenitore nell'host Hyper-V fisici indipendentemente dall'host o la subnet. Criteri di rete si applicano al traffico di rete tra subnet e cross-host. |
+
 ---
 
 >[!NOTE]
@@ -60,10 +62,10 @@ La differenza tra il *l2bridge* e *l2tunnel* driver sono:
 ## <a name="workflow"></a>Flusso di lavoro
 
 [1. Aggiungere più configurazioni IP a una risorsa NIC VM esistente tramite il Controller di rete (Host Hyper-V)](#1-add-multiple-ip-configurations)
-[2. Abilitare il proxy di rete nell'host per allocare indirizzi IP CA per gli endpoint del contenitore (Host Hyper-V) ](#2-enable-the-network-proxy) 
- [3. Installare il plug-in per assegnare gli indirizzi IP CA agli endpoint del contenitore (macchina virtuale Host contenitore) di cloud privato ](#3-install-the-private-cloud-plug-in) 
- [4. Creare un *l2bridge* oppure *l2tunnel* rete usando docker (macchina virtuale Host contenitore) ](#4-create-an-l2bridge-container-network)
- 
+[2. Abilitare il proxy di rete nell'host per allocare indirizzi IP CA per gli endpoint del contenitore (Host Hyper-V)](#2-enable-the-network-proxy)
+[3. Installare il plug-in per assegnare gli indirizzi IP CA agli endpoint del contenitore (macchina virtuale Host contenitore) di cloud privato](#3-install-the-private-cloud-plug-in)
+[4. Creare un *l2bridge* oppure *l2tunnel* rete usando docker (macchina virtuale Host contenitore)](#4-create-an-l2bridge-container-network)
+
 >[!NOTE]
 >Più configurazioni IP non è supportato sulle risorse di VM NIC create tramite System Center Virtual Machine Manager. È consigliabile per questi tipi di distribuzioni che si crea la risorsa VM NIC fuori banda tramite PowerShell di Controller di rete.
 
@@ -101,10 +103,10 @@ foreach ($i in 1..10)
         $resourceid += "0$i"
         $ipstr = "192.168.1.10$i"
     }
-    
+
     $newipconfig.ResourceId = $resourceid
     $props.PrivateIPAddress = $ipstr    
-    
+
     $props.PrivateIPAllocationMethod = "Static"
     $props.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $props.Subnet.ResourceRef = $vmsubnet.ResourceRef

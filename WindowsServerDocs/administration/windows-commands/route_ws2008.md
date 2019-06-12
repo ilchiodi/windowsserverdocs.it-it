@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1164767a80b4d7dd24152bc34eda5d88834c1bdb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 30843fe94ac7a4dc60092adcede60120bc9e627f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854822"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441765"
 ---
 # <a name="routews2008"></a>route_ws2008
 
@@ -46,12 +46,12 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 |/?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  
--   Valori di grandi dimensioni nei **metrica** colonna della tabella di routing sono il risultato di consentire TCP/IP determinare automaticamente la metrica per le route nella tabella di routing in base alla configurazione dell'indirizzo IP, subnet mask e gateway predefinito per ogni interfaccia LAN. Determinazione automatica della metrica interfaccia, abilitata per impostazione predefinita, determina la velocità di ogni interfaccia e modifica le metriche delle route per ogni interfaccia in modo che l'interfaccia più veloce consente di creare le route con il valore metrico più basso. Per rimuovere le metriche di grandi dimensioni, disattivare il rilevamento automatico della metrica interfaccia dalle proprietà avanzate del protocollo TCP/IP per ogni connessione LAN.  
--   Nomi possono essere usati per *destinazione* se esiste una voce adatta nel file di reti locale archiviato nel **systemroot\System32\Drivers\\**cartella e così via. Nomi possono essere usati per la *gateway* purché può essere risolte in un indirizzo IP tramite le tecniche di risoluzione nome host standard, ad esempio le query di sistema DNS (Domain Name), usare il file Hosts locale archiviato nel  **systemroot\system32\drivers\\**cartella e così via e la risoluzione dei nomi NetBIOS.  
--   Se il comando **stampare** oppure **eliminare**, il *Gateway* parametro può essere omesso e i caratteri jolly può essere utilizzato per la destinazione e il gateway. Il *destinazione* valore può essere un valore carattere jolly specificato da un asterisco (*). Se la destinazione specificata contiene un asterisco (\*) o un punto interrogativo (?), viene considerato come un carattere jolly e solo le route corrispondenti vengono stampate o eliminate. L'asterisco corrisponde a qualsiasi stringa e il punto interrogativo corrisponde a qualsiasi carattere singolo. Ad esempio, 10. \*.1, 192.168. \*, 127. \*, e \*224\* sono tutte validi usi del carattere jolly asterisco.  
--   Esegue una combinazione non valida di un valore di destinazione e la subnet mask (subnet mask), verrà visualizzata una "Route: indirizzo gateway non valido" messaggio di errore. Questo messaggio di errore viene visualizzato quando la destinazione contiene uno o più bit impostati su 1 in posizioni di bit in cui il bit di maschera di subnet corrispondente è impostato su 0. Per testare questa condizione, esprimere la destinazione e una subnet mask usando la notazione binaria. La subnet mask nella notazione binaria è costituito da una serie di bit 1, che rappresenta la parte di indirizzo di rete di destinazione e una serie di bit 0, che rappresenta la parte relativa all'indirizzo host dell'oggetto di destinazione. Selezionare questa opzione per determinare se sono presenti bit nella destinazione che sono impostati su 1 per la parte di destinazione che rappresenta l'indirizzo dell'host (come definito dalla subnet mask).  
--   Il **/p** parametro è supportato solo per il comando di route per Windows NT 4.0, Windows 2000, Windows Millennium edition, Windows XP e Windows Server 2003. Questo parametro non è supportato per il **route** comando per Windows 95 o Windows 98.  
--   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.  
+- Valori di grandi dimensioni nei **metrica** colonna della tabella di routing sono il risultato di consentire TCP/IP determinare automaticamente la metrica per le route nella tabella di routing in base alla configurazione dell'indirizzo IP, subnet mask e gateway predefinito per ogni interfaccia LAN. Determinazione automatica della metrica interfaccia, abilitata per impostazione predefinita, determina la velocità di ogni interfaccia e modifica le metriche delle route per ogni interfaccia in modo che l'interfaccia più veloce consente di creare le route con il valore metrico più basso. Per rimuovere le metriche di grandi dimensioni, disattivare il rilevamento automatico della metrica interfaccia dalle proprietà avanzate del protocollo TCP/IP per ogni connessione LAN.  
+- Nomi possono essere usati per *destinazione* se esiste una voce adatta nel file di reti locale archiviato nel <strong>systemroot\System32\Drivers\\</strong>cartella e così via. Nomi possono essere usati per la *gateway* purché può essere risolte in un indirizzo IP tramite le tecniche di risoluzione nome host standard, ad esempio le query di sistema DNS (Domain Name), usare il file Hosts locale archiviato nel  <strong>systemroot\system32\drivers\\</strong>cartella e così via e la risoluzione dei nomi NetBIOS.  
+- Se il comando **stampare** oppure **eliminare**, il *Gateway* parametro può essere omesso e i caratteri jolly può essere utilizzato per la destinazione e il gateway. Il *destinazione* valore può essere un valore carattere jolly specificato da un asterisco (*). Se la destinazione specificata contiene un asterisco (\*) o un punto interrogativo (?), viene considerato come un carattere jolly e solo le route corrispondenti vengono stampate o eliminate. L'asterisco corrisponde a qualsiasi stringa e il punto interrogativo corrisponde a qualsiasi carattere singolo. Ad esempio, 10. \*.1, 192.168. \*, 127. \*, e \*224\* sono tutte validi usi del carattere jolly asterisco.  
+- Esegue una combinazione non valida di un valore di destinazione e la subnet mask (subnet mask), verrà visualizzata una "Route: indirizzo gateway non valido" messaggio di errore. Questo messaggio di errore viene visualizzato quando la destinazione contiene uno o più bit impostati su 1 in posizioni di bit in cui il bit di maschera di subnet corrispondente è impostato su 0. Per testare questa condizione, esprimere la destinazione e una subnet mask usando la notazione binaria. La subnet mask nella notazione binaria è costituito da una serie di bit 1, che rappresenta la parte di indirizzo di rete di destinazione e una serie di bit 0, che rappresenta la parte relativa all'indirizzo host dell'oggetto di destinazione. Selezionare questa opzione per determinare se sono presenti bit nella destinazione che sono impostati su 1 per la parte di destinazione che rappresenta l'indirizzo dell'host (come definito dalla subnet mask).  
+- Il **/p** parametro è supportato solo per il comando di route per Windows NT 4.0, Windows 2000, Windows Millennium edition, Windows XP e Windows Server 2003. Questo parametro non è supportato per il **route** comando per Windows 95 o Windows 98.  
+- Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.  
 
 ## <a name="BKMK_Examples"></a>Esempi  
 Per visualizzare l'intero contenuto della tabella di routing IP, digitare:  
@@ -96,4 +96,4 @@ route change 10.41.0.0 mask 255.255.0.0 10.27.0.25
 ```  
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

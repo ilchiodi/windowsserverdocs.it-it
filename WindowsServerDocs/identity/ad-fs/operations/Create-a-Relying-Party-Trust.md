@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b000d4cfd4ded7ad37dbb235a9d33c83d8951707
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189513"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444365"
 ---
 # <a name="create-a-relying-party-trust"></a>Creazione di un'attendibilità della relying party
 
@@ -74,22 +74,22 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
-2.  In **azioni**, fare clic su **Aggiungi attendibilità**.  
-![relying party](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2. In **azioni**, fare clic su **Aggiungi attendibilità**.  
+   ![relying party](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  Nel **iniziale** scegliere pagina **grado di riconoscere attestazioni** e fare clic su **avviare**.  
-![relying party](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3. Nel **iniziale** scegliere pagina **grado di riconoscere attestazioni** e fare clic su **avviare**.  
+   ![relying party](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Nel **selezionare un'origine dati** pagina, fare clic su **Importa dati sulla relying party pubblicati online o in una rete locale*. In **Indirizzo metadati federativi (nome host o URL)** digitare l'URL dei metadati federativi oppure il nome host per il partner e quindi fare clic su **Avanti**.  
-![relying party](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4. Nel **selezionare un'origine dati** pagina, fare clic su <strong>Importa dati sulla relying party pubblicati online o in una rete locale *. In * * indirizzo di metadati di federazione (nome host o URL)</strong>, digitare il federazione metadati URL o il nome host per il partner e quindi fare clic su **successivo**.  
+   ![relying party](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
-5.  Nella pagina Specifica nome visualizzato digitare un nome in **nome visualizzato**, in note digitare una descrizione per questo trust della relying party e quindi fare clic su **Avanti**.
+5. Nella pagina Specifica nome visualizzato digitare un nome in **nome visualizzato**, in note digitare una descrizione per questo trust della relying party e quindi fare clic su **Avanti**.
 
-6.  Nella pagina Scegli regole di autorizzazione di rilascio, selezionare **consentire tutti gli utenti di accedere a questa relying party** o **negare tutti gli utenti l'accesso a questo componente**, quindi fare clic su **Avanti**.
+6. Nella pagina Scegli regole di autorizzazione di rilascio, selezionare **consentire tutti gli utenti di accedere a questa relying party** o **negare tutti gli utenti l'accesso a questo componente**, quindi fare clic su **Avanti**.
 
-7.  Nella schermata Aggiunta attendibilità, rivedere le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.
+7. Nella schermata Aggiunta attendibilità, rivedere le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.
 
-8.  Nell'ultima pagina, fare clic su **Chiudi**. Questa azione consente di visualizzare automaticamente la finestra di dialogo Modifica regole attestazione. Per altre informazioni su come procedere per l'aggiunta di regole attestazioni per il trust della relying party, vedere la sezione "Riferimenti aggiuntivi".
+8. Nell'ultima pagina, fare clic su **Chiudi**. Questa azione consente di visualizzare automaticamente la finestra di dialogo Modifica regole attestazione. Per altre informazioni su come procedere per l'aggiunta di regole attestazioni per il trust della relying party, vedere la sezione "Riferimenti aggiuntivi".
 
 
 

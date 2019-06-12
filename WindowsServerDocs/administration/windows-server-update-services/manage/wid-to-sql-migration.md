@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: ed6f695947fc17d2e96b5282b3a67a221bb0140d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9015bbc54a4c4bda0f691b79dbb7d3ba8ddbc4a1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858032"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439888"
 ---
 >Si applica a: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -55,8 +55,8 @@ Da PowerShell (con privilegi elevati), eseguire:
 
 > [!IMPORTANT]
 > Questi passaggi illustrano come scollegare il database WSUS (SUSDB) dall'istanza del Database interno di Windows usando il **sqlcmd** utilità. Per altre informazioni sul **sqlcmd** utilità, vedere [utilità sqlcmd](https://go.microsoft.com/fwlink/?LinkId=81183).
-1. Aprire un prompt dei comandi con privilegi elevati
-2. Eseguire il comando SQL seguente per scollegare il database WSUS (SUSDB) dall'istanza del Database interno di Windows usando il **sqlcmd** utilità:
+> 1. Aprire un prompt dei comandi con privilegi elevati
+> 2. Eseguire il comando SQL seguente per scollegare il database WSUS (SUSDB) dall'istanza del Database interno di Windows usando il **sqlcmd** utilità:
 
 ```batchfile
         sqlcmd -S \\.\pipe\Microsoft##WID\tsql\query
@@ -70,7 +70,7 @@ Da PowerShell (con privilegi elevati), eseguire:
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Copiare i file SUSDB a SQL Server
 
-1. Copia **SUSDB. mdf** e **SUSDB\_log. ldf** dalla cartella di dati di database interno di Windows (**% SystemDrive %**\** Windows\WID\Data * *) per i dati dell'istanza SQL Cartella.
+1. Copia **SUSDB. mdf** e **SUSDB\_log. ldf** dalla cartella di dati di database interno di Windows ( **% SystemDrive %** \** Windows\WID\Data * *) per i dati dell'istanza SQL Cartella.
 
 > [!TIP]
 > Ad esempio, se la cartella dell'istanza SQL è **C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL**, ed è la cartella dati WID **C:\Windows\WID\Data,** copiare i file SUSDB dalla **C:\Windows\WID\Data** a **c:\Programmi\Microsoft SQL Server \MSSQL12. MSSQLSERVER\MSSQL\Data**
@@ -111,7 +111,7 @@ Dopo aver collegato il database WSUS, verificare che **NT AUTHORITY\NETWORK SERV
 Il **NT AUTHORITY\NETWORK SERVICE** account dovrebbe essere elencato. In caso contrario, è necessario aggiungerlo mediante l'aggiunta di nuovo nome di accesso.
 
 > [!IMPORTANT]
-> Se l'istanza di SQL è in un computer diverso da Windows Server Update Services, account computer del Server WSUS dovrebbe essere elencato nel formato **[FQDN]\\[WSUSComputerName] $**.  Se non, la procedura seguente consente di aggiungere, sostituzione **NT AUTHORITY\NETWORK SERVICE** con l'account computer del Server WSUS (**[FQDN]\\[WSUSComputerName] $**) sarebbe ***oltre a*** concessione dei diritti al **NT AUTHORITY\NETWORK SERVICE**
+> Se l'istanza di SQL è in un computer diverso da Windows Server Update Services, account computer del Server WSUS dovrebbe essere elencato nel formato **[FQDN]\\[WSUSComputerName] $** .  Se non, la procedura seguente consente di aggiungere, sostituzione **NT AUTHORITY\NETWORK SERVICE** con l'account computer del Server WSUS ( **[FQDN]\\[WSUSComputerName] $** ) sarebbe ***oltre a*** concessione dei diritti al **NT AUTHORITY\NETWORK SERVICE**
 
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Aggiungere NT AUTHORITY\NETWORK SERVICE e concedendo i diritti
 
@@ -150,7 +150,7 @@ Il **NT AUTHORITY\NETWORK SERVICE** account dovrebbe essere elencato.
     > ![Image11](images/image11.png)
 
 4. Nel **Mapping utenti** pagina, selezionare la **SUSDB** Database sotto **"Utenti mappati all'account di accesso"**
-5. Controllare **webservice** sotto il **"Database di appartenenza al ruolo per: SUSDB"**:  ![image12](images/image12.png)
+5. Controllare **webservice** sotto il **"Database di appartenenza al ruolo per: SUSDB"** :  ![image12](images/image12.png)
 6. Fare clic su **OK** per salvare le impostazioni.
     > [!NOTE]
     > Si potrebbe essere necessario riavviare il servizio SQL per rendere effettive le modifiche.
@@ -162,7 +162,7 @@ Il **NT AUTHORITY\NETWORK SERVICE** account dovrebbe essere elencato.
 
 1. Fare clic su **Start**, **Esegui**, digitare **regedit** e fare clic su **OK**.
 2. Individuare la chiave seguente: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UpdateServices\Server\Setup\SqlServerName**
-3. Nel **valore** casella di testo, digitare **[nomeserver]\\[nomeistanza]**, quindi fare clic su **OK**. Se il nome dell'istanza è l'istanza predefinita, digitare **[nomeserver]**.
+3. Nel **valore** casella di testo, digitare **[nomeserver]\\[nomeistanza]** , quindi fare clic su **OK**. Se il nome dell'istanza è l'istanza predefinita, digitare **[nomeserver]** .
 4. Individuare la chiave seguente: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed ruolo Services\UpdateServices-WidDatabase** ![image13](images/image13.png)
 5. La chiave da rinominare **UpdateServices-Database** ![image41](images/image14.png)
 
@@ -184,7 +184,7 @@ Da PowerShell (con privilegi elevati), eseguire:
 ## <a name="uninstalling-the-wid-role-not-recommended"></a>Disinstallare il ruolo di database interno di Windows (scelta non consigliato)
 
 > [!WARNING]
-> La rimozione del ruolo di database interno di Windows comporta anche una cartella di database (**%systemdrive%\Programmi\Microsoft Files\Update Services\Database**) che contiene gli script necessari da WSUSUtil.exe per le attività di post-installazione. Se si sceglie di disinstallare il ruolo del database interno di Windows, assicurarsi di eseguire il backup di **%systemdrive%\Programmi\Microsoft Files\Update Services\Database** cartella in anticipo.
+> La rimozione del ruolo di database interno di Windows comporta anche una cartella di database ( **%systemdrive%\Programmi\Microsoft Files\Update Services\Database**) che contiene gli script necessari da WSUSUtil.exe per le attività di post-installazione. Se si sceglie di disinstallare il ruolo del database interno di Windows, assicurarsi di eseguire il backup di **%systemdrive%\Programmi\Microsoft Files\Update Services\Database** cartella in anticipo.
 
 Utilizzo di PowerShell:
 

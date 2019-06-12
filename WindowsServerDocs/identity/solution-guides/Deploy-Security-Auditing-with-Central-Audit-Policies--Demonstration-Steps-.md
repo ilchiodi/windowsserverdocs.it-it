@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: ac2b1643ed151e94c3815abca9a57eb3706c845a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871132"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445740"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Distribuzione dei controlli di sicurezza con criteri di accesso centrale (procedura dimostrativa)
 
@@ -34,21 +34,21 @@ Questo passaggio consente di configurare il criterio di accesso agli oggetti glo
   
 #### <a name="to-configure-a-global-object-access-policy"></a>Per configurare un criterio di accesso agli oggetti globale  
   
-1.  Accedere al controller di dominio DC1 specificando Contoso\administrator con la password **pass@word1**.  
+1. Accedere al controller di dominio DC1 specificando Contoso\administrator con la password <strong>pass@word1</strong>.  
   
-2.  In Server Manager scegliere **Strumenti**, quindi fare clic su **Gestione Criteri di gruppo**.  
+2. In Server Manager scegliere **Strumenti**, quindi fare clic su **Gestione Criteri di gruppo**.  
   
-3.  Nell'albero della console fare doppio clic su **Domini**, quindi su **contoso.com**, selezionare **Contoso** e quindi fare doppio clic su **File server**.  
+3. Nell'albero della console fare doppio clic su **Domini**, quindi su **contoso.com**, selezionare **Contoso** e quindi fare doppio clic su **File server**.  
   
-4.  Fare clic con il pulsante destro del mouse su **FlexibleAccessGPO**, quindi selezionare **Modifica**.  
+4. Fare clic con il pulsante destro del mouse su **FlexibleAccessGPO**, quindi selezionare **Modifica**.  
   
-5.  Fare doppio clic su **Configurazione computer**, fare doppio clic su **Criteri** e quindi fare doppio clic su **Impostazioni di Windows**.  
+5. Fare doppio clic su **Configurazione computer**, fare doppio clic su **Criteri** e quindi fare doppio clic su **Impostazioni di Windows**.  
   
-6.  Fare doppio clic su **Impostazioni sicurezza**, quindi su **Configurazione avanzata dei criteri di controllo** e infine su **Criteri di controllo**.  
+6. Fare doppio clic su **Impostazioni sicurezza**, quindi su **Configurazione avanzata dei criteri di controllo** e infine su **Criteri di controllo**.  
   
-7.  Fare doppio clic su **Accesso agli oggetti** e quindi su **Controlla File system**.  
+7. Fare doppio clic su **Accesso agli oggetti** e quindi su **Controlla File system**.  
   
-8.  Selezionare la casella di controllo **Configura gli eventi di controllo seguenti**, quindi le caselle di controllo **Operazioni riuscite** e **Operazioni non riuscite** e infine fare clic su **OK**.  
+8. Selezionare la casella di controllo **Configura gli eventi di controllo seguenti**, quindi le caselle di controllo **Operazioni riuscite** e **Operazioni non riuscite** e infine fare clic su **OK**.  
   
 9. Nel riquadro di spostamento fare doppio clic su **Controllo di accesso agli oggetti globale**, quindi su **File system**.  
   
@@ -70,14 +70,14 @@ Questo passaggio consente di aggiornare le impostazioni di Criteri di gruppo dop
   
 #### <a name="to-update-group-policy-settings"></a>Per aggiornare le impostazioni di Criteri di gruppo  
   
-1.  Accedere al file server FILE1 come contoso\Administrator, con la password **pass@word1**.  
+1. Accedere al file server FILE1 come contoso\Administrator, con la password <strong>pass@word1</strong>.  
   
-2.  Premere il tasto WINDOWS+R, quindi digitare **cmd** per aprire la finestra del prompt dei comandi.  
+2. Premere il tasto WINDOWS+R, quindi digitare **cmd** per aprire la finestra del prompt dei comandi.  
   
-    > [!NOTE]  
-    > Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+   > [!NOTE]  
+   > Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
-3.  Digitare **gpupdate /force** e quindi premere INVIO.  
+3. Digitare **gpupdate /force** e quindi premere INVIO.  
   
 ## <a name="BKMK_3"></a>Verificare che sia stato applicato il criterio di accesso agli oggetti globale  
 Dopo che le impostazioni di Criteri di gruppo sono state applicate, è possibile verificare che le impostazioni di controllo siano state applicate correttamente.  
@@ -93,9 +93,9 @@ Dopo che le impostazioni di Criteri di gruppo sono state applicate, è possibile
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Controllo di accesso file](Scenario--File-Access-Auditing.md)  
+-   [Scenario: Controllo dell'accesso ai file](Scenario--File-Access-Auditing.md)  
   
--   [Pianificare per File di controllo dell'accesso](Plan-for-File-Access-Auditing.md)  
+-   [Pianificare il controllo dell'accesso ai file](Plan-for-File-Access-Auditing.md)  
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   

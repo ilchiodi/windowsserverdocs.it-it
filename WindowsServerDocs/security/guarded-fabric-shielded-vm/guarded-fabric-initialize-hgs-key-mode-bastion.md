@@ -7,20 +7,20 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9abbf85ef28ff20506558fba7dd3f5e5ee603a70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e785ee17bf68c07d965816480baa0d59062fc434
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447426"
 ---
 # <a name="initialize-the-hgs-cluster-using-key-mode-in-an-existing-bastion-forest"></a>Inizializzare il cluster HGS usando la modalità con chiave in una foresta bastion esistente
 
->Si applica a: Windows Server 2019
-
->[!div class="step-by-step"]
-[«Installare HGS in una nuova foresta](guarded-fabric-install-hgs-in-a-bastion-forest.md)
-[crea codice Product key host»](guarded-fabric-create-host-key.md)
+> Si applica a: Windows Server 2019
+> 
+> [!div class="step-by-step"]
+> [«Installare HGS in una nuova foresta](guarded-fabric-install-hgs-in-a-bastion-forest.md)
+> [crea codice Product key host»](guarded-fabric-create-host-key.md)
 
 Servizi di dominio Active Directory verrà installati nel computer, ma deve rimanere non configurati.
 

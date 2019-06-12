@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94be02aa25867845436b83d052c4990ff9212975
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 8aee4ecca85c7d5f46ee79f3ad928b746c02e7bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564677"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439982"
 ---
 # <a name="writer"></a>agente di scrittura
 
@@ -35,11 +35,11 @@ writer exclude [<Writer> | <Component>]
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|verify|Verifica che il writer specificato o il componente è incluso nella procedura di backup o ripristino. La procedura di backup o ripristino avrà esito negativo se il writer o il componente non è incluso.|
-|exclude|Esclude il writer specificato o il componente della procedura di backup o ripristino.|
-|[\<Writer> | <Component>]|Specifica il writer o il componente per verificare o escludere. I writer sono specificati dal writer di GUID o dal nome dell'agente di scrittura, ad esempio "Writer del sistema".|
+| Parametro  |                                                                                      Descrizione                                                                                      |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   verify   | Verifica che il writer specificato o il componente è incluso nella procedura di backup o ripristino. La procedura di backup o ripristino avrà esito negativo se il writer o il componente non è incluso. |
+|  exclude   |                                                   Esclude il writer specificato o il componente della procedura di backup o ripristino.                                                    |
+| [\<Writer> |                                                                                     <Component>]                                                                                      |
 
 ## <a name="BKMK_examples"></a>Esempi
 

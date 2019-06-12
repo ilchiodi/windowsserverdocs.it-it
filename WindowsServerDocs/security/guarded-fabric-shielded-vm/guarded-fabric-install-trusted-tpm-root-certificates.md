@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/11/2018
-ms.openlocfilehash: 2721bf13a7f6d3c90f9d055835fba51138ef75dd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65c5eb25f7a98e4db6a44e705a2968f185f3f962
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841562"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447385"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installare i certificati radice TPM attendibili
 
@@ -58,8 +58,8 @@ I certificati esistenti verranno mantenuti attendibili, ma sono stati trovati ne
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Configurare l'infrastruttura DNS](guarded-fabric-configuring-fabric-dns-tpm.md)
+> [!div class="nextstepaction"]
+> [Configurare il DNS di infrastruttura](guarded-fabric-configuring-fabric-dns-tpm.md)
 
 
 

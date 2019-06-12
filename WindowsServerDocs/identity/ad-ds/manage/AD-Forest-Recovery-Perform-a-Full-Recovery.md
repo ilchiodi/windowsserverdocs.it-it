@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 6f600ade3d07130d4e1fb3b1a254cb1073f592e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cf89c9f4875f602abea89e366cadfba8d0599c3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443009"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>Ripristino della foresta Active Directory - esecuzione di un ripristino completo del server 
 
@@ -69,15 +69,15 @@ A seconda dello scenario, usare una delle procedure seguenti per eseguire un rip
    ![Ripristino del server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
 8. Digitare il percorso UNC per il percorso di condivisione di backup (ad esempio, \\\server1\backups) e fare clic su **OK**. È anche possibile digitare l'indirizzo IP del server di destinazione, ad esempio \\\192.168.1.3\backups. 
    ![Ripristino del server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
-10. Digitare le credenziali necessarie per accedere alla condivisione e fare clic su OK. 
-11. A questo punto **selezionare la data e ora dell'immagine del sistema da ripristinare** e fare clic su **successivo**.
-12. A questo punto sarà possibile un'opzione per:
-   - Formatta e partiziona i dischi
-   - Installare i driver
-   - Deselezionare i **avanzate** le funzionalità di automaticamente il riavvio e la ricerca di errori del disco. Queste opzioni sono abilitate per impostazione predefinita.
-13. Fare clic su **Avanti**.
-14. Scegliere **Fine**. Verrà richiesto che chiede se si è certi che si desidera continuare. Scegliere **Sì**.  
-15. Al termine, eseguire un ripristino autorevole di SYSVOL, come descritto nella [ripristino della foresta Active Directory - esecuzione di una sincronizzazione autorevole di DFSR-replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
+9. Digitare le credenziali necessarie per accedere alla condivisione e fare clic su OK. 
+10. A questo punto **selezionare la data e ora dell'immagine del sistema da ripristinare** e fare clic su **successivo**.
+11. A questo punto sarà possibile un'opzione per:
+    - Formatta e partiziona i dischi
+    - Installare i driver
+    - Deselezionare i **avanzate** le funzionalità di automaticamente il riavvio e la ricerca di errori del disco. Queste opzioni sono abilitate per impostazione predefinita.
+12. Fare clic su **Avanti**.
+13. Scegliere **Fine**. Verrà richiesto che chiede se si è certi che si desidera continuare. Scegliere **Sì**.  
+14. Al termine, eseguire un ripristino autorevole di SYSVOL, come descritto nella [ripristino della foresta Active Directory - esecuzione di una sincronizzazione autorevole di DFSR-replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Abilitare la scheda di rete per un backup di rete
 
@@ -120,7 +120,7 @@ Se è necessario abilitare una scheda di rete dal prompt dei comandi eseguire il
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1  
    ```  
 
-   Ad esempio:   
+   Ad esempio:  
   
    ```  
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1  
@@ -132,5 +132,5 @@ Se è necessario abilitare una scheda di rete dal prompt dei comandi eseguire il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida al ripristino della foresta AD](AD-Forest-Recovery-Guide.md)
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md)
+- [Guida al ripristino della foresta di Active Directory](AD-Forest-Recovery-Guide.md)
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md)

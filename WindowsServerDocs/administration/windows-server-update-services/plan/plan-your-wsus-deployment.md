@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: a568324ba69b13c7016f4715d3c37f991ae4c1ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222903"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439721"
 ---
 # <a name="plan-your-wsus-deployment"></a>Pianificare la distribuzione di WSUS
 
@@ -94,19 +94,19 @@ Durante il processo di installazione, gli elementi seguenti verranno installati 
 
 Tenere presente che la configurazione di computer client (inclusi i server) per l'aggiornamento tramite WSUS comporta le limitazioni seguenti:
 
-1.  I ruoli del server i cui payload sono stati rimossi usando Funzionalità su richiesta non possono essere installati su richiesta da Microsoft Update. È necessario fornire un'origine di installazione al momento che si prova a installare tali ruoli del server o configurare un'origine per funzionalità su richiesta in Criteri di gruppo.
+1. I ruoli del server i cui payload sono stati rimossi usando Funzionalità su richiesta non possono essere installati su richiesta da Microsoft Update. È necessario fornire un'origine di installazione al momento che si prova a installare tali ruoli del server o configurare un'origine per funzionalità su richiesta in Criteri di gruppo.
 
-2.  Le edizioni client di Windows non saranno in grado di installare .NET 3.5 su richiesta dal Web. Le stesse considerazioni relative ai ruoli del server si applicano a .NET 3.5.
+2. Le edizioni client di Windows non saranno in grado di installare .NET 3.5 su richiesta dal Web. Le stesse considerazioni relative ai ruoli del server si applicano a .NET 3.5.
 
-    > [!NOTE]
-    > Configurazione di una funzionalità in origine dell'installazione richiesta non riguarda WSUS. Per informazioni su come configurare le funzionalità, vedere [Configurare Funzionalità su richiesta in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
+   > [!NOTE]
+   > Configurazione di una funzionalità in origine dell'installazione richiesta non riguarda WSUS. Per informazioni su come configurare le funzionalità, vedere [Configurare Funzionalità su richiesta in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
 
 3. I dispositivi aziendali che eseguono Windows 10, versione 1709 o versione 1803, non è possibile installare qualsiasi funzionalità su richiesta direttamente da Windows Server Update Services. Per installare le funzionalità su richiesta [creare un file di funzionalità (archivio side-by-side)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store) oppure ottenere la funzionalità nel pacchetto di richiesta da una delle seguenti origini:
-    - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) - contratto Multilicenza è necessario l'accesso
-    - Portale OEM - OEM è necessario l'accesso
-    - Download MSDN - abbonamento a MSDN è obbligatorio
+   - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) - contratto Multilicenza è necessario l'accesso
+   - Portale OEM - OEM è necessario l'accesso
+   - Download MSDN - abbonamento a MSDN è obbligatorio
 
-    Funzionalità ottenute singolarmente i pacchetti di richiesta può essere installato usando [opzioni della riga di comando DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
+     Funzionalità ottenute singolarmente i pacchetti di richiesta può essere installato usando [opzioni della riga di comando DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
 
 ### <a name="wsus-database-requirements"></a>Requisiti del database di WSUS
 Windows Server Update Services richiede uno dei database seguenti:
@@ -319,7 +319,7 @@ La scelta delle lingue per un server upstream non equivale alla scelta delle lin
 > [!NOTE]
 > Eseguire questa operazione anche se si vuole che il server downstream scarichi le stesse lingue del server upstream.
 
-2.  Se il server upstream è stato configurato per scaricare i file di aggiornamento in tutte le lingue: Nella Configurazione guidata WSUS fare clic su **Scarica aggiornamenti in tutte le lingue supportate dal server upstream**.
+2. Se il server upstream è stato configurato per scaricare i file di aggiornamento in tutte le lingue: Nella Configurazione guidata WSUS fare clic su **Scarica aggiornamenti in tutte le lingue supportate dal server upstream**.
 
 > [!NOTE]
 > Eseguire questa operazione anche se si vuole che il server downstream scarichi le stesse lingue del server upstream. Questa impostazione fa in modo che il server upstream scarichi gli aggiornamenti in tutte le lingue, incluse quelle non originariamente configurate per il server upstream. Se si aggiungono lingue al server upstream, è necessario copiare i nuovi aggiornamenti nei relativi server di replica.

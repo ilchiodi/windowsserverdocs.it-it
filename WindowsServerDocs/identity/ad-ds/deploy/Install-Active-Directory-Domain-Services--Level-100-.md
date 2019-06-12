@@ -9,36 +9,36 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fcb6d90832ed032302ceb0b3c4ec6a0eaff7d807
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b84e8cf499fd61920e44c43591e2856179e7e622
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886872"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443225"
 ---
 # <a name="install-active-directory-domain-services-level-100"></a>Installare Active Directory Domain Services (Livello 100)
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento viene descritto come installare Active Directory in Windows Server 2012 usando uno dei metodi seguenti:  
-  
+
 -   [Credenziali necessarie per eseguire Adprep.exe e installare servizi di dominio Active Directory](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds)  
-  
+
 -   [Installazione di Active Directory Domain Services tramite Windows PowerShell](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_PS)  
-  
+
 -   [Installazione di Active Directory tramite Server Manager](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_GUI)  
-  
+
 -   [Esecuzione di un'installazione di controller di dominio di staging usando l'interfaccia utente grafica](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_UIStaged)  
-  
+
 ## <a name="BKMK_Creds"></a>Credenziali necessarie per eseguire Adprep.exe e installare servizi di dominio Active Directory  
 Per eseguire Adprep.exe e installare Servizi di dominio Active Directory, sono necessarie le seguenti credenziali.  
-  
+
 -   Per installare una nuova foresta, è necessario accedere come Administrator locale del computer.  
-  
+
 -   Per installare un nuovo dominio figlio o un nuovo albero di dominio, è necessario accedere come membro del gruppo Enterprise Admins.  
-  
+
 -   Per installare un controller di dominio aggiuntivo in un dominio esistente, è necessario essere membro del gruppo Domain Admins.  
-  
+
     > [!NOTE]  
     > Se non si esegue il comando adprep.exe separatamente e si installa il primo controller di dominio che esegue Windows Server 2012 in un dominio esistente o un insieme di strutture, verrà richiesto di fornire le credenziali per eseguire i comandi di Adprep. I requisiti delle credenziali sono i seguenti:  
     >   
@@ -48,496 +48,497 @@ Per eseguire Adprep.exe e installare Servizi di dominio Active Directory, sono n
     >   
     >     > [!NOTE]  
     >     > Se è già stato eseguito adprep /rodcprep in Windows Server 2008 o Windows Server 2008 R2, non è necessario eseguirlo di nuovo per Windows Server 2012.  
-  
+
 ## <a name="BKMK_PS"></a>Installazione di Active Directory Domain Services tramite Windows PowerShell  
 A partire da Windows Server 2012, è possibile installare Active Directory utilizzando Windows PowerShell. Dcpromo.exe è deprecato a partire da Windows Server 2012, ma è comunque possibile eseguire dcpromo.exe utilizzando un file di risposta (dcpromo /unattend:<answerfile> o dcpromo /answer:<answerfile>). La possibilità di continuare a utilizzare dcpromo.exe con un file di risposta lascia alle organizzazioni che hanno investito risorse in un sistema di automazione esistente il tempo necessario per passare da dcpromo.exe a Windows PowerShell. Per altre informazioni sull'esecuzione dcpromo.exe con un file di risposte, vedere [ https://support.microsoft.com/kb/947034 ](https://support.microsoft.com/kb/947034).  
-  
+
 Per ulteriori informazioni sulla rimozione di Servizi di dominio Active Directory con Windows PowerShell, vedere [Rimozione di Servizi di dominio Active Directory mediante Windows PowerShell](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c#BKMK_RemovePS).  
-  
+
 Per iniziare, aggiungere il ruolo utilizzando Windows PowerShell. Questo comando installa il ruolo server Servizi di dominio Active Directory, oltre agli strumenti di amministrazione server per Servizi di dominio Active Directory e Active Directory Lightweight Directory Services, inclusi gli strumenti basati sull'interfaccia utente grafica come Utenti e computer di Active Directory e gli strumenti della riga di comando come dcdia.exe. Per impostazione predefinita, quando si utilizza Windows PowerShell gli strumenti di amministrazione del server non vengono installati. È necessario specificare **"IncludeManagementTools** per gestire il server locale o installare [Strumenti di amministrazione remota del Server](https://www.microsoft.com/download/details.aspx?id=28972) per gestire un server remoto.  
-  
+
 ```  
 Install-windowsfeature -name AD-Domain-Services -IncludeManagementTools  
 <<Windows PowerShell cmdlet and arguments>>  
 ```  
-  
+
 Al termine dell'installazione di Servizi di dominio Active Directory non è necessario riavviare il sistema.  
-  
+
 A questo punto è possibile eseguire il comando per visualizzare i cmdlet disponibili nel modulo ADDSDeployment.  
-  
+
 ```  
 Get-Command -Module ADDSDeployment
 ```  
-  
+
 Per visualizzare l'elenco degli argomenti che è possibile specificare per un cmdlet e la relativa sintassi:  
-  
+
 ```  
 Get-Help <cmdlet name>  
 ```  
-  
+
 Ad esempio, per visualizzare gli argomenti necessari per creare un account del controller di dominio di sola lettura non occupato, digitare  
-  
+
 ```  
 Get-Help Add-ADDSReadOnlyDomainControllerAccount
 ```  
-  
+
 Gli argomenti opzionali sono mostrati tra parentesi quadre.  
-  
+
 È inoltre possibile scaricare gli ultimi esempi e concetti della Guida in linea per i cmdlet di Windows PowerShell. Per altre informazioni, vedere [about_Updatable_Help](https://technet.microsoft.com/library/hh847735.aspx).  
-  
+
 È possibile eseguire i cmdlet di Windows PowerShell sui server remoti:  
-  
+
 -   In Windows PowerShell utilizzare Invoke-Command con il cmdlet ADDSDeployment. Ad esempio, per installare Servizi di dominio Active Directory su un server remoto denominato ConDC3 nel dominio contoso.com, digitare:  
-  
+
     ```  
     Invoke-Command { Install-ADDSDomainController -DomainName contoso.com -Credential (Get-Credential) } -ComputerName ConDC3  
     ```  
-  
+
 -Oppure-  
-  
+
 -   In Server Manager creare un gruppo di server che includa il server remoto. Fare doppio clic il nome del server remoto e fare clic su **Windows PowerShell**.  
-  
+
 Nelle sezioni seguenti è illustrato come eseguire i cmdlet del modulo ADDSDeployment per installare Servizi di dominio Active Directory.  
-  
+
 -   [Argomenti del cmdlet ADDSDeployment](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Params)  
-  
+
 -   [Specificare le credenziali di Windows PowerShell](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_PSCreds)  
-  
+
 -   [Usando i cmdlet di prova](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_TestCmdlets)  
-  
+
 -   [Installa un dominio radice della nuova foresta con Windows PowerShell](../../ad-ds/deploy/../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_PSForest)  
-  
+
 -   [Installa un nuovo dominio figlio o albero con Windows PowerShell](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_PSDomain)  
-  
+
 -   [Installazione di un controller di dominio aggiuntivo (replica) usando Windows PowerShell](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_PSReplica)  
-  
+
 ### <a name="BKMK_Params"></a>Argomenti del cmdlet ADDSDeployment  
 Nella tabella seguente vengono elencati gli argomenti dei cmdlet di ADDSDeployment in Windows PowerShell. Gli argomenti in grassetto sono obbligatori. Gli argomenti equivalenti di dcpromo.exe sono riportati tra parentesi se hanno un nome diverso in Windows PowerShell.  
-  
+
 I parametri di Windows PowerShell accettano gli argomenti $TRUE o $FALSE. Gli argomenti devono essere $TRUE per impostazione predefinita non sono necessario specificare.  
-  
+
 Per escludere i valori predefiniti, è possibile specificare l'argomento con un valore $False. Ad esempio, in quanto **- installdns** viene eseguita automaticamente per un'installazione nuova foresta se non è specificato, l'unico modo per *impedire* Installazione DNS quando si installa una nuova foresta è possibile utilizzare:  
-  
+
 ```  
 -InstallDNS:$false  
 ```  
-  
+
 Analogamente, in quanto **"installdns** ha un valore predefinito di $False se si installa un controller di dominio in un ambiente che non ospita il Server Windows DNS server, è necessario specificare l'argomento seguente per installare il server DNS:  
-  
+
 ```  
 -InstallDNS:$true  
 ```  
-  
-|Argomento|Descrizione|  
-|------------|---------------|  
-|**ADPrepCredential <PS Credential>**  **Nota:** Obbligatorio se si sta installando il primo controller di dominio di Windows Server 2012 in un dominio o foresta e le credenziali dell'utente corrente sono insufficienti per eseguire l'operazione.|Specifica l'account con appartenenza al gruppo Enterprise Admins e Schema Admins che può preparare la foresta, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.<br /><br />Se viene specificato alcun valore, il valore di **"credenziali** viene utilizzato l'argomento.|  
-|AllowDomainControllerReinstall|Consente di stabilire se continuare l'installazione con questo controller di dominio scrivibile, nonostante sia stato rilevato l'account di un altro controller di dominio scrivibile con lo stesso nome.<br /><br />Utilizzare **$True** solo se si è certi che l'account non è attualmente utilizzato da un altro controller di dominio scrivibile.<br /><br />Il valore predefinito è **$False**.<br /><br />Questo argomento non è valido per un controller di dominio di sola lettura.|  
-|AllowDomainReinstall|Consente di specificare se ricreare un dominio esistente.<br /><br />Il valore predefinito è **$False**.|  
-|AllowPasswordReplicationAccountName <stringa []>|Indica i nomi degli account utente, degli account di gruppo e degli account di computer le cui password possono essere replicate in questo controller di dominio di sola lettura. Utilizzare una stringa vuota "" se si desidera mantenere vuoto il valore. Per impostazione predefinita, è consentito solo il gruppo Ogg. autorizzati a replica passw. in controller sola lettura del dominio. Tale gruppo viene originariamente creato vuoto.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio: <br /><br />Codice - AllowPasswordReplicationAccountName "JSmith", "JSmithPC", "Utenti delle succursali"|  
-|ApplicationPartitionsToReplicate < stringa [] > **Nota:** Non è disponibile un'opzione equivalente nell'interfaccia utente. Se si esegue l'installazione tramite interfaccia utente, o tramite Installazione da supporto, verranno replicate tutte le partizioni applicative.|Specifica le partizioni di directory applicative da replicare. In questo argomento viene applicato solo quando si specifica il **- InstallationMediaPath** argomento per l'installazione da supporto. Per impostazione predefinita, tutte le partizioni applicative verranno replicate sulla base dei rispettivi ambiti.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio: <br /><br />Codice:<br /><br />-ApplicationPartitionsToReplicate "Partizione1", "Partizione2", "partition3"|  
-|Confirm|Richiede conferma prima di eseguire il cmdlet.|  
-|CreateDnsDelegation **Nota:** Non è possibile specificare questo argomento quando si esegue il cmdlet Add-ADDSReadOnlyDomainController.|Consente di specificare se è necessario creare una delega DNS che fa riferimento al nuovo server DNS in corso di installazione insieme al controller di dominio. Valido per l'integrazione Active Directory"DNS solo. I record di delega possono essere creati solo su server Microsoft DNS che siano online e accessibili. Non è possibile creare record di delega per domini che siano immediatamente subordinati a domini di primo livello quali .com, .gov, .biz, .edu o domini del codice di paese a due lettere quali .nz e .au.<br /><br />Il valore predefinito viene calcolato automaticamente in base all'ambiente.|  
-|**Credenziale <PS Credential>**  **Nota:** Obbligatorio solo se le credenziali dell'utente corrente sono insufficienti per eseguire l'operazione.|Specifica l'account di dominio che può accedere al dominio, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.<br /><br />Se non viene specificato alcun valore, vengono utilizzate le credenziali dell'utente corrente.|  
-|CriticalReplicationOnly|Specifica se l'operazione di installazione di Active Directory esegue solo la parte critica della replica prima del riavvio e continua quindi. La replica della parte non critica si verifica al termine dell'installazione dei ruoli e dopo il riavvio del computer.<br /><br />L'uso di questo argomento è sconsigliaible.<br /><br />Non è disponibile un'opzione equivalente nell'interfaccia utente.|  
-|DatabasePath <string>|Specifica il percorso completo, non "percorso Universal Naming Convention (UNC) in una directory su un disco rigido del computer locale che contiene il database del dominio, ad esempio, **C:\Windows\NTDS.**<br /><br />Il valore predefinito è **%SYSTEMROOT%\NTDS**. **Importante:** Benché sia possibile archiviare il database e i file di log di Servizi di dominio Active Directory in un volume formattato con Resilient File System (ReFS), non vi sono vantaggi specifici correlati all'hosting di Servizi di dominio Active Directory in ReFS oltre a quelli tipici ottenuti dalla resilienza per l'hosting di dati in ReFS.|  
-|DelegatedAdministratorAccountName <string>|Consente di specificare il nome dell'utente o del gruppo che installerà e amministrerà il controller di dominio di sola lettura.<br /><br />Per impostazione predefinita, solo i membri del gruppo Domain Admins possono un controller di dominio di sola lettura.|  
-|DenyPasswordReplicationAccountName <stringa []>|Consente di specificare i nomi degli account utente, degli account di gruppo e degli account di computer le cui password non devono essere replicate in questo controller di dominio di sola lettura. Utilizzare una stringa vuota "" per consentire la replica delle credenziali di qualunque utente o computer. Per impostazione predefinita, sono negati i gruppi Administrators, Server Operators, Backup Operators, Account Operators e il gruppo Ogg. non autoriz. a replica passw. in controller sola lettura del dominio. Per impostazione predefinita, quest'ultimo gruppo include Cert Publishers, Domain Admins, Enterprise Admins, Controller di dominio organizzazione, Controller di dominio di sola lettura organizzazione, Proprietari autori criteri di gruppo, l'account krbtgt e Schema Admins.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio: <br /><br />Codice:<br /><br />-DenyPasswordReplicationAccountName "RegionalAdmins", "AdminPCs"|  
-|DnsDelegationCredential <PS Credential> **Note:** Non è possibile specificare questo argomento quando si esegue il cmdlet Add-ADDSReadOnlyDomainController.|Specifica il nome utente e la password per la creazione di delega DNS, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.|  
-|DomainMode <DomainMode> {Win2003 &#124; Win2008 &#124; Win2008R2 &#124; Win2012 &#124; Win2012R2}<br /><br />Oppure<br /><br />DomainMode <DomainMode> {2 &#124; 3 &#124; 4 &#124; 5 &#124; 6}|Specifica il livello di funzionalità del dominio durante la creazione di un nuovo dominio.<br /><br />Il livello di funzionalità del dominio non può essere inferiore al livello di funzionalità della foresta, ma può essere superiore.<br /><br />Il valore predefinito viene calcolato automaticamente e impostato sul livello di funzionalità della foresta esistente o sul valore impostato per **-ForestMode**.|  
-|**DomainName**<br /><br />Obbligatorio per i cmdlet Install-ADDSForest e Install-ADDSDomainController.|Consente di specificare il nome di dominio completo del dominio in cui eseguire l'installazione di un controller di dominio aggiuntivo.|  
-|**DomainNetbiosName <string>**<br /><br />Obbligatorio per il cmdlet Install-ADDSForest se il nome prefisso del nome di dominio completo è più lungo di 15 caratteri.|Utilizzare con Install-ADDSForest. Consente di assegnare un nome NetBIOS al nuovo dominio radice della foresta.|  
-|DomainType <DomainType> {ChildDomain &#124; TreeDomain} o {figlio &#124; albero}|Indica il tipo di dominio che si desidera creare: un nuovo albero di dominio in una foresta esistente, un dominio figlio in un dominio esistente o una nuova foresta.<br /><br />Il valore predefinito di DomainType è ChildDomain.|  
-|Force|Quando si specifica questo parametro, tutti gli avvisi che potrebbero essere visualizzati durante l'installazione o l'aggiunta del controller di dominio verranno bloccati per consentire il completamento dell'esecuzione del cmdlet. Questo parametro potrebbe essere utile da includere in uno script di installazione.|  
-|ForestMode <ForestMode> {Win2003 &#124; Win2008 &#124; Win2008R2 &#124; Win2012 &#124; Win2012R2}<br /><br />Oppure<br /><br />ForestMode <ForestMode> {2 &#124; 3 &#124; 4 &#124; 5 &#124; 6}|Consente di specificare il livello di funzionalità della foresta quando viene creata una nuova foresta.<br /><br />Il valore predefinito è Win2012.|  
-|InstallationMediaPath|Consente di specificare il percorso del supporto di installazione che verrà utilizzato per installare un nuovo controller di dominio.|  
-|InstallDns|Consente di specificare se è necessario installare e configurare il servizio Server DNS nel controller di dominio.<br /><br />Per una nuova foresta il valore predefinito è **$True** e Server DNS viene installato.<br /><br />Il valore predefinito di questo parametro è $True nel caso di un nuovo dominio figlio o albero di dominio, se nel dominio padre (o dominio radice della foresta per un albero di dominio) sono già ospitati e archiviati i nomi DNS per il dominio.<br /><br />Per un'installazione di controller di dominio in un dominio esistente, se questo parametro è specificato e il dominio corrente sono già ospitati e archiviati i nomi DNS per il dominio, il valore predefinito per questo parametro è **$True**. Se invece i nomi di domino DNS sono ospitati all'esterno di Active Directory, il valore predefinito è **$False** e non viene installato alcun server DNS.|  
-|LogPath <string>|Consente di specificare il percorso completo non UNC di una directory in un disco rigido del computer locale contenente i file di log del dominio, ad esempio **C:\Windows\Logs**.<br /><br />Il valore predefinito è **%SYSTEMROOT%\NTDS**. **Importante:** Non archiviare i file di log di Active Directory su un volume di dati in formato ReFS (Resilient File System).|  
-|MoveInfrastructureOperationMasterRoleIfNecessary|Specifica se trasferire il master operazioni master infrastrutture (flexible single master operation FSMO, Flexible) al controller di dominio che si sta creando "nel caso è attualmente ospitato in un server di catalogo globale" e non si intende il controller di dominio che si sta creando un server di catalogo globale. Specificare questo parametro per trasferire il ruolo di master infrastrutture al controller di dominio in corso di creazione nel caso in cui il trasferimento sia necessario; in questa eventualità specificare l'opzione **NoGlobalCatalog** se il ruolo di master infrastrutture deve rimanere dove si trova al momento.|  
-|**NewDomainName <string>**  **Nota:** Obbligatorio solo per Install-ADDSDomain.|Consente di specificare un nome di dominio singolo per il nuovo dominio.<br /><br />Ad esempio, se si desidera creare un nuovo dominio figlio denominato **emea.corp.fabrikam.com**, è necessario specificare **emea** come valore di questo argomento.|  
-|**NewDomainNetbiosName <string>**<br /><br />Obbligatorio per il cmdlet Install-ADDSDomain se il nome prefisso del nome di dominio completo è più lungo di 15 caratteri.|Utilizzare con Install-ADDSDomain. Consente di assegnare un nome NetBIOS al nuovo dominio. Il valore predefinito è derivato dal valore di **"NewDomainName**.|  
-|NoDnsOnNetwork|Consente di specificare se il servizio DNS non è disponibile nella rete. Questo parametro viene utilizzato solo quando le impostazioni IP della scheda di rete del computer non è configurata con il nome di un server DNS per la risoluzione dei nomi. Indica che nel computer verrà installato un server DNS per la risoluzione dei nomi. In caso contrario, le impostazioni IP della scheda di rete devono essere prima configurate con l'indirizzo di un server DNS.<br /><br />Se si omette questo parametro (impostazione predefinita), per contattare un server DNS verranno utilizzate le impostazioni del client TCP/IP della scheda di rete in questo computer server. Se non si utilizza questo parametro, è pertanto necessario verificare che le impostazioni del client TCP/IP siano configurate con il server DNS preferito.|  
-|NoGlobalCatalog|Indica che non si desidera che il controller di dominio sia un server di catalogo globale.<br /><br />Per impostazione predefinita, i controller di dominio che eseguono Windows Server 2012 vengono installati con il catalogo globale. In altri termini, il catalogo globale viene eseguito automaticamente a meno di non specificare:<br /><br />Codice:<br /><br />-NoGlobalCatalog|  
-|NoRebootOnCompletion|Consente di specificare se riavviare il computer dopo il completamento del comando, indipendentemente dal suo esito. Per impostazione predefinita, il computer viene riavviato. Per impedire il riavvio del server, specificare:<br /><br />Codice:<br /><br />-NoRebootOnCompletion: $True<br /><br />Non è disponibile un'opzione equivalente nell'interfaccia utente.|  
-|**ParentDomainName <string>** **Note:** Obbligatorio per il cmdlet Install-ADDSDomain|Consente di specificare il nome di dominio completo di un dominio padre esistente. Utilizzare questo argomento quando si installa un dominio figlio o un nuovo albero di dominio.<br /><br />Se ad esempio si desidera creare un nuovo dominio figlio denominato **emea.corp.fabrikam.com**, è necessario specificare **corp.fabrikam.com** come valore di questo argomento.|  
-|ReadOnlyReplica|Consente di stabilire se installare un controller di dominio di sola lettura.|  
-|ReplicationSourceDC <string>|Consente di specificare il nome di dominio completo del controller di dominio partner da cui vengono replicati i dati del dominio. Il valore predefinito viene calcolato automaticamente.|  
-|**SafeModeAdministratorPassword <securestring>**|Consente di specificare la password dell'account Administrator da utilizzare per l'avvio del computer in modalità provvisoria o in una variante della modalità provvisoria, ad esempio la modalità ripristino servizi directory.<br /><br />Il valore predefinito è una password vuota. È necessario specificare una password. La password deve essere specificata nel formato System.Security.SecureString, che è ad esempio restituito da read-host -assecurestring o da ConvertTo-SecureString.<br /><br />Il funzionamento dell'argomento SafeModeAdministratorPassword è particolare: se non viene specificato come argomento, il cmdlet richiede di inserire e confermare una password nascosta. Questo è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo. Se non viene specificato un valore e non vi sono altri argomenti nel cmdlet, viene richiesta l'immissione di una password nascosta senza conferma. Questo non è il metodo di utilizzo consigliaile quando il cmdlet viene eseguito in modo interattivo. Se viene specificato un valore, tale valore deve essere una stringa sicura. Questo non è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo. Ad esempio, è possibile utilizzare il cmdlset Read-Host per richiedere manualmente una password all'utente nella forma di una stringa sicura: -safemodeadministratorpassword (read-host -prompt "Password:" -assecurestring). È anche possibile specificare una stringa sicura come una variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)|  
-|**SiteName <string>**<br /><br />Obbligatorio per il cmdlet Add-addsreadonlydomaincontrolleraccount|Indica il sito in cui il controller di dominio verrà installato. Non esiste alcun **"nomesito** argomento quando si esegue **Install-ADDSForest** perché il primo sito creato è nome-predefinito-primo-sito.<br /><br />Il nome del sito deve esistere già quando viene fornito come argomento di **-sitename**. Il cmdlet non crea il sito.|  
-|SkipAutoConfigureDNS|Salta la configurazione automatica delle impostazioni di client DNS, server di inoltro e parametri radice. Questo argomento si applica solo se il servizio Server DNS è già installato o installato automaticamente con **- InstallDNS**.|  
-|SystemKey <string>|Consente di specificare la chiave di sistema per i supporti da cui vengono replicati i dati.<br /><br />Il valore predefinito è **none**<br /><br />I dati devono essere nel formato restituito da read-host -assecurestring o da ConvertTo-SecureString.|  
-|SysvolPath <string>|Consente di specificare il percorso completo non UNC di una directory in un disco rigido del computer locale, ad esempio **C:\Windows\SYSVOL**.<br /><br />Il valore predefinito è **%SYSTEMROOT%\SYSVOL**. **Importante:** Non è possibile archiviare SYSVOL in un volume di dati formattato con Resilient File System (ReFS).|  
-|SkipPreChecks|Non esegue il controllo dei prerequisiti prima di iniziare l'installazione. Si sconsiglia di utilizzare questa impostazione.|  
-|Whatif|Mostra gli effetti dell'esecuzione del cmdlet. Il cmdlet non viene eseguito.|  
-  
+
+
+|                                                                                                                 Argomento                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ADPrepCredential <PS Credential>**  **Nota:** Obbligatorio se si sta installando il primo controller di dominio di Windows Server 2012 in un dominio o foresta e le credenziali dell'utente corrente sono insufficienti per eseguire l'operazione. |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Specifica l'account con appartenenza al gruppo Enterprise Admins e Schema Admins che può preparare la foresta, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.<br /><br />Se viene specificato alcun valore, il valore di **"credenziali** viene utilizzato l'argomento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                                                                                      AllowDomainControllerReinstall                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Consente di stabilire se continuare l'installazione con questo controller di dominio scrivibile, nonostante sia stato rilevato l'account di un altro controller di dominio scrivibile con lo stesso nome.<br /><br />Utilizzare **$True** solo se si è certi che l'account non è attualmente utilizzato da un altro controller di dominio scrivibile.<br /><br />Il valore predefinito è **$False**.<br /><br />Questo argomento non è valido per un controller di dominio di sola lettura.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                                                                                           AllowDomainReinstall                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Consente di specificare se ricreare un dominio esistente.<br /><br />Il valore predefinito è **$False**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|                                                                                             AllowPasswordReplicationAccountName <stringa []>                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Indica i nomi degli account utente, degli account di gruppo e degli account di computer le cui password possono essere replicate in questo controller di dominio di sola lettura. Utilizzare una stringa vuota "" se si desidera mantenere vuoto il valore. Per impostazione predefinita, è consentito solo il gruppo Ogg. autorizzati a replica passw. in controller sola lettura del dominio. Tale gruppo viene originariamente creato vuoto.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio:<br /><br />Codice - AllowPasswordReplicationAccountName "JSmith", "JSmithPC", "Utenti delle succursali"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                      ApplicationPartitionsToReplicate < stringa [] > **Nota:** Non è disponibile un'opzione equivalente nell'interfaccia utente. Se si esegue l'installazione tramite interfaccia utente, o tramite Installazione da supporto, verranno replicate tutte le partizioni applicative.                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Specifica le partizioni di directory applicative da replicare. In questo argomento viene applicato solo quando si specifica il **- InstallationMediaPath** argomento per l'installazione da supporto. Per impostazione predefinita, tutte le partizioni applicative verranno replicate sulla base dei rispettivi ambiti.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio:<br /><br />Codice:<br /><br />-ApplicationPartitionsToReplicate "Partizione1", "Partizione2", "partition3"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|                                                                                                                 Confirm                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Richiede conferma prima di eseguire il cmdlet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                                                         CreateDnsDelegation **Nota:** Non è possibile specificare questo argomento quando si esegue il cmdlet Add-ADDSReadOnlyDomainController.                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                   Consente di specificare se è necessario creare una delega DNS che fa riferimento al nuovo server DNS in corso di installazione insieme al controller di dominio. Valido per l'integrazione Active Directory"DNS solo. I record di delega possono essere creati solo su server Microsoft DNS che siano online e accessibili. Non è possibile creare record di delega per domini che siano immediatamente subordinati a domini di primo livello quali .com, .gov, .biz, .edu o domini del codice di paese a due lettere quali .nz e .au.<br /><br />Il valore predefinito viene calcolato automaticamente in base all'ambiente.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                                                 **Credenziale <PS Credential>**  **Nota:** Obbligatorio solo se le credenziali dell'utente corrente sono insufficienti per eseguire l'operazione.                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Specifica l'account di dominio che può accedere al dominio, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.<br /><br />Se non viene specificato alcun valore, vengono utilizzate le credenziali dell'utente corrente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|                                                                                                         CriticalReplicationOnly                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Specifica se l'operazione di installazione di Active Directory esegue solo la parte critica della replica prima del riavvio e continua quindi. La replica della parte non critica si verifica al termine dell'installazione dei ruoli e dopo il riavvio del computer.<br /><br />L'uso di questo argomento è sconsigliaible.<br /><br />Non è disponibile un'opzione equivalente nell'interfaccia utente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                                                                                                          DatabasePath <string>                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                      Specifica il percorso completo, non "percorso Universal Naming Convention (UNC) in una directory su un disco rigido del computer locale che contiene il database del dominio, ad esempio, **C:\Windows\NTDS.**<br /><br />Il valore predefinito è **%SYSTEMROOT%\NTDS**. **Importante:** Benché sia possibile archiviare il database e i file di log di Servizi di dominio Active Directory in un volume formattato con Resilient File System (ReFS), non vi sono vantaggi specifici correlati all'hosting di Servizi di dominio Active Directory in ReFS oltre a quelli tipici ottenuti dalla resilienza per l'hosting di dati in ReFS.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|                                                                                                DelegatedAdministratorAccountName <string>                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Consente di specificare il nome dell'utente o del gruppo che installerà e amministrerà il controller di dominio di sola lettura.<br /><br />Per impostazione predefinita, solo i membri del gruppo Domain Admins possono un controller di dominio di sola lettura.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|                                                                                              DenyPasswordReplicationAccountName <stringa []>                                                                                              |                                                                                                                                                                                                                                                                                                           Consente di specificare i nomi degli account utente, degli account di gruppo e degli account di computer le cui password non devono essere replicate in questo controller di dominio di sola lettura. Utilizzare una stringa vuota "" per consentire la replica delle credenziali di qualunque utente o computer. Per impostazione predefinita, sono negati i gruppi Administrators, Server Operators, Backup Operators, Account Operators e il gruppo Ogg. non autoriz. a replica passw. in controller sola lettura del dominio. Per impostazione predefinita, quest'ultimo gruppo include Cert Publishers, Domain Admins, Enterprise Admins, Controller di dominio organizzazione, Controller di dominio di sola lettura organizzazione, Proprietari autori criteri di gruppo, l'account krbtgt e Schema Admins.<br /><br />Inserire i valori come matrice di stringhe. Ad esempio:<br /><br />Codice:<br /><br />-DenyPasswordReplicationAccountName "RegionalAdmins", "AdminPCs"                                                                                                                                                                                                                                                                                                            |
+|                                               DnsDelegationCredential <PS Credential> **Note:** Non è possibile specificare questo argomento quando si esegue il cmdlet Add-ADDSReadOnlyDomainController.                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Specifica il nome utente e la password per la creazione di delega DNS, in base alle regole di [Get-Credential](https://technet.microsoft.com/library/dd315327.aspx) e un oggetto PSCredential.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|                        DomainMode <DomainMode> {Win2003 &#124; Win2008 &#124; Win2008R2 &#124; Win2012 &#124; Win2012R2}<br /><br />Oppure<br /><br />DomainMode <DomainMode> {2 &#124; 3 &#124; 4 &#124; 5 &#124; 6}                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Specifica il livello di funzionalità del dominio durante la creazione di un nuovo dominio.<br /><br />Il livello di funzionalità del dominio non può essere inferiore al livello di funzionalità della foresta, ma può essere superiore.<br /><br />Il valore predefinito viene calcolato automaticamente e impostato sul livello di funzionalità della foresta esistente o sul valore impostato per **-ForestMode**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|                                                                   **DomainName**<br /><br />Obbligatorio per i cmdlet Install-ADDSForest e Install-ADDSDomainController.                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Consente di specificare il nome di dominio completo del dominio in cui eseguire l'installazione di un controller di dominio aggiuntivo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                                       **DomainNetbiosName <string>**<br /><br />Obbligatorio per il cmdlet Install-ADDSForest se il nome prefisso del nome di dominio completo è più lungo di 15 caratteri.                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Utilizzare con Install-ADDSForest. Consente di assegnare un nome NetBIOS al nuovo dominio radice della foresta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|                                                                              DomainType <DomainType> {ChildDomain &#124; TreeDomain} o {figlio &#124; albero}                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Indica il tipo di dominio che si desidera creare: un nuovo albero di dominio in una foresta esistente, un dominio figlio in un dominio esistente o una nuova foresta.<br /><br />Il valore predefinito di DomainType è ChildDomain.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|                                                                                                                  Force                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Quando si specifica questo parametro, tutti gli avvisi che potrebbero essere visualizzati durante l'installazione o l'aggiunta del controller di dominio verranno bloccati per consentire il completamento dell'esecuzione del cmdlet. Questo parametro potrebbe essere utile da includere in uno script di installazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|                        ForestMode <ForestMode> {Win2003 &#124; Win2008 &#124; Win2008R2 &#124; Win2012 &#124; Win2012R2}<br /><br />Oppure<br /><br />ForestMode <ForestMode> {2 &#124; 3 &#124; 4 &#124; 5 &#124; 6}                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Consente di specificare il livello di funzionalità della foresta quando viene creata una nuova foresta.<br /><br />Il valore predefinito è Win2012.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|                                                                                                          InstallationMediaPath                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Consente di specificare il percorso del supporto di installazione che verrà utilizzato per installare un nuovo controller di dominio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                InstallDns                                                                                                                |                                                                                                                                                                                                                                                                                                                      Consente di specificare se è necessario installare e configurare il servizio Server DNS nel controller di dominio.<br /><br />Per una nuova foresta il valore predefinito è **$True** e Server DNS viene installato.<br /><br />Il valore predefinito di questo parametro è $True nel caso di un nuovo dominio figlio o albero di dominio, se nel dominio padre (o dominio radice della foresta per un albero di dominio) sono già ospitati e archiviati i nomi DNS per il dominio.<br /><br />Per un'installazione di controller di dominio in un dominio esistente, se questo parametro è specificato e il dominio corrente sono già ospitati e archiviati i nomi DNS per il dominio, il valore predefinito per questo parametro è **$True**. Se invece i nomi di domino DNS sono ospitati all'esterno di Active Directory, il valore predefinito è **$False** e non viene installato alcun server DNS.                                                                                                                                                                                                                                                                                                                      |
+|                                                                                                             LogPath <string>                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Consente di specificare il percorso completo non UNC di una directory in un disco rigido del computer locale contenente i file di log del dominio, ad esempio **C:\Windows\Logs**.<br /><br />Il valore predefinito è **%SYSTEMROOT%\NTDS**. **Importante:** Non archiviare i file di log di Active Directory su un volume di dati in formato ReFS (Resilient File System).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|                                                                                             MoveInfrastructureOperationMasterRoleIfNecessary                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                  Specifica se trasferire il master operazioni master infrastrutture (flexible single master operation FSMO, Flexible) al controller di dominio che si sta creando "nel caso è attualmente ospitato in un server di catalogo globale" e non si intende il controller di dominio che si sta creando un server di catalogo globale. Specificare questo parametro per trasferire il ruolo di master infrastrutture al controller di dominio in corso di creazione nel caso in cui il trasferimento sia necessario; in questa eventualità specificare l'opzione **NoGlobalCatalog** se il ruolo di master infrastrutture deve rimanere dove si trova al momento.                                                                                                                                                                                                                                                                                                                                                                                                  |
+|                                                                                **NewDomainName <string>**  **Nota:** Obbligatorio solo per Install-ADDSDomain.                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Consente di specificare un nome di dominio singolo per il nuovo dominio.<br /><br />Ad esempio, se si desidera creare un nuovo dominio figlio denominato **emea.corp.fabrikam.com**, è necessario specificare **emea** come valore di questo argomento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|                                                      **NewDomainNetbiosName <string>**<br /><br />Obbligatorio per il cmdlet Install-ADDSDomain se il nome prefisso del nome di dominio completo è più lungo di 15 caratteri.                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Utilizzare con Install-ADDSDomain. Consente di assegnare un nome NetBIOS al nuovo dominio. Il valore predefinito è derivato dal valore di **"NewDomainName**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|                                                                                                              NoDnsOnNetwork                                                                                                              |                                                                                                                                                                                                                                                                                                                                    Consente di specificare se il servizio DNS non è disponibile nella rete. Questo parametro viene utilizzato solo quando le impostazioni IP della scheda di rete del computer non è configurata con il nome di un server DNS per la risoluzione dei nomi. Indica che nel computer verrà installato un server DNS per la risoluzione dei nomi. In caso contrario, le impostazioni IP della scheda di rete devono essere prima configurate con l'indirizzo di un server DNS.<br /><br />Se si omette questo parametro (impostazione predefinita), per contattare un server DNS verranno utilizzate le impostazioni del client TCP/IP della scheda di rete in questo computer server. Se non si utilizza questo parametro, è pertanto necessario verificare che le impostazioni del client TCP/IP siano configurate con il server DNS preferito.                                                                                                                                                                                                                                                                                                                                     |
+|                                                                                                             NoGlobalCatalog                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Indica che non si desidera che il controller di dominio sia un server di catalogo globale.<br /><br />Per impostazione predefinita, i controller di dominio che eseguono Windows Server 2012 vengono installati con il catalogo globale. In altri termini, il catalogo globale viene eseguito automaticamente a meno di non specificare:<br /><br />Codice:<br /><br />-NoGlobalCatalog                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|                                                                                                           NoRebootOnCompletion                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Consente di specificare se riavviare il computer dopo il completamento del comando, indipendentemente dal suo esito. Per impostazione predefinita, il computer viene riavviato. Per impedire il riavvio del server, specificare:<br /><br />Codice:<br /><br />-NoRebootOnCompletion: $True<br /><br />Non è disponibile un'opzione equivalente nell'interfaccia utente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                                                              **ParentDomainName <string>** **Note:** Obbligatorio per il cmdlet Install-ADDSDomain                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Consente di specificare il nome di dominio completo di un dominio padre esistente. Utilizzare questo argomento quando si installa un dominio figlio o un nuovo albero di dominio.<br /><br />Se ad esempio si desidera creare un nuovo dominio figlio denominato **emea.corp.fabrikam.com**, è necessario specificare **corp.fabrikam.com** come valore di questo argomento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|                                                                                                             ReadOnlyReplica                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Consente di stabilire se installare un controller di dominio di sola lettura.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                                                                                                       ReplicationSourceDC <string>                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Consente di specificare il nome di dominio completo del controller di dominio partner da cui vengono replicati i dati del dominio. Il valore predefinito viene calcolato automaticamente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                                                                                             **SafeModeAdministratorPassword <securestring>**                                                                                             | Consente di specificare la password dell'account Administrator da utilizzare per l'avvio del computer in modalità provvisoria o in una variante della modalità provvisoria, ad esempio la modalità ripristino servizi directory.<br /><br />Il valore predefinito è una password vuota. È necessario specificare una password. La password deve essere specificata nel formato System.Security.SecureString, che è ad esempio restituito da read-host -assecurestring o da ConvertTo-SecureString.<br /><br />Il funzionamento dell'argomento SafeModeAdministratorPassword è particolare: se non viene specificato come argomento, il cmdlet richiede di inserire e confermare una password nascosta. Questo è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo. Se non viene specificato un valore e non vi sono altri argomenti nel cmdlet, viene richiesta l'immissione di una password nascosta senza conferma. Questo non è il metodo di utilizzo consigliaile quando il cmdlet viene eseguito in modo interattivo. Se viene specificato un valore, tale valore deve essere una stringa sicura. Questo non è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo. Ad esempio, è possibile utilizzare il cmdlset Read-Host per richiedere manualmente una password all'utente nella forma di una stringa sicura: -safemodeadministratorpassword (read-host -prompt "Password:" -assecurestring). È anche possibile specificare una stringa sicura come una variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force) |
+|                                                                     **SiteName <string>**<br /><br />Obbligatorio per il cmdlet Add-addsreadonlydomaincontrolleraccount                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Indica il sito in cui il controller di dominio verrà installato. Non esiste alcun **"nomesito** argomento quando si esegue **Install-ADDSForest** perché il primo sito creato è nome-predefinito-primo-sito.<br /><br />Il nome del sito deve esistere già quando viene fornito come argomento di **-sitename**. Il cmdlet non crea il sito.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                                                                                                           SkipAutoConfigureDNS                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Salta la configurazione automatica delle impostazioni di client DNS, server di inoltro e parametri radice. Questo argomento si applica solo se il servizio Server DNS è già installato o installato automaticamente con **- InstallDNS**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|                                                                                                            SystemKey <string>                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Consente di specificare la chiave di sistema per i supporti da cui vengono replicati i dati.<br /><br />Il valore predefinito è **none**<br /><br />I dati devono essere nel formato restituito da read-host -assecurestring o da ConvertTo-SecureString.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|                                                                                                           SysvolPath <string>                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Consente di specificare il percorso completo non UNC di una directory in un disco rigido del computer locale, ad esempio **C:\Windows\SYSVOL**.<br /><br />Il valore predefinito è **%SYSTEMROOT%\SYSVOL**. **Importante:** Non è possibile archiviare SYSVOL in un volume di dati formattato con Resilient File System (ReFS).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|                                                                                                              SkipPreChecks                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Non esegue il controllo dei prerequisiti prima di iniziare l'installazione. Si sconsiglia di utilizzare questa impostazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                                                                                                                  Whatif                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Mostra gli effetti dell'esecuzione del cmdlet. Il cmdlet non viene eseguito.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
 ### <a name="BKMK_PSCreds"></a>Specificare le credenziali di Windows PowerShell  
 È possibile specificare le credenziali senza digitarle come testo normale sullo schermo tramite [Get-credential](https://technet.microsoft.com/library/dd315327.aspx).  
-  
+
 Il funzionamento degli argomenti -SafeModeAdministratorPassword e LocalAdministratorPassword è particolare:  
-  
+
 -   se non viene specificato come argomento, il cmdlet richiede di inserire e confermare una password nascosta. Questo è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo.  
-  
+
 -   Se viene indicato con un valore, tale valore deve essere una stringa sicura Questo non è il metodo di utilizzo consigliabile quando il cmdlet viene eseguito in modo interattivo.  
-  
+
 Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'utente una stringa sicura:  
-  
+
 ```  
 -SafeModeAdministratorPassword (Read-Host -Prompt "DSRM Password:" -AsSecureString)
 ```  
-  
+
 > [!WARNING]  
 > Poiché l'opzione precedente non chiede conferma della password, utilizzarla con estrema cautela, in quanto la password non è visibile.  
-  
+
 È inoltre possibile specificare una stringa sicura come variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato:  
-  
+
 ```  
 -SafeModeAdministratorPassword (ConvertTo-SecureString "Password1" -AsPlainText -Force)
 ```  
-  
+
 > [!WARNING]  
 > È sconsigliabile inserire o archiviare una password di testo in chiaro. In questo modo, la password per la modalità ripristino servizi directory per il controller di dominio diverrebbe nota a chiunque esegua questo comando in uno script o riesca a leggerla dallo schermo dell'utente. Conoscendo la password sarebbe quindi possibile fingersi controller di dominio e innalzare i propri privilegi al massimo livello in una foresta Active Directory.  
-  
+
 ### <a name="BKMK_TestCmdlets"></a>Usando i cmdlet di prova  
 Per ogni cmdlet di ADDSDeployment esiste un corrispondente cmdlet di prova. I cmdlet di prova eseguono solo i controlli dei prerequisiti per l'operazione di installazione. Le impostazioni di installazione non vengono configurate. Gli argomenti per ogni cmdlet di prova sono uguali a quelli corrispondenti cmdlet di installazione, ma **"SkipPreChecks** non è disponibile per i cmdlet di prova.  
-  
+
 |Cmdlet di prova|Descrizione|  
 |---------------|---------------|  
 |Test-ADDSForestInstallation|Esegue il controllo dei prerequisiti per l'installazione di una nuova foresta di Active Directory.|  
 |Test-ADDSDomainInstallation|Esegue il controllo dei prerequisiti per l'installazione di un nuovo dominio di Active Directory.|  
 |Test-ADDSDomainControllerInstallation|Esegue il controllo dei prerequisiti per l'installazione di un controller di dominio in Active Directory.|  
 |Test-ADDSReadOnlyDomainControllerAccountCreation|Esegue il controllo dei prerequisiti per l'aggiunta di un account di controller di dominio di sola lettura.|  
-  
+
 ### <a name="BKMK_PSForest"></a>Installa un dominio radice della nuova foresta con Windows PowerShell  
 La sintassi del comando per l'installazione di una nuova foresta è la seguente. Gli argomenti opzionali appaiono tra parentesi quadre.  
-  
+
 ```  
 Install-ADDSForest [-SkipPreChecks] -DomainName <string> -SafeModeAdministratorPassword <SecureString> [-CreateDNSDelegation] [-DatabasePath <string>] [-DNSDelegationCredential <PS Credential>] [-NoDNSOnNetwork] [-DomainMode <DomainMode> {Win2003 | Win2008 | Win2008R2 | Win2012}] [-DomainNetBIOSName <string>] [-ForestMode <ForestMode> {Win2003 | Win2008 | Win2008R2 | Win2012}] [-InstallDNS] [-LogPath <string>] [-NoRebootOnCompletion] [-SkipAutoConfigureDNS] [-SYSVOLPath] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```  
-  
+
 > [!NOTE]  
 > L'argomento -DomainNetBIOSName è obbligatorio se si desidera modificare il nome di 15 caratteri che viene generato automaticamente sulla base del prefisso del nome di dominio DNS o se il nome eccede i 15 caratteri.  
-  
+
 Ad esempio, per installare una nuova foresta denominata corp.contoso.com e per fare in modo che venga richiesta l'immissione sicura della password per la modalità ripristino servizi directory, digitare:  
-  
+
 ```  
 Install-ADDSForest -DomainName "corp.contoso.com"   
 ```  
-  
+
 > [!NOTE]  
 > Per impostazione predefinita, il server DNS viene installato quando si esegue Install-ADDSForest.  
-  
+
 Per installare una nuova foresta denominata corp.contoso.com, creare una delega DNS nel dominio contoso.com, impostare il livello di funzionalità del dominio su Windows Server 2008 R2 e il livello di funzionalità della foresta su Windows Server 2008, installare il database di Active Directory e SYSVOL sull'unità D:\, installare i file di log sull'unità E:\ e fare in modo che venga richiesta la password per la modalità ripristino servizi directory, digitare:  
-  
+
 ```  
 Install-ADDSForest -DomainName corp.contoso.com -CreateDNSDelegation -DomainMode Win2008 -ForestMode Win2008R2 -DatabasePath "d:\NTDS" -SYSVOLPath "d:\SYSVOL" -LogPath "e:\Logs"   
 ```  
-  
+
 ### <a name="BKMK_PSDomain"></a>Installa un nuovo dominio figlio o albero con Windows PowerShell  
 La sintassi del comando per l'installazione di un nuovo dominio è la seguente. Gli argomenti opzionali appaiono tra parentesi quadre.  
-  
+
 ```  
 Install-ADDSDomain [-SkipPreChecks] -NewDomainName <string> -ParentDomainName <string> -SafeModeAdministratorPassword <SecureString> [-ADPrepCredential <PS Credential>] [-AllowDomainReinstall] [-CreateDNSDelegation] [-Credential <PS Credential>] [-DatabasePath <string>] [-DNSDelegationCredential <PS Credential>] [-NoDNSOnNetwork] [-DomainMode <DomainMode> {Win2003 | Win2008 | Win2008R2 | Win2012}] [DomainType <DomainType> {Child Domain | TreeDomain} [-InstallDNS] [-LogPath <string>] [-NoGlobalCatalog] [-NewDomainNetBIOSName <string>] [-NoRebootOnCompletion] [-ReplicationSourceDC <string>] [-SiteName <string>] [-SkipAutoConfigureDNS] [-Systemkey <SecureString>] [-SYSVOLPath] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```  
-  
+
 > [!NOTE]  
 > L'argomento **-credential** è obbligatorio solo se l'utente non ha eseguito l'accesso come membro del gruppo Enterprise Admins.  
 >   
 > L'argomento **-NewDomainNetBIOSName** è obbligatorio se si desidera modificare il nome di 15 caratteri generato automaticamente sulla base del prefisso del nome di dominio DNS o se il nome eccede i 15 caratteri.  
-  
+
 Ad esempio, per utilizzare le credenziali di corp\EnterpriseAdmin1 per creare un nuovo dominio figlio denominato child.corp.contoso.com, installare il server DNS, creare una delega DNS nel dominio corp.contoso.com, impostare il livello di funzionalità del dominio su Windows Server 2003, rendere il controller di dominio un server di catalogo globale in un sito denominato Houston, utilizzare DC1.corp.contoso.com come controller di dominio dell'origine della replica, installare il database di Active Directory e SYSVOL sull'unità D:\, installare i file di log sull'unità E:\ e fare in modo che venga richiesta la password per la modalità ripristino servizi directory ma non di confermare il comando, digitare:  
-  
+
 ```  
 Install-ADDSDomain -SafeModeAdministratorPassword -Credential (get-credential corp\EnterpriseAdmin1) -NewDomainName child -ParentDomainName corp.contoso.com -InstallDNS -CreateDNSDelegation -DomainMode Win2003 -ReplicationSourceDC DC1.corp.contoso.com -SiteName Houston -DatabasePath "d:\NTDS" "SYSVOLPath "d:\SYSVOL" -LogPath "e:\Logs" -Confirm:$False  
 ```  
-  
+
 ### <a name="BKMK_PSReplica"></a>Installazione di un controller di dominio aggiuntivo (replica) usando Windows PowerShell  
 La sintassi del comando per installare un controller di dominio aggiuntivo è la seguente. Gli argomenti opzionali appaiono tra parentesi quadre.  
-  
+
 ```  
 Install-ADDSDomainController -DomainName <string> [-SkipPreChecks] -SafeModeAdministratorPassword <SecureString> [-ADPrepCredential <PS Credential>] [-AllowDomainControllerReinstall] [-ApplicationPartitionsToReplicate <string[]>] [-CreateDNSDelegation] [-Credential <PS Credential>] [-CriticalReplicationOnly] [-DatabasePath <string>] [-DNSDelegationCredential <PS Credential>] [-NoDNSOnNetwork] [-NoGlobalCatalog] [-InstallationMediaPath <string>] [-InstallDNS] [-LogPath <string>] [-MoveInfrastructureOperationMasterRoleIfNecessary] [-NoRebootOnCompletion] [-ReplicationSourceDC <string>] [-SiteName <string>] [-SkipAutoConfigureDNS] [-SystemKey <SecureString>] [-SYSVOLPath <string>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```  
-  
+
 Per installare un controller di dominio e un server DNS nel dominio corp.contoso.com e fare in modo che vengano richieste le credenziali di Administrator del dominio e la password per la modalità ripristino servizi directory, digitare:  
-  
+
 ```  
 Install-ADDSDomainController -Credential (Get-Credential CORP\Administrator) -DomainName "corp.contoso.com"
 ```  
-  
+
 Se il computer è già aggiunto al dominio e non si è membri del gruppo Domain Admins, è possibile utilizzare:  
-  
+
 ```  
 Install-ADDSDomainController -DomainName "corp.contoso.com"  
 ```  
-  
+
 Per fare in modo che venga richiesto il nome del dominio, digitare:  
-  
+
 ```  
 Install-ADDSDomainController -Credential (Get-Credential) -DomainName (Read-Host "Domain to promote into")
 ```  
-  
+
 Il comando seguente utilizzerà le credenziali di Contoso\EnterpriseAdmin1 per installare un controller di dominio scrivibile e un server di catalogo globale in un sito denominato Boston, per installare un server DNS, creare una delega DNS nel dominio contoso.com, eseguire l'installazione dal supporto archiviato nella cartella c:\ADDS IFM, installare il database di Active Directory e SYSVOL sull'unità D:\, installare i file di log sull'unità E:\, fare in modo che il server venga riavviato automaticamente al termine dell'installazione di Servizi di dominio Active Directory e  che venga richiesta la la password per la modalità ripristino servizi directory:  
-  
+
 ```  
 Install-ADDSDomainController -Credential (Get-Credential CONTOSO\EnterpriseAdmin1) -CreateDNSDelegation -DomainName corp.contoso.com -SiteName Boston -InstallationMediaPath "c:\ADDS IFM" -DatabasePath "d:\NTDS" -SYSVOLPath "d:\SYSVOL" -LogPath "e:\Logs"   
 ```  
-  
+
 ### <a name="performing-a-staged-rodc-installation-using-windows-powershell"></a>Installazione a due fasi di un controller di dominio di sola lettura tramite Windows PowerShell  
 La sintassi del comando per creare un account di controller di dominio di sola lettura è la seguente. Gli argomenti opzionali appaiono tra parentesi quadre.  
-  
+
 ```  
 Add-ADDSReadOnlyDomainControllerAccount [-SkipPreChecks] -DomainControllerAccuntName <string> -DomainName <string> -SiteName <string> [-AllowPasswordReplicationAccountName <string []>] [-NoGlobalCatalog] [-Credential <PS Credential>] [-DelegatedAdministratorAccountName <string>] [-DenyPasswordReplicationAccountName <string []>] [-InstallDNS] [-ReplicationSourceDC <string>] [-Force] [-WhatIf] [-Confirm] [<Common Parameters>]  
 ```  
-  
+
 La sintassi del comando per associare un server a un account di controller di dominio di sola lettura è la seguente. Gli argomenti opzionali appaiono tra parentesi quadre.  
-  
+
 ```  
 Install-ADDSDomainController -DomainName <string> [-SkipPreChecks] -SafeModeAdministratorPassword <SecureString> [-ADPrepCredential <PS Credential>] [-ApplicationPartitionsToReplicate <string[]>] [-Credential <PS Credential>] [-CriticalReplicationOnly] [-DatabasePath <string>] [-NoDNSOnNetwork] [-InstallationMediaPath <string>] [-InstallDNS] [-LogPath <string>] [-MoveInfrastructureOperationMasterRoleIfNecessary] [-NoRebootOnCompletion] [-ReplicationSourceDC <string>] [-SkipAutoConfigureDNS] [-SystemKey <SecureString>] [-SYSVOLPath <string>] [-UseExistingAccount] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```  
-  
+
 Ad esempio, per creare un account di controller di dominio di sola lettura denominato RODC1:  
-  
+
 ```  
 Add-ADDSReadOnlyDomainControllerAccount -DomainControllerAccountName RODC1 -DomainName corp.contoso.com -SiteName Boston DelegatedAdministratoraccountName PilarA  
 ```  
-  
+
 A questo punto eseguire i comandi seguenti nel server da associare all'account RODC1. Non è possibile aggiungere il server al dominio. Installare innanzitutto il ruolo server Servizi di dominio Active Directory e gli strumenti di gestione:  
-  
+
 ```  
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```  
-  
+
 Eseguire quindi il comando seguente per creare il controller di dominio di sola lettura:  
-  
+
 ```  
 Install-ADDSDomainController -DomainName corp.contoso.com -SafeModeAdministratorPassword (Read-Host -Prompt "DSRM Password:" -AsSecureString) -Credential (Get-Credential Corp\PilarA) -UseExistingAccount
 ```  
-  
+
 Premere **Y** per confermare o includere il **"conferma** argomento per evitare la richiesta di conferma.  
-  
+
 ## <a name="BKMK_GUI"></a>Installazione di Active Directory tramite Server Manager  
 Active Directory può essere installato in Windows Server 2012 tramite l'aggiunta guidata ruoli in Server Manager, seguita da Active Directory Domain Services configurazione guidata, ovvero nuova funzionalità introdotta in Windows Server 2012. Il dominio servizi di installazione guidata Active Directory (dcpromo.exe) è deprecato a partire da Windows Server 2012.  
-  
+
 Nelle sezioni seguenti viene illustrato come creare pool di server per installare e gestire Servizi di dominio Active Directory su più server e come utilizzare le procedure guidate per installare Servizi di dominio Active Directory.  
-  
+
 ### <a name="BKMK_ServerPools"></a>Creazione di pool di server  
 In Server Manager è possibile creare pool con altri server della rete a condizione che tali server siano accessibili dal computer che esegue Server Manager. Dopo aver creato il pool, è possibile scegliere i server per l'installazione remota di Servizi di dominio Active Directory o per la configurazione di altre opzioni disponibili in Server Manager. Il computer che esegue Server Manager viene automaticamente inserito nel pool. Per ulteriori informazioni sui pool di server, vedere [aggiungere server a Server Manager](https://technet.microsoft.com/library/hh831453.aspx).  
-  
+
 > [!NOTE]  
 > Per gestire un computer aggiunto a un dominio con Server Manager in un server di un gruppo di lavoro, o viceversa, sono necessari ulteriori passaggi di configurazione. Per ulteriori informazioni, vedere "aggiungere e gestire server in gruppi di lavoro" in [aggiungere server a Server Manager](https://technet.microsoft.com/library/hh831453.aspx).  
-  
+
 ### <a name="BKMK_installADDSGUI"></a>Installazione di Active Directory Domain Services  
 **Credenziali amministrative**  
-  
+
 Le credenziali necessarie per installare Servizi di dominio Active Directory variano a seconda della configurazione di distribuzione prescelta. Per ulteriori informazioni, vedere [Credenziali necessarie per eseguire Adprep.exe e installare Servizi di dominio Active Directory](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
-  
+
 Utilizzare le procedure seguenti per installare Servizi di dominio Active Directory con il metodo dell'interfaccia utente grafica. È possibile eseguire la procedura in locale o in remoto. Per una spiegazione dettagliata dei passaggi della procedura, vedere gli argomenti seguenti:  
-  
+
 -   [Distribuzione di una foresta con Server Manager](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_SMForest)  
-  
+
 -   [Installare un Controller di dominio di Replica Windows Server 2012 in un dominio esistente &#40;livello 200&#41;](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)  
-  
+
 -   [Installare un nuovo figlio di Active Directory di Windows Server 2012 o dominio albero &#40;livello 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md)  
-  
+
 -   [Installare un Controller di dominio di sola lettura di Server 2012 Active Directory di Windows &#40;controller di dominio&#41; &#40;livello 200&#41;](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md)  
-  
+
 ##### <a name="to-install-ad-ds-by-using-server-manager"></a>Per installare Servizi di dominio Active Directory tramite Server Manager  
-  
+
 1.  In Server Manager, fare clic su **Gestisci** e fare clic su **Aggiungi ruoli e funzionalità** per avviare l'aggiunta guidata ruoli.  
-  
+
 2.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
-  
+
 3.  Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.  
-  
+
 4.  Nella pagina **Selezione server di destinazione** fare clic su **Selezionare un server dal pool di server**, quindi fare clic sul nome del server in cui si desidera installare Servizi di dominio Active Directory e infine fare clic su **Avanti**.  
-  
+
     Per selezionare i server remoti, creare prima un pool di server e successivamente aggiungere i server remoti al pool. Per ulteriori informazioni sulla creazione di pool di server, vedere [aggiungere server a Server Manager](https://technet.microsoft.com/library/hh831453.aspx).  
-  
+
 5.  Nella pagina **Selezione ruoli server** fare clic su **Servizi di dominio Active Directory**, quindi nella finestra di dialogo **Aggiunta guidata ruoli e funzionalità**, fare clic su **Aggiungi funzionalità** e infine fare clic su **Avanti**.  
-  
+
 6.  Nel **Selezionare le funzionalità** pagina, selezionare le funzionalità aggiuntive che si desidera installare e fare clic su **Avanti**.  
-  
+
 7.  Nel **servizi di dominio Active Directory** pagina, esaminare le informazioni e quindi fare clic su **Avanti**.  
-  
+
 8.  Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
-  
+
 9. Nella pagina **Risultati** verificare che l'installazione abbia avuto esito positivo, quindi fare clic su **Alza di livello il server a controller di dominio** per avviare la Configurazione guidata Servizi di dominio Active Directory.  
-  
+
     ![Installare Servizi di dominio Active Directory](media/Install-Active-Directory-Domain-Services--Level-100-/ADDS_SMI_SMPromotes.gif)  
-  
+
     > [!IMPORTANT]  
     > Se l'Aggiunta guidata ruoli viene chiusa a questo punto, senza avere avviato la Configurazione guidata Servizi di dominio Active Directory, può essere riavviata facendo clic su Attività in Server Manager.  
-  
+
     ![Installare Servizi di dominio Active Directory](media/Install-Active-Directory-Domain-Services--Level-100-/ADDS_SMI_Tasks.gif)  
-  
+
 10. Nel **configurazione della distribuzione** pagina, scegliere una delle opzioni seguenti:  
-  
+
     -   Se si installa un controller di dominio aggiuntivo in un dominio esistente, fare clic su **aggiungere un controller di dominio a un dominio esistente**, e digitare il nome del dominio (ad esempio, emea.corp.contoso.com) o fare clic su **Select...** per scegliere un dominio e le credenziali (ad esempio, specificare un account membro del gruppo Domain Admins) e quindi fare clic su **Avanti**.  
-  
+
         > [!NOTE]  
         > Il nome del dominio e le credenziali dell'utente corrente vengono fornite per impostazione predefinita solo se il computer appartiene al dominio e si sta eseguendo un'installazione locale. Se si deve installare Servizi di dominio Active Directory su un server remoto, per impostazione predefinita è necessario specificare le credenziali. Se le credenziali dell'utente corrente non sono sufficienti per eseguire l'installazione, fare clic su **Cambia** per specificare credenziali diverse.  
-  
+
         Per ulteriori informazioni, vedere [installare un Controller di dominio di Replica di Windows Server 2012 in un dominio esistente e 40 #; Livello 200 &#41;](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
-  
+
     -   Se si sta installando un nuovo dominio figlio, fare clic su **aggiungere un nuovo dominio a una foresta esistente**, per **Seleziona tipo dominio**, selezionare **dominio figlio**, digitare o selezionare il nome del nome DNS dominio padre (ad esempio, corp.contoso.com), il relativo nome del nuovo dominio figlio (ad esempio emea), digitare le credenziali da utilizzare per creare il nuovo dominio e quindi fare clic su **Avanti**.  
-  
+
         Per ulteriori informazioni, vedere [Installa un nuovo Windows Server 2012 figlio di Active Directory o dominio albero &#40; Livello 200 &#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
-  
+
     -   Se si sta installando un nuovo albero di dominio, fare clic su **Aggiungi nuovo dominio a una foresta esistente**, per **Seleziona tipo dominio**, scegliere **dominio albero**, digitare il nome del dominio radice (ad esempio, corp.contoso.com), digitare il nome DNS del nuovo dominio (ad esempio, fabrikam.com), digitare le credenziali da utilizzare per creare il nuovo dominio e quindi fare clic su **Avanti**.  
-  
+
         Per ulteriori informazioni, vedere [Installa un nuovo Windows Server 2012 figlio di Active Directory o dominio albero &#40; Livello 200 &#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
-  
+
     -   Se si installa una nuova foresta, fare clic su **aggiungere una nuova foresta** e quindi digitare il nome del dominio radice (ad esempio, corp.contoso.com).  
-  
+
         Per ulteriori informazioni, vedere [Installa una nuova foresta Windows Server 2012 Active Directory &#40; Livello 200 &#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md).  
-  
+
 11. Nella pagina **Opzioni controller di dominio** scegliere una delle opzioni seguenti:  
-  
-    -   Se si deve creare una nuova foresta o un nuovo dominio, selezionare i livelli di funzionalità del dominio e della foresta, fare clic su **Server DNS (Domain Name System)**, specificare la password per la modalità ripristino servizi directory, quindi fare clic su **Avanti**.  
-  
-    -   Se si deve aggiungere un controller di dominio a un dominio esistente, fare clic su **Server DNS (Domain Name System)**, **Catalogo globale** o **Controller di dominio di sola lettura** a seconda delle necessità, scegliere il nome del sito, digitare la password per la modalità ripristino servizi directory e quindi fare clic su **Avanti**.  
-  
+
+    -   Se si deve creare una nuova foresta o un nuovo dominio, selezionare i livelli di funzionalità del dominio e della foresta, fare clic su **Server DNS (Domain Name System)** , specificare la password per la modalità ripristino servizi directory, quindi fare clic su **Avanti**.  
+
+    -   Se si deve aggiungere un controller di dominio a un dominio esistente, fare clic su **Server DNS (Domain Name System)** , **Catalogo globale** o **Controller di dominio di sola lettura** a seconda delle necessità, scegliere il nome del sito, digitare la password per la modalità ripristino servizi directory e quindi fare clic su **Avanti**.  
+
     Per ulteriori informazioni sulle opzioni di questa pagina disponibili o meno in condizioni diverse, vedere [Opzioni controller di dominio](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DCOptionsPage).  
-  
+
 12. Nel **Opzioni DNS** (visualizzata solo se si installa un server DNS) fare clic su **Aggiorna delega DNS** in base alle esigenze. Nel caso, fornire le credenziali con le autorizzazioni per creare record di delega DNS nella zona DNS padre.  
-  
+
     Se non è possibile contattare un server DNS che ospita la zona padre, l'opzione **Aggiorna delega DNS** non è disponibile.  
-  
+
     Per ulteriori informazioni sulla necessità di aggiornare la delega DNS, vedere [informazioni sulla delega delle Zone](https://technet.microsoft.com/library/cc771640.aspx). Se si prova ad aggiornare la delega DNS e si verifica un errore, vedere [Opzioni DNS](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DNSOptionsPage).  
-  
+
 13. Nel **Opzioni RODC** (visualizzata solo se si installa un RODC), specificare il nome di un gruppo o utente che verrà gestire RODC, aggiungere o rimuovere gli account da gruppi di replica password consentito o negato e quindi fare clic su **Avanti**.  
-  
+
     Per ulteriori informazioni, vedere [Criteri replica Password](https://technet.microsoft.com/library/cc730883(v=ws.10)).  
-  
+
 14. Nel **Opzioni aggiuntive** pagina, scegliere una delle opzioni seguenti:  
-  
+
     -   Se si deve creare un nuovo dominio, digitare un nuovo nome NetBIOS o verificare il nome NetBIOS predefinito del dominio e quindi fare clic **Avanti**.  
-  
+
     -   Se si deve aggiungere un controller di dominio a un dominio esistente, selezionare il controller di dominio da cui eseguire la replica dei dati di installazione di Servizi di dominio Active Directory (o consentire alla procedura guida di selezionare un controller di dominio). Se si installa da supporto, fare clic su **installazione da supporto** digitare e verificare il percorso del file di installazione di origine e quindi fare clic su **Avanti**.  
-  
+
         Non è possibile utilizzare Installazione da supporto per installare il primo controller di dominio in un dominio. La funzionalità Installazione da supporto non funziona tra versioni diverse del sistema operativo. In altre parole, per poter installare un controller di dominio che esegue Windows Server 2012 tramite IFM, è necessario creare i supporti di backup in un controller di dominio di Windows Server 2012. Per ulteriori informazioni sull'installazione da Supporto, vedere [l'installazione di un Controller di dominio aggiuntivo tramite installazione da supporto](https://technet.microsoft.com/library/cc816722(WS.10).aspx).  
-  
+
 15. Nella pagina **Percorsi** digitare i percorsi del database di Active Directory, dei file di log e della cartella SYSVOL (o accettare i percorsi predefiniti), quindi fare clic su **Avanti**.  
-  
+
     > [!IMPORTANT]  
     > Non archiviare il database di Active Directory, i file di log e la cartella SYSVOL su un volume di dati in formato ReFS (Resilient File System).  
-  
+
 16. Nella pagina **Opzioni di preparazione** digitare credenziali sufficienti per eseguire adprep. Per ulteriori informazioni, vedere [Credenziali necessarie per eseguire Adprep.exe e installare Servizi di dominio Active Directory](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
-  
+
 17. Nel **Verifica opzioni** pagina, confermare le selezioni, fare clic su **visualizzare script** Se si desidera esportare le impostazioni in uno script Windows PowerShell e quindi fare clic su **Avanti**.  
-  
+
 18. Nel **controllo dei prerequisiti** pagina, verificare che la convalida dei prerequisiti completata e quindi fare clic su **installare**.  
-  
+
 19. Nel **risultati** verificare che il server è stato correttamente configurato come controller di dominio. Il server verrà riavviato automaticamente per completare l'installazione di Servizi di dominio Active Directory.  
-  
+
 ## <a name="BKMK_UIStaged"></a>Esecuzione di un'installazione di controller di dominio di staging usando l'interfaccia utente grafica  
 L'installazione a due fasi di un controller di dominio di sola lettura consente di creare un controller di dominio di sola lettura in due passaggi. Nella prima fase un membro del gruppo Domain Admins crea un account di controller di dominio di sola lettura. Nella seconda fase un server viene associato all'account di controller di dominio di sola lettura. La seconda fase può essere completata da un membro del gruppo Domain Admins o dall'utente o un gruppo di un dominio delegato.  
-  
+
 #### <a name="to-create-an-rodc-account-by-using-the-active-directory-management-tools"></a>Per creare un account di controller di dominio di sola lettura tramite gli strumenti di gestione di Active Directory  
-  
+
 1.  È possibile creare un account di controller di dominio di sola lettura utilizzando Centro di amministrazione di Active Directory o Utenti e computer di Active Directory.  
-  
+
     1.  Fare clic su **avviare**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Centro di amministrazione di Active Directory**.  
-  
+
     2.  Nel riquadro di spostamento (riquadro a sinistra) fare clic sul nome del dominio.  
-  
+
     3.  Nell'elenco di gestione (riquadro centrale), fare clic su di **i controller di dominio** unità Organizzativa.  
-  
+
     4.  Nel riquadro attività (riquadro a destra), fare clic su **pre-creare un account di controller di dominio di sola lettura**.  
-  
+
     -Oppure-  
-  
+
     1.  Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Utenti e computer di Active Directory**.  
-  
+
     2.  Fare clic con il pulsante destro del mouse sull'unità organizzativa (OU) **Domain Controllers** oppure fare clic sull'unità organizzativa **Domain Controllers** e quindi su **Azione**.  
-  
+
     3.  Fare clic su **Creazione preliminare account controller di dominio di sola lettura**.  
-  
+
 2.  Nel **iniziale per l'installazione guidata servizi di dominio Active Directory** pagina, se si desidera modificare l'impostazione predefinita, le Password dei criteri di Replica, selezionare **Utilizza installazione in modalità avanzata**, quindi fare clic su **Avanti**.  
-  
+
 3.  Nel **credenziali di rete** nella pagina **specificare le credenziali dell'account da utilizzare per eseguire l'installazione**, fare clic su **credenziali di accesso corrente** oppure fare clic su **credenziali alternative**, quindi fare clic su **impostare**. Nel **la protezione di Windows** finestra di dialogo immettere il nome utente e la password per un account che è possibile installare il controller di dominio aggiuntivo. Per installare un controller di dominio aggiuntivo è necessario appartenere al gruppo Enterprise Admins o al gruppo Domain Admins. Dopo aver immesso le credenziali, fare clic su **Avanti**.  
-  
+
 4.  Nel **specificare il nome del Computer** digitare il nome del computer del server che sarà il controller di DOMINIO.  
-  
+
 5.  Nel **Selezionare un sito** pagina, selezionare un sito dall'elenco oppure selezionare l'opzione per installare il controller di dominio nel sito che corrisponde all'indirizzo IP del computer in cui si esegue la procedura guidata e quindi fare clic su **Avanti**.  
-  
+
 6.  Nella pagina **Opzioni controller di dominio aggiuntivo** eseguire le selezioni seguenti e quindi fare clic su **Avanti**:  
-  
+
     -   **Server DNS**: questa opzione è selezionata per impostazione predefinita in modo che il controller di dominio possa operare come server DNS. Se non si desidera utilizzare il controller di dominio come server DNS, deselezionare questa opzione. Se non si installa il ruolo Server DNS nel controller di dominio di sola lettura e tale controller di dominio è l'unico della succursale, gli utenti della succursale non potranno eseguire la risoluzione dei nomi quando la WAN al sito hub è offline.  
-  
+
     -   **Catalogo globale**: Questa opzione è selezionata per impostazione predefinita. Consente di aggiungere il catalogo globale e le partizioni di directory di sola lettura al controller di dominio, nonché di abilitare la funzionalità di ricerca nel catalogo globale. Se non si desidera utilizzare il controller di dominio come server di catalogo globale, deselezionare questa opzione. Se non si installa un server di catalogo globale nella succursale o non si abilita il caching dell'appartenenza a un gruppo universale nel sito che include il controller di dominio di sola lettura, gli utenti della succursale non potranno accedere al dominio quando la WAN al sito hub è offline.  
-  
+
     -   **Controller di dominio di sola lettura**. Quando si crea un account di controller di dominio di sola lettura, questa opzione è selezionata per impostazione predefinita e non è possibile deselezionarla.  
-  
+
 7.  Se è stato selezionato il **Utilizza installazione in modalità avanzata** casella di controllo di **iniziale** pagina, il **specificare criteri di replica Password** verrà visualizzata la pagina. Per impostazione predefinita, nel controller di dominio di sola lettura non viene replicata alcuna password di account e agli account basati sulla sicurezza, ad esempio i membri del gruppo Domain Admins, viene negata esplicitamente la replica della password nel controller di dominio di sola lettura.  
-  
+
     Per aggiungere altri account ai criteri, fare clic su **Aggiungi**, quindi fare clic su **Consenti password per l'account replicare il RODC** oppure fare clic su **negare le password per l'account di replicare il RODC** e quindi selezionare l'account.  
-  
+
     Al termine (o per accettare l'impostazione predefinita), fare clic su **Avanti**.  
-  
+
 8.  Nel **delega dell'installazione del Controller e l'amministrazione** digitare il nome dell'utente o gruppo che assocerà il server per l'account che si sta creando. È possibile digitare il nome di una sola entità di sicurezza.  
-  
+
     Per cercare un utente o un gruppo specifico nella directory, fare clic su **Imposta**. In **Seleziona utente o gruppo**, digitare il nome dell'utente o il gruppo. È consigliabile delegare l'installazione e l'amministrazione di un controller di dominio di sola lettura a un gruppo.  
-  
+
     Dopo l'installazione, l'utente o il gruppo disporrà anche di diritti amministrativi locali sul controller di dominio di sola lettura. Se non si specifica un utente o un gruppo, solo i membri del gruppo Domain Admins o Enterprise Admins potranno associare il server all'account.  
-  
+
     Una volta finito, fare clic su **Avanti**.  
-  
+
 9. Nel **riepilogo** pagina, rivedere le selezioni. Fare clic su **Indietro** per modificare gli elementi selezionati, se necessario.  
-  
+
     Per salvare le impostazioni che è stato selezionato in un file di risposta che è possibile utilizzare per automatizzare le operazioni successive di dominio Active Directory, fare clic su **esportare impostazioni**. Digitare un nome per il file di risposta e quindi fare clic su **Salva**.  
-  
+
     Quando si è certi che le selezioni siano corrette, fare clic su **Avanti** per creare l'account di controller di DOMINIO.  
-  
+
 10. Nella pagina **Completamento dell'Installazione guidata Servizi di dominio Active Directory** fare clic su **Fine**.  
-  
+
 Dopo avere creato un account di controller di dominio di sola lettura, è possibile associare un server all'account per completare l'installazione del controller di dominio di sola lettura. È possibile completare la seconda fase nella succursale in cui si troverà il controller di dominio di sola lettura. Il server su cui viene eseguita questa procedura deve essere aggiunto al dominio. A partire da Windows Server 2012, utilizzare l'aggiunta guidata ruoli in Server Manager per associare un server a un account di controller di DOMINIO.  
-  
+
 #### <a name="to-attach-a-server-to-an-rodc-account-using-server-manager"></a>Per associare un server a un account di controller di dominio di sola lettura con Server Manager  
-  
+
 1.  Accedere come Administrator locale.  
-  
+
 2.  In Server Manager fare clic su **Aggiungi ruoli e funzionalità**.  
-  
+
 3.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
-  
+
 4.  Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.  
-  
+
 5.  Nella pagina **Selezione server di destinazione** fare clic su **Selezionare un server dal pool di server**, quindi fare clic sul nome del server in cui si desidera installare Servizi di dominio Active Directory e infine fare clic su **Avanti**.  
-  
+
 6.  Nella pagina **Selezione ruoli server** fare clic su **Servizi di dominio Active Directory**, quindi su **Aggiungi** funzionalità e infine su **Avanti**.  
-  
+
 7.  Nella pagina **Selezione funzionalità** selezionare le funzionalità aggiuntive da installare e fare clic su **Avanti**.  
-  
+
 8.  Nel **servizi di dominio Active Directory** pagina, esaminare le informazioni e quindi fare clic su **Avanti**.  
-  
+
 9. Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
-  
+
 10. Nella pagina **Risultati** verificare che sia presente il messaggio **Installazione completata**, quindi fare clic su **Alza di livello il server a controller di dominio** per avviare la Configurazione guidata Servizi di dominio Active Directory.  
-  
+
     > [!IMPORTANT]  
     > Se l'Aggiunta guidata ruoli viene chiusa a questo punto, senza avere avviato la Configurazione guidata Servizi di dominio Active Directory, può essere riavviata facendo clic su Attività in Server Manager.  
-  
+
     (media/Install-Active-Directory-Domain-Services--Level-100-/ADDS_SMI_Tasks.gif)  
-  
+
 11. Nella pagina **Configurazione distribuzione** fare clic su  **Aggiungi un controller di dominio a un dominio esistente**, digitare il nome del dominio (ad esempio, emea.contoso.com) e le credenziali (ad esempio, specificare un account delegato a gestire e installare il controller di dominio di sola lettura), quindi fare clic su **Avanti**.  
-  
+
 12. Nella pagina **Opzioni controller di dominio** fare clic su  **Usa account di controller di dominio di sola lettura esistente**, digitare e confermare la password per la modalità ripristino servizi directory, quindi fare clic su **Avanti**.  
-  
+
 13. Nel **Opzioni aggiuntive** pagina, se si installa da supporto, fare clic su **installazione da supporto** digitare e verificare il percorso del file di installazione di origine, selezionare il controller di dominio che si desidera replicare i dati di installazione di Active Directory (o consentire alla procedura guidata selezionare un controller di dominio) e quindi fare clic su **Avanti**.  
-  
+
 14. Nel **percorsi** pagina, digitare i percorsi di database di Active Directory, file di log e della cartella SYSVOL, o accettare i percorsi predefiniti e quindi fare clic su **Avanti**.  
-  
+
 15. Nella pagina **Verifica opzioni** confermare le selezioni, fare clic su **Visualizza script** per esportare le impostazioni in uno script di Windows PowerShell e fare clic su **Avanti**.  
-  
+
 16. Nel **controllo dei prerequisiti** pagina, verificare che la convalida dei prerequisiti completata e quindi fare clic su **installare**.  
-  
+
     Per completare l'installazione di Servizi di dominio Active Directory, il server verrà riavviato automaticamente.  
-  
+
 ## <a name="see-also"></a>Vedere anche  
-[Risoluzione dei problemi di distribuzione del Controller di dominio](Troubleshooting-Domain-Controller-Deployment.md)  
+[Risoluzione dei problemi relativi alla distribuzione di controller di dominio](Troubleshooting-Domain-Controller-Deployment.md)  
 [Installare una nuova foresta di Active Directory di Windows Server 2012 &#40;livello 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md)  
 [Installare un nuovo figlio di Active Directory di Windows Server 2012 o dominio albero &#40;livello 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md)  
 [Installare un Controller di dominio di Replica Windows Server 2012 in un dominio esistente &#40;livello 200&#41;](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)  
-  
+
 
 
 

@@ -9,19 +9,19 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: b3b018037d788d47fafe7d3adda50cfb5831ab56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6dbb5be6d836462c9a24078dbec3700b09b08fc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829912"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446053"
 ---
 # <a name="virtualization"></a>Virtualizzazione
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016 
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 <img src="../media/landing-icons/virtualization.png" style='float:left; padding:.5em;' alt="Icon showing a box with spokes"> la virtualizzazione in Windows Server 2016 è una delle tecnologie fondamentali necessarie per creare l'infrastruttura software-defined. Oltre a funzionalità di rete e archiviazione, la virtualizzazione offre la flessibilità di cui hai bisogno per attivare i carichi di lavoro per i clienti.
 
@@ -41,7 +41,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Infrastruttura protetta e VM schermate</h3>
-                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio di sorveglianza Host \(HGS\) -in genere, un cluster di tre nodi - più di uno o più host sorvegliati e un set di macchine virtuali schermate.</p>
+                        <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio sorveglianza Host (HGS), in genere, un cluster di tre nodi - e uno o più protetta a host e un set di macchine virtuali schermate.</p>
                     </div>
                 </div>
             </div>
@@ -101,11 +101,11 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Commutatore virtuale Hyper-V</h3>
-                        <p>Il Hyper\-commutatore virtuale Hyper-V è un software\-basato su livelli\-commutatore di rete Ethernet 2 è incluso in tutte le versioni di Hyper\-V.</p>
+                        <p>Il commutatore virtuale Hyper-V è un commutatore di rete Ethernet di livello 2 basato su software, incluso in tutte le versioni di Hyper-V.</p>
 
-                        <p>Hyper\-commutatore virtuale V è disponibile in Hyper\-console di gestione dopo l'installazione di Hyper V\-ruolo del server V.</p>
+                        <p>Il commutatore virtuale Hyper-V è disponibile nella console di gestione Hyper-V una volta installato il ruolo server Hyper-V.</p>
 
-                        <p>Incluso in Hyper\-V Virtual Switch sono funzionalità estendibili e gestibili a livello di programmazione che consentono di connettere macchine virtuali a entrambe le reti virtuali e la rete fisica.</p> 
+                        <p>Il commutatore virtuale Hyper-V include funzionalità estendibili e gestibili a livello di programmazione che consentono la connessione delle macchine virtuali alle reti virtuali e alla rete fisica.</p> 
 
                         <p>Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, l'isolamento e i livelli di servizio.</p>
                     </div>
@@ -128,7 +128,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Contenitori di Windows</h3>
-                        <p>I contenitori Windows offrono del sistema operativo\-virtualizzazione a livello di che consente a più applicazioni isolate per essere eseguito in un unico sistema. Nella funzionalità sono inclusi due diversi tipi di runtime di contenitori, ognuno con un diverso livello di isolamento dell'applicazione.</p>
+                        <p>I contenitori di Windows forniscono la virtualizzazione a livello di sistema operativo che consente a più applicazioni isolate di essere eseguite su un unico sistema. Nella funzionalità sono inclusi due diversi tipi di runtime di contenitori, ognuno con un diverso livello di isolamento dell'applicazione.</p>
                     </div>
                 </div>
             </div>

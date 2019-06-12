@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 280104977e295ce0c9ccb05b806442ccaa73667b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476064"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447235"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
 
@@ -431,9 +431,9 @@ Usare compressione RDC tra file, un membro della connessione di replica deve ess
 <tbody>
 <tr class="even">
 <td><p>Windows Server 2012 R2</p></td>
-<td><p>Sì*</p></td>
+<td><p>Sì<em></p></td>
 <td><p>Non disponibile</p></td>
-<td><p>Sì*</p></td>
+<td><p>Yes</em></p></td>
 </tr>
 <tr class="odd">
 <td><p>Windows Server 2012</p></td>

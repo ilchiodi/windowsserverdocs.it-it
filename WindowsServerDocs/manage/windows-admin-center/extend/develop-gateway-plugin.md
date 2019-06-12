@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 93cee5b8e3611a264119947103d22d9aa3b9a56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66e36a349fc6bd38a77ccf4f00d380788ea4b422
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834392"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445948"
 ---
 # <a name="develop-a-gateway-plugin"></a>Sviluppare un plug-in del gateway
 
@@ -69,7 +69,7 @@ Dopo aver riavviato il processo di amministrazione di Windows, sarà possibile e
 
 ### <a name="optional-attach-to-plugin-for-debugging"></a>Facoltativo: Collegare al plug-in per il debug
 
-In Visual Studio 2017, dal menu Debug, selezionare "Connetti a processo". Nella finestra successiva, scorrere l'elenco processi disponibili e selezionare SMEDesktop.exe, quindi fare clic su "Collega". Una volta, verrà avviato il debugger è possibile inserire un punto di interruzione nel codice di funzionalità e quindi esercizio tramite il formato dell'URL precedente. Per questo progetto di esempio (nome della funzionalità: Per esempio "Uno") l'URL è: "http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno"
+In Visual Studio 2017, dal menu Debug, selezionare "Connetti a processo". Nella finestra successiva, scorrere l'elenco processi disponibili e selezionare SMEDesktop.exe, quindi fare clic su "Collega". Una volta, verrà avviato il debugger è possibile inserire un punto di interruzione nel codice di funzionalità e quindi esercizio tramite il formato dell'URL precedente. Per questo progetto di esempio (nome della funzionalità: Per esempio "Uno") l'URL è: "<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>"
 
 ## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Creare un'estensione degli strumenti con la CLI di Windows Admin Center ##
 
@@ -104,8 +104,8 @@ Al termine, aver configurato tutto il che necessario per caricare la nuova esten
 
 Ora che è stata creata un'estensione con l'interfaccia CLI di Windows Admin Center, si è pronti per la connessione dell'estensione degli strumenti per il plug-in gateway personalizzato, seguendo questa procedura:
 
-- Aggiungere un [modulo vuoto](guides\add-module.md)
-- Usare il [plug-in gateway personalizzato](guides\use-custom-gateway-plugin.md) nella propria estensione degli strumenti
+- Aggiungere un [modulo vuoto](guides/add-module.md)
+- Usare il [plug-in gateway personalizzato](guides/use-custom-gateway-plugin.md) nella propria estensione degli strumenti
  
 ## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
 

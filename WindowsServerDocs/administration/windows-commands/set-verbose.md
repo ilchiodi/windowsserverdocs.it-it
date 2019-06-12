@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f629d0879958496d1dfbedd516de1783bb0fd357
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ec47dea822c338dfe1b809c662d1e31e9a5a9703
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837012"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441337"
 ---
 # <a name="set-verbose"></a>Impostare dettagliato
 
@@ -34,9 +34,9 @@ set verbose {on | off}
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|{on | off}|Attiva o disattiva la modalità dettagliata.|
+| Parametro | Descrizione |
+|-----------|-------------|
+|    {on    |    off}     |
 
 ## <a name="remarks"></a>Note
 
@@ -44,4 +44,4 @@ set verbose {on | off}
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

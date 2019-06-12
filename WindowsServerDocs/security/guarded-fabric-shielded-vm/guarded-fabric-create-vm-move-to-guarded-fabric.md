@@ -9,12 +9,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2da1e33d24fa6d68815f4fbc0891be0616004856
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447482"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Le macchine virtuali schermate per i tenant - creazione di una nuova schermata della macchina virtuale in locale e spostarlo in un'infrastruttura sorvegliata
 
@@ -76,62 +76,62 @@ Come parte della procedura, si creerà una protezione con chiave che contiene du
 
 Per un'illustrazione che mostra la protezione con chiave, ovvero un elemento in un file di dati di schermatura, vedere [quali sia i dati di schermatura e perché sono necessari?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-1.  Per un tenant di host Hyper-V, eseguire il comando seguente per creare una macchina virtuale di nuova generazione 2.
+1. Per un tenant di host Hyper-V, eseguire il comando seguente per creare una macchina virtuale di nuova generazione 2.
 
-    Per la &lt;ShieldedVMname&gt;, specificare un nome per la macchina virtuale, ad esempio: **ShieldVM1**
+   Per la &lt;ShieldedVMname&gt;, specificare un nome per la macchina virtuale, ad esempio: **ShieldVM1**
     
-    Per la &lt;VHDPath&gt;, specificare un percorso per archiviare il file VHDX della macchina virtuale, ad esempio: **C:\\VMs\\ShieldVM1\\ShieldVM1.vhdx**
+   Per la &lt;VHDPath&gt;, specificare un percorso per archiviare il file VHDX della macchina virtuale, ad esempio: **C:\\VMs\\ShieldVM1\\ShieldVM1.vhdx**
     
-    Per la &lt;nnGB&gt;, specificare una dimensione per VHDX, ad esempio: **60GB**
+   Per la &lt;nnGB&gt;, specificare una dimensione per VHDX, ad esempio: **60GB**
 
-        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
+       New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
-2.  Installare un sistema operativo supportato (client di Windows Server 2012 o versioni successive, Windows 8 o versione successiva) nella macchina virtuale e abilitare la connessione desktop remoto e una regola del firewall corrispondente. Registrare l'indirizzo IP e/o nome DNS; della macchina virtuale sarà necessario connettersi in modalità remota a esso.
+2. Installare un sistema operativo supportato (client di Windows Server 2012 o versioni successive, Windows 8 o versione successiva) nella macchina virtuale e abilitare la connessione desktop remoto e una regola del firewall corrispondente. Registrare l'indirizzo IP e/o nome DNS; della macchina virtuale sarà necessario connettersi in modalità remota a esso.
 
-3.  Usare RDP per connettersi alla macchina virtuale e verificare che il protocollo RDP e il firewall siano configurate correttamente in modalità remota. Come parte del processo di schermatura, console per la macchina virtuale tramite Hyper-V verrà disabilitato, pertanto è importante per assicurarsi che sia possibile gestire in remoto il sistema in rete.
+3. Usare RDP per connettersi alla macchina virtuale e verificare che il protocollo RDP e il firewall siano configurate correttamente in modalità remota. Come parte del processo di schermatura, console per la macchina virtuale tramite Hyper-V verrà disabilitato, pertanto è importante per assicurarsi che sia possibile gestire in remoto il sistema in rete.
 
-4.  Per creare una nuova protezione con chiave (descritto all'inizio di questa sezione), eseguire il comando seguente.
+4. Per creare una nuova protezione con chiave (descritto all'inizio di questa sezione), eseguire il comando seguente.
 
-    Per la &lt;GuardianName&gt;, usare il nome specificato nella procedura precedente, ad esempio: **HostingProvider1**
+   Per la &lt;GuardianName&gt;, usare il nome specificato nella procedura precedente, ad esempio: **HostingProvider1**
 
-    Includere **- AllowUntrustedRoot** per consentire i certificati autofirmati.
+   Includere **- AllowUntrustedRoot** per consentire i certificati autofirmati.
 
-        $Guardian = Get-HgsGuardian -Name '<GuardianName>'
+       $Guardian = Get-HgsGuardian -Name '<GuardianName>'
 
-        $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
+       $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
 
-        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
+       $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-    Se si desidera essere in grado di eseguire la macchina virtuale schermata (ad esempio, un sito di ripristino di emergenza e un provider di cloud pubblico) più Data Center, è possibile fornire un elenco dei sorveglianti per il **-sorveglianza** parametro. Per altre informazioni, vedere [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
+   Se si desidera essere in grado di eseguire la macchina virtuale schermata (ad esempio, un sito di ripristino di emergenza e un provider di cloud pubblico) più Data Center, è possibile fornire un elenco dei sorveglianti per il **-sorveglianza** parametro. Per altre informazioni, vedere [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5.  Per abilitare il vTPM usando la protezione con chiave, eseguire il comando seguente. Per la &lt;ShieldedVMname&gt;, usare lo stesso nome VM usato nei passaggi precedenti.
+5. Per abilitare il vTPM usando la protezione con chiave, eseguire il comando seguente. Per la &lt;ShieldedVMname&gt;, usare lo stesso nome VM usato nei passaggi precedenti.
 
-        $VMName="<ShieldedVMname>"
+       $VMName="<ShieldedVMname>"
 
-        Stop-VM -Name $VMName -Force
+       Stop-VM -Name $VMName -Force
 
-        Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
+       Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
 
-        Set-VMSecurityPolicy -VMName $VMName -Shielded $true
+       Set-VMSecurityPolicy -VMName $VMName -Shielded $true
 
-        Enable-VMTPM -VMName $VMName
+       Enable-VMTPM -VMName $VMName
 
-6.  Per avviare la macchina virtuale per verificare che la protezione con chiave funziona con i certificati proprietario locale, eseguire il comando seguente.
+6. Per avviare la macchina virtuale per verificare che la protezione con chiave funziona con i certificati proprietario locale, eseguire il comando seguente.
 
-        Start-VM -Name $VMName
+       Start-VM -Name $VMName
 
-7.  Verificare che la macchina virtuale sia stato avviato nella console di Hyper-V.
+7. Verificare che la macchina virtuale sia stato avviato nella console di Hyper-V.
 
-8.  Usare RDP per connettersi alla macchina virtuale e abilitare BitLocker in tutte le partizioni di tutti i Vhdx collegati a VM schermate in modalità remota.
+8. Usare RDP per connettersi alla macchina virtuale e abilitare BitLocker in tutte le partizioni di tutti i Vhdx collegati a VM schermate in modalità remota.
 
-    > [!IMPORTANT]
-    > Prima di procedere al passaggio successivo, attendere che la crittografia BitLocker terminare in tutte le partizioni in cui è abilitato.
+   > [!IMPORTANT]
+   > Prima di procedere al passaggio successivo, attendere che la crittografia BitLocker terminare in tutte le partizioni in cui è abilitato.
 
-9.  Arrestare la macchina virtuale quando si è pronti per passare all'infrastruttura sorvegliata.
+9. Arrestare la macchina virtuale quando si è pronti per passare all'infrastruttura sorvegliata.
 
-10.  Nel server tenant Hyper-V, esportare la macchina virtuale usando lo strumento di propria scelta (Windows PowerShell o gestione di Hyper-V). Quindi, organizzate per i file da copiare in un host sorvegliato gestito dal provider di hosting o data center aziendale.
+10. Nel server tenant Hyper-V, esportare la macchina virtuale usando lo strumento di propria scelta (Windows PowerShell o gestione di Hyper-V). Quindi, organizzate per i file da copiare in un host sorvegliato gestito dal provider di hosting o data center aziendale.
 
-11.  **Per il data center aziendale o del provider hosting**:
+11. **Per il data center aziendale o del provider hosting**:
 
     Importare la macchina virtuale schermata usando la gestione di Hyper-V o Windows PowerShell. È necessario importare il file di configurazione della macchina virtuale da parte del proprietario della macchina virtuale per avviare la macchina virtuale. Questo avviene perché la protezione con chiave e TPM virtuale della macchina virtuale vengono archiviati nel file di configurazione. Se la macchina virtuale è configurata per l'esecuzione in dell'infrastruttura sorvegliata, deve essere in grado di avviare correttamente.
 

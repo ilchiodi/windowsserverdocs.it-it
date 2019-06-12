@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4639ff780687ad7a69ddba5374a722a15b06542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b13a2fe573ffc81fa5c85d8fd28e9ab13ca4342
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848262"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439345"
 ---
 # <a name="find"></a>find
 
@@ -36,16 +36,16 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/v|Visualizza tutte le righe che non contengono specificato \<stringa >.|
-|/c|Conta le righe che contengono l'oggetto specificato \<String > e visualizza il totale.|
-|/n|Precede ogni riga con numero di riga del file.|
-|/i|Specifica che la ricerca non fa distinzione maiuscole/minuscole.|
-|[/ [offline]]|Non ignorare i file che sono impostato l'attributo non in linea.|
-|"\<String>"|Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare.|
-|[\<Drive>:][<Path>]<FileName>|Specifica il percorso e nome del file in cui cercare la stringa specificata.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|           Parametro           |                                              Descrizione                                               |
+|-------------------------------|--------------------------------------------------------------------------------------------------------|
+|              /v               |                    Visualizza tutte le righe che non contengono specificato \<stringa >.                     |
+|              /c               |              Conta le righe che contengono l'oggetto specificato \<String > e visualizza il totale.              |
+|              /n               |                            Precede ogni riga con numero di riga del file.                             |
+|              /i               |                            Specifica che la ricerca non fa distinzione maiuscole/minuscole.                            |
+|         [/ [offline]]          |                        Non ignorare i file che sono impostato l'attributo non in linea.                        |
+|          "\<String>"          | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
+| [\<Drive>:][<Path>]<FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
+|              /?               |                                  Visualizza la guida al prompt dei comandi.                                  |
 
 ## <a name="remarks"></a>Note
 
@@ -62,7 +62,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
     È possibile digitare i parametri e le opzioni della riga di comando per il **trovare** comando in qualsiasi ordine.
 -   Utilizzo dei caratteri jolly
 
-    Non è possibile usare caratteri jolly (**&#42;** e **?**) in nomi di file o le estensioni specificate con il **trovare** comando. Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
+    Non è possibile usare caratteri jolly ( **&#42;** e **?** ) in nomi di file o le estensioni specificate con il **trovare** comando. Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
 -   Usando **/v** oppure **/n** con   **/c**
 
     Se si usa **/c** e **/v** nella riga di comando stessa **trovare** Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
@@ -92,4 +92,4 @@ Poiché **trovare** ricerche tra maiuscole e minuscole e **dir** output con cara
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

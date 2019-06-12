@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a650fae246d71d8c1f9822dfa9ff8e96d855b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b2caceed6962bef22e7d546fa3b4469c9682b39
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441250"
 ---
 # <a name="setx"></a>setx
 
@@ -38,21 +38,21 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/s \<computer >|Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il nome del computer locale.|
-|/u [\<Domain>\]<User name>|Esegue lo script con le credenziali dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.|
-|/p [\<Password>]|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|\<Variable>|Specifica il nome della variabile di ambiente che si desidera impostare.|
-|\<valore >|Specifica il valore a cui si desidera impostare la variabile di ambiente.|
-|/k \<Path>|Specifica che la variabile è impostata in base alle informazioni da una chiave del Registro di sistema. Il p*ercorso dei* Usa la sintassi seguente:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Ad esempio, è possibile specificare il percorso seguente:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName`|
-|/f \<nome file >|Specifica il file che si desidera utilizzare.|
-|/a \<X>,<Y>|Specifica le coordinate assolute e l'offset come parametri di ricerca.|
-|/r \<X>,<Y> "<String>"|Specifica le coordinate relative e l'offset dal **stringa** come i parametri di ricerca.|
-|/m|Specifica di impostare la variabile di ambiente di sistema. L'impostazione predefinita è l'ambiente locale.|
-|/x|Consente di visualizzare file coordinate, ignorando il **/a**, **/r**, e **/d** opzioni della riga di comando.|
-|/d \<Delimiters>|Specifica i delimitatori, ad esempio "**,**" o "**\**" da usare oltre i quattro delimitatori predefiniti, ovvero lo spazio, scheda, invio e avanzamento riga. Delimitatori validi includono qualsiasi carattere ASCII. Il numero massimo di delimitatori è 15, inclusi i delimitatori predefiniti.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|         Parametro          |                                                                                                                                              Descrizione                                                                                                                                              |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       /s \<computer >       |                                                                                  Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il nome del computer locale.                                                                                  |
+| /u [\<Domain>\]<User name> |                                                                                           Esegue lo script con le credenziali dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.                                                                                            |
+|      /p [\<Password>]      |                                                                                                         Specifica la password dell'account utente specificato nella **/u** parametro.                                                                                                         |
+|        \<Variable>         |                                                                                                                 Specifica il nome della variabile di ambiente che si desidera impostare.                                                                                                                  |
+|          \<valore >          |                                                                                                                Specifica il valore a cui si desidera impostare la variabile di ambiente.                                                                                                                 |
+|         /k \<Path>         | Specifica che la variabile è impostata in base alle informazioni da una chiave del Registro di sistema. Il p*ercorso dei* Usa la sintassi seguente:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Ad esempio, è possibile specificare il percorso seguente:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      /f \<nome file >       |                                                                                                                               Specifica il file che si desidera utilizzare.                                                                                                                                |
+|        /a \<X>,<Y>         |                                                                                                                    Specifica le coordinate assolute e l'offset come parametri di ricerca.                                                                                                                    |
+|   /r \<X>,<Y> "<String>"   |                                                                                                            Specifica le coordinate relative e l'offset dal **stringa** come i parametri di ricerca.                                                                                                            |
+|             /m             |                                                                                                Specifica di impostare la variabile di ambiente di sistema. L'impostazione predefinita è l'ambiente locale.                                                                                                 |
+|             /x             |                                                                                                       Consente di visualizzare file coordinate, ignorando il **/a**, **/r**, e **/d** opzioni della riga di comando.                                                                                                        |
+|      /d \<Delimiters>      |                    Specifica i delimitatori, ad esempio " **,** "o" **\\** " da usare oltre i quattro delimitatori predefiniti, ovvero lo spazio, scheda, invio e avanzamento riga. Delimitatori validi includono qualsiasi carattere ASCII. Il numero massimo di delimitatori è 15, inclusi i delimitatori predefiniti.                    |
+|             /?             |                                                                                                                                 Visualizza la guida al prompt dei comandi.                                                                                                                                  |
 
 ## <a name="remarks"></a>Note
 
@@ -80,7 +80,7 @@ Per impostare la variabile di ambiente MYPATH nell'ambiente locale da usare il p
 ```
 setx MYPATH %PATH%
 ```
-Per impostare la variabile di ambiente MYPATH nell'ambiente locale da utilizzare il percorso di ricerca definito nella variabile di ambiente PATH dopo aver sostituito **~** con **%**, tipo:
+Per impostare la variabile di ambiente MYPATH nell'ambiente locale da utilizzare il percorso di ricerca definito nella variabile di ambiente PATH dopo aver sostituito **~** con **%** , tipo:
 ```
 setx MYPATH ~PATH~ 
 ```
@@ -131,4 +131,4 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

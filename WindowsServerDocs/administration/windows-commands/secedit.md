@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aaa40f21c6f14dc7d686261e9980594c14a8032
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4c70211cc029cec7e6bb0290877089ecb9a86f22
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818462"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441466"
 ---
 # <a name="secedit"></a>secedit
 
@@ -55,12 +55,13 @@ Per tutti i nomi file, viene utilizzata la directory corrente, se viene specific
 
 Quando viene creato un modello di sicurezza utilizzando lo snap-in modello di protezione e la configurazione della sicurezza e snap-in analisi viene eseguito, vengono creati i file seguenti:
 
-|File|Descrizione|
-|----|-----------|
-|Scesrv.log|**Percorso**: %windir%\security\logs.</br>**Creato da**: sistema operativo</br>**Tipo di file**: testo</br>**Frequenza di aggiornamento**: Sovrascritti quando secedit, analizzare / configurare ed esportare o /import vengono eseguiti.</br>**Contenuto**: Contiene i risultati dell'analisi raggruppati per tipo di criteri.|
-|*Nome utente selezionato*sdb|**Ubicazione**: % windir %\*account utente * \Documents\Security\Database</br>**Creato da**: in esecuzione lo snap-in analisi e configurazione della protezione</br>**Tipo di file**: proprietario</br>**Frequenza di aggiornamento**: Aggiornata ogni volta che viene creato un nuovo modello di sicurezza.</br>**Contenuto**: Criteri di sicurezza locali e i modelli di protezione creati dall'utente.|
-|*Nome utente selezionato*. log|**Percorso**: Definito dall'utente ma il valore predefinito è % windir %\*account utente * \Documents\Security\Logs</br>**Creato da**: Esecuzione di /ANALYZE e / configurare sottocomandi (o utilizzando lo snap-in analisi e configurazione della sicurezza)</br>**Tipo di file**: testo</br>**Frequenza di aggiornamento**: Esecuzione di /ANALYZE e / configurare sottocomandi (o utilizzando lo snap-in analisi e configurazione della protezione); sovrascritto.</br>**Contenuto**:</br>1.  Nome file di log</br>2.  Data e ora</br>3.  Risultati dell'analisi o analisi.|
-|*Nome utente selezionato*. inf|**Ubicazione**: % windir %\*account utente * \Documents\Security\Templates</br>**Creato da**: in esecuzione lo snap-in modello di protezione</br>**Tipo di file**: testo</br>**Frequenza di aggiornamento**: ogni volta che viene aggiornato il modello di protezione</br>**Contenuto**: Contiene il set di backup delle informazioni per il modello per ogni criterio selezionato utilizzando lo snap-in.|
+
+|           File           |                                                                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                                                                |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        Scesrv.log        |                                                                                                                             **Percorso**: %windir%\security\logs.</br>**Creato da**: sistema operativo</br>**Tipo di file**: testo</br>**Frequenza di aggiornamento**: Sovrascritti quando secedit, analizzare / configurare ed esportare o /import vengono eseguiti.</br>**Contenuto**: Contiene i risultati dell'analisi raggruppati per tipo di criteri.                                                                                                                             |
+| *Nome utente selezionato*sdb |                                                                                    **Ubicazione**: % windir %\*account utente<em>\Documents\Security\Database</br></em>*Creato da*<em>: in esecuzione lo snap-in analisi e configurazione della sicurezza</br></em>*Tipo di file*<em>: proprietario</br></em>*Frequenza di aggiornamento*<em>: Aggiornata ogni volta che viene creato un nuovo modello di sicurezza.</br></em>*Contenuto*\*: Criteri di sicurezza locali e i modelli di protezione creati dall'utente.                                                                                    |
+| *Nome utente selezionato*. log | **Percorso**: Definito dall'utente ma il valore predefinito è % windir %\*account utente<em>\Documents\Security\Logs</br></em>*Creato da*<em>: Esecuzione di /ANALYZE e / configurare sottocomandi (o utilizzando lo snap-in analisi e configurazione della sicurezza)</br></em>*Tipo di file*<em>: testo</br></em>*Frequenza di aggiornamento*<em>: Esecuzione di /ANALYZE e / configurare sottocomandi (o utilizzando lo snap-in analisi e configurazione della protezione); sovrascritto.</br></em>*Contenuto*\*:</br>1.  Nome file di log</br>2.  Data e ora</br>3.  Risultati dell'analisi o analisi. |
+| *Nome utente selezionato*. inf |                                                                                     **Ubicazione**: % windir %\*account utente<em>\Documents\Security\Templates</br></em>*Creato da*<em>: in esecuzione lo snap-in modello di sicurezza</br></em>*Tipo di file*<em>: testo</br></em>*Frequenza di aggiornamento*<em>: ogni volta che viene aggiornato il modello di sicurezza</br></em>*Contenuto*\*: Contiene il set di backup delle informazioni per il modello per ogni criterio selezionato utilizzando lo snap-in.                                                                                     |
 
 > [!NOTE]
 > Microsoft Management Console (MMC) e la configurazione della protezione e snap-in analisi non sono disponibili in Server Core.
@@ -68,4 +69,4 @@ Quando viene creato un modello di sicurezza utilizzando lo snap-in modello di pr
 #### <a name="additional-references"></a>Altri riferimenti
 
 Per esempi di come è possibile utilizzare questo comando, vedere la sezione esempi in qualsiasi file sottocomando.
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

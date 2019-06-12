@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2033cbc9b3d9127249656c3e0dcf95d872229797
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1b5fca329864ebed9eab66671a17493f0fc3ca8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440916"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -36,6 +36,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 ```
 
 ## <a name="parameters"></a>Parametri
+
 |Parametro|Descrizione|
 |-------|--------|
 |\<SessionId>|Specifica l'ID di sessione da disconnettere.|
@@ -52,18 +53,18 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 -   Impossibile disconnettere la sessione della console.
 
 ## <a name="BKMK_examples"></a>Esempi
--   Per disconnettere la sessione corrente, digitare:
-    ```
-    tsdiscon
-    ```
--   Per disconnettere la sessione 10, digitare:
-    ```
-    tsdiscon 10
-    ```
--   Per disconnettere la sessione TERM04, digitare:
-    ```
-    tsdiscon TERM04
-    ```
-#### <a name="additional-references"></a>Altri riferimenti
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)
+- Per disconnettere la sessione corrente, digitare:
+  ```
+  tsdiscon
+  ```
+- Per disconnettere la sessione 10, digitare:
+  ```
+  tsdiscon 10
+  ```
+- Per disconnettere la sessione TERM04, digitare:
+  ```
+  tsdiscon TERM04
+  ```
+  #### <a name="additional-references"></a>Altri riferimenti
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)

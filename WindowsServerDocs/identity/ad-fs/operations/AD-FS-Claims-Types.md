@@ -9,18 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ffa4273a2c776a16f3ea0ce77d1b3a528481468
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445166"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>Criterio di accesso client di attestazione tipi in AD FS
+# <a name="client-access-policy-claim-types-in-ad-fs"></a>Criterio di accesso client di attestazione tipi in AD FS
 
 Per fornire informazioni sul contesto di richiesta aggiuntivi, i criteri di accesso Client utilizzare i seguenti tipi di attestazione, ADFS genera dalle informazioni di intestazione di richiesta per l'elaborazione.  Per altre informazioni, vedere [il ruolo del motore di attestazioni](../technical-reference/the-role-of-the-claims-engine.md).
 
-##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
+## <a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
 Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
@@ -32,8 +32,8 @@ Questa attestazione AD FS rappresenta un "miglior tentativo possibile" di verifi
     >! [Nota] L'indirizzo IP di un client nella rete aziendale verrà visualizzato come indirizzo IP interfaccia esterna del proxy in uscita dall'organizzazione o un gateway.
 
 - Uno o più indirizzi IP
-    - Se Exchange Online non è possibile determinare l'indirizzo IP del client che si connette, imposta il valore in base al valore dell'intestazione x-forwarded-for, un'intestazione non standard che può essere inclusi in basato su HTTP richiede ed è supportata da molti client, servizi di bilanciamento del carico e proxy sul mercato.
-    - Più indirizzi IP che indica l'indirizzo di ogni proxy che trasmesso la richiesta e l'indirizzo IP del client saranno separati da una virgola.
+  - Se Exchange Online non è possibile determinare l'indirizzo IP del client che si connette, imposta il valore in base al valore dell'intestazione x-forwarded-for, un'intestazione non standard che può essere inclusi in basato su HTTP richiede ed è supportata da molti client, servizi di bilanciamento del carico e proxy sul mercato.
+  - Più indirizzi IP che indica l'indirizzo di ogni proxy che trasmesso la richiesta e l'indirizzo IP del client saranno separati da una virgola.
 
     >! [Nota] Gli indirizzi IP correlati all'infrastruttura Exchange Online non saranno presenti nell'elenco.
 

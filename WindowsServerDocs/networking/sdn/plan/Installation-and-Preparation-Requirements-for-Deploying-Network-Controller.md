@@ -9,12 +9,12 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/10/2018
-ms.openlocfilehash: 9db7609f6f1273c46cba1dd29f81c297bb26f94b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51ba991397a7c35ee0198f8e75c67b2f99b7c7bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829862"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446312"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Requisiti per la distribuzione di Controller di rete
 
@@ -31,13 +31,13 @@ Distribuzione del Controller di rete richiede uno o più computer o macchine vir
 - Qualsiasi computer o macchina virtuale (VM) su cui si installa il Controller di rete deve essere in esecuzione l'edizione Datacenter di Windows Server 2016. 
 - Gestione client computer o macchina virtuale per il Controller di rete deve essere in esecuzione Windows 10. 
 
-  
+
 ## <a name="configuration-requirements"></a>Requisiti di configurazione
 
 Prima di distribuire Controller di rete, è necessario configurare i gruppi di sicurezza, percorsi dei file di log (se necessario) e la registrazione dinamica DNS.
-  
+
 ### <a name="step-1-configure-your-security-groups"></a>Passaggio 1. Configurare i gruppi di sicurezza
-  
+
 La prima operazione da eseguire è creare due gruppi di sicurezza per l'autenticazione Kerberos. 
 
 Creare gruppi per gli utenti che dispongono dell'autorizzazione per: 
@@ -57,22 +57,24 @@ La prossima cosa che si vuole fare è configurare i percorsi dei file per archiv
 
 
 ### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Passaggio 3. Configurare la registrazione dinamica DNS per il Controller di rete
-  
+
 Infine, l'operazione successiva da eseguire è distribuire nodi di cluster di Controller di rete nella stessa subnet o subnet diverse. 
 
-|Se...  |Quindi...  |
-|---------|---------|
-|Nella stessa subnet, |È necessario fornire l'indirizzo IP REST Controller di rete. |
-|In subnet diverse, |È necessario fornire il nome DNS REST Controller di rete, che si crea durante il processo di distribuzione. È anche necessario eseguire quanto segue:<ul><li>Configurare gli aggiornamenti dinamici DNS per il nome DNS di Controller di rete nel server DNS.</li><li>Limitare gli aggiornamenti dinamici DNS verso solo i nodi di Controller di rete.</li></ul> |
+
+|         Se...         |                                                                                                                                                         Quindi...                                                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Nella stessa subnet,  |                                                                                                                                È necessario fornire l'indirizzo IP REST Controller di rete.                                                                                                                                 |
+| In subnet diverse, | È necessario fornire il nome DNS REST Controller di rete, che si crea durante il processo di distribuzione. È anche necessario eseguire quanto segue:<ul><li>Configurare gli aggiornamenti dinamici DNS per il nome DNS di Controller di rete nel server DNS.</li><li>Limitare gli aggiornamenti dinamici DNS verso solo i nodi di Controller di rete.</li></ul> |
+
 ---
 
 > [!NOTE]
 > L'appartenenza al **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire queste procedure.
-  
+
 1. Consentire gli aggiornamenti dinamici DNS per una zona.
 
    a. Aprire Gestore DNS e nell'albero della console, fare doppio clic sulla zona e quindi fare clic su **proprietà**. 
-      
+
    b. Nel **generale** scheda, verificare che il tipo di zona sia impostato **primario** oppure **integrate in Active Directory**.
 
    c. Nelle **gli aggiornamenti dinamici**, verificare che **proteggere solo** sia selezionata e quindi fare clic su **OK**.
@@ -82,7 +84,7 @@ Infine, l'operazione successiva da eseguire è distribuire nodi di cluster di Co
    a.  Fare clic sulla scheda **Sicurezza** e quindi su **Avanzate**. 
 
    b. Nelle **impostazioni di sicurezza avanzate**, fare clic su **Add**. 
-  
+
    c. Fai clic su **Seleziona un'entità**. 
 
    d. Nel **Seleziona utenti, Computer, Account del servizio o gruppo** finestra di dialogo, fare clic su **i tipi di oggetto**. 
@@ -95,7 +97,7 @@ Infine, l'operazione successiva da eseguire è distribuire nodi di cluster di Co
 
       - **Tipo** = consentire
       - **Si applica a** = questo oggetto e tutti i discendenti
-  
+
    h. Nella **le autorizzazioni**, selezionare **Scrivi tutte le proprietà** e **Elimina**, quindi fare clic su **OK**.
 
 3. Ripetere per tutti i computer e macchine virtuali del cluster di Controller di rete.
@@ -115,19 +117,19 @@ Il programma di installazione è a disponibilità elevata con tre nodi di Contro
 ### <a name="network-controller-and-software-load-balancer-deployment"></a>Software e controller di rete di distribuzione del bilanciamento del carico
 
 Per ottenere una disponibilità elevata, sono disponibili due o più nodi SLB/MUX.
-   
+
 ![Pianificazione di controller di rete SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-SLB-Deployment.png)
-  
+
 ### <a name="network-controller-software-load-balancer-and-ras-gateway-deployment"></a>Distribuzione di Controller di rete, bilanciamento del carico Software e Gateway RAS
 
 Esistono tre macchine virtuali gateway; due sono attivi e uno è ridondante.
 
 ![Pianificazione di controller di rete SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
-  
-  
-  
+
+
+
 Automatizzare la distribuzione basata su TP5, Active Directory deve essere disponibile e raggiungibile da queste subnet. Per altre informazioni su Active Directory, vedere [Panoramica di Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).  
-  
+
 >[!IMPORTANT] 
 >Se si distribuisce tramite VMM, verificare che le macchine virtuali dell'infrastruttura (Server VMM, AD/DNS, SQL Server, e così via) non sono ospitati in uno qualsiasi dei quattro host illustrato nei diagrammi.  
 
@@ -138,5 +140,5 @@ Automatizzare la distribuzione basata su TP5, Active Directory deve essere dispo
 ## <a name="related-topics"></a>Argomenti correlati
 - [Controller di rete](../technologies/network-controller/Network-Controller.md) 
 - [Disponibilità elevata di Controller di rete](../technologies/network-controller/network-controller-high-availability.md) 
-- [Distribuire Controller di rete tramite Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
-- [Installare il ruolo del server Controller di rete con Server Manager](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   
+- [Distribuire controller di rete tramite Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
+- [Installare il ruolo del server del controller di rete con Server Manager](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   

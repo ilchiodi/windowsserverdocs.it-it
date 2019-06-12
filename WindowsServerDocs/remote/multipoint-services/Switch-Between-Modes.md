@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 77700eb5f82ea36cd484e80bd59b9296e1290177
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9c00d65ad1c59e91f4011ab932bf9f921957c59
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851172"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446151"
 ---
 # <a name="switch-between-modes"></a>Passare da una modalità all'altra
 Gestione multiPoint include le seguenti modalità che consentono di eseguire diversi tipi di gestione del sistema MultiPoint servizi:  
@@ -27,9 +27,9 @@ Gestione multiPoint include le seguenti modalità che consentono di eseguire div
   
 -   *Modalità console*: Quando il sistema MultiPoint Services è in modalità console, è possibile installare e aggiornare software e driver o eseguire altre attività di manutenzione. Quando il sistema è in modalità console, nessuna delle *stazioni* può essere usata da altri utenti. Tali stazioni non vengono visualizzate nella console di gestione MultiPoint. Tutti i monitoraggi direttamente connessi al server vengono trattati come Visualizza del sistema.   
   
-> [!NOTE]  
+> [!NOTE]
 > È possibile imporre l'avvio del sistema in modalità console modificando i valori predefiniti nelle impostazioni del server.  
-## <a name="to-switch-from-station-mode-to-console-mode"></a>Per passare dalla modalità stazione alla modalità console  
+> ## <a name="to-switch-from-station-mode-to-console-mode"></a>Per passare dalla modalità stazione alla modalità console  
   
 1.  Aprire Gestione MultiPoint in modalità stazione e quindi fare clic sui **Home** scheda.  
   

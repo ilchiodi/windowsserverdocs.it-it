@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 20e2d0747b98e7c7728230d0768506261f5b0d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1acc00ca376c48f7fb34214cef3a92961d355ae4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825122"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444020"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>Risoluzione dei problemi di AD FS - eventi e la registrazione
 ADFS offre due log primario che può essere usato nella risoluzione dei problemi.  Sono:
@@ -89,18 +89,21 @@ La tabella seguente descrive i tipi di base degli eventi.
 Controllo della sicurezza dell'account del servizio AD FS in alcuni casi consentono di rilevare i problemi con gli aggiornamenti della password, la registrazione di richiesta/risposta, essendo intestazioni e i risultati di registrazione dispositivi.  Il controllo dell'account del servizio AD FS è disabilitato per impostazione predefinita.
 
 ### <a name="to-enable-security-auditing"></a>Per abilitare il controllo di sicurezza
-1.       Fare clic su Start, scegliere **i programmi**, scegliere **strumenti di amministrazione**, quindi fare clic su **criteri di sicurezza locali**.
-2.       Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utenti** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
-3.       Nel **impostazioni di sicurezza locali** scheda, verificare che sia elencato l'account del servizio AD FS. Se non è presente, fare clic su Aggiungi utente o gruppo e aggiungerlo all'elenco e quindi fare clic su OK.
-4.       Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare controllo auditpol.exe /set /subcategory: "Generato dall'applicazione" /Failure /Success 5.       Chiusura **criteri di sicurezza locali**e quindi aprire lo snap-in Gestione ADFS.
- 
+1. Fare clic su Start, scegliere **i programmi**, scegliere **strumenti di amministrazione**, quindi fare clic su **criteri di sicurezza locali**.
+2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utenti** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
+3. Nel **impostazioni di sicurezza locali** scheda, verificare che sia elencato l'account del servizio AD FS. Se non è presente, fare clic su Aggiungi utente o gruppo e aggiungerlo all'elenco e quindi fare clic su OK.
+4. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare controllo auditpol.exe /set /subcategory: "Generato dall'applicazione" /Failure /Success
+5. Chiusura **criteri di sicurezza locali**e quindi aprire lo snap-in Gestione ADFS.
+ 
 Per aprire lo snap-in Gestione AD FS, fare clic su Start, scegliere Programmi, strumenti di amministrazione e quindi fare clic su Gestione AD FS.
- 
-6.       Nel riquadro azioni, fare clic su Edit Federation Service proprietà 7.       Nella finestra di dialogo Proprietà servizio federativo, fare clic sulla scheda eventi. 8.       Selezionare il **Success audits** e **Failure audits** caselle di controllo.
-9.       Fare clic su OK.
+ 
+6. Nel riquadro azioni, fare clic su Modifica proprietà servizio federativo
+7. Nella finestra di dialogo Proprietà servizio federativo, fare clic sulla scheda eventi.
+8. Selezionare il **Success audits** e **Failure audits** caselle di controllo.
+9. Fare clic su OK.
 
 ![miglioramenti di controllo](media/ad-fs-tshoot-logging/event4.PNG)  
- 
+ 
 >[!NOTE]
 >Le istruzioni riportate sopra vengono usate solo se ADFS si trova in un server membro autonomo.  Se ADFS è in esecuzione in un controller di dominio, invece di criteri di sicurezza locali, usare il **criterio Controller di dominio predefinito** che si trova **controller/foresta/domini/dominio di gestione di criteri di gruppo**.  Fare clic su Modifica e passare a **Computer Configurazione computer\Criteri\Impostazioni computer\Impostazioni di Windows\Impostazioni sicurezza\Criteri locali\Assegnazione diritti di gestione**
 
@@ -155,4 +158,4 @@ L'evento ID chiamante registra inoltre l'ID dell'attività che consentono di uti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi di AD FS](ad-fs-tshoot-overview.md)
+- [Risoluzione dei problemi relativi ad AD FS](ad-fs-tshoot-overview.md)

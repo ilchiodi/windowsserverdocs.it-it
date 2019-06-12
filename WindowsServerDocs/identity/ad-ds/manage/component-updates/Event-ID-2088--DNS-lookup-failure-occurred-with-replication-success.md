@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cc090fa749a601e53b4347cce43245f22badc8ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840712"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442657"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID evento 2088: Si è verificato un errore di ricerca DNS con esito positivo della replica
 
@@ -58,7 +58,7 @@ Azione dell'utente:
 
 2) Verificare che il controller di dominio di origine è in esecuzione Active Directory e sia accessibile in rete, digitare "net view \\ &lt;nome del controller di dominio&gt;" o "ping &lt;nome del controller di dominio&gt;". 
 
-3) Verificare che il controller di dominio di origine Usa un server DNS valido per i servizi DNS e che il controller di dominio di origine record host CNAME record e sono registrati correttamente, utilizzando la versione migliorata di DNS di DCDIAG. Disponibile nel file EXE https://www.microsoft.com/dns 
+3) Verificare che il controller di dominio di origine Usa un server DNS valido per i servizi DNS e che il controller di dominio di origine record host CNAME record e sono registrati correttamente, utilizzando la versione migliorata di DNS di DCDIAG. Disponibile nel file EXE <https://www.microsoft.com/dns> 
 
 Dcdiag /test: DNS 
 
@@ -66,7 +66,7 @@ Dcdiag /test: DNS
 
 Dcdiag /test: DNS 
 
-5) Vedere 824449 KB per un'ulteriore analisi degli errori di errore DNS: https://support.microsoft.com/?kbid=824449 
+5) Vedere 824449 KB per un'ulteriore analisi degli errori di errore DNS: <https://support.microsoft.com/?kbid=824449> 
 
 Ulteriori dati Valore di errore: 11004. il nome richiesto è valido, ma nessun dato del tipo richiesto è stato trovato</code> </introduction>
   <section>
@@ -78,7 +78,7 @@ Ulteriori dati Valore di errore: 11004. il nome richiesto è valido, ma nessun d
   <section>
     <title>Risoluzione</title>
     <content>
-      <para>Procedere con il test del DNS, come descritto in "<link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">ID evento 2087: Errore di ricerca DNS causato replica avrà esito negativo</link>. "</para>
+      <para>Procedere con il test del DNS, come descritto in &quot; <link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">ID evento 2087: Errore di ricerca DNS causato replica avrà esito negativo</link>.&quot;</para>
     </content>
   </section>
   <relatedTopics />

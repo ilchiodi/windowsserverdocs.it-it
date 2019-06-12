@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 080836e406b329cf8c15f95ef6afc99973bb3e4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbccb834f9058f2c3cca097cdf998455f2a6892e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853092"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440489"
 ---
 # <a name="using-the-get-allservers-command"></a>Utilizzando il comando get-AllServers
 
@@ -37,11 +37,11 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/Show:{Config | Immagini | all}|Specifica il tipo di informazioni da restituire.</br>-   **Configurazione** restituisce informazioni di configurazione server.</br>-   **Le immagini** restituisce informazioni sui gruppi di immagini, immagini di avvio e le immagini di installazione nel server.</br>-   **Tutti i** restituisce le informazioni di configurazione e l'immagine server.|
-|[/ Dettagliate]|Quando utilizzato in combinazione con il **/Show:Images** o **/Show:All**, restituisce tutti i metadati di ogni immagine di immagine. Se il **/dettagliate** opzione non è specificata, il comportamento predefinito è per restituire il nome dell'immagine, descrizione e nome file.|
-|[/ Insieme di strutture: {Sì | No}]|Specifica se restituire le informazioni per l'intera foresta o il dominio locale. Se non viene specificato un valore per questa opzione, per restituire i server nel dominio locale è il comportamento predefinito.|
+|   Parametro   |                                                                                                                 Descrizione                                                                                                                  |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /Show:{Config |                                                                                                                    Immagini                                                                                                                    |
+|  [/ Dettagliate]  | Quando utilizzato in combinazione con il **/Show:Images** o **/Show:All**, restituisce tutti i metadati di ogni immagine di immagine. Se il **/dettagliate** opzione non è specificata, il comportamento predefinito è per restituire il nome dell'immagine, descrizione e nome file. |
+| [/ Insieme di strutture: {Sì |                                                                                                                     No}]                                                                                                                     |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -56,4 +56,4 @@ WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

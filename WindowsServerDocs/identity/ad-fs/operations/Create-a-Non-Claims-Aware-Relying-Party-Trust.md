@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e94b07d7fa654732526d0b43daadc9ad0ad4f3a8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189669"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444937"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Creare un Trust Non attestazioni Relying Party
 
@@ -27,7 +27,7 @@ Per aggiungere un nuovo non\-attestazioni\-compatibile con trust della relying p
   
 Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-##<a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Per creare manualmente un attestazioni non compatibile con Trust della Relying Party 
+## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Per creare manualmente un attestazioni non compatibile con Trust della Relying Party 
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
 2.  In **azioni**, fare clic su **Aggiungi attendibilità**.  

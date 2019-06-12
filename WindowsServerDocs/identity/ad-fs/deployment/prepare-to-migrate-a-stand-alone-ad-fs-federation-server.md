@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c1fd2bc1026d9aee25c591cf5c91a1c59f66ee0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d2b8a9c35b106a237b47d1bd062026469af59a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834492"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444485"
 ---
 #  <a name="prepare-to-migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>Preparare la migrazione di un server federativo ADFS autonomo o una farm ADFS a nodo singolo  
  
@@ -43,14 +43,14 @@ Per esportare i dati di configurazione di ADFS, eseguire le attività seguenti:
 >   
 >  L'esportazione del certificato SSL è facoltativa, poiché questo è memorizzato nell'archivio dei certificati personali nel computer locale e viene conservato durante l'aggiornamento del sistema operativo.  
   
-2.  Registrare la configurazione dei certificati per le comunicazioni di servizi ADFS, di decrittografia di token e di firma di token.  Per visualizzare tutti i certificati vengono usati, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di ADFS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per creare un elenco di tutti i certificati in uso in un file `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
+2. Registrare la configurazione dei certificati per le comunicazioni di servizi ADFS, di decrittografia di token e di firma di token.  Per visualizzare tutti i certificati vengono usati, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di ADFS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per creare un elenco di tutti i certificati in uso in un file `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
   
 > [!NOTE]
 >  Facoltativamente, è anche possibile esportare certificati e chiavi di decrittografia di token, di firma di token e di comunicazioni di servizi non generati internamente, oltre a tutti i certificati autofirmati. È possibile visualizzare tutti i certificati in uso nel server tramite Windows PowerShell. Aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell`. Quindi eseguire il comando seguente per visualizzare tutti i certificati che sono in uso nel server `PSH:>Get-ADFSCertificate`. Nell'output di questo comando sono inclusi i valori StoreLocation e StoreName che specificano il percorso dell'archivio per ogni certificato. È quindi possibile attenersi alle indicazioni fornite in [Esportare la parte di chiave privata di un certificato di autenticazione server](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) per esportare ogni certificato con la relativa chiave privata in un file con estensione pfx.  
 >   
 >  L'esportazione di questi certificati è facoltativa poiché tutti i certificati esterni vengono conservati durante l'aggiornamento del sistema operativo.  
   
-3.  Esportazione di AD FS 2.0 Proprietà servizio federativo, ad esempio il nome del servizio federativo, nome visualizzato del servizio e identificatore del server federativo in un file.  
+3. Esportazione di AD FS 2.0 Proprietà servizio federativo, ad esempio il nome del servizio federativo, nome visualizzato del servizio e identificatore del server federativo in un file.  
   
 Per esportare le proprietà del servizio federativo, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di ADFS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per esportare le proprietà servizio federativo: `PSH:> Get-ADFSProperties | Out-File “.\properties.txt”`.  
   
@@ -63,7 +63,7 @@ Il file di output conterrà i valori di configurazione importanti seguenti:
 |Identificatore|Identificatore del servizio federativo|  
 |DisplayName|Nome visualizzato del servizio federativo|  
   
-4.  Eseguire il backup del file di configurazione dell'applicazione. Tra le altre impostazioni, questo file contiene la stringa di connessione al database dei criteri.  
+4. Eseguire il backup del file di configurazione dell'applicazione. Tra le altre impostazioni, questo file contiene la stringa di connessione al database dei criteri.  
   
 Per eseguire il backup del file di configurazione dell'applicazione, è necessario copiare manualmente il file `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` in una posizione sicura in un server di backup.  
   
@@ -72,18 +72,18 @@ Per eseguire il backup del file di configurazione dell'applicazione, è necessar
 >   
 >  Di seguito viene riportato un esempio di stringa di connessione WID:`“Data Source=\\.\pipe\mssql$microsoft##ssee\sql\query;Initial Catalog=AdfsConfiguration;Integrated Security=True"`. Di seguito viene riportato un esempio di stringa di connessione di SQL Server: `"Data Source=databasehostname;Integrated Security=True"`.  
   
-5.  Registrare l'identità dell'account del servizio AD FS 2.0 federation e la password dell'account.  
+5. Registrare l'identità dell'account del servizio AD FS 2.0 federation e la password dell'account.  
   
 Per trovare il valore di identità, controllare la colonna **Accedi come** di **AD FS 2.0 Windows Service** nella console **Servizi** e registrare manualmente questo valore.  
   
 > [!NOTE]
 >  Per un servizio federativo autonomo viene utilizzato l'account predefinito SERVIZIO DI RETE.  In questo caso, non è necessario disporre di una password.  
   
-6.  Esportare in un file l'elenco degli endpoint ADFS abilitati.  
+6. Esportare in un file l'elenco degli endpoint ADFS abilitati.  
   
 A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di ADFS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per esportare l'elenco degli endpoint ADFS abilitati in un file: `PSH:> Get-ADFSEndpoint | Out-File “.\endpoints.txt”`.  
   
-7.  Esportare in un file le eventuali descrizioni di attestazioni personalizzate.  
+7. Esportare in un file le eventuali descrizioni di attestazioni personalizzate.  
   
 A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di ADFS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per esportare eventuali descrizioni di attestazioni personalizzate in un file: `Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.  
   
@@ -112,4 +112,4 @@ A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente per aggi
  [Preparare la migrazione del Proxy Server 2.0 Federation di AD FS](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione di AD Server federativo ADFS 2.0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del Proxy Server 2.0 Federation di AD FS](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Eseguire la migrazione di AD agenti Web ADFS 1.1](migrate-the-ad-fs-web-agent.md)
+ [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e38c53c3458c3f66f24ea2ddaa66febf508c4568
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476147"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442452"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Panoramica di File server di scalabilità orizzontale per dati applicazioni
 
@@ -177,25 +177,25 @@ La tabella seguente elenca le capacità in SMB 3.0, i file system di Windows com
 <td>Gestione dei file</td>
 <td>Reindirizzamento cartelle</td>
 <td>Yes</td>
-<td>Non consigliata*</td>
+<td>Non è consigliata<em></td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>File offline (memorizzazione nella cache lato client)</td>
 <td>Yes</td>
-<td>Non consigliata*</td>
+<td>Non consigliata</em></td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Profili utente mobili</td>
 <td>Yes</td>
-<td>Non consigliata*</td>
+<td>Non è consigliata<em></td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Home directory</td>
 <td>Yes</td>
-<td>Non consigliata*</td>
+<td>Non consigliata</em></td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
@@ -256,13 +256,13 @@ Nella tabella che segue sono elencate le funzionalità che fanno parte di questo
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">Clustering di failover</a></td>
-<td>I cluster di failover aggiunto le funzionalità seguenti in Windows Server 2012 per il supporto di tipo scale-Out file server: Nome rete distribuita, il tipo di risorsa di tipo Scale-Out File Server, volumi condivisi Cluster (CSV) 2 e il ruolo di tipo Scale-Out File Server a elevata disponibilità. Per altre informazioni su queste funzionalità, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">What ' s New in Failover Clustering in Windows Server 2012 [reindirizzamento]</a>.</td>
+<td>I cluster di failover aggiunto le funzionalità seguenti in Windows Server 2012 per il supporto di tipo scale-Out file server: Nome rete distribuita, il tipo di risorsa di tipo Scale-Out File Server, volumi condivisi Cluster (CSV) 2 e il ruolo di tipo Scale-Out File Server a elevata disponibilità. Per altre informazioni su queste funzionalità, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">Novità&#39;s New in Failover Clustering in Windows Server 2012 [reindirizzamento]</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">Server Message Block</a></td>
 <td>In Windows Server 2012 per supportare scale-Out File Server SMB 3.0 ha aggiunto le funzionalità seguenti: Failover trasparente SMB, SMB multicanale e SMB diretto.<br />
 <br />
-Per altre informazioni sulle funzionalità nuove e modificate per SMB in Windows Server 2012 R2, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">What ' s New in SMB in Windows Server</a>.</td>
+Per altre informazioni sulle funzionalità nuove e modificate per SMB in Windows Server 2012 R2, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">Novità&#39;s New in SMB in Windows Server</a>.</td>
 </tr>
 </tbody>
 </table>

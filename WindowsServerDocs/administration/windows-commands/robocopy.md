@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7ab2eff32b105916d979a954275e9c9122a06903
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188204"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441718"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -32,12 +32,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<origine >|Specifica il percorso alla directory di origine.|
-|\<Destinazione >|Specifica il percorso della directory di destinazione.|
-|\<File>|Specifica i file da copiare. È possibile usare caratteri jolly (**&#42;** oppure **?** ), se si desidera. Se il **File** parametro non viene specificato, **\*.\*** viene usato come valore predefinito.|
-|\<Opzioni >|Specifica le opzioni da usare con il **robocopy** comando.|
+|   Parametro    |                                                                                            Descrizione                                                                                             |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<origine >    |                                                                            Specifica il percorso alla directory di origine.                                                                             |
+| \<Destinazione > |                                                                          Specifica il percorso della directory di destinazione.                                                                          |
+|    \<File>     | Specifica i file da copiare. È possibile usare caratteri jolly ( **&#42;** oppure **?** ), se si desidera. Se il **File** parametro non viene specificato, **\*.\\** \* viene usato come valore predefinito. |
+|   \<Opzioni >   |                                                                    Specifica le opzioni da usare con il **robocopy** comando.                                                                     |
 
 ### <a name="copy-options"></a>Opzioni copia
 
@@ -90,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Copia solo i file per il quale il **Archive** attributo è impostato e reimposta il **Archive** attributo.|
 |/ia:[RASHCNETO]|Include solo i file per il quale gli attributi specificati sono impostate.|
 |/xa:[RASHCNETO]|Esclude i file per il quale gli attributi specificati sono impostate.|
-|/XF \<FileName > [...]|Esclude il file che soddisfano i percorsi o i nomi specificati. Si noti che *nomefile* può includere caratteri jolly (**&#42;** e **?** ).|
+|/XF \<FileName > [...]|Esclude il file che soddisfano i percorsi o i nomi specificati. Si noti che *nomefile* può includere caratteri jolly ( **&#42;** e **?** ).|
 |/XD \<directory > [...]|Esclude le directory che corrispondono ai nomi specificati e i percorsi.|
 |/xc|Esclude i file modificati.|
 |/xn|Esclude i file più recenti.|
@@ -157,6 +157,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|Include i file specificati.|
 
 ### <a name="exit-return-codes"></a>Codici di uscita (return)
+
 Value | Descrizione
 -- | --
 0 | Nessun file copiato. Si è verificato alcun errore.  Nessun file sono stati corrispondenti. I file esistono già nella directory di destinazione; Pertanto, l'operazione di copia è stato ignorato.

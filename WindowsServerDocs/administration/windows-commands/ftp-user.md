@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef3b943491a90078dab453aaf3a037bd4ccf1825
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c9406af0868421fa54fe757742cf2a120561b9c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887492"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438340"
 ---
 # <a name="ftp-user"></a>FTP: utente
 
@@ -30,15 +30,17 @@ Specifica un utente al computer remoto.
 user <UserName> [<Password>] [<Account>]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<UserName>|Specifica un nome utente con cui si accede al computer remoto.|  
-|[<Password>]|Specifica la password per *UserName*. Se una password non è specificata, ma è obbligatoria,  **ftp** richiesta la password.|  
-|[<Account>]|Specifica un account con cui si accede al computer remoto. Se un *Account* non è specificato, ma è obbligatorio,  **ftp** richiesto per l'account.|  
+
+|  Parametro   |                                                                      Descrizione                                                                      |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <UserName>  |                                          Specifica un nome utente con cui si accede al computer remoto.                                           |
+| [<Password>] |               Specifica la password per *UserName*. Se una password non è specificata, ma è obbligatoria,  **ftp** richiesta la password.               |
+| [<Account>]  | Specifica un account con cui si accede al computer remoto. Se un *Account* non è specificato, ma è obbligatorio,  **ftp** richiesto per l'account. |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 Specificare User1 con la password Password1.  
 ```  
 user User1 Password1  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fb1bc5776ea4d24f274c79563d9e346b104de6d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188822"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444226"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>Scenari di AD FS per gli sviluppatori
 
@@ -115,20 +115,20 @@ Questo scenario consente all'utente di un'applicazione client nativa per chiamar
 1.  L'applicazione client nativa avvia il flusso con una chiamata per la libreria ADAL.  Questo attiva un browser basato su HTTP GET per ADFS endpoint di autorizzazione:  
   
 **Richiesta di autorizzazione:**  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+GET <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parametro|Value  
 ---------|---------  
 response_type|"codice"  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id dell'applicazione nativa nel gruppo di applicazioni client  
 redirect_uri|URI di reindirizzamento dell'applicazione nativa in gruppo di applicazioni  
   
 **Risposta richiesta di autorizzazione:**  
 Se l'utente non è firmato precedenza, l'utente verrà richieste le credenziali.    
-ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri.  Ad esempio: Protocollo HTTP/1.1 302 trovato percorso:  **http://redirect_uri:80/?code=&lt; codice&gt;.**  
+ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri.  Ad esempio:  Protocollo HTTP/1.1 302 trovato percorso:  **<http://redirect_uri:80/?code=&lt;code&gt>;.**  
   
-2.  Il client nativo invia quindi il codice, con i seguenti parametri, all'endpoint del token di ADFS:  
+2. Il client nativo invia quindi il codice, con i seguenti parametri, all'endpoint del token di ADFS:  
   
 **Richiesta di token:**  
 POST https://fs.contoso.com/adfs/oauth2/token  
@@ -137,14 +137,14 @@ Parametro|Value
 ---------|---------  
 grant_type|"authorization_code" 
 code|codice di autorizzazione da 1  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id dell'applicazione nativa nel gruppo di applicazioni client  
 redirect_uri|URI di reindirizzamento dell'applicazione nativa in gruppo di applicazioni  
   
 **Risposta alla richiesta di token:**  
 ADFS risponde con HTTP 200 con l'oggetto access_token, token di aggiornamento e id_token nel corpo.  
   
-3.  Quindi l'applicazione nativa invia la parte access_token della risposta precedente come intestazione di autorizzazione nella richiesta HTTP all'API web.  
+3. Quindi l'applicazione nativa invia la parte access_token della risposta precedente come intestazione di autorizzazione nella richiesta HTTP all'API web.  
   
 ### <a name="single-sign-on-behavior"></a>Single sign-on comportamento  
 Client successive, le richieste all'interno di 1 ora (per impostazione predefinita) l'oggetto access_token sarà comunque valido nella cache e una nuova richiesta non comporta alcun traffico ad ADFS.  L'oggetto access_token verranno automaticamente recuperati dalla cache da ADAL.  
@@ -157,7 +157,7 @@ POST https://fs.contoso.com/adfs/oauth2/token
 Parametro|Value|
 ---------|---------
 grant_type|"token di aggiornamento"|
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni|
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni|
 client_id|Id dell'applicazione nativa nel gruppo di applicazioni client
 token di aggiornamento|il token di aggiornamento emesso da ADFS in risposta alla richiesta di token iniziale
 
@@ -177,32 +177,32 @@ Questo scenario è simile a quanto sopra in che è una richiesta di autorizzazio
   
 ![Descrizione del flusso del protocollo](media/ADFS_DEV_4.png)  
   
-1.  Endpoint di autorizzare l'utente avvia App Web un'autorizzazione richiesta tramite il browser, che invia una richiesta HTTP GET per ADFS  
-**Richiesta di autorizzazione**:  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+1. Endpoint di autorizzare l'utente avvia App Web un'autorizzazione richiesta tramite il browser, che invia una richiesta HTTP GET per ADFS  
+   **Richiesta di autorizzazione**:  
+   GET <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parametro|Value  
 ---------|---------  
 response_type|"codice"  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id client dell'applicazione nativa nel gruppo di applicazioni  
 redirect_uri|URI di reindirizzamento dell'app web, applicazione server, nel gruppo di applicazioni  
   
 Risposta richiesta di autorizzazione:  
 Se l'utente non è firmato precedenza, l'utente verrà richieste le credenziali.  
-ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri, ad esempio: Protocollo HTTP/1.1 302 trovato percorso: https://webapp.contoso.com/?code=&lt; codice&gt;.  
+ADFS risponde restituendo un codice di autorizzazione come parametro "code" nel componente di query del redirect_uri, ad esempio: Protocollo HTTP/1.1 302 trovato percorso: <https://webapp.contoso.com/?code=&lt;code&gt>;.  
   
-2.  In seguito a 302 precedente, il browser avvia un'operazione HTTP GET all'app web, ad esempio: OTTENERE http://redirect_uri:80/?code=&lt; codice&gt;.   
+2. In seguito a 302 precedente, il browser avvia un'operazione HTTP GET all'app web, ad esempio: GET <http://redirect_uri:80/?code=&lt;code&gt>;.   
   
-3.  A questo punto l'app web, dopo aver ricevuto il codice inizia una richiesta all'endpoint token di ADFS, l'invio di seguito  
-**Richiesta di token:**  
-POST https://fs.contoso.com/adfs/oauth2/token  
+3. A questo punto l'app web, dopo aver ricevuto il codice inizia una richiesta all'endpoint token di ADFS, l'invio di seguito  
+   **Richiesta di token:**  
+   POST https://fs.contoso.com/adfs/oauth2/token  
   
 Parametro|Value  
 ---------|---------  
 grant_type|"authorization_code"  
 code|codice di autorizzazione da 2 precedente  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id client dell'app web, applicazione server, nel gruppo di applicazioni  
 redirect_uri|URI di reindirizzamento dell'app web, applicazione server, nel gruppo di applicazioni  
 client_secret|Segreto dell'app web, applicazione server, nel gruppo di applicazioni. **Nota: Le credenziali del client non sono necessario essere un client_secret.  ADFS supporta la possibilità di usare anche i certificati o l'autenticazione integrata di Windows.**  
@@ -210,7 +210,7 @@ client_secret|Segreto dell'app web, applicazione server, nel gruppo di applicazi
 **Risposta alla richiesta di token:**  
 ADFS risponde con HTTP 200 con l'oggetto access_token, token di aggiornamento e id_token nel corpo.  
 attestazioni  
-4.  L'applicazione web, quindi uno utilizza la parte access_token della risposta precedente (nel caso in cui la stessa app web ospita la risorsa), o in caso contrario Invia come intestazione di autorizzazione nella richiesta HTTP all'API web.  
+4. L'applicazione web, quindi uno utilizza la parte access_token della risposta precedente (nel caso in cui la stessa app web ospita la risorsa), o in caso contrario Invia come intestazione di autorizzazione nella richiesta HTTP all'API web.  
   
 #### <a name="single-sign-on-behavior"></a>Single sign-on comportamento  
 Mentre il token di accesso sarà comunque valido per 1 ora (per impostazione predefinita) nella cache del client, si potrebbe pensare che la seconda richiesta funzionerà come nello scenario di native client precedente, che una nuova richiesta non comporta alcun traffico ad ADFS come token di accesso verrà automaticamente recuperato dalla cache da ADAL.  Tuttavia, è possibile che l'app web può inviare richieste di token, il primo tramite collegamento URL distinto, come il nostro esempio e l'autorizzazione distinte.  
@@ -227,7 +227,7 @@ POST https://fs.contoso.com/adfs/oauth2/token
 Parametro|Value  
 ---------|---------  
 grant_type|"token di aggiornamento"  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id client dell'app web, applicazione server, nel gruppo di applicazioni  
 token di aggiornamento|Token emesso da ADFS in risposta alla richiesta di token iniziale di aggiornamento  
 client_secret|Segreto dell'app web, applicazione server, nel gruppo di applicazioni  
@@ -245,13 +245,13 @@ Questo scenario è simile a quanto sopra in cui vi viene avviata una richiesta d
 1.  Endpoint di autorizzare l'utente avvia App Web un'autorizzazione richiesta tramite il browser, che invia una richiesta HTTP GET per ADFS  
   
 **Richiesta di autorizzazione:**  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+GET <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parametro|Value  
 ---------|---------  
 response_type|"codice + id_token"  
 response_mode|"form_post"  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id client dell'app web, applicazione server, nel gruppo di applicazioni  
 redirect_uri|URI di reindirizzamento dell'app web, applicazione server, nel gruppo di applicazioni  
   
@@ -260,9 +260,9 @@ Se l'utente non è firmato precedenza, l'utente verrà richieste le credenziali.
 AD FS risponde con un HTTP 200 e un form contenente il seguente come elementi nascosti:  
 * codice: il codice di autorizzazione  
 * id_token: un token JWT contenente le attestazioni che descrivono l'autenticazione degli utenti  
-2.  Il modulo viene inviato automaticamente a redirect_uri dell'applicazione web, inviare il codice e id_token all'app web.  
+* Il modulo viene inviato automaticamente a redirect_uri dell'applicazione web, inviare il codice e id_token all'app web.  
   
-3.  A questo punto l'app web, dopo aver ricevuto il codice inizia una richiesta all'endpoint token di ADFS, l'invio di seguito  
+3. A questo punto l'app web, dopo aver ricevuto il codice inizia una richiesta all'endpoint token di ADFS, l'invio di seguito  
   
 **Richiesta di token:**  
 POST https://fs.contoso.com/adfs/oauth2/token
@@ -273,7 +273,7 @@ Parametro|Value
 ---------|---------  
 grant_type|"authorization_code"  
 code|codice di autorizzazione precedente  
-risorse|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
+resource|RP ID (identificatore) dell'API Web nel gruppo di applicazioni  
 client_id|Id client dell'app web, applicazione server, nel gruppo di applicazioni  
 redirect_uri|URI di reindirizzamento dell'app web, applicazione server, nel gruppo di applicazioni  
 client_secret|Segreto dell'app web, applicazione server, nel gruppo di applicazioni  
@@ -281,7 +281,7 @@ client_secret|Segreto dell'app web, applicazione server, nel gruppo di applicazi
 **Risposta alla richiesta di token:**  
 ADFS risponde con HTTP 200 con l'oggetto access_token, token di aggiornamento e id_token nel corpo.  
   
-4.  L'applicazione web, quindi uno utilizza la parte access_token della risposta precedente (nel caso in cui la stessa app web ospita la risorsa), o in caso contrario Invia come intestazione di autorizzazione nella richiesta HTTP all'API web.  
+4. L'applicazione web, quindi uno utilizza la parte access_token della risposta precedente (nel caso in cui la stessa app web ospita la risorsa), o in caso contrario Invia come intestazione di autorizzazione nella richiesta HTTP all'API web.  
   
 #### <a name="single-sign-on-behavior"></a>Single Sign-on comportamento  
 Il single sign-on comportamento è identico a quello precedente il flusso di client riservato Oauth 2.0.  

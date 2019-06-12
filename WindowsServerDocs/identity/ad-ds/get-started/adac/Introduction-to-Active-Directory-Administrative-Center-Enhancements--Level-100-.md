@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d16447425b86fef979732c4785db27d1542116b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3b5f3eee338128fb424c28e7280bb7f543c9f58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840172"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443006"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -75,7 +75,7 @@ In questo passaggio si aumenterà il livello di funzionalità della foresta. È 
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra e nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità foresta**. Selezionare un livello di foresta funzionale che sia almeno Windows Server 2008 R2 o versione successiva e quindi fare clic su **OK**.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -99,7 +99,7 @@ In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati 
 
 4. Premere F5 per aggiornare Centro di amministrazione di Active Directory.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -142,7 +142,7 @@ Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un 
 5. Fare clic su **group1**e quindi nel riquadro **Attività** fare clic su **Proprietà**.
 6. Fare clic su **Membri**e su **Aggiungi**, digitare **test1;test2**e quindi fare clic su **OK**.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -159,7 +159,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
    - **NameOU1**
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -167,7 +167,6 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
 New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -GroupScope Global -DisplayName "group1"
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
-
 ```
 
 ### <a name="bkmk_restore_del_obj"></a>Passaggio 4: Ripristinare gli oggetti eliminati
@@ -182,7 +181,7 @@ Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggett
 
 3. Selezionare gli utenti **test1** e **test2**, fare clic su **Elimina** nel riquadro **Attività** e quindi fare clic su **Sì** per confermare l'eliminazione.
 
-    ![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+    ![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
     Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -199,7 +198,7 @@ Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggett
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -219,7 +218,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 6. Per confermare che gli oggetti sono stati ripristinati in **OU1**, passare al dominio di destinazione, fare doppio clic su **OU1** e verificare che gli account utente sono inclusi nell'elenco.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -274,7 +273,7 @@ Nella procedura seguente si aumenterà il livello di funzionalità del dominio d
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra, quindi nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità dominio**. Selezionare un livello di foresta funzionale che sia almeno Windows Server 2008 o versione successiva e quindi fare clic su **OK**.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -310,7 +309,7 @@ Nella procedura seguente si creerà un nuovo criterio granulare per le password 
 
 6. Fare clic su **OK** per completare la creazione.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -335,7 +334,7 @@ Nella procedura seguente si visualizzeranno le impostazioni password risultanti 
 
 5. Esaminare i criteri di impostazione password e quindi fare clic su **Annulla**.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -361,7 +360,7 @@ Nella procedura seguente si modificherà i criteri granulari per le password cre
 
 6. Fare clic su **OK**.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -387,7 +386,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 7. Fare clic su **OK** nella finestra di dialogo di conferma.
 
-![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *
+![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 

@@ -12,12 +12,12 @@ ms.assetid: 57079470-a1c1-4fdc-af15-1950d3381860
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: bc1930b681621d4d34c85414dbc2f97df257af20
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d793dde9c41bc99b55eeb0da3a5ee4b025f08d6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817162"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443646"
 ---
 # <a name="developing-for-nano-server"></a>Sviluppo per Nano Server
 
@@ -34,8 +34,8 @@ Questi argomenti illustrano importanti differenze relative a PowerShell in Nano 
 ## <a name="using-windows-powershell-remoting"></a>Uso della comunicazione remota di Windows PowerShell  
 Per gestire Nano Server con la comunicazione remota di Windows PowerShell, è necessario aggiungere l'indirizzo IP di Nano Server all'elenco dei computer di gestione degli host attendibili, aggiungere l'account in uso agli amministratori di Nano Server e abilitare CredSSP, se si prevede di usare tale funzionalità.  
 
- >[!NOTE]  
-    > Se la destinazione Nano Server e computer di gestione sono nella stessa foresta Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere Nano Server all'elenco di host attendibili, è possibile connettersi a Nano Server usando il nome di dominio completo Per esempio: PS C:\> Con Enter-PSSession - ComputerName nanoserver.contoso.com-Credential (Get-Credential)
+> [!NOTE]
+> Se la destinazione Nano Server e computer di gestione sono nella stessa foresta Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere Nano Server all'elenco di host attendibili, è possibile connettersi a Nano Server usando il nome di dominio completo Per esempio: PS C:\> Con Enter-PSSession - ComputerName nanoserver.contoso.com-Credential (Get-Credential)
   
   
 Per aggiungere Nano Server all'elenco di host attendibili, eseguire questo comando a un prompt di Windows PowerShell con privilegi elevati:  

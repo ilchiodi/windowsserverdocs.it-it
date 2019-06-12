@@ -9,16 +9,16 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Come usare Microsoft Azure per ospitare il controllo del mirroring per un Cluster di Failover Windows Server nel cloud, noto anche come come distribuire un Cloud di controllo.
-ms.openlocfilehash: f7e1c84e54f08044a772f06e591588c1add33026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 64fd39a37c63d24f8fc0eb4f45c8a7e9f6089013
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857982"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439785"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Distribuire un cloud di controllo per un cluster di failover
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Cloud di controllo è un tipo di Cluster di Failover quorum di controllo che usa Microsoft Azure per fornire un voto sul quorum del cluster. In questo argomento viene fornita una panoramica della funzionalità Cloud di controllo, gli scenari supportati e le istruzioni su come configurare un cloud di controllo per un Cluster di Failover.
 
@@ -134,14 +134,14 @@ Configurazione del controllo cloud è perfettamente integrata interno della proc
     **Figura 8. Seleziona il Quorum di controllo**  
 
 5. Nel **configurazione Cloud Witness** pagina, immettere le informazioni seguenti:  
-    1. (Parametro obbligatorio) Nome Account di archiviazione di Azure.  
-    2. (Parametro obbligatorio) Chiave di accesso corrispondente all'Account di archiviazione.  
-        1. Quando si crea per la prima volta, usare una chiave di accesso primaria (vedere la figura 5)  
-        2. Ruotare la chiave di accesso primaria, usare una chiave di accesso secondaria (vedere la figura 5)  
-    3. (Parametro facoltativo) Se si prevede di usare un endpoint di servizio di Azure diverso (ad esempio il servizio di Microsoft Azure in Cina), quindi aggiornare il nome dell'endpoint server.  
+   1. (Parametro obbligatorio) Nome Account di archiviazione di Azure.  
+   2. (Parametro obbligatorio) Chiave di accesso corrispondente all'Account di archiviazione.  
+       1. Quando si crea per la prima volta, usare una chiave di accesso primaria (vedere la figura 5)  
+       2. Ruotare la chiave di accesso primaria, usare una chiave di accesso secondaria (vedere la figura 5)  
+   3. (Parametro facoltativo) Se si prevede di usare un endpoint di servizio di Azure diverso (ad esempio il servizio di Microsoft Azure in Cina), quindi aggiornare il nome dell'endpoint server.  
 
-    ![Snapshot del riquadro di configurazione del Cloud di controllo della procedura guidata quorum del Cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
-    **Figura 9: Configurare il controllo di Cloud**
+      ![Snapshot del riquadro di configurazione del Cloud di controllo della procedura guidata quorum del Cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Figura 9: Configurare il controllo di Cloud**
 
 6. Dopo la corretta configurazione di Cloud di controllo, è possibile visualizzare la risorsa di controllo del mirroring appena creata in Gestione Cluster di Failover snap-in (vedere la figura 10).
 

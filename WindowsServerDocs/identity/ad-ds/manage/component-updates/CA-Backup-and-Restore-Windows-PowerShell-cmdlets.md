@@ -9,20 +9,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: a4bbeeedfb40e789a799103f9a29a848a2b32324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6055d9b694f72a6a874acdcb5135fde61bcf0d76
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877352"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442756"
 ---
 # <a name="ca-backup-and-restore-windows-powershell-cmdlets"></a>Cmdlet di Backup della CA e ripristino configurazione di Windows PowerShell
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
->
-**Autore**: Justin. Turner, Senior Support Escalation Engineer presso il gruppo di Windows  
-  
-> [!NOTE]  
+> Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> 
+> **Autore**: Justin. Turner, Senior Support Escalation Engineer presso il gruppo di Windows  
+> 
+> [!NOTE]
 > Questo contenuto è stato redatto da un ingegnere del Supporto tecnico Microsoft ed è destinato ad amministratori esperti e architetti di sistemi che desiderano una spiegazione tecnica delle funzionalità e delle soluzioni relative a Windows Server 2012 R2 più approfondita rispetto agli argomenti solitamente disponibili su TechNet. Non è stato tuttavia sottoposto agli stessi passaggi redazionali e, di conseguenza, per alcune lingue potrebbe essere meno accurato della documentazione che si trova in genere su TechNet.  
   
 ## <a name="overview"></a>Panoramica  

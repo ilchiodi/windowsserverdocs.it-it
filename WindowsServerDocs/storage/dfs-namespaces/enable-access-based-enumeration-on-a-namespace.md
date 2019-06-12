@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e9a2b2162fcf11385a5a866372e57338df87c541
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850592"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447211"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Attivare l'enumerazione basata sull'accesso in uno spazio dei nomi
 
@@ -49,7 +49,7 @@ Puoi abilitare l'enumerazione basata sull'accesso in uno spazio dei nomi tramite
 
 ## <a name="to-enable-access-based-enumeration-by-using-a-command-line"></a>Per abilitare l'enumerazione basata sull'accesso tramite una riga di comando
 
-1.  Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)**.
+1.  Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)** .
 
 2.  Digitare il comando seguente, dove *< spazio dei nomi\_radice >* è la radice dello spazio dei nomi:
 
@@ -78,15 +78,15 @@ Puoi controllare quali utenti e gruppi possono visualizzare le singole cartelle 
 
 ## <a name="to-control-folder-visibility-by-using-a-command-line"></a>Per controllare la visibilità di una cartella tramite una riga di comando
 
-1.  Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)**.
+1. Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)** .
 
-2.  Digitare il comando seguente, dove *&lt;DFSPath&gt;* è il percorso della cartella DFS (collegamenti), *< dominio\\Account >* è il nome dell'account utente o gruppo, e *(...)*  viene sostituito con altre voci di controllo di accesso (ACE):
+2. Digitare il comando seguente, dove *&lt;DFSPath&gt;* è il percorso della cartella DFS (collegamenti), *< dominio\\Account >* è il nome dell'account utente o gruppo, e *(...)*  viene sostituito con altre voci di controllo di accesso (ACE):
 
-    ```
-    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
-    ```
+   ```
+   dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
+   ```
 
-    Ad esempio, per sostituire le autorizzazioni esistenti con le autorizzazioni che consente a CONTOSO e Domain Admins\\formatori gruppi Read (R) accedere al \\contoso.office\public\training cartella, digitare il comando seguente:
+   Ad esempio, per sostituire le autorizzazioni esistenti con le autorizzazioni che consente a CONTOSO e Domain Admins\\formatori gruppi Read (R) accedere al \\contoso.office\public\training cartella, digitare il comando seguente:
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -103,7 +103,7 @@ Puoi controllare quali utenti e gruppi possono visualizzare le singole cartelle 
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Creare un Namespace DFS](create-a-dfs-namespace.md)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Creare uno spazio dei nomi DFS](create-a-dfs-namespace.md)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
 -   [Installazione di DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
 -   [Con l'enumerazione basata sull'accesso le autorizzazioni ereditate](using-inherited-permissions-with-access-based-enumeration.md)

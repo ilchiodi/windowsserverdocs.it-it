@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f95490850acd263fb0b34007ac64a84c9a374865
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da870c4a9676a08070e22f5391164af0bffd4df0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441346"
 ---
 # <a name="set-id"></a>ID del set
 
@@ -39,12 +39,12 @@ set id={ <byte> | <GUID> } [override] [noerr]
   
 ## <a name="parameters"></a>Parametri  
   
-|Parametro|Descrizione|  
-|-------|--------|  
-|<byte>|per record di avvio principale \(MBR\) dischi, specifica il nuovo valore per il campo di tipo, in formato esadecimale, per la partizione. Con questo parametro, ad eccezione di tipo 0x42, che specifica una partizione di gestione dischi LOGICI, è possibile specificare qualsiasi tipo di partizione. Si noti che il 0x iniziale viene omesso quando si specifica il tipo di partizione esadecimale.|  
-|<GUID>|per la tabella di partizione GUID \(gpt\) dischi, specifica il nuovo valore GUID per il campo di tipo per la partizione. GUID riconosciuto includono:<br /><br />-Partizione di sistema EFI: c12a7328\-f81f\-11d 2\-ba4b\-00a0c93ec93b<br />-Partizione di dati di base: ebd0a0a2\-b9e5\-4433\-c 87 0\-68b6b72699c7<br /><br />Qualsiasi tipo di partizione GUID può essere specificato con questo parametro ad eccezione dei seguenti:<br /><br />-Partizione Microsoft Reserved: e3c9e316\-0b5c\-4db8\-d 817\-f92df00215ae<br />-Partizione metadati LDM su un disco dinamico: 5808c8aa\-7e8f\-42e0\-d 85 2\-e1e90434cfb3<br />-Partizione di dati Gestione dischi LOGICI su un disco dinamico: af9b60a0\-1431\-4f62\-bc68\-3311714a69ad<br />-Cluster partizione metadati: db97dba9\-0840\-4bae\-97f0\-ffb9a327c7e1|  
-|eseguire l'override|forza il file system sul volume per smontare prima di modificare il tipo di partizione. Quando si esegue il **id Set** comando DiskPart tenta di bloccare e smontare il file system sul volume. Se **override** non è specificato, e la chiamata di bloccare il file system non riesce \(ad esempio, poiché non esiste un handle aperto\), l'operazione avrà esito negativo. Quando **sostituzione** viene specificato, DiskPart forza la disinstallazione anche se ha esito negativo della chiamata a bloccare il file system e tutti gli handle aperti per il volume non saranno più validi.<br /><br />Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.|  
-|NOERR|Usato solo negli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
+| Parametro |                                                                                                                                                                                                                                                                                                                                                                   Descrizione                                                                                                                                                                                                                                                                                                                                                                   |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <byte>   |                                                                                                                                                                                                       per record di avvio principale \(MBR\) dischi, specifica il nuovo valore per il campo di tipo, in formato esadecimale, per la partizione. Con questo parametro, ad eccezione di tipo 0x42, che specifica una partizione di gestione dischi LOGICI, è possibile specificare qualsiasi tipo di partizione. Si noti che il 0x iniziale viene omesso quando si specifica il tipo di partizione esadecimale.                                                                                                                                                                                                       |
+|  <GUID>   | per la tabella di partizione GUID \(gpt\) dischi, specifica il nuovo valore GUID per il campo di tipo per la partizione. GUID riconosciuto includono:<br /><br />-Partizione di sistema EFI: c12a7328\-f81f\-11d 2\-ba4b\-00a0c93ec93b<br />-Partizione di dati di base: ebd0a0a2\-b9e5\-4433\-c 87 0\-68b6b72699c7<br /><br />Qualsiasi tipo di partizione GUID può essere specificato con questo parametro ad eccezione dei seguenti:<br /><br />-Partizione Microsoft Reserved: e3c9e316\-0b5c\-4db8\-d 817\-f92df00215ae<br />-Partizione metadati LDM su un disco dinamico: 5808c8aa\-7e8f\-42e0\-d 85 2\-e1e90434cfb3<br />-Partizione di dati Gestione dischi LOGICI su un disco dinamico: af9b60a0\-1431\-4f62\-bc68\-3311714a69ad<br />-Cluster partizione metadati: db97dba9\-0840\-4bae\-97f0\-ffb9a327c7e1 |
+| eseguire l'override  |                                                                forza il file system sul volume per smontare prima di modificare il tipo di partizione. Quando si esegue il **id Set** comando DiskPart tenta di bloccare e smontare il file system sul volume. Se **override** non è specificato, e la chiamata di bloccare il file system non riesce \(ad esempio, poiché non esiste un handle aperto\), l'operazione avrà esito negativo. Quando **sostituzione** viene specificato, DiskPart forza la disinstallazione anche se ha esito negativo della chiamata a bloccare il file system e tutti gli handle aperti per il volume non saranno più validi.<br /><br />Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.                                                                 |
+|   NOERR   |                                                                                                                                                                                                                                                                    Usato solo negli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                                                                                                                                                                                                                                                    |
   
 ## <a name="remarks"></a>Note  
   
@@ -66,7 +66,7 @@ set id=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
 ```  
   
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 
   

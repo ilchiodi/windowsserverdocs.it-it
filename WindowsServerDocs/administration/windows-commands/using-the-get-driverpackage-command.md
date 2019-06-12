@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6574177f1f0a8ead0cc2fa596380eb2c980f8d1f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0f123d281625140b3c4ba46316cb9b773bf5fee
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888522"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440511"
 ---
 # <a name="using-the-get-driverpackage-command"></a>Utilizzando il comando get /InfFile
 
@@ -34,12 +34,12 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|[/ Server:\<nome Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-|[/ Get /InfFile:\<nome >]|Specifica il nome del pacchetto driver da visualizzare.|
-|[/PackageId:\<ID>]|Specifica l'ID di servizi di distribuzione Windows del pacchetto driver da visualizzare. Se il pacchetto driver non può essere identificato in modo univoco in base al nome, è necessario specificare l'ID.|
-|[/Show: {driver | File | All}]|Indica le informazioni da visualizzare (se specificato). Se **/Mostra** non viene specificato, il valore predefinito è per restituire solo i driver dei metadati del pacchetto. **I driver** Visualizza tutti i driver nel pacchetto. **File** consente di visualizzare l'elenco dei file nel pacchetto. **Tutti i** consente di visualizzare i driver, file e metadati.|
+|        Parametro         |                                                                           Descrizione                                                                            |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [/ Server:\<nome Server >] |              Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale.               |
+| [/ Get /InfFile:\<nome >] |                                                        Specifica il nome del pacchetto driver da visualizzare.                                                         |
+|    [/PackageId:\<ID>]    | Specifica l'ID di servizi di distribuzione Windows del pacchetto driver da visualizzare. Se il pacchetto driver non può essere identificato in modo univoco in base al nome, è necessario specificare l'ID. |
+|     [/Show: {driver     |                                                                              File                                                                               |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -53,4 +53,4 @@ WDSUTIL /Get-DriverPackage /DriverPackage:MyDriverPackage /Show:All
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 02/05/2019
-ms.openlocfilehash: 6b67208176b426f52d3c5106f8de09ad334d3b01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87878eba785c0e1cc50454a74b2af4a159e88e12
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829532"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443667"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Verificare che consente di attestare gli host sorvegliati 
 
@@ -52,16 +52,16 @@ Un amministratore dell'infrastruttura dovrà confermare che è possono eseguire 
         Get-HgsTrace -RunDiagnostics -Detailed
 
     > [!IMPORTANT]
-    > Se si usa Windows Server 2019 o Windows 10, versione 1809 e usano i criteri di integrità di codice, `Get-HgsTrace` può restituire un errore per il **codice l'integrità dei criteri Active** diagnostica.
+    > Se si usa Windows Server 2019 o Windows 10, versione 1809 e usano i criteri di integrità di codice, `Get-HgsTrace` restituiscono un errore per il **codice l'integrità dei criteri Active** diagnostica.
     > Quando è il solo errori diagnostica, è possibile ignorare questo risultato.
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Distribuire VM schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+> [!div class="nextstepaction"]
+> [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
 ## <a name="see-also"></a>Vedere anche
 
 - [Distribuire il servizio sorveglianza Host (HGS)](guarded-fabric-deploying-hgs-overview.md)
-- [Distribuire VM schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 

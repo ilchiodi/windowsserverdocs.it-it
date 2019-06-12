@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: dd0a160213e69e59194e1f775040c12769f1eb5e
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 844c9d1b0fef9fc49a699bbe09bcb28657d31b2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772485"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447627"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Replica di archiviazione da server a server con Replica archiviazione
 
@@ -201,7 +201,7 @@ Se si usa Windows Admin Center per gestire la Replica di archiviazione, usare la
 3. Selezionare **Replica di archiviazione** dal Pannello di strumenti.
 4. Selezionare **New** per creare una nuova relazione.
 5. Fornire i dettagli della relazione e quindi selezionare **Create**. <br>
-![La schermata nuova Partnership che mostra i dettagli di collaborazione, ad esempio una dimensione del Registro di 8 GB.](media\Storage-Replica-UI\Honolulu_SR_Create_Partnership.png)
+   ![La schermata nuova Partnership che mostra i dettagli di collaborazione, ad esempio una dimensione del Registro di 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
 
     **Figura 3: Creazione di una nuova relazione**
 
@@ -410,23 +410,23 @@ Replica archiviazione non presenta alcuna di queste limitazioni. Tuttavia, prese
 Se questi fattori non rappresentano un limite, Replica di archiviazione consente di sostituire i server di Replica DFS con questa tecnologia più recente.   
 Il processo è così suddiviso a un livello elevato:  
 
-1.  Installare Windows Server in due server e configurare l'archiviazione. Questo potrebbe comportare l'aggiornamento di un set esistente di server o la relativa installazione.  
-2.  Verificare l'esistenza di tutti i dati che si desidera replicare in uno o più volumi di dati e non sull'unità C:.   
-a.  È inoltre possibile effettuare il seeding dei dati sull'altro server per risparmiare tempo usando un backup o copie del file, oppure sfruttare l'archiviazione con thin provisioning. A differenza di Replica DFS, non è necessario che la sicurezza analoga a quella dei metadati corrisponda perfettamente.  
-3.  Condividere i dati nel server di origine e renderli accessibili tramite uno spazio dei nomi DFS. Questa azione è importante per garantire che gli utenti possano comunque accedervi se il nome del server viene modificato in un sito di emergenza.  
-a.  È possibile creare condivisioni corrispondenti nel server di destinazione, che non sarà disponibile durante le normali operazioni.   
-b.  Non aggiungere il server di destinazione allo spazio dei nomi di spazi dei nomi DFS, o tal caso, assicurarsi che tutte le destinazioni cartella siano disabilitate.  
-4.  Abilitare la replica di Replica archiviazione e completare la sincronizzazione iniziale. La replica può essere sincrona o asincrona.   
-a.  Tuttavia, è consigliabile la replica sincrona per garantire la coerenza dei dati di I/O nel server di destinazione.   
-b.  È consigliabile abilitare il servizio Copia Shadow del volume ed eseguire periodicamente gli snapshot con VSSADMIN o altri strumenti. Ciò garantisce che le applicazioni scarichino i propri file di dati su disco in modo coerente. In caso di emergenza, è possibile ripristinare i file dagli snapshot nel server di destinazione che potrebbe essere stato parzialmente replicato in modo asincrono. Gli snapshot vengono replicati insieme ai file.  
-5.  Usare normalmente fino a quando non si verifica una situazione di emergenza.  
-6.  Fare in modo che il server di destinazione diventi la nuova origine, la quale riflette i volumi replicati agli utenti.  
-7.  Se si usa la replica sincrona, il ripristino dei dati non sarà necessario a meno che l'utente non stia usando un'applicazione che sta scrivendo i dati senza la protezione delle transazioni, indipendentemente dalla replica, durante la perdita del server di origine. Se si usa la replica asincrona la necessità di un montaggio snapshot VSS sarà maggiore, ma è consigliabile usare VSS in tutte le circostanze per gli snapshot coerenti con l'applicazione.  
-8.  Aggiungere il server e le sue azioni come destinazione cartella spazi dei nomi DFS.   
-9.  Gli utenti possono quindi accedere ai dati.  
+1. Installare Windows Server in due server e configurare l'archiviazione. Questo potrebbe comportare l'aggiornamento di un set esistente di server o la relativa installazione.  
+2. Verificare l'esistenza di tutti i dati che si desidera replicare in uno o più volumi di dati e non sull'unità C:.   
+   a.  È inoltre possibile effettuare il seeding dei dati sull'altro server per risparmiare tempo usando un backup o copie del file, oppure sfruttare l'archiviazione con thin provisioning. A differenza di Replica DFS, non è necessario che la sicurezza analoga a quella dei metadati corrisponda perfettamente.  
+3. Condividere i dati nel server di origine e renderli accessibili tramite uno spazio dei nomi DFS. Questa azione è importante per garantire che gli utenti possano comunque accedervi se il nome del server viene modificato in un sito di emergenza.  
+   a.  È possibile creare condivisioni corrispondenti nel server di destinazione, che non sarà disponibile durante le normali operazioni.   
+   b.  Non aggiungere il server di destinazione allo spazio dei nomi di spazi dei nomi DFS, o tal caso, assicurarsi che tutte le destinazioni cartella siano disabilitate.  
+4. Abilitare la replica di Replica archiviazione e completare la sincronizzazione iniziale. La replica può essere sincrona o asincrona.   
+   a.  Tuttavia, è consigliabile la replica sincrona per garantire la coerenza dei dati di I/O nel server di destinazione.   
+   b.  È consigliabile abilitare il servizio Copia Shadow del volume ed eseguire periodicamente gli snapshot con VSSADMIN o altri strumenti. Ciò garantisce che le applicazioni scarichino i propri file di dati su disco in modo coerente. In caso di emergenza, è possibile ripristinare i file dagli snapshot nel server di destinazione che potrebbe essere stato parzialmente replicato in modo asincrono. Gli snapshot vengono replicati insieme ai file.  
+5. Usare normalmente fino a quando non si verifica una situazione di emergenza.  
+6. Fare in modo che il server di destinazione diventi la nuova origine, la quale riflette i volumi replicati agli utenti.  
+7. Se si usa la replica sincrona, il ripristino dei dati non sarà necessario a meno che l'utente non stia usando un'applicazione che sta scrivendo i dati senza la protezione delle transazioni, indipendentemente dalla replica, durante la perdita del server di origine. Se si usa la replica asincrona la necessità di un montaggio snapshot VSS sarà maggiore, ma è consigliabile usare VSS in tutte le circostanze per gli snapshot coerenti con l'applicazione.  
+8. Aggiungere il server e le sue azioni come destinazione cartella spazi dei nomi DFS.   
+9. Gli utenti possono quindi accedere ai dati.  
 
- > [!NOTE]
- > La pianificazione del ripristino di emergenza è un argomento complesso e che richiede particolare attenzione ai dettagli. È consigliabile creare runbook ed eseguire annualmente le esercitazioni di failover in tempo reale. Quando si verifica un'emergenza effettiva, regnerà il caos e il personale esperto potrebbe non essere disponibile.  
+   > [!NOTE]
+   > La pianificazione del ripristino di emergenza è un argomento complesso e che richiede particolare attenzione ai dettagli. È consigliabile creare runbook ed eseguire annualmente le esercitazioni di failover in tempo reale. Quando si verifica un'emergenza effettiva, regnerà il caos e il personale esperto potrebbe non essere disponibile.  
 
 ## <a name="add-azure-vm-expressroute"></a>Aggiunta di una VM di Azure connessa alla rete tramite ExpressRoute
 

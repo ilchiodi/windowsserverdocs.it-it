@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d901097eb280679a388ff66161e3514befcd13
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834402"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452648"
 ---
 # <a name="add-a-module-to-a-tool-extension"></a>Aggiungere un modulo a un'estensione dello strumento
 
@@ -23,7 +23,7 @@ In questo articolo, si aggiungerà un modulo vuoto per un'estensione degli strum
 
 ## <a name="prepare-your-environment"></a>Preparazione dell'ambiente
 
-Se hai già fatto, seguire le istruzioni di sviluppare un [lo strumento](..\develop-tool.md) (o [soluzione](..\develop-solution.md)) estensione a preparare l'ambiente e creare un'estensione per strumento nuovo e vuoto.
+Se hai già fatto, seguire le istruzioni di sviluppare un [lo strumento](../develop-tool.md) (o [soluzione](../develop-solution.md)) estensione a preparare l'ambiente e creare un'estensione per strumento nuovo e vuoto.
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Usare il comando di Angular per creare un modulo (e component)
 
@@ -181,4 +181,4 @@ Ecco un esempio di un percorso predefinito aggiornato:
 
 ## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
 
-Viene aggiunto un modulo all'estensione.  Successivamente, è possibile [compilazione e sul lato carico](..\develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center per visualizzare i risultati.
+Viene aggiunto un modulo all'estensione.  Successivamente, è possibile [compilazione e sul lato carico](../develop-tool.md#build-and-side-load-your-extension) dell'estensione in Windows Admin Center per visualizzare i risultati.

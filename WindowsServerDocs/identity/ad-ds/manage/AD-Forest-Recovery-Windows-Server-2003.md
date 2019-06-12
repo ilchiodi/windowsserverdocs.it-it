@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 1a9db8b4cdfbb4cc7d7edc2a17a3e747943fb073
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034143"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442798"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Ripristino della foresta Active Directory - ripristino di Windows Server 2003
 
@@ -100,7 +100,7 @@ Se il controller di dominio che è stato ripristinato da un backup è in esecuzi
 
 5. Fare clic su **avviare**, scegliere **tutti i programmi**, scegliere **strumenti di amministrazione**, quindi fare clic su **DNS**.  
 6. Creare zone DNS per gli stessi nomi di dominio DNS ospitate sui server DNS prima il malfunzionamento critico. Per altre informazioni, vedere Aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).  
-7. Configurare i dati DNS esistente prima di malfunzionamento critico. Ad esempio:   
+7. Configurare i dati DNS esistente prima di malfunzionamento critico. Ad esempio:  
 
    - Configurare le zone DNS di essere archiviati in Active Directory Domain Services. Per altre informazioni, vedere Modifica il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).  
    - Configurare la zona DNS autorevole per record di risorse (DC Locator) del localizzatore di controller di dominio consentire l'aggiornamento dinamico sicuro. Per altre informazioni, vedere consentire solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).  
@@ -112,10 +112,10 @@ Se il controller di dominio che è stato ripristinato da un backup è in esecuzi
 
 10. Digitare il comando seguente e quindi premere INVIO:  
 
-   **comando Net start netlogon**
+    **comando Net start netlogon**
 
-   > [!NOTE]
-   > Accesso alla rete verrà registrati i record di risorse localizzatore di controller di dominio in DNS per questo controller di dominio. Se si installa il servizio Server DNS in un server del dominio figlio, questo controller di dominio non sarà in grado di registrare i propri record immediatamente. Infatti è attualmente isolato come parte del processo di ripristino e il server DNS primario server DNS radice della foresta. Configurare il computer con lo stesso indirizzo IP che aveva prima dell'emergenza per evitare errori di ricerca del servizio di controller di dominio.
+    > [!NOTE]
+    > Accesso alla rete verrà registrati i record di risorse localizzatore di controller di dominio in DNS per questo controller di dominio. Se si installa il servizio Server DNS in un server del dominio figlio, questo controller di dominio non sarà in grado di registrare i propri record immediatamente. Infatti è attualmente isolato come parte del processo di ripristino e il server DNS primario server DNS radice della foresta. Configurare il computer con lo stesso indirizzo IP che aveva prima dell'emergenza per evitare errori di ricerca del servizio di controller di dominio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

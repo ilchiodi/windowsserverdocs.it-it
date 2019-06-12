@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 284e02174b4a8c06f114640223d289dc63ea3a26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f735c45582bc9d1746f18c0ac7c9888a4b3ac88
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890392"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445564"
 ---
 # <a name="prepare-to-migrate-a-sql-server-farm"></a>Preparare la migrazione di una farm SQL Server  
  Per preparare la migrazione di ADFS 2.0 federation server che appartengono a una farm di SQL Server a Windows Server 2012, è necessario esportare ed eseguire il backup dei dati di configurazione di ADFS da questi server.  
@@ -38,21 +38,21 @@ ms.locfileid: "59890392"
 >   
 >  Questo passaggio è facoltativo, poiché questo è memorizzato nell'archivio dei certificati personali nel computer locale e verrà conservato durante l'aggiornamento del sistema operativo.  
   
-2.  Esportare eventuali altri certificati e chiavi di decrittografia di token, di firma di token e di comunicazioni di servizi non generati internamente da ADFS.  
+2. Esportare eventuali altri certificati e chiavi di decrittografia di token, di firma di token e di comunicazioni di servizi non generati internamente da ADFS.  
   
 È possibile visualizzare tutti i certificati in uso da parte di ADFS nel server tramite Windows PowerShell. Aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Quindi eseguire il comando seguente per visualizzare tutti i certificati che sono in uso nel server `PSH:>Get-ADFSCertificate`. Nell'output di questo comando sono inclusi i valori StoreLocation e StoreName che specificano il percorso dell'archivio per ogni certificato.  
   
 > [!NOTE]
 >  Facoltativamente, è quindi possibile attenersi alle indicazioni fornite in [Esportare la parte di chiave privata di un certificato di autenticazione server](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) per esportare ogni certificato con la relativa chiave privata in un file con estensione pfx. Questo passaggio è facoltativo, poiché tutti i certificati esterni vengono conservati durante l'aggiornamento del sistema operativo.  
   
-3.  Eseguire il backup del file di configurazione dell'applicazione. Tra le altre impostazioni, questo file contiene la stringa di connessione al database dei criteri.  
+3. Eseguire il backup del file di configurazione dell'applicazione. Tra le altre impostazioni, questo file contiene la stringa di connessione al database dei criteri.  
   
 Per eseguire il backup del file di configurazione dell'applicazione, è necessario copiare manualmente il file `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` in una posizione sicura in un server di backup.  
   
 > [!NOTE]
 >  Registrare la stringa di connessione di SQL Server dopo "policystore connectionstring =" nel seguente file: `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`. Questa stringa è necessaria quando si ripristina la configurazione originale di ADFS nel server federativo.  
   
-4.  Registrare l'identità dell'account del servizio AD FS 2.0 federation e la password dell'account.  
+4. Registrare l'identità dell'account del servizio AD FS 2.0 federation e la password dell'account.  
   
 Per trovare il valore di identità, controllare la **Accedi come** della colonna della **AD FS 2.0 Windows Service** nel **Services** della console e registrare manualmente il valore.  
   
@@ -67,4 +67,4 @@ Per trovare il valore di identità, controllare la **Accedi come** della colonna
  [Preparare la migrazione del Proxy Server 2.0 Federation di AD FS](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione di AD Server federativo ADFS 2.0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del Proxy Server 2.0 Federation di AD FS](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Eseguire la migrazione di AD agenti Web ADFS 1.1](migrate-the-ad-fs-web-agent.md)
+ [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

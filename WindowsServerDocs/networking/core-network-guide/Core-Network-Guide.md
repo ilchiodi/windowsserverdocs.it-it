@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0a9ef4c61794aec6c46cdad2c7111a03430972a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef764356c5f74eb0aff15753e7f83a020c68c091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446537"
 ---
 # <a name="core-network-components"></a>Componenti di una rete core
 
@@ -486,9 +486,9 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 3.  In **connessioni di rete**, pulsante destro del mouse sulla connessione che si desidera configurare e quindi fare clic su **proprietà**. La connessione di rete **proprietà** verrà visualizzata la finestra di dialogo.
 
-4.  Nella connessione di rete **proprietà** della finestra di dialogo **la connessione utilizza i seguenti elementi**, selezionare **Internet Protocol versione 4 (TCP/IPv4)**, quindi fare clic su **proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
+4.  Nella connessione di rete **proprietà** della finestra di dialogo **la connessione utilizza i seguenti elementi**, selezionare **Internet Protocol versione 4 (TCP/IPv4)** , quindi fare clic su **proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
 
-5.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)**, via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
+5.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)** , via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
 
 6.  Premere TAB per posizionare il cursore in **Subnet mask**. Viene immesso automaticamente un valore predefinito per la subnet mask. Accettare la subnet mask predefinita oppure digitare la subnet mask che si desidera utilizzare.
 
@@ -561,11 +561,11 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
 
 Dopo aver completato l'installazione, viene visualizzato il messaggio seguente in Windows PowerShell.
 
-    
+
     Success Restart Needed  Exit Code   Feature Result
     ------- --------------  ---------   --------------
     True    No              Success     {Active Directory Domain Services, Group P...
-    
+
 
 - In Windows PowerShell, digitare il comando seguente, sostituendo il testo **corp.contoso.com** con il nome di dominio e quindi premere INVIO:
 
@@ -583,11 +583,13 @@ Install-ADDSForest -DomainName "corp.contoso.com"
 
 - Quando viene visualizzato il seguente prompt dei comandi, digitare la lettera **Y** e quindi premere INVIO.
 
-    
-    Il server di destinazione verrà configurato come controller di dominio e riavviato durante questa operazione è stata completata.
-    Si desidera continuare con questa operazione?
-    [Y] Sì [A] Sì a tutti [N] Nessun [L] non a tutti [S] Sospendi [?] Guida (valore predefinito è "Y"):
-    
+
+~~~
+The target server will be configured as a domain controller and restarted when this operation is complete.
+Do you want to continue with this operation?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+~~~
+
 - Se si desidera, è possibile leggere i messaggi di avviso visualizzate durante il normale installazione di Active Directory e DNS. Questi messaggi sono normali e non sono un'indicazione di errore di installazione.
 
 - Al termine dell'installazione, viene visualizzato un messaggio che informa che sta tentando di essere connessi a un computer in modo che sia possibile riavviare il computer. Se si sceglie **Chiudi**immediatamente sono disconnessi dal computer e il riavvio del computer. Se non si sceglie **Chiudi**, il computer viene riavviato dopo un periodo predefinito di tempo.
@@ -940,7 +942,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 
 1.  Accedere al computer con l'account Administrator locale.
 
-2.  In **eseguire una ricerca web e Windows**, tipo **sistema**. Nei risultati della ricerca, fare clic su **sistema (Pannello di controllo)**. Viene visualizzata la finestra di dialogo **Sistema**.
+2.  In **eseguire una ricerca web e Windows**, tipo **sistema**. Nei risultati della ricerca, fare clic su **sistema (Pannello di controllo)** . Viene visualizzata la finestra di dialogo **Sistema**.
 
 3.  In **sistema**, fare clic su **impostazioni di sistema avanzate**. Il **le proprietà di sistema** verrà visualizzata la finestra di dialogo. Fare clic su di **nome Computer** scheda.
 
@@ -1098,7 +1100,7 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 
 1.  Su NPS1, in Server Manager, fare clic su strumenti e quindi fare clic su **Server dei criteri di rete**. Si apre lo snap-in MMC Server dei criteri di rete.
 
-2.  Fare doppio clic su **dei criteri di RETE (locale)**, quindi fare clic su **Registra server in Active Directory**. Il **Server dei criteri di rete** verrà visualizzata la finestra di dialogo.
+2.  Fare doppio clic su **dei criteri di RETE (locale)** , quindi fare clic su **Registra server in Active Directory**. Il **Server dei criteri di rete** verrà visualizzata la finestra di dialogo.
 
 3.  In **Server dei criteri di rete**, fare clic su **OK**, quindi fare clic su **OK** nuovamente.
 
@@ -1147,7 +1149,7 @@ Per completare questa procedura, è necessario essere un membro del **amministra
 
 4.  Nel **server di destinazione** pagina, assicurarsi che il computer locale è selezionato, quindi fare clic su **Avanti**.
 
-5.  Nel **Selezione ruoli server** pagina, scorrere e selezionare **Server Web (IIS)**. Il **aggiungere le funzionalità necessarie per Server Web (IIS)** verrà visualizzata la finestra di dialogo. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
+5.  Nel **Selezione ruoli server** pagina, scorrere e selezionare **Server Web (IIS)** . Il **aggiungere le funzionalità necessarie per Server Web (IIS)** verrà visualizzata la finestra di dialogo. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
 
 6.  Fare clic su **Avanti** fino a quando non è stato accettato tutte l'impostazione predefinita le impostazioni del server web e quindi fare clic su **installare**.
 
@@ -1250,9 +1252,9 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
 
 4.  In **connessioni di rete**, fare doppio clic su connessione di rete che si desidera configurare e quindi fare clic su **proprietà**.
 
-5.  In **Proprietà connessione alla rete locale (LAN)**, in **La connessione utilizza gli elementi seguenti**, selezionare **Protocollo IP versione 4 (TCP/IPv4)**, quindi fare clic su **Proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
+5.  In **Proprietà connessione alla rete locale (LAN)** , in **La connessione utilizza gli elementi seguenti**, selezionare **Protocollo IP versione 4 (TCP/IPv4)** , quindi fare clic su **Proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
 
-6.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)**, via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
+6.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)** , via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
 
 7.  Premere TAB per posizionare il cursore in **Subnet mask**. Viene immesso automaticamente un valore predefinito per la subnet mask. Accettare la subnet mask predefinita oppure digitare la subnet mask che si desidera utilizzare.
 
@@ -1277,9 +1279,9 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 4.  In **connessioni di rete**, fare doppio clic su connessione di rete che si desidera configurare e quindi fare clic su **proprietà**.
 
-5.  In **Proprietà connessione alla rete locale (LAN)**, in **La connessione utilizza gli elementi seguenti**, selezionare **Protocollo IP versione 4 (TCP/IPv4)**, quindi fare clic su **Proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
+5.  In **Proprietà connessione alla rete locale (LAN)** , in **La connessione utilizza gli elementi seguenti**, selezionare **Protocollo IP versione 4 (TCP/IPv4)** , quindi fare clic su **Proprietà**. Il **proprietà protocollo Internet versione 4 (TCP/IPv4)** verrà visualizzata la finestra di dialogo.
 
-6.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)**, via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
+6.  In **proprietà protocollo Internet versione 4 (TCP/IPv4)** , via il **Generale** scheda, fare clic su **utilizzare il seguente indirizzo IP**. In **indirizzo IP**, digitare l'indirizzo IP che si desidera utilizzare.
 
 7.  Premere TAB per posizionare il cursore in **Subnet mask**. Viene immesso automaticamente un valore predefinito per la subnet mask. Accettare la subnet mask predefinita oppure digitare la subnet mask che si desidera utilizzare.
 

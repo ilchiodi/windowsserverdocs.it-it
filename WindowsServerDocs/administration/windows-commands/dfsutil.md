@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 245f8fb2e6419d22da3e2e76eebd9f801ab90664
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821482"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439655"
 ---
 # <a name="dfsutil"></a>dfsutil
 
@@ -53,13 +53,13 @@ command </parameter> </param2>
 Se si specifica un oggetto \(ad esempio un server dello spazio dei nomi\) alla fine di un comando, la maggior parte dei comandi visualizzerà le informazioni sull'oggetto senza richiedere ulteriori parametri o i comandi. Ad esempio, quando si usa il comando radice dfsutil, è possibile aggiungere una radice dello spazio dei nomi per il comando per visualizzare le informazioni sulla directory principale.
 
 ## <a name="BKMK_Examples"></a>Esempi
-<Here is where you put a detailed description of your example.>
+&lt;Ecco dove è inserire una descrizione dettagliata del tuo esempio.&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-<Here is where you put a detailed description of another example.>
+&lt;Ecco dove è inserire una descrizione dettagliata di un altro esempio.&gt;
 
 ```
 This /is /a:different /example
@@ -67,6 +67,6 @@ This /is /a:different /example
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 

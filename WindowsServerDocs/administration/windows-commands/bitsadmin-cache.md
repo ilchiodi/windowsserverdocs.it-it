@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 75d303928250053ee30d344e1d8730b07ba452fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 80077957df0891d738364552491a66a00e831168
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845812"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435056"
 ---
-#<a name="bitsadmin-cache"></a>cache Bitsadmin
+# <a name="bitsadmin-cache"></a>cache Bitsadmin
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -43,18 +43,18 @@ bitsadmin /Cache /SetExpirationtime
 
 |Parametro|Descrizione|
 |-------|--------|
-|[Guida in linea e bitsadmin cache](bitsadmin-cache-and-help.md)|Visualizza il comando\-linee dell'utilizzo per il \/commutatori di Cache.|
-|[Cancella e bitsadmin cache](bitsadmin-cache-clear.md)|Elimina la cache locale.|
-|[eliminazione e cache bitsadmin](bitsadmin-cache-and-delete.md)|Elimina una voce della cache.|
-|[DeleteUrl e cache bitsadmin](bitsadmin-cache-and-deleteurl.md)|Elimina tutte le voci della cache per l'URL specificato.|
-|[elenco e bitsadmin cache](bitsadmin-cache-and-list.md)|Elenca tutte le voci della cache.|
-|[informazioni e cache bitsadmin](bitsadmin-cache-and-info.md)|I dump di una voce della cache specifica.|
-|[getlimit e cache bitsadmin](bitsadmin-cache-and-getlimit.md)|Recupera il limite della cache.|
-|[setlimit e cache bitsadmin](bitsadmin-cache-and-setlimit.md)|Imposta il limite della cache.|
-|[getexpirationtime e cache bitsadmin](bitsadmin-cache-and-getexpirationtime.md)|Recupera l'ora di scadenza della cache.|
-|[setexpirationtime e cache bitsadmin](bitsadmin-cache-and-setexpirationtime.md)|Imposta l'ora di scadenza della cache.|
+|[bitsadmin cache e help](bitsadmin-cache-and-help.md)|Visualizza il comando\-linee dell'utilizzo per il \/commutatori di Cache.|
+|[bitsadmin cache e clear](bitsadmin-cache-clear.md)|Elimina la cache locale.|
+|[bitsadmin cache e delete](bitsadmin-cache-and-delete.md)|Elimina una voce della cache.|
+|[bitsadmin cache e deleteurl](bitsadmin-cache-and-deleteurl.md)|Elimina tutte le voci della cache per l'URL specificato.|
+|[bitsadmin cache e list](bitsadmin-cache-and-list.md)|Elenca tutte le voci della cache.|
+|[bitsadmin cache e info](bitsadmin-cache-and-info.md)|I dump di una voce della cache specifica.|
+|[bitsadmin cache e getlimit](bitsadmin-cache-and-getlimit.md)|Recupera il limite della cache.|
+|[bitsadmin cache e setlimit](bitsadmin-cache-and-setlimit.md)|Imposta il limite della cache.|
+|[bitsadmin cache e getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|Recupera l'ora di scadenza della cache.|
+|[bitsadmin cache e setexpirationtime](bitsadmin-cache-and-setexpirationtime.md)|Imposta l'ora di scadenza della cache.|
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 

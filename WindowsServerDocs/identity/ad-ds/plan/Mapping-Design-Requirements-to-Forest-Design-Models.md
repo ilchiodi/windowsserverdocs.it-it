@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4577e65fe5dd2193fe7256cc555e859a78824b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35d6322f053c7a02dc1df5430b28f771f57a1ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867942"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442575"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Requisiti di progettazione di mapping ai modelli di progettazione di foresta
 
@@ -89,13 +89,13 @@ Considerazioni per la creazione di insiemi di strutture di isolamento dei dati i
 
 - Gli insiemi di strutture organizzative create per l'isolamento dei dati può considerare attendibili i domini da altre foreste, ma gli utenti di altre foreste non devono essere incluso in una qualsiasi delle operazioni seguenti:  
 
-   - Gruppi responsabili per la gestione dei servizi o i gruppi che possono gestire l'appartenenza dei gruppi di amministratori del servizio  
+  - Gruppi responsabili per la gestione dei servizi o i gruppi che possono gestire l'appartenenza dei gruppi di amministratori del servizio  
 
-   - Gruppi che hanno controllo amministrativo su computer in cui archiviare i dati protetti  
+  - Gruppi che hanno controllo amministrativo su computer in cui archiviare i dati protetti  
 
-   - I gruppi che hanno accesso a dati protetti o i gruppi che sono responsabili per la gestione degli oggetti utente o gli oggetti gruppo che hanno accesso a dati protetti  
+  - I gruppi che hanno accesso a dati protetti o i gruppi che sono responsabili per la gestione degli oggetti utente o gli oggetti gruppo che hanno accesso a dati protetti  
 
-   Se in uno di questi gruppi sono inclusi gli utenti da un'altra foresta, la violazione di altra foresta potrà portare alla compromissione dell'insieme di strutture di tipo isolato e la divulgazione dei dati protetti.  
+    Se in uno di questi gruppi sono inclusi gli utenti da un'altra foresta, la violazione di altra foresta potrà portare alla compromissione dell'insieme di strutture di tipo isolato e la divulgazione dei dati protetti.  
 
 - Altre foreste possono essere configurati per considerare attendibile la foresta azienda creata per l'isolamento dei dati in modo che gli utenti nella foresta di tipo isolato possono accedere alle risorse in altre foreste. Tuttavia, gli utenti nella foresta di tipo isolato devono mai accedere in modo interattivo alle workstation nella foresta trusting. Il computer nella foresta trusting può potenzialmente essere compromesse da software dannoso e può essere usato per acquisire le credenziali di accesso dell'utente.  
 

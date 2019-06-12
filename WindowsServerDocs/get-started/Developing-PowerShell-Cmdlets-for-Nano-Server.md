@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443623"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Sviluppo di cmdlet di PowerShell per Nano Server
 
@@ -110,7 +110,7 @@ At line:1 char:1
 Una guida di avvio rapido e informazioni dettagliate per l'installazione di Nano Server in macchine fisiche o virtuali sono disponibili nell'argomento [Installare Nano Server](Getting-Started-with-Nano-Server.md), correlato al presente argomento.  
   
 > [!NOTE]  
-> Per attività di sviluppo su Nano Server può essere utile installare Nano Server usando il parametro -Development di New-NanoServerImage. Questo accorgimento consente infatti di abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori. Ad esempio:   
+> Per attività di sviluppo su Nano Server può essere utile installare Nano Server usando il parametro -Development di New-NanoServerImage. Questo accorgimento consente infatti di abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori. Ad esempio:  
 >  
 >`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`  
   
@@ -127,9 +127,9 @@ Se non si è certi del tipo di implementazione usato per i cmdlet esistenti che 
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
 * \<il percorso di installazione del prodotto >   
     
- In questi percorsi cercare i dettagli seguenti:  
- * cmdlet CIM con estensioni di file cdxml.  
- * cmdlet .NET con estensioni di file dll o con assembly installati nella GAC elencata nel file con estensione psd1 nei campi RootModule, ModuleToProcess o NestedModules.  
+  In questi percorsi cercare i dettagli seguenti:  
+  * cmdlet CIM con estensioni di file cdxml.  
+  * cmdlet .NET con estensioni di file dll o con assembly installati nella GAC elencata nel file con estensione psd1 nei campi RootModule, ModuleToProcess o NestedModules.  
 * cmdlet di script PowerShell con estensioni di file psm1 o ps1.   
   
 ## <a name="porting-cim-cmdlets"></a>Porting di cmdlet CIM  

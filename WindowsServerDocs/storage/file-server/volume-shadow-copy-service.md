@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7b61a0494b8a63168b40bfaed42dedf0fff40c35
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887262"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447762"
 ---
 # <a name="volume-shadow-copy-service"></a>Servizio Copia Shadow del volume
 
@@ -97,7 +97,7 @@ Per creare una copia shadow, il richiedente, lo scrittore e provider di eseguire
 > La creazione di copie shadow può essere interrotta se i writer sono mantenuti nello stato di blocco per più di 60 secondi o se i provider richiedono più di 10 secondi per eseguire il commit la copia shadow. 
 <br>
 
-9.  Il richiedente può ripetere il processo (Vai al passaggio 1) o inviare una notifica all'amministratore di riprovare in un secondo momento.  
+9. Il richiedente può ripetere il processo (Vai al passaggio 1) o inviare una notifica all'amministratore di riprovare in un secondo momento.  
       
 10. Se la copia shadow è stata creata, il servizio Copia Shadow del Volume restituisce le informazioni sul percorso per la copia shadow al richiedente. In alcuni casi, la copia shadow può essere temporaneamente resi disponibile come un volume di lettura / scrittura in modo che VSS, volume e una o più applicazioni possono alterare il contenuto della copia shadow prima che sia terminata la copia shadow. Dopo aver VSS, volume e le applicazioni apportano le modifiche, viene eseguita la copia shadow sola lettura. Questa fase viene chiamata recupero automatico e viene usato per annullare le transazioni nel volume copia shadow del file system o un'applicazione che non sono state completate prima che la copia shadow è stata creata.  
       
@@ -136,7 +136,7 @@ Nel metodo di copia su scrittura, quando viene apportata una modifica al volume 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tempo</th>
+<th>Time</th>
 <th>Dati di origine (stato e dati)</th>
 <th>Copia shadow (stato e dati)</th>
 </tr>
@@ -177,7 +177,7 @@ Nel metodo di reindirizzamento in scrittura, ogni volta che il volume originale 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tempo</th>
+<th>Time</th>
 <th>Dati di origine (stato e dati)</th>
 <th>Copia shadow (stato e dati)</th>
 </tr>
@@ -376,12 +376,12 @@ Per escludere specifici file dalle copie shadow, usare la chiave del Registro di
 
 > [!NOTE]
 > Il <STRONG>FilesNotToSnapshot</STRONG> chiave del Registro di sistema dovrà essere utilizzato solo dalle applicazioni. Gli utenti che tentano di utilizzarlo verificherà le limitazioni, ad esempio il seguente:
-<br>
-<UL>
-<LI>Non è possibile eliminare i file da una copia shadow creata in un Server Windows usando la funzionalità di versioni precedenti.<BR><BR>
-<LI>Non è possibile eliminare i file dalle copie shadow per cartelle condivise.<BR><BR>
-<LI>È possibile eliminare i file da una copia shadow creata usando il [Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow) utility, ma non è possibile eliminare file da una copia shadow creata tramite il [Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin) utilità.<BR><BR>
-<LI>I file vengono eliminati da una copia shadow in un modo più efficiente. Ciò significa che non sono garantiti da eliminare.<BR><BR></LI></UL>
+> <br>
+> <UL>
+> <LI>Non è possibile eliminare i file da una copia shadow creata in un Server Windows usando la funzionalità di versioni precedenti.<BR><BR>
+> <LI>Non è possibile eliminare i file dalle copie shadow per cartelle condivise.<BR><BR>
+> <LI>È possibile eliminare i file da una copia shadow creata usando il <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utility, ma non è possibile eliminare file da una copia shadow creata tramite il <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilità.<BR><BR>
+> <LI>I file vengono eliminati da una copia shadow in un modo più efficiente. Ciò significa che non sono garantiti da eliminare.<BR><BR></LI></UL>
 
 
 Per altre informazioni, vedere [esclusione di file dalle copie Shadow](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) su MSDN.

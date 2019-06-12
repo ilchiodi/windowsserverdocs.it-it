@@ -12,12 +12,12 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 72fe309e0e7ce6d7227cce8b7f2c5dbf018eb4a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813092"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436077"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Risolvere i problemi relativi al monitoraggio di computer in Windows Server Essentials
 
@@ -36,13 +36,13 @@ In questo argomento contiene informazioni sulla risoluzione dei problemi riscont
   
  **Causa** L'errore può essere dovuto a uno dei problemi seguenti nelle impostazioni relative alle notifiche di avviso:  
   
--   Il nome del server SMTP o il numero di porta non è corretto.  
+- Il nome del server SMTP o il numero di porta non è corretto.  
   
--   È stato specificato erroneamente che il server SMTP richiede una connessione SSL.  
+- È stato specificato erroneamente che il server SMTP richiede una connessione SSL.  
   
--   Il server SMTP richiede l'autenticazione e sono state immesse credenziali errate.  
+- Il server SMTP richiede l'autenticazione e sono state immesse credenziali errate.  
   
- **Soluzioni** Correggere gli eventuali errori nelle impostazioni delle notifiche di posta elettronica.  
+  **Soluzioni** Correggere gli eventuali errori nelle impostazioni delle notifiche di posta elettronica.  
   
 ##### <a name="to-identify-issues-in-your-email-notification-settings"></a>Per identificare eventuali problemi nelle impostazioni delle notifiche di posta elettronica  
   
@@ -53,7 +53,7 @@ In questo argomento contiene informazioni sulla risoluzione dei problemi riscont
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Per vedere la cartella ProgramData è necessario visualizzare gli elementi nascosti. Se non si t visualizzata la cartella ProgramData, sulla barra multifunzione s **View** nella scheda il **Mostra/Nascondi** gruppo, selezionare il **elementi nascosti** casella di testo.  
+    >  Per vedere la cartella ProgramData è necessario visualizzare gli elementi nascosti. Se non trovi la cartella ProgramData, della barra multifunzione **View** nella scheda il **Mostra/Nascondi** gruppo, selezionare il **elementi nascosti** casella di testo.  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Per aggiornare la configurazione delle notifiche di posta elettronica per gli avvisi  
   

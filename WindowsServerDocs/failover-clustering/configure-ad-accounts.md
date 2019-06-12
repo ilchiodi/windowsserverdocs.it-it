@@ -6,12 +6,12 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: c15c33e31bf0bf7261097fbea110f2a0a788dab2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772719"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439754"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configurazione di account di cluster in Active Directory
 
@@ -60,12 +60,12 @@ La tabella seguente descrive le autorizzazioni necessarie per questi account.
 <tr class="even">
 <td><p>Account del nome cluster (account computer del cluster)</p></td>
 <td><p>Quando viene eseguita la creazione guidata Cluster, viene creato l'account del nome cluster nel contenitore predefinito che viene usato per gli account computer nel dominio. Per impostazione predefinita, l'account del nome cluster (ad esempio altri account computer) è possibile creare fino a dieci account computer nel dominio.</p>
-<p>Se si crea l'account del nome cluster (oggetto nome cluster) prima di creare il cluster, ovvero, ovvero pre-installare l'account, è necessario specificare il <strong>crea oggetti Computer</strong> e <strong>Leggi tutte le proprietà</strong> autorizzazioni nel contenitore che viene usato per gli account computer nel dominio. È inoltre necessario disabilitare l'account e concedere <strong>controllo completo</strong> parte per l'account che verrà utilizzato dall'amministratore che installa il cluster. Per altre informazioni, vedere [passaggi per la pre-installazione del cluster del nome account](#steps-for-prestaging-the-cluster-name-account), più avanti in questa Guida.</p></td>
+<p>Se si crea l'account del nome cluster (oggetto nome cluster) prima di creare il cluster, ovvero, ovvero pre-installare l'account, è necessario specificare il <strong>crea oggetti Computer</strong> e <strong>Leggi tutte le proprietà</strong> autorizzazioni nel contenitore che viene usato per gli account computer nel dominio. È inoltre necessario disabilitare l'account e concedere <strong>controllo completo</strong> parte per l'account che verrà utilizzato dall'amministratore che installa il cluster. Per altre informazioni, vedere <a href="#steps-for-prestaging-the-cluster-name-account" data-raw-source="[Steps for prestaging the cluster name account](#steps-for-prestaging-the-cluster-name-account)">passaggi per la pre-installazione del cluster del nome account</a>, più avanti in questa Guida.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Account del computer di un'applicazione o servizio cluster</p></td>
 <td><p>Quando la configurazione guidata disponibilità elevata è esecuzione (per creare un nuovo servizio o applicazione cluster), nella maggior parte dei casi, un account computer per il servizio cluster o dell'applicazione viene creata in Active Directory. L'account del nome cluster verrà concesse le autorizzazioni necessarie per controllare questo account. L'eccezione è una macchina virtuale Hyper-V in cluster: non viene creato alcun account computer per questo oggetto.</p>
-<p>Se si pre-installare l'account computer per un servizio o applicazione cluster, è necessario configurarlo con le autorizzazioni necessarie. Per altre informazioni, vedere [passaggi per la configurazione pre-installazione di un account per un servizio o applicazione cluster](#steps-for-prestaging-an-account-for-a-clustered-service-or-application), più avanti in questa Guida.</p></td>
+<p>Se si pre-installare l'account computer per un servizio o applicazione cluster, è necessario configurarlo con le autorizzazioni necessarie. Per altre informazioni, vedere <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">passaggi per la configurazione pre-installazione di un account per un servizio o applicazione cluster</a>, più avanti in questa Guida.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,23 +144,23 @@ L'appartenenza al gruppo minimo necessario per completare la procedura seguente 
 <br>
 
 
-3.  Se l'account che è stata creata oppure ottenuta nel passaggio 1 è un account di amministratore di dominio, ignorare il resto di questa procedura. In caso contrario, assegnare all'account il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni nel contenitore che viene usato per gli account computer nel dominio:
+3. Se l'account che è stata creata oppure ottenuta nel passaggio 1 è un account di amministratore di dominio, ignorare il resto di questa procedura. In caso contrario, assegnare all'account il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni nel contenitore che viene usato per gli account computer nel dominio:
     
-    1.  In un controller di dominio, fare clic su **avviare**, fare clic su **strumenti di amministrazione**, quindi fare clic su **Active Directory Users and Computers**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
+   1.  In un controller di dominio, fare clic su **avviare**, fare clic su **strumenti di amministrazione**, quindi fare clic su **Active Directory Users and Computers**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
           
-    2.  Nel **vista** menu, assicurarsi che **funzionalità avanzate** sia selezionata.  
+   2.  Nel **vista** menu, assicurarsi che **funzionalità avanzate** sia selezionata.  
           
-        Quando **Advanced Features** è selezionata, è possibile visualizzare i **Security** scheda nelle proprietà dell'account (oggetti) in **Active Directory Users and Computers**.  
+       Quando **Advanced Features** è selezionata, è possibile visualizzare i **Security** scheda nelle proprietà dell'account (oggetti) in **Active Directory Users and Computers**.  
           
-    3.  Fare doppio clic il valore predefinito **computer** contenitore o il contenitore predefinito nel computer a cui vengono creati nel dominio, account e quindi fare clic su **proprietà**. **I computer** si trova in <b>Active Directory Users and Computers /</b><i>nodo dominio</i><b>/Computers</b>.  
+   3.  Fare doppio clic il valore predefinito **computer** contenitore o il contenitore predefinito nel computer a cui vengono creati nel dominio, account e quindi fare clic su **proprietà**. **I computer** si trova in <b>Active Directory Users and Computers /</b><i>nodo dominio</i><b>/Computers</b>.  
           
-    4.  Nella scheda **Sicurezza** fare clic su **Avanzate**.  
+   4.  Nella scheda **Sicurezza** fare clic su **Avanzate**.  
           
-    5.  Fare clic su **Add**, digitare il nome dell'account che era stata creata oppure ottenuta nel passaggio 1 e quindi fare clic su **OK**.  
+   5.  Fare clic su **Add**, digitare il nome dell'account che era stata creata oppure ottenuta nel passaggio 1 e quindi fare clic su **OK**.  
           
-    6.  Nel **voci di autorizzazione per * * * contenitore* finestra di dialogo individuare il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni e assicurarsi che il **Consenti** casella di controllo è selezionata per ognuno di essi.  
+   6.  Nel **voci di autorizzazione per * * * contenitore* finestra di dialogo individuare il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni e assicurarsi che il **Consenti** casella di controllo è selezionata per ognuno di essi.  
           
-        ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
+       ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
 
 ## <a name="steps-for-prestaging-the-cluster-name-account"></a>Passaggi per la configurazione pre-installazione l'account del nome cluster
 
@@ -309,9 +309,9 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 <br>
 
 
-9.  Per l'account del nome cluster (detto anche oggetto nome cluster o CNO), assicurarsi che **Allow** sia selezionata per il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni.
+9. Per l'account del nome cluster (detto anche oggetto nome cluster o CNO), assicurarsi che **Allow** sia selezionata per il **crea oggetti Computer** e **Leggi tutte le proprietà** autorizzazioni.
     
-    ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
 
 10. Fare clic su **OK** fino a quando non viene di nuovo il **Active Directory Users and Computers** snap-in.
 
@@ -323,17 +323,17 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 14. Nel **sicurezza** scheda, verificare che l'account del nome cluster sia elencato tra gli account che dispongano delle autorizzazioni e selezionarla. Verificare che l'account del nome cluster disponga **controllo completo** autorizzazione (il **Consenti** casella di controllo è selezionata). In caso contrario, aggiungere l'account del nome cluster all'elenco e assegnargli **controllo completo** l'autorizzazione.
     
-    ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
 
 15. Ripetere i passaggi da 13 a 14 per ogni servizio del cluster e un'applicazione configurata nel cluster.
 
 16. Verificare che la quota a livello di dominio per la creazione di oggetti computer (impostazione predefinita, 10) non è stata raggiunta (consulting con un amministratore di dominio se applicabile). Se gli elementi precedenti in questa procedura tutte stati verificati e corretti e se è stata raggiunta la quota, provare ad aumentare la quota. Per modificare la quota:
     
-    1.  Aprire un prompt dei comandi come amministratore ed eseguire **Adsiedit. msc**.  
+   1.  Aprire un prompt dei comandi come amministratore ed eseguire **Adsiedit. msc**.  
           
-    2.  Fare doppio clic su **ADSI Edit**, fare clic su **connettersi**, quindi fare clic su **OK**. Il **contesto dei nomi predefinito** viene aggiunto alla struttura della console.  
+   2.  Fare doppio clic su **ADSI Edit**, fare clic su **connettersi**, quindi fare clic su **OK**. Il **contesto dei nomi predefinito** viene aggiunto alla struttura della console.  
           
-    3.  Fare doppio clic su **contesto dei nomi predefinito**, fare doppio clic su oggetto di dominio sotto di esso e quindi fare clic su **proprietà**.  
+   3.  Fare doppio clic su **contesto dei nomi predefinito**, fare doppio clic su oggetto di dominio sotto di esso e quindi fare clic su **proprietà**.  
           
-    4.  Scorrere fino alla **ms-DS-MachineAccountQuota**, selezionarlo, fare clic su **Edit**, modificare il valore e quindi fare clic su **OK**.
+   4.  Scorrere fino alla **ms-DS-MachineAccountQuota**, selezionarlo, fare clic su **Edit**, modificare il valore e quindi fare clic su **OK**.
 

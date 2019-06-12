@@ -12,12 +12,12 @@ ms.assetid: 0c82a6cb-d652-429c-9c3d-0f568c78d54b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimps
-ms.openlocfilehash: 50151a322f1ccde2be927de31b0e5c30732b278e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 04fb86d813049dc5f0aa6d4fba51e45dccbd1b80
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813952"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440185"
 ---
 # <a name="wecutil"></a>wecutil
 
@@ -94,32 +94,32 @@ wecutil  [{es | enum-subscription}]
 > [!IMPORTANT]
 > Se si riceve il messaggio, "server RPC non disponibile? Quando si tenta di eseguire wecutil, è necessario avviare il servizio di raccolta eventi Windows (wecsvc). Per avviare wecsvc, a un prompt dei comandi con privilegi elevati, digitare net start wecsvc.
 
--   Nell'esempio seguente viene illustrato il contenuto di un file di configurazione:  
-    ```
-    <Subscription xmlns="https://schemas.microsoft.com/2006/03/windows/events/subscription">
-    <Uri>https://schemas.microsoft.com/wbem/wsman/1/windows/EventLog</Uri>
-    <!-- Use Normal (default), Custom, MinLatency, MinBandwidth -->
-    <ConfigurationMode>Normal</ConfigurationMode>
-    <Description>Forward Sample Subscription</Description>
-    <SubscriptionId>SampleSubscription</SubscriptionId>
-    <Query><![CDATA[
-    <QueryList>
-    <Query Path="Application">
-    <Select>*</Select>
-    </Query>
-    </QueryList>
-    ]]></Query>
-    <EventSources>
-    <EventSource Enabled="true">
-    <Address>mySource.myDomain.com</Address>
-    <UserName>myUserName</UserName>
-    <Password>*</Password>
-    </EventSource>
-    </EventSources>
-    <CredentialsType>Default</CredentialsType>
-    <Locale Language="EN-US"></Locale>
-    </Subscription>
-    ```
+- Nell'esempio seguente viene illustrato il contenuto di un file di configurazione:  
+  ```
+  <Subscription xmlns="https://schemas.microsoft.com/2006/03/windows/events/subscription">
+  <Uri>https://schemas.microsoft.com/wbem/wsman/1/windows/EventLog</Uri>
+  <!-- Use Normal (default), Custom, MinLatency, MinBandwidth -->
+  <ConfigurationMode>Normal</ConfigurationMode>
+  <Description>Forward Sample Subscription</Description>
+  <SubscriptionId>SampleSubscription</SubscriptionId>
+  <Query><![CDATA[
+  <QueryList>
+  <Query Path="Application">
+  <Select>*</Select>
+  </Query>
+  </QueryList>
+  ]]></Query>
+  <EventSources>
+  <EventSource Enabled="true">
+  <Address>mySource.myDomain.com</Address>
+  <UserName>myUserName</UserName>
+  <Password>*</Password>
+  </EventSource>
+  </EventSources>
+  <CredentialsType>Default</CredentialsType>
+  <Locale Language="EN-US"></Locale>
+  </Subscription>
+  ```
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -166,4 +166,4 @@ wecutil ds sub1
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

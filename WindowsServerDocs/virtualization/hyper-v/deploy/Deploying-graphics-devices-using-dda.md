@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 9e9a36df39c7bd7a96cc8c5681e83bf263ee5f8e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833872"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447877"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire i dispositivi di grafica usando discreti dispositivo assegnazione
 
@@ -42,19 +42,19 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 
 Alcuni dispositivi hardware offre prestazioni migliori se la macchina virtuale in configurata in un determinato modo.  Per informazioni dettagliate sulla necessità o meno le seguenti configurazioni per l'hardware, contattare il fornitore dell'hardware. Sono disponibili dettagli aggiuntivi sul [pianificare la distribuzione di dispositivi Usa l'assegnazione dispositivo discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) e in questo [post di blog.](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
 
-1.  Abilitare la combinazione di scrittura sulla CPU
-```
-Set-VM -GuestControlledCacheTypes $true -VMName VMName
-```
-2.  Configurare lo spazio MMIO a 32 bit
-```
-Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
-```
-3.  Configurare maggiore spazio MMIO a 32 bit
-```
-Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
-```
-Si noti che i valori di spazio MMIO riportato sopra sono valori accettabili da impostare per la sperimentazione con una singola GPU.  Se dopo l'avvio della macchina virtuale, il dispositivo segnala un errore relativo a risorse insufficienti, si sarà probabilmente necessario modificare questi valori.  Inoltre, se si assegnano più GPU, è necessario aumentare anche questi valori.
+1. Abilitare la combinazione di scrittura sulla CPU
+   ```
+   Set-VM -GuestControlledCacheTypes $true -VMName VMName
+   ```
+2. Configurare lo spazio MMIO a 32 bit
+   ```
+   Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
+   ```
+3. Configurare maggiore spazio MMIO a 32 bit
+   ```
+   Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
+   ```
+   Si noti che i valori di spazio MMIO riportato sopra sono valori accettabili da impostare per la sperimentazione con una singola GPU.  Se dopo l'avvio della macchina virtuale, il dispositivo segnala un errore relativo a risorse insufficienti, si sarà probabilmente necessario modificare questi valori.  Inoltre, se si assegnano più GPU, è necessario aumentare anche questi valori.
 
 ## <a name="dismount-the-device-from-the-host-partition"></a>Smontare il dispositivo nella partizione Host
 ### <a name="optional---install-the-partitioning-driver"></a>Facoltativo: installare il Driver di partizionamento
@@ -69,14 +69,14 @@ Usa PowerShell o Gestione dispositivi, verificare che il dispositivo viene "disa
 
 ### <a name="dismount-the-device"></a>Smontare il dispositivo
 A seconda se il fornitore ha fornito un driver di mitigazione, ovvero dovrai usare la "-force" opzione oppure No.
--   Se è stato installato un Driver di mitigazione
-```
-Dismount-VMHostAssignableDevice -LocationPath $locationPath
-```
--   Se non è stato installato un Driver di mitigazione
-```
-Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
-```
+- Se è stato installato un Driver di mitigazione
+  ```
+  Dismount-VMHostAssignableDevice -LocationPath $locationPath
+  ```
+- Se non è stato installato un Driver di mitigazione
+  ```
+  Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
+  ```
 
 ## <a name="assigning-the-device-to-the-guest-vm"></a>Assegnazione di dispositivo per la macchina virtuale Guest
 Il passaggio finale consiste nell'indicare Hyper-V che una macchina virtuale deve avere accesso al dispositivo.  Oltre al percorso trovato sopra, è necessario conoscere il nome della macchina virtuale.

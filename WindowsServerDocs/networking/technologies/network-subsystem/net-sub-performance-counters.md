@@ -8,12 +8,12 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824352"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446198"
 ---
 # <a name="network-related-performance-counters"></a>Contatori delle prestazioni di rete
 
@@ -31,43 +31,43 @@ In questo argomento sono elencati i contatori sono rilevanti per la gestione del
 
 Contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risorse di rete.  
   
--   IPv4, IPv6  
+- IPv4, IPv6  
   
-    -   Datagrammi ricevuti/sec  
+  -   Datagrammi ricevuti/sec  
   
-    -   Datagrammi inviati/sec  
+  -   Datagrammi inviati/sec  
   
--   TCPv4, TCPv6  
+- TCPv4, TCPv6  
   
-    -   Segmenti ricevuti/sec  
+  -   Segmenti ricevuti/sec  
   
-    -   Segmenti inviati/sec  
+  -   Segmenti inviati/sec  
   
-    -   Segmenti ritrasmesso/sec  
+  -   Segmenti ritrasmesso/sec  
   
--   Interface(*) di rete, scheda di rete (\*)  
+- Interface(*) di rete, scheda di rete (\*)  
   
-    -   Byte ricevuti/sec  
+  - Byte ricevuti/sec  
   
-    -   Byte inviati/sec  
+  - Byte inviati/sec  
   
-    -   I pacchetti ricevuti/sec  
+  - I pacchetti ricevuti/sec  
   
-    -   I pacchetti inviati/sec  
+  - I pacchetti inviati/sec  
   
-    -   Lunghezza coda di output  
+  - Lunghezza coda di output  
   
-     Questo contatore è la lunghezza della coda di pacchetti di output \(nei pacchetti\). Se si tratta più di 2, si verifichino ritardi. È necessario individuare il collo di bottiglia ed eliminarlo se possibile. Poiché NDIS mette in coda le richieste, la lunghezza deve essere sempre 0.  
+    Questo contatore è la lunghezza della coda di pacchetti di output \(nei pacchetti\). Se si tratta più di 2, si verifichino ritardi. È necessario individuare il collo di bottiglia ed eliminarlo se possibile. Poiché NDIS mette in coda le richieste, la lunghezza deve essere sempre 0.  
   
--   Informazioni sul processore  
+- Informazioni sul processore  
   
-    -   % Tempo processore  
+  - % Tempo processore  
   
-    -   Interrupt/sec  
+  - Interrupt/sec  
   
-    -   Le DPC accodati/sec  
+  - Le DPC accodati/sec  
   
-     Questo contatore è un tasso medio in corrispondenza del quale le DPC sono stati aggiunti alla coda DPC del processore logico. Ogni processore logico ha la propria coda DPC. Questo contatore misura la frequenza con cui le DPC vengono aggiunte alla coda, non il numero di DPC nella coda. Visualizza la differenza tra i valori osservati negli ultimi due esempi divisi per la durata dell'intervallo di campionamento.  
+    Questo contatore è un tasso medio in corrispondenza del quale le DPC sono stati aggiunti alla coda DPC del processore logico. Ogni processore logico ha la propria coda DPC. Questo contatore misura la frequenza con cui le DPC vengono aggiunte alla coda, non il numero di DPC nella coda. Visualizza la differenza tra i valori osservati negli ultimi due esempi divisi per la durata dell'intervallo di campionamento.  
   
 ##  <a name="bkmk_np"></a> Potenziali problemi di rete  
 

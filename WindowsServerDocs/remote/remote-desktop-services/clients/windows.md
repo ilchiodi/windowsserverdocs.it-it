@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 20879507e13ac7da566c95db7b59d88e0b5d8ce8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446681"
 ---
 # <a name="get-started-with-remote-desktop-on-windows"></a>Introduzione a Desktop remoto in Windows
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 È possibile usare il client Desktop remoto per Windows per lavorare con le app di Windows e i desktop in remoto da un altro dispositivo di Windows.
 
@@ -48,25 +48,25 @@ Per creare una connessione Desktop remoto:
 
 1. Nella scelta dei Centro connessioni **+ Aggiungi**, quindi toccare **Desktop**.
 2. Immettere le informazioni seguenti per il computer si desidera connettersi:
-  - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-  - **Account utente** : l'account utente da utilizzare per accedere al computer remoto. Toccare **+** per aggiungere un nuovo account oppure selezionare un account esistente. È possibile usare i formati seguenti per il nome utente: *user_name*, *DOMINIO\nome_utente.*, o *user_name@domain.com*. È inoltre possibile specificare se per la richiesta di un nome utente e password durante la connessione selezionando **Chiedi conferma ogni volta**.
+   - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
+   - **Account utente** : l'account utente da utilizzare per accedere al computer remoto. Toccare **+** per aggiungere un nuovo account oppure selezionare un account esistente. È possibile usare i formati seguenti per il nome utente: *user_name*, *DOMINIO\nome_utente.* , o <em>user_name@domain.com</em>. È inoltre possibile specificare se per la richiesta di un nome utente e password durante la connessione selezionando **Chiedi conferma ogni volta**.
 3. È anche possibile impostare opzioni aggiuntive toccando **Show more**:
-  - **Nome visualizzato** : un nome facile da ricordare per il computer si connette a. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
-  - **Gruppo** : specificare un gruppo per renderlo più semplice trovare le connessioni in un secondo momento. È possibile aggiungere un nuovo gruppo toccando **+** o selezionarne uno dall'elenco.
-  - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
-  - **Connettersi alla sessione di amministrazione** -usare questa opzione per connettersi a una sessione di console per amministrare un server di Windows.
-  - **Scambia i pulsanti del mouse** : utilizzare questa opzione per invertire il puntatore del mouse a sinistra pulsante funzioni per il pulsante destro del mouse. (Ciò è particolarmente utile se sul computer remoto è configurato per un utente da ma si utilizza un mouse da destra.)
-  - **Impostare la risoluzione della sessione remota:** – selezionare la soluzione da usare nella sessione. **Scegliere per me** imposterà la risoluzione in base alla dimensione del client.
-  - **Modificare le dimensioni dello schermo:** : quando si seleziona ad alta risoluzione statica per la sessione, è disponibile l'opzione per consentire agli elementi sullo schermo di dimensioni maggiori per migliorare la leggibilità. Nota: Ciò si applica solo quando ci si connette a Windows 8.1 o versioni successive.
-  - **Aggiornare la risoluzione della sessione remota in caso di ridimensionamento** – quando abilitato, il client verrà aggiornato in modo dinamico la risoluzione di sessione in base alla dimensione del client. Nota: Ciò si applica solo quando ci si connette a Windows 8.1 o versioni successive.
-  - **Appunti** : quando abilitata, consente di copiare il testo e immagini in/da computer remoto.
-  - **Riproduzione audio** : selezionare il dispositivo da usare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il computer remoto, o niente affatto.
-  - **Registrazione audio** : quando abilitata, consente di usare un microfono locale con le applicazioni nel computer remoto.
+   - **Nome visualizzato** : un nome facile da ricordare per il computer si connette a. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
+   - **Gruppo** : specificare un gruppo per renderlo più semplice trovare le connessioni in un secondo momento. È possibile aggiungere un nuovo gruppo toccando **+** o selezionarne uno dall'elenco.
+   - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
+   - **Connettersi alla sessione di amministrazione** -usare questa opzione per connettersi a una sessione di console per amministrare un server di Windows.
+   - **Scambia i pulsanti del mouse** : utilizzare questa opzione per invertire il puntatore del mouse a sinistra pulsante funzioni per il pulsante destro del mouse. (Ciò è particolarmente utile se sul computer remoto è configurato per un utente da ma si utilizza un mouse da destra.)
+   - **Impostare la risoluzione della sessione remota:** – selezionare la soluzione da usare nella sessione. **Scegliere per me** imposterà la risoluzione in base alla dimensione del client.
+   - **Modificare le dimensioni dello schermo:** : quando si seleziona ad alta risoluzione statica per la sessione, è disponibile l'opzione per consentire agli elementi sullo schermo di dimensioni maggiori per migliorare la leggibilità. Nota: Ciò si applica solo quando ci si connette a Windows 8.1 o versioni successive.
+   - **Aggiornare la risoluzione della sessione remota in caso di ridimensionamento** – quando abilitato, il client verrà aggiornato in modo dinamico la risoluzione di sessione in base alla dimensione del client. Nota: Ciò si applica solo quando ci si connette a Windows 8.1 o versioni successive.
+   - **Appunti** : quando abilitata, consente di copiare il testo e immagini in/da computer remoto.
+   - **Riproduzione audio** : selezionare il dispositivo da usare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il computer remoto, o niente affatto.
+   - **Registrazione audio** : quando abilitata, consente di usare un microfono locale con le applicazioni nel computer remoto.
 4. Toccare **salvare**.
 
-È necessario modificare queste impostazioni? Toccare il menu di overflow (**...** ) accanto al nome del desktop e quindi toccare **modifica**.
+È necessario modificare queste impostazioni? Toccare il menu di overflow ( **...** ) accanto al nome del desktop e quindi toccare **modifica**.
 
-Se si desidera eliminare la connessione? Nuovamente, toccare il menu di overflow (**...** ) e quindi toccare **rimuovere**.
+Se si desidera eliminare la connessione? Nuovamente, toccare il menu di overflow ( **...** ) e quindi toccare **rimuovere**.
 
 ### <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota.
 Risorse remote sono programmi RemoteApp, desktop basati su sessione e desktop virtuali pubblicati dall'amministratore tramite Servizi Desktop remoto.
@@ -82,12 +82,12 @@ Verranno visualizzate nel Centro connessioni di risorse remote.
 
 Per eliminare le risorse remote:
 
-1. Nel Centro connessioni, toccare il menu di overflow (**...**) accanto alla risorsa remota.
+1. Nel Centro connessioni, toccare il menu di overflow ( **...** ) accanto alla risorsa remota.
 2. Toccare **rimuovere**.
 
 ### <a name="pin-a-saved-desktop-to-your-start-menu"></a>PIN un desktop salvato dal menu Start
 
-Per aggiungere una connessione a dal menu Start, toccare il menu di overflow (**...** ) accanto al nome del desktop e quindi toccare **Aggiungi a Start**.
+Per aggiungere una connessione a dal menu Start, toccare il menu di overflow ( **...** ) accanto al nome del desktop e quindi toccare **Aggiungi a Start**.
 
 È ora possibile avviare la connessione desktop remoto direttamente dal menu di avvio per selezionarlo.
 
@@ -100,8 +100,8 @@ Per impostare un nuovo gateway:
 1. Nel Centro connessioni, toccare **impostazioni**.
 2. Accanto a Gateway, toccare **+** per aggiungere un nuovo gateway. Nota: È possibile aggiungere un gateway anche quando si aggiunge una nuova connessione.
 3. Immettere le informazioni seguenti:
-  - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
-  - **Account utente** : selezionare o aggiungere un account utente da usare con il Gateway Desktop remoto si è connessi. È inoltre possibile selezionare **utilizzare account utente desktop** per utilizzare le stesse credenziali utilizzate per la connessione desktop remoto.
+   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+   - **Account utente** : selezionare o aggiungere un account utente da usare con il Gateway Desktop remoto si è connessi. È inoltre possibile selezionare **utilizzare account utente desktop** per utilizzare le stesse credenziali utilizzate per la connessione desktop remoto.
 4. Toccare **salvare**.  
 
 ## <a name="global-app-settings"></a>Impostazioni dell'app globale

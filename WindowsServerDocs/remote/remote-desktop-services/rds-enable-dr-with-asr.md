@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e3f9db4afb37452b4fd5d0229b385492b915fe45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859012"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446554"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Abilitare il ripristino di emergenza di servizi desktop remoto con Azure Site Recovery
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 Per assicurarsi che la distribuzione di servizi desktop remoto sia configurata in modo adeguato per il ripristino di emergenza, è necessario proteggere tutti i componenti che costituiscono la distribuzione di servizi desktop remoto:
 
@@ -29,7 +29,7 @@ Per assicurarsi che la distribuzione di servizi desktop remoto sia configurata i
 - Livello di SQL Server
 - Componenti Servizi Desktop remoto
 - Componenti di rete
- 
+
 ## <a name="configure-active-directory-and-dns-replication"></a>Configurare la replica di Active Directory e DNS
 
 È necessario Active Directory nel sito di ripristino di emergenza per la distribuzione di servizi desktop remoto per il funzionamento. Sono disponibili due opzioni di base alla complessità della distribuzione di servizi desktop remoto:
@@ -47,9 +47,10 @@ Visualizzare [proteggere SQL Server tramite ripristino di emergenza di SQL Serve
 
 A seconda del tipo di distribuzione di servizi desktop remoto è possibile abilitare la protezione per le macchine virtuali componente diverso (come indicato nella tabella riportata di seguito) in Azure Site Recovery. Configurare gli elementi di Azure Site Recovery pertinenti in base che le macchine virtuali vengano distribuite in Hyper-V o VMWare.
 
-| Tipo di distribuzione                              | Passaggi di protezione                                                                                                                                                                                      |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Desktop virtuale personale (non gestito)         |  1. Assicurarsi che tutti gli host di virtualizzazione siano pronti con il ruolo RDVH installato.    </br>2. Gestore di connessione.  </br>3. Desktop personali. </br>4. Gold modello di macchina virtuale. </br>5. Web Access, server licenze e server Gateway |
-| Desktop virtuali in pool (gestito con nessun UPD) |  1. Tutti gli host di virtualizzazione sono pronti con il ruolo RDVH installato.  </br>2. Gestore di connessione.  </br>3. Gold modello di macchina virtuale. </br>4. Web Access, server licenze e server Gateway.                                  |
-| Su macchine virtuali e le sessioni Desktop (nessun UPD)     |  1. Host della sessione.  </br>2. Gestore di connessione. </br>3. Web Access, server licenze e server Gateway.                                                                                                          |                                                                                                                                      |
+
+|               Tipo di distribuzione                |                                                                                                     Passaggi di protezione                                                                                                     |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Desktop virtuale personale (non gestito)     | 1. Assicurarsi che tutti gli host di virtualizzazione siano pronti con il ruolo RDVH installato.    </br>2. Gestore di connessione.  </br>3. Desktop personali. </br>4. Gold modello di macchina virtuale. </br>5. Web Access, server licenze e server Gateway |
+| Desktop virtuali in pool (gestito con nessun UPD) |                    1. Tutti gli host di virtualizzazione sono pronti con il ruolo RDVH installato.  </br>2. Gestore di connessione.  </br>3. Gold modello di macchina virtuale. </br>4. Web Access, server licenze e server Gateway.                    |
+|   Su macchine virtuali e le sessioni Desktop (nessun UPD)   |                                                          1. Host della sessione.  </br>2. Gestore di connessione. </br>3. Web Access, server licenze e server Gateway.                                                           |
 

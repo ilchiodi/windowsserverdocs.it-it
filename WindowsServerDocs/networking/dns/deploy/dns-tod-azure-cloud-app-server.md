@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4846b548-8fbc-4a7f-af13-09e834acdec0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ed6ac2ebc8839d0e7ecee682d7644251f8a59381
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68f30973ef58b64006181990425e6ca84c39c059
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829072"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812034"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Risposte DNS basate sull'ora del giorno con un server app Azure Cloud
 
@@ -23,10 +23,10 @@ ms.locfileid: "59829072"
 
 Questo scenario è utile nelle situazioni in cui si desidera indirizzare il traffico in un fuso orario per il server di applicazioni alternativo, ad esempio i server Web ospitate in Microsoft Azure, che si trovano in un altro fuso orario. Ciò consente di bilanciare il carico tra le istanze dell'applicazione durante il picco quando il server primario sono sottoposti a overload con traffico periodi di tempo. 
 
->[!NOTE]
->Per informazioni su come usare i criteri DNS per le risposte DNS intelligente senza l'utilizzo di Azure, vedere [usare i criteri DNS per DNS intelligente risposte basati sull'ora del giorno](Scenario--Use-DNS-Policy-for-Intelligent-DNS-Responses-Based-on-the-Time-of-Day.md). 
+> [!NOTE]
+> Per informazioni su come usare i criteri DNS per le risposte DNS intelligente senza l'utilizzo di Azure, vedere [usare i criteri DNS per DNS intelligente risposte basati sull'ora del giorno](Scenario--Use-DNS-Policy-for-Intelligent-DNS-Responses-Based-on-the-Time-of-Day.md). 
 
-## <a name="bkmk_azureexample"></a>Esempio delle risposte DNS intelligente basate sull'ora del giorno con il Server di App Cloud di Azure
+## <a name="example-of-intelligent-dns-responses-based-on-the-time-of-day-with-azure-cloud-app-server"></a>Esempio delle risposte DNS intelligente basate sull'ora del giorno con il Server di App Cloud di Azure
 
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS per bilanciare il traffico dell'applicazione in base all'ora del giorno.
 
@@ -44,8 +44,8 @@ Per garantire che i clienti contosogiftservices.com ottenere prestazioni ottimal
 
 Servizi regalo Contoso recupera un indirizzo IP pubblico di Azure per la macchina virtuale (192.68.31.44) e sviluppa l'automazione per distribuire il Server Web tra - 10 alle 17.00, consentendo un periodo di backup di un'ora ogni giorno in Azure.
 
->[!NOTE]
->Per altre informazioni sulle macchine virtuali di Azure, vedere [macchine virtuali-documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/) 
+> [!NOTE]
+> Per altre informazioni sulle macchine virtuali di Azure, vedere [macchine virtuali-documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/) 
 
 I server DNS sono configurati con gli ambiti di zona e i criteri DNS in modo che tra 5 e 9 PM ogni giorno, 30% delle query vengono inviate all'istanza del server Web è in esecuzione in Azure.
 
@@ -53,7 +53,7 @@ Nella figura seguente viene illustrato questo scenario.
 
 ![Criteri DNS per volta delle risposte giorno](../../media/DNS-Policy-Tod2/dns_policy_tod2.jpg)  
 
-## <a name="bkmk_azurehow"></a>Come le risposte DNS intelligente basate sull'ora del giorno con Azure il funzionamento di Server App
+## <a name="how-intelligent-dns-responses-based-on-time-of-day-with-azure-app-server-works"></a>Come le risposte DNS intelligente basate sull'ora del giorno con Azure il funzionamento di Server App
  
 Questo articolo illustra come configurare il server DNS per rispondere alle query DNS con due indirizzi IP del server applicazioni diversi - un server web è in Seattle e l'altro si trova in un Data Center di Azure.
 
@@ -63,29 +63,29 @@ In tutti gli altri orari, avviene l'elaborazione di query normali e vengono invi
 
 Il valore TTL di 10 minuti sul record di Azure garantisce che il record è scaduto dalla cache LDNS prima che la macchina virtuale viene rimosso da Azure. Uno dei vantaggi di questo tipo di ridimensionamento è che è possibile mantenere i DNS dei dati in locale e mantenere la scalabilità in Azure secondo necessità.
 
-## <a name="bkmk_azureconfigure"></a>Come configurare criteri DNS per risposte DNS intelligente basate sull'ora del giorno con Server di App di Azure
+## <a name="how-to-configure-dns-policy-for-intelligent-dns-responses-based-on-time-of-day-with-azure-app-server"></a>Come configurare criteri DNS per risposte DNS intelligente basate sull'ora del giorno con Server di App di Azure
+
 Per configurare criteri DNS per le risposte di ora del giorno applicazione bilanciamento del carico basato su query, è necessario eseguire la procedura seguente.
 
+- [Creare gli ambiti di zona](#create-the-zone-scopes)
+- [Aggiungere i record per gli ambiti di zona](#add-records-to-the-zone-scopes)
+- [Creare i criteri DNS](#create-the-dns-policies)
 
-- [Creare gli ambiti di zona](#bkmk_zscopes)
-- [Aggiungere i record per gli ambiti di zona](#bkmk_records)
-- [Creare i criteri DNS](#bkmk_policies)
-
-
->[!NOTE]
->È necessario eseguire questi passaggi nel server DNS autorevole per la zona in cui che si desidera configurare. L'appartenenza al gruppo DnsAdmins, o equivalente, è necessario eseguire le procedure seguenti. 
+> [!NOTE]
+> È necessario eseguire questi passaggi nel server DNS autorevole per la zona in cui che si desidera configurare. L'appartenenza al gruppo DnsAdmins, o equivalente, è necessario eseguire le procedure seguenti. 
 
 Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 
->[!IMPORTANT]
->Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi. 
+> [!IMPORTANT]
+> Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi. 
 
 
-### <a name="bkmk_zscopes"></a>Creare gli ambiti di zona
+### <a name="create-the-zone-scopes"></a>Creare gli ambiti di zona
+
 Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con diversi indirizzi IP o gli stessi indirizzi IP. 
 
->[!NOTE]
->Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito. 
+> [!NOTE]
+> Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. In questo ambito di zona ha lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito. 
 
 È possibile usare il comando seguente per creare un ambito di zona per ospitare i record di Azure.
 
@@ -95,7 +95,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "AzureZoneScope
 
 Per altre informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-### <a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona
+### <a name="add-records-to-the-zone-scopes"></a>Aggiungere record per gli ambiti di zona
 Il passaggio successivo consiste nell'aggiungere i record che rappresenta l'host del server Web negli ambiti di zona. 
 
 In AzureZoneScope, www.contosogiftservices.com il record viene aggiunto con l'indirizzo IP 192.68.31.44, che si trova nel cloud pubblico di Azure. 
@@ -114,7 +114,7 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
 
-### <a name="bkmk_policies"></a>Creare i criteri DNS 
+### <a name="create-the-dns-policies"></a>Creare i criteri DNS 
 Dopo aver creati gli ambiti di zona, è possibile creare criteri DNS che distribuiscono le query in ingresso tra questi ambiti, in modo che si verifica quanto segue.
 
 1. Da PM 6 a 9 PM di ogni giorno, 30% dei client ricevono l'indirizzo IP del server Web nel Data Center di Azure nella risposta DNS, mentre il 70% di client ricevono l'indirizzo IP del server Web locale Seattle.

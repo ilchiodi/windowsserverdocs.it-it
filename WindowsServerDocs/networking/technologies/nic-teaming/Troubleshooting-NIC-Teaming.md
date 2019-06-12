@@ -14,12 +14,12 @@ ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6af3cbd038e97d889269b83d72c77c50680e513
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856252"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446176"
 ---
 # <a name="troubleshooting-nic-teaming"></a>Risoluzione dei problemi del gruppo NIC
 
@@ -44,7 +44,7 @@ A seconda della configurazione, NIC Teaming può inviare pacchetti dallo stesso 
 
 Un motivo comune per un gruppo NIC esito negativo è che l'interfaccia del team è disabilitata e in molti casi, per errore durante l'esecuzione di una sequenza di comandi.  Questa particolare sequenza di comandi non abilita tutte le NetAdapters disabilitata perché la disabilitazione di tutti i membri di fisici sottostanti di schede di rete Elimina l'interfaccia del team NIC. 
 
-In questo caso, l'interfaccia del team NIC non viene più visualizzato in Get-NetAdapter e per questo motivo, **Enable-NetAdapter \***  non abilita il gruppo NIC. Il **Enable-NetAdapter \***  comando, tuttavia, abilitare il membro schede di rete, che quindi (dopo un breve periodo) ricrea l'interfaccia del team. L'interfaccia del team rimane nello stato "disabilitato" fino a abilitata di nuovo, che consente il traffico di rete avviare il flusso. 
+In questo caso, l'interfaccia del team NIC non viene più visualizzato in Get-NetAdapter e per questo motivo, **Enable-NetAdapter \\** * non abilita il gruppo NIC. Il **Enable-NetAdapter \\** * comandi, tuttavia, abilitare il membro schede di rete, che quindi (dopo un breve periodo) ricrea l'interfaccia del team. L'interfaccia del team rimane nello stato "disabilitato" fino a abilitata di nuovo, che consente il traffico di rete avviare il flusso. 
 
 La sequenza di comandi di Windows PowerShell seguente può disabilitare l'interfaccia del team venga rifiutata accidentalmente:  
   

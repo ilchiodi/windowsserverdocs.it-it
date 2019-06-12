@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0e7d1f5b-c939-47ca-892f-5bb285027fbc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc08d89f7d84b5435e97ed5ed77eb72d003b0c84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 95fc9cbef454c8f36b1921eb7f570138bf124256
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888572"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446946"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Passaggio 1 configurare l'infrastruttura di accesso remoto
 
@@ -57,11 +57,11 @@ A seconda se si decide di collocare il server di accesso remoto alla periferia o
   
 -   Un singolo indirizzo IPv4 o IPv6 statico pubblico interno.  
   
-**Dietro il dispositivo NAT (due schede di rete)**:  
+**Dietro il dispositivo NAT (due schede di rete)** :  
   
 Richiede un interno con connessione alla rete statico indirizzo IPv4 o IPv6.  
   
-**Dietro il dispositivo NAT (una scheda di rete)**:  
+**Dietro il dispositivo NAT (una scheda di rete)** :  
   
 Richiede un singolo indirizzo IPv4 o IPv6.  
   
@@ -189,7 +189,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 -   Per il **Enhanced Key Usage** campo, utilizzare l'identificatore di oggetto (OID) di autenticazione Server.  
   
--   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)**, specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
+-   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
   
 -   Il certificato IP-HTTPS deve avere una chiave privata.  
   
@@ -234,7 +234,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 1.  Nel server DNS della rete interna: Nel **avviare** digitare**dnsmgmt. msc**, quindi premere INVIO.  
   
-2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Il pulsante destro del dominio e fare clic su **Nuovo Host (A o AAAA)**.  
+2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Il pulsante destro del dominio e fare clic su **Nuovo Host (A o AAAA)** .  
   
 3.  Nel **Nuovo Host** della finestra di dialogo di **nome (utilizza nome del dominio padre se vuoto)** immettere il nome DNS per il sito Web server percorsi di rete (questo è il nome utilizzano dai client DirectAccess di connettersi al server dei percorsi di rete). Nel **indirizzo IP** immettere l'indirizzo IPv4 del server dei percorsi di rete e scegliere **Aggiungi Host**, quindi fare clic su **OK**.  
   
@@ -244,7 +244,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 6.  Fare clic su **Fine**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -316,7 +316,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 10. Fare clic su **Riavvia** quando richiesto.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -456,5 +456,5 @@ Se si utilizza un certificato privato o un certificato autofirmato, è necessari
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 2: Configurare il Server di accesso remoto](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Passaggio 2: Configurare il server di accesso remoto](Step-2-Configure-the-Remote-Access-Server.md)
 

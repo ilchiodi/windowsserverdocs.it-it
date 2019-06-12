@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 187db7e201e98ae97268b96c2e4faa202a9a5372
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40471354af5434e77a300303572ccce639ba2489
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874832"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443780"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installare una nuova foresta di Active Directory di Windows Server 2012 (livello 200)
 
@@ -88,15 +88,15 @@ Queste nuove funzionalità non sono compatibili con le versioni precedenti di Wi
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDSForest.png)  
   
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Dcpromo.exe non contiene più una procedura guidata grafica e non installa più i file binari del ruolo o delle funzionalità. Se si tenta di eseguire Dcpromo.exe dalla shell Esplora risorse, viene restituito:  
->   
-> "L'installazione guidata servizi di dominio Active Directory viene spostato in Server Manager. Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=220921. "  
->   
+> 
+> "L'installazione guidata servizi di dominio Active Directory viene spostato in Server Manager. Per altre informazioni, vedere <https://go.microsoft.com/fwlink/?LinkId=220921>. "  
+> 
 > Se si tenta di eseguire Dcpromo.exe /unattend, i file binari vengono ancora installati, come nei sistemi operativi precedenti, ma viene visualizzato l'avviso:  
->   
-> "Il dcpromo in modalità automatica viene sostituito dal modulo ADDSDeployment per Windows PowerShell. Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=220924. "  
->   
+> 
+> "Il dcpromo in modalità automatica viene sostituito dal modulo ADDSDeployment per Windows PowerShell. Per altre informazioni, vedere <https://go.microsoft.com/fwlink/?LinkId=220924>. "  
+> 
 > Dcpromo.exe è deprecato in Windows Server 2012 e non verrà incluso nelle versioni future di Windows né verrà ulteriormente migliorato in questo sistema operativo. Gli amministratori devono interromperne l'uso e passare ai moduli supportati di Windows PowerShell se desiderano creare controller di dominio dalla riga di comando.  
   
 #### <a name="prerequisite-checking"></a>Controllo dei prerequisiti  
@@ -287,7 +287,7 @@ Nella pagina **Percorsi** è possibile sostituire i percorsi predefiniti delle c
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione quando si utilizza Server Manager. È semplicemente un'opzione per confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:   
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:  
   
 ```powershell 
 #  
@@ -367,7 +367,7 @@ Usare **Get-Command** per esportare gli alias e i cmdlet in ServerManager.
 Get-Command -module ServerManager  
 ```  
   
-Ad esempio:   
+Ad esempio:  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetCommand.png)  
   
@@ -383,7 +383,7 @@ Per installare anche gli strumenti di gestione di Servizi di dominio Active Dire
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools  
 ```  
   
-Ad esempio:   
+Ad esempio:  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)  
   
@@ -417,7 +417,7 @@ In Windows PowerShell 3.0, inoltre, sono stati considerevolmente semplificati gl
 Get-WindowsFeature | where {$_.displayname - like "*active dir*"}  
 ```  
   
-Usando la pipeline di Windows PowerShell, è possibile creare risultati leggibili. Ad esempio:   
+Usando la pipeline di Windows PowerShell, è possibile creare risultati leggibili. Ad esempio:  
   
 ```powershell  
 Install-WindowsFeature | Format-List  
@@ -497,7 +497,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:   
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:  
   
 ```powershell  
 $file = "c:\pw.txt"  
@@ -544,7 +544,7 @@ Gli argomenti equivalenti del cmdlet ADDSDeployment di **Percorsi** di Server Ma
   
 Usare l'argomento facoltativo **Whatif** con il cmdlet **Install-ADDSForest** per rivedere le informazioni sulla configurazione. In questo modo è possibile visualizzare i valori espliciti e impliciti degli argomenti di un cmdlet.  
   
-Ad esempio:   
+Ad esempio:  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)  
   

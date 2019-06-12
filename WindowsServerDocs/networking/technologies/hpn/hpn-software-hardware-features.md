@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: a58d1e14dc8f543f25ef241f2a65054599136031
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98857a5a6d665728c1aab2a6a2df64997d4166b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817392"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446221"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate
 
@@ -51,11 +51,12 @@ Per altre informazioni, vedere [Data Center Bridging (DCB)](https://docs.microso
 
 ## <a name="hyper-v-network-virtualization"></a>Virtualizzazione rete Hyper-V
 
-| | |
-|---|---|
-| **v1 (HNVv1)**             | Introdotta in Windows Server 2012, Hyper-V rete virtualizzazione consente la virtualizzazione di reti dei clienti su un'infrastruttura di rete fisica condivisa. Apportando modifiche minime necessari per l'infrastruttura di rete fisica, virtualizzazione RETE fornisce ai provider di servizi la flessibilità di distribuire e migrare i carichi di lavoro tenant ovunque in tre aree: il cloud di provider del servizio, il cloud privato o la cloud pubblica di Microsoft Azure.                                         |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       **v1 (HNVv1)**       |                     Introdotta in Windows Server 2012, Hyper-V rete virtualizzazione consente la virtualizzazione di reti dei clienti su un'infrastruttura di rete fisica condivisa. Apportando modifiche minime necessari per l'infrastruttura di rete fisica, virtualizzazione RETE fornisce ai provider di servizi la flessibilità di distribuire e migrare i carichi di lavoro tenant ovunque in tre aree: il cloud di provider del servizio, il cloud privato o la cloud pubblica di Microsoft Azure.                     |
 | **v2 NVGRE (HNVv2 NVGRE)** | In Windows Server 2016 e System Center Virtual Machine Manager, Microsoft fornisce una soluzione di virtualizzazione di rete end-to-end che include Gateway RAS, Software Load Balancing, Controller di rete e altro ancora. Per altre informazioni, vedere [Panoramica di virtualizzazione rete Hyper-V in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server). |
-| **v2 VxLAN (HNVv2 VxLAN)** | In Windows Server 2016, fa parte del SDN-estensione, che è gestire tramite il Controller di rete.    |
+| **v2 VxLAN (HNVv2 VxLAN)** |                                                                                                                                                                                        In Windows Server 2016, fa parte del SDN-estensione, che è gestire tramite il Controller di rete.                                                                                                                                                                                        |
+
 ---
 
 ## <a name="ipsec-task-offload-ipsecto"></a>Offload attività IPsec (IPsecTO) 

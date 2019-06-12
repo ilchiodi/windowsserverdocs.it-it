@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: e00322186ea34784048366bf17881af742cb4444
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9f07d2e6e93d4f8d198c2fc3b62c28c940bdefb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853692"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447517"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Creare un disco modello VM schermato Windows
 
@@ -27,7 +27,7 @@ Per comprendere come in questo argomento si integra nel processo complessivo del
 
 Preparare un disco del sistema operativo che verrà quindi eseguito tramite la creazione guidata disco schermate di modello. Questo disco verrà utilizzato come disco del sistema operativo nelle macchine virtuali del tenant. È possibile utilizzare gli strumenti per creare questo disco, ad esempio Microsoft Desktop Image Service Manager (DISM), o configurare una macchina virtuale con un file VHDX vuoti e installare manualmente il sistema operativo su tale disco. Quando si configura il disco, è necessario rispettare i requisiti seguenti sono specifici di generazione 2 e/o macchine virtuali schermate: 
 
-| Requisito per VHDX | Motivo |
+| Requisito per VHDX | `Reason` |
 |-----------|----|
 |Deve essere un disco di tabella di partizione GUID (GPT) | Necessario per le macchine virtuali di generazione 2 supportare UEFI|
 |Tipo di disco deve essere **base** anziché **dinamica**. <br>Nota: Si riferisce al tipo di disco logico, non "a espansione dinamica" VHDX funzionalità supportata da Hyper-V. | BitLocker non supporta i dischi dinamici.|
@@ -163,8 +163,8 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Creare un file di dati di schermatura](guarded-fabric-tenant-creates-shielding-data.md)
+> [!div class="nextstepaction"]
+> [Creare un file di dati di schermatura](guarded-fabric-tenant-creates-shielding-data.md)
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Come pianificare una distribuzione di Cartelle di lavoro, tra cui requisiti di sistema e modalità di preparazione dell'ambiente di rete.
-ms.openlocfilehash: 2ac52b15f266fce7202df4c9c76e774fca4098cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824642"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447840"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Pianificazione di una distribuzione di Cartelle di lavoro
 
@@ -22,17 +22,17 @@ ms.locfileid: "59824642"
 
 In questo argomento viene illustrato il processo di progettazione per un'implementazione di Cartelle di lavoro supponendo che l'utente disponga delle conoscenze seguenti:  
   
--   Una conoscenza di base di Cartelle di lavoro (ovvero delle informazioni disponibili in [Cartelle di lavoro](work-folders-overview.md))  
+- Una conoscenza di base di Cartelle di lavoro (ovvero delle informazioni disponibili in [Cartelle di lavoro](work-folders-overview.md))  
   
--   Una conoscenza di base dei concetti di Active Directory Domain Services (AD DS)  
+- Una conoscenza di base dei concetti di Active Directory Domain Services (AD DS)  
   
--   Una conoscenza di base della condivisione file di Windows e delle tecnologie correlate  
+- Una conoscenza di base della condivisione file di Windows e delle tecnologie correlate  
   
--   Una conoscenza di base dell'utilizzo dei certificati SSL  
+- Una conoscenza di base dell'utilizzo dei certificati SSL  
   
--   Una conoscenza di base sull'abilitazione dell'accesso Web alle risorse interne mediante un proxy inverso Web  
+- Una conoscenza di base sull'abilitazione dell'accesso Web alle risorse interne mediante un proxy inverso Web  
   
- Nelle sezioni seguenti sono disponibili indicazioni su come progettare un'implementazione di Cartelle di lavoro. La distribuzione di Cartelle di lavoro è illustrata nell'argomento seguente, ovvero [Distribuzione di Cartelle di lavoro](deploy-work-folders.md).  
+  Nelle sezioni seguenti sono disponibili indicazioni su come progettare un'implementazione di Cartelle di lavoro. La distribuzione di Cartelle di lavoro è illustrata nell'argomento seguente, ovvero [Distribuzione di Cartelle di lavoro](deploy-work-folders.md).  
   
 ##  <a name="BKMK_SOFT"></a> Requisiti software  
 
@@ -119,16 +119,16 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
 ###  <a name="GroupPolicy"></a> Criteri di gruppo  
  Se nell'ambiente sono disponibili computer con Windows 7, è consigliabile attenersi alle indicazioni seguenti:  
   
--   Usare Criteri di gruppo per controllare i criteri per le password per tutti i computer appartenenti al dominio che usano Cartelle di lavoro.  
+- Usare Criteri di gruppo per controllare i criteri per le password per tutti i computer appartenenti al dominio che usano Cartelle di lavoro.  
   
--   Usare il criterio **Blocca automaticamente lo schermo e richiedi una password** di Cartelle di lavoro nei computer che non appartengono al dominio.  
+- Usare il criterio **Blocca automaticamente lo schermo e richiedi una password** di Cartelle di lavoro nei computer che non appartengono al dominio.  
   
- È anche possibile usare Criteri di gruppo per specificare un server di Cartelle di lavoro per i computer che fanno parte del dominio. In questo modo la configurazione di Cartelle di lavoro risulta più semplice. In caso contrario, gli utenti dovrebbero infatti accedere ai propri indirizzi di posta elettronica di lavoro per controllare le impostazioni (supponendo che Cartelle di lavoro sia configurato correttamente) oppure accedere all'URL di Cartelle di lavoro fornito loro mediante posta elettronica o un altro mezzo di comunicazione.  
+  È anche possibile usare Criteri di gruppo per specificare un server di Cartelle di lavoro per i computer che fanno parte del dominio. In questo modo la configurazione di Cartelle di lavoro risulta più semplice. In caso contrario, gli utenti dovrebbero infatti accedere ai propri indirizzi di posta elettronica di lavoro per controllare le impostazioni (supponendo che Cartelle di lavoro sia configurato correttamente) oppure accedere all'URL di Cartelle di lavoro fornito loro mediante posta elettronica o un altro mezzo di comunicazione.  
   
- È inoltre possibile utilizzare Criteri di gruppo per forzare la configurazione di Cartelle di lavoro per utente o per computer, anche se questa operazione causa la sincronizzazione di Cartelle di lavoro in ogni computer a cui un utente accede (se si utilizza l'impostazione del criterio per utente) e impedisce agli utenti di specificare una posizione alternativa per Cartelle di lavoro nel proprio computer (ad esempio in una scheda microSD per risparmiare spazio di archiviazione nell'unità principale). Prima di forzare la configurazione automatica, è pertanto consigliabile valutare attentamente le proprie esigenze.  
+  È inoltre possibile utilizzare Criteri di gruppo per forzare la configurazione di Cartelle di lavoro per utente o per computer, anche se questa operazione causa la sincronizzazione di Cartelle di lavoro in ogni computer a cui un utente accede (se si utilizza l'impostazione del criterio per utente) e impedisce agli utenti di specificare una posizione alternativa per Cartelle di lavoro nel proprio computer (ad esempio in una scheda microSD per risparmiare spazio di archiviazione nell'unità principale). Prima di forzare la configurazione automatica, è pertanto consigliabile valutare attentamente le proprie esigenze.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire ai dispositivi con l'URL del server di sincronizzazione da utilizzare – in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica di lavoro per controllare le impostazioni (se si pubblica un URL di cartelle di lavoro pubblico nel formato https://workfolders. *Contoso.com*), oppure immettere direttamente l'URL del server di sincronizzazione.  
+ Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire ai dispositivi con l'URL del server di sincronizzazione da utilizzare – in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica di lavoro per controllare le impostazioni (se si pubblica un URL di cartelle di lavoro pubblico nel formato https://workfolders. <em>Contoso.com</em>), oppure immettere direttamente l'URL del server di sincronizzazione.  
   
  Se non si distribuisce Windows Intune, gli utenti devono configurare manualmente i dispositivi esterni, operazione che può causare l'aumento delle richieste di assistenza al personale dell'help desk.  
   
@@ -149,16 +149,16 @@ Cartelle di lavoro supporta l'utilizzo di Proxy applicazione Web, Proxy applicaz
 ### <a name="number-of-sync-servers"></a>Numero di server di sincronizzazione  
  Ogni cliente può utilizzare più server di sincronizzazione in un solo ambiente. Questa è la configurazione consigliata per diversi motivi:  
   
--   Distribuzione geografica degli utenti: ad esempio, file server delle succursali o centri dati distinti in base all'area geografica  
+- Distribuzione geografica degli utenti: ad esempio, file server delle succursali o centri dati distinti in base all'area geografica  
   
--   Requisiti dell'archiviazione dati: determinati reparti aziendali possono avere specifiche esigenze di archiviazione o gestione dei dati che risultano più semplici con un server dedicato  
+- Requisiti dell'archiviazione dati: determinati reparti aziendali possono avere specifiche esigenze di archiviazione o gestione dei dati che risultano più semplici con un server dedicato  
   
--   Bilanciamento del carico: in ambienti di grandi dimensioni l'archiviazione dei dati degli utenti in più server può contribuire a migliorare le prestazioni e il tempo di attività del server.  
+- Bilanciamento del carico: in ambienti di grandi dimensioni l'archiviazione dei dati degli utenti in più server può contribuire a migliorare le prestazioni e il tempo di attività del server.  
   
- Per informazioni sulla scalabilità e le prestazioni del server di Cartelle di lavoro, vedere le [considerazioni sulle prestazioni delle distribuzioni di Cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
+  Per informazioni sulla scalabilità e le prestazioni del server di Cartelle di lavoro, vedere le [considerazioni sulle prestazioni delle distribuzioni di Cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
->  Quando si utilizzano più server di sincronizzazione, è consigliabile configurare l'individuazione automatica del server per gli utenti. Questo processo si basa sulla configurazione di un attributo in ogni account utente di AD DS. L'attributo è denominato **msDS-SyncServerURL** ed è disponibile negli account utente dopo l'aggiunta al dominio di un controller di dominio di Windows Server 2012 R2 oppure dopo l'applicazione degli aggiornamenti dello schema di Active Directory. Questo attributo deve essere impostato per ogni utente per fare in modo che gli utenti si connettano al server di sincronizzazione appropriato. Utilizzando l'individuazione automatica del server, le organizzazioni possono pubblicare cartelle di lavoro protetto da un URL "breve", ad esempio *https://workfolders.contoso.com*, indipendentemente dal numero di server di sincronizzazione nell'operazione.  
+>  Quando si utilizzano più server di sincronizzazione, è consigliabile configurare l'individuazione automatica del server per gli utenti. Questo processo si basa sulla configurazione di un attributo in ogni account utente di AD DS. L'attributo è denominato **msDS-SyncServerURL** ed è disponibile negli account utente dopo l'aggiunta al dominio di un controller di dominio di Windows Server 2012 R2 oppure dopo l'applicazione degli aggiornamenti dello schema di Active Directory. Questo attributo deve essere impostato per ogni utente per fare in modo che gli utenti si connettano al server di sincronizzazione appropriato. Utilizzando l'individuazione automatica del server, le organizzazioni possono pubblicare cartelle di lavoro protetto da un URL "breve", ad esempio *https://workfolders.contoso.com* , indipendentemente dal numero di server di sincronizzazione nell'operazione.  
   
 ### <a name="number-of-sync-shares"></a>Numero di condivisioni di sincronizzazione  
  Un server di sincronizzazione può gestire più condivisioni di sincronizzazione. Questa configurazione può risultare utile per diversi motivi:  

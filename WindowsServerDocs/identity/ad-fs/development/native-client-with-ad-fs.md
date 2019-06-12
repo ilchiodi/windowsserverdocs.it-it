@@ -9,12 +9,12 @@ ms.date: 07/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: e85a97fa08e4c77588b17aee08ee03e0b897a74c
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 15bb6f1e39f64ff19ebb5515188ee944e277d3b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976864"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445484"
 ---
 # <a name="build-a-native-client-application-using-oauth-public-clients-with-ad-fs-2016-or-later"></a>Compilare un client nativo dell'applicazione mediante client pubblici OAuth con AD FS 2016 o versioni successive
 
@@ -163,7 +163,7 @@ Esecuzione dell'applicazione
 
 In questo passaggio, l'applicazione nativa reindirizzato ad ADFS e ottenuto un token ID e un token di accesso per l'API Web
 
-3.  Immettere un elemento nella casella di testo e fare clic su Aggiungi elemento. In questo passaggio, l'applicazione raggiunge l'API Web per aggiungere l'attività e per eseguire questa operazione, presenta il token di accesso per l'API Web ottenuto da ADFS. L'API Web corrisponde al valore di gruppo di destinatari per assicurarsi che il token è destinato e verifica la firma del token usando le informazioni dai metadati di federazione.
+3. Immettere un elemento nella casella di testo e fare clic su Aggiungi elemento. In questo passaggio, l'applicazione raggiunge l'API Web per aggiungere l'attività e per eseguire questa operazione, presenta il token di accesso per l'API Web ottenuto da ADFS. L'API Web corrisponde al valore di gruppo di destinatari per assicurarsi che il token è destinato e verifica la firma del token usando le informazioni dai metadati di federazione.
 
 ![Accesso](media/native-client-with-ad-fs-2016/clienttodoadd.png)
 

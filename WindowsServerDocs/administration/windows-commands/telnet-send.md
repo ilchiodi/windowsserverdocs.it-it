@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32345b22395107f4a2c3d88894126d4e5e0875a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 36dc7f861e88cf991af57dda2f150107c6870f0f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842362"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441045"
 ---
 # <a name="telnet-send"></a>telnet: send
 
@@ -30,20 +30,22 @@ Invia comandi telnet per server telnet.
 sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|ao|Invia il comando telnet interrompere uscita.|  
-|ayt|Invia il comando telnet è sono presenti.|  
-|brk|Invia brk il comando telnet.|  
-|esc|Invia il carattere di escape telnet corrente.|  
-|ip|Invia il comando telnet Interrupt processo.|  
-|sincronizzazione delle directory|Invia la sincronizzazione di comandi telnet.|  
-|<string>|Invia qualsiasi stringa digitata per il server telnet.|  
-|?|Visualizza la Guida associata con questo comando.|  
+
+| Parametro |                     Descrizione                      |
+|-----------|------------------------------------------------------|
+|    ao     |       Invia il comando telnet interrompere uscita.        |
+|    ayt    |       Invia il comando telnet è sono presenti.       |
+|    brk    |            Invia brk il comando telnet.            |
+|    esc    |      Invia il carattere di escape telnet corrente.      |
+|    ip     |     Invia il comando telnet Interrupt processo.     |
+|   sincronizzazione delle directory   |           Invia la sincronizzazione di comandi telnet.           |
+| <string>  | Invia qualsiasi stringa digitata per il server telnet. |
+|     ?     |     Visualizza la Guida associata con questo comando.      |
+
 ## <a name="BKMK_Examples"></a>Esempi  
 Trasmissione sono è presente nel server telnet.  
 ```  
 sen ayt  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

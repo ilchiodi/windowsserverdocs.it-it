@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7f04d9964f1a19e79335e50a1882f0326f15ddc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 84f88d96f1e16767dec3b21b34aa226e544afaac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860032"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447400"
 ---
 # <a name="install-hgs-in-a-new-forest"></a>Installare servizio HGS in una nuova foresta 
 
@@ -36,7 +36,7 @@ Eseguire i comandi seguenti in una sessione di PowerShell con privilegi elevata 
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Inizializzare HGS](guarded-fabric-initialize-hgs.md)
+> [!div class="nextstepaction"]
+> [Inizializzare HGS](guarded-fabric-initialize-hgs.md)
 
 

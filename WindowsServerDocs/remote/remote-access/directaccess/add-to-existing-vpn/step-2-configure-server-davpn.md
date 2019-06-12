@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 31a5310ddb59831650f6b46108d071c120116dc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8a6448661861fdc9f97c66fb130bfc03d0ce72c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830932"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446968"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Passaggio 2 configurare il Server DirectAccess-VPN
 
@@ -83,10 +83,10 @@ Quando il suffisso di ricerca elenco non è vuoto e dispone di almeno un suffiss
 
 Se non è possibile risolvere le query per tutti gli FQDN formati come risultato dell'aggiunta e della prova di ogni suffisso nell'elenco, il processo di query ha esito negativo, producendo un risultato di "nome non trovato". 
 
->[!WARNING]
->Se si usa l'elenco di suffissi di dominio, i client continueranno a inviare altre query alternative in base ai diversi nomi di dominio DNS quando una query non riceve risposta né viene risolta. Una volta risolto un nome con una voce nell'elenco dei suffissi, non verranno provate le voci d'elenco non usate. Per questo motivo, è più efficiente ordinare l'elenco collocando per primi i suffissi di dominio più usati.
-
->Le ricerche del suffisso del nome di dominio vengono effettuate solo quando una voce del nome DNS non è completa. Per completare un nome DNS viene immesso un punto (.) alla fine del nome.
+> [!WARNING]
+> Se si usa l'elenco di suffissi di dominio, i client continueranno a inviare altre query alternative in base ai diversi nomi di dominio DNS quando una query non riceve risposta né viene risolta. Una volta risolto un nome con una voce nell'elenco dei suffissi, non verranno provate le voci d'elenco non usate. Per questo motivo, è più efficiente ordinare l'elenco collocando per primi i suffissi di dominio più usati.
+> 
+> Le ricerche del suffisso del nome di dominio vengono effettuate solo quando una voce del nome DNS non è completa. Per completare un nome DNS viene immesso un punto (.) alla fine del nome.
 
 ## <a name="gpo-configuration"></a>Configurazione oggetto Criteri di gruppo
 

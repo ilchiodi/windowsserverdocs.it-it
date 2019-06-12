@@ -9,12 +9,12 @@ manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
 description: Modalità di installazione di Deduplicazione dati in Windows Server, determinare se un carico di lavoro sia un buon candidato per la deduplicazione e abilitare la deduplicazione in volumi.
-ms.openlocfilehash: 153b064b158028c696bad4eeb00764d3e10822e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9ea3a144ae68ba9a51cdad66d493a7b962d3838
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814902"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447272"
 ---
 # <a name="install-and-enable-data-deduplication"></a>Installare e abilitare Deduplicazione dati
 > Si applica a Windows Server (Canale semestrale), Windows Server 2016
@@ -46,7 +46,7 @@ Per installare la deduplicazione dei dati in un'installazione di Nano Server:
     Install-WindowsFeature -ComputerName <MyNanoServer> -Name FS-Data-Deduplication
     ```  
     <br />
-    **-OPPURE-**
+    <strong>-OPPURE-</strong>
     <br />
     Connettersi in remoto all'istanza di Nano Server con la comunicazione remota di PowerShell e usare Gestione e manutenzione immagini distribuzione per installare Deduplicazione dati:  
     

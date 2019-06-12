@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f9d6268777d0791dbc0cdca2d4318399378698b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 398d2fa47f2418aec910569c2eb85aec408ad482
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813492"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441596"
 ---
 # <a name="seceditexport"></a>secedit:export
 
@@ -30,7 +30,6 @@ Esporta le impostazioni di protezione memorizzate in un database configurato con
 
 ```
 Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration file name> [/areas [securitypolicy | group_mgmt | user_rights | regkeys | filestore | services]] [/log <log file name>] [/quiet]
-
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -48,7 +47,7 @@ Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration fil
 
 È possibile utilizzare questo comando per eseguire il backup i criteri di protezione in un computer locale, oltre a importare le impostazioni in un altro computer.
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Documents and Settings\*UserAccount*\My Documents\Security\Logs\*NomeDatabase*. viene usato log).
+Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*NomeDatabase</em>. viene usato log).
 
 In Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 
@@ -67,4 +66,4 @@ Secedit /import /db C:\Security\FY12\SecDbContoso.sdb /cfg SecContoso.inf /log C
 
 -   [Secedit:import](secedit-import.md)
 -   [Secedit](secedit.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

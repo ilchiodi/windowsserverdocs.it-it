@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 215764f48fc8cfa2b28f4b5f6ca7dfeeb53b9cce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3647c9708ad68dec0ac13c85fced2b12150ccf60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851272"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447196"
 ---
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
@@ -57,5 +57,5 @@ In questo passaggio si completa il processo di configurazione di un cluster del 
 
 ## <a name="next-step"></a>Passaggio successivo
 
->[!div class="nextstepaction"]
-[Verificare che l'attestazione](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [!div class="nextstepaction"]
+> [Confermare l'attestazione](guarded-fabric-confirm-hosts-can-attest-successfully.md)

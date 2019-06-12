@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c9a769fdd9fb7d13c47da465b25bc59e7f55237f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856742"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442808"
 ---
 # <a name="spn-and-upn-uniqueness"></a>Unicità di SPN e UPN
 
@@ -51,7 +51,7 @@ Codici di errore 8467 o 8468 o loro esadecimale, simbolici o stringhe equivalent
   
 **Tabella SEQ tabella \\ \* 2 ARABO: Codici di errore di unicità SPN e UPN**  
   
-|Decimale|Hex|Simbolico|Stringa|  
+|Decimal|Hex|Simbolico|Stringa|  
 |-----------|-------|------------|----------|  
 |8467|21C 7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|L'operazione non riuscita perché il valore di nome SPN specificato per l'aggiunta/modifica non è univoco a livello di foresta.|  
 |8648|8 21C|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|L'operazione non riuscita perché il valore UPN specificato per l'aggiunta/modifica non è univoco a livello di foresta.|  
@@ -81,7 +81,7 @@ Un tentativo di creare un nuovo utente nel centro di amministrazione di Active D
   
 **Figura SEQ Figure \\ \* ARABO 2974 di ID evento 2 con errore 8648**  
   
-Evento 2974: Elenca il valore che è stato bloccato e un elenco di uno o più oggetti (fino a 10) che già contengono quel valore.  Nella figura seguente, è possibile visualizzare il valore dell'attributo UPN ***dhunt@blue.contoso.com*** esiste già nei quattro altri oggetti.  Poiché si tratta di una nuova funzionalità di Windows Server 2012 R2, la creazione accidentale di duplicati UPN e SPN in un ambiente misto verrà generato anche quando i controller di dominio di livello inferiore di elaborare il tentativo di scrittura.  
+Evento 2974: Elenca il valore che è stato bloccato e un elenco di uno o più oggetti (fino a 10) che già contengono quel valore.  Nella figura seguente, è possibile visualizzare il valore dell'attributo UPN **<em>dhunt@blue.contoso.com</em>** esiste già nei quattro altri oggetti.  Poiché si tratta di una nuova funzionalità di Windows Server 2012 R2, la creazione accidentale di duplicati UPN e SPN in un ambiente misto verrà generato anche quando i controller di dominio di livello inferiore di elaborare il tentativo di scrittura.  
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   

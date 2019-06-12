@@ -12,12 +12,12 @@ ms.assetid: e427c66f-9571-4b8c-b65d-e7370d91544d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f5d3e352cd022853a1602c67c3aaf2530cfc696
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e832d35f1ae3bbdba256b3531a22f93b69cadbb3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813642"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443389"
 ---
 # <a name="troubleshooting-nano-server"></a>Risoluzione dei problemi in Nano Server
 
@@ -43,8 +43,8 @@ Quando si avvia Nano Server in una macchina virtuale o in un computer fisico a c
 -   Sull'ultima riga di alcune schermate sono visualizzate funzionalità aggiuntive. Ad esempio, se si esplora una scheda di rete, premere F4 per disabilitare la scheda di rete.  
   
 La Console di ripristino di emergenza consente di visualizzare e configurare le schede di rete, le impostazioni TCP/IP e le regole del firewall.
-> [!NOTE]  
-    > La Console di ripristino di emergenza supporta solo le funzioni di base della tastiera. I LED della tastiera, le sezioni a 10 tasti e la commutazione del layout di tastiera, ad esempio BLOC MAIUSC e BLOC NUM, non sono supportati. Sono supportati solo set di caratteri e tastiere in lingua inglese.
+> [!NOTE]
+> La Console di ripristino di emergenza supporta solo le funzioni di base della tastiera. I LED della tastiera, le sezioni a 10 tasti e la commutazione del layout di tastiera, ad esempio BLOC MAIUSC e BLOC NUM, non sono supportati. Sono supportati solo set di caratteri e tastiere in lingua inglese.
 
 ## <a name="accessing-nano-server-over-a-serial-port-with-emergency-management-services"></a>Accesso a Nano Server attraverso una porta seriale con Servizi di gestione emergenze  
 Servizi di gestione emergenze (EMS, Emergency Management Services) consente di risolvere problemi di base, ottenere lo stato della rete e aprire sessioni della console, incluso CMD/PowerShell, usando un emulatore di terminale su una porta seriale. Questa caratteristica elimina la necessità di usare una tastiera e un monitor per risolvere i problemi di un server. Per altre informazioni su EMS, vedere [Emergency Management Services Technical Reference](https://technet.microsoft.com/library/cc784411(v=ws.10).aspx) (Guida di riferimento tecnico su Servizi di gestione emergenze).

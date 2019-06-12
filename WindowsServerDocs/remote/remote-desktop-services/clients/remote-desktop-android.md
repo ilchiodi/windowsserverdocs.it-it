@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 41f8b511453143bb6239de6cdb369ebe8a307aec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885852"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446746"
 ---
 # <a name="get-started-with-remote-desktop-on-android"></a>Introduzione a Desktop remoto in Android
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Uso di desktop e App di Windows direttamente da un dispositivo Android, è possibile usare il client Desktop remoto per Android.
 
@@ -49,24 +49,24 @@ Seguire questi passaggi per iniziare a usare Desktop remoto nel dispositivo Andr
 
 Per creare una connessione Desktop remoto:
 
-1. Nella scelta dei Centro connessioni **+**, e quindi toccare **Desktop**.
+1. Nella scelta dei Centro connessioni **+** , e quindi toccare **Desktop**.
 2. Immettere le informazioni seguenti per il computer si desidera connettersi:
-  - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-  - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. È possibile usare i seguenti formati: *user_name*, *DOMINIO\nome_utente.*, o *user_name@domain.com*. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
+   - **Nome PC** : il nome del computer. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
+   - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. È possibile usare i seguenti formati: *user_name*, *DOMINIO\nome_utente.* , o <em>user_name@domain.com</em>. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
 3. È inoltre possibile impostare le opzioni aggiuntive seguenti:
-  - **Nome descrittivo** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
-  - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
+   - **Nome descrittivo** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
+   - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
     È necessario configurare un Gateway Desktop remoto?
-  - **Suono** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto oppure non funziona.
-  - **Personalizzare risoluzione dello schermo** -impostare una soluzione personalizzata per una connessione attivando questa impostazione. Quando viene applicato disattivato la risoluzione che sono definite nelle impostazioni globali dell'app.
-  - **Scambia i pulsanti del mouse** : utilizzare questa opzione per invertire il puntatore del mouse a sinistra pulsante funzioni per il pulsante destro del mouse. (Ciò è particolarmente utile se sul computer remoto è configurato per un utente da ma si utilizza un mouse da destra.)
-  - **Connettersi alla sessione di amministrazione** -usare questa opzione per connettersi a una sessione di console per amministrare un server di Windows.
-  - **Reindirizzare l'archiviazione locale** – Collega l'archiviazione locale come un file system remoto nel computer remoto.
+   - **Suono** : selezionare il dispositivo da utilizzare per l'audio durante la sessione remota. È possibile scegliere di riprodurre un suono nei dispositivi locali, il dispositivo remoto oppure non funziona.
+   - **Personalizzare risoluzione dello schermo** -impostare una soluzione personalizzata per una connessione attivando questa impostazione. Quando viene applicato disattivato la risoluzione che sono definite nelle impostazioni globali dell'app.
+   - **Scambia i pulsanti del mouse** : utilizzare questa opzione per invertire il puntatore del mouse a sinistra pulsante funzioni per il pulsante destro del mouse. (Ciò è particolarmente utile se sul computer remoto è configurato per un utente da ma si utilizza un mouse da destra.)
+   - **Connettersi alla sessione di amministrazione** -usare questa opzione per connettersi a una sessione di console per amministrare un server di Windows.
+   - **Reindirizzare l'archiviazione locale** – Collega l'archiviazione locale come un file system remoto nel computer remoto.
 4. Toccare **salvare**.
 
-È necessario modificare queste impostazioni? Toccare il menu di overflow (**...**) accanto al nome del desktop e quindi toccare **modificare**.
+È necessario modificare queste impostazioni? Toccare il menu di overflow ( **...** ) accanto al nome del desktop e quindi toccare **modificare**.
 
-Se si desidera eliminare la connessione? Nuovamente, toccare il menu di overflow (**...**), quindi toccare **rimuovere**.
+Se si desidera eliminare la connessione? Nuovamente, toccare il menu di overflow ( **...** ), quindi toccare **rimuovere**.
 
 >[!TIP]
 > Se viene visualizzato errore 0xf07 una password errata ("è stato possibile connettersi al computer remoto perché la password associata all'account utente è scaduto"), modificare la password e riprovare.
@@ -76,7 +76,7 @@ Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop 
 
 Per aggiungere una risorsa remota:
 
-1. Nella schermata connessione Center toccare **+**, e quindi toccare **Feed risorse Remote**. 
+1. Nella schermata connessione Center toccare **+** , e quindi toccare **Feed risorse Remote**. 
 2. Immettere le informazioni per la risorsa remota:
    - **Messaggio di posta elettronica o URL** -l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendale in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
    - **Nome utente** -il nome utente da utilizzare per il server Accesso Web desktop remoto si è connessi.
@@ -88,7 +88,7 @@ Verranno visualizzate nel Centro connessioni di risorse remote.
 
 Per eliminare le risorse remote:
 
-1. Nel Centro connessioni, toccare il menu di overflow (**...**) accanto alla risorsa remota.
+1. Nel Centro connessioni, toccare il menu di overflow ( **...** ) accanto alla risorsa remota.
 2. Toccare **rimuovere**.
 3. Confermare l'eliminazione.
 
@@ -115,8 +115,8 @@ Per impostare un nuovo gateway:
 
 1. Nel Centro connessioni, toccare **Impostazioni > gateway**. Toccare **+** per aggiungere un nuovo gateway.
 2. Immettere le informazioni seguenti:
-  - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
-  - **Nome utente** -il nome utente e la password da utilizzare per il Gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare account utente desktop** per utilizzare le stesse credenziali utilizzate per la connessione desktop remoto.
+   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+   - **Nome utente** -il nome utente e la password da utilizzare per il Gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare account utente desktop** per utilizzare le stesse credenziali utilizzate per la connessione desktop remoto.
 
 ## <a name="manage-your-user-accounts"></a>Gestire gli account utente
 
@@ -153,13 +153,13 @@ Quando si avvia una connessione desktop remoto, sono disponibili strumenti che �
 - **Avvicinare le dita per eseguire lo Zoom** -consente di usare i movimenti zoom con avvicinamento delle dita. Se l'app in uso tramite Desktop remoto supporta Multi-touch (introdotta in Windows 8), disabilitare questa impostazione **disattivata**.
 - **Guida per migliorare Desktop remoto** -invia dati anonimi a Microsoft. Usiamo i dati per migliorare il client. È possibile altre informazioni su come vengono gestiti questi dati anonimi, privati, vedere la [informativa sulla Privacy di Remote Desktop Client](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Per impostazione predefinita, questa impostazione è **su**.
 - **Visualizzare** -sono disponibili due impostazioni globali per la visualizzazione:
-   - **Orientamento** -imposta l'orientamento preferito (orizzontale o verticale) per la sessione. 
-   >[!NOTE]
-   > Se ci si connette a un PC che eseguono Windows 8 o una versione precedente di Windows, la sessione non scala correttamente. La soluzione migliore consiste nel disconnettersi dal PC e quindi riconnettere l'orientamento da usare. Un'opzione migliore consiste nell'aggiornare il PC per almeno di Windows 8.1.
+  - **Orientamento** -imposta l'orientamento preferito (orizzontale o verticale) per la sessione. 
+    >[!NOTE]
+    > Se ci si connette a un PC che eseguono Windows 8 o una versione precedente di Windows, la sessione non scala correttamente. La soluzione migliore consiste nel disconnettersi dal PC e quindi riconnettere l'orientamento da usare. Un'opzione migliore consiste nell'aggiornare il PC per almeno di Windows 8.1.
 
-   - **Risoluzione** -imposta la risoluzione da usare per le connessioni desktop a livello globale. Se è già stata impostata una risoluzione personalizzata per una singola app o la connessione, questa impostazione non verrà modificato che.
-   >[!NOTE]
-   >Quando si modifica una delle impostazioni di visualizzazione, sono applicabili unicamente alle nuove connessioni da quel punto in. Per visualizzare le modifiche in una sessione di cui che si è già connessi per disconnettersi e quindi connettersi nuovamente.
+  - **Risoluzione** -imposta la risoluzione da usare per le connessioni desktop a livello globale. Se è già stata impostata una risoluzione personalizzata per una singola app o la connessione, questa impostazione non verrà modificato che.
+    >[!NOTE]
+    >Quando si modifica una delle impostazioni di visualizzazione, sono applicabili unicamente alle nuove connessioni da quel punto in. Per visualizzare le modifiche in una sessione di cui che si è già connessi per disconnettersi e quindi connettersi nuovamente.
 
 ### <a name="connection-bar"></a>Barra delle connessioni
 

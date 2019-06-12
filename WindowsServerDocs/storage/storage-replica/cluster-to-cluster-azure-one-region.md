@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: 9cf998087e23f45fe5981aef6d1ff5b7b4e85b9b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461983"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447616"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster a cluster di Replica di archiviazione nella stessa area in Azure
 
@@ -30,7 +30,7 @@ Nella prima parte
 Seconda parte
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE269Pq]
 
-![Il diagramma dell'architettura di Replica di archiviazione da Cluster a cluster in Azure che presenta la stessa area.](media\Cluster-to-cluster-azure-one-region\architecture.png)
+![Il diagramma dell'architettura di Replica di archiviazione da Cluster a cluster in Azure che presenta la stessa area.](media/Cluster-to-cluster-azure-one-region/architecture.png)
 > [!IMPORTANT]
 > Tutti gli esempi di riferimento sono specifici dell'illustrazione precedente.
 
@@ -58,41 +58,43 @@ Seconda parte
 8. In questo esempio, il controller di dominio **az2azDC** dispone di indirizzo IP privato (10.3.0.8). Nella rete virtuale (**az2az-Vnet**) modificare il Server DNS 10.3.0.8. Connettere tutti i nodi per "Contoso.com" e assegnare i privilegi di amministratore per "contosoadmin".
    - Account di accesso come contosoadmin da tutti i nodi. 
     
-9. La creazione dei cluster (**SRAZC1**, **SRAZC2**). Ecco i comandi di PowerShell per questo esempio
-```PowerShell
+9. La creazione dei cluster (**SRAZC1**, **SRAZC2**). 
+   Ecco i comandi di PowerShell per questo esempio
+   ```PowerShell
     New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
-```
-```PowerShell
+   ```
+   ```PowerShell
     New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
-```
+   ```
 10. Abilitare spazi di archiviazione diretta
-```PowerShell
+    ```PowerShell
     Enable-clusterS2D
-```   
+    ```   
    
-   Per ogni cluster Crea volume e il disco virtuale. Uno per i dati e un altro per il log. 
+    Per ogni cluster Crea volume e il disco virtuale. Uno per i dati e un altro per il log. 
    
 11. Creare uno SKU Standard interni [Load Balancer](https://ms.portal.azure.com/#create/Microsoft.LoadBalancer-ARM) per ogni cluster (**azlbr1**,**azlbr2**). 
    
-   Fornire l'indirizzo IP del Cluster come indirizzo IP privato statico per il bilanciamento del carico.
-   - azlbr1 = > IP front-end: 10.3.0.100 (prelevare un indirizzo IP non usato dalla rete virtuale (**az2az-Vnet**) subnet)
-   - Creare Pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
-   - Creare Probe di integrità: porta 59999
-   - Crea regola di bilanciamento carico: Consentire le porte a disponibilità elevata, con indirizzo IP mobile abilitato. 
+    Fornire l'indirizzo IP del Cluster come indirizzo IP privato statico per il bilanciamento del carico.
+    - azlbr1 = > IP front-end: 10.3.0.100 (prelevare un indirizzo IP non usato dalla rete virtuale (**az2az-Vnet**) subnet)
+    - Creare Pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
+    - Creare Probe di integrità: porta 59999
+    - Crea regola di bilanciamento carico: Consentire le porte a disponibilità elevata, con indirizzo IP mobile abilitato. 
    
-   Fornire l'indirizzo IP del Cluster come indirizzo IP privato statico per il bilanciamento del carico.
-   - azlbr2 = > IP front-end: 10.3.0.101 (prelevare un indirizzo IP non usato dalla rete virtuale (**az2az-Vnet**) subnet)
-   - Creare Pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
-   - Creare Probe di integrità: porta 59999
-   - Crea regola di bilanciamento carico: Consentire le porte a disponibilità elevata, con indirizzo IP mobile abilitato. 
+    Fornire l'indirizzo IP del Cluster come indirizzo IP privato statico per il bilanciamento del carico.
+    - azlbr2 = > IP front-end: 10.3.0.101 (prelevare un indirizzo IP non usato dalla rete virtuale (**az2az-Vnet**) subnet)
+    - Creare Pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
+    - Creare Probe di integrità: porta 59999
+    - Crea regola di bilanciamento carico: Consentire le porte a disponibilità elevata, con indirizzo IP mobile abilitato. 
    
 12. In ogni nodo del cluster, aprire la porta 59999 (Probe di integrità). 
    
     Eseguire il comando seguente in ogni nodo:
-```PowerShell
-netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
-```   
-13. Indicare a del cluster per l'ascolto dei messaggi di Probe di integrità su porta 59999 e rispondere dal nodo a cui appartiene questa risorsa. Eseguirlo una sola volta da qualsiasi nodo del cluster, per ogni cluster. 
+    ```PowerShell
+    netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
+    ```   
+13. Indicare a del cluster per l'ascolto dei messaggi di Probe di integrità su porta 59999 e rispondere dal nodo a cui appartiene questa risorsa. 
+    Eseguirlo una sola volta da qualsiasi nodo del cluster, per ogni cluster. 
     
     In questo esempio, assicurarsi di modificare il "ILBIP" in base ai valori di configurazione. Eseguire il comando seguente da qualsiasi nodo **az2az1**/**az2az2**:
 
@@ -113,16 +115,16 @@ netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=al
     [int]$ProbePort = 59999
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
     ```   
-   Assicurarsi che entrambi i cluster possono connettersi / comunicano tra loro. 
+    Assicurarsi che entrambi i cluster possono connettersi / comunicano tra loro. 
 
-   Una caratteristica "Connect to Cluster" in Gestione cluster di Failover consente di connettersi a altro cluster o controllare che altri cluster risponde da uno dei nodi del cluster corrente.  
+    Una caratteristica "Connect to Cluster" in Gestione cluster di Failover consente di connettersi a altro cluster o controllare che altri cluster risponde da uno dei nodi del cluster corrente.  
    
-   ```PowerShell
+    ```PowerShell
      Get-Cluster -Name SRAZC1 (ran from az2az3)
-   ```
-   ```PowerShell
+    ```
+    ```PowerShell
      Get-Cluster -Name SRAZC2 (ran from az2az1)
-   ```   
+    ```   
 
 15. Creare i server di controllo cloud per entrambi i cluster. Creare due [gli account di archiviazione](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) (**az2azcw**, **az2azcw2**) in azure è per ogni cluster nello stesso gruppo di risorse (**SR-AZ2AZ**).
 
@@ -135,25 +137,25 @@ netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=al
 
 18. Configurare Replica archiviazione da cluster a cluster.
    
-   Concedere l'accesso da un cluster a un altro cluster in entrambe le direzioni:
+    Concedere l'accesso da un cluster a un altro cluster in entrambe le direzioni:
 
-   In questo esempio:
+    In questo esempio:
 
-   ```PowerShell
+    ```PowerShell
       Grant-SRAccess -ComputerName az2az1 -Cluster SRAZC2
-   ```
-Se si usa Windows Server 2016, quindi eseguire anche questo comando:
+    ```
+    Se si usa Windows Server 2016, quindi eseguire anche questo comando:
 
-   ```PowerShell
+    ```PowerShell
       Grant-SRAccess -ComputerName az2az3 -Cluster SRAZC1
-   ```   
+    ```   
    
 19. Creare SRPartnership per i cluster:</ol>
 
- - Per il cluster **SRAZC1**.
-   - Percorso del volume:-c:\ClusterStorage\DataDisk1
-   - Percorso file di registro:-g:
- - Per cluster **SRAZC2**
+    - Per il cluster **SRAZC1**.
+    - Percorso del volume:-c:\ClusterStorage\DataDisk1
+    - Percorso file di registro:-g:
+    - Per cluster **SRAZC2**
     - Percorso del volume:-c:\ClusterStorage\DataDisk2
     - Percorso file di registro:-g:
 

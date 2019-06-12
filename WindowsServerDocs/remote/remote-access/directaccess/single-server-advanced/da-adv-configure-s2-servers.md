@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0d51ac71fa2fbe4d0bb7121a9ef511524c47f4f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: adcd13bda942b756a122e9642da795dd9c847bad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826612"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446964"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Passaggio 2 configurare il server DirectAccess avanzato
 
@@ -30,7 +30,7 @@ In questo argomento viene descritto come configurare le impostazioni del client 
 |----|--------|  
 |2.1. Installare il ruolo Accesso remoto|Consente di installare il ruolo Accesso remoto.|  
 |2.2. Configurare il tipo di distribuzione|Consente di configurare il tipo di distribuzione come DirectAccess e VPN, solo DirectAccess o solo VPN.|  
-|[Pianificare una distribuzione avanzata DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md)|Consente di configurare il server di Accesso remoto con i gruppi di sicurezza contenenti i client DirectAccess.|  
+|[Pianificare una distribuzione avanzata di DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md)|Consente di configurare il server di Accesso remoto con i gruppi di sicurezza contenenti i client DirectAccess.|  
 |2.4. Configurare il server di Accesso remoto|Consente di configurare le impostazioni del server di Accesso remoto.|  
 |2.5. Configurare i server dell'infrastruttura|Consente di configurare i server dell'infrastruttura usati nell'organizzazione.|  
 |2.6. Configurare i server applicazioni|Consente di configurare i server applicazioni in modo che richiedano l'autenticazione e la crittografia.|  
@@ -57,7 +57,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 6.  Nella pagina **Stato installazione**, verificare che l'installazione sia stata completata correttamente, quindi fare clic su **Chiudi**.  
   
-![Riuscita lo stato di avanzamento dell'installazione](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)****Windows PowerShell equivalente comandi****  
+![Esito positivo lo stato di avanzamento dell'installazione](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -244,7 +244,7 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 1: Configurare l'infrastruttura DirectAccess avanzato](da-adv-configure-s1-infrastructure.md)  
+-   [Passaggio 1: Configurare l'infrastruttura avanzata di DirectAccess](da-adv-configure-s1-infrastructure.md)  
   
 ## <a name="next-step"></a>Passaggio successivo  
   

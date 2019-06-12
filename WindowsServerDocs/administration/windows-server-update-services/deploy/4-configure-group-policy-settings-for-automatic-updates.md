@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 9205565486b75edcd550174fc89990a5aa2d69b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222918"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439857"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Passaggio 4: Configurare le impostazioni di criteri di gruppo per gli aggiornamenti automatici
 
@@ -420,10 +420,11 @@ Per utilizzare questa impostazione, è necessario impostare due valori di nome s
 
 **Opzioni:** Quando questa impostazione dei criteri è abilitata, è necessario specificare il servizio di aggiornamento intranet che i client WSUS userà quando il rilevamento degli aggiornamenti e la Internet statistiche aggiornata dal server a cui i client WSUS caricherà le statistiche. Valori di esempio
 
-|Opzione di impostazione:|Valore di esempio|
-|----------|---------|
-|Impostare il servizio di aggiornamento intranet per il rilevamento degli aggiornamenti|http://wsus01:8530|
-|Impostare il server delle statistiche intranet|http://IntranetUpd01|
+
+|                    Opzione di impostazione:                    |    Valore di esempio    |
+|-------------------------------------------------------|----------------------|
+| Impostare il servizio di aggiornamento intranet per il rilevamento degli aggiornamenti |  http://wsus01:8530  |
+|          Impostare il server delle statistiche intranet           | http://IntranetUpd01 |
 
 #### <a name="turn-on-recommended-updates-via-automatic-updates"></a>Attiva aggiornamenti consigliati tramite aggiornamenti automatici
 Specifica se aggiornamenti automatici recapiterà importante e gli aggiornamenti consigliati da WSUS.
@@ -586,7 +587,7 @@ Specifica se il **Installa aggiornamenti e spegni** l'opzione è consentita come
 |**Disabilitato**|Specifica se il **Installa aggiornamenti e spegni** opzione sarà l'opzione predefinita nel **Spegni** la finestra di dialogo se gli aggiornamenti disponibili per l'installazione al momento l'utente seleziona l'opzione Arresta per arrestare il computer.|
 
 **Opzioni:** Non esistono opzioni per questa impostazione.
-    
+
 #### <a name="remove-access-to-use-all-windows-update-features"></a>Rimuovere l'accesso per l'utilizzo di tutte le funzionalità di Windows Update
 Questa impostazione consente di rimuovere l'accesso client di Windows Server Update SERVICES a Windows Update.
 

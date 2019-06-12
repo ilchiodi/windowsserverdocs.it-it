@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 9514392da133911c900f68fc8f1be260b6c91138
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d912047ab0e3136c6dc05064f3a28aaaafd36c79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873032"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447720"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>Limiti di scalabilità di Server di destinazione iSCSI
 
@@ -73,7 +73,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <td><p>I dischi virtuali montati in locale o snapshot per ogni dispositivo di archiviazione</p></td>
 <td><p>32</p></td>
 <td><p>Yes</p></td>
-<td><p>I dischi virtuali montati in locale non offrono le funzionalità specifiche di iSCSI e vengono deprecati - per altre informazioni, vedere <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>.</p></td>
+<td><p>Montata localmente don dischi virtuali&#39;offerta di t qualsiasi funzionalità specifiche di iSCSI e vengono deprecati - per altre informazioni, vedere <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +105,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <tr class="even">
 <td><p>Più nodi del cluster attivo</p></td>
 <td><p>Supportato</p></td>
-<td> 
+<td> 
 <p>N/D</p></td>
 <td><p>Un'istanza cluster di Server di destinazione iSCSI diversi è proprietario ogni nodo attivo del cluster di failover con gli altri nodi che agisce come possibili nodi proprietari.</p></td>
 </tr>
@@ -205,8 +205,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <tr class="odd">
 <td><p>offload di iSCSI</p></td>
 <td><p>Non supportato</p></td>
-<td>              
-<p>N/D</p></td>
+<td><br/><p>N/D</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -249,7 +248,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Da un iniziatore iSCSI conversione del disco virtuale da un disco di base a un disco dinamico </p></td>
+<td><p>Da un iniziatore iSCSI conversione del disco virtuale da un disco di base a un disco dinamico </p></td>
 <td><p>Yes</p></td>
 <td><p>No</p></td>
 <td></td>
@@ -264,7 +263,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <tr class="odd">
 <td><p>Dimensioni minime formato disco rigido virtuale</p></td>
 <td><p>.vhdx: 3 MB</p>
-<p>.vhd: 8 MB</p></td>
+<p>.vhd: 8 MB</p></td>
 <td><p>Yes</p></td>
 <td><p>Si applica a tutti i tipi di disco rigido virtuale supportati: padre, differenziazione e risolto.</p></td>
 </tr>
@@ -312,7 +311,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <td><p>.vhdx: Yes</p>
 <p>.vhd: Sì (No in Windows Server 2012)</p></td>
 <td><p>Yes</p></td>
-<td><p>Annullare il mapping non è supportato.</p></td>
+<td><p>Annullare il mapping non è&#39;t è supportato.</p></td>
 </tr>
 <tr class="odd">
 <td><p>exFAT/FAT32/file system FAT (volume del disco rigido virtuale di hosting)</p></td>
@@ -348,7 +347,7 @@ Questo argomento fornisce limiti per i Server di destinazione iSCSI Microsoft te
 <td><p>Thin provisioning</p></td>
 <td><p>No</p></td>
 <td><p>N/D</p></td>
-<td><p>Sono supportati dischi rigidi virtuali dinamici, ma non è supportato l'annullamento del mapping.</p></td>
+<td><p>I dischi rigidi virtuali dinamici sono supportati, ma annullare il mapping di&#39;t è supportato.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Compattazione di unità logica</p></td>
@@ -542,9 +541,9 @@ Per altre informazioni sui Provider di archiviazione destinazioni iSCSI, vedere 
 
 L'elenco seguente include risorse aggiuntive su Server di destinazione iSCSI e tecnologie correlate.
 
-  - [Panoramica di archiviazione blocchi di destinazione iSCSI](iscsi-target-server.md)
+- [Panoramica di archiviazione blocchi di destinazione iSCSI](iscsi-target-server.md)
 
-  - [Panoramica di avvio di destinazioni iSCSI](iscsi-boot-overview.md)
+- [Panoramica di avvio di destinazioni iSCSI](iscsi-boot-overview.md)
 
-  - [Archiviazione in Windows Server](..\storage.md)
+- [Archiviazione in Windows Server](../storage.md)
 

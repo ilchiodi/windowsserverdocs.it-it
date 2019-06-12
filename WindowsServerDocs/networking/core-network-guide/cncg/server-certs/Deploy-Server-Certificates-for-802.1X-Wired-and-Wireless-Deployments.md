@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 769a4165cfd82056a904c79c41e96fb666d05e43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d4cdcd11e0eb334064ddefec0eda775ffccff2c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842272"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446476"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Distribuire i certificati server per le distribuzioni wireless e cablate 802.1X
 
@@ -66,8 +66,8 @@ Registrazione automatica dei certificati server, denominato anche la registrazio
 In questa guida vengono fornite istruzioni su come distribuire i certificati del server tramite Servizi certificati Active Directory e il ruolo Server Web (IIS) in Windows Server 2016. Di seguito sono i prerequisiti per l'esecuzione delle procedure illustrate in questa Guida.  
 
 - È necessario distribuire una rete core utilizzando la Guida alla rete di Windows Server 2016 Core oppure è necessario avere già tecnologie fornite con la Guida alla rete Core installato e funzioni correttamente nella rete. Queste tecnologie includono TCP/IP v4, DHCP, Active Directory Domain Services (AD DS), DNS e dei criteri di RETE.  
->[!NOTE]
->La Guida alla rete di Windows Server 2016 Core è disponibile nella libreria tecnica di Windows Server 2016. Per ulteriori informazioni, vedere [Guida alla rete Core](../../../core-network-guide/Core-Network-Guide.md).
+  >[!NOTE]
+  >La Guida alla rete di Windows Server 2016 Core è disponibile nella libreria tecnica di Windows Server 2016. Per ulteriori informazioni, vedere [Guida alla rete Core](../../../core-network-guide/Core-Network-Guide.md).
 
 - È necessario leggere la sezione pianificazione di questa guida per assicurarsi che siano preparati per la distribuzione prima di eseguire la distribuzione.  
 - È necessario eseguire i passaggi in questa Guida nell'ordine in cui sono presentate. Non passare e distribuire un'autorità di certificazione senza eseguire i passaggi che portano alla distribuzione di server o la distribuzione avrà esito negativo.  

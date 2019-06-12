@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7e96391ee8dce0b77f00f51d7cb78ff9b8bf242
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 893bcd3b28aaa5d501017fe65b7b5205e9452693
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564664"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440694"
 ---
 # <a name="using-the-add-driverpackage-command"></a>Utilizzando il comando Aggiungi /InfFile
 
@@ -34,13 +34,13 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|InfFile:\<percorso del Inf File >|Specifica il percorso completo del file. inf da aggiungere.|
-|/ Server:\<nome Server >|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-|/Architecture:{x86 | ia64 | x64}|Specifica l'architettura del pacchetto driver.|
-|[/ DriverGroup:\<nome gruppo >]|Specifica il nome del gruppo di driver in cui deve essere aggiunto il pacchetto.|
-|[/Name:\<nome descrittivo >]|Indica il nome descrittivo per il pacchetto driver.|
+|          Parametro           |                                                              Descrizione                                                              |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|   InfFile:\<percorso del Inf File >   |                                           Specifica il percorso completo del file. inf da aggiungere.                                            |
+|    / Server:\<nome Server >    | Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale. |
+|      /Architecture:{x86      |                                                                 ia64                                                                  |
+| [/ DriverGroup:\<nome gruppo >] |                             Specifica il nome del gruppo di driver in cui deve essere aggiunto il pacchetto.                              |
+|   [/Name:\<nome descrittivo >]   |                                           Indica il nome descrittivo per il pacchetto driver.                                            |
 
 ## <a name="BKMK_examples"></a>Esempi
 

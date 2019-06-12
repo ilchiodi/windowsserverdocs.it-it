@@ -11,18 +11,18 @@ ms.date: 05/21/2019
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a270334d-42a7-46ff-8eed-d8656a276544
-ms.openlocfilehash: c9fede02b90e285803a8bcdbc983f264d65a4589
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: c12ca84826a92fa045eb84b55e7406392161280b
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976509"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452799"
 ---
 # <a name="changes-to-nano-server-in-windows-server-semi-annual-channel"></a>Modifiche apportate a Nano Server in Windows Server Canale semestrale
 
 >Si applica a: Windows Server, come canale semestrale
 
-Se si esegue già Nano Server, il [canale semestrale Server finestra](..\get-started-19\servicing-channels-19.md) modello di manutenzione risulterà familiare, poiché è stata precedentemente provvedeva inoltre da Current Branch per il modello di Business (CBB). Canale semestrale di Windows Server è semplicemente un nuovo nome per lo stesso modello. In questo modello, i rilasci degli aggiornamenti di funzionalità di Nano Server sono previsti due o tre volte l'anno.
+Se si esegue già Nano Server, il [canale semestrale Server finestra](../get-started-19/servicing-channels-19.md) modello di manutenzione risulterà familiare, poiché è stata precedentemente provvedeva inoltre da Current Branch per il modello di Business (CBB). Canale semestrale di Windows Server è semplicemente un nuovo nome per lo stesso modello. In questo modello, i rilasci degli aggiornamenti di funzionalità di Nano Server sono previsti due o tre volte l'anno.
 
 Tuttavia, a partire da Windows Server, versione 1803, Nano Server è disponibile solo come un **immagine del sistema operativo base contenitore**. Deve essere eseguito come contenitore in un host contenitore, come un'installazione Server Core di Windows Server. L'esecuzione di un contenitore basato su Nano Server in questa versione si differenzia dalle versioni precedenti per tre aspetti:
 
@@ -36,4 +36,4 @@ Tuttavia, a partire da Windows Server, versione 1803, Nano Server è disponibile
 ## <a name="related-topics"></a>Argomenti correlati
 
 - [Documentazione di contenitori di Windows](http://aka.ms/windowscontainers)
-- [Canale semestrale Server finestra Panoramica](..\get-started-19\servicing-channels-19.md)
+- [Canale semestrale Server finestra Panoramica](../get-started-19/servicing-channels-19.md)

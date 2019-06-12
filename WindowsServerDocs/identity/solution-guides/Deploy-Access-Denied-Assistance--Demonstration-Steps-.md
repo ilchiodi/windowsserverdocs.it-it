@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5201441ba884fe4658b917919e60c7d20530341b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 441dad92611e1a4a1135bd15bbcdfd05f38c1be3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835582"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445821"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Deploy Access-Denied Assistance (Demonstration Steps)
 
@@ -70,7 +70,7 @@ Per configurare l'assistenza per accesso negato per il dominio usando Criteri di
   
     3.  Non modificare le impostazioni predefinite rimanenti.  
   
-![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -94,7 +94,7 @@ In alternativa, è possibile configurare l'assistenza per accesso negato individ
   
 1.  Aprire Gestione risorse file server. In Server Manager fare clic su **Strumenti** e quindi su **Gestione risorse file server**.  
   
-2.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)**, quindi scegliere **Configura opzioni**.  
+2.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)** , quindi scegliere **Configura opzioni**.  
   
 3.  Fare clic sulla scheda **Assistenza per accesso negato** .  
   
@@ -118,7 +118,7 @@ In alternativa, è possibile configurare l'assistenza per accesso negato individ
   
 8.  Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
   
@@ -142,7 +142,7 @@ Dopo avere configurato l'assistenza per accesso negato, è necessario abilitarla
   
 5.  Fare clic su **Abilitato**e quindi su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione. 
   
@@ -159,7 +159,7 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
 1.  Aprire Gestione risorse file server. In Server Manager fare clic su **Strumenti** e quindi su **Gestione risorse file server**.  
   
-2.  Espandere **Gestione risorse file server (locale)**, quindi fare clic su **Gestione classificazioni**.  
+2.  Espandere **Gestione risorse file server (locale)** , quindi fare clic su **Gestione classificazioni**.  
   
 3.  Fare clic con il pulsante destro del mouse su **Proprietà classificazione**, quindi scegliere **Imposta proprietà di gestione cartelle**.  
   
@@ -181,7 +181,7 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
 7.  Fare clic su **OK** e quindi fare clic su **Chiudi**.  
   
-![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione. 
   
@@ -196,7 +196,7 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
   
 1.  Aprire Gestione risorse file server. In Server Manager fare clic su **Strumenti** e quindi su **Gestione risorse file server**.  
   
-2.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)**, quindi scegliere **Configura opzioni**.  
+2.  Fare clic con il pulsante destro del mouse su **Gestione risorse file server (locale)** , quindi scegliere **Configura opzioni**.  
   
 3.  Fare clic sulla scheda **Notifiche posta elettronica**.  
   
@@ -210,7 +210,7 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
   
 6.  Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
   

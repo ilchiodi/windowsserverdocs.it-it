@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6dda30bd15bedab8ea5ca8ca2e9597e1cc196e43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877502"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443048"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aggiornare controller di dominio a Windows Server 2012 R2 e Windows Server 2012
 
@@ -150,8 +150,8 @@ Sono presenti alcune modifiche relative ai Servizi di dominio Active Directory:
    - Esiste una sola versione di Adprep.exe, che può essere eseguita, se necessario, sui server a 64 bit che eseguono Windows Server 2008 o versione successiva. È eseguibile in remoto e deve essere eseguita in remoto se il ruolo di master delle operazioni di riferimento è ospitato su un sistema operativo a 32 bit o su Windows Server 2003.  
 - **Deprecazione di Dcpromo.exe**
    - Dcpromo è deprecato Sebbene in Windows Server 2012 solo, è ancora possibile eseguirlo con un file di risposte o i parametri della riga di comando per dare tempo alle organizzazioni di passare dall'automazione esistente alle nuove opzioni di installazione di Windows PowerShell.  
--   **LMHash è disabilitato sugli account utente**
-   - Le impostazioni predefinite sicure di Modelli di sicurezza in Windows Server 2008, Windows Server 2008 R2 e Windows Server 2012 abilitano il criterio NoLMHash, disabilitato nei modelli di sicurezza dei controller di dominio di Windows 2000 e Windows Server 2003. Disabilitare, se necessario, il criterio NoLMHash per i client dipendenti da LMHash, secondo la procedura descritta nell'articolo [946405](https://support.microsoft.com/kb/946405)della Knowledge Base.  
+- **LMHash è disabilitato sugli account utente**
+  - Le impostazioni predefinite sicure di Modelli di sicurezza in Windows Server 2008, Windows Server 2008 R2 e Windows Server 2012 abilitano il criterio NoLMHash, disabilitato nei modelli di sicurezza dei controller di dominio di Windows 2000 e Windows Server 2003. Disabilitare, se necessario, il criterio NoLMHash per i client dipendenti da LMHash, secondo la procedura descritta nell'articolo [946405](https://support.microsoft.com/kb/946405)della Knowledge Base.  
 
 A partire da Windows Server 2008, i controller di dominio dispongono anche le seguenti impostazioni predefinite sicure, rispetto ai controller di dominio che eseguono Windows Server 2003 o Windows 2000.
 

@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 241b2b776a68cf5aec68a4d331201a07f0e5ea53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844652"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447088"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Usare i contatori delle prestazioni per diagnosticare i problemi delle prestazioni dell'app su host sessione Desktop remoto
 
@@ -25,11 +25,11 @@ Il contatore di ritardo di Input utente consente di identificare rapidamente la 
 
 L'immagine seguente mostra una rappresentazione approssimativa del flusso di input utente dal client all'applicazione.
 
-![Desktop remoto - utente i flussi di input dal client Desktop remoto agli utenti all'applicazione](.\media\rds-user-input.png)
+![Desktop remoto - utente i flussi di input dal client Desktop remoto agli utenti all'applicazione](./media/rds-user-input.png)
 
 Il contatore di ritardo di Input utente misura il delta massimo (all'interno di un intervallo di tempo) tra l'input accodata e quando viene prelevato dall'app, in un [ciclo di messaggi tradizionale](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), come illustrato nel diagramma di flusso seguente:
 
-![Desktop remoto - flow di contatore delle prestazioni ritardo l'input dell'utente](.\media\rds-user-input-delay.png)
+![Desktop remoto - flow di contatore delle prestazioni ritardo l'input dell'utente](./media/rds-user-input-delay.png)
 
 Un dettaglio importante di questo contatore è che segnala il ritardo di input massimo di utenti all'interno di un intervallo configurabile. Questo è il tempo massimo impiegato da un input raggiungere l'applicazione, che possa influire sulla velocità delle operazioni importanti ed è visibile, ad esempio la digitazione.
 
@@ -52,13 +52,13 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 Successivamente, riavviare il server. Quindi, aprire Performance Monitor e selezionare il segno più (+), come illustrato nella schermata riportata di seguito.
 
-![Contatore delle prestazioni ritardo di input di Desktop remoto - screenshot che illustra come aggiungere l'utente](.\media\rds-add-user-input-counter-screen.png)
+![Contatore delle prestazioni ritardo di input di Desktop remoto - screenshot che illustra come aggiungere l'utente](./media/rds-add-user-input-counter-screen.png)
 
 Dopo questa operazione, verrà visualizzata la finestra di dialogo Aggiungi contatori in cui è possibile selezionare **ritardo di Input utente per ogni processo** oppure **ritardo di Input utente per ogni sessione**.
 
-![Desktop remoto - screenshot che illustra come aggiungere il ritardo di input utente per ogni sessione](.\media\rds-user-delay-per-session.png)
+![Desktop remoto - screenshot che illustra come aggiungere il ritardo di input utente per ogni sessione](./media/rds-user-delay-per-session.png)
 
-![Desktop remoto - screenshot che illustra come aggiungere il ritardo di input utente per ogni processo](.\media\rds-user-delay-per-process.png)
+![Desktop remoto - screenshot che illustra come aggiungere il ritardo di input utente per ogni processo](./media/rds-user-delay-per-process.png)
 
 Se si seleziona **ritardo di Input utente per ogni processo**, si noterà il **istanze dell'oggetto selezionato** (in altre parole, i processi) in ```SessionID:ProcessID <Process Image>``` formato.
 
@@ -69,7 +69,7 @@ Ad esempio, se l'app Calcolatrice è in esecuzione in un [1 ID di sessione](http
 
 Il contatore inizi a inviare report ritardo input utente, non appena si aggiungerlo. Si noti che la scala massima è impostata su 100 (ms) per impostazione predefinita. 
 
-![Desktop remoto: un esempio di attività per il ritardo di Input utente per ogni processo in Performance Monitor](.\media\rds-sample-user-input-delay-perfmon.png)
+![Desktop remoto: un esempio di attività per il ritardo di Input utente per ogni processo in Performance Monitor](./media/rds-sample-user-input-delay-perfmon.png)
 
 Successivamente, verrà ora esaminato il **ritardo di Input utente per ogni sessione**. Sono presenti istanze per ogni ID di sessione e i relativi contatori mostrano il ritardo di input utente di tutti i processi all'interno della sessione specificata. Inoltre, sono presenti due istanze denominate "Max" (il massimo input ritardo utente tra tutte le sessioni) e "Average" (il acorss di medie tutte le sessioni).
 
@@ -89,7 +89,7 @@ Questa tabella mostra un esempio visivo di queste istanze. (È possibile ottener
 
 A questo punto vediamo cosa verrà visualizzato nel report se per un'app per le prestazioni risultano ridotte. Il grafico seguente mostra le letture agli utenti che lavorano in remoto in Microsoft Word. In questo caso, le prestazioni del server host sessione Desktop remoto comporta una riduzione nel tempo come accedono più utenti.
 
-![Desktop remoto: un grafico delle prestazioni di esempio per il server host sessione Desktop remoto che esegue Microsoft Word](.\media\rds-user-input-perf-graph.png)
+![Desktop remoto: un grafico delle prestazioni di esempio per il server host sessione Desktop remoto che esegue Microsoft Word](./media/rds-user-input-perf-graph.png)
 
 Di seguito viene illustrato come leggere le linee del grafico:
 
@@ -104,7 +104,7 @@ Si noterà che vi sia una correlazione tra i picchi di CPU e il ritardo di input
 
 Un aspetto importante da ricordare quando si usa questo contatore delle prestazioni è che segnala il ritardo input utente in un intervallo di 1.000 ms per impostazione predefinita. Se si imposta la proprietà di interval campione del contatore delle prestazioni (come illustrato nello screenshot seguente) a qualsiasi elemento diverso, il valore restituito sarà errato.
 
-![Desktop remoto, le proprietà per il monitoraggio delle prestazioni](.\media\rds-user-input-perfmon-properties.png)
+![Desktop remoto, le proprietà per il monitoraggio delle prestazioni](./media/rds-user-input-perfmon-properties.png)
 
 Per risolvere questo problema, è possibile impostare la chiave del Registro di sistema seguente in modo che corrispondano l'intervallo, in millisecondi, che si desidera utilizzare. Ad esempio, se si modifica esempio ogni x secondi a 5 secondi, è necessario impostare questa chiave su 5000 ms.
 
@@ -125,7 +125,7 @@ Per risolvere questo problema, è possibile impostare la chiave del Registro di 
 
 Questo è il risultato se attivare entrambe le chiavi:
 
-![Desktop remoto - il monitoraggio delle prestazioni con entrambe le chiavi in](.\media\rds-user-input-delay-with-two-counters.png)
+![Desktop remoto - il monitoraggio delle prestazioni con entrambe le chiavi in](./media/rds-user-input-delay-with-two-counters.png)
 
 ## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Usando i nuovi contatori con strumenti non Microsoft
 

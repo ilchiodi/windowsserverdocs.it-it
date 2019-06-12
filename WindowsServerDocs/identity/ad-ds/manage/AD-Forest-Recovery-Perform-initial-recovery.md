@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 9883d337520c3920f8638ddfe5f6bd393e31fd2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034118"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442865"
 ---
 # <a name="perform-initial-recovery"></a>Eseguire il ripristino iniziale  
 
@@ -126,7 +126,7 @@ Dopo la convalida, aggiungere i controller di dominio nella rete di produzione e
 
 - Per risolvere la risoluzione dei nomi, creare record di delega DNS e configurare i DNS radice e l'inoltro dei parametri in base alle esigenze. Eseguire **repadmin /replsum.** per verificare la replica tra controller di dominio. 
 - Se il controller di dominio ripristinato non sono partner di replica diretto, ripristino replica sarà molto più veloce tramite la creazione di oggetti di connessione temporanea tra di essi. 
-- Per convalidare la pulizia dei metadati, eseguire **Repadmin /viewlist \***  per un elenco di tutti i controller di dominio nella foresta. Eseguire **Nltest /DCList:** *< dominio\>*  per un elenco di tutti i controller di dominio nel dominio. 
+- Per convalidare la pulizia dei metadati, eseguire **Repadmin /viewlist \\** * per un elenco di tutti i controller di dominio nella foresta. Eseguire **Nltest /DCList:** *< dominio\>*  per un elenco di tutti i controller di dominio nel dominio. 
 - Per controllare l'integrità del controller di dominio e DNS, eseguire DCDiag /v per segnalare gli errori in tutti i controller di dominio nella foresta. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Aggiungere il catalogo globale a un controller di dominio nel dominio radice della foresta

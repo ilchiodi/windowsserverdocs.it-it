@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c71b96f6c44cfc2b14b4c5d203f876e55cc728ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e90c2c075ba2dc2b63e9a18c9eba192116265b90
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855632"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443519"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Appendice i: Creazione di gestione di account per gli account protetti e gruppi in Active Directory
 
@@ -150,35 +150,35 @@ Per creare gli account di gestione, procedere come segue:
   
 10. Nel **oggetti** scheda, seleziona **Proteggi oggetto da eliminazioni accidentali**. Ciò non solo impedirà l'oggetto in corso l'eliminazione (anche dagli utenti autorizzati), ma ne impediscono viene spostato in un'altra unità Organizzativa nella gerarchia di Active Directory Domain Services, a meno che la casella di controllo viene innanzitutto cancellata da un utente con autorizzazione per modificare l'attributo.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
 
 11. Scegliere il **controllo remoto** scheda.  
 
 12. Cancella il **abilitare il controllo remoto** flag. Non deve mai essere necessaria per il personale di supporto per la connessione alle sessioni dell'account per implementare le correzioni.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
 
-   > [!NOTE]  
-   > Ogni oggetto in Active Directory deve avere un proprietario designato IT e imprenditori designato, come descritto in [pianificazione del compromesso](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md). Se si stanno registrando la proprietà degli oggetti di Active Directory Domain Services in Active Directory (invece di un database esterno), è necessario immettere informazioni sulla proprietà appropriata nelle proprietà dell'oggetto.  
-   >
-   > In questo caso, il titolare dell'organizzazione è probabile che una divisione IT, andthere non è nessuna divieto di proprietari di business in corso anche i proprietari IT. Il punto di stabilire la proprietà degli oggetti è consentire di identificare i contatti quando le modifiche devono essere apportate agli oggetti, ad esempio anni dalla data di creazione iniziale.  
+    > [!NOTE]  
+    > Ogni oggetto in Active Directory deve avere un proprietario designato IT e imprenditori designato, come descritto in [pianificazione del compromesso](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md). Se si stanno registrando la proprietà degli oggetti di Active Directory Domain Services in Active Directory (invece di un database esterno), è necessario immettere informazioni sulla proprietà appropriata nelle proprietà dell'oggetto.  
+    >
+    > In questo caso, il titolare dell'organizzazione è probabile che una divisione IT, andthere non è nessuna divieto di proprietari di business in corso anche i proprietari IT. Il punto di stabilire la proprietà degli oggetti è consentire di identificare i contatti quando le modifiche devono essere apportate agli oggetti, ad esempio anni dalla data di creazione iniziale.  
 
 13. Fare clic sui **organizzazione** scheda.  
 
 14. Immettere le informazioni necessarie nella standard dell'oggetto Active Directory Domain Services.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
 
 15. Fare clic sui **Dial-in** scheda.  
 
 16. Nel **l'autorizzazione di accesso di rete** campi, selezionare **negare l'accesso**. Questo account non deve mai essere necessario connettersi tramite una connessione remota.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
 
-   > [!NOTE]  
-   > È improbabile che questo account verrà utilizzato per accedere al controller di dominio di sola lettura (RODC) nell'ambiente in uso. Tuttavia, debba circostanza mai richiedono che l'account per accedere a un RODC, è necessario aggiungere questo account al gruppo di replica Password RODC negata in modo che la password non viene memorizzato nella cache nel RODC.  
-   >
-   > Anche se la password dell'account deve essere reimpostata dopo ogni uso e l'account deve essere disabilitata, l'implementazione di questa impostazione non ha un effetto deleterio sull'account e può essere utile nelle situazioni in cui si dimentica un amministratore di reimpostare l'account la password e disabilitare la funzionalità.  
+    > [!NOTE]  
+    > È improbabile che questo account verrà utilizzato per accedere al controller di dominio di sola lettura (RODC) nell'ambiente in uso. Tuttavia, debba circostanza mai richiedono che l'account per accedere a un RODC, è necessario aggiungere questo account al gruppo di replica Password RODC negata in modo che la password non viene memorizzato nella cache nel RODC.  
+    >
+    > Anche se la password dell'account deve essere reimpostata dopo ogni uso e l'account deve essere disabilitata, l'implementazione di questa impostazione non ha un effetto deleterio sull'account e può essere utile nelle situazioni in cui si dimentica un amministratore di reimpostare l'account la password e disabilitare la funzionalità.  
 
 17. Fare clic sulla scheda **Membro di**.  
 
@@ -188,42 +188,42 @@ Per creare gli account di gestione, procedere come segue:
 
 20. Fare clic su **OK**.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
 21. Scegliere il **sicurezza** scheda e fare clic su **avanzate**.  
 
 22. Nel **impostazioni di sicurezza avanzate** finestra di dialogo, fare clic su **Disabilita ereditarietà** e copiare le autorizzazioni ereditate le autorizzazioni esplicite e fare clic su **Aggiungi**.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
 
 23. Nel **voci di autorizzazione per [Account]** finestra di dialogo, fare clic su **seleziona un'entità** e aggiungere il gruppo appena creato nella procedura precedente. Scorrere fino alla fine della finestra di dialogo e fare clic su **Cancella tutto** per rimuovere tutte le autorizzazioni predefinite.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
 
 24. Scorrere fino alla parte superiore della **voce di autorizzazione** nella finestra di dialogo. Verificare che il **tipo** elenco a discesa è impostata su **Consenti**e nel **si applica a** elenco a discesa, seleziona **solo questo oggetto**.  
 
 25. Nel **le autorizzazioni** campi, selezionare **Leggi tutte le proprietà**, **autorizzazioni di lettura**, e **Reimposta password**.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
 
 26. Nel **delle proprietà** campi, selezionare **leggere userAccountControl** e **scrivere userAccountControl**.  
 
 27. Fare clic su **OK**, **OK** nuovamente il **impostazioni di sicurezza avanzate** nella finestra di dialogo.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
 
-   > [!NOTE]  
-   > Il **userAccountControl** attributo controlla le opzioni di configurazione di più account. Non è possibile concedere l'autorizzazione per modificare solo alcune delle opzioni di configurazione quando si concede l'autorizzazione di scrittura per l'attributo.  
+    > [!NOTE]  
+    > Il **userAccountControl** attributo controlla le opzioni di configurazione di più account. Non è possibile concedere l'autorizzazione per modificare solo alcune delle opzioni di configurazione quando si concede l'autorizzazione di scrittura per l'attributo.  
 
 28. Nel **nomi utente o gruppo** campo le **sicurezza** scheda, rimuovere tutti i gruppi che devono essere consentiti accedere o gestire l'account. Non rimuovere tutti i gruppi che sono stati configurati con le voci ACE di negazione, ad esempio il gruppo Everyone e SELF calcolate account (questa voce ACE impostata durante la **cambiamento password non** flag è stato abilitato durante la creazione dell'account. Non rimuovere anche il gruppo che appena aggiunto, l'account di sistema o i gruppi, ad esempio contratto Enterprise, DA, BA o il gruppo di accesso autorizzazione Windows.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
 
 29. Fare clic su **avanzate** e verificare che la finestra di dialogo Impostazioni avanzate di sicurezza è simile allo screenshot seguente.  
 
 30. Fare clic su **OK**, e **OK** per chiudere la finestra di dialogo proprietà dell'account.  
 
-   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
+    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
 
 31. Il programma di installazione del primo account di gestione è stata completata. Si testerà l'account in una procedura successiva.  
 
@@ -251,56 +251,56 @@ Come illustrato in [appendice c: Account protetti e gruppi in Active Directory](
   
 In questo caso, si concedono gli account di gestione appena creato per consentire loro di lettura e scrittura i membri dell'attributo per gli oggetti gruppo. Tuttavia, l'oggetto AdminSDHolder non è un oggetto gruppo e raggruppare gli attributi non sono esposte nell'editor di ACL con interfaccia grafica. È per questo motivo che si implementerà le modifiche delle autorizzazioni tramite l'utilità della riga di comando Dsacls. Per concedere le autorizzazioni degli account per modificare l'appartenenza di gruppi protetti di gestione (disabilitata), procedere come segue:  
   
-1.  Accedere a un controller di dominio, preferibilmente il controller di dominio che detiene il ruolo emulatore PDC (emulatore PDC), con le credenziali di un account utente che è diventato un membro del gruppo nel dominio.  
+1. Accedere a un controller di dominio, preferibilmente il controller di dominio che detiene il ruolo emulatore PDC (emulatore PDC), con le credenziali di un account utente che è diventato un membro del gruppo nel dominio.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
   
-2.  Aprire un prompt dei comandi con privilegi elevati facendo **prompt dei comandi** e fare clic su **Esegui come amministratore**.  
+2. Aprire un prompt dei comandi con privilegi elevati facendo **prompt dei comandi** e fare clic su **Esegui come amministratore**.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
   
-3.  Quando viene richiesto di approvare l'elevazione dei privilegi, fare clic su **Sì**.  
+3. Quando viene richiesto di approvare l'elevazione dei privilegi, fare clic su **Sì**.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
   
-    > [!NOTE]  
-    > Per altre informazioni sull'elevazione dei privilegi e account il controllo utente (UAC) in Windows, vedere [UAC processi e interazioni](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx) sul sito Web TechNet.  
+   > [!NOTE]  
+   > Per altre informazioni sull'elevazione dei privilegi e account il controllo utente (UAC) in Windows, vedere [UAC processi e interazioni](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx) sul sito Web TechNet.  
   
-4.  Al Prompt dei comandi, digitare (sostituendo le informazioni specifiche del dominio) **Dsacls [nome distinto dell'oggetto AdminSDHolder nel dominio] [UPN dell'account di gestione] /G: RPWP; membro**.  
+4. Al Prompt dei comandi, digitare (sostituendo le informazioni specifiche del dominio) **Dsacls [nome distinto dell'oggetto AdminSDHolder nel dominio] [UPN dell'account di gestione] /G: RPWP; membro**.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
   
-    Il comando precedente (ovvero non distinzione maiuscole/minuscole) funziona nel modo seguente:  
+   Il comando precedente (ovvero non distinzione maiuscole/minuscole) funziona nel modo seguente:  
   
-    -   DSACLS imposta o Visualizza le voci ACE per oggetti directory  
+   - DSACLS imposta o Visualizza le voci ACE per oggetti directory  
   
-    -   CN = AdminSDHolder, CN = System, DC = TailSpinToys, DC = msft identifica l'oggetto da modificare  
+   - CN = AdminSDHolder, CN = System, DC = TailSpinToys, DC = msft identifica l'oggetto da modificare  
   
-    -   /G indica che è stata configurata una voce ACE di concessione  
+   - /G indica che è stata configurata una voce ACE di concessione  
   
-    -   PIM001@tailspintoys.msft è il nome dell'entità di utente (UPN) dell'entità di sicurezza a cui verranno concesse le voci ACE  
+   - PIM001@tailspintoys.msft è il nome dell'entità di utente (UPN) dell'entità di sicurezza a cui verranno concesse le voci ACE  
   
-    -   Concede RPWP proprietà autorizzazioni lettura e scrittura proprietà  
+   - Concede RPWP proprietà autorizzazioni lettura e scrittura proprietà  
   
-    -   Membro è il nome della proprietà (attributo) in cui verranno impostate le autorizzazioni  
+   - Membro è il nome della proprietà (attributo) in cui verranno impostate le autorizzazioni  
   
-    Per altre informazioni sull'uso di **Dsacls**, digitare Dsacls senza parametri a un prompt dei comandi.  
+   Per altre informazioni sull'uso di **Dsacls**, digitare Dsacls senza parametri a un prompt dei comandi.  
   
-    Se è stato creato più account di gestione per il dominio, è necessario eseguire il comando Dsacls per ogni account. Dopo aver completato la configurazione di ACL per l'oggetto AdminSDHolder, è necessario forzare SDProp per eseguire o attendere fino a quando non viene completata l'esecuzione pianificata. Per informazioni sulla forzatura SDProp per l'esecuzione, vedere "Esecuzione SDProp manualmente" nella [appendice c: Account protetti e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
+   Se è stato creato più account di gestione per il dominio, è necessario eseguire il comando Dsacls per ogni account. Dopo aver completato la configurazione di ACL per l'oggetto AdminSDHolder, è necessario forzare SDProp per eseguire o attendere fino a quando non viene completata l'esecuzione pianificata. Per informazioni sulla forzatura SDProp per l'esecuzione, vedere "Esecuzione SDProp manualmente" nella [appendice c: Account protetti e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
-    Quando si è eseguito SDProp, è possibile verificare che siano state applicate le modifiche apportate all'oggetto AdminSDHolder a gruppi protetti nel dominio. Non è possibile verificare questo visualizzando l'ACL per l'oggetto AdminSDHolder per i motivi descritti in precedenza, ma è possibile verificare che le autorizzazioni siano state applicate visualizzando gli ACL nei gruppi protetti.  
+   Quando si è eseguito SDProp, è possibile verificare che siano state applicate le modifiche apportate all'oggetto AdminSDHolder a gruppi protetti nel dominio. Non è possibile verificare questo visualizzando l'ACL per l'oggetto AdminSDHolder per i motivi descritti in precedenza, ma è possibile verificare che le autorizzazioni siano state applicate visualizzando gli ACL nei gruppi protetti.  
   
-5.  Nelle **Active Directory Users and Computers**, verificare che sia stata attivata **funzionalità avanzate**. A tale scopo, fare clic su **View**, individuare il **Domain Admins** raggruppare, fare clic sul gruppo e fare clic su **proprietà**.  
+5. Nelle **Active Directory Users and Computers**, verificare che sia stata attivata **funzionalità avanzate**. A tale scopo, fare clic su **View**, individuare il **Domain Admins** raggruppare, fare clic sul gruppo e fare clic su **proprietà**.  
   
-6.  Fare clic sui **sicurezza** scheda e fare clic su **avanzate** per aprire il **Advanced Security Settings for Domain Admins** nella finestra di dialogo.  
+6. Fare clic sui **sicurezza** scheda e fare clic su **avanzate** per aprire il **Advanced Security Settings for Domain Admins** nella finestra di dialogo.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
   
-7.  Selezionare **ACE consentire per l'account di gestione** e fare clic su **modificare**. Verificare che l'account è stato concesso solo **membri lettura** e **membri di scrittura** le autorizzazioni per il gruppo DA e fare clic su **OK**.  
+7. Selezionare **ACE consentire per l'account di gestione** e fare clic su **modificare**. Verificare che l'account è stato concesso solo **membri lettura** e **membri di scrittura** le autorizzazioni per il gruppo DA e fare clic su **OK**.  
   
-8.  Fare clic su **OK** nel **impostazioni di sicurezza avanzate** la finestra di dialogo e fare clic su **OK** per chiudere la finestra di dialogo proprietà per il gruppo DA.  
+8. Fare clic su **OK** nel **impostazioni di sicurezza avanzate** la finestra di dialogo e fare clic su **OK** per chiudere la finestra di dialogo proprietà per il gruppo DA.  
   
-    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
+   ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
   
 9. È possibile ripetere i passaggi precedenti per altri gruppi protetti nel dominio. le autorizzazioni devono essere gli stessi per tutti i gruppi protetti. A questo punto è stata completata la creazione e la configurazione degli account di gestione per i gruppi protetti in questo dominio.  
   

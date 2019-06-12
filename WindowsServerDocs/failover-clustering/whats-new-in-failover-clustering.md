@@ -8,12 +8,12 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 330f65721fca1908ac54ddfd194f96ffe540f1b5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476014"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442367"
 ---
 # <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Novità del clustering di failover)
 
@@ -50,10 +50,10 @@ In questo argomento illustra le funzionalità nuove e modificate in Clustering d
     Aggiornamento compatibile con cluster è ora integrato e compatibile con Spazi di archiviazione diretta e convalida e garantisce il completamento della risincronizzazione dei dati su ciascun nodo. Aggiornamento compatibile con cluster, controlla se gli aggiornamenti solo se necessario, riavviare in modo intelligente. In questo modo orchestrando riavvii di tutti i server del cluster per la manutenzione pianificata.
 
 - **Miglioramenti di controllo di condivisione di file** viene abilitato l'uso di un controllo di condivisione file negli scenari seguenti: 
-    - Accesso a Internet assente o estremamente insufficiente a causa di una posizione remota, impedendo l'utilizzo di un cloud di controllo. 
-    - Mancanza delle unità condivise per un disco di controllo. Potrebbe trattarsi di una configurazione iperconvergente di spazi di archiviazione diretta, un SQL Server Always in gruppi di disponibilità (AG), o un * Exchange disponibilità gruppo Database (DAG), nessuno dei quali Usa i dischi condivisi. 
-    - Mancanza di una connessione al controller di dominio a causa di un cluster viene protetto da una rete Perimetrale. 
-    - Un gruppo di lavoro o tra domini cluster per il quale non vi è alcun oggetto Active Directory del nome cluster (CNO). Altre informazioni su questi miglioramenti nel seguente post nel blog di gestione & Server: Controllo di condivisione File Cluster di failover e DFS.
+  - Accesso a Internet assente o estremamente insufficiente a causa di una posizione remota, impedendo l'utilizzo di un cloud di controllo. 
+  - Mancanza delle unità condivise per un disco di controllo. Potrebbe trattarsi di una configurazione iperconvergente di spazi di archiviazione diretta, un SQL Server Always in gruppi di disponibilità (AG), o un * Exchange disponibilità gruppo Database (DAG), nessuno dei quali Usa i dischi condivisi. 
+  - Mancanza di una connessione al controller di dominio a causa di un cluster viene protetto da una rete Perimetrale. 
+  - Un gruppo di lavoro o tra domini cluster per il quale non vi è alcun oggetto Active Directory del nome cluster (CNO). Altre informazioni su questi miglioramenti nel seguente post nel blog di gestione & Server: Controllo di condivisione File Cluster di failover e DFS.
     
     È ora in modo esplicito anche bloccare l'uso di una condivisione di spazi dei nomi DFS come un percorso. Aggiunta di un controllo di condivisione file a un DFS condivisione può causare problemi di stabilità per il cluster e questa configurazione non è mai stata supportata. È stata aggiunta logica per rilevare se una condivisione Usa spazi dei nomi DFS e presenza di spazi dei nomi DFS, gestione Cluster di Failover blocca la creazione del server di controllo e viene visualizzato un messaggio di errore relativo non è supportato.
 - **Protezione avanzata dei cluster**

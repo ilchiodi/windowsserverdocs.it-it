@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827812"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443376"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure 
 
@@ -29,17 +29,17 @@ Prima di caricare un'immagine, apporta le modifiche seguenti:
 - Scarica e installa Windows Server 2008 Service Pack 2 (SP2) se non è già installato sull'immagine.
 
 - Configura le impostazioni Desktop remoto.
-   1. Vai a **Pannello di controllo** > **Impostazioni di sistema**.   
-   2. Seleziona **Impostazioni di connessione remota** nel menu di sinistra.
+  1. Vai a **Pannello di controllo** > **Impostazioni di sistema**.   
+  2. Seleziona **Impostazioni di connessione remota** nel menu di sinistra.
 
-   ![Screenshot delle impostazioni di sistema, evidenziando "Impostazioni di connessione remota".](media/1a_remote_settings.png)
+     ![Screenshot delle impostazioni di sistema, evidenziando "Impostazioni di connessione remota".](media/1a_remote_settings.png)
 
-   3. Seleziona la scheda di **Connessione remota** nelle Proprietà di sistema.   
+  3. Seleziona la scheda di **Connessione remota** nelle Proprietà di sistema.   
 
-   ![Screenshot della scheda di Connessione remota nelle Proprietà di sistema.](media/2c_sysprops.png)
+     ![Screenshot della scheda di Connessione remota nelle Proprietà di sistema.](media/2c_sysprops.png)
 
-   4. Seleziona Consenti connessioni dai computer che eseguono qualsiasi versione di Desktop remoto (meno sicuro).   
-   5. Fai clic su **Applica** e su **OK**.
+  4. Seleziona Consenti connessioni dai computer che eseguono qualsiasi versione di Desktop remoto (meno sicuro).   
+  5. Fai clic su **Applica** e su **OK**.
 - Configura le impostazioni di Windows Firewall.   
    1. Nel prompt dei comandi in Modalità amministratore, immetti "**wf.msc**" per Windows Firewall e le impostazioni avanzate di sicurezza.   
    2. Ordina i risultati per **Porte**, seleziona **porta 3389**.   

@@ -9,12 +9,12 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 73ff3fc6df872edd29735ee96c0918144250d5f1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee7bef2afe61500fe75b2d3c61b92b902f9757fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190036"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444267"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione di AD FS Sign-in Pages avanzata
 
@@ -104,33 +104,33 @@ if (loginMessage)
 ```  
   
 ### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Esempio 2: accettare SAM\-nome dell'account come un formato di account di accesso in un form di AD FS\-accesso basato su\-nella pagina  
-Form di AD FS predefinito\-accesso basato su\-supporta il formato di account di accesso dei nomi dell'entità utente nella pagina \(UPN\) \(ad esempio **johndoe@contoso.com** \) o di dominio completo di sam\-nomi di account \( **contoso\\mariorossi** oppure **contoso.com\\mariorossi**\). Nel caso in cui tutti gli utenti provengono dallo stesso dominio e informarli solo in merito sam\-i nomi degli account, è possibile supportare lo scenario in cui gli utenti possono accedere usando li sam\-solo i nomi di account. È possibile aggiungere il codice seguente a OnLoad per supportare questo scenario, sostituire semplicemente il dominio "contoso.com" nell'esempio riportato di seguito con il dominio in cui si desidera utilizzare.  
+Form di AD FS predefinito\-accesso basato su\-supporta il formato di account di accesso dei nomi dell'entità utente nella pagina \(UPN\) \(ad esempio <strong>johndoe@contoso.com</strong> \) o di dominio completo di sam\-nomi di account \( **contoso\\mariorossi** oppure **contoso.com\\mariorossi**\). Nel caso in cui tutti gli utenti provengono dallo stesso dominio e informarli solo in merito sam\-i nomi degli account, è possibile supportare lo scenario in cui gli utenti possono accedere usando li sam\-solo i nomi di account. È possibile aggiungere il codice seguente a OnLoad per supportare questo scenario, sostituire semplicemente il dominio "contoso.com" nell'esempio riportato di seguito con il dominio in cui si desidera utilizzare.  
   
 ```  
 if (typeof Login != 'undefined'){  
-    Login.submitLoginRequest = function () {   
-    var u = new InputUtil();  
-    var e = new LoginErrors();  
-    var userName = document.getElementById(Login.userNameInput);  
-    var password = document.getElementById(Login.passwordInput);  
-    if (userName.value && !userName.value.match('[@\\\\]'))   
-    {  
-        var userNameValue = 'contoso.com\\' + userName.value;  
-        document.forms['loginForm'].UserName.value = userNameValue;  
-    }  
+    Login.submitLoginRequest = function () {   
+    var u = new InputUtil();  
+    var e = new LoginErrors();  
+    var userName = document.getElementById(Login.userNameInput);  
+    var password = document.getElementById(Login.passwordInput);  
+    if (userName.value && !userName.value.match('[@\\\\]'))   
+    {  
+        var userNameValue = 'contoso.com\\' + userName.value;  
+        document.forms['loginForm'].UserName.value = userNameValue;  
+    }  
   
-    if (!userName.value) {  
-       u.setError(userName, e.userNameFormatError);  
-       return false;  
-    }  
+    if (!userName.value) {  
+       u.setError(userName, e.userNameFormatError);  
+       return false;  
+    }  
   
-    if (!password.value)   
-    {  
-        u.setError(password, e.passwordEmpty);  
-        return false;  
-    }  
-    document.forms['loginForm'].submit();  
-    return false;  
+    if (!password.value)   
+    {  
+        u.setError(password, e.passwordEmpty);  
+        return false;  
+    }  
+    document.forms['loginForm'].submit();  
+    return false;  
 };  
 }  
   

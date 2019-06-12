@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c21b890523ca61b8f0821692178d050bc11efd79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af22b1bbc923b9a06e4aebb910690050af1b7492
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890812"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446629"
 ---
 # <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>PASSAGGIO 7 di testare la connettività quando si torna alla rete aziendale
 
@@ -28,11 +28,11 @@ Molti utenti sposterà tra sedi remote e la rete aziendale, pertanto è importan
   
 ### <a name="test-connectivity-on-client1"></a>Testare la connettività in CLIENT1  
   
-1.  Spegnere il computer CLIENT1 e quindi scollegare CLIENT1 dal commutatore virtuale o subnet Homenet e connetterlo al commutatore virtuale o subnet Corpnet. Attivare CLIENT1 e accesso come CORP\User1.  
+1. Spegnere il computer CLIENT1 e quindi scollegare CLIENT1 dal commutatore virtuale o subnet Homenet e connetterlo al commutatore virtuale o subnet Corpnet. Attivare CLIENT1 e accesso come CORP\User1.  
   
-2.  Aprire una finestra di Windows PowerShell con privilegi elevata, digitare **ipconfig /all**, quindi premere INVIO. L'output indicherà che CLIENT1 è un indirizzo IP locale e che non vi sia alcun active 6to4, Teredo o IP-HTTPS tunneling.  
+2. Aprire una finestra di Windows PowerShell con privilegi elevata, digitare **ipconfig /all**, quindi premere INVIO. L'output indicherà che CLIENT1 è un indirizzo IP locale e che non vi sia alcun active 6to4, Teredo o IP-HTTPS tunneling.  
   
-3.  Testare la connettività alla condivisione di rete in APP2. Nel **avviare** digitare**\\\APP2\Files**, quindi premere INVIO. Sarà possibile aprire il file in tale cartella.  
+3. Testare la connettività alla condivisione di rete in APP2. Nel **avviare** digitare<strong>\\\APP2\Files</strong>, quindi premere INVIO. Sarà possibile aprire il file in tale cartella.  
   
 
 

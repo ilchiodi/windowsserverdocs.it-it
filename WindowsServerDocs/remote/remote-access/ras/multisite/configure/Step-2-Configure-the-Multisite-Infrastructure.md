@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: beecef692b2ac01e6cb6c36892fec16e55b08209
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3b2eb55c11348c3abcb1ef9e234cd19ba727758
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835172"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446596"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Passaggio 2 configurare l'infrastruttura multisito
 
@@ -61,7 +61,7 @@ Per ulteriori informazioni, vedere [aggiunta di un sito alla foresta](https://te
   
 8.  Chiudere siti e servizi Active Directory.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -122,20 +122,20 @@ Per ulteriori informazioni, vedere [l'installazione di un Controller di dominio 
   
     1.  Effettuare le selezioni seguenti:  
   
-        -   **Server Domain Name System (DNS)**"questa opzione è selezionata per impostazione predefinita, in modo che il controller di dominio possa operare come un server Domain Name System (DNS). Se non si desidera utilizzare il controller di dominio come server DNS, deselezionare questa opzione.  
+        -   **Server Domain Name System (DNS)** "questa opzione è selezionata per impostazione predefinita, in modo che il controller di dominio possa operare come un server Domain Name System (DNS). Se non si desidera utilizzare il controller di dominio come server DNS, deselezionare questa opzione.  
   
             Se il ruolo server DNS non è installato sull'emulatore del Controller di dominio primario (PDC) nel dominio radice della foresta, l'opzione per installare il server DNS in un controller di dominio non è disponibile. Come soluzione alternativa in questo caso, è possibile installare il ruolo server DNS prima o dopo l'installazione di Active Directory.  
   
             > [!NOTE]  
             > Se si seleziona l'opzione per installare il server DNS, si potrebbe ricevere un messaggio che indica che non è stato possibile creare una delega DNS per il server DNS e che è necessario creare manualmente una delega DNS per il server DNS per garantire la risoluzione dei nomi affidabile. Se si installa un controller di dominio nel dominio radice della foresta o un dominio radice della struttura ad albero, non è necessario creare la delega DNS. In questo caso, fare clic su **Sì** e ignorare il messaggio.  
   
-        -   **Catalogo globale (GC)**"questa opzione è selezionata per impostazione predefinita. Consente di aggiungere il catalogo globale e le partizioni di directory di sola lettura al controller di dominio, nonché di abilitare la funzionalità di ricerca nel catalogo globale.  
+        -   **Catalogo globale (GC)** "questa opzione è selezionata per impostazione predefinita. Consente di aggiungere il catalogo globale e le partizioni di directory di sola lettura al controller di dominio, nonché di abilitare la funzionalità di ricerca nel catalogo globale.  
   
-        -   **Controller di dominio di sola lettura (RODC)**"questa opzione non è selezionata per impostazione predefinita. Rende il controller di dominio aggiuntivo in sola lettura. ovvero, in questo modo il controller di dominio un RODC.  
+        -   **Controller di dominio di sola lettura (RODC)** "questa opzione non è selezionata per impostazione predefinita. Rende il controller di dominio aggiuntivo in sola lettura. ovvero, in questo modo il controller di dominio un RODC.  
   
     2.  In **nome sito**, selezionare un sito dall'elenco.  
   
-    3.  In **digitare la password modalità ripristino servizi Directory (DSRM)**, in **Password** e **Conferma password**, digitare due volte una password complessa e quindi fare clic su **Avanti**. Questa password deve essere utilizzata per avviare Active Directory in modalità ripristino servizi Directory per le attività che devono essere eseguite non in linea.  
+    3.  In **digitare la password modalità ripristino servizi Directory (DSRM)** , in **Password** e **Conferma password**, digitare due volte una password complessa e quindi fare clic su **Avanti**. Questa password deve essere utilizzata per avviare Active Directory in modalità ripristino servizi Directory per le attività che devono essere eseguite non in linea.  
   
 10. Nel **Opzioni DNS** pagina, selezionare il **delega DNS aggiornare** casella di controllo se si desidera aggiornare la delega DNS durante l'installazione del ruolo e quindi fare clic su **Avanti**.  
   
@@ -170,7 +170,7 @@ Una distribuzione multisito richiede un gruppo di sicurezza aggiuntive per i com
   
 8.  Ripetere questa procedura per creare un gruppo di sicurezza per ogni punto di ingresso in base alle esigenze.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -301,7 +301,7 @@ Informazioni sull'associazione di controller di dominio vengono archiviati sia n
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>Ottimizzazione della distribuzione della configurazione  
-Quando si apportano modifiche di configurazione, le modifiche vengono applicate solo dopo che il server di oggetti Criteri di gruppo propagazione al server di accesso remoto. Per ridurre il tempo di distribuzione di configurazione, accesso remoto viene selezionato automaticamente un controller di dominio scrivibile che è HYPERLINK "https://technet.microsoft.com/library/cc978016.aspx" più vicino al server di accesso remoto quando si crea il server oggetto Criteri di gruppo.  
+Quando si apportano modifiche di configurazione, le modifiche vengono applicate solo dopo che il server di oggetti Criteri di gruppo propagazione al server di accesso remoto. Per ridurre il tempo di distribuzione di configurazione, accesso remoto viene selezionato automaticamente un controller di dominio scrivibile che è HYPERLINK "<https://technet.microsoft.com/library/cc978016.aspx>" più vicino al server di accesso remoto quando si crea il server oggetto Criteri di gruppo.  
   
 In alcuni scenari, può essere necessario modificare manualmente il controller di dominio che gestisce un oggetto Criteri di gruppo di server per ottimizzare i tempi di distribuzione di configurazione:  
   
