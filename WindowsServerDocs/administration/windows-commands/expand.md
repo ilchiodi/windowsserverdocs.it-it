@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5df078af23c77f54ccb2da83b1057c5d7042593a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 84fd3693ab41780f7092d74228a06503f9bca74f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825962"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439393"
 ---
 # <a name="expand"></a>expand
 
@@ -34,17 +34,19 @@ expand /d <source>.cab [/f:<files>]
 expand <source>.cab /f:<files> <destination>  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|/r|file ridenominazioni espansi.|  
-|origine|Specifica i file da espandere. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. È possibile utilizzare caratteri jolly (**\*** o **?**).|  
-|destinazione|Specifica in cui i file da espandere.<br /><br />Se *origine* costituito da più file e non si specifica **/r**, *destinazione* deve essere una directory.<br /><br />*Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.<br /><br />File di destinazione &#124; Specifica del percorso.|  
-|/i|Rinomina file espansi, ma ignora la struttura di directory.<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.|  
-|/d|Visualizza un elenco dei file nel percorso di origine. Non espandere o estrarre i file.|  
-|/f:|Specifica i file in un file cabinet (CAB) che si desidera espandere. È possibile utilizzare caratteri jolly (**\*** o **?**).|  
-|/?|Visualizza la guida al prompt dei comandi.|  
+
+|  Parametro  |                                                                                                                                                                   Descrizione                                                                                                                                                                    |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     /r      |                                                                                                                                                             file ridenominazioni espansi.                                                                                                                                                              |
+|   origine    |                                                                              Specifica i file da espandere. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. È possibile usare caratteri jolly ( **\\** \* oppure **?** ).                                                                               |
+| destinazione | Specifica in cui i file da espandere.<br /><br />Se *origine* costituito da più file e non si specifica **/r**, *destinazione* deve essere una directory.<br /><br />*Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.<br /><br />File di destinazione &#124; Specifica del percorso. |
+|     /i      |                                                                                                   Rinomina file espansi, ma ignora la struttura di directory.<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.                                                                                                    |
+|     /d      |                                                                                                                              Visualizza un elenco dei file nel percorso di origine. Non espandere o estrarre i file.                                                                                                                              |
+|     /f:     |                                                                                                                 Specifica i file in un file cabinet (CAB) che si desidera espandere. È possibile usare caratteri jolly ( **\\** \* oppure **?** ).                                                                                                                 |
+|     /?      |                                                                                                                                                       Visualizza la guida al prompt dei comandi.                                                                                                                                                       |
+
 ## <a name="remarks"></a>Note  
--   Usando **espandere** nella Console di ripristino  
-    Il **espandere** comando con parametri diversi, è disponibile dalla Console di ripristino. Per altre informazioni sulla Console di ripristino, vedere [articolo 314058](https://support.microsoft.com/kb/314058) nella Microsoft Knowledge Base.  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- Usando **espandere** nella Console di ripristino  
+  Il **espandere** comando con parametri diversi, è disponibile dalla Console di ripristino. Per altre informazioni sulla Console di ripristino, vedere [articolo 314058](https://support.microsoft.com/kb/314058) nella Microsoft Knowledge Base.  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+  [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

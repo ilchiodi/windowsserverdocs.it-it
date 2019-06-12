@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 62fa2895-62ae-42cf-817c-53e06ac2a26c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a1f47273ab3be6faa762df2fb90d6486bc0ed2d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6d7a5aa7b699f5a8f24c4a36ee8ae314768329b4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446866"
 ---
 # <a name="monitor-the-existing-load-on-the-remote-access-server"></a>Monitorare il carico esistente nel server di accesso remoto
 
@@ -51,7 +51,7 @@ Il termine **carico** fa riferimento alle statistiche che riguardano il numero d
   
 3.  Fare clic sui **Add** pulsante (indicato da un'icona verde a forma) nella **Performance Monitor** sulla barra degli strumenti.  
   
-4.  Nell'elenco delle **contatori disponibili**, selezionare tutti i contatori nel **RAS** e **RAmgmtsvc** categorie e quindi fare clic su **Aggiungi >>**.  
+4.  Nell'elenco delle **contatori disponibili**, selezionare tutti i contatori nel **RAS** e **RAmgmtsvc** categorie e quindi fare clic su **Aggiungi >>** .  
   
 5.  Anche in questo caso dall'elenco degli **contatori disponibili**, selezionare tutti i contatori nel **connessioni IPsec** categoria e quindi fare clic su **Aggiungi >>.**  
   
@@ -59,7 +59,7 @@ Il termine **carico** fa riferimento alle statistiche che riguardano il numero d
   
 **Monitoraggio prestazioni** graficamente mostrerà ora le statistiche di carico del server selezionato.  
   
-![Windows PowerShell](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Windows PowerShell](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

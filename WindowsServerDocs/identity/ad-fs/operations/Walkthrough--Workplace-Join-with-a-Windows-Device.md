@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 83dab73230737b8303660b32683a6d05322ac754
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188905"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444776"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Scenario: Aggiunta alla rete aziendale con un dispositivo Windows
 
@@ -25,19 +25,19 @@ In questa procedura dettagliata si accede a un'applicazione Web della società p
 
 #### <a name="to-access-the-web-application-before-you-use-workplace-join-on-your-device"></a>Per accedere all'applicazione Web prima di usare Aggiunta alla rete aziendale sul dispositivo
 
-1.  Accedere a Client1 con l'account Microsoft.
+1. Accedere a Client1 con l'account Microsoft.
 
-2.  Aprire Internet Explorer e passare all'app per le attestazioni generica, **https://webserv1.contoso.com/claimapp**.
+2. Aprire Internet Explorer e passare all'app per le attestazioni generica, **https://webserv1.contoso.com/claimapp** .
 
-3.  Accedere a una pagina Web usando un account di dominio aziendale: **roberth@contoso.com**, la password: **P@ssword**.
+3. Accedere a una pagina Web usando un account di dominio aziendale: <strong>roberth@contoso.com</strong>, la password: <strong>P@ssword</strong>.
 
-4.  Nella pagina Web sono elencate tutte le attestazioni incluse nel token di sicurezza. Nel proprio token di sicurezza sono presenti solo le attestazioni utente.
+4. Nella pagina Web sono elencate tutte le attestazioni incluse nel token di sicurezza. Nel proprio token di sicurezza sono presenti solo le attestazioni utente.
 
-5.  Chiudere Internet Explorer.
+5. Chiudere Internet Explorer.
 
-6.  Aprire Internet Explorer e passare alla stessa app, le attestazioni **https://webserv1.contoso.com/claimapp**.
+6. Aprire Internet Explorer e passare alla stessa app, le attestazioni **https://webserv1.contoso.com/claimapp** .
 
-7.  Verrà chiesto di immettere di nuovo le credenziali. Non essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, non si ha Single Sign-On.
+7. Verrà chiesto di immettere di nuovo le credenziali. Non essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, non si ha Single Sign-On.
 
 ## <a name="join-your-device-with-workplace-join"></a>Aggiungere il dispositivo con Aggiunta alla rete aziendale
 
@@ -48,36 +48,36 @@ In questa procedura dettagliata si accede a un'applicazione Web della società p
 
 #### <a name="to-join-your-device-with-workplace-join"></a>Per aggiungere il dispositivo con Aggiunta alla rete aziendale
 
-1.  Accedere a Client1 con l'account Microsoft.
+1. Accedere a Client1 con l'account Microsoft.
 
-2.  Nella schermata **Start** del computer client aprire la **barra degli accessi** e quindi selezionare l'accesso alle **impostazioni** . Selezionare **Modifica impostazioni PC**.
+2. Nella schermata **Start** del computer client aprire la **barra degli accessi** e quindi selezionare l'accesso alle **impostazioni** . Selezionare **Modifica impostazioni PC**.
 
-3.  Nella pagina **Impostazioni PC** fare clic su **Rete**e quindi su **Rete aziendale**.
+3. Nella pagina **Impostazioni PC** fare clic su **Rete**e quindi su **Rete aziendale**.
 
-4.  Nel **immettere l'ID utente per accedere alla rete aziendale o attivare la gestione dei dispositivi** , digitare **roberth@contoso.com**, quindi fare clic su **Join**.
+4. Nel **immettere l'ID utente per accedere alla rete aziendale o attivare la gestione dei dispositivi** , digitare <strong>roberth@contoso.com</strong>, quindi fare clic su **Join**.
 
-5.  Quando vengono richieste le credenziali, digitare **roberth@contoso.com**e la password: **P@ssword**. Fare clic su **OK**.
+5. Quando vengono richieste le credenziali, digitare <strong>roberth@contoso.com</strong>e la password: <strong>P@ssword</strong>. Fare clic su **OK**.
 
-6.  Dovrebbe essere visualizzato il messaggio: "Il dispositivo è stato aggiunto alla tua rete aziendale".
+6. Dovrebbe essere visualizzato il messaggio: "Il dispositivo è stato aggiunto alla tua rete aziendale".
 
 ### <a name="access-the-web-application-after-joining-the-workplace"></a>Accedere all'applicazione Web dopo l'aggiunta alla rete aziendale
 In questa parte della dimostrazione si accede all'applicazione Web della società dal dispositivo connesso con Aggiunta alla rete aziendale. Nella pagina Web sono visualizzate le attestazioni incluse nel token di sicurezza. Nell'elenco di attestazioni sono incluse informazioni sia sul dispositivo che sull'utente. Si noterà probabilmente anche che ora si ha l'accesso Single Sign-On.
 
 ##### <a name="to-access-the-web-application-after-joining-the-workplace"></a>Per accedere all'applicazione Web dopo l'aggiunta alla rete aziendale
 
-1.  Accedere a **Client1** con l'account Microsoft.
+1. Accedere a **Client1** con l'account Microsoft.
 
-2.  Aprire Internet Explorer e passare all'app per le attestazioni generica, **https://webserv1.contoso.com/claimapp**.
+2. Aprire Internet Explorer e passare all'app per le attestazioni generica, **https://webserv1.contoso.com/claimapp** .
 
-3.  Accedere a una pagina Web usando un account di dominio aziendale: **roberth@contoso.com**, la password: **P@ssword**.
+3. Accedere a una pagina Web usando un account di dominio aziendale: <strong>roberth@contoso.com</strong>, la password: <strong>P@ssword</strong>.
 
-4.  Nella pagina Web sono elencate le attestazioni incluse nel token di sicurezza. Il token contiene sia le attestazioni utente che quelle del dispositivo.
+4. Nella pagina Web sono elencate le attestazioni incluse nel token di sicurezza. Il token contiene sia le attestazioni utente che quelle del dispositivo.
 
-5.  Chiudere Internet Explorer.
+5. Chiudere Internet Explorer.
 
-6.  Aprire Internet Explorer e passare alla stessa app, le attestazioni **https://webserv1.contoso.com/claimapp**.
+6. Aprire Internet Explorer e passare alla stessa app, le attestazioni **https://webserv1.contoso.com/claimapp** .
 
-7.  **Non** verrà chiesto di immettere di nuovo le credenziali. Essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, si ha Single Sign-On.
+7. **Non** verrà chiesto di immettere di nuovo le credenziali. Essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, si ha Single Sign-On.
 
 ## <a name="see-also"></a>Vedere anche
 [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)

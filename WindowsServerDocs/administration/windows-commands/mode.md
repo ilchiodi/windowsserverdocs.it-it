@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cde0e9786f72823f446202f1c87ad8e9e181d29c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0b76d16bdc9099d78e35d8714397d61b9af0f389
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848202"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437323"
 ---
 # <a name="mode"></a>mode
 
@@ -44,21 +44,21 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|COM\<M > [::]|Specifica il numero di porta di comunicazione Prncnfg.vbshronous async.|
-|baud=\<B>|Specifica la velocità di trasmissione in bit al secondo. La tabella seguente elenca le abbreviazioni valide per *B* e le tariffe correlate.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 in baud|
-|parità =\<P >|Specifica come il sistema utilizza il bit di parità per verificare la presenza di errori di trasmissione. Nella tabella seguente sono elencati i valori validi per *P*. Il valore predefinito è **elettronica**. Non tutti i computer supportano i valori **m** e **s**.</br>-   **n** = none</br>-   **e** = even</br>-   **o** = dispari</br>-   **m** = mark</br>-   **s** = spazio|
-|Data =\<1!d >|Specifica il numero di bit di dati in un carattere. I valori validi per **1!d** sono compresi nell'intervallo da 5 a 8. Il valore predefinito è 7. Non tutti i computer supportano i valori con 5 e 6.|
-|arrestare =\<S >|Specifica il numero di bit di stop che definiscono la fine di un carattere: 1, 1,5 o 2. Se la velocità in baud è impostato su 110, il valore predefinito è 2. In caso contrario, il valore predefinito è 1. Non tutti i computer supportano il valore 1.5.|
-|a = {on | off}|Specifica se l'elaborazione di timeout infinito è attivata o disattivata. Il valore predefinito è.|
-|XON = {on | off}|Specifica se il protocollo xon / xoff per il controllo di flusso di dati è attivata o disattivata.|
-|odsr = {on | off}|Specifica se la sincronizzazione dell'output che usa il circuito di Set di dati pronto (DSR) è attivata o disattivata.|
-|PTOM = {on | off}|Specifica se la sincronizzazione dell'output che usa il circuito a inviare CTS (Clear) è attivata o disattivata.|
-|DTR = {on | Disattivato | hs}|Specifica se il circuito DTR Data Terminal Ready () è attivato o disattivato o impostato su handshake.|
-|RTS = {on | Disattivato | hs | tg}|Specifica se il circuito richiesta da inviare (RTS) è impostato su on, off, handshake o attiva/disattiva.|
-|IDSR = {on | off}|Specifica se la sensibilità del circuito DSR è attivata o disattivata.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|  Parametro  |                                                                                                                                                                                     Descrizione                                                                                                                                                                                     |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| COM\<M > [::]  |                                                                                                                                                      Specifica il numero di porta di comunicazione Prncnfg.vbshronous async.                                                                                                                                                      |
+|  baud=\<B>  | Specifica la velocità di trasmissione in bit al secondo. La tabella seguente elenca le abbreviazioni valide per *B* e le tariffe correlate.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 in baud |
+| parità =\<P > |                              Specifica come il sistema utilizza il bit di parità per verificare la presenza di errori di trasmissione. Nella tabella seguente sono elencati i valori validi per *P*. Il valore predefinito è **elettronica**. Non tutti i computer supportano i valori **m** e **s**.</br>-   **n** = none</br>-   **e** = even</br>-   **o** = dispari</br>-   **m** = mark</br>-   **s** = spazio                              |
+|  Data =\<1!d >  |                                                                                                    Specifica il numero di bit di dati in un carattere. I valori validi per **1!d** sono compresi nell'intervallo da 5 a 8. Il valore predefinito è 7. Non tutti i computer supportano i valori con 5 e 6.                                                                                                     |
+|  arrestare =\<S >  |                                                                                  Specifica il numero di bit di stop che definiscono la fine di un carattere: 1, 1,5 o 2. Se la velocità in baud è impostato su 110, il valore predefinito è 2. In caso contrario, il valore predefinito è 1. Non tutti i computer supportano il valore 1.5.                                                                                   |
+|   a = {on    |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|   XON = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  odsr = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  PTOM = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|   DTR = {on   |                                                                                                                                                                                         Disattivato                                                                                                                                                                                         |
+|   RTS = {on   |                                                                                                                                                                                         Disattivato                                                                                                                                                                                         |
+|  IDSR = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|     /?      |                                                                                                                                                                        Visualizza la guida al prompt dei comandi.                                                                                                                                                                         |
 
 ## <a name="BKMK_2"></a>Per visualizzare lo stato di tutti i dispositivi o di un singolo dispositivo
 
@@ -130,7 +130,7 @@ mode <Device> codepage [/status]
 |---------|-----------|
 |\<Device>|Obbligatorio. Specifica il dispositivo per il quale si desidera selezionare una tabella codici. ESEGUITA è l'unico nome valido per un dispositivo.|
 |Selezionare la tabella codici =|Obbligatorio. Specifica la tabella codici da usare con il dispositivo specificato. È possibile abbreviare **codepage** **seleziona** come **cp** **sel**.|
-|\<YYY &GT;|Obbligatorio. Specifica il numero di tabella codici da selezionare. Nell'elenco seguente viene illustrato ogni codice pagina in cui è supportato e il paese/area geografica o lingua.</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
+|\<YYY &GT;|Obbligatorio. Specifica il numero di tabella codici da selezionare. Nell'elenco seguente viene illustrato ogni codice pagina in cui è supportato e il paese/regione o lingua.</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
 |tabella codici|Obbligatorio. Consente di visualizzare i numeri del codice delle pagine (se presente) che sono selezionati per il dispositivo specificato.|
 |/status|Visualizza i numeri delle tabelle codici corrente selezionate per il dispositivo specificato. È possibile abbreviare **/status** al **/sta**. Se specifica **/status**, **codepage modalità** Visualizza i numeri delle tabelle codici sono selezionati per il dispositivo specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
@@ -171,14 +171,14 @@ mode con[:] [rate=<R> delay=<D>]
 
 ### <a name="remarks"></a>Note
 
--   La velocità di ripetizione è la velocità di ripetizione di un carattere quando si tiene premuto il tasto per tale carattere. La velocità di ripetizione ha due componenti, la frequenza e il ritardo. Alcune tastiere non riconoscono questo comando.
--   Using **rate=***R*
+- La velocità di ripetizione è la velocità di ripetizione di un carattere quando si tiene premuto il tasto per tale carattere. La velocità di ripetizione ha due componenti, la frequenza e il ritardo. Alcune tastiere non riconoscono questo comando.
+- Usando **frequenza =** <em>R</em>
 
-    I valori validi sono compresi tra 1 e 32. Questi valori sono uguali a circa 2 e 30 caratteri al secondo. Il valore predefinito è 20 per tastiere compatibili con IBM AT e 21 per tastiere compatibili IBM PS/2. Se si imposta la frequenza, è necessario impostare anche il ritardo.
--   Usando **ritardo**=*1!d*
+  I valori validi sono compresi tra 1 e 32. Questi valori sono uguali a circa 2 e 30 caratteri al secondo. Il valore predefinito è 20 per tastiere compatibili con IBM AT e 21 per tastiere compatibili IBM PS/2. Se si imposta la frequenza, è necessario impostare anche il ritardo.
+- Usando **ritardo**=*1!d*
 
-    I valori validi per *1!d* sono 1, 2, 3 e 4 (che rappresentano 0,25, 0.50, 0.75 e 1 secondo). Il valore predefinito è 2. Se si imposta il ritardo, è necessario impostare anche la velocità.
+  I valori validi per *1!d* sono 1, 2, 3 e 4 (che rappresentano 0,25, 0.50, 0.75 e 1 secondo). Il valore predefinito è 2. Se si imposta il ritardo, è necessario impostare anche la velocità.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

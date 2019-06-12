@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 75ab011ed4931af3d5a03a38b3f7a7f0cfecbe3d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189665"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444916"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
@@ -31,9 +31,9 @@ ID di Active Directory Federation Services (ADFS) Abilita applicazioni federate 
 
 ## <a name="alternate-id-in-azure-ad"></a>Id alternativo in Azure AD
 Un'organizzazione potrebbe essere necessario usare un ID alternativo negli scenari seguenti:
-1.  È non instradabile, ad esempio, il nome di dominio locale. Contoso. Local e di conseguenza il nome dell'entità utente predefinito è non instradabile (jdoe@contoso.local). UPN esistente non può essere modificato a causa di dipendenze dell'applicazione locale o criteri aziendali. Azure AD e Office 365 richiede tutti i suffissi di dominio associati alla directory di Azure AD essere completamente instradabile internet. 
-2.  L'UPN locale non è lo stesso indirizzo di posta elettronica dell'utente e di accesso a Office 365, gli utenti usano l'indirizzo di posta elettronica e UPN non può essere usato a causa dei limiti dell'organizzazione.
-Negli scenari sopra indicati, ID alternativo con AD FS consente agli utenti di accedere ad Azure AD senza modificare i nomi UPN locali. 
+1. È non instradabile, ad esempio, il nome di dominio locale. Contoso. Local e di conseguenza il nome dell'entità utente predefinito è non instradabile (jdoe@contoso.local). UPN esistente non può essere modificato a causa di dipendenze dell'applicazione locale o criteri aziendali. Azure AD e Office 365 richiede tutti i suffissi di dominio associati alla directory di Azure AD essere completamente instradabile internet. 
+2. L'UPN locale non è lo stesso indirizzo di posta elettronica dell'utente e di accesso a Office 365, gli utenti usano l'indirizzo di posta elettronica e UPN non può essere usato a causa dei limiti dell'organizzazione.
+   Negli scenari sopra indicati, ID alternativo con AD FS consente agli utenti di accedere ad Azure AD senza modificare i nomi UPN locali. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Esperienza dell'utente finale con ID di accesso alternativo
 L'esperienza utente finale varia a seconda del metodo di autenticazione usato con id di accesso alternativo.  Attualmente esiste tre diversi modi in cui possono essere realizzati con id di accesso alternativo.  Sono:
@@ -81,7 +81,7 @@ Nell'esempio seguente, si abilita la funzionalità di ID di accesso alternativo 
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests contoso.com,fabrikam.com
 ```
 
-3.  Per disabilitare questa funzionalità, impostare il valore per entrambi i parametri sia null.
+3. Per disabilitare questa funzionalità, impostare il valore per entrambi i parametri sia null.
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $NULL -LookupForests $NULL
@@ -155,6 +155,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 ## <a name="applications-and-user-experience-after-the-additional-configuration"></a>Esperienza utente e le applicazioni dopo la configurazione aggiuntiva
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Da Exchange e Skype per i client di Business
+
 |Client|Informativa sul supporto|Note|
 | ----- | -----|-----|
 |Microsoft Teams|Supportato|<li>Microsoft Teams supporta AD FS (SAML-P, WS-Fed, WS-Trust e OAuth) e l'autenticazione moderna.</li><li> Core Microsoft Teams, ad esempio le funzionalità di canali, chat e i file di lavoro con ID di accesso alternativo.</li><li>app di terze parti il 1 ° e 3rd devono essere Investigate separatamente dal cliente. Questo avviene perché ogni applicazione dispone di propri protocolli di autenticazione al supporto.</li>|     
@@ -173,7 +174,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 |Outlook Web Access|Supportato|Supportato|
 |Outlook App per dispositivi mobili per Android, IOS e Windows Phone|Supportato|Supportato|
 |Skype for Business o Lync|Supportato, senza alcuna richiesta visualizzata extra|Supportato (tranne che come indicato), ma vi è un potenziale confusione nell'utente.</br></br>Nei client per dispositivi mobili, di un Id alternativo è supportato solo se l'indirizzo SIP = indirizzo di posta elettronica = ID alternativo.</br></br> Gli utenti potrebbe essere necessario effettuare l'accesso due volte per il Skype per Business desktop client, prima di tutto l'UPN locale e quindi utilizzando l'ID alternativo. (Si noti che il "indirizzo di accesso" è in realtà l'indirizzo SIP che potrebbe non essere lo stesso nome di"utente", anche se spesso sono). Alla prima richiesta di un nome utente, l'utente deve immettere il nome UPN, anche se si è erroneamente prepopolato con l'indirizzo SIP o un ID alternativo. Dopo che l'utente fa clic su Accedi con il nome UPN, l'utente viene nuovamente visualizzato richiesta del nome, questa volta pre-popolato con il nome UPN. Questa volta l'utente deve sostituire con l'ID alternativo e fare clic su Accedi per completare il processo di accesso. Nei client per dispositivi mobili, gli utenti devono immettere l'ID utente in locale nella pagina avanzata utilizzando il formato di stile SAM (dominio\nomeutente), non il formato UPN.</br></br>Dopo l'esito positivo accesso, se Skype for Business o Lync è indicato "Exchange richiede le credenziali", è necessario fornire le credenziali valide per la cassetta postale in cui si trova. Se la cassetta postale è nel cloud che è necessario fornire l'ID alternativo. Se la cassetta postale è locale, è necessario fornire l'UPN locale.| 
- 
+
 ## <a name="additional-details--considerations"></a>Altre informazioni e considerazioni sul
 
 -   La funzionalità di ID di accesso alternativo è disponibile per gli ambienti federativi con AD FS distribuito.  Non è supportata negli scenari seguenti:
@@ -211,12 +212,12 @@ Di seguito sono diversi casi di errore e i corrispondente impatto sull'esperienz
 
 
 
-**Casi di errore**|**Impatto sull'esperienza di accesso**|**Event**|
----------|---------|---------
-Non è possibile ottenere un valore per l'attributo SAMAccountName per l'oggetto utente|Errore di accesso|Evento con ID 364 con il messaggio di eccezione MSIS8012: Impossibile trovare l'attributo samAccountName per l'utente: '{0}'.|
-L'attributo CanonicalName non accessibile|Errore di accesso|Evento con ID 364 con il messaggio di eccezione MSIS8013: CanonicalName: '{0}' dell'utente:'{1}' è in formato non corretto.|
-Nelle foreste uno vengono trovati più oggetti utente|Errore di accesso|Evento con ID 364 con il messaggio di eccezione MSIS8015: Trovati più account utente con identità '{0}'nella foresta'{1}' con le identità: {2}|
-Vengono trovati più oggetti utente in più foreste|Errore di accesso|Evento con ID 364 con il messaggio di eccezione MSIS8014: Trovati più account utente con identità '{0}' negli insiemi di strutture: {1}|
+|                       **Casi di errore**                        | **Impatto sull'esperienza di accesso** |                                                              **Event**                                                              |
+|--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Non è possibile ottenere un valore per l'attributo SAMAccountName per l'oggetto utente |          Errore di accesso           |                  Evento con ID 364 con il messaggio di eccezione MSIS8012: Impossibile trovare l'attributo samAccountName per l'utente: '{0}'.                   |
+|        L'attributo CanonicalName non accessibile         |          Errore di accesso           |               Evento con ID 364 con il messaggio di eccezione MSIS8013: CanonicalName: '{0}' dell'utente:'{1}' è in formato non corretto.                |
+|        Nelle foreste uno vengono trovati più oggetti utente        |          Errore di accesso           | Evento con ID 364 con il messaggio di eccezione MSIS8015: Trovati più account utente con identità '{0}'nella foresta'{1}' con le identità: {2} |
+|   Vengono trovati più oggetti utente in più foreste    |          Errore di accesso           |           Evento con ID 364 con il messaggio di eccezione MSIS8014: Trovati più account utente con identità '{0}' negli insiemi di strutture: {1}            |
 
 ## <a name="see-also"></a>Vedere anche
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md)
