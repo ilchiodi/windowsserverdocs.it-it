@@ -9,12 +9,12 @@ ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
 ms.author: pashort
 author: shortpatti
 ms.date: 06/20/2018
-ms.openlocfilehash: 0439c0f45a604f6b3ef90369f5fe77a59568d9d7
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 515012a21ba6e90abe2c4db2150fd1feaad06677
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222581"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812363"
 ---
 # <a name="network-policy-server-nps"></a>Server dei criteri di rete
 
@@ -22,8 +22,8 @@ ms.locfileid: "66222581"
 
 È possibile utilizzare questo argomento per una panoramica di Server dei criteri di rete in Windows Server 2016 e Windows Server 2019. Criteri di rete viene installato quando si installa la funzionalità di servizi di accesso (NPAS) e i criteri di rete in Windows Server 2016 e Server 2019.
 
->[!NOTE]
->Oltre a questo argomento, la documentazione dei criteri di rete seguente è disponibile.
+> [!NOTE]
+> Oltre a questo argomento, la documentazione dei criteri di rete seguente è disponibile.
 > - [Procedure consigliate di Network Policy Server](nps-best-practices.md)
 > - [Introduzione a Server dei criteri di rete](nps-getstart-top.md)
 > - [Pianificare il Server dei criteri di rete](nps-plan-top.md)
@@ -44,8 +44,8 @@ Criteri di rete consente all'utente in modo centralizzato, configurare e gestire
     - [Configurare i criteri di richiesta di connessione](nps-crp-configure.md)
 - **Accounting RADIUS**. È possibile configurare criteri di rete per registrare gli eventi in un file di log locale o a un'istanza locale o remota di Microsoft SQL Server. Per altre informazioni, vedere [la registrazione di NPS](#nps-logging).
 
->[!IMPORTANT]
->Protezione accesso alla rete \(NAP\), Autorità registrazione integrità \(Autorità registrazione integrità\)e Host Credential Authorization Protocol \(HCAP\) deprecate in Windows Server 2012 R2, e non sono disponibili in Windows Server 2016. Se si dispone di una distribuzione di protezione accesso alla rete usando i sistemi operativi precedenti a Windows Server 2016, è possibile eseguire la migrazione della distribuzione di protezione accesso alla rete a Windows Server 2016.
+> [!IMPORTANT]
+> Protezione accesso alla rete \(NAP\), Autorità registrazione integrità \(Autorità registrazione integrità\)e Host Credential Authorization Protocol \(HCAP\) deprecate in Windows Server 2012 R2, e non sono disponibili in Windows Server 2016. Se si dispone di una distribuzione di protezione accesso alla rete usando i sistemi operativi precedenti a Windows Server 2016, è possibile eseguire la migrazione della distribuzione di protezione accesso alla rete a Windows Server 2016.
 
 È possibile configurare NPS con qualsiasi combinazione di queste funzionalità. Ad esempio, è possibile configurare uno dei criteri di rete come server RADIUS per connessioni VPN e anche come proxy RADIUS per inoltrare alcune richieste di connessione per i membri di un gruppo di server RADIUS remoto per l'autenticazione e autorizzazione in un altro dominio.
 
@@ -57,8 +57,8 @@ Criteri di rete fornisce funzionalità diverse a seconda dell'edizione di Window
 
 Con criteri di rete in Windows Server 2016 Standard o Datacenter, è possibile configurare un numero illimitato di client RADIUS e gruppi di server RADIUS remoti. È inoltre possibile configurare client RADIUS specificando un intervallo di indirizzi IP.
 
->[!NOTE]
->La funzionalità Servizi di accesso e criteri di rete di WIndows non è disponibile nei sistemi installati con un'opzione di installazione Server Core.
+> [!NOTE]
+> La funzionalità Servizi di accesso e criteri di rete di WIndows non è disponibile nei sistemi installati con un'opzione di installazione Server Core.
 
 Le sezioni seguenti forniscono informazioni più dettagliate sui criteri di rete come un proxy e server RADIUS.
 
@@ -70,15 +70,15 @@ Le sezioni seguenti forniscono informazioni più dettagliate sui criteri di rete
 
 Criteri di rete è l'implementazione Microsoft dello standard RADIUS specificato dalla Internet Engineering Task Force \(IETF\) nelle RFC 2865 e 2866. Come server RADIUS, NPS esegue centralizzate di autenticazione, autorizzazione e accounting per connessioni remote molti tipi di accesso alla rete, inclusi switch wireless, che esegue l'autenticazione e rete privata virtuale \(VPN\) remoto l'accesso e le connessioni da router a router.
 
->[!NOTE]
->Per informazioni sulla distribuzione dei criteri di rete come server RADIUS, vedere [distribuire Server dei criteri di rete](nps-deploy.md).
+> [!NOTE]
+> Per informazioni sulla distribuzione dei criteri di rete come server RADIUS, vedere [distribuire Server dei criteri di rete](nps-deploy.md).
 
 Criteri di rete consente l'uso di un set eterogeneo di wireless, switch, accesso remoto o ad apparecchiature VPN. È possibile usare criteri di rete con il servizio di accesso remoto, che è disponibile in Windows Server 2016.
 
 Criteri di rete Usa un Active Directory Domain Services \(Active Directory Domain Services\) dominio o gli account utente di gestione di account di sicurezza (SAM) locale per autenticare le credenziali utente per i tentativi di connessione del database. Quando un server dei criteri di rete è un membro di un dominio di Active Directory Domain Services, criteri di rete Usa il servizio directory come database degli account utente e fa parte di una soluzione single sign-on. Lo stesso insieme di credenziali viene usato per il controllo di accesso di rete \(autenticare e autorizzare l'accesso a una rete\) e accedere a un dominio di Active Directory Domain Services.
 
->[!NOTE]
->Criteri di rete Usa le proprietà dial-dei criteri di rete e account utente di autorizzare una connessione.
+> [!NOTE]
+> Criteri di rete Usa le proprietà dial-dei criteri di rete e account utente di autorizzare una connessione.
 
 Provider di servizi Internet \(ISP\) e le organizzazioni che gestiscono l'accesso alla rete sono in grado di gestire tutti i tipi di accesso alla rete da un singolo punto dell'amministrazione, indipendentemente dal tipo di accesso alla rete apparecchiature usate. Lo standard RADIUS supporta questa funzionalità negli ambienti sia omogenei ed eterogenei. RADIUS è un protocollo client-server che consente a dispositivi di accesso alla rete (usato come client RADIUS) per inviare richieste di autenticazione e accounting in un server RADIUS.
 
@@ -116,7 +116,6 @@ Quando usato come proxy RADIUS, NPS è un passaggio centrale o un punto di routi
 La figura seguente mostra i criteri di rete come proxy RADIUS tra i client RADIUS e server RADIUS.
 
 ![Criteri di rete come Proxy RADIUS](../../media/Nps-Proxy/Nps-Proxy.jpg)
-
 
 Con criteri di rete, le organizzazioni possono anche outsourcing dell'infrastruttura di accesso remoto a un provider di servizi, mantenendo il controllo tramite l'autenticazione, autorizzazione e accounting.
 

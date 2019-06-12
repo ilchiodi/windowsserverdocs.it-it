@@ -12,12 +12,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8228d0b17a58858ed893181ddceb465715ffdeb5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f38d234768d40903615145954f1215546119344a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874102"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435946"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Riprodurre file multimediali digitali in Windows Server Essentials
 
@@ -190,25 +190,25 @@ I file multimediali digitali sono contenuti audio, video e foto compressi in mod
   
 #### <a name="to-play-shared-media-files-when-you-are-away-from-the-network"></a>Per riprodurre file multimediali digitali quando si è lontani dalla rete  
   
-1.  Aprire un browser Internet.  
+1. Aprire un browser Internet.  
   
-2.  Passare al sito Web di Accesso Web remoto. Tipo di **https://<YourDomainName\>/remote** nella barra degli indirizzi del browser Internet e quindi premere INVIO.  
+2. Passare al sito Web di Accesso Web remoto. Tipo di **https://<YourDomainName\>/remote** nella barra degli indirizzi del browser Internet e quindi premere INVIO.  
   
-    > [!NOTE]
-    >  *< NomeDominio\>*  è un segnaposto. Sarà un nome univoco per il server, in modo che l'indirizzo digitato sarà simile **https://contoso.com/remote**. Se non si conosce il nome del dominio, rivolgersi all'amministratore che ha scelto il nome di dominio quando la funzionalità Accesso Web remoto è stata configurata sul server. Per altre informazioni, vedere [Turn on Remote Web Access](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+   > [!NOTE]
+   >  *< NomeDominio\>*  è un segnaposto. Sarà un nome univoco per il server, in modo che l'indirizzo digitato sarà simile **https://contoso.com/remote** . Se non si conosce il nome del dominio, rivolgersi all'amministratore che ha scelto il nome di dominio quando la funzionalità Accesso Web remoto è stata configurata sul server. Per altre informazioni, vedere [Turn on Remote Web Access](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
-3.  Nella pagina di accesso di Accesso Web remoto digitare il nome account e la password, quindi fare clic sulla freccia.  
+3. Nella pagina di accesso di Accesso Web remoto digitare il nome account e la password, quindi fare clic sulla freccia.  
   
-4.  Usare il metodo preferito per cercare il file multimediale da riprodurre.  
+4. Usare il metodo preferito per cercare il file multimediale da riprodurre.  
   
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   >  Per informazioni sui vari metodi di ricerca, vedere [cercare e riprodurre file multimediali in Windows Server Essentials da un computer o un lettore multimediale digitale in rete](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
+   > 
+   >  Per informazioni sui vari metodi di ricerca, vedere [cercare e riprodurre file multimediali in Windows Server Essentials da un computer o un lettore multimediale digitale in rete](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
 
-    >  Per informazioni sui vari metodi di ricerca, vedere [cercare e riprodurre file multimediali in Windows Server Essentials da un computer o un lettore multimediale digitale in rete](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
-    >  Per informazioni sui vari metodi di ricerca, vedere [cercare e riprodurre file multimediali in Windows Server Essentials da un computer o un lettore multimediale digitale in rete](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
   
-5.  Quando è visualizzato il nome del file multimediale, fare clic sul nome per riprodurlo.  
+5. Quando è visualizzato il nome del file multimediale, fare clic sul nome per riprodurlo.  
   
 ##  <a name="BKMK_4"></a> Aggiungere file multimediali digitali al server  
 
@@ -241,21 +241,21 @@ I file multimediali digitali sono contenuti audio, video e foto compressi in mod
   
  Scegliere l'opzione seguente più adatta alle proprie esigenze per i download:  
   
--   **File ZIP compresso (zip)**  
+- **File ZIP compresso (zip)**  
   
-     La compressione di un file permette di creare una versione compressa del file, con dimensioni inferiori a quelle del file originale. La versione compressa del file avrà un nome file con estensione zip. I tipi di file per cui si ottiene la compressione maggiore sono i file orientati al testo, ad esempio i file con estensione txt, doc e xls, e i file di immagine che usano tipi di file non compressi, ad esempio i file con estensione bmp. Alcuni file di immagine, ad esempio i file con estensione jpg e gif, usano già la compressione, quindi la compressione permetterà solo una riduzione minima delle dimensioni dei file. Se si comprime un documento di Word contenente un numero elevato di elementi grafici si otterrà una riduzione minore rispetto alla compressione di un documento che include principalmente testo.  
+   La compressione di un file permette di creare una versione compressa del file, con dimensioni inferiori a quelle del file originale. La versione compressa del file avrà un nome file con estensione zip. I tipi di file per cui si ottiene la compressione maggiore sono i file orientati al testo, ad esempio i file con estensione txt, doc e xls, e i file di immagine che usano tipi di file non compressi, ad esempio i file con estensione bmp. Alcuni file di immagine, ad esempio i file con estensione jpg e gif, usano già la compressione, quindi la compressione permetterà solo una riduzione minima delle dimensioni dei file. Se si comprime un documento di Word contenente un numero elevato di elementi grafici si otterrà una riduzione minore rispetto alla compressione di un documento che include principalmente testo.  
   
-    > [!NOTE]
-    >  Questa opzione offre supporto limitato per nomi di file internazionali.  
+  > [!NOTE]
+  >  Questa opzione offre supporto limitato per nomi di file internazionali.  
   
--   **File eseguibile autoestraente (.exe)**  
+- **File eseguibile autoestraente (.exe)**  
   
-     Un file eseguibile autoestraente è un file scaricabile che unisce il programma di decompressione (eseguibile) ai file compressi. Quando lo si esegue, il programma eseguibile decomprime automaticamente i file compressi. Si tratta di una modalità comune per distribuire i dati compressi senza doversi preoccupare della disponibilità o meno dell'utilità di compressione corretta da parte del destinatario.  
+   Un file eseguibile autoestraente è un file scaricabile che unisce il programma di decompressione (eseguibile) ai file compressi. Quando lo si esegue, il programma eseguibile decomprime automaticamente i file compressi. Si tratta di una modalità comune per distribuire i dati compressi senza doversi preoccupare della disponibilità o meno dell'utilità di compressione corretta da parte del destinatario.  
   
-    > [!NOTE]
-    >  Questa opzione supporta i caratteri Unicode.  
+  > [!NOTE]
+  >  Questa opzione supporta i caratteri Unicode.  
   
- Prima dell'inizio del download effettivo, sarà creato il file con estensione exe o zip. In base al numero di file e alla dimensione totale dei file da scaricare, questa operazione potrebbe richiedere alcuni minuti. Dopo la creazione del file di download, i file saranno scaricati in background. Ciò permette di continuare a lavorare durante il completamento del processo di download.  
+  Prima dell'inizio del download effettivo, sarà creato il file con estensione exe o zip. In base al numero di file e alla dimensione totale dei file da scaricare, questa operazione potrebbe richiedere alcuni minuti. Dopo la creazione del file di download, i file saranno scaricati in background. Ciò permette di continuare a lavorare durante il completamento del processo di download.  
   
 ##  <a name="BKMK_6"></a> Strumento caricamento semplice File  
  Lo strumento caricamento semplice File semplifica il processo di caricamento file nel server Windows Server Essentials. È possibile aggiungere il numero di file come si desidera che lo strumento caricamento semplice File e quindi caricarli nelle cartelle condivise nel server di Windows Server Essentials in un unico batch. Per altre informazioni, vedere il post di blog sulla [Comprensione della condivisione di file in Accesso Web remoto](http://blogs.technet.com/b/sbs/archive/2012/04/19/understanding-remote-web-access-file-sharing.aspx).  

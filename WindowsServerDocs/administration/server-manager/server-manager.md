@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c59fa78f6485f21a048c6a4f37a00b4a49e9adab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f3abeec3d4ecbe5e80d08a99a00b43a408c4ac
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831672"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811291"
 ---
 # <a name="server-manager"></a>Server Manager
 
@@ -30,23 +30,23 @@ Nei test, è possibile utilizzare Server Manager in Windows Server 2016, Windows
 
 In questo argomento e nei relativi sottoargomenti forniscono informazioni su come usare le funzionalità nella console di Server Manager. In questo argomento sono incluse le sezioni seguenti.
 
--   [Rivedere le considerazioni e requisiti di sistema](#BKMK_1.1)
+-   [Rivedere le considerazioni e requisiti di sistema](#review-initial-considerations-and-system-requirements)
 
--   [Attività che è possibile eseguire in Server Manager](#BKMK_tasks)
+-   [Attività che è possibile eseguire in Server Manager](#tasks-that-you-can-perform-in-server-manager)
 
--   [avviare Server Manager](#BKMK_start)
+-   [avviare Server Manager](#start-server-manager)
 
--   [Riavviare i server remoti](#BKMK_restart)
+-   [Riavviare i server remoti](#restart-remote-servers)
 
--   [Esportare le impostazioni di Server Manager ad altri computer](#BKMK_export)
+-   [Esportare le impostazioni di Server Manager ad altri computer](#export-server-manager-settings-to-other-computers)
 
-## <a name="BKMK_1.1"></a>Rivedere le considerazioni e requisiti di sistema
+## <a name="review-initial-considerations-and-system-requirements"></a>Rivedere le considerazioni e i requisiti di sistema
 Le sezioni seguenti elencano alcune considerazioni iniziali che è necessario esaminare, nonché i requisiti hardware e software per Server Manager.
 
 ### <a name="hardware-requirements"></a>Requisiti hardware
 Server Manager viene installato per impostazione predefinita con tutte le edizioni di Windows Server 2016. Non esistono altri requisiti hardware per Server Manager.
 
-### <a name="BKMK_softconfig"></a>Requisiti di configurazione e software
+### <a name="software-and-configuration-requirements"></a>Requisiti di configurazione e software
 Server Manager viene installato per impostazione predefinita con tutte le edizioni di Windows Server 2016. È possibile utilizzare Server Manager in Windows Server 2016 per gestire [Opzioni di installazione Server Core](https://go.microsoft.com/fwlink/p/?LinkID=241573) di Windows Server 2016, Windows Server 2012 e Windows Server 2008 R2 che sono in esecuzione in computer remoti. L'opzione di installazione Server Core di Windows Server 2016 eseguire Server Manager.
 
 Server Manager viene eseguito nell'interfaccia grafica di Server minimo; vale a dire quando la funzionalità Shell grafica Server non è installata. La funzionalità Shell grafica Server non è installata per impostazione predefinita in Windows Server 2016. Se non si esegue Shell grafica Server, Server Manager console viene eseguito, ma non sono disponibili alcune applicazioni o gli strumenti disponibili dalla console. I browser Internet non è possibile eseguire senza Shell grafica Server, le pagine Web e applicazioni, ad esempio della Guida HTML (la Guida F1 di mmc, ad esempio) non può essere aperto. Non è possibile aprire finestre di dialogo per la configurazione di Windows di aggiornamenti automatici e feedback quando Shell grafica Server non è installata; i comandi che aprono queste finestre di dialogo nella console di Server Manager vengono reindirizzati per eseguire **sconfig. cmd**.
@@ -64,9 +64,9 @@ La console di Server Manager è inclusa in [Strumenti di amministrazione remota 
 
 |Sistema operativo di gestione di server di origine|Destinato a Windows Server 2016|Destinata a Windows Server 2012 R2 |Destinato a Windows Server 2012 |Destinati a Windows Server 2008 R2 o Windows Server 2008 |Destinato a Windows Server 2003|
 |-------------------------------|--------------------------------------------|---------------------------------------|------------------------------------|-----------------------------------------------------------------------|------------------|
-|Windows 10 o Windows Server 2016|Supporto completo|Supporto completo|Supporto completo|Quando i [Requisiti di configurazione e software](#BKMK_softconfig) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Non supportato|
-|Windows 8.1 o Windows Server 2012 R2 |Non supportato|Supporto completo|Supporto completo|Quando i [Requisiti di configurazione e software](#BKMK_softconfig) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
-|Windows 8 o Windows Server 2012 |Non supportato|Non supportato|Supporto completo|Quando i [Requisiti di configurazione e software](#BKMK_softconfig) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
+|Windows 10 o Windows Server 2016|Supporto completo|Supporto completo|Supporto completo|Quando i [Requisiti di configurazione e software](#software-and-configuration-requirements) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Non supportato|
+|Windows 8.1 o Windows Server 2012 R2 |Non supportato|Supporto completo|Supporto completo|Quando i [Requisiti di configurazione e software](#software-and-configuration-requirements) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
+|Windows 8 o Windows Server 2012 |Non supportato|Non supportato|Supporto completo|Quando i [Requisiti di configurazione e software](#software-and-configuration-requirements) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
 
 ###### <a name="to-start-server-manager-on-a-client-computer"></a>Per avviare Server Manager in un computer client
 
@@ -85,7 +85,7 @@ per altre informazioni sull'esecuzione di Remote Server Administration Tools per
 
 Per eseguire attività di gestione su server remoti utilizzando Server Manager, i server remoti che si desidera gestire devono essere configurati per consentire la gestione remota tramite Server Manager e Windows PowerShell. Gestione remota è stata disabilitata in Windows Server 2012 R2 o Windows Server 2012, se si desidera riabilitarla, eseguire la procedura seguente.
 
-##### <a name="BKMK_windows"></a>Per configurare Gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 tramite l'interfaccia di Windows
+##### <a name="to-configure-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-the-windows-interface"></a>Per configurare Gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 tramite l'interfaccia di Windows
 
 1.  > [!NOTE]
     > Le impostazioni controllate dal **configurare la gestione remota** nella finestra di dialogo non riguardano parti di Server Manager che utilizzano DCOM per le comunicazioni remote.
@@ -104,7 +104,7 @@ Per eseguire attività di gestione su server remoti utilizzando Server Manager, 
 
     -   Per consentire a questo computer di gestione remota tramite Server Manager o Windows PowerShell, selezionare **Consenti gestione remota del server da altri computer**.
 
-##### <a name="BKMK_ps"></a>Per abilitare gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 tramite Windows PowerShell
+##### <a name="to-enable-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-windows-powershell"></a>Per abilitare gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 tramite Windows PowerShell
 
 1.  Effettuare una delle operazioni seguenti.
 
@@ -129,7 +129,7 @@ Per eseguire attività di gestione su server remoti utilizzando Server Manager, 
 
     -   Per abilitare gestione remota sui server che eseguono Windows Server 2008, vedere [abilitare e usare i comandi remoti in Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-## <a name="BKMK_tasks"></a>Attività che è possibile eseguire in Server Manager
+## <a name="tasks-that-you-can-perform-in-server-manager"></a>Le attività che è possibile eseguire in Server Manager
 Server Manager rendono l'amministrazione del server più efficiente consentendo agli amministratori di eseguire le attività nella tabella seguente tramite un singolo strumento. In Windows Server 2012 R2 e Windows Server 2012, sia gli utenti standard di un server sia i membri del gruppo Administrators possono eseguire attività di gestione in Server Manager, ma per impostazione predefinita, gli utenti standard sono autorizzati a eseguire determinate attività, come indicato di Nella tabella seguente.
 
 Gli amministratori possono usare due cmdlet di Windows PowerShell nel modulo per i cmdlet di Server Manager [Enable ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) e [Disable ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx), a controllare ulteriormente l'accesso utente standard ad alcuni dati aggiuntivi. Il **Enable ServerManagerStandardUserremoting** cmdlet può fornire uno o più accessi utente standard senza privilegi di amministratore per eventi, service, contatore delle prestazioni e i dati di inventario di ruolo e funzionalità.
@@ -155,7 +155,7 @@ Gli amministratori possono usare due cmdlet di Windows PowerShell nel modulo per
 > [!NOTE]
 > Server Manager non può essere utilizzato per aggiungere ruoli e funzionalità per i server che eseguono Windows Server 2008 R2 o Windows Server 2008.
 
-## <a name="BKMK_start"></a>avviare Server Manager
+## <a name="start-server-manager"></a>start Server Manager
 Per impostazione predefinita nei server che eseguono Windows Server 2016 quando un membro del gruppo Administrators accede a un server viene avviato automaticamente Server Manager. Se si chiude Server Manager, riavviarlo in uno dei modi seguenti. In questa sezione contiene inoltre i passaggi per la modifica del comportamento predefinito e impedisce l'avvio automatico di Server Manager.
 
 #### <a name="to-start-server-manager-from-the-start-screen"></a>Per avviare Server Manager dalla schermata start
@@ -174,7 +174,7 @@ Per impostazione predefinita nei server che eseguono Windows Server 2016 quando 
 
 3.  In alternativa, è possibile impedire Server Manager di avvio automatico abilitando l'impostazione di criteri di gruppo **non avviare automaticamente Server Manager all'accesso**. Il percorso di questa impostazione di criteri, nella console di editor Criteri di gruppo locali è computer Configurazione computer\Modelli amministrativi\sistema\server Manager.
 
-## <a name="BKMK_restart"></a>Riavviare i server remoti
+## <a name="restart-remote-servers"></a>Riavviare i server remoti
 È possibile riavviare un server remoto dal **server** porzione di una pagina ruolo o gruppo in Server Manager.
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Per impostazione predefinita nei server che eseguono Windows Server 2016 quando 
 
 3.  Fare clic con il pulsante destro del mouse sui server selezionati e quindi scegliere **Riavvia server**.
 
-## <a name="BKMK_export"></a>Esportare le impostazioni di Server Manager ad altri computer
+## <a name="export-server-manager-settings-to-other-computers"></a>Esportare le impostazioni di Server Manager ad altri computer
 In Server Manager, l'elenco dei server gestiti, le modifiche alle impostazioni di console Server Manager e gruppi personalizzati creati vengono archiviati in due file seguenti. È possibile riutilizzare queste impostazioni su altri computer che eseguono la stessa versione di Server Manager (o Windows 10 con strumenti di amministrazione Server remota installato). Strumenti di amministrazione remota del Server deve essere in esecuzione nei computer basati su client Windows per esportare le impostazioni di Server Manager in tali computer.
 
 -   %*appdata*%\Microsoft\Windows\ServerManager\Serverlist.xml

@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854712"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812672"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, cartelle di lavoro di configurazione
 
@@ -32,7 +32,7 @@ Questo argomento descrive il terzo passaggio nella distribuzione di Cartelle di 
 -   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Le istruzioni descritte in questa sezione sono per un ambiente Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Per configurare Cartelle di lavoro, utilizza le procedure seguenti.  
   
@@ -49,7 +49,7 @@ Per creare il record di CNAME per Cartelle di lavoro, segui questi passaggi:
   
 1.  Nel tuo controller di dominio apri **Gestore DNS**.  
   
-2.  Espandi la cartella Zone di ricerca diretta, fai clic con il tasto destro del mouse sul tuo dominio e fai clic su **Nuovo alias (CNAME)**.  
+2.  Espandi la cartella Zone di ricerca diretta, fai clic con il tasto destro del mouse sul tuo dominio e fai clic su **Nuovo alias (CNAME)** .  
   
 3.  Nella finestra **Nuovo Record di risorse**, nel campo **Nome Alias**, immetti l'alias per Cartelle di lavoro. Nell'esempio di test, si tratta di **workfolders**.  
   
@@ -78,7 +78,7 @@ Installa il certificato AD FS che è stato creato durante l'installazione di AD 
   
 5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
   
-6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)**, quindi fai clic su **Fine**.  
+6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
 7.  Fare clic su **OK**.  
   
@@ -250,7 +250,7 @@ Per configurare Cartelle di lavoro per l'utilizzo di AD FS per l'autenticazione,
   
 4.  Nella finestra **Impostazioni di Cartelle di lavoro**, seleziona **Active Directory Federation Services** e digita l'URL del servizio federativo. Fare clic su **Applica**.  
   
-    Nell'esempio test, è l'URL **https://blueadfs.contoso.com**.  
+    Nell'esempio test, è l'URL **https://blueadfs.contoso.com** .  
   
 Il cmdlet per eseguire la stessa attività tramite Windows PowerShell è:  
   

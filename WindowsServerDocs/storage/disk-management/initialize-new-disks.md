@@ -1,23 +1,23 @@
 ---
 title: Inizializzare nuovi dischi
 description: Viene descritto come inizializzare nuovi dischi con Gestione disco, ottenendoli pronto per l'uso. Include anche collegamenti alla risoluzione dei problemi.
-ms.date: 10/24/2018
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e009780d83220b528ba7dac6e2561be36e662f71
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7a275c372e1486b26821f797a7663eecbc3e8784
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192756"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812423"
 ---
 # <a name="initialize-new-disks"></a>Inizializzare nuovi dischi
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows 7, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows 7, Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Se si aggiunge un nuovo disco al computer e non viene visualizzata in Esplora File, potrebbe essere necessario [aggiungere una lettera di unità](change-a-drive-letter.md), o inizializzarlo prima di poterla usare. È possibile inizializzarla solo un'unità non è ancora formattato. Inizializzazione di un disco Cancella tutto il suo contenuto e lo prepara per l'utilizzo da Windows, dopo il quale è possibile formattarlo e quindi archiviare i file disponibili.
 
@@ -35,12 +35,12 @@ Di seguito viene illustrato come inizializzare un nuovo disco tramite Gestione d
 
      Si noti che alcune unità USB non hanno la possibilità di essere inizializzato, è sufficiente ottenere formattati e un [lettera unità](change-a-drive-letter.md).
 
-    ![Gestione disco che mostra un disco non formattato con il menu di scelta rapida Inizializza disco visualizzato](media\uninitialized-disk.PNG)
+    ![Gestione disco che mostra un disco non formattato con il menu di scelta rapida Inizializza disco visualizzato](media/uninitialized-disk.PNG)
 2. Nel **Inizializza disco** finestra di dialogo (illustrato di seguito), controllare per verificare che il disco corretto sia selezionato e quindi fare clic su **OK** accettare lo stile di partizione predefinito. Se si desidera modificare, vedere (GPT o MBR) di stile partizione [sugli stili di partizione - GPT e MBR](#about-partition-styles---gpt-and-mbr).
 
      Passa rapidamente lo stato del disco da **Initializing** e quindi per il **Online** dello stato. Se l'inizializzazione ha esito negativo per qualche motivo, vedere [lo stato del disco non inizializzato o il disco risulta manca interamente](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
-    ![Nella finestra di dialogo Inizializza disco selezionato lo stile di partizione GPT](media\initialize-disk.PNG)
+    ![Nella finestra di dialogo Inizializza disco selezionato lo stile di partizione GPT](media/initialize-disk.PNG)
 
 ## <a name="about-partition-styles---gpt-and-mbr"></a>Informazioni sugli stili di partizione - GPT e MBR
 

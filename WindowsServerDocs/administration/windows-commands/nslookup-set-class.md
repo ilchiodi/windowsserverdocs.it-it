@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e02a6f473a7c2dc6d6b66eb5b23fded930bc817
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856352"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436846"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -34,11 +34,11 @@ set class=<Class>
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<Classe >|La classe predefinita è in. Di seguito sono elencati i valori validi per questo comando.</br>- IN: Specifica la classe di Internet.</br>- CHAOS: Specifica la classe di Chaos.</br>- HESIOD: Specifica la classe Athena Hesiod MIT.</br>-ANY: Specifica uno qualsiasi dei caratteri jolly elencate in precedenza.|
-|Guida { | ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+| Parametro |                                                                                                                                    Descrizione                                                                                                                                    |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \<Classe >  | La classe predefinita è in. Di seguito sono elencati i valori validi per questo comando.</br>- IN: Specifica la classe di Internet.</br>- CHAOS: Specifica la classe di Chaos.</br>- HESIOD: Specifica la classe Athena Hesiod MIT.</br>-ANY: Specifica uno qualsiasi dei caratteri jolly elencate in precedenza. |
+|   Guida {   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

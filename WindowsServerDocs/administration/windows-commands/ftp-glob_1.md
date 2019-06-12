@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 249e9546bec467f92991b15a3d65df173036e464
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8824fab77c3cc10828b31abbe2f9034778c39c47
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857372"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438739"
 ---
 # <a name="ftp-glob1"></a>ftp: glob_1
 
@@ -32,12 +32,12 @@ glob
 ### <a name="parameters"></a>Parametri  
 nessuno  
 ## <a name="remarks"></a>Note  
--   Per impostazione predefinita, il glob è attivato.  
--   Che consente l'utilizzo del punto interrogativo (?) e asterisco (*) come caratteri jolly nei nomi di file o percorso locali.  
-## <a name="BKMK_Examples"></a>Esempi  
-Alterna l'espansione di caratteri jolly di nomi di file locali.  
-```  
-glob  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- Per impostazione predefinita, il glob è attivato.  
+- Che consente l'utilizzo del punto interrogativo (?) e asterisco (*) come caratteri jolly nei nomi di file o percorso locali.  
+  ## <a name="BKMK_Examples"></a>Esempi  
+  Alterna l'espansione di caratteri jolly di nomi di file locali.  
+  ```  
+  glob  
+  ```  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

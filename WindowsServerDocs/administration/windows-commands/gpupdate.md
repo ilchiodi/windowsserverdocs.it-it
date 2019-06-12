@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d358c47bd278cf11c4bab6887302bf6d053529ec
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: dba8a0fb7d9a4e95f91ed1c1e140d965f5f9e2fb
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192662"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811121"
 ---
 # <a name="gpupdate"></a>gpupdate
-
-
 
 Aggiorna le impostazioni di criteri di gruppo. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#examples).
 
@@ -34,15 +32,15 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/target:{Computer | Utente}|Aggiorna solo utente o solo le impostazioni dei criteri Computer.|
-|/Force|Riapplica tutte le impostazioni di criteri. Per impostazione predefinita, vengono applicate solo le impostazioni di criteri che sono stati modificati.|
-|/Wait:\<valore >|Imposta il numero di secondi di attesa per completare la prima di tornare al prompt dei comandi di elaborazione dei criteri. Quando viene superato il limite di tempo, viene visualizzato il prompt dei comandi, ma continua l'elaborazione di criteri. Il valore predefinito è 600 secondi. Il valore **0** significa che non è in attesa. Il valore **-1** indica un'attesa infinita.</br>In uno script, tramite questo comando con un limite di tempo specificato, è possibile eseguire **gpupdate** e continuare con i comandi che non dipendono dal completamento di **gpupdate**. In alternativa, è possibile utilizzare questo comando senza alcun limite di tempo specificato per consentire **gpupdate** fine dell'esecuzione prima di eseguono altri comandi che dipendono da esso.|
-|/Logoff|Forza la disconnessione dopo le impostazioni di criteri di gruppo vengono aggiornate. Ciò è necessario per le estensioni lato client Criteri di gruppo che non elaborano i criteri in un ciclo di aggiornamento in background ma eseguono tale operazione quando un utente accede. Sono esempi di installazione del Software e reindirizzamento cartelle destinati agli utenti. Questa opzione non ha alcun effetto se non esistono estensioni che richiedono la disconnessione.|
-|/Boot|Provoca un riavvio del computer dopo aver applicate le impostazioni di criteri di gruppo. Ciò è necessario per le estensioni lato client Criteri di gruppo che non elaborano i criteri in un ciclo di aggiornamento in background ma eseguono tale operazione all'avvio del computer. Esempi di installazione Software basata su computer di destinazione. Questa opzione non ha alcun effetto se non esistono estensioni che richiedono un riavvio.|
-|/Sync|Fa sì che l'applicazione dei criteri in primo piano successiva da eseguire in modo sincrono. L'applicazione dei criteri viene applicata al computer avvio e l'accesso. È possibile specificare questo per l'utente, computer o entrambi, utilizzando il **/destinazione** parametro. Il **/force** e **/attesa** i parametri vengono ignorati se vengono specificate.|
-|/?|Visualizza la Guida al prompt dei comandi.|
+|     Parametro     |                                                                                                                                                                                                                                                                                                                             Descrizione                                                                                                                                                                                                                                                                                                                             |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /target:{Computer |                                                                                                                                                                                                                                                                                                                                Utente}                                                                                                                                                                                                                                                                                                                                |
+|      /Force       |                                                                                                                                                                                                                                                                                   Riapplica tutte le impostazioni di criteri. Per impostazione predefinita, vengono applicate solo le impostazioni di criteri che sono stati modificati.                                                                                                                                                                                                                                                                                    |
+|  /Wait:\<valore >   | Imposta il numero di secondi di attesa per completare la prima di tornare al prompt dei comandi di elaborazione dei criteri. Quando viene superato il limite di tempo, viene visualizzato il prompt dei comandi, ma continua l'elaborazione di criteri. Il valore predefinito è 600 secondi. Il valore **0** significa che non è in attesa. Il valore **-1** indica un'attesa infinita.</br>In uno script, tramite questo comando con un limite di tempo specificato, è possibile eseguire **gpupdate** e continuare con i comandi che non dipendono dal completamento di **gpupdate**. In alternativa, è possibile utilizzare questo comando senza alcun limite di tempo specificato per consentire **gpupdate** fine dell'esecuzione prima di eseguono altri comandi che dipendono da esso. |
+|      /Logoff      |                                                                                                                                   Forza la disconnessione dopo le impostazioni di criteri di gruppo vengono aggiornate. Ciò è necessario per le estensioni lato client Criteri di gruppo che non elaborano i criteri in un ciclo di aggiornamento in background ma eseguono tale operazione quando un utente accede. Sono esempi di installazione del Software e reindirizzamento cartelle destinati agli utenti. Questa opzione non ha alcun effetto se non esistono estensioni che richiedono la disconnessione.                                                                                                                                    |
+|       /Boot       |                                                                                                                                       Provoca un riavvio del computer dopo aver applicate le impostazioni di criteri di gruppo. Ciò è necessario per le estensioni lato client Criteri di gruppo che non elaborano i criteri in un ciclo di aggiornamento in background ma eseguono tale operazione all'avvio del computer. Esempi di installazione Software basata su computer di destinazione. Questa opzione non ha alcun effetto se non esistono estensioni che richiedono un riavvio.                                                                                                                                        |
+|       /Sync       |                                                                                                                                                                              Fa sì che l'applicazione dei criteri in primo piano successiva da eseguire in modo sincrono. L'applicazione dei criteri viene applicata al computer avvio e l'accesso. È possibile specificare questo per l'utente, computer o entrambi, utilizzando il **/destinazione** parametro. Il **/force** e **/attesa** i parametri vengono ignorati se vengono specificate.                                                                                                                                                                               |
+|        /?         |                                                                                                                                                                                                                                                                                                                Visualizza la Guida al prompt dei comandi.                                                                                                                                                                                                                                                                                                                 |
 
 ## <a name="remarks"></a>Note
 
@@ -51,6 +49,7 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 ## <a name="examples"></a>Esempi
 
 Forzare un aggiornamento in background di tutte le impostazioni di criteri di gruppo, indipendentemente dal fatto che siano modificati.
+
 ```
 gpupdate /force
 ```

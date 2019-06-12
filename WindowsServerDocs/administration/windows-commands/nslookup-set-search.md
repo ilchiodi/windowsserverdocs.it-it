@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf952a0337e23c0426265c6c0a4a8387a6ab45e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d95ebe30ce45430787bebbfe63766a571a436bbf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436596"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -34,12 +34,12 @@ set [no]search
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|**nosearch**|Interrompe l'aggiunta di nomi di dominio Domain Name System (DNS) nell'elenco di ricerca di dominio DNS per la richiesta.|
-|**search**|Aggiunge i nomi di dominio Domain Name System (DNS) nell'elenco di ricerca di dominio DNS per la richiesta fino a quando non viene ricevuta una risposta. La sintassi di predefinita è **ricerca**.|
-|Guida { | ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+|  Parametro   |                                                                          Descrizione                                                                          |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **nosearch** |                            Interrompe l'aggiunta di nomi di dominio Domain Name System (DNS) nell'elenco di ricerca di dominio DNS per la richiesta.                            |
+|  **search**  | Aggiunge i nomi di dominio Domain Name System (DNS) nell'elenco di ricerca di dominio DNS per la richiesta fino a quando non viene ricevuta una risposta. La sintassi di predefinita è **ricerca**. |
+|    Guida {     |                                                                              ?}                                                                               |
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

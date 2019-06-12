@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435995"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Usare Windows Server Essentials Log Collector
 
@@ -28,9 +28,9 @@ Quando si siano risolvendo i problemi dei computer, un rappresentante del client
  Log Collector copia registri di programmi, registri di revisori eventi e informazioni sull'ambiente correlato in un unico file zip in un percorso specificato. È possibile eseguire Log Collector direttamente dal server o da uno dei computer in rete oppure usando una connessione remota ai computer.  
   
 > [!NOTE]
->  -   Log Collector non analizza i problemi della rete e non apporta modifiche ad alcun server o computer in rete. Per informazioni su come risolvere i problemi relativi alla rete, vedere la documentazione della Guida per il prodotto server.  
-> -   In questa Guida, i computer in rete, diversi dal server, vengono chiamati i computer di rete.  
-> -   [Scaricare il pacchetto di installazione di Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
+> - Log Collector non analizza i problemi della rete e non apporta modifiche ad alcun server o computer in rete. Per informazioni su come risolvere i problemi relativi alla rete, vedere la documentazione della Guida per il prodotto server.  
+>   -   In questa Guida, i computer in rete, diversi dal server, vengono chiamati i computer di rete.  
+>   -   [Scaricare il pacchetto di installazione di Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
   
  Per installare ed eseguire Log Collector, attenersi ai passaggi negli argomenti seguenti:  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52a846b1084380d0b40d58d81c11d20dacb407bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba58e223d0aa35b4157b813b10bf1d274313a1c1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869152"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436959"
 ---
 # <a name="nslookup-server"></a>nslookup server
 
@@ -30,12 +30,14 @@ Cambia il server predefinito per il dominio del sistema DNS (Domain Name) specif
 server <DNSDomain>
 ```
 ## <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|<DNSDomain>|Obbligatorio. Specifica il nuovo dominio DNS per il server predefinito.|
-|{help &#124; ?}|Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.|
+
+|    Parametro    |                          Descrizione                           |
+|-----------------|----------------------------------------------------------------|
+|   <DNSDomain>   | Obbligatorio. Specifica il nuovo dominio DNS per il server predefinito. |
+| {help &#124; ?} |     Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.      |
+
 ## <a name="remarks"></a>Note
--   Il **server** comando Usa il server predefinito corrente per cercare le informazioni sul dominio DNS specificato. È in contrasto con la **lserver** comando, che usa l'iniziale del server.
-## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[lserver nslookup](nslookup-lserver.md)
+- Il **server** comando Usa il server predefinito corrente per cercare le informazioni sul dominio DNS specificato. È in contrasto con la **lserver** comando, che usa l'iniziale del server.
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [lserver nslookup](nslookup-lserver.md)

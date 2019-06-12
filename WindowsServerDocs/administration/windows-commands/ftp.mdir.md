@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ac1e7cd50fe4d9325c272f74a7b81971c8bb12a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4ec445c3e367a46dc40d10a37c0b3b8e53a10e3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878212"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438337"
 ---
 # <a name="ftp-mdir"></a>FTP: mdir
 
@@ -30,24 +30,26 @@ Visualizza un elenco di directory di file e le sottodirectory in una directory r
 mdir <remoteFile>[ ] <LocalFile>  
 ```  
 ### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|<remoteFile>|Specifica la directory o file per il quale si desidera visualizzare un elenco.|  
-|<LocalFile>|Specifica un file locale per archiviare l'elenco. Questo parametro è obbligatorio.|  
+
+|  Parametro   |                               Descrizione                                |
+|--------------|--------------------------------------------------------------------------|
+| <remoteFile> |   Specifica la directory o file per il quale si desidera visualizzare un elenco.   |
+| <LocalFile>  | Specifica un file locale per archiviare l'elenco. Questo parametro è obbligatorio. |
+
 ## <a name="remarks"></a>Note  
--   È possibile utilizzare **mdir** per specificare più file.  
--   Specifica di *FileRemoto*  
-    Digitare un segno meno (**-**) usare la directory di lavoro corrente nel computer remoto.  
--   Specifica un *FileLocale*  
-    Digitare un segno meno (**-**) per visualizzare la voce sullo schermo.  
-## <a name="BKMK_Examples"></a>Esempi  
-Visualizzare un elenco di directory **dir1** e **dir2** sullo schermo  
-```  
-mdir dir1 dir2 -  
-```  
-Salvare l'elenco delle directory combinato **dir1** e **dir2** in un file locale denominato **Elendir. txt.**  
-```  
-mdir dir1 dir2 dirlist.txt  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+- È possibile utilizzare **mdir** per specificare più file.  
+- Specifica di *FileRemoto*  
+  Digitare un segno meno ( **-** ) usare la directory di lavoro corrente nel computer remoto.  
+- Specifica un *FileLocale*  
+  Digitare un segno meno ( **-** ) per visualizzare la voce sullo schermo.  
+  ## <a name="BKMK_Examples"></a>Esempi  
+  Visualizzare un elenco di directory **dir1** e **dir2** sullo schermo  
+  ```  
+  mdir dir1 dir2 -  
+  ```  
+  Salvare l'elenco delle directory combinato **dir1** e **dir2** in un file locale denominato **Elendir. txt.**  
+  ```  
+  mdir dir1 dir2 dirlist.txt  
+  ```  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

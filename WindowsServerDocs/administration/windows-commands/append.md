@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: abf7713b3fd5bbb6172969ca1cc39cbbbbafafc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe641e1336c163b5e98421a5fc32f8dbe64023b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881982"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435319"
 ---
 # <a name="append"></a>append
 
@@ -41,16 +41,16 @@ append ;
 
 ## <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|[\<Drive>:]<Path>|Specifica l'unità e directory da aggiungere.|
-|/x:on|Si applica directory aggiunte per le ricerche di file e avvio di applicazioni.|
-|/x:off|Si applica directory aggiunte solo per le richieste di apertura file.</br>**/ x: off** è l'impostazione predefinita.|
-|/path:on|Si applica directory aggiunte alle richieste di file che è già specificato un percorso. **/Path: su** è l'impostazione predefinita.|
-|/path:off|Consente di disattivare l'effetto della **/path: su**.|
-|/e|Archivia una copia dell'elenco di directory aggiunte in una variabile di ambiente denominata APPEND. **/e** può essere utilizzata solo la prima volta Usa **accodare** dopo l'avvio del sistema.|
-|;|Cancella l'elenco di directory aggiunte.|
-|/?|Visualizza la guida al prompt dei comandi.|
+|     Parametro     |                                                                                 Descrizione                                                                                 |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                 Specifica l'unità e directory da aggiungere.                                                                  |
+|       /x:on       |                                                  Si applica directory aggiunte per le ricerche di file e avvio di applicazioni.                                                  |
+|      /x:off       |                                     Si applica directory aggiunte solo per le richieste di apertura file.</br>**/ x: off** è l'impostazione predefinita.                                     |
+|     /path:on      |                               Si applica directory aggiunte alle richieste di file che è già specificato un percorso. **/Path: su** è l'impostazione predefinita.                               |
+|     /path:off     |                                                                    Consente di disattivare l'effetto della **/path: su**.                                                                    |
+|        /e         | Archivia una copia dell'elenco di directory aggiunte in una variabile di ambiente denominata APPEND. **/e** può essere utilizzata solo la prima volta Usa **accodare** dopo l'avvio del sistema. |
+|         ;         |                                                                     Cancella l'elenco di directory aggiunte.                                                                     |
+|        /?         |                                                                    Visualizza la guida al prompt dei comandi.                                                                     |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -65,4 +65,4 @@ append /e
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -14,12 +14,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 367de10e8c77490ff27be81ddc05239f931ad1f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf58956ead8e8a47b8ec6d189bf23e5c576d5f15
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860472"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812188"
 ---
 # <a name="nic-teaming"></a>Gruppo NIC
 
@@ -27,8 +27,8 @@ ms.locfileid: "59860472"
 
 In questo argomento viene fornita è una panoramica del gruppo di schede di interfaccia di rete (NIC) in Windows Server 2016. Gruppo NIC consente di raggruppare tra 1 e 32 schede di rete Ethernet fisiche in una o più schede di rete virtuale basata su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.  
   
->[!IMPORTANT]
->È necessario installare schede di rete di gruppo NIC membro nello stesso computer host fisico. 
+> [!IMPORTANT]
+> È necessario installare schede di rete di gruppo NIC membro nello stesso computer host fisico. 
 
 > [!TIP]  
 > Un gruppo NIC che contiene una sola scheda di rete non può fornire il bilanciamento del carico e failover. Tuttavia, con una scheda di rete, è possibile utilizzare gruppo NIC per la separazione del traffico di rete quando vengono specificate anche le reti locali virtuali (VLAN).  
@@ -63,7 +63,7 @@ Non è possibile immettere le seguenti schede di rete in un gruppo NIC:
 ## <a name="compatibility"></a>Compatibilità  
 Gruppo NIC è compatibile con tutte le tecnologie di rete in Windows Server 2016 con le eccezioni seguenti.  
   
--   **Single-root i/o virtualization (SR-IOV)**. Per SR-IOV, i dati vengono recapitati direttamente alla scheda di rete senza passare attraverso lo stack di rete (nel sistema operativo host, nel caso di virtualizzazione). Non è pertanto possibile che il gruppo NIC controllare o reindirizzare i dati a un altro percorso nel gruppo.  
+-   **Single-root i/o virtualization (SR-IOV)** . Per SR-IOV, i dati vengono recapitati direttamente alla scheda di rete senza passare attraverso lo stack di rete (nel sistema operativo host, nel caso di virtualizzazione). Non è pertanto possibile che il gruppo NIC controllare o reindirizzare i dati a un altro percorso nel gruppo.  
   
 -   **Qualità del servizio (QoS) di host nativo**. Quando si impostano i criteri QoS alle nativo o del sistema host e i criteri di richiamano le limitazioni di larghezza di banda minima, la velocità effettiva complessiva per un gruppo NIC è minore di quanto sarebbe possibile senza i criteri di larghezza di banda in uso.  
   

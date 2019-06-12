@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 007256fffde11899d930c9197cade6d3bf9be42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3ad9f55ba130014227326f4abe8540c78755f6c5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868782"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437370"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -52,7 +52,7 @@ Oltre agli argomenti di comando specifico, **mapadmin** accetta gli argomenti e 
 
 &lt;computer&gt; specifica il computer remoto che esegue il servizio di Mapping nomi utente che si desidera amministrare. È possibile specificare il computer utilizzando un nome di Windows Internet Name Service (WINS) o un nome di sistema DNS (Domain Name) o indirizzo per IP (Internet Protocol).
 
--u &lt;utente&gt; specifica il nome utente dell'utente le cui credenziali devono essere utilizzati. Potrebbe essere necessario aggiungere il nome di dominio per il nome utente nel formato *domain***\\***nome utente*.
+-u &lt;utente&gt; specifica il nome utente dell'utente le cui credenziali devono essere utilizzati. Potrebbe essere necessario aggiungere il nome di dominio per il nome utente nel formato <em>domain</em> **\\** <em>nome utente</em>.
 
 -p &lt;password&gt; specifica la password dell'utente. Se si specifica la **-u** opzione ma si omette il **-p** opzione, viene richiesto per la password dell'utente.
 L'azione specifica che **mapadmin** esegue dipende l'argomento del comando si specifica:
@@ -90,7 +90,7 @@ Specifica le impostazioni generali per il Mapping tra nome utente. Le opzioni se
 
 |Opzione|Definizione|
 |-----|-------|
-|-wu &lt;user&gt;|L'utente di Windows per il quale il mapping verrà eliminato, specificato come &lt; *WindowsDomain&gt;\\&lt;nome utente&gt;*. È necessario specificare il **- wu** o nella **- uu** opzione o entrambi. Se si specificano entrambe le opzioni, verrà eliminato il mapping specifico identificato da due opzioni. Se si specifica solo le **- wu** opzione, tutti i mapping per l'utente specificato verrà eliminato.|
+|-wu &lt;user&gt;|L'utente di Windows per il quale il mapping verrà eliminato, specificato come &lt; *WindowsDomain&gt;\\&lt;nome utente&gt;* . È necessario specificare il **- wu** o nella **- uu** opzione o entrambi. Se si specificano entrambe le opzioni, verrà eliminato il mapping specifico identificato da due opzioni. Se si specifica solo le **- wu** opzione, tutti i mapping per l'utente specificato verrà eliminato.|
 |-wg &lt;group&gt;|Il gruppo di Windows per il quale il mapping verrà eliminato, specificato come &lt;WindowsDomain&gt;\\&lt;groupname&gt;. È necessario specificare il **wg -** o nella **- ug** opzione o entrambi. Se si specificano entrambe le opzioni, verrà eliminato il mapping specifico identificato da due opzioni. Se si specifica solo le **wg -** opzione, tutti i mapping verrà eliminato il gruppo specificato.|
 |-uu &lt;user&gt;|L'utente UNIX per i quali il mapping verrà eliminato, specificato come &lt;nome utente&gt;. È necessario specificare il **- wu** o nella **- uu** opzione o entrambi. Se si specificano entrambe le opzioni, verrà eliminato il mapping specifico identificato da due opzioni. Se si specifica solo le **- uu** opzione, tutti i mapping per l'utente specificato verrà eliminato.|
 |-ug &lt;group&gt;|Il gruppo di UNIX per il quale il mapping verrà eliminato, specificato come &lt;groupname&gt;. È necessario specificare il **wg -** o nella **- ug** opzione o entrambi. Se si specificano entrambe le opzioni, verrà eliminato il mapping specifico identificato da due opzioni. Se si specifica solo le **- ug** opzione, tutti i mapping verrà eliminato il gruppo specificato.|
@@ -114,7 +114,7 @@ Specifica le impostazioni generali per il Mapping tra nome utente. Le opzioni se
 |Opzione|Definizione|
 |-----|-------|
 |-d &lt;WindowsDomain&gt;|Specifica il dominio di Windows per eseguire il mapping.|
-|-y &lt;NISdomain&gt;|Specifica il dominio NIS da mappare. &lt;br /&gt;&lt;br /&gt;**- n** &lt;nisServer&gt; specifica il server NIS per il dominio NIS specificato con il **- y**opzione.|
+|-y &lt;NISdomain&gt;|Specifica il dominio NIS da mappare. &lt;br /&gt;&lt;br /&gt; **- n** &lt;nisServer&gt; specifica il server NIS per il dominio NIS specificato con il **- y**opzione.|
 |-f &lt;percorso&gt;|Specifica il percorso completo della directory contenente i file di password e gruppi per eseguire il mapping. I file devono trovarsi sul computer gestito e non è possibile usare **mapadmin** per gestire un computer remoto per configurare le mappe basate sul file di password e gruppi.|
 
 **removedomainmap** -rimuove un mapping semplice tra un dominio di Windows e un dominio NIS. Le seguenti opzioni e argomenti sono disponibili per questo argomento di comando:
@@ -136,4 +136,4 @@ Specifica le impostazioni generali per il Mapping tra nome utente. Le opzioni se
 -   per i gruppi di UNIX, usare il modulo &lt;NISdomain&gt;\\&lt;groupname&gt;, &lt;groupname&gt;@&lt;NISdomain&gt;, &lt;groupname&gt;@PCNFS, o PCNFS\\&lt;groupname&gt;
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

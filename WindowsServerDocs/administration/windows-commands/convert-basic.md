@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a5aef930689e809b9b697e5f428177610ff723b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1f999499154366304d59e0573ba921ab1af83d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862402"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434246"
 ---
 # <a name="convert-basic"></a>convert basic
 
@@ -44,7 +44,7 @@ convert basic [noerr]
 
 > [!IMPORTANT]
 > Il disco deve essere vuoto per convertirlo in un disco di base. Eseguire il backup dei dati e quindi eliminare tutte le partizioni o volumi prima di convertire il disco.
--   Per eseguire questa operazione, è necessario selezionare un disco dinamico. Usare la **disco selezionare** comando per selezionare un disco dinamico e spostare lo stato attivo a esso.
+> -   Per eseguire questa operazione, è necessario selezionare un disco dinamico. Usare la **disco selezionare** comando per selezionare un disco dinamico e spostare lo stato attivo a esso.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -55,5 +55,5 @@ convert basic
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
