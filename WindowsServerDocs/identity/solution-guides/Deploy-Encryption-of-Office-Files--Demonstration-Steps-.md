@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 529000c60a80ee33fc2aa7d09370d8ac1e06311c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445801"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Deploy Encryption of Office Files (Demonstration Steps)
 
@@ -37,21 +37,21 @@ In questo scenario si eseguirà la procedura seguente:
   
 #### <a name="to-enable-resource-properties"></a>Per abilitare le proprietà delle risorse  
   
-1.  Nella console di gestione di Hyper-V connettersi al server ID_AD_DC1. Accedere al server usando Contoso\Administrator con la password **pass@word1**.  
+1. Nella console di gestione di Hyper-V connettersi al server ID_AD_DC1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2.  Aprire Centro di amministrazione di Active Directory e fare clic su **Visualizzazione albero**.  
+2. Aprire Centro di amministrazione di Active Directory e fare clic su **Visualizzazione albero**.  
   
-3.  Espandere **CONTROLLO DI ACCESSO DINAMICO**e selezionare **Proprietà risorse**.  
+3. Espandere **CONTROLLO DI ACCESSO DINAMICO**e selezionare **Proprietà risorse**.  
   
-4.  Scorrere fino alla proprietà **Impatto** nella colonna **Nome visualizzato**. Fare clic con il pulsante destro del mouse su **Impatto** e quindi scegliere **Abilita**.  
+4. Scorrere fino alla proprietà **Impatto** nella colonna **Nome visualizzato**. Fare clic con il pulsante destro del mouse su **Impatto** e quindi scegliere **Abilita**.  
   
-5.  Scorrere fino alla proprietà **Informazioni personali** nella colonna **Nome visualizzato** . Fare clic con il pulsante destro del mouse su **Informazioni personali** e quindi scegliere **Abilita**.  
+5. Scorrere fino alla proprietà **Informazioni personali** nella colonna **Nome visualizzato** . Fare clic con il pulsante destro del mouse su **Informazioni personali** e quindi scegliere **Abilita**.  
   
-6.  Per pubblicare le proprietà delle risorse in **Elenco risorse globali**, nel riquadro sinistro, fare clic su **Elenchi proprietà risorse** e quindi doppio clic su **Elenco proprietà risorse globali**.  
+6. Per pubblicare le proprietà delle risorse in **Elenco risorse globali**, nel riquadro sinistro, fare clic su **Elenchi proprietà risorse** e quindi doppio clic su **Elenco proprietà risorse globali**.  
   
-7.  Fare clic su **Aggiungi**, scorrere fino alla proprietà **Impatto** e selezionarla per aggiungerla all'elenco. Ripetere l'operazione per **Informazioni personali**. Fare clic su **OK** due volte per completare la procedura.  
+7. Fare clic su **Aggiungi**, scorrere fino alla proprietà **Impatto** e selezionarla per aggiungerla all'elenco. Ripetere l'operazione per **Informazioni personali**. Fare clic su **OK** due volte per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -67,21 +67,21 @@ In questo passaggio verrà creata anche una regola **High PII** . Questa regola 
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>Per creare la regola di classificazione High Impact  
   
-1.  Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password **pass@word1**.  
+1. Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2.  È necessario aggiornare le proprietà delle risorse globali da Active Directory. Aprire Windows PowerShell, digitare `Update-FSRMClassificationPropertyDefinition`e quindi premere INVIO. Chiudere Windows PowerShell.  
+2. È necessario aggiornare le proprietà delle risorse globali da Active Directory. Aprire Windows PowerShell, digitare `Update-FSRMClassificationPropertyDefinition`e quindi premere INVIO. Chiudere Windows PowerShell.  
   
-3.  Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+3. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
   
-4.  Nel riquadro sinistro di Gestione risorse file server espandere **Gestione classificazioni**e quindi selezionare **Regole di classificazione**.  
+4. Nel riquadro sinistro di Gestione risorse file server espandere **Gestione classificazioni**e quindi selezionare **Regole di classificazione**.  
   
-5.  Nel riquadro **Azioni** fare clic su **Configura pianificazione classificazione**. Nella scheda **Classificazione automatica** selezionare **Abilita pianificazione fissa**, selezionare un giorno in **Giorno della settimana**, quindi selezionare la casella di controllo **Consenti classificazione continua per i nuovi file**. Fare clic su **OK**.  
+5. Nel riquadro **Azioni** fare clic su **Configura pianificazione classificazione**. Nella scheda **Classificazione automatica** selezionare **Abilita pianificazione fissa**, selezionare un giorno in **Giorno della settimana**, quindi selezionare la casella di controllo **Consenti classificazione continua per i nuovi file**. Fare clic su **OK**.  
   
-6.  Nel riquadro **Azioni** fare clic su **Crea regola di classificazione**. Verrà visualizzata la finestra di dialogo **Crea regola di classificazione**.  
+6. Nel riquadro **Azioni** fare clic su **Crea regola di classificazione**. Verrà visualizzata la finestra di dialogo **Crea regola di classificazione**.  
   
-7.  Nella casella **Nome regola** digitare **High Business Impact**.  
+7. Nella casella **Nome regola** digitare **High Business Impact**.  
   
-8.  Nel **Descrizione** digitare **determina se il documento ha un alto impatto aziendale in base alla presenza della stringa "Contoso Confidential"**  
+8. Nel **Descrizione** digitare **determina se il documento ha un alto impatto aziendale in base alla presenza della stringa "Contoso Confidential"**  
   
 9. Nella scheda **Ambito** fare clic su **Imposta proprietà di gestione cartelle**, selezionare **Utilizzo cartelle**, fare clic su **Aggiungi**e quindi su **Sfoglia**, individuare il percorso D:\Finance Documents, fare clic su **OK**, scegliere un valore di proprietà denominato **File gruppo** e infine fare clic su **Chiudi**. Una volta impostate le proprietà di gestione, nella scheda **Ambito della regola** selezionare **File gruppo**.  
   
@@ -95,7 +95,7 @@ In questo passaggio verrà creata anche una regola **High PII** . Questa regola 
   
 14. Fare clic sulla scheda **Tipo valutazione** .  Fare clic su Rivaluta i valori di proprietà esistenti, su **Sovrascrivi**per sovrascrivere il valore esistente e quindi su **OK** per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -109,35 +109,35 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>Per creare la regola di classificazione High PII  
   
-1.  Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password **pass@word1**.  
+1. Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2.  Sul desktop aprire la cartella denominata **Espressioni regolari**, quindi aprire il documento di testo denominato **RegEx-SSN**. Evidenziare e copiare la stringa di espressione regolare seguente: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**. Poiché questa stringa verrà usata più avanti in questo passaggio, tenerla negli Appunti.  
+2. Sul desktop aprire la cartella denominata **Espressioni regolari**, quindi aprire il documento di testo denominato **RegEx-SSN**. Evidenziare e copiare la stringa di espressione regolare seguente: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** . Poiché questa stringa verrà usata più avanti in questo passaggio, tenerla negli Appunti.  
   
-3.  Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+3. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
   
-4.  Nel riquadro sinistro di Gestione risorse file server espandere **Gestione classificazioni**e quindi selezionare **Regole di classificazione**.  
+4. Nel riquadro sinistro di Gestione risorse file server espandere **Gestione classificazioni**e quindi selezionare **Regole di classificazione**.  
   
-5.  Nel riquadro **Azioni** fare clic su **Configura pianificazione classificazione**. Nella scheda **Classificazione automatica** selezionare **Abilita pianificazione fissa**, selezionare un giorno in **Giorno della settimana**, quindi selezionare la casella di controllo **Consenti classificazione continua per i nuovi file**. Fare clic su OK.  
+5. Nel riquadro **Azioni** fare clic su **Configura pianificazione classificazione**. Nella scheda **Classificazione automatica** selezionare **Abilita pianificazione fissa**, selezionare un giorno in **Giorno della settimana**, quindi selezionare la casella di controllo **Consenti classificazione continua per i nuovi file**. Fare clic su OK.  
   
-6.  Nella casella **Nome regola** digitare **High PII**. Nella casella **Descrizione** digitare **Determines if the document has a high PII based on the presence of a Social Security Number.**  
+6. Nella casella **Nome regola** digitare **High PII**. Nella casella **Descrizione** digitare **Determines if the document has a high PII based on the presence of a Social Security Number.**  
   
-7.  Fare clic sulla scheda **Ambito** e selezionare la casella di controllo **File gruppo** .  
+7. Fare clic sulla scheda **Ambito** e selezionare la casella di controllo **File gruppo** .  
   
-8.  Fare clic sulla scheda **Classificazione**.  In Scegliere un metodo per l'assegnazione di una proprietà ai fileselezionare **Classificazione contenuto** nell'elenco a discesa.  
+8. Fare clic sulla scheda **Classificazione**.  In Scegliere un metodo per l'assegnazione di una proprietà ai fileselezionare **Classificazione contenuto** nell'elenco a discesa.  
   
 9. In **Scegliere una proprietà da assegnare ai file** selezionare **Informazioni personali** nell'elenco a discesa.  
   
 10. In **Specificare un valore** selezionare **Alto** nell'elenco a discesa.  
   
 11. Fare clic su **Configura** in **Parametri**.   
-    Nel riquadro **Parametri di classificazione**selezionare **Stringa** nell'elenco **Tipo espressione**. Nel **espressione** incollare il testo dagli Appunti: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**, quindi fare clic su **OK**.  
+    Nel riquadro **Parametri di classificazione**selezionare **Stringa** nell'elenco **Tipo espressione**. Nel **espressione** incollare il testo dagli Appunti: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** , quindi fare clic su **OK**.  
   
     > [!NOTE]  
     > Questa espressione consente di immettere codici fiscali non validi. In questo modo sarà possibile usare codici fiscali fittizi nella dimostrazione.  
   
 12. Fare clic sulla scheda **Tipo valutazione** .  Selezionare Rivaluta i valori di proprietà esistenti, fare clic su **Sovrascrivi**per sovrascrivere il valore esistente e quindi su **OK** per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -156,25 +156,25 @@ Ora che avete creato le regole per classificare automaticamente i documenti in b
   
 #### <a name="to-protect-documents-with-ad-rms"></a>Per proteggere i documenti con AD RMS  
   
-1.  Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password **pass@word1**.  
+1. Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2.  Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+2. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
   
-3.  Nel riquadro sinistro selezionare **Attività di gestione file**. Nel riquadro **Azioni** selezionare **Crea attività di gestione file**.  
+3. Nel riquadro sinistro selezionare **Attività di gestione file**. Nel riquadro **Azioni** selezionare **Crea attività di gestione file**.  
   
-4.  Nel campo **Nome attività** digitare **High PII**. Nel campo **Descrizione** digitare **Automatic RMS protection for high PII documents**.  
+4. Nel campo **Nome attività** digitare **High PII**. Nel campo **Descrizione** digitare **Automatic RMS protection for high PII documents**.  
   
-5.  Fare clic sulla scheda **Ambito** e selezionare la casella di controllo **File gruppo** .  
+5. Fare clic sulla scheda **Ambito** e selezionare la casella di controllo **File gruppo** .  
   
-6.  Fare clic sulla scheda **Azione** . In Tiposelezionare **Crittografia RMS**. Fare clic su **Sfoglia** per selezionare un modello, quindi selezionare il modello **Contoso Finance Admin Only**.  
+6. Fare clic sulla scheda **Azione** . In Tiposelezionare **Crittografia RMS**. Fare clic su **Sfoglia** per selezionare un modello, quindi selezionare il modello **Contoso Finance Admin Only**.  
   
-7.  Fare clic sulla scheda **Condizione** e quindi su **Aggiungi**. In **Proprietà** selezionare **Informazioni personali**. In **Operatore** selezionare **Uguale**. In **Valore** selezionare **Alto**. Fare clic su **OK**.  
+7. Fare clic sulla scheda **Condizione** e quindi su **Aggiungi**. In **Proprietà** selezionare **Informazioni personali**. In **Operatore** selezionare **Uguale**. In **Valore** selezionare **Alto**. Fare clic su **OK**.  
   
-8.  Fare clic sulla scheda **Pianificazione** . Nella sezione Pianificazione fare clic su **Settimanale** e quindi selezionare **Domenica**. L'esecuzione settimanale dell'attività assicura l'individuazione di eventuali documenti che potrebbero essere sfuggiti a causa di un'interruzione del servizio o di altri eventi.  
+8. Fare clic sulla scheda **Pianificazione** . Nella sezione Pianificazione fare clic su **Settimanale** e quindi selezionare **Domenica**. L'esecuzione settimanale dell'attività assicura l'individuazione di eventuali documenti che potrebbero essere sfuggiti a causa di un'interruzione del servizio o di altri eventi.  
   
 9. Nella sezione **Esecuzione continua** selezionare **Esegui in modo continuo sui nuovi file**, quindi fare clic su **OK**. A questo punto dovrebbe essere presente un'attività di gestione file denominata High PII.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell equivalente comandi * * *  
+![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -191,21 +191,21 @@ $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS pro
   
 #### <a name="to-view-the-results"></a>Per visualizzare i risultati  
   
-1.  Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password **pass@word1**.  
+1. Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2.  In Esplora risorse passare a D:\Finance Documents.  
+2. In Esplora risorse passare a D:\Finance Documents.  
   
-3.  Fare clic con il pulsante destro del mouse sul documento Finance Memo e scegliere **Proprietà**. Fare clic sulla scheda **Classificazione** e notare che alla proprietà Impatto non è assegnato alcun valore. Fare clic su **Annulla**.  
+3. Fare clic con il pulsante destro del mouse sul documento Finance Memo e scegliere **Proprietà**. Fare clic sulla scheda **Classificazione** e notare che alla proprietà Impatto non è assegnato alcun valore. Fare clic su **Annulla**.  
   
-4.  Fare clic con il pulsante destro del mouse sul documento **Request for Approval to Hire**e quindi scegliere **Proprietà**.  
+4. Fare clic con il pulsante destro del mouse sul documento **Request for Approval to Hire**e quindi scegliere **Proprietà**.  
   
-5.  Fare clic sulla scheda **Classificazione** e notare che alla proprietà **Informazioni personali** non è assegnato alcun valore. Fare clic su **Annulla**.  
+5. Fare clic sulla scheda **Classificazione** e notare che alla proprietà **Informazioni personali** non è assegnato alcun valore. Fare clic su **Annulla**.  
   
-6.  Passare a CLIENT1. Disconnettersi da qualsiasi utente che ha eseguito l'accesso e quindi accedere come Contoso\MReid con la password **pass@word1**.  
+6. Passare a CLIENT1. Disconnettersi da qualsiasi utente che ha eseguito l'accesso e quindi accedere come Contoso\MReid con la password <strong>pass@word1</strong>.  
   
-7.  Sul desktop aprire la cartella condivisa **Finance Documents** .  
+7. Sul desktop aprire la cartella condivisa **Finance Documents** .  
   
-8.  Aprire il documento **Finance Memo**. Quasi in fondo al documento è presente la parola **Confidential**. Modificarla in: **Contoso Confidential**. Salvare il documento e chiuderlo.  
+8. Aprire il documento **Finance Memo**. Quasi in fondo al documento è presente la parola **Confidential**. Modificarla in: **Contoso Confidential**. Salvare il documento e chiuderlo.  
   
 9. Aprire il documento **Request for Approval to Hire** . Nella sezione **Social Security#:** digitare: 777-77-7777. Salvare il documento e chiuderlo.  
   

@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7042a501e69a69b613979229ce2e4a9d2c3e0915
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b2e237cee6eac6be809add37a2ac29fdf1c92118
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446489"
 ---
 # <a name="wireless-access-deployment"></a>Distribuzione dell'accesso wireless
 
@@ -64,7 +64,7 @@ Questa procedura enumera gli elementi in genere configurati in un punto di acces
 
 - **Crittografia**. Specificare WPA2\-Enterprise \(preferito\) o WPA\-Enterprise ed entrambi AES \(preferito\) o algoritmo di crittografia TKIP, a seconda di quali versioni sono supportate per le schede di rete di computer client wireless.
 
-- **Indirizzo IP AP wireless \(statico\)**. In ogni punto di accesso, configurare un indirizzo IP statico che rientra nell'intervallo di esclusione dell'ambito DHCP per la subnet. Usa un indirizzo che viene esclusa dall'assegnazione da DHCP impedisce che il server DHCP assegnando lo stesso indirizzo IP a un computer o un altro dispositivo.
+- **Indirizzo IP AP wireless \(statico\)** . In ogni punto di accesso, configurare un indirizzo IP statico che rientra nell'intervallo di esclusione dell'ambito DHCP per la subnet. Usa un indirizzo che viene esclusa dall'assegnazione da DHCP impedisce che il server DHCP assegnando lo stesso indirizzo IP a un computer o un altro dispositivo.
 
 - **La subnet mask**. Configurare questa impostazione in base alle impostazioni di subnet mask della rete LAN a cui si è connessi l'AP senza fili.  
 
@@ -79,7 +79,7 @@ Questa procedura enumera gli elementi in genere configurati in un punto di acces
 
 - **Indirizzo IP del server RADIUS**. Digitare l'indirizzo IP del server dei criteri di rete.
 
-- **La porta UDP\(s\)**. Per impostazione predefinita dei criteri di rete Usa le porte UDP 1812 e 1645 per i messaggi di autenticazione e le porte UDP 1813 e 1646 per i messaggi di accounting. È consigliabile usare le stesse porte UDP nei punti di accesso, ma se si dispone di un valido motivo per usare porte diverse, assicurarsi che non solo configurare i punti di accesso con i nuovi numeri di porta ma anche riconfigurare tutti i NPSs da usare gli stessi numeri di porta come i punti di accesso. Se i punti di accesso e la NPSs non sono configurati con le stesse porte UDP, dei criteri di rete non può ricevere o elaborare le richieste di connessione dai punti di accesso e tutti i tentativi di connessione wireless nella rete avrà esito negativo.
+- **La porta UDP\(s\)** . Per impostazione predefinita dei criteri di rete Usa le porte UDP 1812 e 1645 per i messaggi di autenticazione e le porte UDP 1813 e 1646 per i messaggi di accounting. È consigliabile usare le stesse porte UDP nei punti di accesso, ma se si dispone di un valido motivo per usare porte diverse, assicurarsi che non solo configurare i punti di accesso con i nuovi numeri di porta ma anche riconfigurare tutti i NPSs da usare gli stessi numeri di porta come i punti di accesso. Se i punti di accesso e la NPSs non sono configurati con le stesse porte UDP, dei criteri di rete non può ricevere o elaborare le richieste di connessione dai punti di accesso e tutti i tentativi di connessione wireless nella rete avrà esito negativo.
 
 - **Gli attributi VSA**. Alcuni punti di accesso wireless richiedono fornitore\-attributi specifici \(VSA\) per fornire funzionalità AP wireless completo. Gli attributi VSA vengono aggiunti in Criteri di rete NPS.
 
@@ -246,7 +246,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 4. Nel**le proprietà del nuovo profilo** della finestra di dialogo di **connessione** nella scheda il **nome profilo** digitare un nuovo nome per il profilo. Ad esempio, digitare **Example.com WLAN profilo per Windows 10**.
 
-5. Nelle **nome di rete\(s\) \(SSID\)**, digitare l'identificatore SSID corrispondente al SSID configurato nei punti di accesso wireless e quindi fare clic su **Aggiungi**.
+5. Nelle **nome di rete\(s\) \(SSID\)** , digitare l'identificatore SSID corrispondente al SSID configurato nei punti di accesso wireless e quindi fare clic su **Aggiungi**.
 
     Se nella distribuzione si usano più SSID e ogni punto di accesso wireless usa le stesse impostazioni di sicurezza wireless, ripetere questo passaggio per aggiungere l'SSID per ogni punto di accesso wireless al quale si vuole applicare questo profilo.
 
@@ -280,7 +280,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
     > [!NOTE]  
     > Le impostazioni delle opzioni **autenticazione** e **crittografia** deve corrispondere alle impostazioni configurate in punti di accesso wireless. Le impostazioni predefinite per **modalità di autenticazione**, **numero massimo di errori di autenticazione**, e **memorizza informazioni utente per successive connessioni a questa rete** sono sufficienti per le distribuzioni wireless tipiche.  
 
-12. In **Selezionare un metodo di autenticazione di rete**, selezionare **PEAP \(PEAP\)**, quindi fare clic su **proprietà**. Il **Proprietà PEAP** verrà visualizzata la finestra di dialogo.
+12. In **Selezionare un metodo di autenticazione di rete**, selezionare **PEAP \(PEAP\)** , quindi fare clic su **proprietà**. Il **Proprietà PEAP** verrà visualizzata la finestra di dialogo.
 
 13. In **Proprietà PEAP**, verificare che **per verificare l'identità del server, la convalida del certificato** è selezionata.
 
@@ -289,7 +289,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
     > [!NOTE]  
     > Questa impostazione limita le CA radice che i client considerano attendibili a quelle selezionate. Se non sono selezionate Nessuna CA radice attendibili, i client considereranno attendibili che tutte le CA radice elencate nell'archivio dei certificati di autorità di certificazione radice attendibili.  
 
-15. Nel **Selezione metodo di autenticazione** selezionare **password protetta \(EAP\-MS\-CHAP v2\)**.
+15. Nel **Selezione metodo di autenticazione** selezionare **password protetta \(EAP\-MS\-CHAP v2\)** .
 
 16. Fare clic su **configurare**. Nel **proprietà EAP MSCHAPv2** finestra di dialogo verificare **utilizza automaticamente il nome di accesso di Windows e la password \(e dominio se qualsiasi\)** sia selezionata e fare clic su **OK**.
 
@@ -299,9 +299,9 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 19. Per specificare che l'identità dell'utente viene mascherato in fase di autenticazione, selezionare **Consenti Privacy identità**, e nella casella di testo, digitare un nome di identità anonima, o lasciare vuota la casella di testo.
 
-    >[! NOTE SULLA]
-    >- Utilizzando criteri di RETE è necessario creare un criterio di NPS per 802.1 X Wireless **criterio richiesta di connessione**. Se viene creato un criterio di NPS utilizzando criteri di RETE **criteri di rete**, Consenti privacy identità non funzionerà.
-    >- Consenti privacy identità EAP è fornita da alcuni metodi EAP in un'identità anonima o vuota \(differente da quella effettiva\) viene inviato in risposta alla richiesta di identità EAP. PEAP invia l'identità due volte durante l'autenticazione. Nella prima fase, l'identità viene inviata in testo normale e questa identità viene usata a scopo di routing, non per l'autenticazione client. L'identità reale, usato per l'autenticazione, viene inviato durante la seconda fase dell'autenticazione, all'interno del tunnel sicuro che viene stabilito nella prima fase. Se **Consenti Privacy identità** casella di controllo è selezionata, il nome utente viene sostituito con la voce specificata nella casella di testo. Si supponga, ad esempio, **Consenti Privacy identità** è selezionata e l'alias di privacy identità **anonimo** specificato nella casella di testo. Per un utente con un alias di identità reale **jdoe@example.com**, l'identità inviato nella prima fase di autenticazione verrà modificato **anonymous@example.com**. La parte dell'area di autenticazione dell'identità del 1 ° fase non viene modificata perché è usato a scopo di routing.  
+    > [! NOTE SULLA]
+    > - Utilizzando criteri di RETE è necessario creare un criterio di NPS per 802.1 X Wireless **criterio richiesta di connessione**. Se viene creato un criterio di NPS utilizzando criteri di RETE **criteri di rete**, Consenti privacy identità non funzionerà.
+    > - Consenti privacy identità EAP è fornita da alcuni metodi EAP in un'identità anonima o vuota \(differente da quella effettiva\) viene inviato in risposta alla richiesta di identità EAP. PEAP invia l'identità due volte durante l'autenticazione. Nella prima fase, l'identità viene inviata in testo normale e questa identità viene usata a scopo di routing, non per l'autenticazione client. L'identità reale, usato per l'autenticazione, viene inviato durante la seconda fase dell'autenticazione, all'interno del tunnel sicuro che viene stabilito nella prima fase. Se **Consenti Privacy identità** casella di controllo è selezionata, il nome utente viene sostituito con la voce specificata nella casella di testo. Si supponga, ad esempio, **Consenti Privacy identità** è selezionata e l'alias di privacy identità **anonimo** specificato nella casella di testo. Per un utente con un alias di identità reale <strong>jdoe@example.com</strong>, l'identità inviato nella prima fase di autenticazione verrà modificato <strong>anonymous@example.com</strong>. La parte dell'area di autenticazione dell'identità del 1 ° fase non viene modificata perché è usato a scopo di routing.  
 
 20. Fare clic su **OK** per chiudere la **Proprietà PEAP** la finestra di dialogo.
 21. Fare clic su **OK** per chiudere la **sicurezza** scheda.
@@ -405,12 +405,12 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 1. Nei criteri di rete, in **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Server dei criteri di rete**. Blocca NPS\-verrà avviato.
 
-2. Destra\-fare clic su **NPS \(locale\)**, quindi fare clic su **Registra Server in Active Directory**. Il **Server dei criteri di rete** verrà visualizzata la finestra di dialogo.
+2. Destra\-fare clic su **NPS \(locale\)** , quindi fare clic su **Registra Server in Active Directory**. Il **Server dei criteri di rete** verrà visualizzata la finestra di dialogo.
 
 3. In **Server dei criteri di rete**, fare clic su **OK**, quindi fare clic su **OK** nuovamente.
 
 ### <a name="bkmk_radiusclient"></a>Configurare un punto di accesso Wireless come Client RADIUS NPS
-È possibile utilizzare questa procedura per configurare un punto di accesso, noto anche come un *server di accesso di rete \(NAS\)*, come un Remote Authentication Dial\-In User Service \(RADIUS\) client utilizzando lo snap NPS\-in. 
+È possibile utilizzare questa procedura per configurare un punto di accesso, noto anche come un *server di accesso di rete \(NAS\)* , come un Remote Authentication Dial\-In User Service \(RADIUS\) client utilizzando lo snap NPS\-in. 
 
 >[!IMPORTANT]
 >I computer client, ad esempio computer portatili wireless e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless 802.1x\-commutatori che supportano, rete privata virtuale \(VPN\) server e connessione\-backup server, perché usano il protocollo RADIUS per comunicare con server RADIUS, ad esempio NPSs.
@@ -429,7 +429,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
     Ad esempio, se si desidera aggiungere un punto di accesso wireless \(AP\) denominato AP\-01, tipo **AP\-01**.
 
-5. In **indirizzo \(IP o DNS\)**, digitare l'indirizzo IP o nome di dominio completo \(FQDN\) per il server NAS.
+5. In **indirizzo \(IP o DNS\)** , digitare l'indirizzo IP o nome di dominio completo \(FQDN\) per il server NAS.
 
     Se si immette il nome FQDN, per verificare che il nome sia corretto e che esegue il mapping a un indirizzo IP valido, fare clic su **verificare**, quindi nella **indirizzo verificare**, nel **indirizzo** campo, fare clic su **risolvere**. Se il nome FQDN è mappato a un indirizzo IP valido, l'indirizzo IP di tale NAS compariranno automaticamente **indirizzo IP**. Se il nome di dominio completo non viene risolto in un indirizzo IP, riceverai un messaggio che indica che l'host è sconosciuto. In questo caso, verificare di avere il nome di punto di accesso corretto e che il punto di accesso sia acceso e connesso alla rete.  
 
@@ -465,7 +465,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 #### <a name="create-policies-for-8021x-authenticated-wireless-by-using-a-wizard"></a>Creare criteri per 802.1 X wireless autenticato tramite una procedura guidata
 
-1. Blocca NPS aprire\-in. Se non è già selezionata, fare clic su **NPS \(locale\)**. Se si esegue lo snap-NPS MMC\-in e si desidera creare criteri in un server NPS remoto, selezionare il server.
+1. Blocca NPS aprire\-in. Se non è già selezionata, fare clic su **NPS \(locale\)** . Se si esegue lo snap-NPS MMC\-in e si desidera creare criteri in un server NPS remoto, selezionare il server.
 
 2. In **Introduzione**, in **configurazione Standard**, selezionare **server RADIUS per connessioni cablate o Wireless 802.1 X**. Il testo e i collegamenti riportati di seguito le modifiche del testo in modo da riflettere la selezione.
 
@@ -475,7 +475,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 5.  Nel **specificare commutatori 802.1 X** pagina procedura guidata, in **client RADIUS**, tutti 802.1 X commutatori e i punti di accesso wireless che è stato aggiunto come client RADIUS nello snap di NPS\-vengono visualizzati. Effettuare una delle operazioni riportate di seguito.
 
-    -   Per aggiungere il server di accesso di rete aggiuntiva \(NAS\), ad esempio punti di accesso wireless, in **client RADIUS**, fare clic su **Aggiungi**, quindi nel **nuovo client RADIUS**, immettere le informazioni per: **Nome descrittivo**, **indirizzi \(IP o DNS\)**, e **segreto condiviso**.
+    -   Per aggiungere il server di accesso di rete aggiuntiva \(NAS\), ad esempio punti di accesso wireless, in **client RADIUS**, fare clic su **Aggiungi**, quindi nel **nuovo client RADIUS**, immettere le informazioni per: **Nome descrittivo**, **indirizzi \(IP o DNS\)** , e **segreto condiviso**.
 
     -   Per modificare le impostazioni per qualsiasi NAS **client RADIUS**, selezionare il punto di accesso per il quale si desidera modificare le impostazioni e quindi fare clic su **modificare**. Modificare le impostazioni in base alle esigenze.
 
@@ -484,7 +484,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
         >[!WARNING]
         >Rimozione di un client RADIUS all'interno di **configurazione 802.1 X** procedura guidata consente di eliminare il client dalla configurazione dei criteri di rete. Tutte le aggiunte, modifiche ed eliminazioni apportate all'interno di **configurazione 802.1 X** procedura guidata per i client RADIUS vengono riflesse in NPS snap\-in, nel **client RADIUS** nodo  **NPS** \/ **client e server RADIUS**. Ad esempio, se si utilizza la procedura guidata per rimuovere un switch 802.1 X, l'opzione viene rimossa anche da NPS snap\-in.
 
-6. Fare clic su **Avanti**. Nel **configurare un metodo di autenticazione** pagina procedura guidata, in **tipo \(basato sul metodo di configurazione di rete e accesso\)**, selezionare **Microsoft: Protected EAP \(PEAP\)**, quindi fare clic su **configura**.
+6. Fare clic su **Avanti**. Nel **configurare un metodo di autenticazione** pagina procedura guidata, in **tipo \(basato sul metodo di configurazione di rete e accesso\)** , selezionare **Microsoft: Protected EAP \(PEAP\)** , quindi fare clic su **configura**.
 
     >[!TIP]
     >Se si riceve un messaggio di errore che indica che non viene trovato un certificato per l'uso con il metodo di autenticazione e aver configurato i servizi certificati di Active Directory per l'emissione automatica i certificati per server RAS e IAS sulla rete, prima di tutto Assicurarsi di aver seguito i passaggi per registrare NPS in Active Directory Domain Services, quindi utilizzare la procedura seguente per aggiornare criteri di gruppo: Fare clic su **avviare**, fare clic su **Windows System**, fare clic su **eseguire**e nella **Open**, tipo **gpupdate**e quindi premere INVIO. Quando il comando restituisce i risultati che indicano che sia utente e computer dei criteri di gruppo sono aggiornati correttamente, selezionare **Microsoft: Protected EAP \(PEAP\)**  nuovamente, quindi fare clic su **configura**.
@@ -608,7 +608,7 @@ Con questo metodo, completare i passaggi nella sezione passaggi generali, quindi
 
 9. Fare clic su **modificare le impostazioni di connessione**. Il *il SSID di rete* verrà visualizzata la finestra di dialogo Proprietà rete Wireless.
 
-10. Fare clic sul **sicurezza** scheda, quindi nella **scegliere un metodo di autenticazione di rete**, selezionare **PEAP \(PEAP\)**.
+10. Fare clic sul **sicurezza** scheda, quindi nella **scegliere un metodo di autenticazione di rete**, selezionare **PEAP \(PEAP\)** .
 
 11. Fare clic su **Impostazioni**. Il **PEAP \(PEAP\) proprietà** verrà visualizzata la pagina.
 

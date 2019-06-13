@@ -12,12 +12,12 @@ ms.assetid: c0a8f10d-fd85-4c8d-b9bb-176cb1db1f46
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6d3303f2c6d84932ad9d5dee8a547cd478447732
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a66d0d36a3012369a9bc26c513dad069235ad8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864392"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433791"
 ---
 # <a name="add-entries-to-setup-add-ins-quick-status-and-help-links"></a>Aggiunta di voci ai collegamenti CONFIGURAZIONE, COMPONENTI AGGIUNTIVI, STATO RAPIDO e GUIDA
 
@@ -33,111 +33,111 @@ ms.locfileid: "59864392"
   
 ##### <a name="to-define-the-tasks-and-links"></a>Per definire le attività e i collegamenti  
   
-1.  Accedere a Visual Studio 2010 o una versione successiva come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu Start, quindi selezionando **Esegui come amministratore**.  
+1. Accedere a Visual Studio 2010 o una versione successiva come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu Start, quindi selezionando **Esegui come amministratore**.  
   
-2.  Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
+2. Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
   
-3.  Nel riquadro **Modelli** , fare clic su **Libreria di classi**, digitare **OEMHomePageContent** nella casella **Nome** , quindi fare clic su **OK**.  
+3. Nel riquadro **Modelli** , fare clic su **Libreria di classi**, digitare **OEMHomePageContent** nella casella **Nome** , quindi fare clic su **OK**.  
   
-4.  Eliminare il file Class1.cs.  
+4. Eliminare il file Class1.cs.  
   
-5.  Con il pulsante destro del mouse, fare clic sul nuovo progetto, selezionare **Aggiungi**, quindi **Nuovo elemento**.  
+5. Con il pulsante destro del mouse, fare clic sul nuovo progetto, selezionare **Aggiungi**, quindi **Nuovo elemento**.  
   
-6.  Nel riquadro **Modelli** fare clic su **File XML**, digitare **OEMHomePageContent.home** nella casella **Nome** e quindi fare clic su **Aggiungi**.  
+6. Nel riquadro **Modelli** fare clic su **File XML**, digitare **OEMHomePageContent.home** nella casella **Nome** e quindi fare clic su **Aggiungi**.  
   
-    > [!NOTE]
-    >  Se il file XML viene installato senza un file delle risorse, deve chiamarsi OEMHomePageContent.home. Se è incluso in un assembly, è possibile assegnargli qualsiasi nome con estensione .home.  
+   > [!NOTE]
+   >  Se il file XML viene installato senza un file delle risorse, deve chiamarsi OEMHomePageContent.home. Se è incluso in un assembly, è possibile assegnargli qualsiasi nome con estensione .home.  
   
-7.  Aggiungere il seguente codice XML al file OEMHomePageContent.home:  
+7. Aggiungere il seguente codice XML al file OEMHomePageContent.home:  
   
-    ```  
+   ```  
   
-    <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
-       <SetupMyServerTasks>  
-          <Task name="MyTask"  
-             description="MyTaskDescription"  
-             id="GUID">  
-                  <Action   
-                  name=?MyAction1Name?   
-                  image=?IconForAction1?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                  <Action   
-                  name=?MyAction2Name?   
-                  image=?IconForAction2?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                   ¦  
-           </Task>  
-                   ¦  
-        </SetupMyServerTasks>  
-    <MailServiceTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
-    </MailServiceTasks>  
-    <LineOfBusinessTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
+   <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
+      <SetupMyServerTasks>  
+         <Task name="MyTask"  
+            description="MyTaskDescription"  
+            id="GUID">  
+                 <Action   
+                 name=?MyAction1Name?   
+                 image=?IconForAction1?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                 <Action   
+                 name=?MyAction2Name?   
+                 image=?IconForAction2?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                  ¦  
+          </Task>  
+                  ¦  
+       </SetupMyServerTasks>  
+   <MailServiceTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
+   </MailServiceTasks>  
+   <LineOfBusinessTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
   
-    <GetQuickStatusTasks>  
-          <Task name="MyQuickStatusTask1"  
-             description="MyQuickStatusTask1Desc   "  
-             id="GUID"  
-             assembly="AssemblyName of quick status query implementation"  
-             class="ClassName of quick status query implementation"           
-             replaceid="GUID"/>  
-               <!--  Same schema as Actions in œSetupMyServerTasks? -->   
-             </Task>  
-    </GetQuickStatusTasks>  
-       <Links>  
-          <Link  
-             ID=?GUID?  
-             Title="Displayed text of the link"  
-             Description="A very short description"  
-             ShellExecPath="Path to the application or URL"/>  
-       </Links>  
-    </Tasks>  
-    ```  
+   <GetQuickStatusTasks>  
+         <Task name="MyQuickStatusTask1"  
+            description="MyQuickStatusTask1Desc   "  
+            id="GUID"  
+            assembly="AssemblyName of quick status query implementation"  
+            class="ClassName of quick status query implementation"           
+            replaceid="GUID"/>  
+              <!--  Same schema as Actions in œSetupMyServerTasks? -->   
+            </Task>  
+   </GetQuickStatusTasks>  
+      <Links>  
+         <Link  
+            ID=?GUID?  
+            Title="Displayed text of the link"  
+            Description="A very short description"  
+            ShellExecPath="Path to the application or URL"/>  
+      </Links>  
+   </Tasks>  
+   ```  
   
-     Dove:  
+    Dove:  
   
-    |Attributo|Descrizione|  
-    |---------------|-----------------|  
-    |Nome (attività)|Il nome visualizzato per l'attività nell'elenco. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
-    |descrizione (attività)|La descrizione dell'attività. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
-    |id (attività)|L'identificatore dell'attività. Questo identificatore deve essere un GUID. È necessario creare un nuovo GUID per le attività **exe** , mentre per le attività **globali** occorre utilizzare il GUID creato al momento della definizione dell'attività per il relativo riquadro della sottoscheda. Per altre informazioni sulla creazione di un GUID, vedere [Crea GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
-    |image|Questo campo verrà ignorato.|  
-    |Nome (azione)|Visualizza il nome dell'attività.|  
-    |Tipo (azione)|Descrive il tipo di attività. L'attività può essere: **globale**, **exe** o un URL. Un'attività **globale** corrisponde alla medesima attività globale creata durante la definizione delle attività per il relativo riquadro nella sottoscheda. Per altre informazioni sulla creazione di un'attività globale che può essere utilizzata in sia nel riquadro attività della sottoscheda e gli elenchi attività preliminari o attività comuni della home page, vedere œCreating le classi di supporto? in come: Creare una sottoscheda? del [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Un'attività **exe** può essere utilizzata per eseguire le applicazioni dagli elenchi Attività preliminari o Attività comuni.|  
-    |exelocation|Il percorso dell'applicazione associata all'attività. Questo attributo viene utilizzato solo attività di tipo **exe**.|  
-    |replaceid|L'identificatore dell'attività che viene sostituito con questa attività.|  
-    |assembly|Il nome dell'assembly che fornisce la classe per l'implementazione della query per ottenere un riepilogo delle informazioni sullo stato. L'assembly deve trovarsi in Program Files \ windows Server\Bin.\\.|  
-    |classe|Il nome della classe implementa la query per ottenere un riepilogo delle informazioni sullo stato. La classe deve implementare l'interfaccia **ITaskStatusQuery** .|  
-    |Titolo (collegamento)|Il testo visualizzato per il collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
-    |Descrizione (collegamento)|La descrizione della destinazione del collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
-    |ShellExecPath|Il percorso dell'applicazione o dell'URL.<br /><br /> **Nota:** Le variabili di ambiente sono supportate nell'attributo ShellExecPath.|  
+   |Attributo|Descrizione|  
+   |---------------|-----------------|  
+   |Nome (attività)|Il nome visualizzato per l'attività nell'elenco. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
+   |descrizione (attività)|La descrizione dell'attività. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
+   |id (attività)|L'identificatore dell'attività. Questo identificatore deve essere un GUID. È necessario creare un nuovo GUID per le attività **exe** , mentre per le attività **globali** occorre utilizzare il GUID creato al momento della definizione dell'attività per il relativo riquadro della sottoscheda. Per altre informazioni sulla creazione di un GUID, vedere [Crea GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
+   |image|Questo campo verrà ignorato.|  
+   |Nome (azione)|Visualizza il nome dell'attività.|  
+   |Tipo (azione)|Descrive il tipo di attività. L'attività può essere: **globale**, **exe** o un URL. Un'attività **globale** corrisponde alla medesima attività globale creata durante la definizione delle attività per il relativo riquadro nella sottoscheda. Per altre informazioni sulla creazione di un'attività globale che può essere utilizzata in sia nel riquadro attività della sottoscheda e gli elenchi attività preliminari o attività comuni della home page, vedere œCreating le classi di supporto? in come: Creare una sottoscheda? del [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Un'attività **exe** può essere utilizzata per eseguire le applicazioni dagli elenchi Attività preliminari o Attività comuni.|  
+   |exelocation|Il percorso dell'applicazione associata all'attività. Questo attributo viene utilizzato solo attività di tipo **exe**.|  
+   |replaceid|L'identificatore dell'attività che viene sostituito con questa attività.|  
+   |assembly|Il nome dell'assembly che fornisce la classe per l'implementazione della query per ottenere un riepilogo delle informazioni sullo stato. L'assembly deve trovarsi in Program Files \ windows Server\Bin.\\.|  
+   |classe|Il nome della classe implementa la query per ottenere un riepilogo delle informazioni sullo stato. La classe deve implementare l'interfaccia **ITaskStatusQuery** .|  
+   |Titolo (collegamento)|Il testo visualizzato per il collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
+   |Descrizione (collegamento)|La descrizione della destinazione del collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
+   |ShellExecPath|Il percorso dell'applicazione o dell'URL.<br /><br /> **Nota:** Le variabili di ambiente sono supportate nell'attributo ShellExecPath.|  
   
-     L'esempio di codice seguente mostra in quale modo definire un collegamento a un'applicazione:  
+    L'esempio di codice seguente mostra in quale modo definire un collegamento a un'applicazione:  
   
-    ```  
-    <Links>  
-       <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
+   </Links>  
+   ```  
   
-     L'esempio di codice seguente mostra in quale modo definire un collegamento a una pagina Web:  
+    L'esempio di codice seguente mostra in quale modo definire un collegamento a una pagina Web:  
   
-    ```  
-    <Links>  
-       <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
+   </Links>  
+   ```  
   
-8.  Modificare i valori di attributo per rappresentare l'attività o il collegamento.  
+8. Modificare i valori di attributo per rappresentare l'attività o il collegamento.  
   
 9. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **OEMHomePageContent.home**e quindi selezionare **Proprietà**.  Nel riquadro **Proprietà**, in **Azione di compilazione**, selezionare **Risorsa incorporata**.  
   
 10. Salvare il file OEMHomePageContent.home.  
   
- Per istruzioni su come implementare una query per ottenere un riepilogo delle informazioni sullo stato, vedere la documentazione e gli esempi [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
+    Per istruzioni su come implementare una query per ottenere un riepilogo delle informazioni sullo stato, vedere la documentazione e gli esempi [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
   
 #### <a name="change-the-status-of-a-setupadd-ins-task"></a>Modifica dello stato di un'attività CONFIGURA/COMPONENTI AGGIUNTIVI  
  Le attività incluse negli elenchi CONFIGURA e COMPONENTI AGGIUNTIVI possono essere registrate con lo stato di completate (configurate per i componenti aggiuntivi) e non completate (non configurate per i componenti aggiuntivi).  
@@ -217,4 +217,4 @@ ms.locfileid: "59864392"
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

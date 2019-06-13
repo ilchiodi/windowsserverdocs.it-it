@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Come distribuire Cartelle di lavoro, tra cui l'installazione del ruolo del server, la creazione di condivisioni di sincronizzazione e di record DNS.
-ms.openlocfilehash: 1f7a0aa0b7e08a1dd444cd6b488a1ced6ee3d9d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ed26c9949fa3f4b53b9f650ca5a3649d5261d65
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447855"
 ---
 # <a name="deploying-work-folders"></a>Distribuzione di Cartelle di lavoro
 
@@ -36,17 +36,17 @@ In questo argomento vengono illustrati i passaggi necessari per la distribuzione
 ## <a name="step-1-obtain-ssl-certificates"></a>Passaggio 1: Ottenere i certificati SSL  
  Cartelle di lavoro usa HTTPS per sincronizzare i file tra i client di cartelle di lavoro e il server di cartelle di lavoro in modo sicuro. I requisiti dei certificati SSL utilizzati da Cartelle di lavoro sono i seguenti:  
   
--   Il certificato deve essere emesso da un'autorità di certificazione attendibile. Per la maggior parte delle implementazioni di Cartelle di lavoro, è consigliabile utilizzare una CA pubblicamente attendibile, poiché i certificati verranno usati da dispositivi basati su Internet che non fanno parte del dominio.  
+- Il certificato deve essere emesso da un'autorità di certificazione attendibile. Per la maggior parte delle implementazioni di Cartelle di lavoro, è consigliabile utilizzare una CA pubblicamente attendibile, poiché i certificati verranno usati da dispositivi basati su Internet che non fanno parte del dominio.  
   
--   Il certificato deve essere valido.  
+- Il certificato deve essere valido.  
   
--   La chiave privata del certificato deve essere esportabile, poiché il certificato dovrà essere installato in più server.  
+- La chiave privata del certificato deve essere esportabile, poiché il certificato dovrà essere installato in più server.  
   
--   Il nome del soggetto del certificato deve contenere l'URL pubblico di Cartelle di lavoro utilizzato per l'individuazione del servizio Cartelle di lavoro tramite Internet. L'URL deve avere il formato `workfolders.`*<nome_dominio>*.  
+- Il nome del soggetto del certificato deve contenere l'URL pubblico di Cartelle di lavoro utilizzato per l'individuazione del servizio Cartelle di lavoro tramite Internet. L'URL deve avere il formato `workfolders.` *<nome_dominio>* .  
   
--   Nel certificato devono essere presenti nomi alternativi del soggetto (SAN) che indicano il nome di server per ogni server di sincronizzazione in uso.
+- Nel certificato devono essere presenti nomi alternativi del soggetto (SAN) che indicano il nome di server per ogni server di sincronizzazione in uso.
 
- Il [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) relativo alla Gestione dei certificati di Cartelle di lavoro fornisce informazioni aggiuntive sull'utilizzo dei certificati con le Cartelle di lavoro.
+  Il [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) relativo alla Gestione dei certificati di Cartelle di lavoro fornisce informazioni aggiuntive sull'utilizzo dei certificati con le Cartelle di lavoro.
   
 ## <a name="step-2-create-dns-records"></a>Passaggio 2: Creare record DNS  
  Per fare in modo che gli utenti possano eseguire la sincronizzazione tramite Internet, è necessario creare un record host (A) nel DNS pubblico per consentire ai client Internet di risolvere l'URL di Cartelle di lavoro. Questo record DNS deve eseguire la risoluzione nell'interfaccia esterna del server del proxy inverso.  
@@ -96,9 +96,9 @@ Add-WindowsFeature FS-SyncShareService
 
 - Un gruppo per tutti gli amministratori di Cartelle di lavoro in modo che possano modificare un attributo in ogni oggetto utente che collega l'utente al server di sincronizzazione corretto (se si intende utilizzare più server di sincronizzazione)
 
- I gruppi devono adottare una convezione di denominazione standard e devono essere utilizzati solo per Cartelle di lavoro per evitare potenziali conflitti con altri requisiti di sicurezza.
+  I gruppi devono adottare una convezione di denominazione standard e devono essere utilizzati solo per Cartelle di lavoro per evitare potenziali conflitti con altri requisiti di sicurezza.
 
- Per creare i gruppi di sicurezza appropriati, utilizzare la procedura seguente più volte, una per ogni condivisione di sincronizzazione e una per creare, se lo si desidera, un gruppo per gli amministratori di file server.
+  Per creare i gruppi di sicurezza appropriati, utilizzare la procedura seguente più volte, una per ogni condivisione di sincronizzazione e una per creare, se lo si desidera, un gruppo per gli amministratori di file server.
 
 #### <a name="to-create-security-groups-for-work-folders"></a>Per creare gruppi di sicurezza per Cartelle di lavoro
 
@@ -141,7 +141,7 @@ Set-ADGroup -Add:@{'Member'=$Members} -Identity:$GroupName -Server:$DC
   
 2.  Dal menu **Strumenti** scegliere **Utenti e computer di Active Directory**. Verrà visualizzata la finestra di dialogo Utenti e computer di Active Directory.  
   
-3.  Fare clic con il pulsante destro del mouse sull'unità organizzativa in cui sono presenti tutti gli oggetti utente per Cartelle di lavoro (se gli utenti sono archiviati in più unità organizzative o domini, fare clic con il pulsante destro del mouse sul contenitore comune a tutti gli utenti) e quindi scegliere **Delega controllo…**. Verrà visualizzata la Delega guidata del controllo.  
+3.  Fare clic con il pulsante destro del mouse sull'unità organizzativa in cui sono presenti tutti gli oggetti utente per Cartelle di lavoro (se gli utenti sono archiviati in più unità organizzative o domini, fare clic con il pulsante destro del mouse sul contenitore comune a tutti gli utenti) e quindi scegliere **Delega controllo…** . Verrà visualizzata la Delega guidata del controllo.  
   
 4.  Nella pagina **Utenti o gruppi** fai clic su **Aggiungi...** quindi specifica il gruppo creato per gli amministratori di Cartelle di lavoro (ad esempio, **Amministratori Cartelle di lavoro**).  
   
@@ -166,38 +166,38 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
 ## <a name="step-7-create-sync-shares-for-user-data"></a>Passaggio 7: Creare condivisioni di sincronizzazione per i dati degli utenti  
  A questo punto, è possibile designare una cartella del server di sincronizzazione in cui archiviare i file degli utenti. Per creare questa cartella, denominata condivisione di sincronizzazione, è possibile utilizzare la procedura seguente.  
   
-1.  Se non disponi già di un volume NTFS con spazio libero per la condivisione di sincronizzazione e per i file degli utenti che conterrà, crea un nuovo volume e formattalo con il file system NTFS.  
+1. Se non disponi già di un volume NTFS con spazio libero per la condivisione di sincronizzazione e per i file degli utenti che conterrà, crea un nuovo volume e formattalo con il file system NTFS.  
   
-2.  In Server Manager fare clic su **Servizi file e archiviazione** e quindi su **Cartelle di lavoro**.  
+2. In Server Manager fare clic su **Servizi file e archiviazione** e quindi su **Cartelle di lavoro**.  
   
-3.  Nella parte superiore del riquadro dei dettagli è disponibile un elenco delle condivisioni di sincronizzazione esistenti. Per creare una nuova condivisione di sincronizzazione, dal menu **Attività** scegliere **Nuova condivisione di sincronizzazione…**. Verrà visualizzata la Creazione guidata nuova condivisione di sincronizzazione.  
+3. Nella parte superiore del riquadro dei dettagli è disponibile un elenco delle condivisioni di sincronizzazione esistenti. Per creare una nuova condivisione di sincronizzazione, dal menu **Attività** scegliere **Nuova condivisione di sincronizzazione…** . Verrà visualizzata la Creazione guidata nuova condivisione di sincronizzazione.  
   
-4.  Nella pagina **Selezionare il server e il percorso**, specificare il percorso in cui archiviare la condivisione di sincronizzazione. Se è già disponibile una condivisione file per questi dati degli utenti, è possibile sceglierla. In alternativa, è possibile creare una nuova cartella.  
+4. Nella pagina **Selezionare il server e il percorso**, specificare il percorso in cui archiviare la condivisione di sincronizzazione. Se è già disponibile una condivisione file per questi dati degli utenti, è possibile sceglierla. In alternativa, è possibile creare una nuova cartella.  
   
-    > [!NOTE]
-    >  Per impostazione predefinita, le condivisioni di sincronizzazione non sono direttamente accessibili tramite una condivisione file (a meno che non si selezioni una condivisione file esistente). Se si desidera rendere una condivisione di sincronizzazione disponibile tramite una condivisione file, utilizza il riquadro **Condivisioni** di Server Manager oppure il cmdlet [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx) per creare una condivisione file in cui sia possibilmente abilitata l'enumerazione basata sull'accesso.  
+   > [!NOTE]
+   >  Per impostazione predefinita, le condivisioni di sincronizzazione non sono direttamente accessibili tramite una condivisione file (a meno che non si selezioni una condivisione file esistente). Se si desidera rendere una condivisione di sincronizzazione disponibile tramite una condivisione file, utilizza il riquadro **Condivisioni** di Server Manager oppure il cmdlet [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx) per creare una condivisione file in cui sia possibilmente abilitata l'enumerazione basata sull'accesso.  
   
-5.  Nella pagina **Specificare la struttura delle cartelle utente** scegliere una convenzione di denominazione per le cartelle degli utenti incluse nella condivisione di sincronizzazione. Sono disponibili due opzioni:  
+5. Nella pagina **Specificare la struttura delle cartelle utente** scegliere una convenzione di denominazione per le cartelle degli utenti incluse nella condivisione di sincronizzazione. Sono disponibili due opzioni:  
   
-    -   **Alias utente** consente di creare cartelle utente che non includano un nome di dominio. Se si utilizza una condivisione file già in uso con Reindirizzamento cartelle o un'altra soluzione per i dati degli utenti, selezionare questa convenzione di denominazione. È facoltativamente possibile selezionare la casella di controllo **Sincronizza solo la sottocartella seguente** per sincronizzare solo una sottocartella specifica, ad esempio la cartella Documenti.  
+   - **Alias utente** consente di creare cartelle utente che non includano un nome di dominio. Se si utilizza una condivisione file già in uso con Reindirizzamento cartelle o un'altra soluzione per i dati degli utenti, selezionare questa convenzione di denominazione. È facoltativamente possibile selezionare la casella di controllo **Sincronizza solo la sottocartella seguente** per sincronizzare solo una sottocartella specifica, ad esempio la cartella Documenti.  
   
-    -   **Utente alias@domain** consente di creare cartelle degli utenti che includano un nome di dominio. Se non si utilizza una condivisione file già in uso con Reindirizzamento cartelle o un'altra soluzione per i dati degli utenti, seleziona questa convenzione di denominazione per evitare possibili conflitti di denominazione quando più utenti della condivisione hanno lo stesso alias (caso che può verificarsi se gli utenti appartengono a domini diversi).  
+   - <strong>Utente alias@domain</strong> consente di creare cartelle degli utenti che includano un nome di dominio. Se non si utilizza una condivisione file già in uso con Reindirizzamento cartelle o un'altra soluzione per i dati degli utenti, seleziona questa convenzione di denominazione per evitare possibili conflitti di denominazione quando più utenti della condivisione hanno lo stesso alias (caso che può verificarsi se gli utenti appartengono a domini diversi).  
   
-6.  Nella pagina **Immettere il nome della condivisione di sincronizzazione** specificare un nome e una descrizione per la condivisione di sincronizzazione. Questi dati non vengono visualizzati in rete ma sono disponibili in Server Manager e Windows Powershell per distinguere le condivisioni di sincronizzazione tra loro.  
+6. Nella pagina **Immettere il nome della condivisione di sincronizzazione** specificare un nome e una descrizione per la condivisione di sincronizzazione. Questi dati non vengono visualizzati in rete ma sono disponibili in Server Manager e Windows Powershell per distinguere le condivisioni di sincronizzazione tra loro.  
   
-7.  Nella pagina **Concedi accesso per sincronizzazione ai gruppi** specificare il gruppo creato in cui sono elencati gli utenti a cui è consentito utilizzare questa condivisione di sincronizzazione.  
+7. Nella pagina **Concedi accesso per sincronizzazione ai gruppi** specificare il gruppo creato in cui sono elencati gli utenti a cui è consentito utilizzare questa condivisione di sincronizzazione.  
   
-    > [!IMPORTANT]
-    >  Per migliorare le prestazioni e la sicurezza, è consigliabile consentire l'accesso a gruppi anziché a singoli utenti ed essere il più specifici possibile evitando gruppi generici come Authenticated Users e Domain Users. Se si consente l'accesso a gruppi con un numero elevato di utenti, aumenta il tempo impiegato da Cartelle di lavoro per eseguire la query in AD DS. In presenza di un numero elevato di utenti, è consigliabile creare più condivisioni di sincronizzazione per distribuire il carico.  
+   > [!IMPORTANT]
+   >  Per migliorare le prestazioni e la sicurezza, è consigliabile consentire l'accesso a gruppi anziché a singoli utenti ed essere il più specifici possibile evitando gruppi generici come Authenticated Users e Domain Users. Se si consente l'accesso a gruppi con un numero elevato di utenti, aumenta il tempo impiegato da Cartelle di lavoro per eseguire la query in AD DS. In presenza di un numero elevato di utenti, è consigliabile creare più condivisioni di sincronizzazione per distribuire il carico.  
   
-8.  Nella pagina **Specifica criteri per i dispositivi** specificare se si desidera richiedere eventuali limitazioni di sicurezza nei computer e nei dispositivi client. Sono disponibili due criteri:  
+8. Nella pagina **Specifica criteri per i dispositivi** specificare se si desidera richiedere eventuali limitazioni di sicurezza nei computer e nei dispositivi client. Sono disponibili due criteri:  
   
-    -   **Crittografa Cartelle di lavoro** consente di crittografare Cartelle di lavoro nei computer e nei dispositivi client  
+   -   **Crittografa Cartelle di lavoro** consente di crittografare Cartelle di lavoro nei computer e nei dispositivi client  
   
-    -   **Blocca automaticamente lo schermo e richiedi una password** consente di bloccare automaticamente gli schermi dei computer e dei dispositivi client dopo 15 minuti, di richiedere una password di almeno sei caratteri per sbloccare lo schermo e di attivare la modalità di blocco del dispositivo dopo 10 tentativi non riusciti  
+   -   **Blocca automaticamente lo schermo e richiedi una password** consente di bloccare automaticamente gli schermi dei computer e dei dispositivi client dopo 15 minuti, di richiedere una password di almeno sei caratteri per sbloccare lo schermo e di attivare la modalità di blocco del dispositivo dopo 10 tentativi non riusciti  
   
-        > [!IMPORTANT]
-        >  Per applicare i criteri per le password per i computer Windows 7 e per gli utenti non amministratori nei computer aggiunti al dominio, usare i criteri per le password di Criteri di gruppo per i domini dei computer ed escludere questi domini dai criteri per le password di Cartelle di lavoro. È possibile escludere domini utilizzando il cmdlet [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) dopo la creazione della condivisione di sincronizzazione. Per informazioni sulla configurazione dei criteri per le password per Criteri di gruppo, vedere [Criteri per le password](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
+       > [!IMPORTANT]
+       >  Per applicare i criteri per le password per i computer Windows 7 e per gli utenti non amministratori nei computer aggiunti al dominio, usare i criteri per le password di Criteri di gruppo per i domini dei computer ed escludere questi domini dai criteri per le password di Cartelle di lavoro. È possibile escludere domini utilizzando il cmdlet [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) dopo la creazione della condivisione di sincronizzazione. Per informazioni sulla configurazione dei criteri per le password per Criteri di gruppo, vedere [Criteri per le password](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
   
 9. Controllare le selezioni effettuate e completare la procedura guidata per creare la condivisione di sincronizzazione.
 
@@ -251,7 +251,7 @@ L'esempio precedente consente di creare una nuova condivisione di sincronizzazio
 6.  Nella casella **Valore da aggiungere** digitare l'URL del server di sincronizzazione con cui si desidera che l'utente esegua la sincronizzazione, fare clic su **Aggiungi**, su **OK** e quindi di nuovo su **OK**.  
   
     > [!NOTE]
-    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio, **https://sync1.contoso.com**.
+    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio, **https://sync1.contoso.com** .
 
 Per popolare l'attributo per più utenti, utilizzare Active Directory PowerShell. L'esempio seguente consente di popolare l'attributo per tutti i membri del gruppo *Utenti condivisione sincronizzazione HR* illustrato nel passaggio 5.
   
@@ -276,15 +276,15 @@ Per configurare l'accesso a Cartelle di lavoro tramite Proxy di applicazione di 
 
 Se si dispone di un numero elevato di computer che fanno parte di un dominio in cui si desidera distribuire Cartelle di lavoro, è possibile utilizzare Criteri di gruppo per eseguire le attività di configurazione seguenti nei computer client:  
   
--   Specificare il server di sincronizzazione con cui gli utenti devono eseguire la sincronizzazione  
+- Specificare il server di sincronizzazione con cui gli utenti devono eseguire la sincronizzazione  
   
--   Imporre la configurazione automatica di Cartelle di lavoro utilizzando le impostazioni predefinite. Prima di eseguire questa operazione, vedere la sezione relativa a Criteri di gruppo in [Progettazione di un'implementazione di Cartelle di lavoro](plan-work-folders.md).  
+- Imporre la configurazione automatica di Cartelle di lavoro utilizzando le impostazioni predefinite. Prima di eseguire questa operazione, vedere la sezione relativa a Criteri di gruppo in [Progettazione di un'implementazione di Cartelle di lavoro](plan-work-folders.md).  
   
- Per controllare queste impostazioni, creare un nuovo oggetto Criteri di gruppo per Cartelle di lavoro e quindi configurare le impostazioni di Criteri di gruppo seguenti nel modo appropriato:  
+  Per controllare queste impostazioni, creare un nuovo oggetto Criteri di gruppo per Cartelle di lavoro e quindi configurare le impostazioni di Criteri di gruppo seguenti nel modo appropriato:  
   
--   Criterio che consente di specificare le impostazioni di Cartelle di lavoro in Configurazione utente\Criteri\Modelli amministrativi\Componenti di Windows\WorkFolders  
+- Criterio che consente di specificare le impostazioni di Cartelle di lavoro in Configurazione utente\Criteri\Modelli amministrativi\Componenti di Windows\WorkFolders  
   
--   Criterio che consente di imporre la configurazione automatica per tutti gli utenti in Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\WorkFolders  
+- Criterio che consente di imporre la configurazione automatica per tutti gli utenti in Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\WorkFolders  
   
 > [!NOTE]
 >  Queste impostazioni dei criteri sono disponibili solo quando si modifica Criteri di gruppo da un computer che esegue Gestione Criteri di gruppo in Windows 8.1, Windows Server 2012 R2 o versioni successive. Nelle versioni di Gestione Criteri di gruppo dei sistemi operativi precedenti non è disponibile questa funzionalità. Queste impostazioni dei criteri si applicano ai computer con Windows 7 in cui l'app [Cartelle di lavoro per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) è stata installata.  
