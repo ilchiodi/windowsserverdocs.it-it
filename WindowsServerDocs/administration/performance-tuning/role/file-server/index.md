@@ -7,19 +7,18 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: dc8a845a6d352fa03517e2a092c44b6d1c1def4b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266700"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811471"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Ottimizzazione delle prestazioni per file server
 
 È consigliabile selezionare l'hardware appropriato per soddisfare il carico previsto dei file server, considerando il carico medio, il picco di carico, la capacità, i piani di crescita e i tempi di risposta. I colli di bottiglia dell'hardware limitano l'efficacia dell'ottimizzazione a livello software.
 
 ## <a name="general-tuning-parameters-for-clients"></a>Parametri di ottimizzazione generali per i client
-
 
 Le impostazioni REG\_DWORD seguenti del Registro di sistema possono incidere sulle prestazioni dei computer client che interagiscono con i file server SMB:
 
@@ -94,9 +93,9 @@ Le impostazioni REG\_DWORD seguenti del Registro di sistema possono incidere sul
 
     Il valore predefinito è 10 secondi. Si tratta del timeout della cache delle directory.
 
-    > [!Note]   Questo parametro controlla la memorizzazione nella cache dei metadati di directory in assenza di lease di directory.
-
-     
+    > [!NOTE]
+    > Questo parametro controlla la memorizzazione nella cache dei metadati di directory in assenza di lease di directory.
+     
 
 -   **DirectoryCacheEntrySizeMax**
 
@@ -222,7 +221,7 @@ I parametri di ottimizzazione generali per i computer client consentono di ottim
 | FileNotFoundCacheEntriesMax | 32768 | 128     |
 | MaxCmds                     | 32768 | 15      |
 
- 
+ 
 
 A partire da Windows 8, è possibile configurare molte di queste impostazioni SMB usando i cmdlet **Set-SmbClientConfiguration** e **Set-SmbServerConfiguration** di Windows PowerShell. Le impostazioni solo del Registro di sistema possono essere configurate anche usando Windows PowerShell.
 

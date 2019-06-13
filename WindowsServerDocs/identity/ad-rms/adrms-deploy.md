@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
 ms.topic: article
-ms.openlocfilehash: ce058a2885315c84d2c1c6701ad2801790d3c590
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: HT
+ms.openlocfilehash: f5d621a0ba06f5b1beb97ccdbffb8376b5503168
+ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66814074"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67033346"
 ---
 # <a name="upgrading-ad-rms-to-windows-server-2016"></a>L'aggiornamento di AD RMS per Windows Server 2016
 
@@ -257,7 +257,7 @@ Se il cluster AD RMS Usa un modulo di protezione Hardware anziché una chiave ge
 
 13. Una volta connessi back, aprire **Server Manager** selezionate **Tools** e quindi **Active Directory Rights Management**. La finestra Gestione dovrà essere visualizzato e indicare che il cluster dispone di server aggiuntivi nel cluster.
 
-14. 14. Se l'estensione per dispositivi mobili di AD RMS è stato installato nel cluster AD RMS originale, è necessario installare anche il MDE nei nodi del cluster aggiornato. Seguire le istruzioni nella documentazione di MDE aggiungere MDE per il cluster AD RMS. A questo punto, è possibile reimpiegare tutti i nodi preesistenti o eseguirne l'aggiornamento a Windows Server 2016 e aggiungere nuovamente al cluster AD RMS tramite lo stesso processo descritto in precedenza. 
+14. Se l'estensione per dispositivi mobili di AD RMS è stato installato nel cluster AD RMS originale, è necessario installare anche il MDE nei nodi del cluster aggiornato. Seguire le istruzioni nella documentazione di MDE aggiungere MDE per il cluster AD RMS. A questo punto, è possibile reimpiegare tutti i nodi preesistenti o eseguirne l'aggiornamento a Windows Server 2016 e aggiungere nuovamente al cluster AD RMS tramite lo stesso processo descritto in precedenza. 
 
 ### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Configurazione di Proxy applicazione Web di Windows Server 2016 (WAP)
 
