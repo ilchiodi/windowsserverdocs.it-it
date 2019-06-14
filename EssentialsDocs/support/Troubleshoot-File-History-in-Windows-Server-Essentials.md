@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f080bed5714ae4426cc6d0ca8edb5fab2d3c65b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63721017"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432476"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>Risoluzione dei problemi di Cronologia file in Windows Server Essentials
 
@@ -29,11 +29,11 @@ ms.locfileid: "63721017"
 ### <a name="file-history-data-is-not-automatically-deleted"></a>I dati di Cronologia file non vengono eliminati automaticamente  
  I dati di Cronologia file potrebbero non essere eliminati automaticamente se:  
   
--   Quando si elimina un account utente, sceglie di non eliminare l'account utente s dei dati di cronologia File e scegliere di eliminare manualmente i dati.  
+- Quando si elimina un account utente, sceglie di non eliminare l'account utente s dei dati di cronologia File e scegliere di eliminare manualmente i dati.  
   
--   Quando si prova a eliminare i dati di Cronologia file, questi dati sono usati da un altro processo.  
+- Quando si prova a eliminare i dati di Cronologia file, questi dati sono usati da un altro processo.  
   
- Per risolvere questo problema, è necessario eliminare manualmente la Cronologia file mediante la procedura seguente:  
+  Per risolvere questo problema, è necessario eliminare manualmente la Cronologia file mediante la procedura seguente:  
   
 ####  <a name="BKMK_manuallyDelete"></a> Per eliminare manualmente backup cronologia File per un utente o un computer  
   
@@ -78,7 +78,7 @@ ms.locfileid: "63721017"
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>È stato rimosso un account utente, ma rimane la cronologia file dell'utente  
  In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [To manually delete File History backups for a user or a computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
 
-5.  È ora possibile aggiungere il nuovo utente. Per istruzioni, vedere aggiungere un account utente? nelle [gestire gli account utente](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
+5. È ora possibile aggiungere il nuovo utente. Per istruzioni, vedere aggiungere un account utente? nelle [gestire gli account utente](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>È stato rimosso un account utente, ma rimane la cronologia file dell'utente  
  In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [To manually delete File History backups for a user or a computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  

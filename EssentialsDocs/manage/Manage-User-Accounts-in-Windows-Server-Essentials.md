@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 1cce047c45279f7116e0e8a256633df06344e13c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720697"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433147"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gestire gli account utente in Windows Server Essentials
 
@@ -63,8 +63,8 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
 -   Assegnare gruppi di utenti (solo Windows Server Essentials).  
   
 > [!NOTE]
->  -   Caratteri non ASCII non sono supportati in Microsoft Azure Active Directory (Azure AD). Non utilizzare caratteri non ASCII per la password, se il server è integrato con Azure AD.  
-> -   Le opzioni relative alla posta elettronica sono disponibili solo se si installa un componente aggiuntivo che offre il servizio di posta elettronica.  
+> - Caratteri non ASCII non sono supportati in Microsoft Azure Active Directory (Azure AD). Non utilizzare caratteri non ASCII per la password, se il server è integrato con Azure AD.  
+>   -   Le opzioni relative alla posta elettronica sono disponibili solo se si installa un componente aggiuntivo che offre il servizio di posta elettronica.  
   
 ##### <a name="to-add-a-user-account"></a>Per aggiungere un account utente  
   
@@ -200,38 +200,38 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
  Windows Server Essentials permette di eseguire attività amministrative comuni tramite il dashboard di Windows Server Essentials. Per impostazione predefinita, il **gli utenti** page del Dashboard include due schede **utenti** e **gruppi di utenti**.  
   
 > [!NOTE]
->  -   Se si integra il server che esegue Windows Server Essentials con Office 365, una nuova scheda denominata **gruppi di distribuzione** sarà aggiunta anche la **utenti** page del Dashboard.  
-> -   In Windows Server Essentials, la **gli utenti** page del Dashboard include solo una singola scheda - **utenti**.  
+> - Se si integra il server che esegue Windows Server Essentials con Office 365, una nuova scheda denominata **gruppi di distribuzione** sarà aggiunta anche la **utenti** page del Dashboard.  
+>   -   In Windows Server Essentials, la **gli utenti** page del Dashboard include solo una singola scheda - **utenti**.  
   
  Nella scheda **Utenti** sono disponibili gli elementi seguenti:  
   
--   Un elenco di account utente, che include:  
+- Un elenco di account utente, che include:  
   
-    -   Il nome dell'utente.  
+  -   Il nome dell'utente.  
   
-    -   Il nome di accesso per l'account utente.  
+  -   Il nome di accesso per l'account utente.  
   
-    -   Indicazioni sulla disponibilità o meno delle autorizzazioni di tipo Accesso remoto via Internet per l'account utente. L'autorizzazione di tipo Accesso remoto via Internet per un account utente può essere impostata su **Consentito** o **Non consentito**.  
+  -   Indicazioni sulla disponibilità o meno delle autorizzazioni di tipo Accesso remoto via Internet per l'account utente. L'autorizzazione di tipo Accesso remoto via Internet per un account utente può essere impostata su **Consentito** o **Non consentito**.  
   
-    -   Indicazioni sulla gestione o meno della Cronologia file per questo account utente da parte del server che esegue Windows Server Essentials. Lo stato di Cronologia file per un account utente può essere **Gestito** o **Non gestito**.  
+  -   Indicazioni sulla gestione o meno della Cronologia file per questo account utente da parte del server che esegue Windows Server Essentials. Lo stato di Cronologia file per un account utente può essere **Gestito** o **Non gestito**.  
   
-    -   Il livello di accesso assegnato all'account utente. È possibile assegnare a un account utente il tipo di accesso **Utente standard** o **Administrator** .  
+  -   Il livello di accesso assegnato all'account utente. È possibile assegnare a un account utente il tipo di accesso **Utente standard** o **Administrator** .  
   
-    -   Lo stato dell'account utente. Un account utente può essere **Attivo**, **Inattivo** o **Incompleto**.  
+  -   Lo stato dell'account utente. Un account utente può essere **Attivo**, **Inattivo** o **Incompleto**.  
   
-    -   In Windows Server Essentials, se il server è integrato con Office 365 o Windows Intune, viene visualizzato l'account online Microsoft.  
+  -   In Windows Server Essentials, se il server è integrato con Office 365 o Windows Intune, viene visualizzato l'account online Microsoft.  
   
-    -   In Windows Server Essentials, se il server è integrato con Microsoft Office 365, viene visualizzato lo stato dell'account Office 365 (noto in Windows Server Essentials come account online Microsoft) per l'account utente.  
+  -   In Windows Server Essentials, se il server è integrato con Microsoft Office 365, viene visualizzato lo stato dell'account Office 365 (noto in Windows Server Essentials come account online Microsoft) per l'account utente.  
   
--   Un riquadro dei dettagli che include informazioni aggiuntive sull'account utente selezionato.  
+- Un riquadro dei dettagli che include informazioni aggiuntive sull'account utente selezionato.  
   
--   Un riquadro attività che include:  
+- Un riquadro attività che include:  
   
-    -   Un insieme di attività amministrative dell'account utente, ad esempio la visualizzazione e la rimozione di account utente e la modifica delle password.  
+  -   Un insieme di attività amministrative dell'account utente, ad esempio la visualizzazione e la rimozione di account utente e la modifica delle password.  
   
-    -   Attività che permettono di impostare o modificare a livello globale le impostazioni per tutti gli account utente nella rete.  
+  -   Attività che permettono di impostare o modificare a livello globale le impostazioni per tutti gli account utente nella rete.  
   
- La tabella seguente illustra le diverse attività dell'account utente disponibili nella scheda **Utenti** . Alcune attività sono specifiche per l'account utente e sono visibili solo quando si seleziona un account utente dall'elenco.  
+  La tabella seguente illustra le diverse attività dell'account utente disponibili nella scheda **Utenti** . Alcune attività sono specifiche per l'account utente e sono visibili solo quando si seleziona un account utente dall'elenco.  
   
 > [!NOTE]
 >  Se si integra Office 365 con Windows Server Essentials, saranno rese disponibili attività aggiuntive. Per altre informazioni, vedere [gestire account Online per gli utenti](Manage-Online-Accounts-for-Users.md).  
@@ -286,55 +286,55 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>Per reimpostare la password per un account utente  
   
-1.  Aprire il dashboard di Windows Server Essentials.  
+1. Aprire il dashboard di Windows Server Essentials.  
   
-2.  Sulla barra di spostamento fare clic su **Utenti**.  
+2. Sulla barra di spostamento fare clic su **Utenti**.  
   
-3.  Nell'elenco di account utente selezionare l'account utente da reimpostare.  
+3. Nell'elenco di account utente selezionare l'account utente da reimpostare.  
   
-4.  Nel **< Account utente\> attività** riquadro, fare clic su **cambiare la password dell'account utente**. Sarà visualizzata la procedura guidata Cambia password account utente.  
+4. Nel **< Account utente\> attività** riquadro, fare clic su **cambiare la password dell'account utente**. Sarà visualizzata la procedura guidata Cambia password account utente.  
   
-5.  Digitare una nuova password per l'account utente, quindi digitarla di nuovo per confermarla.  
+5. Digitare una nuova password per l'account utente, quindi digitarla di nuovo per confermarla.  
   
-6.  Fare clic su **Cambia password**.  
+6. Fare clic su **Cambia password**.  
   
-7.  Fornire la nuova password all'utente.  
+7. Fornire la nuova password all'utente.  
   
-    > [!IMPORTANT]
-    >  -   Se i criteri per le password per l'account sono stati impostati su **Le password non hanno scadenza**, è possibile che non sia permessa la modifica della password.  
-    > -   Caratteri non ASCII non sono supportati in Azure AD. Pertanto, se il server è integrato con Azure AD, non utilizzare caratteri non ASCII per la password.  
-    > -   Se all'utente viene assegnato un account online Microsoft (noto in Windows Server Essentials come un account Office 365), la password viene sincronizzata con la password dell'account online. L'utente userà la nuova password per accedere al server o a Office 365. Per altre informazioni, vedere [gestire account Online per gli utenti](Manage-Online-Accounts-for-Users.md).  
+   > [!IMPORTANT]
+   > - Se i criteri per le password per l'account sono stati impostati su **Le password non hanno scadenza**, è possibile che non sia permessa la modifica della password.  
+   >   -   Caratteri non ASCII non sono supportati in Azure AD. Pertanto, se il server è integrato con Azure AD, non utilizzare caratteri non ASCII per la password.  
+   >   -   Se all'utente viene assegnato un account online Microsoft (noto in Windows Server Essentials come un account Office 365), la password viene sincronizzata con la password dell'account online. L'utente userà la nuova password per accedere al server o a Office 365. Per altre informazioni, vedere [gestire account Online per gli utenti](Manage-Online-Accounts-for-Users.md).  
   
 ###  <a name="BKMK_Access3"></a> Che cosa è opportuno conoscere i criteri password  
  I criteri per le password sono un insieme di regole che definiscono il modo in cui gli utenti possono creare e usare le password. I criteri aiutano a evitare l'accesso non autorizzato ai dati degli utenti e ad altre informazioni archiviate sul server. I criteri per le password sono applicati a tutti gli account utente che accedono alla rete.  
   
  I criteri per le password di Windows Server Essentials sono costituiti da tre elementi principali, come indicato di seguito:  
   
--   **Lunghezza della password**.  A una maggiore lunghezza della password corrisponde una maggiore sicurezza. Le password vuote non sono sicure.  
+- **Lunghezza della password**.  A una maggiore lunghezza della password corrisponde una maggiore sicurezza. Le password vuote non sono sicure.  
   
--   **Complessità della password**.  Le password complesse includono una combinazione di lettere maiuscole e minuscole (a-z, A-Z), numeri di base (0-9) e simboli non alfabetici (quali !,@,#,_,-). Le password complesse sono meno suscettibili all'accesso non autorizzato. Le password che contengono i nomi, i compleanni o altre informazioni personali dell'utente non offrono una sicurezza adeguata.  
+- **Complessità della password**.  Le password complesse includono una combinazione di lettere maiuscole e minuscole (a-z, A-Z), numeri di base (0-9) e simboli non alfabetici (quali !,@,#,_,-). Le password complesse sono meno suscettibili all'accesso non autorizzato. Le password che contengono i nomi, i compleanni o altre informazioni personali dell'utente non offrono una sicurezza adeguata.  
   
--   **Validità della password**.  In Windows Server Essentials gli utenti devono modificare la password almeno una volta ogni 180 giorni. Se si vuole, è possibile scegliere di usare password senza scadenza.  
+- **Validità della password**.  In Windows Server Essentials gli utenti devono modificare la password almeno una volta ogni 180 giorni. Se si vuole, è possibile scegliere di usare password senza scadenza.  
   
- Per semplificare l'implementazione dei criteri per le password nella rete di computer, in Windows Server Essentials è disponibile un semplice strumento che permette di impostare o modificare i criteri per le password usando uno dei quattro profili predefiniti seguenti per i criteri:  
+  Per semplificare l'implementazione dei criteri per le password nella rete di computer, in Windows Server Essentials è disponibile un semplice strumento che permette di impostare o modificare i criteri per le password usando uno dei quattro profili predefiniti seguenti per i criteri:  
   
--   **Bassa**.  Gli utenti possono specificare qualsiasi password non vuota.  
+- **Bassa**.  Gli utenti possono specificare qualsiasi password non vuota.  
   
--   **Media**.  Queste password devono contenere almeno cinque caratteri. Non sono necessarie password complesse.  
+- **Media**.  Queste password devono contenere almeno cinque caratteri. Non sono necessarie password complesse.  
   
--   **Mediamente complessa**.  Queste password devono contenere almeno cinque caratteri e devono includere lettere, numeri e simboli.  
+- **Mediamente complessa**.  Queste password devono contenere almeno cinque caratteri e devono includere lettere, numeri e simboli.  
   
--   **Alta**.  Queste password devono contenere almeno sette caratteri e devono includere lettere, numeri e simboli. Queste password sono più sicure ma potrebbero essere difficili da ricordare.  
+- **Alta**.  Queste password devono contenere almeno sette caratteri e devono includere lettere, numeri e simboli. Queste password sono più sicure ma potrebbero essere difficili da ricordare.  
   
-    > [!NOTE]
-    >  Le password non possono includere il nome o l'indirizzo di posta elettronica dell'utente.  
-    >   
-    >  Se si esegue l'integrazione con Office 365, saranno applicati i criteri per le password di tipo **Alta** e i criteri saranno aggiornati in modo da includere i requisiti seguenti:  
-    >   
-    >  -   Le password devono contenere 8 a 16 caratteri.  
-    > -   Le password non possono includere spazi o l'alias di posta elettronica di Office 365.  
+  > [!NOTE]
+  >  Le password non possono includere il nome o l'indirizzo di posta elettronica dell'utente.  
+  > 
+  >  Se si esegue l'integrazione con Office 365, saranno applicati i criteri per le password di tipo **Alta** e i criteri saranno aggiornati in modo da includere i requisiti seguenti:  
+  > 
+  > - Le password devono contenere 8 a 16 caratteri.  
+  >   -   Le password non possono includere spazi o l'alias di posta elettronica di Office 365.  
   
- Per impostazione predefinita, l'installazione del server imposta i criteri predefiniti per le password sull'opzione **Alta**.  
+  Per impostazione predefinita, l'installazione del server imposta i criteri predefiniti per le password sull'opzione **Alta**.  
   
 ###  <a name="BKMK_Access4"></a> Modificare i criteri password  
  Eseguire la procedura seguente per impostare o modificare i criteri per le password specificando uno dei quattro profili predefiniti per i criteri.  
@@ -373,21 +373,21 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
 ##### <a name="to-remove-a-user-account-but-retain-access-to-the-user-s-files"></a>Per rimuovere un account utente ma conservare l'accesso ai file utente s  
   
-1.  Aprire il dashboard di Windows Server Essentials.  
+1. Aprire il dashboard di Windows Server Essentials.  
   
-2.  Sulla barra di spostamento fare clic su **Utenti**.  
+2. Sulla barra di spostamento fare clic su **Utenti**.  
   
-3.  Nell'elenco di account utente selezionare l'account utente da rimuovere.  
+3. Nell'elenco di account utente selezionare l'account utente da rimuovere.  
   
-4.  Nel **< Account utente\> attività** riquadro, fare clic su **rimuovere l'account utente**. Sarà visualizzata la procedura guidata Eliminazione account utente.  
+4. Nel **< Account utente\> attività** riquadro, fare clic su **rimuovere l'account utente**. Sarà visualizzata la procedura guidata Eliminazione account utente.  
   
-5.  Nella pagina **Conservare i file?** verificare che la casella di controllo **Elimina i file inclusi nei backup di cronologia file e reindirizza la cartella per questo account utente** sia deselezionata, quindi fare clic su **Avanti**.  
+5. Nella pagina **Conservare i file?** verificare che la casella di controllo **Elimina i file inclusi nei backup di cronologia file e reindirizza la cartella per questo account utente** sia deselezionata, quindi fare clic su **Avanti**.  
   
-     Sarà visualizzata una pagina di conferma, che avvisa l'account sarà eliminato ma i file saranno conservati.  
+    Sarà visualizzata una pagina di conferma, che avvisa l'account sarà eliminato ma i file saranno conservati.  
   
-6.  Fare clic su **Elimina account** per rimuovere l'account utente.  
+6. Fare clic su **Elimina account** per rimuovere l'account utente.  
   
- Dopo la rimozione dell'account utente, l'amministratore può concedere a un altro account utente l'accesso alla cartella condivisa.  
+   Dopo la rimozione dell'account utente, l'amministratore può concedere a un altro account utente l'accesso alla cartella condivisa.  
   
 ##### <a name="to-give-a-user-account-permission-to-access-a-shared-folder"></a>Per concedere a un account utente l'autorizzazione per accedere a una cartella condivisa  
   
@@ -414,15 +414,15 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
 ##### <a name="to-manually-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>Per sincronizzare manualmente la password della modalità ripristino servizi directory con un account di amministratore di rete  
   
-1.  Al prompt dei comandi eseguire `ntdsutil.exe` per aprire lo strumento ntdsutil.  
+1. Al prompt dei comandi eseguire `ntdsutil.exe` per aprire lo strumento ntdsutil.  
   
-2.  Per reimpostare la password della modalità ripristino servizi directory, digitare **set dsrm password**.  
+2. Per reimpostare la password della modalità ripristino servizi directory, digitare **set dsrm password**.  
   
-3.  Per sincronizzare la password modalità ripristino servizi directory in un controller di dominio con l'account s amministratore di rete corrente, digitare:  
+3. Per sincronizzare la password modalità ripristino servizi directory in un controller di dominio con l'account s amministratore di rete corrente, digitare:  
   
-     **sincronizzazione da account di dominio** *< account_amministratore_rete_corrente >* , quindi premere INVIO.  
+    **sincronizzazione da account di dominio** *< account_amministratore_rete_corrente >* , quindi premere INVIO.  
   
- Poiché la password per l'account dell'amministratore di rete sarà modificata periodicamente, per assicurare che la password della modalità ripristino servizi directory corrisponda sempre alla password attuale dell'amministratore di rete, è consigliabile creare un'attività pianificata per sincronizzare automaticamente ogni giorno la password della modalità ripristino servizi directory con la password dell'amministratore di rete.  
+   Poiché la password per l'account dell'amministratore di rete sarà modificata periodicamente, per assicurare che la password della modalità ripristino servizi directory corrisponda sempre alla password attuale dell'amministratore di rete, è consigliabile creare un'attività pianificata per sincronizzare automaticamente ogni giorno la password della modalità ripristino servizi directory con la password dell'amministratore di rete.  
   
 ##### <a name="to-automatically-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>Per sincronizzare automaticamente la password della modalità ripristino servizi directory con un account di amministratore di rete  
   
@@ -460,15 +460,15 @@ La pagina Utenti del Dashboard di Windows Server Essentials centralizza le infor
   
  La procedura guidata Configura Accesso remoto via Internet permette di abilitare due metodi per l'accesso remoto:  
   
--   Rete privata virtuale (VPN, Virtual Private Network)  
+- Rete privata virtuale (VPN, Virtual Private Network)  
   
--   Accesso Web remoto  
+- Accesso Web remoto  
   
- Quando si esegue la procedura guidata, è anche possibile scegliere di abilitare l'Accesso remoto via Internet per tutti gli account utente attuali e appena aggiunti.  
+  Quando si esegue la procedura guidata, è anche possibile scegliere di abilitare l'Accesso remoto via Internet per tutti gli account utente attuali e appena aggiunti.  
   
- Per configurare l'Accesso remoto via Internet, aprire la pagina **Home** del dashboard, fare clic su **CONFIGURA**e quindi su **Configura Accesso remoto via Internet**.  
+  Per configurare l'Accesso remoto via Internet, aprire la pagina **Home** del dashboard, fare clic su **CONFIGURA**e quindi su **Configura Accesso remoto via Internet**.  
   
- Per altre informazioni sull'accesso remoto via Internet, vedere [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
+  Per altre informazioni sull'accesso remoto via Internet, vedere [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
   
 ###  <a name="BKMK_Access9"></a> Consentire agli utenti di accedere alle risorse sul server  
   In questa sezione si riferisce a un server che esegue Windows Server Essentials o Windows Server Essentials oppure un server che esegue Windows Server 2012 R2 Standard o Windows Server 2012 R2 Datacenter con il ruolo esperienza Windows Server Essentials installato.  

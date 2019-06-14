@@ -12,12 +12,12 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 15d9a10daec0b72eb41092dbd9fa87f989ebedb8
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5618eb95fb8afcff2057575191699da05612a542
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720659"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433059"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Ripristinare un server che esegue Windows Server Essentials
 
@@ -36,19 +36,19 @@ ms.locfileid: "63720659"
   
  I motivi più comuni per cui si esegue il ripristino di un server sono:  
   
--   Sul server è presente un virus impossibile da inoculare o eliminare.  
+- Sul server è presente un virus impossibile da inoculare o eliminare.  
   
--   Le impostazioni di configurazione del server sono danneggiate e non è possibile avviare il server.  
+- Le impostazioni di configurazione del server sono danneggiate e non è possibile avviare il server.  
   
--   È stata sostituita l'unità di sistema.  
+- È stata sostituita l'unità di sistema.  
   
--   Il server viene disattivato e si vuole eseguirne il ripristino in un nuovo server.  
+- Il server viene disattivato e si vuole eseguirne il ripristino in un nuovo server.  
   
- È possibile ripristinare il server da un backup oppure ripristinare le impostazioni predefinite del server.  
+  È possibile ripristinare il server da un backup oppure ripristinare le impostazioni predefinite del server.  
   
--   [Il ripristino del server da un backup](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
+- [Il ripristino del server da un backup](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
--   [Reimpostare il server per le impostazioni predefinite](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
+- [Reimpostare il server per le impostazioni predefinite](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
 ###  <a name="BKMK_RestoreFromBackup"></a> Il ripristino del server da un backup  
  In questa sezione vengono fornite indicazioni sul tipo di backup da scegliere.  
@@ -57,21 +57,21 @@ ms.locfileid: "63720659"
   
  Quando si sceglie di ripristinare il server da un backup precedente, è necessario scegliere il backup specifico da ripristinare e disporre di un file di backup valido in un'unità disco rigido esterna connessa direttamente al server:  
   
--   **Se si dispone di un backup molto recente completato correttamente** e si è certi che il backup contenga tutti i dati critici di interesse, la scelta è semplice. Sarà sufficiente ricreare i dati creati dopo l'ultimo backup completato correttamente e riconfigurare le impostazioni modificate dopo tale backup.  
+- **Se si dispone di un backup molto recente completato correttamente** e si è certi che il backup contenga tutti i dati critici di interesse, la scelta è semplice. Sarà sufficiente ricreare i dati creati dopo l'ultimo backup completato correttamente e riconfigurare le impostazioni modificate dopo tale backup.  
   
--   **Se si esegue il ripristino del server a causa di un virus**, selezionare un backup creato sicuramente prima della ricezione del virus. Può essere necessario selezionare un backup di diversi giorni prima.  
+- **Se si esegue il ripristino del server a causa di un virus**, selezionare un backup creato sicuramente prima della ricezione del virus. Può essere necessario selezionare un backup di diversi giorni prima.  
   
--   **Se si riconfigura il server a causa di impostazioni di configurazione errate**, selezionare un backup creato sicuramente prima della modifica alle impostazioni di configurazione all'origine dell'errore sul server.  
+- **Se si riconfigura il server a causa di impostazioni di configurazione errate**, selezionare un backup creato sicuramente prima della modifica alle impostazioni di configurazione all'origine dell'errore sul server.  
   
- Quando si esegue il ripristino da un backup, il processo esatto e le azioni successive dipendono dal numero di dischi rigidi sul server e dal fatto che l'unità di sistema venga sostituita o meno:  
+  Quando si esegue il ripristino da un backup, il processo esatto e le azioni successive dipendono dal numero di dischi rigidi sul server e dal fatto che l'unità di sistema venga sostituita o meno:  
   
--   **Se il server ha un solo disco rigido e l'unità non viene sostituita**, le informazioni di partizione dell'unità rimangono intatte quando si ripristina il server. Il volume di sistema viene ripristinato e i dati sul volume rimanente vengono mantenuti.  
+- **Se il server ha un solo disco rigido e l'unità non viene sostituita**, le informazioni di partizione dell'unità rimangono intatte quando si ripristina il server. Il volume di sistema viene ripristinato e i dati sul volume rimanente vengono mantenuti.  
   
--   **Se il server ha un solo disco rigido e l'unità non viene sostituita**, il volume di sistema viene ripristinato e sarà necessario ripristinare manualmente le cartelle nel volume dati. È necessario creare tutte le eventuali cartelle condivise non predefinite perché non vengono create durante la ricreazione dell'archiviazione server.  
+- **Se il server ha un solo disco rigido e l'unità non viene sostituita**, il volume di sistema viene ripristinato e sarà necessario ripristinare manualmente le cartelle nel volume dati. È necessario creare tutte le eventuali cartelle condivise non predefinite perché non vengono create durante la ricreazione dell'archiviazione server.  
   
--   **Se il server ha più dischi rigidi e l'unità 0 (contenente il volume di sistema) non viene sostituita**, le informazioni di partizione dell'unità rimangono intatte quando si ripristina il server. Il volume di sistema viene ripristinato e tutti i dati sui volumi rimanenti vengono mantenuti.  
+- **Se il server ha più dischi rigidi e l'unità 0 (contenente il volume di sistema) non viene sostituita**, le informazioni di partizione dell'unità rimangono intatte quando si ripristina il server. Il volume di sistema viene ripristinato e tutti i dati sui volumi rimanenti vengono mantenuti.  
   
--   **Se il server dispone di più dischi rigidi e l'unità 0 (contenente il volume di sistema) viene sostituita**, viene ripristinato il volume di sistema e sarà necessario ripristinare manualmente le cartelle condivise precedentemente archiviate nell'unità 0.  
+- **Se il server dispone di più dischi rigidi e l'unità 0 (contenente il volume di sistema) viene sostituita**, viene ripristinato il volume di sistema e sarà necessario ripristinare manualmente le cartelle condivise precedentemente archiviate nell'unità 0.  
   
 ###  <a name="BKMK_FactoryReset"></a> Reimpostare il server per le impostazioni predefinite  
  Se non si dispone di un backup da cui eseguire il ripristino o se per qualche ragione è preferibile o necessario eseguire un ripristino completo del sistema senza ripristinare la configurazione del server precedente, è possibile eseguire il ripristino delle impostazioni predefinite del server mediante il supporto di installazione o ripristino fornito dal produttore dell'hardware del server.  

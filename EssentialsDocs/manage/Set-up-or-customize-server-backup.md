@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4fb34e05b00c35156a8451ffb0d8b914fcc73cf5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5bd36db4f61b990c3864828370607158df4803a3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720296"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433045"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurare o personalizzare un backup del server
 
@@ -55,12 +55,12 @@ ms.locfileid: "63720296"
   
 > [!NOTE]
 >  Nell'installazione predefinita di Windows Server Essentials, il server è configurato per eseguire automaticamente una deframmentazione una volta alla settimana. Ciò può generare backup di dimensioni superiori al normale, se si usa un software di imaging non Microsoft. Se non è necessario deframmentare il server regolarmente, è possibile eseguire questa procedura per disattivare la pianificazione della deframmentazione:  
->   
->  1.  Premere il tasto WINDOWS+W per aprire la **Ricerca**.  
-> 2.  Nella casella di testo di ricerca digitare **Defragment**.  
-> 3.  Nella sezione dei risultati fare clic su **Deframmenta e ottimizza unità**.  
-> 4.  Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
-> 5.  Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
+> 
+> 1. Premere il tasto WINDOWS+W per aprire la **Ricerca**.  
+>    2. Nella casella di testo di ricerca digitare **Defragment**.  
+>    3. Nella sezione dei risultati fare clic su **Deframmenta e ottimizza unità**.  
+>    4. Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
+>    5. Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
   
 ##  <a name="BKMK_2"></a> Pianificazione del backup server  
  Quando si usa la procedura guidata Configura backup server o Personalizza Backup server, è possibile scegliere di eseguire il backup dei dati del server più volte al giorno. Dato che i backup pianificati dalle procedure guidate sono di tipo incrementale, vengono eseguiti rapidamente e non influiscono in modo significativo sulle prestazioni del server. Per impostazione predefinita, le procedure guidate pianificano l'esecuzione di un backup ogni giorno alle 12:00 e alle 23:00. È tuttavia possibile modificare la pianificazione dei backup in base alle esigenze dell'organizzazione. È consigliabile rivalutare periodicamente l'efficacia del piano di backup adottato ed eventualmente modificarlo in base alla necessità.  
@@ -106,32 +106,32 @@ ms.locfileid: "63720296"
   
 > [!NOTE]
 >  Se un backup non riesce perché l'unità di backup è disponibile spazio sufficiente, la lettera di unità per l'unità di destinazione di backup viene rimosso dal database di Windows Server Essentials e il Dashboard non viene visualizzata l'unità. Per usare l'unità di backup in futuro, è necessario riassegnare la lettera di unità con uno strumento nativo.  
->   
+> 
 >  **Per riassegnare una lettera di unità per un volume esistente**  
->   
->  1.  Nel Panello di controllo aprire **Sistema e sicurezza**.  
-> 2.  In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
-> 3.  Fare clic con il pulsante destro del mouse sull'unità e scegliere **Cambia lettera e percorso di unità**.  
-> 4.  Fai clic su **Aggiungi**.  
-> 5.  Nella finestra di dialogo Aggiungi lettera o percorso di unità, selezionare una lettera di unità da assegnare (è possibile riassegnare la stessa lettera di unità). Fare quindi clic su **OK**.  
->   
->      L'unità verrà visualizzata immediatamente nel dashboard.  
+> 
+> 1. Nel Panello di controllo aprire **Sistema e sicurezza**.  
+>    2. In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
+>    3. Fare clic con il pulsante destro del mouse sull'unità e scegliere **Cambia lettera e percorso di unità**.  
+>    4. Fai clic su **Aggiungi**.  
+>    5. Nella finestra di dialogo Aggiungi lettera o percorso di unità, selezionare una lettera di unità da assegnare (è possibile riassegnare la stessa lettera di unità). Fare quindi clic su **OK**.  
+> 
+>    L'unità verrà visualizzata immediatamente nel dashboard.  
   
 ##  <a name="BKMK_4"></a> Elementi da sottoporre a backup  
  È possibile scegliere di eseguire il backup di tutte le unità, i file e le cartelle sul server oppure selezionare solo singole unità, file o cartelle di cui eseguire il backup.  
   
  Quando si aggiunge o rimuove un'unità oppure file e cartelle condivise, è consigliabile rivedere la configurazione di backup del server per assicurarsi che questi elementi vengono aggiunti o rimossi dalla configurazione del backup. Per aggiungere o rimuovere elementi per il backup, eseguire una delle operazioni seguenti:  
   
--   Per includere un'unità dati nel backup del server, selezionare la casella di controllo adiacente.  
+- Per includere un'unità dati nel backup del server, selezionare la casella di controllo adiacente.  
   
--   Per escludere un'unità dati dal backup del server, deselezionare la casella di controllo adiacente.  
+- Per escludere un'unità dati dal backup del server, deselezionare la casella di controllo adiacente.  
   
-    > [!NOTE]
-    >  Se si vuole escludere l'elemento **Sistema operativo** dal backup, è prima di tutto necessario deselezionare la casella di controllo **Backup del sistema (scelta consigliata)** .  
+  > [!NOTE]
+  >  Se si vuole escludere l'elemento **Sistema operativo** dal backup, è prima di tutto necessario deselezionare la casella di controllo **Backup del sistema (scelta consigliata)** .  
   
- Per ridurre al minimo la quantità di spazio di archiviazione server usata per i backup del server, è possibile escludere eventuali cartelle contenenti file non considerati utili o particolarmente importanti.  
+  Per ridurre al minimo la quantità di spazio di archiviazione server usata per i backup del server, è possibile escludere eventuali cartelle contenenti file non considerati utili o particolarmente importanti.  
   
- Ad esempio, è possibile che sia presente una cartella contenente programmi televisivi registrati che usa una quantità elevata di spazio su disco rigido. Si può scegliere di non eseguire il backup di questi file, perché comunque verranno in genere eliminati dopo la visualizzazione. È anche possibile che sia presente una cartella contenente file temporanei che non si intende conservare.  
+  Ad esempio, è possibile che sia presente una cartella contenente programmi televisivi registrati che usa una quantità elevata di spazio su disco rigido. Si può scegliere di non eseguire il backup di questi file, perché comunque verranno in genere eliminati dopo la visualizzazione. È anche possibile che sia presente una cartella contenente file temporanei che non si intende conservare.  
   
 ## <a name="see-also"></a>Vedere anche  
   

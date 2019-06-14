@@ -12,12 +12,12 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4bbdd17f5e6e2b161e0dda0e172ea862a9107841
-ms.sourcegitcommit: 564158d760f902ced7f18e6d63a9daafa2a92bd4
+ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988331"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446727"
 ---
 # <a name="troubleshooting-remote-desktop-connections"></a>Risoluzione dei problemi relativi a connessioni Desktop remoto
 Per una breve spiegazione di alcuni tra i problemi più comuni di Servizi Desktop remoto (RDS), vedere [domande frequenti su client di Desktop remoto](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq). Questo articolo descrive vari approcci più avanzati per la risoluzione dei problemi di connessione. Molte di queste procedure si applicano se la risoluzione di una semplice configurazione, ad esempio un computer fisico, la connessione a un altro computer fisico o una configurazione più complessa. Alcune procedure di risolvono i problemi che si verificano solo in scenari più complessi con più utenti. Per altre informazioni sui componenti di desktop remoto e come interagiscono tra loro, vedere [architettura di Servizi Desktop remoto](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture).
@@ -68,7 +68,7 @@ Per controllare e modificare lo stato del protocollo RDP in un computer remoto, 
 2. Nell'Editor del Registro di sistema, selezionare **File**, quindi selezionare **connettersi registro rete**.
 3. Nel **seleziona Computer** finestra di dialogo casella, immettere il nome del computer remoto, selezionare **Controlla nomi**, quindi selezionare **OK**.
 4. Passare a **HKEY\_locale\_MACHINE\\SYSTEM\\CurrentControlSet\\controllo\\Server Terminal**.  
-   ![Editor del Registro di sistema, che mostra la voce del valore fDenyTSConnections](..\media\troubleshoot-remote-desktop-connections\RegEntry_fDenyTSConnections.png)
+   ![Editor del Registro di sistema, che mostra la voce del valore fDenyTSConnections](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
    - Se il valore della **valore fDenyTSConnections** ritenuto **0**, quindi RDP è abilitato
    - Se il valore della **valore fDenyTSConnections** ritenuto **1**, RDP è disabilitata
 5. Per abilitare desktop remoto, modificare il valore della **valore fDenyTSConnections** dalla **1** al **0**.
@@ -85,9 +85,9 @@ Al termine di questo comando, aprire gpresult.html. Nelle **configurazione Compu
 
 - Se è l'impostazione di questo criterio **abilitato**, criteri di gruppo non blocca le connessioni RDP.
 - Se è l'impostazione di questo criterio **disabilitati**, controllare **dominanti GPO**. Questo è l'oggetto Criteri di gruppo sta bloccando le connessioni RDP.
-![Un segmento di esempio di gpresult.html, in cui l'oggetto Criteri di gruppo a livello di dominio * * Blocca RDP * * è la disabilitazione di RDP.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_GP.png)
+  ![Un segmento di esempio di gpresult.html, in cui l'oggetto Criteri di gruppo a livello di dominio * * Blocca RDP * * è la disabilitazione di RDP.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Un segmento di esempio di gpresult.html, in cui * * locale gruppo criteri * * è la disabilitazione di RDP.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_LGP.png)
+  ![Un segmento di esempio di gpresult.html, in cui * * locale gruppo criteri * * è la disabilitazione di RDP.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
 #### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>Controllare se un oggetto Criteri di gruppo sta bloccando il protocollo RDP in un computer remoto
 
@@ -117,7 +117,7 @@ Nel computer locale (client) e il computer remoto (destinazione), è necessario 
 
 È possibile utilizzare lo snap-in servizi di MMC per gestire i servizi in locale o remoto. È anche possibile usare PowerShell in locale o remoto (se il computer remoto è configurato per accettare i comandi di PowerShell remoti).
 
-![Servizi Desktop remoto nello snap-in MMC Servizi. Non modificare le impostazioni predefinite del servizio.](..\media\troubleshoot-remote-desktop-connections\RDSServiceStatus.png)
+![Servizi Desktop remoto nello snap-in MMC Servizi. Non modificare le impostazioni predefinite del servizio.](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
 In dei computer, se uno o entrambi i servizi non sono in esecuzione, avviarli.
 
@@ -135,7 +135,7 @@ Per questa procedura, utilizzare un'istanza di PowerShell con autorizzazioni amm
 
 1. Aprire una finestra di PowerShell. Per connettersi a un computer remoto, immettere **Enter-PSSession - ComputerName \<nome del computer\>** .
 2. Immettere **qwinsta**. 
-    ![Il comando qwinsta Elenca i processi in attesa su porte del computer.](..\media\troubleshoot-remote-desktop-connections\WPS_qwinsta.png)
+    ![Il comando qwinsta Elenca i processi in attesa su porte del computer.](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
 3. Se l'elenco include **rdp-tcp** con stato **ascolto**, funziona il listener RDP. Andare al [verificare la porta del listener RDP](#check-the-rdp-listener-port). In caso contrario, continuare al passaggio 4.
 4. Esportare la configurazione del listener RDP da un computer di lavoro.
     1. Accedere a un computer con la stessa versione del sistema operativo come computer interessato e accedere Registro di sistema del computer (ad esempio, l'editor del Registro di sistema).
@@ -171,7 +171,7 @@ Per questa procedura, utilizzare un'istanza di PowerShell con autorizzazioni amm
 
 1. Se non è ancora possibile connettersi, aprire lo snap-in MMC certificati. Quando viene chiesto di selezionare l'archivio certificati per gestire, selezionare **account del Computer**e quindi selezionare il computer interessato.
 2. Nel **certificati** cartella sotto **Desktop remoto**, eliminare il certificato autofirmato RDP. 
-    ![Certificati di Desktop remoti nello snap-in MMC certificati.](..\media\troubleshoot-remote-desktop-connections\MMCCert_Delete.png)
+    ![Certificati di Desktop remoti nello snap-in MMC certificati.](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
 3. Nel computer interessato, riavviare il servizio Servizi Desktop remoto.
 4. Aggiornare lo snap-in certificati.
 5. Se non è stato ricreato, il certificato autofirmato RDP [controllare le autorizzazioni della cartella MachineKeys](#check-the-permissions-of-the-machinekeys-folder).
@@ -197,7 +197,7 @@ Per controllare o modificare la porta RDP, usare l'Editor del Registro di sistem
       - Per connettersi a un computer remoto, selezionare **File**, quindi selezionare **connettersi registro rete**.
       - Nel **seleziona Computer** finestra di dialogo casella, immettere il nome del computer remoto, selezionare **Controlla nomi**, quindi selezionare **OK**.
 2. Aprire il Registro di sistema e spostarsi **HKEY\_locale\_MACHINE\\SYSTEM\\CurrentControlSet\\controllo\\Terminal Server\\WinStations\\ \<listener\>** . 
-    ![La sottochiave del numero di porta per il protocollo RDP.](..\media\troubleshoot-remote-desktop-connections\RegEntry_PortNumber.png)
+    ![La sottochiave del numero di porta per il protocollo RDP.](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
 3. Se **NumeroPorta** ha un valore diverso da **3389**, modificarlo in base ai **3389**. 
    > [!IMPORTANT]  
     > È possibile utilizzare Servizi Desktop remoto con un'altra porta. Tuttavia, non è consigliabile farlo. Risoluzione dei problemi relativi a questa configurazione non rientra nell'ambito di questo articolo.
@@ -214,19 +214,19 @@ Per questa procedura, utilizzare un'istanza di PowerShell con autorizzazioni amm
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![Il comando netstat produce un elenco di porte e i servizi in ascolto su tali.](..\media\troubleshoot-remote-desktop-connections\WPS_netstat.png)
-1. Cercare una voce per la porta TCP 3389 (o la porta assegnata a RDP) con lo stato **In ascolto**. 
+    ![Il comando netstat produce un elenco di porte e i servizi in ascolto su tali.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+3. Cercare una voce per la porta TCP 3389 (o la porta assegnata a RDP) con lo stato **In ascolto**. 
     > [!NOTE]  
    > Il PID del processo o del servizio che utilizza la porta è visualizzato nella colonna PID.
-1. Per determinare l'applicazione che utilizza la porta 3389 (o la porta assegnata a RDP), immettere il comando seguente:  
+4. Per determinare l'applicazione che utilizza la porta 3389 (o la porta assegnata a RDP), immettere il comando seguente:  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![Il comando di tasklist riporta i dettagli di un processo specifico.](..\media\troubleshoot-remote-desktop-connections\WPS_tasklist.png)
-1. Cercare una voce per il numero PID associato con la porta (dal **netstat** output). I servizi o i processi che sono associati a tale PID visualizzati sulla destra.
-1. Se un'applicazione o un servizio diverso da Servizi Desktop remoto (TermServ.exe) utilizza la porta, è possibile risolvere il conflitto usando uno dei metodi seguenti:
+    ![Il comando di tasklist riporta i dettagli di un processo specifico.](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. Cercare una voce per il numero PID associato con la porta (dal **netstat** output). I servizi o i processi che sono associati a tale PID visualizzati sulla destra.
+6. Se un'applicazione o un servizio diverso da Servizi Desktop remoto (TermServ.exe) utilizza la porta, è possibile risolvere il conflitto usando uno dei metodi seguenti:
       - Configurare l'altra applicazione o servizio per usare una porta diversa (scelta consigliata).
       - Disinstallare l'altra applicazione o servizio.
       - Configurare il protocollo RDP per l'uso di una porta diversa e quindi riavviare il servizio Servizi Desktop remoto (non consigliato).
@@ -295,7 +295,7 @@ La procedura seguente usa Server Manager per apportare le modifiche di configura
 3. Selezionare **servizio licenze Desktop remoto**, quindi selezionare la modalità di gestione delle licenze appropriata per la distribuzione (**per ogni dispositivo** oppure **per ogni utente**).
 4. Immettere il nome di dominio completo (FQDN) del server licenze Desktop remoto e quindi selezionare **Add**.
 5. Se si dispone di più di un server licenze Desktop remoto, ripetere il passaggio 4 per ogni server. 
-    ![Opzioni di configurazione di server licenze Desktop remoto in Server Manager.](..\media\troubleshoot-remote-desktop-connections\RDLicensing_Configure.png)
+    ![Opzioni di configurazione di server licenze Desktop remoto in Server Manager.](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
 ### <a name="refresh-the-x509-certificate-registry-keys"></a>Le chiavi del Registro di sistema di aggiornamento X509 certificato
 
@@ -440,12 +440,12 @@ Per risolvere questo problema, assicurarsi che tutti i sistemi siano completamen
 
 Per risolvere questo problema finché non vengono completati gli aggiornamenti, controllare 4093492 KB per i tipi consentiti di connessioni. Se non esistono Nessun alternative fattibili si potrebbe prendere in considerazione uno dei metodi seguenti:
 
-  - Per i computer client interessati, impostare il **crittografia Oracle correzione** eseguire il criterio **Vulnerable**.
-  - Modificare i criteri seguenti nel **configurazione Computer\\modelli amministrativi\\i componenti di Windows\\Servizi Desktop remoto\\Host sessione Desktop remoto\\ Sicurezza** cartella Criteri di gruppo:  
-      - **Richiedono l'uso del livello di sicurezza specifici per le connessioni remote (RDP)** : impostato su **Enabled** e selezionare **RDP**.
-      - **Richiedi autenticazione utente per le connessioni remote tramite autenticazione a livello di rete**: impostato su **disabilitato**.
-      > [!IMPORTANT]  
-      > Queste modifiche riducono la sicurezza della distribuzione. Devono solo essere temporanee, se si usa affatto.
+- Per i computer client interessati, impostare il **crittografia Oracle correzione** eseguire il criterio **Vulnerable**.
+- Modificare i criteri seguenti nel **configurazione Computer\\modelli amministrativi\\i componenti di Windows\\Servizi Desktop remoto\\Host sessione Desktop remoto\\ Sicurezza** cartella Criteri di gruppo:  
+  - **Richiedono l'uso del livello di sicurezza specifici per le connessioni remote (RDP)** : impostato su **Enabled** e selezionare **RDP**.
+  - **Richiedi autenticazione utente per le connessioni remote tramite autenticazione a livello di rete**: impostato su **disabilitato**.
+    > [!IMPORTANT]  
+    > Queste modifiche riducono la sicurezza della distribuzione. Devono solo essere temporanee, se si usa affatto.
 
 Per altre informazioni sull'uso dei criteri di gruppo, vedere [modifica di un oggetto Criteri di blocco](#modifying-a-blocking-gpo).
 
@@ -493,7 +493,7 @@ Client desktop remoto tentando di connettersi anche smettere di rispondere.
 
 Per risolvere questo problema, riavviare il server host sessione Desktop remoto.
 
-Per risolvere questo problema, applicare 4093114 KB, [10 aprile 2018, ovvero KB4093114 (Rollup mensili)] (file:///c:\\utenti\\v jesits\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\FUB8OO45\\% aprile 2010, % 202018 — KB4093114% 20\(mensile 20Rollup %\)), ai server host sessione Desktop remoto.
+Per risolvere questo problema, applicare 4093114 KB, [10 aprile 2018, ovvero KB4093114 (Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)) mensile, per il Server host sessione Desktop remoto.
 
 ### <a name="rd-listener-issue"></a>Problema di listener di desktop remoto
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: babcdaf6ae35770d48176c7c391fa41e295ce5d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fff4e5088e3e08cf2e9e742d8fb6aa2187bb9e83
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438128"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -45,15 +45,15 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 |/release6 [\<adapter >]|Invia un messaggio DHCPRELEASE al server DHCPv6 per rilasciare la configurazione DHCP corrente e annullare la configurazione degli indirizzi IPv6 per tutti gli adapter (se non viene specificato un adattatore) o per uno specifico adapter se il *scheda* è incluso. Questo parametro disabilita TCP/IP per gli adapter configurati per ottenere automaticamente un indirizzo IP. Per specificare un nome dell'adapter, digitare il nome che appare quando si usa **ipconfig** senza parametri.|
 |/ rinnovare [\<Adapter >]|Rinnova la configurazione di DHCP per tutte le schede (se non viene specificato un adattatore) o per uno specifico adapter se il *scheda* è incluso. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IP. Per specificare un nome dell'adapter, digitare il nome che appare quando si usa **ipconfig** senza parametri.|
 |/renew6 [\<adapter >]|Rinnova DHCPv6 configurazione per tutte le schede (se non viene specificato un adattatore) o per uno specifico adapter se il *scheda* è incluso. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IPv6. Per specificare un nome dell'adapter, digitare il nome che appare quando si usa **ipconfig** senza parametri.|
-|/setclassid \<adapter > [ <ClassID>]|Configura l'ID di classe DHCP per la scheda specificata. Per impostare l'ID di classe DHCP per tutte le schede, utilizzare l'asterisco (**&#42;**) carattere jolly al posto di *Adapter*. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IP. Se non viene specificato un ID di classe DHCP, l'ID di classe corrente viene rimosso.|
-|/showclassid \<adapter >|Visualizza l'ID di classe DHCP per la scheda specificata. Per visualizzare l'ID di classe DHCP per tutte le schede, utilizzare l'asterisco (**&#42;**) carattere jolly al posto di *Adapter*. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IP.|
+|/setclassid \<adapter > [ <ClassID>]|Configura l'ID di classe DHCP per la scheda specificata. Per impostare l'ID di classe DHCP per tutte le schede, utilizzare l'asterisco ( **&#42;** ) carattere jolly al posto di *Adapter*. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IP. Se non viene specificato un ID di classe DHCP, l'ID di classe corrente viene rimosso.|
+|/showclassid \<adapter >|Visualizza l'ID di classe DHCP per la scheda specificata. Per visualizzare l'ID di classe DHCP per tutte le schede, utilizzare l'asterisco ( **&#42;** ) carattere jolly al posto di *Adapter*. Questo parametro è disponibile solo nei computer con schede di rete configurate per ottenere automaticamente un indirizzo IP.|
 |/?|Visualizza la Guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   Questo comando è particolarmente utile nei computer configurati per ottenere automaticamente un indirizzo IP. Ciò consente agli utenti di determinare quali valori di configurazione TCP/IP sono stati configurati tramite DHCP, APIPA Automatic Private IP Addressing () o una configurazione alternativa.
--   Se il nome fornito per *Adapter* contiene spazi, utilizzare racchiudere tra virgolette il nome dell'adapter (esempio: **"***Nome dell'adapter***"**).
--   Per i nomi di adapter **ipconfig** supporta l'uso del carattere jolly asterisco (*) per specificare schede con nomi che iniziano con una stringa specificata o schede con nomi che contengono la stringa specificata. Ad esempio, **locale\***  corrisponde a tutte le schede che iniziano con la stringa Local e **\*Con\*** corrisponde a tutte le schede che contengono la stringa Con.
+- Questo comando è particolarmente utile nei computer configurati per ottenere automaticamente un indirizzo IP. Ciò consente agli utenti di determinare quali valori di configurazione TCP/IP sono stati configurati tramite DHCP, APIPA Automatic Private IP Addressing () o una configurazione alternativa.
+- Se il nome fornito per *Adapter* contiene spazi, utilizzare racchiudere tra virgolette il nome dell'adapter (esempio: **"** <em>Nome adapter</em> **"** ).
+- Per i nomi di adapter, **ipconfig** supporta l'utilizzo dell'asterisco ( *) carattere jolly per specificare schede con nomi che iniziano con una stringa specificata o schede con nomi che contengono una stringa specificata. Ad esempio, **locale\\** *   corrisponde a tutte le schede che iniziano con la stringa Local e  **\*Con\\** * corrisponde a tutte le schede che contengono il stringa Con.
 
 ## <a name="examples"></a>Esempi
 
@@ -84,4 +84,4 @@ ipconfig /setclassid "Local Area Connection" TEST
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

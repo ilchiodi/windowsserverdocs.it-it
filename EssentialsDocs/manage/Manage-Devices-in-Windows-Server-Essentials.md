@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d740b71a2c3b9ed8ddb0ecfae6da2cf7d4f689a5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720410"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433327"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gestire i dispositivi in Windows Server Essentials
 
@@ -64,13 +64,13 @@ ms.locfileid: "63720410"
   
 #### <a name="to-view-the-status-of-network-computers"></a>Per visualizzare lo stato dei computer di rete  
   
-1.  Aprire il dashboard di Windows Server Essentials.  
+1. Aprire il dashboard di Windows Server Essentials.  
   
-2.  Sulla barra di spostamento fare clic su **Dispositivi**.  
+2. Sulla barra di spostamento fare clic su **Dispositivi**.  
   
-3.  Visualizzare lo stato di tutti i computer della rete nel riquadro elenco.  
+3. Visualizzare lo stato di tutti i computer della rete nel riquadro elenco.  
   
- La tabella seguente descrive le varie attività relative a computer e backup disponibili nel dashboard di Windows Server Essentials. Alcune attività sono specifiche del computer e sono visibili solo se si seleziona un computer nell'elenco.  
+   La tabella seguente descrive le varie attività relative a computer e backup disponibili nel dashboard di Windows Server Essentials. Alcune attività sono specifiche del computer e sono visibili solo se si seleziona un computer nell'elenco.  
   
 ### <a name="computer-tasks-in-the-dashboard"></a>Attività relative ai computer nel dashboard  
   

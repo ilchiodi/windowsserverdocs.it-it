@@ -9,12 +9,12 @@ ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d0cf1e1d6b1681a0f18908b08cd17572159e0462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0ea129fe2230332c0099d735f064768bce9fc50c
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881752"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812273"
 ---
 # <a name="network-load-balancing"></a>Bilanciamento carico di rete
 
@@ -22,8 +22,8 @@ ms.locfileid: "59881752"
 
 In questo argomento, ti offriamo una panoramica del bilanciamento carico di rete \(NLB\) funzionalità in Windows Server 2016. È possibile utilizzare Bilanciamento carico di rete per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e scalabilità delle applicazioni server Internet come quelli usati sul web, FTP, firewall, proxy, rete privata virtuale \(VPN\)e altri mission\-server critici.  
 
->[!NOTE]
->Windows Server 2016 include un nuovo ispirata Azure Software Load Balancer \(SLB\) come componente di Software Defined Networking \(SDN\) dell'infrastruttura. Usare SLB invece di bilanciamento carico di rete se si usa SDN, Usa i carichi di lavoro non-Windows, necessario NAT in uscita \(NAT\), o livello 3 è necessario \(L3\) o il bilanciamento del carico non basati su TCP. È possibile continuare a usare bilanciamento carico di rete con Windows Server 2016 per le distribuzioni non SDN. Per altre informazioni sul bilanciamento del carico software, vedere [bilanciamento del carico Software (SLB) per SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+> [!NOTE]
+> Windows Server 2016 include un nuovo ispirata Azure Software Load Balancer \(SLB\) come componente di Software Defined Networking \(SDN\) dell'infrastruttura. Usare SLB invece di bilanciamento carico di rete se si usa SDN, Usa i carichi di lavoro non-Windows, necessario NAT in uscita \(NAT\), o livello 3 è necessario \(L3\) o il bilanciamento del carico non basati su TCP. È possibile continuare a usare bilanciamento carico di rete con Windows Server 2016 per le distribuzioni non SDN. Per altre informazioni sul bilanciamento del carico software, vedere [bilanciamento del carico Software (SLB) per SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
 
 Il bilanciamento del carico di rete \(NLB\) funzionalità distribuisce il traffico tra più server utilizzando il protocollo TCP\/protocollo di rete IP. Combinando due o più computer che eseguono le applicazioni in un singolo cluster virtuale, Bilanciamento carico di rete offre affidabilità e prestazioni per server web e altri mission\-server critici.  
   
