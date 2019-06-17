@@ -35,9 +35,9 @@
 
 ## Connettiti ad Azure
 ### [Servizi ibridi di Azure](azure/index.md)
-#### [Backup di Azure](azure/azure-backup.md)
+#### [Azure Backup](azure/azure-backup.md)
 #### [Azure Site Recovery](azure/azure-site-recovery.md)
-#### [Sincronizzazione File di Azure](azure/azure-file-sync.md)
+#### [Sincronizzazione file di Azure](azure/azure-file-sync.md)
 #### [Monitoraggio di Azure](azure/azure-monitor.md)
 #### [Gestione aggiornamenti di Azure](azure/azure-update-management.md)
 ### [Connettere Windows Admin Center ad Azure](azure/azure-integration.md)
@@ -71,7 +71,7 @@
 #### [Utilizzo di PowerShell nell'estensione](extend/guides/powershell.md)
 #### [Guida dell'icona CSS](extend/guides/cssicons.md)
 #### [Eseguire la migrazione all'SDK più recente](extend/guides/migration-guide-0_1-1_0.md)
-#### [Abilitare il banner di individuazione di estensione](extend/guides/extension-discovery-banner.md)
+#### [Abilitare il banner di individuazione dell'estensione](extend/guides/extension-discovery-banner.md)
 ### [Pubblicazione delle estensioni](extend/publish-extensions.md)
 ### Case study
 #### [DataON](extend/case-studies/dataon.md)

@@ -5,5 +5,5 @@
 ## [SDN (Software Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/)
 ## [Windows Admin Center](../manage/windows-admin-center/overview.md)
 ## [Connettersi ad Azure](../azure-hybrid-services/index.md)
-## [Azure Stack uomo](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview)
+## [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview)
 ## [Software-defined per Windows Server](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)

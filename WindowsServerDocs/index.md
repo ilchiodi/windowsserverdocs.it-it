@@ -38,7 +38,7 @@ ms.locfileid: "66462164"
                                         </div>
                                         <div class="cardText">
                                             <h2>Novità</h2>
-                                            <p>Scopri i&#39;s novità di Windows Server</p>
+                                            <p>Scopri le novità di Windows Server</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,8 +135,8 @@ ms.locfileid: "66462164"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Connettersi ai servizi di Azure hybrid</h2>
-                                            <p>Connessione server o cluster ai servizi di Azure hybrid per combina il meglio di siti locali e cloud.</p>
+                                            <h2>Connessione ai servizi ibridi di Azure</h2>
+                                            <p>Connetti il server o il cluster ai servizi ibridi di Azure per combinare il meglio dell'infrastruttura locale e del cloud.</p>
             </li>
                     <li class="fullSpan">
                     <HR COLOR="purple" SIZE="6" WIDTH="60%">
@@ -280,7 +280,7 @@ ms.locfileid: "66462164"
        <hr width="80%">
             <li>2. <a href="https://docs.microsoft.com/windows-server/failover-clustering/failover-cluster-csvs">Usare i volumi condivisi del cluster in un cluster di failover</a></li>
        <hr width="80%">
-            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Cosa&#39;s novità di Clustering di Failover</a></li>
+            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Novità relative alla funzionalità Clustering di failover</a></li>
             </ol>
         </td>
     </tr>
@@ -451,7 +451,7 @@ ms.locfileid: "66462164"
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings">Impostazioni del Registro di sistema TLS</a></li>
        <hr width="80%">
-            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Materiale sussidiario sulla disabilitazione di servizi di sistema in Windows Server 2016 con esperienza Desktop </a></li>
+            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Linee guida di sicurezza per la disattivazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop</a></li>
        <hr width="80%">
             <li>3. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication">Processi di credenziali in Autenticazione di Windows</a></li>
             </ol>

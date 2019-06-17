@@ -11,12 +11,12 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 3591e17c9485fc8f9e365f6322c4f48e783db8ce
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cf1144886ec5ae723b7747bb7dd72f235944d06c
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442236"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67141353"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Scegliere tra i checkpoint standard o di produzione in Hyper-V
 
@@ -48,7 +48,7 @@ A partire da Windows 10 e Windows Server 2016, è possibile scegliere tra i chec
 
 ## <a name="see-also"></a>Vedere anche  
   
--   [Punti di controllo di produzione](../What-s-new-in-Hyper-V-on-Windows.md#BKMK_check)  
+-   [Punti di controllo di produzione](../What-s-new-in-Hyper-V-on-Windows.md#production-checkpoints-new)  
   
 -   [Abilitare o disabilitare i checkpoint](Enable-or-disable-checkpoints-in-Hyper-V.md)  
   
