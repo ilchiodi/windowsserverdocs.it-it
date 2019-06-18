@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 879a87d4383d07e37227ecf6fffa5d002a77bbc0
+ms.sourcegitcommit: 214e827934e7b3e8987e9e0ab2cf00047d332c89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447654"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153314"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usa il servizio di migrazione di archiviazione per eseguire la migrazione di un server
 
@@ -35,7 +35,7 @@ Prima di iniziare, installare il servizio di migrazione di archiviazione e assic
     - Strumentazione gestione Windows (WMI-In)
 
    > [!NOTE]
-   > Se si usano firewall di terze parti, gli intervalli di porte in ingresso per aprire sono TCP/445 (SMB) TCP/135 (agente mapping endpoint RPC/DCOM) e TCP tra 1025 e 65535 (porte temporanee RPC/DCOM).
+   > Se si usano firewall di terze parti, gli intervalli di porte in ingresso per aprire sono TCP/445 (SMB) TCP/135 (agente mapping endpoint RPC/DCOM) e TCP tra 1025 e 65535 (porte temporanee RPC/DCOM). Le porte del servizio di migrazione dell'archiviazione sono TCP/28940 (Orchestrator) e TCP/28941 (Proxy).
 
 1. Se si usa un server dell'agente di orchestrazione per gestire la migrazione e si vuole scaricare un log dei dati si trasferiscono o eventi, verificare che la condivisione File e stampanti (SMB-In) regola del firewall sia abilitata tale anche nel server.
 
