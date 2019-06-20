@@ -11,12 +11,12 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
-ms.openlocfilehash: d6204bc0b6e00980a56356d999f567e2f583027a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2692869ac4ff1302a4f36533ba8788148db7b73f
+ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433768"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67263018"
 ---
 # <a name="whats-new-in-windows-server-2019-essentials"></a>Novità di Windows Server 2019 Essentials
 
@@ -36,12 +36,6 @@ Con funzionalità deprecate di ruolo di esperienza Essentials Server, le funzion
 Nel corso degli anni dopo il rilascio di Windows Server 2016 Essentials, abbiamo lavorato sodo su una soluzione per piccole e grandi aziende Avanti: Microsoft 365. Microsoft 365 è vivamente consigliabile per le piccole aziende come una sostituzione per tutte le versioni di Windows Server Essentials. Microsoft 365 è una soluzione moderna per la collaborazione e condivisione file e include Office 365, Windows 10 ed Enterprise Mobility + Security. 
 
 Evoluzione dell'azienda ulteriormente con [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business), che include anche altre funzionalità di Office, come la posta elettronica e calendari, file di archiviazione cloud, protezione dei dati e così via. Microsoft 365 Business consentirà alle piccole aziende di raggiungere nuovi livelli di produttività.
-
-## <a name="aad-connect-can-now-be-installed-on-windows-server-2019-essentials"></a>AAD Connect ora può essere installato su Windows Server Essentials 2019
-
-<a name="windows-server-2019-essentials-includes-new-support-for-azure-active-directory-via-aad-connecthttpsdocsmicrosoftcomazureactive-directoryconnectactive-directory-aadconnect-prerequisites"></a>Windows Server Essentials 2019 include il nuovo supporto per Azure Active Directory tramite [AAD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites). 
-=======
-Evoluzione dell'azienda ulteriormente con [Microsoft 365 Business](https://www.microsoft.com/en-us/microsoft-365/business), che include anche altre funzionalità di Office, come la posta elettronica e calendari, file di archiviazione cloud, protezione dei dati e così via. Microsoft 365 Business consentirà alle piccole aziende di raggiungere nuovi livelli di produttività.
 
 ## <a name="aad-connect-can-now-be-installed-on-windows-server-2019-essentials"></a>AAD Connect ora può essere installato su Windows Server Essentials 2019
 
