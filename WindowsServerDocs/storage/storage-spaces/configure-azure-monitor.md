@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 908e4a7a75606905caebfa4b79168b3976982e6d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b229696e796f176fe89ab250ab48f1d9f0d5666
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447590"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280197"
 ---
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Usare monitoraggio di Azure per inviare messaggi di posta elettronica per gli errori del servizio integrità
@@ -31,11 +31,11 @@ Ciò è particolarmente utile per il cluster iperconvergente in locale. Monitora
 
 Tutti i dati raccolti da monitoraggio di Azure rientra in uno dei due tipi fondamentali: metriche e log.
 
-1. [Le metriche](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare punto nel tempo. Sono in grado di supportare scenari in tempo reale quasi e leggero. Si noterà che i dati raccolti da destra a monitoraggio di Azure nella loro pagina di panoramica nel portale di Azure.
+1. [Le metriche](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare punto nel tempo. Sono in grado di supportare scenari in tempo reale quasi e leggero. Si noterà che i dati raccolti da destra a monitoraggio di Azure nella loro pagina di panoramica nel portale di Azure.
 
 ![immagine di inserimento in blocco le metriche in Esplora metriche](media/configure-azure-monitor/metrics.png)
 
-2. [I log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#logs) contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, ad esempio eventi e tracce vengono archiviati sotto forma di log anche per i dati sulle prestazioni in modo che si possono tutti essere combinato per l'analisi. I dati di log raccolti da monitoraggio di Azure possono essere analizzati con [query](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview) recuperare, consolidare e analizzare i dati raccolti. È possibile creare e testare le query che utilizzano [Log Analitica](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/portals) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](https://docs.microsoft.com/en-us/azure/azure-monitor/visualizations) o [avviso le regole](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview).
+2. [I log](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#logs) contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, ad esempio eventi e tracce vengono archiviati sotto forma di log anche per i dati sulle prestazioni in modo che si possono tutti essere combinato per l'analisi. I dati di log raccolti da monitoraggio di Azure possono essere analizzati con [query](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) recuperare, consolidare e analizzare i dati raccolti. È possibile creare e testare le query che utilizzano [Log Analitica](https://docs.microsoft.com/azure/azure-monitor/log-query/portals) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](https://docs.microsoft.com/azure/azure-monitor/visualizations) o [avviso le regole](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ![immagine dei log, l'inserimento di analitica di log](media/configure-azure-monitor/logs.png)
 
@@ -64,9 +64,9 @@ Quando si esegue il cmdlet precedente per configurare le impostazioni di integri
 
 Dopo aver creato il programma di installazione di registrazione appropriate nel cluster, il passaggio successivo consiste nel configurare correttamente log analitica.
 
-Fornire una panoramica [Azure Log Analitica](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows) può raccogliere i dati direttamente dai computer Windows fisico o virtuale nel tuo Data Center o un altro ambiente cloud in un unico repository per procedere a analisi dettagliate e la correlazione.
+Fornire una panoramica [Azure Log Analitica](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) può raccogliere i dati direttamente dai computer Windows fisico o virtuale nel tuo Data Center o un altro ambiente cloud in un unico repository per procedere a analisi dettagliate e la correlazione.
 
-Per comprendere la configurazione supportata, esaminare [sistemi operativi Windows supportati](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) e [configurazione del firewall di rete](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
+Per comprendere la configurazione supportata, esaminare [sistemi operativi Windows supportati](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) e [configurazione del firewall di rete](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
 
 Se non hai una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -76,7 +76,7 @@ Accedere al portale di Azure all'indirizzo [ https://portal.azure.com ](https://
 
 ### <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-Per altre informazioni sui passaggi elencati di seguito, vedere la [documentazione di monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-collect-windows-computer).
+Per altre informazioni sui passaggi elencati di seguito, vedere la [documentazione di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-windows-computer).
 
 1. Nel portale di Azure, fare clic su **tutti i servizi**. Nell'elenco delle risorse, digitare **Log Analitica**. Come si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analitica**.<br><br> 
 
@@ -123,7 +123,7 @@ Al termine dell'esercitazione, il **Microsoft Monitoring Agent** viene visualizz
 
 ![Stato della connessione di MMA a Log Analitica](media/configure-azure-monitor/log-analytics-mma-laworkspace-status.png)
 
-Per comprendere la configurazione supportata, esaminare [sistemi operativi Windows supportati](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) e [configurazione del firewall di rete](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
+Per comprendere la configurazione supportata, esaminare [sistemi operativi Windows supportati](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) e [configurazione del firewall di rete](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
 
 ## <a name="collecting-event-and-performance-data"></a>La raccolta dei dati di eventi e delle prestazioni
 
@@ -187,7 +187,7 @@ A questo punto, passiamo a esaminare un esempio per la creazione di un avviso.
    b. Per il **Condition**, selezionare **maggiore** e specificare un thershold.  
    c. Quindi, definire quando attivare l'avviso. Ad esempio è possibile selezionare **violazioni Consecutive** e nell'elenco a discesa selezionare **maggiore** un valore pari a 3.  
    d. Basato sulla sezione di propagazione, modificare il **periodo** valore **30** minuti e **frequenza** a 5. La regola verrà eseguita ogni cinque minuti e restituire i record creati negli ultimi trenta minuti dall'ora corrente.  Impostazione del periodo di tempo a una finestra più ampia di account per il potenziale di latenza dei dati e garantisce che la query restituisce dati per evitare un falso negativo dove, l'avviso non viene mai attivato.  
-6. Fare clic su **** per completare la regola di avviso.<br><br> ![Configurare il segnale di avviso](media/configure-azure-monitor/alert-signal-logic-02.png)<br> 
+6. Fare clic su **Fatto** per completare la regola di avviso.<br><br> ![Configurare il segnale di avviso](media/configure-azure-monitor/alert-signal-logic-02.png)<br> 
 7. Ora spostare nel secondo passaggio, fornire un nome dell'avviso nel **nome regola di avviso** campo, ad esempio **avviso su tutti gli eventi di errore**.  Specificare una **Description** che riporta in dettaglio le specifiche per l'avviso e selezionare **critico (gravità 0)** per il **gravità** valore dalle opzioni fornite.
 8. Per attivare immediatamente la regola di avviso durante la creazione, accettare il valore predefinito per **Abilita regola alla creazione**.
 9. Per il terzo e ultimo passaggio, si specifica un **gruppo di azioni**, che assicura che vengono eseguite le stesse azioni ogni volta che un avviso viene attivato e può essere usato per ogni regola è definire. Configurare un nuovo gruppo di azioni con le informazioni seguenti:  
@@ -212,4 +212,4 @@ Per riferimento, si tratta di come appare un avviso di esempio:
 ## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
-- Per informazioni più dettagliate, leggere il [documentazione di monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-viewdata).
+- Per informazioni più dettagliate, leggere il [documentazione di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata).
