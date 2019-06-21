@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Questo articolo descrive lo spostamento di un cluster di Windows Server 2019 da un dominio a altro
 ms.localizationpriority: medium
-ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 5d5aaa333d2e20fa25e4738e343f326d63f75c6b
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452935"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280217"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migrazione del dominio Cluster di failover
 
@@ -61,7 +61,7 @@ La seconda opzione è meno distruttiva ma richiede hardware aggiuntivo perché s
 Come mostra l'animazione, questa opzione non è distruttiva ma richiedono un hardware diverso o un nodo dal cluster esistente che è stato rimosso.
 
 1. Creare un nuovo clusterin il nuovo dominio mantenendo al contempo il vecchio cluster disponibili.
-2. Usare la [migrazione guidata Cluster](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) per eseguire la migrazione di tutte le risorse nel nuovo cluster. Promemoria, ciò non copia i dati, in modo che dovrà essere eseguito separatamente.
+2. Usare la [migrazione guidata Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) per eseguire la migrazione di tutte le risorse nel nuovo cluster. Promemoria, ciò non copia i dati, in modo che dovrà essere eseguito separatamente.
 3. Rimuovere le autorizzazioni o Elimina il vecchio cluster.
 
 In entrambe le opzioni, nel nuovo cluster dovrà avere tutti [compatibile con cluster applicazioni](https://technet.microsoft.com/aa369082(v=vs.90)) installato, i driver tutto aggiornato, e possibilmente test per assicurarsi che tutte verrà eseguito correttamente.  Si tratta di un processo molto tempo se i dati devono anche essere spostato.

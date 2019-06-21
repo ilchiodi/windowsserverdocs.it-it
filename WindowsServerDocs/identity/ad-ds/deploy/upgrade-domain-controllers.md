@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 572f923c33739b854808372a826e9c9bbc6aaca3
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719674"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280849"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Aggiornare i controller di dominio a Windows Server 2016
 
@@ -27,7 +27,7 @@ Il metodo consigliato per aggiornare un dominio è alzare di livello controller 
 1. Verificare che il server di destinazione soddisfi i requisiti di sistema. 
 2. Verificare la compatibilità delle applicazioni. 
 3. Esaminare i suggerimenti per lo spostamento in Windows Server 2016 
-4. Verificare le impostazioni di sicurezza Per altre informazioni, vedere [caratteristiche deprecate e modifiche del comportamento relative a Active Directory Domain Services in Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features). 
+4. Verificare le impostazioni di sicurezza Per altre informazioni, vedere [caratteristiche deprecate e modifiche del comportamento relative a Active Directory Domain Services in Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/deprecated-features). 
 5. Controllare la connettività al server di destinazione dal computer in cui si prevede di eseguire l'installazione. 
 6. Controllare la disponibilità dei ruoli master operazione necessari: 
    - Per installare il primo controller di dominio che esegue Windows Server 2016 in un dominio esistente e una foresta, il computer in cui si esegue l'installazione richiede la connettività per il **master schema** per poter eseguire adprep /forestprep e al master infrastrutture Per poter eseguire adprep /domainprep. 

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2edf0fef80cfcfb2c754cacd53df3b38c3881733
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2db802fa928a4051fbe409fc0ba60d774bb0428
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844612"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284047"
 ---
 # <a name="dns-resource-record-management"></a>Gestione di record di risorse DNS
 
@@ -115,7 +114,7 @@ Gestione indirizzi IP consente di eseguire le operazioni seguenti nel record di 
 Gestione indirizzi IP registra automaticamente tutte le modifiche di configurazione DNS che vengono apportate utilizzando la console di gestione indirizzi IP.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestire gestione indirizzi IP](Manage-IPAM.md)  
+[Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 
 

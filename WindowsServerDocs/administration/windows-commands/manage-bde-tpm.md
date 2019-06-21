@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d41c846034ad421d0da81bda57acbcd419c1ae1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bc3cfa583866335d214282be08366854dec77d0f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437395"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280001"
 ---
 # <a name="manage-bde-tpm"></a>manage-bde: tpm
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > [!IMPORTANT]
-> Questo comando non è supportato per l'utilizzo in computer che eseguono Windows 8, Windows Server 2012 o versioni successive. Per tali computer, è possibile utilizzare il [Gestione TPM cmdlet Windows PowerShell per](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/).
+> Questo comando non è supportato per l'utilizzo in computer che eseguono Windows 8, Windows Server 2012 o versioni successive. Per tali computer, è possibile utilizzare il [Gestione TPM cmdlet Windows PowerShell per](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
 > Se si utilizza questo comando nel computer che esegue Windows 7 o Windows Server 2008, è comunque possibile configurare modulo TPM del computer (Trusted Platform) con il seguente comando. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 > ## <a name="syntax"></a>Sintassi
 > ```

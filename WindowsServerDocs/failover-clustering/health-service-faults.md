@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 31a38eacea3af3c0a288d61a77a24b4fa45a1932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72b1593503db75aa275b9eb45c8342cee6724001
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843372"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280393"
 ---
 # <a name="health-service-faults"></a>Errori del servizio integrità
-> Si applica a Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-faults"></a>Quali sono gli errori
 
@@ -136,7 +136,7 @@ public void DiscoverObjects(CimSession Session)
 
 Questi sono gli stessi oggetti è visualizzato in PowerShell usando i cmdlet, ad esempio **Get-StorageSubSystem**, **Get-StorageNode**, e **Get-Volume**.
 
-È possibile accedere le stesse proprietà, documentata in [classi API di gestione archiviazione](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+È possibile accedere le stesse proprietà, documentata in [classi API di gestione archiviazione](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -291,7 +291,7 @@ Questa tabella presenta diverse proprietà chiave dell'oggetto errore. Per lo sc
 |---------------------------|-----------------------------------------------------------------|
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft.Health.FaultType.Volume.Capacity                      |
-| Motivo                    | "Il volume è quasi esaurito lo spazio disponibile."                 |
+| `Reason`                    | "Il volume è quasi esaurito lo spazio disponibile."                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Installare in rack A06, UR 25, lo Slot 11                                        |
@@ -318,7 +318,7 @@ Si noti il **ChangeType**, che indica se viene creato, un errore, rimossi o aggi
 | ChangeType                | 0                                                               |
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft.Health.FaultType.Volume.Capacity                      |
-| Motivo                    | "Il volume è quasi esaurito lo spazio disponibile."                 |
+| `Reason`                    | "Il volume è quasi esaurito lo spazio disponibile."                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Installare in rack A06, UR 25, lo Slot 11                                        |
@@ -391,7 +391,7 @@ In Windows Server 2016, il servizio integrità offre i tipi di errore seguenti:
 * Motivo: *"Il pool di archiviazione non è la capacità di riserva consigliato. Tale condizione può limitare la possibilità di ripristinare la resilienza dei dati in caso di errori di unità."*
 * RecommendedAction: *"Aggiungere ulteriore capacità per il pool di archiviazione oppure liberare la capacità. Il valore minimo consigliato riserva varia con la distribuzione, ma è il patrimonio di circa 2 unità di capacità."*
 
-### <a name="volume-capacity-2sup1sup"></a>**Capacità del volume (2)**<sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**Capacità del volume (2)** <sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft.Health.FaultType.Volume.Capacity
 * Gravità: Avviso
@@ -498,7 +498,7 @@ In Windows Server 2016, il servizio integrità offre i tipi di errore seguenti:
 * Motivo: *"Implementazione del firmware è stato annullato a causa di troppi dischi fisici in mancanza di un tentativo di aggiornamento del firmware."*
 * RecommendedAction: *"Restart firmware il rollout dopo che è stato risolto il problema del firmware."*
 
-### <a name="storage-qos-3sup2sup"></a>**QoS di archiviazione (3)**<sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**QoS di archiviazione (3)** <sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType: Microsoft.Health.FaultType.StorQos.InsufficientThroughput
 * Gravità: Avviso

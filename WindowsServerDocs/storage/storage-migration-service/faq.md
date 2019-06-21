@@ -8,12 +8,12 @@ ms.date: 06/04/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 258f25a7e1ec5c796c15450625397e96db25d693
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8f0f16f14ccf9099af8ff8bb8b27209c75c87cfc
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501517"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284462"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) il servizio di migrazione archiviazione
 
@@ -131,7 +131,7 @@ Il servizio di migrazione di archiviazione contiene un motore di copia, denomina
 
 - **Abilitare l'elaborazione ad alte prestazioni.** Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio di energia in Windows Server è impostato su prestazioni elevate. Riavviare se necessario. Non dimenticare di restituire questi state appropriate dopo il completamento della migrazione. 
 
-- **Ottimizzare l'hardware** esaminare i [Performance Tuning linee guida per Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/) per l'ottimizzazione di orchestrator e computer di destinazione che esegue Windows Server 2019 e Windows Server 2016. Il [ottimizzazione delle prestazioni di rete sottosistema](https://docs.microsoft.com/en-us/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) sezione contiene informazioni particolarmente utili.
+- **Ottimizzare l'hardware** esaminare i [Performance Tuning linee guida per Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) per l'ottimizzazione di orchestrator e computer di destinazione che esegue Windows Server 2019 e Windows Server 2016. Il [ottimizzazione delle prestazioni di rete sottosistema](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) sezione contiene informazioni particolarmente utili.
 
 - **Usare l'archiviazione più veloce.** Anche se potrebbe essere difficile aggiornare la velocità di archiviazione di computer di origine, è necessario assicurarsi che la risorsa di archiviazione di destinazione sia almeno come velocità con cui l'origine è in lettura delle prestazioni dei / o per assicurare che non vi è alcun collo di bottiglia non necessario nei trasferimenti con prestazioni dei / o scrittura. Se la destinazione è una macchina virtuale, verificare che, almeno ai fini della migrazione, l'esecuzione nel livello di archiviazione più veloce gli host hypervisor, ad esempio il livello di memoria flash o con i cluster uomo diretta spazi di archiviazione che usano con mirroring all-flash o ibrida spazi. Una volta completata la migrazione di SMS la macchina virtuale può essere in tempo reale la migrazione a un host o un livello più lento.
 

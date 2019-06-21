@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e9c293d04f1fd1b8091b768e49db554a23e7ce95
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846562"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280577"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Come vengono gestiti i cookie del server LDAP
 
@@ -128,7 +128,7 @@ Se nel controller di dominio o nel server LDAP viene visualizzato l'evento 2898,
   
 Se l'evento 2899 persiste con un pool di 250 MB o più, è probabile che molti client con un numero elevato di oggetti restituiti abbiamo eseguito una query con un'elevata frequenza. I dati è possibile raccogliere con il [insieme agenti di raccolta dati di Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) può occupato consentono di trovare query di paging ripetitive che mantengono i server LDAP. Tali query verranno visualizzate con un numero di "Voci restituite" che corrisponde alle dimensioni della pagina usata.  
   
-Se possibile, è necessario rivedere la progettazione dell'applicazione e implementare un approccio diverso con una frequenza inferiore, volume di dati e/o meno istanze del client relative a questi dati. In caso di applicazioni per cui si dispone di accesso al codice sorgente, questa guida per [creazione di applicazioni efficienti AD-Enabled](https://msdn.microsoft.com/en-us/library/ms808539.aspx) possono aiutare a comprendere il modo ottimale per l'accesso AD delle applicazioni.  
+Se possibile, è necessario rivedere la progettazione dell'applicazione e implementare un approccio diverso con una frequenza inferiore, volume di dati e/o meno istanze del client relative a questi dati. In caso di applicazioni per cui si dispone di accesso al codice sorgente, questa guida per [creazione di applicazioni efficienti AD-Enabled](https://msdn.microsoft.com/library/ms808539.aspx) possono aiutare a comprendere il modo ottimale per l'accesso AD delle applicazioni.  
   
 Se non è possibile modificare il comportamento di query, un approccio consiste nell'aggiungere più istanze replicate dei contesti dei nomi necessiti per ridistribuire i client e alla fine di ridurre il carico sui singoli server LDAP.  
   

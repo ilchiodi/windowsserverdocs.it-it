@@ -7,12 +7,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: a0062230dd3d9e9c52aa317f87e06b0e84507dc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad8e2a8eade1ea9d3faaba8f387b1f489854e589
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861062"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280628"
 ---
 # <a name="deploy-windows-admin-center-with-high-availability"></a>Distribuire Windows Admin Center con la disponibilità elevata
 
@@ -74,7 +74,7 @@ Quando viene rilasciata una nuova versione di Windows Admin Center, è sufficien
 
 ### <a name="update-the-certificate-used-by-windows-admin-center"></a>Aggiornare il certificato utilizzato da Windows Admin Center
 
-È possibile aggiornare il certificato usato da una distribuzione a disponibilità elevata di Windows Admin Center in qualsiasi momento, fornendo i file con estensione pfx del certificato nuovo ed e la password.
+È possibile aggiornare il certificato usato da una distribuzione a disponibilità elevata di Windows Admin Center in qualsiasi momento, fornendo i file con estensione pfx del certificato nuovo e una password.
 
 ```powershell
 $certPassword = Read-Host -AsSecureString

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8f0840cc6e87b2a4c087b889ec939242dae9343b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7436a41e167b4d01af0ff9cf294aaf4e5a2d8393
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845822"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282063"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>Visualizzare i record di risorse DNS per un indirizzo IP specifico
 
@@ -42,7 +41,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestione dei Record risorse DNS](DNS-Resource-Record-Management.md)  
-[Gestire gestione indirizzi IP](Manage-IPAM.md)  
+[Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 
 

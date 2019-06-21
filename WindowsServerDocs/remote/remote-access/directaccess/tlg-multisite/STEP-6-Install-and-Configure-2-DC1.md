@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4f31c0e1d36ff458fb4807ab6856a56498f449ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3e12f9d64619ce00e578c7a8096c764e68ff7d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838182"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283165"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>PASSAGGIO 6 di installare e configurare 2-DC1
 
@@ -74,7 +73,7 @@ Configurare il protocollo TCP/IP con indirizzi IP statici.
   
 6.  Nella **suffisso DNS per la connessione**, digitare **corp2.corp.contoso.com**, quindi fare clic su **OK** due volte.  
   
-7.  Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)**, quindi fare clic su **Proprietà**.  
+7.  Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)** , quindi fare clic su **Proprietà**.  
   
 8.  Fare clic su **Usa l'indirizzo IPv6 seguente**. Nelle **indirizzo IPv6**, digitare **2001:db8:2::1**. Nelle **lunghezza prefisso Subnet**, digitare **64**. Nelle **gateway predefinito**, digitare **2001:db8:2::fe**. Fare clic su **utilizza i seguenti indirizzi server DNS**, nel **server DNS preferito**, digitare **2001:db8:2::1**e nella **server DNS alternativo**, tipo di **2001:db8:1::1**.  
   
@@ -121,7 +120,7 @@ Configurare 2-DC1 come controller di dominio per il dominio corp2.corp.contoso.c
   
 8.  In **fornire le credenziali per eseguire questa operazione**, fare clic su **Modifica**. Nel **sicurezza di Windows** nella finestra di dialogo **nome utente**, tipo **corp.contoso.com\Administrator**e nella **Password**, immettere il corp \ Password dell'amministratore, fare clic su **OK**, quindi fare clic su **successivo**.  
   
-9. Nel **opzioni Controller di dominio** pagina, assicurarsi che le **nome sito** viene **secondo sito**. Sotto **digitare la password modalità ripristino servizi Directory (DSRM)**, nel **Password** e **Conferma password**, digitare due volte una password complessa e quindi fare clic su  **Avanti** cinque volte.  
+9. Nel **opzioni Controller di dominio** pagina, assicurarsi che le **nome sito** viene **secondo sito**. Sotto **digitare la password modalità ripristino servizi Directory (DSRM)** , nel **Password** e **Conferma password**, digitare due volte una password complessa e quindi fare clic su  **Avanti** cinque volte.  
   
 10. Nel **controllo dei prerequisiti** pagina, dopo aver convalidati i prerequisiti, fare clic su **installare**.  
   
@@ -201,7 +200,7 @@ Prima di poter registrare certificati sulla EDGE1 2, è necessario forzare la re
   
 4.  Nel **DEFAULTIPSITELINK Properties** nella finestra di dialogo **costo**, tipo **1**nella **replicare ogni**, tipo **15**, quindi fare clic su **OK**. Attendere 15 minuti per il completamento della replica.  
   
-5.  Per forzare la replica ora nell'albero della console, espandere **impostazioni Sites\Default-primo-sito-name\Servers\DC1\NTDS**, nel riquadro dei dettagli, fare doppio clic su **<automatically generated>**, fare clic su  **Replicate Now**, quindi scegliere il **Replicate Now** nella finestra di dialogo fare clic su **OK**.  
+5.  Per forzare la replica ora nell'albero della console, espandere **impostazioni Sites\Default-primo-sito-name\Servers\DC1\NTDS**, nel riquadro dei dettagli, fare doppio clic su **<automatically generated>** , fare clic su  **Replicate Now**, quindi scegliere il **Replicate Now** nella finestra di dialogo fare clic su **OK**.  
   
 6.  Per garantire la replica è stata completata eseguire le operazioni seguenti:  
   

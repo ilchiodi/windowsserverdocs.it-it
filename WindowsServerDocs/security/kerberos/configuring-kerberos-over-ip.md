@@ -1,12 +1,12 @@
 ---
 title: Configurazione di Kerberos per l'indirizzo IP
 description: Supporto di Kerberos per i nomi SPN basato su IP
-ms.openlocfilehash: 30741f7a0f1978fcaa6ac83c98a54c07e1ef25c5
-ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
+ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391522"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67279972"
 ---
 # <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>I client Kerberos consentono i nomi host indirizzo di IPv4 e IPv6 in nomi dell'entità servizio (SPN)
 
@@ -30,7 +30,7 @@ Un nome dell'entità servizio è un identificatore univoco utilizzato durante l'
 
 Indirizzi IP non vengono usati in genere al posto di nomi host perché gli indirizzi IP sono spesso temporanei. Questo può causare conflitti ed errori di autenticazione come scadono e rinnovano di lease di indirizzi. Di conseguenza la registrazione di un SPN basato su indirizzi IP è un processo manuale e deve essere usata solo quando non è possibile passare a un nome host basati su DNS.
 
-L'approccio consigliato consiste nell'usare la [Setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) dello strumento. Si noti che un nome SPN può essere registrato solo a un singolo account in Active Directory in un momento pertanto è consigliabile che gli indirizzi IP con lease statici se si utilizza DHCP.
+L'approccio consigliato consiste nell'usare la [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) dello strumento. Si noti che un nome SPN può essere registrato solo a un singolo account in Active Directory in un momento pertanto è consigliabile che gli indirizzi IP con lease statici se si utilizza DHCP.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  

@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: Questo articolo descrive l'aggiornamento di un Cluster di Failover 2 nodi con lo stesso hardware
 ms.localizationpriority: medium
-ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 6787d852cc5075e306373a163814135190f27fd6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453056"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280247"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>L'aggiornamento di cluster di Failover sullo stesso hardware
 
@@ -25,7 +25,7 @@ Questa guida descrive i passaggi per l'aggiornamento di nodi del cluster a Windo
 
 ## <a name="overview"></a>Panoramica
 
-L'aggiornamento del sistema operativo in un caso di failover esistente cluster è supportato solo quando si passa da Windows Server 2016 per Windows 2019.  Se il cluster di failover è in esecuzione una versione precedente, ad esempio, ad esempio Windows Server 2012 R2 e versioni precedenti, l'aggiornamento mentre sono in esecuzione i servizi del cluster non consentirà unire i nodi.  Se si usa lo stesso hardware, è possono eseguire i passaggi per la versione più recente.  
+L'aggiornamento del sistema operativo in un caso di failover esistente cluster è supportato solo quando si passa da Windows Server 2016 per Windows 2019.  Se il cluster di failover è in esecuzione una versione precedente, ad esempio Windows Server 2012 R2 e versioni precedenti, l'aggiornamento mentre sono in esecuzione i servizi del cluster non consentirà unire i nodi.  Se si usa lo stesso hardware, è possono eseguire i passaggi per la versione più recente.  
 
 Prima di eseguire qualsiasi aggiornamento del cluster di failover, consultare il [centro aggiornamento Windows](https://www.microsoft.com/upgradecenter).  Quando si aggiorna un Server di Windows sul posto, si sposta da una versione del sistema operativo esistente a una versione più recente rimanendo sullo stesso hardware. Windows Server può essere aggiornato sul posto almeno uno e a volte due versioni di rollforward. Ad esempio, Windows Server 2012 R2 e Windows Server 2016 possono essere aggiornati sul posto a Windows Server 2019.  Inoltre, tenere presente che il [migrazione guidata Cluster](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) può essere usato ma è supportato solo un massimo di due versioni nuovamente. La figura seguente illustra i percorsi di aggiornamento per Windows Server. Le frecce verso il basso di puntamento rappresentano il percorso di aggiornamento supportato lo spostamento da versioni precedenti fino a Windows Server 2019.
 

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1640dbae52a1a7c93355b34822d72faa5351bcda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9810d7294a2651d4811bc5969eaf6a118db8ed56
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860312"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283272"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>PASSAGGIO 10 installare e configurare EDGE1 2
 
@@ -70,7 +69,7 @@ ms.locfileid: "59860312"
   
 8.  Nella **suffisso DNS per la connessione**, digitare **corp2.corp.contoso.com**, quindi fare clic su **OK** due volte.  
   
-9. Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)**, quindi fare clic su **Proprietà**.  
+9. Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)** , quindi fare clic su **Proprietà**.  
   
 10. Fare clic su **Usa l'indirizzo IPv6 seguente**. Nelle **indirizzo IPv6**, digitare **2001:db8:2::20**, in **lunghezza prefisso Subnet**, tipo **64**. Fare clic su **utilizza i seguenti indirizzi server DNS**e nella **server DNS preferito**, digitare **2001:db8:2::1**nella **server DNS alternativo**, tipo di **2001:db8:1::1**.  
   

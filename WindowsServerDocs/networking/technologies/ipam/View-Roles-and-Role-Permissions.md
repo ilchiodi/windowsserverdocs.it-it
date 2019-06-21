@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da8dce90-b54c-4ded-a48a-0cda5ccf1d8a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4061aa5218d8595ab518496b071b85feb2eaea32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8277c7f1a30d07bb3f040666cfd624b8831fd8c6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885202"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282051"
 ---
 # <a name="view-roles-and-role-permissions"></a>Visualizzare i ruoli e le autorizzazioni di ruolo
 
@@ -44,7 +43,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 ## <a name="see-also"></a>Vedere anche  
 [Controllo degli accessi in base al ruolo](Role-based-Access-Control.md)  
-[Gestire gestione indirizzi IP](Manage-IPAM.md)  
+[Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 
 

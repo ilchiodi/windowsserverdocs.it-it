@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de285d13-9e54-4c46-88f0-607182e5e3dc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3171eb9e9c90d0688fa413b80d9dbbf162e77fe8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab5deea9d594d6e9570d2472b5628a3d5fb8d616
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818422"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282730"
 ---
 # <a name="monitor-the-configuration-distribution-status-of-the-remote-access-server"></a>Monitorare lo stato di distribuzione della configurazione del server di accesso remoto
 
@@ -40,7 +39,7 @@ La tabella seguente contiene i messaggi visualizzati nel riquadro **Stato config
   
 |||||  
 |-|-|-|-|  
-|Gravità|Messaggio|Significato|Azioni necessarie|  
+|Severity|`Message`|Significato|Azioni necessarie|  
 |Riuscito|Distribuzione della configurazione completata.|La configurazione nell'oggetto Criteri di gruppo è stata applicata correttamente al server.|Nessuna azione necessaria.|  
 |Avviso|Configurazione per il server [*nome server*] non recuperata dal controller di dominio. L'oggetto Criteri di gruppo non è collegato.|La configurazione nell'oggetto Criteri di gruppo non ha ancora raggiunto il server. Il motivo potrebbe essere il mancato collegamento dell'oggetto Criteri di gruppo al server.|Collegare l'oggetto Criteri di gruppo a un ambito di gestione applicato al server oppure, in uno scenario in cui l'oggetto Criteri di gruppo è in gestione temporanea, esportare manualmente le impostazioni da quest'ultimo e importarle nell'oggetto Criteri di gruppo di produzione. Per altre informazioni su oggetti Criteri di gruppo di gestione temporanea, vedere **la gestione di GPO di accesso remoto con autorizzazioni limitate** nelle [Step-1-Plan-the-DirectAccess-Infrastructure](../../directaccess/single-server-advanced/Step-1-Plan-the-DirectAccess-Infrastructure.md). Per i passaggi di gestione temporanea oggetto Criteri di gruppo, vedere **configurazione di GPO di accesso remoto con autorizzazioni limitate** in [passaggio 1: Configurare l'infrastruttura DirectAccess](../../directaccess/single-server-advanced/Step-1-Configuring-DirectAccess-Infrastructure.md).|  
 |Avviso|Configurazione per il server [*nome server*] non ancora recuperata dal controller di dominio.|La configurazione nell'oggetto Criteri di gruppo non ha ancora raggiunto il server.<br /><br />La propagazione di una nuova configurazione potrebbe richiedere fino a 10 minuti.|Per l'aggiornamento dei criteri sul server prevedere un intervallo più lungo.|  

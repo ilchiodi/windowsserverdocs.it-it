@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-bc
+ms.technology: networking-bc
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9c465a9e-c504-44ec-9ebc-4e06ba54db30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 36d8379378529a94874c82e0aa90a6440f0281b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fd1757f6da011c2f774d8f97f628e5f0e87d3bf7
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822232"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284031"
 ---
 # <a name="enable-branchcache-on-a-file-share-optional"></a>Abilitare BranchCache in una condivisione di file (facoltativo)
 
@@ -39,7 +38,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 3.  In **Aggiungi o Rimuovi Snap-in**, in **snap-in disponibili**, fare doppio clic su **cartelle condivise**. Verrà visualizzata la procedura guidata cartelle condivise con l'oggetto Computer locale selezionato. Configurare la visualizzazione che si preferisce, fare clic su **Fine**, quindi fare clic su **OK**.  
   
-4.  Fare doppio clic su **cartelle condivise (locale)**, quindi fare clic su **condivisioni**.  
+4.  Fare doppio clic su **cartelle condivise (locale)** , quindi fare clic su **condivisioni**.  
   
 5.  Nel riquadro dei dettagli, fare doppio clic su una condivisione e quindi fare clic su **proprietà**. La condivisione **proprietà** verrà visualizzata la finestra di dialogo.  
   

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0692d47d50d84a66b5c3cc41d2ba2fca1004cafe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 708a2a71f798b842e38510a2c5ea8ed10ae7656e
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870882"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283364"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>PASSAGGIO 3 di installare e configurare EDGE2
 
@@ -58,7 +57,7 @@ Seguire i passaggi seguenti per configurare EDGE2:
   
 9. Nelle **suffisso DNS per la connessione**, digitare **corp.contoso.com**, fare clic su **OK** due volte.  
   
-10. Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)**, quindi fare clic su **Proprietà**.  
+10. Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)** , quindi fare clic su **Proprietà**.  
   
 11. Fare clic su **Usa l'indirizzo IPv6 seguente**. Nelle **indirizzo IPv6**, digitare **2001:db8:1::8**. Nelle **lunghezza prefisso Subnet**, digitare **64**.  
   

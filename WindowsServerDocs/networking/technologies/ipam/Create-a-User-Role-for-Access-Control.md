@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae6a42db-a104-401b-a8e6-b85c47d30b46
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 69d7acec19a460b51819bdc30ce40e21089c7bcf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3798b074a0ca7e20602da7986fe6b54e81da5495
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823582"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284101"
 ---
 # <a name="create-a-user-role-for-access-control"></a>Creare un ruolo utente per il controllo di accesso
 
@@ -61,7 +60,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 ## <a name="see-also"></a>Vedere anche  
 [Controllo degli accessi in base al ruolo](Role-based-Access-Control.md)  
-[Gestire gestione indirizzi IP](Manage-IPAM.md)  
+[Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 
 

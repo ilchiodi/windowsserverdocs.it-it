@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 771df80fc3130b5c4c03bf628a95d67b7df04b36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2655f4de83576ef62b113419a69badaacc868f9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888202"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281004"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Passaggio 2 piano infrastruttura multisito
 
@@ -64,7 +63,7 @@ Gruppi di sicurezza necessari sono i seguenti:
   
 -   Un gruppo di protezione per tutti i computer client Windows 8. È consigliabile creare un gruppo di sicurezza univoco per questi client per ogni dominio.  
   
--   Un gruppo di sicurezza contenente i computer client Windows 7 per ogni punto di ingresso. È consigliabile creare un gruppo univoco per ogni dominio. Ad esempio:  Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
+-   Un gruppo di sicurezza contenente i computer client Windows 7 per ogni punto di ingresso. È consigliabile creare un gruppo univoco per ogni dominio. Ad esempio: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
   
 ## <a name="bkmk_2_3_GPO"></a>2.3 oggetti Criteri di gruppo del piano  
 Impostazioni di DirectAccess configurate durante la distribuzione di accesso remoto vengono raccolti in oggetti Criteri di gruppo. La distribuzione a server singolo già utilizza oggetti Criteri di gruppo per i client DirectAccess, server di accesso remoto e, facoltativamente, per i server applicazioni. Una distribuzione multisito richiede i seguenti oggetti Criteri di gruppo:  
@@ -116,7 +115,7 @@ Tenere presente quanto segue quando si usano oggetti Criteri di gruppo creati ma
   
     -   **Oggetto Criteri di gruppo**- un oggetto Criteri di gruppo server per ogni punto di ingresso (nel dominio in cui si trova il punto di ingresso). Questo oggetto Criteri di gruppo verrà applicato in ogni server di accesso remoto nel punto di ingresso.  
   
-    -   **Oggetto Criteri di gruppo (Windows 7)**- un oggetto Criteri di gruppo per ogni punto di ingresso e ogni dominio contenente i computer client Windows 7 che si connetteranno ai punti di ingresso nella distribuzione multisito. Ad esempio Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Se nessuno dei computer client Windows 7 si connetterà ai punti di ingresso, oggetti Criteri di gruppo non sono necessari.  
+    -   **Oggetto Criteri di gruppo (Windows 7)** - un oggetto Criteri di gruppo per ogni punto di ingresso e ogni dominio contenente i computer client Windows 7 che si connetteranno ai punti di ingresso nella distribuzione multisito. Ad esempio Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Se nessuno dei computer client Windows 7 si connetterà ai punti di ingresso, oggetti Criteri di gruppo non sono necessari.  
   
 -   Non è necessario creare altri oggetti Criteri di gruppo per Windows 8 client computer. Un oggetto Criteri di gruppo per ogni dominio contenente i computer client è già stato creato quando è stato distribuito il singolo server di accesso remoto. In una distribuzione multisito questi oggetti Criteri di gruppo client funzionerà come i client di oggetti Criteri di gruppo per Windows 8.  
   

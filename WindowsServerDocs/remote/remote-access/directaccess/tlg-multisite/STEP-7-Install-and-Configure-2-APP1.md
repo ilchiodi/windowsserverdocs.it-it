@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cc0abc6-be4d-4cbe-bd0c-cc448bf294f6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8b0f91b4d2b876cb7b22dc8614e7ea5dcce6da2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4746ff5118814506d20983d3570881366297322f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833562"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283184"
 ---
 # <a name="step-7-install-and-configure-2-app1"></a>PASSAGGIO 7 di installare e configurare 2-APP1
 
@@ -66,7 +65,7 @@ Configurare le proprietà TCP/IP 2-APP1.
   
 6.  Fare clic su **avanzate**, quindi fare clic sui **DNS** scheda. Nelle **suffisso DNS per la connessione**, digitare **corp2.corp.contoso.com**, fare clic su **OK** due volte.  
   
-7.  Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)**, quindi fare clic su **Proprietà**.  
+7.  Fare clic su **Protocollo Internet versione 6 (TCP/IPv6)** , quindi fare clic su **Proprietà**.  
   
 8.  Fare clic su **Usa l'indirizzo IPv6 seguente**. Nelle **indirizzo IPv6**, digitare **2001:db8:2::3**. Nelle **lunghezza prefisso Subnet**, digitare **64**. Nelle **gateway predefinito**, digitare **2001:db8:2::fe**. Fare clic su **utilizza i seguenti indirizzi server DNS**e nella **server DNS preferito**, digitare **2001:db8:2::1**.  
   
@@ -110,7 +109,7 @@ Installare il ruolo Server Web (IIS) per rendere un server web 2-APP1.
   
 2.  Fare clic su **Avanti** tre volte per visualizzare la schermata di selezione ruoli server  
   
-3.  Nel **Selezione ruoli server** pagina, selezionare **Server Web (IIS)**, quindi fare clic su **successivo** quattro volte.  
+3.  Nel **Selezione ruoli server** pagina, selezionare **Server Web (IIS)** , quindi fare clic su **successivo** quattro volte.  
   
 4.  Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
   
@@ -123,7 +122,7 @@ Creare una cartella condivisa e un file di testo all'interno della cartella in 2
   
 1.  Nel **avviare** digitare**explorer.exe**, quindi premere INVIO.  
   
-2.  Fare clic su **Computer**, quindi fare doppio clic su **disco locale (c)**.  
+2.  Fare clic su **Computer**, quindi fare doppio clic su **disco locale (c)** .  
   
 3.  Fare clic su **nuova cartella**, digitare **file**, quindi premere INVIO. Lasciare il **disco locale** finestra aperta.  
   

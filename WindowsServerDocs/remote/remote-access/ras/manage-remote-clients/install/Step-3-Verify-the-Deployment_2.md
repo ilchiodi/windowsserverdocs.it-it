@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a78a078-d2e7-4cbd-b8d5-20cfb6d1524b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 89b9e53b7321ebeddda50a448829ad73395eeed0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d2b0b27d4b1d33971564672954667b49a87a4e0
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835612"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282771"
 ---
 # <a name="step-3-verify-the-deployment"></a>Passaggio 3 verificare la distribuzione
 
@@ -36,7 +35,7 @@ In questo argomento viene descritto come verificare di aver configurato corretta
   
 4.  Rimuovere il computer dalla rete aziendale e connetterla a una rete pubblica.  
   
-5.  Un prompt dei comandi, digitare **nltest /dsgetdc: [nome di dominio completo]**. Questo comando verifica che la rete aziendale sia accessibile al client. Se il controller di dominio non è accessibile, verrà visualizzato il seguente messaggio di errore reporting che il dominio non esiste: ERROR_NO_SUCH_DOMAIN.  
+5.  Un prompt dei comandi, digitare **nltest /dsgetdc: [nome di dominio completo]** . Questo comando verifica che la rete aziendale sia accessibile al client. Se il controller di dominio non è accessibile, verrà visualizzato il seguente messaggio di errore reporting che il dominio non esiste: ERROR_NO_SUCH_DOMAIN.  
   
 
 

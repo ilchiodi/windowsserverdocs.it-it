@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 06/13/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f6b93b55d8685180de8eafff5e8a3d5ca33e5fb5
-ms.sourcegitcommit: 3fe551f99c58ac232a9df72aaca55187118eac3b
+ms.openlocfilehash: 7fa4560e0c050c8decbcb4e9456a884976e447e2
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132929"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284412"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
@@ -22,7 +22,7 @@ ms.locfileid: "67132929"
 
 Questo argomento descrive i requisiti hardware minimi per spazi di archiviazione diretta.
 
-Per la produzione, Microsoft consiglia di acquisto di una soluzione di hardware e software convalidati dai nostri partner, quali includono procedure e strumenti di distribuzione. Queste soluzioni sono progettate, assemblate e convalidate in base a nostra architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Per le soluzioni Windows Server 2019, visitare il [sito Web di soluzioni di Azure Stack uomo](https://azure.microsoft.com/overview/azure-stack/hci). Per le soluzioni Windows Server 2016, altre informazioni, vedi [Windows Server Software-Defined](https://microsoft.com/wssd).
+Per la produzione, Microsoft consiglia di acquistare una soluzione software/hardware convalidato dai nostri partner, tra cui procedure e strumenti di distribuzione. Queste soluzioni sono progettate, assemblate e convalidate in base a nostra architettura di riferimento per garantire rapidità e affidabilità, in modo da essere operativi e compatibilità. Per le soluzioni Windows Server 2019, visitare il [sito Web di soluzioni di Azure Stack uomo](https://azure.microsoft.com/overview/azure-stack/hci). Per le soluzioni Windows Server 2016, altre informazioni, vedi [Windows Server Software-Defined](https://microsoft.com/wssd).
 
    > [!TIP]
    > Vuole valutare spazi di archiviazione diretta, ma non dispone di hardware? Usare macchine virtuali di Azure o Hyper-V come descritto in [usando spazi di archiviazione diretta in cluster di macchine virtuali guest](storage-spaces-direct-in-vm.md).

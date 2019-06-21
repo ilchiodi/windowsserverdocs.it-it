@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034677"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284162"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Macchine virtuali schermate per i tenant - creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -199,7 +199,7 @@ Eseguire la procedura guidata File di dati di schermatura per creare un file di 
 Come alternativa alla procedura guidata File di dati di schermatura, è possibile eseguire [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) per creare un file di dati di schermatura.
 
 Tutti i file di dati di schermatura devono essere configurata con il proprietario del corretto e i certificati di sorveglianza per autorizzare le macchine virtuali schermate per l'esecuzione su un'infrastruttura sorvegliata.
-È possibile verificare la presenza di eventuali guardians installato in locale eseguendo [Get-HgsGuardian](https://docs.microsoft.com/en-us/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Guardians proprietario dispongono di chiavi private mentre guardians per il tuo Data Center in genere non lo è.
+È possibile verificare la presenza di eventuali guardians installato in locale eseguendo [Get-HgsGuardian](https://docs.microsoft.com/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Guardians proprietario dispongono di chiavi private mentre guardians per il tuo Data Center in genere non lo è.
 
 Se è necessario creare una sorveglianza del proprietario, eseguire il comando seguente:
 
@@ -238,7 +238,7 @@ Il nome del disco e un certificato di firma devono corrispondere esattamente per
 Si può considerare attendibili più di un disco modello, fornendo i qualificatori di ID per un elenco delimitato da virgole del volume di `-VolumeIDQualifier` parametro.
 Infine, se si dispone di altri file che devono accompagnare il file di risposte con la macchina virtuale, usare il `-OtherFile` parametro e specificare un elenco delimitato da virgole di percorsi di file.
 
-Vedere la documentazione del cmdlet relativa [New-ShieldingDataFile](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) e [New-VolumeIDQualifier](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) per scoprire altri modi per configurare il file di dati di schermatura.
+Vedere la documentazione del cmdlet relativa [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) e [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) per scoprire altri modi per configurare il file di dati di schermatura.
 
 ## <a name="see-also"></a>Vedere anche
 

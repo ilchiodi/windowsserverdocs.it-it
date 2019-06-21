@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 910afa78553c828aff954f7677869569068198aa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2318fa58a343b24ec401390b3cbbd6f22fe86870
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869522"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281597"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guida dell'ambiente di prova: Dimostrazione di DirectAccess in un cluster con Bilanciamento carico di rete di Windows
 
@@ -45,7 +44,7 @@ Di seguito sono riportati alcuni problemi noti durante la configurazione di uno 
   
     3.  Provare ad abilitare il bilanciamento del carico fino al passaggio in cui si verifica un errore. Nella finestra di dialogo Abilita bilanciamento del carico, espandere l'area dei dettagli, farvi clic con il pulsante destro del mouse e quindi scegliere **Copia script**.  
   
-    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Ad esempio:   
+    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Ad esempio:  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  

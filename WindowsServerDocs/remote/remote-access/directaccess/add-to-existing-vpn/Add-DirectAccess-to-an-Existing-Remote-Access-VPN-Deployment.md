@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5db01f7-1ae0-46f2-9be7-8d9e121446b2
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1abb0c55cc07641e8a3108fceee4cd8f60446fd8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0c6bd11855ec9c5387241ba42babf88c0461a9c4
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870322"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283579"
 ---
 # <a name="add-directaccess-to-an-existing-remote-access-vpn-deployment"></a>Aggiungere DirectAccess a una distribuzione di Accesso remoto (VPN) esistente
 
@@ -59,7 +58,7 @@ La distribuzione è suddivisa in tre fasi:
 ## <a name="BKMK_APP"></a>Applicazioni pratiche  
 La distribuzione di un singolo server di Accesso remoto offre:  
   
--   **Facilità di accesso**  
+-   **facilità di accesso**  
   
     Gestire i computer che eseguono Windows 8 e Windows 7 possono essere configurati come computer client DirectAccess client. Questi client possono accedere alle risorse di rete interne con DirectAccess ogni volta che sono connessi a Internet, senza dover accedere a una connessione VPN. I computer client che non eseguono uno di questi sistemi operativi possono connettersi alla rete interna con una VPN. DirectAccess e VPN sono gestiti nella stessa console e con lo stesso gruppo di procedure guidate.  
   

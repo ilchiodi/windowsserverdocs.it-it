@@ -10,12 +10,12 @@ ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/10/2016
-ms.openlocfilehash: 04066c5b645c0be641c2ba76fadac032d5a91420
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b8dcf23946d99509aafba0f8af58bf633bedd069
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843212"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280228"
 ---
 # <a name="set-up-hyper-v-replica"></a>Configurare la replica Hyper-V
 
@@ -80,7 +80,7 @@ Per consentire la replica tra i server primari e secondari, è necessario ottene
 
     1. Aprire Windows Firewall con sicurezza avanzata e fare clic su **Regole connessioni in entrata**.  
 
-    2. Per abilitare l'autenticazione HTTP (Kerberos), fare doppio clic su **Listener HTTP di Replica Hyper-V (TCP-In)** >**Abilita regola.** Per abilitare l'autenticazione basata su certificato HTTPS, fare doppio clic su **Listener HTTPS di Replica Hyper-V (TCP-In)** > E**Attiva regola**.  
+    2. Per abilitare l'autenticazione HTTP (Kerberos), fare doppio clic su **Listener HTTP di Replica Hyper-V (TCP-In)**  >**Abilita regola.** Per abilitare l'autenticazione basata su certificato HTTPS, fare doppio clic su **Listener HTTPS di Replica Hyper-V (TCP-In)** > E**Attiva regola**.  
 
 -  Per abilitare le regole in un cluster Hyper-V, aprire una sessione di Windows PowerShell utilizzando **Esegui come amministratore**, quindi eseguire uno dei seguenti comandi:  
 
@@ -110,14 +110,14 @@ Eseguire le operazioni seguenti in ogni macchina virtuale da replicare:
 
     Se si esegue la replica offline sarà di trasporto la copia iniziale per il server secondario utilizzando un supporto di archiviazione esterna, ad esempio un disco rigido o unità USB. A tale scopo che è necessario connettersi esterno archiviazione al server primario (o nodo proprietario di un cluster) e quindi quando si seleziona Invia copia iniziale usando supporti esterni, che è possibile specificare un percorso locale o su supporti esterni, dove è possibile archiviare la copia iniziale.  Sul sito di replica viene creata una macchina virtuale di segnaposto. Una volta completata la replica iniziale di archiviazione esterna può essere spedito al sito di replica. Il supporto esterno vi si connetterà al server secondario o al nodo proprietario del cluster secondario. Verranno quindi importare la replica iniziale in una posizione specificata e unirlo alla macchina virtuale di segnaposto.  
 
-9. Nel **completamento Abilita replica** pagina, esaminare le informazioni nel riepilogo e quindi fare clic su **Fine.**. Dati della macchina virtuale verranno trasferiti in base alle impostazioni scelte. e viene visualizzata una finestra di dialogo indicante che la replica è stata abilitata.  
+9. Nel **completamento Abilita replica** pagina, esaminare le informazioni nel riepilogo e quindi fare clic su **Fine.** . Dati della macchina virtuale verranno trasferiti in base alle impostazioni scelte. e viene visualizzata una finestra di dialogo indicante che la replica è stata abilitata.  
 
 10. Se si desidera configurare la replica estesa (concatenata), aprire il server di replica e fare clic sulla macchina virtuale che si desidera replicare. Fare clic su **replica** > **Estendi replica** e specificare le impostazioni di replica.  
 
 ## <a name="run-a-failover"></a>Eseguire un failover  
 Dopo aver completato questi passaggi di distribuzione dell'ambiente replicato sia in esecuzione. È ora possibile eseguire i failover in base alle esigenze.  
 
-**Failover di test**:  Se si desidera eseguire una rapida failover di test della macchina virtuale primaria e selezionare **replica** > **Test Failover**. Selezionare il punto di ripristino più recente o altri se configurato. Una nuova macchina virtuale di test verrà creata e avviata nel sito secondario. Dopo aver completato il test, selezionare  **Interrompi Test Failover** nella macchina virtuale di replica per pulire. Si noti che per una macchina virtuale che è possibile eseguire un failover di test alla volta. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
+**Failover di test**:  Se si desidera eseguire una rapida failover di test della macchina virtuale primaria e selezionare **replica** > **Test Failover**. Selezionare il punto di ripristino più recente o altri se configurato. Una nuova macchina virtuale di test verrà creata e avviata nel sito secondario. Dopo aver completato il test, selezionare **Interrompi Test Failover** nella macchina virtuale di replica per cancellarla. Si noti che per una macchina virtuale che è possibile eseguire un failover di test alla volta. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
 
 **Failover pianificato**: Per eseguire una rapida failover pianificato della macchina virtuale primaria e selezionare **replica** > **Failover pianificato**. Failover pianificato esegue controlli dei prerequisiti per garantire una perdita di dati. Consente di verificare che la macchina virtuale primaria viene arrestata prima di iniziare il failover. Dopo la macchina virtuale viene eseguita il failover, avviare la replica delle modifiche al sito primario quando è disponibile. Si noti che per il corretto funzionamento del server primario devono essere configurato per la replica ricevono dal server secondario o dal gestore di Replica Hyper-V nel caso di un cluster primario. Pianificato failover invia l'ultimo set di modifiche rilevate. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).  
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 04/01/2019
-ms.openlocfilehash: 61f56eea59d11264047a9c7b8b6734617ad1802f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 24d81e3d2c31b3493563f3f3e2ab3f92afff2c06
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447336"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284133"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autorizzare gli host sorvegliati usando l'attestazione basata su TPM
 
@@ -99,7 +99,7 @@ Per altre informazioni sui livelli di regole dei criteri degli elementi di confi
 
 3.  Applicare i criteri di integrazione continua per l'host di riferimento:
 
-    1.  Eseguire il comando seguente per configurare il computer per usare i criteri di integrazione continua. È anche possibile distribuire i criteri di integrazione continua con [criteri di gruppo](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy) oppure [System Center Virtual Machine Manager](https://docs.microsoft.com/en-us/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm).
+    1.  Eseguire il comando seguente per configurare il computer per usare i criteri di integrazione continua. È anche possibile distribuire i criteri di integrazione continua con [criteri di gruppo](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy) oppure [System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm).
 
         ```powershell
         Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }

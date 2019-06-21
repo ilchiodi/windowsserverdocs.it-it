@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 274bdf027947ffb6fe807d4acd0a3b2174c20e28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39974806c02e55b37d3d16748c4ca0e3f361ee45
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867452"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284112"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Eseguire l'aggiornamento di un'infrastruttura sorvegliata a Windows Server 2019
 
@@ -52,7 +52,7 @@ Prima di aggiornare l'infrastruttura sorvegliata per Windows Server 2019, esamin
 
 L'aggiornamento del cluster del servizio HGS verrà richiesto di rimuovere temporaneamente un nodo dal cluster alla volta mentre viene aggiornato. Questo riduce la capacità del cluster di rispondere alle richieste dagli host Hyper-V e può comportare tempi di risposta lenti o interruzioni del servizio per i tenant. Assicurarsi di che avere una capacità sufficiente per gestire l'attestazione e le richieste di rilasciare il tasto prima di aggiornare un server HGS.
 
-Per aggiornare il cluster del servizio HGS, seguire la procedura seguente in ogni nodo del cluster, un nodo alla fase:
+Per aggiornare il cluster del servizio HGS, seguire la procedura seguente in ogni nodo del cluster, un nodo alla volta:
 
 1.  Rimuovere il server HGS dal cluster eseguendo `Clear-HgsServer` in un prompt di PowerShell con privilegi elevato. Questo cmdlet rimuoverà l'archivio replicato HGS, siti Web HGS e nodo dal cluster di failover.
 2.  Se il server HGS è un controller di dominio (configurazione predefinita), è necessario eseguire `adprep /forestprep` e `adprep /domainprep` nel primo nodo in fase di aggiornamento per preparare il dominio per un aggiornamento del sistema operativo. Vedere le [documentazione relativa all'aggiornamento Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) per altre informazioni.
@@ -69,9 +69,9 @@ Set-HgsServerVersion  v2
 
 Prima di aggiornare gli host Hyper-V per Windows Server 2019, assicurarsi che il cluster del servizio HGS è già aggiornato a Windows Server 2019 e che sono state spostate tutte le macchine virtuali dal server Hyper-V.
 
-1.  Se si usano criteri di integrità di Windows Defender Application Control codice sul server (sempre il caso quando si usa l'attestazione TPM), assicurarsi che il criterio è in modalità di controllo oppure disabilitato prima di tentare di aggiornare il server. [Informazioni su come disabilitare un criterio WDAC](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
+1.  Se si usano criteri di integrità di Windows Defender Application Control codice sul server (sempre il caso quando si usa l'attestazione TPM), assicurarsi che il criterio è in modalità di controllo oppure disabilitato prima di tentare di aggiornare il server. [Informazioni su come disabilitare un criterio WDAC](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  Seguire le indicazioni fornite nel [centro di aggiornamento di Windows Server](http://aka.ms/upgradecenter) per aggiornare l'host di Windows Server 2019. Se l'host Hyper-V fa parte di un Cluster di Failover, è consigliabile usare un [aggiornamento in sequenza del Cluster del sistema operativo](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md).
-3.  [Testare e abilitare di nuovo](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) ai criteri di Windows Defender Application Control, se ne fosse presente una abilitata prima dell'aggiornamento.
+3.  [Testare e abilitare di nuovo](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) ai criteri di Windows Defender Application Control, se ne fosse presente una abilitata prima dell'aggiornamento.
 4.  Eseguire `Get-HgsClientConfiguration` per controllare se **IsHostGuarded = True**, vale a dire l'host sia correttamente passando l'attestazione con il server HGS.
 5.  Se si usa l'attestazione TPM, potrebbe essere necessario [acquisire nuovamente i criteri di integrità della linea di base o codice TPM](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) dopo l'aggiornamento per passare l'attestazione.
 6.  Inizio esecuzione di macchine virtuali schermate nell'host nuovamente.

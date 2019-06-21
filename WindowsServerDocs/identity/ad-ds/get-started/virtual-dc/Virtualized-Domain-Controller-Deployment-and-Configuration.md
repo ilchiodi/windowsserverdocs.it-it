@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443211"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280949"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Distribuzione e configurazione di controller di dominio virtualizzati
 
@@ -153,7 +153,7 @@ Prima di provare a clonare un controller di dominio, è necessario verificare ch
     >   
     > Poiché questo metodo RPC è nuovo, il software di analisi di rete richiede parser aggiornati che includano i campi per la nuova voce Opnum 28 nell'attuale UUID E3514235-4B06-11D1-AB04-00C04FC2DCD2. In caso contrario, non è possibile analizzare il traffico.  
     >   
-    > Per altre informazioni, vedere [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/en-us/library/hh554213(v=prot.13).aspx).  
+    > Per altre informazioni, vedere [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx).  
   
 ***Questo significa anche quando si usano reti non completamente instradate, clonazione del controller di dominio virtualizzati richiede segmenti di rete con accesso all'emulatore PDC***. È accettabile spostare un controller di dominio clonato in una rete diversa dopo la clonazione, come per i controller di dominio fisici, purché si presti attenzione ad aggiornare le informazioni sul sito logico di Servizi di dominio Active Directory.  
   

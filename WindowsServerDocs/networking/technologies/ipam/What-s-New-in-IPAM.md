@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 04838cba63805d20ba31629ed9c8e95290046320
-ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
+ms.openlocfilehash: 64de9327dedadbe421e4cceb71496de3609be398
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65624683"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283817"
 ---
 # <a name="whats-new-in-ipam"></a>Novità di Gestione indirizzi IP
 
@@ -43,7 +42,7 @@ Di seguito sono le funzionalità nuove e migliorate per gestione indirizzi IP in
 ### <a name="EIP"></a>Gestione migliorata degli indirizzi IP  
 Le seguenti funzionalità migliorare le funzionalità di gestione di indirizzi di gestione indirizzi IP.  
 >[!NOTE]
->Per i riferimenti ai comandi di gestione indirizzi IP Windows PowerShell, vedere [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
+>Per i riferimenti ai comandi di gestione indirizzi IP Windows PowerShell, vedere [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
   
 #### <a name="support-for-31-32-and-128-subnets"></a>Supporto per /31 /32 e /128 subnet  
 Gestione indirizzi IP in Windows Server 2016 ora supporta /31 /32 e /128 subnet. Ad esempio, un' due indirizzo subnet (/ 31 IPv4) potrebbero essere necessari per un collegamento da punto a punto tra switch. Inoltre, alcune opzioni potrebbero richiedere indirizzi di loopback single (/ 32 per IPv4, / 128 per IPv6).  
@@ -57,7 +56,7 @@ Se il numero di subnet disponibili è minore del numero di subnet richiesto, le 
 >[!NOTE]
 >Questa funzione non alloca effettivamente le subnet, ma indica solo la loro disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe per il **Add-IpamSubnet** comando per creare la subnet.  
   
-Per altre informazioni, vedere [Find-IpamFreeSubnet](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeSubnet).  
+Per altre informazioni, vedere [Find-IpamFreeSubnet](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeSubnet).  
   
 #### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**Trovare gli intervalli di indirizzi gratuito con Find-IpamFreeRange**  
   
@@ -68,7 +67,7 @@ Il comando Cerca una serie continua di indirizzi IP non allocati che corrisponde
 > [!NOTE]
 > Questa funzione non vengono allocati gli intervalli in realtà, fornisce solo la loro disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe per la **Add-IpamRange** comando per creare l'intervallo.  
   
-Per altre informazioni, vedere [Find-IpamFreeRange](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeRange).  
+Per altre informazioni, vedere [Find-IpamFreeRange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
   
 ### <a name="EDNS"></a>Gestione avanzata dei servizi DNS  
 Gestione indirizzi IP in Windows Server 2016 supporta ora l'individuazione dei server DNS basato su file, aggiunto al dominio in una foresta di Active Directory in cui è in esecuzione Gestione indirizzi IP.  
@@ -129,5 +128,5 @@ Per altre informazioni, vedere [ripulire i dati di utilizzo](../../technologies/
   
 -   Ambiti DHCP  
   
-Per altre informazioni, vedere [gestire Role Based Access Control con Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) e [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
+Per altre informazioni, vedere [gestire Role Based Access Control con Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) e [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
 

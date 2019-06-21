@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: bc21b9fdec5700fec23dc6af7ca15873ded34bea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821962"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280159"
 ---
 # <a name="health-service-reports"></a>Report sull'integrità del servizio
-> Si applica a Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Quali sono i report  
 
@@ -110,7 +110,7 @@ public void DiscoverObjects(CimSession Session)
 
 Questi sono gli stessi oggetti è visualizzato in PowerShell usando i cmdlet, ad esempio **Get-StorageSubSystem**, **Get-StorageNode**, e **Get-Volume**.
 
-È possibile accedere le stesse proprietà, documentata in [classi API di gestione archiviazione](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+È possibile accedere le stesse proprietà, documentata in [classi API di gestione archiviazione](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -131,7 +131,7 @@ L'elenco completo di metriche disponibili in ogni ambito di Windows Server 2016 
 
 ### <a name="iobserveronnext"></a>IObserver.OnNext()
 
-Questo codice di esempio Usa la [schema progettuale osservatore](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx) per implementare un Observer cui **OnNext()** metodo verrà richiamato quando arriva a ogni nuovo esempio di metriche. Relativi **OnCompleted()** metodo verrà chiamato se/quando termina di streaming. Ad esempio, è possibile utilizzarla per avviare di nuovo lo streaming, in modo che continuino a tempo indeterminato.
+Questo codice di esempio Usa la [schema progettuale osservatore](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) per implementare un Observer cui **OnNext()** metodo verrà richiamato quando arriva a ogni nuovo esempio di metriche. Relativi **OnCompleted()** metodo verrà chiamato se/quando termina di streaming. Ad esempio, è possibile utilizzarla per avviare di nuovo lo streaming, in modo che continuino a tempo indeterminato.
 
 ```
 class MetricsObserver<T> : IObserver<T>

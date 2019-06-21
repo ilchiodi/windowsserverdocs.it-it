@@ -9,12 +9,12 @@ ms.assetid: acaa46b7-09b1-4707-9562-116df8db17eb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/23/2018
-ms.openlocfilehash: 8fc1c97d7c2a8694e56cc36b5501a82081b3db23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d61dcdbb61449bd2af57b8e2c99ced6235c4deca
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812342"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281258"
 ---
 # <a name="ras-gateway"></a>Gateway RAS
 
@@ -109,9 +109,9 @@ Gateway RAS include le funzionalità seguenti.
   
 -   **Point-to-site VPN**. Questa funzionalità di Gateway RAS consente i dipendenti dell'organizzazione o agli amministratori di connettersi alla rete dell'organizzazione da posizioni remote. Per distribuzioni a tenant singolo di Gateway RAS, i dipendenti remoti possono connettersi alla rete dell'organizzazione usando una connessione VPN. Questa connessione consente loro di usare risorse di rete interna, ad esempio siti web intranet e file server. Per le distribuzioni multi-tenant, gli amministratori di rete tenant possono usare connessioni VPN point-to-site per accedere alle risorse di rete virtuale nel Data Center CSP.  
   
--   **Routing dinamico con protocollo BGP (Border Gateway)**. BGP, essendo un protocollo di routing dinamico che apprende automaticamente le route tra i siti connessi da connessioni VPN da sito a sito, riduce la necessità di configurare manualmente le route sui router. Se l'organizzazione dispone di più siti connessi mediante router BGP abilitato, ad esempio Gateway RAS, BGP consente i router calcolare automaticamente e usare le route valide tra loro in caso di interruzione della rete o di errore. Per altre informazioni, vedere [RFC 4271](https://tools.ietf.org/html/rfc4271).  
+-   **Routing dinamico con protocollo BGP (Border Gateway)** . BGP, essendo un protocollo di routing dinamico che apprende automaticamente le route tra i siti connessi da connessioni VPN da sito a sito, riduce la necessità di configurare manualmente le route sui router. Se l'organizzazione dispone di più siti connessi mediante router BGP abilitato, ad esempio Gateway RAS, BGP consente i router calcolare automaticamente e usare le route valide tra loro in caso di interruzione della rete o di errore. Per altre informazioni, vedere [RFC 4271](https://tools.ietf.org/html/rfc4271).  
   
--   **Network Address Translation (NAT)**. Il protocollo NAT (NAT) consente di condividere una connessione alla rete Internet pubblica attraverso una singola interfaccia con un singolo indirizzo IP pubblico. I computer nella rete privata usano indirizzi privati, non instradabile. NAT esegue il mapping di indirizzi privati all'indirizzo pubblico. Questa funzionalità di Gateway RAS consente ai dipendenti dell'organizzazione con distribuzioni a tenant singolo accedere alle risorse Internet da dietro il gateway. Per i CSP, questa funzionalità consente alle applicazioni in esecuzione nel tenant alle macchine virtuali di accedere a Internet. Ad esempio, un macchina virtuale configurata come server Web del tenant possa rivolgersi alle risorse di finanziari esterne per l'elaborazione di transazioni con carta di credito.  
+-   **Network Address Translation (NAT)** . Il protocollo NAT (NAT) consente di condividere una connessione alla rete Internet pubblica attraverso una singola interfaccia con un singolo indirizzo IP pubblico. I computer nella rete privata usano indirizzi privati, non instradabile. NAT esegue il mapping di indirizzi privati all'indirizzo pubblico. Questa funzionalità di Gateway RAS consente ai dipendenti dell'organizzazione con distribuzioni a tenant singolo accedere alle risorse Internet da dietro il gateway. Per i CSP, questa funzionalità consente alle applicazioni in esecuzione nel tenant alle macchine virtuali di accedere a Internet. Ad esempio, un macchina virtuale configurata come server Web del tenant possa rivolgersi alle risorse di finanziari esterne per l'elaborazione di transazioni con carta di credito.  
 
   
 ## <a name="bkmk_deploy"></a>Scenari di distribuzione di Gateway RAS  
@@ -124,11 +124,11 @@ Di seguito sono gli scenari di distribuzione consigliato per il Gateway RAS.
 ## <a name="bkmk_manage"></a>Strumenti di Gestione Gateway RAS  
 Di seguito sono gli strumenti di gestione per il Gateway RAS.  
   
--   In Windows Server 2016, per distribuire un router RAS Gateway, è necessario usare i comandi di Windows PowerShell. Per altre informazioni, vedere [cmdlet di accesso remoto](https://technet.microsoft.com/library/hh918399.aspx) per Windows Server 2016 e Windows 10.  
+-   In Windows Server 2016, per distribuire un router RAS Gateway, è necessario usare i comandi di Windows PowerShell. Per altre informazioni, vedere [cmdlet di accesso remoto](https://docs.microsoft.com/powershell/module/remoteaccess) per Windows Server 2016 e Windows 10.  
   
--   In System Center 2012 R2 Virtual Machine Manager (VMM), il Gateway RAS denominato Gateway Windows Server. Un set limitato di opzioni di configurazione del protocollo BGP (Border Gateway) sono disponibili nell'interfaccia del software VMM, inclusi **indirizzo IP BGP locale** e **numeri sistema autonomo (ASN)**,  **Elenco di indirizzi IP Peer BGP**, e **i valori ASN**. È comunque possibile utilizzare i comandi BGP di Windows PowerShell per l'accesso remoto per configurare tutte le altre funzionalità di Windows Server Gateway. Per altre informazioni, vedere [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) e [cmdlet di accesso remoto](https://technet.microsoft.com/library/hh918399.aspx) per Windows Server 2016 e Windows 10.  
+-   In System Center 2012 R2 Virtual Machine Manager (VMM), il Gateway RAS denominato Gateway Windows Server. Un set limitato di opzioni di configurazione del protocollo BGP (Border Gateway) sono disponibili nell'interfaccia del software VMM, inclusi **indirizzo IP BGP locale** e **numeri sistema autonomo (ASN)** ,  **Elenco di indirizzi IP Peer BGP**, e **i valori ASN**. È comunque possibile utilizzare i comandi BGP di Windows PowerShell per l'accesso remoto per configurare tutte le altre funzionalità di Windows Server Gateway. Per altre informazioni, vedere [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) e [cmdlet di accesso remoto](https://technet.microsoft.com/library/hh918399.aspx) per Windows Server 2016 e Windows 10.  
   
 ## <a name="related-topics"></a>Argomenti correlati
 - [Disponibilità elevata del Gateway RAS](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  
 - [Tunneling GRE in Windows Server](gre-tunneling-windows-server.md)
-- [Prestazioni e velocità effettiva del Tunnel GRE del Gateway RAS](RAS-Gateway-GRE-Perf.md)
+- [Prestazioni e velocità effettiva del tunnel GRE di Gateway RAS](RAS-Gateway-GRE-Perf.md)

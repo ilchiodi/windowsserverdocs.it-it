@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Come distribuire spazi di archiviazione diretta in un cluster guest di macchina virtuale, ad esempio, in Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d05afb5ee564b866dcd15ec6aa473cee608dbd8f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447816"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284408"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilizzo di spazi di archiviazione diretta in cluster di macchine virtuali guest
 
@@ -79,6 +79,6 @@ Le considerazioni seguenti riguardano la distribuzione di spazi di archiviazione
 
 ## <a name="see-also"></a>Vedere anche
 
-[Modelli di macchina virtuale Iaas di Azure aggiuntivi per la distribuzione di spazi di archiviazione diretta, video e guide dettagliate](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+[Modelli di macchina virtuale Iaas di Azure aggiuntivi per la distribuzione di spazi di archiviazione diretta, video e guide dettagliate](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
-[Panoramica di spazi di ulteriore spazio di archiviazione diretta](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Panoramica di spazi di ulteriore spazio di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

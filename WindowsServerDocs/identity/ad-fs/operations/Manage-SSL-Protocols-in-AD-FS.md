@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e834c50965c3af569dbe3756d677ec4cb2372542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1153cd81185dcfe83d291161a85481e5a7d0700
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883922"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280543"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Gestione dei pacchetti di crittografia e i protocolli SSL/TLS per AD FS
 La documentazione seguente fornisce informazioni su come disabilitare e abilitare alcuni protocolli TLS/SSL e pacchetti che vengono usati da AD FS di crittografia
@@ -256,7 +256,7 @@ Usare le seguenti chiavi del Registro di sistema e i relativi valori per l'abili
 
 Per abilitare un pacchetto di crittografia, aggiungere il valore di stringa della chiave di valore multistringa funzioni.  Ad esempio, se si desidera abilitare TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521 quindi si sarebbe aggiungerlo alla stringa.
 
-Per un elenco completo dei pacchetti di crittografia supportati vedere gruppi [pacchetti di crittografia in TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx).  Questo documento fornisce una tabella di gruppi che sono abilitati per impostazione predefinita e quelli che sono supportate, ma non abilitato per impostazione predefinita.  Per stabilire le priorità, vedere i pacchetti di crittografia [assegnare la priorità ai pacchetti di crittografia Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx).
+Per un elenco completo dei pacchetti di crittografia supportati vedere gruppi [pacchetti di crittografia in TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).  Questo documento fornisce una tabella di gruppi che sono abilitati per impostazione predefinita e quelli che sono supportate, ma non abilitato per impostazione predefinita.  Per stabilire le priorità, vedere i pacchetti di crittografia [assegnare la priorità ai pacchetti di crittografia Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx).
 
 ## <a name="enabling-strong-authentication-for-net-applications"></a>Abilitazione dell'autenticazione avanzata per le applicazioni .NET
 Le applicazioni 3.5/4.0/4.5.x di .NET Framework è possono passare il protocollo predefinito a TLS 1.2, consentendo la chiave del Registro di sistema SchUseStrongCrypto.  Questa chiave del Registro di sistema viene forzato delle applicazioni .NET per usare TLS 1.2.
@@ -280,7 +280,7 @@ Per .NET Framework 4.0/4.5.x usare la chiave del Registro di sistema seguente: H
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-- [Cipher Suites in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx)
-- [Pacchetti di crittografia TLS in Windows 8.1](https://msdn.microsoft.com/en-us/library/windows/desktop/mt767781.aspx)
-- [Definire la priorità dei pacchetti di crittografia Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx)
+- [Cipher Suites in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
+- [Pacchetti di crittografia TLS in Windows 8.1](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)
+- [Definire la priorità dei pacchetti di crittografia Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)
 - [A proposito di crittografie e altri professionisti cuore](https://blogs.technet.microsoft.com/askds/2015/12/08/speaking-in-ciphers-and-other-enigmatic-tonguesupdate/)

@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0a4af25723c6d1e796cd3255875c15faf21fb8be
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447762"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284389"
 ---
 # <a name="volume-shadow-copy-service"></a>Servizio Copia Shadow del volume
 
@@ -380,7 +380,7 @@ Per escludere specifici file dalle copie shadow, usare la chiave del Registro di
 > <UL>
 > <LI>Non è possibile eliminare i file da una copia shadow creata in un Server Windows usando la funzionalità di versioni precedenti.<BR><BR>
 > <LI>Non è possibile eliminare i file dalle copie shadow per cartelle condivise.<BR><BR>
-> <LI>È possibile eliminare i file da una copia shadow creata usando il <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utility, ma non è possibile eliminare file da una copia shadow creata tramite il <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilità.<BR><BR>
+> <LI>È possibile eliminare i file da una copia shadow creata usando il <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utility, ma non è possibile eliminare file da una copia shadow creata tramite il <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilità.<BR><BR>
 > <LI>I file vengono eliminati da una copia shadow in un modo più efficiente. Ciò significa che non sono garantiti da eliminare.<BR><BR></LI></UL>
 
 

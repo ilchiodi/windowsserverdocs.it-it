@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 958bf8455d03ddc04395fafe83e70a49c7659c96
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a7f4f29b37793b45a614bd592feddb339dd05c3d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192438"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280607"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>Le procedure consigliate per la protezione di Active Directory Federation Services
 
@@ -109,7 +109,7 @@ Il proxy servizio federativo (parte di WAP) fornisce il controllo di congestione
 3.  Modificare le impostazioni di controllo di congestione i valori predefiniti per '<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />'.
 4.  Salvare e chiudere il file.
 5.  Riavviare il servizio AD FS eseguendo 'net stop adfssrv' quindi 'adfssrv net start'.
-Per riferimento, sono disponibili informazioni aggiuntive su questa funzionalità [qui](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx ).
+Per riferimento, sono disponibili informazioni aggiuntive su questa funzionalità [qui](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
 ### <a name="standard-http-request-checks-at-the-proxy"></a>Richiesta HTTP standard consente di controllare in corrispondenza del proxy
 Il proxy effettua anche i controlli standard seguenti per tutto il traffico:

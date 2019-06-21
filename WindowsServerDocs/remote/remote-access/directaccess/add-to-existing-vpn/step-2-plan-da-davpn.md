@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72b5b2af-6925-41e0-a3f9-b8809ed711d1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7b4e0e8647fa2011eae73efa8bcbd696c422f12c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6fd33926f4c3d86d5947bffdd5b212db0ae91f47
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859682"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283593"
 ---
 # <a name="step-2-plan-the-directaccess-deployment"></a>Passaggio 2 pianificare la distribuzione di DirectAccess
 
@@ -57,7 +56,7 @@ Nel pianificare la distribuzione del server di Accesso remoto occorre prendere a
   
 -   **Certificato IP-HTTPS**-connessione VPN SSTP se è stato configurato, l'abilitazione guidata DirectAccess preleva il certificato utilizzato da SSTP per IP-HTTPS. Se la connessione VPN SSTP non è configurata, l'Abilitazione guidata DirectAccess tenterà di verificare se è stato configurato un certificato per IP-HTTPS. In caso contrario, verrà effettuato il provisioning automatico dei certificati autofirmati per IP-HTTPS. La procedura guidata abilita automaticamente l'autenticazione Kerberos. oltre a NAT64 e DNS64 per la traduzione dei protocolli nell'ambiente solo IPv4.  
   
--   **Prefissi IPv6**-se la procedura guidata rileva che IPv6 è stato distribuito sulle schede di rete, viene creato automaticamente prefissi IPv6 per la rete interna, un prefisso IPv6 da assegnare ai computer client DirectAccess e un prefisso IPv6 da assegnare alla rete VPN computer client. Se i prefissi generati automaticamente non sono corretti per l'infrastruttura IPv6 o ISATAP nativa, sarà necessario modificarli manualmente. 1.1 topologia di rete e server pianificazione e impostazioni, vedere.  
+-   **Prefissi IPv6**-se la procedura guidata rileva che IPv6 è stato distribuito sulle schede di rete, viene creato automaticamente prefissi IPv6 per la rete interna, un prefisso IPv6 da assegnare ai computer client DirectAccess e un prefisso IPv6 da assegnare alla rete VPN computer client. Se i prefissi generati automaticamente non sono corretti per l'infrastruttura IPv6 o ISATAP nativa, sarà necessario modificarli manualmente. 1\.1 topologia di rete e server pianificazione e impostazioni, vedere.  
   
 -   **I client Windows 7**-per impostazione predefinita, i computer client Windows 7 non è possibile connettersi a una distribuzione di accesso remoto di Windows Server 2012. Se si dispone di computer client Windows 7 nell'organizzazione che richiedono l'accesso remoto alle risorse interne, è possibile consentire loro di connettersi. Qualsiasi computer client al quale si intende concedere l'accesso alle risorse interne deve essere membro di un gruppo di sicurezza specificato nell'Abilitazione guidata DirectAccess.  
   

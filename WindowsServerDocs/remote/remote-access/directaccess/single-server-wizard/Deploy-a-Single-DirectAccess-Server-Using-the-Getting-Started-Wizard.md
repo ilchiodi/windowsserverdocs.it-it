@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb0cf464-0668-40f8-8222-feb6bae6d3d5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d2bab7abd8acd958ccb0b0c1d64bc4245b61be36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: deb220ad5ee83e2849f962c588d6150892d990d6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854072"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281793"
 ---
 # <a name="deploy-a-single-directaccess-server-using-the-getting-started-wizard"></a>Distribuire un server DirectAccess singolo usando Attività iniziali guidate
 
@@ -29,7 +28,7 @@ Questo argomento fornisce un'introduzione allo scenario DirectAccess in cui vien
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Prima di iniziare la distribuzione vedere l'elenco di configurazioni non supportate, problemi noti e prerequisiti  
 È possibile utilizzare gli argomenti seguenti per esaminare i prerequisiti e altre informazioni prima di distribuire DirectAccess.  
   
--   [DirectAccess configurazioni non supportate](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
+-   [Configurazioni non supportate da DirectAccess](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
   
 -   [Prerequisiti per la distribuzione di DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   

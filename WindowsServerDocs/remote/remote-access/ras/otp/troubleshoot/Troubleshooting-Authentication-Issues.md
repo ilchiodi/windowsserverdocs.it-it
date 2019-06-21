@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 71307757-f8f4-4f82-b8b3-ffd4fd8c5d6d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ff1dd94db3e433235a87fd6809459283fc439d0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08dd6822cc30135506d82041cfbeab0bc1a058ab
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855742"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282362"
 ---
 # <a name="troubleshooting-authentication-issues"></a>Risoluzione dei problemi di autenticazione
 
@@ -153,7 +152,7 @@ Esistono due possibili cause di questo errore:
   
 -   Verificare le autorizzazioni impostazione sul modello di accesso di OTP e assicurarsi che tutti gli utenti di effettuare il provisioning per OTP di DirectAccess sono 'Read' l'autorizzazione.  
   
--   Assicurarsi che il controller di dominio sia configurato come server di gestione e che il computer client possa raggiungere il controller di dominio attraverso il tunnel dell'infrastruttura. 3.2 piano il modello di certificato OTP, vedere.  
+-   Assicurarsi che il controller di dominio sia configurato come server di gestione e che il computer client possa raggiungere il controller di dominio attraverso il tunnel dell'infrastruttura. 3\.2 piano il modello di certificato OTP, vedere.  
   
 ## <a name="no-connection-to-the-domain-controller"></a>Nessuna connessione al controller di dominio  
 **Scenario**. Utente non riesce a eseguire l'autenticazione con OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92519b49-0df4-43c1-9717-f13570644212
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 454bc8dc5a9cbf8dc4e759196a13e7920de2eaf7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c794d4b8169c81c63162f119467f5f03d10ce756
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823522"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282647"
 ---
 # <a name="use-remote-access-monitoring-and-accounting"></a>Usare il monitoraggio e l'accounting di accesso remoto
 
@@ -32,10 +31,10 @@ Il monitoraggio di Accesso remoto segnala l'attività dell'utente remoto e lo st
 > Oltre a questo argomento, sono disponibili i seguenti argomenti sul monitoraggio di Accesso remoto.  
 >   
 > -   [Monitorare il carico esistente nel server di accesso remoto](Monitor-the-existing-load-on-the-Remote-Access-server.md)  
-> -   [Monitorare lo stato di distribuzione di configurazione del server di accesso remoto](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
+> -   [Monitorare lo stato di distribuzione della configurazione del server di accesso remoto](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
 > -   [Monitorare lo stato di operazioni del server di accesso remoto e dei relativi componenti](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
-> -   [Identificare e risolvere i problemi di operazioni di accesso remoto server](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
-> -   [Monitorare i client remoti connessi ad attività e stato](Monitor-connected-remote-clients-for-activity-and-status.md)  
+> -   [Identificare e risolvere i problemi di operazioni del server di accesso remoto](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
+> -   [Monitorare i client remoti connessi relativamente all'attività e allo stato](Monitor-connected-remote-clients-for-activity-and-status.md)  
 > -   [Generare un report di utilizzo per i client remoti usando i dati cronologici](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  
 
 ## <a name="in-this-guide"></a>Contenuto della guida  

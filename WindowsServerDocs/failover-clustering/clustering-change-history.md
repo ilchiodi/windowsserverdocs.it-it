@@ -9,16 +9,16 @@ manager: daveba
 ms.author: jgerend
 ms.date: 03/08/2019
 description: Argomenti nuovi e aggiornati nella documentazione del Clustering di Failover per Windows Server 2016
-ms.openlocfilehash: 4044475995175ea527a1ecc487bc0e1cc6f75003
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6dd5c98b14134d42901fad79a375298ad0e7e23
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861222"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280174"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Cronologia delle modifiche per argomenti relativi al clustering di failover
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016
 
 Questo argomento vengono elencati argomenti nuovi e aggiornati nel [Clustering di Failover](failover-clustering-overview.md) documentazione di Windows Server.
 
@@ -28,27 +28,27 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [Clustering d
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-|[Affinità di cluster](cluster-affinity.md)| Nuova     |
+|[Affinità del cluster](cluster-affinity.md)| Nuova     |
 
 ## <a name="february-2019"></a>Febbraio 2019
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-| [Aggiornamento di un cluster di failover sullo stesso hardware](upgrade-option-same-hardware.md)| Nuova |
-|[Distribuire un server di file di due nodi](deploy-two-node-clustered-file-server.md)| Nuova |
+| [Aggiornamento di un cluster di failover nello stesso hardware](upgrade-option-same-hardware.md)| Nuova |
+|[Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md)| Nuova |
 
 ## <a name="january-2019"></a>Gennaio 2019
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
 |[Distribuire una condivisione file di controllo](file-share-witness.md)    | Nuova        |
-|[Migrazione di cluster di dominio](cluster-domain-migration.md) | Nuova        |
+|[Migrazione del dominio del cluster](cluster-domain-migration.md) | Nuova        |
 
 ## <a name="november-2018"></a>Novembre 2018
 
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
-|[Configurazione di cluster account in Active Directory](configure-ad-accounts.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) libreria|
+|[Configurazione di account di cluster in Active Directory](configure-ad-accounts.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) libreria|
 
 ## <a name="october-2018"></a>Ottobre 2018
 
@@ -66,16 +66,16 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [Clustering d
 
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
-|[Configurazione e la gestione del quorum](manage-cluster-quorum.md) | Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria. |
+|[Configurare e gestire il quorum](manage-cluster-quorum.md) | Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria. |
 
 ## <a name="april-2018"></a>Aprile 2018
 
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
-|[Risoluzione dei problemi relativi a un Cluster di Failover con segnalazione errori Windows](troubleshooting-using-WER-reports.md)| Nuovo argomento. |
-|[File Server di scalabilità orizzontale per dati di applicazioni](sofs-overview.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
+|[Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows](troubleshooting-using-WER-reports.md)| Nuovo argomento. |
+|[File server di scalabilità orizzontale per dati delle applicazioni](sofs-overview.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Requisiti hardware](clustering-requirements.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
-|[Volumi condivisi del Cluster di utilizzo](failover-cluster-csvs.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
+|[Usare Volumi condivisi cluster](failover-cluster-csvs.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Creare un cluster di failover](create-failover-cluster.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Pre-installare un cluster in Active Directory Domain Services](prestage-cluster-adds.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
 |[Distribuire un Cloud di controllo per un Cluster di Failover](deploy-cloud-witness.md)|Eseguire la migrazione dal [le versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) libreria.|
@@ -91,7 +91,7 @@ Questo argomento vengono elencati argomenti nuovi e aggiornati nel [Clustering d
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
 |[Panoramica di aggiornamento compatibile con cluster](cluster-aware-updating.md)|Nuovo argomento.|
-|[Requisiti di aggiornamento compatibile con cluster e le procedure consigliate](cluster-aware-updating-requirements.md)|Nuovo argomento.|
+|[Requisiti e procedure consigliate per Aggiornamento compatibile con cluster](cluster-aware-updating-requirements.md)|Nuovo argomento.|
 |[Aggiornamento compatibile con cluster opzioni avanzate](cluster-aware-updating-options.md)|Nuovo argomento.|
 |[Domande frequenti su ad aggiornamento compatibile con cluster](cluster-aware-updating-faq.md)|Nuovo argomento.|
 |[Plug-in di aggiornamento compatibile con cluster](cluster-aware-updating-plug-ins.md)|Nuovo argomento.|

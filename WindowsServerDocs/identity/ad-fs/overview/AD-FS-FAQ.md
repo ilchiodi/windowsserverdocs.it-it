@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719690"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280489"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) di ADFS
 
@@ -138,9 +138,9 @@ Con AD FS 2019 Server, è ora possibile passare il valore della risorsa incorpor
 AD FS nel Server 2019 supporta chiave di prova per Code Exchange (PKCE) per il flusso di concessione del codice di autorizzazione OAuth
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>Quali ambiti consentiti sono supportati da AD FS?
-- aza - se si usa [estensioni del protocollo OAuth 2.0 per i client di Service Broker](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e, se il parametro di ambito contiene l'ambito "aza", il server rilascia un nuovo token di aggiornamento primari e lo imposta nel campo della risposta, nonché impostazione token di aggiornamento il campo refresh_token_expires_in alla durata del token di aggiornamento primari nuovo se verrà applicato.
+- aza - se si usa [estensioni del protocollo OAuth 2.0 per i client di Service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e, se il parametro di ambito contiene l'ambito "aza", il server rilascia un nuovo token di aggiornamento primari e lo imposta nel campo della risposta, nonché impostazione token di aggiornamento il campo refresh_token_expires_in alla durata del token di aggiornamento primari nuovo se verrà applicato.
 - openid - consente l'applicazione richiedere l'uso del protocollo di autorizzazione OpenID Connect.
-- logon_cert - l'ambito logon_cert consente a un'applicazione per richiedere certificati di accesso, che può essere utilizzato per gli utenti autenticati in modo interattivo. Il server AD FS omette il parametro di token di accesso dalla risposta e fornisce una catena di certificati CMS con codifica base64 o una risposta di infrastruttura a chiave pubblica completa CMC. Sono disponibili altri dettagli [qui](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
+- logon_cert - l'ambito logon_cert consente a un'applicazione per richiedere certificati di accesso, che può essere utilizzato per gli utenti autenticati in modo interattivo. Il server AD FS omette il parametro di token di accesso dalla risposta e fornisce una catena di certificati CMS con codifica base64 o una risposta di infrastruttura a chiave pubblica completa CMC. Sono disponibili altri dettagli [qui](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
 - user_impersonation - l'ambito user_impersonation è necessario per richiedere un token di accesso di on-behalf-of di AD FS. Per informazioni su come usare questo ambito, vedere [creare un'applicazione a più livelli con On-Behalf-Of (OBO) tramite OAuth con AD FS 2016](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
 - vpn_cert - l'ambito vpn_cert consente a un'applicazione per richiedere certificati VPN, che può essere usato per stabilire le connessioni VPN mediante l'autenticazione EAP-TLS. Ciò non è più supportata.
 - messaggio di posta elettronica - consente l'applicazione richiedere attestazioni di posta elettronica per l'utente connesso. Ciò non è più supportata. 

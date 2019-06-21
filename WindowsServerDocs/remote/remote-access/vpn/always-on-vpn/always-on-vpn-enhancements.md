@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b4dd78e0e88678d4570d408b3dcd472bddc88ba
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: e7cbe64609e30b042df70020896aebd85b7d22b9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749672"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280779"
 ---
 # <a name="always-on-vpn-enhancements"></a>Miglioramenti di VPN Always On
 
@@ -27,7 +27,7 @@ VPN Always On offre numerosi vantaggi rispetto alle soluzioni VPN di Windows del
 
 - **Integrazione di piattaforma:** VPN Always On ha integrazione migliorata con il sistema operativo Windows e le soluzioni di terze parti per offrire una piattaforma solida per innumerevoli scenari di connessione avanzati.
 
-- **Sicurezza:** VPN Always On offre funzionalità di sicurezza nuove e avanzate per limitare il tipo di traffico, quali applicazioni possono usare la connessione VPN, e quali metodi di autenticazione è possibile usare per avviare la connessione. Quando la connessione è attiva la maggior parte dei casi, è particolarmente importante proteggere la connessione. Per altre informazioni, vedere [opzioni di autenticazione VPN](https://docs.microsoft.com/en-us/windows/security/identity-protection/vpn/vpn-authentication).
+- **Sicurezza:** VPN Always On offre funzionalità di sicurezza nuove e avanzate per limitare il tipo di traffico, quali applicazioni possono usare la connessione VPN, e quali metodi di autenticazione è possibile usare per avviare la connessione. Quando la connessione è attiva la maggior parte dei casi, è particolarmente importante proteggere la connessione. Per altre informazioni, vedere [opzioni di autenticazione VPN](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-authentication).
 
 - **Connettività VPN:** VPN Always On, con o senza dispositivi Tunnel fornisce funzionalità di attivazione automatica. Prima di VPN Always On, la possibilità di attivare una connessione automatica tramite l'autenticazione del dispositivo o utente non era possibile.  
 

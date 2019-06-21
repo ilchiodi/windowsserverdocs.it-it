@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 57957e88ff4c398be23355534d5cc0ad7f920bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd222cdbcd8b4eee19da6b79e12bd11f6bdd8629
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877932"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283734"
 ---
 # <a name="nic-teaming-settings"></a>Impostazioni di gruppo NIC
 In questo argomento è fornire una panoramica delle proprietà del Team di interfaccia di rete, ad esempio gruppo NIC e modalità di bilanciamento del carico. È inoltre offrono informazioni dettagliate sull'impostazione della scheda di Standby e la proprietà dell'interfaccia gruppo primaria. Se si dispone di almeno due schede di rete in un gruppo NIC, non devi designare una scheda di Standby per la tolleranza di errore.
@@ -29,7 +28,7 @@ In questo argomento è fornire una panoramica delle proprietà del Team di inter
 ![Proprietà di gruppo NIC](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
 
 ## <a name="teaming-modes"></a>Modalità di raggruppamento 
-Le opzioni per la modalità gruppo vengono **commutatore indipendente** e **commutatore dipendenti**. Include la modalità dipendenti commutatore **Creazione gruppi statica** e **protocollo LACP (Link Aggregation controllo Protocol)**. 
+Le opzioni per la modalità gruppo vengono **commutatore indipendente** e **commutatore dipendenti**. Include la modalità dipendenti commutatore **Creazione gruppi statica** e **protocollo LACP (Link Aggregation controllo Protocol)** . 
 
 >[!TIP]
 >Per ottimizzare le prestazioni di gruppo NIC, è consigliabile usare una modalità di bilanciamento del carico della distribuzione dinamica.  

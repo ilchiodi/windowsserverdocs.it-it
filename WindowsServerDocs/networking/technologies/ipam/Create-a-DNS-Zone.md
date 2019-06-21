@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a030ff51-a815-4fc4-b26d-aae41c3e4ce5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 31dbae80882e1375e548d5f6942c6473786f838f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83e3865308fd45e88b800753b20ab298f9a14c96
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870222"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282248"
 ---
 # <a name="create-a-dns-zone"></a>Creare una zona DNS
 
@@ -44,7 +43,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestire le Zone DNS](DNS-Zone-Management.md)  
-[Gestire gestione indirizzi IP](Manage-IPAM.md)  
+[Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 
 

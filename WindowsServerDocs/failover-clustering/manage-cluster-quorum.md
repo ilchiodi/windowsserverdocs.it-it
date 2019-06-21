@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 85b75d0039fec1b2ad9982d6ae9bf83fa8da2fdf
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bf854418e9efb7dbb5bd07ba86f29d84ba54d68a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810990"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280380"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurare e gestire il quorum
 
@@ -67,7 +67,7 @@ Come opzione di configurazione quorum avanzata, è possibile scegliere di riasse
 
 È consigliabile rimuovere voti dai nodi in determinate configurazioni di ripristino di emergenza. Ad esempio, in un cluster multisito, è possibile rimuovere voti dai nodi in un sito di backup, in modo che tali nodi non influiscano sui calcoli del quorum. Questa configurazione è consigliata solo per il failover manuale tra siti. Per altre informazioni, vedere [Considerazioni relative al quorum per configurazioni di ripristino di emergenza](#quorum-considerations-for-disaster-recovery-configurations) più avanti in questo argomento.
 
-Il voto configurato di un nodo può essere verificato cercando la **NodeWeight** proprietà comuni del nodo del cluster tramite il [Get-ClusterNode](http://technet.microsoft.com/library/hh847268.aspx)cmdlet di Windows PowerShell. Un valore pari a 0 indica che per il nodo non è stato configurato alcun voto di quorum. Un valore pari a 1 indica che il voto di quorum del nodo è stato assegnato ed è gestito dal cluster. Per altre informazioni sulla gestione dei voti di nodo, vedere [Gestione dinamica del quorum](#dynamic-quorum-management) più avanti in questo argomento.
+Il voto configurato di un nodo può essere verificato cercando la **NodeWeight** proprietà comuni del nodo del cluster tramite il [Get-ClusterNode](https://technet.microsoft.com/library/hh847268.aspx)cmdlet di Windows PowerShell. Un valore pari a 0 indica che per il nodo non è stato configurato alcun voto di quorum. Un valore pari a 1 indica che il voto di quorum del nodo è stato assegnato ed è gestito dal cluster. Per altre informazioni sulla gestione dei voti di nodo, vedere [Gestione dinamica del quorum](#dynamic-quorum-management) più avanti in questo argomento.
 
 L'assegnazione di voti per tutti i nodi del cluster può essere verificata tramite il test di convalida **Convalida del quorum del cluster**.
 
