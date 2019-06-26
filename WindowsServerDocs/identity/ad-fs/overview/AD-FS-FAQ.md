@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 1fe73df2ce209fc47c7414d33cb1e0a83d31dcd7
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280489"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351290"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) di ADFS
 
@@ -300,3 +300,6 @@ Server applicazioni Web e ad FS supporta qualsiasi firewall che non esegue la te
 In AD FS 2016, associazione di token viene abilitata automaticamente e fa in modo che più problemi noti con gli scenari federativi e proxy risultati questo errore. Per risolvere questo problema, eseguire il comando Powershell seguente e rimuovere il supporto di associazione dei token.
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`
+
+### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>Ho aggiornamento mia farm di AD FS in Windows Server 2016 ad ADFS in Windows Server 2019. Il livello di comportamento Farm per la farm AD FS è stato generato correttamente a 2019 ma la configurazione del Proxy applicazione Web viene comunque visualizzata come Windows Server 2016?
+Dopo l'aggiornamento a Windows Server 2019, la versione di configurazione del Proxy dell'applicazione Web continua a visualizzare come Windows Server 2016. Il Proxy applicazione Web non dispone di nuove funzionalità specifiche di versione per Windows Server 2019 e se il livello di comportamento Farm è stato generato correttamente in AD FS, Proxy applicazione Web continuerà a essere visualizzato come Windows Server 2016 per impostazione predefinita. 
