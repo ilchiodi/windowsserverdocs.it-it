@@ -7,13 +7,13 @@ ms.assetid: f0aa575b-b34e-4f6c-8416-ed3e398e0ad2
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: 3647c9708ad68dec0ac13c85fced2b12150ccf60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 06/21/2019
+ms.openlocfilehash: 99be11bfec02924f93d9f759676e1eea364daa18
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447196"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407631"
 ---
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
@@ -27,7 +27,7 @@ Per la modalità TPM, l'amministratore dell'infrastruttura acquisisce tre tipi d
 
 Dopo l'infrastruttura di amministratore vengono acquisite le informazioni, aggiungerlo alla configurazione del servizio HGS come descritto nella procedura seguente.
 
-1.  Ottenere i file XML che contengono le informazioni di EKpub e copiarli in un server HGS. Vi sarà un file XML per ogni host. Eseguire quindi il comando seguente in una console Windows PowerShell con privilegi elevata in un server HGS. Ripetere il comando per ognuno dei file XML.
+1. Ottenere i file XML che contengono le informazioni di EKpub e copiarli in un server HGS. Vi sarà un file XML per ogni host. Eseguire quindi il comando seguente in una console Windows PowerShell con privilegi elevata in un server HGS. Ripetere il comando per ognuno dei file XML.
 
     ```powershell
     Add-HgsAttestationTpmHost -Path <Path><Filename>.xml -Name <HostName>
@@ -39,13 +39,17 @@ Dopo l'infrastruttura di amministratore vengono acquisite le informazioni, aggiu
     > È possibile controllare se è presente un EKCert, aprire il file XML in un editor, ad esempio Blocco note e controllo per un messaggio di errore che indica nessuna EKCert è stato trovato.
     > Se questo è il caso e si ritiene attendibile che il TPM nel computer è autenticato, è possibile usare il `-Force` flag per eseguire l'override di questo controllo di sicurezza e aggiungere l'identificatore dell'host servizio HGS.
 
-2. Ottenere i criteri di integrità del codice che ha creato l'amministratore dell'infrastruttura per gli host, in formato binario (*. p7b). Copiarlo in un server HGS. Eseguire quindi il comando seguente.
+2. Ottenere i criteri di integrità del codice che ha creato l'amministratore dell'infrastruttura per gli host, in formato binario (\*con estensione p7b). Copiarlo in un server HGS. Eseguire quindi il comando seguente.
 
     Per `<PolicyName>`, specificare un nome per il criterio di integrazione continua che descrive il tipo di applicazione all'host. Una procedura consigliata è assegnare il nome dopo il marca o modello della macchina e qualsiasi configurazione software speciale per l'esecuzione su di esso.<br>Per `<Path>`, specificare il percorso e nome file di criteri di integrità del codice.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
     ```
+    
+    > [!NOTE]
+    > Se si usa un criterio di integrità del codice firmato, registrare una copia dello stesso criterio senza segno con HGS.
+    > La firma in Criteri di integrità di codice viene usata per controllare gli aggiornamenti ai criteri, ma non viene misurata in host di TPM e pertanto non possa essere attestata dal servizio HGS.
 
 3. Ottenere il file TCGlog che l'amministratore dell'infrastruttura acquisita da un host di riferimento. Copiare il file a un server HGS. Eseguire quindi il comando seguente. In genere, si verrà denomina il criterio dopo la classe di hardware che rappresenta (ad esempio, "Produttore modello revisione").
 

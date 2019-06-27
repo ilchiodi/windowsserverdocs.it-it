@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: b479697366239144e5ca9d3486b84191eb51dc4d
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: fbec7cd2b8312f03998cfb27b739d0866d3a47c5
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67301600"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407660"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Utilizzare Pulitura disco in Windows Server
 
@@ -23,7 +23,7 @@ Lo strumento di pulitura disco Cancella i file non necessari in un ambiente di W
 
 Per avviare lo strumento di pulitura disco, eseguire il comando Cleanmgr.exe oppure selezionare **avviare**, selezionare **strumenti di amministrazione di Windows**, quindi selezionare **Pulitura disco**.
 
-È anche possibile eseguire Pulitura disco usando il [cleanmgr comando Windows](../../administration/windows-commands/clean-mgr.md) e usare le opzioni della riga di comando per specificare che la pulitura disco pulizia determinati file.
+È anche possibile eseguire Pulitura disco usando il [cleanmgr comando Windows](../../administration/windows-commands/cleanmgr.md) e usare le opzioni della riga di comando per specificare che la pulitura disco pulizia determinati file.
 
 ## <a name="enable-disk-cleanup-on-an-earlier-version-of-windows-server-by-installing-the-desktop-experience"></a>Abilitare la pulitura disco in una versione precedente di Windows Server installando l'esperienza Desktop
 
@@ -78,4 +78,4 @@ Affinché il pulsante di pulitura disco vengono visualizzate nella finestra di d
 
 [Liberare spazio nell'unità in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
 
-[cleanmgr](../../administration/windows-commands/clean-mgr.md)
+[cleanmgr](../../administration/windows-commands/cleanmgr.md)

@@ -1,24 +1,20 @@
 ---
 title: Comandi di Windows
 description: Comandi di Windows
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: dongill
-ms.date: 05/22/2018
+ms.date: 06/26/2019
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 861c8f35cf57fc7c8d03914dba2d971d50b66fc5
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298170"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407653"
 ---
 # <a name="windows-commands"></a>Comandi di Windows
 
@@ -54,7 +50,8 @@ Per trovare informazioni su un comando specifico, nel menu A-Z seguente, fare cl
 [X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Prerequisiti
-Le informazioni contenute in questo file PDF si applicano a:
+
+Le informazioni contenute in questo argomento si applicano a:
 
 -   Windows Server 2019
 -   Windows Server (Canale semestrale)
@@ -67,6 +64,7 @@ Le informazioni contenute in questo file PDF si applicano a:
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Cenni preliminari sulla shell comandi
+
 La shell dei comandi è stato il primo shell incorporata in Windows per automatizzare le attività di routine, ad esempio gestione degli account utente o i backup notturni, con i file batch (bat). Con Windows Script Host è possibile eseguire script più complessi nella shell dei comandi. Per altre informazioni, vedere [cscript](cscript.md) oppure [wscript](wscript.md). È possibile eseguire operazioni in modo più efficiente utilizzando gli script rispetto a quanto possibile tramite l'interfaccia utente. Gli script accettano tutti i comandi che sono disponibili nella riga di comando.
 
 Windows include due shell dei comandi: La shell dei comandi e [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Ogni shell è un programma software che fornisce la comunicazione diretta tra si e il sistema operativo o applicazione, che fornisce un ambiente per automatizzare le operazioni IT.
@@ -88,6 +86,7 @@ Per più affidabile e aggiornato Windows automazione, è consigliabile usare Pow
 > Per impostare il **reg_DWOrd** valore, utilizzare il valore esadecimale del carattere di controllo per una particolare funzione (ad esempio, **0 9** scheda e **08 0** BACKSPACE). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 ## <a name="command-line-reference-a-z"></a>Riferimento della riga di comando A-Z
+
 Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome del comando.
 
 [OGGETTO](#a) |
@@ -225,7 +224,7 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [chkntfs](chkntfs.md)
 - [choice](choice.md)
 - [cipher](cipher.md)
-- [cleanmgr](clean-mgr.md)
+- [cleanmgr](cleanmgr.md)
 - [clip](clip.md)
 - [cls](cls.md)
 - [Cmd](Cmd.md)
