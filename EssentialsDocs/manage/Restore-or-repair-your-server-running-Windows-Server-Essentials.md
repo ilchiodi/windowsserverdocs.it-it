@@ -201,7 +201,7 @@ ms.locfileid: "66433059"
  Dopo un ripristino di sistema, può essere necessario eseguire la procedura guidata Ripristino file o cartelle per ripristinare i file e le cartelle non mantenuti durante il ripristino. Se ad esempio è stato sostituito il disco di sistema o se le informazioni di partizione del disco di sistema sono illeggibili, non è possibile ripristinare i dati da altri volumi sul disco di sistema.  
   
 > [!NOTE]
->  Non è possibile usare la procedura guidata Ripristino file o cartelle per ripristinare l'intera unità di sistema. Per informazioni su come ripristinare il sistema completo, vedere [Restore or repair your server using installation media](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) o [Restore or reset your server from a client computer using the recovery DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
+>  Non è possibile usare la procedura guidata Ripristino file o cartelle per ripristinare l'intera unità di sistema. Per informazioni su come ripristinare il sistema completo, vedere [ripristinare o riparare il server mediante il supporto di installazione](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) o [ripristinare il server da un computer client mediante il DVD di ripristino](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
   
 ##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Per ripristinare file e cartelle da un backup del server  
   
