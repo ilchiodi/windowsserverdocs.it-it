@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 609ea0bd796a4d3696e14c7499be047ebdd83183
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01113b957c6b0be4e18955b5ddc78be3f463abe4
+ms.sourcegitcommit: 236a8ae1da12cea1acfff3f306246db0f022354d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868852"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67412204"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementazione dei modelli amministrativi con privilegi minimi
 
@@ -37,7 +37,7 @@ I principi descritti in estratti precedenti non sono stati modificati, ma nel va
 
 Sfortunatamente, il percorso più semplice in molti ambienti ha dimostrato di essere l'utilizzo eccessivo di account con privilegi vasto e complesso. Ampi privilegi sono diritti e le autorizzazioni che consentono di eseguire operazioni specifiche su un campione rappresentativo di grandi dimensioni di ambiente, ad esempio un account, personale dell'Help Desk può disporre di autorizzazioni che consentono loro di reimpostare le password degli account utente di molti.  
 
-Deep privilegi sono potenti che vengono applicate a un segmento stretto della popolazione, tali fornendo un tecnico diritti di amministratore in un server in modo che possano eseguire riparazioni. Non è necessariamente pericoloso privilegio ampia né privilegio completa, ma quando molti account nel dominio vengono concesse in modo permanente privilegio vasto e complesso, se solo uno degli account viene compromesso, rapidamente può essere utilizzato per riconfigurare l'ambiente per scopi dell'utente malintenzionato o persino distruggere i segmenti dell'infrastruttura di grandi dimensioni.  
+Deep privilegi sono potenti che vengono applicati a un segmento stretto della popolazione, ad esempio fornendo un tecnico diritti di amministratore in un server in modo che possano eseguire riparazioni. Non è necessariamente pericoloso privilegio ampia né privilegio completa, ma quando molti account nel dominio vengono concesse in modo permanente privilegio vasto e complesso, se solo uno degli account viene compromesso, rapidamente può essere utilizzato per riconfigurare l'ambiente per scopi dell'utente malintenzionato o persino distruggere i segmenti dell'infrastruttura di grandi dimensioni.  
 
 Gli attacchi pass-the-hash, che sono un tipo di attacco contro il furto di credenziali, vengono generati poiché gli strumenti per eseguire tali operazioni sono liberamente disponibili e facile da usare e molti ambienti sono vulnerabili agli attacchi. Gli attacchi pass-the-hash, non sono tuttavia, il problema reale. Il punto cruciale del problema è duplice:  
 
@@ -276,7 +276,7 @@ Con privilegi di gestione delle identità (PIM), talvolta definito come account 
 
 Una delle principali difficoltà associate alla gestione degli account con privilegi è che, per impostazione predefinita, gli account che possono gestire gli account con privilegi e protetti e gruppi hanno privilegi e gli account protetti. Se si implementano soluzioni RBAC e PIM appropriate per l'installazione di Active Directory, le soluzioni possono includere approcci che consentono di depopulate in modo efficace l'appartenenza ai gruppi con più privilegi nella directory, popolare i gruppi solo temporaneamente e, se necessari.  
 
-Se si implementano native RBAC e PIM, tuttavia, è consigliabile creare gli account che non dispongono di alcun privilegio e con la funzione di popolamento e depopulating con privilegi sola i gruppi in Active Directory quando necessario. [Appendice i: Creazione di account di gestione per gli account protetti e gruppi in Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) vengono fornite istruzioni dettagliate che è possibile usare per creare gli account per questo scopo.  
+Se si implementano native RBAC e PIM, tuttavia, è consigliabile creare gli account che non dispongono di alcun privilegio e con la funzione di popolamento e depopulating con privilegi sola i gruppi in Active Directory quando necessario. [Appendice I: Creazione di account di gestione per gli account protetti e gruppi in Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) vengono fornite istruzioni dettagliate che è possibile usare per creare gli account per questo scopo.  
 
 ### <a name="implementing-robust-authentication-controls"></a>Implementazione di controlli di autenticazione affidabile
 
