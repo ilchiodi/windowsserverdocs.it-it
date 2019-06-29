@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446125"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469350"
 ---
 # <a name="manage-client-access-licenses"></a>Gestire licenze di accesso client
 Ogni stazione che si connette a un sistema MultiPoint Services, tra cui il computer che esegue MultiPoint Services viene usato come stazione, deve avere un Desktop remoto per ogni utente valido *licenza di accesso client (CAL)* .
 
 Se si usa desktop virtuali stazione invece di stazioni fisiche, è necessario installare una licenza CAL per ogni desktop virtuale stazione.  
   
-1.  Acquistare una licenza client per ogni stazione connesso al computer MultiPoint Services o server. Per altre informazioni sull'acquisto di licenze CAL, vedere la documentazione per servizio licenze Desktop remoto. <!--@Liza: add link to RDS licensing here-->
+1.  Acquistare una licenza client per ogni stazione connesso al computer MultiPoint Services o server. Per altre informazioni sull'acquisto di licenze CAL, vedere la documentazione per servizio licenze Desktop remoto. 
 
 2.  Dal **avviare** schermata, aprire **MultiPoint Manager**.  
   

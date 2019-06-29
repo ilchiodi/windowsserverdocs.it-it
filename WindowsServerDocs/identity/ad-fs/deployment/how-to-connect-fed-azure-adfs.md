@@ -16,12 +16,12 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 588bc3f87c78feccac47d18d31d37be3b1a02d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f075f91e97f806555507bfc0e0c5f3d1589a71e6
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835102"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469644"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di single sign-on (SSO) Web e federazione delle identità semplificate e protette. Federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione usando le credenziali in locale e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante disporre di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale e nel cloud. Distribuzione di AD FS in Azure consente di ottenere la disponibilità elevata necessaria con sforzi minimi.
@@ -115,7 +115,7 @@ Per ogni ruolo (controller di dominio/AD FS e WAP), creare set di disponibilità
 
 Creare i seguenti set di disponibilità
 
-| Set di disponibilità | Ruolo | Domini di errore | Domini di aggiornamento |
+| Set di disponibilità | Role | Domini di errore | Domini di aggiornamento |
 |:---:|:---:|:---:|:--- |
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
@@ -123,7 +123,7 @@ Creare i seguenti set di disponibilità
 ### <a name="4-deploy-virtual-machines"></a>4. Distribuire macchine virtuali
 Il passaggio successivo consiste nel distribuire le macchine virtuali che ospiteranno i ruoli diversi all'interno dell'infrastruttura. Un minimo di due macchine sono consigliate in ogni set di disponibilità. Creare quattro macchine virtuali per la distribuzione di base.
 
-| Computer | Ruolo | Subnet | Set di disponibilità | Account di archiviazione | Indirizzo IP |
+| Computer | Role | Subnet | Set di disponibilità | Account di archiviazione | Indirizzo IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |Static |
 | contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |Static |
@@ -139,7 +139,7 @@ Il riquadro della macchina virtuale dovrebbe essere simile di sotto al termine d
 ### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Configurazione del controller di dominio / server AD FS
  Per autenticare qualsiasi richiesta in ingresso, AD FS sarà necessario contattare il controller di dominio. Per evitare il costoso trasferimento da Azure al controller di dominio locale per l'autenticazione, è consigliabile distribuire una replica del controller di dominio in Azure. Per ottenere una disponibilità elevata, è consigliabile creare un set di disponibilità di almeno 2 controller di dominio.
 
-| Controller di dominio | Ruolo | Account di archiviazione |
+| Controller di dominio | Role | Account di archiviazione |
 |:---:|:---:|:---:|
 | contosodc1 |Replica |contososac1 |
 | contosodc2 |Replica |contososac2 |
@@ -277,11 +277,6 @@ In generale, è necessario le regole seguenti per proteggere efficacemente la su
 
 ![Regole di accesso interno (in ingresso)](./media/how-to-connect-fed-azure-adfs/nsg_int.png)
 
-<!--
-[comment]: <> (![INT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgintinbound.png))
-[comment]: <> (![INT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgintoutbound.png))
--->
-
 **9.2. Proteggere la subnet Perimetrale**
 
 | Regola | Descrizione | Flusso |
@@ -290,11 +285,6 @@ In generale, è necessario le regole seguenti per proteggere efficacemente la su
 | DenyInternetOutbound |Diverso da HTTPS a internet è bloccato |In uscita |
 
 ![Regole di accesso esterno (in ingresso)](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
-
-<!--
-[comment]: <> (![EXT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzinbound.png))
-[comment]: <> (![EXT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzoutbound.png))
--->
 
 > [!NOTE]
 > Se l'autenticazione del certificato client utente (autenticazione clientTLS utilizzando X509 i certificati utente) è obbligatorio, ADFS richiede che TCP sia attivato 49443 la porta per l'accesso in ingresso.

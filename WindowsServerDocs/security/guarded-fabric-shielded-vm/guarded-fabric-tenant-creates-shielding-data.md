@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d1d269ecdbfd4803c51da4817b62caf01d2091ae
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284162"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469618"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Macchine virtuali schermate per i tenant - creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -43,8 +43,6 @@ Per prepararsi alla creazione di un file di dati di schermatura, procedere come 
 Poiché i tenant sono solo in grado di connettersi alle proprie macchine virtuali schermate tramite connessione Desktop remoto o altri strumenti di gestione remota, è importante garantire che i tenant possono verificare che si connette all'endpoint corretto (vale a dire, non c'è un "man in the middle" intercettazione della connessione).
 
 Un modo per verificare che ci si connette al server desiderato è installare e configurare un certificato per Servizi Desktop remoto presentare quando si avvia una connessione. Nel computer client la connessione al server controllerà se considera attendibile il certificato e Mostra un avviso se non esiste. In generale, per assicurarsi che il client di connessione consideri attendibile il certificato, RDP vengono emessi da PKI del tenant. Altre informazioni sulle [usando i certificati in Servizi Desktop remoto](https://technet.microsoft.com/library/dn781533.aspx) sono disponibili su TechNet.
-
-<!-- The previous link comes from Windows 2012 R2 content, but as of Sept 2016, there isn't a more recent link that covers the same information. -->
 
 > [!NOTE]
 > Quando si seleziona un certificato RDP da includere nel file di dati di schermatura, assicurarsi di usare un certificato con caratteri jolly. Un file di dati di schermatura può essere utilizzato per creare un numero illimitato di macchine virtuali. Poiché ogni macchina virtuale condivideranno lo stesso certificato, un certificato con caratteri jolly assicura che il certificato sarà valido indipendentemente dal nome host della macchina virtuale.
@@ -142,8 +140,6 @@ Sia il provider di servizi di hosting per ottenere i metadati di sorveglianza da
         $relecloudmetadata = Get-SCGuardianConfiguration
 
         $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
-
-<!-- Note that the VMM PowerShell cmdlets aren't Windows PowerShell, so "VMM PowerShell" is the correct terminology for them. -->
 
 Ottenere i file di metadati di sorveglianza per ogni infrastruttura sorvegliata che si vuole autorizzare le macchine virtuali schermate esecuzione prima di continuare.
 

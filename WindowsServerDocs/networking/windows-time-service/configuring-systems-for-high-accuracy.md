@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 2a5a7a6bd6313f7a4eadd827e3d754c1e467c3bc
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9bfa4e7d4f8777f8fef299cf3991238e31564ace
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63745450"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469603"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Configurazione dei sistemi per verificarne l'accuratezza elevata
 >Si applica a: Windows Server 2016 e Windows 10 versione 1607 o successiva
@@ -91,7 +91,6 @@ Ad esempio:  Prendere in considerazione una gerarchia di sincronizzazione di tem
 - Ora server a e l'origine
 
 Questa misura può essere ottenuta utilizzando lo strumento w32tm.exe della posta in arrivo.  A tale scopo, effettuare le seguenti operazioni:
-<!-- Use PowerShell to import the CSV then average the RTT Column -->
 
 1. Eseguire il calcolo dal server di destinazione e l'ora B.
     

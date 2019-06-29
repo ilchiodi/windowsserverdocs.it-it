@@ -7,14 +7,14 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 01/10/2019
+ms.date: 06/28/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: a04a362b65af8f184037d26728a1c147ca8ef948
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453191"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469664"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Pianificazione dei volumi in Spazi di archiviazione diretta
 
@@ -24,7 +24,7 @@ Questo argomento fornisce indicazioni su come pianificare i volumi in Spazi di a
 
 ## <a name="review-what-are-volumes"></a>Revisione: Quali sono i volumi
 
-I volumi sono archivi dati in cui inserisci i file necessari ai carichi di lavoro, ad esempio i file VHD o VHDX per le macchine virtuali Hyper-V. I volumi combinano le unità nel pool di archiviazione per introdurre i vantaggi di Spazi di archiviazione diretta in termini di tolleranza di errore, scalabilità e prestazioni.
+I volumi sono si inseriranno i file che richiesti i carichi di lavoro, ad esempio disco rigido virtuale o un file VHDX per le macchine virtuali Hyper-V. I volumi combinano le unità nel pool di archiviazione per introdurre i vantaggi di Spazi di archiviazione diretta in termini di tolleranza di errore, scalabilità e prestazioni.
 
    >[!NOTE]
    > Nella documentazione per Spazi di archiviazione diretta, usiamo il termine "volume" per fare riferimento congiunto al volume e al disco virtuale al di sotto, incluse le funzionalità fornite da altre caratteristiche di Windows incorporate, ad esempio Volumi condivisi Cluster e ReFS. La comprensione di queste differenze a livello di implementazione non è necessaria per pianificare e distribuire Spazi di archiviazione diretta correttamente.
@@ -51,23 +51,27 @@ Ti consigliamo di usare il nuovo [Resilient File System (ReFS)](../refs/refs-ove
 
 Se il tuo carico di lavoro richiede una funzionalità che ReFS non supporta ancora, puoi usare NTFS.
 
-   >[!TIP]
+   > [!TIP]
    > Volumi con file system diversi possono coesistere nello stesso cluster.
 
 ## <a name="choosing-the-resiliency-type"></a>Scelta del tipo di resilienza
 
 I volumi in Spazi di archiviazione diretta forniscono resilienza di protezione da problemi hardware, ad esempio gli errori di unità o server, e per consentire la disponibilità ininterrotta durante la manutenzione dei server, ad esempio durante gli aggiornamenti software.
 
-   >[!NOTE]
+   > [!NOTE]
    > La scelta dei tipi di resilienza è indipendente dei tipi di unità di cui disponi.
 
 ### <a name="with-two-servers"></a>Con due server
 
-L'unica opzione per i cluster con due server è il mirroring a 2 vie. Questo sistema mantiene due copie di tutti i dati, una copia sulle unità in ogni server. L'efficienza di archiviazione è pari al 50%: per scrivere 1 TB di dati sono necessari almeno 2 TB di capacità di archiviazione fisica nel pool di archiviazione. Il mirroring a 2 vie può tollerare senza problemi un errore hardware (unità o server) alla volta.
+Con due server nel cluster, è possibile usare il mirroring a 2. Se si esegue Windows Server 2019, è possibile utilizzare anche la resilienza annidata.
+
+Mirroring a 2 vie conserva due copie di tutti i dati, una copia nelle unità in ogni server. Sua efficienza di archiviazione è il 50%, ovvero per la scrittura di 1 TB di dati, è necessario almeno 2 TB di capacità di archiviazione fisica in pool di archiviazione. Mirroring a 2 vie, in modo sicuro può tollerare un errore hardware in un momento (un server o unità).
 
 ![mirroring a 2 vie](media/plan-volumes/two-way-mirror.png)
 
-Se disponi di più di due server, consigliamo di usare invece uno dei seguenti tipi di resilienza.
+Resilienza annidata (disponibile solo in Windows Server 2019) fornisce la resilienza dei dati tra i server con mirroring a 2 vie, quindi aggiunge la resilienza all'interno di un server con mirroring bidirezionale o parità con accelerazione mirror. L'annidamento fornisce la resilienza dei dati anche quando un server è il riavvio o non disponibile. Sua efficienza di archiviazione è 25% con mirroring a 2 vie annidati e circa 35-40% per la parità con accelerazione mirror annidati. Resilienza annidata in modo sicuro grado di tollerare due errori hardware alla volta (due unità, o un server e un'unità nel server rimanenti). A causa di questa resilienza dei dati aggiunti, è consigliabile usare la resilienza annidata nelle distribuzioni di produzione dei due server cluster, se si esegue Windows Server 2019. Per altre informazioni, vedi [Nested resilienza](nested-resiliency.md).
+
+![Parità con accelerazione mirror annidate](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Con tre server
 
@@ -77,16 +81,16 @@ Con tre server, dovresti usare il mirroring a tre vie per una migliore tolleranz
 
 ### <a name="with-four-or-more-servers"></a>Con quattro o più server
 
-Con quattro o più server, puoi scegliere per ogni volume se usare il mirroring a tre vie, la doppia parità (spesso detta "codifica di cancellazione") o una combinazione dei due tipi.
+Con quattro o più server, è possibile scegliere per ogni volume se utilizzare il mirroring tre vie, doppia parità (spesso chiamate "codifica di cancellazione"), o combinare i due con parità con accelerazione mirror.
 
-La doppia parità offre la stessa tolleranza di errore del mirroring a 3 vie, ma con una migliore efficienza di archiviazione. Con quattro server, l'efficienza di archiviazione è pari al 50,0%: per scrivere 2 TB di dati sono necessari 4 TB di capacità di archiviazione fisica nel pool di archiviazione. Questo valore aumenta fino al 66,7% di efficienza di archiviazione con sette server e continua fino all'80,0%. Lo svantaggio è che la codifica della parità richiede un uso maggiore delle risorse di calcolo, cosa che può limitare le prestazioni.
+La doppia parità offre la stessa tolleranza di errore del mirroring a 3 vie, ma con una migliore efficienza di archiviazione. Con quattro server, sua efficienza di archiviazione è 50.0%—to archiviare 2 TB di dati, è necessario 4 TB di capacità di archiviazione fisica in pool di archiviazione. Questo valore aumenta fino al 66,7% di efficienza di archiviazione con sette server e continua fino all'80,0%. Lo svantaggio è che la codifica della parità richiede un uso maggiore delle risorse di calcolo, cosa che può limitare le prestazioni.
 
 ![doppia parità](media/plan-volumes/dual-parity.png)
 
 Il tipo di resilienza da usare dipende dalle esigenze del carico di lavoro. Ecco una tabella che riepiloga quali carichi di lavoro sono una scelta ottimale per ogni tipo di resilienza, nonché l'efficienza di archiviazione e le prestazioni di ogni tipo di resilienza.
 
-| **Tipo di resilienza**| **Efficienza della capacità**| **Velocità**| **Carichi di lavoro**
-|--------------------|--------------------------------|--------------------------------|--------------------------
+| Tipo di resilienza | Efficienza della capacità | Velocità | Carichi di lavoro |
+| ------------------- | ----------------------  | --------- | ------------- |
 | **Mirror**         | ![Che mostra l'efficienza di archiviazione 33%](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Tre vie: 33% <br>Bidirezionale-bidirezionali-mirror: 50%     |![Visualizzazione prestazioni 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Prestazioni più elevate  | Carichi di lavoro virtualizzati<br> Database<br>Altri carichi di lavoro ad alte prestazioni |
 | **Parità accelerata con mirror** |![Visualizzazione di circa il 50% l'efficienza di archiviazione](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Dipende dalla percentuale di mirror e parità | ![Visualizzazione di circa il 20% delle prestazioni](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Molto più lento rispetto a eseguire il mirroring, ma fino a due volte più velocemente con doppia parità<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata     |
 | **Doppia parità**               | ![Efficienza di archiviazione Mostra circa 80%](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 server: 50% <br>16 server: fino all'80% | ![Visualizzazione di circa il 10% delle prestazioni](media/plan-volumes/dual-parity-perf.png)<br>Massima latenza dei / o e utilizzo della CPU in operazioni di scrittura<br> Ideale per letture e scritture sequenziale di grandi dimensioni | Archiviazione e backup<br> Infrastruttura desktop virtualizzata  |
@@ -108,8 +112,8 @@ Per i carichi di lavoro con scritture eseguite in grandi passaggi sequenziali, a
 
 L'efficienza di archiviazione risultante dipende dalle proporzioni che scegli. Vedi [questa demo](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) per alcuni esempi.
 
-   >[!TIP]
-   > Se si osserva una riduzione improvvisa delle prestazioni di scrittura solo tramite injestion dati, potrebbe indicare che la parte mirror non è sufficientemente grande o che la parità con accelerazione mirror non è adatta al caso d'uso. Ad esempio, se scrivere una riduzione delle prestazioni da 400 MB/s a 40 MB/s, provare a espandere la parte mirror o il passaggio a tre vie.
+   > [!TIP]
+   > Se si osserva una riduzione improvvisa delle prestazioni di scrittura solo tramite l'inserimento di dati, potrebbe indicare che la parte mirror non è sufficientemente grande o che la parità con accelerazione mirror non è adatta al caso d'uso. Ad esempio, se scrivere una riduzione delle prestazioni da 400 MB/s a 40 MB/s, provare a espandere la parte mirror o il passaggio a tre vie.
 
 ### <a name="about-deployments-with-nvme-ssd-and-hdd"></a>Informazioni sulle distribuzioni con unità NVMe, SSD e HDD
 
@@ -117,7 +121,7 @@ Nelle distribuzioni con due tipi di unità, le unità più veloci fungono da cac
 
 Nelle distribuzioni con tutti e tre i tipi di unità, solo le unità più veloci (NVMe) offrono funzioni di cache, lasciando due tipi di unità (SSD e HDD) a fornire capacità. Per ogni volume, puoi scegliere se debba risiedere completamente nel livello SSD, completamente nel livello HDD o se si estende su entrambi.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > Ti consigliamo di usare il livello SSD per distribuire i carichi di lavoro più sensibili alle prestazioni su all-flash.
 
 ## <a name="choosing-the-size-of-volumes"></a>Scelta delle dimensioni dei volumi
@@ -125,11 +129,11 @@ Nelle distribuzioni con tutti e tre i tipi di unità, solo le unità più veloci
 È consigliabile limitare le dimensioni di ogni volume a:
 
 | Windows Server 2016 | Windows Server 2019 |
-|---------------------|---------------------|
+| ------------------- | ------------------- |
 | Fino a 32 TB         | Fino a 64 TB         |
 
-   >[!TIP]
-   > Se utilizzi una soluzione di backup che si basa sul servizio Copia Shadow del Volume e il provider di software Volsnap (comuni con i carichi di lavoro file server), limitare le dimensioni del volume a 10 TB migliorerà prestazioni e affidabilità. Le soluzioni di backup che utilizzano la più recente API RCT Hyper-V e/o la clonazione dei blocchi ReFS e/o le API di backup SQL native ottengono buone prestazioni fino a 32 TB e oltre.
+   > [!TIP]
+   > Se si usa una soluzione di backup da cui dipende il servizio Copia Shadow del Volume (VSS) e il provider di software Volsnap, come avviene comunemente con i carichi di lavoro di file server, limitando le dimensioni del volume di 10 TB migliorerà le prestazioni e affidabilità. Le soluzioni di backup che utilizzano la più recente API RCT Hyper-V e/o la clonazione dei blocchi ReFS e/o le API di backup SQL native ottengono buone prestazioni fino a 32 TB e oltre.
 
 ### <a name="footprint"></a>Footprint
 

@@ -9,21 +9,16 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9601145048b8798cfb102757384da49bed16a538
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447482"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469632"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Le macchine virtuali schermate per i tenant - creazione di una nuova schermata della macchina virtuale in locale e spostarlo in un'infrastruttura sorvegliata
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
-
-
-<!-- NOTE THAT THIS FILE HAS A "redirect_url" LINE IN THE METADATA. EVENTUALLY WE WILL PROBABLY STRIP OUT THE DETAILED METADATA AND THE CONTENT BELOW, SO IT'S PURELY A REDIRECTED TOPIC. However, as of mid-November 2016, we're still deciding. -->
-
-
 
 In questo argomento vengono descritti i passaggi per creare una macchina virtuale schermata usando solo Hyper-V; vale a dire senza Virtual Machine Manager, i dischi modello o un file di dati di schermatura. Questo è uno scenario comune per il cloud pubblico più ambienti di hosting, ma può essere utile durante il test di un'infrastruttura sorvegliata o in enterprise scenari in cui una macchina virtuale viene spostata da un reparto fabric condiviso infrastruttura IT e devono essere crittografati prima della migrazione.
 
@@ -33,7 +28,7 @@ Per comprendere come in questo argomento si integra nel processo complessivo del
 
 1.  Prima di iniziare la procedura, verificare che trovano in un host Hyper-V che esegue Windows Server 2016 con i seguenti ruoli e funzionalità installate:
 
-    - Ruolo
+    - Role
 
         - Hyper-V
 

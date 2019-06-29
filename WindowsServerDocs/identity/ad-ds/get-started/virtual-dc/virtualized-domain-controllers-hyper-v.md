@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 8a1775a40761e4a489cc39535514d75174edffa5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 297c2a26f10503cb68ae241576a72e08aa4e55a0
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442994"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469565"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>La virtualizzazione dei controller di dominio con Hyper-V
 
@@ -82,7 +82,6 @@ Un file VHD di un controller di dominio virtuale equivale all'unità disco rigid
 ## <a name="rodcs"></a>Controller di dominio di sola lettura
 
 Un vantaggio offerto dai controller di dominio di sola lettura è la possibilità di collocarli in posizioni in cui non è possibile garantire la sicurezza fisica, ad esempio le succursali. È possibile usare crittografia unità BitLocker di Windows per proteggere i file di disco rigido virtuale (non i file System al suo interno) da eventuali compromissioni sull'host mediante furto del disco fisico. 
-<!-- Removed link to Windows Server 2008 Hyper-V and BitLocker Drive Encryption (http://go.microsoft.com/fwlink/?linkid=123534). Link is dead. -->
 
 ## <a name="performance"></a>Prestazioni
 
@@ -176,10 +175,8 @@ Per garantire prestazioni soddisfacenti, sono stati installati componenti di int
 Quando si monitorano le prestazioni delle macchine virtuali con Reliability and Performance Manager (Perfmon.msc), nella macchina virtuale le informazioni sulla CPU non saranno del tutto corrette a causa della modalità di pianificazione della CPU virtuale sul processore fisico. Se si desidera ottenere informazioni sulla CPU per una macchina virtuale eseguita su un server Hyper-V, utilizzare i contatori del processore logico hypervisor Hyper-V nella partizione host.
 
 Per altre informazioni sulle prestazioni di ottimizzazione di Active Directory Domain Services e Hyper-V, vedere [Performance Tuning linee guida per Windows Server 2016](../../../../administration/performance-tuning/index.md).
-<!-- Updated to 2016 perf guidance -->
 
 Inoltre, non pianificare l'utilizzo di un VHD per un disco differenze su una macchina virtuale configurata come controller di dominio in quanto tale VHD può ridurre le prestazioni. Per altre informazioni sui tipi di dischi Hyper-V, inclusi i dischi differenze, vedere [Creazione guidata disco rigido virtuale](http://go.microsoft.com/fwlink/?linkid=137279).
-<!-- Couldn't find an equivalent WS 2016 Hyper-V article. -->
 
 Per altre informazioni su Active Directory Domain Services in ambienti host virtuali, vedere [aspetti da considerare quando si ospitano controller di dominio di Active Directory negli ambienti host virtuali](https://go.microsoft.com/fwlink/?linkid=141292) nella Microsoft Knowledge Base.
 
@@ -384,8 +381,6 @@ Se non è disponibile un backup dei dati di stato del sistema antecedente all'er
 ## <a name="usn-and-usn-rollback"></a>USN e Rollback degli USN
 
 In questa sezione vengono descritti i problemi di replica che possono verificarsi in seguito a un ripristino non corretto del database di Active Directory con una versione precedente di una macchina virtuale. Per altri dettagli sul processo di replica di Active Directory, vedere [concetti di replica di Active Directory](../replication/active-directory-replication-concepts.md)
-
-<!-- Replaced this link with 2016 article: [How the Active Directory Replication Model Works](http://go.microsoft.com/fwlink/?linkid=27636) (http://go.microsoft.com/fwlink/?LinkID=27636). -->
 
 ## <a name="usns"></a>USN
 

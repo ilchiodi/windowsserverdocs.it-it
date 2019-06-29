@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: b68e6b915d029e53d47c6cffe214ec6e11bba6ea
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 75465aad45fc1b5e360fa1153a6530a771731f66
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812391"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469442"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Ora esatta per Windows Server 2016
 
@@ -24,7 +24,6 @@ Il servizio ora di Windows è un componente che usa un modello di plug-in per i 
 > [!NOTE]
 > Per una rapida panoramica del servizio ora di Windows, esaminiamo questa [Panoramica di alto livello video](https://aka.ms/WS2016TimeVideo).
 
-<!-- Not sure what to do with the following -->
 In questo argomento viene illustrato il... Questi argomenti relativi all'attivazione dell'ora esatta: 
 
 - Miglioramenti

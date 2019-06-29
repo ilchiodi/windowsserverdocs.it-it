@@ -8,18 +8,16 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 8e14cdeed435f23f28ca514e232fbcfa6220fc74
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81e6ed7950fe13c5bed4a3f8850d64e7185b8ddd
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887722"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469642"
 ---
 # <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Macchine virtuali schermate: preparazione di una macchina virtuale VHD dell'Helper di schermatura
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
-
-<!-- This comment creates a break between the Applies To above and the Important note below. -->
 
 > [!IMPORTANT]
 > Prima di iniziare queste procedure, assicurarsi di aver installato l'aggiornamento cumulativo più recente per Windows Server 2016 o Usa il più recente di Windows 10 [strumenti di amministrazione remota del Server](https://www.microsoft.com/en-us/download/details.aspx?id=45520). In caso contrario, le procedure non funzionerà. 
