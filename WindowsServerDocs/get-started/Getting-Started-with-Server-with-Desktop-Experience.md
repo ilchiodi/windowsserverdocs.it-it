@@ -1,5 +1,5 @@
 ---
-title: Installare la versione Server con Esperienza desktop
+title: Installare Server con Esperienza desktop
 description: "Illustra come ottenere e installare un'installazione di Server con Esperienza desktop "
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -15,10 +15,10 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: cf67a1c9675191936a6150bb950c59e6f99b54ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810699"
 ---
 # <a name="install-server-with-desktop-experience"></a>Installare la versione Server con Esperienza desktop
@@ -47,14 +47,14 @@ L'opzione Server con Esperienza desktop installa l'interfaccia utente standard e
 È possibile ottenere una copia di valutazione con una licenza di 180 giorni di Windows Server da [Windows Server Valutazioni](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). Per il download, scegliere l'**opzione Windows Server 2016 | ISO a 64 bit** oppure visitare **Windows Server 2016 | Laboratorio virtuale**.
 
 > [!IMPORTANT]  
-> Per le versioni di Windows Server 2016 precedenti a 14393.0.161119-1705.RS1_REFRESH, è possibile eseguire solo la conversione dalla versione di valutazione a quella definitiva con Windows Server 2016 installato mediante l'opzione Esperienza desktop (non l'opzione Server Core). A partire dalla versione 14393.0.161119-1705. RS1_REFRESH, è possibile convertire le edizioni di valutazione in quella definitiva indipendentemente dall'opzione di installazione utilizzata.
+> Per le versioni di Windows Server 2016 precedenti a 14393.0.161119-1705.RS1_REFRESH, è possibile eseguire solo la conversione dalla versione di valutazione a quella definitiva con Windows Server 2016 installato mediante l'opzione Esperienza desktop (non l'opzione Server Core). A partire dalla versione 14393.0.161119-1705.RS1_REFRESH, è possibile convertire le edizioni di valutazione in quella definitiva indipendentemente dall'opzione di installazione utilizzata.
 
 
 ### <a name="clean-installation"></a>Installazione pulita
 
 Per installare l'opzione di installazione Server con Esperienza desktop dal supporto, inserire il supporto in un'unità, riavviare il computer ed eseguire Setup.exe. Nella procedura guidata visualizzata, selezionare **Windows Server (Server con Esperienza desktop)** (Standard o Datacenter) e quindi completare la procedura guidata.
 
-### <a name="upgrade"></a>Aggiornamento
+### <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
 Il termine **aggiornamento** indica il passaggio dalla versione del sistema operativo esistente a una versione più recente, sempre nello stesso hardware.
 
 Se si dispone già di un'installazione completa del prodotto Windows Server appropriato, è possibile aggiornarla a un'installazione Server con Esperienza desktop dell'edizione appropriata di Windows Server 2016, come indicato di seguito.
@@ -74,8 +74,8 @@ Se nella colonna a destra sono presenti più edizioni, è supportato l'aggiornam
 
 |Edizioni eseguite|Edizioni a cui è possibile eseguire l'aggiornamento|  
 |-------------------|----------|  
-|Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
-|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard o Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
@@ -93,19 +93,19 @@ La possibilità di eseguire la migrazione varia a seconda dei ruoli server. La g
 
 |Ruolo server|Aggiornamento da Windows Server 2012 R2|Aggiornamento da Windows Server 2012|Supporto della migrazione|Completamento della migrazione senza tempi di inattività|  
 |-------------------|----------|--------------|--------------|----------|  
-|Servizi certificati Active Directory| Yes|    Yes|    Yes|    No|
-|Servizi di dominio di Active Directory|  Yes|    Yes|    Yes|    Yes|
-|Active Directory Federation Services|  No| No| Yes|    No (è necessario aggiungere nuovi nodi alla farm)|
-|Active Directory Lightweight Directory Services|   Yes|    Yes|    Yes|    Yes|
-|Active Directory Rights Management Services|   Yes|    Yes|    Yes|    No|
-|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.  |Yes|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
-|Servizi file e archiviazione| Yes|    Yes|    Varia in base alla funzionalità secondaria|  No|
+|Servizi certificati Active Directory| Sì|    Sì|    Sì|    No|
+|Servizi di dominio di Active Directory|  Sì|    Sì|    Sì|    Sì|
+|Active Directory Federation Services|  No| No| Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
+|Active Directory Lightweight Directory Services|   Sì|    Sì|    Sì|    Sì|
+|Active Directory Rights Management Services|   Sì|    Sì|    Sì|    No|
+|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.  |Sì|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Servizi file e archiviazione| Sì|    Sì|    Varia in base alla funzionalità secondaria|  No|
 |Servizi di stampa e fax|    No| No| Sì (Printbrm.exe)| No|
-|Servizi Desktop remoto|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Yes|    No|
-|Server Web (IIS)|  Yes|    Yes|    Yes|    No|
-|Esperienza Windows Server Essentials|  Yes|    N/D, nuove funzionalità|  Yes|    No|
-|Windows Server Update Services|    Yes|    Yes|    Yes|    No|
-|Cartelle di lavoro|  Yes|    Yes|    Yes|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Servizi Desktop remoto|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì|    No|
+|Server Web (IIS)|  Sì|    Sì|    Sì|    No|
+|Esperienza Windows Server Essentials|  Sì|    N/D, nuove funzionalità|  Sì|    No|
+|Windows Server Update Services|    Sì|    Sì|    Sì|    No|
+|Cartelle di lavoro|  Sì|    Sì|    Sì|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
 
 > [!IMPORTANT]  
 > Al termine dell'installazione e immediatamente dopo aver installato tutti i ruoli del server e le funzionalità necessarie, cercare e installare gli aggiornamenti disponibili per Windows Server 2016 tramite Windows Update o altri metodi di aggiornamento.

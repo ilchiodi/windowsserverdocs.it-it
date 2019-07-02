@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: 161840d86cae6b688e3e7a877c7c44b17aefd432
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824242"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684217"
 ---
 # <a name="identity--access"></a>Identità | Accesso
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <hr />
 
@@ -61,7 +61,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Privileged Access Management per Active Directory Domain Services</h3><hr />
+                        <h3>Privileged Access Management per Active Directory Domain Services e AD DS</h3><hr />
                         <p>Privileged Access Management (PAM) per Active Directory Domain Services è una soluzione che si basa su Microsoft Identity Manager (MIM) e Windows Server.</p>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows 10 per le aziende: Modalità d'uso di dispositivi di lavoro</h3><hr />
+                        <h3>Windows 10 per l'azienda: modalità di utilizzo di dispositivi per lavoro</h3><hr />
                         <p>Windows 10 offre la possibilità di usare Azure Active Directory. Dispositivi Windows 10 possono essere connessi ad Azure AD e gli utenti possono accedere a Windows con account Azure AD o aggiungere i relativi ID di Azure per accedere a risorse e le applicazioni aziendali.</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
                     </div>
                     <div class="cardText">
                         <h3>Active Directory Federation Services</h3><hr />
-                        <p>Documentazione dettagliata su tutte le funzionalità disponibili per AD FS in Windows Server.</p>
+                        <p>Documentazione dettagliata su tutte le funzionalità disponibili per Active Directory Federation Services in Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
 ---
 
 ## <a name="solutions-and-scenario-guides"></a>Guide agli scenari e alle soluzioni  
-* [Proteggere l'accesso alle risorse aziendali ovunque e su qualsiasi dispositivo](https://technet.microsoft.com/library/dn550982.aspx)  
-*  [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tutte le applicazioni aziendali](https://technet.microsoft.com/library/dn280945.aspx)  
-* [Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni sensibili](https://technet.microsoft.com/library/dn280949.aspx)  
+* [Accesso protetto alle risorse aziendali ovunque e con qualsiasi dispositivo](https://technet.microsoft.com/library/dn550982.aspx)  
+*  [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](https://technet.microsoft.com/library/dn280945.aspx)  
+* [Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari](https://technet.microsoft.com/library/dn280949.aspx)  
 * [Gestire i rischi con il controllo di accesso condizionale](https://technet.microsoft.com/library/dn280937.aspx)
