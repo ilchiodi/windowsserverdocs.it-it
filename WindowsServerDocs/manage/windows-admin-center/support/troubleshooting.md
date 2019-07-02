@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 06/07/2019
-ms.openlocfilehash: 8e718eda7859c5e0b6949829c225b28e882525ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 4d108161dd4f6b57d4a86cbcaa5852aff53f0ac3
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811704"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469519"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Risoluzione dei problemi di Windows Admin Center
 
@@ -98,7 +98,6 @@ Questa situazione può verificarsi se il percorso del modulo di PowerShell prede
 
 ## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Viene visualizzato il messaggio: "Impossibile connettersi in modo sicuro a questa pagina. È possibile che il sito Usa le impostazioni di sicurezza TLS obsolete o non sicure.
 
-<!--REF: https://docs.microsoft.com/iis/get-started/whats-new-in-iis-10/http2-on-iis#when-is-http2-not-supported -->
 Computer in uso è limitato per le connessioni HTTP/2. Windows Admin Center Usa l'autenticazione Windows integrata, che non è supportato in HTTP/2. Aggiungere i seguenti valori del Registro di sistema nel ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` tasto **il computer che esegue il browser** rimozione della restrizione HTTP/2:
 
 ```
