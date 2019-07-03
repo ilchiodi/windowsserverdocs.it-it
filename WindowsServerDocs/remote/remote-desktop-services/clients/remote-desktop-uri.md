@@ -1,6 +1,6 @@
 ---
 title: Schema URI client di Desktop remoto
-description: Scopri la combinazione di Uniform Resource Identifier per i client Desktop remoto
+description: Informazioni sullo schema Uniform Resource Identifier per client Desktop remoto Microsoft
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/11/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 86de6468e2fa45c976711aef43a1a274e04498d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2934fed43c8f4feec2f321d684cc3593933eb5d
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870502"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743858"
 ---
 # <a name="remote-desktop-client-universal-resource-identifier-uri-scheme-support"></a>Supporto client di Desktop remoto schema Universal Resource Identifier (URI)
 
->Si applica a: Windows Server, versione 1803, Windows Server 2016, Windows Server 2012 R2
+>Si applica a: Windows Server versione 1803, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 L'abilitazione di uno schema URI (Uniform Resource Identifier) consente ai professionisti e agli sviluppatori IT di integrare le funzionalità dei client Desktop remoto tra piattaforme e arricchisce l'esperienza utente consentendo: 
 
@@ -31,7 +31,7 @@ L'abilitazione di uno schema URI (Uniform Resource Identifier) consente ai profe
 - Agli utenti finali di avviare le connessioni remote usando URL preconfigurati.
 
 >[!NOTE]
-> Tramite un URI per la connessione al client desktop remoto non è supportata per i sistemi operativi Windows, usare l'URI con dispositivi Android, iOS e MacOS.
+> L'uso di un URI per la connessione al client RD NON è supportato nei sistemi operativi Windows; l'URI può essere usato con dispositivi MacOS, iOS, e Android.
 
 Desktop remoto Microsoft Usa il rdp://query_string lo schema URI per archiviare le impostazioni di attributi preconfigurati che vengono utilizzate durante l'avvio del client. Le stringhe di query rappresentano un singolo attributo o un set di attributi RDP forniti nell'URL. 
 
@@ -45,33 +45,33 @@ Questa tabella contiene un elenco completo degli attributi supportati che posson
 
 | **Attributo RDP**                                           | **Android** | **Mac** | **iOS** |
 |---------------------------------------------------------|---------|-----|-----|
-| Consenti composizione del desktop = i:<0:&lt;0 o 1&gt;                    | x       | x   | x   |
-| Allow font smoothing=i:<0 = i:<0: < 0 o 1&gt;                         | x       | x   | x   |
-| alternare shell = s:&lt;stringa&gt;                              | x       | x   | x   |
-| [audiomode=i:<0 = i:<0:&lt;0, 1 o 2&gt;](https://technet.microsoft.com/library/ff393707.aspx)                                | x       | x   | x   |
-| [livello di autenticazione = i:<0:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393709.aspx)                         | x       | x   | x   |
-| connettersi alla console = i:<0:&lt;0 o 1&gt;                           | x       | x   | x   |
-| disabilitare le impostazioni di cursore = i:<0:&lt;0 o 1&gt;                      | x       | x   | x   |
-| Disable full window Drag=i:<0 = i:<0:&lt;0 o 1&gt;                     | x       | x   | x   |
-| Disable menu anims=i:<0 = i:<0:&lt;0 o 1&gt;                           | x       | x   | x   |
-| disabilitare i temi = i:<0:&lt;0 o 1&gt;                               | x       | x   | x   |
-| disable wallpaper=i:<0 = i:<0:&lt;0 o 1&gt;                            | x       | x   | x   |
-| [drivestoredirect=s:*](https://technet.microsoft.com/library/ff393728(v=ws.10).aspx) (unico valore supportato) | x       | x   |     |
-| [desktopheight = i:<0:&lt;i:<valore in pixel&gt;](https://technet.microsoft.com/library/ff393702.aspx)                       |         | x   |     |
-| [desktopwidth=i:&lt;value in pixels&gt;](https://technet.microsoft.com/library/ff393697.aspx)                        |         | x   |     |
-| [domain=s:&lt;string&gt;](https://technet.microsoft.com/library/ff393673.aspx)                           | x | x | x |
-| [indirizzo completo = s:&lt;stringa&gt;](https://technet.microsoft.com/library/ff393661.aspx)                     | x | x | x |
-| gatewayhostname=s:&lt;string&gt;                  | x | x | x |
-| [gatewayusagemethod=i:<1 = i:<0:&lt;1 o 2&gt;](https://msdn.microsoft.com/aa381329.aspx)               | x | x | x |
-| [Richiedi credenziali sul client = i:<0:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393660(v=ws.10).aspx) |   | x |   |
-| [loadbalanceinfo=s:&lt;string&gt;](https://technet.microsoft.com/library/ff393684.aspx)                  | x | x | x |
-| [redirectprinters=i:&lt;0 or 1&gt;](https://technet.microsoft.com/library/ff393671(v=ws.10).aspx)                 |   | x |   |
-| remoteapplicationcmdline=s:&lt;string&gt;         | x | x | x |
-| remoteapplicationmode=i:&lt;0 or 1&gt;            | x | x | x |
-| remoteapplicationprogram=s:&lt;string&gt;         | x | x | x |
-| directory di lavoro shell = s:&lt;stringa&gt;          | x | x | x |
-| Nome del server usare il reindirizzamento = i:<0:&lt;0 o 1&gt;      | x | x | x |
-| [username=s:&lt;string&gt;](https://technet.microsoft.com/library/ff393678.aspx)                         | x | x | x |
-| [id modalità schermo = i:<0:&lt;1 o 2&gt;](https://technet.microsoft.com/library/ff393692.aspx)                   |   | x |   |
-| [sessione bpp = i:<0:&lt;8, 15, 16, 24 o 32&gt;](https://technet.microsoft.com/library/ff393680.aspx)        |   | x |   |
-| [Utilizzare multimon = i:<0:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393695(v=ws.10).aspx)          |   | x |   |
+| allow desktop composition=i:&lt;0 o 1&gt;                    | x       | x   | x   |
+| allow font smoothing=i:<0 o 1&gt;                         | x       | x   | x   |
+| alternate shell=s:&lt;string&gt;                              | x       | x   | x   |
+| [audiomode=i:&lt;0, 1 o 2&gt;](https://technet.microsoft.com/library/ff393707.aspx)                                | x       | x   | x   |
+| [authentication level=i:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393709.aspx)                         | x       | x   | x   |
+| connect to console=i:&lt;0 o 1&gt;                           | x       | x   | x   |
+| disable cursor settings=i:&lt;0 o 1&gt;                      | x       | x   | x   |
+| disable full window drag=i:&lt;0 or 1&gt;                     | x       | x   | x   |
+| disable menu anims=i:&lt;0 o 1&gt;                           | x       | x   | x   |
+| disable themes=i:&lt;0 o 1&gt;                               | x       | x   | x   |
+| disable wallpaper=i:&lt;0 o 1&gt;                            | x       | x   | x   |
+| [drivestoredirect = s: *](https://technet.microsoft.com/library/ff393728(v=ws.10).aspx) (questo è l'unico valore supportato) | x       | x   |     |
+| [desktopheight=i:&lt;valore in pixel&gt;](https://technet.microsoft.com/library/ff393702.aspx)                       |         | x   |     |
+| [desktopwidth=i:&lt;valore in pixel&gt;](https://technet.microsoft.com/library/ff393697.aspx)                        |         | x   |     |
+| [domain=s:&lt;stringa&gt;](https://technet.microsoft.com/library/ff393673.aspx)                           | x | x | x |
+| [full address=s:&lt;stringa&gt;](https://technet.microsoft.com/library/ff393661.aspx)                     | x | x | x |
+| gatewayhostname=s:&lt;stringa&gt;                  | x | x | x |
+| [gatewayusagemethod=i:&lt;1 o 2&gt;](https://msdn.microsoft.com/aa381329.aspx)               | x | x | x |
+| [prompt for credentials on client=i:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393660(v=ws.10).aspx) |   | x |   |
+| [loadbalanceinfo=s:&lt;stringa&gt;](https://technet.microsoft.com/library/ff393684.aspx)                  | x | x | x |
+| [redirectprinters=i:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393671(v=ws.10).aspx)                 |   | x |   |
+| remoteapplicationcmdline=s:&lt;stringa&gt;         | x | x | x |
+| remoteapplicationmode=i:&lt;0 o 1&gt;            | x | x | x |
+| remoteapplicationprogram=s:&lt;stringa&gt;         | x | x | x |
+| shell working directory=s:&lt;stringa&gt;          | x | x | x |
+| Use redirection server name=i:&lt;0 o 1&gt;      | x | x | x |
+| [username=s:&lt;stringa&gt;](https://technet.microsoft.com/library/ff393678.aspx)                         | x | x | x |
+| [screen mode id=i:&lt;1 o 2&gt;](https://technet.microsoft.com/library/ff393692.aspx)                   |   | x |   |
+| [session bpp=i:&lt;8, 15, 16, 24 o 32&gt;](https://technet.microsoft.com/library/ff393680.aspx)        |   | x |   |
+| [use multimon=i:&lt;0 o 1&gt;](https://technet.microsoft.com/library/ff393695(v=ws.10).aspx)          |   | x |   |
