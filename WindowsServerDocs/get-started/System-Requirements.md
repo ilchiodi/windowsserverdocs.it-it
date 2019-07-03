@@ -15,15 +15,15 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810592"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016 
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016 
 
 Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Windows Server&reg; 2016 o Windows Server, versione 1709.
 
@@ -53,7 +53,7 @@ Oltre che dalla frequenza di clock del processore, le prestazioni del processore
 - Supporto per CMPXCHG16b, LAHF/SAHF e PrefetchW  
 - Supporto per SLAT (Second-Level Address Translation) (EPT o NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento è possibile usare per verificare quali di queste funzionalità è la CPU.
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento che consente di verificare le funzionalità della CPU.
 
 ## <a name="ram"></a>RAM  
 Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:  
@@ -117,8 +117,8 @@ Gli elementi seguenti non sono effettivamente obbligatori, ma necessari per alcu
 > Un chip Trusted Platform Module (TPM) non è strettamente necessario per installare questa versione, anche se è necessario per usare determinate funzionalità come Crittografia unità BitLocker. Se il computer usa TPM, è necessario soddisfare questi requisiti:  
 >  
 > - I TPM basati su hardware devono implementare la versione 2.0 delle specifiche TPM.  
-> - I TPM che implementano la versione 2.0 devono disporre di un certificato EK che viene sottoposto al provisioning anticipato per il TPM dal fornitore dell'hardware o essere in grado di essere recuperati dal dispositivo durante il primo avvio.  
-> - I TPM che implementano la versione 2.0 devono disporre delle banche SHA-256 PCR e implementare PCR tra 0 e 23 per SHA-256. È possibile distribuire i TPM con una singola banca PCR commutabile che può essere utilizzata per le misurazioni SHA-1 e SHA-256.  
+> - I TPM che implementano versione 2.0 devono disporre di un certificato EK su cui sia stato effettuato preventivamente il provisioning al TPM dal fornitore dell'hardware, o che possa essere recuperato dal dispositivo durante il primo avvio.  
+> - I TPM che implementano la versione 2.0 devono includere banche PCR SHA-256 e implementare i PCR tra 0 e 23 per SHA-256. Sono accettabili TPM con una singola banca PCR intercambiabile che possa essere usata sia per le misurazioni SHA-1 che per le misurazioni SHA-256.  
 > - La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
 
 ## <a name="installation-of-nano-server"></a>Installazione di Nano Server  
@@ -126,6 +126,6 @@ Per passaggi dettagliati per installare Windows Server 2016 come Nano Server, ve
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 - [Requisiti del processore di Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
-- [Confronto delle edizioni Standard e Datacenter di Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
+- [Confronto tra le edizioni Standard e Datacenter di Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
 - [Requisiti di sistema di Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [Scarica il foglio dati sulle licenze di Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

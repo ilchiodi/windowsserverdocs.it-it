@@ -1,6 +1,6 @@
 ---
 title: Requisiti di sistema di Windows Server 2019
-description: Requisiti minimi per la rete di archiviazione, la CPU, memoria e RAM in un'installazione pulita di Windows Server 2019.
+description: Requisiti minimi per risorse di archiviazione, CPU, rete, memoria, RAM in un'installazione pulita di Windows Server 2019.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,21 +14,21 @@ ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
 ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810722"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
 >Si applica a: Windows Server 2019 
 
-In questo argomento vengono descritti i requisiti minimi di sistema in esecuzione Windows Server&reg; 2019.
+Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Windows Server&reg; 2019.
 
 ## <a name="review-system-requirements"></a>Verificare i requisiti di sistema  
 
-Di seguito sono i requisiti di sistema stimati Windows Server 2019. Se le risorse del computer sono inferiori ai requisiti minimi indicati, non sarà possibile installare il prodotto in modo corretto. I requisiti effettivi possono variare in base alla configurazione del sistema, nonché in base alle applicazioni e alle funzionalità selezionate per l'installazione.
+Di seguito sono indicati i requisiti di sistema stimati per Windows Server 2019. Se le risorse del computer sono inferiori ai requisiti minimi indicati, non sarà possibile installare il prodotto in modo corretto. I requisiti effettivi possono variare in base alla configurazione del sistema, nonché in base alle applicazioni e alle funzionalità selezionate per l'installazione.
 
 Se non diversamente specificato, i requisiti minimi di sistema si applicano a tutte le opzioni di installazione (Server Core, Server con Esperienza desktop e Nano Server) e a entrambe le edizioni Standard e Datacenter.  
 
@@ -46,14 +46,14 @@ Oltre che dalla frequenza di clock del processore, le prestazioni del processore
 - Supporto per CMPXCHG16b, LAHF/SAHF e PrefetchW  
 - Supporto per SLAT (Second-Level Address Translation) (EPT o NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento è possibile usare per verificare quali di queste funzionalità è la CPU.
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento che consente di verificare le funzionalità della CPU.
 
 ## <a name="ram"></a>RAM  
 Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:  
 
 **Minimo**:  
 - 512 MB (2 GB per l'opzione di installazione Server con Esperienza desktop)
-- Tipo ECC (codice di correzione errore) o una tecnologia simile per le distribuzioni di host fisico
+- Tipo ECC (codice di correzione errore) o tecnologia simile, per le distribuzioni di host fisici
 
 > [!IMPORTANT]  
 > Il programma di installazione avrà esito negativo se si crea una macchina virtuale con i parametri hardware minimi supportati (1 core processore e 512 MB di RAM) e quindi si tenta di installare questa versione nella macchina virtuale.  
@@ -64,14 +64,14 @@ Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:
 > -   Interrompere il processo di avvio di questa versione nella macchina virtuale con MAIUSC+F10. Nel prompt dei comandi aperto utilizzare Diskpart.exe per creare e formattare una partizione di installazione. Eseguire **Wpeutil createpagefile /path=C:\pf.sys** (supponendo che la partizione di installazione creata sia C:). Chiudere il prompt dei comandi e procedere con l'installazione.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Requisiti di spazio su disco e del controller di archiviazione  
-I computer che eseguono Windows Server 2019 devono includere un adattatore di archiviazione conforme alla specifica di architettura PCI Express. I dispositivi di archiviazione permanente sul server classificati come unità disco rigido non devono essere di tipo PATA. Windows Server 2019 non consente EIDE/ATA/PATA/IDE per le unità di avvio, la pagina o i dati.  
+I computer che eseguono Windows Server 2019 devono includere un adattatore di archiviazione conforme alla specifica di architettura PCI Express. I dispositivi di archiviazione permanente sul server classificati come unità disco rigido non devono essere di tipo PATA. Windows Server 2019 non supporta ATA/PATA/IDE/EIDE per l'avvio, il paging o le unità dati.  
 
 Di seguito sono indicati i requisiti **minimi** di spazio su disco stimati per la partizione di sistema.  
 
 **Minimo**: 32 GB  
 
 > [!NOTE]
-> Tenere presente che 32 GB deve essere considerato un *valore minimo assoluto* affinché l'installazione venga completata. Questo requisito minimo dovrebbe consentire l'installazione di Windows Server 2019 in modalità Server Core, con il ruolo server servizi Web (IIS). Un server con l'installazione dei componenti di base del server ha dimensioni di circa 4 GB inferiori rispetto allo stesso server nella modalità server con GUI. 
+> Tenere presente che 32 GB deve essere considerato un *valore minimo assoluto* affinché l'installazione venga completata. Questo requisito minimo dovrebbe consentire l'installazione di Windows Server 2019 in modalità Server Core con il ruolo server Servizi Web (IIS). Un server con l'installazione dei componenti di base del server ha dimensioni di circa 4 GB inferiori rispetto allo stesso server nella modalità server con GUI. 
 > 
 > La partizione di sistema richiederà spazio aggiuntivo in presenza di una o più delle circostanze seguenti:  
 > 
@@ -88,7 +88,7 @@ Le schede di rete usate con questa versione devono includere queste funzionalit�
 
 Una scheda di rete che supporta il debugging di rete (KDNet) è utile, ma non costituisce un requisito minimo.   
 
-Una scheda di rete che supporta la pre-boot Execution Environment (PXE) è utile, ma non è un requisito minimo.
+Una scheda di rete che supporta l'ambiente di esecuzione pre-avvio (PXE) è utile, ma non costituisce un requisito minimo.
 
 ## <a name="other-requirements"></a>Altri requisiti  
 I computer che eseguono questa versione devono disporre anche di quanto segue:  
@@ -110,6 +110,6 @@ Gli elementi seguenti non sono effettivamente obbligatori, ma necessari per alcu
 > Un chip Trusted Platform Module (TPM) non è strettamente necessario per installare questa versione, anche se è necessario per usare determinate funzionalità come Crittografia unità BitLocker. Se il computer usa TPM, è necessario soddisfare questi requisiti:  
 >  
 > - I TPM basati su hardware devono implementare la versione 2.0 delle specifiche TPM.  
-> - I TPM che implementano la versione 2.0 devono disporre di un certificato EK che viene sottoposto al provisioning anticipato per il TPM dal fornitore dell'hardware o essere in grado di essere recuperati dal dispositivo durante il primo avvio.  
-> - I TPM che implementano la versione 2.0 devono disporre delle banche SHA-256 PCR e implementare PCR tra 0 e 23 per SHA-256. È possibile distribuire i TPM con una singola banca PCR commutabile che può essere utilizzata per le misurazioni SHA-1 e SHA-256.  
+> - I TPM che implementano la versione 2.0 devono disporre di un certificato EK su cui sia stato effettuato preventivamente il provisioning al TPM dal fornitore dell'hardware, o che possa essere recuperato dal dispositivo durante il primo avvio.  
+> - I TPM che implementano la versione 2.0 devono includere banche PCR SHA-256 e implementare i PCR tra 0 e 23 per SHA-256. Sono accettabili TPM con una singola banca PCR intercambiabile che possa essere usata sia per le misurazioni SHA-1 che per le misurazioni SHA-256.  
 > - La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
