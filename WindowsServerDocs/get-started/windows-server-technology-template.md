@@ -14,26 +14,26 @@ ms.assetid: ''
 author: ''
 manager: ''
 ms.openlocfilehash: 3aa582df6728d46b1f5f3ac13469ae7af52da28e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862952"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684581"
 ---
 # <a name="technology-in-windows-server-2016"></a>Tecnologia in Windows Server 2016 
 
-<img src="media/6-networking.png" style='align:left'> *Introduzione alla tecnologia. Questo articolo dovrebbe collegare la posizione di marketing per la tecnologia al contenuto. Modificare l'icona a quello utilizzato per la propria area tecnologica nella pagina di destinazione.*
+<img src="media/6-networking.png" style='align:left'> *Introduzione alla tecnologia. Questo articolo dovrebbe collegare la posizione di marketing per la tecnologia al contenuto. Cambia l'icona con quella usata per la tua area tecnologica nella pagina di destinazione.*
 
-*L'obiettivo è rendere il contenuto che consente l'implementazione nel proprio ambiente del cliente dalla storia di marketing della tecnologia.*
+*L’obiettivo è accompagnare il cliente dal contenuto di marketing relativo alla tecnologia al contenuto che consente l’implementazione della stessa tecnologia nell’ambiente del cliente.*
 
 
 
 >[!Note]
 > Per scaricare Windows Server 2016, vedere [versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
 
-*Introdurre nuovi e interessanti funzionalità qui.*
+*Inserire nuove e interessanti funzionalità qui.*
 
-*Fornire collegamenti nel contenuto, ogni collegamento deve essere formato H2 o H3 (anziché tabelle o elenchi puntati). Vedere l'articolo di rete per un esempio.*
+*Inserire collegamenti nel contenuto. Ogni collegamento deve avere il formato H2 o H3 anziché tabelle o elenchi puntati. Per un esempio, vedere l'articolo Funzionalità di rete.*
 ## <a name="sub-technology"></a>Tecnologia secondaria
 
 ### <a name="link-to-article-about-sub-technology"></a>Collegamento all'articolo sulla tecnologia secondaria

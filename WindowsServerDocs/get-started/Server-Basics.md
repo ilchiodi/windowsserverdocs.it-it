@@ -11,10 +11,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: e7ff669b1a1ca3bed5d7c827c40bc46e81ea3f02
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810593"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Introduzione a Windows Server 2016
@@ -22,9 +22,9 @@ ms.locfileid: "66810593"
 >Si applica a: Windows Server 2016
 
 > [!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
-![Icona che indica che una finestra con un segno di spunta](../media/landing-icons/getstarted.png) questa raccolta contiene informazioni dettagliate che consentono di stabilire se si è pronti a passare a Windows Server 2016. Dopo aver controllato i requisiti di sistema, le opzioni di aggiornamento e altre informazioni riguardanti il passaggio a Windows Server 2016, è possibile tornare all'argomento principale [Windows Server 2016](Windows-Server-2016.md) e iniziare il percorso di installazione dell'edizione e delle opzioni di configurazione più adatte alle specifiche esigenze. 
+![Icona di una casella con un segno di spunta](../media/landing-icons/getstarted.png) Questa raccolta contiene informazioni dettagliate che consentono di stabilire se si è pronti a passare a Windows Server 2016. Dopo aver controllato i requisiti di sistema, le opzioni di aggiornamento e altre informazioni riguardanti il passaggio a Windows Server 2016, è possibile tornare all'argomento principale [Windows Server 2016](Windows-Server-2016.md) e iniziare il percorso di installazione dell'edizione e delle opzioni di configurazione più adatte alle specifiche esigenze. 
 
 > [!Note]
 > Per scaricare Windows Server 2016, vedere [versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
@@ -33,7 +33,7 @@ ms.locfileid: "66810593"
 ## <a name="system-requirementssystem-requirementsmd"></a>[Requisiti di sistema](system-requirements.md)
 Individuare i requisiti hardware minimi per installare ed eseguire Windows Server 2016.
 
-## <a name="release-notes-important-issues-in-windows-serverwindows-server-2016-ga-release-notesmd"></a>[Note sulla versione: Problemi importanti in Windows Server](Windows-Server-2016-GA-Release-Notes.md)
+## <a name="release-notes-important-issues-in-windows-serverwindows-server-2016-ga-release-notesmd"></a>[Note sulla versione: Problemi importanti di Windows Server](Windows-Server-2016-GA-Release-Notes.md)
 Problemi che possono creare serie difficoltà se non vengono evitati o risolti.
 
 ## <a name="recommendations-for-moving-to-windows-server-2016recommendations-moving-to-server2016md"></a>[Indicazioni per il passaggio a Windows Server 2016](Recommendations-moving-to-Server2016.md)
@@ -45,13 +45,13 @@ Funzionalità già rimosse da Windows Server 2016 o designate per una potenziale
 ## <a name="upgrade-and-conversion-optionssupported-upgrade-pathsmd"></a>[Opzioni di aggiornamento e conversione](Supported-Upgrade-Paths.md)
 Descrizione di tutte le possibili modalità di passaggio a Windows Server 2016 da qualsiasi sistema operativo attualmente in esecuzione.
 
-## <a name="server-role-upgrade-and-migration-matrixserver-role-upgradeability-tablemd"></a>[Matrice di migrazione e aggiornamento dei ruoli server](Server-Role-Upgradeability-Table.md)
+## <a name="server-role-upgrade-and-migration-matrixserver-role-upgradeability-tablemd"></a>[Aggiornamento e matrice di migrazione del ruolo server](Server-Role-Upgradeability-Table.md)
 Informazioni su passaggi aggiuntivi da eseguire per spostare particolari ruoli server in Windows Server 2016.
 
 ## <a name="server-application-compatibility-tableserver-application-compatibilitymd"></a>[Tabella di compatibilità delle applicazioni server](Server-Application-Compatibility.md)
 SQL funziona in Windows Server 2016? Quali passaggi è necessario eseguire per abilitare Exchange? Questo argomento illustra tutte le procedure da seguire.
 
-## <a name="server-activation-guideserver-2016-activationmd"></a>[Guida all'attivazione di server](Server-2016-activation.md)
+## <a name="server-activation-guideserver-2016-activationmd"></a>[Guida di attivazione server](Server-2016-activation.md)
 Informazioni di base sull'attivazione di Windows Server 2016 e di altri sistemi operativi utilizzando Windows Server 2016.
 
 
