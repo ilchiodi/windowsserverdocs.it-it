@@ -1,7 +1,7 @@
 ---
-title: Attivazione automatica
+title: Attivazione automatica della macchina virtuale
 TOCTitle: Automatic VM Activation
-description: Come attivare le macchine virtuali in Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2
+description: Come attivare macchine virtuali in Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,15 +13,15 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "63688698"
 ---
-# <a name="automatic-virtual-machine-activation"></a>Attivazione automatica
+# <a name="automatic-virtual-machine-activation"></a>Attivazione automatica della macchina virtuale
 
-> Si applica a: Windows Server 2019, Windows Server Semi-Annual Channel, Windows Server 2016, Windows Server 2012 R2
+> Si applica a: Windows Server 2019, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2
 
 L'attivazione automatica della macchina virtuale funziona come una prova d'acquisto per assicurare che i prodotti Windows vengano usati nel rispetto dei diritti di utilizzo del prodotto e delle Condizioni di licenza software Microsoft.
 
@@ -45,25 +45,25 @@ I partner con contratti SPLA (Service Provider License Agreement) e gli altri pr
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 
-Questa funzionalità richiede un Server di virtualizzazione Microsoft in esecuzione Windows Server 2019 Datacenter, Windows Server 2016 Datacenter o Windows Server 2012 R2. 
+Per l'attivazione automatica della macchina virtuale è necessario un server di virtualizzazione Microsoft con Windows Server 2019 Datacenter, Windows Server 2016 Datacenter o Windows Server 2012 R2. 
 
-Ecco i guest possono attivare gli host di versione diversi:
+Ecco i guest che i diversi host possono attivare:
 
-|Versione del server host|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
+|Versione host del server|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
 |-|-|-|-|
-|Windows Server 2019|x|X|x|
-|Windows Server 2016| |x|x|
-|Windows Server 2012 R2| ||x|
+|Windows Server 2019|X|X|X|
+|Windows Server 2016| |X|X|
+|Windows Server 2012 R2| ||X|
 
-Si noti che questi attivare tutte le edizioni (Datacenter, Standard o Essentials).
+Tenere presente che attivano tutte le edizioni (Datacenter, Standard o Essentials).
 
-Questo strumento non funziona con altre tecnologie di virtualizzazione Server.
+Questo strumento non funziona con altri server di virtualizzazione.
 
 ## <a name="how-to-implement-avma"></a>Come implementare l'attivazione automatica della macchina virtuale
 
-1.  In un server di virtualizzazione di Windows Server Datacenter, installare e configurare il ruolo Server Hyper-V di Microsoft. Per altre informazioni, vedere [installazione di Server Hyper-V](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+1.  In un server di virtualizzazione Windows Server Datacenter installare e configurare il ruolo Microsoft Hyper-V Server. Per altre informazioni, vedere [Installare Hyper-V Server](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
 
-2.  [Creare una macchina virtuale](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md) e installarvi un sistema operativo server supportato.
+2.  [Creare una macchina virtuale](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md) e installare un sistema operativo server supportato.
 
 3.  Installare la chiave di attivazione automatica della macchina virtuale nella macchina virtuale. Da un prompt dei comandi con privilegi elevati eseguire il comando seguente:
     
@@ -80,7 +80,7 @@ La macchina virtuale attiverà automaticamente la licenza in base al server di v
 
 ## <a name="avma-keys"></a>Chiavi di attivazione automatica della macchina virtuale
 
-Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server 2019.
+Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere utilizzate per Windows Server 2019.
 
 |Edizione|   Chiave di attivazione automatica della macchina virtuale|
 |-|-|
@@ -88,14 +88,14 @@ Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server 
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 |Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
-Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server, versione 1809.
+Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere utilizzate per Windows Server 1809.
 
 |Edizione|   Chiave di attivazione automatica della macchina virtuale|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 
-Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server, versione 1803 e 1709.
+Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere utilizzate per Windows Server versione 1803 e 1709.
 
 |Edizione|Chiave di attivazione automatica della macchina virtuale|
 |-|-|
@@ -103,7 +103,7 @@ Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server,
 |Standard|C3RCX-M6NRP-6CXC9-TW2F2-4RHYD|
 
 
-Le chiavi seguenti di questa funzionalità sono utilizzabile per Windows Server 2016.
+Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere utilizzate per Windows Server 2016.
 
 |Edizione|Chiave di attivazione automatica della macchina virtuale|
 |-|-|
@@ -120,7 +120,7 @@ Le chiavi di attivazione automatica della macchina virtuale possono essere utili
 |Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
 |Essentials|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
 
-## <a name="reporting-and-tracking"></a>Segnalazione e rilevamento
+## <a name="reporting-and-tracking"></a>Rapporti e tracciabilità
 
 Il Registro di sistema (coppia chiave-valore) nel server di virtualizzazione fornisce dati di tracciabilità in tempo reale per i sistemi operativi guest. Poiché le chiavi del Registro di sistema si spostano con la macchina virtuale, è possibile ottenere anche le informazioni relative alle licenze. Per impostazione predefinita, la coppia chiave-valore restituisce informazioni sulla macchina virtuale che includono:
 
@@ -134,7 +134,7 @@ Il Registro di sistema (coppia chiave-valore) nel server di virtualizzazione for
 
   - Indirizzi RDP
 
-Per altre informazioni su come ottenere queste informazioni, vedere [Script Hyper-V: Guestintrinsicexchangeitems della coppia chiave-valore](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx).
+Per altre informazioni su come recuperare queste informazioni, vedere[Hyper-V Script: Looking at KVP GuestIntrinsicExchangeItems](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx) (Script Hyper-V: cercare KVP GuestIntrinsicExchangeItems).
 
 
 > [!NOTE]
@@ -150,7 +150,7 @@ I dati cronologici sulle richieste di attivazione automatica della macchina virt
 
 Poiché il processo di attivazione automatica della macchina virtuale è trasparente, non vengono visualizzati messaggi di errore. Gli eventi seguenti vengono comunque acquisiti in un file di log nelle macchine virtuali (EventID 12309).
 
-|Notification|Descrizione|
+|Notifica|Descrizione|
 |-|-|
 |Attivazione automatica della macchina virtuale riuscita|La macchina virtuale è stata attivata.|
 |Host non valido|Il server di virtualizzazione non risponde. È possibile che questo errore si verifichi quando il server non esegue una versione di Windows supportata.|
