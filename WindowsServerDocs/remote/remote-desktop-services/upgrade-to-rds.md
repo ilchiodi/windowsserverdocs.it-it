@@ -14,16 +14,16 @@ ms.assetid: f7b1f1f6-57c8-40ab-a235-e36240dcc1f8
 author: spatnaik
 manager: scottman
 notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
-ms.openlocfilehash: f683a7d9346494e7f1fb6faf716ca9c90cfef8d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d39361c62d71f9a804087e62936d2cf8c646917a
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875752"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63711806"
 ---
 # <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>L'aggiornamento delle distribuzioni di Servizi Desktop remoto a Windows Server 2016
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
 ## <a name="supported-os-upgrades-with-rds-role-installed"></a>Aggiornamenti del sistema operativo è supportato con ruolo Servizi Desktop REMOTO
 Gli aggiornamenti per Windows Server 2016 sono supportati solo da Windows Server 2012 R2 e Windows Server 2016.
@@ -31,14 +31,14 @@ Gli aggiornamenti per Windows Server 2016 sono supportati solo da Windows Server
 ## <a name="flow-for-deployment-upgrades"></a>Flusso per gli aggiornamenti di distribuzione
 Per ridurre al minimo i tempi di inattività, è consigliabile attenersi alla procedura seguente:
 
-1. **Server Gestore connessione desktop remoto** dovrebbe essere il primo a essere aggiornato. Se è presente una configurazione attivo/attivo nella distribuzione, rimuovere tutti tranne uno server dalla distribuzione ed eseguire un aggiornamento sul posto. Eseguire aggiornamenti in modalità offline gli altri server Gestore connessione desktop remoto e quindi aggiungerli nuovamente alla distribuzione. La distribuzione non sarà disponibile durante l'aggiornamento di server Gestore connessione desktop remoto.
+1. **Server Gestore connessione desktop remoto** dovrebbe essere il primo a essere aggiornato. Se nella distribuzione è presente una configurazione attivo/attivo, rimuovere tutti i server tranne uno dalla distribuzione ed eseguire un aggiornamento sul posto. Eseguire aggiornamenti in modalità offline negli altri server Gestore connessione Desktop remoto e quindi aggiungerli nuovamente alla distribuzione. La distribuzione non sarà disponibile durante l'aggiornamento di server Gestore connessione desktop remoto.
 
    > [!NOTE] 
    > È necessario aggiornare i server Gestore connessione desktop remoto. Server Gestore connessione desktop remoto di Windows Server 2012 R2 non è supportata in una distribuzione mista con i server Windows Server 2016. Quando il server Gestore connessione desktop remoto sono in esecuzione Windows Server 2016 la distribuzione sarà funzionante, anche se il resto dei server nella distribuzione sono ancora in esecuzione Windows Server 2012 R2.
 
-2. **Server licenze Desktop remoto** deve essere aggiornato prima di aggiornare i server Host sessione Desktop remoto.
+2. I **server licenze Desktop remoto** devono essere aggiornati prima di aggiornare i server Host sessione Desktop remoto.
    > [!NOTE] 
-   > Server licenze Desktop remoto R2 2012 e Windows Server 2012 funziona con le distribuzioni di Windows Server 2016, ma può elaborare solo le licenze CAL da Windows Server 2012 R2 e versioni precedenti. Non possono usare le licenze CAL di Windows Server 2016. Visualizzare [la distribuzione di servizi desktop remoto di licenza con licenze di accesso client (CAL)](rds-client-access-license.md) per altre informazioni sul server licenze Desktop remoto.
+   > I server licenze Desktop remoto Windows Server 2012 e 2012 R2 possono essere utilizzati per le distribuzioni di Windows Server 2016, ma possono elaborare solo le licenze CAL da Windows Server 2012 R2 e versioni precedenti. Non possono usare le licenze CAL di Windows Server 2016. Per altre informazioni sui server licenza Desktop remoto, consultare [La distribuzione di servizi Desktop remoto di licenza con licenze di accesso client (CAL)](rds-client-access-license.md).
 
 3. **I server Host sessione Desktop remoto** possono essere aggiornati successivamente. Per evitare di inattività durante l'aggiornamento l'amministratore può suddividere i server da aggiornare in 2 passaggi come indicato di seguito. Tutti sarà funzioni dopo l'aggiornamento. Per eseguire l'aggiornamento, utilizzare i passaggi descritti [server di aggiornamento di Host sessione Desktop remoto per Windows Server 2016](upgrade-to-rdsh.md).
 
