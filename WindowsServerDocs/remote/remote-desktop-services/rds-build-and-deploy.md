@@ -1,6 +1,6 @@
 ---
-title: Servizi Desktop remoto - compilare e distribuire
-description: Passaggi per creare una distribuzione di Desktop remoto
+title: RDS - Compilazione e distribuzione
+description: Procedura per compilare una distribuzione di Desktop remoto
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,36 +14,36 @@ ms.assetid: 176ae424-96e9-4c78-88f5-da418e76c3d7
 author: lizap
 manager: dongill
 ms.openlocfilehash: 309ea068488d005eabfe22f8ea055f85dd098452
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66453074"
 ---
-# <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Compilare e distribuire la distribuzione di Servizi Desktop remoto
+# <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Compilare e distribuire i Servizi Desktop remoto
 
-Una distribuzione di Servizi Desktop remoto è l'infrastruttura utilizzata per condividere le App e le risorse con gli utenti. A seconda che si desidera fornire l'esperienza, è possibile renderlo di piccole o complesse in base alle esigenze. Le distribuzioni di Desktop remote vengono ridimensionate in modo semplice. È possibile aumentare e ridurre l'accesso Web Desktop remoto, eseguirà il server Gateway, Broker di connessione e sessione Host. È possibile usare Gestore connessione Desktop remoto per distribuire i carichi di lavoro. L'autenticazione di Active Directory basata fornisce un ambiente a sicurezza elevata. 
+Una distribuzione di Servizi Desktop remoto è l'infrastruttura utilizzata per condividere app e risorse con gli utenti. A seconda dell'esperienza che si vuole fornire è possibile renderla piccola o complessa, in base alle esigenze. Le distribuzioni di Desktop remoto vengono facilmente ridimensionate. È possibile aumentare e ridurre Accesso Web, Gateway, Gestore connessione e server Host sessione Desktop remoto a discrezione. È possibile usare Gestore Connessione Desktop remoto per distribuire i carichi di lavoro. L'autenticazione basata su Active Directory offre un ambiente a sicurezza elevata. 
 
-[Client Desktop remoto](clients/remote-desktop-clients.md) abilitare l'accesso da qualsiasi Windows, Apple o Android computer, tablet o telefono.
+[Client Desktop remoto](clients/remote-desktop-clients.md) abilita l'accesso da qualsiasi computer, tablet o telefono Windows, Apple o Android.
 
-Visualizzare [architettura di Servizi Desktop remoto](desktop-hosting-logical-architecture.md) per una descrizione dettagliata dei diversi elementi che funzionano insieme per creare la distribuzione di Servizi Desktop remoto.
+Consultare [Architettura di Servizi Desktop remoto](desktop-hosting-logical-architecture.md) per una descrizione dettagliata dei diversi elementi che interagiscono per creare la distribuzione di Servizi Desktop remoto.
 
-Dispone di una distribuzione di Desktop remoto esistente basata su una versione precedente di Windows Server? Scopri le opzioni per il passaggio a WIndows Server 2016, in cui è possibile sfruttare i vantaggi delle funzionalità nuove e migliori prestazioni e scalabilità:
+Si dispone una distribuzione di Desktop remoto esistente compilata su una versione precedente di Windows Server? È possibile scoprire le opzioni per il passaggio a Windows Server 2016, per sfruttare le funzionalità nuove e migliori in termini prestazioni e ridimensionamento:
 
-- [Eseguire la migrazione della distribuzione di servizi desktop remoto a Windows Server 2016](migrate-rds-role-services.md)
-- [Aggiornare la distribuzione di servizi desktop remoto a Windows Server 2016](upgrade-to-rds-2016.md)
+- [Eseguire la migrazione della distribuzione di Servizi Desktop remoto a Windows Server 2016](migrate-rds-role-services.md)
+- [Aggiornare le distribuzioni di Servizi Desktop remoto a Windows Server 2016](upgrade-to-rds-2016.md)
 
-Se si desidera creare una nuova distribuzione di Desktop remoto? Usare le informazioni seguenti per distribuire Desktop remoto in Windows Server 2016:
+Si vuole creare una nuova distribuzione di Desktop remoto? Usare le informazioni seguenti per distribuire Desktop remoto in Windows Server 2016:
 
-- [Distribuire l'infrastruttura di Servizi Desktop remoto](rds-deploy-infrastructure.md)
-- [Creare un insieme di sessioni per contenere le App e si desidera condividere le risorse](rds-create-collection.md)
-- [Concedere in licenza la distribuzione di servizi desktop remoto](rds-client-access-license.md)
-- Chiedere agli utenti di installare una [client Desktop remoto](clients/remote-desktop-clients.md) affinché possano accedere l'App e risorse. 
-- Abilitare la disponibilità elevata tramite l'aggiunta di altri gestori connessione e sessione host:
+- [Distribuire un'infrastruttura di Servizi Desktop remoto](rds-deploy-infrastructure.md)
+- [Creare una raccolta di sessioni per contenere le app e le risorse che si vuole condividere](rds-create-collection.md)
+- [Concedere licenze per la distribuzione di Servizi Desktop remoto](rds-client-access-license.md)
+- Chiedere agli utenti di installare un [client Desktop remoto](clients/remote-desktop-clients.md) affinché possano accedere ad app e risorse. 
+- Abilitare la disponibilità elevata aggiungendo Gestori connessione e server Host aggiuntivi:
    - [Scalare una raccolta di Servizi Desktop remoto esistente con una farm host sessione Desktop remoto](rds-scale-rdsh-farm.md)
    - [Aggiungere una disponibilità elevata all'infrastruttura di Gestore connessione Desktop remoto](rds-connection-broker-cluster.md)
    - [Aggiungere una disponibilità elevata al front-end Web Desktop remoto e Gateway Desktop remoto](rds-rdweb-gateway-ha.md)
    - [Distribuire un file system di Spazi di archiviazione diretta a due nodi per l'archiviazione di dischi profili utente](rds-storage-spaces-direct-deployment.md)
 
 
-Se sei un partner di hosting interessato all'uso di Desktop remoto per fornire App e risorse ai clienti o a un cliente cercando qualcuno ospitare le tue App, consultare [Servizi Desktop remoto che ospita i partner](rds-hosting-partners.md) per informazioni su un valutazione che è possibile eseguire sull'uso di servizi desktop remoto in Azure come un ambiente di hosting, nonché un elenco di partner che viene passato.
+Se sei un partner di hosting interessato all'uso di Desktop remoto per fornire app e risorse ai clienti o se sei un cliente alla ricerca di qualcuno che ospiti le tue app, consulta [Partner di hosting di Servizi Desktop remoto](rds-hosting-partners.md) per informazioni sulla valutazione che è possibile eseguire in merito all'uso di Servizi Desktop remoto in Azure come ambiente di hosting, nonché un elenco di partner.

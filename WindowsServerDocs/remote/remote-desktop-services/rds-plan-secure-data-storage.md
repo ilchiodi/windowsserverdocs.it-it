@@ -1,6 +1,6 @@
 ---
-title: 'Servizi Desktop remoto: archiviazione sicura dei dati'
-description: Informazioni in modo sicuro l'archiviazione dei dati utilizzando dischi dei profili utente (UPD) in Servizi Desktop remoto.
+title: Servizi Desktop remoto - Archiviazione sicura dei dati
+description: Informazioni sulla pianificazione dell'archiviazione sicura dei dati usando dischi dei profili utente (UPD) in Servizi Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,22 +14,22 @@ ms.author: elizapo
 ms.date: 11/21/2016
 manager: dongill
 ms.openlocfilehash: c3c7be624e3b093347807a5ee131270d3c802f1a
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805164"
 ---
-# <a name="remote-desktop-services---secure-data-storage-with-upds"></a>Servizi Desktop remoto: archiviazione sicura dei dati con gli UPD
+# <a name="remote-desktop-services---secure-data-storage-with-upds"></a>Servizi Desktop remoto - Archiviazione sicura dei dati con UPD
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Risorse di business Store, i dati sulla personalizzazione utente e impostazioni in modo sicuro in locale o in Azure. Host sessione Desktop remoto Usa l'autenticazione di AD e consentire agli utenti con le risorse che necessarie in un ambiente personalizzato, in modo sicuro. 
+Archivia in modo sicuro risorse aziendali, dati di personalizzazione utente e impostazioni in locale o in Azure. Gli host sessione Desktop remoto usano l'autenticazione di AD e offrono agli utenti le risorse di cui hanno bisogno in un ambiente personalizzato, in modo sicuro. 
 
-Garantire che gli utenti hanno un'esperienza coerente, indipendentemente dall'endpoint da cui accedere alle risorse remote, è un aspetto importante di gestione di una distribuzione di servizi desktop remoto. I dischi dei profili utente (UPD) consentono i dati dell'utente, le personalizzazioni e le impostazioni dell'applicazione per seguono un utente all'interno di una singola raccolta. Un UPD è un file di disco rigido virtuale per ogni raccolta salvato in una condivisione centrale montata in una sessione utente quando effettuano l'accesso - UPD viene considerato come un'unità locale per la durata della sessione per ogni utente. 
+Garantire agli utenti un'esperienza coerente, indipendentemente dall'endpoint da cui accedono alle risorse remote, è un aspetto importante della gestione di una distribuzione di Servizi Desktop remoto. I dischi dei profili utente (UPD) consentono alle impostazioni di dati, personalizzazioni e applicazioni di seguire un utente all'interno di una singola raccolta. Un UPD è un file VHD con ambito raccolta e per utente salvato in una condivisione centrale montata in una sessione utente al momento dell'accesso: l'UPD viene considerato come un'unità locale per la durata di quella sessione. 
 
-Dal punto di vista dell'utente, UPD offre un'esperienza famililar: salvare i documenti per i documenti in cartelle (su quello che sembra essere un'unità locale), modificare le impostazioni dell'app come di consueto e apportare le personalizzazioni al proprio ambiente di Windows. Tutti i dati, inclusi l'hive del Registro di sistema, vengono archiviati sull'UPD e rimane persistente in una condivisione di rete centrale. Gli UPD sono disponibili all'utente solo quando l'utente è attivamente connesso a un computer desktop o RemoteApp. Gli UPD possono solo effettuare il roaming all'interno di una raccolta poiché dell'intera utente `C:\Users\<username\>` directory (inclusi AppData\Local) è archiviato in UPD.
+Dal punto di vista dell'utente, un UPD offre un'esperienza familiare. Gli utenti possono salvare i documenti nella cartella documenti (su quella che sembra un'unità locale), cambiare le impostazioni delle applicazioni come di consueto e apportare eventuali personalizzazioni al proprio ambiente di Windows. Tutti i dati, incluso l'hive del Registro di sistema, vengono archiviati sull'UPD e rimangono in una condivisione di rete centrale. Gli UPD sono disponibili per l'utente solo quando quest'ultimo è attivamente connesso a un desktop o RemoteApp. Gli UPD possono solo eseguire il roaming all'interno di una raccolta poiché l'intera directory utente `C:\Users\<username\>` (inclusi AppData\Local) è archiviata in un UPD.
 
-È possibile usare [i cmdlet di PowerShell](https://technet.microsoft.com/library/jj215443.aspx) per definire il percorso per la condivisione centrale, le dimensioni di ogni disco profili utente e le cartelle che devono da includere o escludere dal profilo utente salvato al UPD. In alternativa, è possibile abilitare gli UPD tramite Server Manager selezionando **Servizi Desktop remoto** > **raccolte** > **insiemi di Desktop**  >  **Delle proprietà di insieme di desktop** > **dischi dei profili utente**. Si noti che per attivare o disattivare gli UPD per tutti gli utenti di un'intera raccolta, non per utenti specifici in tale raccolta. Gli UPD devono essere archiviati in una condivisione file centrale in cui il server nell'insieme di disporre delle autorizzazioni controllo completo. 
+È possibile usare i [cmdlet di PowerShell](https://technet.microsoft.com/library/jj215443.aspx) per definire il percorso della condivisione centrale, le dimensioni di ogni UPD e le cartelle da includere o escludere dal profilo utente salvato sull'UPD. In alternativa, è possibile abilitare gli UPD tramite Server Manager selezionando **Servizi Desktop remoto** > **Raccolte** > **Raccolta di desktop**  >  **Proprietà della raccolta di desktop** > **Dischi dei profili utente**. Si noti che un utente può abilitare o disabilitare gli UPD per tutti gli utenti di un'intera raccolta, non per utenti specifici di tale raccolta. Gli UPD devono essere archiviati in un file di condivisione centrale all'interno del quale i server della raccolta hanno il pieno controllo delle autorizzazioni. 
 
-È possibile ottenere la disponibilità elevata per gli UPD archiviandoli in Azure con un [spazi di archiviazione diretta](rds-storage-spaces-direct-deployment.md). 
+È possibile ottenere la disponibilità elevata per gli UPD archiviandoli in Azure con [spazi di archiviazione diretta](rds-storage-spaces-direct-deployment.md). 
