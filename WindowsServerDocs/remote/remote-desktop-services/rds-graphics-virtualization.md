@@ -1,6 +1,6 @@
 ---
-title: Servizi Desktop remoto, la tecnologia di virtualizzazione della grafica è adatta a te?
-description: Informazioni sulla pianificazione per poter scegliere la grafica corretta opzione di virtualizzazione per la distribuzione di servizi desktop remoto.
+title: Servizi Desktop remoto - Qual è la tecnologia per la virtualizzazione della grafica più adatta?
+description: Informazioni sulla pianificazione per scegliere l'opzione di virtualizzazione della grafica corretta per la propria distribuzione di Servizi Desktop remoto (RDS).
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,61 +14,61 @@ ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
 ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447115"
 ---
-# <a name="which-graphics-virtualization-technology-is-right-for-you"></a>La tecnologia di virtualizzazione della grafica è adatta a te?
+# <a name="which-graphics-virtualization-technology-is-right-for-you"></a>Qual è la tecnologia per la virtualizzazione della grafica più adatta?
 
-Hai una gamma di opzioni se si desidera abilitare per il rendering della grafica in Servizi Desktop remoto. Quando si pianifica l'ambiente di virtualizzazione, le considerazioni seguenti unità quali è scegliere la tecnologia di rendering della grafica:
+Esistono diverse opzioni se si vuole abilitare il rendering della grafica in Servizi Desktop remoto. Quando si pianifica l'ambiente di virtualizzazione, la scelta della tecnologia di rendering della grafica è definita dalle considerazioni seguenti:
 
-![Considerazioni sul rendering della grafica - Confronta utente scalabilità e i requisiti di GPU per determinare la migliore tecnologia GPU per l'ambiente](media/rds-gpu.png)
+![Considerazioni sul rendering della grafica: confronto tra la scalabilità dell'utente e i requisiti di GPU per determinare la migliore tecnologia GPU per l'ambiente](media/rds-gpu.png)
 
-In Windows Server 2016, sono disponibili due tecnologie di virtualizzazione grafica disponibile con Hyper-V che consentono di sfruttare l'hardware della GPU:
+In Windows Server 2016, sono disponibili due tecnologie di virtualizzazione della grafica con Hyper-V che consentono di sfruttare l'hardware della GPU:
 
-- [Assegnazione dispositivo discreti (DDA)](#discrete-device-assignment) : per prestazioni più elevate utilizzando uno o più GPU dedicata a una VM che fornisce supporto per GPU nativo all'interno della VM. La densità è bassa poiché è limitata dal numero di GPU fisici disponibili nel server. 
-- [VGPU FX remota](#remotefx-vgpu) : per Information worker e scenari di burst elevata GPU in cui più macchine virtuali sfruttano una o più GPU tramite paravirtualizzazione. Questa soluzione offre un aumento della densità utente per ogni server.
+- [Assegnazione di dispositivi discreti (DDA)](#discrete-device-assignment): per avere prestazioni molto elevate usando una o più GPU dedicate a una VM per offrire supporto del driver nativo della GPU all'interno della VM. La densità è bassa perché è limitata dal numero di GPU fisiche disponibili nel server. 
+- [FX vGPU remota](#remotefx-vgpu): per knowledge worker e scenari della GPU con burst elevato in cui più VM sfruttano una o più GPU tramite para-virtualizzazione. Questa soluzione assicura un aumento della densità utente per ogni server.
 
-La figura seguente mostra gli elementi grafici di opzioni di virtualizzazione in Windows Server 2016.
+La figura seguente mostra le opzioni di virtualizzazione della grafica in Windows Server 2016.
 
-![Opzioni di virtualizzazione di grafica in Windows Server 2016 con Servizi Desktop remoto - Mostra i tre tecnologie disponibili e le differenze nella scalabilità e prestazioni](media/rds-graphics-virtualization.png)
+![Opzioni di virtualizzazione della grafica in Windows Server 2016 con Servizi Desktop remoto: mostra le tre tecnologie disponibili e le differenze in scalabilità e prestazioni](media/rds-graphics-virtualization.png)
 
 ## <a name="discrete-device-assignment"></a>Assegnazione di dispositivi discreti
-Assegnazione dispositivo discreti (DDA) è una soluzione di pass-through hardware che offre le migliori prestazioni, dato che la VM abbia accesso completo alla GPU usando il driver native. L'utente della macchina virtuale può accedere alle funzionalità complete dei loro dispositivi perché anche i driver native del dispositivo. Ciò significa che le caratteristiche e funzionalità di esecuzione del dispositivo in un mirror di macchina virtuale che esegue lo stesso dispositivo sul computer bare metal.
+L'assegnazione di dispositivi discreti (DDA) è una soluzione di pass-through hardware che offre le migliori prestazioni, in quanto la VM ha accesso completo alla GPU usando il driver nativo. L'utente della VM può accedere alle funzionalità complete dei suoi dispositivi come il driver nativo del dispositivo. Questo significa che le caratteristiche e funzionalità del dispositivo eseguito in una VM rispecchiano l'esecuzione dello stesso dispositivo bare metal.
 
-Per ulteriori informazioni su DDA, consultare [pianificare la distribuzione discreti dispositivo assegnazione](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
+Per altre informazioni sulla DDA, consultare [Pianificare la distribuzione dell'assegnazione di dispositivi discreti](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 
-## <a name="remotefx-vgpu"></a>vGPU RemoteFX 
-GPU virtualizzata RemoteFX è una tecnologia di virtualizzazione di grafica che consente la potenza di elaborazione di una GPU per essere suddivise tra diversi sistemi operativi guest per abilitare scenari di lavoro della Knowledge Base (vedere la prima figura precedente). Miglioramenti in Windows Server 2016 consentono ulteriori miglioramenti per gli scenari di burst GPU, ad esempio per la visualizzazione della finestra di progettazione di applicazioni e i dati. Altri miglioramenti apportati alle funzionalità includono:
+## <a name="remotefx-vgpu"></a>RemoteFX vGPU 
+RemoteFX vGPU è una tecnologia di virtualizzazione della grafica che garantisce di suddividere la potenza di elaborazione di una GPU in diversi sistemi operativi guest per abilitare scenari di knowledge worker (vedere la prima figura in alto). I progressi di Windows Server 2016 apportano ulteriori miglioramenti per gli scenari di burst della GPU, ad esempio per le applicazioni della finestra di progettazione e la visualizzazione dei dati. Altri principali miglioramenti includono:
 
-- Supporto per la generazione 2 guest, le macchine virtuali, macchine virtuali guest di Windows Server 2016 e Windows Client Hyper-V host.
+- Supporto per VM guest di seconda generazione, VM guest di Windows Server 2016 e host Windows Client Hyper-V.
   >[!NOTE] 
-  > Host sessione Desktop remoto non è supportato in Windows Server 2016 guest VM; 1 sola sessione può essere ospitata per ogni macchina virtuale guest Windows Server 2016.
+  > L'host di sessione Desktop remoto non è supportato sulle VM host di Windows Server 2016. Può essere ospitata solo una sessione per VM guest di Windows Server 2016.
 
-- Compatibilità delle applicazioni migliorate e la stabilità.
-- VM connettersi modalità sessione avanzata, che consente il reindirizzamento USB e Appunti tramite la connessione della macchina virtuale a una macchina virtuale abilitata per la GPU virtualizzata RemoteFX.
+- Compatibilità e stabilità delle applicazioni migliorate.
+- VM Connect Enhanced Session Mode, che consente il reindirizzamento USB e degli appunti tramite la connessione di una VM a un'altra VM abilitata per RemoteFX vGPU.
 
-Per altre informazioni, consultare [impostare e configurare GPU virtualizzata RemoteFX per Servizi Desktop remoto](rds-remotefx-vgpu.md).
+Per altre informazioni, consultare [Installare e configurare RemoteFX vGPU per Servizi Desktop remoto](rds-remotefx-vgpu.md).
 
-## <a name="which-should-you-use"></a>Che è opportuno utilizzare?
+## <a name="which-should-you-use"></a>Quale usare?
 
-Considerazioni importanti sulla virtualizzazione di quale tecnologia potrebbe dipendere specifiche hardware o ai requisiti dell'applicazione nell'ambiente in uso. Ecco una breve tabella riguardanti DDA e RemoteFX vGPU funzionalità:
+Le considerazioni importanti sulla scelta della tecnologia di virtualizzazione potrebbero dipendere dalle specifiche hardware o dai requisiti dell'applicazione nell'ambiente in uso. Ecco una breve tabella sulle funzionalità di DDA e RemoteFX vGPU:
 
-| Funzionalità               | vGPU RemoteFX                                                                       | Assegnazione di dispositivi discreti                                             |
+| Funzionalità               | RemoteFX vGPU                                                                       | Assegnazione di dispositivi discreti                                             |
 |-----------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-| Assegnazione dispositivo GPU | Paravirtualizzata (numero di macchine virtuali a uno o più GPU)                                     | 1 o più GPU per macchina 1 virtuale                                                  |
-| Scala                 | Migliore scalabilità / 1 al numero di macchine virtuali GPU                                                      | Memoria insufficiente. la scala / 1 o più GPU per macchina 1 virtuale                                     |
-| Compatibilità delle App     | DX 11.1, OpenGL 4.4, OpenCL 1.1                                                     | Tutte le funzionalità per GPU fornita dal produttore (DX 12, OpenGL, CUDA)          |
-| AVC444                | Abilitato per impostazione predefinita (Windows 10 e Windows Server 2016)                             | Disponibile tramite criteri di gruppo (Windows 10 e Windows Server 2016)    |
-| GPU VRAM              | Fino a 1 GB dedicati VRAM                                                           | Fino a VRAM supportate dalla GPU                                        |
-| Frequenza dei fotogrammi            | Fino a 30fps                                                                         | Fino a 60fps                                                            |
-| Driver GPU nel guest   | Driver di visualizzazione della scheda 3D di RemoteFX (Microsoft)                                      | Driver della GPU fornitore (Nvidia, AMD, Intel)                                 |
-| Supporto del sistema operativo guest      |  Windows Server 2012 R2  Windows Server 2016  Windows 7 SP1  Windows 8.1 Windows 10 |  Windows Server 2012 R2  Windows Server 2016  Windows 10 Linux         |
-| hypervisor            | Microsoft Hyper-V                                                                   | Microsoft Hyper-V                                                      |
-| Disponibilità del sistema operativo host  |  Windows Server 2012 R2  Windows Server 2016 Windows 10                             | Windows Server 2016                                                    |
-| Hardware della GPU          | GPU Enterprise (ad esempio Nvidia Quadro/griglia o AMD FirePro)                         | GPU Enterprise (ad esempio Nvidia Quadro/griglia o AMD FirePro)            |
-| Hardware del server       | Nessun requisiti speciali                                                             | Server moderni, espone IOMMU al sistema operativo (in genere SR-IOV conformi hardware) |
+| Assegnazione GPU del dispositivo | Paravirtualizzata (molte VM a una o più GPU)                                     | 1 o più GPU a 1 VM                                                  |
+| Scala                 | Migliore scalabilità / 1 GPU a molte VM                                                      | Scalabilità bassa / 1 o più GPU a 1 VM                                     |
+| Compatibilità delle app     | DX 11.1, OpenGL 4.4, OpenCL 1.1                                                     | Tutte le funzionalità della GPU offerte dal fornitore (DX 12, OpenGL, CUDA)          |
+| AVC444                | Abilitato per impostazione predefinita (Windows 10 e Windows Server 2016)                             | Disponibile tramite Criteri di gruppo (Windows 10 e Windows Server 2016)    |
+| VRAM della GPU              | Fino a 1 GB di VRAM dedicata                                                           | Fino a livello di VRAM supportata dalla GPU                                        |
+| Frequenza dei fotogrammi            | Fino a 30 fps                                                                         | Fino a 60 fps                                                            |
+| Driver GPU nel guest   | Driver display adattatore 3D RemoteFX (Microsoft)                                      | Driver della GPU del fornitore (Nvidia, AMD, Intel)                                 |
+| Supporto del sistema operativo guest      |  Windows Server 2012 R2, Windows Server 2016, Windows 7 SP1, Windows 8.1, Windows 10 |  Windows Server 2012 R2, Windows Server 2016, Windows 10, Linux         |
+| Hypervisor            | Microsoft Hyper-V                                                                   | Microsoft Hyper-V                                                      |
+| Disponibilità del sistema operativo host  |  Windows Server 2012 R2, Windows Server 2016, Windows 10                             | Windows Server 2016                                                    |
+| Hardware della GPU          | GPU enterprise (ad esempio Nvidia Quadro/GRUD o AMD FirePro)                         | GPU enterprise (ad esempio Nvidia Quadro/GRUD o AMD FirePro)            |
+| Hardware del server       | Nessun requisito speciale                                                             | Server moderno, espone IOMMU al sistema operativo (in genere hardware compatibile con SR-IOV) |
 
-Una regola empirica generale consiste nell'usare DDA il migliore compatibilità delle applicazioni, poiché la macchina virtuale avranno accesso diretto alla GPU. Se le applicazioni o carichi di lavoro non è come requisiti rigorosi per GPU e si desidera server una base più ampia di utenti, GPU virtualizzata RemoteFX potrebbe funzionare meglio per l'utente.
+Una regola generica consiste nell'usare la DDA per avere la migliore compatibilità delle applicazioni, perché la VM avrà accesso diretto alla GPU. Se le applicazioni o i carichi di lavoro non hanno requisiti di GPU severi e si vuole servire una base più ampia di utenti, RemoteFX vGPU potrebbe la soluzione migliore.
