@@ -10,22 +10,22 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2546322d6c6dbc4d64f18fc62366c698885108d8
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.openlocfilehash: b2be54748a36f97a11796ebfa16701baac1c612d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810632"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280647"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
 
 >Si applica a: Windows Server 2016
 
-![Icona che indica che un giornale](media/whats-new.png) per altre informazioni sulle funzionalità più recenti di Windows, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server&reg; 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione.
+![Icona che rappresenta un giornale](media/whats-new.png) Per informazioni sulle funzionalità più recenti di Windows, vedi [Novità di Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server&reg; 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione.
 
 ## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
 
-L'area Virtualizzazione include funzionalità e prodotti di virtualizzazione per i professionisti IT che consentono di progettare, distribuire e gestire Windows Server.  
+L'area Virtualizzazione include funzionalità e prodotti di virtualizzazione che permettono a professionisti IT di progettare, distribuire e gestire Windows Server.  
 
 ### <a name="general"></a>Generale  
 Le macchine fisiche e virtuali sfruttano una maggiore precisione nella sincronizzazione grazie ai miglioramenti introdotti nei servizi Sincronizzazione ora di Win32 e Hyper-V. Windows Server può ora ospitare servizi conformi alle norme future che richiedono un'accuratezza di 1 ms per quanto riguarda l'ora UTC.  
@@ -33,12 +33,12 @@ Le macchine fisiche e virtuali sfruttano una maggiore precisione nella sincroniz
 ### <a name="hyper-v"></a>Hyper-V  
 -   [Novità di Hyper-V in Windows Server 2016](../virtualization/hyper-v/What-s-new-in-Hyper-V-on-Windows.md). Questo argomento illustra le funzionalità nuove e modificate del ruolo Hyper-V in Windows Server 2016, di Hyper-V client in esecuzione su Windows 10 e di Microsoft Hyper-V Server 2016.  
 
--   [I contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):  Supporto per i contenitori Windows Server 2016 aggiunge miglioramenti delle prestazioni, gestione di rete semplificati e supporto per i contenitori Windows in Windows 10. Per altre informazioni sui contenitori, vedere [contenitori: Docker, Windows e tendenze](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/).  
+-   [Contenitori di Windows](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):  il supporto per i contenitori di Windows Server 2016 garantisce migliori prestazioni, semplifica la gestione della rete e facilita l'uso dei contenitori di Windows in Windows 10. Per altre informazioni sui contenitori, vedi [Contenitori: Docker, Windows e tendenze](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/).  
 
 ### <a name="nano-server"></a>Nano Server  
 Novità di [Nano Server](getting-started-with-nano-server.md). Nano Server include ora un modulo aggiornato per la creazione di immagini di Nano Server, in grado di offrire una maggiore separazione dell'host fisico e delle macchine virtuali guest, oltre al supporto per le diverse edizioni di Windows Server.   
 
-Sono inoltre presenti miglioramenti alla Console di ripristino di emergenza, tra cui la separazione delle regole del firewall in entrata e in uscita, nonché la possibilità di ripristino della configurazione di WinRM.  
+Sono stati apportati inoltre miglioramenti alla Console di ripristino di emergenza, tra cui la separazione delle regole del firewall in entrata e in uscita, nonché la possibilità di ripristino della configurazione di WinRM.  
 
 ### <a name="shielded-virtual-machines"></a>Macchine virtuali schermate  
 Windows Server 2016 offre una nuova macchina virtuale schermata basata su Hyper-V per proteggere le macchine virtuali di seconda generazione da un'infrastruttura compromessa. Tra le funzionalità introdotte in Windows Server 2016 sono incluse le seguenti:  
@@ -63,21 +63,21 @@ Per altre informazioni e istruzioni per l'uso di macchine virtuali schermate, ve
 Le nuove funzionalità di Identità migliorano la capacità delle organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni solo cloud e ibride, in cui alcune applicazioni e alcuni servizi sono ospitati nel cloud e altri sono ospitati in locale.  
 
 ### <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory  
-Servizi certificati Active Directory (AD CS) in Windows Server 2016 aumenta il supporto per l'attestazione chiave TPM: È ora possibile usare provider di archiviazione CHIAVI Smart Card per l'attestazione chiave e i dispositivi non aggiunti al dominio possono ora usare la registrazione NDES per ottenere i certificati che possono essere attestati per le chiavi in un modulo TPM.  
+Servizi certificati Active Directory in Windows Server 2016 aumenta il supporto per l'attestazione della chiave TPM. Puoi usare ora il provider di archiviazione chiavi per smart card per l'attestazione della chiave, mentre i dispositivi non appartenenti al dominio possono usare ora la registrazione NDES per ottenere i certificati che possono essere attestati per le chiavi in un TPM.  
 
 ### <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory  
 Active Directory Domain Services include miglioramenti che consentono alle organizzazioni di proteggere gli ambienti Active Directory e fornire una migliore esperienza nella gestione delle identità per i dispositivi aziendali e personali. Per altre informazioni, vedere [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](../identity/whats-new-active-directory-domain-services.md) (Novità di Active Directory Domain Services (AD DS) in Windows Server 2016).   
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services  
-Novità di Active Directory Federation Services. Active Directory Federation Services (AD FS) in Windows Server 2016 include nuove funzionalità che consentono di configurare AD FS per l'autenticazione degli utenti archiviati nelle directory LDAP (Lightweight Directory Access Protocol). Per altre informazioni, vedi [Novità di AD FS per Windows Server 2016](../identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md).  
+Novità di Active Directory Federation Services. Active Directory Federation Services (AD FS) in Windows Server 2016 include nuove funzionalità che consentono di configurare AD FS per l'autenticazione degli utenti archiviati nelle directory LDAP (Lightweight Directory Access Protocol). Per altre informazioni, vedi [Novità di AD FS per Windows Server 2016](../identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md).  
 
 ### <a name="web-application-proxy"></a>Proxy applicazione Web  
-La versione più recente di Proxy applicazione Web è incentrata sulle nuove funzionalità che consentono la pubblicazione e la preautenticazione per più applicazioni e un'esperienza utente migliorata. Consultare l'elenco completo delle nuove funzionalità che include la preautenticazione per applicazioni rich client quali domini di Exchange ActiveSync e con caratteri jolly per la pubblicazione più semplice di applicazioni SharePoint. Per altre informazioni, vedi [Proxy applicazione Web in Windows Server 2016](../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).  
+L'ultima versione di Proxy applicazione Web è incentrata sulle nuove funzionalità che permettono la pubblicazione e la preautenticazione per più applicazioni e un'esperienza utente migliorata. Consultare l'elenco completo delle nuove funzionalità che include la preautenticazione per applicazioni rich client quali domini di Exchange ActiveSync e con caratteri jolly per la pubblicazione più semplice di applicazioni SharePoint. Per altre informazioni, vedi [Proxy applicazione Web in Windows Server 2016](../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).  
 
 ##  <a name="administrationadministrationmanage-windows-servermd"></a>[Amministrazione](../administration/manage-windows-server.md)  
 L'area Gestione e automazione è incentrata sulle informazioni di riferimento e degli strumenti per i professionisti IT che vogliono eseguire e gestire Windows Server 2016, incluso Windows PowerShell.
 
-Windows PowerShell 5.1 include nuove funzionalità significative, tra cui il supporto per lo sviluppo con le classi e nuove funzionalità di sicurezza che ne estendono e migliorano l'uso, oltre a consentire di controllare e gestire gli ambienti Windows in modo più semplice e completo. Per dettagli, vedi [Nuovi scenari e funzionalità in WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/scenarios-features).
+Windows PowerShell 5.1 include nuove funzionalità significative, tra cui il supporto per lo sviluppo con le classi e nuove funzionalità di sicurezza che ne estendono e migliorano l'usabilità, oltre a permettere di controllare e gestire gli ambienti basati su Windows in modo più semplice e completo. Per i dettagli, vedi [Nuovi scenari e funzionalità in WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/scenarios-features).
 
 Le nuove funzionalità aggiunte per Windows Server 2016 includono la possibilità di eseguire PowerShell.exe in locale su Nano Server (non più solo in remoto), i nuovi cmdlet per utenti e gruppi locali che sostituiscono l'interfaccia utente grafica, il supporto per il debug di PowerShell e il supporto per la registrazione di protezione, la trascrizione e la tecnologia JEA (Just Enough Administration) in Nano Server.
 
@@ -86,12 +86,12 @@ Ecco alcune delle altre nuove funzionalità di amministrazione:
 ### <a name="powershell-desired-state-configuration-dsc-in-windows-management-framework-wmf-5"></a>Configurazione dello stato desiderato tramite PowerShell in Windows Management Framework (WMF) 5
 Windows Management Framework 5 include gli aggiornamenti per Configurazione dello stato desiderato tramite PowerShell, Gestione remota Windows (WinRM) e Strumentazione gestione Windows (WMI).
 
-Per altre informazioni sull'esecuzione dei test delle funzionalità Desired State Configuration (DSC) di Windows Management Framework 5, vedi la serie di post di blog descritti nella pagina relativa alla [convalida delle funzionalità Desired State Configuration di PowerShell](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/). Per il download, vedi [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Per altre informazioni sull'esecuzione dei test delle funzionalità DSC di Windows Management Framework 5, vedi la serie di post di blog descritti nella pagina relativa alla [convalida delle funzionalità DSC di PowerShell](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/). Per il download, vedi [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
 
 ### <a name="packagemanagement-unified-package-management-for-software-discovery-installation-and-inventory"></a>Gestione unificata dei pacchetti PackageManagement per l'individuazione, l'installazione e l'inventario di prodotti software
 Windows Server 2016 e Windows 10 includono una nuova funzionalità PackageManagement (denominata in precedenza OneGet) che consente ai professionisti IT o DevOps di automatizzare l'individuazione, l'installazione e l'inventario dei prodotti software, localmente o in remoto, indipendentemente dalla tecnologia di installazione e dalla posizione del software. 
 
-Per altre info, vedi [https://github.com/OneGet/oneget/wiki](https://github.com/OneGet/oneget/wiki).
+Per altre informazioni, vedi [https://github.com/OneGet/oneget/wiki](https://github.com/OneGet/oneget/wiki).
 
 ### <a name="powershell-enhancements-to-assist-digital-forensics-and-help-reduce-security-breaches"></a>Miglioramenti di PowerShell a supporto dell'informatica forense e per consentire di ridurre le violazioni della sicurezza
 Per aiutare il team responsabile dell'analisi dei sistemi compromessi, sono state aggiunte a PowerShell opzioni di registrazione e di informatica forense e sono state aggiunte funzionalità per ridurre le vulnerabilità degli script, ad esempio API vincolate di PowerShell e API CodeGeneration sicure.
@@ -150,7 +150,7 @@ Per altre informazioni, vedere [Replica di archiviazione](../storage/storage-rep
 
 ### <a name="storage-quality-of-service-qos"></a>QoS di archiviazione
 
-È ora possibile usare Qualità del servizio (QoS) di archiviazione per monitorare in modo centralizzato le prestazioni di archiviazione end-to-end e creare criteri di gestione usando cluster Hyper-V e CSV in Windows Server 2016.
+È ora possibile usare QoS di archiviazione per monitorare in modo centralizzato le prestazioni di archiviazione end-to-end e creare criteri di gestione usando cluster Hyper-V e CSV in Windows Server 2016.
 
 Per altre informazioni, vedere [Storage Quality of Service](../storage/storage-qos/storage-qos-overview.md) (QoS di archiviazione).
 
@@ -181,24 +181,24 @@ Per altre informazioni, vedere [Servizio integrità](../failover-clustering/heal
 ### <a name="internet-information-services-iis-100"></a>Internet Information Services (IIS) 10.0
 Le nuove funzionalità fornite dal server Web IIS 10.0 in Windows Server 2016 includono:
 
-- Supporto per il protocollo HTTP/2 nello stack di rete e integrato con IIS 10.0, consentendo ai siti Web IIS 10.0 di servire automaticamente le richieste HTTP/2 per le configurazioni supportate. Ciò consente numerosi miglioramenti rispetto a HTTP/1.1, ad esempio il più efficiente riutilizzo delle connessioni e la ridotta latenza, migliorando i tempi di caricamento delle pagine Web. 
+- Supporto per il protocollo HTTP/2 nello stack di rete e integrato con IIS 10.0. In questo modo i siti Web IIS 10.0 possono gestire automaticamente le richieste HTTP/2 per le configurazioni supportate. Ciò permette numerosi miglioramenti rispetto a HTTP/1.1, ad esempio un riutilizzo delle connessioni più efficiente e una latenza ridotta, migliorando i tempi di caricamento delle pagine Web. 
 - Possibilità di eseguire e gestire IIS 10.0 in Nano Server. Vedi [IIS in Nano Server](iis-on-nano-server.md).
-- Supporto per le intestazioni Host con caratteri jolly, consentendo agli amministratori di configurare un server web per un dominio e quindi chiedere al server web di rispondere alle richieste per qualsiasi sottodominio.
+- Supporto per le intestazioni host con caratteri jolly, che permette agli amministratori di configurare un server Web per un dominio e quindi impostare il server Web in modo che gestisca le richieste di qualsiasi sottodominio.
 - Un nuovo modulo di PowerShell (IISAdministration) per la gestione di IIS. 
 
-Per ulteriori dettagli, vedi [IIS](https://iis.net/learn).
+Per altri dettagli, vedi [IIS](https://iis.net/learn).
 
 ### <a name="distributed-transaction-coordinator-msdtc"></a>Distributed Transaction Coordinator (MSDTC)
-Tre nuove funzionalità sono state aggiunte in Microsoft Windows 10 e Windows Server 2016:
+Sono state aggiunte tre nuove funzionalità in Microsoft Windows 10 e Windows Server 2016:
 
-- Una nuova interfaccia per la funzione di riaggiunta di Gestione risorse è utilizzabile da un gestore delle risorse per determinare il risultato di una transazione in dubbio dopo il riavvio di un database a causa di un errore. Vedi [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/en-us/library/mt203799(v=vs.85).aspx) per informazioni dettagliate.
+- Una nuova interfaccia per la funzione Rejoin di Gestione risorse è utilizzabile da un gestore delle risorse per determinare il risultato di una transazione in dubbio dopo il riavvio di un database a causa di un errore. Vedi [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/library/mt203799(v=vs.85).aspx) per informazioni dettagliate.
 
-- Il limite per i nomi DSN viene aumentato da 256 byte a 3072 byte. Per i dettagli, vedi [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/en-us/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/en-us/library/ms679248(v=vs.85).aspx) o [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/en-us/library/ms680310(v=vs.85).aspx).
+- Il limite per i nomi DSN è stato aumentato da 256 byte a 3072 byte. Per i dettagli, vedi [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) o [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
 
-- La migliorata funzione di traccia ti consente di impostare una chiave del Registro di sistema per includere un percorso di file di immagine nel nome del file di log di traccia in modo da indicare quale file di log di traccia controllare. Vedi [Come abilitare la traccia di diagnostica per MS DTC in un computer basato su Windows](https://support.microsoft.com/en-us/kb/926099) per informazioni dettagliate sulla configurazione della traccia per MSDTC.
+- La migliorata funzione di traccia ti permette di impostare una chiave del Registro di sistema per includere un percorso di file di immagine nel nome del file di log di traccia in modo da indicare quale file di log di traccia controllare. Vedi [Come abilitare la traccia di diagnostica per MS DTC in un computer basato su Windows](https://support.microsoft.com/en-us/kb/926099) per informazioni dettagliate sulla configurazione della traccia per MSDTC.
 
 
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 -   [Note sulla versione: problemi importanti di Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 

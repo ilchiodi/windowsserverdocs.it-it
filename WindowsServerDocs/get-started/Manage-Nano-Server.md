@@ -12,19 +12,19 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443536"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280401"
 ---
 # <a name="manage-nano-server"></a>Gestire Nano Server
 
 >Si applica a: Windows Server 2016
 
 > [!IMPORTANT]
-> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per scoprire ciò cosa implica, vedi [Modifiche a Nano Server](nano-in-semi-annual-channel.md).   
+> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md).   
 
 Nano Server viene gestito in remoto. Non è presente alcuna funzionalità di accesso locale e non supporta Servizi terminal. Sono tuttavia disponibili numerose opzioni per la gestione di Nano Server in remoto, tra cui Windows PowerShell, Strumentazione gestione Windows (WMI), Gestione remota Windows e Servizi di gestione emergenze (EMS).  
 
@@ -34,13 +34,13 @@ Per usare uno strumento di gestione remota è probabile che sia necessario conos
   
 -   Collegare un cavo seriale al computer e usare EMS.  
   
--   Usando il nome computer assegnato a Nano Server durante la configurazione, è possibile ottenere l'indirizzo IP con il comando ping. Ad esempio `ping NanoServer-PC /4`.  
+-   Usando il nome computer assegnato a Nano Server durante la configurazione, è possibile ottenere l'indirizzo IP con il comando ping. Ad esempio, `ping NanoServer-PC /4`  
   
 ## <a name="using-windows-powershell-remoting"></a>Uso della comunicazione remota di Windows PowerShell  
 Per gestire Nano Server con la comunicazione remota di Windows PowerShell, è necessario aggiungere l'indirizzo IP di Nano Server all'elenco dei computer di gestione degli host attendibili, aggiungere l'account in uso agli amministratori di Nano Server e abilitare CredSSP, se si prevede di usare tale funzionalità.  
 
 > [!NOTE]
-> Se la destinazione Nano Server e computer di gestione sono nella stessa foresta Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere Nano Server all'elenco di host attendibili, è possibile connettersi a Nano Server usando il nome di dominio completo Per esempio: PS C:\> Con Enter-PSSession - ComputerName nanoserver.contoso.com-Credential (Get-Credential)
+> Se l'istanza di Nano Server di destinazione e il computer di gestione sono nella stessa foresta di Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere l'istanza di Nano Server all'elenco di host attendibili. Puoi connetterti a Nano Server usando il nome di dominio completo, ad esempio: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Per aggiungere Nano Server all'elenco di host attendibili, eseguire questo comando a un prompt di Windows PowerShell con privilegi elevati:  
@@ -60,9 +60,9 @@ Enter-PSSession -ComputerName $ip -Credential $user
 È ora possibile eseguire i comandi di Windows PowerShell in Nano Server come di consueto.  
   
 > [!NOTE]  
-> Non tutti i comandi di Windows PowerShell sono disponibili in questa versione di Nano Server. Per vedere quali sono disponibili, eseguire `Get-Command -CommandType Cmdlet`  
+> Non tutti i comandi di Windows PowerShell sono disponibili in questa versione di Nano Server. Per vedere quali sono disponibili, esegui `Get-Command -CommandType Cmdlet`  
   
-Arrestare la sessione remota con il comando `Exit-PSSession`  
+Arresta la sessione remota con il comando `Exit-PSSession`  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Uso di sessioni di Windows PowerShell CIM su WinRM  
 È possibile usare sessioni CIM e istanze di Windows PowerShell per eseguire i comandi WMI tramite Gestione remota Windows (WinRM).  
@@ -124,9 +124,9 @@ Se si vuole installare un pacchetto di manutenzione, usare il parametro -Servici
   
 Un hotfix o un pacchetto di manutenzione viene spesso scaricato come elemento KB che include un file CAB. Seguire questa procedura per estrarre il file con estensione cab, che è possibile installare con il parametro -ServicingPackagePath:  
   
-1.  Scaricare il pacchetto di manutenzione dall'articolo della Knowledge Base associato o da [Microsoft Update Catalog](https://catalog.update.microsoft.com/v7/site/home.aspx). Salvarlo in una condivisione di rete o di directory locale, ad esempio: C:\ServicingPackages  
+1.  Scaricare il pacchetto di manutenzione dall'articolo della Knowledge Base associato o da [Microsoft Update Catalog](https://catalog.update.microsoft.com/v7/site/home.aspx). Esegui il salvataggio in una directory locale o in una condivisione di rete, ad esempio: C:\ServicingPackages  
 2.  Creare una cartella in cui verrà salvato il pacchetto di manutenzione estratto.  Esempio: c:\KB3157663_expanded  
-3.  Aprire una console di Windows PowerShell e usare il comando `Expand` specificando il percorso al file del pacchetto di manutenzione con estensione msu, inclusi il parametro `-f:*` e il percorso in cui si vuole estrarre il pacchetto di manutenzione.  Per esempio:  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
+3.  Aprire una console di Windows PowerShell e usare il comando `Expand` specificando il percorso al file del pacchetto di manutenzione con estensione msu, inclusi il parametro `-f:*` e il percorso in cui si vuole estrarre il pacchetto di manutenzione.  Ad esempio: `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
   
     I file espansi devono avere un aspetto simile al seguente:  
 C:>dir C:\KB3157663_expanded   
@@ -143,7 +143,7 @@ Volume Serial Number is B05B-CC3D
 04/17/2016  12:36 AM           185,818 WSUSSCAN.cab  
                4 File(s)     94,073,136 bytes  
                2 Dir(s)  328,559,427,584 bytes free  
-4.  Eseguire `New-NanoServerImage` con il parametro - ServicingPackagePath che punta al file con estensione cab in questa directory, ad esempio: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+4.  Esegui `New-NanoServerImage` con il parametro -ServicingPackagePath che punta al file con estensione cab presente in questa directory, ad esempio: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>Gestione degli aggiornamenti in Nano Server
 
@@ -237,7 +237,7 @@ Il flusso di lavoro di alto livello rimane invariato per tutte le installazioni 
 Nelle sezioni seguenti vengono elencate le più comuni attività di raccolta dei dati sulle prestazioni e viene descritto come eseguirle in Nano Server.
 
 ### <a name="query-available-event-providers"></a>Eseguire query su provider di eventi disponibili
-[Windows Performance Recorder](https://msdn.microsoft.com/en-us/library/hh448229.aspx) è uno strumento che consente di eseguire query sui provider di eventi disponibili, come illustrato di seguito:
+[Windows Performance Recorder](https://msdn.microsoft.com/library/hh448229.aspx) è uno strumento che consente di eseguire query sui provider di eventi disponibili, come illustrato di seguito:
 ```
 wpr.exe -providers
 ```
