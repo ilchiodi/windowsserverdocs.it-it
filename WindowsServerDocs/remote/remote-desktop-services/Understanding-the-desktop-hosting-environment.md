@@ -1,6 +1,6 @@
 ---
-title: Comprendere l'ambiente di hosting del desktop
-description: Panoramica di un deployhment Servizi Desktop remoto usando una soluzione IaaS di Azure.
+title: Informazioni sull'ambiente di hosting del desktop
+description: Panoramica di una distribuzione di Servizi Desktop remoto usando la IaaS di Azure.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 880fc8f9fa2db5ec56d2117e02c069650c61584a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bdf4e3e25facfa8cc49459ada8d9b1b6309a724
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877922"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63744038"
 ---
-# <a name="understanding-the-desktop-hosting-environment"></a>Comprendere l'ambiente di hosting del desktop
+# <a name="understanding-the-desktop-hosting-environment"></a>Informazioni sull'ambiente di hosting del desktop
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Le informazioni seguenti vengono descritti i componenti del servizio di hosting desktop.  
+Le informazioni seguenti descrivono i componenti del servizio di hosting del desktop.  
   
-## <a name="tenant-environment"></a>Ambiente di tenant  
-Servizio di hosting del desktop del provider viene implementato come un set di ambienti tenant isolate. Ambiente di ogni tenant è costituito da un contenitore di archiviazione, un set di macchine virtuali e una combinazione di servizi di Azure, tutte le comunicazioni su una rete virtuale isolata. Ogni macchina virtuale contiene uno o più dei componenti che costituiscono l'ambiente desktop ospitato del tenant. Le sottosezioni seguenti descrivono i componenti che costituiscono l'ambiente desktop ospitato ogni tenant.
+## <a name="tenant-environment"></a>Ambiente tenant  
+Il servizio di hosting del desktop del provider viene implementato come un gruppo di ambienti tenant isolati. L'ambiente di ogni tenant è costituito da un contenitore di archiviazione, un gruppo di macchine virtuali e una combinazione di servizi di Azure. Tutte le comunicazioni avvengono su una rete virtuale isolata. Ogni macchina virtuale contiene uno o più dei componenti che costituiscono l'ambiente desktop ospitato del tenant. Le sottosezioni seguenti descrivono i componenti che costituiscono l'ambiente desktop ospitato di ogni tenant.
 
 ## <a name="remote-desktop-services"></a>Servizi Desktop remoto
-In un ambiente di hosting del desktop, vengono installati i seguenti ruoli di Servizi Desktop remoto tra varie macchine virtuali:
+In un ambiente di hosting del desktop vengono installati i seguenti ruoli di Servizi Desktop remoto nelle varie macchine virtuali:
 
   - Gestore connessione Desktop remoto
   - Gateway Desktop remoto
@@ -37,47 +37,47 @@ In un ambiente di hosting del desktop, vengono installati i seguenti ruoli di Se
   - Host sessione Desktop remoto
   - Accesso Web Desktop remoto
 
-Per una descrizione completa della ognuno di questi ruoli e come interagiscono tra loro, vedere la [ruoli di servizi desktop remoto Understanding](Understanding-RDS-roles.md) documento.
+Per una descrizione completa di ognuno di questi ruoli e di come interagiscono tra loro, consultare il documento [Informazioni sui ruoli di Servizi Desktop remoto](Understanding-RDS-roles.md).
   
-##  <a name="azure-active-directory-domain-services"></a>(Azure) Servizi di dominio Active Directory  
-Esistono diversi modi per connettersi e gestire servizi di dominio Active Directory (AD DS) per un ambiente di hosting del desktop in Azure:
+##  <a name="azure-active-directory-domain-services"></a>(Azure) Active Directory Domain Services  
+Esistono diversi modi per connettersi e gestire Active Directory Domain Services (AD DS) per un ambiente di hosting del desktop in Azure:
 
 1. Creare una macchina virtuale nell'ambiente del tenant che esegue il ruolo di Active Directory Domain Services
-2. Creare una connessione VPN site-to-site con nell'ambiente locale del tenant da usare un dominio Active Directory esistente
-3. Utilizzo del ruolo PaaS di Azure Active Directory Domain Services, che crea un dominio nella rete virtuale del tenant Azure Active Directory del tenant in base
+2. Creare una connessione VPN da sito a sito con l'ambiente locale del tenant per usare un Active Directory Domain Services esistente
+3. Usare il ruolo PaaS di Azure Active Directory Domain Services, che crea un dominio nella rete virtuale del tenant in base all'Active Directory di Azure del tenant
 
-Con Servizi Desktop remoto, il tenant deve avere un Active Directory per gestire l'accesso nell'ambiente di archiviazione del profilo utente e il monitoraggio all'interno della distribuzione. Quando si usa il standard Active Directory Domain Services (non Azure), la foresta del tenant non richiede alcuna relazione di trust con la foresta di gestione del provider. Un account di amministratore di dominio può essere impostato nel dominio del tenant per consentire il personale tecnico del provider per eseguire attività amministrative nell'ambiente del tenant (ad esempio monitoraggio dello stato del sistema e applicazione degli aggiornamenti software) e per assistere con risoluzione dei problemi e la configurazione.  
+Con Servizi Desktop remoto, il tenant deve avere un Active Directory per gestire l'accesso all'ambiente, l'archiviazione del profilo utente e il monitoraggio nella distribuzione. Quando si usa Active Directory Domain Services standard (non Azure), la foresta del tenant non richiede alcuna relazione di trust con la foresta di gestione del provider. È possibile configurare un account amministratore di dominio nel dominio del tenant per consentire al personale tecnico del provider di eseguire attività di amministrazione nell'ambiente del tenant (come il monitoraggio dello stato del sistema e l'applicazione degli aggiornamenti del software) e assistenza nella risoluzione dei problemi e nella configurazione.  
     
 Altre informazioni:  
 [Documentazione di Azure Active Directory Domain Services](https://azure.microsoft.com/documentation/services/active-directory-ds/)  
 [Installare una nuova foresta di Active Directory in una rete virtuale di Azure](https://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)  
-[Creare una risorsa di gestione della rete virtuale con una connessione Site-to-Site VPN usando il portale di Azure](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
+[Creare una VNet di Gestione risorse con una connessione VPN da sito a sito usando il portale di Azure](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
   
 ## <a name="azure-sql-database"></a>Database SQL di Azure  
-Database SQL di Azure consente di servizi di hosting estendere la distribuzione di Servizi Desktop remoto senza la necessità di distribuire e gestire un cluster di SQL Server Always on completo. Il Database SQL di Azure viene usato per il Gestore connessione Desktop remoto per archiviare le informazioni di distribuzione, ad esempio il mapping delle connessioni degli utenti correnti per i server host finale. Come altri servizi di Azure, database SQL di Azure segue un modello a consumo, ideale per qualsiasi tipo di distribuzione.   
+Database SQL di Azure consente ai provider di servizi di hosting di estendere la distribuzione di Servizi Desktop remoto senza il bisogno di distribuire e mantenere un intero cluster di SQL Server sempre attivo. Il Database SQL di Azure è usato dal gestore di Connessione Desktop remoto per archiviare informazioni di distribuzione, come il mapping delle connessioni degli utenti correnti ai server host finali. Come altri servizi di Azure, Database SQL segue un modello a consumo, ideale per qualsiasi tipo di distribuzione.   
   
 Altre informazioni:  
-[Che cos'è il Database SQL?](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)  
+[Che cos'è Database di SQL Server?](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)  
   
 ## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory Application Proxy  
-Azure Active Directory Application Proxy è un servizio fornito in a pagamento-SKU di Azure Active Directory che consentono agli utenti di connettersi alle applicazioni interne tramite il servizio di proxy inverso di Azure. In questo modo gli endpoint Web desktop remoto e Gateway Desktop remoto devono essere nascoste all'interno della rete virtuale, eliminando la necessità di essere esposti a internet tramite un indirizzo IP pubblico. In questo modo ulteriormente hoster per ridurre il numero di macchine virtuali nell'ambiente del tenant mantenendo al tempo stesso una distribuzione completa.
+Azure Active Directory Application Proxy è un servizio offerto in SKU a pagamento di Azure Active Directory che consentono agli utenti di connettersi alle applicazioni interne tramite il servizio di proxy inverso di Azure. In questo modo gli endpoint di Accesso Web Desktop remoto e Gateway Desktop remoto possono essere nascosti all'interno della rete virtuale, eliminando la necessità dell'esposizione su Internet tramite un indirizzo IP pubblico. Questo consente ai provider di servizi di hosting di ridurre ulteriormente il numero di macchine virtuali nell'ambiente del tenant mantenendo al tempo stesso una distribuzione completa.
   
 Altre informazioni:  
-[Come abilitare il Proxy applicazione Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/)  
+[Abilitazione di Azure Active Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/)  
     
 ## <a name="file-server"></a>File server  
-Il file server offre le cartelle condivise mediante il protocollo Server Message Block (SMB) 3.0. Le cartelle condivise vengono usate per creare e archiviare file di disco profili utente (con estensione vhdx), per i dati di backup e per consentire agli utenti una posizione in cui condividere dati con altri utenti nella rete virtuale del tenant.
+Il file server offre le cartelle condivise mediante il protocollo Server Message Block (SMB) 3.0. Le cartelle condivise vengono usate per creare e archiviare file disco dei profili utente (.vhdx) per il backup dei dati e per offrire agli utenti un ambiente in cui condividere dati con altri utenti nella rete virtuale del tenant.
   
-La macchina virtuale usata per distribuire il file server deve avere un disco dati di Azure collegata e configurata con le cartelle condivise. Dischi dati di Azure usano write-through di memorizzazione nella cache garantisce che scrive sul disco salvati in modo permanente tra i vari riavvi della macchina virtuale.  
+La VM usata per distribuire il file server deve avere un disco dati di Azure collegato e configurato con le cartelle condivise. I dischi dati di Azure usano il cache write-through, che garantisce il mantenimento delle scritture su disco con i vari riavvii della VM.  
   
-Per i tenant di piccole dimensioni, il costo può essere ridotto mediante la combinazione di file server con la macchina virtuale che esegue i ruoli di Gestore connessione desktop remoto e servizio licenze Desktop remoto in una singola macchina virtuale nell'ambiente del tenant.  
+Per i tenant di piccole dimensioni, il costo può essere ridotto mediante la combinazione di file server con la macchina virtuale che esegue i ruoli di Gestore Connessione Desktop remoto e Gestione licenze Desktop remoto in una singola macchina virtuale nell'ambiente del tenant.  
   
 Altre informazioni  
-[Panoramica di servizi di archiviazione e file](https://technet.microsoft.com/library/hh831487.aspx)  
+[Panoramica di Servizi file e archiviazione](https://technet.microsoft.com/library/hh831487.aspx)  
 [Come collegare un disco dati a una macchina virtuale](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)  
   
 ### <a name="user-profile-disks"></a>Dischi dei profili utente  
-I dischi dei profili utente consentono agli utenti di salvare i file e le impostazioni personali quando sono connessi a una sessione in un server Host sessione Desktop remoto in una raccolta e quindi chiedere di accesso allo stesso file e le impostazioni durante l'accesso a un server Host sessione Desktop remoto diverso nella raccolta. Quando l'utente accede la prima volta, viene creato un disco del profilo utente nel server di file del tenant e tale disco viene montato per il server Host sessione Desktop remoto a cui l'utente è connesso. Per ogni successiva effettuato l'accesso, viene montato il disco del profilo utente per il server host sessione Desktop remoto appropriato e con ogni Sign-Out, è non montato. Il contenuto del disco del profilo è accessibile solo da tale utente.  
+I dischi dei profili utente consentono agli utenti di salvare i file e le impostazioni personali quando sono connessi a un server Host di sessione Desktop remoto in una raccolta, avendo quindi accesso agli stessi file e impostazioni quando accedono a un altro server Host di sessione Desktop remoto nella raccolta. Quando l'utente accede la prima volta, viene creato un disco del profilo utente nel file server del tenant. Questo disco viene montato sul server Host di sessione Desktop remoto a cui l'utente è connesso. A ogni accesso successivo, il disco del profilo utente viene montato sul server Host di sessione Desktop remoto appropriato, quindi smontato a ogni disconnessione. I contenuti del disco del profilo sono visibili solo per tale utente.  
   
 
 
