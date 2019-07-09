@@ -1,6 +1,6 @@
 ---
-title: Desktop remoto - consentire l'accesso al PC dall'esterno della rete
-description: Scopri le opzioni per accedere in remoto il PC all'esterno di rete del computer
+title: Desktop remoto - Consentire l'accesso al PC dall'esterno della rete
+description: Informazioni sulle opzioni per accedere in remoto al PC dall'esterno della relativa rete
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,46 +14,46 @@ ms.author: elizapo
 ms.date: 04/04/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 9e90a2faa14b65bc766c7d7ec47d5e815658c06e
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805065"
 ---
-# <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>Desktop remoto - consentire l'accesso al PC all'esterno di rete del PC
+# <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>Desktop remoto - Consentire l'accesso al PC dall'esterno della relativa rete
 
->Si applica a: Windows 10,  Windows Server 2016
+>Si applica a: Windows 10, Windows Server 2016
 
-Quando ci si connette al computer tramite un client Desktop remoto, si crea una connessione peer-to-peer. Ciò significa che è necessario l'accesso diretto al PC (talvolta denominate "host"). Se è necessario connettersi al PC dall'esterno della rete in che al computer è in esecuzione, è necessario abilitare l'accesso. Sono disponibili due opzioni: usare l'inoltro alla porta o configurare una VPN.
+Quando ti connetti al tuo PC usando un client Desktop remoto, crei una connessione peer-to-peer. Ciò significa che hai necessità dell'accesso diretto al PC, a volte definito "host". Se devi connetterti al tuo PC dall'esterno della rete su cui il computer è in funzione, devi abilitare tale accesso. Le opzioni disponibili sono due: usare il port forwarding o impostare una rete privata virtuale (VPN).
 
 ## <a name="enable-port-forwarding-on-your-router"></a>Abilitare il port forwarding sul router
 
-L'inoltro alla porta esegue il mapping semplicemente la porta sull'indirizzo IP del router (l'indirizzo IP pubblico) alla porta e indirizzo IP del computer che si desidera accedere. 
+Il port forwarding esegue semplicemente il mapping tra la porta che si trova all'indirizzo IP del router (il tuo IP pubblico) e la porta e l'indirizzo IP del PC a cui vuoi accedere. 
 
-I passaggi specifici per abilitare l'inoltro alla porta dipendono il router in uso, pertanto sarà necessario eseguire la ricerca online per le istruzioni del router. Per una discussione generale dei passaggi, consultare [wikiHow per impostare backup di Port Forwarding sul Router](https://www.wikihow.com/Set-Up-Port-Forwarding-on-a-Router).
+I passaggi specifici da eseguire per abilitare il port forwarding variano in base al router in uso, pertanto dovrai cercare online le istruzioni relative a quest'ultimo. Per una descrizione generale dei passaggi, vedi [wikiHow - How to Set Up Port Forwarding on a Router](https://www.wikihow.com/Set-Up-Port-Forwarding-on-a-Router) (Come impostare il port forwarding su un router).
 
-Prima eseguire il mapping della porta è necessario quanto segue:
+Prima di eseguire il mapping della porta, sarà necessario disporre di quanto segue:
 
-- Indirizzo IP interno del PC: Cerca in **Impostazioni > rete e Internet > stato > consente di visualizzare le proprietà della rete**. Trovare la configurazione di rete con stato "Operational" e quindi ottenere il **indirizzo IPv4**.
+- L'indirizzo IP interno del PC: cerca in **Impostazioni > Rete e Internet > Stato > Visualizza le proprietà della rete**. Trova la configurazione di rete con stato "Operativo" e quindi ottieni l'**indirizzo IPv4**.
 
    ![Configurazione di rete operativa](../media/rdclient-operational-network.png)
 
-- L'indirizzo IP pubblico (indirizzo IP del router). Esistono diversi modi per trovarlo, è possibile cercare, in Bing o Google, "my IP" o visualizzare il [proprietà della rete Wi-Fi](https://binged.it/2Gwob34) (per Windows 10).
-- Numero di porta da mappare. Nella maggior parte dei casi si tratta 3389, ovvero la porta predefinita usata per le connessioni Desktop remoto.
-- Accesso amministrativo al router.  
+- Il tuo indirizzo IP pubblico, ovvero l'IP del router. Per trovarlo puoi procedere in diversi modi: cercare "mio IP" (in Bing o Google) oppure visualizzare le [proprietà della rete Wi-Fi](https://binged.it/2Gwob34) (per Windows 10).
+- Il numero di porta per cui viene eseguito il mapping. Nella maggior parte dei casi, è 3389, ovvero la porta predefinita usata dalle connessioni Desktop remoto.
+- L'accesso come amministratore al router.  
 
    >[!WARNING]
-   > Si sta aprendo il PC fino a internet, assicurarsi di avere una password complessa impostato per il PC.
+   > Stai aprendo il tuo PC a Internet, pertanto assicurati che per tale computer sia impostata una password complessa.
 
-Dopo il mapping della porta, sarà in grado di connettersi al PC host dall'esterno della rete locale tramite la connessione all'indirizzo IP pubblico del router (il secondo punto elenco precedente).
+Dopo aver eseguito il mapping della porta, potrai connetterti al tuo PC host dall'esterno della rete locale effettuando la connessione all'indirizzo IP pubblico del router (secondo punto dell'elenco precedente).
 
-Indirizzo IP del router può essere modificato: provider di servizi internet (ISP) l'assegnazione di un nuovo indirizzo IP in qualsiasi momento. Per evitare di riscontrare questo problema, provare a usare DNS dinamico: ciò consente di connettersi al computer utilizzando un facile da ricordare il nome di dominio, anziché l'indirizzo IP. Il router Aggiorna automaticamente il servizio DNS dinamico con il nuovo indirizzo IP, deve modificare.
+L'indirizzo IP del router può cambiare, ad esempio il provider di servizi Internet (ISP) può assegnarti ogni volta un nuovo IP. Per evitare di incorrere in questo problema, considera la possibilità di usare un DNS dinamico, che consente di connetterti al PC usando un nome di dominio facile da ricordare anziché l'indirizzo IP. Il router aggiornerà automaticamente il servizio DDNS con il nuovo indirizzo IP, qualora dovesse cambiare.
 
-Con la maggior parte dei router è possibile definire quale indirizzo IP di origine o di una rete di origine può utilizzare il mapping della porta. Pertanto, se si sa che verrà utilizzato solo per la connessione dal lavoro, è possibile aggiungere l'indirizzo IP per la rete di lavoro - che consente di evitare di aprire la porta per l'intera rete internet pubblica. Se l'host che si usa per la connessione Usa indirizzo IP dinamico, impostare la limitazione di origine per consentire l'accesso dall'intera gamma di tale particolare ISP.
+Con la maggior parte dei router hai la possibilità di definire l'IP o la rete di origine che può usare il mapping della porta. Pertanto, se sai già di doverti connettere solo dal lavoro, puoi aggiungere l'indirizzo IP della rete aziendale. In questo modo eviterai di aprire la porta all'intera Internet pubblica. Se l'host di cui ti servi per la connessione usa un indirizzo IP dinamico, imposta la restrizione relativa all'origine per consentire l'accesso dall'intero intervallo dell'ISP in questione.
 
-È inoltre possibile configurare un [indirizzo IP statico](/windows-hardware/customize/mobile/mcsf/enable-static-ip) nel PC in modo da non modifica l'indirizzo IP interno. Se si esegue l'operazione che, quindi il router il port forwarding farà sempre riferimento all'indirizzo IP corretto.
+Puoi anche considerare l'eventualità di impostare un [indirizzo IP statico](/windows-hardware/customize/mobile/mcsf/enable-static-ip) sul PC in modo che l'indirizzo IP interno resti invariato. In tal caso, il port forwarding del router punterà sempre all'indirizzo IP corretto.
 
 
-## <a name="use-a-vpn"></a>Usare una VPN
+## <a name="use-a-vpn"></a>Usare una rete privata virtuale
 
-Se ci si connette alla rete locale tramite una rete privata virtuale (VPN), non devi aprire del PC per la rete internet pubblica. Al contrario, quando ci si connette alla rete VPN, il client desktop remoto agisce come se fa parte della stessa rete e in grado di accedere al computer. Sono disponibili numerosi servizi VPN, è possibile trovare e usare a seconda del valore adatta alle tue esigenze.
+Se ti connetti alla rete LAN tramite una rete privata virtuale (VPN), non devi aprire il PC alla rete Internet pubblica. Quando ti connetti alla VPN, il client Desktop remoto opera invece come se facesse parte della stessa rete e potrà accedere al tuo PC. Sono disponibili diversi servizi VPN. Puoi trovare e usare quello più adatto alle tue esigenze.

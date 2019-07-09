@@ -1,6 +1,6 @@
 ---
 title: Funzionalità rimosse o deprecate in Windows Server 2016
-description: Elenco di caratteristiche e funzionalità in Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o ne è pianificata la potenziale rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale.
+description: Elenco di caratteristiche e funzionalità di Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o di cui è pianificata la possibile rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale.
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976600"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Funzionalità rimosse o deprecate in Windows Server 2016
@@ -23,7 +23,7 @@ ms.locfileid: "65976600"
 
 Di seguito è riportato un elenco di caratteristiche e funzionalità di Windows Server 2016 che sono state rimosse dal prodotto nella versione corrente o di cui è pianificata la potenziale rimozione nelle versioni successive (deprecate). Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale. L'elenco è soggetto a modifiche nelle versioni successive e potrebbe non includere tutte le funzioni o funzionalità deprecate. Per ulteriori dettagli su una particolare caratteristica o funzionalità e la relativa sostituzione, vedere la documentazione relativa a tale funzionalità.
 
-Per informazioni su cosa è stato rimossa o deprecata nelle versioni più recenti, vedi [funzionalità rimosse o pianificata la sostituzione di avvio di Windows Server 2019](../get-started-19/removed-features-19.md).
+Per informazioni su quanto è stato rimosso o deprecato nelle versioni più recenti, vedi [Funzionalità rimosse o pianificate per la sostituzione a partire da Windows Server 2019](../get-started-19/removed-features-19.md).
 
 ## <a name="features-removed-from-windows-server-2016"></a>Funzionalità rimosse da Windows Server 2016
 
@@ -46,21 +46,21 @@ Lo snap-in Gestione condivisione e archiviazione per Microsoft Management Consol
 Journal.dll è stato rimosso da Windows Server 2016. Non è prevista alcuna sostituzione.  
 
 ### <a name="security-configuration-wizard"></a>Configurazione guidata impostazioni di sicurezza  
-La Configurazione guidata impostazioni di sicurezza è stata rimossa. Le funzionalità sono protette per impostazione predefinita. Per controllare impostazioni di sicurezza specifiche, è possibile usare Criteri di gruppo o [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
+La Configurazione guidata impostazioni di sicurezza è stata rimossa. Le funzionalità sono protette per impostazione predefinita. Per controllare impostazioni di protezione specifiche, è possibile usare Criteri di gruppo o [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
 
 ### <a name="sqm"></a>SQM  
 I componenti di consenso esplicito che gestiscono la partecipazione al programma Analisi utilizzo software sono stati rimossi. 
 
 ### <a name="windows-update"></a>Windows Update
-Il comando **wuauclt.exe /detectnow** è stato rimosso e non è più supportato. Per attivare un'analisi per gli aggiornamenti, effettuare una delle operazioni seguenti:
+Il comando **wuauclt.exe /detectnow** è stato rimosso e non è più supportato. Per attivare un'analisi per gli aggiornamenti, esegui una di queste operazioni:
 
-- Eseguire questi comandi di PowerShell:
+- Esegui questi comandi di PowerShell:
     ````powershell
     $AutoUpdates = New-Object -ComObject "Microsoft.Update.AutoUpdate"`
     $AutoUpdates.DetectNow()` 
     ````
 
-- In alternativa, utilizzare questo VBScript:
+- In alternativa, usa questo file VBScript:
     ````vb
     Set automaticUpdates = CreateObject("Microsoft.Update.AutoUpdate")
     automaticUpdates.DetectNow()
@@ -71,9 +71,9 @@ Le seguenti caratteristiche e funzionalità sono deprecate a partire da questa v
 
 ### <a name="configuration-tools"></a>Strumenti di configurazione  
 
--   **Scregedit.exe** è deprecata. Se si dispone di script che dipendono da Scregedit.exe, modificarli in modo da usare i metodi Reg.exe o Windows PowerShell.  
+-   **Scregedit.exe** è deprecato. Se si dispone di script che dipendono da Scregedit.exe, modificarli in modo da usare i metodi Reg.exe o Windows PowerShell.  
 
--   **Sconfig.exe** è deprecata. Usare invece Windows PowerShell.  
+-   **Sconfig.exe** è deprecato. Usare invece Windows PowerShell.  
 
 ### <a name="netcfg-custom-apis"></a>API personalizzate di NetCfg  
 L'installazione di PrintProvider, NetClient e ISDN usando le API personalizzate di NetCfg è deprecata.  

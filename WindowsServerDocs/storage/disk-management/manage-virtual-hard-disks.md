@@ -1,6 +1,6 @@
 ---
 title: Gestire dischi rigidi virtuali
-description: In questo articolo viene descritto come gestire dischi rigidi virtuali
+description: Questo articolo descrive come gestire dischi rigidi virtuali
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,21 +9,21 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2e371710752d59ebc7a1f8aa2dad3d9189872c47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827112"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63751759"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>Gestire dischi rigidi virtuali
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo argomento viene descritto come creare, collegare e scollegare dischi rigidi virtuali con Gestione disco. I dischi rigidi virtuali sono file su disco rigido virtualizzati che, una volta montati, vengono visualizzati ed eseguiti praticamente in modo identico a un disco rigido fisico. Sono più comunemente utilizzati con le macchine virtuali Hyper-V. 
+Questo argomento descrive come creare e rendere visibili e non visibili dischi rigidi virtuali con Gestione disco. I dischi rigidi virtuali sono file su disco rigido virtualizzati che, una volta montati, vengono visualizzati ed eseguiti praticamente in modo identico a un disco rigido fisico. Sono usati più comunemente con le macchine virtuali Hyper-V. 
 
 ## <a name="viewing-vhds-in-disk-management"></a>Visualizzazione di dischi rigidi virtuali in Gestione disco
 
-I dischi rigidi virtuali vengono visualizzati come dischi fisici in Gestione disco. Quando è stato collegato un disco rigido virtuale (ovvero reso disponibile per l'utilizzo nel sistema), viene visualizzato in blu. Se il disco viene disconnesso (vale a dire, reso non disponibile), la relativa icona ritorna grigia.
+I dischi rigidi virtuali vengono visualizzati come dischi fisici in Gestione disco. Dopo che un disco rigido virtuale è stato reso visibile (ovvero reso disponibile per l'uso nel sistema), viene visualizzato in blu. Se il disco viene reso non visibile (ovvero non disponibile), la relativa icona diventa di nuovo grigia.
 
 ## <a name="creating-a-vhd"></a>Creazione di un disco rigido virtuale
 
@@ -32,25 +32,25 @@ I dischi rigidi virtuali vengono visualizzati come dischi fisici in Gestione dis
 
 **Per creare un disco rigido virtuale**
 
-1.  Dal menu **Azione** scegliere **Crea file VHD**.
+1.  Scegli **Crea file VHD** dal menu **Azione**.
 
-2.  Nella finestra di dialogo **Crea e collega disco rigido virtuale**, specificare il percorso nel computer fisico in cui archiviare il file VHD e le dimensioni del disco rigido virtuale.
+2.  Nella finestra di dialogo **Crea e collega disco rigido virtuale** specifica il percorso nel computer fisico in cui vuoi archiviare il file VHD e le dimensioni del disco rigido virtuale.
 
 3.  In **Formato disco rigido virtuale** selezionare **A espansione dinamica** o **A dimensione fissa** e quindi fare clic su **OK**.
 
-## <a name="attaching-and-detaching-a-vhd"></a>Collegamento e scollegamento di un disco rigido virtuale
+## <a name="attaching-and-detaching-a-vhd"></a>Come rendere visibile o non visibile un disco rigido virtuale
 
-Per rendere disponibile per l'utilizzo un disco rigido virtuale (uno appena creato o un altro disco rigido virtuale esistente): 
+Per rendere disponibile per l'uso un disco rigido virtuale (appena creato o già esistente): 
 
-1. Nel menu **Azione**, selezionare **Collega file VHD**.
+1. Scegli **Collega file VHD** dal menu **Azione**.
 
-2. Specificare il percorso del disco rigido virtuale, utilizzando un percorso completo.
+2. Specifica la posizione del disco rigido virtuale usando un percorso completo.
 
-Per scollegare il disco rigido virtuale, rendendo non disponibili: Fare clic su disco, selezionare **Scollega file VHD**, quindi fare clic su **OK**. Lo scollegamento di un disco rigido virtuale non elimina il disco rigido virtuale o tutti i dati in esso archiviati.
+Per rendere non visibile il disco rigido virtuale, ovvero non disponibile: fai clic con il pulsante destro del mouse sul disco, scegli **Scollega file VHD** e quindi fai clic su **OK**. Quando un disco rigido virtuale viene reso non visibile, non viene eliminato e non vengono eliminati i dati in esso archiviati.
 
 ## <a name="additional-considerations"></a>Considerazioni aggiuntive
 
--   Il percorso che specifica il percorso per il disco rigido virtuale deve essere completo e non può essere il \\directory di Windows.
+-   Il percorso che specifica la posizione del disco rigido virtuale deve essere completo e non può essere nella directory \\Windows.
 -   La dimensione minima per un disco rigido virtuale è 3 megabyte (MB).
 -   Un disco rigido virtuale può essere solo un disco di base.
--   Poiché un disco rigido virtuale viene inizializzato durante la creazione, la creazione di un disco rigido virtuale di grande dimensione fissa potrebbe richiedere tempo.
+-   Poiché un disco rigido virtuale viene inizializzato durante la creazione, la creazione di un grande disco rigido virtuale a dimensione fissa potrebbe richiedere tempo.

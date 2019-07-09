@@ -1,6 +1,6 @@
 ---
 title: Client Desktop remoto - configurazione supportata
-description: Informazioni su dei PC che è possibile accedere tramite i client Desktop remoto
+description: Informazioni sui computer a cui puoi accedere tramite i client Desktop remoto
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,11 +15,11 @@ ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: d38008b6387385917ad21ce7e169b8ff3f4d18ba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884692"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63748969"
 ---
 # <a name="remote-desktop-client---supported-configuration"></a>Client Desktop remoto - configurazione supportata
 
@@ -65,7 +65,7 @@ Il client Desktop remoto non consentono di connettersi a queste versioni di Wind
 - Windows 7 Starter
 - Home page di Windows 7
 - Windows 8 Home
-- Home page di Windows 8.1
+- Windows 8.1 Home
 - Windows 10 Home
 
 Se si desidera accedere ai computer che dispongono di una di queste versioni di Windows installate, è consigliabile che l'aggiornamento a una versione di Windows che supporta il protocollo RDP.

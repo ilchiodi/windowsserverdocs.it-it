@@ -13,50 +13,50 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: ba597318cdaf1d4659a72905eeb4e252c9020e49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14c32831445b12b314c71e538320c2ce5a9b7ee4
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887872"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63749402"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architettura di Servizi Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Di seguito sono diverse configurazioni per la distribuzione di Servizi Desktop remoto per ospitare le app di Windows e desktop per gli utenti finali.
+Di seguito sono riportate diverse configurazioni per la distribuzione di Servizi Desktop remoto per ospitare i desktop e le app di Windows per gli utenti finali.
 
 >[!NOTE]
-> I diagrammi di architettura seguenti mostrano l'uso di servizi desktop remoto in Azure. Tuttavia, è possibile distribuire Servizi Desktop remoto in locale e in altri cloud. Questi diagrammi sono principalmente lo scopo di illustrare come i ruoli Servizi Desktop remoto nella stessa area e usano altri servizi.
+> I diagrammi di architettura seguenti mostrano l'uso di Servizi Desktop remoto in Azure. Puoi tuttavia distribuire Servizi Desktop remoto in locale e in altri cloud. Questi diagrammi hanno lo scopo principale di illustrare come i ruoli di Servizi Desktop remoto condividono il percorso e usano altri servizi.
 
-## <a name="standard-rds-deployment-architectures"></a>Standard architetture di distribuzione di servizi desktop remoto
+## <a name="standard-rds-deployment-architectures"></a>Architetture di distribuzione di Servizi desktop remoto standard
 
 Servizi Desktop remoto presenta due architetture standard:
--   Distribuzione di base: contiene il numero minimo di server per creare un efficace ambiente di servizi desktop remoto
--   Distribuzione a disponibilità elevata – contiene tutti i componenti necessari per avere il massimo tempo di attività garantito per l'ambiente di servizi desktop remoto
+-   Distribuzione di base: contiene il numero minimo di server per la creazione di un ambiente di Servizi Desktop remoto completamente efficace
+-   Distribuzione a disponibilità elevata: contiene tutti i componenti necessari per offrire il tempo di attività garantito massimo per un ambiente di Servizi Desktop remoto
 
 ### <a name="basic-deployment"></a>Distribuzione di base
 
-![Distribuzione di base di servizi desktop remoto](./media/basic-rds.png)
+![Distribuzione di Servizi Desktop remoto di base](./media/basic-rds.png)
 
 ### <a name="highly-available-deployment"></a>Distribuzione a disponibilità elevata
 
-![Distribuzione di servizi desktop remoto a disponibilità elevata](./media/ha-rds.png)
+![Distribuzione di Servizi Desktop remoto a disponibilità elevata](./media/ha-rds.png)
 
-## <a name="rds-architectures-with-unique-azure-paas-roles"></a>Architetture di servizi desktop remoto con i ruoli PaaS di Azure univoci
+## <a name="rds-architectures-with-unique-azure-paas-roles"></a>Architetture di Servizi Desktop remoto con ruoli PaaS di Azure univoci
 
-Sebbene le architetture di distribuzione standard di servizi desktop remoto rientrano la maggior parte degli scenari, Azure continua a investire in soluzioni PaaS proprietarie di tale valore per i clienti. Di seguito sono alcune architetture che mostra come si incorporano con Servizi Desktop remoto.
+Sebbene le architetture di distribuzione di Servizi Desktop remoto standard si adattino alla maggior parte degli scenari, Azure continua a investire in soluzioni PaaS proprietarie di valore per i clienti. Di seguito sono riportate alcune architetture con l'indicazione di come si incorporano con Servizi Desktop remoto.
 
-### <a name="rds-deployment-with-azure-ad-domain-services"></a>Distribuzione di servizi desktop remoto con Azure AD Domain Services
+### <a name="rds-deployment-with-azure-ad-domain-services"></a>Distribuzione di Servizi Desktop remoto con Azure Active Directory Domain Services
 
-I due diagrammi di architettura standard precedenti si basano su una tradizionale Active Directory (AD) distribuito in una VM Windows Server. Tuttavia, se non hai un annuncio tradizionali e hanno solo un tenant di Azure AD, ovvero attraverso servizi quali Office365, ma si vuole comunque sfruttare servizi desktop remoto, è possibile usare [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) per creare un dominio completamente gestito nell'infrastruttura IaaS di Azure ambiente che usa gli stessi utenti presenti nel tenant di Azure AD. Ciò elimina la complessità manualmente la sincronizzazione degli utenti e la gestione di più macchine virtuali. Azure Active Directory Domain Services possono essere usati in una distribuzione: base o a disponibilità elevata.
+I due diagrammi di architettura standard precedenti si basano su una distribuzione tradizionale di Active Directory (AD) in una macchina virtuale Windows Server. Se tuttavia non disponi di una distribuzione tradizionale di AD e hai solo un tenant Azure AD (attraverso servizi quali Office365), ma vuoi comunque sfruttare Servizi Desktop remoto, puoi usare [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) per creare un dominio completamente gestito in un ambiente IaaS di Azure che usa gli stessi utenti presenti nel tenant Azure AD. In questo modo si evita la difficoltà di dover sincronizzare manualmente gli utenti e gestire più macchine virtuali. Azure Active Directory Domain Services può essere usato in una distribuzione di base o a disponibilità elevata.
 
-![Azure AD e la distribuzione di servizi desktop remoto](./media/aadds-rds.png)
+![Distribuzione di Azure AD e Servizi Desktop remoto](./media/aadds-rds.png)
 
-### <a name="rds-deployment-with-azure-ad-application-proxy"></a>Distribuzione di servizi desktop remoto con Azure AD Application Proxy
+### <a name="rds-deployment-with-azure-ad-application-proxy"></a>Distribuzione di Servizi Desktop remoto con Azure Active Directory Application Proxy
 
-I due diagrammi di architettura standard precedenti usano i server Web/Gateway Desktop remoto come punto di ingresso a Internet nel sistema di servizi desktop remoto. In alcuni ambienti, gli amministratori preferirebbero rimuovere i propri server dal perimetro e usare invece le tecnologie che garantire inoltre sicurezza aggiuntiva tramite le tecnologie di proxy inverso. Il [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) ruolo PaaS si adatti perfettamente con questo scenario.
+I due diagrammi di architettura standard precedenti usano i server Accesso Web/Gateway Desktop remoto come punto di ingresso Internet nel sistema di Servizi Desktop remoto. Per alcuni ambienti gli amministratori preferirebbero rimuovere i propri server dal perimetro e usare invece tecnologie che garantiscono anche sicurezza aggiuntiva tramite tecnologie di proxy inverso. Il ruolo PaaS [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) si adatta perfettamente a questo scenario.
 
-Per le configurazioni supportate e come creare questa configurazione, vedere come [pubblicare Desktop remoto con Azure AD Application Proxy](/azure/active-directory/application-proxy-publish-remote-desktop).
+Per informazioni sulle configurazioni supportate e su come creare questa configurazione, vedi come [pubblicare Desktop remoto con Azure Active Directory Application Proxy](/azure/active-directory/application-proxy-publish-remote-desktop).
 
-![Servizi Desktop remoto con Azure AD Application Proxy](./media/aadappproxy-rds.png)
+![Servizi Desktop remoto con Azure Active Directory Application Proxy](./media/aadappproxy-rds.png)

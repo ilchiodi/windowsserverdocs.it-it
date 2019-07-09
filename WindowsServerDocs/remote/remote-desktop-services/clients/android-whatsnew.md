@@ -1,6 +1,6 @@
 ---
-title: Novità di Desktop remoto in Android?
-description: Informazioni sulle modifiche recenti per il client Desktop remoto per Android
+title: Novità di Desktop remoto per Android
+description: Informazioni sulle modifiche recenti apportate al client Desktop remoto per Android
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,74 +14,74 @@ ms.author: elizapo
 ms.date: 06/05/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
-ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66736532"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Che cosa sono le novità per il client Desktop remoto in Android?
+# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Novità del client Desktop remoto per Android
 
-Viene aggiornato regolarmente le [client Desktop remoto per Android](remote-desktop-android.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
+Aggiorniamo regolarmente il [client Desktop remoto per Android](remote-desktop-android.md) aggiungendo nuove funzionalità e risolvendo i problemi. Di seguito sono riportate informazioni sugli aggiornamenti più recenti.
 
 ## <a name="updates-for-version-8171"></a>Aggiornamenti per la versione 8.1.71
 
-*Data di pubblicazione: 06/05/2019*
+*Data di pubblicazione: 05/06/2019*
 
 - Rimozione del supporto per le versioni di Android 4.0.3 e 4.0.4.
-- Risolto un problema in cui le risorse remote lo stesso nome non veniva visualizzato correttamente.
-- Aggiornare l'icona dell'app.
+- Risoluzione di un problema in cui le risorse remote con lo stesso nome non venivano visualizzate correttamente.
+- Aggiornamento dell'icona dell'app.
 - Miglioramenti e correzioni di bug minori.
 
 ## <a name="updates-for-version-8170"></a>Aggiornamenti per la versione 8.1.70
 
-*Data di pubblicazione: 05/06/2019*
+*Data di pubblicazione: 06/05/2019*
 
-- Risolvere i problemi che ha causato la sessione di contenuto non vengano ridimensionati correttamente nei dispositivi con display notch.
-- Risolto un problema in cui il tasto INVIO non ha funzionato in alcuni dispositivi Chromebook.
-- Risolto un problema in cui non è stato caricato alcuni URL Feed risorse Remote.
+- Risoluzione dei problemi per cui il contenuto di una sessione non veniva ridimensionato correttamente su dispositivi con schermo notch.
+- Risoluzione di un problema per cui il tasto INVIO non funzionava in alcuni dispositivi Chromebook.
+- Risoluzione di un problema per cui non veniva caricato l'URL di feed di risorse remote.
 
 ## <a name="updates-for-version-8169"></a>Aggiornamenti per la versione 8.1.69
 
-*Data di pubblicazione: 04/22/2019*
+*Data di pubblicazione: 22/04/2019*
 
 - Miglioramenti e correzioni di bug minori.
 
 ## <a name="updates-for-version-8168"></a>Aggiornamenti per la versione 8.1.68
 
-*Data di pubblicazione: 04/15/2019*
+*Data di pubblicazione: 15/04/2019*
 
-- Risolto un problema in cui non è stato caricato l'URL del Feed risorse Remote.
-- Risolto un problema in cui l'app è stata avviata in dimensioni di telefono al primo avvio in Samsung DeX che eseguono Android 9.0.
-- Aggiornare l'icona dell'app.
-- Correzioni di bug aggiuntive.
+- Risoluzione di un problema per cui non veniva caricato l'URL di feed di risorse remote.
+- Risoluzione di un problema per cui l'app si avviava con dimensioni telefono al primo avvio in Samsung DeX con Android 9.0.
+- Aggiornamento dell'icona dell'app.
+- Altre correzioni di bug.
 
 ## <a name="updates-for-version-8167"></a>Aggiornamenti per la versione 8.1.67
 
-*Data di pubblicazione: 03/28/2019*
+*Data di pubblicazione: 28/03/2019*
 
-- Risolto un problema in cui sono state ripetute pressioni di tasti durante la digitazione in una sessione remota.
+- Risoluzione di un problema in cui venivano ripetute le pressioni di tasti durante la digitazione in una sessione remota.
 
 ## <a name="updates-for-version-8166"></a>Aggiornamenti per la versione 8.1.66
 
-*Data di pubblicazione: 03/19/2019*
+*Data di pubblicazione: 19/03/2019*
 
 - Aggiunta del supporto iniziale per [Desktop virtuale Windows](https://aka.ms/wvd).
-- Risolto un problema che ha causato una black area da visualizzare nella parte inferiore della schermata su alcuni scenari di DeX e ai dispositivi Chromebook.
-- Aggiunta del supporto di modalità immersive per Samsung DeX, se si nasconde la barra delle applicazioni nella parte inferiore.
-- Aggiunta del supporto per l'invio di metadati e Alt usando la tastiera fisica per la sessione remota per Samsung DeX.
-- Gli aggiornamenti ora del puntatore del mouse in base al contenuto della sessione remota (Android 7.0 +)
-- Correzioni di bug aggiuntive.
+- Risoluzione di un problema per cui veniva visualizzata un'area nera nella parte inferiore dello schermo in alcuni scenari DeX e dispositivi Chromebook.
+- Aggiunta del supporto della modalità immersive per Samsung DeX, per cui è stata nascosta la barra delle applicazioni nella parte inferiore.
+- Aggiunta del supporto per l'invio di metakey e tasto ALT dalla tastiera fisica alla sessione remota per Samsung DeX.
+- Il puntatore del mouse ora si aggiorna in base al contenuto della sessione remota (Android 7.0+).
+- Altre correzioni di bug.
 
 ## <a name="updates-for-version-8161"></a>Aggiornamenti per la versione 8.1.61
 
-*Data di pubblicazione: 07/05/2018*
+*Data di pubblicazione: 05/07/2018*
 
-- Aggiunta del supporto iniziale per Samsung DeX (Android 8.0 +).
+- Aggiunta del supporto iniziale per Samsung DeX (Android 8.0+).
 
 ## <a name="updates-for-version-8160"></a>Aggiornamenti per la versione 8.1.60
 
-*Data di pubblicazione: 04/30/2018*
+*Data di pubblicazione: 30/04/2018*
 
-- Aggiornamenti per risolvere descritto in CVE-2018-0886 monitoraggio e aggiornamento di crittografia oracle CredSSP.
-- Correzione di un arresto anomalo del sistema durante l'avvio di connessioni trasferito da una versione precedente.
+- Aggiornamenti per la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
+- Correzione di un arresto anomalo durante l'avvio di connessioni trasferite da una versione precedente.

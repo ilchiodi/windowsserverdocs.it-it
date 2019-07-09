@@ -1,6 +1,6 @@
 ---
 title: Servizi di Azure e considerazioni per l'hosting del desktop
-description: Informazioni sulle considerazioni specifiche per Azure con una soluzione di hosting del Desktop remoto.
+description: Informazioni sulle considerazioni specifiche per Azure con una soluzione di hosting di Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,65 +13,65 @@ ms.topic: article
 ms.assetid: 0f402ae3-5391-4c7d-afea-2c5c9044de46
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 37210a5d75399309c53364f5b8ee9e06d26d6f32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c07a86c8168d323cf6e2af373ad51dc6a6b640b5
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849802"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63749247"
 ---
 # <a name="azure-services-and-considerations-for-desktop-hosting"></a>Servizi di Azure e considerazioni per l'hosting del desktop
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Le sezioni seguenti descrivono i servizi di infrastruttura di Azure.
+Le sezioni seguenti descrivono i servizi di infrastruttura Azure.
   
 ## <a name="azure-portal"></a>Portale di Azure
 
-Dopo che il provider ha creato una sottoscrizione di Azure, il portale di Azure è utilizzabile per creare manualmente l'ambiente di ogni tenant. Questo processo può anche essere automatizzato tramite script di PowerShell.  
+Dopo che il provider ha creato una sottoscrizione di Azure, è possibile usare il portale di Azure per creare manualmente l'ambiente di ogni tenant. Questo processo può anche essere automatizzato tramite script di PowerShell.  
 
-Per altre informazioni, visitare il [Microsoft Azure](https://www.azure.microsoft.com) sito Web.
+Per altre informazioni, visita il sito Web [Microsoft Azure](https://www.azure.microsoft.com).
   
 ## <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
 
-Componenti del tenant eseguiti nelle macchine virtuali che comunicano tra loro in una rete isolata. Durante il processo di distribuzione, è possibile accedere esternamente queste macchine virtuali tramite il bilanciamento del carico di Azure tramite gli endpoint di Remote Desktop Protocol o un endpoint di PowerShell remoto. Una volta completata una distribuzione, in genere questi endpoint verranno eliminati in modo da ridurre la superficie di attacco. Gli endpoint soli saranno gli endpoint HTTPS e UDP creati per la macchina virtuale in esecuzione i componenti di Gateway Desktop remoto e il Web desktop remoto. In questo modo i client su internet per connettersi alle sessioni in esecuzione nel servizio di hosting del desktop del tenant. Se un utente apre un'applicazione che si connette a internet, ad esempio un web browser, le connessioni verranno passate tramite il bilanciamento del carico di Azure.  
+I componenti del tenant vengono eseguiti in macchine virtuali che comunicano tra loro su una rete isolata. Durante il processo di distribuzione, puoi accedere esternamente a queste macchine virtuali tramite Azure Load Balancer con gli endpoint di Remote Desktop Protocol o un endpoint di PowerShell remoto. Una volta completata una distribuzione, in genere questi endpoint vengono eliminati in modo da ridurre la superficie di attacco. Gli unici endpoint saranno gli endpoint HTTPS e UDP creati per la macchina virtuale che esegue i componenti di Gateway Desktop remoto e Web Desktop remoto. In questo modo i client su Internet possono connettersi alle sessioni in esecuzione nel servizio di hosting desktop del tenant. Se un utente apre un'applicazione che si connette a Internet, ad esempio un Web browser, le connessioni verranno passate tramite Azure Load Balancer.  
   
-Per altre informazioni, vedere [che cos'è Azure Load Balancer?](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-load-balance/)
+Per altre informazioni, vedi [Informazioni su Azure Load Balancer](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-load-balance/).
   
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
-Questo Desktop Hosting riferimento Guida all'architettura Azure è progettato per fornire un ambiente altamente sicuro e isolato per ogni tenant. Sicurezza del sistema dipende anche dalle misure di sicurezza eseguite dal provider durante la distribuzione e l'operazione del servizio ospitato. Di seguito sono riportate alcune considerazioni che il provider deve intraprendere per mantenere la soluzione di hosting del desktop basata su questa architettura di riferimento sicura.
+La Guida all'architettura di riferimento dell'hosting desktop di Azure è progettata per fornire un ambiente altamente sicuro e isolato per ogni tenant. La sicurezza del sistema dipende anche dalle misure di sicurezza implementate dal provider durante la distribuzione e l'uso del servizio ospitato. Di seguito sono riportate alcune considerazioni di cui il provider deve tenere conto per mantenere la sicurezza della soluzione di hosting desktop basata su questa architettura di riferimento.
 
-- Tutte le password amministrative devono essere complesse, in teoria in modo casuale generato modificati di frequente e salvato in una posizione centralizzata sicura accessibile solo a una selezione numero esiguo di amministratori del provider.  
-- Quando si replica l'ambiente di tenant per i nuovi tenant, evitare l'utilizzo delle password amministrative vulnerabili o stesso.
-- L'URL del sito accesso Web desktop remoto, nome e i certificati devono essere univoco e riconoscibile per ogni tenant per impedire attacchi di spoofing.  
-- Durante il normale funzionamento del servizio di hosting del desktop, è necessario eliminare tutti gli indirizzi IP pubblici per tutte le macchine virtuali, ad eccezione di macchina virtuale di Web desktop remoto e Gateway Desktop remoto che consente agli utenti di connettersi in modo sicuro al servizio cloud hosting del desktop del tenant. Gli indirizzi IP pubblici possono essere aggiunte temporaneamente quando è necessario per attività di gestione, ma devono sempre essere eliminati in un secondo momento.  
+- Tutte le password amministrative devono essere complesse, preferibilmente generate in modo casuale, modificate di frequente e salvate in una posizione centralizzata, sicura e accessibile solo a pochi amministratori del provider selezionati.  
+- In caso di replica dell'ambiente di tenant per nuovi tenant, evita di usare le stesse password amministrative oppure password vulnerabili.
+- L'URL del sito di Accesso Web Desktop remoto, nonché il nome e i certificati devono essere univoci e riconoscibili per ogni tenant per impedire attacchi di spoofing.  
+- Durante il normale funzionamento del servizio di hosting desktop, è necessario eliminare tutti gli indirizzi IP pubblici per tutte le macchine virtuali, ad eccezione della macchina virtuale Web Desktop remoto e Gateway Desktop remoto, che consente agli utenti di connettersi in modo sicuro al servizio cloud di hosting desktop del tenant. È possibile aggiungere temporaneamente indirizzi IP pubblici quando necessario per attività di gestione, ma successivamente questi indirizzi devono sempre essere eliminati.  
   
-Per informazioni, vedi gli articoli seguenti:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Sicurezza e protezione](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831778(v=ws.11))  
-- [Le procedure consigliate per IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11))  
-- [Secure Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11))  
+- [Procedure di sicurezza consigliate per IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11))  
+- [Proteggere Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11))  
   
 ## <a name="design-considerations"></a>Considerazioni per la progettazione
 
-È importante prendere in considerazione i vincoli dei servizi di infrastruttura di Microsoft Azure quando si progetta un servizio di hosting del desktop multi-tenant. Nell'elenco seguente vengono descritte considerazioni che il provider deve eseguire per ottenere una soluzione di hosting desktop, funzionale e conveniente, basata su questa architettura di riferimento.  
+È importante prendere in considerazione i vincoli dei servizi di infrastruttura Microsoft Azure quando si progetta un servizio di hosting desktop multi-tenant. Di seguito sono riportate alcune considerazioni di cui il provider deve tenere conto per realizzare una soluzione di hosting desktop funzionale e conveniente basata su questa architettura di riferimento.  
   
-- Una sottoscrizione di Azure è un numero massimo di reti virtuali, Core della macchina virtuale e i servizi Cloud che può essere utilizzato. Se un provider richiede più risorse rispetto a questo, si potrebbe essere necessario creare più sottoscrizioni.
-- Un servizio Cloud di Azure ha un numero massimo di macchine virtuali che possono essere usate. Il provider potrebbe essere necessario creare più servizi Cloud per il tenant di dimensioni maggiori che superano il massimo.  
-- I costi di distribuzione di Azure dipendono parzialmente il numero e dimensioni delle macchine virtuali. Il provider deve ottimizzare il numero e dimensioni delle macchine virtuali per ogni tenant per fornire un funzionale e altamente sicuro ambiente di Hosting del Desktop a un costo inferiore.  
-- Le risorse del computer fisico nel data center di Azure sono virtualizzate tramite Hyper-V. Host Hyper-V non sono configurati in cluster host, in modo che la disponibilità delle macchine virtuali è dipende dalla disponibilità dei singoli server utilizzato nell'infrastruttura di Azure. Per garantire una disponibilità più elevata, più istanze di ciascun ruolo macchina virtuale del servizio possono essere create in un set di disponibilità, quindi il clustering guest può essere implementato nelle macchine virtuali.  
-- In una configurazione tipica di archiviazione, un provider del servizio avrà un singolo account di archiviazione con più contenitori (ad esempio, uno per ogni tenant) e più dischi in ogni contenitore. Tuttavia, è previsto un limite per l'archiviazione totale e le prestazioni che possono essere ottenuta per ogni account di archiviazione. Per i provider di servizi che supportano un numero elevato di tenant o tenant con requisiti di capacità o prestazioni elevate di archiviazione, il provider del servizio potrebbe essere necessario creare più account di archiviazione.  
+- Una sottoscrizione di Azure prevede un numero massimo di reti virtuali, core di macchina virtuale e servizi cloud che è possibile usare. Se un provider necessita di più risorse, potrebbe essere necessario creare più sottoscrizioni.
+- Un servizio cloud Azure prevede un numero massimo di macchine virtuali che è possibile usare. È possibile che il provider debba creare più servizi cloud per tenant di dimensioni maggiori che superano il limite massimo.  
+- I costi di distribuzione di Azure dipendono parzialmente dal numero e dalle dimensioni delle macchine virtuali. Il provider deve ottimizzare il numero e le dimensioni delle macchine virtuali per ogni tenant per fornire un ambiente di hosting desktop funzionale e altamente sicuro a un costo inferiore.  
+- Le risorse del computer fisico nel data center di Azure sono virtualizzate tramite Hyper-V. Gli host Hyper-V non sono configurati in cluster host, pertanto la disponibilità delle macchine virtuali dipende dalla disponibilità dei singoli server usati nell'infrastruttura Azure. Per garantire una disponibilità maggiore, è possibile creare più istanze di ogni macchina virtuale del servizio ruolo in un set di disponibilità e quindi implementare il clustering guest nelle macchine virtuali.  
+- In una configurazione di archiviazione tipica un provider di servizi avrà un singolo account di archiviazione con più contenitori (ad esempio, uno per ogni tenant) e più dischi in ogni contenitore. È previsto tuttavia un limite per l'archiviazione totale e le prestazioni che possono essere ottenute per ogni account di archiviazione. Per i provider di servizi che supportano un numero elevato di tenant oppure tenant con requisiti di prestazioni o capacità di archiviazione elevate, è possibile che il provider di servizi debba creare più account di archiviazione.  
   
-Per informazioni, vedi gli articoli seguenti:
+Per altre informazioni, vedere gli articoli seguenti:
 
-- [Dimensioni dei servizi Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)  
-- [Macchina virtuale di Microsoft Azure i dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/)  
+- [Dimensioni dei servizi cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)  
+- [Dettagli sui prezzi delle macchine virtuali di Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-machines/)  
 - [Panoramica di Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831531(v=ws.11))  
-- [Obiettivi di scalabilità e prestazioni archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)  
+- [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)  
 
 ## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory Application Proxy
 
-Proxy applicazione Azure Active Directory (AD) è un servizio fornito in a pagamento SKU di Azure AD che consentono agli utenti di connettersi alle applicazioni interne tramite il servizio di proxy inverso di Azure. In questo modo gli endpoint Web desktop remoto e Gateway Desktop remoto devono essere nascoste all'interno della rete virtuale, eliminando la necessità di essere esposti a internet tramite un indirizzo IP pubblico. Hosting può usare Azure AD Application Proxy per ridurre il numero di macchine virtuali nell'ambiente del tenant mantenendo al tempo stesso una distribuzione completa. Proxy applicazione Azure AD consente inoltre di sfruttare molti dei vantaggi forniti da Azure AD, ad esempio l'accesso condizionale e multi-factor authentication.
+Azure Active Directory Application Proxy è un servizio fornito in SKU a pagamento di Azure AD che consentono agli utenti di connettersi alle applicazioni interne tramite il servizio di proxy inverso di Azure. In questo modo gli endpoint Web Desktop remoto e Gateway Desktop remoto possono essere nascosti all'interno della rete virtuale, eliminando la necessità dell'esposizione su Internet tramite un indirizzo IP pubblico. I provider di servizi di hosting possono usare Azure Active Directory Application Proxy per ridurre il numero di macchine virtuali nell'ambiente del tenant mantenendo al tempo stesso una distribuzione completa. Azure Active Directory Application Proxy consente inoltre di sfruttare molti dei vantaggi forniti da Azure AD, ad esempio l'accesso condizionale e l'autenticazione a più fattori.
 
-Per altre informazioni, vedere [iniziare a usare il Proxy di applicazione e installare il connettore](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-enable).
+Per altre informazioni, vedi [Introduzione al proxy di applicazione e all'installazione del connettore](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-enable).

@@ -1,6 +1,6 @@
 ---
-title: Installare licenze CAL Servizi Desktop remoto
-description: Informazioni su come installare le licenze CAL per i client desktop remoto.
+title: Installare licenze CAL di Servizi Desktop remoto
+description: Informazioni su come installare le licenze CAL per i client Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,26 +12,26 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: 2f283b51acc869704a52f09bebc228660cdfbc38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0b5bdfc4df8e7a60181d71b0f26735e8c07506
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870572"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743521"
 ---
-# <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installare licenze CAL Servizi Desktop remoto nel server licenze Desktop remoto
+# <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installare licenze CAL di Servizi Desktop remoto nel server licenze Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Usare le informazioni seguenti per installare le licenze di accesso client di Servizi Desktop remoto (CAL) nel server licenze. Una volta installate le licenze CAL, il server licenze emetterà li agli utenti come appropriato.
+Usa le informazioni seguenti per installare licenze CAL di Servizi Desktop remoto nel server licenze. Una volta installate le licenze CAL, il server licenze le emetterà per gli utenti a seconda delle esigenze.
 
-Tenere presente che è necessaria la connettività Internet nel computer che esegue Gestione licenze Desktop remoto, ma non nel computer che esegue il server licenze.
+Considera che è necessaria la connettività Internet nel computer che esegue Gestione licenze Desktop remoto, ma non nel computer che esegue il server licenze.
 
-1. Nel server licenze (in genere il primo gestore connessione desktop remoto), aprire Gestione licenze Desktop remoto.
-2. Fare clic sul server licenze e quindi fare clic su **installare le licenze**.
-3. Fare clic su **successivo** nella pagina di benvenuto.
-4. Selezionare il programma è stato acquistato le licenze CAL Servizi Desktop remoto da e quindi fare clic su **successivo**. Se sei un provider di servizi, selezionare **Service Provider License Agreement**.
-5. Immettere le informazioni per il programma di licenza. Nella maggior parte dei casi, questo sarà il codice di licenza o un numero di contratto, ma il valore varia in base al programma di licenza in uso.
+1. Nel server licenze (in genere il primo Gestore connessione Desktop remoto) apri Gestione licenze Desktop remoto.
+2. Fai clic con il pulsante destro del mouse sul server licenze e quindi scegli **Installa licenze**.
+3. Fai clic su **Avanti** nella pagina iniziale.
+4. Seleziona il programma da cui hai acquistato le licenze CAL di Servizi Desktop remoto e quindi fai clic su **Avanti**. Se sei un provider di servizi, seleziona **Service Provider License Agreement** (Contratto di licenza per provider di servizi).
+5. Immetti le informazioni per il programma di licenza. Nella maggior parte dei casi si tratta del codice di licenza o del numero di contratto, ma il valore da immettere varia in base al programma di licenza in uso.
 6. Fare clic su **Avanti**.
-7. Selezionare la versione del prodotto, il tipo di licenza e numero di licenze per l'ambiente e quindi fare clic su **successivo**. Gestione licenze contatta Microsoft Clearinghouse per convalidare e recuperare le licenze.
+7. Seleziona la versione del prodotto, il tipo di licenza e numero di licenze per l'ambiente e quindi fai clic su **Avanti**. Gestione licenze contatta Microsoft per convalidare e recuperare le licenze.
 8.  Fare clic su **Fine** per completare il processo.

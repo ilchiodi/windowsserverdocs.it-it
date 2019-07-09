@@ -1,6 +1,6 @@
 ---
-title: Servizi Desktop remoto - soddisfa le esigenze di diversi tipi di utenti
-description: Descrive i diversi tipi di utenti per Servizi Desktop remoto.
+title: 'Servizi Desktop remoto: soddisfare le esigenze di diversi tipi di utenti'
+description: Descrive i diversi tipi di utenti di Servizi Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: e602f41c19f38878925552a4bf173b7f3e36e796
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d16989cc3ecbf0170081bb8cb52a9103f979741
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848122"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743467"
 ---
-# <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>Servizi Desktop remoto - soddisfa le esigenze di diversi tipi di utenti
+# <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>Servizi Desktop remoto: soddisfare le esigenze di diversi tipi di utenti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Ridimensionare la distribuzione a seconda delle esigenze di ogni tipo di utente previsto.
-Ad esempio, utenti possono svolgere immissione di dati nelle App leggera, modificare grandi set di dati con App per la produttività come Office o funziona con le app di supporto tecnico o grafica robusto alloggiamento.
+Ridimensiona la distribuzione a seconda delle esigenze previste per ogni tipo di utente.
+Ad esempio, gli utenti possono svolgere attività di immissione di dati in app semplificate, modificare grandi set di dati con app per la produttività come Office o usare app di sviluppo o grafica robuste.
 
-È consigliabile caricare testare la distribuzione con i test di stress e simulazione dell'utilizzo reale. Modificare le dimensioni di caricamento per evitare sorprese. Verificare che la velocità di risposta soddisfi i requisiti dell'utente, e che l'intero sistema sia resiliente. Creare i test di carico con strumenti di simulazione, come LoginVSI, che consentono di controllare la capacità della distribuzione per soddisfare le esigenze degli utenti. 
+È consigliabile eseguire test di carico della distribuzione con test di sforzo e simulazione dell'uso reale. Varia le dimensioni del carico per evitare sorprese. Verifica che la velocità di risposta soddisfi i requisiti degli utenti e che l'intero sistema sia resiliente. Crea test di carico con strumenti di simulazione, come LoginVSI, che verificano la capacità della distribuzione di soddisfare le esigenze degli utenti. 

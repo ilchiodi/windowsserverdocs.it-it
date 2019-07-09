@@ -1,6 +1,6 @@
 ---
-title: Servizi Desktop remoto - disponibilità elevata
-description: Informazioni sulla configurazione di una distribuzione di servizi desktop remoto a disponibilità elevata di pianificazione.
+title: Servizi Desktop remoto - Disponibilità elevata
+description: Informazioni di pianificazione sulla configurazione di una distribuzione di Servizi Desktop remoto a disponibilità elevata.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,27 +13,27 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: b5a2bd38c8831063d6fd2ba525b71a10403b8fc2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79fd05458d0d838e34402bf28ef83b9327bfcceb
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839262"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743454"
 ---
-# <a name="remote-desktop-services---high-availability"></a>Servizi Desktop remoto - disponibilità elevata
+# <a name="remote-desktop-services---high-availability"></a>Servizi Desktop remoto - Disponibilità elevata
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Gli errori e la limitazione delle richieste sono inevitabili nei sistemi su larga scala. È semplice da configurare ruoli di infrastruttura di Desktop remoto per supportare la disponibilità elevata e consentire agli utenti finali per connettersi senza problemi, ogni volta.
+Gli errori e la limitazione delle richieste sono inevitabili in sistemi su larga scala. È semplice configurare ruoli di infrastruttura Desktop remoto per supportare la disponibilità elevata e consentire agli utenti finali di connettersi ogni volta senza problemi.
 
-In Servizi Desktop remoto, gli elementi seguenti rappresentano i ruoli di infrastruttura di Desktop remoto, con le rispettive indicazioni per stabilire la disponibilità elevata:
+In Servizi Desktop remoto gli elementi seguenti rappresentano i ruoli di infrastruttura Desktop remoto, con le rispettive indicazioni per stabilire la disponibilità elevata:
 - [Gestore connessione Desktop remoto](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md)
 - [Gateway Desktop remoto](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
 - Servizio licenze Desktop remoto
 - [Accesso Web Desktop remoto](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
 
-Disponibilità elevata viene stabilita attraverso la duplicazione di ognuno dei servizi di ruoli in un secondo computer. In Azure, è possibile ricevere un tempo di attività garantito, inserendo il set di due macchine virtuali (che ospita il ruolo stesso) in un disponibilità imposta.
+La disponibilità elevata viene stabilita attraverso la duplicazione di ognuno dei servizi di ruoli in un secondo computer. In Azure puoi ricevere un tempo di attività garantito inserendo il set delle due macchine virtuali (che ospitano lo stesso ruolo) in un set di disponibilità.
 
-Insieme ai set di disponibilità, è ora possibile sfruttare la potenza del Database SQL di Azure e il contratto di servizio supportato da Azure per verificare che sempre le informazioni di connessione e può reindirizzare gli utenti per i desktop e applicazioni.
+Insieme ai set di disponibilità, ora puoi sfruttare la potenza del database SQL di Azure e il relativo contratto di servizio supportato da Azure per disporre sempre delle informazioni di connessione e per poter reindirizzare gli utenti ai loro desktop e applicazioni.
 
-Per le procedure consigliate su come creare l'ambiente di servizi desktop remoto, vedere la [architettura dell'hosting del desktop](desktop-hosting-reference-architecture.md).
+Per le procedure consigliate su come creare l'ambiente di Servizi Desktop remoto, vedi l'[architettura dell'hosting desktop](desktop-hosting-reference-architecture.md).

@@ -2,7 +2,7 @@
 title: Distribuire l'ambiente Desktop remoto
 ms.custom: na
 ms.prod: windows-server-threshold
-description: Passaggi di base per distribuire un ambiente di Desktop remoto.
+description: Procedura di base per distribuire un ambiente Desktop remoto.
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,88 +14,88 @@ author: lizap
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805135"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Distribuire l'ambiente Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Usare la procedura seguente per distribuire i server di Desktop remoto nell'ambiente in uso. È possibile installare i ruoli del server su computer fisici o macchine virtuali, a seconda se si siano creando un on-premise, basati sul cloud o ambiente ibrido. 
+Usa la procedura descritta di seguito per distribuire i server Desktop remoto nell'ambiente. Puoi installare i ruoli del server in computer fisici o macchine virtuali, a seconda che tu stia creando un ambiente locale, basato sul cloud o ibrido. 
 
-Se si usa macchine virtuali per uno qualsiasi dei server di Servizi Desktop remoto, assicurarsi di avere [preparare le macchine virtuali](rds-prepare-vms.md).
+Se usi macchine virtuali per uno o più server Servizi Desktop remoto, assicurati di aver [preparato tali macchine virtuali](rds-prepare-vms.md).
   
   
-1.  Aggiungere tutti i server di cui che si intende usare per Servizi Desktop remoto a Server Manager:  
-    1.  In Server Manager fare clic su **Manage** > **Aggiungi server**.  
-    2.  Fare clic su **trova**.  
-    3.  Fare clic su ogni server nella distribuzione (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Sh1 di Contoso) e fare clic su **OK**.  
-2.  Creare una distribuzione basata su sessione per distribuire i componenti Servizi Desktop remoto:  
-    1.  In Server Manager fare clic su **Manage** > **Aggiungi ruoli e funzionalità**.  
-    2.  Fare clic su **installazione di Servizi Desktop remoto**, **Standard Deployment**, e **distribuzione desktop basati su sessione**.  
-    3.  Selezionare i server appropriati per il server Gestore connessione desktop remoto, accesso Web desktop remoto e server Host sessione Desktop remoto (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Contoso-SH1, rispettivamente).  
-    4.  Selezionare **riavvia automaticamente il server di destinazione se necessario**, quindi fare clic su **Distribuisci**.  
-    5.  Attendere il completamento della distribuzione  
-3.  Aggiungere Server licenze Desktop remoto:  
-    1.  In Server Manager fare clic su **Servizi Desktop remoto > Panoramica > + servizio licenze Desktop remoto**.  
-    2.  Selezionare la macchina virtuale in cui verrà installato il server licenze Desktop remoto (ad esempio, Contoso-Cb1).  
-    3.  Fare clic su **successivo**, quindi fare clic su **Add**.  
-4.  Attivare il Server licenze Desktop remoto e aggiungerla al gruppo server licenze:  
-    1.  In Server Manager fare clic su **strumenti > Servizi Terminal > Gestione licenze Desktop remoto**.  
-    2.  In Gestione licenze Desktop remoto, selezionare il server e quindi fare clic su **azione > Attiva Server**.  
-    3.  Accettare i valori predefiniti nell'attivazione guidata Server accettando le impostazioni predefinite fino a raggiungere il **informazioni società** pagina. Quindi, immettere le informazioni della società.  
-    4.  Accettare i valori predefiniti per le pagine rimanenti finché la pagina finale. Deselezionare **Avvia installazione guidata licenze**, quindi fare clic su **fine**.  
-    5.  Fare clic su **azione > esaminare la configurazione > Aggiungi a gruppo > OK**. Immettere le credenziali per un utente nel gruppo di AAD DC Administrators e registrare come SCP. Questo passaggio potrebbe non funzionare se si usa Azure AD Domain Services, ma è possibile ignorare eventuali avvisi o errori.  
-5.  Aggiungere il nome di server e il certificato di Gateway Desktop remoto:  
-    1.  In Server Manager fare clic su **Servizi Desktop remoto > Panoramica > + Gateway Desktop remoto**.  
-    2.  Nella procedura guidata Aggiungi server Gateway Desktop remoto, selezionare la macchina virtuale in cui si desidera installare il server Gateway Desktop remoto (ad esempio, Contoso-WebGw1).  
-    3.  Immettere il nome del certificato SSL per il server Gateway Desktop remoto con l'esterno completamente DNS nome completo (FQDN) del server Gateway Desktop remoto. In Azure, questo è il **nome DNS** assegnare un'etichetta e Usa il formato servicename.location.cloudapp.azure.com. Ad esempio, contoso.westus.cloudapp.azure.com.  
-    4.  Fare clic su **successivo**, quindi fare clic su **Add**.
-6.  Creare e installare i certificati autofirmati per i server Gateway Desktop remoto e Gestore connessione desktop remoto.
+1.  Aggiungi a Server Manager tutti i server che userai per Servizi Desktop remoto:  
+    1.  In Server Manager fai clic su **Gestisci** > **Aggiungi server**.  
+    2.  Fai clic su **Trova**.  
+    3.  Fai clic sui singoli server nella distribuzione (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Contoso-Sh1) e scegli **OK**.  
+2.  Crea una distribuzione basata su sessione per distribuire i componenti di Servizi Desktop remoto:  
+    1.  In Server Manager fai clic su **Gestisci** > **Aggiungi ruoli e funzionalità**.  
+    2.  Fai clic su **Installazione di Servizi Desktop remoto**, **Distribuzione standard** e **Distribuzione di desktop basati su sessioni**.  
+    3.  Seleziona i server appropriati per il server Gestore connessione Desktop remoto, il server Accesso Web Desktop remoto e il server Host sessione Desktop remoto (ad esempio, Contoso-Cb1, Contoso-WebGw1 e Contoso-SH1 rispettivamente).  
+    4.  Seleziona **Riavvia automaticamente il server di destinazione se necessario** e quindi fai clic su **Distribuisci**.  
+    5.  Attendi che la distribuzione venga completata correttamente.  
+3.  Aggiungi il server licenze Desktop remoto:  
+    1.  In Server Manager fai clic su **Servizi Desktop remoto > Panoramica > Servizio licenze Desktop remoto**.  
+    2.  Seleziona la macchina virtuale in cui verrà installato il server licenze Desktop remoto (ad esempio, Contoso-Cb1).  
+    3.  Fai clic su **Avanti** e quindi su **Aggiungi**.  
+4.  Attiva il server licenze Desktop remoto e aggiungilo al gruppo Server licenze:  
+    1.  In Server Manager fai clic su **Strumenti > Servizi terminal > Gestione licenze Desktop remoto**.  
+    2.  In Gestione licenze Desktop remoto seleziona il server e quindi fai clic su **Azione > Attiva server**.  
+    3.  Accetta i valori predefiniti nell'Attivazione guidata server fino ad arrivare alla pagina **Informazioni società**. Immetti quindi le informazioni sulla società.  
+    4.  Accetta i valori predefiniti per le pagine restanti fino alla pagina finale. Deseleziona **Avvia Installazione guidata licenze** e quindi fai clic su **Fine**.  
+    5.  Fai clic su **Azione > Verifica configurazione > Aggiungi al gruppo > OK**. Immetti le credenziali per un utente nel gruppo Amministratori AAD DC ed effettua la registrazione come SCP. Questo passaggio potrebbe non funzionare se usi Servizi di dominio Active Directory, ma puoi ignorare gli eventuali avvisi o errori.  
+5.  Aggiungi il server Gateway Desktop remoto e il nome del certificato:  
+    1.  In Server Manager fai clic su **Servizi Desktop remoto > Panoramica > Gateway Desktop remoto**.  
+    2.  Nella procedura guidata per l'aggiunta di server Gateway Desktop remoto seleziona la macchina virtuale in cui vuoi installare il server Gateway Desktop remoto (ad esempio, Contoso-WebGw1).  
+    3.  Immetti il nome del certificato SSL per il server Gateway Desktop remoto usando l'FQDN esterno di tale server. In Azure questa è l'etichetta del **nome DNS** nel formato nomeservizio.posizione.cloudapp.azure.com. Ad esempio, contoso.westus.cloudapp.azure.com.  
+    4.  Fai clic su **Avanti** e quindi su **Aggiungi**.
+6.  Crea e installa certificati autofirmati per i server Gateway Desktop remoto e Gestore connessione Desktop remoto.
 
        > [!NOTE]
-       > Se si è fornire e installare i certificati delle autorità di certificazione attendibile, eseguire le procedure da h di passaggio per passaggio k per ogni ruolo. È necessario disporre del file con estensione pfx disponibile per ognuno di questi certificati.
+       > Se fornisci e installi certificati provenienti da un'autorità di certificazione attendibile, esegui le procedure dal passaggio h al passaggio k per ogni ruolo. Dovrai avere il file con estensione pfx disponibile per ognuno di questi certificati.
        
-    1.  In Server Manager fare clic su **Servizi Desktop remoto > Panoramica > attività > modificare le proprietà di distribuzione**.  
-    2.  Espandere **certificati**e quindi scorrere fino alla tabella. Fare clic su **Gateway Desktop remoto > Crea nuovo certificato**.  
-    3.  Immettere il nome del certificato, usando il nome di dominio completo esterna del server Gateway Desktop remoto (ad esempio, contoso.westus.cloudapp.azure.com) e quindi immettere la password.  
-    4.  Selezionare **Store questo certificato** e quindi passare alla cartella condivisa creata per i certificati in un passaggio precedente. (Ad esempio, \Contoso Cb1\Certificates.)  
-    5.  Immettere un nome file del certificato (ad esempio, ContosoRdGwCert) e quindi fare clic su **salvare**.  
-    6.  Selezionare **consentire il certificato da aggiungere all'archivio certificati Autorità di certificazione radice attendibili nel computer di destinazione**, quindi fare clic su **OK**.  
-    7.  Fare clic su **applica**, quindi attendere che il certificato da applicare al server Gateway Desktop remoto.  
-    8.  Fare clic su **accesso Web desktop remoto > selezionare un certificato esistente**.  
-    9.  Selezionare il certificato creato per il server Gateway Desktop remoto (ad esempio, ContosoRdGwCert) e quindi fare clic su **aperto**.  
-    10. Immettere la password per il certificato, seleziona **consentire il certificato da aggiungere all'archivio certificati radice Trusted nei computer di destinazione**, quindi fare clic su **OK**.  
-    11. Fare clic su **applica**, quindi attendere che il certificato da applicare al server Accesso Web desktop remoto.  
-    12. Ripetere l'operazione substeps 1 a 11 per il **Gestore connessione desktop remoto - Attiva Single Sign-On** e **Gestore connessione desktop remoto - pubblicazione di servizi**, usando il nome FQDN interno del server Gestore connessione desktop remoto per il nuovo nome del certificato (ad esempio, Contoso-Cb1.Contoso.com).  
-7.  Esportare i certificati pubblici autofirmati e copiarli in un computer client. Se si utilizzano certificati da un'autorità di certificazione attendibile, è possibile ignorare questo passaggio.  
-    1.  Avviare certlm. msc.  
-    2.  Espandere **personali**, quindi fare clic su **certificati**.  
-    3.  Nel riquadro di destra fare doppio clic su previsto per l'autenticazione client, ad esempio il certificato di Gestore connessione desktop remoto **Contoso-Cb1.Contoso.com**.  
-    4.  Fare clic su **tutte le attività > Esporta**.  
-    5.  Accettare le opzioni predefinite in esportazione guidata certificati accettano le impostazioni predefinite fino a raggiungere il **File da esportare** pagina.  
-    6.  Passare alla cartella condivisa creata per i certificati, ad esempio \Contoso-Cb1\Certificates.  
-    7.  Immettere un nome di File, ad esempio ContosoCbClientCert e quindi fare clic su **salvare**.  
+    1.  In Server Manager fai clic su **Servizi Desktop remoto > Panoramica > Attività > Edit Deployment Properties** (Modifica proprietà distribuzione).  
+    2.  Espandi **Certificati** e quindi scorri verso il basso fino alla tabella. Fai clic su **Gateway Desktop remoto > Crea nuovo certificato**.  
+    3.  Immetti il nome del certificato usando l'FQDN esterno del server Gateway Desktop remoto (ad esempio, contoso.westus.cloudapp.azure.com) e quindi immetti la password.  
+    4.  Seleziona **Archivia il certificato** e quindi passa alla cartella condivisa creata per i certificati in un passaggio precedente. Ad esempio, \Contoso-Cb1\Certificates.  
+    5.  Immetti un nome file per il certificato (ad esempio, ContosoRdGwCert) e quindi fai clic su **Salva**.  
+    6.  Seleziona **Consenti aggiunta del certificato all'archivio certificati delle Autorità di certificazione radice attendibili nei computer di destinazione** e quindi fai clic su **OK**.  
+    7.  Fai clic su **Applica** e quindi attendi che il certificato venga applicato correttamente al server Gateway Desktop remoto.  
+    8.  Fai clic su **Accesso Web Desktop remoto > Seleziona certificato esistente**.  
+    9.  Individua il certificato creato per il server Gateway Desktop remoto (ad esempio, ContosoRdGwCert) e quindi fai clic su **Apri**.  
+    10. Immetti la password per il certificato, seleziona **Consenti aggiunta del certificato all'archivio certificati delle Autorità di certificazione radice attendibili nei computer di destinazione** e quindi fai clic su **OK**.  
+    11. Fai clic su **Applica** e quindi attendi che il certificato venga applicato correttamente al server Accesso Web Desktop remoto.  
+    12. Ripeti i passaggi secondari da 1 a 11 per **Gestore connessione Desktop remoto - Abilita Single Sign-On** e **Gestore connessione Desktop remoto - Servizi di pubblicazione** usando l'FQDN interno del server Gestore connessione Desktop remoto come nome del nuovo certificato (ad esempio, Contoso-Cb1.Contoso.com).  
+7.  Esporta i certificati pubblici autofirmati e copiali in un computer client. Se usi certificati provenienti da un'autorità di certificazione attendibile, puoi ignorare questo passaggio.  
+    1.  Avvia certlm.msc.  
+    2.  Espandi **Personale** e quindi fai clic su **Certificati**.  
+    3.  Nel riquadro destro fai clic con il pulsante destro del mouse sul certificato del Gestore connessione Desktop remoto previsto per l'autenticazione client, ad esempio **Contoso-Cb1.Contoso.com**.  
+    4.  Fai clic su **Tutte le attività > Esporta**.  
+    5.  Accetta le opzioni predefinite nell'Esportazione guidata certificati fino a raggiungere la pagina **File to Export** (File da esportare).  
+    6.  Passa alla cartella condivisa creata per i certificati, ad esempio \Contoso-Cb1\Certificates.  
+    7.  Immetti un nome file, ad esempio ContosoCbClientCert, e quindi fai clic su **Salva**.  
     8.  Fare clic su **Avanti**e quindi su **Fine**.  
-    9.  Ripetere passaggi 1-8 per il certificato di Gateway Desktop remoto e Web, (ad esempio contoso.westus.cloudapp.azure.com), fornendo ad esempio un nome di file appropriato, il certificato esportato **ContosoWebGwClientCert**.  
-    10. In Esplora File passare alla cartella in cui sono archiviati i certificati, ad esempio \Contoso-Cb1\Certificates.  
-    11. Selezionare i due certificati client esportato, quindi fare doppio clic su essi e fare clic su **copia**.  
-    12. Incollare i certificati nel computer client locale.  
-8.  Configurare le proprietà di distribuzione di Gateway Desktop remoto e servizio licenze Desktop remoto:  
-    1.  In Server Manager fare clic su **Servizi Desktop remoto > Panoramica > attività > modificare le proprietà di distribuzione**.  
-    2.  Espandere **Gateway Desktop remoto** e deselezionare le **server Gateway Desktop remoto di Bypass per indirizzi locali** opzione.  
-    3.  Espandere **servizio licenze Desktop remoto** e selezionare **Per utente**  
+    9.  Ripeti i passaggi secondari da 1 a 8 per il certificato di Gateway e Web Desktop remoto (ad esempio, contoso.westus.cloudapp.azure.com), assegnando al certificato esportato un nome file appropriato, ad esempio **ContosoWebGwClientCert**.  
+    10. In Esplora risorse passa alla cartella in cui sono archiviati i certificati, ad esempio \Contoso-Cb1\Certificates.  
+    11. Seleziona i due certificati client esportati, fai clic su di essi con il pulsante destro del mouse e quindi scegli **Copia**.  
+    12. Incolla i certificati nel computer client locale.  
+8.  Configura le proprietà di distribuzione del Gateway Desktop remoto e del servizio licenze Desktop remoto:  
+    1.  In Server Manager fai clic su **Servizi Desktop remoto > Panoramica > Attività > Edit Deployment Properties** (Modifica proprietà distribuzione).  
+    2.  Espandi **Gateway Desktop remoto** e deseleziona l'opzione **Ignora server Gateway Desktop remoto per indirizzi locali**.  
+    3.  Espandi **Servizio licenze Desktop remoto** e seleziona **Per Utente**  
     4.  Fare clic su **OK**.  
-10. Creare un insieme di sessioni. Questi passaggi creano una raccolta di base. Consulta [creare una raccolta di Servizi Desktop remoto per desktop e App per l'esecuzione](rds-create-collection.md) per altre informazioni sulle raccolte.
+10. Crea una raccolta di sessioni. Questi passaggi consentono di creare una raccolta di base. Per altre informazioni sulle raccolte, vedi [Creare una raccolta Servizi Desktop remoto per desktop e app per l'esecuzione](rds-create-collection.md).
  
-    1.  In Server Manager fare clic su **Servizi Desktop remoto > raccolte > attività > Crea insiemi di sessioni**.  
-    2.  Immettere una nome (ad esempio, ContosoDesktop) di raccolta.  
-    3.  Selezionare un Server di Host sessione Desktop remoto (Contoso-Sh1), accettare i gruppi di utenti predefinito (Contoso\Domain utenti) e immettere il percorso Universal Naming Convention (UNC) per i dischi dei profili utente creati in precedenza (\Contoso-Cb1\UserDisks).  
-    4.  Impostare le dimensioni massime e quindi fare clic su **Create**.  
+    1.  In Server Manager fai clic su **Servizi Desktop remoto > Raccolte > Attività > Create Session Collection** (Crea raccolta di sessioni).  
+    2.  Immetti un nome per la raccolta, ad esempio ContosoDesktop.  
+    3.  Seleziona un server Host sessione Desktop remoto (Contoso-Sh1), accetta i gruppi di utenti predefiniti (Contoso\Utenti del dominio) e immetti il percorso UNC (Universal Naming Convention) dei dischi di profilo utente creati precedentemente (\Contoso-Cb1\UserDisks).  
+    4.  Imposta una dimensione massima e quindi fai clic su **Crea**.  
   
 
-È stata creata un'infrastruttura di Servizi Desktop remoto di base. Se è necessario creare una distribuzione a disponibilità elevata, è possibile aggiungere un [cluster di Gestore connessione](rds-connection-broker-cluster.md) o una [secondo server Host sessione Desktop remoto](rds-scale-rdsh-farm.md).
+Hai così creato un'infrastruttura di base di Servizi Desktop remoto. Se devi creare una distribuzione a disponibilità elevata, puoi aggiungere un [cluster di server Gestore connessione](rds-connection-broker-cluster.md) o un [secondo server Host sessione Desktop remoto](rds-scale-rdsh-farm.md).
 

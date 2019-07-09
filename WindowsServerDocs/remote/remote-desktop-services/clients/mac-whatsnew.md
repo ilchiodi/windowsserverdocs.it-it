@@ -1,6 +1,6 @@
 ---
-title: Novità di Desktop remoto su Mac?
-description: Informazioni sulle modifiche recenti per il client Desktop remoto per Mac
+title: Novità di Desktop remoto in Mac
+description: Informazioni sulle modifiche recenti apportate al client Desktop remoto per Mac
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,171 +11,190 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/06/2019
+ms.date: 04/29/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d0cf81f24374e81ca28c2d2cfd83a394e096706c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844792"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "65564756"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Novità per il client Desktop remoto in macOS?
+# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Novità del client Desktop remoto in macOS
 
-Viene aggiornato regolarmente le [client Desktop remoto per macOS](remote-desktop-mac.md), aggiungendo nuove funzionalità e risoluzione dei problemi. Scopri gli aggiornamenti più recenti riportato di seguito.
+Il [client Desktop remoto per macOS](remote-desktop-mac.md) viene aggiornato regolarmente, con l'aggiunta di nuove funzionalità e la correzione dei problemi. Di seguito sono disponibili le informazioni sugli aggiornamenti più recenti.
 
-Se si verificano problemi, è possibile sempre contattateci **aiutare > segnala un problema**.
+In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 
-## <a name="updates-for-version-1029"></a>Aggiornamenti per la versione 10.2.9
-*Data di pubblicazione: 3/6/2019*
+## <a name="updates-for-version-10213"></a>Aggiornamenti alla versione 10.2.13
+*Data di pubblicazione: 08/05/2019*
 
-- In questa versione che è stato risolto un problema di connettività di gateway desktop remoto che può verificarsi quando si richiede il reindirizzamento di server inserire.
-- Abbiamo anche risolto una regressione di gateway desktop remoto causata dal 10.2.8 update.
+- Correzione di un blocco che si verificava durante la connessione tramite Gateway Desktop remoto.
+- Aggiunta di un'informativa sulla privacy nella finestra di dialogo "Aggiungi feed".
 
-## <a name="updates-for-version-1028"></a>Aggiornamenti per la versione 10.2.8
-*Data di pubblicazione: 3/1/2019*
+## <a name="updates-for-version-10212"></a>Aggiornamenti alla versione 10.2.12
+*Data di pubblicazione: 16/04/2019* 
 
-- Risolvere i problemi di connettività che viene rilevato quando si usa un Gateway Desktop remoto.
-- Correzione di avvisi relativi al certificato corretto che sono stati visualizzati durante la connessione.
-- Risolti alcuni casi in cui la barra dei menu e il dock inutilmente nasconderà durante l'avvio remoto di App.
-- Rielaborare il codice di reindirizzamento negli Appunti da arresti anomali di indirizzo che sono stati casi alcuni utenti.
-- Risolto un bug che ha causato il centro di connessione scorrere inutilmente quando si avvia una connessione.
+- Risoluzione delle disconnessioni casuali (con codice di errore 0x904) che si verificavano durante la connessione tramite Gateway Desktop remoto.
+- Correzione di un bug a causa del quale l'elenco di risoluzioni nelle preferenze dell'applicazione era vuoto dopo l'installazione.
+- Correzione di un bug che causava l'arresto anomalo del client in caso di aggiunta di alcune risoluzioni all'elenco di risoluzioni.
+- Risoluzione di un ciclo infinito di richiesta di autenticazione ADAL durante la connessione alle distribuzioni di Desktop virtuale Windows.
 
-## <a name="updates-for-version-1027"></a>Aggiornamenti per la versione 10.2.7
-*Data di pubblicazione: 2/6/2019*
+## <a name="updates-for-version-10210"></a>Aggiornamenti alla versione 10.2.10
+*Data di pubblicazione: 30/03/2019*
 
-- In questa versione sono risolti mispaints grafica che venivano visualizzate quando si usa la modalità AVC444 (causato da un bug di codifica server).
+- In questa versione sono stati risolti i problemi di instabilità dovuti al recente aggiornamento a macOS 10.14.4. Sono stati corretti anche i problemi di visualizzazione in caso di decodifica di dati del codec AVC codificati da un server con hardware NVIDIA.
 
-## <a name="updates-for-version-1026"></a>Aggiornamenti per la versione 10.2.6
-*Data di pubblicazione: 1/28/2019*
+## <a name="updates-for-version-1029"></a>Aggiornamenti alla versione 10.2.9
+*Data di pubblicazione: 06/03/2019*
 
-- Aggiunta del supporto per codec AVC (420 e 444), disponibile quando ci si connette alle versioni correnti di Windows 10.
-- In adatta alla modalità di finestra, finestra ora si verifica un aggiornamento immediatamente dopo un ridimensionamento per verificare che il contenuto viene eseguito il rendering a livello di interpolazione corretto.
-- Risolto un bug di layout che hanno causato le intestazioni feed sovrapporsi ad alcuni utenti.
-- Pulizia l'interfaccia utente alle preferenze dell'applicazione.
-- Polished l'interfaccia utente del Desktop di aggiunta/modifica.
-- Apportati numerosi semplice e ben definita alle viste di riquadro e l'elenco di centro di connessione per desktop e i feed di modifiche.
+- In questa versione è stato corretto un problema di connettività di Gateway Desktop remoto che si verificava durante il reindirizzamento del server.
+- È stato risolto anche un problema di regressione di Gateway Desktop remoto causato dall'aggiornamento 10.2.8.
+
+## <a name="updates-for-version-1028"></a>Aggiornamenti alla versione 10.2.8
+*Data di pubblicazione: 01/03/2019*
+
+- Risoluzione dei problemi di connettività riscontrati durante l'uso di Gateway Desktop remoto.
+- Correzione di avvisi errati relativi ai certificati visualizzati durante la connessione.
+- Risoluzione di alcuni casi in cui la barra dei menu e il dock venivano nascosti inutilmente durante l'avvio di app remote.
+- Rielaborazione del codice di reindirizzamento degli Appunti per risolvere arresti anomali e blocchi riscontrati da alcuni utenti.
+- Correzione di un bug che causava lo scorrimento inutile del centro connessioni durante l'avvio di una connessione.
+
+## <a name="updates-for-version-1027"></a>Aggiornamenti alla versione 10.2.7
+*Data di pubblicazione: 06/02/2019*
+
+- In questa versione sono stati risolti problemi grafici (causati da un bug di codifica server) che si verificavano quando veniva usata la modalità AVC444.
+
+## <a name="updates-for-version-1026"></a>Aggiornamenti alla versione 10.2.6
+*Data di pubblicazione: 28/01/2019*
+
+- Aggiunta del supporto per il codec AVC (420 e 444), disponibile in fase di connessione alle versioni correnti di Windows 10.
+- Nella modalità Adatta alla finestra, l'aggiornamento di una finestra ora avviene immediatamente dopo il ridimensionamento, per garantire che il rendering del contenuto venga eseguito con il livello di interpolazione corretto.
+- Correzione di un bug del layout che causava la sovrapposizione delle intestazioni dei feed per alcuni utenti.
+- Pulizia dell'interfaccia utente relativa alle preferenze dell'applicazione.
+- Perfezionamento dell'interfaccia utente relativa ad aggiunta/modifica desktop.
+- Implementazione di numerosi perfezionamenti estetici al riquadro del centro connessioni e alle visualizzazioni elenco per desktop e feed.
 
 >[!NOTE]
->È presente un bug nella cartella di macOS 10.14.0 e 10.14.1 che possono causare ".com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA" (annidato profonde all'interno della cartella ~/Library) per utilizzare una grande quantità di spazio su disco. Per risolvere questo problema, eliminare il contenuto della cartella e l'aggiornamento a macOS 10.14.2. Si noti che un effetto collaterale di eliminare il contenuto della cartella che verranno eliminate le immagini di snapshot assegnate ai segnalibri. Queste immagini verranno rigenerate durante la riconnessione al computer remoto.
+>In macOS 10.14.0 e 10.14.1 è presente un bug a causa del quale la cartella ".com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA" (annidata nella cartella ~/Library) utilizza una grande quantità di spazio su disco. Per risolvere questo problema, è necessario eliminare il contenuto della cartella ed eseguire l'aggiornamento a macOS 10.14.2. Un effetto collaterale dell'eliminazione del contenuto della cartella è l'eliminazione delle immagini snapshot assegnate ai segnalibri. Queste immagini verranno rigenerate durante la riconnessione al computer remoto.
 
-## <a name="updates-for-version-1024"></a>Aggiornamenti per la versione 10.2.4
-*Data di pubblicazione: 12/18/2018*
+## <a name="updates-for-version-1024"></a>Aggiornamenti alla versione 10.2.4
+*Data di pubblicazione: 18/12/2018*
 
-- Aggiunto il supporto della modalità scura per macOS Mojave 10.14.
-- Se è vuota, viene visualizzata un'opzione per importare da Microsoft Remote Desktop 8 ora nel Centro connessioni.
-- Compatibilità di reindirizzamento cartelle indirizzata con alcune applicazioni aziendali di terze parti.
-- Risolvere i problemi in cui gli utenti sono stati ricevere un errore di Gateway Desktop remoto 0x30000069 a causa di sicurezza i problemi di fallback di protocollo.
-- Problemi di rendering progressivo fissi che alcuni utenti sono stati verificati con adatta alla modalità di finestra.
-- Risolto un bug che impediva la copia del file e incollare da copiando la versione più recente di un file.
-- Migliorata basata su mouse lo scorrimento per i delta di scorrimento di piccole dimensioni.
+- Aggiunta del supporto per la modalità scura per macOS Mojave 10.14.
+- Viene ora visualizzata un'opzione per l'importazione da Desktop remoto Microsoft 8 nel centro connessioni, se è vuoto.
+- Risoluzione del problema di compatibilità del reindirizzamento delle cartelle con alcune applicazioni aziendali di terze parti.
+- Risoluzione dei problemi per cui gli utenti ricevevano un errore 0x30000069 di Gateway Desktop remoto a causa di problemi di fallback del protocollo di sicurezza.
+- Correzione di problemi di rendering progressivo riscontrati da alcuni utenti nella modalità Adatta alla finestra.
+- Correzione di un bug che impediva di copiare e incollare la versione più recente di un file.
+- Miglioramento dello scorrimento tramite mouse per spostamenti piccoli.
 
-## <a name="updates-for-version-1023"></a>Aggiornamenti per la versione 10.2.3
-*Data di pubblicazione: 11/06/2018*
+## <a name="updates-for-version-1023"></a>Aggiornamenti alla versione 10.2.3
+*Data di pubblicazione: 06/11/2018*
 
-- Aggiunta del supporto per l'impostazione del file RDP "remoteapplicationcmdline" per gli scenari di app remota.
-- Il titolo della finestra della sessione include ora il nome del file RDP (e nome del server) quando avviata da un file RDP.
-- Correzione di problemi delle prestazioni del gateway segnalata desktop remoto.
-- Arresto anomalo fisso segnalate gateway di desktop remoto.
-- Risoluzione dei problemi in cui la connessione si blocca durante la connessione tramite un gateway desktop remoto.
-- Migliore gestione delle App remote a schermo intero in modo intelligente nascondere la barra dei menu e ancoraggio.
-- Correzione di scenari in cui App remote sono rimaste nascoste dopo essere stato avviato.
-- Risolti gli aggiornamenti per il rendering lento quando si usa "Adatta alla finestra" con l'accelerazione hardware disabilitato.
-- Gestione degli errori di creazione database causati da autorizzazioni non corrette quando il client di avvio. 
-- Risolto un problema in cui il client è stato in modo coerente in modo anomalo all'avvio e non a partire da alcuni utenti.
-- Correzione di uno scenario in cui le connessioni sono state importate correttamente come schermo da 8 di Desktop remoto.
+- Aggiunta del supporto per l'impostazione del file RDP "remoteapplicationcmdline" per gli scenari di app remote.
+- Il titolo della finestra della sessione ora include il nome del file RDP (e il nome del server) quando l'avvio avviene da un file RDP.
+- Correzione di problemi segnalati relativi alle prestazioni di Gateway Desktop remoto.
+- Correzione di arresti anomali di Gateway Desktop remoto segnalati.
+- Correzione di problemi che provocavano il blocco della connessione quando questa veniva stabilita tramite Gateway Desktop remoto.
+- Miglioramento della gestione delle app remote a schermo intero nascondendo in modo intelligente la barra dei menu e il dock.
+- Correzione di scenari in cui le app remote rimanevano nascoste dopo l'avvio.
+- Risoluzione dei problemi di aggiornamento del rendering lento con l'opzione "Adatta alla finestra" con l'accelerazione hardware disabilitata.
+- Gestione degli errori di creazione dei database causati da autorizzazioni non corrette all'avvio del client. 
+- Correzione di un problema a causa del quale il client si arrestava continuamente in modo anomalo e non veniva avviato per alcuni utenti.
+- Correzione di uno scenario in cui le connessioni venivano importate in modo non corretto come a schermo intero da Desktop remoto 8.
 
-## <a name="updates-for-version-1022"></a>Aggiornamenti per la versione 10.2.2
-*Data di pubblicazione: 10/09/2018*
+## <a name="updates-for-version-1022"></a>Aggiornamenti alla versione 10.2.2
+*Data di pubblicazione: 09/10/2018*
 
-- Un nuovissimo centro di connessione che supporta trascinamento della selezione, disposizione manuale dei computer desktop, le colonne ridimensionabili in modalità di visualizzazione elenco, basata su colonne di ordinamento e semplificare la gestione di gruppo.
-- Centro connessioni ora ricorda l'ultima pivot active (desktop o feed) quando la chiusura dell'app.
-- Le credenziali che richiede l'interfaccia utente e i flussi, sono state modificate.
-- Commenti e suggerimenti di Gateway Desktop remoto fa ora parte dello stato dell'interfaccia utente che esegue la connessione.
-- Importazione delle impostazioni del client versione 8 è stata migliorata.
-- I file RDP che punta all'endpoint di RemoteApp possono ora essere importati in Centro connessioni.
-- Ottimizzazioni di display retina per gli scenari di Desktop remoto singolo monitor.
-- Supporto per specificare il livello di interpolazione di grafica (che influisce sulla sfocatura) se non si utilizza ottimizzazioni Retina.
-- supporto di 256 colori per abilitare la connettività a Windows 2000.
-- Correzione di ritaglio dei bordi inferiore e destro dello schermo quando ci si connette a Windows 7, Windows Server 2008 R2 e versioni precedenti.
-- Copia un file locale in Outlook (in esecuzione in una sessione remota) ora aggiunto il file come allegato.
-- Risolto un problema che è stata rallentare i trasferimenti di file basato su spazio di lavoro se i file ha origine da una condivisione di rete.
-- Risolto un bug che impediva a Excel (in esecuzione in una sessione remota) bloccarsi durante il salvataggio in un file in una cartella reindirizzata.
-- Risolto un problema che non causava l'alcun spazio sufficiente per eseguire il report per le cartelle reindirizzate.
-- Risolto un bug che ha causato le anteprime di utilizzare una quantità eccessiva archiviazione su disco in macOS 10.14.
-- Aggiunta del supporto per l'applicazione di criteri di reindirizzamento di dispositivi di Gateway Desktop remoto.
-- Risolto un problema che impediva finestre della sessione di chiusura durante la disconnessione da una connessione tramite Gateway Desktop remoto.
-- Se l'autenticazione a livello di rete (NLA) non viene applicata dal server, verrà a questo punto verranno indirizzati alla schermata di accesso se la password è scaduta.
-- Risolto i problemi di prestazioni rilevati quando è stato in corso una grande quantità di dati trasferiti nella rete.
-- Correzioni di reindirizzamento della smart card.
-- Supporto per tutti i valori possibili del "Livello di autenticazione" e "EnableCredSspSupport" impostazioni del file RDP se la chiave predefinita utente ClientSettings.EnforceCredSSPSupport (nel dominio com.microsoft.rdc.macos) è impostata su 0.
-- Supporto per l'impostazione del file RDP "Dei messaggi di richiesta per le credenziali sul Client" se NLA non viene negoziata.
-- Supporto per l'accesso basato su smart card mediante il reindirizzamento della smart card al prompt di Winlogon quando non viene negoziata NLA.
-- Risolto un problema che impediva il download di risorse che hanno spazi nell'URL del feed.
+- Implementazione di un centro connessioni completamente nuovo che supporta il trascinamento della selezione, la disposizione manuale dei desktop, le colonne ridimensionabili in modalità di visualizzazione elenco, l'ordinamento basato su colonne e una gestione più semplice dei gruppi.
+- Il centro connessioni ora ricorda l'ultimo pivot attivo (Desktop o Feed) quando si chiude l'app.
+- Modifica dell'interfaccia utente e dei flussi di richiesta di credenziali.
+- Aggiunta del feedback di Gateway Desktop remoto nell'interfaccia utente relativa allo stato della connessione.
+- Miglioramento dell'importazione delle impostazioni del client versione 8.
+- Aggiunta della possibilità di importare i file RDP che puntano agli endpoint RemoteApp nel centro connessioni.
+- Ottimizzazione dei display Retina per gli scenari di Desktop remoto con singolo monitor.
+- Supporto per la specifica del livello di interpolazione della grafica (che influisce sulla sfocatura) quando non si usano le ottimizzazioni Retina.
+- Supporto di 256 colori per consentire la connettività a Windows 2000.
+- Correzione del ritaglio dei bordi inferiore e destro dello schermo durante la connessione a Windows 7, Windows Server 2008 R2 e versioni precedenti.
+- La copia di un file locale in Outlook (in esecuzione in una sessione remota) comporta ora l'aggiunta del file come allegato.
+- Correzione di un problema che rallentava i trasferimenti di file basati su spazio di lavoro in caso di file provenienti da una condivisione di rete.
+- Risoluzione di un bug che bloccava Excel (in esecuzione in una sessione remota) durante il salvataggio in un file in una cartella reindirizzata.
+- Correzione di un problema a causa del quale veniva segnalata l'assenza di spazio disponibile per le cartelle reindirizzate.
+- Correzione di un bug a causa del quale le anteprime utilizzavano una quantità eccessiva di spazio di archiviazione su disco in macOS 10.14.
+- Aggiunta del supporto per l'applicazione dei criteri di reindirizzamento dei dispositivi di Gateway Desktop remoto.
+- Correzione di un problema che impediva la chiusura delle finestre di sessione durante la disconnessione da una connessione stabilita tramite Gateway Desktop remoto.
+- Se l'Autenticazione a livello di rete non viene applicata dal server, viene ora eseguito il reindirizzamento alla schermata di accesso, se la password è scaduta.
+- Correzione dei problemi di prestazioni rilevati in caso di trasferimento di una grande quantità di dati nella rete.
+- Correzioni relative al reindirizzamento delle smart card.
+- Supporto per tutti i valori possibili delle impostazioni dei file RDP "EnableCredSspSupport" e "Authentication Level" se la chiave utente predefinita ClientSettings.EnforceCredSSPSupport (nel dominio com.microsoft.rdc.macos) è impostata su 0.
+- Supporto per l'impostazione del file RDP "Prompt for Credentials on Client" quando l'Autenticazione a livello di rete non viene negoziata.
+- Supporto per l'accesso basato su smart card mediante il reindirizzamento della smart card al prompt di Winlogon quando l'Autenticazione a livello di rete non viene negoziata.
+- Correzione di un problema che impediva il download delle risorse feed con spazi nell'URL.
 
-## <a name="updates-for-version-1021"></a>Aggiornamenti per la versione 10.2.1
-*Data di pubblicazione: 08/06/2018*
+## <a name="updates-for-version-1021"></a>Aggiornamenti alla versione 10.2.1
+*Data di pubblicazione: 06/08/2018*
 
-- PC aggiunti connettività abilitata per Azure Active Directory (AAD). Per connettersi a un PC aggiunto a Azure ad, il nome utente deve essere in uno dei formati seguenti: "AzureAD\user" o "AzureAD\user@domain".
-- Risolti alcuni bug che interessano l'utilizzo di smart card in una sessione remota.
+- Abilitazione della connettività ai PC aggiunti ad Azure Active Directory (AAD). Per connettersi a un PC aggiunto ad Azure AD, il nome utente deve essere in uno dei formati seguenti: "AzureAD\user" o "AzureAD\user@domain".
+- Risoluzione di alcuni bug relativi all'uso di smart card in una sessione remota.
 
-## <a name="updates-for-version-1020"></a>Aggiornamenti per la versione 10.2.0
-*Data di pubblicazione: 07/24/2018*
+## <a name="updates-for-version-1020"></a>Aggiornamenti alla versione 10.2.0
+*Data di pubblicazione: 24/07/2018*
 
-- Aggiornamenti integrati per conformità al GDPR.
-- MicrosoftAccount\username@domain ora è accettato come un nome utente valido.
-- Condivisione degli Appunti è stato riscritto per essere più veloce e supportare altri formati.
-- Copia e Incolla di testo, immagini o i file tra le sessioni a questo punto viene ignorato negli Appunti del computer locale.
+- Integrazione di aggiornamenti per la conformità al GDPR.
+- MicrosoftAccount\username@domain è ora accettato come nome utente valido.
+- Riscrittura della condivisione degli Appunti per offrire maggiore velocità e supporto di altri formati.
+- Quando si copiano e incollano testo, immagini o file tra sessioni ora non si passa per gli Appunti del computer locale.
 - È ora possibile connettersi tramite un server Gateway Desktop remoto con un certificato non attendibile (se si accettano i messaggi di avviso).
-- L'accelerazione hardware bare metal viene ora usato (se supportato) per velocizzare il rendering e ottimizzare l'utilizzo della batteria.
-- Quando si usa l'accelerazione hardware bare Metal che è provare a usare alcuni magic per apportare la grafica della sessione vengono visualizzati più nitida.
-- È stato eliminare alcune istanze in cui windows si blocca dopo la chiusura.
-- Bug risolti che sono stati impedendo l'avvio di programmi di RemoteApp in alcuni scenari.
-- Correzione di un errore di sincronizzazione del canale di Gateway Desktop remoto che è stato conseguente 0x204 errori.
-- La forma del cursore del mouse ora aggiorna correttamente quando lo spostamento all'esterno di una sessione o una finestra di RemoteApp.
-- Risolto un bug di reindirizzamento cartelle che causa perdita di dati quando copiare e incollare le cartelle.
-- Risolto un problema di reindirizzamento cartelle che ha causato corretta segnalazione delle dimensioni cartella.
-- Correzione di una regressione che è stata impedire la registrazione in un computer aggiunto al AAD con un account locale.
-- Bug risolti che sono stati causando la sessione di contenuto della finestra da ritagliare.
-- Aggiunta del supporto per i certificati di endpoint di desktop remoto che contengono le chiavi asimmetriche a curva ellittica.
-- Risolto un bug che è stata impedisce il download delle risorse gestite in alcuni scenari.
-- Risolto un problema di ridimensionamento con il centro di connessione aggiunto.
-- Risolto le caselle di controllo nella finestra delle proprietà di visualizzazione per migliorare la collaborazione.
-- Bloccare proporzioni è disabilitata quando è effettiva la modifica della visualizzazione dinamica.
-- Risolvere i problemi di compatibilità con l'infrastruttura di F5.
-- Aggiornare la gestione di password vuote per assicurarsi che i messaggi corretti vengono visualizzati in fase di connessione.
-- Lo scorrimento di problemi di compatibilità con MapInfra Pro mouse fisso.
-- Risolti alcuni problemi di allineamento al centro di connessione durante l'esecuzione in Mojave.
+- L'accelerazione hardware Metal viene ora usata (se supportata) per accelerare il rendering e ottimizzare l'utilizzo della batteria.
+- Quando si usa l'accelerazione hardware Metal vengono eseguiti alcuni comandi magic per rendere più nitida la grafica della sessione.
+- Eliminazione di alcuni scenari in cui le finestre si bloccavano dopo la chiusura.
+- Correzione di bug che impedivano l'avvio di programmi RemoteApp in alcuni scenari.
+- Correzione di un errore di sincronizzazione del canale di Gateway Desktop remoto che provocava errori 0x204.
+- La forma del cursore del mouse ora si aggiorna correttamente in uscita da una sessione o una finestra di RemoteApp.
+- Correzione di un bug di reindirizzamento delle cartelle che causava la perdita di dati quando le cartelle venivano copiate e incollate.
+- Correzione di un problema di reindirizzamento delle cartelle causava la segnalazione di dimensioni delle cartelle non corrette.
+- Correzione di una regressione che impediva l'accesso a un computer aggiunto ad Azure AD con un account locale.
+- Correzione di bug che causavano il ritaglio dei contenuti della finestra della sessione.
+- Aggiunta del supporto per i certificati di endpoint di Desktop remoto contenenti chiavi asimmetriche a curva ellittica.
+- Correzione di un bug che impediva il download delle risorse gestite in alcuni scenari.
+- Risoluzione di un problema di ritaglio con il centro connessioni aggiunto in alto.
+- Correzione delle caselle di controllo nella finestra delle proprietà di visualizzazione per un migliore funzionamento in combinazione.
+- Il blocco delle proporzioni è ora disabilitato quando viene applicata la modifica della visualizzazione dinamica.
+- Risoluzione di problemi di compatibilità con l'infrastruttura di F5.
+- Aggiornamento della gestione delle password vuote per assicurare la visualizzazione dei messaggi corretti in fase di connessione.
+- Correzione di problemi di compatibilità dello scorrimento del mouse con MapInfra Pro.
+- Correzione di alcuni problemi di allineamento nel centro connessioni durante l'esecuzione in Mojave.
 
-## <a name="updates-for-version-1018"></a>Aggiornamenti per la versione 10.1.8
-*Data di pubblicazione: 05/04/2018*
-
-- Aggiunta del supporto per la modifica della risoluzione remota ridimensionando la finestra della sessione.
-- Fissi scenari in cui risorsa remota feed download richiederebbe troppo tempo.
-- Risolvere l'errore 0x207 che poteva verificarsi durante la connessione al server non corretto con l'aggiornamento di monitoraggio e aggiornamento oracle crittografia CredSSP (CVE-2018-0886).
-
-## <a name="updates-for-version-1017"></a>Aggiornamenti per la versione 10.1.7
+## <a name="updates-for-version-1018"></a>Aggiornamenti alla versione 10.1.8
 *Data di pubblicazione: 04/05/2018*
 
-- State apportate correzioni di sicurezza per incorporare CredSSP crittografia oracle correzione degli aggiornamenti, come descritto in CVE-2018-0886.
-- RemoteApp icona e un mouse cursore rendering migliorato per soddisfare mispaints segnalate.
-- Risolvere i problemi in cui windows RemoteApp è apparsa dietro il centro di connessione.
-- Risolto un problema che si sono verificati quando si modificano le risorse locali dopo l'importazione da 8 di Desktop remoto.
-- È ora possibile avviare una connessione premendo INVIO su un riquadro del desktop.
-- Quando si è in modalità schermo intero, CMD + M ora esegue correttamente il mapping a WIN + M.
-- Il Centro connessioni, le preferenze e su windows ora rispondere a CMD + M.
-- È ora possibile avviare l'individuazione dei feed premendo INVIO **aggiunta di risorse Remote** pagina.
-- Risolto un problema in cui un nuovo feed risorse remote ha bussato vuoto nel Centro connessioni fino a dopo che è stato aggiornato.
- 
-## <a name="updates-for-version-1016"></a>Aggiornamenti per la versione 10.1.6
-*Data di pubblicazione: 03/26/2018*
+- Aggiunta del supporto per la modifica della risoluzione remota tramite ridimensionamento della finestra della sessione.
+- Correzione degli scenari in cui il download di feed delle risorse remote richiedeva un tempo eccessivamente lungo.
+- Risoluzione dell'errore 0x207 che poteva verificarsi durante la connessione ai server a cui non era stato applicato l'aggiornamento di correzione Oracle della crittografia CredSSP (CVE-2018-0886).
 
-- Risolto un problema in cui windows RemoteApp potrebbe riordinare autonomamente.
-- Risolto un bug che provocava alcune finestre di RemoteApp a si blocca dietro la finestra padre.
-- Risolto un problema di offset puntatore del mouse che interessava alcuni programmi di RemoteApp.
-- Risolto un problema in cui avviare una nuova connessione assegnato lo stato attivo a una sessione esistente, invece di aprire una finestra nuova sessione.
-- È stato risolto un errore con un messaggio di errore: vediamo il messaggio corretto se il gateway non è stato trovato.
-- Il collegamento Quit (⌘ + Q) è ora visualizzato in modo coerente nell'interfaccia utente.
-- Migliorata la qualità dell'immagine quando l'estensione in modalità "Adatta alla finestra".
-- Correzione di una regressione che ha causato più istanze della home directory compaia nella sessione remota.
-- Aggiornare l'icona predefinita per i riquadri del desktop.
+## <a name="updates-for-version-1017"></a>Aggiornamenti alla versione 10.1.7
+*Data di pubblicazione: 05/04/2018*
+
+- Implementazione di correzioni della sicurezza per integrare gli aggiornamenti di correzione Oracle della crittografia CredSSP descritti in CVE-2018-0886.
+- Miglioramento del rendering del cursore del mouse e dell'icona di RemoteApp per risolvere i problemi di visualizzazione segnalati.
+- Risoluzione dei problemi a causa dei quali le finestre di RemoteApp venivano visualizzate dietro il centro connessioni.
+- Correzione di un problema che si verificava quando venivano modificate le risorse locali dopo l'importazione da Desktop remoto 8.
+- È ora possibile avviare una connessione premendo INVIO in un riquadro del desktop.
+- Quando viene usata la visualizzazione a schermo intero, CMD+M viene ora correttamente mappato a WIN+M.
+- Le finestre relative a centro connessioni, preferenze e informazioni rispondono ora a CMD+M.
+- È ora possibile avviare l'individuazione dei feed premendo INVIO nella pagina **Adding Remote Resources** (Aggiunta risorse remote).
+- Correzione di un problema a causa del quale un nuovo feed delle risorse remote veniva visualizzato vuoto nel centro connessioni fino a quando non veniva aggiornato.
+ 
+## <a name="updates-for-version-1016"></a>Aggiornamenti alla versione 10.1.6
+*Data di pubblicazione: 26/03/2018*
+
+- Correzione di un problema a causa del quale le finestre di RemoteApp si riordinavano autonomamente.
+- Risoluzione di un bug che provocava il blocco di alcune finestre di RemoteApp dietro alla finestra padre.
+- Risoluzione di un problema di offset del puntatore del mouse che interessava alcuni programmi RemoteApp.
+- Correzione di un problema a causa del quale l'avvio di una nuova connessione comportava l'assegnazione dello stato attivo a una sessione esistente invece dell'apertura di una nuova finestra di sessione.
+- Correzione di un problema relativo a un messaggio di errore: ora se non è possibile trovare il gateway viene visualizzato il messaggio corretto.
+- Il collegamento Esci (⌘+Q) viene ora visualizzato in modo coerente nell'interfaccia utente.
+- Miglioramento della qualità delle immagini in caso di estensione in modalità "Adatta alla finestra".
+- Correzione di una regressione che causava la visualizzazione di più istanze della home directory nella sessione remota.
+- Aggiornamento dell'icona predefinita per i riquadri del desktop.

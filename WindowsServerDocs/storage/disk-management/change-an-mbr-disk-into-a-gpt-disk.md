@@ -1,6 +1,6 @@
 ---
-title: Modificare un disco MBR (Record di avvio principale, Master Boot Record) in un disco GPT (Tabella di partizione GUID - GUID partition table)
-description: Descrive come modificare un disco MBR (Record di avvio principale, Master Boot Record) in un disco GPT (Tabella di partizione GUID - GUID partition table)
+title: Modificare un disco MBR (Master Boot Record, record di avvio principale) in disco GPT (GUID Partition Table, tabella delle partizioni GUID)
+description: Descrive come modificare un disco MBR (Master Boot Record, record di avvio principale) in disco GPT (GUID Partition Table, tabella delle partizioni GUID)
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,62 +9,62 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 902a845bbe6a7e2a4d811aac0ea2990fb3557832
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812456"
 ---
-# <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Convertire un disco MBR in un disco GPT
+# <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Convertire un disco MBR in disco GPT
 
-> **Si applica a:** Windows 10, Windows 8.1, Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Si applica a:** Windows 10, Windows 8.1, Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-I dischi MBR (Master Boot Record) usano la tabella di partizione BIOS standard. I dischi GPT (GUID Partition Table) utilizzano Unified Extensible Firmware Interface (UEFI). Uno dei vantaggi dei dischi GPT è la possibilità di avere più di quattro partizioni in ciascun disco. GPT è inoltre necessario per i dischi più grandi di due terabyte (TB).
+I dischi MBR (Master Boot Record, record di avvio principale) usano la tabella delle partizioni BIOS standard. I dischi GPT (GUID Partition Table, tabella delle partizioni GUID) usano UEFI (Unified Extensible Firmware Interface). Uno dei vantaggi dei dischi GPT è la possibilità di avere più di quattro partizioni in ogni disco. Lo stile di partizione GPT è anche necessario per i dischi con dimensioni maggiori di due terabyte (TB).
 
-È possibile modificare un disco dallo stile di partizione MBR a GPT, purché il disco non contenga partizioni o volumi.
+Puoi modificare un disco dallo stile di partizione MBR a GPT, purché non contenga partizioni o volumi.
 
 > [!NOTE]
-> Prima di convertire un disco, eseguire il backup tutti i dati su di esso e chiudere tutti i programmi che accedono al disco.
+> Prima di convertire un disco, esegui il backup di tutti i dati che contiene e chiudi tutti i programmi che vi accedono.
 
 > [!NOTE]
 > Per completare questi passaggi, devi essere un membro del gruppo **Backup Operators** o **Administrators**.
 
 ## <a name="converting-using-the-windows-interface"></a>Conversione tramite l'interfaccia di Windows
 
-1.  Eseguire il backup o spostare i dati sul disco MBR di base che si desidera convertire in disco GPT.
+1.  Esegui il backup o sposta i dati sul disco MBR di base che vuoi convertire in disco GPT.
 
-2.  Se il disco contiene partizioni o volumi, fare clic con il pulsante destro del mouse su ciascuno di essi e quindi fare clic su **Elimina partizione** o **Elimina Volume**.
+2.  Se il disco contiene partizioni o volumi, fai clic con il pulsante destro del mouse su ciascuno e quindi scegli **Elimina partizione** o **Elimina volume**.
 
-3.  Fare clic con il pulsante destro del mouse sul disco MBR che si desidera convertire in disco GPT, quindi fare clic su **Converti in disco GPT**.
+3.  Fai clic con il pulsante destro del mouse sul disco MBR che vuoi convertire in disco GPT e quindi scegli **Converti in disco GPT**.
 
 ## <a name="converting-using-a-command-line"></a>Conversione tramite la riga di comando
 
-Usare la procedura seguente per convertire un disco MBR vuoto in un disco GPT. È inoltre disponibile un MBR2GPT. Strumento di file EXE che è possibile usare, ma è un po' complessa - vedere [partizione convertire MBR a GPT](https://docs.microsoft.com/windows/deployment/mbr-to-gpt) per altri dettagli.
+Usa la procedura seguente per convertire un disco MBR vuoto in disco GPT. Puoi anche usare lo strumento MBR2GPT.EXE, ma è piuttosto complesso. Per informazioni dettagliate, vedi [Convertire una partizione MBR in GPT](https://docs.microsoft.com/windows/deployment/mbr-to-gpt).
 
-1.  Eseguire il backup o spostare i dati sul disco MBR di base che si desidera convertire in disco GPT.
+1.  Esegui il backup o sposta i dati sul disco MBR di base che vuoi convertire in disco GPT.
 
-2.  Aprire un prompt dei comandi con privilegi elevati facendo clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionando **Esegui come amministratore**.
+2.  Apri un prompt dei comandi con privilegi elevati facendo clic con il pulsante destro del mouse su **Prompt dei comandi** e quindi scegliendo **Esegui come amministratore**.
 
-3. Digitare `diskpart`. Se il disco non contiene partizioni o volumi, andare al passaggio 6.
+3. Digitare `diskpart`. Se il disco non contiene partizioni o volumi, vai al passaggio 6.
 
-4.  Al prompt **DISKPART** digita `list disk`. Prendere nota del numero di disco che si desidera convertire.
+4.  Al prompt **DISKPART** digita `list disk`. Prendi nota del numero del disco che vuoi convertire.
 
 5.  Al prompt **DISKPART** digita `select disk <disknumber>`.
 
 6.  Al prompt **DISKPART** digita `clean`.
 
     > [!NOTE]
-    > L'esecuzione del comando **clean** eliminerà tutte le partizioni o volumi sul disco.
+    > L'esecuzione del comando **clean** eliminerà tutti i volumi e le partizioni sul disco.
 
 7.  Al prompt **DISKPART** digita `convert gpt`.
 
-| Value  | Descrizione  |
+| Valore  | Descrizione  |
 | ----- | ---- |
-| **disco di elenco** | Visualizza un elenco di dischi e le relative informazioni, ad esempio le dimensioni, quantità di spazio libero, se il disco è un disco di base o dinamico e se il disco usa lo stile di partizione MBR (Record di avvio principale, Master Boot Record) o GPT (Tabella di partizione GUID, GUID Partition Table). Il disco contrassegnato con un asterisco (*) ha lo stato attivo. |
-| **Selezionare disco** *disknumber* | Seleziona il disco specificato, dove *disknumber* è il numero del disco, assegnandogli lo stato attivo. |
-| **clean** | Rimuove tutte le partizioni o volumi dal disco con lo stato attivo.  |
-| **convert gpt**| Converte un disco di base vuoto con lo stile di partizione MBR in un disco di base con lo stile di partizione GPT. |
+| **list disk** | Visualizza un elenco di dischi e le relative informazioni, tra cui dimensioni, quantità di spazio libero, se il disco è un disco di base o dinamico e se il disco usa lo stile di partizione MBR (Master Boot Record, record di avvio principale) o GPT (GUID Partition Table, tabella delle partizioni GUID). Il disco contrassegnato con un asterisco (*) ha lo stato attivo. |
+| **select disk** *disknumber* | Seleziona il disco specificato, dove *disknumber* è il numero del disco, assegnando lo stato attivo a questo disco. |
+| **clean** | Rimuove tutti i volumi o le partizioni dal disco con lo stato attivo.  |
+| **convert gpt**| Converte un disco di base vuoto con lo stile di partizione MBR in disco di base con lo stile di partizione GPT. |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Notazione della sintassi della riga di comando](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)

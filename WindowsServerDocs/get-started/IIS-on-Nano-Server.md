@@ -13,10 +13,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 54c8d05c028cbca364b6a46052d12cdcb12c01b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443610"
 ---
 # <a name="iis-on-nano-server"></a>IIS in Nano Server
@@ -24,7 +24,7 @@ ms.locfileid: "66443610"
 >Si applica a: Windows Server 2016
 
 > [!IMPORTANT]
-> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per scoprire ciò cosa implica, vedi [Modifiche a Nano Server](nano-in-semi-annual-channel.md). 
+> A partire da Windows Server versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md). 
 
 È possibile installare il ruolo server IIS (Internet Information Services) in Nano Server usando il parametro -Package con Microsoft-NanoServer-IIS-Package. Per informazioni sulla configurazione di Nano Server, inclusa l'installazione dei pacchetti, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).  
 
@@ -65,7 +65,7 @@ In questa versione di Nano Server sono disponibili le funzionalità IIS seguenti
 |**Strumenti di gestione**||  
 |Modulo di amministrazione IIS per Windows PowerShell|x|  
 
-Una serie di articoli su altre configurazioni di IIS (ad esempio usando ASP.NET, PHP e Java), nonché altri correlati contenuto venga pubblicato nel [ http://iis.net/learn ](http://iis.net/learn).  
+Una serie di articoli su altre configurazioni di IIS (ad esempio mediante l'uso di ASP.NET, PHP e Java), insieme ad altri contenuti correlati, sono pubblicati all'indirizzo [http://iis.net/learn](http://iis.net/learn).  
 
 ## <a name="installing-iis-on-nano-server"></a>Installazione di IIS in Nano Server  
 È possibile installare questo ruolo server sia offline, con Nano Server disattivato, sia online, con Nano Server in esecuzione. L'installazione offline è l'opzione consigliata.  
@@ -122,14 +122,14 @@ Anche se l'installazione offline di questo ruolo server è l'opzione consigliata
 
 4. Passare alla directory contenente il file XML appena creato ed eseguire quanto segue:  
 
-   **DISM /online /Enable-feature /apply-unattend:.\unattend.xml**  
+   **dism /online /apply-unattend:.\unattend.xml**  
 
 
 5. Confermare che il pacchetto IIS e il Language Pack associato siano installati correttamente eseguendo quanto segue:  
 
-   **DISM /online /get-packages**  
+   **dism /online /get-packages**  
 
-   Dovrebbe vedere "Package Identity: Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000" elencato due volte, una per tipo di versione: Language Pack e una per Release Type: Feature Pack.  
+   "Package Identity: Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~~10.0.14393.1000" sarà elencato due volte, una per Release Type: Language Pack e una per Release Type: Feature Pack.  
 
 6. Avviare il servizio W3SVC con **net start w3svc** oppure riavviando Nano Server.  
 
@@ -145,7 +145,7 @@ Alcune funzionalità IIS sono abilitate per impostazione predefinita quando si i
 
 Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazione. La funzionalità Autenticazione di Windows, ad esempio, è composta dai tre elementi seguenti:  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |-----------|--------------------------|  
 |`<globalModules>`|`<add name="WindowsAuthenticationModule" image="%windir%\System32\inetsrv\authsspi.dll`|  
 |`<modules>`|`<add name="WindowsAuthenticationModule" lockItem="true" \/>`|  
@@ -185,7 +185,7 @@ Usare il cmdlet seguente:
 
 Sarà quindi possibile eseguire `Get-IISSite` per verificare lo stato del sito. Vengono restituiti il nome, l'ID, lo stato, il percorso fisico e le associazioni del sito Web.  
 
-**Eliminazione di siti web**  
+**Eliminazione di siti Web**  
 
 Eseguire `Remove-IISSite -Name TestSite -Confirm:$false`.  
 
@@ -225,7 +225,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
 
 3.  In Nano Server importare il certificato nell'archivio personale (My) usando il comando seguente:  
 
-    **certoc.exe - ImportPFX -p YOUR_PFX_PASSWD My c:\temp\test.pfx**  
+    **certoc.exe -ImportPFX -p YOUR_PFX_PASSWD My c:\temp\test.pfx**  
 
 4.  Recuperare l'identificazione personale del nuovo certificato (in questo esempio 61E71251294B2A7BB8259C2AC5CF7BA622777E73) con `Get-ChildItem Cert:\LocalMachine\my`.  
 
@@ -242,7 +242,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
     $sm.CommitChanges()  
     ```  
 
-    È anche possibile usare indicazione nome Server (SNI) con un nome host specifico con questa sintassi: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    Puoi usare anche l'indicazione del nome del server con un nome host specifico tramite la sintassi seguente: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Appendice 1: Elenco di funzionalità secondarie di IIS
 
@@ -280,13 +280,13 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
 - IIS-HttpTracing
 - IIS-CustomLogging
 
-## <a name="appendix-2-elements-of-http-features"></a>Appendice 2: Elementi della funzionalità HTTP  
+## <a name="appendix-2-elements-of-http-features"></a>Appendice 2: Elementi delle funzionalità HTTP  
 Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazione. Questa appendice elenca gli elementi di configurazione di tutte le funzionalità di questa versione di Nano Server  
 
 ### <a name="common-http-features"></a>Funzionalità HTTP comuni  
 **Documento predefinito**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="DefaultDocumentModule" image="%windir%\System32\inetsrv\defdoc.dll" />`|  
 |`<modules>`|`<add name="DefaultDocumentModule" lockItem="true" />`|  
@@ -295,9 +295,9 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 È possibile che la voce `StaticFile <handlers>` sia già presente. In questo caso, aggiungere semplicemente "DefaultDocumentModule" all'attributo \<modules> usando la virgola come separatore.  
 
-**esplorazione directory**  
+**Esplorazione directory**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|   
 |`<globalModules>`|`<add name="DirectoryListingModule" image="%windir%\System32\inetsrv\dirlist.dll" />`|  
 |`<modules>`|`<add name="DirectoryListingModule" lockItem="true" />`|  
@@ -307,7 +307,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Errori HTTP**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|   
 |`<globalModules>`|`<add name="CustomErrorModule" image="%windir%\System32\inetsrv\custerr.dll" />`|  
 |`<modules>`|`<add name="CustomErrorModule" lockItem="true" />`|  
@@ -315,7 +315,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Contenuto statico**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="StaticFileModule" image="%windir%\System32\inetsrv\static.dll" />`|  
 |`<modules>`|`<add name="StaticFileModule" lockItem="true" />`|  
@@ -325,7 +325,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Reindirizzamento HTTP**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|    
 |`<globalModules>`|`<add name="HttpRedirectionModule" image="%windir%\System32\inetsrv\redirect.dll" />`|  
 |`<modules>`|`<add name="HttpRedirectionModule" lockItem="true" />`|  
@@ -334,28 +334,28 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 ### <a name="health-and-diagnostics"></a>Integrità e diagnostica  
 **Registrazione HTTP**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|   
 |`<globalModules>`|`<add name="HttpLoggingModule" image="%windir%\System32\inetsrv\loghttp.dll" />`|  
 |`<modules>`|`<add name="HttpLoggingModule" lockItem="true" />`|  
 |`<httpLogging>`|`<httpLogging dontLog="false" />`|  
 
-**Registrazioni personalizzate**  
+**Registrazione personalizzata**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="CustomLoggingModule" image="%windir%\System32\inetsrv\logcust.dll" />`|  
 |`<modules>`|`<add name="CustomLoggingModule" lockItem="true" />`|  
 
-**Monitoraggio richieste**  
+**Monitor richieste**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="RequestMonitorModule" image="%windir%\System32\inetsrv\iisreqs.dll" />`|  
 
 **Traccia**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="TracingModule" image="%windir%\System32\inetsrv\iisetw.dll" \/><br /><add name="FailedRequestsTracingModule" image="%windir%\System32\inetsrv\iisfreb.dll" />`|  
 |`<modules>`|`<add name="FailedRequestsTracingModule" lockItem="true" />`|  
@@ -364,7 +364,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 ### <a name="performance"></a>Prestazioni  
 **Compressione contenuto statico**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="StaticCompressionModule" image="%windir%\System32\inetsrv\compstat.dll" />`|  
 |`<modules>`|`<add name="StaticCompressionModule" lockItem="true" />`|  
@@ -372,7 +372,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Compressione contenuto dinamico**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |-----------|--------------------------|  
 |`<globalModules>`|`<add name="DynamicCompressionModule" image="%windir%\System32\inetsrv\compdyn.dll" />`|  
 |`<modules>`|`<add name="DynamicCompressionModule" lockItem="true" />`|  
@@ -382,7 +382,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 **Filtro richieste**  
 
 
-|       `Section`        |                                                                                                                                        Elementi di configurazione                                                                                                                                        |
+|       Sezione        |                                                                                                                                        Elementi di configurazione                                                                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  `<globalModules>`   |                                                                                                        `<add name="RequestFilteringModule" image="%windir%\System32\inetsrv\modrqflt.dll" />`                                                                                                        |
 |     `<modules>`      |                                                                                                                       `<add name="RequestFilteringModule" lockItem="true" />`                                                                                                                        |
@@ -390,7 +390,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Autenticazione di base**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|   
 |`<globalModules>`|`<add name="BasicAuthenticationModule" image="%windir%\System32\inetsrv\authbas.dll" />`|  
 |`<modules>`|`<add name="WindowsAuthenticationModule" lockItem="true" />`|  
@@ -398,7 +398,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Autenticazione mapping certificati client**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="CertificateMappingAuthentication" image="%windir%\System32\inetsrv\authcert.dll" />`|  
 |`<modules>`|`<add name="CertificateMappingAuthenticationModule" lockItem="true" />`|  
@@ -406,7 +406,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Autenticazione del digest**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="DigestAuthenticationModule" image="%windir%\System32\inetsrv\authmd5.dll" />`|  
 |`<modules>`|`<add name="DigestAuthenticationModule" lockItem="true" />`|  
@@ -415,15 +415,15 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 **Autenticazione mapping certificati client IIS**  
 
 
-|                  `Section`                   |                                         Elementi di configurazione                                         |
+|                  Sezione                   |                                         Elementi di configurazione                                         |
 |--------------------------------------------|--------------------------------------------------------------------------------------------------------|
 |             `<globalModules>`              | `<add name="CertificateMappingAuthenticationModule" image="%windir%\System32\inetsrv\authcert.dll" />` |
 |                `<modules>`                 |               `<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>\`                |
 | `<clientCertificateMappingAuthentication>` |                      `<clientCertificateMappingAuthentication enabled="false" />`                      |
 
-**Restrizioni IP e di dominio**  
+**Restrizioni per IP e domini**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|```<add name="IpRestrictionModule" image="%windir%\System32\inetsrv\iprestr.dll" /><br /><add name="DynamicIpRestrictionModule" image="%windir%\System32\inetsrv\diprestr.dll" />```|  
 |`<modules>`|`<add name="IpRestrictionModule" lockItem="true" \/><br /><add name="DynamicIpRestrictionModule" lockItem="true" \/>`|  
@@ -431,7 +431,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Autorizzazione URL**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="UrlAuthorizationModule" image="%windir%\System32\inetsrv\urlauthz.dll" />`|  
 |`<modules>`|`<add name="UrlAuthorizationModule" lockItem="true" />`|  
@@ -439,7 +439,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Autenticazione di Windows**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|    
 |`<globalModules>`|`<add name="WindowsAuthenticationModule" image="%windir%\System32\inetsrv\authsspi.dll" />`|  
 |`<modules>`|`<add name="WindowsAuthenticationModule" lockItem="true" />`|  
@@ -448,14 +448,14 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 ### <a name="application-development"></a>Sviluppo di applicazioni  
 **Inizializzazione dell'applicazione**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="ApplicationInitializationModule" image="%windir%\System32\inetsrv\warmup.dll" />`|  
 |`<modules>`|`<add name="ApplicationInitializationModule" lockItem="true" />`|  
 
 **CGI**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|`<add name="CgiModule" image="%windir%\System32\inetsrv\cgi.dll" /><br /><add name="FastCgiModule" image="%windir%\System32\inetsrv\iisfcgi.dll" />`|  
 |`<modules>`|`<add name="CgiModule" lockItem="true" /><br /><add name="FastCgiModule" lockItem="true" />`|  
@@ -463,7 +463,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Estensioni ISAPI**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|    
 |`<globalModules>`|`<add name="IsapiModule" image="%windir%\System32\inetsrv\isapi.dll" />`|  
 |`<modules>`|`<add name="IsapiModule" lockItem="true" />`|  
@@ -471,14 +471,14 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Filtri ISAPI**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|    
 |`<globalModules>`|`<add name="IsapiFilterModule" image="%windir%\System32\inetsrv\filter.dll" />`|  
 |`<modules>`|`<add name="IsapiFilterModule" lockItem="true" />`|  
 
-**Server-side include**  
+**Server-Side Include**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|  
 |`<globalModules>`|<`add name="ServerSideIncludeModule" image="%windir%\System32\inetsrv\iis_ssi.dll" />`|  
 |`<modules>`|`<add name="ServerSideIncludeModule" lockItem="true" />`|  
@@ -487,7 +487,7 @@ Ciascuna funzionalità di IIS è costituita da un set di elementi di configurazi
 
 **Protocollo WebSocket**  
 
-|`Section`|Elementi di configurazione|  
+|Sezione|Elementi di configurazione|  
 |----------------|--------------------------|    
 |`<globalModules>`|`<add name="WebSocketModule" image="%windir%\System32\inetsrv\iiswsock.dll" />`|  
 |`<modules>`|`<add name="WebSocketModule" lockItem="true" />`|  

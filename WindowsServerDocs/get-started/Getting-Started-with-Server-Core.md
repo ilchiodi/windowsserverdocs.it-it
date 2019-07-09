@@ -1,6 +1,6 @@
 ---
 title: Installare la versione Server Core
-description: Come ottenere e installare un'installazione Server Core in Windows Server (canale semestrale), Windows Server 2016 o Windows Server 2019.
+description: Come ottenere e ed eseguire l'installazione dei componenti di base del server su Windows Server 2019, Windows Server 2016 o Windows Server (Canale semestrale).
 ms.prod: windows-server-threshold
 ms.date: 05/21/2019
 ms.technology: server-general
@@ -12,34 +12,34 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 6f685ce29088b56bb243d21315787ab90e6863a4
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976725"
 ---
 # <a name="install-server-core"></a>Installare la versione Server Core
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
   
-Quando si installa Windows Server per la prima volta, sono disponibili le opzioni di installazione seguenti:
+Quando installi Windows Server per la prima volta, hai a disposizione le opzioni di installazione seguenti:
 
 >[!NOTE]
-> Nell'elenco seguente, le edizioni senza "Esperienza Desktop" sono le opzioni di installazione Server Core
+> Nell'elenco seguente le edizioni senza "Esperienza desktop" sono le opzioni di installazione dei componenti di base del server
 
 -   Windows Server Standard
 -   Windows Server Standard con Esperienza desktop
 -   Windows Server Datacenter
 -   Windows Server Datacenter con Esperienza desktop
 
-Quando si installa Windows Server (canale semestrale), sono disponibili le opzioni di installazione seguenti:
+Quando installi Windows Server (Canale semestrale), hai a disposizione le opzioni di installazione seguenti:
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
 
-Poiché l'opzione Server Core riduce lo spazio richiesto sul disco e la superficie soggetta a possibili attacchi e, in particolare, i requisiti di manutenzione, è consigliabile scegliere questo tipo di installazione a meno che non occorrano elementi aggiuntivi dell'interfaccia utente e strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se si ritiene necessario usare gli elementi aggiuntivi dell'interfaccia utente, vedere [Installare Server con Esperienza desktop](Getting-Started-with-Server-with-Desktop-Experience.md). 
+Poiché l'opzione di installazione dei componenti di base del server riduce lo spazio richiesto sul disco e la superficie soggetta a possibili attacchi, ti consigliamo di scegliere questo tipo di installazione a meno che non ti servano gli elementi aggiuntivi dell'interfaccia utente e gli strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se credi di aver bisogno degli elementi aggiuntivi dell'interfaccia utente, vedi [Installare la versione Server con Esperienza desktop](Getting-Started-with-Server-with-Desktop-Experience.md). 
 
-Con l'opzione Server Core, l'interfaccia utente standard (Esperienza Desktop) non viene installata. Puoi gestire il server usando la riga di comando, Windows PowerShell o metodi remoti.
+Con l'opzione di installazione dei componenti di base del server, l'interfaccia utente standard (Esperienza desktop) non viene installata e puoi gestire il server tramite la riga di comando, Windows PowerShell o metodi remoti.
 
 >[!NOTE]
 >
@@ -49,14 +49,14 @@ Con l'opzione Server Core, l'interfaccia utente standard (Esperienza Desktop) no
 
 **Installare, configurare, disinstallare ruoli server in locale:** un prompt dei comandi con Windows PowerShell.
 
-**Installare, configurare, disinstallare ruoli server in modalità remota da un computer client Windows (o un server con esperienza Desktop installato):** con Server Manager, strumenti di amministrazione remota Server (RSAT), Windows PowerShell o Windows Admin Center .
+**Installare, configurare, disinstallare ruoli del server in remoto da un computer client Windows (o un server con Esperienza desktop installato):** con Server Manager, Strumenti di amministrazione remota del server, Windows PowerShell o Windows Admin Center.
 
 >[!NOTE]
 >
 >Per gli Strumenti di amministrazione remota del server (RSAT), è necessario usare la versione di Windows 10.
->Microsoft Management Console non è disponibile localmente.
+>Microsoft Management Console non è disponibile in locale.
 
-**Ruoli server di esempio disponibili:**
+**Ruoli del server di esempio disponibili:**
 
 - Servizi certificati Active Directory
 - Servizi di dominio di Active Directory
@@ -76,21 +76,21 @@ Con l'opzione Server Core, l'interfaccia utente standard (Esperienza Desktop) no
    - Virtualizzazione
    - Servizi di attivazione contratti multilicenza
 
-Per i ruoli non inclusi in Server Core, vedere [ruoli, servizi ruolo e funzionalità non in Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
+Per informazioni sui ruoli non inclusi nell'installazione dei componenti di base del server, vedi [Ruoli, servizi ruolo e funzionalità non inclusi in Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
 
-## <a name="installing-on-windows-server-2019-or-windows-server-2016"></a>Installazione in Windows Server 2016 o Windows Server 2019
+## <a name="installing-on-windows-server-2019-or-windows-server-2016"></a>Installazione su Windows Server 2019 o Windows Server 2016
 
-Per passaggi di installazione generale e le opzioni per Windows Server (canale di manutenzione di lungo termine), vedere [installazione di Windows Server e di aggiornamento](installation-and-upgrade.md).
+Per i passaggi di installazione generali per Windows Server (Long-Term Servicing Channel), vedi [Installazione e aggiornamento di Windows Server](installation-and-upgrade.md).
 
-## <a name="installing-on-windows-server-semi-annual-channel"></a>Installazione in Windows Server (canale semestrale)
+## <a name="installing-on-windows-server-semi-annual-channel"></a>Installazione su Windows Server (Canale semestrale)
 
-Passaggi di installazione per Windows Server (canale semestrale) sono le stesse di installazione di versioni precedenti di Windows Server (da una. Immagine ISO), con le eccezioni seguenti:
+I passaggi di installazione per Windows Server (Canale semestrale) sono gli stessi di quelli per l'installazione delle versioni precedenti di Windows Server (da un'immagine ISO), con le eccezioni seguenti:
 
-- Non sono supportati aggiornamenti da versioni precedenti di Windows Server a Windows Server, versione 1709. Una nuova installazione è sempre obbligatoria.
-   Ciò significa che quando si esegue setup.exe dal desktop di un computer Windows, l'esperienza di installazione non supporta l'opzione di aggiornamento (disabilitato).
-- Nessuna versione di valutazione per Windows Server (canale semestrale)
-- Non esiste alcun OEM o una versione definitiva. Windows Server (canale semestrale) possono solo avere la licenza tramite Software Assurance o la fedeltà dei programmi.
+- Non sono supportati aggiornamenti da versioni precedenti di Windows Server a Windows Server versione 1709. È necessario eseguire sempre un'installazione pulita.
+   Questo significa che quando esegui setup.exe dal desktop di un computer Windows, l'esperienza di installazione non permette l'opzione di aggiornamento (l'opzione è disattivata).
+- Non esiste alcuna versione di valutazione per Windows Server (Canale semestrale)
+- Non esiste alcuna versione OEM o definitiva. Windows Server (Canale semestrale) può essere concesso in licenza solo tramite Software Assurance o programmi fedeltà.
 
-Per altre informazioni su canale semestrale, vedere [confronto dei canali di manutenzione](../get-started-19/servicing-channels-19.md).
+Per altre informazioni su Canale semestrale, vedi [Confronto tra canali di manutenzione](../get-started-19/servicing-channels-19.md).
 
-Per vedere quali sono le novità nel canale semestrale di Windows Server, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md)
+Per informazioni sulle novità di Windows Server (Canale semestrale), vedi [Novità di Windows Server](whats-new-in-windows-server.md)

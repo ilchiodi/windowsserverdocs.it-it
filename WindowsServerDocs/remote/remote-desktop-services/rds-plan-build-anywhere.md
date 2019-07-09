@@ -1,6 +1,6 @@
 ---
-title: 'Compilare in un punto qualsiasi di Servizi Desktop remoto:'
-description: Informazioni sulla pianificazione per aiutare a determinare la posizione in cui ospitare la distribuzione di servizi desktop remoto.
+title: Servizi Desktop remoto - Eseguire la creazione in qualsiasi ambiente
+description: Informazioni di pianificazione per determinare dove ospitare la distribuzione di Servizi Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,26 +13,26 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: cbb8e73d753b1fe4f0293cf4427c634020a23a42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4563108d2efa9cd864fbe75fa82349d21659a941
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869512"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712329"
 ---
-# <a name="remote-desktop-services---build-anywhere"></a>Compilare in un punto qualsiasi di Servizi Desktop remoto:
+# <a name="remote-desktop-services---build-anywhere"></a>Servizi Desktop remoto - Eseguire la creazione in qualsiasi ambiente
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Distribuire in locale, nel cloud o una combinazione dei due. Modificare la distribuzione come variare delle esigenze aziendali.
+Esegui la distribuzione in locale, nel cloud o in un ambiente ibrido. Modifica la distribuzione in base al variare delle esigenze aziendali.
 
-Indipendentemente dalla posizione, sottostante [architettura](desktop-hosting-logical-architecture.md) di Servizi Desktop remoto ambiente rimane lo stesso:
-- È comunque necessario un server connesso a internet usare accesso Web desktop remoto e Gateway Desktop remoto per gli utenti esterni
-- È comunque necessario un server Active Directory e --per gli ambienti a disponibilità elevata, un database SQL all'utente di casa e le proprietà di Desktop remoto
-- È comunque necessario l'accesso di comunicazione tra i ruoli di infrastruttura di desktop remoto (Gestore connessione desktop remoto, Gateway Desktop remoto, servizio licenze Desktop remoto e accesso Web desktop remoto) e la fine di host sessione Desktop remoto o host RDVH per potersi connettere agli utenti finali ai loro computer desktop o applicazioni.
+Indipendentemente dalla tua posizione, l'[architettura](desktop-hosting-logical-architecture.md) sottostante dell'ambiente di Servizi Desktop remoto rimane invariata:
+- È sempre necessario un server con connessione Internet per l'uso di Accesso Web Desktop remoto e Gateway Desktop remoto per gli utenti esterni
+- È sempre necessario disporre di un'istanza di Active Directory e, per gli ambienti a disponibilità elevata, un database SQL per le proprietà di Desktop remoto e utente
+- È sempre necessario l'accesso alla comunicazione tra i ruoli dell'infrastruttura di Desktop remoto (Gestore connessione Desktop remoto, Gateway Desktop remoto, Servizio licenze Desktop remoto e Accesso Web Desktop remoto) e gli host alle estremità, Host di virtualizzazione Desktop remoto e Host sessione Desktop remoto, per consentire la connessione degli utenti finali ai loro desktop o applicazioni.
 
-Questa flessibilità consente di ottenere il meglio di entrambi i mondi:
-- I metodi di pagamento a consumo e semplicità associati con il cloud e il mondo in linea.
-- La familiarità e un modo pratico di utilizzo delle risorse pesanti delle già esiste in locale.
+Questa flessibilità ti offre il meglio di entrambi i mondi:
+- La semplicità e i metodi con pagamento in base al consumo associati al cloud e al mondo online.
+- Un modo pratico e familiare per sfruttare le risorse già presenti nell'ambiente locale.
 
-Per altre informazioni, esaminare come [compilare e distribuire la distribuzione di Servizi Desktop remoto](rds-build-and-deploy.md).
+Per altre informazioni, vedi [Creare e distribuire Servizi Desktop remoto](rds-build-and-deploy.md).

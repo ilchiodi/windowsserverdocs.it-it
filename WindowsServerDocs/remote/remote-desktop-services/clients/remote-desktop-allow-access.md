@@ -1,6 +1,6 @@
 ---
-title: Desktop remoto - consentire l'accesso al computer
-description: Scopri le opzioni per accedere in remoto il PC
+title: Desktop remoto - Consentire l'accesso al PC
+description: Informazioni sulle opzioni per accedere in remoto al PC
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,56 +15,56 @@ ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66804996"
 ---
-# <a name="remote-desktop---allow-access-to-your-pc"></a>Desktop remoto - consentire l'accesso al computer
+# <a name="remote-desktop---allow-access-to-your-pc"></a>Desktop remoto - Consentire l'accesso al PC
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
-È possibile usare Desktop remoto per connettersi a e controllare il PC da un dispositivo remoto utilizzando un [client Desktop remoto Microsoft](remote-desktop-clients.md) (disponibile per Windows, iOS, macOS e Android). Se si consentono le connessioni remote al computer, è possibile utilizzare un altro dispositivo di connettersi al computer e avere accesso a tutte le app, i file e le risorse di rete come se si utilizzasse dalla propria scrivania.  
+Puoi usare Desktop remoto per connetterti al tuo PC e controllarlo da un dispositivo remoto tramite un [client Desktop remoto Microsoft](remote-desktop-clients.md) (disponibile per Windows, iOS, macOS e Android). Quando consenti connessioni remote al tuo PC, puoi usare un altro dispositivo per connetterti al PC e avere accesso a tutte le app, tutti i file e tutte le risorse di rete disponibili come se fossi seduto alla scrivania.  
 
 > [!NOTE]
-> È possibile usare Desktop remoto per connettersi a Windows 10 Pro ed Enterprise, Windows 8.1 e 8 versioni Enterprise e Pro, Windows 7 Professional, Enterprise e Ultimate e Windows Server più recenti rispetto a Windows Server 2008. Non è possibile connettersi ai computer che esegue l'edizione Home (ad esempio Windows 10 Home). 
+> Puoi usare Desktop remoto per effettuare la connessione a Windows 10 Pro ed Enteprise, a Windows 8.1 e 8 Enterprise e Pro, a Windows 7 Professional, Enterprise e Ultimate, nonché alle versioni di Windows Server successive a Windows Server 2008. Non puoi connetterti a computer che eseguono l'edizione Home, ad esempio Windows 10 Home. 
 
-Per connettersi a un PC remoto, che computer deve essere acceso, deve avere una connessione di rete, è necessario abilitare Desktop remoto, è necessario avere accesso di rete al computer remoto (potrebbe trattarsi di tramite Internet), ed è necessario disporre dell'autorizzazione per connettersi. Per l'autorizzazione per la connessione, è necessario l'elenco degli utenti. Prima di avviare una connessione, è una buona idea per cercare il nome del computer a che ci si connette e assicurarsi che le connessioni Desktop remoto siano consentite attraverso il firewall.
+Affinché la connessione a un PC remoto sia possibile, tale computer deve essere acceso, deve avere una connessione di rete e Desktop remoto deve essere abilitato. Devi inoltre disporre dell'accesso in rete al computer remoto (ad esempio, tramite Internet) e devi essere autorizzato a connetterti. Per essere autorizzato, devi essere incluso nell'elenco degli utenti che dispongono dell'autorizzazione per la connessione. Prima di avviare una connessione, è opportuno cercare il nome del computer a cui intendi connetterti e verificare che le connessioni Desktop remoto siano consentite attraverso il relativo firewall.
 
 ## <a name="how-to-enable-remote-desktop"></a>Come abilitare Desktop remoto
 
-Il modo più semplice per consentire l'accesso al PC da un dispositivo remoto è utilizzando le opzioni Desktop remoto in impostazioni. Poiché questa funzionalità è stata aggiunta in Windows 10 Fall Creators update (1709), un oggetto separato scaricabile app è disponibile anche per le versioni precedenti di Windows che offre funzionalità simili. È anche possibile usare la modalità legacy di abilitazione di Desktop remoto, tuttavia, questo metodo offre meno funzionalità e la convalida.
+Il modo più semplice per consentire l'accesso al tuo PC da un dispositivo remoto è quello di usare le opzioni Desktop remoto presenti in Impostazioni. Da quando questa funzionalità è stata aggiunta in Windows 10 Fall Creators Update (1709), è disponibile anche un'app separata e scaricabile che offre funzionalità analoghe per le versioni precedenti di Windows. Puoi abilitare Desktop remoto anche usando il metodo legacy, ma in questo modo le funzionalità e la convalida sono ridotte.
 
-### <a name="windows-10-fall-creator-update-1709-or-later"></a>Windows 10 Fall Creators Update (1709) o versione successiva
+### <a name="windows-10-fall-creator-update-1709-or-later"></a>Windows 10 Fall Creators Update (1709) o versioni successive
 
-È possibile configurare il PC per l'accesso remoto con pochi semplici passaggi.
-1. Nel dispositivo si desidera connettersi, selezionare **avviare** e quindi scegliere il **impostazioni** icona a sinistra.
-2. Selezionare il **System** gruppo aggiungendo il [ **Desktop remoto** ](ms-settings:remotedesktop) elemento.
-3. Usare il dispositivo di scorrimento per abilitare Desktop remoto.
-4. È anche consigliabile mantenere i PC attivi e individuabile per facilitare le connessioni. Fare clic su **Mostra le impostazioni** abilitare.
-5. In base alle esigenze, aggiungere gli utenti possono connettersi in remoto facendo **selezionare gli utenti che possono accedere in remoto il PC**.
-   1. I membri del gruppo Administrators hanno automaticamente accesso.
-6. Prendere nota del nome di questo PC sotto **come connettersi a questo PC**. È necessario per configurare i client.
+Per configurare il tuo PC per l'accesso remoto ti bastano pochi passaggi di facile esecuzione.
+1. Sul dispositivo a cui vuoi connetterti seleziona **Start** e quindi fai clic sull'icona **Impostazioni** a sinistra.
+2. Seleziona il gruppo **Sistema** e quindi la voce [**Desktop remoto**](ms-settings:remotedesktop).
+3. Usa il dispositivo di scorrimento per abilitare Desktop remoto.
+4. È anche consigliabile mantenere il PC attivo e individuabile per facilitare le connessioni. Per abilitare l'apposita impostazione, fai clic su **Mostra impostazioni**.
+5. Secondo le necessità, aggiungi gli utenti che possono connettersi in remoto facendo clic su **Select users that can remotely access this PC** (Seleziona gli utenti che possono accedere in remoto al PC).
+   1. I membri del gruppo Administrators hanno accesso automaticamente.
+6. Prendi nota del nome del PC visualizzato in **How to connect to this PC** (Come connettersi al PC). Tale nome sarà necessario per configurare i client.
 
-### <a name="windows-7-and-early-version-of-windows-10"></a>Versione anticipata di Windows 10 e Windows 7
+### <a name="windows-7-and-early-version-of-windows-10"></a>Windows 7 e versioni precedenti di Windows 10
 
-Per configurare il PC per l'accesso remoto, scaricare ed eseguire la [Microsoft Remote Desktop Assistant](https://www.microsoft.com/download/details.aspx?id=50042). Questo assistente Aggiorna le impostazioni di sistema per abilitare l'accesso remoto, assicura il computer è attivo per le connessioni e controlla che il firewall consenta le connessioni Desktop remoto. 
+Per configurare il PC per l'accesso remoto, scarica ed esegui [Microsoft Remote Desktop Assistant](https://www.microsoft.com/download/details.aspx?id=50042) (Assistente Desktop remoto Microsoft). Tale assistente aggiorna le impostazioni di sistema in modo da abilitare l'accesso remoto, verifica che il computer sia attivo per le connessioni e controlla che il firewall consenta le connessioni Desktop remoto. 
 
-### <a name="all-versions-of-windows-legacy-method"></a>Tutte le versioni di Windows (metodo Legacy)
+### <a name="all-versions-of-windows-legacy-method"></a>Tutte le versioni di Windows (metodo legacy)
 
-Per abilitare Desktop remoto usando le proprietà di sistema legacy, seguire le istruzioni per [connettersi a un altro computer mediante connessione Desktop remoto](https://windows.microsoft.com/windows/remote-desktop-connection-faq).
+Per abilitare Desktop remoto usando le proprietà di sistema legacy, segui le istruzioni contenute in [Connettersi a un altro computer mediante Connessione Desktop remoto](https://windows.microsoft.com/windows/remote-desktop-connection-faq).
 
-## <a name="should-i-enable-remote-desktop"></a>È consigliabile abilitare Desktop remoto?
+## <a name="should-i-enable-remote-desktop"></a>Quando abilitare Desktop remoto
 
-Se si vuole solo accedere al computer quando sono fisicamente una postazione, non è necessario abilitare Desktop remoto. Abilitazione di Desktop remoto consente di aprire una porta nel PC che è visibile alla rete locale. È solo necessario abilitare Desktop remoto in reti attendibili, ad esempio la home page. Non bisogna neppure abilitare Desktop remoto su tutti i computer in cui l'accesso viene strettamente controllato.
+Se vuoi accedere al tuo PC solo quando ti trovi fisicamente davanti a esso, non hai necessità di abilitare Desktop remoto. Abilitando Desktop remoto, apri una porta del PC che è visibile alla rete locale. Dovresti pertanto abilitare Desktop remoto esclusivamente in reti affidabili, come ad esempio quella domestica. Evita inoltre di abilitare Desktop remoto in PC in cui l'accesso è strettamente controllato.
 
-Tenere presente che quando si abilita l'accesso a Desktop remoto, si concede a tutti gli utenti del gruppo Administrators, oltre a eventuali altri utenti si seleziona, la possibilità di accedere in remoto i propri account del computer.
+Tieni presente che, abilitando l'accesso a Desktop remoto, concedi a tutti i membri del gruppo Administrators (e a tutti gli altri utenti che selezioni) la possibilità di accedere in remoto ai rispettivi account sul computer.
 
-È necessario assicurarsi che ogni account che dispone dell'accesso al computer sia configurato con una password complessa.
+Assicurati che tutti gli account che hanno accesso al tuo PC siano configurati con una password complessa.
 
-## <a name="why-allow-connections-only-with-network-level-authentication"></a>Il motivo per cui consentire le connessioni solo con l'autenticazione a livello di rete? 
+## <a name="why-allow-connections-only-with-network-level-authentication"></a>Perché consentire le connessioni solo con l'Autenticazione a livello di rete 
 
-Se si desidera limitare l'accesso al computer, scegliere di consentire l'accesso solo con livello di autenticazione NLA (Network). Quando si abilita questa opzione, gli utenti devono autenticarsi su rete prima di potersi connettere al computer. Consentire le connessioni solo da computer che eseguono Desktop remoto con NLA è un metodo di autenticazione più sicuro che consente di proteggere il computer dal software e gli utenti malintenzionati. Per altre informazioni su NLA e Desktop remoto, estrarre [NLA configurare per le connessioni RDS](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx).
+Se vuoi limitare chi può accedere al tuo PC, scegli di consentire l'accesso solo con l'Autenticazione a livello di rete. Quando abiliti questa opzione, gli utenti devono autenticarsi sulla rete prima di potersi connettere al tuo PC. Consentire le connessioni solo da computer che eseguono Desktop remoto con l'Autenticazione a livello di rete costituisce un metodo di autenticazione più sicuro che può contribuire a proteggere il tuo computer da utenti malintenzionati e da software dannoso. Per altre informazioni sull'Autenticazione a livello di rete e su Desktop remoto, vedi [Configurare l'Autenticazione a livello di rete per le connessioni Servizi Desktop remoto](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx).
 
-Se ci si connette a un PC in remoto nella rete domestica all'esterno di tale rete, non selezionare questa opzione.
+Se ti connetti in remoto a un PC della tua rete domestica dall'esterno di tale rete, non selezionare questa opzione.
