@@ -9,27 +9,27 @@ ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
 ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66501396"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Novità di Windows Server, versione 1709
 
 >Si applica a: Windows Server (Canale semestrale)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Per altre informazioni sulle funzionalità più recenti di Windows, vedere [What ' s New in Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedi anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Per informazioni sulle funzionalità più recenti di Windows, vedi [Novità di Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedere anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
-> Windows Server, versione 1709 è più supportata a partire dal 9 aprile 2019.
+> Windows Server, versione 1709 non è più supportata a partire dal 9 aprile 2019.
 
 
 ## <a name="new-cadence-of-releases"></a>Nuova frequenza di rilascio
 
 A partire da questa versione, sono disponibili due opzioni per la ricezione degli aggiornamenti delle funzionalità di Windows Server:
-- **A lungo termine (LTSC) canale di manutenzione**: Si tratta di attività, come di consueto con 5 anni di supporto "Mainstream" e 5 anni di supporto "Extended". Hai la possibilità di eseguire l'aggiornamento alla versione LTSC successiva ogni 2-3 anni, come supportato negli ultimi 20 anni.
-- **Canale semestrale (SAC)** : Questo è un beneficio Software Assurance e si è completamente supportato nell'ambiente di produzione. La differenza è che è supportato per 18 mesi e sarà disponibile una nuova versione ogni sei mesi.
+- **Long-Term Servicing Channel (LTSC)** : si tratta di un'opzione business, come al solito con 5 anni di supporto Mainstream e 5 anni di supporto Extended. Hai la possibilità di eseguire l'aggiornamento alla versione LTSC successiva ogni 2-3 anni, come supportato negli ultimi 20 anni.
+- **Canale semestrale (SAC)** : si tratta di un vantaggio di Software Assurance completamente supportato in ambienti di produzione. La differenza è che è supportato per 18 mesi e sarà disponibile una nuova versione ogni sei mesi.
 
 I canali di rilascio sono riassunti nella tabella seguente.
 
@@ -40,7 +40,7 @@ I canali di rilascio sono riassunti nella tabella seguente.
 | Disponibilità  | Software Assurance o Azure (ospitato nel cloud)  | Tutti i canali |
 | Convenzione di denominazione  | Windows Server, versione AAMM  | Windows Server AAAA |
 
-Per altre informazioni, vedere [confronto dei canali di manutenzione](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Per altre informazioni, vedere [Confronto dei canali di manutenzione](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
 
 ## <a name="application-containers-and-micro-services"></a>Contenitori applicazioni e micro servizi
 
@@ -49,18 +49,18 @@ Per altre informazioni, vedere [confronto dei canali di manutenzione](https://do
     - In Canale semestrale di Windows Server, l'immagine Nano Server come un'immagine del sistema operativo di base del contenitore è ridotta da 390 MB a 80 MB.
 - Contenitori Linux con isolamento di Hyper-V 
 
-Per altre informazioni, vedi [Modifiche apportate a Nano Server nella versione successiva di Windows Server](https://docs.microsoft.com/windows-server/get-started/nano-in-semi-annual-channel) e [Windows Server, versione 1709 per gli sviluppatori](https://blogs.technet.microsoft.com/windowsserver/2017/09/13/sneak-peek-3-windows-server-version-1709-for-developers/).
+Per altre informazioni, vedere [Modifiche apportate a Nano Server nella versione successiva di Windows Server](https://docs.microsoft.com/windows-server/get-started/nano-in-semi-annual-channel) e [Windows Server, versione 1709 per gli sviluppatori](https://blogs.technet.microsoft.com/windowsserver/2017/09/13/sneak-peek-3-windows-server-version-1709-for-developers/).
 
 ## <a name="modern-management"></a>Gestione moderna
 
-Vedi la pagina relativa a [Honolulu](https://docs.microsoft.com/windows-server/manage/honolulu/honolulu) per un'esperienza semplificata, integrata e sicura in grado di consentire agli amministratori IT di gestire scenari di manutenzione, configurazione e risoluzione dei problemi dei componenti di base.  Honolulu include strumenti di ultima generazione con un'interfaccia semplificata, integrata, sicura ed estendibile.
+Vedere la pagina relativa a [Honolulu](https://docs.microsoft.com/windows-server/manage/honolulu/honolulu) per un'esperienza semplificata, integrata e sicura in grado di consentire agli amministratori IT di gestire scenari di manutenzione, configurazione e risoluzione dei problemi dei componenti di base.  Honolulu include strumenti di ultima generazione con un'interfaccia semplificata, integrata, sicura ed estendibile.
 Honolulu include un'esperienza intuitiva completamente nuova per la gestione di PC, istanze di Windows Server, cluster di failover, nonché di un'infrastruttura iperconvergente basata su spazi di archiviazione diretti, riducendo i costi operativi.
 
 ## <a name="compute"></a>Calcolo
 
-**Contenitore di nano e contenitore di Server Core**: In primo luogo, questa versione è su come favorire l'innovazione delle applicazioni. Nano Server o Nano come host è obsoleto e sostituito dal contenitore Nano, ovvero Nano eseguito come un'immagine del contenitore. 
+**Contenitore Nano e contenitore di Server Core**: i primo luogo, questa versione è su come favorire l'innovazione delle applicazioni. Nano Server o Nano come host è deprecato e sostituito dal contenitore Nano, ovvero Nano eseguito come un'immagine del contenitore. 
 
-Per altre informazioni sui contenitori, vedi [Panoramica delle reti contenitore](https://docs.microsoft.com/windows-server/networking/sdn/technologies/containers/container-networking-overview).
+Per altre informazioni sui contenitori, vedere [Panoramica delle reti contenitore](https://docs.microsoft.com/windows-server/networking/sdn/technologies/containers/container-networking-overview).
 
 L'host **Server Core come contenitore** (e infrastruttura) offre flessibilità, densità e prestazioni migliori per le applicazioni esistenti in un processo di modernizzazione migliori e nuove app sviluppate usando già il modello di cloud.
 
@@ -70,11 +70,11 @@ Il **supporto della memoria della classe di archiviazione per macchine virtuali*
 
 La **memoria persistente virtualizzata (vPMEM, Virtualized Persistent Memory)** è abilitata tramite la creazione di un file VHD (con estensione vhdpmem) su un volume ad accesso diretto in un host, l'aggiunta di un controller vPMEM a una macchina virtuale e l'aggiunta del dispositivo creato (con estensione vhdpmem) a una macchina virtuale. L'uso del file vhdpmem sui volumi ad accesso diretto in un host per eseguire il backup di vPMEM offre flessibilità di allocazione e sfrutta un modello di gestione familiare per l'aggiunta di dischi alle macchine virtuali.
 
-**Archiviazione contenitori, volumi di dati persistenti in volumi condivisi cluster**. In Windows Server, versione 1709, nonché in Windows Server 2016 con gli aggiornamenti più recenti, abbiamo aggiunto il supporto che consente ai contenitori di accedere ai volumi di dati persistenti in volumi condivisi cluster, inclusi i volumi condivisi cluster in Spazi di archiviazione diretta. In questo modo, il contenitore applicazione dispone di accesso permanente al volume, indipendentemente dal nodo cluster su cui è in esecuzione l'istanza del contenitore. Per altre informazioni, vedi la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Archiviazione contenitori, volumi di dati persistenti in volumi condivisi cluster (CSV)** . In Windows Server, versione 1709, nonché in Windows Server 2016 con gli aggiornamenti più recenti, abbiamo aggiunto il supporto che consente ai contenitori di accedere ai volumi di dati persistenti in volumi condivisi cluster, inclusi i volumi condivisi cluster in Spazi di archiviazione diretta. In questo modo, il contenitore applicazione dispone di accesso permanente al volume, indipendentemente dal nodo cluster su cui è in esecuzione l'istanza del contenitore. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Archiviazione contenitori, volumi di dati persistenti con mapping globale SMB**. In Windows Server, versione 1709 abbiamo aggiunto il supporto per il mapping di una condivisione file SMB per una lettera di unità all'interno di un contenitore. Ciò è noto con il nome di mapping globale SMB. Questa unità mappata è quindi accessibile a tutti gli utenti nel server locale in modo che l'I/O del contenitore nel volume di dati possa passare dall'unità montata alla condivisione di file sottostante. Per altre informazioni, vedi la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Archiviazione contenitori, volumi di dati persistenti con mapping globale SMB**. In Windows Server, versione 1709 abbiamo aggiunto il supporto per il mapping di una condivisione file SMB per una lettera di unità all'interno di un contenitore. Ciò è noto con il nome di mapping globale SMB. Questa unità mappata è quindi accessibile a tutti gli utenti nel server locale in modo che l'I/O del contenitore nel volume di dati possa passare dall'unità montata alla condivisione di file sottostante. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Formato di file di configurazione macchina virtuale (aggiornato)** . È stato aggiunto un ulteriore file (con estensione vmgs) per le macchine virtuali con una versione di configurazione 8.2 e versioni successive. VMGS è l'acronimo di "VM guest" (guest VM) ed è un nuovo file interno che include lo stato del dispositivo che in precedenza faceva parte del file di stato di runtime della macchina virtuale.
+**Formato di file di configurazione della macchina virtuale (aggiornato)** . È stato aggiunto un ulteriore file (con estensione vmgs) per le macchine virtuali con una versione di configurazione 8.2 e versioni successive. VMGS è l'acronimo di "VM guest" (guest VM) ed è un nuovo file interno che include lo stato del dispositivo che in precedenza faceva parte del file di stato di runtime della macchina virtuale.
 
 ## <a name="security-and-assurance"></a>Sicurezza e controllo
 
@@ -84,67 +84,67 @@ Il **servizio Sorveglianza host (HGS)** come macchina virtuale schermata è abil
 
 **Linux come una macchina virtuale schermata** è ora supportato.
 
-Per altre informazioni, vedi la [panoramica dell'infrastruttura sorvegliata e delle macchine virtuali schermate](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms).
+Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e delle macchine virtuali schermate](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms).
 
 **Vulnerabilità SMBLoris**: è stato risolto il problema noto come "SMBLoris", che potrebbe causare un attacco Denial of Service.
 
 ## <a name="storage"></a>Archiviazione
 
-**Replica archiviazione**: La protezione di ripristino di emergenza aggiunta da Replica archiviazione in Windows Server 2016 è stato espanso per includere:
+**Replica archiviazione**: la protezione del ripristino di emergenza aggiunta tramite Replica di archiviazione in Windows Server 2016 è ora estesa per includere:
 - **Failover di test**: l'opzione per montare l'archiviazione di destinazione è ora possibile tramite la funzionalità di failover di test. È possibile montare temporaneamente uno snapshot dell'archiviazione replicata nei nodi di destinazione a scopo di test o backup.  Per altre informazioni, vedi [Domande frequenti su Replica di archiviazione](https://aka.ms/srfaq). 
-- **Progetto supportano Honolulu**: Supporto per la gestione con interfaccia grafica della replica al server è ora disponibile nel progetto Honolulu. In questo modo, non è più necessario usare PowerShell per gestire un carico di lavoro di protezione in caso di emergenza.
+- **Supporto di Honolulu**: il supporto per la gestione grafica della replica da server a server è ora disponibile in Honolulu. In questo modo, non è più necessario usare PowerShell per gestire un carico di lavoro di protezione in caso di emergenza.
 
 **SMB**: 
-- **Rimozione dell'autenticazione guest e SMB1**: Windows Server, versione 1709 non installa più SMB1 client e server per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggi l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **Rimozione dell'autenticazione guest e SMB1**: Windows Server, versione 1709 non esegue più l'installazione del server e del client SMB1 per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggere l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
-- **Compatibilità e sicurezza SMB2/SMB3**: Sono stati aggiunti ulteriori opzioni per la sicurezza e compatibilità tra applicazioni, inclusa la possibilità di disabilitare i blocchi opportunistici in SMB2 + per le applicazioni legacy, oltre a richiedere la firma o crittografia in base alla connessione da un client. Per altre informazioni, consulta la guida del modulo SMBShare PowerShell.
+- **Compatibilità e sicurezza SMB2/SMB3**: sono state aggiunte ulteriori opzioni per la compatibilità delle applicazioni e la sicurezza, inclusa la possibilità di disabilitare oplock in SMB2+ per le applicazioni legacy e di richiedere la firma o codifica per ogni connessione da un client. Per altre informazioni, consultare la guida del modulo SMBShare PowerShell.
 
 **Deduplicazione dati**: 
-- **A questo punto la deduplicazione dati supporta ReFS**: È non è più necessario scegliere tra i vantaggi di un sistema moderno file con ReFS e deduplicazione dati: a questo punto, è possibile abilitare la deduplicazione dei dati ogni volta che è possibile abilitare ReFS. Ciò comporta un aumento dell'efficienza di archiviazione di oltre il 95% con ReFS.
-- **DataPort API per il traffico in ingresso/uscita ottimizzato per i volumi deduplicati**: Gli sviluppatori possono ora sfruttare le conoscenze cluster in modo efficiente e ha su come archiviare i dati in modo efficiente per spostare dati tra i volumi, i server, la deduplicazione dei dati.
+- **Deduplicazione dati supporta ora ReFS**: non è più necessario scegliere tra i vantaggi di un file system moderno con ReFS e Deduplicazione dati. È ora possibile abilitare Deduplicazione dati ovunque sia possibile abilitare ReFS. Ciò comporta un aumento dell'efficienza di archiviazione di oltre il 95% con ReFS.
+- **API DataPort per traffico in ingresso/uscita ottimizzato ai volumi deduplicati**: gli sviluppatori possono ora sfruttare le informazioni di cui dispone Deduplicazione dati su come archiviare dati in modo efficiente per spostarli tra server, volumi e cluster in modo efficiente.
 
 ## <a name="remote-desktop-services-rds"></a>Servizi Desktop remoto (RDS)
 
-**Servizi Desktop remoto è integrato con Azure AD**, in modo da consentire ai clienti di sfruttare i criteri di accesso condizionale, l'autenticazione a più fattori, l'autenticazione integrata con altre app SaaS utilizzando Azure AD e altro ancora. Per altre informazioni, vedi l'articolo relativo all'[integrazione di Azure AD Domain Services con la distribuzione di Servizi Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+**Servizi Desktop remoto è integrato con Azure AD**, in modo da consentire ai clienti di sfruttare i criteri di accesso condizionale, l'autenticazione a più fattori, l'autenticazione integrata con altre app SaaS utilizzando Azure AD e altro ancora. Per altre informazioni, vedere l'articolo relativo all'[integrazione di Azure AD Domain Services con la distribuzione di Servizi Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 
 >[!TIP]
->Per un assaggio altri interessanti novità in arrivo per Servizi Desktop remoto, vedere [Servizi Desktop remoto: Aggiornamenti e le innovazioni imminenti](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/)
+>Per dare un'occhiata in anteprima alle altre straordinarie modifiche in arrivo per Servizi Desktop remoto, vedere [Servizi Desktop remoto: aggiornamenti e innovazioni future](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/)
 
 ## <a name="networking"></a>Rete
 
-La **mesh di routing di Docker** è supportata. La mesh routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedi la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
+La **mesh di routing di Docker** è supportata. La mesh routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedere la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
 
-**Nuove funzionalità per Docker** sono disponibili. Per altre informazioni, vedi la pagina relativa a [interessanti novità per Docker con Windows Server 1709](https://blog.docker.com/2017/09/docker-windows-server-1709/).
+**Nuove funzionalità per Docker** sono disponibili. Per altre informazioni, vedere la pagina relativa a [interessanti novità per Docker con Windows Server 1709](https://blog.docker.com/2017/09/docker-windows-server-1709/).
 
-**Requisiti di rete alla parità con Linux per Kubernetes Windows**: Windows è ora coerente con Linux in termini di funzionalità di rete. I clienti possono distribuire cluster Kubernetes con sistemi operativi misti in qualsiasi ambiente, inclusi Azure, in locale e in stack cloud di terzi con le stesse topologie e primitive di rete supportate su Linux, senza la necessità di eventuali soluzioni alternative o le estensioni del commutatore.
+**Reti di Windows alla parità con Linux per Kubernetes**: Windows è ora alla pari con Linux in termini di reti. I clienti possono distribuire cluster Kubernetes con sistemi operativi misti in qualsiasi ambiente, inclusi Azure, in locale e in stack cloud di terzi con le stesse topologie e primitive di rete supportate su Linux, senza la necessità di eventuali soluzioni alternative o le estensioni del commutatore.
 
-**Stack di rete core**: Diverse funzionalità dello stack di rete core sono state migliorate. Per altre informazioni su queste funzionalità, vedi la pagina relativa alle [funzionalità dello stack di rete core in Windows 10 Creators Update](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/).
-- **TCP Fast Open (failover di test)** : Per ottimizzare il processo di handshake a 3 TCP è stato aggiunto il supporto per failover di test. TFO definisce un cookie TFO sicuro alla prima connessione tramite un handshake a 3 vie standard.  Le connessioni successive allo stesso server utilizzano il cookie TFO anziché un handshake a 3 vie per connettersi con un tempo di round trip pari a zero.
-- **CUBIC**: Implementazione nativa Windows sperimentale di CUBI, è disponibile un algoritmo di controllo della congestione TCP. I comandi seguenti consentono rispettivamente di abilitare o disabilitare CUBIC.
+**Stack di rete core**: sono state migliorate numerose funzionalità dello stack di rete core. Per altre informazioni su queste funzionalità, vedere la pagina relativa alle [funzionalità dello stack di rete core in Windows 10 Creators Update](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/).
+- **TCP Fast Open (TFO)** : è stato aggiunto il supporto per TFO al fine di ottimizzare il processo di handshake a 3 vie TCP. TFO definisce un cookie TFO sicuro alla prima connessione tramite un handshake a 3 vie standard.  Le connessioni successive allo stesso server utilizzano il cookie TFO anziché un handshake a 3 vie per connettersi con un tempo di round trip pari a zero.
+- **CUBIC**: è disponibile un'implementazione nativa di Windows sperimentale di CUBIC, un algoritmo di controllo della congestione TCP. I comandi seguenti consentono rispettivamente di abilitare o disabilitare CUBIC.
 
     ```
     netsh int tcp set supplemental template=internet congestionprovider=cubic
     netsh int tcp set supplemental template=internet congestionprovider=compound
     ```
 
-- **Ricezione finestra Autotuning**: Per la logica autotuning TCP calcola il parametro "finestra di ricezione" di una connessione TCP.  Le connessioni ad alta velocità e/o a ritardo lungo richiedono questo algoritmo per ottenere caratteristiche prestazioni ottimali.  In questa versione, l'algoritmo è modificato in modo da usare una funzione a gradino per la convergenza su un valore di finestra di ricezione massimo per una determinata connessione.
-- **Statistiche TCP API**: È stata introdotta una nuova API denominata SIO_TCP_INFO.  SIO_TCP_INFO consente agli sviluppatori di eseguire query di informazioni avanzate sulle singole connessioni TCP utilizzando un'opzione socket.
-- **IPv6**: Sono disponibili numerosi miglioramenti relativi in IPv6 in questa versione.
-  - **6106 RFC** supportano: 6106 RFC che consente la configurazione DNS tramite annunci router (RAs). Per abilitare o disabilitare il supporto di RFC 6106, puoi utilizzare il comando seguente:
+- **Regolazione automatica della finestra di ricezione**: la logica di regolazione automatica TCP calcola il parametro della "finestra di ricezione" di una connessione TCP.  Le connessioni ad alta velocità e/o a ritardo lungo richiedono questo algoritmo per ottenere caratteristiche prestazioni ottimali.  In questa versione, l'algoritmo è modificato in modo da usare una funzione a gradino per la convergenza su un valore di finestra di ricezione massimo per una determinata connessione.
+- **API statistiche TCP**: è stata introdotta una nuova API denominata SIO_TCP_INFO.  SIO_TCP_INFO consente agli sviluppatori di eseguire query di informazioni avanzate sulle singole connessioni TCP utilizzando un'opzione socket.
+- **IPv6**: in questo rilascio sono disponibili numerosi miglioramenti in IPv6.
+  - Supporto di **RFC 6106**: RFC 6106 consente la configurazione DNS tramite annunci router (RA). Per abilitare o disabilitare il supporto di RFC 6106, puoi utilizzare il comando seguente:
 
     ```
     netsh int ipv6 set interface <ifindex> rabaseddnsconfig=<enabled | disabled>
     ```
 
-  - **Flusso di etichette**: A partire da Creators Update, in uscita TCP e UDP pacchetti su IPv6 abbiano questo campo impostato su un hash di 5 tuple (IP Src, Dst IP, porta Src, porta Dst).  In questo modo, il bilanciamento del carico o la classificazione del flusso è più efficiente per i data center solo IPv6. Per abilitare le etichette di flusso:
+  - **Etichette di flusso**: a partire da Creators Update, questo campo è impostato su un hash a 5 tuple (IP origine, IP destinazione, porta origine, porta destinazione) per i pacchetti TCP e UDP in uscita su IPv6.  In questo modo, il bilanciamento del carico o la classificazione del flusso è più efficiente per i data center solo IPv6. Per abilitare le etichette di flusso:
 
     ```
     netsh int ipv6 set flowlabel=[disabled|enabled] (enabled by default)
     netsh int ipv6 set global flowlabel=<enabled | disabled>
     ```
 
-  - **ISATAP e 6to4**: Come passo aggiuntivo per deprecation futuri, Creators Update avrà queste tecnologie disabilitate per impostazione predefinita.
-- **Rilevamento Dead Gateway (DGD)** : L'algoritmo DGD passa automaticamente le connessioni su a un altro gateway quando il gateway corrente non è raggiungibile. In questo rilascio l'algoritmo è stato migliorato per eseguire di nuovo il probe dell'ambiente di rete periodicamente.
+  - **ISATAP e 6to4**: in Creators Update queste tecnologie sono disabilitate per impostazione predefinita, visto che saranno deprecate in futuro.
+- **Rilevamento Dead Gateway (DGD)** : l'algoritmo di rilevamento Dead Gateway esegue automaticamente la transizione delle connessioni a un altro gateway quando il gateway corrente non è raggiungibile. In questo rilascio l'algoritmo è stato migliorato per eseguire di nuovo il probe dell'ambiente di rete periodicamente.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) è un cmdlet incorporato in Windows PowerShell che esegue un'ampia gamma di diagnostica di rete.  In questa versione abbiamo migliorato il cmdlet per fornire informazioni dettagliate sulla selezione delle route e sulla selezione dell'indirizzo di origine.
 
 **SDN (Software Defined Networking)**
