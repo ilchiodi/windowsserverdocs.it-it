@@ -15,65 +15,65 @@ ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66804945"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Introduzione a Desktop remoto su Mac
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
 
-È possibile usare il client Desktop remoto per Mac per lavorare con le app, risorse e desktop Windows dal computer Mac. Usare le informazioni seguenti per iniziare - e consultare il [domande frequenti su](remote-desktop-client-faq.md) se hai domande.
+Puoi eseguire il client Desktop remoto per Mac per utilizzare desktop, risorse e app di Windows dal computer Mac. Per iniziare, usa le informazioni seguenti e, se hai dubbi, consulta le [domande frequenti](remote-desktop-client-faq.md).
 
 >[!NOTE]
-> - Conoscere le nuove versioni per i client macOS? Scopri [novità di Desktop remoto su Mac?](mac-whatsnew.md)
-> - Viene eseguito il client Mac nei computer che eseguono macOS 10.10 e versioni successive.
-> - Le informazioni in questo articolo si applicano principalmente per la versione completa del client Mac - la versione disponibile in Mac App Store. Provare le nuove funzionalità, scaricare l'app di anteprima di seguito: [note sulla versione di client beta](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
+> - Se vuoi conoscere le nuove versioni per il client macOS, vedi [Novità di Desktop remoto in Mac](mac-whatsnew.md).
+> - Il client Mac viene eseguito in computer con macOS 10.10 e versioni successive.
+> - Le informazioni in questo articolo si applicano principalmente alla versione completa del client Mac, ovvero la versione disponibile in Mac App Store. Prova le nuove funzionalità scaricando da qui l'app di anteprima: [note sulla versione beta del client](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
 
 ## <a name="get-the-remote-desktop-client"></a>Ottenere il client Desktop remoto
-Seguire questi passaggi per iniziare a usare Desktop remoto nel Mac:
+Per iniziare a usare Desktop remoto nel computer Mac, segui questi passaggi:
 
 1. Scaricare il client di Desktop remoto Microsoft dal [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
-2. [Configurare il PC per accettare le connessioni remote](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). (Se si ignora questo passaggio, è possibile connettersi al PC.)
-3. Aggiungere una connessione Desktop remoto o una risorsa remota. Si usa una connessione per connettersi direttamente a un PC Windows e una risorsa remota. utilizzare un programma RemoteApp, desktop basati su sessione o un desktop virtuale pubblicato locale utilizzando Connessione RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
+2. [Configura il PC per accettare le connessioni remote](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). Se ignori questo passaggio, non puoi connetterti al PC.
+3. Aggiungi una connessione Desktop remoto o una risorsa remota. Una connessione consente di connettersi direttamente a un PC Windows, mentre una risorsa remota consente di usare un programma RemoteApp, un desktop basato su sessione o un desktop virtuale pubblicato in locale usando connessioni RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
 
-## <a name="what-about-the-mac-beta-client"></a>Per quanto riguarda il client per Mac versione beta?
-Viene testato nuove funzionalità nel nostro canale di anteprima in HockeyApp. Necessario per l'estrazione? Passare a [Desktop remoto Microsoft per Mac](https://go.microsoft.com/fwlink/?LinkID=619698) e fare clic su **scaricare**. Non è necessario creare un account o l'accesso a HockeyApp per scaricare il client beta.
+## <a name="what-about-the-mac-beta-client"></a>Informazioni sulla versione beta del client Mac
+Stiamo testando nuove funzionalità nel canale di anteprima in HockeyApp. Per dare un'occhiata, passa a [Microsoft Remote Desktop for Mac](https://go.microsoft.com/fwlink/?LinkID=619698) e fai clic su **Download** (Scarica). Non devi creare un account o accedere a HockeyApp per scaricare la versione beta del client.
 
-Se hai già il client, è possibile cercare gli aggiornamenti per assicurarsi di che aver la versione più recente. Nel client beta, fare clic su **Microsoft Remote Desktop Beta** nella parte superiore, quindi fare clic su **Controlla aggiornamenti**. 
+Se hai già il client, puoi verificare la disponibilità di aggiornamenti per assicurarti di usare la versione più recente. Nel client beta, fare clic su **Microsoft Remote Desktop Beta** nella parte superiore, quindi fare clic su **Controlla aggiornamenti**. 
 
 ## <a name="add-a-remote-desktop-connection"></a>Aggiungere una connessione Desktop remoto
-Per creare una connessione desktop remoto:
+Per creare una connessione Desktop remoto:
 
-1. Nel Centro connessioni, fare clic su **+** , quindi fare clic su **Desktop**.
+1. In Connection Center (Centro connessioni) fai clic su **+** e quindi su **Desktop**.
 2. Immettere le informazioni seguenti:
-   - **Nome PC** -il nome del computer.
-      - Può trattarsi di un nome di computer Windows (disponibili nel **sistema** impostazioni), un nome di dominio o un indirizzo IP.
-      - È anche possibile aggiungere informazioni sulla porta alla fine di questo nome, ad esempio *MyDesktop:3389*.
-   - **Account utente** -aggiungere l'account utente usato per accedere al computer remoto.
-     - Per Active Directory (AD) aggiunti a un computer o account locali, usare uno dei seguenti formati: *user_name*, *DOMINIO\nome_utente.* , o <em>user_name@domain.com</em>.
-     - Per Azure Active Directory (AAD) unita in join i computer, usare uno dei formati seguenti: *AzureAD\user_name* oppure <em>AzureAD\user_name@domain.com</em>.
-     - È anche possibile scegliere se richiedere una password.
-     - Quando si gestiscono più account utente con lo stesso nome utente, impostare un nome descrittivo per distinguere gli account.
-     - Gestire gli account utente salvato nelle preferenze dell'app. 
+   - **PC name** (Nome PC): nome del computer.
+      - Puoi usare il nome di un computer Windows (individuabile nelle impostazioni di **sistema**), un nome di dominio o un indirizzo IP.
+      - Puoi anche aggiungere informazioni sulla porta alla fine del nome, ad esempio *MyDesktop:3389*.
+   - **User Account** (Account utente): account utente usato per accedere al PC remoto.
+     - Per gli account locali o i computer aggiunti ad Active Directory (AD), usa uno dei formati seguenti: *user_name*, *domain\user_name* oppure <em>user_name@domain.com</em>.
+     - Per i computer aggiunti ad Azure Active Directory (AAD), usa uno dei formati seguenti: *AzureAD\user_name* oppure <em>AzureAD\user_name@domain.com</em>.
+     - Puoi anche scegliere se richiedere una password.
+     - Quando gestisci più account utente con lo stesso nome utente, imposta un nome descrittivo per distinguere gli account.
+     - Gestisci gli account utente salvati nelle preferenze dell'app. 
 
-3. È anche possibile impostare queste impostazioni facoltative per la connessione:
+3. Puoi anche definire queste impostazioni facoltative per la connessione:
    - Impostare un nome descrittivo 
-   - Aggiungere un Gateway
+   - Aggiungere un gateway
    - Impostare l'output audio
-   - Scambia i pulsanti del mouse
+   - Scambiare i pulsanti del mouse
    - Abilitare la modalità di amministrazione
-   - Reindirizzamento cartelle locali in una sessione remota
-   - Inoltro delle stampanti locali
-   - Inoltro Smart card
-4. Fare clic su **Salva**.
+   - Reindirizzare le cartelle locali in una sessione remota
+   - Inoltrare le stampanti locali
+   - Inoltrare le smart card
+4. Fare clic su **Save**.
 
-Per avviare la connessione, semplicemente fare doppio clic. Lo stesso vale per le risorse remote.
+Per avviare la connessione, fai semplicemente doppio clic su di essa. Usa la stessa modalità di selezione per le risorse remote.
 
 ### <a name="export-and-import-connections"></a>Esportare e importare connessioni
-È possibile esportare una definizione della connessione desktop remoto e usarla in un altro dispositivo. Desktop remoto vengono salvati in separato. File RDP.
+Puoi esportare una definizione della connessione Desktop remoto e usarla in un altro dispositivo. Desktop remoto vengono salvati in separato. File RDP.
 
 1. In Centro connessioni, fare clic sul desktop remoto.
 2. Fare clic su **esportare**.
@@ -82,38 +82,38 @@ Per avviare la connessione, semplicemente fare doppio clic. Lo stesso vale per l
 
 Utilizzare la procedura seguente per importare un desktop remoto. File con estensione RDP.
 
-1. Nella barra dei menu, fare clic su **File** > **importazione**.
+1. Nella barra dei menu fai clic su **File** > **Import** (File > Importa).
 2. Individuare il. File con estensione RDP.
 3. Fare clic su **Apri**.
 
-## <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota.
+## <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota
 Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop virtuali pubblicati tramite connessione RemoteApp e Desktop.
 
-- L'URL viene visualizzato il collegamento al server Accesso Web desktop remoto che consente di accedere a connessione RemoteApp e Desktop.
-- Sono elencati i configurato Connessione RemoteApp e Desktop.
+- L'URL visualizza il collegamento al server Accesso Web Desktop remoto che consente di accedere alle connessioni RemoteApp e Desktop.
+- Vengono elencate le connessioni RemoteApp e Desktop configurate.
 
 Per aggiungere una risorsa remota:
 
-1. Nella fare clic su Centro connessioni **+** , quindi fare clic su **aggiungere risorse Remote**. 
+1. In Connection Center (Centro connessioni) fai clic su **+** e quindi su **Add Remote Resources** (Aggiungi risorse remote). 
 2. Immettere le informazioni per la risorsa remota:
    - **URL del feed** -l'URL del server Accesso Web desktop remoto. È inoltre possibile immettere l'account di posta elettronica aziendale in questo campo: in questo modo il client per cercare il Server di accesso Web desktop remoto associato l'indirizzo di posta elettronica.
    - **Nome utente** -il nome utente da utilizzare per il server Accesso Web desktop remoto si è connessi.
    - **Password** -la password da utilizzare per il server Accesso Web desktop remoto si è connessi.
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
 
 Verranno visualizzate nel Centro connessioni di risorse remote.
 
 
-## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a un Gateway Desktop remoto per accedere alle risorse interne
+## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a un gateway Desktop remoto per accedere alle risorse interne
 
-Gateway Desktop remoto (Gateway Desktop remoto) consente di connettersi a un computer remoto in una rete aziendale da qualsiasi posizione su Internet. È possibile creare e gestire i gateway nelle preferenze dell'app o durante la configurazione di una nuova connessione di desktop.
+Un gateway Desktop remoto consente di stabilire la connessione a un computer remoto in una rete aziendale da qualsiasi posizione in Internet. Puoi creare e gestire i gateway nelle preferenze dell'app o durante la configurazione di una nuova connessione desktop.
 
-Per configurare un nuovo gateway nelle preferenze:
+Per impostare un nuovo gateway nelle preferenze:
 
-1. Nel Centro connessioni, fare clic su **Preferenze > gateway**. 
-2. Scegliere il **+** nella parte inferiore della tabella immettere le informazioni seguenti:
-   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Può trattarsi di un nome di computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1: 443**).
+1. In Connection Center (Centro connessioni) fai clic su **Preferences > Gateway** (Preferenze > Gateway). 
+2. Seleziona il pulsante **+** nella parte inferiore della tabella e immetti le informazioni seguenti:
+   - **Nome del server** : il nome del computer di cui si desidera utilizzare come gateway. Puoi usare il nome di un computer Windows, un nome di dominio Internet o un indirizzo IP. Puoi anche aggiungere informazioni sulla porta al nome del server (ad esempio: **RDGateway:443** oppure **10.0.0.1:443**).
    - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
 
 
@@ -123,12 +123,12 @@ Quando ci si connette a una risorsa remota o desktop, è possibile salvare gli a
 
 Per creare un nuovo account utente:
 
-1. Nel Centro connessioni, fare clic su **le impostazioni** > **account**.
-2. Fare clic su **aggiungere Account utente**.
+1. In Connection Center (Centro connessioni) fai clic su **Settings** > **Accounts** (Impostazioni > Account).
+2. Fai clic su **Add User Account** (Aggiungi account utente).
 3. Immettere le informazioni seguenti:
-   - **Nome utente** -il nome dell'utente da salvare per l'utilizzo con una connessione remota. È possibile immettere il nome utente in uno dei seguenti formati: nome_utente, DOMINIO\nome_utente., o user_name@domain.com.
+   - **Nome utente** -il nome dell'utente da salvare per l'utilizzo con una connessione remota. Puoi immettere il nome utente in uno dei formati seguenti: user_name, domain\user_name oppure user_name@domain.com.
    - **Password** -la password per l'utente specificato. Ogni account utente che si desidera salvare da utilizzare per le connessioni remote deve avere una password associata.
-   - **Nome descrittivo** : se si usa lo stesso account utente con password diverse, impostare un nome descrittivo per distinguere gli account utente.
+   - **Friendly Name** (Nome descrittivo): se stai usando lo stesso account utente con password diverse, imposta un nome descrittivo per distinguere gli account utente.
 4. Toccare **salvare**, e quindi toccare **impostazioni**.
 
 ## <a name="customize-your-display-resolution"></a>Personalizzare la risoluzione dello schermo
@@ -141,25 +141,25 @@ Per creare un nuovo account utente:
 
 Per eliminare la risoluzione, selezionarlo e quindi fare clic su **-** .
 
-**Consente di visualizzare deve contenere spazi separati** se è in esecuzione Mac OS X 10.9 e disabilitati **consente di visualizzare deve contenere spazi separati** in Mavericks (**preferenze di sistema > Mission Control**), è necessario configurare Questa impostazione del client di desktop remoto con la stessa opzione.
+**Displays have separate spaces** (Schermi con spazi separati). Se usi Mac OS X 10.9 e hai disabilitato l'opzione **Displays have separate spaces** (Schermi con spazi separati) in Mavericks (**System Preferences > Mission Control** (Preferenze di sistema > Controllo missione) devi configurare questa impostazione nel client Desktop remoto con la stessa opzione.
 
 ### <a name="drive-redirection-for-remote-resources"></a>Reindirizzamento delle unità per le risorse remote
-Il reindirizzamento delle unità è supportata per le risorse remote, in modo che sia possibile salvare i file creati con un'applicazione remota localmente al Mac. La cartella reindirizzata è sempre la home directory visualizzata come un'unità di rete nella sessione remota.
+Il reindirizzamento delle unità è supportato per le risorse remote e consente di salvare localmente nel computer Mac i file creati con un'applicazione remota. La cartella reindirizzata è sempre la home directory visualizzata come un'unità di rete nella sessione remota.
 
 > [!NOTE]
-> Per usare questa funzionalità, l'amministratore deve impostare le impostazioni appropriate nel server.
+> Per usare questa funzionalità, l'amministratore deve definire le impostazioni appropriate nel server.
 
 
-## <a name="use-a-keyboard-in-a-remote-session"></a>Utilizzare una tastiera in una sessione remota
+## <a name="use-a-keyboard-in-a-remote-session"></a>Usare una tastiera in una sessione remota
 
-Layout di tastiera Mac differiscono dal layout di tastiera di Windows. 
+I layout di tastiera Mac differiscono dai layout di tastiera Windows. 
 
-- Il tasto di comando sulla tastiera Mac è uguale alla chiave di Windows.
-- Per eseguire azioni che usano il pulsante di comando nel computer Mac, è necessario usare il pulsante di controllo in Windows (ad esempio: Copia = Ctrl + C).
-- I tasti funzione possono essere attivati nella sessione facendo inoltre premendo il tasto FN (ad esempio: FN + F1).
-- Il tasto Alt a destra della barra spaziatrice sulla tastiera Mac è uguale al tasto Alt destro Gr Alt in Windows.
+- Il tasto COMANDO sulla tastiera Mac corrisponde al tasto WINDOWS.
+- Per eseguire le azioni che usano il tasto COMANDO in Mac, devi usare il tasto CTRL di Windows (ad esempio: Copia = CTRL+C).
+- I tasti funzione possono essere attivati durante la sessione premendo anche il tasto FN (ad esempio: FN+F1).
+- Il tasto ALT a destra della barra spaziatrice sulla tastiera Mac corrisponde al tasto ALTGR/ALT di destra in Windows.
 
-Per impostazione predefinita, la sessione remota utilizzerà le stesse impostazioni locali della tastiera come sistema operativo su cui viene eseguito il client. (Se il Mac sia in esecuzione un en-us del sistema operativo, che verrà usato per le sessioni remote anche. Se le impostazioni locali del sistema operativo della tastiera non viene utilizzata, controllare la tastiera impostazione nel computer remoto e modificare l'impostazione manualmente. Vedere le [domande frequenti sul Client Desktop remoto](remote-desktop-client-faq.md) per altre informazioni su tastiere e le impostazioni locali.
+Per impostazione predefinita, la sessione remota userà le stesse impostazioni locali della tastiera del sistema operativo su cui viene eseguito il client. Se il Mac esegue un sistema operativo in lingua inglese, questo stesso sistema operativo verrà usato per le sessioni remote. Se le impostazioni locali della tastiera del sistema operativo non vengono usate, controlla l'impostazione della tastiera nel computer remoto e modifica l'impostazione manualmente. Per altre informazioni sulle tastiere e le impostazioni locali, vedi [Domande frequenti sul client Desktop remoto](remote-desktop-client-faq.md).
 
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Supporto per l'autenticazione del plug-in gateway Desktop remoto e l'autorizzazione
@@ -169,7 +169,7 @@ Windows Server 2012 R2 introdotto il supporto per un nuovo metodo di autenticazi
 > [!IMPORTANT]
 > Modelli di autenticazione e autorizzazione personalizzati prima di Windows 8.1 non sono supportati, anche se nell'articolo precedente vengono illustrate tali.
 
-Per altre informazioni su questa funzionalità, consultare [ http://aka.ms/paa-sample ](http://aka.ms/paa-sample).
+Per altre informazioni su questa funzionalità, consulta [http://aka.ms/paa-sample](http://aka.ms/paa-sample).
 
 
 > [!TIP]

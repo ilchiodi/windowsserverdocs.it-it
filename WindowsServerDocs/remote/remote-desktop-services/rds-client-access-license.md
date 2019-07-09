@@ -1,6 +1,6 @@
 ---
-title: La distribuzione di servizi desktop remoto di licenza con licenze di accesso client (CAL)
-description: Panoramica del client di gestione delle licenze in Servizi Desktop remoto.
+title: Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto
+description: Panoramica delle licenze CAL in Servizi Desktop remoto.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,68 +13,67 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2018
 manager: dongill
-ms.openlocfilehash: 6648a52bb4d09725935a2197d6ce6fa6d8cc74a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0254c03396cba69a86eed021319ca2e2483ca625
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853442"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743870"
 ---
-# <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>La distribuzione di servizi desktop remoto di licenza con licenze di accesso client (CAL)
+# <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Ogni utente e dispositivo che si connette a un host sessione Desktop remoto richiede un client access License (CAL). Utilizzare Servizio licenze Desktop remoto per installare, rilasciare e tenere traccia delle licenze CAL Servizi Desktop remoto.  
+Ogni utente e ogni dispositivo che si connette a un host sessione Desktop remoto necessita di una licenza CAL (Client Access License). Usare il servizio licenze Desktop remoto per installare, rilasciare e tenere traccia delle licenze CAL Servizi Desktop remoto.  
 
-Quando un utente o un dispositivo si connette a un server Host sessione Desktop remoto, il server Host sessione Desktop remoto determina se è necessaria una CAL RDS. Il server Host sessione Desktop remoto invia quindi richieste una CAL Servizi Desktop remoto dal server licenze di Desktop remoto. Se una licenza CAL Servizi Desktop remoto appropriato è disponibile da un server licenze, le CAL RDS viene rilasciato al client e il client è in grado di connettersi al server Host sessione Desktop remoto e da lì sul desktop o le app che stai provando a usare.
+Quando un utente o un dispositivo si connette a un server Host sessione Desktop remoto, quest'ultimo determina se è necessaria una licenza CAL Servizi Desktop remoto. Il server Host sessione Desktop remoto richiede quindi una licenza CAL Servizi Desktop remoto al server licenze Desktop remoto. Se in un server licenze è disponibile una licenza CAL Servizi Desktop remoto appropriata, la licenza viene rilasciata al client per consentire la connessione al server Host sessione Desktop remoto e da lì al desktop o alle app che sta tentando di usare.
 
-Anche se non esiste un periodo di prova durante il quale Nessuna licenza server è necessario, dopo il periodo di tolleranza periodo i client debba avere una licenza CAL Servizi Desktop remoto valido emesso da un server licenze prima di essi può accedere a un server Host sessione Desktop remoto.
+Sebbene sia previsto un periodo di prova delle licenze durante il quale non è richiesto alcun server licenze, alla scadenza di tale periodo i client devono disporre di una licenza CAL Servizi Desktop remoto valida e rilasciata da un server licenze prima di poter accedere a un server Host sessione Desktop remoto.
 
-Usare le informazioni seguenti per informazioni sull'uso di licenze CAL di Servizi Desktop remoto e per distribuire e gestire le licenze:
+Usare le informazioni seguenti per apprendere il funzionamento delle licenze CAL di Servizi Desktop remoto e per distribuire e gestire le licenze:
 
-- [Comprendere il modello CAL Servizi Desktop remoto](#understanding-the-cals-model)
-- [Attivare il server licenze](rds-activate-license-server.md)
-- [Installare le licenze CAL Servizi Desktop remoto nel server licenze](rds-install-cals.md)
-- [Tenere traccia delle licenze CAL usate nella distribuzione](rds-track-cals.md)
+- [Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto](#license-your-rds-deployment-with-client-access-licenses-cals)
+  - [Informazioni sul modello CAL](#understanding-the-cals-model)
+  - [Nota sulle versioni CAL](#note-about-cal-versions)
 
-## <a name="understanding-the-cals-model"></a>Informazioni sul modello di licenze CAL
+## <a name="understanding-the-cals-model"></a>Informazioni sul modello CAL
 
-Esistono due tipi di licenze CAL:
+Sono disponibili due tipi di licenze CAL:
 
-- Servizi Desktop remoto licenze CAL Per dispositivo
-- Licenze CAL utente Per
+- Licenze CAL per dispositivo di Servizi Desktop remoto
+- Licenze CAL per utente di Servizi Desktop remoto
 
 Nella tabella seguente vengono descritte le differenze tra i due tipi di licenze CAL:
 
 | Per dispositivo                                                     | Per utente                                                                         |
 |----------------------------------------------------------------|----------------------------------------------------------------------------------|
-| Le licenze CAL sono fisicamente assegnata a ogni dispositivo.                   | CAL Servizi Desktop remoto viene assegnate a un utente di Active Directory.                                 |
+| Le licenze CAL vengono fisicamente assegnate a ogni dispositivo.                   | Le licenze CAL vengono assegnate a un utente di Active Directory.                                 |
 | Le licenze CAL vengono rilevate dal server licenze.                        | Le licenze CAL vengono rilevate dal server licenze.                                          |
-| È possibile tenere le licenze CAL indipendentemente dall'appartenenza ad Active Directory. | Le licenze CAL non possono essere rilevate all'interno di un gruppo di lavoro.                                       |
+| Le licenze CAL possono essere rilevate indipendentemente dall'appartenenza ad Active Directory. | Le licenze CAL non possono essere rilevate all'interno di un gruppo di lavoro.                                       |
 | È possibile revocare fino al 20% delle licenze CAL.                              | Non è possibile revocare le licenze CAL.                                                      |
-| Le licenze CAL temporanea sono valide per 52 – 89 giorni.                       | Non sono disponibili licenze CAL temporanea.                                                |
-| Le licenze CAL non può essere sovrassegnata.                                  | Le licenze CAL possono essere sovrallocati (in violazione del contratto di licenza Desktop remoto). |
+| Le licenze CAL temporanee sono valide per 52-89 giorni.                       | Non sono disponibili licenze CAL temporanee.                                                |
+| Le licenze CAL non possono essere sovrassegnate.                                  | Le licenze CAL possono essere sovrassegnate (in violazione del contratto di licenza Desktop remoto). |
 
-Quando si usa il modello per ogni dispositivo, una licenza temporanea viene generata la prima volta che un dispositivo si connette all'Host sessione Desktop remoto. La seconda volta che il dispositivo si connette, purché il server licenze viene attivato e sono disponibili licenze di accesso client, il server licenze rilascerà una licenza CAL Per dispositivo permanente.
+Quando si usa il modello Per dispositivo, viene rilasciata una licenza temporanea la prima volta che un dispositivo si connette all'host sessione Desktop remoto. Quando il dispositivo si connette per la seconda volta il server licenze rilascerà una licenza CAL permanente per dispositivo di Servizi Desktop remoto, se il server licenze è attivo e se sono disponibili licenze CAL.
 
-Quando si usa il modello per ogni utente, gestione delle licenze non viene applicata e ogni utente viene concessa una licenza per connettersi a un Host sessione Desktop remoto da un numero qualsiasi di dispositivi. Il server licenze emette le licenze da pool CAL disponibile o il pool Over-Used CAL. È compito del programmatore garantire che tutti gli utenti hanno una licenza valida e zero Over-Used CAL Servizi Desktop remoto, in caso contrario, ci si trova in violazione delle condizioni di licenza di Servizi Desktop remoto.
+Quando si usa il modello Per utente, le licenze non vengono applicate e a ogni utente viene concessa una licenza per connettersi a un Host sessione Desktop remoto da qualsiasi dispositivo. Il server licenze rilascia le licenze da un pool di licenze CAL disponibili o da un pool di licenze CAL utilizzate più volte. È compito degli utenti assicurarsi che tutti dispongano di una licenza valida e che nessuna licenza CAL venga utilizzata più volte, in caso contrario si violano le condizioni di licenza di Servizi Desktop remoto.
 
-Per assicurarsi che sia in conformità con le condizioni di licenza di servizi desktop remoto, tenere traccia del numero di CAL Per utente usate nell'organizzazione e assicurarsi di avere un numero sufficiente licenze CAL Per utente installato nel server licenze per tutti gli utenti.
+Per assicurarsi di essere conformi alle condizioni di licenza di Servizi Desktop remoto, tenere traccia del numero di licenze CAL per utente di Servizi Desktop remoto usate nell'organizzazione e assicurarsi di disporre di un numero sufficiente di licenze CAL per utente installate nel server licenze per tutti gli utenti.
 
-È possibile utilizzare Gestione licenze Desktop remoto per rilevare e generare rapporti su CAL Per utente.
+È possibile usare Gestione licenze Desktop remoto per tenere traccia e generare report sulle licenze CAL per utente di Servizi Desktop remoto.
 
 ## <a name="note-about-cal-versions"></a>Nota sulle versioni CAL
 
-La licenza CAL usate da utenti o dispositivi deve corrispondere alla versione di Windows Server che l'utente o il dispositivo si connette a. È possibile usare le licenze CAL precedente per accedere alle versioni più recenti di Windows Server, ma è possibile usare le licenze CAL più recente per accedere alle versioni precedenti di Windows Server.
+La licenza CAL usata da utenti o dispositivi deve corrispondere alla versione di Windows Server a cui si connette l'utente o il dispositivo. È possibile usare una licenza CAL precedente per accedere alle versioni più recenti di Windows Server, ma non è possibile usare una licenza CAL più recente per accedere alle versioni precedenti di Windows Server.
 
-La tabella seguente mostra le licenze CAL compatibili presenti negli host sessione Desktop remoto e gli host di virtualizzazione Desktop remoto.
+La tabella seguente mostra le licenze CAL compatibili con gli host sessione Desktop remoto e con gli host di virtualizzazione Desktop remoto.
 
-|                  |2008 R2 e versioni precedenti CAL|LICENZA CAL 2012|LICENZA CAL 2016|LICENZA CAL 2019|
+|                  |Licenza CAL 2008 R2 e versioni precedenti|Licenza CAL 2012|Licenza CAL 2016|Licenza CAL 2019|
 |---------------------------------|--------|--------|--------|--------|
-| **2008, 2008 R2 server licenze**| Yes    | No     | No     | No     |
-| **server licenze 2012**         | Yes    | Yes    | No     | No     |
-| **Server licenze 2012 R2**      | Yes    | Yes    | No     | No     |
-| **server licenze 2016**         | Yes    | Yes    | Yes    | No     |
-| **server licenze 2019**         | Yes    | Yes    | Yes    | Yes    |
+| **Server licenze 2008, 2008 R2**| Sì    | No     | No     | No     |
+| **Server licenze 2012**         | Sì    | Sì    | No     | No     |
+| **Server licenze 2012 R2**      | Sì    | Sì    | No     | No     |
+| **Server licenze 2016**         | Sì    | Sì    | Sì    | No     |
+| **Server licenze 2019**         | Sì    | Sì    | Sì    | Sì    |
 
-Qualsiasi server licenze di servizi desktop remoto può ospitare le licenze da tutte le versioni precedenti di Servizi Desktop remoto e la versione corrente di Servizi Desktop remoto. Ad esempio, un server licenze di servizi desktop remoto di Windows Server 2016 può ospitare le licenze di tutte le versioni precedenti di servizi desktop remoto, mentre un server licenze di Windows Server 2012 R2 Servizi Desktop remoto può ospitare solo licenze fino a Windows Server 2012 R2.
+Qualsiasi server licenze Servizi Desktop remoto può ospitare licenze da tutte le versioni precedenti di Servizi Desktop remoto e la versione corrente di Servizi Desktop remoto. Ad esempio, un server licenze Servizi Desktop remoto di Windows Server 2016 può ospitare licenze da tutte le versioni precedenti di Servizi Desktop remoto, mentre un server licenze Servizi Desktop remoto di Windows Server 2012 R2 può ospitare solo licenze fino a Windows Server 2012 R2.

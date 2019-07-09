@@ -15,21 +15,21 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 617005fd2d4e63c3cfc11bed28404656b2a81d6e
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66749588"
 ---
-# <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Configurare un'installazione Server Core di Windows Server con Sconfig.cmd
+# <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Configurare un'installazione Server Core di Windows Server 2016 o Windows Server versione 1709 con Sconfig.cmd
 
-> Si applica a: Windows Server (canale semestrale) e Windows Server 2016
+> Si applica a: Windows Server (Canale semestrale) e Windows Server 2016
 
-In Windows Server 2016 e Windows Server versione 1709 puoi usare lo strumento Configurazione server (Sconfig.cmd) per configurare e gestire diversi aspetti comuni delle installazioni Server Core. Per utilizzare questo strumento, è necessario essere membri del gruppo Administrators.
+In Windows Server 2016 e Windows Server versione 1709 puoi usare lo strumento Server Configuration (Sconfig.cmd) per configurare e gestire diversi aspetti comuni delle installazioni Server Core. Per utilizzare questo strumento, è necessario essere membri del gruppo Administrators.
 
-Puoi usare Sconfig.cmd in Server Core e Server con installazioni Esperienza desktop (solo Windows Server 2016).
+Puoi usare Sconfig.cmd nelle installazioni Server Core e Server con Esperienza desktop (solo Windows Server 2016).
 
-## <a name="start-the-server-configuration-tool"></a>Avviare lo strumento Configurazione server
+## <a name="start-the-server-configuration-tool"></a>Avviare lo strumento Server Configuration
 
 1. Passare all'unità di sistema.
 
@@ -39,19 +39,19 @@ Puoi usare Sconfig.cmd in Server Core e Server con installazioni Esperienza desk
 
 ## <a name="domainworkgroup-settings"></a>Impostazioni di dominio/gruppo di lavoro
 
-Le impostazioni di dominio/gruppo di lavoro correnti vengono visualizzate nella schermata predefinita dello strumento Server Configuration. È possibile aggiungere un dominio o un gruppo di lavoro tramite l'accesso di **Domain/Workgroup** pagina delle impostazioni dal menu principale e seguendo le istruzioni visualizzate, fornire le informazioni necessarie.
+Le impostazioni di dominio/gruppo di lavoro correnti vengono visualizzate nella schermata predefinita dello strumento Server Configuration. Per aggiungere il computer a un dominio o a un gruppo di lavoro, accedi alla pagina delle impostazioni **Dominio/Gruppo di lavoro** dal menu principale e segui le istruzioni specificando le informazioni richieste.
 
-Se un utente di dominio non è ancora stato aggiunto al gruppo Administrators locale, sarà possibile apportare modifiche di sistema, ad esempio la modifica del nome del computer con l'utente di dominio. Per aggiungere un utente di dominio al gruppo Administrators locale, eseguire il riavvio del computer. Successivamente, accedere al computer come amministratore locale e seguire i passaggi nel [impostazioni degli amministratori locali](#local-administrator-settings) sezione più avanti in questo articolo.
+Se un utente di dominio non è stato aggiunto al gruppo Administrators locale, non potrai apportare modifiche di sistema, ad esempio modificare il nome del computer, usando tale utente di dominio. Per aggiungere un utente di dominio al gruppo Administrators locale, eseguire il riavvio del computer. Accedi quindi al computer come amministratore locale e segui la procedura descritta nella sezione [Impostazioni degli amministratori locali](#local-administrator-settings) più avanti in questo articolo.
 
 > [!NOTE]
-> Ti viene richiesto di riavviare il server per applicare eventuali modifiche all'appartenenza al dominio o gruppo di lavoro. È tuttavia possibile apportare ulteriori modifiche e riavviare il server dopo averle inserite tutte per evitare di riavviare il server più volte. Per impostazione predefinita, le macchine virtuali in esecuzione vengono salvate automaticamente prima del riavvio del server Hyper-V.
+> Per applicare le modifiche apportate all'appartenenza al dominio o al gruppo di lavoro, devi riavviare il server. È tuttavia possibile apportare ulteriori modifiche e riavviare il server dopo averle inserite tutte per evitare di riavviare il server più volte. Per impostazione predefinita, le macchine virtuali in esecuzione vengono salvate automaticamente prima del riavvio del server Hyper-V.
 
 ## <a name="computer-name-settings"></a>Impostazioni del nome del computer
 
-Il nome del computer corrente viene visualizzato nella schermata predefinita dello strumento Server Configuration. È possibile modificare il nome del computer accedendo il **nome Computer** pagina delle impostazioni dal menu principale e seguendo le istruzioni visualizzate.
+Il nome del computer corrente viene visualizzato nella schermata predefinita dello strumento Server Configuration. Per modificare il nome del computer, accedi alla pagina delle impostazioni **Nome computer** dal menu principale e segui le istruzioni visualizzate.
 
 > [!NOTE]
-> Ti viene richiesto di riavviare il server per applicare eventuali modifiche all'appartenenza al dominio o gruppo di lavoro. È tuttavia possibile apportare ulteriori modifiche e riavviare il server dopo averle inserite tutte per evitare di riavviare il server più volte. Per impostazione predefinita, le macchine virtuali in esecuzione vengono salvate automaticamente prima del riavvio del server Hyper-V.
+> Per applicare le modifiche apportate all'appartenenza al dominio o al gruppo di lavoro, devi riavviare il server. È tuttavia possibile apportare ulteriori modifiche e riavviare il server dopo averle inserite tutte per evitare di riavviare il server più volte. Per impostazione predefinita, le macchine virtuali in esecuzione vengono salvate automaticamente prima del riavvio del server Hyper-V.
 
 ## <a name="local-administrator-settings"></a>Impostazioni degli amministratori locali
 
@@ -68,7 +68,7 @@ Per aggiungere altri utenti al gruppo Administrators locale, utilizzare l'opzion
 
 Le impostazioni correnti di Windows Update vengono visualizzate nella schermata predefinita dello strumento Server Configuration. È possibile configurare il server in modo che utilizzi gli aggiornamenti automatici o manuali con l'opzione di configurazione **Windows Update Settings** del menu principale.
 
-Se si seleziona **Automatic Updates**, il sistema controlla e installa gli aggiornamenti ogni giorno alle 3.00. Le impostazioni avranno effetto immediatamente. Se si seleziona **Manual** , il sistema non verificherà automaticamente la disponibilità di aggiornamenti.
+Se si seleziona **Automatic Updates** , il sistema controlla e installa gli aggiornamenti ogni giorno alle 3.00. Le impostazioni avranno effetto immediatamente. Se si seleziona **Manual** , il sistema non verificherà automaticamente la disponibilità di aggiornamenti.
 
 In qualsiasi momento, è possibile scaricare e installare gli aggiornamenti applicabili tramite l'opzione **Download and Install Updates** del menu principale.
 
@@ -86,7 +86,7 @@ Lo stato corrente delle impostazioni del desktop remoto viene visualizzato nella
 
 ## <a name="date-and-time-settings"></a>Impostazioni di data e ora
 
-È possibile accedere e modificare data e ora le impostazioni tramite l'accesso di **data e ora** opzione del menu principale.
+Puoi accedere alle impostazioni di data e ora e modificarle tramite l'opzione **Data e ora** del menu principale.
 
 ## <a name="telemetry-settings"></a>Impostazioni di telemetria
 
@@ -98,7 +98,7 @@ Questa opzione consente di configurare Attivazione di Windows.
 
 ## <a name="to-enable-remote-management"></a>Per abilitare la gestione remota
 
-È possibile abilitare vari scenari di gestione remota dall'opzione del menu principale **Configure Remote Management**:
+È possibile abilitare vari scenari di gestione remota dall'opzione del menu principale **Configure Remote Management** :
 
 - Gestione remota della console MMC (Microsoft Management Console)
 
@@ -108,8 +108,8 @@ Questa opzione consente di configurare Attivazione di Windows.
 
 ## <a name="to-log-off-restart-or-shut-down-the-server"></a>Per disconnettersi, riavviare o chiudere il server
 
-Per disconnettersi, riavviare o chiudere il server, accedere alla voce di menu corrispondente dal menu principale. Queste opzioni sono disponibili anche i **sicurezza di Windows** menu che è possibile accedere da qualsiasi applicazione in qualsiasi momento premendo CTRL + ALT + CANC.  
+Per disconnettersi, riavviare o chiudere il server, accedere alla voce di menu corrispondente dal menu principale. Queste opzioni sono disponibili anche nel menu **Sicurezza di Windows**, accessibile da qualsiasi applicazione e in qualsiasi momento premendo CTRL+ALT+CANC.  
 
 ## <a name="to-exit-to-the-command-line"></a>Per chiudere la riga di comando
   
-Per chiudere la riga di comando, selezionare l'opzione **Exit to the Command Line** e premere INVIO. Per tornare allo strumento di configurazione del Server, digitare **sconfig. cmd**, quindi premere INVIO.
+Per chiudere la riga di comando, selezionare l'opzione **Exit to the Command Line** e premere INVIO. Per tornare allo strumento Server Configuration, digita **Sconfig.cmd** e quindi premi INVIO.
