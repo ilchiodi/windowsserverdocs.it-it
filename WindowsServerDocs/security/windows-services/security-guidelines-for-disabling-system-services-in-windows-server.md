@@ -1,6 +1,6 @@
 ---
 title: Linee guida sulla sicurezza per i servizi di sistema in Windows Server 2016
-description: Linee guida di sicurezza per la disattivazione dei servizi in Windows Server 2016 con esperienza Desktop
+description: Linee guida sulla sicurezza per la disabilitazione dei servizi in Windows Server 2016 con Esperienza desktop
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: techgroup-security
@@ -11,54 +11,54 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
 ms.openlocfilehash: 1a9496a121fc45df0b788ea56d50db922fd24536
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66749447"
 ---
-## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Materiale sussidiario sulla disabilitazione di servizi di sistema in Windows Server 2016 con esperienza Desktop
+## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Linee guida sulla sicurezza per la disabilitazione dei servizi in Windows Server 2016 con Esperienza desktop
 
 Si applica a: Windows Server 2016
 
-Il sistema operativo Windows include molti servizi di sistema che forniscono importanti funzionalità. Servizi differenti presentano criteri di avvio predefinito diverso: alcuni vengono avviati per impostazione predefinita (automatico), alcuni quando necessario (manuale) e alcuni sono disabilitati per impostazione predefinita e deve essere abilitate in modo esplicito prima che possano eseguire. Questi valori predefiniti sono stati scelti con attenzione per ogni servizio bilanciare prestazioni e funzionalità di sicurezza per i clienti tipici.
+Il sistema operativo Windows include molti servizi di sistema che offrono importanti funzionalità. Servizi diversi presentano criteri di avvio predefiniti diversi: alcuni vengono avviati per impostazione predefinita (modalità automatica), altri quando necessario (modalità manuale), altri ancora sono disabilitati per impostazione predefinita e deve essere abilitati in modo esplicito prima di poter essere eseguiti. Queste impostazioni predefinite sono state scelte con attenzione per ogni servizio al fine di bilanciare prestazioni, funzionalità e sicurezza per i clienti tipici.
 
-Tuttavia, alcuni clienti aziendali può essere preferibile un saldo più incentrato sulla sicurezza per i PC Windows e server, che riduce l'attacco al minimo della superficie di attacco e pertanto può essere opportuno disabilitare completamente tutti i servizi non necessari nelle specifiche ambienti. Per i clienti, Microsoft® consiste nel fornire le istruzioni di accompagnamento relative ai servizi in modo sicuro possono essere disabilitati per questo scopo.
+Alcuni clienti aziendali, tuttavia, potrebbero preferire un approccio più incentrato sulla sicurezza per PC e server Windows, in modo da ridurre al minimo la superficie di attacco, e pertanto potrebbero voler disabilitare completamente tutti i servizi che non sono necessari nei loro ambienti. Per questi clienti, Microsoft® fornisce linee guida che illustrano quali servizi possono essere disabilitati in modo sicuro per questo scopo.
 
-Le linee guida sono solo per Windows Server 2016 con esperienza Desktop (solo se usato in sostituzione del desktop per gli utenti finali). A partire da Windows Server 2019, queste indicazioni sono configurate per impostazione predefinita. Ogni servizio nel sistema è stato categorizzato come indicato di seguito:
+Le linee guida riguardano solo Windows Server 2016 con Esperienza desktop (solo se non usato in sostituzione del desktop per gli utenti finali). A partire da Windows Server 2019, le indicazioni riportate in queste linee guida sono configurate per impostazione predefinita. Ogni servizio del sistema è classificato nel modo seguente:
 
--   **Necessario disabilitare:** Un'organizzazione incentrata sulla protezione preferiranno probabilmente disabilitare questo servizio e rinunciare relativa funzionalità (vedere dettagli aggiuntivi riportato di seguito).
-- **OK per disattivare:** Questo servizio offre funzionalità che è utile per alcuni ma non tutte le aziende e aziende incentrato sulla sicurezza che non usano in modo sicuro possono disabilitarlo.
-- **Non disabilitare:** Se si disabilita questo servizio verrà influire sulle funzionalità essenziali o impedire le funzionalità o ruoli specifici corretto funzionamento. Di conseguenza non deve essere disabilitata.
--  **(Nessuna indicazione):** L'impatto della disattivazione di questi servizi non è stato valutato completamente. Pertanto, la configurazione predefinita di questi servizi non deve essere modificata.
+-   **Opportuno disabilitare:** un'azienda attenta alla sicurezza preferirà probabilmente disabilitare il servizio e rinunciare alla relativa funzionalità (vedi di seguito altri dettagli).
+- **OK disabilitare:** il servizio offre funzionalità utili ad alcune aziende, ma non a tutte, e le aziende attente alla sicurezza che non fanno uso del servizio possono disabilitarlo senza alcun rischio.
+- **Non disabilitare:** la disabilitazione del servizio ha impatto su funzionalità essenziali o impedisce il corretto funzionamento di funzionalità o ruoli specifici. Il servizio non dovrebbe quindi essere disabilitato.
+-  **(Nessuna indicazione):** l'impatto della disabilitazione del servizio non è stato completamente valutato. Pertanto, la configurazione predefinita del servizio non dovrebbe essere modificata.
 
 
-I clienti possono configurare i PC Windows e i server per disabilitare i servizi selezionati usando i modelli di protezione nei loro criteri di gruppo o tramite automazione di PowerShell. In alcuni casi, il materiale sussidiario include specifiche impostazioni di criteri di gruppo che disabilitano la funzionalità del servizio direttamente, come alternativa alla disabilitazione del servizio stesso.
+I clienti possono configurare i propri PC e server Windows in modo da disabilitare determinati servizi usando i modelli di sicurezza nei propri criteri di gruppo oppure tramite l'automazione di PowerShell. In alcuni casi, le linee guida includono specifiche impostazioni di Criteri di gruppo che disabilitano direttamente la funzionalità del servizio, in alternativa alla disabilitazione del servizio stesso.
 
-Microsoft consiglia che i clienti di disabilitare i servizi seguenti e le rispettive attività pianificate in Windows Server 2016 con esperienza Desktop:
+Microsoft consiglia ai clienti di disabilitare i servizi seguenti e le rispettive attività pianificate in Windows Server 2016 con Esperienza desktop:
 
 Servizi: 
-1. Xbox Live Auth Manager
-2. Salva gioco con Xbox Live
+1. Gestione autenticazione Xbox Live
+2. Giochi salvati su Xbox Live
 
 Attività pianificate: 
 1. \Microsoft\XblGameSave\XblGameSaveTask
 2. \Microsoft\XblGameSave\XblGameSaveTaskLogon
 
-(È anche possibile accedere alle informazioni su tutti i servizi descritti in dettaglio in questo articolo, visualizzare il foglio di calcolo di Microsoft Excel associato: [Materiale sussidiario sulla disabilitazione di servizi di sistema in Windows Server 2016 con esperienza Desktop](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx))
+Puoi anche accedere alle informazioni su tutti i servizi descritti in dettaglio in questo articolo visualizzando il foglio di calcolo di Microsoft Excel allegato: [Linee guida sulla sicurezza per la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx)
 
 <br />
 
-### <a name="disabling-services-not-installed-by-default"></a>La disabilitazione dei servizi non è installati per impostazione predefinita
+### <a name="disabling-services-not-installed-by-default"></a>Disabilitazione dei servizi non installati per impostazione predefinita
 
-Microsoft sconsiglia l'applicazione dei criteri per disabilitare i servizi che non sono installati per impostazione predefinita.
--  Il servizio è in genere necessario se è installata la funzionalità. L'installazione del servizio o la funzionalità richiede diritti amministrativi. Non consentire l'installazione delle funzionalità, non l'avvio del servizio.
--  Bloccando il servizio di Microsoft Windows non arresta un amministratore o senza privilegi di amministratore in alcuni casi da installazione di un equivalente di terze parti simile, ad esempio uno con un rischio di sicurezza più elevato.
--  Una linea di base o di benchmark che disabilita un servizio di Windows diverso (ad esempio, W3SVC) fornirà alcuni revisori l'impressione errata che la tecnologia (ad esempio IIS) è intrinsecamente non sicura e non deve essere mai utilizzata.
--  Se la funzionalità (e un servizio) non è installati, verrà aggiunta solo bulk non necessari per la linea di base e di lavoro di verifica.
+Microsoft sconsiglia l'applicazione di criteri per disabilitare i servizi che non vengono installati per impostazione predefinita.
+-  Se la funzionalità viene installata, il servizio è in genere necessario. L'installazione del servizio o della funzionalità richiede diritti amministrativi. Impedire l'installazione delle funzionalità, ma non l'avvio del servizio.
+-  Il blocco del servizio di Microsoft Windows non impedisce a un amministratore (o in alcuni casi a un utente senza privilegi di amministratore) di installare un servizio equivalente di terze parti, anche con un rischio per la sicurezza più elevato.
+-  Uno standard di riferimento o un benchmark che disabilita un servizio di Windows non predefinito (ad esempio, W3SVC) darà ad alcuni revisori l'impressione errata che la tecnologia (ad esempio, IIS) sia intrinsecamente non sicura e non debba mai essere usata.
+-  Se la funzionalità (con il servizio) non viene mai installata, aggiunge semplicemente un carico superfluo allo standard di riferimento e al lavoro di verifica.
 
 <br />
-Per tutti i servizi di sistema indicati in questo documento, le due tabelle seguenti offrono una spiegazione delle colonne e i suggerimenti di Microsoft per l'abilitazione e disabilitazione dei servizi di sistema in Windows Server 2016 con esperienza Desktop: 
+Per tutti i servizi di sistema elencati in questo documento, le due tabelle seguenti offrono una spiegazione delle colonne e dei consigli di Microsoft per l'abilitazione e la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop: 
 
 <br />
 
@@ -67,108 +67,108 @@ Per tutti i servizi di sistema indicati in questo documento, le due tabelle segu
 | | |
 |---|---|
 |**Descrizione del servizio**|   Descrizione del servizio, da sc.exe qdescription.|
-|**Name** |Nome della chiave (interna) del servizio|
-|**Installazione** |Sempre installati: Servizio è in Server Core e Server con esperienza Desktop  <br /> Solo con esperienza Desktop: Servizio in Windows Server 2016 con esperienza Desktop, ma ***non*** in Server Core |
-|**StartType**  |Tipo di avvio in Windows Server 2016|
-|**Raccomandazione** |Raccomandazione Microsoft/consigli sulla disabilitazione di questo servizio in Windows Server 2016 in una distribuzione aziendale tipica e ben gestita e in cui il server non viene utilizzato come una sostituzione del desktop dell'utente finale.|
-|**Commenti** |SPIEGAZIONE aggiuntiva|
+|**Nome** |Nome principale (interno) del servizio|
+|**Installazione** |Sempre installato: il servizio è incluso in Server Core e in Server con Esperienza desktop  <br /> Solo con Esperienza desktop: il servizio è incluso in Windows Server 2016 con Esperienza desktop, ma ***non*** in Server Core |
+|**Tipo di avvio**  |Tipo di avvio del servizio in Windows Server 2016|
+|**Consiglio** |Consiglio o raccomandazione di Microsoft sulla disabilitazione del servizio in Windows Server 2016 in una distribuzione aziendale tipica e gestita correttamente, in cui il server non viene usato in sostituzione del desktop per gli utenti finali.|
+|**Commenti** |Spiegazione aggiuntiva|
 
 <br />
 
-### <a name="explanation-of-microsoft-recommendations"></a>Spiegazioni delle raccomandazioni di Microsoft
+### <a name="explanation-of-microsoft-recommendations"></a>Spiegazioni dei consigli di Microsoft
 
 | | |
 |---|---|
-|**Non disabilitare** |Questo servizio non deve essere disabilitato|
-|**OK per disattivare**| Questo servizio può essere disabilitato se non viene utilizzata la funzionalità che supporta.|
-|**Già disabilitata**|  Il servizio viene disabilitato per impostazione predefinita. non è necessario applicare con i criteri|
-|**Deve essere disabilitato** |Questo servizio non deve mai essere abilitato in un sistema ben gestiti a livello aziendale.|
+|**Non disabilitare** |Il servizio non dovrebbe essere disabilitato.|
+|**OK disabilitare**| Il servizio può essere disabilitato se la funzionalità supportata non viene usata.|
+|**Già disabilitato**|  Il servizio è disabilitato per impostazione predefinita. Non è necessario applicarlo con criteri.|
+|**Opportuno disabilitare** |Il servizio non dovrebbe mai essere abilitato in un sistema gestito correttamente a livello aziendale.|
 
 <br />
 
-Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione dei servizi di sistema in Windows Server 2016 con esperienza Desktop:
+Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop:
 
 <br />
 
-##  <a name="activex-installer-axinstsv"></a>Programma di installazione ActiveX (AxInstSV)
+##  <a name="activex-installer-axinstsv"></a>ActiveX Installer (AxInstSV)
 
 | | |
 |---|---|
-|   **Descrizione del servizio** |   Fornisce la convalida di controllo dell'Account utente per l'installazione dei controlli ActiveX da Internet e consente la gestione dell'installazione del controllo ActiveX in base alle impostazioni di criteri di gruppo. Questo servizio viene avviato su richiesta e se disabilitata l'installazione dei controlli ActiveX si comporterà in base alle impostazioni del browser predefinito.    |
+|   **Descrizione del servizio** |   Fornisce la convalida del controllo dell'account utente per l'installazione dei controlli ActiveX da Internet e consente la gestione dell'installazione dei controlli ActiveX in base alle impostazioni di Criteri di gruppo. Il servizio viene avviato su richiesta e, se disabilitato, il comportamento dell'installazione dei controlli ActiveX dipenderà dalle impostazioni del browser predefinito.    |
 |   **Nome del servizio**    |   AxInstSV    |
-|   **Installazione**    |   Solo con esperienza Desktop    |
-|   **StartType**   |   Manual  |
-|   **Raccomandazione**  |   OK per disattivare   |
-|   **Commenti**    |   OK per disabilitare se non sono necessarie funzionalità |
+|   **Installazione**    |   Solo con Esperienza desktop    |
+|   **Tipo di avvio**   |   Manual  |
+|   **Consiglio**  |   OK disabilitare   |
+|   **Commenti**    |   OK disabilitare se la funzionalità non è necessaria. |
 
 
 <br />
 
-## <a name="alljoyn-router-service"></a>AllJoyn Router Service   
+## <a name="alljoyn-router-service"></a>Servizio router AllJoyn   
 
 | | |
 |---|---|
-|   **Descrizione del servizio** |   Indirizza i messaggi di AllJoyn per i client di AllJoyn locali. Se questo servizio viene arrestato i client di AllJoyn che non sono presenti i propri router in dotazione sarà possibile eseguire. |
+|   **Descrizione del servizio** |   Instrada i messaggi AllJoyn per i client AllJoyn locali. Se il servizio viene arrestato, l'esecuzione dei client AllJoyn senza router associati non sarà possibile. |
 |   **Nome del servizio**    |   AJRouter    |
-|   **Installazione**    |   Solo con esperienza Desktop    |
-|   **StartType**   |   Manual  |
-|   **Raccomandazione**  | Alcuna indicazione       |
+|   **Installazione**    |   Solo con Esperienza desktop    |
+|   **Tipo di avvio**   |   Manual  |
+|   **Consiglio**  | Nessuna indicazione       |
 |   **Commenti**    |       |
 | | |
 
 <br />
 
-## <a name="app-readiness"></a>Conformità delle App
+## <a name="app-readiness"></a>Preparazione app
 
 | | |
 |---|---|
-**Descrizione del servizio** |   Ottiene le app pronte per l'uso la prima volta che un utente accede a questo computer e durante l'aggiunta di nuove app.
+**Descrizione del servizio** |   Prepara le app per consentirne l'uso la prima volta che un utente accede al PC e quando vengono aggiunte nuove app.
 **Nome del servizio**    |   AppReadiness
-**Installazione**    |   Solo con esperienza Desktop
-**StartType**   |   Manual
-**Raccomandazione**  |   Non disabilitare
+**Installazione**    |   Solo con Esperienza desktop
+**Tipo di avvio**   |   Manual
+**Consiglio**  |   Non disabilitare
 **Commenti**    |   
 | | |
 
 <br />
 
-##  <a name="application-identity"></a>Identità dell'applicazione
+##  <a name="application-identity"></a>Identità applicazione
 
 | | |       
 |---|---|   
-**Descrizione del servizio** |   Determina e verifica l'identità di un'applicazione. Se si disabilita questo servizio, non potrà AppLocker viene applicata.
+**Descrizione del servizio** |   Determina e verifica l'identità di un'applicazione. La disabilitazione di questo servizio impedisce l'applicazione di AppLocker.
 **Nome del servizio**    |   AppIDSvc
-**Installazione**    |   Sempre installata
-**StartType**   |   Manual
-**Raccomandazione**  |Alcuna indicazione    
+**Installazione**    |   Sempre installato
+**Tipo di avvio**   |   Manual
+**Consiglio**  |Nessuna indicazione    
 **Commenti**    |   
 |||     
 
 <br />
 
-##  <a name="application-information"></a>Informazioni sull'applicazione 
+##  <a name="application-information"></a>Informazioni applicazioni 
 
 | | |       
 |---|---|   
-|   **Descrizione del servizio** |   Facilita l'esecuzione di applicazioni interattive con privilegi amministrativi aggiuntivi.  Se questo servizio viene arrestato, gli utenti sarà possibile avviare le applicazioni con i privilegi amministrativi aggiuntivi che possono richiedere per eseguire le attività utente desiderate.
+|   **Descrizione del servizio** |   Facilita l'esecuzione di applicazioni interattive con privilegi amministrativi aggiuntivi.  Se il servizio viene arrestato, gli utenti non saranno in grado di avviare le applicazioni con i privilegi amministrativi aggiuntivi eventualmente necessari per l'esecuzione delle attività utente desiderate.
 |   **Nome del servizio**    |   Appinfo
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
-|   **Commenti**    |   Supporta l'elevazione dei privilegi di controllo dell'account utente stesso desktop
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
+|   **Commenti**    |   Supporta l'elevazione dei privilegi di Controllo dell'account utente stesso desktop
 |||     
 
 <br />
 
-##  <a name="application-layer-gateway-service"></a>Gateway di livello applicazione       
+##  <a name="application-layer-gateway-service"></a>Servizio Gateway di livello applicazione       
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Fornisce supporto per il protocollo di terze parti plug-in per la condivisione connessione Internet
+|   **Descrizione del servizio** |   Fornisce il supporto per i plug-in dei protocolli di terze parti per Condivisione connessione Internet.
 |   **Nome del servizio**    |   ALG
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |Alcuna indicazione    
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |Nessuna indicazione    
 |   **Commenti**    |   
 |||     
 
@@ -178,39 +178,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Elabora le richieste di enumerazione, installazione e rimozione di software distribuito tramite criteri di gruppo. Se il servizio è disabilitato, gli utenti sarà possibile installare, rimuovere o enumerazione software distribuito tramite criteri di gruppo. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Elabora le richieste di installazione, rimozione ed enumerazione del software distribuito tramite Criteri di gruppo. Se il servizio è disabilitato, gli utenti non saranno in grado di installare, rimuovere o enumerare il software distribuito tramite Criteri di gruppo. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   AppMgmt
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="appx-deployment-service-appxsvc"></a>Servizi di distribuzione AppX (AppXSVC)       
+##  <a name="appx-deployment-service-appxsvc"></a>Servizio di distribuzione AppX (AppXSVC)       
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Fornisce un'infrastruttura di supporto per la distribuzione delle applicazioni Store. Questo servizio viene avviato su richiesta e se disabilitato Store applicazioni non verranno distribuite il sistema e potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Offre supporto infrastrutturale per la distribuzione di applicazioni dello Store. Il servizio viene avviato su richiesta e, se disabilitato, le applicazioni dello Store non verranno distribuite nel sistema e potrebbero non funzionare correttamente.
 |   **Nome del servizio**    |   AppXSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="auto-time-zone-updater"></a>Aggiornamento del fuso orario automatico           
+## <a name="auto-time-zone-updater"></a>Strumento di aggiornamento automatico fuso orario           
 
 | | |           
 |---|---|           
 |   **Descrizione del servizio** |   Imposta automaticamente il fuso orario del sistema.
 |   **Nome del servizio**    |   tzautoupdate
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -220,40 +220,40 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di trasferire file in background usando larghezza di banda inattiva. Se il servizio è disabilitato, tutte le applicazioni che dipendono dal bit, ad esempio Windows Update o MSN Explorer, sarà possibile scaricare automaticamente i programmi e altre informazioni.
+|   **Descrizione del servizio** |   Trasferisce file in background usando la larghezza di banda inattiva della rete. Se il servizio è disabilitato, le applicazioni dipendenti da BITS, come Windows Update o MSN Explorer, non saranno in grado di effettuare il download automatico di programmi e altre informazioni.
 |   **Nome del servizio**    |   BITS
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
 
-## <a name="background-tasks-infrastructure-service"></a>Servizio di infrastruttura di attività in background      
+## <a name="background-tasks-infrastructure-service"></a>Servizio infrastruttura attività in background      
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Servizio di infrastruttura Windows che controlla quali attività in background può essere eseguito nel sistema.
+|   **Descrizione del servizio** |   Servizio dell'infrastruttura Windows che controlla quali attività in background possono essere eseguite nel sistema.
 |   **Nome del servizio**    |   BrokerInfrastructure
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="base-filtering-engine"></a>Motore di filtraggio di base            
+## <a name="base-filtering-engine"></a>Base Filtering Engine            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Base Filtering Engine (BFE) è un servizio che gestisce i criteri per firewall e Internet Protocol security (IPsec) e implementa il filtraggio in modalità utente. L'arresto o la disattivazione del servizio BFE ridurrà in modo significativo la sicurezza del sistema. Si verificherà anche un comportamento imprevedibile in applicazioni firewall e IPsec management.
+|   **Descrizione del servizio** |   Base Filtering Engine (BFE) è un servizio per la gestione dei criteri firewall e IPSec (Internet Protocol Security) e l'implementazione del filtro delle modalità utente. L'arresto o la disabilitazione del servizio BFE riduce in modo significativo la sicurezza del sistema. Può causare un comportamento imprevedibile delle applicazioni di gestione IPSec e firewall.
 |   **Nome del servizio**    |   BFE
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -263,12 +263,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Il servizio Bluetooth supporta l'individuazione e associazione dei dispositivi Bluetooth remoti.  L'arresto o la disabilitazione di questo servizio potrebbe essere già installati i dispositivi Bluetooth a non funzionare correttamente e impedire che i nuovi dispositivi venga individuato o associati.
+|   **Descrizione del servizio** |   Il servizio Bluetooth supporta l'individuazione e l'associazione di dispositivi Bluetooth remoti.  L'arresto o la disabilitazione di questo servizio può causare il malfunzionamento dei dispositivi Bluetooth già installati e impedire l'individuazione o l'associazione di nuovi dispositivi.
 |   **Nome del servizio**    |   bthserv
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   OK per disattivare, se non utilizzato. Un altro meccanismo di disattivazione: https://technet.microsoft.com/library/dd252791.aspx
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   OK disabilitare se non è usato. Altro meccanismo di disabilitazione: https://technet.microsoft.com/library/dd252791.aspx
 |||         
 
 <br />          
@@ -278,11 +278,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio utente viene usato per gli scenari di piattaforma di dispositivi connessi
+|   **Descrizione del servizio** |   Questo servizio utente è usato per gli scenari relativi alla piattaforma dispositivi connessi.
 |   **Nome del servizio**    |   CDPUserSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
@@ -293,25 +293,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Copia i certificati utente e i certificati radice da smart card nell'archivio certificati dell'utente corrente, rileva quando viene inserita una smart card nel lettore di smart card e se necessario, installa il minidriver di smart card Plug and Play.
+|   **Descrizione del servizio** |   Copia i certificati utente e i certificati radice dalle smart card all'archivio certificati dell'utente corrente, rileva quando una smart card è inserita in un lettore di smart card e, se necessario, installa il minidriver Plug and Play della smart card.
 |   **Nome del servizio**    |   CertPropSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="client-license-service-clipsvc"></a>Servizio di licenze client (ClipSVC)        
+##  <a name="client-license-service-clipsvc"></a>Servizio licenze client (ClipSVC)        
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce un'infrastruttura di supporto per i Microsoft Store. Questo servizio viene avviato su richiesta e se le applicazioni disabilitate acquistata tramite Microsoft Store non funzioneranno correttamente.
+|   **Descrizione del servizio** |   Offre supporto infrastrutturale per Microsoft Store. Il servizio viene avviato su richiesta e, se disabilitato, le applicazioni acquistate tramite Microsoft Store presenteranno problemi di funzionamento.
 |   **Nome del servizio**    |   ClipSVC
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -321,25 +321,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Il servizio isolamento chiavi CNG è ospitato nel processo LSA. Il servizio fornisce l'isolamento dei processi principali per le chiavi private e sulle operazioni di crittografia associate come richiesto da criteri comuni. Il servizio archivia e Usa le chiavi di lunga durate in un processo protetto conformi ai requisiti dei criteri comuni.
+|   **Descrizione del servizio** |   Il servizio Isolamento chiavi CNG è ospitato nel processo della LSA. Consente l'isolamento dei processi relativi alle chiavi per le chiavi private e le operazioni di crittografia associate, come richiesto da Criteri comuni. Il servizio archivia e usa chiavi a lunga durata nell'ambito di un processo sicuro, in conformità con i requisiti di Criteri comuni.
 |   **Nome del servizio**    |   KeyIso
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="com-event-system"></a>Sistema di eventi COM+       
+##  <a name="com-event-system"></a>COM+ Event System       
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Supporta System evento servizio di notifica (SENS), che consente la distribuzione automatica di eventi da sottoscrivere componenti modello COM (Component Object). Se il servizio viene arrestato, SENS verrà chiusa e non sarà in grado di fornire le notifiche di accesso e disconnessione. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Supporta il servizio di notifica eventi di sistema (SENS), che implementa la distribuzione automatica degli eventi nei componenti COM che eseguono la sottoscrizione. Se il servizio viene arrestato, il servizio SENS verrà chiuso e non sarà più in grado di inviare notifiche di connessione e disconnessione. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   EventSystem
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -349,11 +349,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce la configurazione e registrazione dei componenti di base + modello COM (Component Object). Se il servizio viene arrestato, la maggior parte delle applicazioni COM+: componenti di base non funzionerà correttamente. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce la configurazione e registrazione di componenti basati su COM+. Se il servizio viene arrestato, la maggior parte dei componenti basati su COM+ non funzionerà correttamente. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   COMSysApp
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -363,25 +363,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Mantiene un elenco aggiornato dei computer nella rete e fornisce questo elenco per i computer designati come i browser. Se questo servizio viene arrestato, questo elenco non verrà aggiornato o mantenuto. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce un elenco aggiornato dei computer in rete e lo fornisce ai computer designati come browser. Se il servizio viene arrestato, l'elenco non verrà aggiornato né gestito. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   Browser
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="connected-devices-platform-service"></a>Servizio di piattaforma di dispositivi connessi       
+## <a name="connected-devices-platform-service"></a>Servizio piattaforma dispositivi connessi       
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio viene usato per gli scenari di dispositivi connessi e vetro universale
+|   **Descrizione del servizio** |   Questo servizio viene usato per scenari con dispositivi connessi e Universal Glass.
 |   **Nome del servizio**    |   CDPSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -391,25 +391,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio esperienze utente connesse e telemetria Abilita le funzionalità che supportano esperienze utente connesse e nell'applicazione. Inoltre, il servizio gestisce la raccolta basata su eventi e la trasmissione di informazioni di diagnostica e di utilizzo (utilizzate per migliorare l'esperienza e la qualità della piattaforma Windows) quando vengono abilitate la diagnostica e le impostazioni delle opzioni sulla privacy dell'utilizzo con Commenti e diagnostica.
+|   **Descrizione del servizio** |   Il servizio Esperienze utente connesse e telemetria abilita funzionalità che supportano esperienze utente connesse e nell'applicazione. Questo servizio gestisce inoltre la raccolta e la trasmissione basate su eventi delle informazioni diagnostiche e sull'utilizzo (usate per migliorare l'esperienza e la qualità della piattaforma Windows) quando le opzioni di privacy per la diagnostica e l'utilizzo sono abilitate in Feedback e diagnostica.
 |   **Nome del servizio**    |   DiagTrack
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="contact-data"></a>Dati di contatto        
+##  <a name="contact-data"></a>Dati contatti        
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Dati di contatto degli indici per la ricerca veloce contatto. Se si arresta o si disabilita questo servizio, i contatti potrebbero mancare dai risultati della ricerca.
+|   **Descrizione del servizio** |   Indicizza i dati dei contatti per ricerche più rapide. Se il servizio viene arrestato o disabilitato, i contatti potrebbero non essere inclusi nei risultati di ricerca.
 |   **Nome del servizio**    |   PimIndexMaintenanceSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
@@ -419,11 +419,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Gestisce la comunicazione tra i componenti di sistema.
+|   **Descrizione del servizio** |   Gestisce le comunicazioni tra i componenti del sistema.
 |   **Nome del servizio**    |   CoreMessagingRegistrar
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -433,11 +433,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Offre archiviazione protetta e il recupero delle credenziali per gli utenti, applicazioni e pacchetti di servizi di sicurezza.
+|   **Descrizione del servizio** |   Consente l'archiviazione e il recupero in modo sicuro delle credenziali degli utenti, delle applicazioni e dei pacchetti dei servizi di sicurezza.
 |   **Nome del servizio**    |   VaultSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -447,25 +447,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce tre servizi di gestione: Servizio Database di catalogo, che verifica le firme dei file di Windows e consente a nuovi programmi da installare; Radice il servizio protetto, che aggiunge e rimuove i certificati di autorità di certificazione radice attendibile da questo computer. e automatico i servizio di aggiornamento, certificato radice che recupera i certificati radice da Windows Update e abilita scenari come SSL. Se questo servizio viene arrestato, i servizi di gestione non funzionerà correttamente. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Fornisce tre servizi di gestione: il servizio Database catalogo, per verificare le firme dei file di Windows e installare nuovi programmi, il servizio Archivio radice protetto, per aggiungere e rimuovere dal computer i certificati dell'Autorità di certificazione radice attendibile, e il Servizio aggiornamento automatico certificati radice, per il recupero dei certificati radice da Windows Update e l'abilitazione di scenari come SSL. Se il servizio viene arrestato, i servizi di gestione non funzioneranno correttamente. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   CryptSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="data-sharing-service"></a>Servizio di condivisione dei dati         
+## <a name="data-sharing-service"></a>Servizio di condivisione dati         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce la mediazione dei dati tra le applicazioni.
+|   **Descrizione del servizio** |   Offre funzionalità di gestione dei dati tra le applicazioni.
 |   **Nome del servizio**    |   DsSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -475,25 +475,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio DCP (raccolta dei dati e pubblicazione) supporta App proprietarie per caricare i dati nel cloud.
+|   **Descrizione del servizio** |   Il servizio DCP (raccolta dei dati e pubblicazione) consente alle app proprietarie di caricare dati nel cloud.
 |   **Nome del servizio**    |   DcpSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="dcom-server-process-launcher"></a>Utilità di avvio processo Server DCOM         
+## <a name="dcom-server-process-launcher"></a>Utilità di avvio processi server DCOM         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio DCOMLAUNCH Avvia server COM e DCOM in risposta alle richieste di attivazione dell'oggetto. Se questo servizio viene arrestato o disabilitato, programmi che utilizzano COM o DCOM non funzionerà correttamente. Si consiglia di disporre di DCOMLAUNCH il servizio in esecuzione.
+|   **Descrizione del servizio** |   Il servizio DCOMLAUNCH avvia server COM e DCOM in risposta a richieste di attivazione degli oggetti. Se il servizio viene arrestato o disabilitato, i programmi che usano COM o DCOM non funzioneranno correttamente. È fortemente consigliabile mantenere in esecuzione il servizio DCOMLAUNCH.
 |   **Nome del servizio**    |   DcomLaunch
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |Alcuna indicazione    
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |Nessuna indicazione    
 |   **Commenti**    |   
 |||         
 
@@ -503,67 +503,67 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente l'associazione tra il sistema e i dispositivi wireless o cablati.
+|   **Descrizione del servizio** |   Consente l'associazione tra il sistema e i dispositivi cablati o wireless.
 |   **Nome del servizio**    |   DeviceAssociationService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />
 
-##  <a name="device-install-service"></a>Servizio di installazione di dispositivi
+##  <a name="device-install-service"></a>Servizio installazione dispositivi
 
 | | |
 |---|---|
-|   **Descrizione del servizio** |   Consente a un computer riconoscere e adattarsi alle modifiche dell'hardware con input utente non offrivano. L'arresto o la disabilitazione di questo servizio comporterà l'instabilità del sistema.
+|   **Descrizione del servizio** |   Consente a un computer di riconoscere le modifiche hardware e adattarsi ad esse con un intervento minimo o nullo da parte dell'utente. Se il servizio viene arrestato o disabilitato, il sistema diventerà instabile.
 |   **Nome del servizio**    |   DeviceInstall
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione
 |   **Commenti**    |
 |||
 
 <br />          
 
-##  <a name="device-management-enrollment-service"></a>Servizio registrazione dispositivi di gestione        
+##  <a name="device-management-enrollment-service"></a>Servizio di registrazione gestione dispositivi        
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Esegue attività di registrazione dispositivi per la gestione dei dispositivi
+|   **Descrizione del servizio** |   Esegue le attività di registrazione dei dispositivi per la gestione dei dispositivi.
 |   **Nome del servizio**    |   DmEnrollmentSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="device-setup-manager"></a>Gestione guidata installazione dispositivo         
+## <a name="device-setup-manager"></a>Gestione configurazione dispositivi         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente il rilevamento, download e installazione del software relative al dispositivo. Se questo servizio è disabilitato, i dispositivi possono essere configurati con software obsoleto e potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Abilita il rilevamento, il download e l'installazione di software correlato ai dispositivi. Se il servizio viene disabilitato, i dispositivi potrebbero essere configurati con software obsoleto e non funzionare correttamente.
 |   **Nome del servizio**    |   DsmSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="devquery-background-discovery-broker"></a>In Background DevQuery individuazione Broker         
+## <a name="devquery-background-discovery-broker"></a>Gestore individuazione in background DevQuery         
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Le app individuare i dispositivi con un'attività backgroud
+|   **Descrizione del servizio** |   Consente alle app di individuare i dispositivi con un'attività in background.
 |   **Nome del servizio**    |   DevQueryBroker
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -573,67 +573,67 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Registra e aggiorna indirizzi IP e i record DNS per questo computer. Se questo servizio viene arrestato, il computer non riceverà gli indirizzi IP dinamici e gli aggiornamenti DNS. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
-|   **Nome del servizio**    |   DHCP
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Descrizione del servizio** |   Registra e aggiorna gli indirizzi IP e i record DNS per il computer. Se il servizio viene arrestato, il computer non riceverà né indirizzi IP dinamici né aggiornamenti DNS. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
+|   **Nome del servizio**    |   Dhcp
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="diagnostic-policy-service"></a>Servizio criteri di diagnostica            
+## <a name="diagnostic-policy-service"></a>Servizio Criteri di diagnostica            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio Criteri di diagnostica consente il rilevamento dei problemi e la risoluzione per i componenti di Windows.  Se questo servizio viene arrestato, la diagnostica non funzioneranno più.
+|   **Descrizione del servizio** |   Il Servizio Criteri di diagnostica consente di rilevare e risolvere i problemi relativi ai componenti di Windows.  Se il servizio viene arrestato, le funzionalità di diagnostica verranno disattivate.
 |   **Nome del servizio**    |   DPS
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="diagnostic-service-host"></a>Host del servizio diagnostica     
+##  <a name="diagnostic-service-host"></a>Host servizio di diagnostica     
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   L'Host del servizio diagnostica viene utilizzato dal servizio Criteri di diagnostica per la diagnostica di host che desidera essere eseguiti in un contesto servizio locale.  Se questo servizio viene arrestato, qualsiasi diagnostica che dipende da esso non funzioneranno più.
+|   **Descrizione del servizio** |   Host servizio di diagnostica viene usato dal Servizio Criteri di diagnostica per l'hosting delle funzionalità di diagnostica che devono essere eseguite nel contesto di un servizio locale.  Se il servizio viene arrestato, tutte le funzionalità di diagnostica che dipendono da tale servizio verranno disattivate.
 |   **Nome del servizio**    |   WdiServiceHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="diagnostic-system-host"></a>Host di sistema di diagnostica           
+## <a name="diagnostic-system-host"></a>Host sistema di diagnostica           
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   La diagnostica di sistema Host viene usata dal servizio Criteri di diagnostica per la diagnostica di host che desidera essere eseguiti in un contesto di sistema locale.  Se questo servizio viene arrestato, qualsiasi diagnostica che dipende da esso non funzioneranno più.
+|   **Descrizione del servizio** |   Host sistema di diagnostica viene usato dal Servizio Criteri di diagnostica per l'hosting delle funzionalità di diagnostica che devono essere eseguite in un contesto del sistema locale.  Se il servizio viene arrestato, tutte le funzionalità di diagnostica che dipendono da tale servizio verranno disattivate.
 |   **Nome del servizio**    |   WdiSystemHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="distributed-link-tracking-client"></a>Manutenzione collegamenti distribuiti Client            
+##  <a name="distributed-link-tracking-client"></a>Manutenzione collegamenti distribuiti client            
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Gestisce i collegamenti tra i file system NTFS all'interno di un computer o tra computer in una rete.
+|   **Descrizione del servizio** |   Gestisce i collegamenti tra file NTFS all'interno di un computer o tra i computer di una rete.
 |   **Nome del servizio**    |   TrkWks
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -643,11 +643,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Coordina le transazioni che interessano più gestori di risorse, ad esempio database, le code di messaggi e file System. Se questo servizio viene arrestato, le transazioni vengono avrà esito negativo. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Coordina le transazioni estese a più gestori di risorse, quali database, code di messaggi e file system. Se il servizio viene arrestato, le transazioni avranno esito negativo. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   MSDTC
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -657,12 +657,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Servizio di Routing di messaggi Push WAP
+|   **Descrizione del servizio** |   Servizio routing messaggi push WAP
 |   **Nome del servizio**    |   dmwappushservice
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Servizio richiesto nei dispositivi client per Intune, MDM e tecnologie analoghe di gestione e per filtro di scrittura unificato. Non è necessaria per il Server.
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   Il servizio è obbligatorio sui dispositivi client per Intune, MDM e simili tecnologie di gestione, e per Filtro scrittura unificato. Non è necessario per il server.
 |||         
 
 <br />      
@@ -671,26 +671,26 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio Client DNS (dnscache) memorizza nella cache i nomi DNS e registra il nome completo del computer per il computer in uso. Se tale servizio viene arrestato, la risoluzione dei nomi DNS verrà eseguita comunque, Tuttavia, i risultati della query DNS non verranno memorizzati e non verrà registrato il nome del computer. Se il servizio viene disattivato, non sarà più possibile avviare i servizi che dipendono esplicitamente da esso.
-|   **Nome del servizio**    |   DnsCache
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Descrizione del servizio** |   Il servizio Client DNS (dnscache) memorizza nella cache i nomi DNS e registra il nome completo del computer per il computer in uso. Se tale servizio viene arrestato, la risoluzione dei nomi DNS verrà eseguita comunque, ma i risultati delle query relative ai nomi DNS non verranno memorizzati nella cache e il nome del computer non verrà registrato. Se il servizio viene disattivato, non sarà più possibile avviare i servizi che dipendono esplicitamente da esso.
+|   **Nome del servizio**    |   Dnscache
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="downloaded-maps-manager"></a>Gestione mappe scaricato     
+##  <a name="downloaded-maps-manager"></a>Gestione mappe scaricate     
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Servizio di Windows per l'accesso a maps scaricato. Questo servizio viene avviato su richiesta dall'applicazione l'accesso a scaricato mappe. Se si disabilita questo servizio impedirà le app di accedere a mappe.
+|   **Descrizione del servizio** |   Servizio di Windows per consentire alle applicazioni di accedere alle mappe scaricate. Il servizio viene avviato su richiesta dall'applicazione che accede alle mappe scaricate. La disabilitazione di questo servizio impedirà alle app di accedere alle mappe.
 |   **Nome del servizio**    |   MapsBroker
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   La disabilitazione delle app di interruzioni che si basano sul servizio. OK per disattivare, se le app non basarsi su di essa
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   La disabilitazione causa l'interruzione delle app che si basano sul servizio. OK disabilitare se le app non si basano sul servizio.
 |||         
 
 <br />          
@@ -699,11 +699,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio in modalità incorporata consente scenari correlati alle applicazioni in Background.  Se si disabilita questo servizio impedirà alle applicazioni di sfondo di attivazione.
+|   **Descrizione del servizio** |   Il servizio Modalità incorporata consente scenari correlati alle applicazioni in background.  La disabilitazione di questo servizio impedirà l'attivazione di applicazioni in background.
 |   **Nome del servizio**    |   embeddedmode
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -713,25 +713,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |                   
 |---|---|           
-|   **Descrizione del servizio** | Fornisce la tecnologia di crittografia file principale utilizzata per archiviare file crittografati nei volumi NTFS. Se questo servizio viene arrestato o disabilitato, le applicazioni sarà possibile accedere ai file crittografati.            
+|   **Descrizione del servizio** | Implementa la tecnologia di crittografia file principale usata per archiviare i file crittografati nei volumi con file system NTFS. Se il servizio viene arrestato o disabilitato, le applicazioni non saranno in grado di accedere ai file crittografati.            
 |   **Nome del servizio**  |  EFS            
-|   **Installazione**  |  Sempre installata           
-|   **StartType**   |  Manual           
-|   **Raccomandazione**  | Alcuna indicazione           
+|   **Installazione**  |  Sempre installato           
+|   **Tipo di avvio**   |  Manual           
+|   **Consiglio**  | Nessuna indicazione           
 |   **Commenti**   |
 |||                 
 
 <br />  
 
-## <a name="enterprise-app-management-service"></a>Servizio di gestione di App aziendali            
+## <a name="enterprise-app-management-service"></a>Servizio di gestione app aziendali            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Abilita gestione delle applicazioni aziendali.
+|   **Descrizione del servizio** |   Consente la gestione delle applicazioni aziendali.
 |   **Nome del servizio**    |   EntAppSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -741,11 +741,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Il servizio di protocollo EAP (Extensible Authentication) fornisce l'autenticazione di rete in scenari come wireless e cablate 802.1X, VPN e di protezione accesso rete (NAP).  EAP fornisce anche application programming interface (API) utilizzati dai client di accesso di rete, tra cui i client VPN e wireless durante il processo di autenticazione.  Se si disabilita questo servizio, viene impedito l'accesso a reti che richiedono l'autenticazione EAP questo computer.
+|   **Descrizione del servizio** |   Il servizio EAP (Extensible Authentication Protocol) offre l'autenticazione di rete 802.1x per reti cablate e wireless, VPN e Protezione accesso alla rete.  Offre inoltre interfacce API (Application Programming Interfaces) usate dai client di accesso alla rete, inclusi client wireless e VPN, durante il processo di autenticazione.  Se il servizio viene disabilitato, il computer non avrà accesso alle reti che richiedono l'autenticazione EAP.
 |   **Nome del servizio**    |   EapHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -755,11 +755,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio FDPHOST ospita i provider di individuazione di rete individuazione di funzione (domini di errore). Questi provider di domini di errore forniscono servizi di individuazione di rete per i servizi di individuazione protocollo SSDP (Simple) e i servizi Web - protocollo Discovery (WS-D). L'arresto o la disattivazione del servizio FDPHOST disabiliterà individuazione di rete per questi protocolli quando si usa domini di errore. Quando questo servizio è disponibile, servizi di rete usando i domini di errore e basarsi su questi protocolli di individuazione sarà possibile trovare i dispositivi di rete o le risorse.
+|   **Descrizione del servizio** |   Il servizio FDPHOST ospita i provider di individuazione delle reti di individuazione funzioni. Questi provider forniscono servizi di individuazione delle reti per i protocolli SSDP (Simple Services Discovery Protocol) e WS-D (Web Services - Discovery). L'arresto o la disabilitazione del servizio FDPHOST determina la disabilitazione dell'individuazione delle reti per tali protocolli quando viene usata l'individuazione funzioni. Se questo servizio non è disponibile, i servizi di rete che usano l'individuazione funzioni e si basano su tali protocolli di individuazione non saranno in grado di trovare dispositivi o risorse di rete.
 |   **Nome del servizio**    |   fdPHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -769,11 +769,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Pubblica questo computer e le risorse collegate al computer in modo che possano essere individuate in rete.  Se questo servizio viene arrestato, non verranno pubblicate non è più risorse di rete e non essere individuati dagli altri computer nella rete.
+|   **Descrizione del servizio** |   Pubblica questo computer e le risorse a esso collegate in modo che possano essere individuate in rete.  Se il servizio viene arrestato, le risorse di rete non saranno più pubblicate e non potranno essere individuate da altri computer della rete.
 |   **Nome del servizio**    |   FDResPub
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -783,12 +783,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio consente di monitorare la posizione corrente del sistema e gestisce i recinti virtuali (vale a dire una posizione geografica con gli eventi associati).  Se disabilita questo servizio, le applicazioni in grado di utilizzare o ricevere le notifiche per georilevazione o recinti virtuali.
+|   **Descrizione del servizio** |   Questo servizio esegue il monitoraggio della posizione corrente del sistema e gestisce i recinti virtuali (posizione geografica con eventi associati).  Se il servizio viene disabilitato, le applicazioni non potranno usare né ricevere notifiche relative alla georilevazione o ai recinti virtuali.
 |   **Nome del servizio**    |   lfsvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   La disabilitazione delle app di interruzioni che si basano sul servizio. OK per disattivare, se le app non basarsi su di essa
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   La disabilitazione causa l'interruzione delle app che si basano sul servizio. OK disabilitare se le app non si basano sul servizio.
 |||         
 
 <br />          
@@ -797,11 +797,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio è responsabile dell'applicazione delle impostazioni configurate dagli amministratori per il computer e utenti tramite il componente Criteri di gruppo. Se il servizio è disabilitato, non verranno applicate le impostazioni e le applicazioni e i componenti non potrà essere gestiti tramite criteri di gruppo. Tutti i componenti o le applicazioni che dipendono dal componente Criteri di gruppo potrebbero non essere disponibile se il servizio è disabilitato.
+|   **Descrizione del servizio** |   Questo servizio è responsabile dell'applicazione delle impostazioni configurate dagli amministratori per il computer e gli utenti tramite il componente Criteri di gruppo. Se il servizio viene disabilitato, le impostazioni non verranno applicate e non sarà possibile gestire applicazioni e componenti tramite Criteri di gruppo. Se il servizio viene disabilitato, tutti i componenti o le applicazioni che dipendono dal componente Criteri di gruppo potrebbero non funzionare.
 |   **Nome del servizio**    |   gpsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -812,26 +812,26 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Abilita e mantiene l'uso dei pulsanti speciali su tastiere, telecomandi e altri dispositivi multimediali. È consigliabile mantenere questo servizio in esecuzione.
+|   **Descrizione del servizio** |   Abilita e gestisce l'uso dei pulsanti speciali su tastiere, telecomandi e altri dispositivi multimediali. È consigliabile mantenere in esecuzione questo servizio.
 |   **Nome del servizio**    |   hidserv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="hv-host-service"></a>Servizio Host HV     
+##  <a name="hv-host-service"></a>Servizio host hypervisor     
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce un'interfaccia per l'hypervisor Hyper-V fornire i contatori delle prestazioni per ogni partizione per il sistema operativo host.
+|   **Descrizione del servizio** |   Offre un'interfaccia per l'hypervisor Hyper-V per fornire contatori delle prestazioni per ogni partizione al sistema operativo host.
 |   **Nome del servizio**    |   HvHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Incrementare la produzione per le macchine virtuali guest. Attualmente non utilizzato, ad eccezione di in modo esplicito popolate macchine virtuali, ma verrà usato in Application Guard
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Servizio di miglioramento delle prestazioni per le macchine virtuali guest. Attualmente è usato solo per le macchine virtuali popolate in modo esplicito, ma verrà usato in Application Guard.
 |||         
 
 <br />          
@@ -842,10 +842,10 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 |---|---|   
 |   **Descrizione del servizio** |   Rende disponibile un meccanismo per lo scambio di dati tra la macchina virtuale e il sistema operativo in esecuzione nel computer fisico.
 |   **Nome del servizio**    |   vmickvpexchange
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />      
@@ -854,12 +854,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce un'interfaccia per l'host Hyper-V interagire con servizi specifici in esecuzione nella macchina virtuale.
+|   **Descrizione del servizio** |   Fornisce un'interfaccia per l'interazione dell'host Hyper-V con servizi specifici in esecuzione nella macchina virtuale.
 |   **Nome del servizio**    |   vmicguestinterface
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />  
@@ -868,12 +868,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce un meccanismo per arrestare il sistema operativo della macchina virtuale dalle interfacce di gestione nel computer fisico.
+|   **Descrizione del servizio** |   Rende disponibile un meccanismo per l'arresto del sistema operativo della macchina virtuale dalle interfacce di gestione del computer fisico.
 |   **Nome del servizio**    |   vmicshutdown
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />
@@ -881,12 +881,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 ## <a name="hyper-v-heartbeat-service"></a>Servizio Heartbeat Hyper-V
 | | |
 |---|---|
-|   **Descrizione del servizio** |   Monitora lo stato di questa macchina virtuale segnalando un heartbeat a intervalli regolari. Questo servizio consente di identificare le macchine virtuali in esecuzione che non rispondono.
+|   **Descrizione del servizio** |   Esegue il monitoraggio dello stato della macchina virtuale segnalando un heartbeat a intervalli regolari. Questo servizio consente di identificare le macchine virtuali in esecuzione che si sono bloccate.
 |   **Nome del servizio**    |   vmicheartbeat
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||
 
 <br />          
@@ -895,12 +895,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce un meccanismo per gestire la macchina virtuale con PowerShell tramite una sessione di macchina virtuale senza una rete virtuale.
+|   **Descrizione del servizio** |   Rende disponibile un meccanismo per gestire la macchina virtuale con PowerShell tramite una sessione di macchina virtuale senza una rete virtuale.
 |   **Nome del servizio**    |   vmicvmsession
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />          
@@ -909,12 +909,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce una piattaforma per la comunicazione tra la macchina virtuale e il sistema operativo in esecuzione nel computer fisico.
+|   **Descrizione del servizio** |   Offre una piattaforma per le comunicazioni tra la macchina virtuale e il sistema operativo in esecuzione nel computer fisico.
 |   **Nome del servizio**    |   vmicrdv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />          
@@ -923,12 +923,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di sincronizzare l'ora di sistema della macchina virtuale con l'ora di sistema del computer fisico.
+|   **Descrizione del servizio** |   Sincronizza l'ora di sistema della macchina virtuale con quella del computer fisico.
 |   **Nome del servizio**    |   vmictimesync
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />          
@@ -937,12 +937,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Coordina le comunicazioni necessarie per usare il servizio Copia Shadow del Volume per eseguire il backup delle applicazioni e i dati in questa macchina virtuale dal sistema operativo nel computer fisico.
+|   **Descrizione del servizio** |   Coordina le comunicazioni necessarie per usare il Servizio Copia Shadow del volume per il backup delle applicazioni e dei dati della macchina virtuale dal sistema operativo del computer fisico.
 |   **Nome del servizio**    |   vmicvss
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Vedere HvHost
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Vedi HvHost
 |||         
 
 <br />          
@@ -951,11 +951,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio IKEEXT ospita i Internet Key Exchange (IKE) e Authenticated Internet Protocol (AuthIP) moduli di impostazione chiavi. Questi moduli per le chiavi vengono usati per l'autenticazione e lo scambio di chiave in Internet Protocol security (IPsec). L'arresto o la disattivazione del servizio IKEEXT disabiliterà IKE e AuthIP scambio delle chiavi con computer peer. IPsec viene in genere configurato per l'utilizzo; AuthIP o IKE Pertanto, l'arresto o la disattivazione del servizio IKEEXT potrebbe comportare un errore di IPsec e potrebbe compromettere la sicurezza del sistema. Si consiglia di avere in esecuzione il servizio IKEEXT.
+|   **Descrizione del servizio** |   Il servizio IKEEXT ospita i moduli di impostazione chiavi IKE (Internet Key Exchange) e Auth-IP (Authenticated Internet Protocol). Questi moduli vengono usati per l'autenticazione e lo scambio di chiavi in IPSec (Internet Protocol Security). Se il servizio IKEEXT viene arrestato o disabilitato, lo scambio di chiavi IKE e AuthIP con i computer peer non potrà avere luogo. IPSec è in genere configurato per l'uso di IKE o AuthIP, pertanto l'arresto o la disabilitazione del servizio IKEEXT potrebbe generare un errore IPSec e compromettere la sicurezza del sistema. È quindi consigliabile lasciare in esecuzione il servizio IKEEXT.
 |   **Nome del servizio**    |   IKEEXT
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |    
 |||         
 
@@ -965,11 +965,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Attiva la notifica dell'input utente per i servizi interattivi, che consente l'accesso alle finestre di dialogo create dai servizi interattivi quando questi vengono visualizzati. Se questo servizio viene arrestato, le notifiche di nuove finestre di dialogo interattivo servizio smette di funzionare e potrebbe non essere disponibile l'accesso alle finestre di dialogo servizio interattivo. Se il servizio è disabilitato, l'accesso alle finestre di dialogo nuovo servizio interattivo sia le notifiche di smetteranno di funzionare.
+|   **Descrizione del servizio** |   Abilita la notifica dell'input utente per i servizi interattivi, che consente di accedere alle finestre di dialogo create dai servizi interattivi quando vengono visualizzate. Se il servizio viene arrestato, non saranno più disponibili le notifiche relative alle nuove finestre di dialogo dei servizi interattivi, che potrebbero pertanto non essere accessibili. Se il servizio viene disabilitato, non saranno più disponibili né le notifiche, né l'accesso alle nuove finestre di dialogo dei servizi interattivi.
 |   **Nome del servizio**    |   UI0Detect
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -979,12 +979,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Fornisce il protocollo NAT, indirizzamento, servizi di prevenzione di risoluzione e/o delle intrusioni nome per una rete domestica o di piccole dimensioni.
+|   **Descrizione del servizio** |   Fornisce servizi di conversione indirizzi di rete, indirizzamento e risoluzione nomi e/o servizi di prevenzione intrusione per una rete domestica o una piccola rete aziendale.
 |   **Nome del servizio**    |   SharedAccess
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Obbligatorio per i client utilizzati come hotspot Wi-Fi e inoltre su entrambe le estremità di proiezione Miracast. Condivisione connessione Internet può essere bloccata con impostazione oggetto Criteri di gruppo, "Impedisci l'utilizzo di Condivisione connessione Internet nella rete del dominio DNS"
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   È obbligatorio per i client usati come hotspot Wi-Fi e anche su entrambe le estremità della proiezione Miracast. Il servizio ICS può essere bloccato con l'impostazione per oggetti Criteri di gruppo "Proibisci l'uso della Condivisione connessione Internet nella rete del dominio DNS".
 |||         
 
 <br />          
@@ -993,11 +993,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce connettività tunnel utilizzando le tecnologie di transizione IPv6 (6to4, Teredo, ISATAP e porta Proxy) e IP-HTTPS. Se questo servizio viene arrestato, il computer non sarà necessario che queste tecnologie offrono i vantaggi di connettività avanzata.
+|   **Descrizione del servizio** |   Offre connettività in modalità tunnel usando le tecnologie di transizione IPv6 (6to4, ISATAP, proxy delle porte e Teredo) e IP-HTTPS. Se il servizio viene arrestato, il computer non potrà usufruire dei vantaggi della connettività avanzata garantiti da queste tecnologie.
 |   **Nome del servizio**    |   iphlpsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1008,25 +1008,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Internet Protocol security (IPsec) supporta l'autenticazione peer a livello di rete, l'autenticazione dell'origine dati, l'integrità dei dati, la riservatezza (crittografia) e protezione di riproduzione.  Questo servizio impone i criteri IPsec creati tramite lo snap-in Criteri di protezione IP o lo strumento da riga di comando "netsh ipsec".  Se si arresta il servizio, si potrebbero verificarsi problemi di connettività di rete se i criteri richiedono che le connessioni utilizzano IPsec.  Inoltre, la gestione remota di Windows Firewall non è disponibile quando il servizio viene interrotto.
+|   **Descrizione del servizio** |   IPsec (Internet Protocol security) supporta l'autenticazione peer a livello di rete, l'autenticazione dell'origine dati, l'integrità dei dati, la riservatezza dei dati (crittografia) e la protezione della riproduzione.  Questo servizio applica i criteri IPsec creati mediante lo snap-in Criteri di sicurezza IP o l'utilità da riga di comando "netsh ipsec".  Se il servizio viene arrestato, è possibile che si verifichino problemi di connettività di rete se i criteri richiedono l'uso di IPsec per le connessioni  e inoltre la gestione remota di Windows Firewall non sarà possibile.
 |   **Nome del servizio**    |   PolicyAgent
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />
 
-##  <a name="kdc-proxy-server-service-kps"></a>Servizio Server Proxy KDC (KPS)      
+##  <a name="kdc-proxy-server-service-kps"></a>Servizio Server proxy KDC (KPS)      
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Servizio Server Proxy KDC viene eseguito sui server perimetrali al proxy Kerberos messaggi di protocollo ai controller di dominio nella rete aziendale.
+|   **Descrizione del servizio** |   Il servizio Server proxy KDC viene eseguito su server perimetrali per fornire un proxy per i messaggi del protocollo Kerberos ai controller di dominio della rete aziendale.
 |   **Nome del servizio**    |   KPSSVC
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione    
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione    
 |   **Commenti**    |   
 |||         
 
@@ -1036,11 +1036,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Coordina le transazioni tra Distributed Transaction Coordinator (MSDTC) e le transazioni Manager (kernel). Se non è più necessaria, è consigliabile che questo servizio rimane arrestato. Se necessario, MSDTC sia gestione transazioni kernel avvierà il servizio automaticamente. Se questo servizio è disabilitato, qualsiasi transazione MSDTC l'interazione con Gestione risorse di un Kernel avrà esito negativo e non sarà possibile avviare qualsiasi servizi che dipendono esplicitamente da esso.
+|   **Descrizione del servizio** |   Coordina le transazioni tra Distributed Transaction Coordinator (MSDTC) e Gestione transazioni kernel. Se non è necessario, è consigliabile mantenere arrestato questo servizio. Se è necessario, il servizio verrà avviato automaticamente da MSDTC e Gestione transazioni kernel. Se il servizio viene disabilitato, eventuali transazioni MSDTC che interagiscono con Gestione transazioni kernel avranno esito negativo e i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   KtmRm
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1050,12 +1050,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |       
 |---|---|       
-|   **Descrizione del servizio** |   Crea una mappa di rete, costituito da computer e informazioni sulla topologia (connettività) di dispositivo e i metadati che descrivono ogni PC e dispositivi.  Se il servizio è disabilitato, la mappa di rete non funzionerà correttamente.
+|   **Descrizione del servizio** |   Crea una mappa di rete composta da informazioni sulla topologia (connettività) dei PC e dei dispositivi e dai metadati che descrivono i PC e i dispositivi stessi.  Se il servizio viene disabilitato, la mappa di rete non funzionerà correttamente.
 |   **Nome del servizio**    |   lltdsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   OK per disabilitare se senza dipendenze nella mappa di rete
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   OK disabilitare se non sono presenti dipendenze dalla mappa di rete.
 |||         
 
 <br />
@@ -1064,52 +1064,52 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |                   
 |---|---|   
-|   **Descrizione del servizio** |   Servizio di Windows di core che gestisce le sessioni utente locale. L'arresto o la disabilitazione di questo servizio comporterà l'instabilità del sistema.    
+|   **Descrizione del servizio** |   Servizio di base di Windows che gestisce le sessioni utente locali. Se il servizio viene arrestato o disabilitato, il sistema diventerà instabile.    
 |   **Nome del servizio**    |   LSM |
-|   **Installazione**    |   Sempre installata    |
-|   **StartType**   |   Automatico   |
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato    |
+|   **Tipo di avvio**   |   Automatico   |
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||                 
 
 <br />                  
 
-## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Agente di raccolta Standard Microsoft (R) diagnostica dell'Hub         
+## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Servizio Agente di raccolta standard hub diagnostica Microsoft (R)         
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Servizio di Windows di core che gestisce le sessioni utente locale. L'arresto o la disabilitazione di questo servizio comporterà l'instabilità del sistema.
+|   **Descrizione del servizio** |   Servizio di base di Windows che gestisce le sessioni utente locali. Se il servizio viene arrestato o disabilitato, il sistema diventerà instabile.
 |   **Nome del servizio**    |   LSM
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />
 
-## <a name="microsoft-account-sign-in-assistant"></a>Assistente per l'accesso Account Microsoft
+## <a name="microsoft-account-sign-in-assistant"></a>Assistente per l'accesso all'account Microsoft
 | | |
 |---|---|
-|   **Descrizione del servizio** |   Abilita accesso dell'utente tramite i servizi di identità di account Microsoft. Se questo servizio viene arrestato, gli utenti non saranno in grado di accedere al computer tramite il proprio account Microsoft.
+|   **Descrizione del servizio** |   Consente l'accesso utente attraverso i servizi di identità per account Microsoft. Se il servizio viene arrestato, gli utenti non saranno in grado di accedere al computer tramite il proprio account Microsoft.
 |   **Nome del servizio**    |   wlidsvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Microsoft Accounts sono n/d in Windows Server
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   Gli account Microsoft non sono disponibili su Windows Server.
 |||
 
 <br />          
 
-##  <a name="microsoft-app-v-client"></a>Microsoft App-V Client      
+##  <a name="microsoft-app-v-client"></a>Client Microsoft App-V      
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce gli utenti di App-V e le applicazioni virtuali
+|   **Descrizione del servizio** |   Gestisce le applicazioni virtuali e gli utenti App-V.
 |   **Nome del servizio**    |   AppVClient
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -1119,12 +1119,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce le sessioni iSCSI (Internet SCSI) da questo computer per i dispositivi di destinazione iSCSI remota. Se questo servizio viene arrestato, in questo computer non sarà in grado di accedere alle destinazioni iSCSI. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce le sessioni SCSI (iSCSI) Internet tra il computer e i dispositivi di destinazione iSCSI remoti. Se il servizio viene arrestato, il computer non sarà in grado di accedere alle destinazioni iSCSI. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   MSiSCSI
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   I dati di diagnostica indicano che questo viene utilizzato sul client, nonché server. Non offre alcun vantaggio per la disabilitazione di questa.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   I dati di diagnostica indicano che il servizio viene usato sul client e sul server. La disabilitazione del servizio non offre alcun vantaggio.
 |||         
 
 <br />          
@@ -1133,67 +1133,67 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce l'isolamento dei processi per le chiavi di crittografia utilizzato per l'autenticazione al provider di identità associato dell'utente. Se questo servizio è disabilitato, tutte le usa e gestione di queste chiavi non saranno disponibili, che include computer accesso e dell'accesso single sign-in per App e siti Web. Questo servizio viene avviato e si arresta automaticamente. È consigliabile non riconfigurare il servizio.
+|   **Descrizione del servizio** |   Fornisce l'isolamento dei processi per le chiavi crittografiche usate per l'autenticazione con i provider di identità associati di un utente. Se il servizio è disabilitato, tutti gli utilizzi e la gestione di queste chiavi non saranno disponibili, inclusi l'accesso al computer e le funzionalità Single Sign-On per app e siti Web. Questo servizio viene avviato e arrestato automaticamente. È consigliabile non riconfigurare questo servizio.
 |   **Nome del servizio**    |   NgcSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Necessario per gli accessi PIN/Hello, che non è supportati nel Server
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   È necessario per gli accessi PIN/Hello, che non sono supportati sul server.
 |||         
 
 <br />          
 
-## <a name="microsoft-passport-container"></a>Contenitore di Microsoft Passport         
+## <a name="microsoft-passport-container"></a>Contenitore Microsoft Passport         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce le chiavi di identità utente locale usate per l'autenticazione utente per i provider di identità, nonché le smart card virtuali TPM. Se il servizio è disabilitato, le chiavi di identità utente locale e smart card virtuali TPM non saranno accessibili. È consigliabile non riconfigurare il servizio.
+|   **Descrizione del servizio** |   Gestisce le chiavi di identità dell'utente locale usate per autenticare l'utente con i provider di identità, nonché le smart card virtuali TPM. Se il servizio viene disabilitato, le chiavi di identità dell'utente locale e le smart card virtuali TPM non saranno accessibili. È consigliabile non riconfigurare questo servizio.
 |   **Nome del servizio**    |   NgcCtnrSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="microsoft-software-shadow-copy-provider"></a>Provider di copie Shadow Software Microsoft          
+## <a name="microsoft-software-shadow-copy-provider"></a>Provider di copie shadow software Microsoft          
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di gestire copie shadow dei volumi basati su software impiegate dal servizio Copia Shadow del Volume. Se questo servizio viene arrestato, copie shadow dei volumi basati su software non possono essere gestite. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce le copie shadow del volume basate sul software eseguite dal servizio Copia Shadow del volume. Se il servizio viene arrestato, le copie shadow del volume basate sul software non potranno essere gestite. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   swprv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="microsoft-storage-spaces-smp"></a>SMP spazi di archiviazione di Microsoft         
+## <a name="microsoft-storage-spaces-smp"></a>SMP spazi di archiviazione Microsoft         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Servizio host per il provider di gestione di spazi di archiviazione di Microsoft. Se questo servizio viene arrestato o disabilitato, non possono essere gestiti gli spazi di archiviazione.
+|   **Descrizione del servizio** |   Servizio host per il provider di gestione per spazi di archiviazione Microsoft. Se il servizio viene arrestato o disabilitato, gli spazi di archiviazione non potranno essere gestiti.
 |   **Nome del servizio**    |   smphost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Gestione dell'archiviazione API esito negativo senza questo servizio. Esempio: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Senza questo servizio, le API di gestione dell'archiviazione non potranno essere eseguite. Esempio: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
 |||         
 
 <br />          
 
-## <a name="nettcp-port-sharing-service"></a>Net.Tcp Port Sharing Service         
+## <a name="nettcp-port-sharing-service"></a>Servizio di condivisione porta Net.Tcp         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di condividere le porte TCP tramite il protocollo NET. TCP.
+|   **Descrizione del servizio** |   Consente di condividere le porte TCP tramite il protocollo net.tcp.
 |   **Nome del servizio**    |   NetTcpPortSharing
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -1203,25 +1203,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|           
-|   **Descrizione del servizio** |   Gestisce un canale sicuro tra computer e il controller di dominio per l'autenticazione degli utenti e servizi. Se questo servizio viene arrestato, il computer potrebbe non autenticare utenti e servizi e il controller di dominio non è possibile registrare i record DNS. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Mantiene un canale sicuro tra il computer e il controller di dominio per l'autenticazione di utenti e di servizi. Se il servizio viene arrestato, è possibile che il computer non effettui l'autenticazione di utenti e servizi e che il controller di dominio non registri i record DNS. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   Accesso rete
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="network-connection-broker"></a>Gestore di connessione di rete            
+## <a name="network-connection-broker"></a>Gestore connessione rete            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Connessioni di Broker che consentono alle app di Microsoft Store ricevere le notifiche da internet.
+|   **Descrizione del servizio** |   Connessioni del gestore che consentono alle app di Microsoft Store di ricevere notifiche da Internet.
 |   **Nome del servizio**    |   NcbService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1231,11 +1231,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Gestisce gli oggetti nella cartella di rete e le connessioni remote, in cui è possibile visualizzare sia rete locale e le connessioni remote.
+|   **Descrizione del servizio** |   Gestisce gli oggetti nella cartella Connessioni di rete e telefoniche in cui è possibile visualizzare connessioni di rete locale (LAN) e connessioni remote.
 |   **Nome del servizio**    |   Netman
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1245,25 +1245,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce la notifica di stato di DirectAccess per i componenti dell'interfaccia utente
+|   **Descrizione del servizio** |   Fornisce la notifica dello stato DirectAccess per i componenti dell'interfaccia utente.
 |   **Nome del servizio**    |   NcaSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />  
 
-##  <a name="network-list-service"></a>Servizio elenco reti        
+##  <a name="network-list-service"></a>Servizio Elenco reti        
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Identifica le reti a cui il computer è connesso, raccoglie e archivia le proprietà per queste reti e notifica alle applicazioni quando queste proprietà vengono modificate.
+|   **Descrizione del servizio** |   Identifica le reti a cui è connesso il computer, raccoglie e archivia le proprietà di tali reti e invia notifiche alle applicazioni quando tali proprietà vengono modificate.
 |   **Nome del servizio**    |   netprofm
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1273,39 +1273,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Raccoglie e archivia le informazioni di configurazione per la rete e comunica ai programmi quando queste informazioni vengono modificate. Se questo servizio viene arrestato, le informazioni di configurazione potrebbero non essere disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Raccoglie e archivia le informazioni di configurazione per la rete e notifica ai programmi l'eventuale modifica di tali informazioni. Se il servizio viene arrestato, le informazioni di configurazione potrebbero non essere disponibili. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   NlaSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="network-setup-service"></a>Servizio di configurazione di rete       
+##  <a name="network-setup-service"></a>Servizio di installazione della rete       
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio di configurazione di rete gestisce l'installazione del driver di rete e consente la configurazione delle impostazioni di rete di basso livello.  Se questo servizio viene arrestato, eventuali installazioni di driver che sono in corso possono essere annullate.
+|   **Descrizione del servizio** |   Il servizio di installazione della rete gestisce l'installazione dei driver di rete e consente la configurazione di impostazioni di rete di basso livello.  Se il servizio viene arrestato, eventuali installazioni di driver in corso potrebbero essere annullate.
 |   **Nome del servizio**    |   NetSetupSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="network-store-interface-service"></a>Servizio di interfaccia di rete Store      
+## <a name="network-store-interface-service"></a>Servizio Interfaccia archivio di rete      
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio recapita le notifiche di rete (ad esempio interfaccia aggiunta/eliminazione e così via) per i client in modalità utente. L'arresto del servizio causerà la perdita della connettività di rete. Se il servizio è disabilitato, tutti gli altri servizi che dipendono esplicitamente da questo servizio avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Questo servizio recapita notifiche di rete, ad esempio aggiunte o eliminazioni di elementi dell'interfaccia, ai client in modalità utente. L'arresto del servizio comporta la perdita della connettività di rete. Se il servizio viene disabilitato, gli altri servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   nsi
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1315,11 +1315,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   I file Offline servizio esegue le attività di manutenzione nella cache dei file Offline, risponde agli eventi di accesso e disconnessione dell'utente, implementa gli elementi interni dell'API pubblica e invia eventi interessanti da quelli interessati a file Offline le attività e modifiche nello stato della cache.
+|   **Descrizione del servizio** |   Il servizio File offline esegue attività di manutenzione della cache File offline, risponde agli eventi di accesso e fine sessione degli utenti, implementa gli elementi interni dell'API pubblica e distribuisce gli eventi alle applicazioni e agli utenti interessati alle attività di File offline e ai cambiamenti di stato della cache.
 |   **Nome del servizio**    |   CscService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -1329,81 +1329,81 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di eseguire in modo più efficiente, ottimizzando al tempo i file nelle unità di archiviazione nel computer.
+|   **Descrizione del servizio** |   Consente al computer di funzionare in modo più efficiente ottimizzando i file nelle unità di archiviazione.
 |   **Nome del servizio**    |   defragsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />
 
-## <a name="performance-counter-dll-host"></a>Host DLL del contatore delle prestazioni         
+## <a name="performance-counter-dll-host"></a>Host DLL contatore prestazioni         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente agli utenti remoti e i processi a 64 bit eseguire query sui contatori delle prestazioni forniti dalla DLL a 32 bit. Se questo servizio viene arrestato, solo gli utenti locali e i processi a 32 bit sarà in grado di eseguire query sui contatori delle prestazioni forniti dalla DLL a 32 bit.
+|   **Descrizione del servizio** |   Consente agli utenti remoti e ai processi a 64 bit di eseguire query sui contatori di prestazioni forniti dalle DLL a 32 bit. Se il servizio viene arrestato, le query sui contatori di prestazioni forniti dalle DLL a 32 bit potranno essere eseguite solo dagli utenti locali e dai processi a 32 bit.
 |   **Nome del servizio**    |   PerfHost
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione    
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione    
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="performance-logs--alerts"></a>Gli avvisi e registri di prestazioni            
+## <a name="performance-logs--alerts"></a>Avvisi e registri di prestazioni            
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Raccoglie gli avvisi e registri di prestazioni i dati sulle prestazioni dal computer locale o remoto in base ai parametri di pianificazione preconfigurata, quindi scrive i dati in un log o attiva un avviso. Se questo servizio viene arrestato, non verranno raccolti informazioni sulle prestazioni. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Raccoglie dati relativi alle prestazioni dal computer locale o da computer remoti sulla base di parametri di pianificazione preconfigurati, quindi scrive i dati in un registro o attiva un avviso. Se il servizio viene arrestato, le informazioni sulle prestazioni non verranno raccolte. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   pla
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="phone-service"></a>Servizio telefonico       
+##  <a name="phone-service"></a>Servizio Telefono       
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Gestisce lo stato di telefonia sul dispositivo
+|   **Descrizione del servizio** |   Gestisce lo stato della telefonia nel dispositivo.
 |   **Nome del servizio**    |   PhoneSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Usato da app moderne VoIP
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   Usato dalle app VoIP moderne.
 |||         
 
 <br />          
 
-##      <a name="plug-and-play"></a>Servizio Plug and Play       
+##      <a name="plug-and-play"></a>Plug and Play       
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente a un computer riconoscere e adattarsi alle modifiche dell'hardware con input utente non offrivano. L'arresto o la disabilitazione di questo servizio comporterà l'instabilità del sistema.
+|   **Descrizione del servizio** |   Consente a un computer di riconoscere le modifiche hardware e adattarsi ad esse con un intervento minimo o nullo da parte dell'utente. Se il servizio viene arrestato o disabilitato, il sistema diventerà instabile.
 |   **Nome del servizio**    |   PlugPlay
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="portable-device-enumerator-service"></a>Servizio dispositivi portatili di enumeratore           
+## <a name="portable-device-enumerator-service"></a>Servizio enumeratore dispositivi mobili           
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Applica criteri di gruppo per i dispositivi di archiviazione di massa rimovibili. Consente alle applicazioni, ad esempio Windows Media Player e Image importazione guidata di trasferire e sincronizzare contenuto con i dispositivi di archiviazione di massa rimovibili.
+|   **Descrizione del servizio** |   Applica Criteri di gruppo per i dispositivi di archiviazione di massa rimovibili. Consente ad applicazioni quali Windows Media Player e Importazione guidata immagini di trasferire e sincronizzare il contenuto tramite dispositivi di archiviazione di massa rimovibili.
 |   **Nome del servizio**    |   WPDBusEnum
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1413,11 +1413,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce i criteri di risparmio energia e recapito delle notifiche dei criteri risparmio energia.
+|   **Descrizione del servizio** |   Gestisce criteri per il risparmio energia e il recapito di notifiche relative a tali criteri.
 |   **Nome del servizio**    |   Alimentazione
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1427,53 +1427,53 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio effettua lo spooling dei processi di stampa e gestisce l'interazione con la stampante.  Se disabilita questo servizio, non sarà in grado di stampare o vedere le stampanti.
+|   **Descrizione del servizio** |   Questo servizio effettua lo spooling dei processi di stampa e gestisce l'interazione con la stampante.  Se il servizio viene disabilitato, non sarà più possibile stampare o visualizzare le stampanti.
 |   **Nome del servizio**    |   Spooler
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disabilitare se non è un server di stampa o un controller di dominio
-|   **Commenti**    |   In un controller di dominio, l'installazione del ruolo del controller di dominio viene aggiunto un thread per il servizio spooler di che è responsabile dell'esecuzione stampa l'operazione di eliminazione: rimuovere gli oggetti di coda di stampa non aggiornati da Active Directory.  Se il servizio spooler non è in esecuzione in almeno un controller di dominio in ogni sito, quindi Active Directory non è in grado di rimuovere le code precedente che non esistono più. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare se non si tratta di un server di stampa o di un controller di dominio.
+|   **Commenti**    |   In un controller di dominio, l'installazione del ruolo del controller di dominio aggiunge un thread per il servizio spooler che è responsabile dell'eliminazione degli oggetti coda di stampa obsoleti da Active Directory.  Se il servizio spooler non è in esecuzione su almeno un controller di dominio in ogni sito, Active Directory non è in grado di rimuovere le code precedenti che non esistono più. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
 |||         
 
 <br />          
 
-##  <a name="printer-extensions-and-notifications"></a>Le notifiche e le estensioni della stampante        
+##  <a name="printer-extensions-and-notifications"></a>Estensioni e notifiche della stampante        
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio consente di aprire le finestre di dialogo di stampa personalizzata e gestisce le notifiche da un server di stampa remoto o una stampante. Se disabilita questo servizio, sarà possibile visualizzare le estensioni della stampante o le notifiche.
+|   **Descrizione del servizio** |   Questo servizio apre le finestre di dialogo personalizzate della stampante e gestisce le notifiche da una stampante o un server di stampa remoto. Se il servizio viene disabilitato, non sarà possibile visualizzare le estensioni o le notifiche della stampante.
 |   **Nome del servizio**    |   PrintNotify
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disabilitare se non è un server di stampa
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare se non si tratta di un server di stampa.
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="problem-reports-and-solutions-control-panel-support"></a>Segnalazioni di problemi e supporto per il pannello di controllo di soluzioni     
+##  <a name="problem-reports-and-solutions-control-panel-support"></a>Segnalazioni di problemi e soluzioni nel Pannello di controllo     
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio fornisce supporto per la visualizzazione, l'invio e l'eliminazione delle segnalazioni di problemi a livello di sistema per il pannello di controllo segnalazioni di problemi e soluzioni.
+|   **Descrizione del servizio** |   Questo servizio fornisce supporto per la visualizzazione, l'invio e l'eliminazione di rapporti sui problemi a livello di sistema per Segnalazioni di problemi e soluzioni nel Pannello di controllo.
 |   **Nome del servizio**    |   wercplsupport
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="program-compatibility-assistant-service"></a>Program Compatibility Assistant servizio     
+##  <a name="program-compatibility-assistant-service"></a>Servizio Risoluzione problemi compatibilità programmi     
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio fornisce il supporto per i Program Compatibility Assistant principali (PCA).  Analisi in componenti principali consente di monitorare applicazioni installate ed eseguite dall'utente e rileva i problemi di compatibilità noti. Se questo servizio viene arrestato, analisi in componenti principali non funzionerà correttamente.
+|   **Descrizione del servizio** |   Questo servizio fornisce supporto per Risoluzione problemi compatibilità programmi,  che effettua il monitoraggio dei programmi installati ed eseguiti dall'utente e rileva i problemi di compatibilità noti. Se il servizio viene arrestato, Risoluzione problemi compatibilità programmi non funzionerà correttamente.
 |   **Nome del servizio**    |   PcaSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1483,11 +1483,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Quality Windows Audio Video Experience (qWave) è una piattaforma per Audio-Video (AV) lo streaming di applicazioni in reti domestiche IP di rete. qWave migliora AV lo streaming di prestazioni e affidabilità, garantendo rete quality of service (QoS) per le applicazioni antivirus. Fornisce i meccanismi per il controllo di ammissione, Esegui monitoraggio in tempo e applicazione, commenti sull'applicazione e assegnazione delle priorità del traffico.
+|   **Descrizione del servizio** |   Servizio audio/video Windows di qualità (qWave) è una piattaforma di rete per applicazioni che usano il flusso di dati audio/video (AV) in reti domestiche IP. qWave migliora le prestazioni e l'affidabilità durante l'utilizzo del flusso AV, garantendo la qualità del servizio (QoS, Quality of Service) sulla rete per le applicazioni AV. Offre infatti meccanismi per il controllo dell'ammissione, il monitoraggio e l'imposizione in fase di esecuzione, il feedback dell'applicazione e l'impostazione della priorità del traffico.
 |   **Nome del servizio**    |   QWAVE
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Servizio QoS sul lato client
 |||         
 
@@ -1497,39 +1497,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Opzione di gestione e del servizio in modalità aereo
+|   **Descrizione del servizio** |   Servizio di gestione radio e modalità aereo
 |   **Nome del servizio**    |   RmSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="remote-access-auto-connection-manager"></a>Gestione connessione automatica di accesso remoto            
+## <a name="remote-access-auto-connection-manager"></a>Auto Connection Manager di Accesso remoto            
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Crea una connessione a una rete remota ogni volta che un programma fa riferimento a un nome DNS o NetBIOS o l'indirizzo remoto.
+|   **Descrizione del servizio** |   Crea una connessione a una rete remota ogni volta che un programma fa riferimento a un DNS o a un nome o indirizzo NetBIOS remoto.
 |   **Nome del servizio**    |   RasAuto
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="remote-access-connection-manager"></a>Gestione connessione di accesso remoto         
+## <a name="remote-access-connection-manager"></a>Connection Manager di Accesso remoto         
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Gestisce le connessioni remote e virtuale a rete privata (VPN) da questo computer a Internet o ad altre reti remote. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce le connessioni remote e di rete privata virtuale (VPN) dal computer a Internet o ad altre reti remote. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   RasMan
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1539,11 +1539,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Servizio di configurazione di Desktop remoto (RDC) è responsabile per tutti i Servizi Desktop remoto e Desktop remoto correlate alla configurazione e le attività di manutenzione di sessione che richiedono il contesto di sistema. Sono inclusi cartelle temporanee per sessione, i temi desktop remoto e i certificati di desktop remoto.
+|   **Descrizione del servizio** |   Il servizio Configurazione Desktop remoto è responsabile di tutte le attività di manutenzione della configurazione e delle sessioni correlate a Servizi Desktop remoto e Desktop remoto che richiedono il contesto SYSTEM. Sono inclusi i temi di Desktop remoto, i certificati di Desktop remoto e le cartelle temporanee per sessione.
 |   **Nome del servizio**    |   SessionEnv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1553,11 +1553,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente agli utenti di connettersi in modo interattivo a un computer remoto. Desktop remoto e Server Host sessione Desktop remoto dipendono da questo servizio.  Per impedire l'utilizzo remoto del computer, deselezionare le caselle di controllo nella scheda connessione remota dell'elemento del Pannello di controllo di proprietà del sistema.
+|   **Descrizione del servizio** |   Consente agli utenti di connettersi in modo interattivo a un computer remoto. Desktop remoto e il server Host sessione Desktop remoto dipendono da questo servizio.  Per impedire l'utilizzo remoto del computer, è necessario deselezionare le caselle di controllo nella scheda Connessione remota della finestra delle proprietà Sistema nel Pannello di controllo.
 |   **Nome del servizio**    |   TermService
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1567,11 +1567,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente il reindirizzamento delle stampanti/unità/porte per le connessioni RDP
+|   **Descrizione del servizio** |   Consente il reindirizzamento di stampanti, unità o porte per le connessioni Desktop remoto.
 |   **Nome del servizio**    |   UmRdpService
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
 |   **Commenti**    |   Supporta i reindirizzamenti sul lato server della connessione.
 |||         
 
@@ -1581,25 +1581,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Il servizio RPCSS è Gestione controllo servizi per i server COM e DCOM. Esegue le richieste di attivazioni di oggetti, risoluzioni di utilità di esportazione di oggetto e garbage collection distribuito per i server COM e DCOM. Se questo servizio viene arrestato o disabilitato, programmi che utilizzano COM o DCOM non funzionerà correttamente. Si consiglia di avere l'esecuzione del servizio RPCSS.
+|   **Descrizione del servizio** |   Il servizio RPCSS corrisponde a Gestione controllo servizi per i server COM e DCOM. Questo servizio esegue richieste di attivazione degli oggetti, funzionalità di risoluzione per l'object exporter e funzioni distribuite di garbage collection per i server COM e DCOM. Se il servizio viene arrestato o disabilitato, i programmi che usano COM o DCOM non funzioneranno correttamente. È fortemente consigliabile mantenere in esecuzione il servizio RPCSS.
 |   **Nome del servizio**    |   RpcSs
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="remote-procedure-call-rpc-locator"></a>Remote Procedure Call (RPC) localizzatore             
+##  <a name="remote-procedure-call-rpc-locator"></a>RPC Locator             
 
 | | |               
 |---|---|   
-|   **Descrizione del servizio** |   In Windows 2003 e versioni precedenti di Windows, il servizio Localizzatore RPC Remote Procedure Call () gestisce il database del servizio RPC nome. In Windows Vista e versioni successive di Windows, il servizio non fornisce alcuna funzionalità ed è presente per compatibilità delle applicazioni.   |
+|   **Descrizione del servizio** |   In Windows 2003 e nelle versioni precedenti di Windows, il servizio RPC (Remote Procedure Call) Locator gestisce il database del servizio dei nomi RPC. In Windows Vista e nelle versioni successive di Windows, questo servizio non offre alcuna funzionalità ed è disponibile per compatibilità con le applicazioni.   |
 |   **Nome del servizio**    |   RpcLocator  |
-|   **Installazione**    |   Solo con esperienza Desktop    |
-|   **StartType**   |   Manual  |
-|   **Raccomandazione**  | Alcuna indicazione   |
+|   **Installazione**    |   Solo con Esperienza desktop    |
+|   **Tipo di avvio**   |   Manual  |
+|   **Consiglio**  | Nessuna indicazione   |
 |   **Commenti**    |       |
 |||             
 
@@ -1609,25 +1609,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente agli utenti remoti di modificare le impostazioni del Registro di sistema del computer. Se questo servizio viene arrestato, il Registro di sistema può essere modificata solo da utenti in questo computer. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Consente agli utenti remoti di modificare le impostazioni del Registro di sistema del computer in uso. Se il servizio viene arrestato, il Registro di sistema potrà essere modificato soltanto dagli utenti del computer. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   RemoteRegistry
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="resultant-set-of-policy-provider"></a>Set di Provider di criteri risultante            
+##  <a name="resultant-set-of-policy-provider"></a>Provider Gruppo di criteri risultante            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce un servizio di rete che elabora le richieste per simulare l'applicazione delle impostazioni di criteri di gruppo per un utente di destinazione o un computer in diverse situazioni e calcola le impostazioni di criteri.
+|   **Descrizione del servizio** |   Fornisce un servizio di rete che elabora richieste per simulare l'applicazione di impostazioni dei Criteri di gruppo per un utente o computer di destinazione in varie situazioni, oltre a calcolare le impostazioni del gruppo di criteri risultante.
 |   **Nome del servizio**    |   RSoPProv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |Alcuna indicazione    
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |Nessuna indicazione    
 |   **Commenti**    |   
 |||         
 
@@ -1637,12 +1637,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Offre servizi di routing per le aziende in ambienti di rete WAN e di rete locale.
+|   **Descrizione del servizio** |   Offre servizi di routing ad aziende in ambienti LAN e WAN.
 |   **Nome del servizio**    |   RemoteAccess
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
-|   **Commenti**    |   Già disabilitata
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
+|   **Commenti**    |   Già disabilitato
 |||         
 
 <br />          
@@ -1651,11 +1651,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Risolve gli identificatori di interfacce RPC a endpoint di trasporto. Se questo servizio viene arrestato o disabilitato, i programmi usando i servizi RPC Remote Procedure Call () non funzionerà correttamente.
+|   **Descrizione del servizio** |   Risolve gli identificatori di interfaccia RPC in endpoint del trasporto. Se il servizio viene arrestato o disabilitato, i programmi che usano servizi RPC (Remote Procedure Call) non funzioneranno in modo corretto.
 |   **Nome del servizio**    |   RpcEptMapper
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1665,98 +1665,98 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Abilita l'avvio di processi con credenziali alternative. Se questo servizio viene arrestato, questo tipo di accesso sarà disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Consente di avviare i processi con credenziali alternative. Se il servizio viene arrestato, questo tipo di accesso non sarà disponibile. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   seclogon
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="secure-socket-tunneling-protocol-service"></a>Secure Socket Tunneling Protocol Service            
+##  <a name="secure-socket-tunneling-protocol-service"></a>Servizio SSTP (Secure Socket Tunneling Protocol)            
 
 | | |               
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce il supporto per il Tunneling protocollo SSTP (Secure Socket) per connettersi a computer remoti tramite VPN. Se il servizio è disabilitato, gli utenti non saranno in grado di utilizzare SSTP per accedere a server remoti.    |
+|   **Descrizione del servizio** |   Fornisce supporto per il protocollo SSTP (Secure Socket Tunneling Protocol) per la connessione a computer remoti tramite VPN. Se il servizio viene disabilitato, gli utenti non potranno usare SSTP per l'accesso a server remoti.    |
 |   **Nome del servizio**    |   SstpSvc |
-|   **Installazione**    |   Sempre installata    |
-|   **StartType**   |   Manual  |
-|   **Raccomandazione**  |   Non disabilitare  |
-|   **Commenti**    |   La disabilitazione di interruzioni di RRAS   |
+|   **Installazione**    |   Sempre installato    |
+|   **Tipo di avvio**   |   Manual  |
+|   **Consiglio**  |   Non disabilitare  |
+|   **Commenti**    |   La disabilitazione causa l'interruzione di RRAS.   |
 |||             
 
 <br />              
 
-## <a name="security-accounts-manager"></a>Gestione degli account di sicurezza            
+## <a name="security-accounts-manager"></a>Sistema di gestione degli account di sicurezza (SAM)            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   L'avvio di questo servizio segnala ad altri servizi che è pronto per accettare le richieste di gestione di account di sicurezza (SAM).  Se si disabilita questo servizio impedirà ad altri servizi nel sistema da visualizzare una notifica quando il modulo SAM è pronto, che potrebbe causare a sua volta tali servizi non vengono avviati in modo corretto. Questo servizio non deve essere disabilitato.
+|   **Descrizione del servizio** |   L'avvio di questo servizio segnala ad altri servizi che il sistema di gestione degli account di sicurezza (SAM) è pronto ad accettare richieste.  Se il servizio viene disabilitato, non sarà possibile notificare tale stato del sistema di gestione degli account di sicurezza agli altri servizi del sistema, che potrebbero pertanto non essere avviati correttamente. Il servizio non dovrebbe essere disabilitato.
 |   **Nome del servizio**    |   SamSs
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Non disabilitare
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Non disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="sensor-data-service"></a>Servizio dati del sensore  
+## <a name="sensor-data-service"></a>Servizio dati sensore  
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce i dati da un'ampia gamma di sensori
+|   **Descrizione del servizio** |   Fornisce i dati provenienti da un'ampia gamma di sensori.
 |   **Nome del servizio**    |   SensorDataService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />  
 
-## <a name="sensor-monitoring-service"></a>Monitoraggio servizio del sensore            
+## <a name="sensor-monitoring-service"></a>Servizio monitoraggio sensori            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di monitorare diversi sensori allo scopo di esporre i dati e adattare allo stato di sistema e utente.  Se questo servizio viene arrestato o disabilitato, la luminosità dello schermo non si adatta alle condizioni di illuminazione. L'arresto del servizio può influire sulle altre funzionalità del sistema e anche le funzionalità.
+|   **Descrizione del servizio** |   Esegue il monitoraggio di diversi sensori per esporre i dati e adattarli allo stato del sistema e dell'utente.  Se il servizio viene arrestato o disabilitato, la luminosità dello schermo non verrà regolata in base alle condizioni di illuminazione. L'arresto del servizio può inoltre influire su altre funzionalità e caratteristiche del sistema.
 |   **Nome del servizio**    |   SensrSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br /><br/>
-## <a name="sensor-servicebr--br------br---strongservice-descriptionstrong----a-service-for-sensors-that-manages-different-sensors39-functionality-manages-simple-device-orientation-sdo-and-history-for-sensors-loads-the-sdo-sensor-that-reports-device-orientation-changes--if-this-service-is-stopped-or-disabled-the-sdo-sensor-will-not-be-loaded-and-so-auto-rotation-will-not-occur-history-collection-from-sensors-will-also-be-stopped"></a>Servizio del sensore<br/>| | |<br/>|---|---|<br/>|   <strong>Descrizione del servizio</strong> |   Un servizio per i sensori che gestisce diversi sensori&#39; funzionalità. Gestisce l'orientamento di dispositivo semplice (SDO) e la cronologia per i sensori. Carica il sensore SDO che segnala le modifiche apportate orientamento di dispositivo.  Se questo servizio viene arrestato o disabilitato, non verrà caricato il sensore SDO e pertanto non si verificherà rotazione automatica. Raccolta di cronologie dei sensori verrà arrestato.
-|   <strong>Nome del servizio</strong> |   SensorService |   <strong>Installazione</strong> |   Solo con esperienza Desktop |   <strong>StartType</strong> |   Manuale |   <strong>Raccomandazione</strong> |   OK per disabilitare |   <strong>Commenti</strong>    |<br/>|||<br/>
+## <a name="sensor-servicebr--br------br---strongservice-descriptionstrong----a-service-for-sensors-that-manages-different-sensors39-functionality-manages-simple-device-orientation-sdo-and-history-for-sensors-loads-the-sdo-sensor-that-reports-device-orientation-changes--if-this-service-is-stopped-or-disabled-the-sdo-sensor-will-not-be-loaded-and-so-auto-rotation-will-not-occur-history-collection-from-sensors-will-also-be-stopped"></a>Servizio sensori<br/>| | |<br/>|---|---|<br/>|   <strong>Descrizione del servizio</strong> |   Servizio per i sensori che gestisce la funzionalità di diversi sensori. Gestisce l'orientamento dispositivo semplice (SDO, Simple Device Orientation) e la cronologia per i sensori. Carica il sensore SDO che segnala le modifiche di orientamento del dispositivo.  Se il servizio viene arrestato o disabilitato, il sensore SDO non verrà caricato e quindi non verrà eseguita la rotazione automatica. Verrà arrestata anche la raccolta cronologia dai sensori.
+|   <strong>Nome del servizio</strong>    |   SensorService |   <strong>Installazione</strong>    |   Solo con Esperienza desktop |   <strong>Tipo di avvio</strong>   |   Manuale |   <strong>Consiglio</strong>  |   OK disabilitare |   <strong>Commenti</strong>    |<br/>|||<br/>
 <br />          
 
 ## <a name="server"></a>Server           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Supporta file, stampa e pipe con nome di condivisione in rete per questo computer. Se questo servizio viene arrestato, queste funzioni non saranno disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Supporta la condivisione in rete di file, stampa e named pipe per il computer in uso. Se il servizio viene arrestato, queste funzioni non saranno disponibili. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   LanmanServer
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Necessario per la gestione remota, $ IPC, la condivisione file SMB
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   È necessario per la gestione remota, IPC$ e la condivisione di file SMB.
 |||         
 
 <br />          
 
-## <a name="shell-hardware-detection"></a>Rilevamento Hardware shell             
+## <a name="shell-hardware-detection"></a>Rilevamento hardware shell             
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce notifiche degli eventi di AutoPlay hardware.
+|   **Descrizione del servizio** |   Fornisce notifiche di eventi hardware AutoPlay.
 |   **Nome del servizio**    |   ShellHWDetection
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1766,39 +1766,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Gestisce l'accesso alle smart card letto da questo computer. Se questo servizio viene arrestato, questo computer sarà in grado di leggere le smart card. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce l'accesso alle smart card lette dal computer. Se il servizio viene arrestato, il computer non sarà in grado di leggere le smart card. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   SCardSvr
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="smart-card-device-enumeration-service"></a>Servizio di enumerazione dispositivo Smart Card                    
+## <a name="smart-card-device-enumeration-service"></a>Servizio di enumerazione dispositivo smart card                    
 
 | | |               
 |---|---|       
-|   **Descrizione del servizio** |   Crea nodi dispositivo del software per tutti i lettori di smart card accessibile a una determinata sessione. Se il servizio è disabilitato, APIs WinRT non sarà in grado di enumerare i lettori di smart card.   |
+|   **Descrizione del servizio** |   Crea nodi del dispositivo software per tutti i lettori di smart card accessibili in una determinata sessione. Se il servizio viene disabilitato, le API di WinRT non saranno in grado di enumerare i lettori di smart card.   |
 |   **Nome del servizio**    |   ScDeviceEnum    |
-|   **Installazione**    |   Sempre installata    |
-|   **StartType**   |   Manual  |
-|   **Raccomandazione**  |   OK per disattivare   |
-|   **Commenti**    |   Necessari quasi esclusivamente per le app di WinRT    |
+|   **Installazione**    |   Sempre installato    |
+|   **Tipo di avvio**   |   Manual  |
+|   **Consiglio**  |   OK disabilitare   |
+|   **Commenti**    |   È necessario quasi esclusivamente per le app WinRT.    |
 |||             
 
 <br />              
 
-## <a name="smart-card-removal-policy"></a>Criterio di rimozione della Smart Card        
+## <a name="smart-card-removal-policy"></a>Criterio rimozione smart card        
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente al sistema siano configurati per bloccare il desktop utente al momento della rimozione della smart card.
+|   **Descrizione del servizio** |   Consente di configurare il sistema in modo che il desktop dell'utente venga bloccato alla rimozione della smart card.
 |   **Nome del servizio**    |   SCPolicySvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1808,95 +1808,95 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Riceve i messaggi trap generati dagli agenti di Simple Network Management Protocol (SNMP) locali o remoti e inoltra i messaggi per i programmi di gestione SNMP in esecuzione nel computer. Se questo servizio viene arrestato, programmi basati su SNMP in questo computer non riceverà messaggi trap SNMP. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Riceve messaggi trap generati da agenti Simple Network Management Protocol (SNMP) locali o remoti e inoltra i messaggi a programmi di gestione SNMP in esecuzione su questo computer. Se il servizio viene arrestato, le applicazioni basate su SNMP nel computer non riceveranno messaggi trap SNMP. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   SNMPTRAP
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="software-protection"></a>Protezione da software             
+##  <a name="software-protection"></a>Protezione software             
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente il download, installazione e l'imposizione delle licenze digitali per Windows e Windows le applicazioni. Se il servizio è disabilitato, il sistema operativo e le applicazioni con licenza possono essere eseguite in una modalità di notifica. Si consiglia di non disabilitare la protezione da Software.
+|   **Descrizione del servizio** |   Abilita il download, l'installazione e l'applicazione di licenze digitali per Windows e le applicazioni Windows. Se il servizio viene disabilitato, è possibile che il sistema operativo e le applicazioni con licenza vengano eseguiti in modalità di notifica. È consigliabile non disabilitare il servizio di protezione software.
 |   **Nome del servizio**    |   sppsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="special-administration-console-helper"></a>Helper di Console di amministrazione speciale        
+## <a name="special-administration-console-helper"></a>Helper console di amministrazione speciale        
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente agli amministratori di accedere in remoto a un prompt dei comandi usando servizi di gestione emergenze.
+|   **Descrizione del servizio** |   Consente agli amministratori di accedere in remoto a un prompt dei comandi usando Servizi di gestione emergenze.
 |   **Nome del servizio**    |   sacsvr
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="spot-verifier"></a>Campione Verifier            
+## <a name="spot-verifier"></a>Verifica errori NTFS            
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Verifica i potenziali file system riscontrati.
+|   **Descrizione del servizio** |   Verifica il potenziale danneggiamento del file system.
 |   **Nome del servizio**    |   svsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="ssdp-discovery"></a>SSDP Discovery           
+## <a name="ssdp-discovery"></a>Individuazione SSDP           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di individuare i dispositivi di rete e i servizi che usano il protocollo di individuazione vengono usati SSDP, ad esempio i dispositivi UPnP. Annuncia anche i dispositivi vengono usati SSDP e servizi in esecuzione nel computer locale. Se questo servizio viene arrestato, non verranno individuati i dispositivi basati su protocollo SSDP. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Individua i servizi e i dispositivi di rete che usano il protocollo di individuazione SSDP, ad esempio i dispositivi UPnP. Annuncia inoltre i dispositivi e i servizi SSDP in esecuzione nel computer locale. Se questo servizio viene arrestato, i dispositivi basati su SSDP non verranno individuati. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   SSDPSRV
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="state-repository-service"></a>Repository stato servizio         
+## <a name="state-repository-service"></a>Servizio repository stati         
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce supporto dell'infrastruttura necessaria per il modello di applicazione.
+|   **Descrizione del servizio** |   Offre il supporto infrastrutturale necessario per il modello applicativo.
 |   **Nome del servizio**    |   StateRepository
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="still-image-acquisition-events"></a>Gli eventi di acquisizione di acquisizione immagini
+##  <a name="still-image-acquisition-events"></a>Eventi acquisizione Still Image
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Avvia le applicazioni associate comunque agli eventi di acquisizione immagine.
+|   **Descrizione del servizio** |   Avvia le applicazioni associate agli eventi di acquisizione fermo immagine.
 |   **Nome del servizio**    |   WiaRpc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -1906,11 +1906,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce servizi di attivazione per le impostazioni di archiviazione e l'espansione di archiviazione esterna
+|   **Descrizione del servizio** |   Consente l'abilitazione dei servizi per le impostazioni di archiviazione e l'espansione dell'archiviazione esterna.
 |   **Nome del servizio**    |   StorSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -1920,68 +1920,68 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di ottimizzare la posizione dei dati in livelli di archiviazione su tutti gli spazi di archiviazione a livelli nel sistema.
+|   **Descrizione del servizio** |   Ottimizza il posizionamento dei dati nei livelli degli spazi di archiviazione a livelli nel sistema.
 |   **Nome del servizio**    |   TieringEngineService
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="superfetch"></a>SuperFetch          
+##  <a name="superfetch"></a>Ottimizzazione avvio          
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce e migliora le prestazioni del sistema nel corso del tempo.
+|   **Descrizione del servizio** |   Mantiene e migliora nel tempo le prestazioni del sistema.
 |   **Nome del servizio**    |   SysMain
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="sync-host"></a>Host di sincronizzazione            
+## <a name="sync-host"></a>Sincronizza host            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio consente di sincronizzare la posta, contatti, calendario e vari altri dati utente. Posta elettronica e ad altre applicazioni dipendenti da questa funzionalità non funzionerà correttamente quando il servizio non è in esecuzione.
+|   **Descrizione del servizio** |   Questo servizio sincronizza la posta elettronica, i contatti, il calendario e diversi altri dati utente. La posta elettronica e altre applicazioni dipendenti da questa funzionalità non funzioneranno correttamente se il servizio non è in esecuzione.
 |   **Nome del servizio**    |   OneSyncSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
 <br />          
 
-## <a name="system-event-notification-service"></a>Servizio di notifica di eventi di sistema            
+## <a name="system-event-notification-service"></a>Servizio di notifica eventi di sistema            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di monitorare gli eventi di sistema e notifica ai sottoscrittori di COM+ Event System di questi eventi.
+|   **Descrizione del servizio** |   Esegue il monitoraggio degli eventi di sistema e li notifica ai sottoscrittori di COM+ Event System.
 |   **Nome del servizio**    |   SENS
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="system-events-broker"></a>Gestore di eventi di sistema             
+## <a name="system-events-broker"></a>Gestore eventi di sistema             
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Coordina l'esecuzione di attività in background per applicazione WinRT. Se questo servizio viene arrestato o disabilitato, attività in background potrebbero non essere attivate.
+|   **Descrizione del servizio** |   Coordina l'esecuzione di processi in background per l'applicazione WinRT. Se il servizio viene arrestato o disabilitato, i processi in background potrebbero non essere attivati.
 |   **Nome del servizio**    |   SystemEventsBroker
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Nonostante il fatto che la relativa descrizione implica che è solo per le app di WinRT, è necessaria per utilità di pianificazione, il servizio di infrastruttura di Service broker e altri componenti interni.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Anche se la descrizione sottintende che sia destinato solo alle app WinRT, il servizio è necessario per l'utilità di pianificazione, il servizio dell'infrastruttura di gestione e altri componenti interni.
 |||         
 
 <br />          
@@ -1990,25 +1990,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente all'utente di configurare e pianificare le attività automatizzate in questo computer. Il servizio ospita anche più attività di sistema critici di Windows. Se questo servizio viene arrestato o disabilitato, queste attività non verranno eseguite agli intervalli previsti volte. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Consente a un utente di configurare e pianificare attività automatiche nel computer in uso. Il servizio ospita inoltre più attività critiche per il sistema Windows. Se il servizio viene arrestato o disabilitato, le attività non verranno eseguite in base agli orari pianificati. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   Pianificazione
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="tcpip-netbios-helper"></a>NetBIOS Helper di TCP/IP            
+## <a name="tcpip-netbios-helper"></a>Helper NetBIOS di TCP/IP            
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce supporto per NetBIOS su TCP/IP (NetBT) servizio e la risoluzione dei nomi NetBIOS per i client nella rete, pertanto consentendo agli utenti di condividere file, stampa e accedere alla rete. Se questo servizio viene arrestato, queste funzioni potrebbero essere non disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Fornisce supporto al servizio NetBIOS su TCP/IP (NetBT) e alla risoluzione di nomi NetBIOS per i client della rete, consentendo la condivisione di file, la stampa e l'accesso alla rete da parte degli utenti. Se il servizio viene arrestato, queste funzioni potrebbero non essere disponibili. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   lmhosts
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2018,12 +2018,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce il supporto di API di telefonia (TAPI) per i programmi che consentono di controllare i dispositivi di telefonia nel computer locale e, tramite la LAN, nei server che eseguono anche il servizio.
+|   **Descrizione del servizio** |   Fornisce il supporto per TAPI (Telephony API) ai programmi che controllano i dispositivi di telefonia sul computer locale e, attraverso la LAN, agli altri server che eseguono il servizio.
 |   **Nome del servizio**    |   TapiSrv
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   La disabilitazione di interruzioni di RRAS
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   La disabilitazione causa l'interruzione di RRAS.
 |||         
 
 <br />          
@@ -2032,81 +2032,81 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Fornisce gestione temi dell'esperienza utente.
+|   **Descrizione del servizio** |   Consente la gestione dei temi tramite l'esperienza utente.
 |   **Nome del servizio**    |   Temi
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Non è possibile impostare i temi di accessibilità quando il servizio viene disabilitato
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Non è possibile impostare i temi di accessibilità quando il servizio è disabilitato.
 |||         
 
 <br />  
 
-## <a name="tile-data-model-server"></a>Dati modello server delle sezioni           
+## <a name="tile-data-model-server"></a>Server modello dati sezioni           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Server delle sezioni per aggiornamenti di riquadri.
+|   **Descrizione del servizio** |   Server delle sezioni per gli aggiornamenti delle sezioni.
 |   **Nome del servizio**    |   tiledatamodelsvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Start menu interruzioni se il servizio è disabilitato
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   La disabilitazione del servizio causa l'interruzione del menu Start.
 |||         
 
 <br />          
 
-##  <a name="time-broker"></a>Broker di tempo     
+##  <a name="time-broker"></a>Gestore tempo     
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Coordina l'esecuzione di attività in background per applicazione WinRT. Se questo servizio viene arrestato o disabilitato, attività in background potrebbero non essere attivate.
+|   **Descrizione del servizio** |   Coordina l'esecuzione di processi in background per l'applicazione WinRT. Se il servizio viene arrestato o disabilitato, i processi in background potrebbero non essere attivati.
 |   **Nome del servizio**    |   TimeBrokerSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Nonostante il fatto che la relativa descrizione implica che è solo per le app di WinRT, è necessaria per utilità di pianificazione, il servizio di infrastruttura di Service broker e altri componenti interni.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Anche se la descrizione sottintende che sia destinato solo alle app WinRT, il servizio è necessario per l'utilità di pianificazione, il servizio dell'infrastruttura di gestione e altri componenti interni.
 |||         
 
 <br />          
 
-## <a name="touch-keyboard-and-handwriting-panel-service"></a>Tastiera touchscreen e della grafia pannello servizio         
+## <a name="touch-keyboard-and-handwriting-panel-service"></a>Servizio tastiera virtuale e pannello per la grafia         
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Abilita la tastiera touchscreen e della grafia pannello funzionalità penna e input penna
+|   **Descrizione del servizio** |   Abilita le funzionalità di input penna della tastiera virtuale e del pannello per la grafia.
 |   **Nome del servizio**    |   TabletInputService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="update-orchestrator-service-for-windows-update"></a>Aggiornare il servizio agente di orchestrazione per l'aggiornamento di Windows           
+## <a name="update-orchestrator-service-for-windows-update"></a>Servizio agente di orchestrazione aggiornamenti per Windows Update           
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce gli aggiornamenti di Windows. Se arrestato, i dispositivi non sarà in grado di scaricare e installare gli aggiornamenti più recenti.
+|   **Descrizione del servizio** |   Gestisce gli aggiornamenti di Windows. Se viene arrestato, i dispositivi non potranno scaricare e installare gli aggiornamenti più recenti.
 |   **Nome del servizio**    |   UsoSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Descrizione del servizio non è presente in v1607; Aggiornamento di Windows (incluso Windows Server Update Services) dipende da questo servizio.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   La descrizione del servizio non è presente nella versione 1607. Windows Update (incluso WSUS) dipende da questo servizio.
 |||         
 
 <br />          
 
-## <a name="upnp-device-host"></a>Dispositivi UPnP Host         
+## <a name="upnp-device-host"></a>Host di dispositivi UPnP         
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente ai dispositivi UPnP deve essere ospitato in questo computer. Se questo servizio viene arrestato, tutti i dispositivi UPnP ospitati non funzionerà più e non altri dispositivi ospitati possono essere aggiunti. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Consente l'hosting dei dispositivi UPnP nel computer. Se il servizio viene arrestato, gli eventuali dispositivi UPnP ospitati smetteranno di funzionare e non sarà possibile aggiungere altri dispositivi ospitati. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   upnphost
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -2116,53 +2116,53 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio registra le richieste di accesso client univoci, sotto forma di indirizzi IP e nomi utente, dei prodotti installati e dei ruoli nel server locale. Queste informazioni possono eseguire query, tramite Powershell, gli amministratori di dover quantificare richiesta client del software del server per la gestione delle licenze CAL (Client Access License) non in linea. Se il servizio è disabilitato, le richieste client non verranno registrate e non potrà essere recuperate tramite query di Powershell. L'arresto del servizio non avrà effetto su query dei dati cronologici (vedere la documentazione per la procedura per eliminare i dati cronologici di supporto). L'amministratore di sistema locale è necessario consultare, la propria, condizioni di licenza di Windows Server per determinare il numero di licenze CAL necessari per il software del server avere la licenza in modo appropriato; Utilizzare il servizio registrazione accesso utenti e i dati non altera l'obbligo.
+|   **Descrizione del servizio** |   Questo servizio registra le richieste di accesso client univoche dei prodotti e ruoli installati nel server locale, sotto forma di indirizzi IP e nomi utente. Tali informazioni possono essere recuperate, tramite query PowerShell, dagli amministratori che hanno l'esigenza di quantificare le richieste client di software server per la gestione delle licenze CAL (Client Access License) offline. Se il servizio viene disabilitato, le richieste client non verranno registrate e non potranno essere recuperate tramite query PowerShell. L'arresto del servizio non influisce sul recupero tramite query dei dati cronologici (per la procedura di eliminazione dei dati cronologici, vedi la documentazione di supporto). L'amministratore del sistema locale deve verificare le condizioni della licenza di Windows Server per determinare il numero di licenze CAL (Client Access License) necessario affinché il software server risulti regolarmente coperto da licenza. L'uso del servizio UAL non esonera da tale obbligo.
 |   **Nome del servizio**    |   UALSVC
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="user-data-access"></a>Accesso ai dati utente        
+##  <a name="user-data-access"></a>Accesso dati utente        
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce l'accesso App ai dati utente strutturato, incluse le informazioni di contatto, calendari, i messaggi e altro contenuto. Se si arresta o si disabilita questo servizio, le app che usano questi dati potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Consente alle app di accedere ai dati utente strutturati, incluse le informazioni su contatti, calendari, messaggi e altro contenuto. Se il servizio viene arrestato o disabilitato, le app che usano questi dati potrebbero non funzionare correttamente.
 |   **Nome del servizio**    |   UserDataSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
 <br />          
 
-## <a name="user-data-storage"></a>Archiviazione dei dati utente            
+## <a name="user-data-storage"></a>Archiviazione dati utente            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce l'archiviazione dei dati utente strutturato, incluse le informazioni di contatto, calendari, i messaggi e altro contenuto. Se si arresta o si disabilita questo servizio, le app che usano questi dati potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Gestisce l'archiviazione dei dati utente strutturati, incluse le informazioni su contatti, calendari, messaggi e altro contenuto. Se il servizio viene arrestato o disabilitato, le app che usano questi dati potrebbero non funzionare correttamente.
 |   **Nome del servizio**    |   UnistoreSvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
 <br />          
 
-## <a name="user-experience-virtualization-service"></a>Servizio di virtualizzazione esperienza utente           
+## <a name="user-experience-virtualization-service"></a>Servizio User Experience Virtualization           
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce supporto per applicazioni e impostazioni del sistema operativo mobile
+|   **Descrizione del servizio** |   Fornisce il supporto per il roaming delle impostazioni delle applicazioni e del sistema operativo.
 |   **Nome del servizio**    |   UevAgentService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -2172,11 +2172,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Responsabile utente fornisce i componenti runtime necessari per l'interazione con più utenti.  Se questo servizio viene arrestato, alcune applicazioni potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Gestione utenti fornisce i componenti di runtime necessari per l'interazione tra più utenti.  Se il servizio viene arrestato, alcune applicazioni potrebbero non funzionare correttamente.
 |   **Nome del servizio**    |   UserManager
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2186,11 +2186,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio è responsabile del caricamento e scaricamento di profili utente mobili. Se questo servizio viene arrestato o disabilitato, gli utenti non saranno in grado di effettuare l'accesso o disconnettersi, le app potrebbero avere problemi a ottenere i dati degli utenti e i componenti registrati per ricevere le notifiche degli eventi di profilo non riceveranno.
+|   **Descrizione del servizio** |   Questo servizio è responsabile di caricare e scaricare i profili utente. Se il servizio viene arrestato o disabilitato, gli utenti non potranno più accedere o disconnettersi dal sistema, le app potrebbero avere problemi a ottenere i dati utente e i componenti registrati per la ricezione delle notifiche degli eventi relativi ai profili non le riceveranno.
 |   **Nome del servizio**    |   ProfSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2200,25 +2200,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce servizi di gestione per i dischi, volumi, file System e gli array di archiviazione.
-|   **Nome del servizio**    |   VDS
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Alcuna indicazione
+|   **Descrizione del servizio** |   Fornisce servizi di gestione per dischi, volumi, file system e array di archiviazione.
+|   **Nome del servizio**    |   vds
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Nessuna indicazione
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="volume-shadow-copy"></a>Copia Shadow del volume           
+## <a name="volume-shadow-copy"></a>Copia shadow del volume           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di gestire e implementa copie Shadow del Volume usato per il backup e altri scopi. Se questo servizio viene arrestato, le copie shadow non saranno disponibili per il backup e il backup potrebbe non riuscire. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce e implementa le copie shadow del volume usate a scopo di backup e altro. Se il servizio viene arrestato, le copie shadow non saranno disponibili per il backup e l'esecuzione del backup potrebbe non riuscire. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   VSS
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Alcuna indicazione
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Nessuna indicazione
 |   **Commenti**    |   
 |||         
 
@@ -2228,39 +2228,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Oggetti host utilizzati dai client del portafoglio
+|   **Descrizione del servizio** |   Ospita gli oggetti usati dai client del portafoglio.
 |   **Nome del servizio**    |   WalletService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-audio"></a>Windows Audio            
+## <a name="windows-audio"></a>Audio di Windows            
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Gestisce l'audio per i programmi basati su Windows.  Se questo servizio viene arrestato, gli effetti e periferiche audio non funzionerà correttamente.  Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo avviare
+|   **Descrizione del servizio** |   Gestisce l'audio per le applicazioni basate su Windows.  Se il servizio viene arrestato, gli effetti e i dispositivi audio non funzioneranno correttamente.  Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   Audiosrv
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-audio-endpoint-builder"></a>Generatore di Endpoint Audio di Windows           
+## <a name="windows-audio-endpoint-builder"></a>Generatore endpoint audio Windows           
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Gestisce i dispositivi audio per il servizio Windows Audio.  Se questo servizio viene arrestato, gli effetti e periferiche audio non funzionerà correttamente.  Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo avviare
+|   **Descrizione del servizio** |   Gestisce i dispositivi audio per il servizio Audio Windows.  Se il servizio viene arrestato, gli effetti e i dispositivi audio non funzioneranno correttamente.  Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   AudioEndpointBuilder
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
@@ -2270,53 +2270,53 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Il servizio di biometria Windows offre alle applicazioni client la possibilità di acquisire, confrontare, modificare e archiviare dati biometrici senza accedere direttamente all'hardware biometrici o solo gli esempi. Il servizio è ospitato in un processo SVCHOST privilegiato.
+|   **Descrizione del servizio** |   Il Servizio di biometria Windows consente alle applicazioni client di acquisire, confrontare, modificare e archiviare dati biometrici senza accedere direttamente all'hardware o a campioni biometrici. Il servizio è ospitato in un processo SVCHOST privilegiato.
 |   **Nome del servizio**    |   WbioSrvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-camera-frame-server"></a>Server di Windows della fotocamera Frame         
+##  <a name="windows-camera-frame-server"></a>Server di fotogrammi fotocamera Windows         
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente a più client per accedere a frame video dai dispositivi webcam.
+|   **Descrizione del servizio** |   Consente a più client di accedere ai fotogrammi video dalle fotocamere.
 |   **Nome del servizio**    |   FrameServer
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-connection-manager"></a>Gestione connessione di Windows           
+## <a name="windows-connection-manager"></a>Gestione connessioni Windows           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Rende automatica connettere/disconnettere decisioni basate sulle opzioni di connettività di rete attualmente disponibili per i PC e consente la gestione della connettività di rete in base alle impostazioni di criteri di gruppo.
+|   **Descrizione del servizio** |   Stabilisce decisioni di connessione/disconnessione automatica in base alle opzioni di connettività di rete attualmente disponibili per il PC e consente la gestione della connettività di rete in base alle impostazioni di Criteri di gruppo.
 |   **Nome del servizio**    |   Wcmsvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-defender-network-inspection-service"></a>Servizio Windows Defender Network Inspection System          
+## <a name="windows-defender-network-inspection-service"></a>Servizio Controllo rete di Windows Defender          
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente di proteggersi da tentativi di intrusione destinate a vulnerabilità note e appena individuate nei protocolli di rete
+|   **Descrizione del servizio** |   Contribuisce a proteggere da tentativi di intrusione nei confronti di vulnerabilità note e nuove dei protocolli di rete.
 |   **Nome del servizio**    |   WdNisSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione    
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione    
 |   **Commenti**    |   
 |||         
 
@@ -2326,39 +2326,39 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente agli utenti di proteggere da malware e altro software potenzialmente indesiderato
+|   **Descrizione del servizio** |   Contribuisce a proteggere gli utenti da malware e altro software potenzialmente indesiderato.
 |   **Nome del servizio**    |   WinDefend
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Foundation Driver Windows - User-mode Driver Framework           
+## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows Driver Foundation - Framework driver modalità utente           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Crea e gestisce i processi di driver in modalità utente. Questo servizio non può essere arrestato.
+|   **Descrizione del servizio** |   Crea e gestisce i processi dei driver in modalità utente. Questo servizio non può essere arrestato.
 |   **Nome del servizio**    |   wudfsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-encryption-provider-host-service"></a>Servizio Host Provider di crittografia di Windows     
+## <a name="windows-encryption-provider-host-service"></a>Servizio host del provider di crittografia di Windows     
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Le funzionalità relative a crittografia Broker servizio Host Provider di crittografia Windows da provider di crittografia di terze parti per i processi necessari per valutare e applicare i criteri EAS. L'arresto si compromette i controlli di conformità EAS che sono stati stabiliti dall'account di posta elettronica connesso
+|   **Descrizione del servizio** |   Funzionalità correlate dei gestori del servizio host del provider di crittografia di Windows fornite da provider di crittografia di terze parti per processi che devono valutare e applicare criteri EAS. Se il servizio viene arrestato, le verifiche di conformità EAS stabilite dagli account di posta elettronica connessi saranno compromessi.
 |   **Nome del servizio**    |   WEPHOSTSVC
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2368,12 +2368,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Consente errori da segnalare quando i programmi smettono di funzionare o non risponde e soluzioni esistenti da recapitare. Consente inoltre i log da generare per la diagnostica e ripristinare i servizi. Se questo servizio viene arrestato, segnalazione errori potrebbero non funzionare correttamente e i risultati dei servizi di diagnostica e ripristini potrebbero non essere visualizzati.
+|   **Descrizione del servizio** |   Consente di segnalare gli errori quando i programmi smettono di funzionare o si bloccano e di ricevere soluzioni. Consente inoltre di generare registri per i servizi di diagnostica e ripristino. Se il servizio viene arrestato, è possibile che la segnalazione errori non funzioni correttamente e che i risultati dei servizi di diagnostica e ripristino non vengano visualizzati.
 |   **Nome del servizio**    |   WerSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Raccoglie e invia i dati di arresto anomalo/blocco usati da MS e fornitori di software indipendenti/produttori di terze parti. I dati vengono utilizzati per diagnosticare bug causato arresto anomalo del sistema, che può includere i bug di sicurezza. Anche necessari per la segnalazione errori
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Raccoglie e invia i dati di arresto anomalo/blocco usati da Microsoft e da fornitori di software o hardware indipendenti di terze parti. I dati vengono usati per diagnosticare i bug che causano l'arresto anomalo del sistema, che possono includere i bug di sicurezza. È necessario anche per la segnalazione di errori a un server interno.
 |||         
 
 <br />          
@@ -2382,12 +2382,12 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio gestisce le sottoscrizioni persistente per gli eventi provenienti da origini remote che supportano il protocollo WS-Management. Sono inclusi i registri eventi, hardware e le origini eventi inoltrati in Windows Vista. Il servizio archivia inoltrati gli eventi in un registro eventi locale. Se questo servizio viene arrestato o disabilitato non è possibile creare sottoscrizioni di eventi e gli eventi inoltrati non possono essere accettati.
+|   **Descrizione del servizio** |   Questo servizio consente la gestione delle sottoscrizioni permanenti agli eventi da origini remote che supportano il protocollo WS-Management, tra cui registri eventi di Windows Vista, nonché origini eventi hardware e IPMI. Il servizio archivia gli eventi inoltrati in un registro eventi locale. Se il servizio viene arrestato o disabilitato, non sarà possibile creare sottoscrizioni agli eventi e gli eventi inoltrati non verranno accettati.
 |   **Nome del servizio**    |   Wecsvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Raccoglie gli eventi ETW (inclusi gli eventi di sicurezza) per una migliore gestibilità, la diagnostica.  Un numero elevato di funzionalità e strumenti di terze parti si basa su di esso, inclusi gli strumenti di controllo di sicurezza
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Raccoglie gli eventi ETW (inclusi gli eventi di sicurezza) per la gestibilità e la diagnostica.  Numerosi strumenti di terze parti e funzionalità si basano su questo servizio, inclusi gli strumenti di controllo della sicurezza.
 |||         
 
 <br />          
@@ -2396,11 +2396,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Questo servizio gestisce gli eventi e registri eventi. Supporta la registrazione di eventi, l'esecuzione di query eventi, la sottoscrizione di eventi, registri eventi di archiviazione e la gestione dei metadati di evento. È possibile visualizzare gli eventi in formato XML e testo normale. L'arresto del servizio potrebbe compromettere la sicurezza e affidabilità del sistema.
+|   **Descrizione del servizio** |   Questo servizio gestisce gli eventi e i registri eventi e supporta la registrazione, la ricerca e la sottoscrizione di eventi, nonché l'archiviazione di registri eventi e la gestione di metadati di eventi. Il servizio è in grado di visualizzare eventi in formato XML e testo normale. L'arresto del servizio può compromettere la sicurezza e l'affidabilità del sistema.
 |   **Nome del servizio**    |   EventLog
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2410,54 +2410,54 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Windows Firewall consente di proteggere il computer, impedendo agli utenti non autorizzati di ottenere accesso al computer tramite Internet o una rete.
+|   **Descrizione del servizio** |   Windows Firewall facilita la protezione del computer dagli accessi utente non autorizzati da Internet o da una rete.
 |   **Nome del servizio**    |   MpsSvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-font-cache-service"></a>Servizio Cache tipi di carattere di Windows      
+##  <a name="windows-font-cache-service"></a>Servizio cache tipi di carattere Windows      
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente di ottimizzare le prestazioni delle applicazioni la memorizzazione nella cache i dati di uso comune del tipo di carattere. Applicazioni verranno avviato il servizio se non è già in esecuzione. Può essere disabilitato, anche se verrà peggiorare le prestazioni dell'applicazione.
+|   **Descrizione del servizio** |   Ottimizza le prestazioni delle applicazioni memorizzando nella cache i dati dei tipi di carattere usati comunemente. Se non è già in esecuzione, il servizio verrà avviato dalle applicazioni. Il servizio può essere disabilitato, ma le prestazioni delle applicazioni risulteranno ridotte.
 |   **Nome del servizio**    |   FontCache
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-image-acquisition-wia"></a>Windows Image Acquisition (WIA)          
+## <a name="windows-image-acquisition-wia"></a>Acquisizione di immagini di Windows (WIA)          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce servizi di acquisizione di immagini per scanner e fotocamere digitali
+|   **Descrizione del servizio** |   Offre servizi di acquisizione immagini per scanner e fotocamere digitali.
 |   **Nome del servizio**    |   stisvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-insider-service"></a>Servizio di Windows Insider     
+##  <a name="windows-insider-service"></a>Servizio Windows Insider     
 
 | | |           
 |---|---|   
 |   **Descrizione del servizio** |   wisvc
 |   **Nome del servizio**    |   wisvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Server non supporta versioni di anteprima, pertanto è no-op nel Server. Funzionalità può anche essere disabilitata tramite criteri di gruppo.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   Il server non supporta la distribuzione di versioni di anteprima, pertanto si verifica una fase senza operazioni sul server. La funzionalità può essere disabilitata anche tramite Criteri di gruppo.
 |||         
 
 <br />          
@@ -2466,25 +2466,25 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Aggiunge, modifica e rimuove le applicazioni fornite come un pacchetto Windows Installer (*. msi, *. msp). Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Aggiunge, modifica e rimuove applicazioni fornite come pacchetto di Windows Installer (*.msi, *.msp). Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   msiserver
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-license-manager-service"></a>Servizio di gestione licenze di Windows          
+## <a name="windows-license-manager-service"></a>Servizio Gestione licenze Windows          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce un'infrastruttura di supporto per i Microsoft Store.  Questo servizio viene avviato su richiesta e se disabilitata quindi il contenuto acquisito tramite il Microsoft Store non funzionerà correttamente.
+|   **Descrizione del servizio** |   Offre supporto infrastrutturale per Microsoft Store.  Il servizio viene avviato su richiesta e, se disabilitato, il contenuto acquisito tramite Windows Store non funzionerà correttamente.
 |   **Nome del servizio**    |   LicenseManager
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
@@ -2494,67 +2494,67 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce un modello comune di interfaccia e oggetto per accedere alle informazioni di gestione sul sistema operativo, dispositivi, applicazioni e servizi. Se questo servizio viene arrestato, la maggior parte dei software basato su Windows non funzionerà correttamente. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Fornisce un modello di interfacce e di oggetti comune per accedere alle informazioni di gestione sul sistema operativo, i dispositivi, le applicazioni e i servizi. Se il servizio viene arrestato, la maggior parte del software basato su Windows non funzionerà correttamente. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   Winmgmt
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-mobile-hotspot-service"></a>Servizio Hotspot Mobile di Windows          
+##  <a name="windows-mobile-hotspot-service"></a>Servizio hotspot di Windows Mobile          
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Offre la possibilità di condividere una connessione di rete dati con un altro dispositivo.
+|   **Descrizione del servizio** |   Consente la condivisione della connessione alla rete dati con un altro dispositivo.
 |   **Nome del servizio**    |   icssvc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-modules-installer"></a>Programma di installazione di Windows i moduli        
+## <a name="windows-modules-installer"></a>Programma di installazione dei moduli di Windows        
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Consente a installazione, modifica e rimozione di aggiornamenti di Windows e componenti facoltativi. Se il servizio è disabilitato, installare o disinstallare della mancata riuscita degli aggiornamenti per computer Windows.
+|   **Descrizione del servizio** |   Consente l'installazione, la modifica e la rimozione degli aggiornamenti e dei componenti facoltativi di Windows. Se questo servizio viene disabilitato, è possibile che l'installazione o la disinstallazione degli aggiornamenti di Windows non venga eseguita per questo computer.
 |   **Nome del servizio**    |   TrustedInstaller
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="windows-push-notifications-system-service"></a>Servizio di sistema di notifiche Push Windows            
+## <a name="windows-push-notifications-system-service"></a>Servizio di sistema notifiche Push Windows            
 
 | | |           
 |---|---|
-|   **Descrizione del servizio** |   Questo servizio viene eseguito nella sessione 0 e ospita il provider della connessione e piattaforma di notifica che gestisce la connessione tra il dispositivo e il server WNS.
+|   **Descrizione del servizio** |   Questo servizio viene eseguito nella sessione 0 e ospita la piattaforma di notifica e il provider di connessione che gestisce la connessione tra il dispositivo e il server WNS.
 |   **Nome del servizio**    |   WpnService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   OK per disattivare
-|   **Commenti**    |   Necessario per i riquadri animati e altre funzionalità
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   OK disabilitare
+|   **Commenti**    |   È necessario per i riquadri animati e per altre funzionalità.
 |||         
 
 <br />      
 
-## <a name="windows-push-notifications-user-service"></a>Servizio di Windows Push delle notifiche utente          
+## <a name="windows-push-notifications-user-service"></a>Servizio utente notifica Push Windows          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Questo servizio ospita piattaforma di notifica di Windows che fornisce il supporto per locale e le notifiche push. Le notifiche supportate sono tessera, di tipo avviso popup e raw.
+|   **Descrizione del servizio** |   Questo servizio ospita la piattaforma di notifica Windows che fornisce il supporto per le notifiche locali e push. Le notifiche supportate sono riquadri, avvisi popup e notifiche non elaborate.
 |   **Nome del servizio**    |   WpnUserService
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   OK per disattivare
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
@@ -2565,10 +2565,10 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 |---|---|
 |   **Descrizione del servizio** |   Il servizio Gestione remota di Windows (WinRM) implementa il protocollo WS-Management per la gestione remota. WS-Management è un protocollo di servizi Web standard usato per la gestione remota del software e dell'hardware. Il servizio WinRM ascolta le richieste WS-Management sulla rete e le elabora. Il servizio WinRM deve essere configurato con uno strumento da riga di comando winrm.cmd oppure mediante Criteri di gruppo per poter eseguire l'ascolto sulla rete. Il servizio WinRM fornisce l'accesso ai dati WMI e abilita la raccolta di eventi. Per la raccolta di eventi e la sottoscrizione agli eventi il servizio deve essere in esecuzione. I messaggi WinRM usano HTTP e HTTPS come trasporto. Il servizio WinRM non dipende da IIS ma è preconfigurato per condividere una porta con IIS nello stesso computer.  Il servizio WinRM si riserva il prefisso URL /wsman. Per evitare conflitti con IIS, gli amministratori devono verificare che nessun sito Web ospitato su IIS usi il prefisso URL /wsman.
 |   **Nome del servizio**    |   WinRM
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Necessario per la gestione remota
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   È necessario per la gestione remota.
 |||
 
 <br />          
@@ -2577,11 +2577,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Fornisce l'indicizzazione del contenuto, la memorizzazione nella cache proprietà e i risultati della ricerca per i file, posta elettronica e altro contenuto.
+|   **Descrizione del servizio** |   Fornisce indicizzazione di contenuto, memorizzazione di proprietà nella cache e risultati di ricerca per file, posta elettronica e altro contenuto.
 |   **Nome del servizio**    |   WSearch
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Disabled
-|   **Raccomandazione**  |   Già disabilitata
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Disabled
+|   **Consiglio**  |   Già disabilitato
 |   **Commenti**    |   
 |||         
 
@@ -2591,11 +2591,11 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Mantiene la sincronizzazione di data e ora in tutti i client e server nella rete. Se questo servizio viene arrestato, la sincronizzazione di data e ora sarà disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Gestisce la sincronizzazione di data e ora su tutti i client e i server della rete. Se il servizio viene arrestato, la sincronizzazione di data e ora non sarà disponibile. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   W32Time
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione
 |   **Commenti**    |   
 |||         
 
@@ -2605,26 +2605,26 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Abilita il rilevamento, download e installazione degli aggiornamenti per Windows e altri programmi. Se il servizio è disabilitato, gli utenti del computer non saranno in grado di utilizzare Windows Update o le funzionalità di aggiornamento automatico e i programmi non sarà in grado di usare l'API di Windows Update Agent (WUA).
+|   **Descrizione del servizio** |   Consente il rilevamento, il download e l'installazione di aggiornamenti per Windows e altri programmi. Se il servizio viene disabilitato, gli utenti del computer non saranno in grado di usare Windows Update o la relativa funzionalità di aggiornamento automatico e i programmi non potranno usare l'API Agente di Windows Update (Windows Update Agent, WUA).
 |   **Nome del servizio**    |   wuauserv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="winhttp-web-proxy-auto-discovery-service"></a>Servizio di rilevamento automatico Proxy Web di WinHTTP         
+## <a name="winhttp-web-proxy-auto-discovery-service"></a>Servizio rilevamento automatico proxy WinHTTP         
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   WinHTTP implementa stack client HTTP e fornisce agli sviluppatori con un componente di automazione COM e l'API Win32 per l'invio delle richieste HTTP e la ricezione delle risposte. Inoltre, WinHTTP fornisce supporto per l'individuazione automatica di una configurazione del proxy tramite l'implementazione del protocollo Web Proxy Auto-Discovery (WPAD).
+|   **Descrizione del servizio** |   WinHTTP implementa lo stack HTTP client e offre agli sviluppatori un'API Win32 e un componente di automazione COM per l'invio delle richieste HTTP e la ricezione delle risposte. WinHTTP offre inoltre supporto per l'individuazione automatica di una configurazione proxy tramite una specifica implementazione del protocollo WPAD (Web Proxy Auto-Discovery).
 |   **Nome del servizio**    |   WinHttpAutoProxySvc
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Non disabilitare
-|   **Commenti**    |   Tutto ciò che usa lo stack di rete può avere una dipendenza funzionale in questo servizio. Molte organizzazioni si basano su questa opzione per configurare il routing del proxy HTTP delle reti interne.  In caso contrario, internamente che hanno origine le connessioni HTTP a Internet tutti non riuscirà.
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Non disabilitare
+|   **Commenti**    |   Qualsiasi implementazione che usa lo stack di rete può avere una dipendenza funzionale da questo servizio. Molte organizzazioni si basano su questo servizio per configurare il routing del proxy HTTP delle reti interne.  Senza questo servizio, le connessioni HTTP dalla rete interna a Internet avranno esito negativo.
 |||         
 
 <br />          
@@ -2633,68 +2633,68 @@ Nelle tabelle seguenti offrono indicazioni di Microsoft sulla disabilitazione de
 
 | | |           
 |---|---|       
-|   **Descrizione del servizio** |   Il servizio configurazione automatica reti cablate (DOT3SVC) è responsabile dell'esecuzione IEEE 802.1x autenticazione sulle interfacce Ethernet. Se la distribuzione corrente di rete cablata impone l'autenticazione 802.1X, il servizio DOT3SVC deve essere configurato per l'esecuzione per la connettività di livello 2 e/o per fornire l'accesso alle risorse di rete. Non sono interessate dal servizio DOT3SVC reti cablate che non applicano l'autenticazione 802.1x.
+|   **Descrizione del servizio** |   Il servizio Configurazione automatica reti cablate (DOT3SVC) è responsabile dell'esecuzione dell'autenticazione IEEE 802.1X su interfacce Ethernet. Se la rete cablata in uso impone l'autenticazione 802.1X, è necessario configurare il servizio DOT3SVC in modo che venga eseguito per attivare la connettività di livello 2 e/o per fornire l'accesso alle risorse di rete. Il servizio DOT3SVC non interessa in alcun modo le reti cablate che non impongono l'autenticazione 802.1X.
 |   **Nome del servizio**    |   dot3svc
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione   
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione   
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="wmi-performance-adapter"></a>Scheda WMI Performance          
+## <a name="wmi-performance-adapter"></a>Scheda delle prestazioni WMI          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce informazioni della libreria delle prestazioni dai provider di Strumentazione gestione Windows (WMI) per i client nella rete. Questo servizio viene eseguito solo quando viene attivato l'Helper di dati delle prestazioni.
+|   **Descrizione del servizio** |   Fornisce informazioni relative alla libreria delle prestazioni dai provider di Strumentazione gestione Windows (WMI) ai client nella rete. Il servizio funziona solo quando l'helper Dati di prestazione è attivato.
 |   **Nome del servizio**    |   wmiApSrv
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Manual
-|   **Raccomandazione**  | Alcuna indicazione       
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  | Nessuna indicazione       
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="workstation"></a>workstation          
+## <a name="workstation"></a>Workstation          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Crea e gestisce le connessioni di rete client ai server remoti tramite il protocollo SMB. Se questo servizio viene arrestato, queste connessioni sarà disponibile. Se il servizio è disabilitato, tutti i servizi che dipendono esplicitamente da esso avrà esito negativo iniziare.
+|   **Descrizione del servizio** |   Crea e gestisce le connessioni di rete tra client e server remoti usando il protocollo SMB. Se il servizio viene arrestato, le connessioni non saranno disponibili. Se il servizio viene disabilitato, i servizi che dipendono esplicitamente da esso non potranno essere avviati.
 |   **Nome del servizio**    |   LanmanWorkstation
-|   **Installazione**    |   Sempre installata
-|   **StartType**   |   Automatico
-|   **Raccomandazione**  | Alcuna indicazione       
+|   **Installazione**    |   Sempre installato
+|   **Tipo di avvio**   |   Automatico
+|   **Consiglio**  | Nessuna indicazione       
 |   **Commenti**    |   
 |||         
 
 <br />
 
-## <a name="xbox-live-auth-manager"></a>Xbox Live Auth Manager           
+## <a name="xbox-live-auth-manager"></a>Gestione autenticazione Xbox Live           
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Fornisce servizi di autenticazione e autorizzazione per l'interazione con Xbox Live. Se questo servizio viene arrestato, alcune applicazioni potrebbero non funzionare correttamente.
+|   **Descrizione del servizio** |   Fornisce servizi di autenticazione e autorizzazione che consentono di interagire con Xbox Live. Se il servizio viene arrestato, alcune applicazioni potrebbero non funzionare correttamente.
 |   **Nome del servizio**    |   XblAuthManager
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Deve essere disabilitato
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Opportuno disabilitare
 |   **Commenti**    |   
 |||         
 
 <br />          
 
-## <a name="xbox-live-game-save"></a>Salva gioco con Xbox Live          
+## <a name="xbox-live-game-save"></a>Giochi salvati su Xbox Live          
 
 | | |           
 |---|---|   
-|   **Descrizione del servizio** |   Sincronizzazioni questo servizio Salva i dati di Xbox Live Salva giochi abilitate.  Se questo servizio viene arrestato, gioco salvare i dati non caricare o scaricare da Xbox Live.
+|   **Descrizione del servizio** |   Questo servizio consente di sincronizzare i dati salvati su Xbox Live per i giochi abilitati.  Se il servizio viene arrestato, non sarà possibile caricare né scaricare i dati salvati su Xbox Live.
 |   **Nome del servizio**    |   XblGameSave
-|   **Installazione**    |   Solo con esperienza Desktop
-|   **StartType**   |   Manual
-|   **Raccomandazione**  |   Deve essere disabilitato
-|   **Commenti**    |   Sincronizzazioni questo servizio Salva i dati di Xbox Live Salva giochi abilitate.  Se questo servizio viene arrestato, gioco salvare i dati non caricare o scaricare da Xbox Live.
+|   **Installazione**    |   Solo con Esperienza desktop
+|   **Tipo di avvio**   |   Manual
+|   **Consiglio**  |   Opportuno disabilitare
+|   **Commenti**    |   Questo servizio consente di sincronizzare i dati salvati su Xbox Live per i giochi abilitati.  Se il servizio viene arrestato, non sarà possibile caricare né scaricare i dati salvati su Xbox Live.
 |||         
 
 <br /> 
