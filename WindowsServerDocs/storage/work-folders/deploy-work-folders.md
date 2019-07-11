@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Come distribuire Cartelle di lavoro, tra cui l'installazione del ruolo del server, la creazione di condivisioni di sincronizzazione e di record DNS.
-ms.openlocfilehash: 1ed26c9949fa3f4b53b9f650ca5a3649d5261d65
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d2ba117a021cfc7361c0f7c8df2ed9f3c4bc9d94
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447855"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792344"
 ---
 # <a name="deploying-work-folders"></a>Distribuzione di Cartelle di lavoro
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 In questo argomento vengono illustrati i passaggi necessari per la distribuzione di Cartelle di lavoro. Si suppone che le informazioni disponibili in [Pianificazione di una distribuzione di Cartelle di lavoro](plan-work-folders.md) siano già note.  
   
@@ -51,7 +51,7 @@ In questo argomento vengono illustrati i passaggi necessari per la distribuzione
 ## <a name="step-2-create-dns-records"></a>Passaggio 2: Creare record DNS  
  Per fare in modo che gli utenti possano eseguire la sincronizzazione tramite Internet, è necessario creare un record host (A) nel DNS pubblico per consentire ai client Internet di risolvere l'URL di Cartelle di lavoro. Questo record DNS deve eseguire la risoluzione nell'interfaccia esterna del server del proxy inverso.  
   
- Nella rete interna, crea un record CNAME in DNS denominato cartellelavoro che esegue la risoluzione nel nome di dominio completo di un server Cartelle di lavoro. Quando i client di cartelle di lavoro usano l'individuazione automatica, l'URL usato per individuare il server di cartelle di lavoro è https://workfolders.domain.com. Se si prevede di utilizzare l'individuazione automatica, il record CNAME di cartellelavoro deve essere presente in DNS.  
+ Nella rete interna, crea un record CNAME in DNS denominato cartellelavoro che esegue la risoluzione nel nome di dominio completo di un server Cartelle di lavoro. Quando i client di cartelle di lavoro usano l'individuazione automatica, l'URL usato per individuare il server di cartelle di lavoro è https:\//workfolders.domain.com. Se si prevede di utilizzare l'individuazione automatica, il record CNAME di cartellelavoro deve essere presente in DNS.  
   
 ## <a name="step-3-install-work-folders-on-file-servers"></a>Passaggio 3: Installare Cartelle di lavoro nei file server  
  È possibile installare Cartelle di lavoro in un server che fa parte di un dominio utilizzando Server Manager o Windows PowerShell in locale o in remoto in una rete. Questa operazione risulta utile nella se si configurano più server di sincronizzazione.  
@@ -110,7 +110,7 @@ Add-WindowsFeature FS-SyncShareService
 
 4.  Nella sezione **Gruppo** della finestra **Crea gruppo** specificare le impostazioni seguenti:
 
-    -   Digitare il nome del gruppo di sicurezza in **Nome gruppo**, ad esempio: HR Sync Share Users o **Work Folders Administrators**.  
+    -   Digitare il nome del gruppo di sicurezza in **Nome gruppo**, ad esempio: **HR Sync Share Users** o **Work Folders Administrators**.  
   
     -   In **Ambito del gruppo** fare clic su **Sicurezza** e quindi su **Globale**.  
   
@@ -251,7 +251,7 @@ L'esempio precedente consente di creare una nuova condivisione di sincronizzazio
 6.  Nella casella **Valore da aggiungere** digitare l'URL del server di sincronizzazione con cui si desidera che l'utente esegua la sincronizzazione, fare clic su **Aggiungi**, su **OK** e quindi di nuovo su **OK**.  
   
     > [!NOTE]
-    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio, **https://sync1.contoso.com** .
+    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio, **https:\//sync1.contoso.com**.
 
 Per popolare l'attributo per più utenti, utilizzare Active Directory PowerShell. L'esempio seguente consente di popolare l'attributo per tutti i membri del gruppo *Utenti condivisione sincronizzazione HR* illustrato nel passaggio 5.
   
