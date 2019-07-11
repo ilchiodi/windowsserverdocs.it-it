@@ -22,7 +22,7 @@ I server che eseguono il ruolo proxy server federativo in Active Directory Feder
   
 Server federativi sono in genere esposti a computer in Internet che non sono inclusi nell'infrastruttura a chiave pubblica azienda \(PKI\). Pertanto, utilizzare un certificato di autenticazione server rilasciato da un pubblico \(terzo\-party\) autorità di certificazione \(CA\), ad esempio VeriSign.  
   
-Quando si dispone di una farm proxy server federativo, tutti i computer proxy server federativo è necessario usare lo stesso certificato di autenticazione server. Per altre informazioni, vedere [When to Create a Federation Server Proxy Farm](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
+Quando si dispone di una farm proxy server federativo, tutti i computer proxy server federativo è necessario usare lo stesso certificato di autenticazione server. Per altre informazioni, vedere [Quando creare una farm di proxy server federativi](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
   
 È importante verificare che il nome del soggetto di corrisponda al certificato di autenticazione server valore che rappresenta il nome del servizio federativo specificato nello snap di gestione di AD FS\-in. Per individuare questo valore, aprire lo snap\-, pulsante destro del mouse\-fare clic su **Service**, fare clic su **Modifica proprietà servizio federativo**e quindi individuare il valore in **Federation Nome del servizio** casella di testo.  
   

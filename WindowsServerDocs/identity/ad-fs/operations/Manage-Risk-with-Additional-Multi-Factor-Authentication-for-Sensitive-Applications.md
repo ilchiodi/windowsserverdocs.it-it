@@ -72,7 +72,7 @@ Un criterio di autenticazione globale si applica a tutte le relying party che so
 
 -   Impostazioni e metodi per l'autenticazione a più fattori
 
--   Abilitazione o meno dell'autenticazione dei dispositivi. Per altre informazioni, vedere [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Abilitazione o meno dell'autenticazione dei dispositivi. Per altre informazioni, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 I criteri di autenticazione per attendibilità del componente sono applicabili nello specifico ai tentativi di accesso a tale attendibilità del componente (applicazione o servizio). È possibile configurare le impostazioni seguenti per i criteri di autenticazione per attendibilità del componente:
 

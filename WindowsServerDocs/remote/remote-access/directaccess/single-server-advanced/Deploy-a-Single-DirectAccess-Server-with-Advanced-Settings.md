@@ -36,7 +36,7 @@ In questo argomento viene fornita un'introduzione allo scenario DirectAccess che
 In questo scenario, un singolo computer che esegue Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, è configurato come server DirectAccess con impostazioni avanzate.  
   
 > [!NOTE]  
-> Per configurare una distribuzione di base solo con impostazioni semplici, vedere [Deploy a Single DirectAccess Server Using the Getting Started Wizard](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md). Nello scenario semplice, DirectAccess viene configurato con le impostazioni predefinite usando una procedura guidata, senza dover configurare le impostazioni dell'infrastruttura, ad esempio un'autorità di certificazione (CA) o i gruppi di sicurezza Active Directory.  
+> Se si desidera configurare una distribuzione di base solo con impostazioni semplici, vedere [distribuire un Server DirectAccess singolo usando attività iniziali guidate](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md). Nello scenario semplice, DirectAccess viene configurato con le impostazioni predefinite usando una procedura guidata, senza dover configurare le impostazioni dell'infrastruttura, ad esempio un'autorità di certificazione (CA) o i gruppi di sicurezza Active Directory.  
   
 ## <a name="in-this-scenario"></a>In questo scenario  
 Per impostare un server DirectAccess singolo con impostazioni avanzate, completare alcuni passaggi di pianificazione e distribuzione.  

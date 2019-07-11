@@ -45,7 +45,7 @@ Quando si usa l'invio di attributi LDAP come modello di regola attestazioni, è 
   
 Usando questo modello, è possibile aggiungere più attributi, che verranno inviati come più attestazioni, da una singola regola. Ad esempio, è possibile usare questo modello di regola per creare una regola che eseguirà la ricerca di valori attributo per gli utenti autenticati dagli attributi **company** e **department** di Active Directory e quindi invierà tali valori come due diverse attestazioni in uscita.  
   
-È anche possibile usare questa regola per inviare tutte le appartenenze a gruppi dell'utente. Se si vuole inviare solo le singole appartenenze ai gruppi, usare il modello di regola Invio dell'appartenenza a un gruppo come attestazione. Per altre informazioni, vedere [When to Use a Send Group Membership as a Claim Rule](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
+È anche possibile usare questa regola per inviare tutte le appartenenze a gruppi dell'utente. Se si vuole inviare solo le singole appartenenze ai gruppi, usare il modello di regola Invio dell'appartenenza a un gruppo come attestazione. Per altre informazioni, vedere [quando usare un gruppo di invio dell'appartenenza a una regola di attestazione](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
   
 ## <a name="how-to-create-this-rule"></a>Come creare la regola  
 È possibile creare questa regola utilizzando il linguaggio di regola attestazione o tramite l'invio di attributi LDAP come modello di regola attestazioni in Gestione AD FS blocca\-in. Questo modello di regola offre le opzioni di configurazione seguenti:  

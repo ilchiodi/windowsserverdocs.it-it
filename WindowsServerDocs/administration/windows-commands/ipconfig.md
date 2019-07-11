@@ -53,7 +53,7 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 
 - Questo comando è particolarmente utile nei computer configurati per ottenere automaticamente un indirizzo IP. Ciò consente agli utenti di determinare quali valori di configurazione TCP/IP sono stati configurati tramite DHCP, APIPA Automatic Private IP Addressing () o una configurazione alternativa.
 - Se il nome fornito per *Adapter* contiene spazi, utilizzare racchiudere tra virgolette il nome dell'adapter (esempio: **"** <em>Nome adapter</em> **"** ).
-- Per i nomi di adapter, **ipconfig** supporta l'utilizzo dell'asterisco ( *) carattere jolly per specificare schede con nomi che iniziano con una stringa specificata o schede con nomi che contengono una stringa specificata. Ad esempio, **locale\\** *   corrisponde a tutte le schede che iniziano con la stringa Local e  **\*Con\\** * corrisponde a tutte le schede che contengono il stringa Con.
+- Per i nomi di adapter, **ipconfig** supporta l'utilizzo dell'asterisco ( *) carattere jolly per specificare schede con nomi che iniziano con una stringa specificata o schede con nomi che contengono una stringa specificata. Ad esempio, **locale\\***   corrisponde a tutte le schede che iniziano con la stringa Local e  **\*Con\\** * corrisponde a tutte le schede che contengono il stringa Con.
 
 ## <a name="examples"></a>Esempi
 

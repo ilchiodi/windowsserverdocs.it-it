@@ -69,7 +69,7 @@ Prima di Windows 8, Windows Server 2012, gli utenti avrebbero alternato le modal
 
 Con la modalità sempre Offline, i computer non passano mai alla modalità Online quando il **Configura modalità di collegamento lento** impostazione di criteri di gruppo è configurata e il **latenza** parametro di soglia è impostata su 1 millisecondo. Le modifiche vengono sincronizzate in background ogni 120 minuti per impostazione predefinita, ma la sincronizzazione è configurabile tramite l'impostazione di Criteri di gruppo **Configura sincronizzazione in background**.
 
-Per altre informazioni, vedere [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
+Per ulteriori informazioni, vedere [Abilitare la modalità sempre offline per garantire un accesso più rapido ai file](enable-always-offline.md).
 
 ## <a name="cost-aware-synchronization"></a>Sincronizzazione che tiene conto dei costi
 
@@ -112,7 +112,7 @@ Per limitare il download dei dati utente privati nei computer primari, le tecnol
     1. Se il computer è uno dei computer primari dell'utente, vengono applicate le impostazioni di reindirizzamento cartelle e per i profili utente mobili.
     2. Se il computer non è uno dei computer primari dell'utente, viene caricato il profilo locale memorizzato nella cache dell'utente, se presente, oppure viene creato un nuovo profilo locale. Vengono inoltre rimosse eventuali cartelle reindirizzate esistenti, in base all'azione di rimozione specificata dall'impostazione di Criteri di gruppo applicata in precedenza e mantenuta nella configurazione locale di reindirizzamento cartelle.
 
-Per altre informazioni, vedere [Deploy Primary Computers for Folder Redirection and Roaming User Profiles](deploy-primary-computers.md)
+Per altre informazioni, vedere [distribuire computer primari per il reindirizzamento delle cartelle e profili utente mobili](deploy-primary-computers.md)
 
 ## <a name="hardware-requirements"></a>Requisiti hardware
 
