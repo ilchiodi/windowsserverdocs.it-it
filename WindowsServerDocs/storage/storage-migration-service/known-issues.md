@@ -4,16 +4,16 @@ description: Problemi noti e risoluzione dei problemi il supporto per il servizi
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 08156a09491d66016b5fcfe6056ed318d682b987
+ms.sourcegitcommit: 514d659c3bcbdd60d1e66d3964ede87b85d79ca9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699691"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67735164"
 ---
 # <a name="storage-migration-service-known-issues"></a>Servizio di migrazione archiviazione problemi noti
 
@@ -36,7 +36,7 @@ Esaminare il file Leggimi per informazioni sull'utilizzo.
 
 Quando si usa la versione 1809 di Windows Admin Center per gestire un agente di orchestrazione di Windows Server 2019, opzione non è presente la strumento per il servizio di migrazione di archiviazione. 
 
-L'estensione del servizio migrazione di archiviazione di Windows Admin Center è associato a versione per gestire solo versione di Windows Server 2019 1809 o sistemi operativi successivi. Se si usarlo per gestire i sistemi operativi Windows Server meno recenti o anteprime insider, lo strumento non verrà visualizzata. Questo comportamento è da progettazione. 
+L'estensione del servizio migrazione di archiviazione di Windows Admin Center è associato a versione per gestire solo versione di Windows Server 2019 1809 o sistemi operativi successivi. Se si usarlo per gestire i sistemi operativi Windows Server meno recenti o anteprime insider, lo strumento non verrà visualizzata. Questo comportamento dipende dalla progettazione. 
 
 Per risolvere, usare o eseguire l'aggiornamento a Windows Server 2019 build 1809 o versione successiva.
 
@@ -173,12 +173,39 @@ Questo errore è previsto se non è stata abilitata la regola del firewall "Cond
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Errore "non è stato possibile trasferire archiviazione in uno qualsiasi degli endpoint" quando il trasferimento da Windows Server 2008 R2
 
-Quando si tenta di trasferire i dati da un computer di origine Windows Server 2008 R2, nessun trasnfers dati e viene visualizzato errore:  
+Quando si tenta di trasferire i dati da un computer di origine Windows Server 2008 R2, nessun trasferimento di dati e viene visualizzato errore:  
 
   Non è stato possibile trasferire l'archiviazione in uno qualsiasi degli endpoint.
 0x9044
 
 Questo errore è previsto se il computer Windows Server 2008 R2 non è completamente aggiornato con tutte le critici e importanti aggiornamenti da Windows Update. Indipendentemente dal servizio di migrazione di archiviazione, è sempre consigliabile l'applicazione di patch un computer Windows Server 2008 R2 per motivi di sicurezza, come sistema operativo non contiene i miglioramenti della protezione di versioni più recenti di Windows Server.
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Errore "non è stato possibile trasferire archiviazione in uno qualsiasi degli endpoint" e "Controlla se il dispositivo di origine è online - è stato possibile accedervi."
+
+Quando si prova a trasferire i dati da un computer di origine, alcune o tutte le condivisioni non è possibile trasferire, con riepilogo degli errori:
+
+   Non è stato possibile trasferire l'archiviazione in uno qualsiasi degli endpoint.
+0x9044
+
+Esaminare i dettagli di trasferimento SMB Mostra l'errore:
+
+   Controllare che se il dispositivo di origine è online - è stato possibile accedervi.
+
+Esaminare il registro eventi StorageMigrationService/Admin Mostra:
+
+   Non è stato possibile trasferire l'archiviazione.
+
+   Processo: ID Job1:  
+   Stato: Errore non riuscito: Messaggio di errore 36931: 
+
+   Materiale sussidiario: Controllare l'errore dettagliato e assicurarsi che siano soddisfatti i requisiti di trasferimento. Il processo di trasferimento non è stato possibile trasferire tutti i computer di origine e destinazione. È possibile che il computer di orchestrator non è stato possibile raggiungere qualsiasi computer di origine o destinazione, probabilmente a causa di una regola del firewall, o autorizzazioni mancanti.
+
+Esaminare l'illustra log StorageMigrationService-Proxy/Debug:
+
+   Convalida di trasferimento 07/02/2019-13:35:57.231 [errore] non riuscita. Codice di errore: 40961, endpoint di origine non è raggiungibile o non esiste, le credenziali dell'origine non sono validi o utente autenticato non ha autorizzazioni sufficienti per accedervi.
+in Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate() a Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
+
+Questo errore è previsto se l'account di migrazione non ha almeno le autorizzazioni di accesso in lettura alle condivisioni SMB. Per risolvere questo errore, aggiungere un gruppo di sicurezza che contiene l'account di origine della migrazione per le condivisioni SMB nel computer di origine e concedere a tale lettura, modifica o controllo completo. Al termine della migrazione, è possibile rimuovere questo gruppo. Una versione futura di Windows Server può modificare questo comportamento e non richiedono più autorizzazioni esplicite per le condivisioni di origine.
 
 ## <a name="see-also"></a>Vedere anche
 

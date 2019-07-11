@@ -7,8 +7,10 @@
 #### [Parametri della combinazione per il risparmio di energia Bilanciato](hardware/power/recommended-balanced-plan-parameters.md)
 ## Ottimizzazione del ruolo del server
 ### [Server Active Directory](role/active-directory-server/index.md)
+#### [Pianificazione della capacità per Active Directory Domain Services](role/active-directory-server/capacity-planning-for-active-directory-domain-services.md)
 #### [Considerazioni sulla definizione di sito](role/active-directory-server/site-definition-considerations.md)
 #### [Considerazioni relative ai requisiti hardware](role/active-directory-server/hardware-considerations.md)
+#### [Considerazioni sull'utilizzo della memoria](role/active-directory-server/memory-usage-considerations.md)
 #### [Considerazioni relative a LDAP](role/active-directory-server/ldap-considerations.md)
 #### [Risolvere i problemi delle prestazioni di Active Directory Domain Services](role/active-directory-server/troubleshoot.md)
 ### [File server](role/file-server/index.md)

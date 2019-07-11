@@ -9,16 +9,16 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: 50aee16b0b5797f28ebcdf61494b09669699873f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bdfb2b7321d5a4d119c9710e9ad93fc2e91ea536
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446326"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792294"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Misurazione in uscita in una rete virtuale
 
->Si applica a: Windows Server 2019
+>Si applica a Windows Server 2019
 
 
 Un aspetto fondamentale di monetizzazione rete cloud è in grado di fatturare dall'utilizzo della larghezza di banda di rete. Dati in uscita viene addebitati in base alla quantità totale di dati spostati esternamente il data center tramite Internet in un determinato ciclo di fatturazione.
@@ -72,33 +72,31 @@ L'output sarà simile al seguente:
     ```
 
     L'output sarà simile al seguente:
-    ```
-    Confirm
-    Performing the operation 'New-NetworkControllerVirtualNetwork' on entities of type
-    'Microsoft.Windows.NetworkController.VirtualNetwork' via
-    'https://sdn.contoso.com/networking/v3/virtualNetworks/VNet1'. Are you sure you want to continue?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+      ```
+         Confirm
+         Performing the operation 'New-NetworkControllerVirtualNetwork' on entities of type
+         'Microsoft.Windows.NetworkController.VirtualNetwork' via
+         'https://sdn.contoso.com/networking/v3/virtualNetworks/VNet1'. Are you sure you want to continue?
+         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 
 
-~~~
-Tags             :
-ResourceRef      : /virtualNetworks/VNet1
-InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
-Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
-ResourceMetadata :
-ResourceId       : VNet1
-Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
-```
-~~~
+         Tags             :
+         ResourceRef      : /virtualNetworks/VNet1
+         InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
+         Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
+         ResourceMetadata :
+         ResourceId       : VNet1
+         Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
+      ```
 
 
-3. Check the Virtual Network to see the configured **UnbilledAddressRanges**.
+3. Controllare la rete virtuale per visualizzare l'applicazione configurata **UnbilledAddressRanges**.
 
    ```PowerShell
    (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
    ```
 
-   Your output will now look similar to this:
+   L'output avrà un aspetto simile al seguente:
    ```
    AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
    DhcpOptions            :
@@ -112,23 +110,23 @@ Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
    LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
    ```
 
-## Check the billed the unbilled egress usage of a virtual network
+## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Controllare il fatturato l'utilizzo in uscita resoconti di una rete virtuale
 
-After you configure the **UnbilledAddressRanges** property, you can check the billed and unbilled egress usage of each subnet within a virtual network. Egress traffic updates every four minutes with the total bytes of the billed and unbilled ranges.
+Dopo aver configurato il **UnbilledAddressRanges** proprietà, è possibile controllare l'utilizzo in uscita fatturati e resoconti di ogni subnet all'interno di una rete virtuale. Il traffico in uscita Aggiorna ogni quattro minuti con i byte totali degli intervalli di fatturato e resoconti.
 
-The following properties are available for each virtual subnet:
+Le proprietà seguenti sono disponibili per ogni subnet virtuale:
 
--   **UnbilledEgressBytes** shows the number of unbilled bytes sent by network interfaces connected to this virtual subnet. Unbilled bytes are bytes sent to address ranges that are part of the **UnbilledAddressRanges** property of the parent virtual network.
+-   **UnbilledEgressBytes** Mostra il numero di byte non fatturati inviati da interfacce di rete connesse a questa subnet virtuale. Byte resoconti vengono inviati a intervalli di indirizzi che fanno parte di byte i **UnbilledAddressRanges** proprietà della rete virtuale padre.
 
--   **BilledEgressBytes** shows Number of billed bytes sent by network interfaces connected to this virtual subnet. Billed bytes are bytes sent to address ranges that are not part of the **UnbilledAddressRanges** property of the parent virtual network.
+-   **BilledEgressBytes** Mostra numero di byte fatturati inviati da interfacce di rete connesse a questa subnet virtuale. Fatturato byte sono byte inviati a intervalli di indirizzi che non sono in parte i **UnbilledAddressRanges** proprietà della rete virtuale padre.
 
-Use the following example to query egress usage:
+Utilizzare il seguente esempio di utilizzo in uscita di query:
 
 ```PowerShell
 (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties.subnets.properties | ft AddressPrefix,BilledEgressBytes,UnbilledEgressBytes
 ```
 
-Your output will look similar to this:
+L'output sarà simile al seguente:
 ```
 AddressPrefix BilledEgressBytes UnbilledEgressBytes
 ------------- ----------------- -------------------

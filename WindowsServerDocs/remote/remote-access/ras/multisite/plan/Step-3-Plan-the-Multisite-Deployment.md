@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 16a2dcdc573fac2631b5a9890ee04f2efb08d90a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 973ef70614f056adac1463918cc425d82b21ac62
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282533"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792308"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Passaggio 3 piano la distribuzione Multisita
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Dopo aver pianificato l'infrastruttura multisito, pianificare i requisiti di qualsiasi certificato aggiuntivo, come i computer client Seleziona punti di ingresso e gli indirizzi IPv6 assegnati nella distribuzione.  
 
@@ -162,11 +162,11 @@ In una distribuzione multisito routing simmetrica viene applicato tramite Teredo
   
    3. Prefisso di Teredo (facoltativo). Questo prefisso è rilevante solo se il server di accesso remoto è configurato con due indirizzi IPv4 pubblici consecutivi nella scheda esterna. Il prefisso si basa sul primo indirizzo IPv4 pubblico della coppia di indirizzo. Se, ad esempio gli indirizzi esterni sono:  
   
-      1. www.xxx.yyy.zzz  
+      1. www\.xxx.yyy.zzz  
   
-      2. www.xxx.yyy.zzz+1  
+      2. www\.xxx.yyy.zzz+1  
   
-      Il prefisso di Teredo da configurare è 2001:0:WWXX:YYZZ::/ 64 in cui WWXX: YYZZ è la rappresentazione esadecimale di www.xxx.yyy.zzz l'indirizzo IPv4.  
+      Il prefisso di Teredo da configurare è 2001:0:WWXX:YYZZ::/ 64 in cui WWXX: YYZZ è la rappresentazione esadecimale di World Wide Web indirizzo IPv4\.xxx.yyy.zzz.  
   
       Si noti che è possibile usare lo script seguente per calcolare il prefisso di Teredo:  
   

@@ -8,16 +8,16 @@ ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef87a3bcc5bd0b924a938f055307a0a87cb60d0b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811930"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792323"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurare le autorizzazioni e controllo di accesso utente
 
-> Si applica a: Windows Admin Center, Windows Admin Center anteprima
+> Si applica a Windows Admin Center, Windows Admin Center Preview
 
 Se hai già fatto, acquisire familiarità con la [le opzioni di controllo di accesso utente in Windows Admin Center](../plan/user-access-options.md)
 
@@ -111,7 +111,7 @@ Uno dei vantaggi dell'uso di Azure AD come un ulteriore livello di sicurezza per
 
 Quando si installa Windows Admin Center su Windows 10, è possibile usare single sign-on. Se si intende usare Windows Admin Center su Windows Server, tuttavia, è necessario configurare una forma di delega Kerberos nell'ambiente in uso prima di poter usare single sign-on. La delega consente di configurare il computer gateway come attendibili per la delega al nodo di destinazione. 
 
-Per configurare [basata su risorse per la delega vincolata](http://windowsitpro.com/security/how-windows-server-2012-eases-pain-kerberos-constrained-delegation-part-1) nell'ambiente in uso, eseguire i cmdlet di PowerShell seguenti. (Utilizzare tenere presente che questa operazione richiede un controller di dominio che esegue Windows Server 2012 o versione successiva).
+Per configurare [basata su risorse per la delega vincolata](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) nell'ambiente in uso, eseguire i cmdlet di PowerShell seguenti. (Utilizzare tenere presente che questa operazione richiede un controller di dominio che esegue Windows Server 2012 o versione successiva).
 
 ```powershell
      $gateway = "WindowsAdminCenterGW" # Machine where Windows Admin Center is installed
@@ -129,7 +129,7 @@ Per rimuovere questa relazione, eseguire il cmdlet seguente:
 Set-ADComputer -Identity $nodeObject -PrincipalsAllowedToDelegateToAccount $null
 ```
 
-## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 Controllo degli accessi in base al ruolo consente di fornire agli utenti con accesso limitato al computer anziché lasciare che tali amministratori locali completo.
 [Per ulteriori informazioni su controllo degli accessi in base al ruolo e i ruoli disponibili.](../plan/user-access-options.md#role-based-access-control)
