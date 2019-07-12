@@ -1,6 +1,6 @@
 ---
 ms.assetid: ddfbbda3-30ca-4537-af12-667efc6f63ff
-title: Configure Additional Authentication Methods for AD FS
+title: Configurare metodi di autenticazione aggiuntivi per AD FS
 description: ''
 author: billmath
 ms.author: billmath
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/24/2019
 ms.locfileid: "66189787"
 ---
-# <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configure Additional Authentication Methods for AD FS
+# <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configurare metodi di autenticazione aggiuntivi per AD FS
 
 Per abilitare l'autenticazione a più fattori (MFA), è necessario selezionare almeno un metodo di autenticazione aggiuntivo. Per impostazione predefinita, in Active Directory Federation Services (ADFS) in Windows Server 2012 R2, è possibile selezionare l'autenticazione del certificato (in altre parole, autenticazione basata su smart card) come metodo di autenticazione aggiuntivo.
 
