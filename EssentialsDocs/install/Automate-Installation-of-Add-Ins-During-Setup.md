@@ -24,7 +24,7 @@ ms.locfileid: "66433638"
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_AddIns"></a> Automatizzare l'installazione di componenti aggiuntivi durante l'installazione  
- Per installare i componenti aggiuntivi durante l'installazione, usare il metodo PostIC.cmd descritto nella sezione [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) di questo documento.  
+ Per installare i componenti aggiuntivi durante l'installazione, usare il metodo PostIC.cmd descritto nella sezione [Creazione del file PostIC.cmd per eseguire le attività successive alla configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) di questo documento.  
   
  Aggiungere la seguente voce al proprio PostIC.cmd:  
   
