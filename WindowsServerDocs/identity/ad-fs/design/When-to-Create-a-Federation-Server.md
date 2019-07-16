@@ -29,9 +29,9 @@ Le sezioni seguenti descrivono alcune delle decisioni chiave per determinare qua
 ## <a name="determine-the-organizational-role-for-the-federation-server"></a>Determinare il ruolo dell'organizzazione per il server federativo  
 Per prendere una decisione consapevole su quando creare un nuovo server federativo, è necessario innanzitutto determinare in quale organizzazione risiederà il server. Il ruolo svolto da un server federativo in un'organizzazione dipende dal fatto che è inserire il server federativo nell'organizzazione partner account o nell'organizzazione partner risorse.  
   
-Quando un server federativo viene posizionato nella rete aziendale del partner account, il suo ruolo è per autenticare le credenziali utente del browser, servizio Web o client del selettore di identità e invia i token di sicurezza ai client. Per altre informazioni, vedere [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+Quando un server federativo viene posizionato nella rete aziendale del partner account, il suo ruolo è per autenticare le credenziali utente del browser, servizio Web o client del selettore di identità e invia i token di sicurezza ai client. Per altre informazioni, vedere [rivedere il ruolo del Server federativo nel Partner Account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Quando un server federativo viene posizionato nella rete aziendale del partner risorse, il suo ruolo consiste nell'autenticare gli utenti in base a un token di sicurezza emesso da un server federativo nell'organizzazione partner risorse, o il suo ruolo consiste nel reindirizzare le richieste di token da le applicazioni Web configurate o i servizi Web per l'organizzazione partner account a cui appartiene il client. Per altre informazioni, vedere [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Quando un server federativo viene posizionato nella rete aziendale del partner risorse, il suo ruolo consiste nell'autenticare gli utenti in base a un token di sicurezza emesso da un server federativo nell'organizzazione partner risorse, o il suo ruolo consiste nel reindirizzare le richieste di token da le applicazioni Web configurate o i servizi Web per l'organizzazione partner account a cui appartiene il client. Per altre informazioni, vedere [rivedere il ruolo del Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Determinare quale progettazione di AD FS distribuire  
 È consigliabile creare i server federativi nell'organizzazione ogni volta che si vuole distribuire uno qualsiasi dei progetti di ADFS seguenti:  
@@ -66,13 +66,13 @@ Di seguito sono le operazioni che possa eseguire solo un server federativo:
   
 -   Creare il primo server federativo in una server farm federativa  
   
-    Per altre informazioni su come configurare il primo server federativo o aggiungere un server federativo a una farm, vedere [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
+    Per altre informazioni su come configurare il primo server federativo o aggiungere un server federativo a una farm, vedere [creare il primo Server federativo in una Server Farm federativa](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
 -   Aggiungere un server federativo a una server farm federativa  
   
-    Per altre informazioni su come aggiungere un server federativo, vedere [Add a Federation Server to a Federation Server Farm](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
+    Per altre informazioni su come aggiungere un server federativo a una farm, vedere [aggiungere un Server federativo a una Server Farm federativa](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
   
-Per altre informazioni dettagliate su come funziona ciascuna di queste opzioni, vedere [The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
+Per altre informazioni su come funziona ciascuna di queste opzioni, vedere [il ruolo del Database di configurazione AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
 Per altre informazioni su come configurare tutti i prerequisiti necessari per distribuire un server federativo, vedere [elenco di controllo: Configurazione di un Server federativo](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
