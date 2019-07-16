@@ -234,7 +234,7 @@ ms.locfileid: "66433232"
   
 3. Seguire le istruzioni per completare la procedura guidata.  
   
-   Per informazioni su come aumentare la capacità del pool di archiviazione, vedere [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Per informazioni su come aumentare la capacità del pool di archiviazione, vedere [usare il nuovo disco rigido per aumentare la capacità del pool di archiviazione](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Vedere anche  
   
