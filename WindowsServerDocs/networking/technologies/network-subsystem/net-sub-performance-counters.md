@@ -123,7 +123,7 @@ Contatori delle prestazioni seguenti sono rilevanti per potenziali problemi di r
 
 Contatori delle prestazioni seguenti sono rilevanti per le prestazioni di RSC.  
   
--   Scheda di rete  
+-   Scheda di rete(*)  
   
     -   Connessioni TCP attive RSC  
   
