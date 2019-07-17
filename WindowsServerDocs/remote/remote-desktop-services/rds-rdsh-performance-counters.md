@@ -4,22 +4,29 @@ description: L'app in esecuzione su Servizi Desktop remoto è lenta? Informazion
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 09/19/2018
+ms.date: 07/11/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
+ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447088"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863110"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Usare i contatori delle prestazioni per diagnosticare i problemi di prestazioni dell'applicazione su host sessione Desktop remoto
 
-Uno dei problemi più difficili da diagnosticare sono le scarse prestazioni dell'applicazione, ovvero quando le applicazioni sono lente o non rispondono. In genere, si avvia la diagnostica per la raccolta di CPU, memoria, input/output su disco e altre metriche e quindi si usano strumenti come Windows Performance Analyzer per tentare di determinare la causa del problema. Purtroppo nella maggior parte delle situazioni questi dati non consentono di identificare la causa radice perché i contatori del consumo di risorse sono soggetti a variazioni significative e frequenti. Questo rende difficile la lettura dei dati e l'associazione al problema segnalato. Per risolvere più rapidamente i problemi di prestazioni delle app, sono stati aggiunti alcuni nuovi contatori delle prestazioni (disponibili [per il download](#download-windows-server-insider-software) tramite il [Windows Insider Program](https://insider.windows.com)) che misurano i flussi di input dell'utente.
+> Si applica a: Windows Server 2019, Windows 10
+
+Uno dei problemi più difficili da diagnosticare sono le scarse prestazioni dell'applicazione, ovvero quando le applicazioni sono lente o non rispondono. In genere, si avvia la diagnostica per la raccolta di CPU, memoria, input/output su disco e altre metriche e quindi si usano strumenti come Windows Performance Analyzer per tentare di determinare la causa del problema. Purtroppo nella maggior parte delle situazioni questi dati non consentono di identificare la causa radice, perché i contatori del consumo di risorse sono soggetti a variazioni significative e frequenti. Questo rende difficile la lettura dei dati e l'associazione al problema segnalato. Per risolvere più rapidamente i problemi di prestazioni delle app, sono stati aggiunti alcuni nuovi contatori delle prestazioni (disponibili [per il download](#download-windows-server-insider-software) tramite il [programma Windows Insider](https://insider.windows.com)) che misurano i flussi di input dell'utente.
+
+>[!NOTE]
+>Il contatore User Input Delay (Ritardo input utente) è compatibile solo con:
+> - Windows Server 2019 o versione successiva
+> - Windows 10 versione 1809 o successiva
 
 Il contatore di ritardo di input dell'utente consente di identificare rapidamente la causa principale per le esperienze RDP negative dell'utente finale. Questo contatore misura per quanto tempo qualsiasi input dell'utente (ad esempio utilizzo del mouse o tastiera) rimane in coda prima di venire prelevato da un processo e il contatore funziona in sessioni locali e remote.
 
