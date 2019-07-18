@@ -9,12 +9,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 525ba403473a9de522d9ab30662adc868b17b88d
-ms.sourcegitcommit: c02756b7f5c92bf5018e17192f6fffb4754b0f06
+ms.openlocfilehash: 188e635543e13154622f52bf02cf877b05cc8fda
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67533501"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300714"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Strumento di ripristino rapido di AD FS
 
@@ -30,11 +30,14 @@ Lo strumento di ripristino rapido di AD FS può essere utilizzato negli scenari 
 2. Distribuire gli ambienti di test e produzione identici
     - Utilizzare lo strumento per creare rapidamente una copia della produzione ADFS in un ambiente di test o per distribuire rapidamente una configurazione di test di convalida nell'ambiente di produzione
 
+>[!NOTE] 
+>Se si usa la replica di tipo merge SQL o i gruppi di disponibilità always on, lo strumento di ripristino rapido non è supportato. È consigliabile usare i backup basati su SQL e un backup del certificato SSL come alternativa.
+
 ## <a name="what-is-backed-up"></a>Ciò che viene eseguito il backup
 Lo strumento esegue il backup della configurazione di ADFS seguente
     
-- Database di configurazione di AD FS (SQL o WID)
-- File di configurazione (situato nella cartella ADFS)
+- Database di configurazione AD FS (SQL o WID)
+- File di configurazione (che si trova nella cartella AD FS)
 - Generato automaticamente i token di firma e la decrittografia di certificati e chiavi private (dal contenitore di Active Directory distribuite)
 - Certificato SSL ed eventuali esternamente registrati certificati (la firma di token, la decrittografia di token e la comunicazione dei servizi) e le corrispondenti chiavi private (Nota: le chiavi private devono essere esportabile e l'utente che esegue lo script deve disporre delle autorizzazioni per accedervi)
 - Un elenco di provider di autenticazione personalizzato, gli archivi di attributi, provider di attestazioni locale considera attendibile che sono installati.
@@ -42,7 +45,7 @@ Lo strumento esegue il backup della configurazione di ADFS seguente
 ## <a name="how-to-use-the-tool"></a>Procedura: utilizzare lo strumento
 Primo, [scaricare](https://go.microsoft.com/fwlink/?LinkId=825646) e installare il file MSI per il server ADFS.  
 
-Eseguire il comando seguente al prompt di PowerShell:
+Eseguire il comando seguente da un prompt di PowerShell:
 
 ```powershell
 import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecreationTool.dll'
@@ -60,7 +63,7 @@ import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecrea
 ## <a name="create-a-backup"></a>Creare un backup
 Per creare un backup, utilizzare il cmdlet Backup-ADFS. Questo cmdlet esegue il backup di configurazione di ADFS, database, i certificati SSL, e così via. 
 
-L'utente deve essere almeno un amministratore locale per eseguire questo cmdlet. Per eseguire il backup del contenitore di Active Directory distribuite (obbligatorio nella configurazione predefinita di AD FS), l'utente deve essere un amministratore di dominio, deve passare le credenziali dell'account del servizio AD FS o può accedere al contenitore DKM.  Se si usa un account gMSA, l'utente deve essere amministratore di dominio oppure disporre delle autorizzazioni per il contenitore. non è possibile fornire le credenziali gMSA. 
+L'utente deve essere almeno un amministratore locale per eseguire questo cmdlet. Per eseguire il backup del Active Directory contenitore DKM (necessario nella configurazione AD FS predefinita), l'utente deve essere amministratore di dominio, deve passare le credenziali dell'account del servizio AD FS o avere accesso al contenitore DKM.  Se si usa un account gMSA, l'utente deve essere amministratore di dominio o avere le autorizzazioni per il contenitore. non è possibile specificare le credenziali di gMSA. 
 
 Il backup verrà denominato in base al modello "adfsBackup_ID_Date-Time". Contiene il numero di versione, data e ora in cui è stato eseguito il backup.
 Il cmdlet accetta i parametri seguenti:
@@ -71,9 +74,9 @@ Set di parametri
 
 ### <a name="detailed-description"></a>Descrizione dettagliata
 
-- **BackupDKM** -esegue il backup il contenitore di Active Directory distribuite che contiene le chiavi di ADFS nella configurazione predefinita (generato automaticamente token di firma e la decrittografia di certificati). Si utilizza uno strumento di Active Directory 'ldifde' per esportare il contenitore di Active Directory e tutti i relativi sottoalberi.
+- **BackupDKM** -esegue il backup il contenitore di Active Directory distribuite che contiene le chiavi di ADFS nella configurazione predefinita (generato automaticamente token di firma e la decrittografia di certificati). Viene usato uno strumento AD "LDIFDE" per esportare il contenitore di Active Directory e tutti i relativi sottoalberi.
 
-- -**StorageType &lt;stringa&gt;**  -il tipo di archiviazione, l'utente vuole usare. "FileSystem" indica che l'utente desidera archiviarlo in una cartella locale o nella rete "Azure" indica che l'utente desidera archiviarla nel contenitore di archiviazione di Azure quando l'utente esegue il backup, seleziona il percorso di backup, il File System o di cloud. Per Azure da utilizzare, le credenziali di archiviazione di Azure deve essere passate al cmdlet. Le credenziali di archiviazione contiene il nome dell'account e la chiave. Inoltre, un nome di contenitore deve anche essere passato. Se il contenitore non esiste, crearla durante il backup. Per il file system da utilizzare, è necessario fornire un percorso di archiviazione. In questa directory verrà creata una nuova directory per ogni backup. Ogni directory creata conterrà i file di backup. 
+- - **&lt;StringaStorageType&gt;** : il tipo di archiviazione che l'utente vuole usare. "FileSystem" indica che l'utente vuole archiviarlo in una cartella in locale o nella rete "Azure" indica che l'utente vuole archiviarlo nel contenitore di archiviazione di Azure quando l'utente esegue il backup, seleziona il percorso di backup, ovvero il file System o nel Cloud. Per Azure da utilizzare, le credenziali di archiviazione di Azure deve essere passate al cmdlet. Le credenziali di archiviazione contiene il nome dell'account e la chiave. Inoltre, un nome di contenitore deve anche essere passato. Se il contenitore non esiste, crearla durante il backup. Per il file system da utilizzare, è necessario fornire un percorso di archiviazione. In questa directory verrà creata una nuova directory per ogni backup. Ogni directory creata conterrà i file di backup. 
 
 - **EncryptionPassword &lt;stringa&gt;** -la password che verrà utilizzato per crittografare tutti i file di backup prima dell'archiviazione
 
@@ -83,33 +86,33 @@ Set di parametri
 
 - **StoragePath &lt;stringa&gt;** -il percorso di backup verranno archiviati
 
-- **ServiceAccountCredential &lt;pscredential&gt;**  -specifica l'account di servizio utilizzato per il servizio AD FS attualmente in esecuzione. Questo parametro è necessario solo se l'utente desidera eseguire il backup di gestione delle chiavi distribuite e non è un amministratore di dominio o non ha accesso al contenuto del contenitore. 
+- **ServiceAccountCredential&lt;PSCredential&gt;** -specifica l'account del servizio utilizzato per il servizio ad FS attualmente in esecuzione. Questo parametro è necessario solo se l'utente vuole eseguire il backup di DKM e non è amministratore di dominio o non ha accesso al contenuto del contenitore. 
 
 - **BackupComment &lt;string []&gt;** -una stringa informativa sul backup verrà visualizzato durante il ripristino, simile al concetto di denominazione checkpoint Hyper-V. Il valore predefinito è una stringa vuota
 
  
 ## <a name="backup-examples"></a>Esempi di backup
-Di seguito è riportati esempi di backup per utilizzare lo strumento di ripristino rapido AD FS.
+Di seguito sono riportati esempi di backup per l'utilizzo dello strumento di ripristino rapido AD FS.
 
-### <a name="backup-the-ad-fs-configuration-with-the-dkm-to-the-file-system-and-has-access-to-the-dkm-container-contents-either-domain-admin-or-delegated"></a>Eseguire il backup della configurazione di ADFS, con la gestione delle chiavi distribuite, nel File System, e dispone dell'accesso per i contenuti del contenitore gestione delle chiavi distribuite (l'amministratore di dominio o delegato)
+### <a name="backup-the-ad-fs-configuration-with-the-dkm-to-the-file-system-and-has-access-to-the-dkm-container-contents-either-domain-admin-or-delegated"></a>Eseguire il backup della configurazione di AD FS, con DKM, nel file System e avere accesso al contenuto del contenitore DKM (amministratore di dominio o delegato)
 
 ```powershell
 Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -EncryptionPassword "password" -BackupComment "Clean Install of ADFS (FS)" -BackupDKM
 ```
  
-### <a name="backup-the-ad-fs-configuration-with-the-dkm-to-the-file-system-with-the-service-account-credential-running-as-local-admin"></a>Configurazione del backup di AD FS, con la gestione delle chiavi distribuite, nel file System con le credenziali dell'account di servizio in esecuzione come amministratore locale
+### <a name="backup-the-ad-fs-configuration-with-the-dkm-to-the-file-system-with-the-service-account-credential-running-as-local-admin"></a>Eseguire il backup della configurazione di AD FS, con DKM, nella file system con le credenziali dell'account del servizio, in esecuzione come amministratore locale
 
 ```powershell
 Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -EncryptionPassword "password" -BackupComment "Clean Install of ADFS (FS)" -BackupDKM -ServiceAccountCredential $cred
 ```
 
-### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-azure-storage-container"></a>Eseguire il backup della configurazione di ADFS senza la gestione delle chiavi distribuite per il contenitore di archiviazione di Azure.
+### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-azure-storage-container"></a>Eseguire il backup della configurazione AD FS senza DKM nel contenitore di archiviazione di Azure.
 
 ```powershell
 Backup-ADFS -StorageType "Azure" -AzureConnectionCredentials $cred -AzureStorageContainer "adfsbackups"  -EncryptionPassword "password" -BackupComment "Clean Install of ADFS"
 ```
 
-### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-file-system"></a>Eseguire il backup della configurazione di ADFS senza la gestione delle chiavi distribuite nel File System
+### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-file-system"></a>Eseguire il backup della configurazione AD FS senza DKM nel file System
 
 ```powershell   
 Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -EncryptionPassword "password" -BackupComment "Clean Install of ADFS (FS)"
@@ -132,7 +135,7 @@ Il cmdlet accetta i parametri seguenti:
 ### <a name="detailed-description"></a>Descrizione dettagliata
 
 - **StorageType &lt;stringa&gt;** -il tipo di archiviazione, l'utente desidera utilizzare.
- "FileSystem" indica che l'utente desidera archiviarlo in una cartella locale o "nella rete Azure", indica che l'utente desidera archiviarla nel contenitore di archiviazione di Azure
+ "FileSystem" indica che l'utente vuole archiviarlo in una cartella in locale o nella rete "Azure" indica che l'utente vuole archiviarlo nel contenitore di archiviazione di Azure
 
 - **DecryptionPassword &lt;stringa&gt;** -la password utilizzata per crittografare tutti i file di backup 
 
@@ -144,9 +147,9 @@ Il cmdlet accetta i parametri seguenti:
 
 - **ADFSName &lt; stringa &gt;** -il nome della federazione che è stato eseguito il backup e si intende ripristinare. Se non viene fornito ed è nome del servizio un solo federativo allora che verrà utilizzato. Se è presente più di un servizio federativo backup nel percorso, quindi l'utente viene chiesto di scegliere uno dei backup Federation Services.
 
-- **ServiceAccountCredential &lt; pscredential &gt;**  -specifica l'account del servizio che verrà usato per il nuovo servizio ADFS da ripristinare 
+- **ServiceAccountCredential&lt; PSCredential&gt;** -specifica l'account del servizio che verrà usato per il nuovo servizio di ad FS in fase di ripristino 
 
-- **GroupServiceAccountIdentifier &lt;stringa&gt;**  -gestito di cui l'utente desidera utilizzare per il nuovo servizio ADFS da ripristinare. Per impostazione predefinita, se non viene fornito quindi il backup di nome dell'account viene utilizzato se è stato GESTITO, else all'utente viene richiesto di inserire in un account di servizio
+- **&lt;StringaGroupServiceAccountIdentifier&gt;** : gMSA che l'utente vuole usare per il nuovo servizio ad FS in fase di ripristino. Per impostazione predefinita, se non viene fornito quindi il backup di nome dell'account viene utilizzato se è stato GESTITO, else all'utente viene richiesto di inserire in un account di servizio
 
 - **DBConnectionString &lt;stringa&gt;** : se l'utente desidera utilizzare un database diverso per il ripristino, quindi si deve passare la stringa di connessione SQL o un tipo di database interno di Windows per sarà WID
 
@@ -154,44 +157,44 @@ Il cmdlet accetta i parametri seguenti:
 
 - **RestoreDKM &lt;bool&gt;** : ripristinare il contenitore di gestione delle chiavi distribuite per Active Directory, deve essere impostata se un nuovo annuncio e la gestione delle chiavi distribuite backup è stato inizialmente.
 
-## <a name="restore-examples"></a>Esempi di RESTORE
+## <a name="restore-examples"></a>Esempi di ripristino
 
-### <a name="restore-the-ad-fs-configuration-without-the-dkm-from-the-azure-storage-container"></a>Ripristinare la configurazione di ADFS senza la gestione delle chiavi distribuite dal contenitore di archiviazione di Azure
+### <a name="restore-the-ad-fs-configuration-without-the-dkm-from-the-azure-storage-container"></a>Ripristinare la configurazione del AD FS senza DKM dal contenitore di archiviazione di Azure
 
 ```powershell
 Restore-ADFS -StorageType "Azure" -AzureConnectionCredential $cred -DecryptionPassword "password" -AzureStorageContainer "adfsbackups"
 ```
 
-### <a name="restore-the-ad-fs-configuration-without-the-dkm-from-the-file-system"></a>Ripristinare la configurazione di ADFS senza la gestione delle chiavi distribuite dal File System
+### <a name="restore-the-ad-fs-configuration-without-the-dkm-from-the-file-system"></a>Ripristinare la configurazione del AD FS senza DKM dal file System
  
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password"
 ```
 
-### <a name="restore-the-ad-fs-configuration-with-the-dkm-to-the-file-system"></a>Ripristinare la configurazione di ADFS con la gestione delle chiavi distribuite nel File System 
+### <a name="restore-the-ad-fs-configuration-with-the-dkm-to-the-file-system"></a>Ripristinare la configurazione di AD FS con DKM nel file System 
  
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -RestoreDKM
 ```
 
-### <a name="restore-the-ad-fs-configuration-to-wid"></a>Ripristinare la configurazione di AD FS a WID
+### <a name="restore-the-ad-fs-configuration-to-wid"></a>Ripristinare la configurazione di AD FS in WID
 
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "WID"
 ``` 
 
-### <a name="restore-the-ad-fs-configuration-to-sql"></a>Ripristinare la configurazione di ADFS SQL
+### <a name="restore-the-ad-fs-configuration-to-sql"></a>Ripristinare la configurazione di AD FS in SQL
 
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "Data Source=TESTMACHINE\SQLEXPRESS; Integrated Security=True"
 ```
 
-### <a name="restores-the-ad-fs-configuration-with-the-specified-gmsa"></a>Consente di ripristinare la configurazione di ADFS con gestito specificato
+### <a name="restores-the-ad-fs-configuration-with-the-specified-gmsa"></a>Ripristina la configurazione di AD FS con il GMSA specificato
 
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -GroupServiceAccountIdentifier "mangupd1\adfsgmsa$"
 ```
-### <a name="restore-the-ad-fs-configuration-with-the-specified-service-account-creds"></a>Ripristinare la configurazione di ADFS con le credenziali di account di servizio specificato
+### <a name="restore-the-ad-fs-configuration-with-the-specified-service-account-creds"></a>Ripristinare la configurazione di AD FS con l'account del servizio specificato credenziali
 
 ```powershell
 Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -ServiceAccountCredential $cred
@@ -205,66 +208,66 @@ Ogni documento che viene creato come parte del backup viene crittografato con AE
 RngCryptoServiceProvider viene utilizzato per generare il valore salt utilizzato da AES e la classe Rfc2898DeriveBytes. 
 
 ## <a name="log-files"></a>File di log
-Ogni volta che viene eseguito un backup o ripristino viene creato un file di log. Questi sono disponibili nel percorso seguente:
+Ogni volta che viene eseguito un backup o un ripristino, viene creato un file di log. Si trovano nel percorso seguente:
 
 - **%localappdata%\ADFSRapidRecreationTool**
 
 >[!NOTE]
-> Quando si esegue un ripristino che potrebbe essere creato un file PostRestore_Instructions contenente una panoramica dei provider di autenticazione aggiuntivo, archivi di attributi e i trust del provider di attestazioni locale per essere installato manualmente prima di avviare il servizio AD FS.
+> Quando si esegue un ripristino, è possibile che venga creato un file PostRestore_Instructions contenente una panoramica dei provider di autenticazione aggiuntivi, gli archivi di attributi e i trust del provider di attestazioni locali da installare manualmente prima di avviare il servizio AD FS.
 
 ## <a name="version-release-history"></a>Cronologia delle versioni
 
 ### <a name="version-10820"></a>Versione 1.0.82.0
-Versione: Luglio 2019
+Versione 2019 luglio
 
 **Problemi risolti:**
-- Correzione di bug per AD FS service i nomi degli account che contengono caratteri di escape LDAP
+- Correzione di bug per i nomi di account di servizio AD FS che contengono caratteri di escape LDAP
 
 
 ### <a name="version-10810"></a>Versione: 1.0.81.0
-Versione: Aprile 2019
+Versione Aprile 2019
 
 **Problemi risolti:**
 
 
-- Correzioni di bug per il backup del certificato e ripristino
-- Informazioni di traccia aggiuntivi nel file di log
+- Correzioni di bug per il backup e il ripristino dei certificati
+- Ulteriori informazioni di traccia per il file di log
 
 
 ### <a name="version-10750"></a>Versione: 1.0.75.0
-Versione: Agosto 2018
+Versione Agosto 2018
 
 **Problemi risolti:**
-* Quando si usa l'opzione - BackupDKM, aggiornare il Backup-ADFS.  Lo strumento è determineranno se il contesto corrente ha accesso al contenitore DKM.  In questo caso, non richiederà privilegi di amministratore di dominio o le credenziali dell'account del servizio.  In questo modo i backup automatici avvenga senza fornire le credenziali in modo esplicito o in esecuzione come account di amministratore di dominio.
+* Aggiornare backup-ADFS quando si usa l'opzione-BackupDKM.  Lo strumento determinerà se il contesto corrente ha accesso al contenitore DKM.  In tal caso, non sarà necessario specificare i privilegi di amministratore di dominio o le credenziali dell'account del servizio.  In questo modo, i backup automatici vengono eseguiti senza fornire le credenziali in modo esplicito o come account di amministratore di dominio.
 
 ### <a name="version-10730"></a>Versione: 1.0.73.0
-Versione: Agosto 2018
+Versione Agosto 2018
 
 **Problemi risolti:**
-* Aggiornare gli algoritmi di crittografia in modo che l'applicazione è conforme a FIPS
+* Aggiornare gli algoritmi di crittografia in modo che l'applicazione sia conforme a FIPS
     
     >[!NOTE]
-    > I backup precedenti non funzioneranno con la nuova versione a causa di modifiche degli algoritmi di crittografia in base alla conformità FIPS
+    > I backup precedenti non funzioneranno con la nuova versione a causa di modifiche apportate agli algoritmi di crittografia in base alla conformità FIPS
     
-* Aggiungere il supporto per i cluster SQL che utilizzano la replica di tipo merge
+* Aggiunta del supporto per i cluster SQL che utilizzano la replica di tipo merge
 
 ### <a name="version-10720"></a>Versione: 1.0.72.0
-Versione: Luglio 2018
+Versione Luglio 2018
 
 **Problemi risolti:**
 
-   - Correzione di bug: Correzione di. Programma di installazione MSI per supportare gli aggiornamenti sul posto 
+   - Correzione di bug: Correzione dell'oggetto. Programma di installazione MSI per supportare gli aggiornamenti sul posto 
 
 ### <a name="10180"></a>1.0.18.0
-Versione: Luglio 2018
+Versione Luglio 2018
 
 **Problemi risolti:**
 
-   - Correzione di bug: gestire le password degli account di servizio che li contengono caratteri speciali (ad esempio, '&')
-   - Correzione di bug: ripristino ha esito negativo perché è utilizzato da un altro processo Microsoft.IdentityServer.Servicehost.exe.config
+   - Correzione di bug: gestire le password degli account del servizio che contengono caratteri speciali (ad esempio,' &')
+   - Correzione di bug: il ripristino non riesce perché Microsoft. IdentityServer. ServiceHost. exe. config è in uso da un altro processo
 
 
 ### <a name="1000"></a>1.0.0.0
-Data di rilascio: Ottobre 2016
+Resa disponibile: Ottobre 2016
 
-Versione iniziale di strumento di ripristino rapido di AD FS
+Versione iniziale di AD FS strumento di ripristino rapido
