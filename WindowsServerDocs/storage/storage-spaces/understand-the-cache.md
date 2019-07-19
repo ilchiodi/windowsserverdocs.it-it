@@ -7,25 +7,25 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 07/18/2017
+ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0050a8931162e37408895ef664293be2349d1bde
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855512"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68315001"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Informazioni sulla cache in Spazi di archiviazione diretta
 
->Si applica a: Windows Server 2019, Windows Server 2016
+>Si applica a Windows Server 2019, Windows Server 2016
 
 [Spazi di archiviazione diretta](storage-spaces-direct-overview.md) dispone di una cache integrata lato server per ottimizzare le prestazioni di archiviazione. Si tratta di una cache di lettura *e* scrittura di grandi dimensioni, permanente e in tempo reale. La cache viene configurata automaticamente quando si abilita Spazi di archiviazione diretta. Nella maggior parte dei casi non è richiesta alcuna gestione manuale.
 Il funzionamento della cache dipende dai tipi di unità presenti.
 
 Il video seguente descrive dettagliatamente il funzionamento della memorizzazione nella cache per Spazi di archiviazione diretta e fornisce altre considerazioni sulla progettazione.
 
-<strong>Considerazioni sulla progettazione diretto di spazi di archiviazione</strong><br>(20 minuti)<br>
+<strong>Considerazioni sulla progettazione di Spazi di archiviazione diretta</strong><br>(20 minuti)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Tipi di unità e opzioni di distribuzione
@@ -88,7 +88,7 @@ Se si dispone di unità SSD e di unità disco rigido, le prime fungeranno da cac
    >[!NOTE]
    > Le unità cache non contribuiscono alla capacità di archiviazione utilizzabile. Tutti i dati archiviati nella cache vengono archiviati anche altrove o lo saranno nel momento in cui vengono rimossi dalla cache. Ciò significa che la capacità di archiviazione totale non elaborata della distribuzione è unicamente la somma delle unità di capacità.
 
-Se tutte le unità sono dello stesso tipo, nessuna cache viene configurata automaticamente. È disponibile l'opzione per configurare manualmente unità a maggiore resistenza in modo che fungano da cache per le unità a minore resistenza dello stesso tipo. Per scoprire come, vedere la sezione [Configurazione manuale](#manual).
+Se tutte le unità sono dello stesso tipo, nessuna cache viene configurata automaticamente. È disponibile l'opzione per configurare manualmente unità a maggiore resistenza in modo che fungano da cache per le unità a minore resistenza dello stesso tipo. Per scoprire come, vedere la sezione [Configurazione manuale](#manual-configuration).
 
    >[!TIP]
    > Nelle distribuzioni in cui sono presenti tutte unità NVMe oppure tutte unità SSD, specialmente su scala molto ridotta, l'assenza di unità destinate alla cache può migliorare l'efficienza dell'archiviazione in modo significativo.
@@ -109,7 +109,7 @@ Di conseguenza, le caratteristiche di scrittura quali la latenza, sono determina
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Memorizzazione nella cache di lettura/scrittura per le distribuzioni ibride
 
-Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido (A causa di ritardi rotazionali seek e Index, la latenza e perdita di tempo sostenuti durante l'accesso casuale a un disco rigido è significativo). Scrive vengono memorizzati nella cache per assorbire burst e, come in precedenza, per unire scrive e riscrive e ridurre al minimo il traffico cumulativo per le unità di capacità.
+Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido A causa dei ritardi di ricerca e rotazione, la latenza e la perdita di tempo per l'accesso casuale a un HDD sono significative. Le scritture vengono memorizzate nella cache per assorbire i picchi e, come in precedenza, per unire le Scritture e ripetere la scrittura e ridurre al minimo il traffico cumulativo alle unità di capacità.
 
 Spazi di archiviazione diretta implementa un algoritmo che annulla la generazione casuale delle scritture prima di rimuoverle dalla cache, per emulare un modello di I/O al disco che sembri sequenziale persino se l'attuale I/O proveniente dal carico di lavoro (ad esempio le macchine virtuali) è casuale. In tal modo IOPS e velocità effettiva alle unità disco rigido vengono ottimizzate.
 
@@ -121,13 +121,13 @@ Se sono presenti unità di tutti e tre i tipi, le unità NVMe forniscono la memo
 
 Questa tabella riepiloga le unità utilizzate per la memorizzazione nella cache, quelle utilizzate per la capacità e il comportamento di memorizzazione nella cache relativo a ciascuna possibilità di distribuzione.
 
-| Distribuzione       | Unità della cache                        | Unità di capacità | Comportamento della cache (predefinito)                  |
-|------------------|-------------------------------------|-----------------|-------------------------------------------|
-| Tutte unità NVMe         | Nessuna (facoltativo: configurare manualmente) | NVMe            | Solo scrittura (se configurata)                |
-| Tutte unità SSD          | Nessuna (facoltativo: configurare manualmente) | SSD             | Solo scrittura (se configurata)                |
-| Unità NVMe + SSD       | NVMe                                | SSD             | Sola scrittura                                |
-| Unità NVMe + HDD       | NVMe                                | Unità disco rigido             | Lettura + scrittura                              |
-| Unità SSD + unità disco rigido        | SSD                                 | Unità disco rigido             | Lettura + scrittura                              |
+| Distribuzione     | Unità della cache                        | Unità di capacità | Comportamento della cache (predefinito)  |
+| -------------- | ----------------------------------- | --------------- | ------------------------- |
+| Tutte unità NVMe         | Nessuna (facoltativo: configurare manualmente) | NVMe            | Solo scrittura (se configurata)  |
+| Tutte unità SSD          | Nessuna (facoltativo: configurare manualmente) | SSD             | Solo scrittura (se configurata)  |
+| Unità NVMe + SSD       | NVMe                                | SSD             | Sola scrittura                  |
+| Unità NVMe + HDD       | NVMe                                | Unità disco rigido             | Lettura + scrittura                |
+| Unità SSD + unità disco rigido        | SSD                                 | Unità disco rigido             | Lettura + scrittura                |
 | Unità NVMe + SSD + HDD | NVMe                                | Unità SSD + unità disco rigido       | Lettura + scrittura per unità disco rigido, sola scrittura per unità SSD  |
 
 ## <a name="server-side-architecture"></a>Architettura lato server
@@ -171,11 +171,13 @@ Nello stack dell'archiviazione definita da software di Windows sono presenti var
 
 Con Spazi di archiviazione diretta, il comportamento predefinito della cache write-back Spazi di archiviazione non deve essere modificato. Ad esempio, parametri quali **-WriteCacheSize** nel cmdlet **New-Volume** non devono essere utilizzati.
 
-Se lo si desidera, è possibile scegliere di utilizzare la cache Volume condiviso cluster. Questa cache è disattivata per impostazione predefinita in Spazi di archiviazione diretta, ma non è in conflitto in alcun modo con la nuova cache descritta in questo argomento. In determinati scenari, può fornire preziosi guadagni in termini di prestazioni. Per ulteriori informazioni, vedere [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/) (Come abilitare la cache Volume condiviso cluster).
+Se lo si desidera, è possibile scegliere di utilizzare la cache Volume condiviso cluster. Questa cache è disattivata per impostazione predefinita in Spazi di archiviazione diretta, ma non è in conflitto in alcun modo con la nuova cache descritta in questo argomento. In determinati scenari, può fornire preziosi guadagni in termini di prestazioni. Per ulteriori informazioni, vedere [How to Enable CSV Cache](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional) (Come abilitare la cache Volume condiviso cluster).
 
-## <a name="manual"></a> Configurazione manuale
+## <a name="manual-configuration"></a>Configurazione manuale
 
-Per la maggior parte delle implementazioni non è richiesta la configurazione manuale. Nel caso in cui sia necessaria, continuare a leggere.
+Per la maggior parte delle implementazioni non è richiesta la configurazione manuale. Se necessario, vedere le sezioni seguenti. 
+
+Se è necessario apportare modifiche al modello di dispositivo di cache dopo l'installazione, modificare il documento relativo ai componenti di supporto di Servizio integrità, come descritto in [servizio integrità Overview](../../failover-clustering/health-service-overview.md#supported-components-document).
 
 ### <a name="specify-cache-drive-model"></a>Specificare il modello di unità cache
 
@@ -188,18 +190,28 @@ Per utilizzare le unità a maggiore resistenza come cache per le unità a minore
 
 ####  <a name="example"></a>Esempio
 
-```
-PS C:\> Get-PhysicalDisk | Group Model -NoElement
+Per prima cosa, ottenere un elenco di dischi fisici:
 
+```PowerShell
+Get-PhysicalDisk | Group Model -NoElement
+```
+
+Ecco un output di esempio:
+
+```
 Count Name
 ----- ----
     8 FABRIKAM NVME-1710
    16 CONTOSO NVME-1520
-
-PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-È possibile verificare che per la memorizzazione nella cache siano utilizzate le unità desiderate eseguendo **Get-PhysicalDisk** in PowerShell e verificando che il valore della proprietà **Usage** sia **"Journal"**.
+Quindi immettere il comando seguente, specificando il modello di dispositivo della cache:
+
+```PowerShell
+Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
+```
+
+È possibile verificare che per la memorizzazione nella cache siano utilizzate le unità desiderate eseguendo **Get-PhysicalDisk** in PowerShell e verificando che il valore della proprietà **Usage** sia **"Journal"** .
 
 ### <a name="manual-deployment-possibilities"></a>Possibilità di distribuzione manuale
 
@@ -211,26 +223,38 @@ La configurazione manuale consente le seguenti possibilità di distribuzione.
 
 È possibile eseguire l'override del comportamento predefinito della cache. Ad esempio, è possibile impostarlo in modo che la cache effettui le letture persino nella distribuzione all-flash. Non è consigliabile modificare il comportamento se non si è certi che l'impostazione predefinita non sia indicata per il proprio carico di lavoro.
 
-Per eseguire l'override del comportamento, utilizzare il cmdlet **Set-ClusterS2D** e i relativi parametri **-CacheModeSSD** e **-CacheModeHDD**. Il parametro **CacheModeSSD** imposta il comportamento della cache quando questa viene utilizzata per le unità SSD. Il parametro **CacheModeHDD** imposta il comportamento della cache quando questa viene utilizzata per le unità disco rigido. L'operazione può essere eseguita in qualsiasi momento dopo aver abilitato Spazi di archiviazione diretta.
+Per eseguire l'override del comportamento, usare il cmdlet **set-ClusterStorageSpacesDirect** e i relativi parametri **-CacheModeSSD** e **-CacheModeHDD** . Il parametro **CacheModeSSD** imposta il comportamento della cache quando questa viene utilizzata per le unità SSD. Il parametro **CacheModeHDD** imposta il comportamento della cache quando questa viene utilizzata per le unità disco rigido. L'operazione può essere eseguita in qualsiasi momento dopo aver abilitato Spazi di archiviazione diretta.
 
-È possibile utilizzare **Get-ClusterS2D** per verificare che il comportamento sia impostato.
+È possibile usare **Get-ClusterStorageSpacesDirect** per verificare che sia impostato il comportamento.
 
 #### <a name="example"></a>Esempio
 
-```
-PS C:\> Get-ClusterS2D
+Per prima cosa, ottenere le impostazioni Spazi di archiviazione diretta:
 
+```PowerShell
+Get-ClusterStorageSpacesDirect
+```
+
+Ecco un output di esempio:
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
-...
+```
 
-PS C:\> Set-ClusterS2D -CacheModeSSD ReadWrite
+Eseguire quindi le operazioni seguenti:
 
-PS C:\> Get-ClusterS2D
+```PowerShell
+Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
 
+Get-ClusterS2D
+```
+
+Ecco un output di esempio:
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : ReadWrite
-...
 ```
 
 ## <a name="sizing-the-cache"></a>Ridimensionamento della cache
@@ -249,6 +273,6 @@ Non esiste una regola universale, tuttavia, se il numero di mancati riscontri de
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Scelta unità e tipi di resilienza](choosing-drives.md)
-- [Efficienza di archiviazione e la tolleranza di errore](storage-spaces-fault-tolerance.md)
-- [Requisiti hardware diretto di spazi di archiviazione](storage-spaces-direct-hardware-requirements.md)
+- [Scelta di unità e tipi di resilienza](choosing-drives.md)
+- [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)
+- [Requisiti hardware Spazi di archiviazione diretta](storage-spaces-direct-hardware-requirements.md)

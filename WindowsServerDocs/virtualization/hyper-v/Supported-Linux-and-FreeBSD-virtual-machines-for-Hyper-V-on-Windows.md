@@ -1,6 +1,6 @@
 ---
 title: Linux e FreeBSD macchine virtuali supportate per Hyper-V in Windows
-description: Elenca le funzionalità incluse in ogni versione di Linux integration services
+description: Elenca i servizi di integrazione Linux e le funzionalità incluse in ogni versione
 ms.prod: windows-server-threshold
 ms.service: na
 manager: dongill
@@ -11,16 +11,16 @@ ms.assetid: 990ff94a-30fb-434b-b4a2-3804a5245ba6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 9df495bdc67b06a675fec050fb4c2960337ce8ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 593068f4fc2015c7f8f94bfe49c5a11c23cb6599
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832902"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314985"
 ---
 # <a name="supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows"></a>Linux e FreeBSD macchine virtuali supportate per Hyper-V in Windows
 
->Si applica a: Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7.1, Windows 7
+>Si applica a: Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Hyper-V supporta dispositivi emulati e specifici di Hyper-V per le macchine virtuali Linux e FreeBSD. Quando si esegue con dispositivi emulati, è necessario installare alcun software aggiuntivo. Dispositivi emulati tuttavia non forniscono prestazioni elevate e non possono sfruttare l'infrastruttura di gestione di macchina virtuale avanzato che offre la tecnologia Hyper-V. Per poter utilizzare completamente tutti i vantaggi che offre la tecnologia Hyper-V, si consiglia di utilizzare i dispositivi specifici di Hyper-V per Linux e FreeBSD. L'insieme di driver che sono necessari per eseguire i dispositivi specifici di Hyper-V sono noti come Linux Integration Services (LIS) o FreeBSD Integration Services (BIS).
 
@@ -31,8 +31,7 @@ Per altre distribuzioni di Linux LIS modifiche regolarmente sono integrate nel k
 Per le versioni precedenti di FreeBSD (prima 10.0), Microsoft fornisce porte che contengono i driver installabili BIS e daemon corrispondente per le macchine virtuali FreeBSD. Per le versioni più recenti FreeBSD BIS incorporato nel sistema operativo FreeBSD e alcun download separato o l'installazione non è necessario ad eccezione di un download di porte di coppia chiave-VALORE che è necessaria per FreeBSD 10.0.
 
 > [!TIP]
-> - Scaricare [Windows Server 2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016) dall'Evaluation Center.
-> - Scaricare [Microsoft Hyper-V Server 2016](https://www.microsoft.com/evalcenter/evaluate-hyper-v-server-2016) da Evaluation Center.
+> - Scaricare [Windows Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019) da Evaluation Center.
 
 L'obiettivo di questo contenuto è fornire informazioni che agevolano la distribuzione di Linux o FreeBSD in Hyper-V. Dettagli specifici includono:
 
@@ -46,11 +45,11 @@ L'obiettivo di questo contenuto è fornire informazioni che agevolano la distrib
 
 * Descrizione delle funzionalità per ogni funzionalità LIS o BIS.
 
-**Vuoi inviare suggerimenti sulle caratteristiche e funzionalità?** È possibile avremmo potuto fare di meglio? È possibile usare la [Windows Server User Voice](https://windowsserver.uservoice.com/forums/295062-linux-support) sito per suggerire nuove funzionalità e capacità per Linux e FreeBSD le macchine virtuali in Hyper-V e vedere cosa dicono altri utenti.
+**Si vuole suggerire suggerimenti sulle funzionalità e sulle funzionalità?** È possibile avremmo potuto fare di meglio? È possibile utilizzare il sito [Windows Server User Voice](https://windowsserver.uservoice.com/forums/295062-linux-support) per suggerire nuove funzionalità e funzionalità per le macchine virtuali Linux e FreeBSD in Hyper-V e per vedere quali altri utenti stanno dicendo.
 
 ## <a name="in-this-section"></a>Contenuto della sezione
 
-* [CentOS è supportato e Red Hat Enterprise Linux macchine virtuali in Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
+* [Macchine virtuali CentOS e Red Hat Enterprise Linux supportate in Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
 * [Macchine virtuali Debian supportate in Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
@@ -62,8 +61,8 @@ L'obiettivo di questo contenuto è fornire informazioni che agevolano la distrib
 
 * [Macchine virtuali FreeBSD supportate in Hyper-V](Supported-FreeBSD-virtual-machines-on-Hyper-V.md)
 
-* [Forniscono le descrizioni per le macchine virtuali Linux e FreeBSD in Hyper-V](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
+* [Descrizioni delle funzionalità per le macchine virtuali Linux e FreeBSD in Hyper-V](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
 
-* [Le procedure consigliate per l'esecuzione di Linux in Hyper-V](Best-Practices-for-running-Linux-on-Hyper-V.md)
+* [Procedure consigliate per l'esecuzione di Linux in Hyper-V](Best-Practices-for-running-Linux-on-Hyper-V.md)
 
-* [Le procedure consigliate per l'esecuzione di FreeBSD in Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)
+* [Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)

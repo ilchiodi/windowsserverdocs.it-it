@@ -1,6 +1,6 @@
 ---
 title: Configurare i criteri di gruppo per la distribuzione di un dominio
-description: Informazioni su come configurare i criteri di gruppo in servizi MultiPoint
+description: Informazioni su come configurare i criteri di gruppo in MultiPoint Services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,61 +13,61 @@ ms.assetid: 13e5fa90-d330-4155-a6b8-78eb650cbbfa
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: f661fbdc40fd7dd2562d51756bc7642c8e9a4a82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c9d8efc1ed4a2f498ffce6c69d443ae819dced9
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888042"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314325"
 ---
 # <a name="configure-group-policies-for-a-domain-deployment"></a>Configurare i criteri di gruppo per la distribuzione di un dominio
-Per garantire il corretto funzionamento della distribuzione di dominio di servizi MultiPoint, si applicano le seguenti impostazioni dei criteri di gruppo per l'account utente WMSshell su un sistema MultiPoint Services.  
+Per assicurarsi che la distribuzione del dominio di MultiPoint Services funzioni correttamente, applicare le seguenti impostazioni di criteri di gruppo all'account utente WMSshell in un sistema MultiPoint Services.  
   
 > [!IMPORTANT]  
-> Alcune impostazioni dei criteri di gruppo possono impedire le impostazioni di configurazione necessari vengano applicati ai servizi MultiPoint. Assicurarsi di comprendere e definire le impostazioni dei criteri di gruppo in modo che funzionino correttamente in MultiPoint Services. Ad esempio, un'impostazione di criteri di gruppo che impedisce l'accesso automatico può presentare problemi con il comportamento di accesso di MultiPoint Services.  
+> Alcune impostazioni di criteri di gruppo possono impedire l'applicazione delle impostazioni di configurazione richieste a MultiPoint Services. Assicurarsi di aver compreso e definito le impostazioni di criteri di gruppo in modo che funzionino correttamente in MultiPoint Services. Ad esempio, un'impostazione Criteri di gruppo che impedisce l'accesso automatico può presentare problemi con il comportamento di accesso a MultiPoint Services.  
   
 ## <a name="update-group-policies-for-the-wmsshell-user-account"></a>Aggiornare i criteri di gruppo per l'account utente WMSshell 
-L'account utente WMSshell è un account di sistema servizi MultiPoint viene utilizzato per effettuare l'accesso alla console in cui vengono create le stazioni actuall. Questo account non è mento essere gestito da Gestione MultiPoint.
+L'account utente WMSshell è un account di sistema usato da MultiPoint Services per accedere alla console, in cui vengono create le stazioni effettive. Questo account non è destinato a essere gestito da Gestione MultiPoint.
   
 > [!NOTE]  
-> Per scoprire come aggiornare i criteri di gruppo, vedere [Editor criteri di gruppo locali](https://technet.microsoft.com/library/dn265982.aspx).  
+> Per informazioni su come aggiornare i criteri di gruppo, vedere [Editor criteri di gruppo locali](https://technet.microsoft.com/library/dn265982.aspx).  
   
-**CRITERI:** Configurazione utente > modelli amministrativi > Pannello di controllo > **personalizzazione**  
+**POLITICA** Configurazione utente > modelli amministrativi > Pannello di controllo > **personalizzazione**  
   
 Assegnare i valori seguenti:  
   
 |Impostazione|Valori|  
 |-----------|----------|  
-|Abilita lo screen saver|Disabled|  
+|Abilita screen saver|Disabled|  
 |Timeout screen saver|Disabled<br /><br />Secondi: xxx|  
 |Proteggi screen saver con password|Disabled|  
   
-**CRITERI:** Configurazione computer > Impostazioni di Windows > Impostazioni di sicurezza > Criteri locali > Assegnazione diritti utente > **Consenti accesso locale**  
+**POLITICA** Configurazione computer > impostazioni di Windows > impostazioni di sicurezza > criteri locali > Assegnazione diritti utente > **Consenti accesso locale**  
   
 |Impostazione|Valori|  
 |-----------|----------|  
-|Consenti accesso locale|Assicurarsi che l'elenco degli account includa l'account WMSshell.<br /><br />**Nota:** Per impostazione predefinita, l'account WMSshell è un membro del gruppo di utenti. Se è presente il gruppo di utenti nell'elenco e WMSshell è un membro del gruppo di utenti, non devi aggiungere l'account WMSshell all'elenco.|  
+|Consenti accesso locale|Verificare che l'elenco di account includa l'account WMSshell.<br /><br />**Nota:** Per impostazione predefinita, l'account WMSshell è un membro del gruppo Users. Se il gruppo Users è presente nell'elenco e WMSshell è un membro del gruppo Users, non è necessario aggiungere l'account WMSshell all'elenco.|  
   
 > [!IMPORTANT]  
-> Quando si impostano criteri di gruppo, assicurarsi che i criteri non interferiscono con gli aggiornamenti automatici e segnalazione errori Windows errore sui server MultiPoint. Queste ultime vengono impostate il **installa gli aggiornamenti automaticamente** e **segnalazione errori Windows automatica** impostazioni che sono state selezionate durante l'installazione di Windows MultiPoint Server, configurata in MultiPoint Gestione tramite **modificare le impostazioni del server**, o configurati negli aggiornamenti pianificati per la protezione disco.  
+> Quando si impostano criteri di gruppo, assicurarsi che i criteri non interferiscano con aggiornamenti automatici e segnalazione errori Windows nel server MultiPoint. Queste impostazioni vengono impostate dalle impostazioni di **installazione** **automatica e automatica segnalazione errori Windows** selezionate durante l'installazione di Windows MultiPoint Server, configurate in Gestione MultiPoint mediante **Modifica impostazioni server**o configurato in aggiornamenti pianificati per la protezione del disco.  
   
-## <a name="update-the-registry"></a>Aggiornare il Registro di sistema  
-Per una distribuzione di dominio di servizi MultiPoint, è necessario aggiornare le seguenti sottochiavi del Registro di sistema.  
+## <a name="update-the-registry"></a>Aggiornare il registro di sistema  
+Per la distribuzione di un dominio di MultiPoint Services, è necessario aggiornare le sottochiavi del registro di sistema seguenti.  
   
 > [!IMPORTANT]  
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.  
   
-#### <a name="to-update-registry-subkeys-for-a-domain-deployment-of-multipoint-services"></a>Per aggiornare le sottochiavi del Registro di sistema per la distribuzione di un dominio di servizi MultiPoint  
+#### <a name="to-update-registry-subkeys-for-a-domain-deployment-of-multipoint-services"></a>Per aggiornare le sottochiavi del registro di sistema per la distribuzione di un dominio di MultiPoint Services  
   
-1.  Aprire l'editor del Registro di sistema. (Un prompt dei comandi, digitare **regedit.exe**, quindi premere INVIO.)  
+1.  Aprire l'editor del registro di sistema. Al prompt dei comandi digitare **Regedit. exe**e premere INVIO.  
   
-2.  Nel riquadro sinistro, individuare e quindi selezionare la sottochiave del Registro di sistema seguente:  
+2.  Nel riquadro sinistro individuare e selezionare la sottochiave del registro di sistema seguente:  
   
     HKEY_USERS\<SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
   
-    dove '<SIDofWMSshell>' è l'identificatore di sicurezza (SID) per l'account WMSshell. Per scoprire come identificare il SID, vedere [come associare un nome utente con un ID di sicurezza (SID)](https://support.microsoft.com/kb/154599).  
+    dove '<SIDofWMSshell>' è l'ID di sicurezza (SID) per l'account WMSshell. Per informazioni su come identificare il SID, vedere [come associare un nome utente a un ID di sicurezza (SID)](https://support.microsoft.com/kb/154599).  
   
-3.  Nell'elenco a destra, aggiornare le seguenti sottochiavi.  
+3.  Nell'elenco a destra aggiornare le sottochiavi riportate di seguito.  
   
     |Sottochiave|Nome del valore|Dati valore|  
     |----------|--------------|--------------|  
@@ -75,10 +75,10 @@ Per una distribuzione di dominio di servizi MultiPoint, è necessario aggiornare
     |ScreenSaveTimeout|REG_SZ|120|  
     |ScreenSaverIsSecure|REG_SZ|0 (zero)|  
   
-    Per aggiornare una sottochiave del Registro di sistema:  
+    Per aggiornare una sottochiave del registro di sistema:  
   
-    1.  Con la chiave del Registro di sistema selezionata nel riquadro sinistro, destro la sottochiave nel riquadro di destra e quindi fare clic su **Modify**.  
+    1.  Con la chiave del registro di sistema selezionata nel riquadro sinistro, fare clic con il pulsante destro del mouse sulla sottochiave nel riquadro destro e quindi scegliere **modifica**.  
   
-    2.  Nella finestra di dialogo Modifica stringa, digitare un nuovo valore in **dati valore**, quindi fare clic su **OK**.  
+    2.  Nella finestra di dialogo Modifica stringa digitare un nuovo valore in **dati valore**, quindi fare clic su **OK**.  
   
-4.  Dopo aver completato l'aggiornamento di sottochiavi del Registro di sistema, riavviare il computer per attivare le modifiche. 
+4.  Al termine dell'aggiornamento delle sottochiavi del registro di sistema, riavviare il computer per attivare le modifiche. 
