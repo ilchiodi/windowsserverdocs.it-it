@@ -1,7 +1,7 @@
 ---
 ms.assetid: b7bf7579-ca53-49e3-a26a-6f9f8690762f
-title: Le procedure consigliate per la protezione di AD FS e Proxy applicazione Web
-description: Questo documento fornisce le procedure consigliate per la pianificazione sicura e distribuzione di Active Directory Federation Services (ADFS) e Proxy applicazione Web.
+title: Procedure consigliate per la protezione di AD FS e proxy applicazione Web
+description: In questo documento vengono illustrate le procedure consigliate per la pianificazione e la distribuzione sicure di Active Directory Federation Services (AD FS) e del proxy dell'applicazione Web.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,82 +9,82 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3cc4194b562dad17d0c2021f4aaf061114e2c94b
-ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
+ms.openlocfilehash: 6939373db678f1ca6be62711f1771b8f7019c312
+ms.sourcegitcommit: c9ab5fbde1782a3a2bac2dbd45f3f178f7ae3c4c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67351294"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68354642"
 ---
-## <a name="best-practices-for-securing-active-directory-federation-services"></a>Le procedure consigliate per la protezione di Active Directory Federation Services
+## <a name="best-practices-for-securing-active-directory-federation-services"></a>Procedure consigliate per la protezione di Active Directory Federation Services
 
 
-Questo documento fornisce le procedure consigliate per la pianificazione sicura e distribuzione di Active Directory Federation Services (ADFS) e Proxy applicazione Web.  Contiene informazioni sui comportamenti predefiniti di questi componenti e le raccomandazioni per le configurazioni di sicurezza aggiuntive per un'organizzazione con requisiti di sicurezza e casi d'uso specifici.
+In questo documento vengono illustrate le procedure consigliate per la pianificazione e la distribuzione sicure di Active Directory Federation Services (AD FS) e del proxy dell'applicazione Web.  Contiene informazioni sui comportamenti predefiniti di questi componenti e indicazioni per configurazioni di sicurezza aggiuntive per un'organizzazione con specifici casi d'uso e requisiti di sicurezza.
 
-Questo documento si applica ad AD FS e WAP in Windows Server 2012 R2 e Windows Server 2016 (anteprima).  Questi consigli possono essere usati se l'infrastruttura viene distribuito in una rete locale o in un ambiente ospitato nel cloud come Microsoft Azure.
+Questo documento si applica a AD FS e WAP in Windows Server 2012 R2 e Windows Server 2016 (anteprima).  Questi consigli possono essere usati se l'infrastruttura viene distribuita in una rete locale o in un ambiente cloud ospitato, ad esempio Microsoft Azure.
 
 ## <a name="standard-deployment-topology"></a>Topologia di distribuzione standard
-Per la distribuzione in ambienti locali, è consigliabile una topologia di distribuzione standard costituito da uno o più server AD FS nella rete azienda interna, con uno o più server Proxy applicazione Web (WAP) in una rete Perimetrale o in rete extranet.  A ogni livello, AD FS e WAP, bilanciamento del carico hardware o software è posizionato davanti alla server farm e gestisce il routing del traffico.  I firewall vengono inseriti come richiesto in primo piano dell'indirizzo IP esterno del bilanciamento del carico davanti a ogni farm (FS e proxy).
+Per la distribuzione in ambienti locali, è consigliabile usare una topologia di distribuzione standard costituita da uno o più server AD FS nella rete aziendale interna, con uno o più server proxy applicazione Web (WAP) in una rete perimetrale o Extranet.  A ogni livello, AD FS e WAP, un servizio di bilanciamento del carico hardware o software viene posizionato davanti ai server farm e gestisce il routing del traffico.  I firewall vengono posizionati come richiesto davanti all'indirizzo IP esterno del servizio di bilanciamento del carico davanti a ogni farm (FS e proxy).
 
-![Topologia di AD FS Standard](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+![AD FS topologia standard](media/Best-Practices-Securing-AD-FS/adfssec1.png)
 
 ## <a name="ports-required"></a>Porte richieste
-Il diagramma seguente mostra le porte del firewall che devono essere abilitate tra e tra i componenti della distribuzione di AD FS e WAP.  Se la distribuzione non include Azure AD / Office 365, i requisiti di sincronizzazione può essere ignorato.
+Il diagramma seguente illustra le porte del firewall che devono essere abilitate tra e tra i componenti della distribuzione di AD FS e WAP.  Se la distribuzione non include Azure AD/Office 365, i requisiti di sincronizzazione possono essere ignorati.
 
->Si noti che la porta 49443 è solo necessario se viene utilizzata l'autenticazione del certificato utente, che è facoltativo per Azure AD e Office 365.
+>Si noti che la porta 49443 è obbligatoria solo se si usa l'autenticazione del certificato utente, che è facoltativa per Azure AD e Office 365.
 
-![Topologia di AD FS Standard](media/Best-Practices-Securing-AD-FS/adfssec2.png)
+![AD FS topologia standard](media/Best-Practices-Securing-AD-FS/adfssec2.png)
 
 >[!NOTE]
-> La porta 808 (Windows Server 2012 R2) o la porta 1501 (Windows Server 2016 e versioni successive) è che la porta Net. TCP ADFS viene utilizzato per l'endpoint WCF locale per trasferire i dati di configurazione per il processo del servizio e Powershell. Questa porta possa essere visualizzata eseguendo Get-AdfsProperties | Selezionare NetTcpPort. Si tratta di una porta locale che non dovrà essere aperta nel firewall, ma verrà visualizzata in una scansione delle porte. 
+> La porta 808 (Windows Server 2012R2) o la porta 1501 (Windows Server 2016 +) è la porta Net. TCP AD FS USA per l'endpoint WCF locale per trasferire i dati di configurazione al processo del servizio e a PowerShell. Questa porta può essere visualizzata eseguendo Get-AdfsProperties | Selezionare NetTcpPort. Si tratta di una porta locale che non deve essere aperta nel firewall ma che verrà visualizzata in un'analisi delle porte. 
 
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect e server federativi/WAP
-La tabella seguente descrive le porte e protocolli necessari per la comunicazione tra il server Azure AD Connect e server federativi/WAP.  
+Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP.  
 
 Protocol |Porte |Descrizione
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Utilizzato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
-HTTPS|443(TCP/UDP)|Utilizzato per sincronizzare con Azure AD.
-WinRM|5985| Listener di WinRM
+HTTP|80 (TCP/UDP)|Utilizzato per scaricare i CRL (elenchi di revoche di certificati) per verificare i certificati SSL.
+HTTPS|443 (TCP/UDP)|Utilizzato per sincronizzare con Azure AD.
+WinRM|5985| Listener WinRM
 
-### <a name="wap-and-federation-servers"></a>Server federativi e WAP
-La tabella seguente descrive le porte e protocolli necessari per la comunicazione tra i server federativi e i server WAP.
+### <a name="wap-and-federation-servers"></a>Server WAP e federativi
+Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
 
 Protocol |Porte |Descrizione
 --------- | --------- |---------
-HTTPS|443(TCP/UDP)|Utilizzato per l'autenticazione.
+HTTPS|443 (TCP/UDP)|Usato per l'autenticazione.
 
 ### <a name="wap-and-users"></a>WAP e utenti
-La tabella seguente descrive le porte e protocolli necessari per la comunicazione tra utenti e i server WAP.
+Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra gli utenti e i server WAP.
 
 Protocol |Porte |Descrizione
 --------- | --------- |--------- |
-HTTPS|443(TCP/UDP)|Utilizzato per l'autenticazione del dispositivo.
-TCP|49443 (TCP)|Utilizzato per l'autenticazione del certificato.
+HTTPS|443 (TCP/UDP)|Usato per l'autenticazione del dispositivo.
+TCP|49443 (TCP)|Usato per l'autenticazione del certificato.
 
-Per altre informazioni sulle porte necessarie e i protocolli necessari per le distribuzioni ibride, vedere il documento [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
+Per ulteriori informazioni sulle porte e sui protocolli richiesti per le distribuzioni ibride, vedere il documento [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
 
-Per informazioni dettagliate sulle porte e protocolli necessari per un'istanza di AD Azure e la distribuzione di Office 365, vedere il documento [qui](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+Per informazioni dettagliate sulle porte e i protocolli necessari per una distribuzione di Azure AD e Office 365, vedere il documento [qui](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
 ### <a name="endpoints-enabled"></a>Endpoint abilitati
 
-Quando vengono installati AD FS e WAP, un set predefinito degli endpoint ADFS abilitati nel servizio federativo e del proxy.  Queste impostazioni predefinite sono state scelto in base a scenari più comunemente necessari e usati e non è necessario modificarle.  
+Quando vengono installati AD FS e WAP, viene abilitato un set predefinito di AD FS endpoint sul servizio federativo e sul proxy.  Queste impostazioni predefinite sono state scelte in base agli scenari più comunemente richiesti e usati e non è necessario modificarle.  
 
-### <a name="optional-min-set-of-endpoints-proxy-enabled-for-azure-ad--office-365"></a>[Facoltativo] Set minimo di proxy endpoint abilitato per Azure AD / Office 365
-Le organizzazioni che distribuiscono solo per Azure AD AD FS e WAP e scenari di Office 365 possono ulteriormente limitare il numero degli endpoint ADFS abilitati sul proxy per ottenere una superficie di attacco più minima.
-Seguito è riportato l'elenco di endpoint ai quali è necessario attivare il proxy in questi scenari:
+### <a name="optional-min-set-of-endpoints-proxy-enabled-for-azure-ad--office-365"></a>Opzionale Set minimo di endpoint proxy abilitato per Azure AD/Office 365
+Le organizzazioni che distribuiscono AD FS e WAP solo per gli scenari Azure AD e Office 365 possono limitare ulteriormente il numero di AD FS endpoint abilitati sul proxy per ottenere una superficie di attacco più minima.
+Di seguito è riportato l'elenco degli endpoint che devono essere abilitati nel proxy in questi scenari:
 
 |Endpoint|Scopo
 |-----|-----
-|/adfs/ls|I flussi di autenticazione basata su browser e le versioni correnti di Microsoft Office usano questo endpoint per Azure AD e l'autenticazione di Office 365
-|/adfs/services/trust/2005/usernamemixed|Usato per Exchange Online con i client di Office meno recente aggiornamento di Office 2013 maggio 2015.  I client di versioni successive utilizzano l'endpoint \adfs\ls passivo.
-|/adfs/services/trust/13/usernamemixed|Usato per Exchange Online con i client di Office meno recente aggiornamento di Office 2013 maggio 2015.  I client di versioni successive utilizzano l'endpoint \adfs\ls passivo.
-|/adfs/oauth2|Questa viene usata per qualsiasi App moderne (in locale o nel cloud) è stato configurato per eseguire l'autenticazione diretta a AD FS (ossia, non tramite AAD)
-|/adfs/services/trust/mex|Usato per Exchange Online con i client di Office meno recente aggiornamento di Office 2013 maggio 2015.  I client di versioni successive utilizzano l'endpoint \adfs\ls passivo.
-|/adfs/ls/federationmetadata/2007-06/federationmetadata.xml |Requisito per tutti i flussi passivi; e usati da Office 365 / Azure AD per verificare che i certificati di AD FS
+|/ADFS/ls|I flussi di autenticazione basati su browser e le versioni correnti di Microsoft Office usano questo endpoint per l'autenticazione Azure AD e Office 365
+|/adfs/services/trust/2005/usernamemixed|Usato per Exchange Online con client di Office precedenti a Office 2013, maggio 2015.  I client successivi usano l'endpoint \adfs\ls passivo.
+|/adfs/services/trust/13/usernamemixed|Usato per Exchange Online con client di Office precedenti a Office 2013, maggio 2015.  I client successivi usano l'endpoint \adfs\ls passivo.
+|/adfs/oauth2|Questo viene usato per tutte le app moderne (in locale o nel cloud) che sono state configurate per l'autenticazione diretta a AD FS (ad esempio, non tramite AAD)
+|/adfs/services/trust/mex|Usato per Exchange Online con client di Office precedenti a Office 2013, maggio 2015.  I client successivi usano l'endpoint \adfs\ls passivo.
+|/adfs/ls/federationmetadata/2007-06/federationmetadata.xml |Requisito per i flussi passivi; e usati da Office 365/Azure AD per controllare AD FS certificati
 
 
-Gli endpoint di AD FS possono essere disabilitati nel proxy usando il cmdlet di PowerShell seguente:
+AD FS gli endpoint possono essere disabilitati sul proxy usando il cmdlet di PowerShell seguente:
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
@@ -94,71 +94,78 @@ Ad esempio:
     
 
 ### <a name="extended-protection-for-authentication"></a>Protezione estesa per l'autenticazione
-Protezione estesa per l'autenticazione è una funzionalità che consente di ridurre man attacchi (MITM) e viene abilitata per impostazione predefinita con AD FS.
+La protezione estesa per l'autenticazione è una funzionalità che attenua gli attacchi di tipo man in the Middle (MITM) ed è abilitata per impostazione predefinita con AD FS.
 
 #### <a name="to-verify-the-settings-you-can-do-the-following"></a>Per verificare le impostazioni, è possibile eseguire le operazioni seguenti:
-L'impostazione può essere verificata tramite il commandlet di PowerShell di seguito.  
+L'impostazione può essere verificata usando il cmdlet di PowerShell seguente.  
     
    `PS:\>Get-ADFSProperties`
 
-La proprietà è `ExtendedProtectionTokenCheck`.  L'impostazione predefinita è Consenti, in modo che i vantaggi di sicurezza possono essere ottenuti senza le problematiche di compatibilità con i browser che non supportano la funzionalità.  
+La proprietà è `ExtendedProtectionTokenCheck`.  L'impostazione predefinita è Consenti, in modo da ottenere i vantaggi di sicurezza senza i problemi di compatibilità con i browser che non supportano la funzionalità.  
 
-### <a name="congestion-control-to-protect-the-federation-service"></a>Controllo della congestione per proteggere il servizio federativo
-Il proxy servizio federativo (parte di WAP) fornisce il controllo di congestione per proteggere il servizio AD FS da un flusso eccessivo di richieste.  Il Proxy applicazione Web rifiuterà le richieste di autenticazione client esterne se sovraccarico del server federativo rilevato dalla latenza tra il Proxy applicazione Web e il server federativo.  Questa funzionalità viene configurata per impostazione predefinita con un livello di soglia di latenza consigliato.
+### <a name="congestion-control-to-protect-the-federation-service"></a>Controllo di congestione per la protezione del servizio federativo
+Il proxy del servizio federativo (parte del WAP) fornisce il controllo della congestione per proteggere il servizio AD FS da un diluvio di richieste.  Il proxy dell'applicazione Web rifiuterà le richieste di autenticazione client esterne se il server federativo è sovraccarico come rilevato dalla latenza tra il proxy dell'applicazione Web e il server federativo.  Questa funzionalità è configurata per impostazione predefinita con un livello di soglia di latenza consigliato.
 
 #### <a name="to-verify-the-settings-you-can-do-the-following"></a>Per verificare le impostazioni, è possibile eseguire le operazioni seguenti:
-1.  Nel computer Proxy applicazione Web, avviare un prompt dei comandi con privilegi elevati.
-2.  Passare alla directory di ad FS, nel percorso % WINDIR%\adfs\config.
-3.  Modificare le impostazioni di controllo di congestione i valori predefiniti per '<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />'.
+1.  Nel computer del proxy dell'applicazione Web, avviare una finestra di comando con privilegi elevati.
+2.  Passare alla directory ADFS, in%WINDIR%\adfs\config.
+3.  Modificare le impostazioni di controllo di congestione dai valori predefiniti in<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />''.
 4.  Salvare e chiudere il file.
-5.  Riavviare il servizio AD FS eseguendo 'net stop adfssrv' quindi 'adfssrv net start'.
-Per riferimento, sono disponibili informazioni aggiuntive su questa funzionalità [qui](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
+5.  Riavviare il servizio AD FS eseguendo ' net stop adfssrv ' e quindi ' net start adfssrv '.
+Per informazioni di riferimento, vedere la sezione relativa a questa funzionalità disponibile [qui](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
-### <a name="standard-http-request-checks-at-the-proxy"></a>Richiesta HTTP standard consente di controllare in corrispondenza del proxy
-Il proxy effettua anche i controlli standard seguenti per tutto il traffico:
+### <a name="standard-http-request-checks-at-the-proxy"></a>Controlli della richiesta HTTP standard nel proxy
+Il proxy esegue anche i controlli standard seguenti rispetto a tutto il traffico:
 
-- Esegue l'autenticazione di FS-P stesso ad AD FS tramite un certificato di breve durato.  In uno scenario di sospetta compromissione dei server di rete perimetrale, ADFS può "revoke trust proxy" in modo che lo non riterrà più attendibili le richieste in arrivo da potenzialmente compromessa proxy. Revoca la relazione di trust proxy impedisce ogni certificato del proxy in modo che non è possibile eseguire l'autenticazione per qualsiasi scopo per il server AD FS
-- FS-P termina tutte le connessioni e crea una nuova connessione HTTP al servizio AD FS nella rete interna. Ciò fornisce un buffer a livello di sessione tra il servizio AD FS e i dispositivi esterni. I dispositivi esterni si connette mai direttamente al servizio AD FS.
-- FS-P esegue la convalida delle richieste HTTP che esclude specificamente le intestazioni HTTP non richiesti dal servizio AD FS.
+- Il FS-P esegue l'autenticazione per AD FS tramite un certificato di breve durata.  In uno scenario di sospetta compromissione dei server DMZ, AD FS possibile "revocare il trust del proxy" in modo che non richieda più le richieste in ingresso provenienti da proxy potenzialmente compromessi. Revocando il trust del proxy, viene revocato il certificato di ogni proxy in modo che non possa essere autenticato correttamente per qualsiasi scopo nel server AD FS
+- FS-P termina tutte le connessioni e crea una nuova connessione HTTP al servizio AD FS sulla rete interna. In questo modo viene fornito un buffer a livello di sessione tra dispositivi esterni e il servizio AD FS. Il dispositivo esterno non si connette mai direttamente al servizio AD FS.
+- FS-P esegue la convalida delle richieste HTTP che filtra in modo specifico le intestazioni HTTP non richieste dal servizio AD FS.
 
-## <a name="recommended-security-configurations"></a>Configurazioni di sicurezza consigliati
-Verificare che tutti i server AD FS e WAP ricevano gli aggiornamenti più recenti che di raccomandazione di sicurezza più importante per l'infrastruttura AD FS è avere a disposizione uno strumento in grado di mantenere i server AD FS e WAP con tutti gli aggiornamenti della sicurezza, come tali facoltativo aggiornamenti specificati come importanti per AD FS in questa pagina.
+## <a name="recommended-security-configurations"></a>Configurazioni di sicurezza consigliate
+Assicurarsi che tutti i server AD FS e WAP ricevano gli aggiornamenti più aggiornati. l'indicazione di sicurezza più importante per l'infrastruttura AD FS consiste nel garantire che siano disponibili i mezzi per mantenere aggiornati i server AD FS e WAP con tutti gli aggiornamenti della sicurezza, oltre a quelli facoltativi aggiornamenti specificati come importanti per AD FS in questa pagina.
 
-Il metodo consigliato per i clienti di Azure AD monitorare e mantenere aggiornato l'infrastruttura è tramite Azure AD Connect Health per AD FS, una funzionalità di Azure AD Premium.  Azure AD Connect Health include monitoraggi e avvisi che attivano se un computer WAP o AD FS non è presente uno degli aggiornamenti importanti in modo specifico per AD FS e WAP.
+Il modo consigliato per Azure AD ai clienti di monitorare e tenere aggiornata la loro infrastruttura è tramite Azure AD Connect Health per AD FS, una funzionalità di Azure AD Premium.  Azure AD Connect Health include i monitoraggi e gli avvisi che vengono attivati se nel computer AD FS o WAP manca uno degli aggiornamenti importanti specifici per AD FS e WAP.
 
-Informazioni sull'installazione di Azure AD Connect Health per AD FS reperibili [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/).
+Per informazioni sull'installazione di Azure AD Connect Health per AD FS, vedere [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/).
 
 ## <a name="additional-security-configurations"></a>Configurazioni di sicurezza aggiuntive
-Le seguenti funzionalità aggiuntive può essere configurata facoltativamente per fornire protezioni aggiuntive a quelle offerte nella distribuzione predefinita.
+Le funzionalità aggiuntive seguenti possono essere configurate facoltativamente per fornire protezioni aggiuntive a quelle offerte nella distribuzione predefinita.
 
-### <a name="extranet-soft-lockout-protection-for-accounts"></a>Protezione di blocco Extranet "soft" per gli account
-La funzionalità di blocco extranet in Windows Server 2012 R2, un amministratore di AD FS può impostare un numero massimo consentito di richieste di autenticazione non riuscita (ExtranetLockoutThreshold) e un "della finestra di osservazione periodo di tempo (ExtranetObservationWindow). Quando viene raggiunto il numero massimo (ExtranetLockoutThreshold) delle richieste di autenticazione, AD FS arresti il tentativo di autenticare le credenziali dell'account fornita in ADFS per il periodo di tempo specifico (ExtranetObservationWindow). Questa azione consente di proteggere l'account da un blocco degli account di Active Directory, in altre parole, questo account consente di proteggere da perdere l'accesso alle risorse aziendali che si basano su AD FS per l'autenticazione dell'utente. Queste impostazioni si applicano a tutti i domini in grado di autenticare il servizio AD FS.
+### <a name="extranet-soft-lockout-protection-for-accounts"></a>Protezione blocco "soft" Extranet per gli account
+Con la funzionalità di blocco Extranet in Windows Server 2012 R2, un amministratore AD FS può impostare un numero massimo consentito di richieste di autenticazione non riuscite (ExtranetLockoutThreshold) e un "periodo di tempo della finestra di osservazione (ExtranetObservationWindow). Quando viene raggiunto questo numero massimo (ExtranetLockoutThreshold) di richieste di autenticazione, AD FS interrompe il tentativo di autenticare le credenziali dell'account fornite rispetto AD FS per il periodo di tempo impostato (ExtranetObservationWindow). Questa azione protegge questo account da un blocco dell'account di Active Directory, in altre parole protegge questo account dalla perdita di accesso alle risorse aziendali basate su AD FS per l'autenticazione dell'utente. Queste impostazioni si applicano a tutti i domini che possono essere autenticati dal servizio AD FS.
 
-È possibile usare il comando Windows PowerShell seguente per impostare il blocco extranet di AD FS (ad esempio): 
+È possibile utilizzare il comando di Windows PowerShell seguente per impostare il blocco AD FS Extranet (esempio): 
 
     PS:\>Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 15 -ExtranetObservationWindow ( new-timespan -Minutes 30 )
 
-Per riferimento, la documentazione pubblica di questa funzionalità viene [qui](https://technet.microsoft.com/library/dn486806.aspx ). 
+Per riferimento, la documentazione pubblica di questa funzionalità è disponibile [qui](https://technet.microsoft.com/library/dn486806.aspx ). 
 
-### <a name="differentiate-access-policies-for-intranet-and-extranet-access"></a>Distinguere i criteri di accesso per l'accesso extranet e intranet
-AD FS offre la possibilità di differenziare i criteri di accesso per le richieste originate rete aziendale locale rispetto alle richieste provenienti da internet tramite il proxy.  Questa operazione può essere eseguita per ogni applicazione o a livello globale.  Per le applicazioni di valore elevato per l'azienda o con le informazioni riservate o personali, è consigliabile richiedere multi-factor authentication.  Questa operazione può essere eseguita tramite lo snap-in Gestione ADFS.  
+### <a name="disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet"></a>Disabilitare gli endpoint di Windows WS-Trust sul proxy, ad esempio dalla Extranet
 
-### <a name="require-multi-factor-authentication-mfa"></a>Richiedi Multi-factor authentication (MFA)
-ADFS può essere configurato per richiedere l'autenticazione avanzata (ad esempio multi-factor authentication) in modo specifico per le richieste in arrivo tramite il proxy per le singole applicazioni e per l'accesso condizionale per sia per Azure AD / Office 365, nonché le risorse locali.  Metodi supportati di MFA includono i provider di Microsoft Azure MFA e di terze parti.  L'utente viene richiesto di fornire le informazioni aggiuntive (ad esempio un messaggio SMS contenente un codice di tempo), e AD FS funziona con specifici del provider del plug-in per consentire l'accesso.  
+Gli endpoint di Windows WS-Trust ( */ADFS/Services/Trust/2005/windowstransport* e */ADFS/Services/Trust/13/windowstransport*) sono destinati solo ad endpoint con rete Intranet che usano il binding WIA su HTTPS. L'esposizione a Extranet potrebbe consentire le richieste a questi endpoint di ignorare le protezioni di blocco. Questi endpoint devono essere disabilitati sul proxy (disabilitato dalla Extranet) per proteggere il blocco degli account di Active Directory usando i comandi di PowerShell seguenti. Non vi è alcun effetto noto sull'utente finale disabilitando questi endpoint sul proxy.
 
-Provider di autenticazione a più fattori esterni supportati comprendono quelli elencati nella [ciò](https://technet.microsoft.com/library/dn758113.aspx) pagina, nonché HDI globale.
+    PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/2005/windowstransport -Proxy $false
+    PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/windowstransport -Proxy $false
+    
+### <a name="differentiate-access-policies-for-intranet-and-extranet-access"></a>Differenziazione dei criteri di accesso per l'accesso Intranet ed Extranet
+AD FS è in grado di distinguere i criteri di accesso per le richieste provenienti dalla rete aziendale locale rispetto alle richieste provenienti da Internet tramite il proxy.  Questa operazione può essere eseguita per ogni applicazione o a livello globale.  Per applicazioni con valori di business elevati o applicazioni con informazioni sensibili o personali, provare a richiedere l'autenticazione a più fattori.  Questa operazione può essere eseguita tramite lo snap-in gestione AD FS.  
+
+### <a name="require-multi-factor-authentication-mfa"></a>Richiedi multi-factor authentication
+AD FS possono essere configurate per richiedere l'autenticazione avanzata (ad esempio, l'autenticazione a più fattori) in modo specifico per le richieste in arrivo tramite il proxy, per le singole applicazioni e per l'accesso condizionale a Azure AD/Office 365 e alle risorse locali.  I metodi di autenticazione a più fattori supportati includono sia Microsoft Azure autenticazione a più fattori che provider di terze parti  All'utente viene richiesto di fornire le informazioni aggiuntive (ad esempio, un testo SMS contenente un codice monouso) e AD FS interagisce con il plug-in specifico del provider per consentire l'accesso.  
+
+I provider di autenticazione a più fattori esterni supportati includono quelli elencati in [questa](https://technet.microsoft.com/library/dn758113.aspx) pagina, oltre a HDI globale.
 
 ### <a name="hardware-security-module-hsm"></a>Modulo di protezione hardware (HSM)
-La configurazione predefinita, gli utilizzi chiavi ADFS per firmare i token mai lasciare i server federativi nella rete intranet.  Non sono presenti nella rete Perimetrale o sui computer proxy.  Facoltativamente, per fornire protezione aggiuntiva, queste chiavi possono essere protette in un modulo di protezione hardware collegato ad AD FS.  Microsoft non produce un prodotto di modulo di protezione hardware, tuttavia, esistono diversi sul mercato che supportano ADFS.  Per implementare questa raccomandazione, seguire le indicazioni del fornitore per creare X509 i certificati per la firma e crittografia, quindi utilizzare i commandlet di powershell installazione di AD FS, specificando i certificati personalizzati, come indicato di seguito:
+Nella configurazione predefinita, le chiavi AD FS utilizza per firmare i token non lasciano mai i server federativi nella Intranet.  Non sono mai presenti nella rete perimetrale o nei computer proxy.  Facoltativamente, per fornire protezione aggiuntiva, queste chiavi possono essere protette in un modulo di protezione hardware collegato a AD FS.  Microsoft non produce un prodotto HSM, tuttavia nel mercato sono disponibili numerosi prodotti che supportano AD FS.  Per implementare questa raccomandazione, seguire le indicazioni del fornitore per creare i certificati X509 per la firma e la crittografia, quindi usare il cmdlet di PowerShell per l'installazione AD FS, specificando i certificati personalizzati nel modo seguente:
 
     PS:\>Install-AdfsFarm -CertificateThumbprint <String> -DecryptionCertificateThumbprint <String> -FederationServiceName <String> -ServiceAccountCredential <PSCredential> -SigningCertificateThumbprint <String>
 
 dove:
 
 
-- `CertificateThumbprint` è il certificato SSL
-- `SigningCertificateThumbprint` è il certificato di firma (con la chiave HSM protetta)
-- `DecryptionCertificateThumbprint` è il certificato di crittografia (con la chiave HSM protetta)
+- `CertificateThumbprint`è il certificato SSL
+- `SigningCertificateThumbprint`è il certificato di firma (con chiave protetta dal modulo di protezione hardware)
+- `DecryptionCertificateThumbprint`è il certificato di crittografia (con chiave protetta dal modulo di protezione hardware)
 
 
 
