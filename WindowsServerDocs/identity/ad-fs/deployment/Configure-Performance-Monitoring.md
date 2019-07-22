@@ -41,7 +41,7 @@ ADFS include un proprio i contatori delle prestazioni dedicati per monitorare le
   
 7. Quando viene richiesto di aggiungere le chiavi del Registro di sistema per monitorare, fare clic su **successivo**.  
   
-8. Quando viene chiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \( * *% systemdrive %\\regprest\\Admin\\* * * < data\_collector\_impostare >* , quindi fare clic su **successivo**.  
+8. Quando viene chiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \(* *%systemdrive%\\regprest\\Admin\\** *<data\_collector\_impostare >* , quindi fare clic su **successivo**.  
   
 9. Quando viene chiesto di creare il set di dati dell'agente di raccolta, selezionare **salvare e chiudere**, quindi fare clic su **fine**.  
   

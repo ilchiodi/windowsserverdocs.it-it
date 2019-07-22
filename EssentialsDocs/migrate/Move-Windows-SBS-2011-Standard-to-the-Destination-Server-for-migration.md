@@ -131,7 +131,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
  
-3. Nel riquadro di spostamento, fare clic su **gestione avanzata**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta: * * * < NomeDominio\>* . 
+3. Nel riquadro di spostamento, fare clic su **gestione avanzata**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta:** *<NomeDominio\>* . 
  
 4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **oggetti Criteri di gruppo**. 
  
@@ -161,7 +161,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
  
-3. Nel riquadro di spostamento, fare clic su **caratteristiche**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta: * * * < YourNetworkDomainName\>* 
+3. Nel riquadro di spostamento, fare clic su **caratteristiche**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta:** *<YourNetworkDomainName\>* 
  
 4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**. 
  

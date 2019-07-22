@@ -78,7 +78,7 @@ Nella tabella seguente viene illustrato come è possibile combinare i modificato
 |%~dp$PATH:1|Cerca directory elencate nella variabile di ambiente PATH per **%1**e quindi si espande la lettera di unità e percorso della directory prima disponibile.|
 |%~ftza1|Si espande **%1** per visualizzare l'output simile al **dir** comando.|
 
-Negli esempi precedenti, **%1** e percorso può essere sostituito da altri valori validi. Il <strong>%~</strong> sintassi viene terminata da un numero di argomento valido. Il <strong>%~</strong> i modificatori non possono essere usati con * * %\\* * *.
+Negli esempi precedenti, **%1** e percorso può essere sostituito da altri valori validi. Il <strong>%~</strong> sintassi viene terminata da un numero di argomento valido. Il <strong>%~</strong> i modificatori non possono essere usati con **%\\** *.
 
 ## <a name="remarks"></a>Note
 
