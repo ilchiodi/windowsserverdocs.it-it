@@ -28,10 +28,10 @@ Creazione di un proxy server federativo nell'organizzazione aggiunge ulteriori l
   
 Il ruolo svolto da un proxy server federativo nell'organizzazione varia a seconda di dove viene collocato il proxy server federativo nell'organizzazione partner account o nell'organizzazione partner risorse. Ad esempio, quando viene inserito un proxy server federativo nella rete perimetrale del partner account, il suo ruolo è raccogliere le informazioni sulle credenziali utente dai browser client. Quando viene inserito un proxy server federativo nella rete perimetrale del partner risorse, inoltra le richieste a un server federativo di risorsa di token di sicurezza e genera i token di sicurezza dell'organizzazione in risposta ai token di sicurezza forniti dal relativo partner account.  
   
-Per altre informazioni, vedere [Review the Role of the Federation Server Proxy in the Account Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) e [Review the Role of the Federation Server Proxy in the Resource Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+Per altre informazioni, vedere [rivedere il ruolo del Proxy Server federativo nel Partner Account](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) e [rivedere il ruolo del Proxy Server federativo nel Partner risorse](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
 ## <a name="how-to-create-a-federation-server-proxy"></a>Come creare un proxy server federativo  
-È possibile creare un proxy server federativo utilizzando la configurazione guidata di AD FS Federation Server Proxy o il comando Fsconfig.exe\-strumento della riga. Per informazioni sulle procedure necessarie, vedere [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+È possibile creare un proxy server federativo utilizzando la configurazione guidata di AD FS Federation Server Proxy o il comando Fsconfig.exe\-strumento della riga. Per istruzioni su come eseguire questa operazione, vedere [configurare un Computer per il ruolo Proxy Server federativo](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 Per informazioni generali su come configurare tutti i prerequisiti necessari per distribuire un proxy server federativo, vedere [elenco di controllo: Configurazione di un Proxy Server federativo](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
