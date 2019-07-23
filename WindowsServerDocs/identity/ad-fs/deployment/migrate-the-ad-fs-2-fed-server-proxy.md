@@ -31,7 +31,7 @@ Per eseguire la migrazione di un proxy server 2.0 federation di AD FS per Window
 > [!IMPORTANT]
 >  In seguito all'aggiornamento del sistema operativo, la configurazione del proxy AD FS nel server andrà persa e il ruolo del server AD FS 2.0 verrà rimosso. Suo posto verrà installato il ruolo server AD FS di Windows Server 2012, ma non è configurato. Per completare la migrazione del proxy server federativo è necessario creare manualmente la configurazione originale del proxy AD FS e ripristinare le impostazioni del proxy AD FS rimanenti.  
   
-4. Creare la configurazione originale del proxy AD FS usando la **configurazione guidata del proxy server federativo AD FS**. Per altre informazioni, vedere [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md). Quando si esegue la procedura guidata, usare le informazioni raccolte in Preparare la migrazione del proxy server federativo AD FS 2.0 come descritto di seguito:  
+4. Creare la configurazione originale del proxy AD FS usando la **configurazione guidata del proxy server federativo AD FS**. Per altre informazioni, vedere [configurare un Computer per il ruolo Proxy Server federativo](configure-a-computer-for-the-federation-server-proxy-role.md). Quando si esegue la procedura guidata, usare le informazioni raccolte in Preparare la migrazione del proxy server federativo AD FS 2.0 come descritto di seguito:  
   
  
 |**Opzione di input guidata del Proxy Server federativo**|**Usare il valore seguente**|

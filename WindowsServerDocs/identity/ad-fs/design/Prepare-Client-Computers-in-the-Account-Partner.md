@@ -24,7 +24,7 @@ In modo che i computer client possano accedere facilmente alle applicazioni fede
   
 -   Configurare Internet Explorer in ogni computer client per considerare attendibile il server federativo di account.  
   
-    Per altre informazioni, vedere [Configure Client Computers to Trust the Account Federation Server](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
+    Per altre informazioni, vedere [Configurare i computer Client per considerare attendibile il Server federativo di Account](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
 -   Installare il server federativo di account appropriato, un server federativo di risorsa e un server Web Secure Sockets Layer \(SSL\) certificati \(o equivalente, i certificati concatenati a una fonte attendibile\) in ogni computer client.  
   

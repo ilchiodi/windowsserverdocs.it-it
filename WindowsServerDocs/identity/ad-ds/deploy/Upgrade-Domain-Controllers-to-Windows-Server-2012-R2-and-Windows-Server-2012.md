@@ -26,7 +26,7 @@ Questo argomento fornisce informazioni complementari su servizi di dominio Activ
 Il metodo consigliato per aggiornare un dominio è alzare di livello i controller di dominio che eseguono versioni più recenti di Windows Server e abbassare di livello i controller di dominio precedenti in base alle necessità. Questo metodo è preferibile all'aggiornamento del sistema operativo di un controller di dominio esistente. Questo elenco illustra i passaggi generali da seguire prima che si Alza di livello un controller di dominio che esegue una versione più recente di Windows Server:  
   
 1. Verificare che il server di destinazione soddisfi i [requisiti di sistema](https://technet.microsoft.com/library/dn303418.aspx).  
-2. Verificare la [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat).  
+2. Verificare [compatibilità delle applicazioni](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat).  
 3. Verificare le impostazioni di sicurezza Per altre informazioni, vedere [Caratteristiche deprecate e modifiche del comportamento relative a Servizi di dominio Active Directory in Windows Server 2012](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) e [Secure default settings in Windows Server 2008 e Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
 4. Controllare la connettività al server di destinazione dal computer in cui si prevede di eseguire l'installazione.  
 5. Controllare la disponibilità dei ruoli master operazione necessari:  
