@@ -44,7 +44,7 @@ Per abilitare la modalità sempre Offline, usare criteri di gruppo per abilitare
 6. Seleziona **Attivata**.
 7. Nel **le opzioni** , quindi selezionare **mostrano**. Il **finestra Mostra contenuti** verranno visualizzati.
 8. Nel **nome del valore** , specificare la condivisione di file per cui si desidera abilitare la modalità sempre Offline.
-9. Per abilitare la modalità sempre Offline in tutte le condivisioni di file, immettere * *\\* * *.
+9. Per abilitare la modalità sempre Offline in tutte le condivisioni di file, immettere **\\** *.
 10. Nel **valore** casella, immettere **latenza ad=1** per impostare la soglia di latenza a un millisecondo e quindi selezionare **OK**.
 
 >[!NOTE]

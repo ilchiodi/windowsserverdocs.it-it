@@ -389,11 +389,11 @@ WSUS richiede due porte per SSL: una porta che usa HTTPS per inviare i metadati 
 
 2.  Passare a **avviare**, tipo **CMD**, fare doppio clic su **prompt dei comandi**, quindi fare clic su **Esegui come amministratore**.
 
-3.  Passare il *%ProgramFiles%***\Update Services\Tools\\* * cartella.
+3.  Passare il *%ProgramFiles%* **\Update Services\Tools\\* * cartella.
 
 4.  Nella finestra del prompt dei comandi, digitare il comando seguente:
 
-    **WSUSUTIL. exe configuressl * * * certificateName*
+    **WSUSUTIL. exe configuressl** *certificateName*
 
     dove:
 
