@@ -1,6 +1,6 @@
 ---
-title: Distribuire i dispositivi di grafica usando discreti dispositivo assegnazione
-description: Informazioni su come usare DDA per distribuire i dispositivi di grafica in Windows Server
+title: Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
+description: Informazioni su come usare DDA per distribuire dispositivi grafici in Windows Server
 ms.prod: windows-server-threshold
 ms.service: na
 ms.technology: hyper-v
@@ -9,38 +9,38 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2f9d283f5f80d6bb0851b2abd93be0f4c10899c8
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447877"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476581"
 ---
-# <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire i dispositivi di grafica usando discreti dispositivo assegnazione
+# <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 
 >Si applica a: Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019  
 
-A partire da Windows Server 2016, è possibile utilizzare discreti dispositivo assegnazione o DDA, passare un intero dispositivo PCIe in una macchina virtuale.  Ciò consentirà l'accesso ad alte prestazioni per i dispositivi, ad esempio [NVMe archiviazione](./Deploying-storage-devices-using-dda.md) o schede grafiche all'interno di una macchina virtuale durante la possibilità di sfruttare il driver di dispositivi nativi.  Visitare il [pianificare la distribuzione di dispositivi utilizzando discreti dispositivo assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) per altri dettagli su quali dispositivi di lavoro, quali sono le implicazioni di sicurezza e così via.
+A partire da Windows Server 2016, è possibile usare l'assegnazione di dispositivi discreti, o DDA, per passare un intero dispositivo PCIe a una macchina virtuale.  Questo consentirà l'accesso ad alte prestazioni a dispositivi come l' [archiviazione NVMe](./Deploying-storage-devices-using-dda.md) o schede grafiche all'interno di una macchina virtuale e la possibilità di sfruttare i driver nativi dei dispositivi.  Visitare il [piano per la distribuzione di dispositivi con l'assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) di dispositivi discreti per altri dettagli sul funzionamento dei dispositivi, quali sono le possibili implicazioni della sicurezza e così via.
 
-Esistono tre passaggi per l'uso di un dispositivo con l'assegnazione dispositivo discreti:
--   Configurare la macchina virtuale per l'assegnazione dispositivo discreti
--   Smontare il dispositivo nella partizione Host
--   Assegnazione di dispositivo per la macchina virtuale Guest
+Sono disponibili tre passaggi per l'uso di un dispositivo con l'assegnazione di dispositivi discreti:
+-   Configurare la macchina virtuale per l'assegnazione di dispositivi discreti
+-   Smontare il dispositivo dalla partizione host
+-   Assegnazione del dispositivo alla macchina virtuale Guest
 
-Comando tutto può essere eseguito nell'Host in una console di Windows PowerShell come amministratore.
+Tutti i comandi possono essere eseguiti nell'host in una console di Windows PowerShell come amministratore.
 
 ## <a name="configure-the-vm-for-dda"></a>Configurare la macchina virtuale per DDA
-Assegnazione dispositivo discreti impone alcune limitazioni relative alle macchine virtuali ed è necessario eseguire il passaggio seguente.
+L'assegnazione di un dispositivo discreto impone alcune restrizioni alle macchine virtuali ed è necessario eseguire il passaggio seguente.
 
-1.  Configurare il "azione arresto automatico" di una macchina virtuale di spegnimento eseguendo
+1.  Configurare l'azione di arresto automatico di una macchina virtuale da disattivare eseguendo
 
 ```
 Set-VM -Name VMName -AutomaticStopAction TurnOff
 ```
 
-### <a name="some-additional-vm-preparation-is-required-for-graphics-devices"></a>Alcune attività di preparazione VM aggiuntiva è necessaria per i dispositivi di grafica
+### <a name="some-additional-vm-preparation-is-required-for-graphics-devices"></a>Per i dispositivi grafici è necessaria una preparazione aggiuntiva della macchina virtuale
 
-Alcuni dispositivi hardware offre prestazioni migliori se la macchina virtuale in configurata in un determinato modo.  Per informazioni dettagliate sulla necessità o meno le seguenti configurazioni per l'hardware, contattare il fornitore dell'hardware. Sono disponibili dettagli aggiuntivi sul [pianificare la distribuzione di dispositivi Usa l'assegnazione dispositivo discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) e in questo [post di blog.](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
+Alcuni componenti hardware offrono prestazioni migliori se la macchina virtuale è configurata in un certo modo.  Per informazioni dettagliate sull'eventuale necessità o meno delle configurazioni seguenti per l'hardware, rivolgersi al fornitore dell'hardware. Ulteriori dettagli sono disponibili in [pianificare la distribuzione di dispositivi mediante l'assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) di dispositivi discreti e in questo post di [Blog.](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266)
 
 1. Abilitare la combinazione di scrittura sulla CPU
    ```
@@ -50,58 +50,59 @@ Alcuni dispositivi hardware offre prestazioni migliori se la macchina virtuale i
    ```
    Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
    ```
-3. Configurare maggiore spazio MMIO a 32 bit
+3. Configurare uno spazio MMIO superiore a 32 bit
    ```
    Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
    ```
-   Si noti che i valori di spazio MMIO riportato sopra sono valori accettabili da impostare per la sperimentazione con una singola GPU.  Se dopo l'avvio della macchina virtuale, il dispositivo segnala un errore relativo a risorse insufficienti, si sarà probabilmente necessario modificare questi valori.  Inoltre, se si assegnano più GPU, è necessario aumentare anche questi valori.
+   > [!TIP] 
+   > I valori di spazio MMIO precedenti sono valori ragionevoli da impostare per la sperimentazione con una singola GPU.  Se dopo l'avvio della macchina virtuale, il dispositivo segnala un errore relativo a risorse insufficienti, è probabile che sia necessario modificare questi valori. Per informazioni su come calcolare con precisione i requisiti di MMIO, vedere [pianificare la distribuzione di dispositivi mediante l'assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) di dispositivi discreti.
 
-## <a name="dismount-the-device-from-the-host-partition"></a>Smontare il dispositivo nella partizione Host
-### <a name="optional---install-the-partitioning-driver"></a>Facoltativo: installare il Driver di partizionamento
-Assegnazione dispositivo discreti offrono Vendor di hardware la possibilità di fornire un driver di mitigazione dei rischi di sicurezza con i propri dispositivi.  Si noti che questo driver non è lo stesso come il driver di dispositivo che verrà installato nella macchina virtuale guest.  Ha fino a discrezione del fornitore dell'hardware per fornire questo driver, tuttavia, se offrono, installarlo prima per smontare il dispositivo dalla partizione host.  Contattare il fornitore dell'hardware per altre informazioni su se dispongono di un driver di mitigazione
-> Se non viene fornito alcun driver di partizionamento, durante lo smontaggio è necessario usare il `-force` opzione per ignorare l'avviso di sicurezza. Per altre informazioni sulle implicazioni di sicurezza di questa operazione sul [pianificare la distribuzione di dispositivi utilizzando discreti dispositivo assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+## <a name="dismount-the-device-from-the-host-partition"></a>Smontare il dispositivo dalla partizione host
+### <a name="optional---install-the-partitioning-driver"></a>Facoltativo: installare il driver di partizionamento
+L'assegnazione di un dispositivo discreto fornisce ai venditori hardware la possibilità di fornire un driver di mitigazione della sicurezza con i dispositivi.  Si noti che questo driver non corrisponde al driver di dispositivo che verrà installato nella macchina virtuale guest.  Il fornitore dell'hardware deve fornire questo driver, tuttavia, se lo fornisce, è necessario installarlo prima di smontare il dispositivo dalla partizione host.  Rivolgersi al fornitore dell'hardware per ulteriori informazioni su se hanno un driver di mitigazione
+> Se non viene fornito alcun driver di partizionamento, durante lo smontaggio è `-force` necessario usare l'opzione per ignorare l'avviso di sicurezza. Per altre informazioni sulle implicazioni di sicurezza di questa operazione, vedere [pianificare la distribuzione di dispositivi con l'assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)di dispositivi discreti.
 
-### <a name="locating-the-devices-location-path"></a>Individuazione Location Path del dispositivo
-Il percorso del PCI è necessario smontare e montare il dispositivo dall'Host.  Un esempio di percorso di percorso simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Altre informazioni sul percorso il percorso è reperibile qui: [Pianificare la distribuzione di dispositivi utilizzando discreti dispositivo assegnazione](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+### <a name="locating-the-devices-location-path"></a>Individuazione del percorso del dispositivo
+Il percorso della posizione PCI è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Altre informazioni sulla posizione del percorso sono disponibili qui: [Pianificare la distribuzione di dispositivi con l'assegnazione di](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)dispositivi discreti.
 
 ### <a name="disable-the-device"></a>Disabilitare il dispositivo
-Usa PowerShell o Gestione dispositivi, verificare che il dispositivo viene "disabilitato".  
+Con Device Manager o PowerShell, verificare che il dispositivo sia "disabilitato".  
 
 ### <a name="dismount-the-device"></a>Smontare il dispositivo
-A seconda se il fornitore ha fornito un driver di mitigazione, ovvero dovrai usare la "-force" opzione oppure No.
-- Se è stato installato un Driver di mitigazione
+A seconda di se il fornitore ha fornito un driver di mitigazione, sarà necessario usare l'opzione "-Force".
+- Se è stato installato un driver di mitigazione
   ```
   Dismount-VMHostAssignableDevice -LocationPath $locationPath
   ```
-- Se non è stato installato un Driver di mitigazione
+- Se non è stato installato alcun driver di mitigazione
   ```
   Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
   ```
 
-## <a name="assigning-the-device-to-the-guest-vm"></a>Assegnazione di dispositivo per la macchina virtuale Guest
-Il passaggio finale consiste nell'indicare Hyper-V che una macchina virtuale deve avere accesso al dispositivo.  Oltre al percorso trovato sopra, è necessario conoscere il nome della macchina virtuale.
+## <a name="assigning-the-device-to-the-guest-vm"></a>Assegnazione del dispositivo alla macchina virtuale Guest
+Il passaggio finale consiste nell'indicare a Hyper-V che una macchina virtuale deve avere accesso al dispositivo.  Oltre al percorso trovato sopra, è necessario conoscerne il nome.
 
 ```
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Quali sono le novità
-Dopo che un dispositivo è stato montato in una macchina virtuale, sarà ora possibile avviare tale macchina virtuale e interagire con il dispositivo come si farebbe normalmente se è in esecuzione in un sistema bare metal.  Ciò significa che a questo punto è in grado di installare i driver del fornitore dell'Hardware nella macchina virtuale e le applicazioni saranno in grado di visualizzare l'hardware presenti.  È possibile verificarlo aprendo Gestione dispositivi nella VM Guest e vedere che l'hardware viene ora visualizzato.
+## <a name="whats-next"></a>Passaggi successivi
+Dopo che un dispositivo è stato montato correttamente in una macchina virtuale, è ora possibile avviare tale macchina virtuale e interagire con il dispositivo come si farebbe normalmente se fosse in esecuzione in un sistema bare metal.  Ciò significa che ora è possibile installare i driver del fornitore dell'hardware nella macchina virtuale e le applicazioni saranno in grado di visualizzare l'hardware presente.  È possibile verificare questo problema aprendo Gestione dispositivi nella macchina virtuale guest e osservando che l'hardware è ora visualizzato.
 
-## <a name="removing-a-device-and-returning-it-to-the-host"></a>Rimozione di un dispositivo e la restituzione all'Host
-Se si desidera restituire egli dispositivo torna allo stato originale, è necessario arrestare la macchina virtuale ed emettere la seguente:
+## <a name="removing-a-device-and-returning-it-to-the-host"></a>Rimozione di un dispositivo e relativa restituzione all'host
+Se si vuole ripristinare lo stato originale del dispositivo, sarà necessario arrestare la macchina virtuale ed eseguire le operazioni seguenti:
 ```
 #Remove the device from the VM
 Remove-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 #Mount the device back in the host
 Mount-VMHostAssignableDevice -LocationPath $locationPath
 ```
-È quindi possibile abilitare nuovamente il dispositivo in Gestione dispositivi e il sistema operativo host saranno in grado di interagire con il dispositivo nuovamente.
+È quindi possibile riabilitare il dispositivo in gestione dispositivi e il sistema operativo host sarà in grado di interagire nuovamente con il dispositivo.
 
 ## <a name="examples"></a>Esempi
 
-### <a name="mounting-a-gpu-to-a-vm"></a>Montaggio di una GPU a una macchina virtuale
-In questo esempio è usare PowerShell per configurare una macchina virtuale denominata "ddatest1" per richiedere prima GPU disponibili dal produttore NVIDIA e assegnarlo alla macchina virtuale.  
+### <a name="mounting-a-gpu-to-a-vm"></a>Montaggio di una GPU in una macchina virtuale
+In questo esempio viene usato PowerShell per configurare una macchina virtuale denominata "ddatest1" per portare la prima GPU disponibile dal produttore NVIDIA e assegnarla alla macchina virtuale.  
 ```
 #Configure the VM for a Discrete Device Assignment
 $vm =   "ddatest1"
