@@ -52,7 +52,7 @@ SLES12 + è solo a 64 bit.
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||||
 |Ridimensionamento di VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|
 |Supporto per TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
@@ -71,7 +71,7 @@ SLES12 + è solo a 64 bit.
 |Socket di Hyper-V|2019, 2016|&#10004;|&#10004;|||||
 |Pass-through/DDA PCI|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 |**[Macchine virtuali di generazione 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
-|Avvio UEFI|2019, 2016, 2012 R2|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9||
+|Avvio UEFI|2019, 2016, 2012 R2|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9||
 |Avvio protetto|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 
 ## <a name="BKMK_notes"></a>Note
