@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8371a67ba1b8dc7d5f02272c809f916aae3df584
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442143"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544558"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Prompt dei comandi Cmd.exe viene modificato. Se utilizzata senza parametri, **prompt dei comandi** Reimposta il prompt dei comandi per l'impostazione predefinita, che è la lettera di unità corrente e directory seguito dal segno di maggiore ( **>** ).
+Modifica il prompt dei comandi cmd. exe. Se utilizzata senza parametri, la **richiesta** Reimposta il prompt dei comandi sull'impostazione predefinita, che corrisponde alla lettera di unità corrente e alla directory seguita dal simbolo di maggiore **>** di ().
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,14 +38,14 @@ prompt [<Text>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Text>|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
+|\<> Di testo|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-È possibile personalizzare il prompt dei comandi per visualizzare il testo desiderato, incluse informazioni quali il nome della directory corrente, l'ora e data e il numero di versione di Microsoft Windows.
+È possibile personalizzare il prompt dei comandi per visualizzare il testo desiderato, incluse informazioni quali il nome della directory corrente, l'ora e la data e il numero di versione di Microsoft Windows.
 
-Nella tabella seguente sono elencate le combinazioni di caratteri che è possibile includere anziché o in aggiunta, uno o più stringhe di caratteri nel *testo* parametro. L'elenco include una breve descrizione del testo o le informazioni che ogni combinazione di caratteri aggiunge al prompt dei comandi.  
+Nella tabella seguente sono elencate le combinazioni di caratteri che è possibile includere anziché o in aggiunta a una o più stringhe di caratteri nel parametro di *testo* . L'elenco include una breve descrizione del testo o delle informazioni aggiunte da ogni combinazione di caratteri al prompt dei comandi.  
 
 | Carattere |                                 Descrizione                                 |
 |-----------|-----------------------------------------------------------------------------|
@@ -53,45 +53,45 @@ Nella tabella seguente sono elencate le combinazioni di caratteri che è possibi
 |    $$     |                               $ (segno di dollaro)                               |
 |    $t     |                                Ora corrente                                 |
 |    $d     |                                Data corrente                                 |
-|    $p     |                           Percorso e l'unità corrente                            |
+|    $p     |                           Unità e percorso correnti                            |
 |    $v     |                           Numero di versione di Windows                            |
 |    $n     |                                Unità corrente                                |
 |    $g     |                            > (segno di maggiore di)                            |
-|    $l     |                             < (segno di minore di)                              |
-|    $b     |                                                                             |
-|    $_     |                               IMMETTERE CON AVANZAMENTO DI RIGA                                |
-|    $e     |                         Codice di escape ANSI (codice di 27)                          |
-|    $h     | Carattere backspace (per eliminare un carattere che è stata scritta nella riga di comando) |
-|    $un     |                                & (e commerciale)                                |
-|    $c     |                            ((parentesi)                             |
-|    $f     |                            ) (parentesi)                            |
-|    $s     |                                    Spazio                                    |
+|    $l     |                             < (segno minore di)                              |
+|    $b     |                              \|(simbolo pipe)                               |
+|    $_     |                               ENTER-AVANZAMENTO RIGA                                |
+|    $e     |                         Codice di escape ANSI (codice 27)                          |
+|    $h     | BACKSPACE (per eliminare un carattere che è stato scritto nella riga di comando) |
+|    $a     |                                & (e commerciale)                                |
+|    $c     |                            (parentesi aperte)                             |
+|    $f     |                            ) (parentesi destra)                            |
+|    $s     |                                    spazio                                    |
 
-Quando sono abilitate le estensioni dei comandi (vale a dire l'impostazione predefinita) il **prompt dei comandi** comando supporta i caratteri di formattazione seguenti:  
+Quando sono abilitate le estensioni dei comandi (impostazione predefinita), il comando **Richiedi** supporta i caratteri di formattazione seguenti:  
 
 |Carattere|Descrizione|
 |---------|-----------|
-|$+|Zero o più segno ( **+** ) caratteri, a seconda la profondità del **pushd** stack directory (un carattere per ogni livello push).|
-|$m|Il nome remoto associato con la lettera di unità corrente o una stringa vuota se l'unità corrente non è un'unità di rete.|
+|$+|Zero o più caratteri segno più **+** (), a seconda della profondità dello stack di directory **push** (un carattere per ogni livello inserito).|
+|$m|Nome remoto associato alla lettera di unità corrente o alla stringa vuota se l'unità corrente non è un'unità di rete.|
 
-Se si include il **$p** caratteri nel parametro di testo viene letto il disco dopo ogni comando, per determinare l'unità corrente e il percorso, immesso. Ciò può richiedere tempo aggiuntivo, in particolare per le unità disco floppy.
+Se si include il carattere **$p** nel parametro di testo, il disco viene letto dopo aver immesso ogni comando (per determinare l'unità e il percorso correnti). Questa operazione può richiedere più tempo, soprattutto per le unità disco floppy.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per impostare un prompt dei comandi di due righe con la data e l'ora corrente per la prima riga e il segno di maggiore nella riga successiva, digitare:
+Per impostare un prompt dei comandi a due righe con l'ora e la data correnti nella prima riga e il segno di maggiore rispetto alla riga successiva, digitare:
 ```
 prompt $d$s$s$t$_$g 
 ```
-Il prompt dei comandi viene modificato come indicato di seguito, in cui la data e ora sono corrente:
+Il prompt viene modificato nel modo seguente, in cui la data e l'ora sono correnti:
 ```
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Per impostare il prompt dei comandi da visualizzare sotto forma di freccia (`-->`), tipo:
+Per impostare il prompt dei comandi per la visualizzazione come freccia`-->`(), digitare:
 ```
 prompt --$g
 ```
-Per modificare manualmente il prompt dei comandi per l'impostazione predefinita (l'unità corrente e il percorso seguito dal segno di maggiore), digitare:
+Per modificare manualmente il prompt dei comandi nell'impostazione predefinita, ovvero l'unità e il percorso correnti seguiti dal segno di maggiore di, digitare:
 ```
 prompt $p$g
 ```

@@ -1,6 +1,6 @@
 ---
 title: Spostare dati e impostazioni di Windows SBS 2011 Standard nel server di destinazione per la migrazione a Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: 16b24026-2fe3-4bd0-b82f-900e1564be99
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cd57e5d00093861686c7a6ed4ef4096fd5cdf0c4
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: ef8e717fe235b8d85f4d53442610818b31ad7d1d
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828575"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590421"
 ---
 # <a name="move-windows-sbs-2011-standard-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows SBS 2011 Standard nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -25,17 +25,17 @@ ms.locfileid: "66828575"
 
 Spostare impostazioni e dati nel server di destinazione nel modo seguente: 
  
-1. [Copiare i dati nel Server di destinazione](#copy-data-to-the-destination-server)
+1. [Copiare i dati nel server di destinazione](#copy-data-to-the-destination-server)
 
-2. [Importare account utente di Active Directory al Dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [Importare Active Directory account utente nel dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
-3. [Spostare il ruolo Server DHCP dal Server di origine al router](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
+3. [Spostare il ruolo server DHCP dal server di origine al router](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
 
 4. [Configurare la rete](#configure-the-network)
 
-5. [Rimuovere oggetti Criteri di gruppo Active Directory legacy (facoltativi)](#remove-legacy-active-directory-group-policy-objects)
+5. [Rimuovere gli oggetti legacy di Criteri di gruppo Active Directory (facoltativo)](#remove-legacy-active-directory-group-policy-objects)
 
-6. [Mappare i computer autorizzati agli account utente](#map-permitted-computers-to-user-accounts)
+6. [Mappare i computer consentiti agli account utente](#map-permitted-computers-to-user-accounts)
 
 ## <a name="copy-data-to-the-destination-server"></a>Copiare i dati nel server di destinazione
  Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti: 
@@ -55,17 +55,17 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
  
  Dove:
- - \<SourceServerName\> è il nome del Server di origine
- - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine
- - \<NomeServerDestinazione\> è il nome del Server di destinazione,
- - \<SharedDestinationFolderName\> è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati. 
+ - \<SourceServerName\> è il nome del server di origine
+ - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine
+ - \<NomeServerDestinazione\> è il nome del server di destinazione,
+ - \<SharedDestinationFolderName\> è la cartella condivisa nel server di destinazione in cui verranno copiati i dati. 
 
 3. Ripetere il passaggio precedente per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine. 
 
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare account utente di Active Directory per il Dashboard di Windows Server Essentials
- Per impostazione predefinita, tutti gli account utente creati nel Server di origine vengono automaticamente migrati nel Dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se alcune proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente. 
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare Active Directory account utente nel dashboard di Windows Server Essentials
+ Per impostazione predefinita, tutti gli account utente creati nel server di origine vengono automaticamente migrati nel dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se alcune proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente. 
  
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente di Active Directory per il Dashboard di Windows Server Essentials
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente Active Directory nel dashboard di Windows Server Essentials
  
 1. Accedere al server di destinazione come amministratore di dominio. 
  
@@ -119,8 +119,8 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 > [!NOTE]
 > Se si è installato un Exchange Server locale in un secondo server, è necessario verificare che anche la porta 25 (per SMTP) sia aperta e che venga reindirizzata all'indirizzo IP dell'Exchange Server locale. 
  
-## <a name="remove-legacy-active-directory-group-policy-objects"></a>Rimuovere gli oggetti di criteri legacy di Active Directory gruppo
- Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essentials. Sono un soprainsieme degli oggetti Criteri di gruppo di Windows Small Business Server 2011. Per Windows Server Essentials, è necessario eliminare manualmente un numero di filtri di Windows Small Business Server 2011 oggetti Criteri di gruppo e Strumentazione gestione Windows (WMI) per evitare conflitti con i filtri WMI e oggetti Criteri di gruppo di Windows Server Essentials. 
+## <a name="remove-legacy-active-directory-group-policy-objects"></a>Rimuovere gli oggetti di Criteri di gruppo Active Directory legacy
+ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essentials. Sono un soprainsieme degli oggetti Criteri di gruppo di Windows Small Business Server 2011. Per Windows Server Essentials, è necessario eliminare manualmente alcuni oggetti Criteri di gruppo di Windows Small Business Server 2011 e i filtri Strumentazione gestione Windows (WMI) per evitare conflitti con gli oggetti Criteri di gruppo e i filtri WMI di Windows Server Essentials. 
  
 > [!NOTE]
 > Se gli oggetti Criteri di gruppo di Windows Small Business Server 2011 originali sono stati modificati, è consigliabile salvarne le copie in una posizione diversa e quindi eliminarli da Windows Small Business Server 2011. 
@@ -131,17 +131,17 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
  
-3. Nel riquadro di spostamento, fare clic su **gestione avanzata**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta:** *<NomeDominio\>* . 
+3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< NomeDominio\>_ . 
  
-4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **oggetti Criteri di gruppo**. 
+4. Fare clic su **domini**, fare clic su *<\>NomeDominio*, quindi fare clic su **criteri di gruppo oggetti**. 
  
 5. Fare clic con il pulsante destro del mouse su **Criterio controllo Small Business Server**, scegliere **Elimina** e quindi fare clic su **OK**. 
  
 6. Ripetere il passaggio 5 per eliminare i seguenti oggetti Criteri di gruppo che si applicano alla rete: 
  
- - Criteri di Windows Vista e Windows SBS Client Windows 7 
+ - Criteri di Windows SBS client Windows 7 e Windows Vista 
  
- - Criteri di Windows SBS Client Windows XP 
+ - Criteri di Windows XP client Windows SBS 
  
  - Criterio CSE di Windows SBS 
  
@@ -161,20 +161,20 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
  
-3. Nel riquadro di spostamento, fare clic su **caratteristiche**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta:** *<YourNetworkDomainName\>* 
+3. Nel riquadro di spostamento fare clic su **funzionalità**, fare clic su **Gestione criteri di gruppo**e quindi su **foresta:** _\> < YourNetworkDomainName_ 
  
-4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**. 
+4. Fare clic su **domini**, fare clic su *<\>YourNetworkDomainName*, quindi fare clic su **filtri WMI**. 
  
 5. Fare clic con il pulsante destro del mouse su **Client di Windows SBS**, scegliere **Elimina** e quindi fare clic su **Sì**. 
  
-6. Fare doppio clic su **Windows SBS Client Windows 7 e Windows Vista**, fare clic su **eliminare**, quindi fare clic su **Sì**. 
+6. Fare clic con il pulsante destro del mouse su Windows **SBS client Windows 7 e Windows Vista**, scegliere **Elimina**e quindi fare clic su **Sì**. 
  
-7. Fare doppio clic su **Windows Small Business Server a Client Windows XP**, fare clic su **eliminare**, quindi fare clic su **Sì**. 
+7. Fare clic con il pulsante destro del mouse su Windows **SBS client Windows XP**, scegliere **Elimina**e quindi fare clic su **Sì**. 
  
 8. Verificare che questi tre filtri WMI siano stato eliminati. 
  
 ## <a name="map-permitted-computers-to-user-accounts"></a>Mappare i computer consentiti agli account utente
- In Windows Small Business Server 2011, se un utente si connette ad Accesso Web remoto, vengono visualizzati tutti i computer della rete, che può includere computer per cui l'utente non ha le autorizzazioni di accesso. In Windows Server Essentials, un utente deve essere assegnato esplicitamente a un computer per poterlo visualizzare in accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows Small Business Server 2011 deve essere mappato a uno o più computer. 
+ In Windows Small Business Server 2011, se un utente si connette ad Accesso Web remoto, vengono visualizzati tutti i computer della rete, che può includere computer per cui l'utente non ha le autorizzazioni di accesso. In Windows Server Essentials, un utente deve essere assegnato in modo esplicito a un computer per poterlo visualizzare in Accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows Small Business Server 2011 deve essere mappato a uno o più computer. 
  
 #### <a name="to-map-user-accounts-to-computers"></a>Per mappare gli account utente ai computer 
  

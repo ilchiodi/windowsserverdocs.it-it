@@ -1,6 +1,6 @@
 ---
-title: Riferimenti ai comandi di stampa
-description: 'Argomento i comandi di Windows per * * *- '
+title: Riferimento al comando stampa
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,31 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2321b3fef67cfcbc5f7d0bbafe4650a8ec31207
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9b0ab1e3e9ecb170eb4535cb7e4e643d791e5b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436265"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544534"
 ---
-# <a name="print-command-reference"></a>Riferimenti ai comandi di stampa
+# <a name="print-command-reference"></a>Riferimento al comando stampa
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Di seguito è riportato un elenco di strumenti della riga di comando di stampa.
+Di seguito è riportato un elenco di strumenti da riga di comando di stampa.
 
 |                         Comando                          |                                                                Descrizione                                                                 |
 |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|                       [lpq]lpq.md)                       |                           Visualizza lo stato di una coda di stampa in un computer che esegue Daemon LPD (Line printer).                            |
-|                      [lpr](lpr.md)                       |      Invia un file in un computer o dispositivo che esegue il servizio Daemon LPD (Line printer) in preparazione per la stampa di condivisione della stampante.       |
-|                [Net print](net-print.md)                 | Visualizza le informazioni su una coda di stampa specificato, Visualizza le informazioni su un processo di stampa specificato o controlla un processo di stampa specificato. |
+|                       [lpq](lpq.md)                       |                           Consente di visualizzare lo stato di una coda di stampa in un computer che esegue LPD (Line Printer Daemon).                            |
+|                      [lpr](lpr.md)                       |      Invia un file a un computer o a un dispositivo di condivisione stampanti che esegue il servizio LPD (Line Printer Daemon) in preparazione alla stampa.       |
+|                [Net print](net-print.md)                 | Visualizza informazioni su una coda di stampanti specificata, Visualizza le informazioni su un processo di stampa specificato o controlla un processo di stampa specificato. |
 |                    [print](print.md)                     |                                                      Invia un file di testo a una stampante.                                                       |
-|                  [prncnfg](prncnfg.md)                   |                                     Configura o Visualizza le informazioni di configurazione di una stampante.                                      |
-|                  [prndrvr](prndrvr.md)                   |                                                 Aggiunge, Elimina e vengono elencati i driver della stampante.                                                  |
-|                  [prnjobs](prnjobs.md)                   |                                              viene sospesa, viene ripresa, Annulla e vengono elencati i processi di stampa.                                               |
-|                  [prnmngr](prnmngr.md)                   |            Aggiunge, Elimina e sono elencate le stampanti o le connessioni alle stampanti, oltre all'impostazione e la visualizzazione della stampante predefinita.            |
-|                  [prnport](prnport.md)                   |           Crea, elimina ed elenca le porte della stampante TCP/IP standard, oltre a visualizzare e modificare la configurazione della porta.            |
-|                  [prnqctl](prnqctl.md)                   |                                Consente di stampare una pagina di test, sospende o riprende una stampante e cancella la coda di stampa.                                |
-|                   [pubprn](pubprn.md)                    |                                       Pubblica una stampante per il servizio directory active directory.                                       |
-| [rundll32 printui.dll,printUIEntry](rundll32-printui.md) |                Consente di automatizzare l'installazione e configurazione delle stampanti usando script o il prompt dei comandi.                 |
+|                  [prncnfg](prncnfg.md)                   |                                     Configura o Visualizza le informazioni di configurazione relative a una stampante.                                      |
+|                  [prndrvr](prndrvr.md)                   |                                                 aggiunge, Elimina ed elenca i driver della stampante.                                                  |
+|                  [prnjobs](prnjobs.md)                   |                                              sospende, riprende, Annulla ed elenca i processi di stampa.                                               |
+|                  [prnmngr](prnmngr.md)                   |            aggiunge, Elimina ed elenca stampanti o connessioni stampanti, oltre a impostare e visualizzare la stampante predefinita.            |
+|                  [prnport](prnport.md)                   |           consente di creare, eliminare ed elencare le porte di stampa TCP/IP standard, oltre a visualizzare e modificare la configurazione delle porte.            |
+|                  [prnqctl](prnqctl.md)                   |                                stampa una pagina di test, sospende o riprende una stampante e cancella una coda di stampa.                                |
+|                   [pubprn](pubprn.md)                    |                                       Pubblica una stampante nel servizio directory Active Directory.                                       |
+| [rundll32 printui. dll, printUIEntry](rundll32-printui.md) |                Consente di automatizzare l'installazione e la configurazione delle stampanti usando gli script o il prompt dei comandi.                 |
 

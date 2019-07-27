@@ -1,6 +1,6 @@
 ---
-title: Gestire i server con Windows Admin Center
-description: Gestire i server con Windows Admin Center (progetto Honolulu)
+title: Gestire i server con l'interfaccia di amministrazione di Windows
+description: Gestire i server con l'interfaccia di amministrazione di Windows (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,243 +8,294 @@ ms.author: niwashbu
 ms.date: 03/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 04ade4a14272c7840b5036ca6ad5a3bf3d09bcf9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 72524fcc71f722daeb8238bc3cffc6d38a611098
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891152"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590580"
 ---
-# <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con Windows Admin Center
+# <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con l'interfaccia di amministrazione di Windows
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Novità di Windows Admin Center
 > [Ulteriori informazioni su Windows Admin Center](../understand/windows-admin-center.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
 
-## <a name="managing-windows-server-machines"></a>Gestione delle macchine Windows Server
+## <a name="managing-windows-server-machines"></a>Gestione di computer Windows Server
 
-È possibile aggiungere singoli server che esegue Windows Server 2012 o versione successiva a Windows Admin Center per gestire il server con un set completo di strumenti inclusi i certificati, i dispositivi, gli eventi, processi, ruoli e funzionalità, gli aggiornamenti, le macchine virtuali e altro ancora.
+È possibile aggiungere singoli server che eseguono Windows Server 2012 o versioni successive all'interfaccia di amministrazione di Windows per gestire il server con un set completo di strumenti, tra cui certificati, dispositivi, eventi, processi, ruoli e funzionalità, aggiornamenti, macchine virtuali e altro ancora.
 
-![Schermata di panoramica di connessione server](../media/manage-servers/server-overview.png)
+![Schermata di panoramica della connessione al server](../media/manage-servers/server-overview.png)
 
-## <a name="adding-a-server-to-windows-admin-center"></a>Aggiunta di un server a Windows Admin Center
+## <a name="adding-a-server-to-windows-admin-center"></a>Aggiunta di un server all'interfaccia di amministrazione di Windows
 
-Per aggiungere un server a Windows Admin Center:
+Per aggiungere un server all'interfaccia di amministrazione di Windows:
 
 1. Fare clic su **+ Aggiungi** in tutte le connessioni.
-2. Scegliere di aggiungere un **connessione al Server**.
+2. Scegliere di aggiungere una **connessione al server**.
 3. Digitare il nome del server e, se richiesto, le credenziali da utilizzare.
-4. Fare clic su **Submit** alla fine.
+4. Fare clic su **Invia** per terminare.
 
-Il server verrà aggiunto all'elenco di connessione nella pagina di panoramica. Fare clic per connettersi al server.
+Il server verrà aggiunto all'elenco di connessioni nella pagina panoramica. Fare clic su di esso per connettersi al server.
 
 > [!NOTE]
-> È anche possibile aggiungere [i cluster di failover](manage-failover-clusters.md) oppure [cluster iperconvergente](manage-hyper-converged.md) come una connessione separata in Windows Admin Center.
+> È anche possibile aggiungere [cluster di failover](manage-failover-clusters.md) o [cluster](manage-hyper-converged.md) iperconvergenti come una connessione separata nell'interfaccia di amministrazione di Windows.
 
 ## <a name="tools"></a>Strumenti
 
-Gli strumenti seguenti sono disponibili per le connessioni al server:
+Per le connessioni server sono disponibili gli strumenti seguenti:
 
 | Strumento | Descrizione |
 | ---- | ----------- |
-| [Panoramica](#overview) | Visualizzare i dettagli del server e controllare lo stato del server |
-| [Backup](#backup) | Visualizzare e configurare il Backup di Azure |  
+| [Panoramica](#overview) | Visualizza i dettagli del server e controlla lo stato del server |
+| [Active Directory](#active-directory-preview) | Gestisci Active Directory |
+| [Backup](#backup) | Visualizzare e configurare backup di Azure |  
 | [Certificati](#certificates) | Visualizzare e modificare i certificati |
 | [Contenitori](#containers) | Visualizza contenitori |
 | [Dispositivi](#devices) | Visualizzare e modificare i dispositivi |
+| [DHCP](#dhcp) | Visualizzare e gestire la configurazione del server DHCP |
+| [DNS](#dns) | Visualizzare e gestire la configurazione del server DNS |
 | [Eventi](#events) | Visualizza eventi |
-| [File](#files) | Esplorare i file e cartelle |
+| [File](#files) | Sfogliare file e cartelle |
 | [Firewall](#firewall) | Visualizzare e modificare le regole del firewall |
 | [App installate](#installed-apps) | Visualizzare e rimuovere le app installate |
 | [Utenti e gruppi locali](#local-users-and-groups) | Visualizzare e modificare gruppi e utenti locali |
-| [Rete](#network) | Visualizzare e modificare i dispositivi di rete |
+| [Network](#network) | Visualizzare e modificare i dispositivi di rete |
 | [PowerShell](#powershell) | Interagire con il server tramite PowerShell |
 | [Processi](#processes) | Visualizzare e modificare i processi in esecuzione |
-| [Registry](#registry) | Visualizzare e modificare le voci del Registro di sistema |
+| [Del registro](#registry) | Visualizzare e modificare le voci del registro di sistema |
 | [Desktop remoto](#remote-desktop) | Interagire con il server tramite Desktop remoto |
-| [Ruoli e funzionalità](#roles-and-features) | Visualizzare e modificare i ruoli e funzionalità |
+| [Ruoli e funzionalità](#roles-and-features) | Visualizzazione e modifica di ruoli e funzionalità |
 | [Attività pianificate](#scheduled-tasks) | Visualizzare e modificare le attività pianificate |
 | [Servizi](#services) | Visualizzare e modificare i servizi |
+| [Impostazioni](#settings) | Visualizzare e modificare i servizi |
 | [Archiviazione](#storage) | Visualizzare e modificare i dispositivi di archiviazione |
-| [Servizio di migrazione di archiviazione](#storage-migration-service) | Eseguire la migrazione di server e condivisioni file in Azure o in Windows Server 2019 |
-| [Replica di archiviazione](#storage-replica) | Usare la Replica di archiviazione per gestire la replica di archiviazione da server a server |
-| [Informazioni di sistema](#system-insights) | Sistema Insights offre un aumento approfondite sul funzionamento del server. |
-| [aggiornamenti](#updates) | Visualizzazione installato e la ricerca di nuovi aggiornamenti |
+| [Servizio migrazione archiviazione](#storage-migration-service) | Eseguire la migrazione di server e condivisioni file in Azure o Windows Server 2019 |
+| [Replica di archiviazione](#storage-replica) | Usare replica archiviazione per gestire la replica di archiviazione da server a server |
+| [Informazioni dettagliate di sistema](#system-insights) | System Insights offre una maggiore visibilità sul funzionamento del server. |
+| [Aggiornamenti](#updates) | Visualizza installato e verifica la disponibilità di nuovi aggiornamenti |
 | [Macchine virtuali](manage-virtual-machines.md) | Visualizzare e gestire le macchine virtuali |
 | [Commutatori virtuali](#virtual-switches) | Visualizzare e gestire i commutatori virtuali |
 
 ## <a name="overview"></a>Panoramica
 
-**Panoramica** consente di visualizzare lo stato corrente di CPU, memoria e prestazioni di rete, nonché come eseguire operazioni e modificare le impostazioni in un server o il computer di destinazione.
+**Panoramica** consente di visualizzare lo stato corrente della CPU, della memoria e delle prestazioni di rete, nonché di eseguire operazioni e modificare le impostazioni in un computer o un server di destinazione.
 
 ### <a name="features"></a>Funzionalità
 
-In panoramica di Server Manager sono supportate le funzionalità seguenti:
+In Server Manager panoramica sono supportate le funzionalità seguenti:
 
-- Visualizza i dettagli del server
-- Attività vista CPU
-- Visualizza le attività della memoria
-- Visualizzazione attività di rete
+- Visualizza dettagli server
+- Visualizza attività CPU
+- Visualizza attività memoria
+- Visualizzare l'attività di rete
 - Riavvia server
-- Chiusura del server
-- Abilitare le metriche del disco nel server
-- Modificare l'ID Computer nel server
+- Arresta server
+- Abilita metrica disco nel server
+- Modifica ID computer nel server
+- Visualizzare l'indirizzo IP BMC con collegamento ipertestuale (richiede BMC compatibile con IPMI).
 
-[**Visualizzare feedback e alcune funzionalità proposte per Server Overview**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BOverview%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per la panoramica del server**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BOverview%5D).
+
+## <a name="active-directory-preview"></a>Active Directory (anteprima)
+
+**Active Directory** è un'anteprima anticipata disponibile nel feed di [estensione](../configure/using-extensions.md).
+
+### <a name="features"></a>Funzionalità
+
+Sono disponibili le seguenti Active Directory gestione:
+
+- Crea utente
+- Crea gruppo
+- Ricerca di utenti, computer e gruppi
+- Riquadro dei dettagli per utenti, computer e gruppi se selezionato nella griglia
+- Azioni griglia globale utenti, computer e gruppi (Disabilita/Abilita, Rimuovi)
+- Reimpostare la password utente
+- Oggetti utente: configurare le proprietà di base & le appartenenze ai gruppi
+- Oggetti computer: configurare la delega in un singolo computer
+- Oggetti gruppo: Gestisci appartenenza (Aggiungi/Rimuovi 1 utente alla volta)  
+
+[**Visualizza commenti e suggerimenti e funzionalità proposte per Active Directory**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BActive%20Directory%5D).
 
 ## <a name="backup"></a>Backup
 
-**Backup** consente di proteggere il server di Windows da danneggiamenti, attacchi o emergenze eseguendo il backup del server direttamente in Microsoft Azure.
-[Altre informazioni sui Backup di Azure.](https://aka.ms/windows-admin-center-backup)
+Il **backup** consente di proteggere il server Windows da danneggiamenti, attacchi o emergenze eseguendo il backup del server direttamente in Microsoft Azure.
+[Altre informazioni su backup di Azure.](https://aka.ms/windows-admin-center-backup)
 
-[Fornire commenti e suggerimenti per il backup in Windows Admin Center](https://aka.ms/backup-wac-feedback)
+[Inviare commenti e suggerimenti per il backup nell'interfaccia di amministrazione di Windows](https://aka.ms/backup-wac-feedback)
 
 ### <a name="features"></a>Funzionalità
 
-Nel Backup sono supportate le funzionalità seguenti:
+Le funzionalità seguenti sono supportate nel backup:
 
-- Visualizzare una panoramica del tuo stato di backup di Azure
-- Configura pianificazione e gli elementi di backup
+- Visualizzare una panoramica dello stato di backup di Azure
+- Configurare gli elementi e la pianificazione di backup
 - Avviare o arrestare un processo di backup
-- Visualizzare lo stato e la cronologia processo di backup
+- Visualizzare lo stato e la cronologia dei processi di backup
 - Visualizzare i punti di ripristino e ripristinare i dati
 - Elimina dati di backup
 
 ## <a name="certificates"></a>Certificati
 
-**I certificati** consente di gestire gli archivi di certificati in un computer o server.
+I **certificati** consentono di gestire gli archivi certificati in un computer o in un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nei certificati:
+Nei certificati sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i certificati esistenti
-- Visualizzare i dettagli di certificato
-- Esportare i certificati
-- Rinnovare i certificati
-- Richiedere nuovi certificati
-- Eliminare i certificati
+- Visualizza i dettagli del certificato
+- Esporta certificati
+- Rinnova certificati
+- Richiedi nuovi certificati
+- Elimina certificati
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i certificati**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BCertificates%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i certificati**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BCertificates%5D).
 
 ## <a name="containers"></a>Contenitori
 
-**I contenitori** consente di visualizzare i contenitori in un host contenitore di Windows Server. Nel caso di un contenitore in esecuzione Windows Server Core, è possibile visualizzare i registri eventi e l'interfaccia della riga di comando del contenitore di accesso.
+**Contenitori** consente di visualizzare i contenitori in un host contenitore di Windows Server. Nel caso di un contenitore Windows Server Core in esecuzione, è possibile visualizzare i registri eventi e accedere all'interfaccia della riga di comando del contenitore.
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per contenitori**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BContainers%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i contenitori**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BContainers%5D).
 
 ## <a name="devices"></a>Dispositivi
 
-**Dispositivi** consente di gestire i dispositivi connessi in un computer o server.
+I **dispositivi** consentono di gestire i dispositivi connessi in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nei dispositivi:
+Nei dispositivi sono supportate le funzionalità seguenti:
 
-- Esplorazione e ricerca di dispositivi
-- Visualizzare i dettagli dispositivo
+- Esplorare e cercare i dispositivi
+- Visualizza i dettagli del dispositivo
 - Disabilitare un dispositivo
-- Aggiornare i driver in un dispositivo
+- Aggiornare il driver in un dispositivo
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i dispositivi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDevices%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i dispositivi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDevices%5D).
 
-## <a name="events"></a>Eventi
+## <a name="dhcp"></a>DHCP
 
-**Gli eventi** consente di gestire i registri eventi in un computer o server.
+**DHCP** consente di gestire i dispositivi connessi in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate negli eventi:
+- Creazione/configurazione/visualizzazione degli ambiti IPV4 e IPV6
+- Creare esclusioni di indirizzi e configurare l'indirizzo IP iniziale e finale
+- Creare prenotazioni di indirizzi e configurare l'indirizzo MAC client (IPV4), DUID e IAID (IPV6)
 
-- Esplorazione e ricerca gli eventi
-- Visualizzare i dettagli evento
-- Cancellato eventi dal log
-- Esportare gli eventi dal log
+[**Visualizza commenti e suggerimenti e funzionalità proposte per DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDHCP%5D).
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per gli eventi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BEvents%5D).
+## <a name="dns"></a>DNS
+
+**DNS** consente di gestire i dispositivi connessi in un computer o un server.
+
+### <a name="features"></a>Funzionalità
+
+- Visualizzare i dettagli delle zone di ricerca diretta DNS, delle zone di ricerca inversa e dei record DNS
+- Creare zone di ricerca diretta (primaria, secondaria o stub) e configurare le proprietà della zona di ricerca diretta
+- Crea host (A o AAAA), tipo CNAME o MX di record DNS
+- Configurare le proprietà di record DNS
+- Creare zone di ricerca inversa IPV4 e IPV6 (primario, secondario e Stub), configurare le proprietà della zona di ricerca inversa
+- Crea il tipo PTR, CNAME di record DNS nella zona di ricerca inversa.
+
+[**Visualizza commenti e suggerimenti e funzionalità proposte per DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDNS%5D).
+
+## <a name="events"></a>Events
+
+**Gli eventi** consentono di gestire i registri eventi in un computer o un server.
+
+### <a name="features"></a>Funzionalità
+
+Negli eventi sono supportate le funzionalità seguenti:
+
+- Esplorare e cercare gli eventi
+- Visualizza dettagli evento
+- Cancella gli eventi dal log
+- Esporta eventi dal log
+
+[**Visualizza commenti e suggerimenti e funzionalità proposte per gli eventi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BEvents%5D).
 
 ## <a name="files"></a>File
 
-**File** consente di gestire file e cartelle in un computer o server.
+**File** consente di gestire file e cartelle in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate in file:
+Nei file sono supportate le funzionalità seguenti:
 
-- Esplorare i file e cartelle
-- Eseguire la ricerca di un file o cartella
-- Creare una nuova cartella
-- Eliminare un file o cartella
-- Scaricare un file o cartella
-- Caricare un file o cartella
-- Rinominare un file o cartella
+- Sfogliare file e cartelle
+- Ricerca di un file o di una cartella
+- Crea una nuova cartella
+- Eliminare un file o una cartella
+- Scaricare un file o una cartella
+- Caricare un file o una cartella
+- Rinominare un file o una cartella
 - Estrarre un file zip
-- Visualizzare le proprietà di file o cartella
-- Gestire gestione risorse File Server [quote](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
-- Aggiungere, modificare o rimuovere condivisioni di file
-- Modificare autorizzazioni utenti e gruppi nelle condivisioni file
+- Visualizza proprietà file o cartella
+- Aggiungere, modificare o rimuovere condivisioni file
+- Modificare le autorizzazioni di utenti e gruppi per le condivisioni file
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i file**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BFiles%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i file**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BFiles%5D).
 
 ## <a name="firewall"></a>Firewall
 
-**Firewall** consente di gestire le impostazioni del firewall e regole in un computer o server.
+Il **Firewall** consente di gestire le impostazioni e le regole del firewall in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nel Firewall:
+Nel firewall sono supportate le funzionalità seguenti:
 
-- Visualizzare una panoramica delle impostazioni del firewall
+- Visualizzazione di una panoramica delle impostazioni del firewall
 - Visualizzare le regole del firewall in ingresso
 - Visualizzare le regole del firewall in uscita
-- Cerca regole di firewall
-- Visualizza i dettagli della regola firewall
+- Cerca regole firewall
+- Visualizza i dettagli della regola del firewall
 - Creare una nuova regola del firewall
 - Abilitare o disabilitare una regola del firewall
 - Eliminare una regola del firewall
 - Modificare le proprietà di una regola del firewall
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per il Firewall**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BFirewall%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per il firewall**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BFirewall%5D).
 
 ## <a name="installed-apps"></a>App installate
 
-**Le app installate** consente di elencare e disinstallare applicazioni installate.
+**App installate** consente di elencare e disinstallare le applicazioni installate.
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per le app installate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BInstalled%20Apps%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per le app installate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BInstalled%20Apps%5D).
 
 ## <a name="local-users-and-groups"></a>Utenti e gruppi locali
 
-**Gli utenti e gruppi locali** consente di gestire i gruppi di sicurezza e gli utenti che esistono in locale in un computer o server.
+**Utenti e gruppi locali** consentono di gestire i gruppi di sicurezza e gli utenti presenti localmente in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
 Le funzionalità seguenti sono supportate in utenti e gruppi locali:
 
-- Visualizzare e cercare utenti e gruppi
+- Visualizza e Cerca utenti e gruppi
 - Creare un nuovo utente o gruppo
-- Gestire l'appartenenza al gruppo dell'utente
-- Eliminare un gruppo o utente
-- Modificare la password dell'utente
-- Modificare le proprietà di un utente o gruppo
+- Gestire l'appartenenza a un gruppo di un utente
+- Eliminare un utente o un gruppo
+- Modificare la password di un utente
+- Modificare le proprietà di un utente o di un gruppo
 
-[**Visualizzare il feedback e alcune funzionalità proposte per utenti e gruppi locali**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BLocal%20users%20and%20Groups%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per utenti e gruppi locali**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BLocal%20users%20and%20Groups%5D)
 
 ## <a name="network"></a>Rete
 
-**Rete** consente di gestire i dispositivi di rete e le impostazioni in un computer o server.
+**Rete** consente di gestire i dispositivi e le impostazioni di rete in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nella rete:
+Le funzionalità seguenti sono supportate in rete:
 
-- Esplorare e trovare le schede di rete esistente
+- Sfoglia e cerca le schede di rete esistenti
 - Visualizzare i dettagli di una scheda di rete
 - Modificare le proprietà di una scheda di rete
-- Creare un [scheda di rete di Azure (funzionalità di anteprima)](https://blogs.technet.microsoft.com/networking/2018/09/05/azurenetworkadapter/)
+- Creare una [scheda di rete di Azure (funzionalità di anteprima)](https://blogs.technet.microsoft.com/networking/2018/09/05/azurenetworkadapter/)
 
-[**Visualizzare il feedback e alcune funzionalità proposte per la rete**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BNetwork%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per la rete**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BNetwork%5D)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -252,43 +303,43 @@ Le funzionalità seguenti sono supportate nella rete:
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate in PowerShell:
+In PowerShell sono supportate le funzionalità seguenti:
 
 - Creare una sessione di PowerShell interattiva sul server
-- Disconnettersi dalla sessione di PowerShell nel server
+- Disconnetti dalla sessione di PowerShell nel server
 
-[**Visualizzare il feedback e alcune funzionalità proposte per PowerShell**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BPowerShell%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per PowerShell**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BPowerShell%5D)
 
 ## <a name="processes"></a>Processi
 
-**Processi** consente di gestire i processi in esecuzione in un computer o server.
+**Processi** consente di gestire i processi in esecuzione in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nei processi:
+Nei processi sono supportate le funzionalità seguenti:
 
-- Esplorare e cercare processi in esecuzione
+- Sfoglia e Cerca processi in esecuzione
 - Visualizza dettagli processo
 - Avviare un processo
 - Terminare un processo
 - Creare un dump del processo
-- Trovare gli handle di processo
+- Trova handle di processo
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i processi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BProcesses%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i processi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BProcesses%5D).
 
 ## <a name="registry"></a>Registro di sistema
 
-**Registro di sistema** consente di gestire le chiavi del Registro di sistema e i valori in un computer o server.
+Il **Registro di sistema** consente di gestire le chiavi e i valori del registro di sistema in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nel Registro di sistema:
+Nel registro di sistema sono supportate le funzionalità seguenti:
 
-- Consente di esplorare i valori e chiavi del Registro di sistema
-- Aggiungere o modificare i valori del Registro di sistema
-- Eliminazione dei valori del Registro di sistema
+- Sfoglia chiavi e valori del registro di sistema
+- Aggiungere o modificare i valori del registro di sistema
+- Elimina valori del registro di sistema
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per registro**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRegistry%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per il registro di sistema**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRegistry%5D).
 
 ## <a name="remote-desktop"></a>Desktop remoto
 
@@ -296,13 +347,13 @@ Le funzionalità seguenti sono supportate nel Registro di sistema:
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate in Desktop remoto:
+In Desktop remoto sono supportate le funzionalità seguenti:
 
-- Avviare una sessione interattiva di desktop remota
-- Disconnettersi da una sessione desktop remoto
-- Inviare Ctrl + Alt + Canc a una sessione desktop remoto
+- Avviare una sessione di desktop remoto interattiva
+- Disconnettersi da una sessione Desktop remoto
+- Inviare CTRL + ALT + CANC a una sessione Desktop remoto
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per il Desktop remoto**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRemote%20Desktop%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per desktop remoto**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRemote%20Desktop%5D).
 
 ## <a name="roles-and-features"></a>Ruoli e funzionalità
 
@@ -310,38 +361,38 @@ Le funzionalità seguenti sono supportate in Desktop remoto:
 
 ### <a name="features"></a>Funzionalità
 
-Ruoli e funzionalità sono supportate le funzionalità seguenti:
+Le funzionalità seguenti sono supportate in ruoli e funzionalità:
 
-- Esplorare l'elenco di ruoli e funzionalità in un server
-- Visualizzare i dettagli di ruolo o funzionalità
-- Installare un ruolo o funzionalità
-- Rimuovere un ruolo o funzionalità
+- Sfogliare l'elenco dei ruoli e delle funzionalità in un server
+- Visualizza dettagli ruolo o funzionalità
+- Installare un ruolo o una funzionalità
+- Rimuovere un ruolo o una funzionalità
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i ruoli e funzionalità**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRoles%20and%20Features%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per ruoli e funzionalità**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRoles%20and%20Features%5D).
 
 ## <a name="scheduled-tasks"></a>ATTIVITÀ PIANIFICATE
 
-**Attività pianificate** consente di gestire le attività pianificate in un computer o server.
+Le **attività pianificate** consentono di gestire le attività pianificate in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate in operazioni pianificate:
+Le funzionalità seguenti sono supportate nelle attività pianificate:
 
-- Esplorare la raccolta dell'utilità di pianificazione di attività
+- Sfogliare la libreria dell'utilità di pianificazione
 - Modificare le attività pianificate
-- Abilitare e disabilitare le attività pianificate
-- Avviare e arrestare le attività pianificate
-- Creare le attività pianificate
+- Abilita & Disabilita le attività pianificate
+- Avviare & arrestare le attività pianificate
+- Creazione di attività pianificate
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per attività pianificate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per le attività pianificate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
 
 ## <a name="services"></a>Servizi
 
-**Servizi** consente di gestire i servizi in un computer o server.
+I **Servizi** consentono di gestire i servizi in un computer o in un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nei servizi:
+Nei servizi sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i servizi in un server
 - Visualizzare i dettagli di un servizio
@@ -349,83 +400,97 @@ Le funzionalità seguenti sono supportate nei servizi:
 - Sospendere un servizio
 - Modificare le proprietà di un servizio
 
-[**Visualizzare i commenti e suggerimenti e alcune funzionalità proposte per i servizi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i servizi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
+
+## <a name="settings"></a>Impostazioni
+
+**Settings** è una posizione centralizzata per la gestione delle impostazioni in un computer o in un server.
+
+### <a name="features"></a>Funzionalità
+
+- Visualizza e modifica le variabili di ambiente di sistema e utente
+- Visualizzare la configurazione per il monitoraggio degli avvisi da [monitoraggio di Azure](azure-monitor.md)
+- Visualizzare e modificare la configurazione di risparmio energia
+- Visualizzare e modificare le impostazioni di Desktop remoto
+- Visualizzare e modificare le impostazioni di controllo degli accessi in base al ruolo
+- Visualizzare e modificare le impostazioni dell'host Hyper-V, se applicabile
 
 ## <a name="storage"></a>Archiviazione
 
-**Archiviazione** consente di gestire i dispositivi di archiviazione in un computer o server.
+**Archiviazione** consente di gestire i dispositivi di archiviazione in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nello spazio di memorizzazione:
+Le funzionalità seguenti sono supportate nell'archiviazione:
 
-- Esplorare e trovare dischi esistenti in un server
-- Visualizzare i dettagli del disco
+- Esplorare e cercare dischi esistenti in un server
+- Visualizza i dettagli del disco
 - Creare un volume
 - Inizializzare un disco
-- Creare, collegare e scollegare un disco rigido virtuale (VHD)
-- Disconnettere un disco
+- Creazione, collegamento e scollegamento di un disco rigido virtuale (VHD)
+- Portare un disco offline
 - Formattare un volume
-- Ridimensiona un volume
-- Modifica proprietà volume
+- Ridimensionare un volume
+- Modificare le proprietà del volume
 - Eliminare un volume
-- Installare Gestione delle quote
+- Installare la gestione delle quote
+- Gestire il file server Gestione risorse quote [di archiviazione-> la quota di creazione/aggiornamento](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
 
-[**Visualizzare il feedback e alcune funzionalità proposte per l'archiviazione**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BStorage%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per l'archiviazione**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BStorage%5D)
 
 ## <a name="storage-migration-service"></a>Servizio di migrazione della risorsa di archiviazione
 
-**Il servizio di migrazione archiviazione** consente di eseguire la migrazione di server e file condivisi in Azure o in Windows Server 2019, ovvero senza richiedere agli utenti di modificare qualsiasi elemento o App.
-[Ottenere una panoramica della migrazione del servizio di archiviazione](https://go.microsoft.com/fwlink/?linkid=2016155)
+Il **servizio migrazione archiviazione** consente di eseguire la migrazione dei server e delle condivisioni file in Azure o in Windows Server 2019, senza richiedere alle app o agli utenti di modificare qualsiasi elemento.
+[Ottenere una panoramica del servizio migrazione archiviazione](https://go.microsoft.com/fwlink/?linkid=2016155)
 
 >[!NOTE]
->Il servizio di migrazione di archiviazione richiede Windows Server 2019.
+>Il servizio migrazione archiviazione richiede Windows Server 2019.
 
 ## <a name="storage-replica"></a>Replica archiviazione
 
-Uso **Replica di archiviazione** per gestire la replica di archiviazione da server a server.
-[Altre informazioni su Replica archiviazione](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-ui)
+Usare **replica archiviazione** per gestire la replica di archiviazione da server a server.
+[Altre informazioni su replica archiviazione](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-ui)
 
 ## <a name="system-insights"></a>Informazioni dettagliate di sistema
 
-**Sistema Insights** introduce analitica predittiva in modo nativo in Windows Server per fornire è aumentato approfondite sul funzionamento del server.
-[Ottenere una panoramica del sistema di Insights](http://aka.ms/systeminsights)
+**System Insights** introduce l'analisi predittiva in modo nativo in Windows Server per contribuire a migliorare le informazioni sul funzionamento del server.
+[Ottenere una panoramica di System Insights](http://aka.ms/systeminsights)
 
 >[!NOTE]
->Sistema Insights richiede Windows Server 2019.
+>System Insights richiede Windows Server 2019.
 
 ## <a name="updates"></a>Aggiornamenti
 
-**Gli aggiornamenti** consente di gestire Microsoft e/o gli aggiornamenti di Windows in un computer o server.
+**Aggiornamenti** consente di gestire gli aggiornamenti di Microsoft e/o Windows in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate negli aggiornamenti:
+Negli aggiornamenti sono supportate le funzionalità seguenti:
 
-- Visualizzare disponibile Windows o Microsoft Updates
-- Visualizzare un elenco di cronologia degli aggiornamenti
+- Visualizzare gli aggiornamenti di Windows o Microsoft disponibili
+- Visualizza un elenco di cronologia aggiornamenti
 - Installare gli aggiornamenti
-- Controlla online per gli aggiornamenti da Microsoft Update
-- Gestire [gestione degli aggiornamenti di Azure](https://docs.microsoft.com/azure/automation/automation-update-management) integrazione
+- Verificare la disponibilità di aggiornamenti online da Microsoft Update
+- Gestire l'integrazione di [Azure Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)
 
-[**Visualizzare il feedback e alcune funzionalità proposte per gli aggiornamenti**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per gli aggiornamenti**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 
-Vedere [gestione delle macchine virtuali con Windows Admin Center](manage-virtual-machines.md)
+Vedere [gestione delle macchine virtuali con l'interfaccia di amministrazione di Windows](manage-virtual-machines.md)
 
 ## <a name="virtual-switches"></a>Commutatori virtuali
 
-**Commutatori virtuali** consente di gestire i commutatori virtuali Hyper-V in un computer o server.
+**Commutatori virtuali** consente di gestire i commutatori virtuali Hyper-V in un computer o un server.
 
 ### <a name="features"></a>Funzionalità
 
-Le funzionalità seguenti sono supportate nei commutatori virtuali:
+In commutatori virtuali sono supportate le funzionalità seguenti:
 
-- Esplorare e trovare commutatori virtuali in un server
-- Creare un nuovo commutatore virtuale
-- Rinomina un commutatore virtuale
-- Elimina un commutatore virtuale esistente
-- Modificare le proprietà di un commutatore virtuale
+- Esplorare e cercare i commutatori virtuali in un server
+- Crea un nuovo commutire virtuale
+- Rinominare un commutire virtuale
+- Elimina un commutire virtuale esistente
+- Modificare le proprietà di un Commuter virtuale
 
-[**Visualizzare il feedback e alcune funzionalità proposte per i commutatori virtuali**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BVirtual%20Switch%5D)
+[**Visualizza commenti e suggerimenti e funzionalità proposte per i commutatori virtuali**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BVirtual%20Switch%5D)

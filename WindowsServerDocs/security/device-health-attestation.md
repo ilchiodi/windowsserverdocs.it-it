@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ee77fba1e82179f6998959b494628e97ac23390
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 888992366f8a722c4834f23e08a393c829b47a26
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284220"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544626"
 ---
 # <a name="device-health-attestation"></a>Attestazione dell'integrità dei dispositivi
 
@@ -98,7 +98,7 @@ Quando DHA è in esecuzione in modalità di convalida EKCert, si basa su una cat
 
 Microsoft pubblica pacchetti aggregati di radici attendibili e CA intermedie per i produttori di TPM approvati (quando diventano disponibili) in un archivio accessibile pubblicamente nell'archivio CAB. È necessario scaricare il feed, convalidarne l'integrità e installarlo nel server che esegue il servizio DHA.
 
-È un esempio di archivio [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Un archivio di esempio [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)è.
 
 #### <a name="aikcert-validation-mode"></a>Modalità di convalida AIKCert
 
@@ -147,7 +147,7 @@ Dopo aver installato Windows Server 2016, il dispositivo viene riavviato e apre 
 
 ### <a name="install-the-signing-and-encryption-certificates"></a>Installare i certificati di firma e crittografia
 
-Usare il seguente script di Windows PowerShell per installare i certificati di firma e crittografia. Per altre informazioni sull'identificazione personale, vedere [come: Recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
+Usare il seguente script di Windows PowerShell per installare i certificati di firma e crittografia. Per ulteriori informazioni sull'identificazione personale, vedere [procedura: Recuperare l'identificazione personale di un](https://msdn.microsoft.com/library/ms734695.aspx)certificato.
 
 ```
 $key = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Thumbprint -like "<thumbprint>"}
@@ -165,7 +165,7 @@ Per installare il pacchetto di certificati per radici TPM attendibili, è necess
 
 #### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Scaricare il pacchetto di certificati per radici TPM attendibili
 
-Prima di installare il pacchetto di certificati, è possibile scaricare l'elenco più recente di radici TPM attendibili da [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Prima di installare il pacchetto di certificati, è possibile scaricare l'elenco più recente di radici TPM [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)attendibili da.
 
 > **Importante:** Prima di installare il pacchetto, verificare che sia firmato digitalmente da Microsoft.
 
@@ -180,7 +180,7 @@ expand -F:* .\TrustedTpm.cab .\TrustedTpm
 
 Eliminare le cartelle per eventuali catene di certificati dei fornitori TPM non considerati attendibili dall'organizzazione.
 
-> **Nota:** Se utilizza la modalità di certificazione AIK, la cartella Microsoft è necessario per convalidare i certificati AIK rilasciati Microsoft.
+> **Nota:** Se si usa la modalità certificato AIK, la cartella Microsoft è necessaria per convalidare i certificati AIK rilasciati da Microsoft.
 
 #### <a name="install-the-trusted-certificate-package"></a>Installare il pacchetto di certificati attendibili
 Per installare il pacchetto di certificati attendibili eseguire lo script di installazione dal file CAB.
@@ -238,7 +238,7 @@ Get-DHASActiveSigningCertificate
 Set-DHASActiveSigningCertificate -Thumbprint "<hex>" -Force
 ```
 
-> **Nota:** Questo certificato deve essere distribuito nel server in esecuzione il servizio DHA nel **LocalMachine\My** archivio certificati. Quando il certificato di firma attivo è impostato, il certificato di firma già esistente viene spostato nell'elenco dei certificati di firma non attivi.
+> **Nota:** Questo certificato deve essere distribuito nel server che esegue il servizio DHA nell'archivio certificati **LocalMachine\MY** . Quando il certificato di firma attivo è impostato, il certificato di firma già esistente viene spostato nell'elenco dei certificati di firma non attivi.
 
 ### <a name="list-the-inactive-signing-certificates"></a>Indicare i certificati di firma non attivi
 ```
@@ -251,7 +251,7 @@ Remove-DHASInactiveSigningCertificates -Force
 Remove-DHASInactiveSigningCertificates  -Thumbprint "<hex>" -Force
 ```
 
-> **Nota:** Solo *uno* certificati inattivi, di qualsiasi tipo, potrebbero esistere nel servizio in qualsiasi momento. I certificati devono essere rimossi dall'elenco dei certificati non attivi quando non sono più necessari.
+> **Nota:** Nel servizio può esistere *un* solo certificato inattivo (di qualsiasi tipo) in qualsiasi momento. I certificati devono essere rimossi dall'elenco dei certificati non attivi quando non sono più necessari.
 
 ### <a name="get-the-active-encryption-certificate"></a>Ottenere il certificato di crittografia attivo
 

@@ -5,17 +5,17 @@ ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: pashort
+ms.date: 07/24/19
+ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: c238e44b538a31be7b21d2e75f41ebbf7ec7a1c8
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: ae3c088122a0100f94b4d9bca41078d901487237
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314326"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590406"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Funzionalità avanzate di Always On VPN
 
@@ -24,7 +24,7 @@ ms.locfileid: "68314326"
 - [**Precedente** Scopri la tecnologia VPN Always On](../always-on-vpn-technology-overview.md)
 - [**Prossimo** Iniziare a pianificare la distribuzione di Always On VPN](always-on-vpn-deploy-planning.md)
 
-Oltre agli scenari di distribuzione disponibili, è possibile aggiungere altre funzionalità VPN avanzate per migliorare la sicurezza e la disponibilità della connessione VPN. Questi componenti, ad esempio, consentono di garantire che il client connesso sia integro prima di consentire una connessione.
+Oltre agli scenari di distribuzione disponibili, è possibile aggiungere altre funzionalità VPN avanzate per migliorare la sicurezza e la disponibilità della connessione VPN. Ad esempio, il server VPN può usare queste funzionalità per verificare che il client connesso sia integro prima di consentire una connessione.
 
 ## <a name="high-availability"></a>Disponibilità elevata
 
@@ -32,7 +32,7 @@ Di seguito sono riportate altre opzioni per la disponibilità elevata.
 
 |Opzione  |Descrizione  |
 |---------|---------|
-|Resilienza del server e bilanciamento del carico     |Negli ambienti che richiedono disponibilità elevata o supportano un numero elevato di richieste, è possibile aumentare le prestazioni e la resilienza dell'accesso remoto usando il bilanciamento del carico tra più server che eseguono Server dei criteri di rete (NPS) e abilitando Remote Accesso al clustering di server.<p>Documenti correlati:<ul><li>[Bilanciamento del carico del server proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Distribuire Accesso remoto in un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
+|Resilienza del server e bilanciamento del carico     |Negli ambienti che richiedono disponibilità elevata o che supportano un numero elevato di richieste, è possibile aumentare le prestazioni e la resilienza dell'accesso remoto usando il bilanciamento del carico tra più server che eseguono Server dei criteri di rete (NPS) e abilitando Clustering del server di accesso remoto.<p>Documenti correlati:<ul><li>[Bilanciamento del carico del server proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Distribuire Accesso remoto in un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
 |Resilienza del sito geografico     |Per la georilevazione basata su IP, è possibile usare gestione traffico globale con DNS in Windows Server 2016. Per il bilanciamento del carico geografico più affidabile, è possibile usare soluzioni globali di bilanciamento del carico del server, ad esempio Gestione traffico di Microsoft Azure.<p>Documenti correlati:<ul><li>[Panoramica di gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>Autenticazione avanzata
@@ -41,7 +41,7 @@ Di seguito sono riportate altre opzioni per l'autenticazione.
 
 |Opzione  |Descrizione  |
 |---------|---------|
-|Windows Hello for Business     |In Windows 10, su PC e dispositivi mobili Windows Hello for Business sostituisce le password con l'autenticazione avanzata a due fattori. Questa autenticazione è costituita da un nuovo tipo di credenziale utente associato a un dispositivo e utilizza un PIN (biometrico o identificazione personale).<p>Il client VPN di Windows 10 è compatibile con Windows Hello for business. Dopo che l'utente ha eseguito l'accesso con un movimento, la connessione VPN usa il certificato di Windows Hello for business per l'autenticazione basata sui certificati.<p>Documenti correlati:<ul><li>[Windows Hello for business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)</li><li>Case study tecnico: [Abilitazione dell'accesso remoto con Windows Hello for business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx)</li></ul>         |
+|Windows Hello for Business     |In Windows 10, Windows Hello for business sostituisce le password fornendo un'autenticazione a due fattori avanzata nei PC e nei dispositivi mobili. Questa autenticazione è costituita da un nuovo tipo di credenziale utente associato a un dispositivo e utilizza un PIN (biometrico o identificazione personale).<p>Il client VPN di Windows 10 è compatibile con Windows Hello for business. Dopo che l'utente ha eseguito l'accesso usando un movimento, la connessione VPN usa il certificato di Windows Hello for business per l'autenticazione basata sui certificati.<p>Documenti correlati:<ul><li>[Windows Hello for business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)</li><li>Case study tecnico: [Abilitazione dell'accesso remoto con Windows Hello for business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx)</li></ul>         |
 |Autenticazione a più fattori di Azure     |Azure multi-factor authentication offre versioni cloud e locali che è possibile integrare con il meccanismo di autenticazione VPN di Windows.<p>Per altre informazioni sul funzionamento di questo meccanismo, vedere [integrare l'autenticazione RADIUS con il server Azure Multifactor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius).         |
 
 ## <a name="advanced-vpn-features"></a>Funzionalità VPN avanzate
@@ -50,9 +50,9 @@ Di seguito sono riportate le opzioni aggiuntive per le funzionalità avanzate.
 
 |Opzione  |Descrizione  |
 |---------|---------|
-|Filtro del traffico     |Se è necessario imporre a quali applicazioni i client VPN possono accedere, è possibile abilitare i filtri di traffico VPN.<p>Per altre informazioni, vedere [funzionalità di sicurezza VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features).         |
+|Filtro del traffico     |Se è necessario applicare la scelta dei client VPN che possono accedere alle applicazioni, è possibile abilitare i filtri di traffico VPN.<p>Per altre informazioni, vedere [funzionalità di sicurezza VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features).         |
 |VPN attivata dall'app     |È possibile configurare i profili VPN per la connessione automatica quando si avviano determinate applicazioni o tipi di applicazioni.<p>Per altre informazioni su questa e altre opzioni di attivazione, vedere [Opzioni del profilo attivato automaticamente da VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile).         |
-|Accesso condizionale VPN   |L'accesso condizionale e la conformità dei dispositivi possono richiedere che i dispositivi gestiti soddisfino gli standard prima che possano connettersi alla VPN. Una delle funzionalità avanzate per l'accesso condizionale VPN consente di limitare le connessioni VPN solo a quelle in cui il certificato di autenticazione client contiene l'OID di "accesso condizionale AAD" di "1.3.6.1.4.1.311.87".<p>Per limitare le connessioni VPN, è necessario:<ol><li>Nel server dei criteri di rete aprire lo snap-in **Server dei criteri di rete** .</li><li>Espandere **criteri** > criteri di**rete**.</li><li>Fare clic con il pulsante destro del mouse su connessioni di rete **privata virtuale (VPN)** e selezionare **Proprietà**.</li><li>Selezionare la scheda **Impostazioni** .</li><li>Selezionare **specifico del fornitore** e selezionare **Aggiungi**.</li><li>Selezionare l'opzione **allowed-certificate-OID** , quindi selezionare **Aggiungi**.</li><li>Incollare l'OID di accesso condizionale di AAD di **1.3.6.1.4.1.311.87** come valore dell'attributo, quindi selezionare **OK** due volte.</li><li>Selezionare **Chiudi** e quindi **applica**.<p>A questo punto, quando i client VPN tentano di connettersi usando un certificato diverso dal certificato cloud di breve durata, la connessione avrà esito negativo.</li></ol>Per altre informazioni sull'accesso condizionale, vedere [VPN e accesso condizionale](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).   |
+|Accesso condizionale VPN   |L'accesso condizionale e la conformità dei dispositivi possono richiedere che i dispositivi gestiti soddisfino gli standard prima che possano connettersi alla VPN. Una delle funzionalità avanzate per l'accesso condizionale VPN consente di limitare le connessioni VPN solo a quelle in cui il certificato di autenticazione client contiene l'OID "accesso condizionale AAD" di **1.3.6.1.4.1.311.87**.<p>Per limitare le connessioni VPN, è necessario eseguire le operazioni seguenti:<ol><li>Nel server dei criteri di rete aprire lo snap-in **Server dei criteri di rete** .</li><li>Espandere **criteri** > criteri di**rete**.</li><li>Fare clic con il pulsante destro del mouse su connessioni di rete **privata virtuale (VPN)** e selezionare **Proprietà**.</li><li>Selezionare la scheda **Impostazioni** .</li><li>Selezionare **specifico del fornitore**e quindi selezionare **Aggiungi**.</li><li>Selezionare l'opzione **allowed-certificate-OID** , quindi selezionare **Aggiungi**.</li><li>Incollare l'OID di accesso condizionale di AAD di **1.3.6.1.4.1.311.87** come valore dell'attributo, quindi selezionare **OK** due volte.</li><li>Selezionare **Chiudi**e quindi fare clic su **applica**.<p>Dopo aver eseguito questi passaggi, quando i client VPN tentano di connettersi usando un certificato diverso dal certificato cloud di breve durata, la connessione non riesce.</li></ol>Per altre informazioni sull'accesso condizionale, vedere [VPN e accesso condizionale](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).   |
 
 
 ---
@@ -66,11 +66,11 @@ Nella tabella seguente sono elencate le date di rilascio approssimative delle co
 
 |Versione del sistema operativo |Data di rilascio o di rilascio * |
 |---------|---------|
-|Windows Server, versione 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375)  |
+|Windows Server, versione 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, versione 1809  |Q3, 2019  |
 |Windows Server, versione 1803  |Q3, 2019  |
 |Windows Server, versione 1709  |Q3, 2019  |
-|Windows Server 2016, versione 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294)  |
+|Windows Server 2016, versione 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
   
 \*Tutte le date di rilascio sono elencate in calendar Quarters. Le date sono approssimative e possono cambiare senza preavviso. Quando viene rilasciato un aggiornamento, un collegamento alla versione sostituisce la data di rilascio.
 
@@ -140,13 +140,13 @@ Per disabilitare la revoca dei certificati per queste connessioni VPN, impostare
 
 ### <a name="trusted-platform-module-tpm-key-attestation"></a>Attestazione chiave Trusted Platform Module (TPM)
 
-Un certificato utente con una chiave con attestazione TPM offre una garanzia di sicurezza più elevata, sottoposta a backup da non esportabilità, anti-martellamento e isolamento delle chiavi fornite dal TPM.
+Un certificato utente che dispone di una chiave con attestazione TPM garantisce una sicurezza più elevata, sottoposta a backup da non esportabilità, anti-martellamento e isolamento delle chiavi fornite dal TPM.
 
 Per ulteriori informazioni sull'attestazione chiave TPM in Windows 10, vedere [attestazione chiave TPM](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation).
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Iniziare a pianificare la distribuzione di always on VPN](always-on-vpn-deploy-planning.md): Prima di installare il ruolo del server accesso remoto nel computer che si sta pianificando di usare come server VPN, eseguire le attività seguenti. Dopo la pianificazione corretta, è possibile distribuire Always On VPN e, facoltativamente, configurare l'accesso condizionale per la connettività VPN usando Azure AD.  
+[Iniziare a pianificare la distribuzione di always on VPN](always-on-vpn-deploy-planning.md): Prima di installare il ruolo del server accesso remoto nel computer che si intende utilizzare come server VPN, effettuare le operazioni seguenti. Dopo la pianificazione appropriata, è possibile distribuire Always On VPN e, facoltativamente, configurare l'accesso condizionale per la connettività VPN usando Azure AD.  
 
 ## <a name="related-topics"></a>Argomenti correlati
 - [Bilanciamento del carico del server proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md): I client RADIUS (Remote Authentication Dial-in User Service), che sono server di accesso alla rete, ad esempio server VPN (Virtual Private Network) e punti di accesso wireless, creano richieste di connessione e le inviano ai server RADIUS, ad esempio NPS. In alcuni casi, un server NPS può ricevere troppe richieste di connessione contemporaneamente, causando un calo delle prestazioni o un sovraccarico.

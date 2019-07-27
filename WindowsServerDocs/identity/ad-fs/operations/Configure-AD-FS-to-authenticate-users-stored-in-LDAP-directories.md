@@ -9,38 +9,38 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2053f0a93f33cdfdd85eec8cdbb6eca4ebad1ff0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 87ada412e6b4ab47aa18a62953b84d8a1369dffa
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444922"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544513"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Configurare AD FS per l'autenticazione di utenti memorizzati nelle directory LDAP
 
-L'argomento seguente descrive la configurazione necessaria per abilitare l'infrastruttura AD FS autenticare gli utenti la cui identità sono memorizzati nelle directory v3 conforme a Lightweight Directory Access Protocol (LDAP).
+Nell'argomento seguente viene descritta la configurazione necessaria per abilitare l'infrastruttura di AD FS per l'autenticazione degli utenti le cui identità sono archiviate nelle directory conformi a LDAP (Lightweight Directory Access Protocol) v3.
 
-In molte organizzazioni, soluzioni di gestione delle identità è costituita da una combinazione di Active Directory, AD LDS o directory LDAP di terze parti. Con l'aggiunta del supporto di AD FS per l'autenticazione degli utenti memorizzati nelle directory v3 conforme a LDAP, è possibile trarre vantaggio dall'intera aziendale ADFS set indipendentemente dal fatto in cui sono archiviate le identità utente di funzionalità. ADFS supporta qualsiasi directory v3 conforme a LDAP.
+In molte organizzazioni, le soluzioni di gestione delle identità sono costituite da una combinazione di Active Directory, AD LDS o directory LDAP di terze parti. Con l'aggiunta del supporto AD FS per l'autenticazione degli utenti archiviati in directory conformi a LDAP v3, è possibile trarre vantaggio dall'intero set di funzionalità di AD FS di livello aziendale indipendentemente dalla posizione in cui sono archiviate le identità utente. AD FS supporta qualsiasi directory conforme a LDAP v3.
 
 > [!NOTE]
-> Alcune delle funzionalità di ADFS includono single sign-on (SSO), l'autenticazione del dispositivo, i criteri di accesso condizionale flessibile, il supporto per da-ovunque ti trovi tramite l'integrazione con il Proxy applicazione Web e facile la federazione con Azure AD che a sua volta Consente di e gli utenti del cloud, tra cui Office 365 e ad altre applicazioni SaaS.  Per altre informazioni, vedere [Panoramica di Active Directory Federation Services](../../ad-fs/AD-FS-2016-Overview.md).
+> Alcune delle funzionalità di AD FS includono Single Sign-on (SSO), autenticazione del dispositivo, criteri di accesso condizionale flessibili, supporto per il lavoro da qualsiasi luogo attraverso l'integrazione con il proxy dell'applicazione Web e Federazione trasparente con Azure AD che a loro volta consente all'utente e agli utenti di usare il cloud, inclusi Office 365 e altre applicazioni SaaS.  Per ulteriori informazioni, vedere [Active Directory Federation Services Overview](../../ad-fs/AD-FS-2016-Overview.md).
 
-In ordine per AD FS autenticare gli utenti da una directory LDAP, è necessario connettersi questa directory LDAP per la farm AD FS mediante la creazione di un **trust del provider di attestazioni locale**.  Un trust del provider di attestazioni locale è un oggetto trust che rappresenta una directory LDAP della farm AD FS. Una variabile locale di attestazioni trust del provider di oggetti è costituito da diversi identificatori, nomi e regole che identificano la directory LDAP per il servizio federativo locale.
+Per consentire AD FS di autenticare gli utenti da una directory LDAP, è necessario connettere questa directory LDAP alla farm di AD FS creando un **trust del provider di attestazioni locale**.  Un trust del provider di attestazioni locale è un oggetto trust che rappresenta una directory LDAP nella farm AD FS. Un oggetto trust del provider di attestazioni locale è costituito da diversi identificatori, nomi e regole che identificano questa directory LDAP per il servizio federativo locale.
 
-È possibile supportare più directory LDAP, ognuno con la propria configurazione, all'interno della stessa farm di AD FS aggiungendo più **attendibilità del provider di attestazioni locale**. Inoltre, le foreste di Active Directory Domain Services che non è attendibile per la foresta che ADFS si trova in possono essere modellate come provider di attestazioni locale. È possibile creare provider di attestazioni locale tramite Windows PowerShell.
+È possibile supportare più directory LDAP, ognuna con la propria configurazione, all'interno della stessa farm AD FS aggiungendo più **trust del provider di attestazioni locali**. Inoltre, le foreste di Active Directory Domain Services non ritenuti attendibili dalla foresta in cui risiede AD FS possono anche essere modellate come trust del provider di attestazioni locali. È possibile creare trust del provider di attestazioni locale usando Windows PowerShell.
 
-Directory LDAP (attendibilità del provider di attestazioni locale) può coesistere con le directory di Active Directory (attendibilità del provider di attestazioni) nello stesso server AD FS, all'interno della stessa farm di ADFS, pertanto, non è in grado di autenticare e autorizzare l'accesso per gli utenti che sono una singola istanza di AD FS archiviato in entrambi AD e non AD Directory.
+Le directory LDAP (trust del provider di attestazioni locali) possono coesistere con le directory di AD (trust del provider di attestazioni) nello stesso server AD FS, all'interno della stessa farm AD FS, pertanto, una singola istanza di AD FS è in grado di autenticare e autorizzare l'accesso per gli utenti che sono Archiviato in directory e non AD.
 
-Solo l'autenticazione basata su form è supportata per l'autenticazione degli utenti dalla directory LDAP. L'autenticazione Windows integrata e basata su certificati non sono supportati per l'autenticazione degli utenti nelle directory LDAP.
+Per l'autenticazione degli utenti dalle directory LDAP è supportata solo l'autenticazione basata su form. L'autenticazione di Windows integrata e basata su certificati non è supportata per l'autenticazione degli utenti nelle directory LDAP.
 
-Tutti i protocolli di autorizzazione passivo che sono supportati da AD FS, tra cui SAML, WS-Federation e OAuth sono supportate anche per le identità che vengono archiviate nelle directory LDAP.
+Tutti i protocolli di autorizzazione passiva supportati da AD FS, tra cui SAML, WS-Federation e OAuth, sono supportati anche per le identità archiviate nelle directory LDAP.
 
-Il protocollo di autorizzazione attivi WS-Trust supportato anche per le identità che vengono archiviate nelle directory LDAP.
+Il protocollo di autorizzazione attiva WS-Trust è supportato anche per le identità archiviate nelle directory LDAP.
 
 ## <a name="configure-ad-fs-to-authenticate-users-stored-in-an-ldap-directory"></a>Configurare AD FS per autenticare gli utenti archiviati in una directory LDAP
-Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, è possibile completare la procedura seguente:
+Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, è possibile completare i passaggi seguenti:
 
-1. Innanzitutto, configurare una connessione alla directory LDAP con i **New-AdfsLdapServerConnection** cmdlet:
+1. Per prima cosa, configurare una connessione alla directory LDAP usando il cmdlet **New-AdfsLdapServerConnection** :
 
    ```
    $DirectoryCred = Get-Credential
@@ -48,18 +48,18 @@ Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, 
    ```
 
    > [!NOTE]
-   > È consigliabile creare un nuovo oggetto di connessione per ogni server LDAP che si desidera connettersi. ADFS può connettersi a più server LDAP di replica e automaticamente il failover nel caso in cui uno specifico server LDAP è inattivo. Per questo caso, è possibile creare uno AdfsLdapServerConnection per ciascuno di questi server LDAP di replica e quindi aggiungere la matrice di oggetti di connessione usando l'opzione -**LdapServerConnection** parametro del  **Aggiungere-AdfsLocalClaimsProviderTrust** cmdlet.
+   > Si consiglia di creare un nuovo oggetto connessione per ogni server LDAP a cui si desidera connettersi. AD FS possibile connettersi a più server LDAP di replica ed eseguire automaticamente il failover nel caso in cui un server LDAP specifico non sia attivo. In tal caso, è possibile creare un AdfsLdapServerConnection per ognuno di questi server LDAP di replica e quindi aggiungere la matrice di oggetti connessione utilizzando il parametro-**LdapServerConnection** del cmdlet **Add-AdfsLocalClaimsProviderTrust** .
 
-   **NOTA:** Il tentativo di usare Get-Credential e digitare un nome distinto e una password da usare per l'associazione a un'istanza LDAP può comportare un errore perché del requisito di interfaccia utente per specifici formati di input, ad esempio DOMINIO\nome utente o user@domain.tld. È invece possibile usare il cmdlet ConvertTo-SecureString come indicato di seguito (l'esempio seguente presuppone l'uid = admin, ou = system come DN delle credenziali da utilizzare per eseguire l'associazione all'istanza di LDAP):
+   **NOTA:** Il tentativo di usare Get-Credential e digitare un DN e una password da usare per l'associazione a un'istanza LDAP potrebbe causare un errore a causa del requisito dell'interfaccia utente per formati di input specifici, ad esempio dominio\nomeutente o user@domain.tld. È invece possibile usare il cmdlet ConvertTo-SecureString come indicato di seguito (nell'esempio seguente si presuppone UID = admin, ou = System come DN delle credenziali da usare per l'associazione all'istanza LDAP):
 
    ```
    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
    $DirectoryCred = Get-Credential -username $ldapuser -Message "Enter the credentials to bind to the LDAP instance:"
    ```
 
-   Quindi immettere la password per l'uid = admin e completare il resto dei passaggi.
+   Immettere quindi la password per uid = Admin e completare i passaggi rimanenti.
 
-2. Successivamente, è possibile eseguire il passaggio facoltativo di mapping degli attributi LDAP per le attestazioni di ADFS esistente usando il **New-AdfsLdapAttributeToClaimMapping** cmdlet. Nell'esempio seguente, si esegue il mapping givenName, cognome, e gli attributi LDAP CommonName per le attestazioni di AD FS:
+2. Successivamente, è possibile eseguire il passaggio facoltativo del mapping degli attributi LDAP alle attestazioni di AD FS esistenti usando il cmdlet **New-AdfsLdapAttributeToClaimMapping** . Nell'esempio seguente viene mappato gli attributi DATANAME, cognome e CommonName LDAP alle attestazioni AD FS:
 
    ```
    #Map given name claim
@@ -70,9 +70,9 @@ Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, 
    $CommonName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute cn -ClaimType "http://schemas.xmlsoap.org/claims/CommonName"
    ```
 
-   Questo mapping viene eseguito per liberare gli attributi dall'archivio LDAP come attestazioni in ADFS per creare regole di controllo di accesso condizionale in AD FS. Consente inoltre AD FS da usare con gli schemi personalizzati negli archivi LDAP, che fornisce un modo semplice per eseguire il mapping di attributi LDAP ai reclami.
+   Questo mapping viene eseguito per fare in modo che gli attributi dell'archivio LDAP siano disponibili come attestazioni in AD FS per creare regole di controllo di accesso condizionale in AD FS. Consente inoltre AD FS di utilizzare schemi personalizzati negli archivi LDAP offrendo un modo semplice per eseguire il mapping degli attributi LDAP alle attestazioni.
 
-3. Infine, è necessario registrare l'archivio LDAP con AD FS come una variabile locale di attestazioni provider attendibilità tramite il **Add-AdfsLocalClaimsProviderTrust** cmdlet:
+3. Infine, è necessario registrare l'archivio LDAP con AD FS come trust del provider di attestazioni locale usando il cmdlet **Add-AdfsLocalClaimsProviderTrust** :
 
    ```
    Add-AdfsLocalClaimsProviderTrust -Name "Vendors" -Identifier "urn:vendors" -Type Ldap
@@ -93,7 +93,7 @@ Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, 
    -OrganizationalAccountSuffix "vendors.contoso.com"
    ```
 
-   Nell'esempio precedente, si crea un trust del provider di attestazioni locale denominato "Fornitori". Si specificano le informazioni di connessione per AD FS per la connessione alla directory LDAP questa attendibilità del provider di attestazioni locale rappresenta assegnando `$vendorDirectory` per il `-LdapServerConnection` parametro. Si noti che nel passaggio 1, è stata assegnata `$vendorDirectory` una stringa di connessione da utilizzare quando ci si connette alla directory LDAP specifica. Infine, si specifica che il `$GivenName`, `$Surname`, e `$CommonName` attributi LDAP (che è stata associata alle attestazioni AD FS) devono essere utilizzati per il controllo di accesso condizionale, compresi i criteri di autenticazione a più fattori e rilascio regole di autorizzazione, oltre a quella di rilascio tramite attestazioni nei token di sicurezza emesso da ADFS di Active Directory. Per usare active protocolli come Ws-Trust con ADFS, è necessario specificare il parametro OrganizationalAccountSuffix, che consente di ADFS evitare ambiguità tra trust di provider di attestazioni locale durante la manutenzione di una richiesta di autorizzazione attivi.
+   Nell'esempio precedente si crea un trust del provider di attestazioni locale denominato "vendors". Si specificano le informazioni di connessione per ad FS per connettersi alla directory LDAP rappresentata dall'attendibilità del provider di `$vendorDirectory` attestazioni `-LdapServerConnection` locale assegnando al parametro. Si noti che nel passaggio uno è stata assegnata `$vendorDirectory` una stringa di connessione da usare per la connessione alla directory LDAP specifica. Infine, si specifica che gli attributi `$GivenName`LDAP `$Surname`, e `$CommonName` (di cui è stato eseguito il mapping alle attestazioni ad FS) devono essere usati per il controllo di accesso condizionale, inclusi i criteri di autenticazione a più fattori e il rilascio le regole di autorizzazione, nonché per il rilascio tramite attestazioni nei token di sicurezza emessi da AD FS. Per usare i protocolli attivi come WS-Trust con AD FS, è necessario specificare il parametro OrganizationalAccountSuffix, che consente AD FS di evitare ambiguità tra i trust del provider di attestazioni locali durante la manutenzione di una richiesta di autorizzazione attiva.
 
 ## <a name="see-also"></a>Vedere anche
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md)

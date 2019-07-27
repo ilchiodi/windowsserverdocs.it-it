@@ -1,6 +1,6 @@
 ---
 title: mountvol
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03e7cefc7c7a00338972fc365b7c25d9c795c83e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 07c57f7ab9c41d6155e4a8d38322176aabf3868f
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437287"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544595"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -26,7 +26,7 @@ ms.locfileid: "66437287"
 
 Crea, Elimina o elenca un punto di montaggio del volume.
 
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -42,24 +42,24 @@ mountvol <Drive>: /s
 
 ## <a name="parameters"></a>Parametri
 
-|     Parametro     |                                                                                                                           Descrizione                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                                                                                             Specifica la directory NTFS esistente in cui risiederà il punto di montaggio.                                                                                             |
-|   \<VolumeName>   |                     Specifica il nome del volume di destinazione del punto di montaggio. Il nome del volume viene utilizzata la sintassi seguente, dove *GUID* è un identificatore univoco globale:</br>`\\\\?\Volume\{GUID}\`</br>Sono necessarie le parentesi {}.                      |
-|        /d         |                                                                                                    Rimuove il punto di montaggio del volume dalla cartella specificata.                                                                                                     |
-|        /l         |                                                                                                     Elenca il nome del volume montate per la cartella specificata.                                                                                                      |
-|        / p         | Rimuove il punto di montaggio del volume della directory specificata e lo Smonta il volume di base accetta il volume di base non in linea, rendendolo non montabile. Se altri processi usano il volume **mountvol** chiude tutti gli handle aperti prima di smontare il volume. |
-|        /r         |             Rimuove le directory di punto di montaggio di volume e le impostazioni del Registro di sistema per i volumi che non sono più nel sistema, impedisce che venga montato automaticamente e dato il loro volume precedente quando aggiunto nuovamente al sistema i punti di montaggio.              |
-|        /n         |                                                                      Disabilita il montaggio automatico dei nuovi volumi di base. I nuovi volumi non vengono montati automaticamente quando aggiunto al sistema.                                                                       |
-|        /e         |                                                                                                       Abilita nuovamente il montaggio automatico dei nuovi volumi di base.                                                                                                        |
-|        /s         |                                                                                Consente di montare la partizione di sistema EFI nell'unità specificata. Disponibili solo i computer basati su Itanium.                                                                                |
-|        /?         |                                                                                                               Visualizza la guida al prompt dei comandi.                                                                                                               |
+|Parametro|Descrizione|
+|---------|-----------|
+|[\<Unità >:]<Path>|Specifica la directory NTFS esistente in cui si trova il punto di montaggio.|
+|\<VolumeName >|Specifica il nome del volume che rappresenta la destinazione del punto di montaggio. Il nome del volume usa la sintassi seguente, dove *GUID* è un identificatore univoco globale:</br>`\\\\?\Volume\{GUID}\`</br>Le parentesi quadre {} sono obbligatorie.|
+|/d|Rimuove il punto di montaggio del volume dalla cartella specificata.|
+|/l|Elenca il nome del volume montato per la cartella specificata.|
+|/ p|Rimuove il punto di montaggio del volume dalla directory specificata, smonta il volume di base e porta il volume di base offline, rendendolo non montabile. Se il volume viene usato da altri processi, **mountvol** chiude tutti gli handle aperti prima di smontare il volume.|
+|/r|Rimuove le directory del punto di montaggio del volume e le impostazioni del registro di sistema per i volumi che non sono più presenti nel sistema, impedendone l'installazione automatica e assegnando i punti di montaggio del volume precedenti quando vengono aggiunti di nuovo al sistema.|
+|/n|Disabilita il montaggio automatico dei nuovi volumi di base. Quando vengono aggiunti al sistema, i nuovi volumi non vengono montati automaticamente.|
+|/e|Consente di riattivare il montaggio automatico dei nuovi volumi di base.|
+|/s|Monta la partizione di sistema EFI sull'unità specificata.|
+|/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   **Mountvol** consente di collegare i volumi senza che richiede una lettera di unità.
--   I volumi che vengono disinstallati tramite **/p** elencate nell'elenco di volumi come "Non montata UNTIL un punto di montaggio creato". Se il volume ha più di un montaggio punti, usare **/d** per rimuovere i punti di montaggio aggiuntivi prima di usare **/p**. È possibile rendere il volume di base montabile nuovamente mediante l'assegnazione di un punto di montaggio del volume.
--   Se si desidera espandere dello spazio dei volumi senza riformattazioni o sostituire un disco rigido, è possibile aggiungere un percorso di montaggio in un altro volume. Il vantaggio dell'uso di un volume con più percorsi di montaggio prevede che è possibile accedere a tutti i volumi locali usando una singola lettera di unità (ad esempio `C:`). Non è necessario ricordare il volume che corrisponde alla lettera di unità, anche se è comunque possibile montare i volumi locali e assegnare loro le lettere di unità.
+-   **Mountvol** consente di collegare volumi senza richiedere una lettera di unità.
+-   I volumi smontati con **/p** sono elencati nell'elenco volumi come "non montati fino a quando non viene creato un punto di montaggio del volume". Se il volume ha più di un punto di montaggio, utilizzare **/d** per rimuovere i punti di montaggio aggiuntivi prima di utilizzare **/p**. È possibile rendere il volume di base montabile di nuovo assegnando un punto di montaggio del volume.
+-   Se è necessario espandere lo spazio del volume senza riformattare o sostituire un disco rigido, è possibile aggiungere un percorso di montaggio a un altro volume. Il vantaggio dell'utilizzo di un volume con diversi percorsi di montaggio è che è possibile accedere a tutti i volumi locali utilizzando una singola lettera di `C:`unità (ad esempio). Non è necessario ricordare quale volume corrisponde alla lettera di unità, sebbene sia ancora possibile montare volumi locali e assegnare loro lettere di unità.
 
 ## <a name="BKMK_examples"></a>Esempi
 

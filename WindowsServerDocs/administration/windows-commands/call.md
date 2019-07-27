@@ -1,6 +1,6 @@
 ---
-title: chiamare
-description: 'Argomento i comandi di Windows per * * *- '
+title: chiama
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 1f5253700f2932b2afa725163121e64ea4c1748d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e4331870f31309646974f5839d5aa70e534351e5
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434586"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590425"
 ---
-# <a name="call"></a>chiamare
+# <a name="call"></a>chiama
 
 
 
-Richiama un programma batch da un'altra senza interrompere il programma batch. Il **chiamare** comando accetta le etichette come destinazione della chiamata.
+Chiama un programma batch da un altro senza arrestare il programma batch padre. Il comando **Call** accetta le etichette come destinazione della chiamata.
 
 > [!NOTE]
-> **Chiamare** al prompt dei comandi non ha alcun effetto quando viene usata all'esterno di un file batch o script.
+> La **chiamata** non ha effetto al prompt dei comandi quando viene usata all'esterno di uno script o di un file batch.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -41,72 +41,72 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Parametro           |                                                                         Descrizione                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:][<Path>]<FileName> | Specifica il percorso e nome del programma batch che si desidera chiamare. Il *FileName* parametro è obbligatorio e deve avere un'estensione. bat o cmd. |
-|      \<BatchParameters>       |                                            Specifica le informazioni della riga di comando necessari per il programma batch.                                             |
-|           :\<Etichetta >           |                                            Specifica l'etichetta da un controllo del programma batch a cui passare.                                             |
-|         \<argomenti >          |                     Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, iniziando in corrispondenza *: etichetta.*                     |
+| [\<Unità >:] [\<percorso >]<FileName> | Specifica il percorso e il nome del programma batch che si desidera chiamare. Il parametro *filename* è obbligatorio e deve avere un'estensione. bat o. cmd. |
+|      \<> BatchParameters       |                                            Specifica le informazioni della riga di comando richieste dal programma batch.                                             |
+|           :\<Etichetta >           |                                            Specifica l'etichetta a cui si desidera passare un controllo del programma batch.                                             |
+|         \<Argomenti >          |                     Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, a partire da *: Label.*                     |
 |              /?               |                                                             Visualizza la guida al prompt dei comandi.                                                             |
 
-## <a name="batch-parameters"></a>Parametri di batch
+## <a name="batch-parameters"></a>Parametri batch
 
-I riferimenti agli argomenti di script batch ( **%0**, **%1**,...) sono elencati nelle tabelle seguenti.
+I riferimenti all'argomento dello script batch ( **% 0**, **% 1**,...) sono elencati nelle tabelle seguenti.
 
-**%** * in un batch dello script fa riferimento a tutti gli argomenti (ad esempio, **%1**, **%2**, **%3**...)
+**%\*** in uno script batch si riferisce a tutti gli argomenti (ad esempio, **% 1**, **% 2**, **% 3**...)
 
-È possibile usare la sintassi facoltativi seguenti come le sostituzioni per i parametri di batch ( **%n**):
+È possibile utilizzare le seguenti sintassi facoltative come sostituzioni per i parametri batch ( **% n**):
 
-|Parametro di batch|Descrizione|
+|Parametro batch|Descrizione|
 |---------------|-----------|
-|%~1|Si espande **%1** e rimuove circostanti racchiusi tra virgolette ("").|
-|%~f1|Si espande **%1** a un percorso completo.|
-|%~d1|Si espande **%1** in solo una lettera di unità.|
-|%~p1|Si espande **%1** solo in un percorso.|
-|%~n1|Si espande **%1** a solo un nome di file.|
-|%~x1|Si espande **%1** per un'estensione di file solo.|
-|%~s1|Si espande **%1** a un percorso completo che contiene solo i nomi brevi.|
-|%~a1|Si espande **%1** agli attributi di file.|
-|%~t1|Si espande **%1** a data e ora del file.|
-|%~z1|Si espande **%1** alle dimensioni del file.|
-|%~$PATH:1|Cerca directory elencate nella variabile di ambiente PATH ed espande **%1** per specificare il nome completo della directory prima disponibile. Se il nome di variabile di ambiente non è definito o non è possibile trovare il file con la ricerca, quindi questo modificatore si espande in una stringa vuota.|
+|% ~ 1|Espande **% 1** e rimuove le virgolette circostanti ("").|
+|% ~ F1|Espande **% 1** in un percorso completo.|
+|% ~ D1|Espande **% 1** solo a una lettera di unità.|
+|% ~ P1|Espande **% 1** solo in un percorso.|
+|% ~ N1|Espande **% 1** solo in un nome file.|
+|% ~ X1|Espande **% 1** solo in un'estensione del nome di file.|
+|% ~ S1|Espande **% 1** in un percorso completo che contiene solo nomi brevi.|
+|% ~ a1|Espande **% 1** sugli attributi del file.|
+|% ~ T1|Espande **% 1** alla data e all'ora del file.|
+|% ~ Z1|Espande **% 1** fino alla dimensione del file.|
+|% ~ $PATH: 1|Esegue la ricerca nelle directory elencate nella variabile di ambiente PATH ed espande **% 1** con il nome completo della prima directory trovata. Se il nome della variabile di ambiente non è definito o il file non viene trovato dalla ricerca, questo modificatore espande la stringa vuota.|
 
-Nella tabella seguente viene illustrato come è possibile combinare i modificatori con i parametri di batch per ottenere risultati composti:
+La tabella seguente illustra come è possibile combinare i modificatori con i parametri batch per i risultati composti:
 
-|Parametro di batch con modificatore|Descrizione|
+|Parametro batch con modificatore|Descrizione|
 |-----------------------------|-----------|
-|%~dp1|Si espande **%1** una lettera di unità e un solo percorso.|
-|%~nx1|Si espande **%1** a un nome di file e solo l'estensione.|
-|%~dp$PATH:1|Cerca directory elencate nella variabile di ambiente PATH per **%1**e quindi si espande la lettera di unità e percorso della directory prima disponibile.|
-|%~ftza1|Si espande **%1** per visualizzare l'output simile al **dir** comando.|
+|% ~ DP1|Espande **% 1** in una lettera di unità e un solo percorso.|
+|% ~ nx1|Espande **% 1** solo in un nome file e un'estensione.|
+|% ~ dp $ PATH: 1|Esegue la ricerca nelle directory elencate nella variabile di ambiente PATH per **% 1**, quindi si espande alla lettera di unità e al percorso della prima directory trovata.|
+|% ~ ftza1|Espande **% 1** per visualizzare un output simile al comando **dir** .|
 
-Negli esempi precedenti, **%1** e percorso può essere sostituito da altri valori validi. Il <strong>%~</strong> sintassi viene terminata da un numero di argomento valido. Il <strong>%~</strong> i modificatori non possono essere usati con **%\\** *.
+Negli esempi precedenti, **% 1** e Path possono essere sostituiti da altri valori validi. La <strong>%~</strong> sintassi viene terminata con un numero di argomento valido. I <strong>%~</strong> modificatori non possono essere usati **% \\ \*** con.
 
 ## <a name="remarks"></a>Note
 
--   Utilizzo di parametri di batch
+-   Uso dei parametri batch
 
-    Parametri batch possono contenere qualsiasi informazione che è possibile passare a un file batch, incluse le opzioni della riga di comando, i nomi di file, i parametri di batch **%0** attraverso **%9**, variabili e (ad esempio **% baud %** ).
--   Usando il *etichetta* parametro
+    I parametri batch possono contenere tutte le informazioni che è possibile passare a un programma batch, incluse le opzioni della riga di comando, i nomi file, i parametri batch da **% 0** a **% 9**e le variabili (ad esempio, **% baud%** ).
+-   Uso del parametro *Label*
 
-    Usando **chiamare** con il *etichetta* parametro, creare un nuovo contesto di file batch e passare il controllo all'istruzione dopo l'etichetta specificata. La prima volta che viene rilevata la fine del file batch (vale a dire, dopo il passaggio all'etichetta), controllo viene restituito all'istruzione dopo il **chiamare** istruzione. La seconda volta che viene rilevata la fine del file batch, il batch viene terminato.
--   Usando pipe e i simboli di reindirizzamento
+    Utilizzando **Call** con il parametro *Label* , viene creato un nuovo contesto del file batch e viene passato il controllo all'istruzione dopo l'etichetta specificata. La prima volta che viene rilevata la fine del file batch (ovvero dopo il passaggio all'etichetta), il controllo torna all'istruzione successiva all'istruzione **Call** . La seconda volta che viene rilevata la fine del file batch, lo script batch viene terminato.
+-   Uso di pipe e simboli di Reindirizzamento
 
-    Non usare pipe ( **|** ) e simboli di reindirizzamento ( **<** oppure **>** ) con **chiamare**.
--   Effettua una chiamata ricorsiva
+    **|** Non usare pipe () e simboli di reindirizzamento ( **<** o **>** ) con **Call**.
+-   Esecuzione di una chiamata ricorsiva
 
-    È possibile creare un file batch che chiama se stessa. Tuttavia, è necessario specificare una condizione di uscita. In caso contrario, i programmi di batch padre e figlio un ciclo infinito.
+    È possibile creare un programma batch che chiama se stesso. Tuttavia, è necessario fornire una condizione di uscita. In caso contrario, i programmi batch padre e figlio possono eseguire un ciclo infinito.
 -   Utilizzo di estensioni di comando
 
-    Se sono abilitate le estensioni dei comandi, **chiamare** accetta *etichetta* come destinazione della chiamata. La sintassi corretta è come segue:
+    Se sono abilitate le estensioni dei comandi, la **chiamata** accetta l' *etichetta* come destinazione della chiamata. La sintassi corretta è la seguente:
 
     `call :\<Label> <Arguments>`
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per eseguire il programma bat da un altro programma batch, digitare il comando seguente nel programma batch padre:
+Per eseguire il programma denominato nuovo. bat da un altro programma batch, digitare il comando seguente nel programma batch padre:
 ```
 call checknew
 ```
-Se il programma batch accetta due parametri di batch e si vuole poter passare tali parametri a bat, digitare il comando seguente nel programma batch padre:
+Se il programma batch padre accetta due parametri batch e si desidera che i parametri vengano passati a denominato nuovo. bat, digitare il comando seguente nel programma batch padre:
 ```
 call checknew %1 %2
 ```
