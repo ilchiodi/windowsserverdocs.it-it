@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4a305141b839772bb024140bd803073a67e266b2
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688546"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544581"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Confronto tra le edizioni Standard e Datacenter di Windows Server 2016
 
@@ -123,7 +123,7 @@ ms.locfileid: "63688546"
 |Limite larghezza di banda SMB|Sì|Sì|
 |Server SMTP|Sì|Sì|
 |Servizio SNMP|Sì|Sì|
-|Bilanciamento del carico software|Sì|Sì|
+|Bilanciamento del carico software|No|Sì|
 |Replica archiviazione|No|Sì|
 |Client Telnet|Sì|Sì|
 |Client TFTP|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
@@ -160,7 +160,7 @@ ms.locfileid: "63688546"
 |Opzione di installazione Nano Server|Sì|Sì|
 |Server Manager|Sì|Sì|
 |SMB diretto e SMB su RDMA|Sì|Sì|
-|Rete definita tramite software|No|Sì|
+|Rete software-defined|No|Sì|
 |Servizio Gestione dell'archiviazione|Sì|Sì|
 |Spazi di archiviazione|Sì|Sì|
 |Spazi di archiviazione diretta|No|Sì|
