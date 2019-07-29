@@ -66,13 +66,21 @@
 
 ## [Supporto aggiuntivo di Desktop remoto](rds-get-support.md)
 ## [Client Desktop remoto](clients/remote-desktop-clients.md)
+### Problemi noti di Desktop remoto
+#### [Risoluzione dei problemi relativi alle connessioni di Desktop remoto](troubleshoot/rdp-error-general-troubleshooting.md)
+#### [I client non riescono a connettersi e ricevono l'errore "Classe non registrata"](troubleshoot/rdp-error-class-not-registered.md).
+#### [I client non riescono a connettersi e ricevono l'errore "Non sono disponibili licenze"](troubleshoot/rdp-error-no-licenses-available.md)
+#### [L'utente non riesce ad autenticarsi o deve autenticarsi due volte](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
+#### [Visualizzazione dell'errore "Servizi Desktop remoto è attualmente occupato" al momento della connessione](troubleshoot/remote-desktop-service-currently-busy.md)
+#### [Il client Desktop remoto si disconnette e non riesce a riconnettersi alla stessa sessione](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
+#### [I portatili remoti si disconnettono dalla rete wireless](troubleshoot/remote-laptop-disconnects-wireless-network.md)
+#### [Problemi di prestazioni insoddisfacenti o dell'applicazione durante la connessione di Desktop remoto](troubleshoot/poor-performance-or-application-problems.md)
 ### Informazioni generali
 #### [Quale client si adatta meglio alle tue esigenze?](clients/remote-desktop-app-compare.md)
 #### [Impostazioni del file RDP di Desktop remoto](clients/rdp-files.md)
 #### [Schema URI di Desktop remoto](clients/remote-desktop-uri.md)
 #### [Domande frequenti sul client Desktop remoto](clients/remote-desktop-client-faq.md)
 #### [Impostazioni di privacy per desktop e app gestite](clients/remote-privacy-settings.md)
-#### [Risoluzione dei problemi relativi alle connessioni Desktop remoto](clients/troubleshoot-remote-desktop-connections.md)
 ### Client Desktop remoto per Windows
 #### [Per iniziare](clients/windows.md)
 #### [Novità del client di Windows](clients/windows-whatsnew.md)
