@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.date: 07/17/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 994e2324042dd441abbb114da2b8806574ce0352
-ms.sourcegitcommit: e5553285d509f15c20ba98ad9e8bf69b09531560
+ms.openlocfilehash: e67102d1fa8b35d90e97df64cb8bd2991b205ad5
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68307482"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658882"
 ---
 # <a name="install-windows-admin-center"></a>Installare Windows Admin Center
 
@@ -27,7 +27,7 @@ Questo argomento descrive come installare l'interfaccia di amministrazione di Wi
 
 ## <a name="determine-your-installation-type"></a>Determinare il tipo di installazione
 
-Esaminare le [Opzioni di installazione](../plan/installation-options.md) che includono i [sistemi operativi supportati](../plan/installation-options.md#supported-operating-systems-installation). Per installare l'interfaccia di amministrazione di Windows in una macchina virtuale in Azure, vedere Distribuire l'interfaccia [di amministrazione di Windows in Azure](../azure/deploy-wac-in-azure.md).
+Esaminare le [Opzioni di installazione](../plan/installation-options.md) che includono i [sistemi operativi supportati](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options#installation-supported-operating-systems). Per installare l'interfaccia di amministrazione di Windows in una macchina virtuale in Azure, vedere Distribuire l'interfaccia [di amministrazione di Windows in Azure](../azure/deploy-wac-in-azure.md).
 
 ## <a name="install-on-windows-10"></a>Installare su Windows 10
 
