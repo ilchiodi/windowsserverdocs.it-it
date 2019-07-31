@@ -22,6 +22,7 @@
 ## [Guida di attivazione di Windows Server 2016](Server-2016-activation.md)
 ### [Chiavi di configurazione di client del Servizio di gestione delle chiavi](KMSclientkeys.md)
 ### [Risoluzione dei problemi relativi ai codici di errore di attivazione](activation-error-codes.md)
+####[Procedure comuni per la risoluzione dei problemi relativi a KMS e DNS](common-troubleshooting-procedures-kms-dns.md)
 ## [Installare Nano Server](Getting-started-with-Nano-Server.md)
 ### [Modifiche apportate a Nano Server nella versione successiva di Windows Server](nano-in-semi-annual-channel.md)
 ### [Avvio rapido di Nano Server](Nano-Server-Quick-start.md)
