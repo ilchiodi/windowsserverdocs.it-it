@@ -293,7 +293,7 @@ In circostanze rare e di solito non riproducibili, il riavvio di un server che s
 
     Guidance: Possible causes include network failures, share creation failures for the remote replication group, or firewall settings. Make sure SMB traffic is allowed and there are no connectivity issues between the local computer and the remote computer. You should expect this event when suspending replication or removing a replication partnership.
 
-`A process has requested access to an object, but has not been granted those access rights.` Si noti `Status: "{Access Denied}"` che e il messaggio si tratta di un problema noto all'interno della replica di archiviazione ed è stato risolto nell'aggiornamento di qualità il 12 settembre 2017, KB4038782 (build del sistema operativo 14393,1715)https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
+`A process has requested access to an object, but has not been granted those access rights.` Si noti `Status: "{Access Denied}"` che e il messaggio si tratta di un problema noto all'interno della replica di archiviazione ed è stato risolto nell'aggiornamento di qualità il 12 settembre 2017, KB4038782 (build del sistema operativo 14393,1715) https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
 
 ## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Errore "Impossibile connettere la risorsa "Cluster Disk x". con un cluster esteso
 
