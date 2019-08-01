@@ -1,6 +1,6 @@
 ---
-title: Considerazioni relative all'hardware nell'ottimizzazione delle prestazioni di AD
-description: Considerazioni relative all'hardware nell'ottimizzazione delle prestazioni di AD
+title: Considerazioni sull'hardware nell'ottimizzazione delle prestazioni di Active Directory
+description: Considerazioni sull'hardware nell'ottimizzazione delle prestazioni di Active Directory
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,72 +8,72 @@ ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: 0f1aa1e3c07c5cb9238a332156abfec248e74176
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866092"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63721158"
 ---
-# <a name="hardware-considerations-in-adds-performance-tuning"></a>Considerazioni relative all'hardware nell'ottimizzazione delle prestazioni di ADDS 
+# <a name="hardware-considerations-in-adds-performance-tuning"></a>Considerazioni sull'hardware in aggiunta dell'ottimizzazione delle prestazioni 
 
 >[!Important]
-> Di seguito è riportato un riepilogo dei principali requisiti e considerazioni per ottimizzare l'hardware del server per i carichi di lavoro di Active Directory trattati in modo più approfondito nel [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) articolo. I lettori sono altamente consigliabile rivedere [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) per una maggiore conoscenza tecnica e le implicazioni di queste indicazioni.
+> Di seguito è riportato un riepilogo delle indicazioni e delle considerazioni principali per ottimizzare l'hardware del server per i carichi di lavoro Active Directory analizzati in modo più approfondito nella [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) articolo. I lettori sono vivamente invitati a esaminare la [pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) per una maggiore comprensione tecnica e le implicazioni di questi consigli.
 
-## <a name="avoid-going-to-disk"></a>Evitare di entrare al disco
+## <a name="avoid-going-to-disk"></a>Evitare di passare al disco
 
-Active Directory memorizza nella cache la maggior parte del database, poiché consente di memoria. Durante il recupero le pagine dalla memoria sono di gran lunga più veloce rispetto all'uso a supporto fisico, se il supporto è spindle o basato su unità SSD. Aggiungere ulteriore memoria per ridurre al minimo i/o disco.
+Active Directory memorizza nella cache la maggior parte del database consentito dalla memoria. Il recupero di pagine dalla memoria è più veloce di un ordine di grandezza rispetto al supporto fisico, indipendentemente dal fatto che il supporto sia basato su mandrino o unità SSD. Aggiungere ulteriore memoria per ridurre al minimo l'I/O del disco.
 
--   Procedure consigliate di Active Directory è consigliabile inserire RAM sufficiente per caricare l'intero DIT in memoria, oltre a soddisfare le esigenze del sistema operativo e altre applicazioni installate, ad esempio software antivirus, backup, monitoraggio e così via.
+-   Active Directory procedure consigliate consiglia di inserire RAM sufficiente per caricare l'intero DIT in memoria, oltre a contenere il sistema operativo e altre applicazioni installate, ad esempio antivirus, software di backup, monitoraggio e così via.
 
-    -   Per le limitazioni delle piattaforme legacy, vedere [utilizzo di memoria di processo Lsass.exe nei controller di dominio che eseguono Windows Server 2003 o Windows 2000 Server](https://support.microsoft.com/kb/308356).
+    -   Per le limitazioni delle piattaforme legacy, vedere [utilizzo della memoria da parte del processo Lsass. exe nei controller di dominio che eseguono Windows server 2003 o windows 2000 Server](https://support.microsoft.com/kb/308356).
 
-    -   Usare la memoria\\Long-Term durata media di Standby della Cache (s) &gt; contatore delle prestazioni di 30 minuti.
+    -   Usare il contatore\\delle prestazioni della durata &gt; media della cache in standby a lungo termine della memoria di 30 minuti.
 
--   Inserire il sistema operativo, i log e il database su volumi separati. Se tutti o la maggior parte del DIT può essere memorizzati nella cache, dopo che la cache viene preparata e in uno stato stabile, questo diventa meno rilevante e offre una maggiore flessibilità nel layout di archiviazione. Negli scenari in cui non può essere memorizzato nella cache l'intero DIT, diventa più importante l'importanza di suddividere il sistema operativo, i log e database su volumi separati.
+-   Inserire il sistema operativo, i log e il database in volumi separati. Se tutte o la maggior parte del DIT possono essere memorizzate nella cache, una volta che la cache viene riscaldata e in uno stato stabile, questo diventa meno pertinente e offre una maggiore flessibilità nel layout di archiviazione. Negli scenari in cui l'intero DIT non può essere memorizzato nella cache, l'importanza di suddividere il sistema operativo, i log e il database su volumi distinti diventa più importante.
 
--   Rapporti dei / o per il DIT in genere, sono circa 90% di lettura e scrittura del 10%. Gli scenari in cui i volumi i/o scrittura superano significativamente 10-20% vengono considerati con intensa attività di scrittura. Gli scenari con intensa attività di scrittura non trarre vantaggio dalla cache Active Directory. Per garantire la durabilità delle transazioni di dati che viene scritto nella directory, Active Directory non esegue la memorizzazione nella cache di scrittura del disco. Al contrario, esegue il commit tutte le operazioni di scrittura sul disco prima che venga restituito uno stato di completamento corretto per un'operazione, a meno che non vi è una richiesta esplicita di non eseguire questa operazione. I/o veloci disco sono pertanto importanti per le prestazioni delle operazioni di scrittura Active Directory. Di seguito sono i requisiti hardware che potrebbero migliorare le prestazioni per questi scenari:
+-   In genere, I rapporti di I/O per il DIT sono circa il 90% di lettura e il 10% di scrittura. Gli scenari in cui I volumi di I/O di scrittura superano significativamente il 10%-20% sono considerati pesanti da scrittura. Gli scenari con gravi Scritture non traggono vantaggio dalla cache Active Directory. Per garantire la durabilità delle transazioni dei dati scritti nella directory, Active Directory non esegue la memorizzazione nella cache di scrittura del disco. Al contrario, esegue il commit di tutte le operazioni di scrittura sul disco prima di restituire uno stato di completamento corretto per un'operazione, a meno che non esista una richiesta esplicita di non eseguire questa operazione. Pertanto, le operazioni di I/O su disco veloci sono importanti per le prestazioni delle operazioni di scrittura in Active Directory. Di seguito sono riportate le indicazioni hardware che potrebbero migliorare le prestazioni di questi scenari:
 
     -   Controller RAID hardware
 
-    -   Aumentare il numero di bassa latenza/elevata-da RPM dischi che ospitano i file DIT e log
+    -   Aumentare il numero di dischi a bassa latenza e ad alta RPM che ospitano i file di log e DIT
 
-    -   Scrittura nella cache nel controller
+    -   Caching in scrittura nel controller
 
--   Esaminare le prestazioni del sottosistema disco singolarmente per ogni volume. La maggior parte degli scenari di Active Directory sono prevalentemente basati su lettura, pertanto le statistiche sul volume che ospita il DIT sono quelli più importanti da esaminare. Tuttavia, non trascurare il resto delle unità, tra cui il sistema operativo, di monitoraggio e le unità di file di log. Per determinare se il controller di dominio è configurato correttamente per evitare l'archiviazione in corso il collo di bottiglia delle prestazioni, fare riferimento la sezione su sottosistemi di archiviazione, per indicazioni sull'archiviazione standard. In molti ambienti, la filosofia consiste nell'assicurarsi che vi sia spazio sufficiente head per adeguarla crescite o picchi di carico. Queste soglie vengono avviso diventa vincolata soglie in cui di spazio disponibile per adeguarla crescite o picchi di carico e comporta una riduzione della velocità di risposta di client. In breve, che superano queste soglie non è valido a breve termine (5-15 minuti più volte al giorno), tuttavia un sistema che esegue sostenuta questi tipi di statistiche è non completamente la memorizzazione nella cache del database e può essere rispetto a tassare e dovrebbero essere esaminati.
+-   Esaminare le prestazioni del sottosistema del disco singolarmente per ogni volume. La maggior parte degli scenari di Active Directory è prevalentemente basata su Read, quindi le statistiche sul volume che ospita il DIT sono le più importanti da ispezionare. Tuttavia, non trascurare il monitoraggio delle altre unità, incluse le unità del sistema operativo e dei file di log. Per determinare se il controller di dominio è configurato in modo appropriato per evitare che lo spazio di archiviazione sia il collo di bottiglia per le prestazioni, fare riferimento alla sezione sui sottosistemi di archiviazione per i consigli di archiviazione standard. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico. Queste soglie sono soglie di avviso in cui la stanza principale per gestire i picchi o i picchi di carico diventa vincolata e la velocità di risposta del client peggiora. In breve, il superamento di queste soglie non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche non memorizza nella cache completamente il database e può essere sottoposto a tassazione e deve essere analizzato.
 
-    -   Database = =&gt; Instances(lsass/NTDSA)\\latenza media di letture i/o Database &lt; gt;15 ms
+    -   Database = =&gt; istanze (Lsass/NTDSA)\\letture database I/O con latenza &lt; media 15ms
 
-    -   Database = =&gt; Instances(lsass/NTDSA)\\letture/sec i/o Database &lt; 10
+    -   Database = =&gt; istanze (Lsass/NTDSA)\\letture database I/O/sec &lt; 10
 
-    -   Database = =&gt; Instances(lsass/NTDSA)\\latenza media di scritture nei Log dei / o &lt; 10 ms
+    -   Database = =&gt; istanze (Lsass/NTDSA)\\Scritture log di I/O latenza &lt; media 10 ms
 
-    -   Database = =&gt; Instances(lsass/NTDSA)\\Log dei / o. scritture/sec: informativo solo.
+    -   Database = =&gt; istanze (Lsass/NTDSA)\\Scritture log I/O/sec-solo informativo.
 
-        Per mantenere la coerenza dei dati, tutte le modifiche devono essere scritte nel log. Nessun numero valido o non valido in questo caso, è solo una misura della quantità di archiviazione è stato raggiunto.
+        Per mantenere la coerenza dei dati, tutte le modifiche devono essere scritte nel log. Qui non esiste alcun numero valido o non valido, ma solo una misura del supporto per l'archiviazione.
 
--   Pianificare i carichi dei / o disco non core, ad esempio le analisi antivirus e backup, per i periodi di carico non di punta. Inoltre, usare soluzioni di backup e antivirus che supportano la funzionalità dei / o con priorità bassa introdotta in Windows Server 2008 per ridurre la concorrenza con esigenze dei / o di Active Directory.
+-   Pianificare I carichi di I/O su disco non core, ad esempio analisi di backup e antivirus, per i periodi di carico non di punta. Usare anche soluzioni di backup e antivirus che supportano la funzionalità di I/O con priorità bassa introdotta in Windows Server 2008 per ridurre la concorrenza con le esigenze di I/O dei Active Directory.
 
-## <a name="dont-over-tax-the-processors"></a>Non imposta più processori
+## <a name="dont-over-tax-the-processors"></a>Non sovratassare i processori
 
-Processori che non dispone di cicli insufficienti possono causare tempi di attesa prolungati all'acquisizione di thread al processore per l'esecuzione. In molti ambienti, la filosofia consiste nell'assicurarsi che vi sia spazio sufficiente head per gestire picchi o picchi di carico per ridurre al minimo impatto sulla velocità di risposta di client in questi scenari. In breve, che supera di sotto delle soglie non è valido a breve termine (5-15 minuti più volte al giorno), tuttavia non fornisce un sistema che esegue sostenuta questi tipi di statistiche qualsiasi intestazione di spazio sufficiente per soddisfare carichi anomale e possono essere impostati facilmente in un failover tassare s cenario. I sistemi spesa periodi prolungati sopra alle soglie devono essere analizzati come ridurre il carico del processore.
+I processori che non dispongono di un numero sufficiente di cicli disponibili possono causare tempi di attesa lunghi per il recupero dei thread al processore per l'esecuzione. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico per ridurre al minimo l'effetto sulla velocità di risposta dei client in questi scenari. In breve, il superamento delle soglie seguenti non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche non fornisce alcuna stanza principale per gestire i carichi anomali e può essere facilmente inserito in un sovraccarico cenario. Per la riduzione dei carichi del processore, è necessario esaminare i sistemi che passano oltre le soglie.
 
--   Per altre informazioni su come selezionare un processore, vedi [Performance Tuning for Server Hardware](../../hardware/index.md).
+-   Per ulteriori informazioni su come selezionare un processore, vedere [ottimizzazione delle prestazioni per l'hardware del server](../../hardware/index.md).
 
--   Aggiungere hardware, ottimizzare il carico, indirizzare i client in altre posizioni o rimuovere carico dall'ambiente per ridurre il carico della CPU.
+-   Aggiungere hardware, ottimizzare il carico, indirizzare i client altrove o rimuovere il carico dall'ambiente per ridurre il carico della CPU.
 
--   Usare le informazioni del processore (\_totale)\\% utilizzo processore &lt; contatore delle prestazioni del 60%.
+-   Usare il contatore delle prestazioni\_informazioni processore\\(totale)% &lt; utilizzo processore 60%.
 
-## <a name="avoid-overloading-the-network-adapter"></a>Evitare di sovraccaricare la scheda di rete
+## <a name="avoid-overloading-the-network-adapter"></a>Evitare l'overload della scheda di rete
 
-Proprio come con i processori, utilizzo della scheda di rete è eccessiva causerà tempi di attesa per il traffico in uscita accedere alla rete. Active Directory che ne derivano sono delle piccole richieste in ingresso e relativamente a notevolmente più grandi quantità di dati restituiti per i sistemi client. Dati inviati di là dei dati ricevuti. In molti ambienti, la filosofia consiste nell'assicurarsi che vi sia spazio sufficiente head per adeguarla crescite o picchi di carico. Questa soglia è un valore di soglia di avviso in cui di spazio disponibile per adeguarla crescite o picchi di carico diventa vincolata e comporta una riduzione della velocità di risposta di client. In breve, che superano queste soglie non è valido a breve termine (5-15 minuti più volte al giorno), tuttavia un sistema che esegue sostenuta questi tipi di statistiche tramite tassare e dovrebbero essere esaminati.
+Analogamente a quanto avviene con i processori, un utilizzo eccessivo delle schede di rete provocherà tempi di attesa lunghi per il traffico in uscita verso la rete. Active Directory tende a avere richieste in ingresso piccole e relativamente a quantità significativamente maggiori di dati restituiti ai sistemi client. I dati inviati superano i dati ricevuti. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico. Questa soglia è una soglia di avviso in cui la stanza principale per gestire i picchi o i picchi di carico diventa vincolata e la velocità di risposta del client diminuisce. In breve, il superamento di queste soglie non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche viene sottoposto a tassazione ed è necessario esaminarlo.
 
--   Per altre informazioni su come ottimizzare il sottosistema di rete, vedere [ottimizzazione delle prestazioni per i sottosistemi di rete](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
+-   Per ulteriori informazioni su come ottimizzare il sottosistema di rete, vedere [ottimizzazione delle prestazioni per i sottosistemi di rete](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Usare l'interfaccia di rete confronta (\*)\\byte inviati/Sec con l'interfaccia di rete (\*)\\contatore delle prestazioni di larghezza di banda corrente. Il rapporto deve essere inferiore al 60% utilizzato.
+-   Usare il contatore delle prestazioni\*confronta\\interfaccia () byte inviati/sec\*con\\interfaccia () corrente. Il rapporto deve essere inferiore al 60% utilizzato.
 
 ## <a name="see-also"></a>Vedere anche
-- [Server Active Directory l'ottimizzazione delle prestazioni](index.md)
-- [Considerazioni di LDAP](ldap-considerations.md)
+- [Ottimizzazione delle prestazioni di Active Directory Server](index.md)
+- [Considerazioni relative a LDAP](ldap-considerations.md)
 - [Esatto posizionamento dei controller di dominio e considerazioni sul sito](site-definition-considerations.md)
-- [Risoluzione dei problemi delle prestazioni di ADDS](troubleshoot.md) 
-- [Pianificazione della capacità per servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Risoluzione dei problemi delle prestazioni di Active Directory Domain Services](troubleshoot.md) 
+- [Pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

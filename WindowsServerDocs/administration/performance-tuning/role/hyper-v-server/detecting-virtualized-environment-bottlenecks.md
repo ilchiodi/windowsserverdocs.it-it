@@ -1,6 +1,6 @@
 ---
-title: Rilevamento dei colli di bottiglia in un ambiente virtualizzato
-description: Come rilevare e risolvere i colli di bottiglia delle prestazioni di potenziali Hyper-v
+title: Rilevamento di colli di bottiglia in un ambiente virtualizzato
+description: Come rilevare e risolvere potenziali colli di bottiglia delle prestazioni di Hyper-v
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,142 +8,142 @@ ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: cdad5f0cc3b0e49ae46e975e3acc2c48a18e5f70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867532"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63722886"
 ---
-# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Rilevamento dei colli di bottiglia in un ambiente virtualizzato
+# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Rilevamento di colli di bottiglia in un ambiente virtualizzato
 
-In questa sezione fornisce alcuni suggerimenti su cosa monitorare tramite Performance Monitor e come identificare dove il problema potrebbe essere quando l'host o alcune delle macchine virtuali non si eseguono come potrebbe avere previsto.
+In questa sezione vengono illustrati alcuni suggerimenti sugli elementi da monitorare tramite Performance Monitor e su come identificare il problema che può verificarsi quando l'host o alcune macchine virtuali non vengono eseguite come previsto.
 
 ## <a name="processor-bottlenecks"></a>Colli di bottiglia del processore
 
-Ecco alcuni scenari comuni che potrebbero causare colli di bottiglia del processore:
+Di seguito sono riportati alcuni scenari comuni che possono causare colli di bottiglia del processore:
 
--   Uno o più processori logici vengono caricati
+-   Sono stati caricati uno o più processori logici
 
--   Vengono caricati uno o più processori virtuali
+-   Sono stati caricati uno o più processori virtuali
 
-È possibile usare i seguenti contatori delle prestazioni dall'host:
+È possibile utilizzare i contatori delle prestazioni seguenti dall'host:
 
--   Utilizzo del processore logico - \\processore logico Hypervisor Hyper-V (\*)\\% totale tempo di esecuzione
+-   Utilizzo del processore logico- \\processore logico hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
 
--   Utilizzo del processore virtuale - \\processore virtuale Hypervisor Hyper-V (\*)\\% totale tempo di esecuzione
+-   Utilizzo del processore virtuale- \\processore virtuale hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
 
--   Utilizzo del processore virtuale - radice \\processore virtuale radice di Hypervisor Hyper-V (\*)\\% totale tempo di esecuzione
+-   Utilizzo del processore virtuale radice- \\processore virtuale radice hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
 
-Se il **processore logico Hypervisor Hyper-V (\_totale)\\% Runtime totale** contatore è superiore al 90%, l'host è in overload. È necessario aggiungere maggiore potenza di elaborazione o spostare alcune macchine virtuali in un host diverso.
+Se il contatore del **processore logico hypervisor Hyper-\_V (\\totale)% totale** è superiore al 90%, l'host è sovraccarico. È necessario aggiungere ulteriore potenza di elaborazione o spostare alcune macchine virtuali in un host diverso.
 
-Se il **Processor(VM Name:VP x) virtuale Hypervisor Hyper-V\\% Runtime totale** contatore è superiore al 90% per tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
+Se il contatore **processore virtuale hypervisor Hyper-V (nome VM: VP x\\)% totale** è superiore al 90% per tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
 
--   Verificare che l'host non sia sovraccarica.
+-   Verificare che l'host non sia sovraccarico
 
--   Scoprire se il carico di lavoro può sfruttare più processori virtuali
+-   Determinare se il carico di lavoro può sfruttare più processori virtuali
 
--   Assegnare più processori virtuali per la macchina virtuale
+-   Assegnare più processori virtuali alla macchina virtuale
 
-Se **Processor(VM Name:VP x) virtuale Hypervisor Hyper-V\\% Runtime totale** contatore è superiore al 90% per alcuni, ma non tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
+Se **processore virtuale hypervisor Hyper-V (nome VM: VP x)\\% totale contatore Runtime** è superiore al 90% per alcuni, ma non tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
 
--   Se il carico di lavoro viene visualizzato a elevato utilizzo di rete, è consigliabile usare vRSS.
+-   Se il carico di lavoro riceve un elevato utilizzo di rete, è necessario considerare l'uso di vRSS.
 
--   Se le macchine virtuali non sono in esecuzione Windows Server 2012 R2, è necessario aggiungere altre schede di rete.
+-   Se le macchine virtuali non eseguono Windows Server 2012 R2, è necessario aggiungere altre schede di rete.
 
--   Se il carico di lavoro a elevato utilizzo di archiviazione, è necessario abilitare NUMA virtuale e aggiungere ulteriori dischi virtuali.
+-   Se il carico di lavoro è a elevato utilizzo di risorse di archiviazione, è necessario abilitare NUMA virtuale e aggiungere altri dischi virtuali.
 
-Se il **processore virtuale radice di Hypervisor Hyper-V (VP radice x)\\% Runtime totale** contatore è oltre il 90% per alcuni, ma non tutti i processori virtuali e il **processore (x)\\% tempo di Interrupt e Processore (x)\\% tempo DPC** contatore si traduce approssimativamente il valore per il **radice virtuale Processor(Root VP x)\\% Runtime totale** del contatore, è necessario assicurarsi abilitare VMQ nel gruppo le schede di rete.
+Se il contatore del **processore virtuale radice hypervisor Hyper-V (radice VP\\x)% totale** è superiore al 90% per alcuni, ma non tutti i processori virtuali e il processore **(x\\)% tempo di interrupt e processore (\\x)% tempo DPC** il contatore viene aggiunto approssimativamente al valore del contatore del **Runtime virtuale radice (radice VP x\\)% Total Runtime** , è necessario assicurarsi di abilitare VMQ nelle schede di rete.
 
 ## <a name="memory-bottlenecks"></a>Colli di bottiglia della memoria
 
-Ecco alcuni scenari comuni che potrebbero causare colli di bottiglia della memoria:
+Di seguito sono riportati alcuni scenari comuni che possono causare colli di bottiglia della memoria:
 
 -   L'host non risponde.
 
 -   Impossibile avviare le macchine virtuali.
 
--   Memoria insufficiente per le macchine virtuali.
+-   Memoria esaurita per le macchine virtuali.
 
-È possibile usare i seguenti contatori delle prestazioni dall'host:
+È possibile utilizzare i contatori delle prestazioni seguenti dall'host:
 
--   Memoria\\MByte disponibili
+-   MB\\di memoria disponibili
 
--   Servizio di bilanciamento memoria dinamica di Hyper-V (\*)\\memoria disponibile
+-   Memoria disponibile di Hyper-V memoria dinamica\*Balancer ()\\
 
-È possibile usare i seguenti contatori delle prestazioni dalla macchina virtuale:
+Dalla macchina virtuale è possibile usare i contatori delle prestazioni seguenti:
 
--   Memoria\\MByte disponibili
+-   MB\\di memoria disponibili
 
-Se il **memoria\\MByte disponibili** e **bilanciamento memoria dinamica di Hyper-V (\*)\\memoria disponibile** contatori sono insufficienti nell'host, è consigliabile arrestare non essenziali di servizi ed eseguire la migrazione di uno o più macchine virtuali in un altro host.
+Se i contatori di memoria disponibili in **MB di memoria\\** e di **Hyper-\*memoria dinamica\\V ()** sono insufficienti nell'host, è necessario arrestare i servizi non essenziali ed eseguire la migrazione di uno o più elementi virtuali macchine virtuali in un altro host.
 
-Se il **memoria\\MByte disponibili** contatore è insufficiente nella macchina virtuale, è necessario assegnare una maggiore quantità di memoria alla macchina virtuale. Se si utilizza la memoria dinamica, è necessario aumentare l'impostazione massima di memoria.
+Se il **contatore\\memoria MByte disponibili** è insufficiente nella macchina virtuale, è necessario assegnare ulteriore memoria alla macchina virtuale. Se si utilizza memoria dinamica, è necessario aumentare l'impostazione di memoria massima.
 
 ## <a name="network-bottlenecks"></a>Colli di bottiglia di rete
 
-Ecco alcuni scenari comuni che potrebbero causare colli di bottiglia di rete:
+Di seguito sono riportati alcuni scenari comuni che possono causare colli di bottiglia di rete:
 
--   L'host è di rete associato.
+-   L'host è associato alla rete.
 
--   La macchina virtuale è rete associata.
+-   La macchina virtuale è associata alla rete.
 
-È possibile usare i seguenti contatori delle prestazioni dall'host:
+È possibile utilizzare i contatori delle prestazioni seguenti dall'host:
 
--   Interfaccia di rete (*nome scheda di rete*)\\byte/sec
+-   Byte/sec dell'interfaccia di rete\\(*Nome scheda di rete*)
 
-È possibile usare i seguenti contatori delle prestazioni dalla macchina virtuale:
+Dalla macchina virtuale è possibile usare i contatori delle prestazioni seguenti:
 
--   Scheda di rete virtuale di Hyper-V (*nome macchina virtuale&lt;GUID&gt;*)\\byte/sec
+-   Byte/sec scheda di rete virtuale Hyper-V (*GUID&gt;nome&lt;nome macchina virtuale*)\\
 
-Se il **byte/sec scheda NIC fisica** contatore è maggiore o uguale a 90% della capacità, è necessario aggiungere altre schede di rete, eseguire la migrazione di macchine virtuali in un altro host e configurare le impostazioni QoS di rete.
+Se il contatore **byte/sec di NIC fisico** è maggiore o uguale al 90% di capacità, è necessario aggiungere schede di rete aggiuntive, eseguire la migrazione di macchine virtuali a un altro host e configurare QoS di rete.
 
-Se il **byte/sec scheda di rete virtuale di Hyper-V** contatore è maggiore o uguale a 250 MBps, è necessario aggiungere schede di rete raggruppata aggiuntive nella macchina virtuale, abilitare vRSS e usare SR-IOV.
+Se il contatore **byte/sec scheda di rete virtuale Hyper-V** è maggiore o uguale a 250 Mbps, è necessario aggiungere altre schede di rete raggruppate nella macchina virtuale, abilitare vRSS e usare SR-IOV.
 
-Se i carichi di lavoro non soddisfa la latenza di rete, abilitare SR-IOV presentare le risorse della scheda di rete fisica alla macchina virtuale.
+Se i carichi di lavoro non sono in grado di soddisfare la latenza di rete, abilitare SR-IOV per presentare le risorse della scheda di rete fisica alla macchina virtuale.
 
 ## <a name="storage-bottlenecks"></a>Colli di bottiglia di archiviazione
 
-Ecco alcuni scenari comuni che potrebbero causare colli di bottiglia di archiviazione:
+Di seguito sono riportati alcuni scenari comuni che possono causare colli di bottiglia di archiviazione:
 
--   L'host e macchina virtuale di operazioni sono lente o raggiungere il timeout.
+-   Le operazioni dell'host e della macchina virtuale sono lente o di timeout.
 
 -   La macchina virtuale è lenta.
 
-È possibile usare i seguenti contatori delle prestazioni dall'host:
+È possibile utilizzare i contatori delle prestazioni seguenti dall'host:
 
 -   Disco fisico (*lettera disco*)\\Media letture disco/sec
 
--   Disco fisico (*lettera disco*)\\Media scritture disco/sec
+-   Disco fisico (*lettera disco*)\\media scritture disco/sec
 
--   Disco fisico (*lettera disco*)\\Media trasf. disco Media lettura coda
+-   Disco fisico (*lettera disco*)\\media lunghezza coda lettura disco
 
--   Disco fisico (*lettera disco*)\\media coda scrittura Media trasf. disco
+-   Disco fisico (*lettera disco*)\\media lunghezza coda di scrittura su disco
 
-Se le latenze sono costantemente superiore a 50 ms, è necessario eseguire le operazioni seguenti:
+Se le latenze sono costantemente maggiori di 50 ms, è necessario eseguire le operazioni seguenti:
 
--   Distribuire le macchine virtuali tra ulteriore spazio di archiviazione
+-   Distribuire le macchine virtuali in una risorsa di archiviazione aggiuntiva
 
--   Prendere in considerazione l'acquisto di archiviazione più veloci
+-   Prendere in considerazione l'acquisto di archiviazione più veloce
 
--   Prendere in considerazione livelli spazi di archiviazione, che è stata introdotta in Windows Server 2012 R2
+-   Prendere in considerazione gli spazi di archiviazione a più livelli introdotti in Windows Server 2012 R2
 
--   È consigliabile usare QoS di archiviazione, che è stata introdotta in Windows Server 2012 R2
+-   Prendere in considerazione l'uso di QoS di archiviazione, introdotto in Windows Server 2012 R2
 
--   Utilizzare VHDX
+-   Usare VHDX
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
--   [Configurazione del server Hyper-V](configuration.md)
+-   [Configurazione dei server Hyper-V](configuration.md)
 
 -   [Prestazioni del processore di Hyper-V](processor-performance.md)
 
 -   [Prestazioni della memoria di Hyper-V](memory-performance.md)
 
--   [Archiviazione di Hyper-V delle prestazioni dei / o](storage-io-performance.md)
+-   [Prestazioni di I/O dell'archiviazione di Hyper-V](storage-io-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Macchine virtuali Linux](linux-virtual-machine-considerations.md)
