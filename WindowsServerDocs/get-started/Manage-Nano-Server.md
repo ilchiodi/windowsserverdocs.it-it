@@ -13,10 +13,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67280401"
 ---
 # <a name="manage-nano-server"></a>Gestire Nano Server
@@ -24,7 +24,7 @@ ms.locfileid: "67280401"
 >Si applica a: Windows Server 2016
 
 > [!IMPORTANT]
-> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md).   
+> A partire da Windows Server versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md).   
 
 Nano Server viene gestito in remoto. Non è presente alcuna funzionalità di accesso locale e non supporta Servizi terminal. Sono tuttavia disponibili numerose opzioni per la gestione di Nano Server in remoto, tra cui Windows PowerShell, Strumentazione gestione Windows (WMI), Gestione remota Windows e Servizi di gestione emergenze (EMS).  
 
@@ -40,7 +40,7 @@ Per usare uno strumento di gestione remota è probabile che sia necessario conos
 Per gestire Nano Server con la comunicazione remota di Windows PowerShell, è necessario aggiungere l'indirizzo IP di Nano Server all'elenco dei computer di gestione degli host attendibili, aggiungere l'account in uso agli amministratori di Nano Server e abilitare CredSSP, se si prevede di usare tale funzionalità.  
 
 > [!NOTE]
-> Se l'istanza di Nano Server di destinazione e il computer di gestione sono nella stessa foresta di Active Directory Domain Services (o in foreste con una relazione di trust), non è necessario aggiungere l'istanza di Nano Server all'elenco di host attendibili. Puoi connetterti a Nano Server usando il nome di dominio completo, ad esempio: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> Se l'istanza di Nano Server di destinazione e il computer di gestione si trovano nella stessa foresta di Active Directory Domain Services (o in foreste con una relazione di trust), non devi aggiungere Nano Server all'elenco di host attendibili, ma puoi connetterti a Nano Server usando il nome di dominio completo, ad esempio: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Per aggiungere Nano Server all'elenco di host attendibili, eseguire questo comando a un prompt di Windows PowerShell con privilegi elevati:  
@@ -60,7 +60,7 @@ Enter-PSSession -ComputerName $ip -Credential $user
 È ora possibile eseguire i comandi di Windows PowerShell in Nano Server come di consueto.  
   
 > [!NOTE]  
-> Non tutti i comandi di Windows PowerShell sono disponibili in questa versione di Nano Server. Per vedere quali sono disponibili, esegui `Get-Command -CommandType Cmdlet`  
+> Non tutti i comandi di Windows PowerShell sono disponibili in questa versione di Nano Server. Per trovare quelli disponibili, esegui `Get-Command -CommandType Cmdlet`  
   
 Arresta la sessione remota con il comando `Exit-PSSession`  
   
