@@ -1,6 +1,6 @@
 ---
 title: Ripristinare un server che esegue Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,26 +12,26 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5618eb95fb8afcff2057575191699da05612a542
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb3cc834e0ab6641c14f5e9fbb6afe5c9f187c7c
+ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433059"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68787170"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Ripristinare un server che esegue Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- In questo argomento fornisce una panoramica e procedure di supporto per il ripristino di un server che esegue Windows Server Essentials e include le sezioni seguenti:  
+ In questo argomento vengono fornite informazioni generali e procedure di supporto per il ripristino o il ripristino di un server che esegue Windows Server Essentials e sono incluse le sezioni seguenti:  
   
--   [Panoramica del ripristino di sistema in un server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Overview)  
+-   [Panoramica dei ripristini del sistema server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Overview)  
   
--   [Ripristinare o riparare l'unità del sistema](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore)  
+-   [Ripristinare o ripristinare l'unità di sistema](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore)  
   
--   [Ripristinare file e cartelle nel server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
+-   [Ripristino di file e cartelle nel server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
   
-##  <a name="BKMK_Overview"></a> Panoramica del ripristino di sistema in un server  
+##  <a name="BKMK_Overview"></a>Panoramica dei ripristini del sistema server  
  Lo stato del server al momento del ripristino incide sul metodo di ripristino disponibile e sulla completezza del ripristino stesso.  
   
  I motivi più comuni per cui si esegue il ripristino di un server sono:  
@@ -46,14 +46,14 @@ ms.locfileid: "66433059"
   
   È possibile ripristinare il server da un backup oppure ripristinare le impostazioni predefinite del server.  
   
-- [Il ripristino del server da un backup](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
+- [Ripristino del server da un backup](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
-- [Reimpostare il server per le impostazioni predefinite](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
+- [Ripristino delle impostazioni predefinite del server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
-###  <a name="BKMK_RestoreFromBackup"></a> Il ripristino del server da un backup  
+###  <a name="BKMK_RestoreFromBackup"></a>Ripristino del server da un backup  
  In questa sezione vengono fornite indicazioni sul tipo di backup da scegliere.  
   
- Se è disponibile un backup, la scelta migliore per il ripristino del server consiste nell'usare i supporti di installazione s produttore per ripristinare da un backup esterno. Verranno ripristinate le impostazioni e le cartelle del server dal backup specificato. È necessario solo configurare le impostazioni e ripristinare i dati creati dopo il backup.  
+ Se è disponibile un backup, la scelta migliore per il ripristino del server consiste nell'utilizzare i supporti di installazione del produttore per eseguire il ripristino da un backup esterno. Verranno ripristinate le impostazioni e le cartelle del server dal backup specificato. È necessario solo configurare le impostazioni e ripristinare i dati creati dopo il backup.  
   
  Quando si sceglie di ripristinare il server da un backup precedente, è necessario scegliere il backup specifico da ripristinare e disporre di un file di backup valido in un'unità disco rigido esterna connessa direttamente al server:  
   
@@ -73,7 +73,7 @@ ms.locfileid: "66433059"
   
 - **Se il server dispone di più dischi rigidi e l'unità 0 (contenente il volume di sistema) viene sostituita**, viene ripristinato il volume di sistema e sarà necessario ripristinare manualmente le cartelle condivise precedentemente archiviate nell'unità 0.  
   
-###  <a name="BKMK_FactoryReset"></a> Reimpostare il server per le impostazioni predefinite  
+###  <a name="BKMK_FactoryReset"></a>Ripristino delle impostazioni predefinite del server  
  Se non si dispone di un backup da cui eseguire il ripristino o se per qualche ragione è preferibile o necessario eseguire un ripristino completo del sistema senza ripristinare la configurazione del server precedente, è possibile eseguire il ripristino delle impostazioni predefinite del server mediante il supporto di installazione o ripristino fornito dal produttore dell'hardware del server.  
   
  Quando si ripristinano le impostazioni predefinite del server, vengono eliminate tutte le impostazioni esistenti e le applicazioni installate nel server ed è necessario configurare nuovamente il server. Dopo un ripristino delle impostazioni di fabbrica, il server viene riavviato.  
@@ -83,7 +83,7 @@ ms.locfileid: "66433059"
 -   Se si sceglie di conservare tutti i propri dati, vengono eliminati tutti i dati sul volume di sistema, ma vengono mantenuti i dati sugli altri volumi.  
   
     > [!CAUTION]
-    >  Se le impostazioni del disco non corrispondono alle impostazioni predefinite, tutti i dati presenti su un disco verranno eliminati. Se è stato sostituito il disco del sistema, il nuovo disco deve essere maggiore di volume di sistema s disco originale.  
+    >  Se le impostazioni del disco non corrispondono alle impostazioni predefinite, tutti i dati presenti su un disco verranno eliminati. Se è stato sostituito il disco di sistema, il nuovo disco deve essere più grande del volume di sistema del disco originale.  
     >   
     >  Se le informazioni di partizione per un'unità di sistema sono illeggibili o se si sostituisce l'unità di sistema, tutti i dati sull'unità di sistema vengono rimossi, anche se si imposta la conservazione dei dati.  
   
@@ -94,11 +94,11 @@ ms.locfileid: "66433059"
   
  Dopo un ripristino delle impostazioni di fabbrica, è necessario eseguire le attività seguenti:  
   
--   **Riconfigurare il server.** Nel server usare la procedura guidata Configura server per immettere nuovamente le impostazioni di configurazione. Per configurare un server Windows Server Essentials in modalità remota gestito da un computer client, aprire un web browser e quindi digitare **http://***<YourServerName\>*  nella barra degli indirizzi.  
+-   **Riconfigurare il server.** Nel server usare la procedura guidata Configura server per immettere nuovamente le impostazioni di configurazione. Per configurare un server di Windows Server Essentials gestito in remoto da un computer client, aprire un Web browser e digitare **http://** _< NomeServer\>_  nella barra degli indirizzi.  
   
--   **Riconnettere i computer client al server.** Se un computer precedentemente connesso al server, è necessario disinstallare il software connettore Windows Server Essentials dal computer prima che il computer si connette nuovamente al server. Per altre informazioni, consultare [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) e [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+-   **Riconnettere i computer client al server.** Se un computer è stato precedentemente connesso al server, è necessario disinstallare il software connettore di Windows Server Essentials dal computer prima di connettere di nuovo il computer al server. Per altre informazioni, consultare [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) e [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
   
-##  <a name="BKMK_Restore"></a> Ripristinare o riparare l'unità del sistema  
+##  <a name="BKMK_Restore"></a>Ripristinare o ripristinare l'unità di sistema  
  Il primo passaggio per il ripristino del server consiste nel ripristinare l'unità di sistema del server. Dopo avere ripristinato l'unità di sistema, si effettuerà quanto necessario per ripristinare le unità dati sul server e le eventuali condivisioni interrotte con il ripristino.  
   
  Per eseguire il ripristino, è possibile procedere in tre modi:  
@@ -107,17 +107,17 @@ ms.locfileid: "66433059"
   
 -   **Usare il supporto di installazione per ripristinare le impostazioni predefinite del server**. Per informazioni su come eseguire questa operazione sul server, vedere la documentazione fornita dal produttore del server.  
   
--   [Ripristinare il server da un computer client mediante il DVD di ripristino](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2). Se è necessario ripristinare un server amministrato da postazione remota che esegue Windows Server Essentials, è necessario eseguire il ripristino da un computer client mediante il DVD di ripristino fornito dal produttore del server.  
+-   [Ripristinare il server da un computer client mediante il DVD di ripristino](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2). Se è necessario ripristinare un server amministrato in remoto che esegue Windows Server Essentials, è necessario eseguire il ripristino da un computer client usando il DVD di ripristino del produttore del server.  
   
-###  <a name="BKMK_Restore_1"></a> Ripristinare o riparare il server mediante il supporto di installazione  
- La procedura seguente viene descritto come ripristinare l'unità del sistema server da un backup utilizzando i supporti di installazione di Windows Server Essentials. Per informazioni su come usare il supporto di installazione per ripristinare le impostazioni predefinite, vedere la documentazione fornita dal produttore del server.  
+###  <a name="BKMK_Restore_1"></a>Ripristinare o ripristinare il server utilizzando il supporto di installazione  
+ Nella procedura seguente viene descritto come ripristinare l'unità di sistema del server da un backup tramite il supporto di installazione di Windows Server Essentials. Per informazioni su come usare il supporto di installazione per ripristinare le impostazioni predefinite, vedere la documentazione fornita dal produttore del server.  
   
 > [!NOTE]
->  Se il server usa spazi di archiviazione e si ripristinano i dati in un nuovo server, si deve ripristinare l'unità del sistema prima di tutto e quindi accedere al Dashboard di Windows Server Essentials, configurare spazi di archiviazione in modo analogo al server precedente e quindi ripristinare dat un volume.  
+>  Se il server USA spazi di archiviazione e si esegue il ripristino dei dati in un nuovo server, è necessario ripristinare prima l'unità di sistema e quindi accedere al dashboard di Windows Server Essentials, configurare gli spazi di archiviazione in modo analogo al server precedente e quindi ripristinare il file dat volumi.  
   
 ##### <a name="to-restore-the-server-system-drive-from-a-backup-using-installation-media"></a>Per ripristinare l'unità di sistema del server da un backup mediante il supporto di installazione  
   
-1.  Inserire il DVD di installazione di Windows Server Essentials in unità DVD del server, riavviare il server e quindi premere un tasto qualsiasi per avviare dal DVD.  
+1.  Inserire il DVD di installazione di Windows Server Essentials nell'unità DVD del server, riavviare il server e quindi premere un tasto qualsiasi per avviare dal DVD.  
   
     > [!NOTE]
     >  Se il processo di ripristino non viene avviato automaticamente, verificare le impostazioni del BIOS per il server per assicurarsi che l'unità DVD sia visualizzata per prima nel menu di avvio.  
@@ -135,7 +135,7 @@ ms.locfileid: "66433059"
   
 4.  Nella pagina **Scegli un'opzione** fare clic su **Risoluzione dei problemi**.  
   
-5.  Nel **Ripristino immagine del sistema** pagina, selezionare il sistema corrente? entrambi **Windows Server Essentials** oppure **Windows Server Essentials**.  
+5.  Nella pagina **Ripristino immagine del sistema** selezionare il sistema corrente? **Windows Server Essentials** o **Windows Server Essentials**.  
   
      Viene avviata la procedura guidata Effettua re-imaging computer.  
   
@@ -161,14 +161,14 @@ ms.locfileid: "66433059"
 > [!NOTE]
 >  Per ripristinare e condividere le cartelle sul server, può essere necessario eseguire alcuni altri passaggi. Per altre informazioni, vedere [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-###  <a name="BKMK_Restore_2"></a> Il ripristino o il server da un computer client mediante il DVD di ripristino  
- In Windows Server Essentials, è possibile avviare il server da un'unità flash USB avviabile che si crea e quindi ripristinare il server da un computer client mediante il DVD che è stato ricevuto dal produttore del server di ripristino. Il computer client deve trovarsi nella stessa rete del server. Questo metodo non è disponibile in Windows Server Essentials.  
+###  <a name="BKMK_Restore_2"></a>Ripristinare o reimpostare il server da un computer client usando il DVD di ripristino  
+ In Windows Server Essentials è possibile avviare il server da un'unità flash USB avviabile creata e quindi ripristinare il server da un computer client usando il DVD di ripristino ricevuto dal produttore del server. Il computer client deve trovarsi nella stessa rete del server. Questo metodo non è disponibile in Windows Server Essentials.  
   
  La procedura che segue indica le operazioni generali per il ripristino di un server. I passaggi sono applicabili sia per il ripristino da un backup, sia per il ripristino delle impostazioni predefinite. Per istruzioni più dettagliate, vedere la documentazione fornita dal produttore del server.  
   
 ##### <a name="to-restore-or-reset-the-server-from-a-client-computer-using-the-recovery-dvd"></a>Per ripristinare il server da un computer client mediante il DVD di ripristino  
   
-1.  Inserire il supporto di ripristino che è stato ricevuto dal produttore del server in un computer client Windows Server Essentials.  
+1.  Inserire i supporti di ripristino del server di Windows Server Essentials ricevuti dal produttore del server in un computer client.  
   
      Viene avviata la procedura guidata Ripristina server in uso.  
   
@@ -186,7 +186,7 @@ ms.locfileid: "66433059"
 > [!NOTE]
 >  Se sono state create altre cartelle condivise nel server, è possibile che queste non vengano riconosciute dal server dopo il ripristino dei dati dal backup. È necessario condividere nuovamente tali cartelle. Per altre informazioni, vedere [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-##  <a name="BKMK_RestoreFilesAndFolders"></a> Ripristinare file e cartelle nel server  
+##  <a name="BKMK_RestoreFilesAndFolders"></a>Ripristino di file e cartelle nel server  
  A seconda del metodo usato per ripristinare il server e del tipo di archiviazione in uso sul server, potrebbe essere necessario ripristinare i volumi di dati dopo il ripristino dell'unità del sistema. In alcuni casi potrebbe essere necessario condividere nuovamente le cartelle esistenti per fare in modo che il server le riconosca.  
   
  Di seguito sono riportati alcuni esempi dei casi in cui è necessario ripristinare file e cartelle:  
@@ -195,8 +195,8 @@ ms.locfileid: "66433059"
   
 -   [Restore shared folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_ConfigreSharedFolders). Se sono state create altre cartelle condivise sul server, dopo il ripristino dell'unità di sistema dal backup, le cartelle condivise si trovano ancora nella partizione dati o sono state ripristinate in tale partizione, ma potrebbero non essere riconosciute dal server. È necessario condividere nuovamente tali cartelle.  
   
-###  <a name="BKMK_RestoreFilesFromBackup"></a> Ripristinare file e cartelle da un backup del server  
- La procedura guidata Ripristino file o cartelle consente di proteggere i dati se il disco rigido smette di funzionare o i file vengano accidentalmente eliminati. Con Windows Server Essentials Backup, è possibile creare una copia di tutti i dati sul disco rigido e archiviare i dati in un dispositivo di archiviazione esterna. Se i dati originali sul disco rigido vengono accidentalmente cancellati o sovrascritti o diventano inaccessibili a causa di un malfunzionamento, è possibile eseguirne il ripristino dal backup. La procedura guidata Ripristino file o cartelle consente di ripristinare un file o una cartella, più file o cartelle oppure un'intera unità disco rigido da un backup esistente.  
+###  <a name="BKMK_RestoreFilesFromBackup"></a>Ripristinare file e cartelle da un backup del server  
+ La procedura guidata Ripristino file o cartelle consente di proteggere i dati se il disco rigido smette di funzionare o i file vengano accidentalmente eliminati. Con il backup di Windows Server Essentials, è possibile creare una copia di tutti i dati nel disco rigido e archiviare i dati in un dispositivo di archiviazione esterno. Se i dati originali sul disco rigido vengono accidentalmente cancellati o sovrascritti o diventano inaccessibili a causa di un malfunzionamento, è possibile eseguirne il ripristino dal backup. La procedura guidata Ripristino file o cartelle consente di ripristinare un file o una cartella, più file o cartelle oppure un'intera unità disco rigido da un backup esistente.  
   
  Dopo un ripristino di sistema, può essere necessario eseguire la procedura guidata Ripristino file o cartelle per ripristinare i file e le cartelle non mantenuti durante il ripristino. Se ad esempio è stato sostituito il disco di sistema o se le informazioni di partizione del disco di sistema sono illeggibili, non è possibile ripristinare i dati da altri volumi sul disco di sistema.  
   
@@ -205,7 +205,7 @@ ms.locfileid: "66433059"
   
 ##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Per ripristinare file e cartelle da un backup del server  
   
-1.  Aprire il Dashboard di Windows Server Essentials e quindi scegliere il **dispositivi** scheda.  
+1.  Aprire il dashboard di Windows Server Essentials e quindi fare clic sulla scheda **dispositivi** .  
   
 2.  Fare clic sul nome del server, quindi su **Ripristino file o cartelle del server** nel riquadro **Attività**.  
   
@@ -214,10 +214,10 @@ ms.locfileid: "66433059"
 3.  Seguire le istruzioni della procedura guidata per ripristinare i file o le cartelle.  
   
 > [!WARNING]
->  Per altre informazioni sul backup e ripristino di file e cartelle, vedere [Manage Backup and Restore](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
+>  Per altre informazioni sul backup e il ripristino di file e cartelle, vedere [Manage backup and Restore](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-###  <a name="BKMK_ConfigreSharedFolders"></a> Ripristinare le cartelle condivise sul server  
- Dopo aver ripristinato l'unità del sistema server s, se le cartelle condivise sono ancora nella partizione dati o sono state ripristinate nella partizione di dati, si potrebbe essere necessario configurare nuovamente le cartelle condivise in ordine per il server riconosca le cartelle. La procedura seguente descrive come aggiungere cartelle condivise in precedenza.  
+###  <a name="BKMK_ConfigreSharedFolders"></a>Ripristinare le cartelle condivise nel server  
+ Dopo aver ripristinato l'unità di sistema del server, se le cartelle condivise si trovano ancora nella partizione dati o sono state ripristinate nella partizione dati, potrebbe essere necessario configurare nuovamente le cartelle condivise affinché il server riconosca le cartelle. La procedura seguente descrive come aggiungere cartelle condivise in precedenza.  
   
 ##### <a name="to-add-an-existing-folder-to-the-server-shared-folders"></a>Per aggiungere una cartella esistente alle cartelle condivise del  
   
@@ -225,27 +225,27 @@ ms.locfileid: "66433059"
   
 2.  Fare clic con il pulsante destro del mouse sulla cartella condivisa, scegliere **Proprietà**, fare clic sulla scheda **Condivisione** e prendere nota delle autorizzazioni per la cartella.  
   
-3.  Accedere al Dashboard di Windows Server Essentials, fare clic sui **Storage** scheda e quindi fare clic su **aggiungere una cartella** nel **attività cartelle Server** riquadro.  
+3.  Accedere al dashboard di Windows Server Essentials, fare clic sulla scheda **archiviazione** e quindi fare clic su **Aggiungi una cartella** nel riquadro **attività cartelle server** .  
   
      Verrà avviata la procedura guidata Aggiungi cartella.  
   
 4.  Digitare un nome per la condivisione nella casella **Nome**.  
   
-5.  Fare clic su **esplorare**, passare alla *< unità\>\\< nomeserver\>* \ServerFolders (ad esempio *d:\Contoso\ServerFolders*), selezionare la cartella che si desidera condividere e quindi fare clic su **OK**.  
+5.  Fare clic su **Sfoglia**, passare a *<\>unità\>\\< nomeserver*\ServerFolders (ad esempio *d:\Contoso\ServerFolders*), selezionare la cartella che si desidera condividere, quindi fare clic su **OK**.  
   
 6.  Fare clic su **Avanti**.  
   
 7.  Specificare le autorizzazioni annotate nel passaggio 2, quindi fare clic su **Aggiungi cartella**.  
   
     > [!IMPORTANT]
-    >  Queste autorizzazioni sostituiranno tutte le autorizzazioni esistenti che non sono stati aggiunti alla cartella mediante il Dashboard di Windows Server Essentials.  
+    >  Queste autorizzazioni sostituiranno tutte le autorizzazioni esistenti che non sono state aggiunte alla cartella usando il dashboard di Windows Server Essentials.  
   
 > [!IMPORTANT]
 >  Dopo avere aggiunto le cartelle all'elenco di cartelle condivise, verificare che siano incluse nel backup del server. Per informazioni sull'aggiunta di cartelle al backup del server, vedere [Configurare o personalizzare un backup del server](Set-up-or-customize-server-backup.md).  
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Gestire il Backup e ripristino](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
+-   [Gestire il backup e il ripristino](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   
