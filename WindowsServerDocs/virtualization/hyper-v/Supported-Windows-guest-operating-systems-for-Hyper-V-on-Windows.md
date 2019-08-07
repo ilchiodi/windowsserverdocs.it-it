@@ -1,6 +1,6 @@
 ---
 title: Sistemi operativi guest supportati Windows per Hyper-V in Windows Server
-description: Elenca i sistemi operativi Windows supportati per l'uso come guest in una macchina virtuale. Vengono inoltre forniti collegamenti ad articoli simili per le versioni precedenti di Hyper-V.
+description: Elenca i sistemi operativi Windows supportati per l'uso come guest in una macchina virtuale. Fornisce inoltre collegamenti ad articoli simili per le versioni precedenti di Hyper-V.
 ms.prod: windows-server-threshold
 ms.service: na
 manager: dongill
@@ -11,12 +11,12 @@ ms.assetid: 06b35897-2192-48b7-8c2d-125c520b0786
 author: lizap
 ms.author: elizapo
 ms.date: 01/08/2019
-ms.openlocfilehash: 5f0e91f3202f09d340154b49408c56752a9de577
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b24c67de90f8773eec69f10381bd9ce1e121853e
+ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874212"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68830888"
 ---
 # <a name="supported-windows-guest-operating-systems-for-hyper-v-on-windows-server"></a>Sistemi operativi guest supportati Windows per Hyper-V in Windows Server
 
@@ -28,12 +28,15 @@ Alcuni sistemi operativi sono disponibili i servizi di integrazione incorporati.
   
 ## <a name="supported-windows-server-guest-operating-systems"></a>Sistemi operativi guest di Windows Server supportati  
 
-Di seguito sono le versioni di Windows Server sono supportate come sistemi operativi guest per Hyper-V in Windows Server 2016 e Windows Server 2019. 
+Di seguito sono riportate le versioni di Windows Server supportate come sistemi operativi guest per Hyper-V in Windows Server 2016 e Windows Server 2019. 
   
 |Sistema operativo guest (server)|Numero massimo di processori virtuali|Integration Services|Note|  
 |-------------------------------------|----------------------------------------|------------------------|---------|  
-|Windows Server 2019 |240 per la generazione 2;<br>64 per la generazione 1|Predefinito|| 
-|Windows Server 2016 |240 per la generazione 2;<br>64 per la generazione 1|Predefinito|| 
+|Windows Server, versione 1903 |240 per la generazione 2;<br>64 per generazione 1|Predefinito||
+|Windows Server, versione 1809 |240 per la generazione 2;<br>64 per generazione 1|Predefinito|| 
+|Windows Server 2019 |240 per la generazione 2;<br>64 per generazione 1|Predefinito||
+|Windows Server, versione 1803 |240 per la generazione 2;<br>64 per generazione 1|Predefinito|| 
+|Windows Server 2016 |240 per la generazione 2;<br>64 per generazione 1|Predefinito|| 
 |Windows Server 2012 R2 |64|Predefinito||  
 |Windows Server 2012 |64|Predefinito||  
 |Windows Server 2008 R2 con Service Pack 1 (SP1)|64|Installare tutti gli aggiornamenti critici di Windows dopo aver configurato il sistema operativo guest.|Edizioni Datacenter, Enterprise, Standard e Web.|
@@ -41,7 +44,7 @@ Di seguito sono le versioni di Windows Server sono supportate come sistemi opera
   
 ## <a name="supported-windows-client-guest-operating-systems"></a>Sistemi operativi guest supportati client Windows  
 
-Di seguito sono le versioni del client di Windows che sono supportate come sistemi operativi guest per Hyper-V in Windows Server 2016 e Windows Server 2019.
+Di seguito sono riportate le versioni di client Windows supportate come sistemi operativi guest per Hyper-V in Windows Server 2016 e Windows Server 2019.
   
 |Sistema operativo guest (client)|Numero massimo di processori virtuali|Integration Services|Note|  
 |-------------------------------------|----------------------------------------|------------------------|---------|  
@@ -51,14 +54,14 @@ Di seguito sono le versioni del client di Windows che sono supportate come siste
   
 ## <a name="guest-operating-system-support-on-other-versions-of-windows"></a>Supporto del sistema operativo guest in altre versioni di Windows  
 
-Nella tabella seguente offre collegamenti a informazioni sui sistemi operativi guest supportati per Hyper-V in altre versioni di Windows.  
+Nella tabella seguente vengono forniti i collegamenti alle informazioni sui sistemi operativi guest supportati per Hyper-V in altre versioni di Windows.  
   
 |Sistema operativo host|Argomento|  
 |-------------------------|---------|  
-|Windows 10|[Sistemi operativi supportati per Client Hyper-V in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|  
-|Windows Server 2012 R2 e Windows 8.1|-   [Sistemi operativi Guest di Windows supportate per Hyper-V in Windows Server 2012 R2 e Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Linux e FreeBSD le macchine virtuali in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
-|Windows Server 2012 e Windows 8|[Sistemi operativi Guest di Windows supportate per Hyper-V in Windows Server 2012 e Windows 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|  
-|Windows Server 2008 e Windows Server 2008 R2|[Informazioni sulle macchine virtuali e i sistemi operativi Guest](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|  
+|Windows 10|[Sistemi operativi guest supportati per Hyper-V client in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|  
+|Windows Server 2012 R2 e Windows 8.1|-   [Sistemi operativi guest Windows supportati per Hyper-V in Windows Server 2012 R2 e Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Macchine virtuali Linux e FreeBSD in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
+|Windows Server 2012 e Windows 8|[Sistemi operativi guest Windows supportati per Hyper-V in Windows Server 2012 e Windows 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|  
+|Windows Server 2008 e Windows Server 2008 R2|[Informazioni sulle macchine virtuali e sui sistemi operativi guest](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|  
   
 ## <a name="how-microsoft-provides-support-for-guest-operating-systems"></a>Come Microsoft fornisce il supporto per i sistemi operativi guest  
 
@@ -72,9 +75,9 @@ Microsoft fornisce supporto per i sistemi operativi guest secondo le modalità s
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Linux e FreeBSD le macchine virtuali in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
+-   [Macchine virtuali Linux e FreeBSD in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
   
--   [Sistemi operativi supportati per Client Hyper-V in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)  
+-   [Sistemi operativi guest supportati per Hyper-V client in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)  
   
 
 

@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
+ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300692"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68729532"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web Desktop remoto per gli utenti
 
@@ -251,7 +251,7 @@ Segui questa procedura se il server Host sessione Desktop remoto è diverso dal 
 * Il **nome alternativo del soggetto** per ogni certificato deve essere impostato sul **nome di dominio completo (FQDN)** del computer. Il **nome comune (CN)** deve corrispondere al nome alternativo del soggetto per ogni certificato.
 
 ## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Come preconfigurare le impostazioni per gli utenti del client Web Desktop remoto
-Questa sezione illustrerà come usare PowerShell per configurare le impostazioni per la distribuzione del client Web Desktop remoto. Questi cmdlet di PowerShell controllano la possibilità da parte di un utente di modificare le impostazioni in base alle considerazioni sulla sicurezza o al flusso di lavoro desiderato dell'organizzazione. Le impostazioni seguenti si trovano tutte nel pannello laterale **Impostazioni** del client Web. 
+Questa sezione illustrerà come usare PowerShell per configurare le impostazioni per la distribuzione del client Web Desktop remoto. Questi cmdlet di PowerShell controllano la possibilità da parte di un utente di modificare le impostazioni in base alle considerazioni sulla sicurezza o al flusso di lavoro desiderato dell'organizzazione. Le impostazioni seguenti si trovano tutte nel pannello laterale **Impostazioni** del client Web.
 
 ### <a name="suppress-telemetry"></a>Eliminare la telemetria
 Per impostazione predefinita, gli utenti possono scegliere di abilitare o disabilitare la raccolta dei dati di telemetria inviati a Microsoft. Per informazioni sui dati di telemetria raccolti da Microsoft, vedi l'informativa sulla privacy facendo clic sul collegamento nel pannello laterale **Informazioni su**.
@@ -274,7 +274,8 @@ Per impostazione predefinita, gli utenti possono scegliere di avviare le risorse
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Ripristinare le impostazioni predefinite delle configurazioni RDWebClientDeploymentSetting
 Per ripristinare la configurazione predefinita di un'impostazione del client Web a livello di distribuzione, esegui il cmdlet di PowerShell seguente e usa il parametro --Name per specificare l'impostazione che vuoi ripristinare:
-   ```PowerShell
+  
+  ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
@@ -316,4 +317,4 @@ Se non riesci a risolvere il problema seguendo le istruzioni per la risoluzione 
 
 ## <a name="get-help-with-the-web-client"></a>Ottenere assistenza per il client Web
 
-Se hai rilevato un problema che non si risolve seguendo le informazioni fornite in questo articolo, puoi segnalarcelo [via posta elettronica](mailto:rdwbclnt@microsoft.com). Puoi anche richiedere o votare per nuove funzionalità nella [casella riservata ai suggerimenti](https://aka.ms/rdwebfbk).
+Se hai rilevato un problema che non si risolve seguendo le informazioni fornite in questo articolo, puoi segnalarlo tramite la [community tecnica](https://aka.ms/wvdtc). Puoi anche richiedere o votare per nuove funzionalità nella [casella riservata ai suggerimenti](https://remotedesktop.uservoice.com/forums/911494-remote-desktop-web-client).

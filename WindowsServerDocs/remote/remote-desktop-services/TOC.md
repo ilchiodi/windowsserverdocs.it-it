@@ -68,7 +68,7 @@
 ## [Client Desktop remoto](clients/remote-desktop-clients.md)
 ### Problemi noti di Desktop remoto
 #### [Risoluzione dei problemi relativi alle connessioni di Desktop remoto](troubleshoot/rdp-error-general-troubleshooting.md)
-#### [I client non riescono a connettersi e ricevono l'errore "Classe non registrata"](troubleshoot/rdp-error-class-not-registered.md).
+#### [I client non riescono a connettersi e ricevono l'errore "Classe non registrata"](troubleshoot/rdp-error-class-not-registered.md)
 #### [I client non riescono a connettersi e ricevono l'errore "Non sono disponibili licenze"](troubleshoot/rdp-error-no-licenses-available.md)
 #### [L'utente non riesce ad autenticarsi o deve autenticarsi due volte](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
 #### [Visualizzazione dell'errore "Servizi Desktop remoto è attualmente occupato" al momento della connessione](troubleshoot/remote-desktop-service-currently-busy.md)
