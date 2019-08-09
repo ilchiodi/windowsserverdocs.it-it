@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab; v-tea
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b06875f0fa175c1fcf4f60cbba9de3dbd10d06b1
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: b8ab1eed003294e3396bcea21b31b7c084180b9c
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792156"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863450"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Ottimizzazione delle prestazioni per server Active Directory
 
@@ -26,6 +26,7 @@ L'ottimizzazione delle prestazioni di Active Directory è incentrata su due obie
 - Ottimizzazione client/applicazioni Active Directory: assicurarsi che i client e le applicazioni usino Active Directory in modo ottimale
 
 ## <a name="start-with-capacity-planning"></a>Iniziare con la pianificazione della capacità
+
 La distribuzione corretta di un numero sufficiente di controller di dominio nel dominio appropriato e con le impostazioni locali corrette, nonché l'implementazione della ridondanza sono fattori essenziali per garantire che le richieste client vengano gestite in modo tempestivo. Questo è un argomento specifico che non rientra nell'ambito di questa guida. Come passaggio iniziale per l'ottimizzazione delle prestazioni di Active Directory, i lettori sono invitati ad acquisire familiarità con i consigli e le indicazioni disponibili in [Pianificazione della capacità per Active Directory Domain Services](capacity-planning-for-active-directory-domain-services.md).
 
 >[!Important]
