@@ -1,6 +1,6 @@
 ---
 title: arp
-description: Argomento i comandi di Windows per **arp** -Visualizza e modifica di voci nella cache del protocollo PNRP (arp) indirizzo usato per archiviare gli indirizzi IP e i relativi indirizzi fisici risolti.
+description: 'Argomento comandi di Windows per **ARP** : consente di visualizzare e modificare le voci nella cache ARP (Address Resolution Protocol) utilizzata per archiviare gli indirizzi IP e i relativi indirizzi fisici risolti.'
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f7393c993601a5e1990cde3e6bc6763811062f4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8354df3f52790840e0cb0c5c9834da2722d27d43
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435297"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914698"
 ---
 # <a name="arp"></a>arp
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza e modifica di voci nella cache del protocollo ARP (Address Resolution). La cache ARP contiene una o più tabelle che vengono usate per archiviare gli indirizzi IP e gli indirizzi fisici risolti Ethernet o Token Ring. È disponibile una tabella separata per ogni scheda di rete Ethernet o Token Ring installato nel computer. Se utilizzato senza parametri, **arp** Visualizza informazioni della Guida.
+Visualizza e modifica le voci nella cache ARP (Address Resolution Protocol). La cache ARP contiene una o più tabelle che vengono usate per archiviare indirizzi IP e i relativi indirizzi fisici Ethernet o anello di token risolti. Nel computer è installata una tabella separata per ogni scheda di rete Ethernet o token ring. Usato senza parametri, **ARP** Visualizza le informazioni della guida.
 ## <a name="syntax"></a>Sintassi
 ```
 arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <Inetaddr> [<ifaceaddr>]] [/s <Inetaddr> <Etheraddr> [<ifaceaddr>]]
@@ -33,28 +33,28 @@ arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <I
 
 |                Parametro                |                                                                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                                                               |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /a [<Inetaddr>] [/n <ifaceaddr>]     | Consente di visualizzare tabelle cache arp corrente per tutte le interfacce. Il parametro /n è tra maiuscole e minuscole.<br /><br />Per visualizzare la voce della cache arp di un indirizzo IP specifico, usare **/a arp** con il *IndInet* parametro, in cui *IndInet* è un indirizzo IP. Se *IndInet* viene omesso, viene utilizzata la prima interfaccia applicabile.<br /><br />Per visualizzare la tabella di cache arp di un'interfaccia specifica, usare il * */n***IndIfaccia* parametro in combinazione con la **/a** parametro in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia. |
-|    /g [<Inetaddr>] [/n <ifaceaddr>]     |                                                                                                                                                                                                                                                          Identico al **/a**.                                                                                                                                                                                                                                                           |
-|      [/d <Inetaddr> [<ifaceaddr>]       |                                                                                           Elimina una voce con un indirizzo IP specifico, dove *IndInet* è l'indirizzo IP.<br /><br />Per eliminare una voce in una tabella per un'interfaccia specifica, usare il *IndIfaccia* parametro in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia.<br /><br />Per eliminare tutte le voci, usare l'asterisco (\*) carattere jolly al posto di *IndInet*.                                                                                           |
-| /s <Inetaddr> <Etheraddr> [<ifaceaddr>] |                                                                                                                     Aggiunge una voce statica per la cache arp che risolve l'indirizzo IP *IndInet* all'indirizzo fisico *IndEther*.<br /><br />Per aggiungere una voce della cache arp statico per la tabella per un'interfaccia specifica, usare il *IndIfaccia* parametro in cui *IndIfaccia* è un indirizzo IP assegnato all'interfaccia.                                                                                                                     |
+|    /a [<Inetaddr>] [/n <ifaceaddr>]     | Visualizza le tabelle della cache ARP correnti per tutte le interfacce. Il parametro/n fa distinzione tra maiuscole e minuscole.<br /><br />Per visualizzare la voce della cache ARP per un indirizzo IP specifico, usare **ARP/a** con il parametro *IndInet* , dove *IndInet* è un indirizzo IP. Se *IndInet* viene omesso, viene utilizzata la prima interfaccia applicabile.<br /><br />Per visualizzare la tabella ARP cache per un'interfaccia specifica, usare il parametro **/n** _ insieme al parametro **/a** , dove *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia. |
+|    /g [<Inetaddr>] [/n <ifaceaddr>]     |                                                                                                                                                                                                                                                          Identico a **/a**.                                                                                                                                                                                                                                                           |
+|      [/d <Inetaddr> [<ifaceaddr>]       |                                                                                           Elimina una voce con un indirizzo IP specifico, dove *IndInet* è l'indirizzo IP.<br /><br />Per eliminare una voce in una tabella per un'interfaccia specifica, usare il parametro *IndIfaccia* in cui *IndIfaccia* è l'indirizzo IP assegnato all'interfaccia.<br /><br />Per eliminare tutte le voci, usare il carattere\*jolly asterisco () al posto di *IndInet*.                                                                                           |
+| /s <Inetaddr> [<Etheraddr> ]<ifaceaddr> |                                                                                                                     aggiunge una voce statica alla cache ARP che risolve l'indirizzo IP *IndInet* nell'indirizzo fisico *IndEther*.<br /><br />Per aggiungere una voce della cache ARP statica alla tabella per un'interfaccia specifica, usare il parametro *IndIfaccia* in cui *IndIfaccia* è un indirizzo IP assegnato all'interfaccia.                                                                                                                     |
 |                   /?                    |                                                                                                                                                                                                                                                  Visualizza la guida al prompt dei comandi.                                                                                                                                                                                                                                                   |
 
 ## <a name="remarks"></a>Note
-- Gli indirizzi IP per *IndInet* e *IndIfaccia* sono espressi in notazione decimale puntata.
-- L'indirizzo fisico per *IndEther* è costituito da sei byte espressi in notazione esadecimale e separati da trattini (ad esempio, 00-AA-00-4F-2A-9C).
-- Le voci aggiunte con il **/s** parametro sono statico e non compreso nel periodo dalla cache arp. Se il protocollo TCP/IP viene arrestato e avviato, vengono rimosse le voci. Per creare le voci della cache arp statico permanente, posizionare l'appropriato **arp** comandi in un batch di file e usare attività pianificate per eseguire il file batch all'avvio.
+- Gli indirizzi IP per *IndInet* e *IndIfaccia* sono espressi in notazione decimale punteggiata.
+- L'indirizzo fisico per *IndEther* è costituito da sei byte espressi in notazione esadecimale e separati da trattini (ad esempio, 00-AA-00-4F-2a-9C).
+- Le voci aggiunte con il **/s** parametro sono statiche e non si timeout della cache ARP. Le voci vengono rimosse se il protocollo TCP/IP viene arrestato e avviato. Per creare voci di cache ARP statiche permanenti, inserire i comandi **ARP** appropriati in un file batch e usare le attività pianificate per eseguire il file batch all'avvio.
   ## <a name="BKMK_Examples"></a>Esempi
-  Per visualizzare le tabelle di cache arp per tutte le interfacce, digitare:
+  Per visualizzare le tabelle della cache ARP per tutte le interfacce, digitare:
   ```
   arp /a
   ```
-  Per visualizzare la tabella della cache arp per l'interfaccia che viene assegnato l'indirizzo IP 10.0.0.99, digitare:
+  Per visualizzare la tabella ARP cache per l'interfaccia a cui è assegnato l'indirizzo IP 10.0.0.99, digitare:
   ```
   arp /a /n 10.0.0.99
   ```
-  Per aggiungere una voce della cache arp statica che consente di risolvere l'indirizzo IP 10.0.0.80 all'indirizzo fisico 00-AA-00-4F-2A-9C, digitare:
+  Per aggiungere una voce della cache ARP statica che risolve l'indirizzo IP 10.0.0.80 nell'indirizzo fisico 00-AA-00-4F-2A-9C, digitare:
   ```
   arp /s 10.0.0.80 00-AA-00-4F-2A-9C 
   ```
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f898c67755fb8e7874932ea06a7cdf461d1e4bd
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: fdda956a5da9ec50e44002cd8ab38373396d5713
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787193"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914649"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -479,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>Note
 
-In questo tipo di pianificazione, la **/sc monthly** parametro, il **al mese** parametro (modificatore) e **/d** parametro (giorno) sono necessari. Il **al mese** parametro (modificatore) specifica la settimana in cui viene eseguita l'attività. Il **/d** parametro specifica il giorno della settimana. (È possibile specificare un solo giorno della settimana per questo tipo di pianificazione). La pianificazione prevede inoltre un **/m** parametro (mese) che consente di pianificare l'attività in determinati mesi o ogni mese (<em>). Il valore predefinito per il parametro **/m</em>* è ogni mese*().
+In questo tipo di pianificazione, la **/sc monthly** parametro, il **al mese** parametro (modificatore) e **/d** parametro (giorno) sono necessari. Il **al mese** parametro (modificatore) specifica la settimana in cui viene eseguita l'attività. Il **/d** parametro specifica il giorno della settimana. (È possibile specificare un solo giorno della settimana per questo tipo di pianificazione). La pianificazione prevede inoltre un **/m** parametro (mese) che consente di pianificare l'attività in determinati mesi o ogni mese (\*). Il valore predefinito per il parametro **/m** è ogni mese\*().
 
 #### <a name="examples"></a>Esempi
 

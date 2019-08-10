@@ -9,68 +9,68 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6d651670976fca65ee517672c81dc6cebc42fff8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 19f0bd019fcfc683de2c554ceadeb0bed3896a71
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442487"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914631"
 ---
 # <a name="configure-performance-monitoring"></a>Configurare il monitoraggio delle prestazioni
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
-ADFS include un proprio i contatori delle prestazioni dedicati per monitorare le prestazioni di entrambi i server federativi e computer proxy server federativo. Per utilizzare Performance Monitor per monitorare le prestazioni dei server AD FS, è utile creare un nuovo insieme agenti di raccolta dati e aggiungere i contatori ADFS a tale visualizzazione. La procedura seguente descrive come configurare il monitoraggio delle prestazioni per AD FS.  
+AD FS include contatori delle prestazioni dedicati che consentono di monitorare le prestazioni dei computer server federativi e proxy server federativi. Per utilizzare Performance Monitor per monitorare le prestazioni dei server di AD FS, è utile creare un nuovo insieme agenti di raccolta dati e aggiungere i AD FS contatori a tale visualizzazione. Nella procedura seguente viene descritto come configurare il monitoraggio delle prestazioni per AD FS.  
   
-#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Per configurare il monitoraggio delle prestazioni per ADFS utilizzando Performance Monitor  
+#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Per configurare il monitoraggio delle prestazioni per AD FS tramite Performance Monitor  
   
-1. Nel **avviare** digitare **Performance Monitor**, quindi premere INVIO.  
+1. Nella schermata **Start** digitare **Performance Monitor**e quindi premere INVIO.  
   
-2. Nell'albero della console, espandere **insiemi agenti di raccolta dati**, a destra\-fare clic su **definito dall'utente**, scegliere **New**, quindi fare clic su **insieme agenti di raccolta dati** .  
+2. Nell'albero della console espandere insiemi agenti di **raccolta dati**,\-fare clic con il pulsante destro del mouse su **definito dall'utente**, scegliere **nuovo**, quindi fare clic su insieme agenti di **raccolta dati**.  
   
-   Viene visualizzata la Data dell'agente di raccolta impostata procedura guidata Crea nuovo.  
+   Verrà visualizzata la procedura guidata Crea nuovo insieme agenti di raccolta dati.  
   
-3. Nelle **Crea nuovo insieme di raccolta dati**, per **nome** digitare un nome per il nuovo set di dati dell'agente di raccolta \(, ad esempio "Delle prestazioni di AD FS"\), fare clic su **creare manualmente \( Advanced\)** , quindi fare clic su **successivo**.  
+3. In **Crea nuovo insieme agenti di raccolta dati**, per **nome** digitare un nome per il nuovo insieme \(agenti di raccolta dati, ad\)esempio "prestazioni ad FS", fare clic su  **\(crea manualmente avanzate\)** , quindi fare clic su  **Quindi**.  
   
-4. Per il tipo di dati da includere, verificare che **creare i log dei dati** sia selezionata e quindi selezionare le caselle di controllo per i tipi di dati seguenti: **Contatore delle prestazioni**, **dati di traccia eventi**, **informazioni sulla configurazione di sistema**.  
+4. Per il tipo di dati da includere, verificare che sia selezionata l'opzione **crea log di dati** , quindi fare clic sulle caselle di controllo per i tipi di dati seguenti: **Contatore delle prestazioni**, **dati di traccia degli eventi**, **informazioni sulla configurazione di sistema**.  
   
-5. Per i contatori delle prestazioni, espandere **ADFS** nel **contatori disponibili** elenco e quindi fare clic su **Add**.  
+5. Per i contatori delle prestazioni, espandere **ad FS** nell'elenco **contatori disponibili** , quindi fare clic su **Aggiungi**.  
   
-   I contatori delle prestazioni di AD FS devono essere visualizzato nei **aggiunti contatori** elenco.  
+   I contatori delle prestazioni AD FS verranno visualizzati nell'elenco **contatori aggiunti** .  
   
-6. Quando viene chiesto di aggiungere provider di traccia eventi, fare clic su **Add**, selezionare **gestione eventi ADFS** e **traccia di AD FS** dall'elenco dei provider.  
+6. Quando viene richiesto di aggiungere i provider di traccia eventi, fare clic su **Aggiungi**, selezionare **AD FS eventi** e **ad FS traccia** dall'elenco di provider.  
   
-7. Quando viene richiesto di aggiungere le chiavi del Registro di sistema per monitorare, fare clic su **successivo**.  
+7. Quando viene richiesto di aggiungere le chiavi del registro di sistema da monitorare, fare clic su **Avanti**.  
   
-8. Quando viene chiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \(* *%systemdrive%\\regprest\\Admin\\** *<data\_collector\_impostare >* , quindi fare clic su **successivo**.  
+8. Quando viene richiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso \(predefinito **% SystemDrive\\%\\regprest\\admin** _<\_agente di raccolta dati impostare\_>_ , quindi fare clic su **Avanti**.  
   
-9. Quando viene chiesto di creare il set di dati dell'agente di raccolta, selezionare **salvare e chiudere**, quindi fare clic su **fine**.  
+9. Quando viene richiesto di creare l'insieme agenti di raccolta dati, selezionare **Salva e Chiudi**, quindi fare clic su **fine**.  
   
-    Il nuovo insieme agenti di raccolta dati viene visualizzata nell'albero della console sotto il **definite dall'utente** nodo.  
+    Il nuovo insieme agenti di raccolta dati viene visualizzato nell'albero della console sotto il nodo **definito dall'utente** .  
   
-10. Usare i passaggi seguenti per lavorare con i contatori delle prestazioni di AD FS:  
+10. Per utilizzare i contatori delle prestazioni AD FS, attenersi alla procedura seguente:  
   
-    -   Per iniziare il monitoraggio delle prestazioni tramite AD FS\-correlati i contatori, a destra\-fare clic sul set di agenti di raccolta dati che è stato aggiunto \(, ad esempio "Delle prestazioni di AD FS"\), quindi fare clic su **avviare**.  
+    -   Per avviare il monitoraggio delle prestazioni\-utilizzando ad FS contatori correlati\-, fare clic con il pulsante destro del \(mouse sull'insieme agenti di raccolta\)dati aggiunto, ad esempio "prestazioni ad FS", quindi fare clic su **Avvia**.  
   
-    -   Per creare un report per visualizzare i risultati di monitoraggio delle prestazioni, pulsante destro del mouse\-fare clic sul set di agenti di raccolta dati che è stato aggiunto \(, ad esempio "Delle prestazioni di AD FS"\), quindi fare clic su **Report più recente**.  
+    -   Per creare un report per visualizzare i risultati del monitoraggio delle prestazioni\-, fare clic con il pulsante destro del \(mouse sull'insieme agenti di raccolta\)dati aggiunto, ad esempio "prestazioni ad FS", quindi fare clic su **report più recente**.  
   
-    -   Per terminare un'acquisizione dei dati sulle prestazioni in modo che sia possibile visualizzare il report più recente, pulsante destro del mouse\-fare clic sul set di agenti di raccolta dati che è stato aggiunto \(, ad esempio "Delle prestazioni di AD FS"\), quindi fare clic su **Arresta**.  
+    -   Per terminare un'acquisizione dei dati sulle prestazioni in modo che sia possibile visualizzare il report più\-recente, fare clic con il pulsante destro \(del mouse sull'insieme agenti di\)raccolta dati aggiunto, ad esempio "prestazioni ad FS", quindi fare clic su **Arresta**.  
   
-    Il report più recente viene aggiunto e numerato automaticamente \(partire 000001\) sotto il **Report\\definito dall'utente**<em>\\< dati\_dell'agente di raccolta \_impostare ></em> nodo nell'albero della console.  
+    Il report più recente viene aggiunto e numerato \(automaticamente a partire\) da 000001 all'interno del **report\\definito**<em>\\dall'\_utente < insieme agenti di raccolta\_dati ></em> nodo in albero della console.  
   
-## <a name="ad-fs-performance-counters"></a>Contatori delle prestazioni di AD FS  
-Nella tabella seguente elenca i contatori delle prestazioni di AD FS e descrive come sono utili per il monitoraggio delle attività che si riferisce a un server federativo o proxy server federativo.  
+## <a name="ad-fs-performance-counters"></a>Contatori delle prestazioni AD FS  
+Nella tabella seguente sono elencati i contatori delle prestazioni AD FS e viene descritto il modo in cui sono utili per il monitoraggio dell'attività correlata a un server federativo o a un proxy server federativo.  
   
-|Contatore|Descrizione|Può essere usato su: 
+|Contatore|Descrizione|Può essere usato in: 
 |-----------|---------------|------------------- 
-|Richieste token|Consente di monitorare il numero di richieste di token inviati al server federativo, incluse le richieste di token SSOAuth.|Server federativi 
-|Richieste di token\/sec|Consente di monitorare il numero di richieste di token inviati al server federativo, incluse le richieste di token SSOAuth al secondo.|Server federativi  
-|Richieste metadati di federazione|Controlla il numero di richieste di metadati federazione in ingresso inviati al server federativo.|Server federativi  
-|Richieste di metadati di federazione\/sec|Consente di monitorare il numero di federazione metadati le richieste in ingresso al secondo che vengono inviati al server federativo.|Server federativi  
-|Richieste di risoluzione artefatto|Consente di monitorare il numero di federazione metadati le richieste in ingresso al secondo che vengono inviati al server federativo.|Server federativi  
-|Le richieste di risoluzione artefatto\/sec|Consente di monitorare il numero di richieste all'endpoint di risoluzione artefatto al secondo che vengono inviati al server federativo.|Server federativi  
-|Richieste proxy|Controlla il numero di richieste in ingresso inviati per il proxy server federativo.|Server federativi  
-|Le richieste proxy\/sec|Consente di monitorare il numero di richieste in ingresso al secondo che vengono inviati al proxy server federativo.|Server federativi  
-|Richieste MEX proxy|Controlla il numero di in ingresso WS\-Metadata Exchange \(MEX\) le richieste inviate al proxy server federativo.|Server federativi 
-|Le richieste MEX proxy\/sec|Controlla il numero di richieste in ingresso MEX al secondo che vengono inviati al proxy server federativo.|Server federativi  
+|Richieste token|Esegue il monitoraggio del numero di richieste di token inviate al server federativo, incluse le richieste del token SSOAuth.|Server federativi 
+|Richieste\/token sec|Esegue il monitoraggio del numero di richieste di token inviate al server federativo, incluse le richieste di token SSOAuth al secondo.|Server federativi  
+|Richieste metadati di federazione|Esegue il monitoraggio del numero di richieste di metadati federativi in ingresso inviate al server federativo.|Server federativi  
+|Richieste\/metadati federazione sec|Esegue il monitoraggio del numero di richieste di metadati federativi in ingresso al secondo inviate al server federativo.|Server federativi  
+|Richieste di risoluzione artefatto|Esegue il monitoraggio del numero di richieste di metadati federativi in ingresso al secondo inviate al server federativo.|Server federativi  
+|Richieste\/di risoluzione artefatto sec|Esegue il monitoraggio del numero di richieste all'endpoint di risoluzione dell'artefatto al secondo inviate al server federativo.|Server federativi  
+|Richieste proxy|Esegue il monitoraggio del numero di richieste in ingresso inviate al proxy server federativo.|Proxy server federativi  
+|Richieste\/proxy sec|Esegue il monitoraggio del numero di richieste in ingresso al secondo inviate al proxy server federativo.|Proxy server federativi  
+|Richieste MEX proxy|Esegue il monitoraggio del numero di richieste\-MEX\) di \(scambio dei metadati WS in arrivo inviate al proxy server federativo.|Proxy server federativi 
+|Richieste\/MEX proxy sec|Esegue il monitoraggio del numero di richieste MEX in ingresso al secondo inviate al proxy server federativo.|Proxy server federativi  
   
 
