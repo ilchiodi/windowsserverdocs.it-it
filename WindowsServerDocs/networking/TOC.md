@@ -83,6 +83,10 @@
 #### [Usare i criteri DNS per l'applicazione di filtri alle query DNS](dns/deploy/apply-filters-on-dns-queries.md)
 #### [Usare i criteri DNS per l'applicazione del bilanciamento del carico](dns/deploy/app-lb.md)
 #### [Usare i criteri DNS per l'applicazione del bilanciamento del carico con la consapevolezza della posizione geografica](dns/deploy/app-lb-geo.md)
+### [Risoluzione dei problemi del DNS](dns/troubleshoot/troubleshoot-dns-data-collection.md)
+#### [Risoluzione dei problemi dei client DNS](dns/troubleshoot/troubleshoot-dns-client.md)
+##### [Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS](dns/troubleshoot/disable-dns-client-side-caching.md)
+#### [Risoluzione dei problemi dei server DNS](dns/troubleshoot/troubleshoot-dns-server.md)
 
 ## [Dynamic Host Configuration Protocol (DHCP)](technologies/dhcp/dhcp-top.md)
 ### [Novità di DHCP](technologies/dhcp/What-s-New-in-DHCP.md)
