@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3182ce1d0e856b06b143719c488864e9a58fbc0a
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 34488a7f1a9d8ccd04de0aae35cbe98ec162c93f
+ms.sourcegitcommit: 107b801af9603be9268a8f459478e212319f7f06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476578"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68995259"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Usare espressioni regolari nel Server dei criteri di rete
 
@@ -55,7 +55,7 @@ In questo argomento viene illustrato l'utilizzo di espressioni regolari per la c
 |    `\v`     |                                                                      Corrisponde a un carattere di tabulazione verticale.                                                                       |                                                                 &nbsp;                                                                  |
 |    `\w`     |                                              Corrisponde a qualsiasi carattere alfanumerico, incluso \(il carattere `[A-Za-z0-9_]`di sottolineatura equivalente a \).                                              |                                                                 &nbsp;                                                                  |
 |    `\W`     |                                           Corrisponde a qualsiasi\-carattere non alfanumerico, escluso il `[^A-Za-z0-9_]`carattere di sottolineatura \(equivalente a \).                                           |                                                                 &nbsp;                                                                  |
-|   `\num`    | Si riferisce \(alle corrispondenze `?num`memorizzate, dove\)num è un numero intero positivo.  Questa opzione può essere utilizzata solo nella casella  di testo Sostituisci quando si configura la manipolazione degli attributi. |                                       `\1`sostituisce quello archiviato nella prima corrispondenza memorizzata.                                       |
+|   `\num`    | Si riferisce \(alle corrispondenze `?num`memorizzate, dove\)num è un numero intero positivo.  Questa opzione può essere utilizzata solo nella casella di testo Sostituisci quando si configura la manipolazione degli attributi. |                                       `\1`sostituisce quello archiviato nella prima corrispondenza memorizzata.                                       |
 |   `/n/ `    |                      Consente l'inserimento di codici ASCII in espressioni \( `?n`regolari, dove n è un valore\)di escape ottale, esadecimale o decimale.                       |                                                                 &nbsp;                                                                  |
 
 ## <a name="examples-for-network-policy-attributes"></a>Esempi per gli attributi dei criteri di rete
@@ -82,7 +82,7 @@ In uno scenario di connessione remota esternalizzato in cui un provider \(\) di 
 
 - Sostituisci:
 
-**Per sostituire <em>user@example.microsoft.com</em> con *example. Microsoft. com\utente***
+**Per sostituire <em>user@example.microsoft.com</em> con _example. Microsoft. com\utente_**
 
 - Trovare`(.*)@(.*)`
 
@@ -90,7 +90,7 @@ In uno scenario di connessione remota esternalizzato in cui un provider \(\) di 
 
 
 
-**Per sostituire *dominio\utente* con *specific_domain\user***
+**Per sostituire *dominio\utente* con _specific_domain\user_**
 
 - Trovare`(.*)\\(.*)`
 
