@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 0b20400029b462798587c2291431b5a7c3d61775
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 3aeb7cb06f82b6f2220e42866682ce918389bf1d
+ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917808"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69023901"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS
 
@@ -49,6 +49,53 @@ ipconfig /displaydns
 
 Questo comando Visualizza il contenuto della cache del resolver DNS, inclusi i record di risorse DNS precaricati dal file host e tutti i nomi di cui è stata eseguita una query di recente che sono stati risolti dal sistema. Dopo un certo periodo di tempo, il resolver Elimina il record dalla cache. Il periodo di tempo è specificato dal valore **TTL (time to Live)** associato al record di risorse DNS. È possibile svuotare la cache anche manualmente. Dopo lo scaricamento della cache, il computer deve eseguire di nuovo la query sui server DNS per tutti i record di risorse DNS risolti in precedenza dal computer. Per eliminare le voci nella cache del resolver DNS, eseguire `ipconfig /flushdns` al prompt dei comandi.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="using-the-registry-to-control-the-caching-time"></a>Uso del registro di sistema per controllare il tempo di memorizzazione nella cache
 
-Per ulteriori informazioni [, vedere come disabilitare la memorizzazione nella cache DNS sul lato client in Windows](https://support.microsoft.com/kb/318803) .
+> [!IMPORTANT]  
+> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
+
+L'intervallo di tempo durante il quale una risposta positiva o negativa viene memorizzata nella cache dipende dai valori delle voci nella chiave del registro di sistema seguente:
+
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNSCache\Parameters**
+
+Il valore TTL per le risposte positive è minore dei valori seguenti: 
+
+- Numero di secondi specificati nella risposta alla query ricevuta dal resolver
+
+- Valore dell'impostazione del registro di sistema **MaxCacheTtl** .
+
+>[!Note]
+>- Il valore TTL predefinito per le risposte positive è 86.400 secondi (1 giorno).
+>- Il valore TTL per le risposte negative è il numero di secondi specificato nell'impostazione del registro di sistema MaxNegativeCacheTtl.
+>- Il valore TTL predefinito per le risposte negative è 900 secondi (15 minuti).
+Se non si desidera che le risposte negative vengano memorizzate nella cache, impostare l'impostazione del registro di sistema MaxNegativeCacheTtl su 0.
+
+Per impostare il tempo di memorizzazione nella cache in un computer client:
+
+1. Avviare l'editor del registro di sistema (Regedit. exe).
+
+2. Individuare e quindi fare clic sulla chiave seguente nel registro di sistema:
+
+   **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters**
+
+3. Scegliere Nuovo dal menu modifica, fare clic su valore DWORD, quindi aggiungere i valori del registro di sistema seguenti:
+
+   - Nome valore: MaxCacheTtl
+
+     Tipo di dati: REG_DWORD
+
+     Dati valore: Valore predefinito di 86400 secondi. 
+     
+     Se si riduce il valore TTL massimo nella cache DNS del client a 1 secondo, si ottiene l'aspetto che la cache DNS sul lato client è stata disabilitata.    
+
+   - Nome valore: MaxNegativeCacheTtl
+
+     Tipo di dati: REG_DWORD
+
+     Dati valore: Valore predefinito di 900 secondi. 
+     
+     Impostare il valore su 0 se non si desidera che le risposte negative vengano memorizzate nella cache.
+
+4. Digitare il valore che si desidera utilizzare, quindi fare clic su OK.
+
+5. Chiudere l'Editor del Registro di sistema.
