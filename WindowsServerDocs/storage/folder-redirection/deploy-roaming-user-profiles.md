@@ -1,5 +1,5 @@
 ---
-Title: Distribuzione dei profili utente mobili
+title: Distribuzione dei profili utente mobili
 TOCTitle: Deploying Roaming User Profiles
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66812492"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560549"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Distribuzione dei profili utente mobili
 
@@ -181,7 +181,7 @@ Di seguito viene illustrato come configurare i profili utente mobili per gli acc
 
 1. Nel Centro amministrativo di Active Directory passare al contenitore (o unità organizzativa) **Utenti** nel dominio appropriato.
 2. Selezionare tutti gli utenti a cui si desidera assegnare un profilo utente mobile, fare clic con il pulsante destro del mouse sugli utenti e quindi scegliere **Proprietà**.
-3. Nella sezione **profilo** selezionare la casella di controllo **percorso profilo:** e quindi immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene automaticamente sostituito con il nome utente il primo ora di accesso dell'utente. Ad esempio:
+3. Nella sezione **profilo** selezionare la casella di controllo **percorso profilo:** e quindi immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene automaticamente sostituito con il nome utente il primo ora di accesso dell'utente. Esempio:
     
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
     
@@ -212,7 +212,7 @@ Di seguito viene illustrato come configurare i profili utente mobili nei compute
     > [!TIP]
     > La home directory di un utente, se configurata, è la cartella predefinita usata da alcuni programmi come Windows PowerShell. È possibile configurare un percorso di rete o locale alternativo in base al numero di utenti con la sezione **Home directory** delle proprietà dell'account utente in Servizi di dominio Active Directory. Per configurare il percorso della Home Directory per tutti gli utenti di un computer in cui è in esecuzione Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un ambiente di desktop virtuale, abilitare la **Home directory dell'utente** . impostazione dei criteri, quindi specificare la condivisione file e la lettera di unità di cui eseguire il mapping (oppure specificare una cartella locale). Non usare variabili di ambiente o puntini di sospensione. L'alias dell'utente viene aggiunto alla fine del percorso specificato durante l'accesso dell'utente.
 6. Nella finestra di dialogo **Proprietà** selezionare **abilitato**
-7. Nella casella **utenti che accedono al computer devono utilizzare il percorso del profilo** di roaming, immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene sostituito automaticamente con il nome utente la prima volta che l'utente accede. Ad esempio:
+7. Nella casella **utenti che accedono al computer devono utilizzare il percorso del profilo** di roaming, immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene sostituito automaticamente con il nome utente la prima volta che l'utente accede. Esempio:
 
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
 
@@ -287,7 +287,7 @@ Ecco come testare i profili utente mobili:
 
 ## <a name="appendix-a-checklist-for-deploying-roaming-user-profiles"></a>Appendice A: Elenco di controllo per la distribuzione dei profili utente mobili
 
-| Stato                     | Action                                                |
+| Stato                     | Azione                                                |
 | ---                        | ------                                                |
 | ☐<br>☐<br>☐<br>☐<br>☐   | 1. Preparare il dominio<br>-Aggiungere computer al dominio<br>-Abilita l'uso di versioni del profilo separate<br>-Creare gli account utente<br>-(Facoltativo) Distribuisci Reindirizzamento cartelle |
 | ☐<br><br><br>             | 2. Creare un gruppo di sicurezza per i profili utente mobili<br>-Nome gruppo:<br>Membri |

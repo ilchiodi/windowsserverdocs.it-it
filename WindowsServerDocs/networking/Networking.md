@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 09c98d1bd7d2caa8e4cfaea68f9875b25da94003
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5b2b42c0a1878a2d9f5f9002dd36e0124e2101cc
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444648"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546561"
 ---
 # <a name="networking"></a>Rete
 
@@ -24,7 +24,7 @@ ms.locfileid: "66444648"
 
 <HR />
 
-Funzionalità di rete sono una parte fondamentale del Software definito Datacenter \(SDDC\) platform e Windows Server 2016 fornisce nuove e migliorate Software Defined Networking \(SDN\) tecnologie che consentono di spostare in una soluzione SDDC realizzata completamente per l'organizzazione.
+La funzionalità di rete è una parte fondamentale della piattaforma software defined \(datacenter SDDC\) e Windows Server 2016 fornisce tecnologie Sdn\) nuove e migliorate \(di Software Defined Networking per facilitare il passaggio a una soluzione SDDC completamente realizzata per la tua organizzazione.
 
 Quando si gestiscono le reti come risorse software–defined, è possibile descrivere i requisiti di un'applicazione relativi all'infrastruttura una sola volta e quindi scegliere dove eseguire l'applicazione, se in locale o nel cloud. 
 
@@ -43,7 +43,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h2><a href="../networking/What-s-New-in-Networking.md">Cosa&#39;s new in rete</a></h2>
+                                        <h2><a href="../networking/What-s-New-in-Networking.md">&#39;Novità della rete</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -67,8 +67,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="https://docs.microsoft.com/windows-server/networking/sdn/">SDN (Software Defined Networking)</a><hr /></h3>Questo argomento contiene informazioni sulle tecnologie SDN disponibili in Windows Server, System Center e Microsoft Azure.</p>
-                        
-                                        <p><b>Nota:</b> Per gli host Hyper-V e macchine virtuali (VM) che eseguono Server di infrastruttura SDN, ad esempio i nodi di Controller di rete e il bilanciamento del carico Software, è necessario installare Windows Server Datacenter edition. Per gli host Hyper-V che contengono solo tenant del carico di lavoro macchine virtuali connesse a reti SDN controllati, è possibile eseguire Windows Server Standard edition.</p>                                        </div>
+                                        <p><b>Nota:</b> Per gli host Hyper-V e le macchine virtuali (VM) che eseguono server di infrastruttura SDN, ad esempio i nodi del controller di rete e del bilanciamento del carico software, è necessario installare Windows Server Datacenter Edition. Per gli host Hyper-V che contengono solo macchine virtuali del carico di lavoro tenant connesse a reti controllate da SDN, è possibile eseguire Windows Server Standard Edition.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +84,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md">Distribuire un'infrastruttura Software Defined Networking tramite script</a><hr /></h3>Questa guida offre alcune istruzioni per la distribuzione di Controller di rete con le reti e i gateway virtuali in un lab di test.</p>                                        </div>
+                                        <h3><a href="sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md">Distribuire un'infrastruttura software defined Network usando gli script</a><hr /></h3>Questa guida offre alcune istruzioni per la distribuzione di Controller di rete con le reti e i gateway virtuali in un lab di test.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +118,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md">Il bilanciamento del carico software &#40;bilanciamento del carico software&#41; per la rete SDN</a><hr /></h3>Provider di servizi cloud (CSP) e le aziende che distribuiscono reti SDN (Software Defined) in Windows Server 2016 è possono usare il bilanciamento del carico Software (SLB) per distribuire uniformemente il traffico di rete cliente tenant tra le risorse della rete virtuale e del tenant. Windows Server SLB consente di abilitare più server per l'hosting dello stesso carico di lavoro, offrendo disponibilità e scalabilità elevate.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md">Bilanciamento del carico software &#40;SLB&#41; per Sdn</a><hr /></h3>I provider di servizi cloud (CSP) e le aziende che distribuiscono software defined Networking (SDN) in Windows Server 2016 possono utilizzare il bilanciamento del carico software (SLB) per distribuire in modo uniforme il traffico di rete dei clienti tenant e tenant tra le risorse di rete virtuale. Windows Server SLB consente di abilitare più server per l'hosting dello stesso carico di lavoro, offrendo disponibilità e scalabilità elevate.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +135,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md">Gateway RAS per SDN</a><hr /></h3>Gateway RAS, che è basato su software, multi-tenant, router con supporto del protocollo BGP (Border Gateway) in Windows Server 2016, è progettato per il provider di servizi Cloud (CSP) e le aziende che ospitano più reti virtuali tenant tramite rete Hyper-V Virtualizzazione.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md">Gateway RAS per SDN</a><hr /></h3>Il gateway RAS, che è un router con supporto BGP (software, multi-tenant, Border Gateway Protocol) in Windows Server 2016, è progettato per i provider di servizi cloud (CSP) e le aziende che ospitano più reti virtuali tenant con la rete Hyper-V. Virtualizzazione.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +152,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md">Virtualizzazione di rete (funzione)</a><hr /></h3>In Data Center definite da software, le funzioni di rete vengono eseguite da Appliance hardware (ad esempio servizi di bilanciamento del carico, firewall, router, commutatori e così via) sono sempre più spesso come Appliance virtuali. Ciò &quot;funzione virtualizzazione di rete&quot; è una progressione naturale di virtualizzazione dei server e virtualizzazione di rete.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md">Virtualizzazione delle funzioni di rete</a><hr /></h3>Nei data center definiti dal software, le funzioni di rete eseguite dalle appliance hardware (ad esempio, i bilanciamenti del carico, i firewall, i router, i commutatori e così via) vengono virtualizzate sempre più come appliance virtuali. Questa &quot;virtualizzazione&quot; delle funzioni di rete è una progressione naturale della virtualizzazione dei server e della virtualizzazione di rete.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +169,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md">Cenni preliminari sul datacenter Firewall</a><hr /></h3>Il firewall del centro dati è un firewall multi–tenant, con stato, a 5 tuple (protocollo, numeri di porta di origine e destinazione, indirizzi IP di origine e destinazione), a livello rete.</p>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md">Panoramica del firewall del data center</a><hr /></h3>Il firewall del centro dati è un firewall multi–tenant, con stato, a 5 tuple (protocollo, numeri di porta di origine e destinazione, indirizzi IP di origine e destinazione), a livello rete.</p>
                     </div>
                 </div>
             </div>
@@ -248,7 +247,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="dns/dns-top.md">Domain Name System (DNS)&quot;&gt;</a><hr /></h3>
-                                        <p>Sistema DNS (Domain Name) è uno della famiglia di protocolli che comprendono TCP/IP standard del settore e il Client DNS e il Server DNS forniscono insieme computer name-a indirizzo IP mapping dei servizi di risoluzione a utenti e computer.</p>
+                                        <p>Domain Name System (DNS) è una delle suite di protocolli standard di settore che includono TCP/IP e insieme il client DNS e il server DNS forniscono servizi di risoluzione dei nomi di mapping di indirizzi IP da nome computer a computer e utenti.</p>
                     </div>
                 </div>
             </div>
@@ -266,7 +265,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/dhcp/dhcp-top.md">Dynamic Host Configuration Protocol &#40;DHCP&#41;</a><hr /></h3>
-                                        <p>Dynamic Host Configuration Protocol (DHCP) è un protocollo client/server che fornisce automaticamente un host IP (Internet Protocol) con l'indirizzo IP e altre informazioni di configurazione correlati, ad esempio il subnet mask e il gateway predefinito.</p>
+                                        <p>Dynamic Host Configuration Protocol (DHCP) è un protocollo client/server che fornisce automaticamente un host IP (Internet Protocol) con l'indirizzo IP e altre informazioni di configurazione correlate, ad esempio subnet mask e gateway predefinito.</p>
                     </div>
                 </div>
             </div>
@@ -284,7 +283,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="sdn/technologies/hyper-v-network-virtualization/Hyper-V-Network-Virtualization.md">Virtualizzazione rete Hyper-V</a><hr /></h3>
-                                        <p>Hyper-V rete virtualizzazione consente la virtualizzazione di reti dei clienti su un'infrastruttura di rete fisica condivisa.</p>
+                                        <p>Virtualizzazione rete Hyper-V (HNV) consente la virtualizzazione delle reti dei clienti in un'infrastruttura di rete fisica condivisa.</p>
                     </div>
                 </div>
             </div>
@@ -320,7 +319,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/ipam/ipam-top.md">Gestione indirizzi IP &#40;gestione indirizzi IP&#41;</a><hr /></h3>
-                                        <p>Gestione indirizzi IP (IPAM) è una suite integrata di strumenti che consentono di end-to-end di pianificazione, distribuzione, gestione e monitoraggio dell'infrastruttura di indirizzi IP, con un'esperienza utente avanzata. Gestione indirizzi IP individua automaticamente i server dell'infrastruttura di indirizzi IP e i server DNS nella rete e consente di gestirli da un'interfaccia centrale. </p>
+                                        <p>Gestione indirizzi IP è una suite integrata di strumenti che consentono la pianificazione, la distribuzione, la gestione e il monitoraggio end-to-end dell'infrastruttura di indirizzi IP, con un'esperienza utente avanzata. Gestione indirizzi IP individua automaticamente i server dell'infrastruttura di indirizzi IP e i server DNS nella rete e consente di gestirli da un'interfaccia centrale. </p>
                     </div>
                 </div>
             </div>
@@ -338,7 +337,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/Network-Load-Balancing.md">Bilanciamento del carico di rete</a><hr /></h3>
-                                        <p>Bilanciamento del carico di rete (NLB) distribuisce il traffico tra più server usando il protocollo di rete TCP/IP. Per le distribuzioni non SDN, NLB garantisce che le applicazioni senza stato, ad esempio server Web che eseguono Internet Information Services (IIS), siano scalabile aggiungendo ulteriori server man mano che aumenta il carico.</p>
+                                        <p>Bilanciamento carico di rete distribuisce il traffico tra più server utilizzando il protocollo di rete TCP/IP. Per le distribuzioni non SDN, bilanciamento carico di rete garantisce che le applicazioni senza stato, ad esempio i server Web che eseguono Internet Information Services (IIS), siano scalabili mediante l'aggiunta di altri server man mano che aumenta il carico.</p>
                     </div>
                 </div>
             </div>
@@ -357,12 +356,11 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                                         <div class="cardText">
                                         <h3><a href="technologies/hpn/hpn-top.md">Rete ad alte prestazioni</a><hr /></h3>
                                         <p>Le tecnologie di ottimizzazione e offload di rete in Windows Server 2016 includono funzionalità e tecnologie per solo software (SO, Software Only), funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate e funzionalità e tecnologie per solo hardware (HO, Hardware Only).</p>
-
                                         <p>È disponibile anche la documentazione relativa alle tecnologie di ottimizzazione e offload seguente:<p>
                                         <hr />
                                         <a href="technologies/conv-nic/cnic-top.md">Rete ad alte prestazioni</a><hr />
                                         <a href="technologies/dcb/dcb-top.md">Data Center Bridging (DCB)</a><hr />
-                                        <a href="technologies/vrss/vrss-top.md">Virtual Receive Side Scaling (vRSS)</a>
+                                        <a href="technologies/vrss/vrss-top.md">Receive-Side Scaling virtuale (vRSS)</a>
                     </div>
                 </div>
             </div>
@@ -400,7 +398,7 @@ Server dei criteri di rete consente di creare e imporre criteri di accesso di re
                                         <div class="cardText">
                                         <h3><a href="technologies/netsh/netsh.md">Shell di rete (Netsh)</a><hr /></h3>
                                         <p>
-È possibile utilizzare la Shell di rete (netsh) utilità di rete per gestire tecnologie di rete in Windows Server 2016 e Windows 10.</p>
+È possibile utilizzare l'utilità Network Shell (netsh) networking per gestire le tecnologie di rete in Windows Server 2016 e Windows 10.</p>
                     </div>
                 </div>
             </div>
@@ -417,9 +415,9 @@ Server dei criteri di rete consente di creare e imporre criteri di accesso di re
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="technologies/network-subsystem/net-sub-performance-top.md">Le prestazioni del sottosistema di rete di ottimizzazione</a><hr /></h3>
+                                        <h3><a href="technologies/network-subsystem/net-sub-performance-top.md">Ottimizzazione delle prestazioni del sottosistema di rete</a><hr /></h3>
                                         <p>
-Questo argomento vengono fornite informazioni sulla scelta la scheda di rete corretto per il carico di lavoro server, le interfacce di rete di ordinamento, i contatori delle prestazioni relativi alla rete e ottimizzazione delle prestazioni schede di rete e le tecnologie di rete correlate, ad esempio Receive Side Scaling (RSS), Receive-Side Coalescing (RSC) e altri.</p>
+In questo argomento vengono fornite informazioni sulla scelta della scheda di rete adatta per il carico di lavoro del server, dell'ordinamento delle interfacce di rete, dei contatori delle prestazioni correlati alla rete e delle schede di rete di ottimizzazione delle prestazioni e delle tecnologie di rete Receive-Side Scaling (RSS), Receive-Side coalesation (RSC) e altri.</p>
                     </div>
                 </div>
             </div>
@@ -455,7 +453,7 @@ Gruppo NIC consente di raggruppare le schede di rete Ethernet fisiche in una o p
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="technologies/qos/qos-policy-top.md">Qualità del servizio (QoS) dei criteri</a><hr /></h3>
+                                        <h3><a href="technologies/qos/qos-policy-top.md">Criteri di qualità del servizio (QoS)</a><hr /></h3>
                                         <p>
 Puoi utilizzare i criteri QoS come un punto centrale per la gestione della larghezza di banda di rete tra l'intera infrastruttura di Active Directory creando profili QoS, le cui impostazioni vengono distribuite con Criteri di gruppo.</p>
                     </div>
@@ -495,9 +493,8 @@ WINS (Windows Internet Name Service) è un servizio legacy di registrazione e ri
                                         <div class="cardText">
                                         <h3><a href="../remote/remote-access/remote-access.md">Accesso remoto</a><hr /></h3>
                                         <p>
-È possibile usare tecnologie di accesso remoto, ad esempio DirectAccess e rete privata virtuale (VPN) per fornire ai lavoratori in remoto con la connettività alle risorse di rete interna. Inoltre, è possibile usare l'accesso remoto per la rete locale (LAN), routing e per il Proxy applicazione Web. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
-
-                                        <p>Per altre informazioni sul Proxy applicazione Web, che è un servizio ruolo del ruolo del server Accesso remoto, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">Proxy applicazione Web in Windows Server 2016</a></p>
+È possibile utilizzare le tecnologie di accesso remoto, ad esempio DirectAccess e la rete privata virtuale (VPN), per fornire agli utenti remoti la connettività alle risorse di rete interne. Inoltre, è possibile utilizzare l'accesso remoto per il routing della rete locale (LAN) e per il proxy dell'applicazione Web. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
+                                        <p>Per ulteriori informazioni su proxy applicazione Web, che è un servizio ruolo del ruolo del server accesso remoto, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">proxy applicazione Web in Windows server 2016</a></p>
                     </div>
                 </div>
             </div>
@@ -517,8 +514,7 @@ WINS (Windows Internet Name Service) è un servizio legacy di registrazione e ri
                                         <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Rete di contenitori di Windows</a><hr /></h3>
                                         <p>
 Rete di contenitori di Windows ti consente di creare e gestire le reti per la connessione di endpoint contenitore su host Windows 10 e Windows Server, utilizzando flussi di lavoro e strumenti standard di settore. Le reti di contenitori di Windows supportano più topologie, tra cui reti private, L2 piatte e L3 reindirizzate.</p>
-
-                                        <p>Sono inoltre supportati sovrimpressioni che è possibile creare usando Docker, Kubernetes o Windows PowerShell tramite i plug-in grado di comunicare con il Windows Host di rete Service (HNS), in locale nell'host. È possibile creare e gestire le reti del cluster a nodi multipli tramite sistemi di orchestrazione di livello superiore mediante la comunicazione tramite un agente locale per HNS ogni nodo.</p>
+                                        <p>Sono supportate anche le sovrimpressioni che è possibile creare localmente nell'host usando Docker, Kubernetes o Windows PowerShell tramite plug-in che comunicano con il servizio di rete host Windows (HNS). È possibile creare e gestire reti di cluster a più nodi tramite sistemi di orchestrazione di livello superiore tramite la comunicazione tramite un agente locale per il HNS di ciascun nodo.</p>
                     </div>
                 </div>
             </div>
@@ -538,12 +534,9 @@ Rete di contenitori di Windows ti consente di creare e gestire le reti per la co
                                         <h3><a href="../remote/remote-access/vpn/vpn-top.md">Rete privata virtuale (VPN)</a><hr /></h3>
                                         <p>
 DirectAccess e VPN è un servizio ruolo del ruolo del server Accesso remoto.</p>
-
-                                        <p>Quando si installa accesso remoto come server VPN, è possibile usare reti Private virtuali (VPN) per fornire i dipendenti remoti con le connessioni alla rete dell'organizzazione attraverso la rete Internet - mantenendo anche la privacy delle informazioni con le connessioni crittografate .</p>
-
+                                        <p>Quando si installa accesso remoto come server VPN, è possibile usare la rete privata virtuale (VPN) per fornire ai dipendenti remoti le connessioni alla rete aziendale attraverso Internet, mantenendo al tempo stesso la privacy delle informazioni con le connessioni crittografate .</p>
                                        <p> Con una VPN per l'accesso remoto in Windows Server, e computer client Windows 10, puoi distribuire una VPN Always On. Una VPN Always On ti consente di gestire i client VPN remoti sempre connessi, agevolando al contempo i lavoratori remoti, che non dovranno più connettersi e disconnettersi manualmente dalla VPN alla rete dell'organizzazione.</p>
-
-                                       <p>Per altre informazioni, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Remote Access sempre su VPN distribuzione Guide per Windows Server 2016 e Windows 10</a></p>
+                                       <p>Per altre informazioni, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Guida alla distribuzione di accesso remoto always on VPN per Windows Server 2016 e Windows 10</a></p>
                     </div>
                 </div>
             </div>
@@ -557,4 +550,4 @@ Le risorse sulla rete per i sistemi operativi precedenti a Windows Server 2016 s
 
 - [Panoramica delle reti](https://technet.microsoft.com/library/hh831357.aspx) di Windows Server 2012 e Windows Server 2012 R2
 - Windows Server 2008 and Windows Server 2008 R2 [Networking](https://technet.microsoft.com/library/cc753940) (Funzionalità di rete di Windows Server 2008 e Windows Server 2008 R2)
-- Windows Server 2003 [contenuti ritirati relativi a Windows Server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)
+- Contenuti ritirati di Windows Server 2003 [Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)

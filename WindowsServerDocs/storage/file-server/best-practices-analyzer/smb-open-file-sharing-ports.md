@@ -1,5 +1,5 @@
 ---
-Title: 'SMB: Le porte di condivisione file e stampanti devono essere aperte'
+title: SMB Le porte di condivisione file e stampanti devono essere aperte
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
 ms.prod: windows-server-threshold
@@ -7,21 +7,21 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: fae579347a43dfa361206e65032b1f3da512ec4a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a22801be6ec73b6819a190c793d28feae4edcf69
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284368"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560431"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Le porte di condivisione file e stampanti devono essere aperte
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB Le porte di condivisione file e stampanti devono essere aperte
 
 
 Aggiornamento: 2 febbraio 2011
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, Windows Server 2008 R2
 
-*Questo argomento è dedicato alla risoluzione di un problema specifico identificato da un'analisi di Best Practices Analyzer. È consigliabile applicare le informazioni contenute in questo argomento solo ai computer in cui è stato eseguito Best di File Services Best Practices Analyzer e si verifica il problema discusso in questo argomento. Per altre informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi* , vedere [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -35,11 +35,11 @@ Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e
 <td><p>Windows Server</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>/ Funzionalità del prodotto</strong></p></td>
+<td><p><strong>Prodotto/funzionalità</strong></p></td>
 <td><p>Servizi file</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Severity</strong></p></td>
+<td><p><strong>Gravità</strong></p></td>
 <td><p>Errore</p></td>
 </tr>
 <tr class="even">
@@ -51,29 +51,29 @@ Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e
 
 ## <a name="issue"></a>Problema
 
-> *Le porte del firewall sono necessari per la condivisione file e stampanti non aprire (porte 139 e 445).*
+> *Le porte del firewall necessarie per la condivisione di file e stampanti non sono aperte (porte 445 e 139).*
 
 ## <a name="impact"></a>Impatto
 
-> *I computer non sarà in grado di accedere alle cartelle condivise e altri servizi di rete basata su Server Message Block SMB su questo server.*
+> *I computer non saranno in grado di accedere alle cartelle condivise e ad altri servizi di rete basati su SMB (Server Message Block) in questo server.*
 
 ## <a name="resolution"></a>Risoluzione
 
-> *Abilitare la condivisione File e stampanti per la comunicazione attraverso il firewall del computer.*
+> *Abilitare la condivisione di file e stampanti per la comunicazione attraverso il firewall del computer.*
 
 Il requisito minimo per completare questa procedura è l'appartenenza al gruppo **Administrators** locale o a un gruppo equivalente.
 
-## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>Per aprire le porte del firewall per abilitare la condivisione file e stampanti
+## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>Per aprire le porte del firewall per abilitare la condivisione di file e stampanti
 
 1.  Aprire il pannello di controllo, fare clic su **sistema e sicurezza**, quindi fare clic su **Windows Firewall**.
 
-2.  Nel riquadro sinistro, fare clic su **impostazioni avanzate**, nell'albero della console, fare clic su **regole connessioni in entrata**.
+2.  Nel riquadro sinistro fare clic su **Impostazioni avanzate**e nell'albero della console fare clic su **Regole connessioni in ingresso**.
 
-3.  Sotto **regole connessioni in entrata**, individuare le regole **condivisione File e stampanti (NB-sessione-In)** e **condivisione File e stampanti (SMB-In)** .
+3.  In **Regole connessioni in ingresso**individuare le regole **condivisione file e stampanti (NB-Session-in)** e **condivisione file e stampanti (SMB-in)** .
 
-4.  Per ogni regola, fare doppio clic su regola e quindi fare clic su **Abilita regola**.
+4.  Per ogni regola, fare clic con il pulsante destro del mouse sulla regola e quindi scegliere **Abilita regola**.
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Informazioni sulle cartelle condivise e il Firewall Windows](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
+[Informazioni sulle cartelle condivise e sul Windows Firewall](https://technet.microsoft.com/library/cc731402.aspx) (https://technet.microsoft.com/library/cc731402.aspx)
 

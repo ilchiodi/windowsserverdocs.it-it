@@ -1,28 +1,28 @@
 ---
-Title: Comandi DiskPart
+title: Comandi DiskPart
 ms.prod: windows-server-threshold
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: e04af7b6425e208013277d1aaa6f28af62871bcc
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 7155dbf34f9986b3ebdd8b549b6a861cf7fcfe3a
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280084"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560441"
 ---
 # <a name="diskpart-commands"></a>Comandi DiskPart
 
 Si applica a: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, Windows Server 2008
 
-I comandi DiskPart aiutano a gestire le unità del PC (dischi, partizioni, volumi o dischi rigidi virtuali). Prima di poter utilizzare i comandi DiskPart, è necessario prima elencati e quindi selezionare un oggetto per attivarla. Quando un oggetto ha lo stato attivo, qualsiasi comando DiskPart indipendente dai tipi verrà agire su di esso.
+I comandi DiskPart consentono di gestire le unità del PC (dischi, partizioni, volumi o dischi rigidi virtuali). Prima di poter utilizzare i comandi DiskPart, è necessario innanzitutto elencare, quindi selezionare un oggetto per assegnargli lo stato attivo. Quando un oggetto ha lo stato attivo, qualsiasi comando DiskPart digitato agirà su tale oggetto.
 
-È possibile elencare tutti gli oggetti disponibili e determinare un oggetto numero o lettera di unità tramite il **disco elenco, il volume di elenco, elenco partizione**, e **elencare vdisk** comandi. Il **disco elenco, elenco vdisk** e **elenco volume** comandi visualizzano tutti i dischi e volumi nel computer. Tuttavia, il **elenco partizione** comando Visualizza solo le partizioni nel disco con lo stato attivo. Quando si usa la **elenco** comandi, un asterisco (\*) viene visualizzato accanto all'oggetto con lo stato attivo.
+È possibile elencare gli oggetti disponibili e determinare il numero o la lettera di unità di un oggetto usando i comandi **list disk, list volume, List Partition**ed **List vdisk** . I comandi **list disk, List vdisk** ed List **volume** visualizzano tutti i dischi e i volumi del computer. Tuttavia, il comando **List Partition** Visualizza solo le partizioni sul disco con lo stato attivo. Quando si usano i comandi **List** , viene visualizzato un\*asterisco () accanto all'oggetto con lo stato attivo.
 
-Quando si seleziona un oggetto, lo stato attivo rimane su tale oggetto fino a quando non si seleziona un oggetto diverso. Ad esempio, se lo stato attivo è impostato su disco 0 e si seleziona il volume 8 sul disco 2, lo stato attivo passa dal disco 0 per il disco 2, 8 volume. Alcuni comandi di modificano automaticamente lo stato attivo. Ad esempio, quando si crea una nuova partizione, lo stato attivo passa automaticamente alla nuova partizione.
+Quando si seleziona un oggetto, lo stato attivo rimane su tale oggetto fino a quando non si seleziona un oggetto diverso. Ad esempio, se lo stato attivo è impostato su disco 0 e si seleziona volume 8 sul disco 2, lo stato attivo passa dal disco 0 al disco 2, volume 8. Alcuni comandi cambiano automaticamente lo stato attivo. Ad esempio, quando si crea una nuova partizione, lo stato attivo passa automaticamente alla nuova partizione.
 
-È possibile assegnare solo lo stato attivo a una partizione del disco selezionato. Quando una partizione ha lo stato attivo, il relativo volume, se presente, ha anche lo stato attivo. Quando un volume con lo stato attivo, il disco correlato e partizione ha anche lo stato attivo se il volume viene mappato a una determinata partizione. Se ciò non avviene, lo stato attivo sul disco e partizione viene persa.
+È possibile assegnare lo stato attivo solo a una partizione sul disco selezionato. Quando una partizione ha lo stato attivo, anche il volume correlato (se presente) dispone dello stato attivo. Quando un volume ha lo stato attivo, il disco e la partizione correlati hanno lo stato attivo anche se il volume è mappato a una singola partizione specifica. In caso contrario, lo stato attivo sul disco e sulla partizione viene perso.
 
 ## <a name="diskpart-commands"></a>Comandi DiskPart
 
@@ -31,45 +31,45 @@ Per avviare l'interprete dei comandi DiskPart, al prompt dei comandi digitare:
 `diskpart`
 
 > [!IMPORTANT]
-> L'appartenenza al gruppo **gli amministratori** gruppo o equivalente è il requisito minimo necessario per eseguire DiskPart. 
+> L'appartenenza al gruppo **Administrators** locale o a un gruppo equivalente è il requisito minimo necessario per eseguire Diskpart. 
 
-Nell'interprete dei comandi Diskpart, è possibile eseguire i comandi seguenti:
+È possibile eseguire i comandi seguenti nell'interprete dei comandi DiskPart:
 
   - [Active](active.md)  
       
   - [Aggiungi](add.md)  
       
-  - [assegnare](assign.md)  
+  - [Assign](assign.md)  
       
-  - [collegare vdisk](attach-vdisk.md)  
+  - [Connetti vdisk](attach-vdisk.md)  
       
   - [Attributi](attributes.md)  
       
-  - [Automount](automount.md)  
+  - [Montaggio automatico](automount.md)  
       
-  - [Break](break.md)  
+  - [Interruzione](break.md)  
       
-  - [Pulisci](clean.md)  
+  - [Pulito](clean.md)  
       
-  - [Compatta disco virtuale](compact-vdisk.md)  
+  - [Compatta vdisk](compact-vdisk.md)  
       
-  - [Convert](convert.md)  
+  - [Convertire](convert.md)  
       
-  - [creare](create.md)  
+  - [Creare](create.md)  
       
   - [Elimina](delete.md)  
       
-  - [Detach vdisk](detach-vdisk.md)  
+  - [Scollega vdisk](detach-vdisk.md)  
       
-  - [Dettagli](detail.md)  
+  - [Dettaglio](detail.md)  
       
   - [Azioni uscita](exit.md)  
       
-  - [Espandere vdisk](expand-vdisk.md)  
+  - [Espandi vdisk](expand-vdisk.md)  
       
   - [Estendere](extend.md)  
       
-  - [file System](filesystems.md)  
+  - [Filesystem](filesystems.md)  
       
   - [Format](format.md)  
       
@@ -79,37 +79,37 @@ Nell'interprete dei comandi Diskpart, è possibile eseguire i comandi seguenti:
       
   - [Importa](import.md)  
       
-  - [Inactive](inactive.md)  
+  - [Inattivo](inactive.md)  
       
   - [Elenco](list.md)  
       
-  - [Merge vdisk](merge-vdisk.md)  
+  - [Unisci vdisk](merge-vdisk.md)  
       
   - [Offline](offline.md)  
       
   - [Online](online.md)  
       
-  - [Recover](recover.md)  
+  - [Ripristinare](recover.md)  
       
   - [REM](rem.md)  
       
   - [Rimuovi](remove.md)  
       
-  - [Repair](repair.md)  
+  - [Ripristinare](repair.md)  
       
-  - [ripetizione dell'analisi](rescan.md)  
+  - [Ripeti analisi](rescan.md)  
       
-  - [Conservare](retain.md)  
+  - [Mantenere](retain.md)  
       
-  - [SAN](san.md)  
+  - [San](san.md)  
       
   - [Selezionare](select.md)  
       
-  - [Id del set](set-id.md)  
+  - [Imposta ID](set-id.md)  
       
-  - [compattazione](shrink.md)  
+  - [Strizzacervelli](shrink.md)  
       
-  - [Uniqueid](uniqueid.md)  
+  - [UniqueId](uniqueid.md)  
       
 
 ## <a name="additional-references"></a>Altri riferimenti

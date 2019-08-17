@@ -1,17 +1,17 @@
 ---
-Title: Eseguire la migrazione della replica SYSVOL nella replica DFS
+title: Eseguire la migrazione della replica SYSVOL nella replica DFS
 ms.date: 07/02/2012
 ms.prod: windows-server-threshold
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 30b3c5925971a2709ba422a017a73f47e72813a7
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: c4570d807fea37a402d7b1115c21048e68cbbea4
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284430"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560540"
 ---
 # <a name="migrate-sysvol-replication-to-dfs-replication"></a>Eseguire la migrazione della replica SYSVOL nella replica DFS
 
@@ -20,15 +20,15 @@ Aggiornamento: 25 agosto 2010
 
 Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008
 
-I controller di dominio usano una cartella condivisa speciale denominata SYSVOL per replicare gli script di accesso e i file oggetto Criteri di gruppo in altri controller di dominio. Windows 2000 Server e Windows Server 2003 usare servizio Replica File (FRS) per replicare SYSVOL, mentre Windows Server 2008 Usa il servizio Replica DFS più recente in domini che utilizzano il livello funzionale di dominio di Windows Server 2008 e FRS per i domini che eseguire i precedenti livelli funzionali del dominio.
+I controller di dominio utilizzano una cartella condivisa speciale denominata SYSVOL per replicare gli script di accesso e Criteri di gruppo file oggetto in altri controller di dominio. Windows Server 2000 e Windows Server 2003 usano il servizio Replica file (FRS) per replicare SYSVOL, mentre Windows Server 2008 usa il servizio Replica DFS più recente nei domini che usano il livello di funzionalità del dominio Windows Server 2008 e FRS per i domini che eseguire i livelli di funzionalità del dominio precedenti.
 
-Per usare replica DFS per replicare la cartella SYSVOL, è possibile creare un nuovo dominio che utilizza il livello funzionale di dominio di Windows Server 2008 oppure è possibile usare la procedura illustrata in questo documento per eseguire l'aggiornamento di un dominio esistente ed eseguire la migrazione di replica in Replica DFS.
+Per usare Replica DFS per replicare la cartella SYSVOL, è possibile creare un nuovo dominio che usa il livello di funzionalità del dominio di Windows Server 2008. in alternativa, è possibile usare la procedura descritta in questo documento per aggiornare un dominio esistente ed eseguire la migrazione della replica a Replica DFS.
 
-Questo documento si presuppone una conoscenza di base di Active Directory Domain Services (AD DS), FRS e replica DFS (DFS replica). Per altre informazioni, vedere [Panoramica di servizi di dominio di Active Directory](http://go.microsoft.com/fwlink/?linkid=147787), [Cenni preliminari su FRS](http://go.microsoft.com/fwlink/?linkid=121763), o [Panoramica della replica DFS](http://go.microsoft.com/fwlink/?linkid=121762)
+In questo documento si presuppone che l'utente disponga di una conoscenza di base di Active Directory Domain Services (AD DS), FRS e della replica di file system distribuito (Replica DFS). Per ulteriori informazioni, vedere Panoramica di [Active Directory Domain Services](http://go.microsoft.com/fwlink/?linkid=147787), [Panoramica di FRS](http://go.microsoft.com/fwlink/?linkid=121763)o [Panoramica di replica DFS](http://go.microsoft.com/fwlink/?linkid=121762)
 
 
 > [!NOTE]
-> Per scaricare una versione stampabile di questa Guida, visitare <a href="http://go.microsoft.com/fwlink/?linkid=150375">Guida alla migrazione di replica di SYSVOL: Replica da FRS a DFS</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
+> Per scaricare una versione stampabile di questa guida, vedere Guida <a href="http://go.microsoft.com/fwlink/?linkid=150375">alla migrazione della replica di SYSVOL: FRS per Replica DFS</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 
@@ -38,7 +38,7 @@ Questo documento si presuppone una conoscenza di base di Active Directory Domain
 
   - [Stati di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd641052(v=ws.10))  
       
-  - [Panoramica della procedura di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639809(v=ws.10))  
+  - [Cenni preliminari sulla procedura di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639809(v=ws.10))  
       
 
 [Procedura di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639860(v=ws.10))
@@ -50,37 +50,37 @@ Questo documento si presuppone una conoscenza di base di Active Directory Domain
   - [Migrazione allo stato eliminato](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640254(v=ws.10))  
       
 
-[Risoluzione dei problemi di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640395(v=ws.10))
+[Risoluzione dei problemi relativi alla migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640395(v=ws.10))
 
-  - [Risoluzione dei problemi di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639976(v=ws.10))  
+  - [Risoluzione dei problemi di migrazione di SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639976(v=ws.10))  
       
-  - [Eseguire il rollback della migrazione SYSVOL a uno stato stabile precedente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640509(v=ws.10))  
+  - [Rollback della migrazione di SYSVOL a uno stato stabile precedente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640509(v=ws.10))  
       
 
-[Informazioni di riferimento di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640293(v=ws.10))
+[Informazioni di riferimento sulla migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640293(v=ws.10))
 
   - [Scenari di migrazione SYSVOL supportati](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639854(v=ws.10))  
       
-  - [Verificare lo stato di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639789(v=ws.10))  
+  - [Verifica dello stato della migrazione di SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639789(v=ws.10))  
       
   - [Dfsrmig](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd641227(v=ws.10))  
       
-  - [Azioni dell'utilità di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639712(v=ws.10))  
+  - [Azioni dello strumento di migrazione SYSVOL](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd639712(v=ws.10))  
       
 
 ## <a name="additional-references"></a>Altri riferimenti
 
 [Serie di migrazione SYSVOL: Parte 1: Introduzione al processo di migrazione SYSVOL](http://go.microsoft.com/fwlink/?linkid=121756)
 
-[Serie di migrazione SYSVOL: Parte 2—Dfsrmig.exe: Lo strumento di migrazione SYSVOL](http://go.microsoft.com/fwlink/?linkid=121757)
+[Serie di migrazione SYSVOL: Parte 2-dfsrmig. exe: Strumento di migrazione SYSVOL](http://go.microsoft.com/fwlink/?linkid=121757)
 
-[Serie di migrazione SYSVOL: Parte 3: migrazione allo stato 'Preparato'](http://go.microsoft.com/fwlink/?linkid=121758)
+[Serie di migrazione SYSVOL: Parte 3-migrazione allo stato ' preparato '](http://go.microsoft.com/fwlink/?linkid=121758)
 
-[Serie di migrazione SYSVOL: Parte 4: eseguire la migrazione di stato 'REINDIRIZZATO'](http://go.microsoft.com/fwlink/?linkid=121759)
+[Serie di migrazione SYSVOL: Parte 4: migrazione allo stato ' Redirected '](http://go.microsoft.com/fwlink/?linkid=121759)
 
-[Serie di migrazione SYSVOL: Parte 5: eseguire la migrazione allo stato 'Eliminato'](http://go.microsoft.com/fwlink/?linkid=121760)
+[Serie di migrazione SYSVOL: Parte 5: migrazione allo stato ' eliminato '](http://go.microsoft.com/fwlink/?linkid=121760)
 
-[Guida dettagliata per i sistemi di File distribuito in Windows Server 2008](http://go.microsoft.com/fwlink/?linkid=85231)
+[Guida dettagliata per i file system distribuiti in Windows Server 2008](http://go.microsoft.com/fwlink/?linkid=85231)
 
-[Riferimenti tecnici del servizio Replica file](http://go.microsoft.com/fwlink/?linkid=121764)
+[Riferimento tecnico per FRS](http://go.microsoft.com/fwlink/?linkid=121764)
 

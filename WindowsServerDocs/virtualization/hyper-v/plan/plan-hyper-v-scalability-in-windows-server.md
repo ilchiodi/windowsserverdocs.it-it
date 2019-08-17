@@ -10,12 +10,12 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 534de49e50d7b415c9d64c32927418a4395f6f4f
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: b54d3e655d10d2dbb015d57f2b1be86a803d9911
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544744"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546640"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Pianificare la scalabilità di Hyper-V in Windows Server 2016
 
@@ -44,7 +44,7 @@ Questi valori massimi si applicano a ogni macchina virtuale. Non tutti i compone
 |Processori virtuali|240 per la generazione 2;<br>64 per la generazione 1;<br>320 disponibile per il sistema operativo host (partizione radice)|Il numero di processori virtuali supportati da un sistema operativo guest potrebbe essere inferiore. Per informazioni dettagliate, vedere le informazioni pubblicate per il sistema operativo specifico.|
 |Controller SCSI virtuali|4|L'uso di dispositivi SCSI virtuali richiede Integration Services, che sono disponibili per i sistemi operativi guest supportati. Per informazioni dettagliate sui sistemi operativi supportati, vedere [macchine virtuali Linux e FreeBSD supportate](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md) e [sistemi operativi guest Windows supportati](../supported-windows-guest-operating-systems-for-hyper-v-on-windows.md).|  
 |Dischi SCSI virtuali|256|Ogni controller SCSI supporta fino a 64 dischi, il che significa che per ogni macchina virtuale è possibile configurare fino a 256 dischi SCSI virtuali (64 dischi x 4 controller).|  
-|Schede di rete virtuali|Windows Server 2016 supporta 12 totali:<br> -8 schede di rete specifiche di Hyper-V<br>-4 schede di rete legacy <br> Windows Server 2019 supporta 72 Totale: <br> -64 schede di rete specifiche di Hyper-V<br>-4 schede di rete legacy  |La scheda di rete specifica di Hyper-V garantisce prestazioni migliori e richiede un driver incluso in Integration Services. Per ulteriori informazioni, vedere [pianificare la rete Hyper-V in Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
+|Schede di rete virtuali|Windows Server 2016 supporta 12 totali:<br> -8 schede di rete specifiche di Hyper-V<br>-4 schede di rete legacy <br> Windows Server 2019 supporta 68 Totale: <br> -64 schede di rete specifiche di Hyper-V<br>-4 schede di rete legacy  |La scheda di rete specifica di Hyper-V garantisce prestazioni migliori e richiede un driver incluso in Integration Services. Per ulteriori informazioni, vedere [pianificare la rete Hyper-V in Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
   
 ## <a name="maximums-for-hyper-v-hosts"></a>Valori massimi per gli host Hyper-V  
 Questi valori massimi si applicano a ogni host Hyper-V.  

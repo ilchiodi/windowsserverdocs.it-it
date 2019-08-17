@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
-ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
+ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69529889"
+ms.locfileid: "69546377"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
@@ -86,7 +86,7 @@ Spazi di archiviazione diretta funziona con unità SATA, SAS o NVMe collegate di
 - Stesso numero e tipi di unità in ogni server: vedere [considerazioni sulla simmetria delle unità](drive-symmetry-considerations.md)
 - I dispositivi cache devono avere una dimensione di 32 GB o superiore
 - Quando si usano dispositivi di memoria permanenti come dispositivi della cache, è necessario usare dispositivi NVMe o unità SSD (non è possibile usare HDD)
-- Il driver NVMe è il driver NVMe Microsoft o aggiornato.
+- Il driver NVMe è quello fornito da Microsoft incluso in Windows. (stornvme. sys)
 - Consigliato: Il numero di unità di capacità è un multiplo totale del numero di unità cache
 - Consigliato: Le unità cache devono avere una resistenza di scrittura elevata: almeno 3 unità-Scritture per giorno (DWPD) o almeno 4 terabyte scritti (TBW) al giorno [. vedere informazioni sulle Scritture di unità al giorno (DWPD), terabyte scritti (TBW) e il minimo consigliato per spazi di archiviazione diretta ](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
