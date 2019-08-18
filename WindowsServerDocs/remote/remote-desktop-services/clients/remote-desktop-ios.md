@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ebb169ee3b733bd5e7aade6636e078d54a6f09b3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446699"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546394"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>Introduzione a Desktop remoto in iOS
 
@@ -38,7 +38,7 @@ Segui le informazioni riportate di seguito per iniziare. In caso di dubbi, vedi 
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Scaricare il client Desktop remoto dallo store iOS
 Seguire questi passaggi per iniziare con Desktop remoto nel dispositivo iOS:
 
-1. Scaricare il client di Desktop remoto Microsoft da [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8).
+1. Scaricare il client di Desktop remoto Microsoft da [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8).
 2. [Configura il PC per accettare le connessioni remote](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
 3. Aggiungi una [connessione Desktop remoto](#add-a-remote-desktop-connection) o una [risorsa remota](#add-a-remote-resource). Una connessione consente di connettersi direttamente a un PC Windows, mentre una risorsa remota consente di usare un programma RemoteApp, un desktop basato su sessione o un desktop virtuale pubblicato in locale tramite connessioni RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
 
@@ -80,7 +80,7 @@ Per aggiungere una risorsa remota:
 Verranno visualizzate nel Centro connessioni di risorse remote.
 
 
-## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a Gateway Desktop remoto per accedere alle risorse interne
+## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a un gateway Desktop remoto per accedere alle risorse interne
 
 Gateway Desktop remoto ti consente di connetterti a un computer remoto in una rete aziendale da qualsiasi posizione su Internet. È possibile creare e gestire il gateway tramite il client Desktop remoto.
 
@@ -129,7 +129,7 @@ Consente di barra di connessione di accedere ai controlli di spostamento aggiunt
 
 - **Controllo panoramica**: il controllo panoramica consente di ingrandire e spostare la schermata. Si noti che il controllo zoom è disponibile esclusivamente tramite tocco diretto.
    - Abilitare o disabilitare il controllo panoramica: tocca l'icona panoramica sulla barra delle connessioni per visualizzare il controllo panoramica e ingrandire la schermata. Toccare l'icona Zoom nella barra di connessione per nascondere il controllo e restituire la schermata per la risoluzione originale.
-   - Usare il controllo panoramica: tieni premuto il controllo panoramica e quindi trascinalo nella direzione in cui vuoi spostare la schermata.
+   - Usare il controllo panoramica: tieni premuto il controllo panoramica e quindi trascina nella direzione in cui vuoi spostare la schermata.
    - Spostare il controllo panoramica: tocca due volte e tieni premuto il controllo panoramica per spostarlo sullo schermo.
 - **Nome connessione**: viene visualizzato il nome della connessione corrente. Toccare il nome della connessione per visualizzare la barra di selezione di sessione.
 - **Tastiera**: tocca l'icona della tastiera per visualizzare o nascondere la tastiera. Il controllo dettaglio viene visualizzato automaticamente quando viene visualizzata la tastiera.

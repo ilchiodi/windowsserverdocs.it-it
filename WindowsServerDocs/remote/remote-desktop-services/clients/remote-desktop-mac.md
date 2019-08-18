@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 17df3ca3b88404a2775790d7a4a8206b7aa5befa
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804945"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546351"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Introduzione a Desktop remoto su Mac
 
@@ -35,7 +35,7 @@ Puoi eseguire il client Desktop remoto per Mac per utilizzare desktop, risorse e
 ## <a name="get-the-remote-desktop-client"></a>Ottenere il client Desktop remoto
 Per iniziare a usare Desktop remoto nel computer Mac, segui questi passaggi:
 
-1. Scaricare il client di Desktop remoto Microsoft dal [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
+1. Scaricare il client di Desktop remoto Microsoft dal [Mac App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 2. [Configura il PC per accettare le connessioni remote](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). Se ignori questo passaggio, non puoi connetterti al PC.
 3. Aggiungi una connessione Desktop remoto o una risorsa remota. Una connessione consente di connettersi direttamente a un PC Windows, mentre una risorsa remota consente di usare un programma RemoteApp, un desktop basato su sessione o un desktop virtuale pubblicato in locale usando connessioni RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
 
@@ -89,7 +89,7 @@ Utilizzare la procedura seguente per importare un desktop remoto. File con esten
 ## <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota
 Risorse remote sono programmi RemoteApp, desktop basati su sessione e i desktop virtuali pubblicati tramite connessione RemoteApp e Desktop.
 
-- L'URL visualizza il collegamento al server Accesso Web Desktop remoto che consente di accedere alle connessioni RemoteApp e Desktop.
+- L'URL visualizza il collegamento al server Accesso Web Desktop remoto che consente di accedere a connessioni RemoteApp e Desktop.
 - Vengono elencate le connessioni RemoteApp e Desktop configurate.
 
 Per aggiungere una risorsa remota:
@@ -126,7 +126,7 @@ Per creare un nuovo account utente:
 1. In Connection Center (Centro connessioni) fai clic su **Settings** > **Accounts** (Impostazioni > Account).
 2. Fai clic su **Add User Account** (Aggiungi account utente).
 3. Immettere le informazioni seguenti:
-   - **Nome utente** -il nome dell'utente da salvare per l'utilizzo con una connessione remota. Puoi immettere il nome utente in uno dei formati seguenti: user_name, domain\user_name oppure user_name@domain.com.
+   - **Nome utente** -il nome dell'utente da salvare per l'utilizzo con una connessione remota. Puoi immettere il nome utente in uno dei formati seguenti: user_name, domain\user_name o user_name@domain.com.
    - **Password** -la password per l'utente specificato. Ogni account utente che si desidera salvare da utilizzare per le connessioni remote deve avere una password associata.
    - **Friendly Name** (Nome descrittivo): se stai usando lo stesso account utente con password diverse, imposta un nome descrittivo per distinguere gli account utente.
 4. Toccare **salvare**, e quindi toccare **impostazioni**.
