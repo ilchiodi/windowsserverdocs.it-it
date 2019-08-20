@@ -1,16 +1,32 @@
-
-
+---
+title: Miglioramenti di Windows Server 2016
+description: Windows Server 2016 ha migliorato gli algoritmi che viene ora corretta e la condizione l'orologio locale per sincronizzare con l'ora UTC.
+author: dcuomo
+ms.author: dacuo
+manager: dougkim
+ms.date: 10/17/2018
+ms.topic: article
+ms.prod: windows-server-threshold
+ms.technology: networking
+ms.openlocfilehash: 34d05a8058db366714c0ff4fed0b7d80b9150aa4
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626347"
+---
 ## <a name="windows-server-2016-improvements"></a>Miglioramenti di Windows Server 2016
+
 ### <a name="windows-time-service-and-ntp"></a>Servizio ora di Windows e NTP
 Windows Server 2016 ha migliorato gli algoritmi che viene ora corretta e la condizione l'orologio locale per sincronizzare con l'ora UTC.  Il server NTP utilizza 4 valori per calcolare l'offset dell'ora, in base ai timestamp del client richiesta/risposta e richiesta/risposta del server.  Tuttavia, le reti sono rumorose e possono essere presenti picchi di dati dal NTP a causa della congestione della rete e altri fattori che influiscono sulla latenza di rete.  Gli algoritmi 2016 Windows Media il rumore utilizzando un numero di diverse tecniche che si traduce in un orologio stabile e accurato.  Inoltre, l'origine verranno utilizzate per un'API migliorata che offre una migliore risoluzione dei riferimenti in fase di accurate.  Con questi miglioramenti siamo in grado di ottenere precisione a 1 ms per quanto riguarda l'ora UTC in un dominio.
 
 ### <a name="hyper-v"></a>Hyper-V
-Windows 2016 ha migliorato il servizio TimeSync Hyper-V. I miglioramenti includono ora iniziale più accurato nella VM start o il ripristino di macchine Virtuali e correzione di latenza interrupt per gli esempi forniti in w32time.  Questo miglioramento consente di rimanere 10µs con aggiuntivo dell'host con un RMS (radice quadratico medio, che indica la varianza), di 50µs, anche in un computer con un carico di 75%. Per altre informazioni, vedere [architettura di Hyper-V](https://msdn.microsoft.com/library/cc768520.aspx).
+Windows 2016 ha migliorato il servizio TimeSync Hyper-V. I miglioramenti includono ora iniziale più accurato nella VM start o il ripristino di macchine Virtuali e correzione di latenza interrupt per gli esempi forniti in w32time.  Questo miglioramento consente di rimanere in 10μS dell'host con un RMS, ovvero la radice media quadrata, che indica la varianza, di 50 μs, anche in un computer con carico del 75%. Per ulteriori informazioni, vedere [architettura di Hyper-V](https://msdn.microsoft.com/library/cc768520.aspx).
 
 > [!NOTE]
 > Carico è stato creato utilizzando benchmark prime95 Usa profilo bilanciato.
 
-Inoltre, il livello strato che segnala l'Host al guest è più trasparente.  In precedenza l'Host rappresenterebbe un strato predefinito pari a 2, indipendentemente dalla relativa accuratezza.  Con le modifiche in Windows Server 2016, l'host segnala un strato più grande strato host, con conseguente momento migliore per i guest virtuali.  Strato host è determinato dal w32time in modo normale in base al relativo tempo di origine.  Dominio Windows 2016 guest si troverà l'orologio più accurato, piuttosto che verrà utilizzato l'host.  Era per questo motivo per cui si consiglia di disabilitare manualmente l'impostazione del Provider servizi orari Hyper-V per computer che partecipano a un dominio in Windows 2012 R2 e sotto.
+Inoltre, il livello strato che segnala l'Host al guest è più trasparente.  In precedenza l'Host rappresenterebbe un strato predefinito pari a 2, indipendentemente dalla relativa accuratezza.  Con le modifiche apportate a Windows Server 2016, l'host segnala uno strato superiore rispetto al strato host, il che comporta un tempo migliore per i guest virtuali.  Strato host è determinato dal w32time in modo normale in base al relativo tempo di origine.  Dominio Windows 2016 guest si troverà l'orologio più accurato, piuttosto che verrà utilizzato l'host.  Era per questo motivo per cui si consiglia di disabilitare manualmente l'impostazione del Provider servizi orari Hyper-V per computer che partecipano a un dominio in Windows 2012 R2 e sotto.
 
 ### <a name="monitoring"></a>Monitoraggio
 Sono stati aggiunti i contatori di Performance monitor.  Questi consentono di base, monitorare e risolvere accuratezza di tempo.  Questi contatori includono:
@@ -28,32 +44,32 @@ I primi 3 contatori destinati a scenari per la risoluzione dei problemi di accur
 I contatori delle ultime 3 riguardano scenari server NTP e sono utile quando determinare il carico e la base delle prestazioni correnti.
 
 ### <a name="configuration-updates-per-environment"></a>Aggiornamenti della configurazione per ogni ambiente
-Di seguito vengono descritte le modifiche nella configurazione predefinita tra Windows 2016 e versioni precedenti per ogni ruolo.  Le impostazioni per Windows Server 2016 e Windows 10 Anniversary Update (build 14393), sono ora univoci che vi sono visualizzati come colonne distinte. 
+Di seguito vengono descritte le modifiche apportate alla configurazione predefinita tra Windows 2016 e le versioni precedenti per ogni ruolo.  Le impostazioni per Windows Server 2016 e l'aggiornamento dell'anniversario di Windows 10 (Build 14393) sono ora univoche ed è per questo motivo che vengono visualizzate come colonne separate. 
 
-|Ruolo|Impostazione|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
+|Role|Impostazione|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
 |---|---|---|---|---|
-|**Autonomo o Nano Server**||||
-| |*Time Server*|time.windows.com|N/D|time.windows.com|
-| |*Frequenza di polling*|64 - 1024 secondi|N/D|Una volta alla settimana|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|N/D|Una volta un'ora|
+|**Autonomo/nano server**||||
+| |*Server di ora*|time.windows.com|ND|time.windows.com|
+| |*Frequenza di polling*|64-1024 secondi|ND|Una volta alla settimana|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|ND|Una volta all'ora|
 |**Client autonomo**||||
-| |*Time Server*|N/D|time.windows.com|time.windows.com|
-| |*Frequenza di polling*|N/D|Una volta al giorno|Una volta alla settimana|
-| |*Frequenza di aggiornamento dell'orologio*|N/D|Una volta al giorno|Una volta alla settimana|
+| |*Server di ora*|ND|time.windows.com|time.windows.com|
+| |*Frequenza di polling*|ND|Una volta al giorno|Una volta alla settimana|
+| |*Frequenza di aggiornamento dell'orologio*|ND|Una volta al giorno|Una volta alla settimana|
 |**Controller di dominio**||||
-| |*Time Server*|PDC/GTIMESERV|N/D|PDC/GTIMESERV|
-| |*Frequenza di polling*|64-1024 secondi|N/D|1024 - 32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al giorno|N/D|Una volta alla settimana|
-|**Server membro del dominio**||||
-| |*Time Server*|DC|N/D|DC|
-| |*Frequenza di polling*|64-1024 secondi|N/D|1024 - 32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|N/D|Una volta ogni 5 minuti|
-|**Client del membro del dominio**||||
-| |*Time Server*|N/D|DC|DC|
-| |*Frequenza di polling*|N/D|1204 - 32768 secondi|1024 - 32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|N/D|Una volta ogni 5 minuti|Una volta ogni 5 minuti|
+| |*Server di ora*|PDC/GTIMESERV|ND|PDC/GTIMESERV|
+| |*Frequenza di polling*|64-1024 secondi|ND|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al giorno|ND|Una volta alla settimana|
+|**Server membro di dominio**||||
+| |*Server di ora*|DC|ND|DC|
+| |*Frequenza di polling*|64-1024 secondi|ND|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|ND|Una volta ogni 5 minuti|
+|**Client membro di dominio**||||
+| |*Server di ora*|ND|DC|DC|
+| |*Frequenza di polling*|ND|1204-32768 secondi|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|ND|Una volta ogni 5 minuti|Una volta ogni 5 minuti|
 |**Guest Hyper-V**||||
-| |*Time Server*|Sceglie l'opzione migliore in base a strato di server Host e l'ora|Sceglie l'opzione migliore in base a strato di server Host e l'ora|Il valore predefinito è Host|
+| |*Server di ora*|Sceglie l'opzione migliore in base allo strato di host e del server di tempo|Sceglie l'opzione migliore in base allo strato di host e del server di tempo|Il valore predefinito è host|
 | |*Frequenza di polling*|In base al ruolo precedente|In base al ruolo precedente|In base al ruolo precedente|
 | |*Frequenza di aggiornamento dell'orologio*|In base al ruolo precedente|In base al ruolo precedente|In base al ruolo precedente|
 
@@ -69,7 +85,7 @@ I controller di dominio devono essere interessati minima anche con l'effetto mol
 
 Un piano conservativo, è necessario riservare fino a 100 richieste NTP al secondo per ogni core.  Ad esempio, un dominio costituito da 4 controller di dominio con 4 core, deve essere in grado di servire le richieste NTP 1600 al secondo.  Se si dispone di 10 k client configurato per sincronizzare l'ora ogni 64 secondi e le richieste vengono ricevute in modo uniforme nel tempo, si vedrà 10.000/64 bit o circa 160 richieste al secondo, distribuiti in tutti i controller di dominio.  Questo rientra facilmente il nostro 1600 NTP richieste al secondo in questo esempio.  Si tratta di conservative pianificazione consigli e naturalmente hanno una dipendenza di grandi dimensioni in rete, velocità del processore e carichi, in modo da sempre linea di base e test negli ambienti di.
 
-È anche importante notare che se i controller di dominio in esecuzione con un considerevole carico della CPU, maggiore di 40%, verrà quasi certamente aggiungere disturbo a risposte NTP e influire sulla precisione del tempo nel dominio.  Anche in questo caso, è necessario eseguire il test nell'ambiente per comprendere i risultati effettivi.
+È inoltre importante tenere presente che se i controller di dominio sono in esecuzione con un carico di CPU considerevole, superiore al 40%, si aggiungerà quasi certamente un rumore alle risposte NTP e si influirà sulla precisione del tempo nel dominio.  Anche in questo caso, è necessario eseguire il test nell'ambiente per comprendere i risultati effettivi.
 
 ## <a name="time-accuracy-measurements"></a>Misure di accuratezza del tempo
 ### <a name="methodology"></a>Metodologia
@@ -119,7 +135,7 @@ Il grafico seguente vengono confrontate hop di rete virtuale 1 a 6 hop di rete f
 
 ![Ora di Windows](../media/Windows-Time-Service/Windows-2016-Accurate-Time/chart3.png)
 
-## <a name="BestPractices"></a>Le procedure consigliate per la misurazione accurata del tempo
+## <a name="BestPractices"></a>Procedure consigliate per il cronometraggio accurato
 ### <a name="solid-source-clock"></a>Orologio di origine a tinta unita
 Una volta macchine è solo fintanto che la sincronizzazione viene eseguita con l'orologio di origine.  Per ottenere 1 ms di accuratezza, è necessario hardware GPS o da un dispositivo ora sulla rete a cui si fa riferimento come l'orologio di origine master.  Utilizza il valore predefinito di time.windows.com, potrebbe non fornire una stabile e origine dell'ora locale.  Inoltre, poiché si otterrebbe allontanare l'orologio di origine, la rete influiscono sulla precisione.  Con un orologio di origine master in ogni data center è necessaria per l'accuratezza migliore.
 
@@ -150,7 +166,7 @@ Per disabilitare il servizio TimeSync Hyper-V di fornire esempi di w32time, impo
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider 
     "Enabled"=dword:00000000
 
-#### <a name="AllowingLinux"></a>Che consente di utilizzare Hyper-V Host Linux
+#### <a name="AllowingLinux"></a>Consentire a Linux di usare l'ora dell'host Hyper-V
 Per i Guest Linux in esecuzione in Hyper-V, i client sono in genere configurati per utilizzare il daemon NTP per la sincronizzazione dell'ora rispetto al server NTP.  Se la distribuzione Linux supporta il protocollo versione 4 TimeSync e il guest Linux è abilitato il servizio di integrazione TimeSync, verranno sincronizzati con l'ora dell'host. Questo potrebbe comportare un tempo incoerente mantenendo se sono abilitati entrambi i metodi.
 
 Per sincronizzare esclusivamente con l'ora dell'host, è consigliabile disabilitare la sincronizzazione dell'ora NTP tramite:
@@ -163,9 +179,9 @@ In questa configurazione, il parametro di riferimento ora è l'host.  La frequen
 Per sincronizzare esclusivamente tramite NTP, è consigliabile disabilitare il servizio di integrazione TimeSync nel guest.
 
 > [!NOTE]
-> Nota:  Supporto per l'ora esatta con Guest Linux richiede una funzionalità è supportata solo negli ultimi kernel Linux upstream e non è un elemento che è ampiamente disponibile in tutte le distribuzioni Linux ancora. Fare riferimento [macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows) per altri dettagli sulle distribuzioni di supporto.
+> Nota:  Il supporto per l'ora esatta con i guest Linux richiede una funzionalità supportata solo nei kernel Linux upstream più recenti e non è ancora disponibile in tutte le distribuzioni Linux. Per informazioni dettagliate sulle distribuzioni di supporto, fare riferimento alle [macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows) .
 
-#### <a name="GTIMESERV"></a>Specificare un servizio locale ora affidabile tramite GTIMESERV
+#### <a name="GTIMESERV"></a>Specificare un servizio ora locale affidabile usando GTIMESERV
 È possibile specificare uno o più controller di dominio sotto forma di orologi accurata origine utilizzando il GTIMESERV, buona Server ora, flag.  Ad esempio, specifici controller di dominio dotato di hardware GPS può essere contrassegnato come un GTIMESERV.  Questo garantiranno il dominio fa riferimento a un orologio in base all'hardware GPS.
 
 > [!NOTE]
@@ -218,8 +234,8 @@ Source| Orologio locale CMOS|
 Offset di fase|   0.0000000s|
 Ruolo server|    576 (servizio ora)|
 
-#### <a name="windows-server-2016-on-3rd-party-virtual-platforms"></a>Windows Server 2016 in piattaforme virtuale terze parti 3rd
-Quando Windows è virtualizzato, per impostazione predefinita l'Hypervisor è responsabile di fornire ora.  Ma i membri devono essere sincronizzato con il Controller di dominio in ordine per un corretto funzionamento di Active Directory aggiunti a un dominio.  È consigliabile disabilitare la virtualizzazione qualsiasi ora tra i guest e host di alcuna piattaforma virtuale terze parti 3rd.
+#### <a name="windows-server-2016-on-3rd-party-virtual-platforms"></a>Windows Server 2016 su piattaforme virtuali di terze parti
+Quando Windows è virtualizzato, per impostazione predefinita l'hypervisor è responsabile del tempo.  Tuttavia, i membri aggiunti a un dominio devono essere sincronizzato con il controller di dominio affinché Active Directory funzioni correttamente.  È consigliabile disabilitare la virtualizzazione temporale tra il Guest e l'host di qualsiasi piattaforma virtuale di terze parti.
 
 #### <a name="discovering-the-hierarchy"></a>Individuazione gerarchia
 Poiché la catena di gerarchia temporale per l'origine di clock master è dinamico in un dominio e negoziate, sarà necessario determinare lo stato di un particolare computer per capire che è l'origine dell'ora e catena in base all'orologio di origine master.  Ciò consente di diagnosticare problemi di sincronizzazione dell'ora.
@@ -243,7 +259,7 @@ Tramite l'elenco, è possibile tracciare i risultati tramite il dominio e compre
 È possibile utilizzare criteri di gruppo per portare a termine più restrittiva accuratezza, ad esempio, l'assegnazione client a server NTP specifici di utilizzo o del sistema operativo di controllo come legacy venga configurate quando virtualizzato.  
 Di seguito è riportato un elenco di possibili scenari e le impostazioni di criteri di gruppo pertinenti:
 
-**Domini virtualizzati** : per controllare i controller di dominio virtualizzati in Windows 2012 R2 in modo da cui sincronizzare l'ora con il dominio, anziché con l'host Hyper-V, è possibile disabilitare questa voce del Registro di sistema.   Per il PDC, non si desidera disattivare la voce come host Hyper-V distribuirà l'origine dell'ora più stabile.  La voce del Registro di sistema è necessario riavviare il servizio w32time dopo essere stato modificato.
+**Domini virtualizzati** : per controllare i controller di dominio virtualizzati in Windows 2012R2 in modo che eseguano la sincronizzazione dell'ora con il dominio, anziché con l'host Hyper-V, è possibile disabilitare questa voce del registro di sistema.   Per il PDC, non si desidera disattivare la voce come host Hyper-V distribuirà l'origine dell'ora più stabile.  La voce del Registro di sistema è necessario riavviare il servizio w32time dopo essere stato modificato.
 
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider]
     "Enabled"=dword:00000000
@@ -259,7 +275,7 @@ UpdateInterval| 100 – una volta al secondo|
 EventLogFlags|  3 – tutte le registrazioni speciali|
 
 > [!NOTE]
-> Le impostazioni NtpServer ed EventLogFlags si trovano in Windows\Windows tempo Service\Time provider utilizzando le impostazioni di configurazione Client NTP di Windows.  Le altre 3 si trovano nel servizio ora di Windows\Windows utilizzando le impostazioni di configurazione globale.
+> Le impostazioni NtpServer e EventLogFlags si trovano in Windows\windows Time Service\Time Providers usando le impostazioni di configurazione del client NTP di Windows.  Le altre 3 si trovano nel servizio ora di Windows\Windows utilizzando le impostazioni di configurazione globale.
 
 **Remoto accuratezza sensibili carichi remoto** : per i sistemi in domini di branch per istanza al dettaglio e il credito settore PCI (Payment), Windows utilizza le informazioni del sito corrente e DC Locator per trovare un controller di dominio locale, a meno che non esiste un manuale NTP ora origine configurata.  Questo ambiente richiede 1 secondo di accuratezza, che utilizza più veloce convergenza sull'ora corretta.  Questa opzione consente al servizio w32time spostare l'orologio indietro.  Se è accettabile e soddisfi le proprie esigenze, è possibile creare i criteri seguenti.   Come con qualsiasi ambiente, garantisce a test e linea di base della rete. 
 
@@ -275,9 +291,9 @@ L'impostazione MaxAllowedPhaseOffset si trova sotto il servizio ora di Windows\W
 ## <a name="azure-and-windows-iaas-considerations"></a>Considerazioni di Azure e Windows IaaS
 
 ### <a name="azure-virtual-machine-active-directory-domain-services"></a>Macchina virtuale di Azure: Servizi di dominio di Active Directory
-Se la macchina virtuale di Azure che eseguono servizi di dominio Active Directory fa parte di un esistente locale foresta di Active Directory, quindi Timesync, deve essere disabilitata. Questo è consentire tutti i controller di dominio dell'insieme di strutture fisiche e virtuali, utilizzare una gerarchia di sincronizzazione sola volta. Consultare il white paper pratica migliore ["in esecuzione Domain controller in Hyper-V"](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv.aspx)
+Se la macchina virtuale di Azure che esegue Active Directory Domain Services fa parte di una foresta Active Directory locale esistente, è necessario disabilitare TimeSync (VMIC). Questo è consentire tutti i controller di dominio dell'insieme di strutture fisiche e virtuali, utilizzare una gerarchia di sincronizzazione sola volta. Consultare il white paper pratica migliore ["in esecuzione Domain controller in Hyper-V"](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv.aspx)
 
-### <a name="azure-virtual-machine-domain-joined-machine"></a>Macchina virtuale di Azure: computer di dominio
+### <a name="azure-virtual-machine-domain-joined-machine"></a>Macchina virtuale di Azure: Computer aggiunto al dominio
 Se si ospita un computer a un dominio a una foresta di Active Directory esistente, virtuale o fisico, la procedura consigliata è disattivare TimeSync per il guest e verificare W32Time è configurato per la sincronizzazione con un Controller di dominio tramite la configurazione di tempo per il tipo = NTP5
 
 ### <a name="azure-virtual-machine-standalone-workgroup-machine"></a>Macchina virtuale di Azure: Computer del gruppo di lavoro autonomo
@@ -285,12 +301,12 @@ Se la macchina Virtuale di Azure non è associata a un dominio e non è un Contr
 
 ## <a name="windows-application-requiring-accurate-time"></a>Applicazione Windows che richiedono ora esatta
 ### <a name="time-stamp-api"></a>Timestamp API
-Programmi che richiedono la precisione massima per quanto riguarda l'ora UTC e non il passare del tempo, è consigliabile usare la [GetSystemTimePreciseAsFileTime API](https://msdn.microsoft.com/library/windows/desktop/Hh706895.aspx).  In questo modo, che l'applicazione ottiene l'ora di sistema, che è condizionata dal servizio ora di Windows.
+I programmi che richiedono la massima precisione per quanto riguarda l'ora UTC e non il passaggio del tempo devono usare l' [API GetSystemTimePreciseAsFileTime](https://msdn.microsoft.com/library/windows/desktop/Hh706895.aspx).  In questo modo, che l'applicazione ottiene l'ora di sistema, che è condizionata dal servizio ora di Windows.
 
 ### <a name="udp-performance"></a>Prestazioni UDP
 Se si dispone di un'applicazione che utilizza UDP comunicazione per le transazioni e importanti per ridurre al minimo la latenza, esistono alcune voci del Registro di sistema è possibile utilizzare per configurare un intervallo di porte devono essere esclusi dal relative a porta la base del motore di filtraggio.  Per migliorare la latenza di entrambi e aumentare la velocità effettiva.  Tuttavia, le modifiche al Registro di sistema devono essere limitate agli amministratori esperti.  Inoltre, questa soluzione alternativa esclude le porte da protetto dal firewall.  Vedere il riferimento all'articolo seguente per ulteriori informazioni.
 
-Per Windows Server 2012 e Windows Server 2008, è necessario installare un Hotfix.  È possibile fare riferimento a questo articolo della Knowledge Base: [Perdita di datagrammi quando si esegue un'applicazione ricevitore multicast in Windows 8 e Windows Server 2012](https://support.microsoft.com/kb/2808584)
+Per Windows Server 2012 e Windows Server 2008, è necessario installare prima un hotfix.  È possibile fare riferimento a questo articolo della Knowledge guida: [Perdita di datagramma durante l'esecuzione di un'applicazione Receiver multicast in Windows 8 e in Windows Server 2012](https://support.microsoft.com/kb/2808584)
 
 ### <a name="update-network-drivers"></a>Aggiornare i driver di rete
 Alcuni fornitori di rete dispongono di aggiornamenti di driver che migliorano le prestazioni per quanto riguarda la latenza di driver e memorizzare nel buffer i pacchetti UDP.  Contattare il fornitore della rete per verificare se sono disponibili aggiornamenti per facilitare la velocità effettiva UDP.
@@ -300,20 +316,20 @@ Per garantire la conformità alle normative traccia ora è possibile archiviare 
 
 
 1. Accuratezza utilizzando il contatore di monitoraggio delle prestazioni calcolato Offset ora dell'orologio.  Mostra l'orologio con accuratezza desiderato.
-2.  Orologio di origine cercando "Risposta Peer da" nei log w32tm.   Dopo il testo del messaggio è l'indirizzo IP o VMIC, che descrive l'origine dell'ora e la successiva nella catena di clock di riferimento per la convalida.
-3.  Usando i registri w32tm per verificare che lo stato di condizione del clock "disciplina ClockDispl: \*INCLINARE\*ora\*"sono in corso.  Indica che w32tm è attivo al momento.
+2.  Origine clock che cerca "risposta peer da" nei log w32tm.   Dopo il testo del messaggio è l'indirizzo IP o VMIC, che descrive l'origine dell'ora e la successiva nella catena di clock di riferimento per la convalida.
+3.  Stato della condizione di clock usando i registri w32tm per convalidare la disciplina ClockDispl: \*\*Tempo\*di distorsione "in corso.  Indica che w32tm è attivo al momento.
 
 ### <a name="event-logging"></a>Registrazione degli eventi
-Per ottenere la storia completa, è necessario anche informazioni del registro eventi.  Raccolta registro eventi di sistema e il filtro in server di riferimento orario, avvio-Microsoft-Windows-Kernel, Microsoft-Windows-Kernel-General, potrebbe essere in grado di individuare se esistono altri fattori che sono stati modificati l'ora, ad esempio, le terze parti.  Questi log potrebbero essere necessari escludere interferenze esterne.  Criteri di gruppo possono influire sulle quali registri eventi vengono scritti nel log.  Per ulteriori informazioni, vedere la sezione precedente su mediante criteri di gruppo.
+Per ottenere la storia completa, è necessario anche informazioni del registro eventi.  Raccogliendo il registro eventi di sistema e filtrando in time-server, Microsoft-Windows-kernel-boot, Microsoft-Windows-kernel-General, potrebbe essere possibile individuare se sono presenti altre influenze che hanno modificato il tempo, ad esempio, terze parti.  Questi log potrebbero essere necessari per escludere l'interferenza esterna.  Criteri di gruppo possono influire sulle quali registri eventi vengono scritti nel log.  Per ulteriori informazioni, vedere la sezione precedente su mediante criteri di gruppo.
 
-### <a name="W32Logging"></a>La registrazione di Debug W32Time
-Per abilitare w32tm per scopi di controllo, il comando seguente consente la registrazione che mostra gli aggiornamenti periodici del clock e indica l'orologio di origine.  Riavviare il servizio per abilitare la registrazione di nuovi.  
+### <a name="W32Logging"></a>Registrazione debug W32Time
+Per abilitare w32tm a scopo di controllo, il comando seguente abilita la registrazione che Mostra gli aggiornamenti periodici del clock e indica l'orologio di origine.  Riavviare il servizio per abilitare la registrazione di nuovi.  
 
 Per ulteriori informazioni, vedere [come attivare la registrazione nel servizio ora di Windows di debug](https://support.microsoft.com/kb/816043).
 
     w32tm /debug /enable /file:C:\Windows\Temp\w32time-test.log /size:10000000 /entries:0-73,103,107,110
 
-### <a name="performance-monitor"></a>Performance Monitor
+### <a name="performance-monitor"></a>Monitoraggio delle prestazioni
 Il servizio ora di Windows Server 2016 Windows espone i contatori delle prestazioni che può essere usati per raccogliere la registrazione per il controllo.  Questi possono essere registrati in locale o remoto.  È possibile registrare l'Offset ora Computer e i contatori di ritardo di Round Trip.  
 E come un contatore delle prestazioni, è possibile monitorarli in modalità remota e creare avvisi tramite System Center Operations Manager.  È possibile utilizzare ad esempio, un avviso di allarme è quando l'Offset dell'ora si allontana dalla precisione desiderata.  Il [System Center Management Pack](https://social.technet.microsoft.com/wiki/contents/articles/15251.system-center-management-pack-authoring-guide.aspx) Per ulteriori informazioni.
 
@@ -326,7 +342,7 @@ Da file di log w32tm verrà da convalidare due tipi di informazioni.  Il primo �
 
 Il punto principale è che si verificano messaggi preceduti disciplina ClockDispln ovvero w32time prova interagisce con l'orologio di sistema.
  
-Successivamente è necessario trovare l'ultimo report nel log prima dell'ora contestata che segnala il computer di origine utilizzato come l'orologio di riferimento.  Potrebbe trattarsi di un indirizzo IP, nome del computer o del provider VMIC, che indica che sincronizzato con l'Host per Hyper-V.  Nell'esempio seguente fornisce un indirizzo IPv4 di 10.197.216.105.
+Successivamente è necessario trovare l'ultimo report nel log prima dell'ora contestata che segnala il computer di origine utilizzato come l'orologio di riferimento.  Potrebbe trattarsi di un indirizzo IP, nome del computer o del provider VMIC, che indica che sincronizzato con l'Host per Hyper-V.  Nell'esempio seguente viene fornito un indirizzo IPv4 di 10.197.216.105.
 
     151802 20:18:54.6531515s - Response from peer 10.197.216.105,0x8 (ntp.m|0x8|0.0.0.0:123->10.197.216.105:123), ofs: +00.0012218s
 
@@ -344,9 +360,9 @@ Per impostazione predefinita per le macchine unite in join non di dominio Window
 Protocolli di join non di dominio sia il dominio richiede la porta UDP 123.  Per ulteriori informazioni sulle procedure consigliate NTP, fare riferimento a [rete ora protocollo Best Practices IETF bozza corrente](https://tools.ietf.org/html/draft-ietf-ntp-bcp-00).
 
 ### <a name="reliable-hardware-clock-rtc"></a>Orologio Hardware affidabile (RTC)
-Windows non non tempo di passaggio, a meno che non vengono superati determinati limiti, ma piuttosto disciplines l'orologio.  Ciò significa che w32tm viene regolata la frequenza dell'orologio a intervalli regolari, utilizzando la frequenza di aggiornamento dell'orologio impostazione, il valore predefinito è una sola volta un secondo con Windows Server 2016.  Se l'orologio è dietro, accelera la frequenza e se è in avanti, rallenta la frequenza.  Tuttavia, durante tale intervallo di tempo tra le rettifiche di frequenza di clock l'orologio di hardware è nel controllo.  Se si verifica un problema con il firmware o l'orologio di hardware, l'ora del computer può diventare meno accurato.
+Windows non esegue il passaggio del tempo, a meno che non vengano superati determinati limiti, ma piuttosto disciplina il clock.  Ciò significa che w32tm viene regolata la frequenza dell'orologio a intervalli regolari, utilizzando la frequenza di aggiornamento dell'orologio impostazione, il valore predefinito è una sola volta un secondo con Windows Server 2016.  Se l'orologio è dietro, accelera la frequenza e se è in avanti, rallenta la frequenza.  Tuttavia, durante tale intervallo di tempo tra le rettifiche di frequenza di clock l'orologio di hardware è nel controllo.  Se si verifica un problema con il firmware o l'orologio di hardware, l'ora del computer può diventare meno accurato.
 
-Si tratta di un altro motivo che è necessario testare e linea di base nel proprio ambiente.  Se il contatore delle prestazioni "Calcolato tempo Offset" non si stabilizza la precisione di destinazione, si consiglia di verificare che il firmware viene aggiornato.  Come un altro test, è possibile vedere se hardware duplicati non riprodurre lo stesso problema.
+Si tratta di un altro motivo che è necessario testare e linea di base nel proprio ambiente.  Se il contatore delle prestazioni "Calcolato tempo Offset" non si stabilizza la precisione di destinazione, si consiglia di verificare che il firmware viene aggiornato.  Come altro test, è possibile verificare se l'hardware duplicato riproduce lo stesso problema.
 
 ### <a name="troubleshooting-time-accuracy-and-ntp"></a>Risoluzione dei problemi relativi a tempo accuratezza e NTP
 È possibile utilizzare alla scoperta la sezione gerarchia sopra riportata per comprendere l'origine dell'ora corrette.  Osservando la differenza di orario, trovare il punto della gerarchia in cui ora differisce il massimo dalla relativa origine NTP.  Dopo aver compreso la gerarchia, è opportuno provare e comprendere perché tale origine determinato momento non può ricevere ora esatta.  
@@ -355,7 +371,7 @@ Concentrarsi sul sistema con una volta, è possibile utilizzare questi strumenti
 
 
 - Registri eventi di sistema
-- Abilitare la registrazione tramite: w32tm log - w32tm /debug /enable /file:C:\Windows\Temp\w32time-test.log /size:10000000 /entries:0-300
+- Abilitare la registrazione con: w32tm logs-w32tm/debug/Enable/file: C:\Windows\Temp\w32time-test.log/Size: 10000000/Entries: 0-300
 - chiave del Registro di sistema w32Time HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time
 - Tracce di rete locale
 - Contatori delle prestazioni (dal computer locale o di UpstreamClockSource)
@@ -370,12 +386,12 @@ Latenza di rete|    W32tm stripchart Visualizza un RoundTripDelay di più di 10 
 Impossibile raggiungere in modo affidabile l'origine NTP|    W32tm /stripchart restituisce in modo intermittente "Timeout della richiesta"    |Origine NTP non risponde|
 Origine NTP non risponde|    Controllare i contatori Perfmon per risposte in uscita del Server NTP conteggio di origine Client NTP, richieste in arrivo del Server NTP e determinare le modalità di utilizzo rispetto alle linee di base.|    I contatori delle prestazioni di server, di determinare se carico è stato modificato in riferimento alle linee di base.</br></br>Esistono rete i problemi di congestione?|
 Controller di dominio non si utilizza l'orologio più accurata|    Modifiche nella topologia o orologio master aggiunto di recente.|   W32tm /Resync. /rediscover|
-Orologi client sono la deviazione| Servizio ora evento 36 nel registro eventi di sistema e/o di testo nel file di log che indica che: "NTP Client ora origine" contatore passando da 1 a 0|Risoluzione dei problemi di origine a monte e comprendere se è in esecuzione in problemi di prestazioni.|
+Orologi client sono la deviazione| Evento del servizio Time 36 nel registro eventi di sistema e/o nel testo del file di log che descrive: Contatore "numero di origini ora client NTP" da 1 a 0|Risoluzione dei problemi di origine a monte e comprendere se è in esecuzione in problemi di prestazioni.|
 
 ### <a name="baselining-time"></a>Base tempo
 Base è importante che è in primo luogo, può comprendere le prestazioni e accuratezza della rete e confrontarla con quella in futuro, quando si verificano problemi.  È opportuno alla linea di base il controller di Dominio principale o tutti i computer contrassegnati con il GTIMESRV.  Sarebbe anche consigliabile è previsto il PDC in ogni foresta.  Infine, scegliere tutti i controller di dominio o le macchine che dispongono di caratteristiche interessante, ad esempio la distanza o carichi elevati e linea di base critici tali.
 
-È anche utile della linea di base Windows Server 2016 e 2012 R2, tuttavia, è sufficiente w32tm /stripchart come uno strumento che è possibile usare per confrontare, poiché non dispone i contatori delle prestazioni di Windows Server 2012 R2.  Selezionare due computer con le stesse caratteristiche o aggiornare un computer e confrontare i risultati dopo l'aggiornamento.  Il supplemento Windows ora misurazioni contiene ulteriori informazioni su come eseguire misure dettagliate tra 2016 e 2012.
+È anche utile per la linea di base di Windows Server 2016 e 2012 R2, ma è possibile usare w32tm/stripchart solo come strumento per il confronto, poiché Windows Server 2012R2 non dispone di contatori delle prestazioni.  Selezionare due computer con le stesse caratteristiche o aggiornare un computer e confrontare i risultati dopo l'aggiornamento.  Il supplemento Windows ora misurazioni contiene ulteriori informazioni su come eseguire misure dettagliate tra 2016 e 2012.
 
 Utilizzo di tutti i w32time contatori delle prestazioni, raccogliere i dati per almeno una settimana.  Questo garantiranno che si dispone di un numero sufficiente di un riferimento all'account per i diversi nella rete nel tempo e un numero sufficiente di un'esecuzione per avere la certezza che la precisione del tempo è stabile.
 
@@ -383,24 +399,24 @@ Utilizzo di tutti i w32time contatori delle prestazioni, raccogliere i dati per 
 Per la configurazione Server NTP manuale con macchine unite in join non di dominio o controller di dominio Primario, con più di un server è una misura buona ridondanza in caso di disponibilità.  È inoltre possibile potrebbe fornire una migliore accuratezza, supponendo che tutte le origini siano accurate e stabile.  Tuttavia, se la topologia non è ben progettata, o le origini di ora non sono più stabili, l'accuratezza risulta potrebbe essere peggio pertanto prestare attenzione.  Il limite di tempo supportato server w32time può fare manualmente riferimento è 10. 
 
 ## <a name="leap-seconds"></a>Secondi di compensazione
-Periodo di rotazione della terra varia nel tempo, dovuto a eventi climatici e geologici. In genere, la variazione è circa un secondo ogni due anni. Ogni volta che la variazione dal tempo atomico diventa troppo grande, una correzione di un secondo (verso l'alto o verso il basso) viene inserito, chiamato un secondo intercalare. Questa operazione viene eseguita in modo che la differenza non supera mai 0,9 secondi. Questa correzione è annunciata sei mesi prima della correzione effettiva. Prima di Windows Server 2016, il servizio ora di Microsoft non era in grado di secondi di compensazione, ma si basa sul servizio ora esterna che si occupi di questo oggetto. Con una precisione di maggior tempo di Windows Server 2016, Microsoft sta lavorando in una soluzione più adatta per il problema secondo intercalare.
+Periodo di rotazione della terra varia nel tempo, dovuto a eventi climatici e geologici. In genere, la variazione è circa un secondo ogni due anni. Ogni volta che la variazione del tempo atomico diventa troppo grande, viene inserita una correzione di un secondo (verso l'alto o verso il basso), denominata secondo intercalare. Questa operazione viene eseguita in modo che la differenza non supera mai 0,9 secondi. Questa correzione viene annunciata sei mesi prima dell'effettiva correzione. Prima di Windows Server 2016, il servizio ora di Microsoft non era in grado di secondi di compensazione, ma si basa sul servizio ora esterna che si occupi di questo oggetto. Con una precisione di maggior tempo di Windows Server 2016, Microsoft sta lavorando in una soluzione più adatta per il problema secondo intercalare.
 
-## <a name="secure-time-seeding"></a>Proteggere il Seeding di tempo
-W32Time in Server 2016 include la funzionalità di proteggere il Seeding di tempo. Questa funzionalità determina l'ora approssimativa in corrente da connessioni SSL in uscita.  Questo valore di ora consente di monitorare l'orologio di sistema locale e correggere eventuali errori lorde. Altre informazioni sulla funzionalità in [questo post di blog](https://blogs.msdn.microsoft.com/w32time/2016/09/28/secure-time-seeding-improving-time-keeping-in-windows/).  Nelle distribuzioni con un'origine ora affidabile / e i computer monitorati anche che includono il monitoraggio per l'offset dell'ora, è possibile scegliere di non usare la funzionalità Secure ora Seeding e si basano sulla tua infrastruttura esistente invece. 
+## <a name="secure-time-seeding"></a>Seeding del tempo sicuro
+W32Time nel server 2016 include la funzionalità di seeding del tempo protetto. Questa funzionalità determina l'ora corrente approssimativa dalle connessioni SSL in uscita.  Questo valore di tempo viene usato per monitorare l'orologio di sistema locale e correggere eventuali errori lordi. Per altre informazioni sulla funzionalità, vedere [questo post di Blog](https://blogs.msdn.microsoft.com/w32time/2016/09/28/secure-time-seeding-improving-time-keeping-in-windows/).  Nelle distribuzioni con origini ora affidabili e computer ben monitorati che includono il monitoraggio degli offset temporali, è possibile scegliere di non usare la funzionalità di seeding del tempo di protezione e si basano invece sull'infrastruttura esistente. 
 
-È possibile disabilitare la funzionalità con questi passaggi:
+È possibile disabilitare la funzionalità con i passaggi seguenti:
 
-1.  Impostare il valore di configurazione del Registro di sistema UtilizeSSLTimeData su 0 in un computer specifico:
+1.  Impostare il valore di configurazione del registro di sistema UtilizeSSLTimeData su 0 in un computer specifico:
 
-    REG aggiungere HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v UtilizeSslTimeData /t REG_DWORD /d 0 /f
+    reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config/v UtilizeSslTimeData/t REG_DWORD/d 0/f
 
 
-2.  Se è in grado di riavviare il computer immediatamente a causa di un qualche motivo, è possibile inviare una notifica servizio W32time relative all'aggiornamento della configurazione. Questo arresta il monitoraggio di tempo e imposizione basato sui dati ora raccolti da connessioni SSL. 
+2.  Se non si riesce a riavviare il computer immediatamente a causa di un motivo, è possibile inviare una notifica all'aggiornamento della configurazione per il servizio W32Time. Questo arresta il monitoraggio e l'imposizione dell'ora in base ai dati temporali raccolti dalle connessioni SSL. 
 
-    W32tm.exe /config /update
+    W32tm. exe/config/Update
 
-3.  Il riavvio del computer rende l'impostazione effettiva immediatamente e anche ne arresta la raccolta di dati di ora da connessioni SSL.  Nella seconda parte ha un overhead molto piccolo e non deve essere un problema di prestazioni.
+3.  Il riavvio del computer rende immediatamente effettiva l'impostazione e impedisce la raccolta di dati temporali dalle connessioni SSL.  La seconda parte ha un overhead molto ridotto e non deve essere un problema di prestazioni.
 
-4.  Per applicare questa impostazione in un intero dominio, impostare il valore UtilizeSSLTimeData nell'impostazione di criteri di gruppo W32time su 0 e le impostazioni di pubblicazione.  Quando l'impostazione viene prelevata da un Client di criteri di gruppo, servizio W32time riceve una notifica e verrà arrestato monitoraggio in tempo e l'applicazione usando SSL ora dati. La raccolta dei dati di ora SSL verrà arrestata quando ogni macchina viene riavviata. Se il dominio dispone di computer portatili o Tablet slim portabile e altri dispositivi, è possibile escludere tali macchine da questa modifica dei criteri. Questi dispositivi dovranno affrontare alla fine della batteria e necessario il Seeding tempo sicuro funzionalità per eseguire il bootstrap del tempo.
+4.  Per applicare questa impostazione in un intero dominio, impostare il valore di UtilizeSSLTimeData nell'impostazione di criteri di gruppo W32Time su 0 e pubblicare l'impostazione.  Quando l'impostazione viene prelevata da un client Criteri di gruppo, viene inviata una notifica al servizio W32Time, che interrompe il monitoraggio e l'applicazione dei dati temporali SSL. La raccolta dei dati temporali SSL viene arrestata quando ogni computer viene riavviato. Se il dominio dispone di portatili o Tablet Slim portatili, è opportuno escludere tali computer dalla modifica dei criteri. Questi dispositivi risulteranno alla fine di esaurire la batteria e necessitano della funzionalità di seeding del tempo sicuro per avviare il proprio tempo.
 
 

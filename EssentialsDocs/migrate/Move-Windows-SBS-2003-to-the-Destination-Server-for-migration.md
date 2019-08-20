@@ -1,6 +1,6 @@
 ---
 title: Spostare dati e impostazioni di Windows SBS 2003 nel server di destinazione per la migrazione a Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9fd9cdfaea641a0aee615befb5d400fa45160d97
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: ba6fbf0237a16451403a7d4618b935c7c01f7064
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828555"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584776"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows SBS 2003 nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -25,17 +25,17 @@ ms.locfileid: "66828555"
 
 Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 
-1. [Copiare i dati nel Server di destinazione](#copy-data-to-the-destination-server)
+1. [Copiare i dati nel server di destinazione](#copy-data-to-the-destination-server)
 
-2. [Importare account utente di Active Directory al Dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [Importare Active Directory account utente nel dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
-3. [Rimuovere i vecchi script di accesso (facoltativo)](#remove-old-logon-scripts)
+3. [Rimuovere gli script di accesso precedenti (facoltativo)](#remove-old-logon-scripts)
 
-4. [Rimuovere legacy Active Directory oggetti Criteri di gruppo (facoltativo)](#remove-legacy-active-directory-group-policy-objects) 
+4. [Rimuovere gli oggetti legacy di Criteri di gruppo Active Directory (facoltativo)](#remove-legacy-active-directory-group-policy-objects) 
 
 5. [Configurare la rete](#configure-the-network) 
 
-6. [Mappare i computer autorizzati agli account utente](#map-permitted-computers-to-user-accounts)
+6. [Mappare i computer consentiti agli account utente](#map-permitted-computers-to-user-accounts)
 
 ## <a name="copy-data-to-the-destination-server"></a>Copiare i dati nel server di destinazione
 Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti: 
@@ -57,17 +57,17 @@ Prima di copiare i dati dal server di origine al server di destinazione, eseguir
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
 Dove:
- - \<SourceServerName\> è il nome del Server di origine
- - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine
- - \<NomeServerDestinazione\> è il nome del Server di destinazione,
- - \<SharedDestinationFolderName\> è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati. 
+ - \<SourceServerName\> è il nome del server di origine
+ - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine
+ - \<NomeServerDestinazione\> è il nome del server di destinazione,
+ - \<SharedDestinationFolderName\> è la cartella condivisa nel server di destinazione in cui verranno copiati i dati. 
 
 4. Ripetere il passaggio precedente per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.
 
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare account utente di Active Directory per il Dashboard di Windows Server Essentials
- Per impostazione predefinita, tutti gli account utente creati nel Server di origine vengono automaticamente migrati nel Dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se alcune proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente.
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare Active Directory account utente nel dashboard di Windows Server Essentials
+ Per impostazione predefinita, tutti gli account utente creati nel server di origine vengono automaticamente migrati nel dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se alcune proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente.
 
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente di Active Directory per il Dashboard di Windows Server Essentials
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente Active Directory nel dashboard di Windows Server Essentials
 
 1. Accedere al server di destinazione come amministratore di dominio.
 
@@ -77,7 +77,7 @@ Dove:
 
     `Import-WssUser SamAccountName [AD username]`
 
-## <a name="remove-old-logon-scripts"></a>Rimuovere i vecchi script di accesso
+## <a name="remove-old-logon-scripts"></a>Rimuovere gli script di accesso precedenti
 Windows SBS 2003 usa script di accesso per attività come l'installazione di software e la personalizzazione dei desktop. Windows Server Essentials sostituisce gli script di accesso di Windows SBS 2003 con una combinazione di script di accesso e oggetti Criteri di gruppo.
 
 > [!NOTE]
@@ -97,8 +97,8 @@ Windows SBS 2003 usa script di accesso per attività come l'installazione di sof
 
 5. Ripetere i passaggi 3 e 4 per ogni account utente.
 
-## <a name="remove-legacy-active-directory-group-policy-objects"></a>Rimuovere gli oggetti di criteri legacy di Active Directory gruppo
-Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essentials. Sono un soprainsieme degli oggetti Criteri di gruppo di Windows SBS 2003. Per Windows Server Essentials, è necessario eliminare manualmente un numero di filtri di Strumentazione gestione Windows (WMI) e oggetti Criteri di gruppo di Windows SBS 2003 per evitare conflitti con i filtri WMI e oggetti Criteri di gruppo di Windows Server Essentials. 
+## <a name="remove-legacy-active-directory-group-policy-objects"></a>Rimuovere gli oggetti di Criteri di gruppo Active Directory legacy
+Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essentials. Sono un soprainsieme degli oggetti Criteri di gruppo di Windows SBS 2003. Per Windows Server Essentials, è necessario eliminare manualmente alcuni oggetti Criteri di gruppo e i filtri Strumentazione gestione Windows (WMI) di Windows SBS 2003 per evitare conflitti con gli oggetti Criteri di gruppo e i filtri WMI di Windows Server Essentials. 
 
 > [!NOTE]
 > Se gli oggetti Criteri di gruppo di Windows SBS 2003 originali sono stati modificati, è consigliabile salvarne le copie in una posizione diversa e quindi eliminarli da Windows SBS 2003.
@@ -109,9 +109,9 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
 
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
 
-3. Nel riquadro di spostamento, fare clic su **gestione avanzata**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta: * * * < NomeDominio\>* . 
+3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< NomeDominio\>_ . 
 
-4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **oggetti Criteri di gruppo**. 
+4. Fare clic su **domini**, fare clic su *<\>NomeDominio*, quindi fare clic su **criteri di gruppo oggetti**. 
 
 5. Fare clic con il pulsante destro del mouse su **Criterio controllo Small Business Server**, scegliere **Elimina** e quindi fare clic su **OK**. 
 
@@ -121,7 +121,7 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
 
  - Criterio password dominio Small Business Server 
 
-È consigliabile che configurare i criteri password in Windows Server Essentials per imporre password complessa. Per configurare i criteri password, usare il dashboard, che scrive la configurazione nei criteri di dominio predefiniti. La configurazione dei criteri password non viene scritta nell'oggetto Criterio password dominio Small Business Server, come in Windows SBS 2003. 
+Per applicare password complesse, è consigliabile configurare i criteri password in Windows Server Essentials. Per configurare i criteri password, usare il dashboard, che scrive la configurazione nei criteri di dominio predefiniti. La configurazione dei criteri password non viene scritta nell'oggetto Criterio password dominio Small Business Server, come in Windows SBS 2003. 
 
  - Firewall connessione Internet (ICF) Small Business Server 
 
@@ -151,9 +151,9 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
 
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**.
 
-3. Nel riquadro di spostamento, fare clic su **gestione avanzata**, fare clic su **Gestione criteri di gruppo**, quindi fare clic su **foresta: * * * < YourNetworkDomainName\>*
+3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< YourNetworkDomainName\>_
 
-4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**.
+4. Fare clic su **domini**, fare clic su *<\>YourNetworkDomainName*, quindi fare clic su **filtri WMI**.
 
 5. Fare clic con il pulsante destro del mouse su **PostSP2**, scegliere **Elimina** e quindi fare clic su **Sì**.
 
@@ -181,11 +181,11 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
 > Se si è installato un Exchange Server locale in un secondo server, è necessario verificare che anche la porta 25 (per SMTP) sia aperta e che venga reindirizzata all'indirizzo IP dell'Exchange Server locale.
 
 ## <a name="map-permitted-computers-to-user-accounts"></a>Mappare i computer consentiti agli account utente
- In Windows SBS 2003, se un utente si connette ad Accesso Web remoto, vengono visualizzati tutti i computer della rete, che può includere computer per cui l'utente non ha le autorizzazioni di accesso. In Windows Server Essentials, un utente deve essere assegnato esplicitamente a un computer per poterlo visualizzare in accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows SBS 2003 deve essere mappato a uno o più computer. 
+ In Windows SBS 2003, se un utente si connette ad Accesso Web remoto, vengono visualizzati tutti i computer della rete, che può includere computer per cui l'utente non ha le autorizzazioni di accesso. In Windows Server Essentials, un utente deve essere assegnato in modo esplicito a un computer per poterlo visualizzare in Accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows SBS 2003 deve essere mappato a uno o più computer. 
 
 #### <a name="to-map-user-accounts-to-computers"></a>Per mappare gli account utente ai computer 
 
-1. Nel Server di destinazione, aprire il Dashboard di Windows Server Essentials. 
+1. Nel server di destinazione aprire il dashboard di Windows Server Essentials. 
 
 2. Sulla barra di spostamento fare clic su **Utenti**. 
 

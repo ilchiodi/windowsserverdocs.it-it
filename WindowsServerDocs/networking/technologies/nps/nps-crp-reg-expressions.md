@@ -1,34 +1,34 @@
 ---
 title: Usare espressioni regolari nel Server dei criteri di rete
-description: In questo argomento viene illustrato l'utilizzo di espressioni regolari per la corrispondenza dei criteri in NPS in Windows Server 2016. È possibile usare questa sintassi per specificare le condizioni degli attributi dei criteri di rete e delle aree di autenticazione RADIUS.
+description: In questo argomento viene illustrato l'utilizzo di espressioni regolari per la corrispondenza dei criteri in NPS in Windows Server. È possibile usare questa sintassi per specificare le condizioni degli attributi dei criteri di rete e delle aree di autenticazione RADIUS.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a47403d4f88d5487fb4ffb0e35c46438aadcd8a
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.author: jgerend
+author: jasongerend
+msdate: 08/16/2019
+ms.openlocfilehash: 76615fcccfe06333a76f872b52d2e88182fd60e5
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546527"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584795"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Usare espressioni regolari nel Server dei criteri di rete
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a  Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
-In questo argomento viene illustrato l'utilizzo di espressioni regolari per la corrispondenza dei criteri in NPS in Windows Server 2016. È possibile usare questa sintassi per specificare le condizioni degli attributi dei criteri di rete e delle aree di autenticazione RADIUS.
+In questo argomento viene illustrato l'utilizzo di espressioni regolari per la corrispondenza dei criteri in NPS in Windows Server. È possibile usare questa sintassi per specificare le condizioni degli attributi dei criteri di rete e delle aree di autenticazione RADIUS.
 
 ## <a name="pattern-matching-reference"></a>Riferimento ai criteri di ricerca
 
-È possibile usare la tabella seguente come origine di riferimento durante la creazione di espressioni regolari con la sintassi dei criteri di ricerca.
+È possibile usare la tabella seguente come origine di riferimento durante la creazione di espressioni regolari con la sintassi dei criteri di ricerca. Si noti che i modelli di espressione regolare sono spesso racchiusi tra barre (/).
 
-
-|  Carattere  |                                                                                 Descrizione                                                                                  |                                                                 Esempio                                                                 |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|     `\ `     |                                                              Contrassegna il carattere successivo come carattere da confrontare.                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|  Carattere  |  Descrizione  |   Esempio                                                                 |
+| ----------- | ------------- | ------------------------------------------------------------------------  |
+|     `\ `     | Indica che il carattere che segue è un carattere speciale o che deve essere interpretato letteralmente.  | `/n/ matches the character "n" while the sequence /\n/ matches a line feed or newline character.`  |
 |     `^`     |                                                                 Corrisponde all'inizio dell'input o della riga.                                                                  |                                                                 &nbsp;                                                                  |
 |     `$`     |                                                                    Corrisponde alla fine dell'input o della riga.                                                                     |                                                                 &nbsp;                                                                  |
 |     `*`     |                                                             Trova la corrispondenza del carattere precedente zero o più volte.                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |

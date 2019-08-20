@@ -1,6 +1,6 @@
 ---
-title: Replica di archiviazione da server a server
-description: Come configurare e usare la Replica di archiviazione per la replica da server a server in Windows Server, tra cui Windows Admin Center e PowerShell.
+title: Replica archiviazione da server a server
+description: Come configurare e usare la replica di archiviazione per la replica da server a server in Windows Server, inclusi l'interfaccia di amministrazione di Windows e PowerShell.
 ms.prod: windows-server-threshold
 manager: siroy
 ms.author: nedpyle
@@ -9,35 +9,35 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 844c9d1b0fef9fc49a699bbe09bcb28657d31b2a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b6af6d7b3f0c9a40f7e287097a0c102e637fbb0
+ms.sourcegitcommit: 2db58119d6ada38cc1b6b4bbf2950571d914dcab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447627"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69626845"
 ---
-# <a name="server-to-server-storage-replication-with-storage-replica"></a>Replica di archiviazione da server a server con Replica archiviazione
+# <a name="server-to-server-storage-replication-with-storage-replica"></a>Replica archiviazione da server a server con replica archiviazione
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+> Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 È possibile usare Replica di archiviazione per configurare due server per la sincronizzazione dei dati, in modo che ciascuno disponga di una copia identica dello stesso volume. Questo argomento offre informazioni generali sulla replica di archiviazione da server a server, oltre a indicazioni per la configurazione e la gestione dell'ambiente.
 
-Per gestire la Replica di archiviazione è possibile usare [Windows Admin Center](../../manage/windows-admin-center/overview.md) o PowerShell.
+Per gestire la replica di archiviazione è possibile usare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/overview.md) o PowerShell.
 
-Ecco un video di panoramica dell'uso di Replica di archiviazione in Windows Admin Center.
+Ecco un video introduttivo sull'uso di replica di archiviazione nell'interfaccia di amministrazione di Windows.
 > [!video https://www.microsoft.com/videoplayer/embed/3aa09fd4-867b-45e9-953e-064008468c4b?autoplay=false]
 
 
 ## <a name="prerequisites"></a>Prerequisiti  
 
-* Foresta di Active Directory Domain Services (non necessario per eseguire Windows Server 2016).  
-* Due server che eseguono Windows Server 2016, Datacenter Edition o Windows Server 2019. Se si esegue Windows Server 2019, è possibile invece usare Standard Edition se si replicano bene solo un singolo volume fino a 2 TB di dimensioni.  
+* Active Directory Domain Services foresta (non è necessario eseguire Windows Server 2016).  
+* Due server che eseguono Windows Server 2019 o Windows Server 2016, Datacenter Edition. Se si esegue Windows Server 2019, è possibile usare l'edizione standard se si sta eseguendo la replica di un solo volume con dimensioni massime di 2 TB.  
 * Due set di risorse di archiviazione che usano JBOD SAS, SAN Fibre Channel, destinazione iSCSI o archiviazione SATA o SCSI locale. L'archivio deve contenere una combinazione di supporti SSD e HDD. Ogni set di risorse di archiviazione verrà resa disponibile a un solo server senza accesso condiviso.  
 * Ogni set di risorse di archiviazione deve consentire la creazione di almeno due dischi virtuali, uno per i dati replicati e uno per i registri. L'archiviazione fisica deve avere le stesse dimensioni di settore su tutti i dischi di dati. L'archiviazione fisica deve avere le stesse dimensioni di settore su tutti i dischi dei registri.  
 * Almeno una connessione Ethernet/TCP su ogni server per la replica sincrona, ma preferibilmente RDMA.   
 * Regole firewall e router appropriate per consentire ICMP, SMP (porta 445 più 5445 per SMB diretto) e traffico bidirezionale WS-MAN (porta 5985) tra tutti i nodi.  
-* Una rete tra i server con larghezza di banda sufficiente per contenere il carico di lavoro di scrittura delle operazioni di I/O e una latenza media di andata e ritorno di =5 ms, per la replica sincrona. La replica asincrona non dispone di un'indicazione di latenza.<br>
-Se si esegue la replica tra server locali e macchine virtuali di Azure, è necessario creare un collegamento di rete tra i server locali e macchine virtuali di Azure. A tale scopo, usare [Express Route](#add-azure-vm-expressroute), un [connessione gateway VPN Site-to-Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), o installare il software VPN in macchine virtuali di Azure per connetterli con la rete locale.
+* Una rete tra i server con larghezza di banda sufficiente per contenere il carico di lavoro di scrittura delle operazioni di I/O e una latenza media di andata e ritorno di =5 ms, per la replica sincrona. La replica asincrona non ha una raccomandazione di latenza.<br>
+Se si esegue la replica tra i server locali e le macchine virtuali di Azure, è necessario creare un collegamento di rete tra i server locali e le macchine virtuali di Azure. A tale scopo, usare [Express Route](#add-azure-vm-expressroute), una [connessione gateway VPN da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)o installare il software VPN nelle macchine virtuali di Azure per connetterle alla rete locale.
 * L'archiviazione replicata non può trovarsi nell'unità che contiene la cartella del sistema operativo Windows.
 
 > [!IMPORTANT]
@@ -46,19 +46,19 @@ Se si esegue la replica tra server locali e macchine virtuali di Azure, è neces
 
 Molti di questi requisiti possono essere determinati mediante il `Test-SRTopology cmdlet`. Se si installano le funzionalità Replica archiviazione o Strumenti di gestione di Replica archiviazione in almeno un server è possibile accedere a questo strumento. Non è necessario configurare Replica archiviazione perché usi questo strumento, ma è necessario installare il cmdlet. Altre informazioni sono incluse nei passaggi seguenti.  
 
-## <a name="windows-admin-center-requirements"></a>Requisiti Windows Admin Center
+## <a name="windows-admin-center-requirements"></a>Requisiti dell'interfaccia di amministrazione di Windows
 
-Per utilizzare contemporaneamente la Replica di archiviazione e di Windows Admin Center, è necessario quanto segue:
+Per usare la replica di archiviazione e il centro di amministrazione di Windows, è necessario quanto segue:
 
 | Sistema                        | Sistema operativo                                            | Obbligatorio per     |
 |-------------------------------|-------------------------------------------------------------|------------------|
-| Due server <br>(qualsiasi combinazione di hardware locale, le macchine virtuali e cloud VM tra cui macchine virtuali di Azure)| Windows Server 2019, Windows Server 2016 o Windows Server (canale semestrale) | Replica archiviazione  |
+| Due server <br>(qualsiasi combinazione di hardware locale, VM e macchine virtuali cloud, incluse le macchine virtuali di Azure)| Windows Server 2019, Windows Server 2016 o Windows Server (canale semestrale) | Replica archiviazione  |
 | Un PC                     | Windows 10                                                  | Windows Admin Center |
 
 > [!NOTE]
-> A questo punto è possibile usare Windows Admin Center in un server per gestire la Replica di archiviazione.
+> A questo punto non è possibile usare l'interfaccia di amministrazione di Windows in un server per gestire la replica di archiviazione.
 
-## <a name="terms"></a>Condizioni  
+## <a name="terms"></a>Termini  
 Questa procedura dettagliata usa l'ambiente seguente come esempio:  
 
 -   Due server, denominati **SR-SRV05** e **SR SRV06**.  
@@ -67,59 +67,59 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ![Diagramma che mostra la replica di un server in Building 5 con un server in Building 9](media/Server-to-Server-Storage-Replication/Storage_SR_ServertoServer.png)  
 
-**Figura 1: Server di replica di server**  
+**Figura 1: Replica da server a server**  
 
-## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Passaggio 1: Installare e configurare Windows Admin Center sul PC
+## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Passaggio 1: Installare e configurare l'interfaccia di amministrazione di Windows nel PC
 
-Se si usa Windows Admin Center per gestire la Replica di archiviazione, usare la procedura seguente per preparare il PC per gestire la Replica di archiviazione.
-1. Scaricare e installare [Windows Admin Center](../../manage/windows-admin-center/overview.md).
-2. Scaricare e installare il [strumenti di amministrazione remota del Server](https://www.microsoft.com/download/details.aspx?id=45520).
-    - Se si usa Windows 10, versione 1809 o versioni successive, installare la "amministrazione remota del server: Replica modulo di archiviazione per Windows PowerShell"dalla funzionalità su richiesta.
-3. Aprire una sessione di PowerShell come amministratore, selezionare la **avviare** button, digitando **PowerShell**, facendo **Windows PowerShell,** e quindi selezionando  **Esegui come amministratore**.
-4. Immettere il comando seguente per abilitare il protocollo WS-Management nel computer locale e impostare la configurazione predefinita per la gestione remota sul client.
+Se si usa l'interfaccia di amministrazione di Windows per gestire replica di archiviazione, seguire questa procedura per preparare il PC alla gestione della replica di archiviazione.
+1. Scaricare e installare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/overview.md).
+2. Scaricare e installare il [strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520).
+    - Se si usa Windows 10 versione 1809 o successiva, installare "strumenti di amministrazione remota del server: Modulo replica di archiviazione per Windows PowerShell "dalle funzionalità su richiesta.
+3. Aprire una sessione di PowerShell come amministratore selezionando il pulsante **Start** , digitando **PowerShell**, facendo clic con il pulsante destro del mouse su **Windows PowerShell** e quindi scegliendo **Esegui come amministratore**.
+4. Immettere il comando seguente per abilitare il protocollo WS-Management nel computer locale e configurare la configurazione predefinita per la gestione remota nel client.
 
     ```PowerShell
     winrm quickconfig
     ```
 
-5. Tipo di **Y** per abilitare i servizi di gestione remota Windows e abilitare l'eccezione del Firewall per WinRM.
+5. Digitare **Y** per abilitare i servizi WinRM e abilitare l'eccezione del firewall WinRM.
 
 ## <a name="provision-os"></a>Passaggio 2: Effettuare il provisioning di sistema operativo, funzionalità, ruoli, archiviazione e rete
 
-1.  Installare Windows Server su entrambi i nodi del server con un tipo di installazione di Windows Server **(esperienza Desktop)** . 
+1.  Installare Windows Server in entrambi i nodi del server con un tipo di installazione di Windows Server **(esperienza desktop)** . 
  
-    Per usare una macchina virtuale di Azure connessa alla rete tramite un circuito ExpressRoute, vedere [aggiunta di una VM di Azure connessa alla rete tramite ExpressRoute](#add-azure-vm-expressroute).
+    Per usare una macchina virtuale di Azure connessa alla rete tramite un ExpressRoute, vedere [aggiunta di una macchina virtuale di Azure connessa alla rete tramite ExpressRoute](#add-azure-vm-expressroute).
 
-3.  Aggiungere le informazioni di rete, aggiungere i server allo stesso dominio come la gestione di Windows 10 PC (se si usa uno) e quindi riavviare i server.  
+3.  Aggiungere le informazioni di rete, aggiungere i server allo stesso dominio del PC Windows 10 Management (se ne viene usato uno), quindi riavviare i server.  
 
     > [!NOTE]
     > Da questo momento, accedere sempre a tutti i server come utente di dominio, ovvero un membro del gruppo amministratore incorporato. Ricordarsi di elevare i prompt di PowerShell e CMD futuro durante l'esecuzione in un'installazione server con interfaccia grafica o in un computer Windows 10.  
 
-3.  Il primo set di enclosure di archiviazione JBOD, destinazione iSCSI, SAN FC o archiviazione disco a dimensione fissa locale (DAS) di connettersi al server nel sito **Redmond**.  
+3.  Connettere il primo set di enclosure di archiviazione JBOD, destinazione iSCSI, SAN FC o archiviazione disco fisso locale (DAS) al server nel sito **Redmond**.  
 
-4.  Connettere il secondo set di archiviazione per il server nel sito **Bellevue**.  
+4.  Connettere il secondo set di archiviazione al server nel sito **Bellevue**.  
 
 5.  Se necessario, installare il sistema di archiviazione del fornitore e il firmware dell'enclosure più recente, i driver HBA del fornitore più recenti, i firmware BIOS o UEFI del fornitore più recenti, i driver di rete del fornitore più recenti e driver dei chipset della scheda madre più recenti in entrambi i nodi. Se necessario riavviare i nodi.  
 
     > [!NOTE]
     > Per la configurazione dell'archiviazione condivisa e dell'hardware di rete, consultare la documentazione del fornitore hardware.  
 
-6.  Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio di energia in Windows Server è impostato su prestazioni elevate. Riavviare se necessario.  
+6.  Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio energia in Windows Server sia impostato su prestazioni elevate. Riavviare se necessario.  
 
 7.  Configurare i ruoli come indicato di seguito:  
 
-    -   **Metodo Windows Admin Center**
-        1. In Windows Admin Center, passare a Server Manager e quindi selezionare uno dei server.
-        2. Passare a **ruoli e funzionalità**.
-        3. Selezionare **caratteristiche** > **Replica di archiviazione**, quindi fare clic su **installare**.
-        4. Ripetere su altro server.
-    -   **Metodo di Server Manager**  
+    -   **Metodo centro di amministrazione di Windows**
+        1. Nell'interfaccia di amministrazione di Windows passare a Server Manager, quindi selezionare uno dei server.
+        2. Passare a **ruoli & funzionalità**.
+        3. Selezionare **funzionalità** > **replica di archiviazione**, quindi fare clic su **Installa**.
+        4. Ripetere l'estensione sull'altro server.
+    -   **Metodo Server Manager**  
 
         1.  Eseguire **ServerManager.exe** e creare un gruppo di server aggiungendo tutti i nodi del server.  
 
         2.  Installare i ruoli e le funzionalità **File Server** e **Replica archiviazione** in ciascuno dei nodi e riavviarli.  
 
-    -   **Metodo Windows PowerShell**  
+    -   **Metodo di Windows PowerShell**  
 
         In un computer di gestione remota o SR-SRV06, eseguire il comando seguente nella console di Windows PowerShell per installare i ruoli e funzionalità necessarie e riavviarli:  
 
@@ -145,7 +145,7 @@ Se si usa Windows Admin Center per gestire la Replica di archiviazione, usare la
     > -   Il volume di log deve essere di almeno 9 GB per impostazione predefinita e può essere superiore o inferiore in base ai requisiti del log.  
     > -   Il ruolo File Server è necessario solo per il funzionamento di Test-SRTopology, in quanto apre le porte del firewall necessarie per il test.
     
-    - **Per le enclosure JBOD:**  
+    - **Per enclosure JBOD:**  
 
         1.  Assicurarsi che ogni server possa visualizzare solo gli alloggiamenti di archiviazione del sito e che le connessioni SAS siano configurate correttamente.  
 
@@ -157,15 +157,15 @@ Se si usa Windows Admin Center per gestire la Replica di archiviazione, usare la
 
         2.  Effettua il provisioning dell'archiviazione usando la documentazione del fornitore. Se si usa la destinazione iSCSI basata su Windows, consultare [iSCSI Target Block Storage, How To](../iscsi/iscsi-target-server.md) (Procedura per l'archiviazione a blocchi nella destinazione iSCSI).  
 
-    - **Per l'archiviazione FC SAN:**  
+    - **Per l'archiviazione SAN FC:**  
 
         1.  Assicurarsi che ogni cluster sia in grado di vedere solo gli alloggiamenti di archiviazione di tale sito e che gli host siano stati suddivisi correttamente in zone.   
 
         2.  Effettua il provisioning dell'archiviazione usando la documentazione del fornitore.  
 
-    - **Per l'archiviazione disco a dimensione fissa locale:**  
+    - **Per l'archiviazione su disco fisso locale:**  
 
-        -   Verificare che lo spazio di archiviazione non contenga un volume di sistema, file di paging, o file dump.  
+        -   Verificare che l'archiviazione non contenga un volume di sistema, un file di paging o file di dump.  
 
         -   Effettua il provisioning dell'archiviazione usando la documentazione del fornitore.  
 
@@ -182,35 +182,35 @@ Se si usa Windows Admin Center per gestire la Replica di archiviazione, usare la
     > [!IMPORTANT]
       > Quando si usa un server di prova privo di carichi di operazioni I/O di scrittura nel volume di origine specificato durante il periodo di valutazione, considerare l'aggiunta di un carico di lavoro o non verrà generato un report utile. È necessario eseguire il test con carichi di lavoro simili alla produzione per poter visualizzare i numeri reali e le dimensioni consigliate del registro. In alternativa, è sufficiente copiare alcuni file nel volume di origine durante il test o scaricare ed eseguire  [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) per generare operazioni di I/O di scrittura. Ad esempio, un campione con un carico di lavoro di I/O di scrittura basso per dieci minuti per il volume D: come mostrato di seguito:  
       >
-      > `Diskspd.exe -c1g -d600 -W5 -C5 -b8k -t2 -o2 -r -w5 -i100 d:\test` 
+      > `Diskspd.exe -c1g -d600 -W5 -C5 -b8k -t2 -o2 -r -w5 -i100 -j100 d:\test` 
 
-10. Esaminare i **Testsrtopologyreport** report illustrato nella figura 2 per garantire che siano soddisfatti i requisiti di Replica di archiviazione.  
+10. Esaminare il report **report testsrtopologyreport. html** illustrato nella figura 2 per assicurarsi di soddisfare i requisiti di replica archiviazione.  
 
     ![Schermata che mostra il report della topologia](media/Server-to-Server-Storage-Replication/SRTestSRTopologyReport.png)
 
-    **Figura 2: Report della topologia di replica archiviazione**
+    **Figura 2: Report della topologia di replica di archiviazione**
 
 ## <a name="step-3-set-up-server-to-server-replication"></a>Passaggio 3: Configurare la replica da server a server
-### <a name="using-windows-admin-center"></a>Utilizzando Windows Admin Center
+### <a name="using-windows-admin-center"></a>Uso dell'interfaccia di amministrazione di Windows
 
 1. Aggiungere il server di origine.
-    1. Selezionare il **Add** pulsante.
-    2. Selezionare **Aggiungi connessione server**.
-    3. Digitare il nome del server e quindi selezionare **Submit**.
-2. Nel **tutte le connessioni** pagina, selezionare il server di origine.
-3. Selezionare **Replica di archiviazione** dal Pannello di strumenti.
-4. Selezionare **New** per creare una nuova relazione.
-5. Fornire i dettagli della relazione e quindi selezionare **Create**. <br>
-   ![La schermata nuova Partnership che mostra i dettagli di collaborazione, ad esempio una dimensione del Registro di 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
+    1. Selezionare il pulsante **Aggiungi** .
+    2. Selezionare **Aggiungi connessione al server**.
+    3. Digitare il nome del server e quindi selezionare **Invia**.
+2. Nella pagina **tutte le connessioni** selezionare il server di origine.
+3. Selezionare **replica archiviazione** dal pannello strumenti.
+4. Selezionare **nuovo** per creare una nuova relazione.
+5. Specificare i dettagli della relazione e quindi selezionare **Crea**. <br>
+   ![La nuova schermata del partenariato che mostra i dettagli del partenariato, ad esempio le dimensioni del log da 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
 
-    **Figura 3: Creazione di una nuova relazione**
+    **Figura 3: Creazione di una nuova partnership**
 
 > [!NOTE]
-> Rimuovendo la partnership di Replica di archiviazione in Windows Admin Center non rimuove il nome del gruppo di replica.
+> La rimozione della relazione da replica archiviazione nell'interfaccia di amministrazione di Windows non comporta la rimozione del nome del gruppo di replica.
 
 ### <a name="using-windows-powershell"></a>Tramite Windows PowerShell
 
-Ora è necessario configurare la replica da server a server con PowerShell. È necessario eseguire tutti i passaggi seguenti sui nodi direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
+Ora è necessario configurare la replica da server a server con PowerShell. È necessario eseguire tutti i passaggi seguenti nei nodi direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
 1. Assicurarsi di utilizzare una console di Powershell con privilegi elevati in qualità di amministratore.  
 2. Configurare la replica da server a server, specificando i dischi di origine e di destinazione, i registri di origine e di destinazione, i nodi di origine e di destinazione e le dimensioni del registro.  
@@ -289,7 +289,7 @@ Ora è necessario configurare la replica da server a server con PowerShell. È n
         > [!NOTE]
         > Replica archiviazione smonta i volumi di destinazione e i relativi punti di montaggio o lettere dell'unità. Questo comportamento è da progettazione.  
 
-    3.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Ad esempio:  
+    3.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Esempio:  
 
         ```PowerShell  
         (Get-SRGroup).Replicas | Select-Object numofbytesremaining  
@@ -314,7 +314,7 @@ Ora è necessario configurare la replica da server a server con PowerShell. È n
 
 ## <a name="step-4-manage-replication"></a>Passaggio 4: Gestire la replica
 
-Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server a server. È possibile eseguire tutti i passaggi seguenti sui nodi direttamente o da un computer di gestione remota che contiene strumenti di amministrazione di Windows Server Remote Server.  
+Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server a server. È possibile eseguire tutti i passaggi seguenti nei nodi direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
 1.  Usare `Get-SRPartnership` e `Get-SRGroup` per determinare l'origine e la destinazione di replica attuale e il relativo stato.  
 
@@ -381,7 +381,7 @@ Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server 
     ```  
 
     > [!WARNING]  
-    > Windows Server impedisce il cambio di ruolo durante la sincronizzazione iniziale, perché può causare la perdita di dati se si tenta di cambio prima del completamento della replica iniziale. Non forzare il cambio delle direzioni fino al completamento della sincronizzazione iniziale.  
+    > Windows Server impedisce il cambio di ruolo quando la sincronizzazione iniziale è in corso, poiché può causare la perdita di dati se si tenta di passare prima di consentire il completamento della replica iniziale. Non forzare il cambio delle direzioni fino al completamento della sincronizzazione iniziale.  
 
     Controllare i registri eventi per visualizzare la direzione della modalità di modifica e ripristino della replica e quindi risolvere le differenze. Le operazioni di I/O di scrittura possono essere effettuate nell'archiviazione di proprietà nel nuovo server di origine. La modifica la direzione di replica blocca le operazioni di I/O di scrittura nel computer di origine precedente.  
 
@@ -395,17 +395,17 @@ Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server 
 
 ## <a name="replacing-dfs-replication-with-storage-replica"></a>Sostituzione di Replica DFS con Replica archiviazione  
 Molti clienti Microsoft distribuiscono Replica DFS come soluzione di ripristino di emergenza per i dati utente non strutturati, come home directory e condivisioni di reparto. Replica DFS è disponibile in Windows Server 2003 R2 e in tutti i sistemi operativi successivi e opera su reti a larghezza di banda ridotta. Risulta quindi interessante per gli ambienti di modifica a bassa e alta latenza con più nodi. Come soluzione di replica dei dati, tuttavia, Replica DFS presenta limitazioni significative:  
-* File in uso o aperti non vengono replicate.  
-* Non vengono replicate in modo sincrono.  
+* Non esegue la replica di file in uso o aperti.  
+* Non esegue la replica in modo sincrono.  
 * La latenza di replica asincrona può durare molti minuti, ore o persino giorni.  
 * Si basa su un database che può richiedere verifiche di coerenza di lunga durata dopo un'interruzione dell'alimentazione.  
-* È in genere configurato come multi-master, che consente di apportare modifiche al flusso in entrambe le direzioni, eventualmente sovrascrivendo i dati più recenti.  
+* Viene in genere configurato come multimaster, che consente di modificare il flusso in entrambe le direzioni, eventualmente sovrascrivendo i dati più recenti.  
 
 Replica archiviazione non presenta alcuna di queste limitazioni. Tuttavia, presenta diversi problemi che potrebbero renderla meno interessante in alcuni ambienti:  
 
 * Consente solo la replica uno a uno tra i volumi. È possibile replicare volumi diversi tra più server.  
-* Anche se supporta la replica asincrona, non è progettato per la larghezza di banda ridotta, reti a latenza elevata.  
-* Questa funzionalità non consente l'accesso utente ai dati protetti nella destinazione mentre è in corso la replica  
+* Sebbene supporti la replica asincrona, non è progettata per le reti a larghezza di banda ridotta e a latenza elevata.  
+* Non consente l'accesso degli utenti ai dati protetti nella destinazione mentre la replica è in corso  
 
 Se questi fattori non rappresentano un limite, Replica di archiviazione consente di sostituire i server di Replica DFS con questa tecnologia più recente.   
 Il processo è così suddiviso a un livello elevato:  
@@ -415,41 +415,41 @@ Il processo è così suddiviso a un livello elevato:
    a.  È inoltre possibile effettuare il seeding dei dati sull'altro server per risparmiare tempo usando un backup o copie del file, oppure sfruttare l'archiviazione con thin provisioning. A differenza di Replica DFS, non è necessario che la sicurezza analoga a quella dei metadati corrisponda perfettamente.  
 3. Condividere i dati nel server di origine e renderli accessibili tramite uno spazio dei nomi DFS. Questa azione è importante per garantire che gli utenti possano comunque accedervi se il nome del server viene modificato in un sito di emergenza.  
    a.  È possibile creare condivisioni corrispondenti nel server di destinazione, che non sarà disponibile durante le normali operazioni.   
-   b.  Non aggiungere il server di destinazione allo spazio dei nomi di spazi dei nomi DFS, o tal caso, assicurarsi che tutte le destinazioni cartella siano disabilitate.  
+   b.  Non aggiungere il server di destinazione allo spazio dei nomi DFS. in caso contrario, assicurarsi che tutte le relative destinazioni siano disabilitate.  
 4. Abilitare la replica di Replica archiviazione e completare la sincronizzazione iniziale. La replica può essere sincrona o asincrona.   
    a.  Tuttavia, è consigliabile la replica sincrona per garantire la coerenza dei dati di I/O nel server di destinazione.   
    b.  È consigliabile abilitare il servizio Copia Shadow del volume ed eseguire periodicamente gli snapshot con VSSADMIN o altri strumenti. Ciò garantisce che le applicazioni scarichino i propri file di dati su disco in modo coerente. In caso di emergenza, è possibile ripristinare i file dagli snapshot nel server di destinazione che potrebbe essere stato parzialmente replicato in modo asincrono. Gli snapshot vengono replicati insieme ai file.  
 5. Usare normalmente fino a quando non si verifica una situazione di emergenza.  
 6. Fare in modo che il server di destinazione diventi la nuova origine, la quale riflette i volumi replicati agli utenti.  
 7. Se si usa la replica sincrona, il ripristino dei dati non sarà necessario a meno che l'utente non stia usando un'applicazione che sta scrivendo i dati senza la protezione delle transazioni, indipendentemente dalla replica, durante la perdita del server di origine. Se si usa la replica asincrona la necessità di un montaggio snapshot VSS sarà maggiore, ma è consigliabile usare VSS in tutte le circostanze per gli snapshot coerenti con l'applicazione.  
-8. Aggiungere il server e le sue azioni come destinazione cartella spazi dei nomi DFS.   
+8. Aggiungere il server e le relative condivisioni come destinazione della cartella di spazi dei nomi DFS.   
 9. Gli utenti possono quindi accedere ai dati.  
 
    > [!NOTE]
    > La pianificazione del ripristino di emergenza è un argomento complesso e che richiede particolare attenzione ai dettagli. È consigliabile creare runbook ed eseguire annualmente le esercitazioni di failover in tempo reale. Quando si verifica un'emergenza effettiva, regnerà il caos e il personale esperto potrebbe non essere disponibile.  
 
-## <a name="add-azure-vm-expressroute"></a>Aggiunta di una VM di Azure connessa alla rete tramite ExpressRoute
+## <a name="add-azure-vm-expressroute"></a>Aggiunta di una macchina virtuale di Azure connessa alla rete tramite ExpressRoute
 
-1. [Creare un circuito ExpressRoute nel portale di Azure](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Dopo l'approvazione di ExpressRoute, un gruppo di risorse viene aggiunto alla sottoscrizione, passare a **gruppi di risorse** per visualizzare questo nuovo gruppo. Prendere nota del nome di rete virtuale.
-![Portale di Azure con il gruppo di risorse aggiunto con ExpressRoute](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
+1. [Creare un ExpressRoute nel portale di Azure](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Una volta approvata la ExpressRoute, viene aggiunto un gruppo di risorse alla sottoscrizione. passare a **gruppi di risorse** per visualizzare questo nuovo gruppo. Prendere nota del nome della rete virtuale.
+![portale di Azure che mostra il gruppo di risorse aggiunto con ExpressRoute](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
     
-    **Figura 4: Le risorse associate a un circuito ExpressRoute: prendere nota del nome di rete virtuale**
+    **Figura 4: Risorse associate a un ExpressRoute. prendere nota del nome della rete virtuale**
 1. [Creare un nuovo gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-1. [Aggiungere un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Momento della creazione, selezionare l'ID sottoscrizione associato di ExpressRoute è stato creato e selezionare il gruppo di risorse che appena creato anche.
-<br><br>Aggiungere eventuali regole di sicurezza in ingresso e in uscita che è necessario per il gruppo di sicurezza di rete. Ad esempio, è possibile consentire l'accesso Desktop remoto alla macchina virtuale.
-1. [Creare una VM di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) con le impostazioni seguenti (illustrate nella figura 5):
-    - **Indirizzo IP pubblico**: Nessuno
-    - **Rete virtuale**: Selezionare la rete virtuale che è stata eseguita nota del gruppo di risorse aggiunte con ExpressRoute.
+1. [Aggiungere un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Al momento della creazione, selezionare l'ID sottoscrizione associato al ExpressRoute creato e selezionare il gruppo di risorse appena creato.
+<br><br>Aggiungere le regole di sicurezza in ingresso e in uscita necessarie al gruppo di sicurezza di rete. Ad esempio, potrebbe essere necessario consentire l'accesso Desktop remoto alla macchina virtuale.
+1. [Creare una macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) con le impostazioni seguenti (mostrate nella figura 5):
+    - **Indirizzo IP pubblico**: Nessuna
+    - **Rete virtuale**: Selezionare la rete virtuale di cui si è preso nota dal gruppo di risorse aggiunto con ExpressRoute.
     - **Gruppo di sicurezza di rete (firewall)** : Selezionare il gruppo di sicurezza di rete creato in precedenza.
-    ![Crea macchina virtuale che mostra le impostazioni di rete di ExpressRoute](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
-    **figura 5: Creazione di una macchina virtuale durante la selezione delle impostazioni di rete di ExpressRoute**
-1. Dopo aver creata la macchina virtuale, vedere [passaggio 2: Effettuare il provisioning del sistema operativo, funzionalità, ruoli, archiviazione e rete](#provision-os).
+    ![Creare una macchina virtuale con le impostazioni](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
+    **di rete ExpressRoute figura 5: Creazione di una macchina virtuale durante la selezione delle impostazioni di rete ExpressRoute**
+1. Dopo aver creato la VM, vedere [passaggio 2: Effettuare il provisioning di sistema operativo, funzionalità, ruoli](#provision-os), archiviazione e rete.
 
 
 ## <a name="related-topics"></a>Argomenti correlati  
-- [Panoramica di Replica di archiviazione](storage-replica-overview.md)  
-- [Replica di Cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
-- [Replica di archiviazione da cluster a Cluster](cluster-to-cluster-storage-replication.md)
+- [Panoramica di replica archiviazione](storage-replica-overview.md)  
+- [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
+- [Replica di archiviazione da cluster a cluster](cluster-to-cluster-storage-replication.md)
 - [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
 - [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
