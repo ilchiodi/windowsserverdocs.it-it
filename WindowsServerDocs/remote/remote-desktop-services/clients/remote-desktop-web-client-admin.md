@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: d167fb5dfdfbb2a302c2b0fca9286dc034b730e3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729532"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546336"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web Desktop remoto per gli utenti
 
@@ -273,9 +273,10 @@ Per impostazione predefinita, gli utenti possono scegliere di avviare le risorse
  Per impostazione predefinita, l'utente può selezionare uno dei due metodi di avvio. Il valore booleano **$true** forzerà l'utente ad avviare le risorse nel browser. Il valore booleano **$false** forzerà l'utente ad avviare le risorse scaricando un file con estensione rdp da gestire con un client RDP installato in locale.
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Ripristinare le impostazioni predefinite delle configurazioni RDWebClientDeploymentSetting
-Per ripristinare la configurazione predefinita di un'impostazione del client Web a livello di distribuzione, esegui il cmdlet di PowerShell seguente e usa il parametro --Name per specificare l'impostazione che vuoi ripristinare:
-  
-  ```PowerShell
+
+Per ripristinare la configurazione predefinita di un'impostazione del client Web a livello di distribuzione, esegui il cmdlet di PowerShell seguente e usa il parametro -name per specificare l'impostazione che vuoi ripristinare:
+
+   ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```

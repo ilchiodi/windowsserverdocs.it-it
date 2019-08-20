@@ -13,18 +13,18 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b11f4356496607d59e6c1b8dff2fb8edc0535cb
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: ecc3236d44146015564fa593aaf8a20d3bfa42ff
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729554"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546469"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Impostazioni supportate dei file RDP di Desktop remoto
 
 La tabella seguente include l'elenco di impostazioni dei file RDP supportate che puoi usare con i client HTML e Windows. Una "x" nella colonna relativa alla piattaforma indica che l'impostazione è supportata. Questo elenco non è tuttavia un elenco completo delle impostazioni supportate per i client HTML5 e Windows. Continueremo ad aggiornare questa tabella per includere altre impostazioni RDP supportate per i client HTML5 e Windows, oltre che per i client macOS, iOS e Android.
 
-Per altre informazioni su come usare PowerShell per personalizzare le proprietà di RDP, vedi [Personalizzare le proprietà di Remote Desktop Protocol per un pool di host](https://docs.microsoft.com/azure/virtual-desktop/customize-rdp-properties)host.
+Per informazioni su come usare PowerShell per personalizzare le proprietà di RDP per un pool di host, fare riferimento a [questa documentazione](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409).
 
 | Impostazione RDP                        | Descrizione            | Valori                 | Valore predefinito          | Desktop virtuale Windows | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|
