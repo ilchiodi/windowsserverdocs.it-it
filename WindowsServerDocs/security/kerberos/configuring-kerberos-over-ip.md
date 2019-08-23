@@ -1,36 +1,38 @@
 ---
 title: Configurazione di Kerberos per l'indirizzo IP
-description: Supporto di Kerberos per i nomi SPN basato su IP
-ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+description: Supporto di Kerberos per SPN basati su IP
+author: daveba
+ms.author: daveba
+ms.openlocfilehash: 1061364528100fe005e80f64c6315f9fca69ad98
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67279972"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980292"
 ---
-# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>I client Kerberos consentono i nomi host indirizzo di IPv4 e IPv6 in nomi dell'entità servizio (SPN)
+# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>I client Kerberos consentono i nomi host IPv4 e IPv6 nei nomi dell'entità servizio (SPN)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-A partire da Windows 10 versione 1507 e Windows Server 2016, client Kerberos possono essere configurati per supportare i nomi host IPv4 e IPv6 nei nomi dell'entità servizio.
+A partire da Windows 10 versione 1507 e Windows Server 2016, i client Kerberos possono essere configurati per supportare i nomi host IPv4 e IPv6 nei nomi SPN.
 
-Per impostazione predefinita Windows non tenterà l'autenticazione Kerberos per un host se il nome host è un indirizzo IP. Eseguirà il fallback per altri protocolli di autenticazione abilitate, ad esempio NTLM. Tuttavia, le applicazioni sono talvolta hardcoded per l'uso di indirizzi IP che indica che l'applicazione verrà reimpostata come NTLM e non usa Kerberos. Ciò può causare problemi di compatibilità come spostare gli ambienti disabilitare NTLM.
+Per impostazione predefinita, Windows non tenterà di eseguire l'autenticazione Kerberos per un host se il nome host è un indirizzo IP. Verrà eseguito il fallback ad altri protocolli di autenticazione abilitati come NTLM. Tuttavia, le applicazioni sono talvolta hardcoded per l'utilizzo di indirizzi IP, il che significa che l'applicazione eseguirà il fallback a NTLM senza utilizzare Kerberos. Questo può causare problemi di compatibilità perché gli ambienti si spostano per disabilitare NTLM.
 
-Per ridurre l'impatto della disabilitazione NTLM una nuova funzionalità è stata introdotta che consente agli amministratori di usare gli indirizzi IP come nomi host nei nomi delle entità servizio. Questa funzionalità è abilitata nel client tramite un valore della chiave del Registro di sistema.
+Per ridurre l'effetto della disabilitazione di NTLM, è stata introdotta una nuova funzionalità che consente agli amministratori di utilizzare gli indirizzi IP come nomi host nei nomi delle entità servizio. Questa funzionalità è abilitata sul client tramite un valore della chiave del registro di sistema.
 
 ```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters" /v TryIPSPN /t REG_DWORD /d 1 /f
 ```
 
-Per configurare il supporto per nomi host di indirizzi IP nell'entità servizio, creare una voce TryIPSPN. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Dopo aver creato la voce, modificare il valore DWORD in 1. Questo valore del Registro di sistema dovrà essere impostata in ogni computer client che richiede l'accesso a risorse protette da Kerberos in base all'indirizzo IP.
+Per configurare il supporto per i nomi host degli indirizzi IP nei nomi SPN, creare una voce TryIPSPN. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Dopo aver creato la voce, modificare il valore DWORD in 1. Questo valore del registro di sistema deve essere impostato su ogni computer client che deve accedere alle risorse protette da Kerberos in base all'indirizzo IP.
 
-## <a name="configuring-a-service-principal-name-as-ip-address"></a>Configurazione di un nome SPN come indirizzo IP
+## <a name="configuring-a-service-principal-name-as-ip-address"></a>Configurazione di un nome dell'entità servizio come indirizzo IP
 
-Un nome dell'entità servizio è un identificatore univoco utilizzato durante l'autenticazione Kerberos per identificare un servizio di rete. Un nome SPN è costituito da un servizio, nome host e, facoltativamente, una porta nel formato `service/hostname[:port]` , ad esempio `host/fs.contoso.com`. Windows registra più nomi SPN per un oggetto computer quando un computer viene aggiunto ad Active Directory.
+Un nome dell'entità servizio è un identificatore univoco usato durante l'autenticazione Kerberos per identificare un servizio nella rete. Un nome SPN è costituito da un servizio, da un nome host e, facoltativamente `service/hostname[:port]` , da `host/fs.contoso.com`una porta in formato, ad esempio. Windows registrerà più nomi SPN in un oggetto computer quando un computer viene aggiunto al Active Directory.
 
-Indirizzi IP non vengono usati in genere al posto di nomi host perché gli indirizzi IP sono spesso temporanei. Questo può causare conflitti ed errori di autenticazione come scadono e rinnovano di lease di indirizzi. Di conseguenza la registrazione di un SPN basato su indirizzi IP è un processo manuale e deve essere usata solo quando non è possibile passare a un nome host basati su DNS.
+Gli indirizzi IP non vengono in genere utilizzati al posto dei nomi host perché gli indirizzi IP sono spesso temporanei. Questo può causare conflitti e errori di autenticazione perché i lease di indirizzi scadono e si rinnovano. La registrazione di un nome SPN basato su indirizzi IP è quindi un processo manuale e deve essere usato solo quando non è possibile passare a un nome host basato su DNS.
 
-L'approccio consigliato consiste nell'usare la [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) dello strumento. Si noti che un nome SPN può essere registrato solo a un singolo account in Active Directory in un momento pertanto è consigliabile che gli indirizzi IP con lease statici se si utilizza DHCP.
+L'approccio consigliato consiste nell'utilizzare lo strumento [SetSPN. exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) . Si noti che un nome SPN può essere registrato solo per un singolo account in Active Directory alla volta, quindi è consigliabile che gli indirizzi IP dispongano di lease statici se si utilizza DHCP.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  
