@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e72556f9a630e188b59722e09650f9e48fb6852
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: c330b5f65b2862628fd23e288c95e81653da5c5b
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280475"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009074"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -26,31 +26,31 @@ Di seguito sono indicati i requisiti per la distribuzione di ADFS:
   
 -   [Requisiti hardware](ad-fs-requirements.md#BKMK_2)  
   
--   [Requisiti di proxy](ad-fs-requirements.md#BKMK_3)  
+-   [Requisiti del proxy](ad-fs-requirements.md#BKMK_3)  
   
--   [Requisiti di Active Directory Domain Services](ad-fs-requirements.md#BKMK_4)  
+-   [Requisiti di servizi di dominio Active Directory](ad-fs-requirements.md#BKMK_4)  
   
--   [Requisiti di database di configurazione](ad-fs-requirements.md#BKMK_5)  
+-   [Requisiti del database di configurazione](ad-fs-requirements.md#BKMK_5)  
   
 -   [Requisiti del browser](ad-fs-requirements.md#BKMK_6)  
 
 -   [Requisiti di rete](ad-fs-requirements.md#BKMK_7)  
   
--   [Requisiti di autorizzazione](ad-fs-requirements.md#BKMK_13)  
+-   [Requisiti per le autorizzazioni](ad-fs-requirements.md#BKMK_13)  
   
-## <a name="BKMK_1"></a>Requisiti dei certificati  
+## <a name="BKMK_1"></a>Requisiti del certificato  
   
 ### <a name="ssl-certificates"></a>Certificati SSL
 
 Ogni server ADFS e Proxy applicazione Web dispone di un certificato SSL per soddisfare le richieste HTTPS per il servizio federativo.  Il Proxy dell'applicazione Web può avere altri certificati SSL per soddisfare le richieste alle applicazioni pubblicate.
 
-**Raccomandazione:** Usare lo stesso certificato SSL per tutti i server federativi AD FS e proxy applicazione Web. 
+**Raccomandazione** Utilizzare lo stesso certificato SSL per tutti i server federativi AD FS e proxy applicazione Web. 
 
-**Requisiti:**
+**Requisiti**
 
 I certificati SSL nei server federativi devono soddisfare i requisiti seguenti
 - Certificato è attendibile pubblicamente (per le distribuzioni di produzione)
-- Certificato contiene il valore Server autenticazione chiavi avanzato (EKU)
+- Il certificato contiene il valore di utilizzo chiavi avanzato (EKU) di autenticazione server
 - Certificato contiene il nome del servizio federativo, ad esempio "fs.contoso.com" nell'oggetto o nome alternativo soggetto (SAN)
 - Per l'autenticazione del certificato utente sulla porta 443, certificato contiene "certauth.\<nome del servizio federativo\>", ad esempio"certauth.fs.contoso.com"nella rete SAN
 - Per la registrazione del dispositivo o per l'autenticazione moderna per le risorse locali tramite i client precedenti a Windows 10, la SAN deve contenere "enterpriseregistration.\<suffisso UPN\>"per ogni suffisso UPN in uso nell'organizzazione.
@@ -63,24 +63,24 @@ I certificati SSL sul Proxy di applicazione Web devono soddisfare i requisiti se
 ### <a name="service-communication-certificate"></a>Certificato di comunicazione del servizio
 Questo certificato non è necessario per la maggior parte degli scenari di ADFS, tra cui Azure AD e Office 365. Per impostazione predefinita, ADFS consente di configurare il certificato SSL fornito subito dopo la configurazione iniziale come certificato di comunicazione del servizio.
 
-**Raccomandazione:**
+**Raccomandazione**
 - Utilizzare lo stesso certificato quando si utilizza per SSL.  
 
 ### <a name="token-signing-certificate"></a>Certificato di firma di token
-Questo certificato viene usato per firmare i token emessi per le relying party, quindi applicazioni relying party devono riconoscere il certificato è associata una chiave di conosciuto e attendibile. Quando il token modifiche certificato firma, ad esempio quando scade e si configurano un nuovo certificato, è necessario aggiornare tutte le relying party.
+Questo certificato viene usato per firmare i token emessi alle relying party, quindi relying party applicazioni devono riconoscere il certificato e la chiave associata è nota e attendibile. Quando il token modifiche certificato firma, ad esempio quando scade e si configurano un nuovo certificato, è necessario aggiornare tutte le relying party.
 
-**Raccomandazione:** Usare il valore predefinito di ADFS, i certificati di firma di token autofirmati, generati internamente.  
+**Raccomandazione** Usare i certificati di firma di token autofirmati AD FS predefiniti, generati internamente.  
 
-**Requisiti:**
+**Requisiti**
 - Se l'organizzazione richiede l'utilizzo di certificati emessi da PKI dell'azienda per la firma di token, questa operazione può essere eseguita utilizzando il parametro SigningCertificateThumbprint del cmdlet Install-AdfsFarm.
 - Se si desidera utilizza i certificati predefiniti generati internamente o esternamente registrati certificati, quando viene modificato il certificato di firma di token è necessario verificare che tutti i componenti vengono aggiornati con le nuove informazioni del certificato.  In caso contrario, gli accessi a qualsiasi relying party non aggiornato avrà esito negativo.
 
 ### <a name="token-encryptingdecrypting-certificate"></a>Certificato di crittografia/decrittografia dei token
 Questo certificato viene utilizzato dai provider di attestazioni che crittografare i token emessi per ADFS.
 
-**Raccomandazione:** Usare il valore predefinito di ADFS, i certificati di decrittografia di token autofirmati, generati internamente.  
+**Raccomandazione** Usare i certificati di decrittografia dei token autofirmati AD FS predefiniti generati internamente.  
 
-**Requisiti:**
+**Requisiti**
 - Se l'organizzazione richiede l'utilizzo di certificati emessi da PKI dell'azienda per la firma di token, questa operazione può essere eseguita utilizzando il parametro DecryptingCertificateThumbprint del cmdlet Install-AdfsFarm.
 - Se si desidera utilizza i certificati predefiniti generati internamente o esternamente registrati certificati, quando viene modificato il token di decrittografia di certificato è necessario verificare che tutti i provider di attestazioni vengono aggiornati con le nuove informazioni del certificato.  In caso contrario, gli accessi tramite qualsiasi provider non aggiornato di attestazioni avrà esito negativo.
   
@@ -99,24 +99,24 @@ I requisiti di memoria e disco per ADFS sono abbastanza statici, vedere la tabel
 
 |**Requisito hardware**|**Requisito minimo**|**Requisito consigliato**|
 |----- | ----- |-----|
-|RAM|2 GB|4 GB |
-|Spazio su disco|32 GB|100 GB |
+|RAM|2 GB|4 GB |
+|Spazio su disco|32 GB|100 GB |
 
-**Requisiti Hardware del Server SQL**
+**Requisiti hardware SQL Server**
 
 Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensioni di SQL Server in base alle raccomandazioni di base di SQL Server.  Le dimensioni del database di ADFS sono molto piccola e ADFS non impone un notevole carico di elaborazione all'istanza del database.  AD FS, tuttavia, connettersi al database più volte durante l'autenticazione, pertanto la connessione di rete deve essere affidabile.  Sfortunatamente, SQL Azure non è supportato per il database di configurazione di ADFS.
   
-## <a name="BKMK_3"></a>Requisiti di proxy  
+## <a name="BKMK_3"></a>Requisiti del proxy  
   
 -   Per l'accesso extranet, è necessario distribuire il servizio ruolo Proxy applicazione Web \- fa parte del ruolo del server di accesso remoto. 
 
--   Proxy di terze parti deve supportare il [protocollo MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx) devono essere supportati come un proxy ADFS.  Per un elenco di parti 3rd i fornitori di vedere le [domande frequenti su](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip).
+-   Proxy di terze parti deve supportare il [protocollo MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx) devono essere supportati come un proxy ADFS.  Per un elenco di fornitori di terze parti, vedere le [domande frequenti](AD-FS-FAQ.md).
 
 -   AD FS 2016 richiede il server Proxy applicazione Web in Windows Server 2016.  Un proxy di livello inferiore non può essere configurato per una farm di AD FS 2016 in esecuzione a livello di comportamento 2016 farm.
   
 -   Impossibile installare un server federativo e il servizio ruolo Proxy applicazione Web nello stesso computer.  
   
-## <a name="BKMK_4"></a>Requisiti di Active Directory Domain Services  
+## <a name="BKMK_4"></a>Requisiti di servizi di dominio Active Directory  
 **Requisiti del controller di dominio**  
   
 - ADFS richiede che i controller di dominio che esegue Windows Server 2008 o versione successiva.
@@ -126,7 +126,7 @@ Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensio
 > [!NOTE]  
 > Tutto il supporto per gli ambienti con controller di dominio di Windows Server 2003 è stata terminata. Visitare [questa pagina](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO) Per ulteriori informazioni sulla disponibilità del supporto Microsoft.  
   
-**Funzionalità del dominio\-requisiti di livello**  
+**Requisiti del\-livello di funzionalità del dominio**  
   
  - Tutti i domini di account utente e il dominio a cui sono stati aggiunti i server ADFS deve funzionare a livello funzionale di dominio di Windows Server 2003 o versione successiva.  
   
@@ -139,17 +139,17 @@ Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensio
 -   Aumentare il livello di comportamento di farm di ADFS (FBL) a livello di 2016 richiede lo schema di Active Directory 2016 (versione minima 85).  
 
   
-**Requisiti dell'account di servizio**  
+**Requisiti dell'account del servizio**  
   
 -   Qualsiasi account di dominio standard può essere utilizzato come account del servizio per ADFS. Sono supportati anche gli account del servizio gestito di gruppo. Le autorizzazioni necessarie in fase di esecuzione verranno aggiunto automaticamente quando si configura ADFS.
 
--   L'assegnazione di diritti utente necessari per l'account del servizio Active Directory è 'Accedi come servizio'
+-   L'assegnazione dei diritti utente necessaria per l'account del servizio Active Directory è' accedi come servizio '
 
--   L'assegnazione di diritti utente necessari per la 'NT Service\adfssrv' e 'NT Service\drs' sono 'Generazione controlli di sicurezza' e 'Accedi come servizio'.
+-   Le assegnazioni dei diritti utente necessarie per "NT Service\adfssrv" e "NT Service\drs" sono "genera controlli di sicurezza" e "Accedi come servizio".
 
--   Account del servizio gestito gruppo richiedono almeno un controller di dominio che esegue Windows Server 2012 o versione successiva.  GMSA deve risiedere sotto il valore predefinito ' CN = contenitore degli account del servizio gestito.  
+-   Account del servizio gestito gruppo richiedono almeno un controller di dominio che esegue Windows Server 2012 o versione successiva.  Il GMSA deve risiedere nel contenitore predefinito ' CN = Managed Service Accounts '.  
 
--   Per l'autenticazione Kerberos, il nome dell'entità servizio '`HOST/<adfs\_service\_name>`' deve essere registrato nell'account del servizio AD FS. Per impostazione predefinita, ADFS configurerà questo quando si crea una nuova farm ADFS.  In caso di errore, ad esempio nel caso di conflitto o di autorizzazioni sufficienti, verrà visualizzato un avviso ed è necessario aggiungerla manualmente.  
+-   Per l'autenticazione Kerberos, il nome dell'entità`HOST/<adfs\_service\_name>`servizio '' deve essere registrato nell'account del servizio ad FS. Per impostazione predefinita, ADFS configurerà questo quando si crea una nuova farm ADFS.  In caso di errore, ad esempio nel caso di conflitto o di autorizzazioni sufficienti, verrà visualizzato un avviso ed è necessario aggiungerla manualmente.  
    
 **Requisiti di dominio**  
   
@@ -157,15 +157,15 @@ Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensio
   
 -   Tutti i server ADFS all'interno di una farm devono essere distribuiti nello stesso dominio.  
    
-**Requisiti di più foreste**  
+**Requisiti per più foreste**  
   
 -   Ogni dominio o foresta che contiene gli utenti l'autenticazione per il servizio ADFS, deve considerare attendibile il dominio a cui sono stati aggiunti i server ADFS.  
 
--   La foresta, che l'account del servizio ADFS sia un membro, deve appurare di tutte le foreste di account di accesso utente. 
+-   La foresta, di cui l'account del servizio AD FS è membro, deve considerare attendibili tutte le foreste di accesso utente. 
   
 -   L'account del servizio ADFS deve disporre delle autorizzazioni per leggere gli attributi utente in ogni dominio che contiene gli utenti l'autenticazione per il servizio ADFS.  
   
-## <a name="BKMK_5"></a>Requisiti di database di configurazione  
+## <a name="BKMK_5"></a>Requisiti del database di configurazione  
 In questa sezione vengono descritti i requisiti e restrizioni per le farm di ADFS che utilizza rispettivamente la Database interno di Windows (WID) o SQL Server del database:  
   
 **WID**  
@@ -177,10 +177,10 @@ In questa sezione vengono descritti i requisiti e restrizioni per le farm di ADF
 Nella tabella seguente viene fornito un riepilogo di quanti server ADFS sono supportati in Visual Studio un WID una farm SQL Server.    
   
   
-|| 1 - 100 trust della relying party (RP) configurato in AD FS | Più di 100 attendibilità della relying Party configurato  |
+|| 1-100 Trust relying party (RP) configurati in AD FS | Più di 100 attendibilità della relying Party configurato  |
 | --- |--- | --- |
-|1-30 server ADFS|Database interno di Windows supportati|Non supportato utilizzando WID: SQL Server necessarie |
-|Più di 30 server ADFS|Non supportato utilizzando WID: SQL Server necessarie|Non supportato utilizzando WID: SQL Server necessarie  
+|server AD FS 1-30|Database interno di Windows supportati|Non supportato con WID-SQL Server obbligatorio |
+|Più di 30 server ADFS|Non supportato con WID-SQL Server obbligatorio|Non supportato con WID-SQL Server obbligatorio  
   
 **SQL Server**  
   
@@ -199,7 +199,7 @@ Quando viene eseguita l'autenticazione di ADFS tramite un browser o un controllo
   
 - Per certificato & dispositivo autenticazione dei certificati utente, il browser deve supportare l'autenticazione del certificato client SSL  
 
-- Per l'accesso trasparente utilizzando l'autenticazione integrata di Windows, il nome del servizio federativo (ad esempio https:\/\/fs.contoso.com) devono essere configurate nella zona intranet locale o siti attendibili.
+- Per l'accesso trasparente usando l'autenticazione integrata di Windows, il nome del servizio federativo (ad\/esempio https:\/FS.contoso.com) deve essere configurato nell'area Intranet locale o nell'area siti attendibili.
   ## <a name="BKMK_7"></a>Requisiti di rete  
  
 **Requisiti del firewall**  
@@ -208,9 +208,9 @@ Entrambi i firewall si trova tra il Proxy dell'applicazione Web e la server farm
   
 Inoltre, se l'autenticazione del certificato client utente \(autenticazione clientTLS utilizzando X509 i certificati utente\) è obbligatorio e l'endpoint certauth sulla porta 443 non è abilitato, AD FS 2016 richiede che sia attivato 49443 la porta TCP in ingresso nel firewall tra i client e il Proxy dell'applicazione Web. Questa operazione non è necessaria nel firewall tra il Proxy di applicazione Web e i server federativi\). 
 
-Per altre informazioni sulla porta ibrida requisiti, vedere [protocolli e porte di identità ibrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
+Per altre informazioni sui requisiti delle porte ibride [, vedere Porte e protocolli di identità ibrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
-Per altre informazioni vedere [procedure consigliate per la protezione di Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
+Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate [per la protezione Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **Requisiti DNS**  
   
@@ -226,18 +226,18 @@ Per altre informazioni vedere [procedure consigliate per la protezione di Active
 
 -   Per la registrazione del dispositivo o per l'autenticazione moderna per le risorse locali tramite i client precedenti a Windows 10, "enterpriseregistration.\<suffisso UPN\>", per ogni suffisso UPN in uso nell'organizzazione, deve essere configurato per risolvere il proxy di applicazione web o server federativo.
 
-**Requisiti del bilanciamento del carico**
-- Il bilanciamento del carico non deve interrompere la sessione SSL. ADFS supporta più casi di utilizzo con l'autenticazione del certificato che verrà interrotta quando terminazione SSL. Terminazione SSL al servizio di bilanciamento del carico non è supportata per qualsiasi caso d'uso. 
-- È consigliabile usare un servizio di bilanciamento del carico che supporta SNI. Nell'evento non le utilizza, usando la 0.0.0.0 fallback associazione su AD FS o server Proxy applicazione Web deve fornire una soluzione alternativa.
-- È consigliabile usare l'endpoint del probe di integrità HTTP (non HTTPS) per eseguire controlli di integrità di load balancer per il routing del traffico. Questo evita qualsiasi problema relativo a SNI. La risposta a questi endpoint di probe è un messaggio HTTP 200 OK e viene gestita in locale con alcuna dipendenza dalla servizi back-end. Il probe HTTP è accessibile su HTTP utilizzando il percorso probe/adfs /
-    - http://&lt;nome del Proxy applicazione Web &gt; /adfs/probe
-    - http://&lt;nome del server ad FS &gt; /adfs/probe
-    - http://&lt;indirizzo IP del Proxy applicazione Web &gt; /adfs/probe
-    - http://&lt;indirizzo IP di ADFS &gt; /adfs/probe
-- NON è consigliabile usare DNS round robin che consente di bilanciare il carico. Utilizzo di questo tipo di bilanciamento del carico non fornisce un metodo automatico per rimuovere un nodo dal servizio di bilanciamento del carico con probe di integrità. 
-- È consigliabile non usare l'affinità di sessione basata su IP o le sessioni permanenti per il traffico di autenticazione per AD FS all'interno di bilanciamento del carico. Ciò può provocare un overload di alcuni nodi quando si usa il protocollo di autenticazione legacy per i client di posta elettronica per la connessione ai servizi di posta elettronica di Office 365 (Exchange Online). 
+**Requisiti di Load Balancer**
+- Il servizio di bilanciamento del carico non deve terminare il protocollo SSL. AD FS supporta più casi di utilizzo con l'autenticazione del certificato che si interrompe durante la terminazione di SSL. Il termine SSL al servizio di bilanciamento del carico non è supportato per alcun caso d'uso. 
+- È consigliabile usare un servizio di bilanciamento del carico che supporti SNI. In caso contrario, l'utilizzo dell'associazione di fallback 0.0.0.0 sul server del proxy dell'applicazione AD FS/Web dovrebbe fornire una soluzione alternativa.
+- È consigliabile usare gli endpoint del probe di integrità HTTP (non HTTPS) per eseguire i controlli di integrità del servizio di bilanciamento del carico per il routing del traffico. In questo modo si evitano eventuali problemi relativi a SNI. La risposta a questi endpoint Probe è un HTTP 200 OK e viene servita localmente senza alcuna dipendenza dai servizi back-end. È possibile accedere al Probe HTTP tramite HTTP usando il percorso '/ADFS/probe '
+    - &lt;nome&gt;del proxy dell'applicazione Web http:///ADFS/Probe
+    - http://&lt;nome&gt;server ADFS/ADFS/Probe
+    - &lt;indirizzo&gt;IP del proxy dell'applicazione Web http:///ADFS/Probe
+    - http://&lt;indirizzo&gt;IP ADFS/ADFS/Probe
+- NON è consigliabile usare DNS round robin come metodo per il bilanciamento del carico. L'uso di questo tipo di bilanciamento del carico non fornisce un modo automatico per rimuovere un nodo dal servizio di bilanciamento del carico usando i probe di integrità. 
+- NON è consigliabile usare l'affinità di sessione basata su IP o le sessioni permanenti per il traffico di autenticazione per AD FS all'interno del servizio di bilanciamento del carico. Questo può causare un sovraccarico di determinati nodi quando si usa il protocollo di autenticazione legacy per i client di posta elettronica per la connessione ai servizi di posta elettronica di Office 365 (Exchange Online). 
 
-## <a name="BKMK_13"></a>Requisiti di autorizzazione  
+## <a name="BKMK_13"></a>Requisiti per le autorizzazioni  
 L'amministratore che esegue l'installazione e la configurazione iniziale di ADFS deve disporre delle autorizzazioni di amministratore locale sul server ADFS.  Se l'amministratore locale non dispone delle autorizzazioni per creare oggetti in Active Directory, è necessario innanzitutto disporre di un amministratore di dominio creare gli oggetti di Active Directory necessari, quindi configurare la farm di ADFS tramite il parametro AdminConfiguration.  
   
   

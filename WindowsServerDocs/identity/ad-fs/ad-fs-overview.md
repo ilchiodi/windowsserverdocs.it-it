@@ -9,28 +9,28 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1dd204ec930cb69d7117fc240b5384fa928d7626
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0ab4152c28413f663dfcc4c5d43deee8a31c1ec2
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192521"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009106"
 ---
 # <a name="ad-fs-overview"></a>Panoramica di AD FS
 
 
 
-Questo documento contiene un elenco di tutte le panoramiche documentazione per AD FS per Windows Server. Tali attributi includono:
+Questo documento contiene un elenco di tutte le panoramica della documentazione per AD FS per Windows Server. Sono inclusi gli elementi seguenti:
   
   
   
-* [What ' s New in AD FS per Windows Server 2019](../ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)  
+* [Novità di AD FS per Windows Server 2019](../ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)  
   
-* [Scenari di AD FS per gli sviluppatori](../ad-fs/overview/AD-FS-Scenarios-for-Developers.md) 
+* [AD FS i flussi OpenID Connect/OAuth e gli scenari di applicazione](../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md) 
 
 * [Requisiti di AD FS](../ad-fs/overview/AD-FS-2016-Requirements.md)
 
-* [DOMANDE FREQUENTI DI AD FS](../ad-fs/overview/AD-FS-FAQ.md)
+* [DOMANDE FREQUENTI AD FS](../ad-fs/overview/AD-FS-FAQ.md)
 
   
   

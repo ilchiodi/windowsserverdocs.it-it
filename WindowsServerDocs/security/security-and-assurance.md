@@ -11,12 +11,12 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: high
-ms.openlocfilehash: bd9df9cc9836b15ec22c11b3413aa778192307f9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b788aa85bcc2df7c96baaf591b224788e6e6f487
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63752182"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000747"
 ---
 # <a name="security--assurance"></a>Sicurezza | Controllo
 
@@ -251,7 +251,7 @@ La sicurezza di Windows Server offre livelli di protezione integrati nel sistema
 <HR />
                         <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">Microsoft Operations Management Suite (OMS)</a></h3>La soluzione di sicurezza e controllo Microsoft Operations Management Suite (OMS) elabora i registri di protezione e gli eventi del firewall in ambienti locali e cloud per analizzare e rilevare comportamenti dannosi.</p>
 <HR />
-                        <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">OMS e Windows Server</a></h3>Questo video di 3 minuti illustra in che modo OMS consente di rilevare potenziali comportamenti sospetti bloccati da Windows Server. Supporto</p>
+                        <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">OMS e Windows Server</a></h3>Questo video di 3 minuti illustra in che modo OMS consente di rilevare potenziali comportamenti sospetti bloccati da Windows Server.</p>
 <HR />
                         <p><h3><a href="http://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx">Analisi avanzata delle minacce Microsoft</a></h3>Questo post di blog descrive Microsoft Advanced Threat Analytics, un prodotto locale che usa il traffico di rete Active Directory e i dati SIeM per rilevare i rischi potenziali e avvisare in merito.</p>
                     </div>
