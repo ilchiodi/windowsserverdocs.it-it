@@ -375,7 +375,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
       **Configurazione di ARRConfig-CERT** _percorso del file di certificato_ **-nomi host** _nomi host per Exchange Server_ **-TargetServer** _nome del server Exchange Server_  
 
-      Ad esempio: **Configurazione di ARRConfig-CERT** _c:\temp\certificate.pfx_ **-nomi host** _mail.contoso.com_ * *-TargetServer * * _ExchangeSvr_  
+      Ad esempio: **Configurazione di ARRConfig-CERT** _c:\temp\certificate.pfx_ **-nomi host** _mail.contoso.com_ **-TargetServer ** _ExchangeSvr_  
 
       Sostituire *mail.contoso.com* con il nome del dominio della società. Sostituire *ExchangeSvr* con il nome del server che esegue Exchange Server.  
 

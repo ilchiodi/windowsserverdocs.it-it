@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 06/20/2019
+ms.date: 08/22/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7af852ba934de2dd29a76972d7a7ec73606e9b4c
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476560"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009115"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
 
 Informazioni sulle ultime funzionalità rilasciate:
 
+- Versione [1908](https://aka.ms/wac1908) : include aggiornamenti visivi, Packetmon, FlowLog Audit, onboarding di Monitoraggio di Azure per i cluster e supporto di WinRM su HTTPS (porta 5986).
 - Versione [1907](https://aka.ms/wac1907): aggiunta di collegamenti per la stima dei costi di Azure e miglioramenti apportati alle attività di importazione/esportazione e aggiunta di tag per le macchine virtuali.
 - Versione [1906](https://aka.ms/wac1906): aggiunta di importazione/esportazione di macchine virtuali, cambiare account di Azure, aggiungere connessioni da Azure, sperimentare le impostazioni di connettività, miglioramenti delle prestazioni e strumento di profilatura delle prestazioni.
 - La versione 1904.1 è la versione disponibile a livello generale più recente: un aggiornamento di manutenzione per migliorare la stabilità dei plug-in gateway.

@@ -16,6 +16,7 @@
 ## [Opzioni di aggiornamento e conversione per Windows Server 2016](Supported-Upgrade-paths.md)
 ## [Aggiornamento e migrazione dei ruoli di Windows Server 2016](Server-Role-Upgradeability-Table.md)
 ## [Tabella di compatibilità delle applicazioni di Windows Server 2016](Server-Application-compatibility.md)
+## [Funzionalità rimosse o pianificate per la sostituzione in Windows Server](../get-started-19/removed-features.md)
 ## [Funzionalità rimosse o deprecate in Windows Server 2016](Deprecated-Features.md)
 ## [Confronto tra edizioni di Windows Server 2016](2016-Edition-Comparison.md)
 ## [Vantaggio Azure Hybrid per Windows Server](azure-hybrid-benefit.md)
