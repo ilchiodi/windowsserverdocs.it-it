@@ -1,19 +1,19 @@
 ---
-title: Esempio di codice di Go generato per il livello superiore di IPAM & oggetto della Subnet
+title: Esempio di codice go generato per l'oggetto & subnet di gestione indirizzi IP di primo livello
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 428566411920e55d444890898d0f02a1e6cc81ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c823a9994e96b3f22acd15ca639f773f4d6ab63
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870942"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031553"
 ---
 # <a name="example-of-go-generated-code"></a>Esempio di codice generato Go 
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (canale semestrale), Windows Server 2019
 
 ```Go
 /*

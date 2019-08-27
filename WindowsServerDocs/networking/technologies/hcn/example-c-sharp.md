@@ -1,19 +1,19 @@
 ---
-title: Esempio di generato C# oggetto Subnet & codice per il livello superiore di gestione indirizzi IP
+title: Esempio di codice C# generato per l'oggetto & subnet di gestione indirizzi IP di primo livello
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 8e96136eaeee5f98a919b26791994c1b00a0c45c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ae324b0a376f4fdf55cf09df652893b7894cc73e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875542"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031508"
 ---
 # <a name="example-of-c-generated-code"></a>Esempio di codice generato C# 
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (canale semestrale), Windows Server 2019
 
 ```C#
 /* 

@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 689f293acf1e87e135f6f8cf5c7eac2a7d8033b9
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914602"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031513"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Eseguire l'integrazione di un Exchange Server locale con Windows Server Essentials
 
@@ -375,7 +375,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
       **Configurazione di ARRConfig-CERT** _percorso del file di certificato_ **-nomi host** _nomi host per Exchange Server_ **-TargetServer** _nome del server Exchange Server_  
 
-      Ad esempio: **Configurazione di ARRConfig-CERT** _c:\temp\certificate.pfx_ **-nomi host** _mail.contoso.com_ **-TargetServer ** _ExchangeSvr_  
+      Ad esempio: **Configurazione di ARRConfig-CERT** _c:\temp\certificate.pfx_ **-nomi host** _mail.contoso.com_ **-TargetServer** _ExchangeSvr_  
 
       Sostituire *mail.contoso.com* con il nome del dominio della società. Sostituire *ExchangeSvr* con il nome del server che esegue Exchange Server.  
 

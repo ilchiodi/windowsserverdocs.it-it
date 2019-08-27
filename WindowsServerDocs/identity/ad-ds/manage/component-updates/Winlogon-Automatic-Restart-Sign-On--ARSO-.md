@@ -1,148 +1,175 @@
 ---
 ms.assetid: cb834273-828a-4141-9387-37dd8270e932
-title: Accesso automatico al riavvio Winlogon
-description: ''
+title: Accesso automatico a Winlogon (al riavvio Winlogon)
+description: Il modo in cui il riavvio automatico di Windows è in grado di migliorare la produttività degli utenti.
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
-ms.date: 05/31/2017
+ms.reviewer: cahick
+ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4024a00c6c186aa929e88cb2aa86b0ec04a731b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 180ffbd1e96448d7a7ea12c5e08e9fc5b35f7f8b
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883622"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031592"
 ---
-# <a name="winlogon-automatic-restart-sign-on-arso"></a>Accesso automatico al riavvio Winlogon
+# <a name="winlogon-automatic-restart-sign-on-arso"></a>Accesso automatico a Winlogon (al riavvio Winlogon)
 
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+Durante una Windows Update, è necessario che siano presenti processi specifici dell'utente per completare l'aggiornamento. Questi processi richiedono che l'utente sia connesso al dispositivo. Al primo accesso dopo l'avvio di un aggiornamento, gli utenti devono attendere il completamento di questi processi specifici dell'utente prima di poter iniziare a usare il dispositivo.
 
-**Autore**: Justin. Turner, Senior Support Escalation Engineer presso il gruppo di Windows
+## <a name="how-does-it-work"></a>Come funziona?
+
+Quando Windows Update avvia un riavvio automatico, al riavvio Winlogon estrae le credenziali derivate dell'utente attualmente connesso, le salva in modo permanente su disco e configura il logo per l'utente. Windows Update eseguito come System con privilegi TCB avvierà la chiamata RPC a tale scopo.
+
+Dopo il riavvio finale del Windows Update, l'utente verrà automaticamente connesso tramite il meccanismo autologo e la sessione dell'utente viene riattivata con i segreti salvati in modo permanente. Inoltre, il dispositivo è bloccato per proteggere la sessione dell'utente. Il blocco verrà avviato tramite Winlogon, mentre la gestione delle credenziali viene eseguita dall'autorità di protezione locale (LSA). Dopo aver eseguito correttamente la configurazione e l'accesso a al riavvio Winlogon, le credenziali salvate vengono eliminate immediatamente dal disco.
+
+Eseguendo automaticamente l'accesso e il blocco dell'utente nella console, Windows Update possibile completare i processi specifici dell'utente prima che l'utente torni al dispositivo. In questo modo, l'utente può iniziare immediatamente a usare il dispositivo.
+
+AL riavvio Winlogon considera i dispositivi gestiti e non gestiti in modo diverso. Per i dispositivi non gestiti, viene usata la crittografia del dispositivo, ma non è necessario che l'utente ottenga al riavvio Winlogon. Per i dispositivi gestiti, TPM 2,0, SecureBoot e BitLocker sono necessari per la configurazione di al riavvio Winlogon. Gli amministratori IT possono eseguire l'override di questo requisito tramite Criteri di gruppo. AL riavvio Winlogon per i dispositivi gestiti è attualmente disponibile solo per i dispositivi aggiunti a Azure Active Directory.
+
+|   | Windows Update| arresto-g-t 0  | Riavvii avviati dall'utente | API con flag SHUTDOWN_ARSO/EWX_ARSO |
+| --- | :---: | :---: | :---: | :---: |
+| Dispositivi gestiti | :heavy_check_mark:  | :heavy_check_mark: |   | :heavy_check_mark: |
+| Dispositivi non gestiti | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 > [!NOTE]
-> Questo contenuto è stato redatto da un ingegnere del Supporto tecnico Microsoft ed è destinato ad amministratori esperti e architetti di sistemi che desiderano una spiegazione tecnica delle funzionalità e delle soluzioni relative a Windows Server 2012 R2 più approfondita rispetto agli argomenti solitamente disponibili su TechNet. Non è stato tuttavia sottoposto agli stessi passaggi redazionali e, di conseguenza, per alcune lingue potrebbe essere meno accurato della documentazione che si trova in genere su TechNet.
+> Dopo il riavvio di un Windows Update indotto, l'ultimo utente interattivo viene automaticamente connesso e la sessione è bloccata. In questo modo, le app per la schermata di blocco di un utente possono continuare a funzionare nonostante il riavvio del Windows Update.
 
-## <a name="overview"></a>Panoramica
-Windows 8 è stato introdotto App schermata di blocco.  Si tratta di applicazioni che eseguono e visualizzare le notifiche quando la sessione dell'utente è bloccata (calendario degli appuntamenti, messaggio di posta elettronica e i messaggi e così via).  Per visualizzare queste notifiche schermata di blocco al riavvio dei dispositivi che vengono riavviati a causa del processo di Windows Update non riesce.  Alcuni utenti dipendono da queste applicazioni schermata di blocco.
+![Pagina delle impostazioni](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-lockscreenapp.png)
 
-## <a name="whats-changed"></a>Modifiche apportate
-Quando un utente accede in un dispositivo Windows 8.1, LSA salverà le credenziali dell'utente in memoria crittografata accessibile solo da lsass.exe. Quando Windows Update attiva un riavvio automatico senza presenza utente, queste credenziali verranno utilizzate per configurare l'accesso automatico per l'utente. Aggiornamento di Windows in esecuzione come sistema con privilegi TCB avvierà la chiamata RPC per eseguire questa operazione.
+## <a name="policy-1"></a>#1 di criteri
 
-Dopo il riavvio, l'utente verrà automaticamente eseguito l'accesso tramite il meccanismo di accesso automatico e inoltre è bloccata per proteggere la sessione dell'utente. Verrà avviato il blocco tramite Winlogon mentre la gestione delle credenziali avviene tramite LSA.  Effettua l'accesso automaticamente e bloccare l'utente della console, alle applicazioni schermata di blocco dell'utente sarà riavviate e disponibili.
+### <a name="sign-in-and-lock-last-interactive-user-automatically-after-a-restart"></a>Accesso e blocco dell'ultimo utente interattivo automaticamente dopo un riavvio
 
-> [!NOTE]
-> Dopo un aggiornamento di Windows indotta riavvio, l'ultimo utente interattivo viene eseguito automaticamente l'accesso e la sessione è bloccata in modo possono eseguire le app schermata di blocco dell'utente.
+In Windows 10, al riavvio Winlogon è disabilitato per gli SKU del server ed escludere gli SKU dei client.
 
-![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreenApp.gif)
+**Percorso criteri di gruppo:** Configurazione computer > Modelli amministrativi > componenti di Windows > Opzioni di accesso a Windows
 
-![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreen.gif)
+**Criteri di Intune:**
 
-**Panoramica rapida**
+- Piattaforma: Windows 10 e versioni successive
+- Tipo di profilo: Modelli amministrativi
+- Percorso: \Windows opzioni di accesso Windows\windows
 
--   Aggiornamento di Windows richiede riavvio
+**Supportato in:** Almeno Windows 10 versione 1903
 
--   È possibile riavviare computer (*Nessuna App in esecuzione che comporterebbe la perdita di dati*)?
+**Descrizione:**
 
-    -   Riavvia automaticamente
+Questa impostazione dei criteri controlla se un dispositivo effettuerà automaticamente l'accesso e bloccherà l'ultimo utente interattivo dopo il riavvio del sistema o dopo un arresto e l'avvio a freddo.
 
-    -   Eseguire nuovamente l'accesso
+Questa situazione si verifica solo se l'ultimo utente interattivo non è stato dismesso prima del riavvio o dell'arresto.
 
-    -   Computer di blocco
+Se il dispositivo è stato aggiunto a Active Directory o Azure Active Directory, questo criterio si applica solo ai riavvii Windows Update. In caso contrario, verrà applicato sia ai riavvii Windows Update sia ai riavvii e agli arresti avviati dall'utente.
 
--   Attivata o disattivata da criteri di gruppo
+Se questa impostazione di criteri non è configurata, è abilitata per impostazione predefinita. Quando il criterio è abilitato, l'utente viene automaticamente connesso e la sessione viene bloccata automaticamente con tutte le app della schermata di blocco configurate per tale utente dopo l'avvio del dispositivo.
 
-    -   Disabilitato per impostazione predefinita nel server di SKU
+Dopo aver abilitato questo criterio, è possibile configurarne le impostazioni tramite il criterio ConfigAutomaticRestartSignOn, che configura la modalità di accesso automatico e blocco dell'ultimo utente interattivo dopo un riavvio o un avvio a freddo.
 
--   Perché?
+Se si disabilita questa impostazione di criteri, il dispositivo non configura l'accesso automatico. Le app della schermata di blocco dell'utente non vengono riavviate dopo il riavvio del sistema.
 
-    -   Alcuni aggiornamenti non può essere completata fino a quando l'utente accede nuovamente.
+**Editor del registro di sistema:**
 
-    -   Una migliore esperienza utente: non è necessario attendere 15 minuti completare l'installazione di aggiornamenti
+| Nome valore | Type | Data |
+| --- | --- | --- |
+| DisableAutomaticRestartSignOn | DWORD | 0 (Abilita al riavvio Winlogon) |
+|   |   | 1 (Disabilita al riavvio Winlogon) |
 
--   In che modo? AutoLogon
-
-    -   Consente di archiviare password e Usa le credenziali per l'accesso
-
-    -   Salva credenziali come un segreto LSA in memoria di paging
-
-    -   Può essere abilitata solo se è attivato BitLocker
-
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Criteri di gruppo: Accesso ultimo utente interattivo automaticamente dopo un riavvio avviate dal sistema
-In Windows 8.1 o Windows Server 2012 R2, l'accesso automatico dell'utente blocco schermo dopo un riavvio di Windows Update è acconsentire esplicitamente agli SKU di Server e rifiuto per gli SKU di Client.
-
-**Percorso di criteri:** Configurazione computer > Criteri > modelli amministrativi > componenti di Windows > opzione di accesso di Windows
-
-**Nome del criterio:** Accesso ultimo utente interattivo automaticamente dopo un riavvio avviate dal sistema
-
-**Supportato in:** Almeno Windows Server 2012 R2, Windows 8.1 o Windows RT 8.1
-
-**Guida/descrizione:**
-
-Questa impostazione criterio controlla se un dispositivo verrà automaticamente Accedi dell'ultimo utente interattivo dopo l'aggiornamento di Windows viene riavviato il sistema.
-
-Se si abilita o non si configura questa impostazione dei criteri, il dispositivo salva in modo sicuro le credenziali dell'utente (inclusi il nome utente, dominio e password crittografata) per configurare Accedi automaticamente dopo il riavvio di un aggiornamento di Windows. Dopo il riavvio di Windows Update, l'utente viene automaticamente eseguito l'accesso aggiuntivo e la sessione venga bloccata automaticamente con tutte le app schermata di blocco configurate per l'utente.
-
-Se si disabilita questa impostazione dei criteri, il dispositivo non archivia le credenziali dell'utente per l'accesso automatico dopo il riavvio di un aggiornamento di Windows. App schermata di blocco degli utenti non vengono riavviate dopo il riavvio del sistema.
-
-**Editor del Registro di sistema**
-
-|Nome valore|Tipo|Dati|
-|--------------|--------|--------|
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Esempio:**<br /><br />0 (attivato)<br /><br />1 (disabilitato)|
-
-**Percorso del Registro di sistema di criteri:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+**Percorso del registro di sistema dei criteri:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
 **Tipo:** DWORD
 
-**Nome del Registro di sistema:** DisableAutomaticRestartSignOn
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
 
-Valore: 0 o 1
+## <a name="policy-2"></a>#2 di criteri
 
-0 = Enabled
+### <a name="configure-the-mode-of-automatically-signing-in-and-locking-last-interactive-user-after-a-restart-or-cold-boot"></a>Configurare la modalità di accesso e blocco automatico dell'ultimo utente interattivo dopo un riavvio o un avvio a freddo
 
-1 = disabilitata
+**Percorso criteri di gruppo:** Configurazione computer > Modelli amministrativi > componenti di Windows > Opzioni di accesso a Windows
 
-![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_SignInPolicy.gif)
+**Criteri di Intune:**
+
+- Piattaforma: Windows 10 e versioni successive
+- Tipo di profilo: Modelli amministrativi
+- Percorso: \Windows opzioni di accesso Windows\windows
+
+**Supportato in:** Almeno Windows 10 versione 1903
+
+**Descrizione:**
+
+Questa impostazione dei criteri controlla la configurazione con cui si verifica un riavvio e un blocco automatici dopo un riavvio o un avvio a freddo. Se è stato scelto "disabilitato" nei criteri "Accedi e blocca ultimo utente interattivo automaticamente dopo un riavvio", l'accesso automatico non verrà eseguito e non sarà necessario configurare questo criterio.
+
+Se si abilita questa impostazione di criteri, è possibile scegliere una delle due opzioni seguenti:
+
+1. "Abilitato se BitLocker è attivato e non sospeso" indica che l'accesso automatico e il blocco si verificano solo se BitLocker è attivo e non è sospeso durante il riavvio o l'arresto. È possibile accedere ai dati personali sul disco rigido del dispositivo in questo momento se BitLocker non è acceso o sospeso durante un aggiornamento. La sospensione di BitLocker rimuove temporaneamente la protezione per i componenti di sistema e i dati, ma potrebbe essere necessaria in determinate circostanze per aggiornare correttamente i componenti critici per l'avvio.
+   - BitLocker viene sospeso durante gli aggiornamenti se:
+      - Il dispositivo non ha TPM 2,0 e PCR7 oppure
+      - Il dispositivo non usa una protezione con solo TPM
+2. "Always Enabled" indica che l'accesso automatico si verificherà anche se BitLocker è spento o sospeso durante il riavvio o l'arresto. Quando BitLocker non è abilitato, i dati personali sono accessibili sul disco rigido. Il riavvio automatico e l'accesso devono essere eseguiti solo in questa condizione se si è certi che il dispositivo configurato si trovi in una posizione fisica sicura.
+
+Se si disattiva o non si configura questa impostazione, l'accesso automatico verrà impostato automaticamente sul comportamento "abilitato se BitLocker è acceso e non sospeso".
+
+**Editor del registro di sistema**
+
+| Nome valore | Type | Data |
+| --- | --- | --- |
+| AutomaticRestartSignOnConfig | DWORD | 0 (Abilita al riavvio Winlogon se protetto) |
+|   |   | 1 (Abilita sempre al riavvio Winlogon) |
+
+**Percorso del registro di sistema dei criteri:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+
+**Tipo:** DWORD
+
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Quando si blocchi automaticamente WinLogon, traccia dello stato di WinLogon verrà archiviato nel registro eventi di WinLogon.
 
-Viene registrato lo stato di un tentativo di configurazione dell'accesso automatico
+Quando WinLogon si blocca automaticamente, la traccia dello stato di WinLogon verrà archiviata nel registro eventi di WinLogon.
 
--   Se ha esito positivo
+Lo stato di un tentativo di configurazione con logo automatico viene registrato
 
-    -   Registra come tale
+- In caso di esito positivo
+   - registra il nome
+- Se si verifica un errore:
+   - registra l'errore
+- Quando lo stato di BitLocker cambia:
+   - la rimozione delle credenziali verrà registrata
+   - Questi verranno archiviati nel log operativo di LSA.
 
--   Se si tratta di un errore:
+### <a name="reasons-why-autologon-might-fail"></a>Motivi per cui l'accesso automatico potrebbe non riuscire
 
-    -   Registra l'errore era
+Esistono diversi casi in cui non è possibile ottenere un account di accesso automatico dell'utente.  Questa sezione ha lo scopo di acquisire gli scenari noti in cui questo può verificarsi.
 
--   Quando viene modificato lo stato di BitLocker:
+### <a name="user-must-change-password-at-next-login"></a>L'utente deve modificare la password all'accesso successivo
 
-    -   la rimozione di credenziali verrà registrata
+L'accesso utente può entrare in uno stato bloccato quando è necessario modificare la password all'accesso successivo.  Questa operazione può essere rilevata prima del riavvio nella maggior parte dei casi, ma non tutti (ad esempio, la scadenza della password può essere raggiunta tra l'arresto e l'accesso successivo.
 
-        -   Vengono memorizzati nel registro operativo LSA.
+### <a name="user-account-disabled"></a>Account utente disabilitato
 
-### <a name="reasons-why-autologon-might-fail"></a>Motivi per cui non riesca l'accesso automatico
-Esistono diversi casi in cui non è possibile ottenere un account di accesso utente automatico.  In questa sezione consente di acquisire i noti scenari in cui ciò può verificarsi.
+Una sessione utente esistente può essere mantenuta anche se disabilitata.  Il riavvio di un account disabilitato può essere rilevato localmente nella maggior parte dei casi, a seconda del GP, potrebbe non essere per gli account di dominio (alcuni scenari di accesso memorizzati nella cache del dominio funzionano anche se l'account è disabilitato nel controller di dominio).
 
-### <a name="user-must-change-password-at-next-login"></a>Cambiamento obbligatorio Password all'accesso successivo
-Account di accesso utente può immettere uno stato bloccato quando è necessaria la modifica della password all'accesso successivo.  Ciò può essere rilevata prima del riavvio nella maggior parte dei casi, ma non tutte (ad esempio, la scadenza password può essere raggiunto tra l'arresto e l'accesso successivo.
+### <a name="logon-hours-and-parental-controls"></a>Orari di accesso e controlli padre
 
-### <a name="user-account-disabled"></a>Account utente disattivato
-Anche se disabilitata, è possibile mantenere una sessione utente esistente.  Riavvio di un account che viene disabilitato può essere rilevato in locale nella maggior parte dei casi in anticipo, a seconda dei criteri di gruppo che potrebbe non essere per gli account di dominio (alcuni domini memorizzata nella cache login scenari lavoro anche se l'account è disabilitato nei controller di dominio).
+Le ore di accesso e i controlli padre possono impedire la creazione di una nuova sessione utente.  Se si verifica un riavvio durante questa finestra, l'utente non sarà autorizzato a eseguire l'accesso.  Sono presenti criteri aggiuntivi che causano il blocco o la disconnessione come azione di conformità. Lo stato di un tentativo di configurazione dell'accesso automatico viene registrato.
 
-### <a name="logon-hours-and-parental-controls"></a>Orario di accesso e controllo genitori
-L'orario di accesso e controllo genitori possono impedire a viene creata una nuova sessione utente.  Se si verificano durante questo periodo di riavvio, l'utente potrebbe non autorizzato per eseguire l'accesso.  È criteri aggiuntivi che causa blocco o logout come azione di conformità.  Ciò potrebbe essere problematica per molti casi figlio in cui il blocco account può verificarsi tra l'ora letto e di riattivazione, in particolare se la finestra di manutenzione è comunemente durante questo periodo.
+## <a name="security-details"></a>Dettagli sulla sicurezza
+
+### <a name="credentials-stored"></a>Credenziali archiviate
+
+|   | Hash password | Chiave credenziali | Ticket di concessione ticket | Token di aggiornamento primario |
+| --- | :---: | :---: | :---: | :---: |
+| Account locale | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| Account MSA | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| Azure AD account aggiunto | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (se ibrido) | :heavy_check_mark: |
+| Account aggiunto a un dominio | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (se ibrido) |
+
+### <a name="credential-guard-interaction"></a>Interazione di Credential Guard
+
+Se per un dispositivo è abilitata la funzionalità Credential Guard, i segreti derivati di un utente vengono crittografati con una chiave specifica per la sessione di avvio corrente. Di conseguenza, al riavvio Winlogon non è attualmente supportato nei dispositivi con Credential Guard abilitato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-**Tabella SEQ tabella \\ \* ARABIC 3: Glossario ARSO**
 
-|Nome|Definizione|
-|--------|--------------|
-|Autologon|L'accesso automatico è una funzionalità che è stata presente in Windows per diverse versioni.  È una funzionalità di Windows che include anche strumenti, ad esempio l'accesso automatico per Windows v 3.01 documentata  *[http:/technet.microsoft.com/sysinternals/bb963905.aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Consente a un singolo utente del dispositivo per l'accesso automatico senza dover immettere le credenziali. Le credenziali configurate e archiviate nel Registro di sistema come un segreto LSA crittografato.|
-
-
+L'accesso automatico è una funzionalità presente in Windows per diverse versioni. Si tratta di una funzionalità documentata di Windows che include anche strumenti come l'accesso automatico per Windows [http:/technet. Microsoft. com/sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx). Consente a un singolo utente del dispositivo di accedere automaticamente senza immettere le credenziali. Le credenziali vengono configurate e archiviate nel registro di sistema come segreto LSA crittografato. Questo può essere problematico per molti casi figlio in cui il blocco dell'account può verificarsi tra il tempo di sospensione e il riattivazione, in particolare se la finestra di manutenzione si trova in genere durante questo periodo di tempo.

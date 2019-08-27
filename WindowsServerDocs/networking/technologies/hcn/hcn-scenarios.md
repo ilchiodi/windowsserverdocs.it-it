@@ -1,26 +1,26 @@
 ---
-title: Scenari di rete di calcolo (HCN) host
+title: Scenari di rete di calcolo host (HCN)
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 2a81b09c41c3b665d6a026da4b63a6119fbe202d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91cdafa9699cd213156d872090034dd4ea67108e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816302"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031528"
 ---
 # <a name="common-scenarios"></a>Scenari comuni
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (canale semestrale), Windows Server 2019
 
 ## <a name="scenario-hcn"></a>Scenario: HCN 
 
 
 ### <a name="create-an-hcn"></a>Creare un HCN
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per creare una rete di calcolo di Host sull'host che può essere usato per connettersi NIC virtuali alle macchine virtuali o i contenitori.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per creare una rete di calcolo host nell'host che può essere usata per connettere schede di interfaccia di rete virtuali a macchine virtuali o contenitori.
 
 ```C++
 using unique_hcn_network = wil::unique_any< 
@@ -119,7 +119,7 @@ void CreateHcnNetwork()
 
 ### <a name="delete-an-hcn"></a>Eliminare un HCN
 
-Questo esempio viene illustrato come usare l'API del servizio di rete di calcolo Host per aprire ed elimina una rete Host di calcolo 
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per aprire & eliminare una rete di calcolo host 
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -134,9 +134,9 @@ Questo esempio viene illustrato come usare l'API del servizio di rete di calcolo
 ```
 
 
-### <a name="enumerate-all-networks"></a>Enumerare tutte le reti
+### <a name="enumerate-all-networks"></a>Enumera tutte le reti
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per enumerare tutte le reti di calcolo di host.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per enumerare tutte le reti di calcolo host.
 
 ```C++
      wil::unique_cotaskmem_string resultNetworks;
@@ -157,9 +157,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="query-network-properties"></a>Proprietà di rete di query
+### <a name="query-network-properties"></a>Eseguire query sulle proprietà di rete
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host cercare le proprietà di rete.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eseguire query sulle proprietà di rete.
 
 ```C++
     unique_hcn_network hcnnetwork;
@@ -193,7 +193,7 @@ In questo esempio viene illustrato come usare l'API del servizio rete di calcolo
 
 ### <a name="create-an-hcn-endpoint"></a>Creare un endpoint HCN
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per creare un Endpoint di rete Host di calcolo e quindi aggiunta a caldo alla macchina virtuale o un contenitore.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per creare un endpoint di rete di calcolo host, quindi aggiungerlo a caldo nella macchina virtuale o in un contenitore.
 
 ```C++
 using unique_hcn_endpoint = wil::unique_any< 
@@ -268,7 +268,7 @@ void CreateAndHotAddEndpoint()
 
 ### <a name="delete-an-endpoint"></a>Eliminare un endpoint
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per eliminare un Endpoint di rete Host di calcolo.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eliminare un endpoint di rete di calcolo host.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -283,9 +283,9 @@ In questo esempio viene illustrato come usare l'API del servizio rete di calcolo
 ```
 
 
-### <a name="modify-and-endpoint"></a>Modifica e l'endpoint
+### <a name="modify-and-endpoint"></a>Modifica ed endpoint
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per modificare un Endpoint di rete Host di calcolo.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per modificare un endpoint di rete di calcolo host.
 
 ```C++
     unique_hcn_endpoint hcnendpoint;
@@ -323,9 +323,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="enumerate-all-enpoints"></a>Enumerare enpoints tutti
+### <a name="enumerate-all-enpoints"></a>Enumera tutti i punti di
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per enumerare tutti i Host calcolare gli endpoint di rete.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per enumerare tutti gli endpoint di rete di calcolo host.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -346,9 +346,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="query-endpoint-properties"></a>Proprietà di endpoint di query
+### <a name="query-endpoint-properties"></a>Proprietà endpoint query
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per eseguire query di tutte le proprietà di un Endpoint di rete Host di calcolo.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eseguire una query su tutte le proprietà di un endpoint di rete di calcolo host.
 
 ```C++
     unique_hcn_endpoint hcnendpoint;
@@ -385,7 +385,7 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 
 ### <a name="create-an-hcn-namespace"></a>Creare uno spazio dei nomi HCN
 
-Questo esempio viene illustrato come usare l'API del servizio di rete di calcolo Host per creare un Host di calcolo rete Namespace nell'host che può essere utilizzato per la connessione dell'Endpoint e i contenitori.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per creare uno spazio dei nomi di rete di calcolo host nell'host che può essere usato per connettere endpoint e contenitori.
 
 ```C++
 using unique_hcn_namespace = wil::unique_any< 
@@ -447,7 +447,7 @@ void CreateHcnNamespace()
 
 ### <a name="delete-an-hcn-namespace"></a>Eliminare uno spazio dei nomi HCN
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per eliminare un Host di calcolo rete Namespace.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eliminare uno spazio dei nomi di rete di calcolo host.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -465,7 +465,7 @@ In questo esempio viene illustrato come usare l'API del servizio rete di calcolo
 
 ### <a name="modify-an-hcn-namespace"></a>Modificare uno spazio dei nomi HCN
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per modificare un Host di calcolo rete Namespace.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per modificare uno spazio dei nomi di rete di calcolo host.
 
 ```C++
     unique_hcn_namespace handle;
@@ -508,9 +508,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="enumerate-all-namespaces"></a>Enumerare tutti gli spazi dei nomi
+### <a name="enumerate-all-namespaces"></a>Enumera tutti gli spazi dei nomi
 
-Questo esempio viene illustrato come usare l'API del servizio di rete di calcolo Host per enumerare tutti i Host di calcolo rete spazi dei nomi.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per enumerare tutti gli spazi dei nomi di rete di calcolo host.
 
 ```C++
     wil::unique_cotaskmem_string resultNamespaces;
@@ -530,9 +530,9 @@ Questo esempio viene illustrato come usare l'API del servizio di rete di calcolo
 ```
 
 
-### <a name="query-namespace-properties"></a>Proprietà spazio dei nomi di query
+### <a name="query-namespace-properties"></a>Proprietà spazio dei nomi query
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host cercare le proprietà di Host di calcolo rete Namespace
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eseguire query sulle proprietà dello spazio dei nomi della rete di calcolo host
 
 ```C++
     unique_hcn_namespace handle;
@@ -564,11 +564,11 @@ In questo esempio viene illustrato come usare l'API del servizio rete di calcolo
 ```
 
 
-## <a name="scenario-hcn-load-balancer"></a>Scenario: Servizio di bilanciamento del carico HCN
+## <a name="scenario-hcn-load-balancer"></a>Scenario: Bilanciamento del carico HCN
 
 ### <a name="create-an-hcn-load-balancer"></a>Creare un servizio di bilanciamento del carico HCN
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per creare un Host di calcolo rete bilanciamento del carico nell'host che può essere utilizzato per bilanciare il carico Endpoint tra calcolo.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per creare una rete di calcolo host Load Balancer nell'host che è possibile usare per bilanciare il carico dell'endpoint tra le risorse di calcolo.
 
 ```C++
 using unique_hcn_loadbalancer = wil::unique_any< 
@@ -643,7 +643,7 @@ void CreateHcnLoadBalancer()
 
 ### <a name="delete-an-hcn-load-balancer"></a>Eliminare un servizio di bilanciamento del carico HCN
 
-In questo esempio viene illustrato come usare l'API del servizio rete di calcolo Host per eliminare un Host di calcolo rete bilanciamento del carico.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eliminare una rete di calcolo host LoadBalancer.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -660,7 +660,7 @@ In questo esempio viene illustrato come usare l'API del servizio rete di calcolo
 
 ### <a name="modify-an-hcn-load-balancer"></a>Modificare un servizio di bilanciamento del carico HCN
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per modificare un Host di calcolo rete Namespace.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per modificare uno spazio dei nomi di rete di calcolo host.
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -703,9 +703,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="enumerate-all-load-balancers"></a>Enumerare tutti i servizi di bilanciamento del carico
+### <a name="enumerate-all-load-balancers"></a>Enumera tutti i bilanciamenti del carico
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per enumerare tutti i Host di calcolo rete bilanciamento del carico.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per enumerare tutte le Load Balancer di rete di calcolo host.
 
 ```C++
     wil::unique_cotaskmem_string resultLoadBalancers;
@@ -726,9 +726,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 ```
 
 
-### <a name="query-load-balancer-properties"></a>Proprietà del servizio di bilanciamento carico di query
+### <a name="query-load-balancer-properties"></a>Proprietà del servizio di bilanciamento del carico query
 
-In questo esempio viene illustrato come usare API del servizio rete Host di calcolo per le proprietà di Host di calcolo rete LoadBalancer della query.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per eseguire query sulle proprietà LoadBalancer della rete di calcolo host.
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -763,9 +763,9 @@ In questo esempio viene illustrato come usare API del servizio rete Host di calc
 
 ## <a name="scenario-hcn-notifications"></a>Scenario: Notifiche HCN
 
-### <a name="register-and-unregister-service-wide-notifications"></a>Registrare e annullare la registrazione delle notifiche a livello di servizio
+### <a name="register-and-unregister-service-wide-notifications"></a>Registrare e annullare la registrazione di notifiche a livello di servizio
 
-Questo esempio viene illustrato come usare l'API di rete del servizio Host di calcolo per registrare e annullare la registrazione per le notifiche a livello di servizio. Ciò consente al chiamante di ricevere una notifica (tramite la funzione di callback sono specificati durante la registrazione) ogni volta che si è verificata un'operazione a livello di servizio, ad esempio un nuovo evento di creazione della rete.
+Questo esempio illustra come usare l'API del servizio di rete di calcolo host per registrare e annullare la registrazione per le notifiche a livello di servizio. Ciò consente al chiamante di ricevere una notifica tramite la funzione di callback specificata durante la registrazione, ogni volta che si verifica un'operazione a livello di servizio, ad esempio un nuovo evento di creazione della rete.
 
 ```C++
 using unique_hcn_callback = wil::unique_any< 
@@ -834,6 +834,6 @@ void UnregisterForServiceNotifications()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [gestisce il contesto RPC per HCN](hcn-declaration-handles.md).
+- Altre informazioni sugli [handle del contesto RPC per HCN](hcn-declaration-handles.md).
 
-- Altre informazioni sul [schemi di documento JSON HCN](hcn-json-document-schemas.md).
+- Altre informazioni sugli [schemi di documento JSON di HCN](hcn-json-document-schemas.md).
