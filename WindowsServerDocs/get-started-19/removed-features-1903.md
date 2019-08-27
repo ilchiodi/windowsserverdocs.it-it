@@ -4,16 +4,16 @@ description: Di seguito è riportato un elenco di caratteristiche e funzionalit�
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: daveba
-ms.openlocfilehash: 9c79b6da3f9aace55b9464f252f97f19e50cc584
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 079f1a6544aac606358a741ecb3fffae791a4985
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280186"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000666"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1903"></a>Funzionalità rimosse o pianificate per la sostituzione a partire da Windows Server, versione 1903
 
@@ -21,7 +21,7 @@ ms.locfileid: "67280186"
 
 Di seguito è riportato un elenco di caratteristiche e funzionalità di Windows Server versione 1903 che sono state rimosse dal prodotto in tale versione o di cui si comincia a prendere in considerazione la potenziale sostituzione nelle versioni successive. Questo elenco è destinato ai professionisti IT responsabili dell'aggiornamento dei sistemi operativi in un ambiente commerciale. **L'elenco è soggetto a modifiche nelle versioni successive e potrebbe non includere tutte le caratteristiche o le funzionalità interessate.**
 
-Vedi anche [Funzionalità rimosse o pianificate per la sostituzione a partire da Windows Server 2019](removed-features-19.md).
+Vedi anche [Funzionalità rimosse o pianificate per la sostituzione in Windows Server](removed-features.md).
 
 ## <a name="features-were-no-longer-developing"></a>Funzionalità di cui è cessato lo sviluppo
 

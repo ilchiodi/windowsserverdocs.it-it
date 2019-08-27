@@ -2,22 +2,22 @@
 title: Novità di Windows Server
 description: Quali sono le nuove funzionalità di calcolo, identità, gestione, automazione, rete, sicurezza e archiviazione.
 ms.prod: windows-server
-ms.date: 06/03/2019
+ms.date: 08/22/2019
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e19c7a51ef1f50f974dc380e00315f9980da560
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a6a093f873ee925a2763ba5243f868204bd077f3
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501359"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000646"
 ---
 # <a name="whats-new-in-windows-server"></a>Novità di Windows Server
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 Puoi trovare le nuove funzionalità per ognuna di queste versioni di Windows Server.  
 
@@ -39,3 +39,4 @@ Le versioni Canale semestrale di Windows Server offrono nuove funzionalità del 
 
 - [Note sulla versione: problemi importanti in Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Note sulla versione: problemi importanti di Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)
+- [Funzionalità rimosse o pianificate per la sostituzione in Windows Server](../get-started-19/removed-features.md)
