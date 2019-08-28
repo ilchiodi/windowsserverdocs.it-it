@@ -29,7 +29,7 @@ I requisiti di sistema per questa versione sono gli stessi di Windows Server 201
 
 ## <a name="enhanced-support-for-non-microsoft-container-services"></a>Supporto avanzato per i servizi contenitore non Microsoft
 
-Abbiamo migliorato le funzionalità di piattaforma per supportare i servizi contenitore di Azure e i servizi contenitore non Microsoft.
+Abbiamo migliorato le funzionalità di piattaforma per supportare i servizi Azure Container e i servizi contenitore non Microsoft.
 
 - Abbiamo integrato contenitori di elementi del report personalizzati con Servizio di elaborazione host (HCS, Host Compute Service) per supportare in Azure pod di contenitori di Windows e Linux in Windows.
 - Abbiamo collaborato con la community Kubernetes per abilitare il supporto dei contenitori di Windows. Con la versione di Kubernetes v1.14, il supporto dei nodi Windows Server è passato ufficialmente dalla versione beta alla versione stabile. Per altre informazioni, vedi [Contenitori di Windows ora supportati in Kubernetes](https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/).
