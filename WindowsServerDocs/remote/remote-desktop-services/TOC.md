@@ -64,9 +64,35 @@
 ### [Personalizzare il titolo "Risorse di lavoro" di Servizi Desktop remoto usando PowerShell in Windows Server](rds-work-resources.md)
 ### [Diagnosticare i problemi di prestazioni di app con i contatori delle prestazioni](rds-rdsh-performance-counters.md)
 
-## [Supporto aggiuntivo di Desktop remoto](rds-get-support.md)
-## [Client Desktop remoto](clients/remote-desktop-clients.md)
-### Problemi noti di Desktop remoto
+## Accedere alle risorse di Desktop remoto
+### [Client Desktop remoto disponibili](clients/remote-desktop-clients.md)
+### Client Windows Store
+#### [Introduzione al client Windows Store](clients/windows.md)
+#### [Novità del client Windows Store](clients/windows-whatsnew.md)
+### Client Android
+#### [Introduzione al client Android](clients/remote-desktop-android.md)
+#### [Novità del client Android](clients/android-whatsnew.md)
+### Client iOS
+#### [Introduzione al client iOS](clients/remote-desktop-ios.md)
+#### [Novità del client iOS](clients/ios-whatsnew.md)
+### Client macOS
+#### [Introduzione al client macOS](clients/remote-desktop-mac.md)
+#### [Novità del client macOS](clients/mac-whatsnew.md)
+### Client Web
+#### [Introduzione al client Web](clients/remote-desktop-web-client.md)
+#### [Novità del client Web](clients/web-client-whatsnew.md)
+### Configurazione di PC per Desktop remoto
+#### [PC supportati](clients/remote-desktop-supported-config.md)
+#### [Concedere l'accesso a Desktop remoto sul PC](clients/remote-desktop-allow-access.md)
+#### [Concedere l'accesso al PC dall'esterno della rete](clients/remote-desktop-allow-outside-access.md)
+#### [Modificare la porta di ascolto di Desktop remoto nel PC](clients/change-listening-port.md)
+### Informazioni avanzate
+#### [Quale client si adatta meglio alle tue esigenze?](clients/remote-desktop-app-compare.md)
+#### [Impostazioni del file RDP di Desktop remoto](clients/rdp-files.md)
+#### [Schema URI di Desktop remoto](clients/remote-desktop-uri.md)
+#### [Domande frequenti sul client Desktop remoto](clients/remote-desktop-client-faq.md)
+#### [Impostazioni di privacy per desktop e app gestite](clients/remote-privacy-settings.md)
+### Problemi noti
 #### [Risoluzione dei problemi relativi alle connessioni di Desktop remoto](troubleshoot/rdp-error-general-troubleshooting.md)
 #### [I client non riescono a connettersi e ricevono l'errore "Classe non registrata"](troubleshoot/rdp-error-class-not-registered.md)
 #### [I client non riescono a connettersi e ricevono l'errore "Non sono disponibili licenze"](troubleshoot/rdp-error-no-licenses-available.md)
@@ -75,29 +101,5 @@
 #### [Il client Desktop remoto si disconnette e non riesce a riconnettersi alla stessa sessione](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
 #### [I portatili remoti si disconnettono dalla rete wireless](troubleshoot/remote-laptop-disconnects-wireless-network.md)
 #### [Problemi di prestazioni insoddisfacenti o dell'applicazione durante la connessione di Desktop remoto](troubleshoot/poor-performance-or-application-problems.md)
-### Informazioni generali
-#### [Quale client si adatta meglio alle tue esigenze?](clients/remote-desktop-app-compare.md)
-#### [Impostazioni del file RDP di Desktop remoto](clients/rdp-files.md)
-#### [Schema URI di Desktop remoto](clients/remote-desktop-uri.md)
-#### [Domande frequenti sul client Desktop remoto](clients/remote-desktop-client-faq.md)
-#### [Impostazioni di privacy per desktop e app gestite](clients/remote-privacy-settings.md)
-### Client Desktop remoto per Windows
-#### [Per iniziare](clients/windows.md)
-#### [Novità del client di Windows](clients/windows-whatsnew.md)
-### Client Desktop remoto per Android
-#### [Per iniziare](clients/remote-desktop-android.md)
-#### [Novità del client Android](clients/android-whatsnew.md)
-### Client Desktop remoto per iOS
-#### [Per iniziare](clients/remote-desktop-ios.md)
-#### [Novità del client iOS](clients/ios-whatsnew.md)
-### Client Desktop remoto per Mac
-#### [Per iniziare](clients/remote-desktop-mac.md)
-#### [Novità del client MacOS](clients/mac-whatsnew.md)
-### Client Web di Desktop remoto
-#### [Accedere al client Web di Desktop remoto](clients/remote-desktop-web-client.md)
-#### [Novità del client Web](clients/web-client-whatsnew.md)
-### Configurazione di PC per Desktop remoto
-#### [PC supportati](clients/remote-desktop-supported-config.md)
-#### [Concedere l'accesso a Desktop remoto sul PC](clients/remote-desktop-allow-access.md)
-#### [Concedere l'accesso al PC dall'esterno della rete](clients/remote-desktop-allow-outside-access.md)
-#### [Modificare la porta di ascolto di Desktop remoto nel PC](clients/change-listening-port.md)
+
+## [Risorse aggiuntive](rds-get-support.md)
