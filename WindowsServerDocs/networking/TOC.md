@@ -184,7 +184,7 @@
 #### [Configurare i gruppi di server RADIUS remoti](technologies/nps/nps-crp-rrsg-configure.md)
 #### [Gestire i certificati utilizzati con Server dei criteri di rete](technologies/nps/nps-manage-certificates.md)
 ##### [Configurare i modelli di certificato per i requisiti per PEAP ed EAP](technologies/nps/nps-manage-cert-requirements.md)
-#### [Gestire Server dei criteri di rete](technologies/nps/nps-manage-servers.md)
+#### [Gestire le istanze di Server dei criteri di rete](technologies/nps/nps-manage-servers.md)
 ##### [Configurare il Server dei criteri di rete in un computer multihomed](technologies/nps/nps-multihomed-configure.md)
 ##### [Configurare le informazioni sulle porte UDP del Server dei criteri di rete](technologies/nps/nps-udp-ports-configure.md)
 ##### [Disabilitare l'inoltro delle notifiche del server di accesso alla rete](technologies/nps/nps-disable-nas-notifications.md)
