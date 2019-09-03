@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Desktop remoto in Windows
-description: Passaggi di installazione di base per il client Desktop remoto per Windows.
+title: Introduzione al client Windows Store
+description: Passaggi di installazione di base per il client Desktop remoto per Windows Store.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,18 +12,18 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/07/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446681"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150924"
 ---
-# <a name="get-started-with-remote-desktop-on-windows"></a>Introduzione a Desktop remoto in Windows
+# <a name="get-started-with-the-windows-store-client"></a>Introduzione al client Windows Store
 
->Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>Si applica a: Windows 10
 
 Il client Desktop remoto per Windows consente di usare desktop e app di Windows in remoto da un altro dispositivo Windows.
 
@@ -69,16 +69,16 @@ Per creare una connessione Desktop remoto:
 Se si desidera eliminare la connessione? Tocca di nuovo il menu extra ( **...** ) e quindi **Rimuovi**.
 
 ### <a name="add-a-remote-resource"></a>Aggiungere una risorsa remota
+
 Le risorse remote sono programmi RemoteApp, desktop basati su sessione e desktop virtuali pubblicati tramite Servizi Desktop remoto.
 
 Per aggiungere una risorsa remota:
 
-1. Nella schermata del Centro connessioni tocca **+ Aggiungi** e quindi **Risorse remote**. 
+1. Nella schermata del Centro connessioni tocca **+ Aggiungi** e quindi **Risorse remote**.
 2. Immetti il valore di **URL feed** fornito dall'amministratore e quindi tocca **Find feeds** (Trova feed).
 3. Quando richiesto, fornisci le credenziali da usare per la sottoscrizione al feed.
 
 Verranno visualizzate nel Centro connessioni di risorse remote.
-
 
 Per eliminare le risorse remote:
 
@@ -109,11 +109,13 @@ Per impostare un nuovo gateway:
 Puoi impostare le impostazioni globali seguenti nel client toccando **Impostazioni**:
 
 ELEMENTI GESTITI
+
 - **Account utente**: consente di aggiungere, modificare ed eliminare gli account utente salvati nel client. Questo è un buon metodo per aggiornare la password per un account dopo la modifica.
 - **Gateway**: consente di aggiungere, modificare ed eliminare i server gateway salvati nel client.
 - **Gruppo**: consente di aggiungere, modificare ed eliminare i gruppi salvati nel client. I gruppi consentono di raggruppare facilmente le connessioni.
 
 IMPOSTAZIONI SESSIONE
+
 - **Start connections in full screen** (Avvia connessioni a schermo intero): se questa opzione è abilitata, ogni volta che viene avviata una connessione, il client userà lo schermo intero del monitor corrente.
 - **Start each connection in a new window** (Avvia ogni connessione in una nuova finestra): se questa opzione è abilitata, ogni connessione verrà avviata in una finestra separata, consentendo di posizionare tali elementi su monitor diversi e passare da uno all'altro usando la barra delle applicazioni.
 - **When resizing the app** (Al ridimensionamento dell'app): consente di controllare cosa accade quando si ridimensiona la finestra del client. Per impostazione predefinita, questa opzione viene impostata su **Stretch the content, preserving aspect ratio** (Estendi il contenuto mantenendo le proporzioni).
@@ -121,6 +123,7 @@ IMPOSTAZIONI SESSIONE
 - **Prevent the screen from timing out** (Impedisci timeout schermata): impedisce il timeout della schermata quando è attiva una sessione. Ciò risulta utile se la connessione non richiede alcuna interazione per lunghi periodi di tempo.
 
 IMPOSTAZIONI APP
+
 - **Show Desktop Previews** (Mostra anteprime desktop): consente di visualizzare un'anteprima di un desktop nel Centro connessioni prima della connessione. Per impostazione predefinita, questa opzione è **abilitata**.
 - **Help improve Remote Desktop** (Contribuisci al miglioramento di Desktop remoto): invia dati anonimi a Microsoft. Questi dati vengono usati per migliorare il client. Per altre informazioni su come vengono gestiti questi dati anonimi, privati, vedi l'[Informativa sulla privacy Microsoft](https://privacy.microsoft.com/en-us/privacystatement). Per impostazione predefinita, questa opzione è **abilitata**.
 
@@ -181,13 +184,14 @@ Tocca **...** sulla barra delle connessioni per visualizzare la barra dei comand
 ### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Usare i movimenti tocco diretto e le modalità del mouse in una sessione remota
 
 Sono disponibili due modalità del mouse per interagire con la sessione.
+
 - **Tocco diretto**: passa tutti i contatti tocco alla sessione per l'interpretazione in modalità remota.
   - Viene usata nello stesso modo in cui si usa Windows con un touchscreen.
 - **Puntatore del mouse**: trasforma il touchscreen locale in un grande touchpad consentendo di spostare un puntatore del mouse nella sessione.
   - Viene usata nello stesso modo in cui si usa Windows con un touchpad.
 
 > [!NOTE]
-> Interazione con Windows 8 o versioni successive i movimenti di tocco nativo sono supportati in modalità tocco diretto. 
+> Interazione con Windows 8 o versioni successive i movimenti di tocco nativo sono supportati in modalità tocco diretto.
 
 | Modalità mouse    | Operazione con il mouse      | Movimento                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|

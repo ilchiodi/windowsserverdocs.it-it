@@ -1,5 +1,5 @@
 ---
-title: Novità di Desktop remoto per Android
+title: Novità del client Android
 description: Informazioni sulle modifiche recenti apportate al client Desktop remoto per Android
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,16 +11,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/05/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6ee224cd5bf7ccdeb3b0d55d091a5d322583c101
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66736532"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150998"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Novità del client Desktop remoto per Android
+# <a name="whats-new-in-the-android-client"></a>Novità del client Android
 
 Aggiorniamo regolarmente il [client Desktop remoto per Android](remote-desktop-android.md) aggiungendo nuove funzionalità e risolvendo i problemi. Di seguito sono riportate informazioni sugli aggiornamenti più recenti.
 

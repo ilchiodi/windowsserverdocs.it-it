@@ -1,5 +1,5 @@
 ---
-title: Novità di Desktop remoto in Mac
+title: Novità del client macOS
 description: Informazioni sulle modifiche recenti apportate al client Desktop remoto per Mac
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,29 +11,49 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 04/29/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65564756"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151026"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Novità del client Desktop remoto in macOS
+# <a name="whats-new-in-the-macos-client"></a>Novità del client macOS
 
 Il [client Desktop remoto per macOS](remote-desktop-mac.md) viene aggiornato regolarmente, con l'aggiunta di nuove funzionalità e la correzione dei problemi. Di seguito sono disponibili le informazioni sugli aggiornamenti più recenti.
 
 In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 
+## <a name="updates-for-version-1030"></a>Aggiornamenti per la versione 10.3.0
+*Data di pubblicazione: 27/08/2019*
+
+Sono trascorse alcune settimane dall'ultimo aggiornamento, ma il team ha lavorato con grande impegno in questo periodo. La versione 10.3.0 offre alcune nuove funzionalità e numerose correzioni "under the hood".
+
+ - È ora possibile reindirizzare la fotocamera al momento della connessione a Windows 10 1809, Windows Server 2019 e versioni successive.
+ - In Mojave e Catalina è stata aggiunta una nuova finestra di dialogo che richiede l'autorizzazione all'uso del microfono e della fotocamera per il reindirizzamento del dispositivo.
+ - Il flusso della sottoscrizione di feed è stato riscritto in modo da risultare più semplice e veloce.
+ - Il reindirizzamento degli Appunti include ora il formato RTF (Rich Text Format).
+ - Nell'area per l'immissione della password è disponibile una casella di controllo che consente di visualizzarla.
+ - Sono stati risolti gli scenari in cui la finestra della sessione passava da un monitor all'altro.
+ - In Connection Center (Centro connessioni) vengono visualizzate le icone di app remote con risoluzione elevata, se disponibili.
+ - La combinazione di tasti CMD+A è ora mappata a CTRL+A quando vengono usati i tasti di scelta rapida per gli Appunti Mac.
+ - La combinazione di tasti CMD+R consente ora di aggiornare tutti i feed sottoscritti.
+ - Sono state aggiunte nuove opzioni di clic secondarie per espandere o comprimere tutti i gruppi o i feed in Connection Center (Centro connessioni).
+ - È stata aggiunta una nuova opzione di clic secondaria per modificare le dimensioni dell'icona nella scheda dei feed in Connection Center (Centro connessioni).
+ - Una nuova icona dell'app ha ora una grafica più semplice e pulita.
+
 ## <a name="updates-for-version-10213"></a>Aggiornamenti alla versione 10.2.13
+
 *Data di pubblicazione: 08/05/2019*
 
 - Correzione di un blocco che si verificava durante la connessione tramite Gateway Desktop remoto.
 - Aggiunta di un'informativa sulla privacy nella finestra di dialogo "Aggiungi feed".
 
 ## <a name="updates-for-version-10212"></a>Aggiornamenti alla versione 10.2.12
-*Data di pubblicazione: 16/04/2019* 
+
+*Data di pubblicazione: 16/04/2019*
 
 - Risoluzione delle disconnessioni casuali (con codice di errore 0x904) che si verificavano durante la connessione tramite Gateway Desktop remoto.
 - Correzione di un bug a causa del quale l'elenco di risoluzioni nelle preferenze dell'applicazione era vuoto dopo l'installazione.
@@ -41,17 +61,20 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Risoluzione di un ciclo infinito di richiesta di autenticazione ADAL durante la connessione alle distribuzioni di Desktop virtuale Windows.
 
 ## <a name="updates-for-version-10210"></a>Aggiornamenti alla versione 10.2.10
+
 *Data di pubblicazione: 30/03/2019*
 
 - In questa versione sono stati risolti i problemi di instabilità dovuti al recente aggiornamento a macOS 10.14.4. Sono stati corretti anche i problemi di visualizzazione in caso di decodifica di dati del codec AVC codificati da un server con hardware NVIDIA.
 
 ## <a name="updates-for-version-1029"></a>Aggiornamenti alla versione 10.2.9
+
 *Data di pubblicazione: 06/03/2019*
 
 - In questa versione è stato corretto un problema di connettività di Gateway Desktop remoto che si verificava durante il reindirizzamento del server.
 - È stato risolto anche un problema di regressione di Gateway Desktop remoto causato dall'aggiornamento 10.2.8.
 
 ## <a name="updates-for-version-1028"></a>Aggiornamenti alla versione 10.2.8
+
 *Data di pubblicazione: 01/03/2019*
 
 - Risoluzione dei problemi di connettività riscontrati durante l'uso di Gateway Desktop remoto.
@@ -61,11 +84,13 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Correzione di un bug che causava lo scorrimento inutile del centro connessioni durante l'avvio di una connessione.
 
 ## <a name="updates-for-version-1027"></a>Aggiornamenti alla versione 10.2.7
+
 *Data di pubblicazione: 06/02/2019*
 
 - In questa versione sono stati risolti problemi grafici (causati da un bug di codifica server) che si verificavano quando veniva usata la modalità AVC444.
 
 ## <a name="updates-for-version-1026"></a>Aggiornamenti alla versione 10.2.6
+
 *Data di pubblicazione: 28/01/2019*
 
 - Aggiunta del supporto per il codec AVC (420 e 444), disponibile in fase di connessione alle versioni correnti di Windows 10.
@@ -79,6 +104,7 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 >In macOS 10.14.0 e 10.14.1 è presente un bug a causa del quale la cartella ".com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA" (annidata nella cartella ~/Library) utilizza una grande quantità di spazio su disco. Per risolvere questo problema, è necessario eliminare il contenuto della cartella ed eseguire l'aggiornamento a macOS 10.14.2. Un effetto collaterale dell'eliminazione del contenuto della cartella è l'eliminazione delle immagini snapshot assegnate ai segnalibri. Queste immagini verranno rigenerate durante la riconnessione al computer remoto.
 
 ## <a name="updates-for-version-1024"></a>Aggiornamenti alla versione 10.2.4
+
 *Data di pubblicazione: 18/12/2018*
 
 - Aggiunta del supporto per la modalità scura per macOS Mojave 10.14.
@@ -90,6 +116,7 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Miglioramento dello scorrimento tramite mouse per spostamenti piccoli.
 
 ## <a name="updates-for-version-1023"></a>Aggiornamenti alla versione 10.2.3
+
 *Data di pubblicazione: 06/11/2018*
 
 - Aggiunta del supporto per l'impostazione del file RDP "remoteapplicationcmdline" per gli scenari di app remote.
@@ -100,11 +127,12 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Miglioramento della gestione delle app remote a schermo intero nascondendo in modo intelligente la barra dei menu e il dock.
 - Correzione di scenari in cui le app remote rimanevano nascoste dopo l'avvio.
 - Risoluzione dei problemi di aggiornamento del rendering lento con l'opzione "Adatta alla finestra" con l'accelerazione hardware disabilitata.
-- Gestione degli errori di creazione dei database causati da autorizzazioni non corrette all'avvio del client. 
+- Gestione degli errori di creazione dei database causati da autorizzazioni non corrette all'avvio del client.
 - Correzione di un problema a causa del quale il client si arrestava continuamente in modo anomalo e non veniva avviato per alcuni utenti.
 - Correzione di uno scenario in cui le connessioni venivano importate in modo non corretto come a schermo intero da Desktop remoto 8.
 
 ## <a name="updates-for-version-1022"></a>Aggiornamenti alla versione 10.2.2
+
 *Data di pubblicazione: 09/10/2018*
 
 - Implementazione di un centro connessioni completamente nuovo che supporta il trascinamento della selezione, la disposizione manuale dei desktop, le colonne ridimensionabili in modalità di visualizzazione elenco, l'ordinamento basato su colonne e una gestione più semplice dei gruppi.
@@ -133,12 +161,14 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Correzione di un problema che impediva il download delle risorse feed con spazi nell'URL.
 
 ## <a name="updates-for-version-1021"></a>Aggiornamenti alla versione 10.2.1
+
 *Data di pubblicazione: 06/08/2018*
 
 - Abilitazione della connettività ai PC aggiunti ad Azure Active Directory (AAD). Per connettersi a un PC aggiunto ad Azure AD, il nome utente deve essere in uno dei formati seguenti: "AzureAD\user" o "AzureAD\user@domain".
 - Risoluzione di alcuni bug relativi all'uso di smart card in una sessione remota.
 
 ## <a name="updates-for-version-1020"></a>Aggiornamenti alla versione 10.2.0
+
 *Data di pubblicazione: 24/07/2018*
 
 - Integrazione di aggiornamenti per la conformità al GDPR.
@@ -167,6 +197,7 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Correzione di alcuni problemi di allineamento nel centro connessioni durante l'esecuzione in Mojave.
 
 ## <a name="updates-for-version-1018"></a>Aggiornamenti alla versione 10.1.8
+
 *Data di pubblicazione: 04/05/2018*
 
 - Aggiunta del supporto per la modifica della risoluzione remota tramite ridimensionamento della finestra della sessione.
@@ -174,6 +205,7 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Risoluzione dell'errore 0x207 che poteva verificarsi durante la connessione ai server a cui non era stato applicato l'aggiornamento di correzione Oracle della crittografia CredSSP (CVE-2018-0886).
 
 ## <a name="updates-for-version-1017"></a>Aggiornamenti alla versione 10.1.7
+
 *Data di pubblicazione: 05/04/2018*
 
 - Implementazione di correzioni della sicurezza per integrare gli aggiornamenti di correzione Oracle della crittografia CredSSP descritti in CVE-2018-0886.
@@ -185,8 +217,9 @@ In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
 - Le finestre relative a centro connessioni, preferenze e informazioni rispondono ora a CMD+M.
 - È ora possibile avviare l'individuazione dei feed premendo INVIO nella pagina **Adding Remote Resources** (Aggiunta risorse remote).
 - Correzione di un problema a causa del quale un nuovo feed delle risorse remote veniva visualizzato vuoto nel centro connessioni fino a quando non veniva aggiornato.
- 
+
 ## <a name="updates-for-version-1016"></a>Aggiornamenti alla versione 10.1.6
+
 *Data di pubblicazione: 26/03/2018*
 
 - Correzione di un problema a causa del quale le finestre di RemoteApp si riordinavano autonomamente.

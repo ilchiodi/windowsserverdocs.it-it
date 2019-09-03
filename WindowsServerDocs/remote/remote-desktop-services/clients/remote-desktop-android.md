@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Desktop remoto in Android
+title: Introduzione al client Android
 description: Passaggi di configurazione di base per il client Desktop remoto per Android.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,16 +12,16 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 07/24/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446746"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151013"
 ---
-# <a name="get-started-with-remote-desktop-on-android"></a>Introduzione a Desktop remoto in Android
+# <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
@@ -52,7 +52,7 @@ Per creare una connessione Desktop remoto:
 1. Nella scelta dei Centro connessioni **+** , e quindi toccare **Desktop**.
 2. Immettere le informazioni seguenti per il computer si desidera connettersi:
    - **Nome PC** : il nome del computer. Puoi usare il nome di un computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-   - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. Puoi usare i formati seguenti: *user_name*, *domain\user_name* o <em>user_name@domain.com</em>. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
+   - **Nome utente** : il nome utente da utilizzare per accedere al computer remoto. Puoi usare i formati seguenti: *user_name*, *domain\user_name* oppure <em>user_name@domain.com</em>. È inoltre possibile specificare se per la richiesta di un nome utente e una password.
 3. È inoltre possibile impostare le opzioni aggiuntive seguenti:
    - **Nome descrittivo** : un nome facile da ricordare per il computer si è connessi. È possibile utilizzare qualsiasi stringa, ma se non si specifica un nome descrittivo, viene visualizzato il nome del computer.
    - **Gateway** – gateway Desktop remoto che si desidera utilizzare per connettersi a desktop virtuali, programmi RemoteApp e desktop basati su sessione su una rete aziendale interna. Ottenere le informazioni sul gateway, dall'amministratore di sistema.
@@ -109,7 +109,7 @@ Ora è possibile avviare la connessione desktop remoto direttamente dalla scherm
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Stabilire la connessione a Gateway Desktop remoto per accedere alle risorse interne
 
-Gateway Desktop remoto ti consente di stabilire la connessione a un computer remoto in una rete aziendale da qualsiasi posizione in Internet. È possibile creare e gestire il gateway tramite il client Desktop remoto.
+Gateway Desktop remoto ti consente di connetterti a un computer remoto in una rete aziendale da qualsiasi posizione su Internet. È possibile creare e gestire il gateway tramite il client Desktop remoto.
 
 Per impostare un nuovo gateway:
 
@@ -165,8 +165,8 @@ Nel client Android puoi definire le impostazioni globali seguenti:
 
 Consente di barra di connessione di accedere ai controlli di spostamento aggiuntive. Per impostazione predefinita, la barra delle connessioni viene posizionata al centro nella parte superiore della schermata. Un doppio tocco e trascinare la barra verso sinistra o a destra per spostarlo.
 
-- **Controllo panoramica**: il controllo panoramica consente di ingrandire la schermata e spostarsi al suo interno. Si noti che il controllo zoom è disponibile esclusivamente tramite tocco diretto.
-   - Abilitare/disabilitare il controllo panoramica: tocca l'icona panoramica sulla barra delle connessioni per visualizzare il controllo panoramica e ingrandire la schermata. Toccare l'icona Zoom nella barra di connessione per nascondere il controllo e restituire la schermata per la risoluzione originale.
+- **Controllo panoramica**: il controllo panoramica consente di ingrandire e spostare la schermata. Si noti che il controllo zoom è disponibile esclusivamente tramite tocco diretto.
+   - Abilitare o disabilitare il controllo panoramica: tocca l'icona panoramica sulla barra delle connessioni per visualizzare il controllo panoramica e ingrandire la schermata. Toccare l'icona Zoom nella barra di connessione per nascondere il controllo e restituire la schermata per la risoluzione originale.
    - Usare il controllo panoramica: tieni premuto il controllo panoramica e quindi trascina nella direzione in cui vuoi spostare la schermata.
    - Spostare il controllo panoramica: tocca due volte e tieni premuto il controllo panoramica per spostarlo sullo schermo.
 - **Opzioni aggiuntive**: tocca l'icona Opzioni aggiuntive per visualizzare la barra di selezione della sessione e la barra dei comandi (vedi sotto).

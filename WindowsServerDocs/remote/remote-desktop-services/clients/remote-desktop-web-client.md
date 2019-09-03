@@ -1,21 +1,21 @@
 ---
-title: Accedere al client Web di Desktop remoto
+title: Introduzione al client Web
 description: Descrive come eseguire l'accesso al client Web di Desktop remoto.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 07/20/2018
+ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: f4433ad592219d6ed15b28fd0514790b078525fd
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743839"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150978"
 ---
-# <a name="access-the-remote-desktop-web-client"></a>Accedere al client Web di Desktop remoto
+# <a name="get-started-with-the-web-client"></a>Introduzione al client Web
 
 Il client Web di Desktop remoto consente di usare un Web browser compatibile per accedere alle risorse remote dell'organizzazione (app e desktop) pubblicate dall'amministratore per l'utente. Questo consente all'utente di interagire ovunque con app e desktop remoti come si farebbe con un PC locale, senza dover passare a un PC desktop diverso. Dopo che l'amministratore configura le risorse remote, per iniziare saranno sufficienti il dominio, il nome utente, la password, l'URL inviato dall'amministratore e un Web browser supportato.
 
