@@ -1,6 +1,6 @@
 ---
-title: La pulizia dei metadati del server Active Directory Domain Services
-description: Usare gli strumenti predefiniti per pulire i metadati da controller di dominio rimossi
+title: Pulire i metadati del server Servizi di dominio Active Directory
+description: Usare gli strumenti predefiniti per pulire i metadati dai controller di dominio rimossi
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,68 +8,68 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fbb6e720c9289c608d71d3c36695ba623a9df5f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8adbaf07976569fdea86156e15f246aad2e4fe0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818082"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868237"
 ---
-# <a name="clean-up-active-directory-domain-controller-server-metadata"></a>La pulizia dei metadati del server Controller di dominio Active Directory
+# <a name="clean-up-active-directory-domain-controller-server-metadata"></a>Pulire i metadati del server Dominio di Active Directory controller
 
 Si applica a: Windows Server
 
-Pulizia dei metadati è una procedura necessaria dopo una rimozione forzata di servizi di dominio Active Directory (AD DS). Eseguire la pulizia dei metadati in un controller di dominio nel dominio del controller di dominio che rimossa forzatamente. Pulizia dei metadati rimuove i dati da Active Directory Domain Services che identifica un controller di dominio per il sistema di replica. Pulizia dei metadati anche rimuove le connessioni del servizio Replica File (FRS) e replica del File System distribuito (DFS) e tenta di trasferire o assegnare i ruoli di master (noto anche come FSMO FSMO, Flexible) di operazioni che il dominio ritirato controller contiene.
+La pulizia dei metadati è una procedura obbligatoria dopo una rimozione forzata di Active Directory Domain Services (AD DS). È possibile eseguire la pulizia dei metadati in un controller di dominio nel dominio del controller di dominio che è stato rimosso forzatamente. La pulizia dei metadati rimuove i dati da servizi di dominio Active Directory che identificano un controller di dominio per il sistema di replica. La pulizia dei metadati rimuove anche le connessioni di replica del servizio Replica file (FRS) e file system distribuito (DFS) e tenta di trasferire o requisire i ruoli master operazioni (noti anche come FSMO, Flexible Single Master Operation) che il dominio ritirato il controller include.
 
 Sono disponibili tre opzioni per la pulizia dei metadati del server:
 
-- Pulizia dei metadati del server con gli strumenti di interfaccia utente grafica
-- La pulizia dei metadati del server tramite la riga di comando
-- Pulizia dei metadati del server tramite uno script
+- Pulire i metadati del server usando gli strumenti dell'interfaccia utente grafica
+- Pulire i metadati del server usando la riga di comando
+- Pulire i metadati del server usando uno script
 
 > [!NOTE]
-> Se si riceve un errore "Accesso negato" quando si usa uno di questi metodi per eseguire la pulizia dei metadati, assicurarsi che l'oggetto computer e l'oggetto impostazioni NTDS per il controller di dominio non sono protetti da eliminazioni accidentali. Per verificare il pulsante destro del mouse dell'oggetto computer o l'oggetto impostazioni NTDS, fare clic su **delle proprietà**, fare clic su **oggetto**e deselezionare il **Proteggi oggetto da eliminazioni accidentali** casella di controllo. In Active Directory Users and Computers, il **oggetto** verrà visualizzata la scheda di un oggetto se si fa clic **View** e quindi fare clic su **Advanced Features**.
+> Se si riceve un errore di accesso negato quando si usa uno di questi metodi per eseguire la pulizia dei metadati, assicurarsi che l'oggetto computer e l'oggetto Impostazioni NTDS per il controller di dominio non siano protetti da eliminazioni accidentali. Per verificare questa operazione, fare clic con il pulsante destro del mouse sull'oggetto computer o sull'oggetto Impostazioni NTDS, scegliere **Proprietà**, fare clic su **oggetto**e deselezionare la casella **di controllo Proteggi oggetto da eliminazioni accidentali** . In Active Directory utenti e computer la scheda **oggetto** di un oggetto viene visualizzata se si fa clic su **Visualizza** e quindi su **funzionalità avanzate**.
 
-## <a name="clean-up-server-metadata-using-gui-tools"></a>La pulizia dei metadati del server utilizzando gli strumenti di interfaccia utente grafica
+## <a name="clean-up-server-metadata-using-gui-tools"></a>Pulire i metadati del server usando gli strumenti dell'interfaccia utente grafica
 
-Quando si usano strumenti di amministrazione remota Server (RSAT) o di Active Directory Users e computer console (DSA. msc) inclusa in Windows Server per eliminare un account computer controller di dominio nell'unità organizzativa (OU), i controller di dominio di la pulizia dei metadati del server viene eseguita automaticamente. Prima di Windows Server 2008, era necessario eseguire una procedura di pulizia di metadati separati.
+Quando si usa Strumenti di amministrazione remota del server (strumenti di amministrazione remota) o la console di Active Directory utenti e computer (DSA. msc) inclusa in Windows Server per eliminare un account computer del controller di dominio dall'unità organizzativa controller di dominio (OU), il la pulizia dei metadati del server viene eseguita automaticamente. Prima di Windows Server 2008, era necessario eseguire una procedura di pulizia dei metadati separata.
 
-È anche possibile usare i siti di Active Directory e servizi di console (Dssite. msc) per eliminare l'account computer del controller di dominio, che anche completa automaticamente la pulizia dei metadati. Tuttavia, servizi e siti di Active Directory rimuove i metadati automaticamente solo quando si elimina innanzitutto l'oggetto impostazioni NTDS sotto l'account del computer in Dssite. msc.
+È inoltre possibile utilizzare la console dei siti e dei servizi Active Directory (Dssite. msc) per eliminare un account computer di un controller di dominio, che completa anche la pulizia dei metadati automaticamente. Tuttavia, Active Directory siti e servizi rimuove automaticamente i metadati solo quando si elimina per la prima volta l'oggetto Impostazioni NTDS sotto l'account computer in Dssite. msc.
 
-Fino a quando si utilizza il Windows Server 2008 o versioni più recenti di amministrazione remota del server di DSA. msc o Dssite. msc, è possibile pulire i metadati automaticamente per i controller di dominio che eseguono versioni precedenti dei sistemi operativi Windows.
+Se si usano Windows Server 2008 o versioni più recenti di strumenti di amministrazione di Windows (DSA. msc) o Dssite. msc, è possibile pulire automaticamente i metadati per i controller di dominio che eseguono versioni precedenti dei sistemi operativi Windows.
 
 L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessario per completare queste procedure.
 
-## <a name="clean-up-server-metadata-using-activedirectory-users-and-computers"></a>La pulizia dei metadati del server usando Active Directory Users and Computers
+## <a name="clean-up-server-metadata-using-activedirectory-users-and-computers"></a>Pulire i metadati del server usando Active Directory utenti e computer
 
 1. Aprire **Utenti e computer di Active Directory**.
-2. Se si sono identificati i partner di replica in preparazione per questa procedura e se non si è connessi a un partner di replica del controller di dominio rimossi i cui metadati da eliminare, fare doppio clic su **Active Directory Users e I computer** nodo e quindi fare clic su **cambia Controller di dominio**. Fare clic sul nome del controller di dominio da cui si desidera rimuovere i metadati e quindi fare clic su **OK**.
-3. Espandere il dominio del controller di dominio che è stato rimosso forzatamente e quindi fare clic su **controller di dominio**.
-4. Nel riquadro dei dettagli, fare doppio clic su oggetto computer del controller di dominio i cui metadati da pulire e quindi fare clic su **Elimina**.
-5. Nel **Active Directory Domain Services** finestra di dialogo confermare il nome del controller di dominio che si desidera eliminare viene visualizzata e fare clic su **Yes** per confermare l'eliminazione di oggetti computer.
-6. Nel **Controller di dominio di eliminazione** finestra di dialogo **questo Controller di dominio è definitivamente offline e non può non è più essere abbassata di livello con l'Active Directory Domain Services installazione guidata (DCPROMO)**, quindi fare clic su **eliminare**.
-7. Se il controller di dominio è un server di catalogo globale, nel **eliminare Controller di dominio** finestra di dialogo, fare clic su **Sì** per continuare con l'eliminazione.
-8. Se il controller di dominio contiene una o più operazioni attualmente i ruoli di master, fare clic su **OK** per spostare uno o più ruoli di controller di dominio che viene visualizzato. Non è possibile modificare questo controller di dominio. Se si desidera spostare il ruolo in un controller di dominio diverso, è necessario spostare il ruolo dopo aver completato la procedura di pulizia dei metadati di server.
+2. Se sono stati identificati i partner di replica in preparazione per questa procedura e se non si è connessi a un partner di replica del controller di dominio rimosso di cui si stanno pulendo i metadati, fare clic con il pulsante destro del mouse su **Active Directory nodo utenti e computer** , quindi fare clic su **Cambia controller di dominio**. Fare clic sul nome del controller di dominio da cui si desidera rimuovere i metadati, quindi fare clic su **OK**.
+3. Espandere il dominio del controller di dominio che è stato rimosso forzatamente, quindi fare clic su **controller di dominio**.
+4. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sull'oggetto computer del controller di dominio di cui si desidera eseguire la pulizia dei metadati, quindi scegliere **Elimina**.
+5. Nella finestra di dialogo **Active Directory Domain Services** verificare che sia visualizzato il nome del controller di dominio che si desidera eliminare e fare clic su **Sì** per confermare l'eliminazione dell'oggetto computer.
+6. Nella finestra di dialogo **eliminazione controller di dominio** selezionare il **controller di dominio è in modo permanente offline e non può più essere abbassato di grado utilizzando il installazione guidata di Active Directory Domain Services (Dcpromo)** , quindi fare clic su **Elimina**.
+7. Se il controller di dominio è un server di catalogo globale, nella finestra di dialogo **Elimina controller di dominio** fare clic su **Sì** per continuare con l'eliminazione.
+8. Se il controller di dominio dispone attualmente di uno o più ruoli di master operazioni, fare clic su **OK** per spostare il ruolo o i ruoli nel controller di dominio visualizzato. Non è possibile modificare il controller di dominio. Se si desidera spostare il ruolo in un controller di dominio diverso, è necessario spostare il ruolo dopo aver completato la procedura di pulizia dei metadati del server.
 
-## <a name="clean-up-server-metadata-using-activedirectory-sites-and-services"></a>La pulizia dei metadati del server usando Active Directory Sites and Services
+## <a name="clean-up-server-metadata-using-activedirectory-sites-and-services"></a>Pulire i metadati del server usando Active Directory siti e servizi
 
 1. Aprire Siti e servizi di Active Directory.
-2. Se si sono identificati i partner di replica in preparazione per questa procedura e se non si è connessi a un partner di replica del controller di dominio rimossi i cui metadati da eliminare, fare doppio clic su **servizi e siti di Active Directory** , quindi fare clic su **cambia Controller di dominio**. Fare clic sul nome del controller di dominio da cui si desidera rimuovere i metadati e quindi fare clic su **OK**.
-3. Espandere il sito del controller di dominio che è stato rimosso forzatamente, espandere **i server**espandere il nome del controller di dominio, fare doppio clic su oggetto impostazioni NTDS e quindi fare clic su **eliminare**.
-4. Nel **Active Directory Sites and Services** finestra di dialogo, fare clic su **Sì** per confermare l'eliminazione di impostazioni NTDS.
-5. Nel **Controller di dominio di eliminazione** finestra di dialogo **questo Controller di dominio è definitivamente offline e non può non è più essere abbassata di livello con l'Active Directory Domain Services installazione guidata (DCPROMO)**, quindi fare clic su **eliminare**.
-6. Se il controller di dominio è un server di catalogo globale, nel **eliminare Controller di dominio** finestra di dialogo, fare clic su **Sì** per continuare con l'eliminazione.
-7. Se il controller di dominio contiene una o più operazioni attualmente i ruoli di master, fare clic su **OK** per spostare uno o più ruoli di controller di dominio che viene visualizzato.
-8. Fare doppio clic su controller di dominio che è stato rimosso forzatamente e quindi fare clic su Elimina.
-9. Nel **Active Directory Domain Services** finestra di dialogo, fare clic su **Yes** per confermare l'eliminazione di controller di dominio.
+2. Se sono stati identificati i partner di replica in preparazione per questa procedura e se non si è connessi a un partner di replica del controller di dominio rimosso di cui si stanno pulendo i metadati, fare clic con il pulsante destro del mouse su **Active Directory siti e servizi**e quindi fare clic su **Cambia controller di dominio**. Fare clic sul nome del controller di dominio da cui si desidera rimuovere i metadati, quindi fare clic su **OK**.
+3. Espandere il sito del controller di dominio che è stato rimosso forzatamente, espandere **Server**, espandere il nome del controller di dominio, fare clic con il pulsante destro del mouse sull'oggetto Impostazioni NTDS, quindi fare clic su **Elimina**.
+4. Nella finestra di dialogo **Active Directory siti e servizi** , fare clic su **Sì** per confermare l'eliminazione delle impostazioni NTDS.
+5. Nella finestra di dialogo **eliminazione controller di dominio** selezionare il **controller di dominio è in modo permanente offline e non può più essere abbassato di grado utilizzando il installazione guidata di Active Directory Domain Services (Dcpromo)** , quindi fare clic su **Elimina**.
+6. Se il controller di dominio è un server di catalogo globale, nella finestra di dialogo **Elimina controller di dominio** fare clic su **Sì** per continuare con l'eliminazione.
+7. Se il controller di dominio dispone attualmente di uno o più ruoli di master operazioni, fare clic su **OK** per spostare il ruolo o i ruoli nel controller di dominio visualizzato.
+8. Fare clic con il pulsante destro del mouse sul controller di dominio che è stato rimosso forzatamente, quindi scegliere Elimina.
+9. Nella finestra di dialogo **Active Directory Domain Services** fare clic su **Sì** per confermare l'eliminazione del controller di dominio.
 
-## <a name="clean-up-server-metadata-using-the-command-line"></a>La pulizia dei metadati del server tramite la riga di comando
+## <a name="clean-up-server-metadata-using-the-command-line"></a>Pulire i metadati del server usando la riga di comando
 
-In alternativa, è possibile pulire i metadati utilizzando Ntdsutil.exe, uno strumento da riga di comando che viene installato automaticamente su tutti i controller di dominio e i server con Active Directory Lightweight Directory Services (AD LDS) installato. Ntdsutil.exe disponibile anche su computer che dispongono di amministrazione remota del server installato.
+In alternativa, è possibile eliminare i metadati utilizzando Ntdsutil. exe, uno strumento da riga di comando installato automaticamente in tutti i controller di dominio e i server in cui è installato Active Directory Lightweight Directory Services (AD LDS). Ntdsutil. exe è disponibile anche nei computer in cui è installato strumenti di amministrazione remota del server.
 
-## <a name="to-clean-up-server-metadata-by-using-ntdsutil"></a>Per pulire i metadati del server utilizzando lo strumento Ntdsutil
+## <a name="to-clean-up-server-metadata-by-using-ntdsutil"></a>Per pulire i metadati del server tramite Ntdsutil
 
-1. Aprire un prompt dei comandi come amministratore: A tale scopo, fare clic sul pulsante **Start**, fare clic con il pulsante destro del mouse su **Prompt dei comandi** e quindi scegliere **Esegui come amministratore**. Se il **User Account Control** verrà visualizzata la finestra di dialogo, fornire le credenziali di amministratore dell'organizzazione se necessario e quindi fare clic su **continua**.
+1. Aprire un prompt dei comandi come amministratore: A tale scopo, fare clic sul pulsante **Start**, fare clic con il pulsante destro del mouse su **Prompt dei comandi** e quindi scegliere **Esegui come amministratore**. Se viene visualizzata la finestra di dialogo **controllo account utente** , fornire le credenziali di un amministratore dell'organizzazione, se necessario, e quindi fare clic su **continua**.
 2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:
 
    `ntdsutil`
@@ -82,19 +82,19 @@ In alternativa, è possibile pulire i metadati utilizzando Ntdsutil.exe, uno str
 
    `remove selected server <ServerName>`
 
-5. Nelle **Server rimuovere al finestra di dialogo di configurazione**, esaminare le informazioni e un avviso e quindi fare clic su **Yes** per rimuovere l'oggetto server e i metadati.
+5. Nella **finestra di dialogo Rimuovi configurazione del server**esaminare le informazioni e gli avvisi, quindi fare clic su **Sì** per rimuovere l'oggetto server e i metadati.
 
-   A questo punto, verrà confermata che il controller di dominio è stato rimosso correttamente. Se si riceve un messaggio di errore che indica che l'oggetto non può essere trovato, il controller di dominio sia stato rimosso in precedenza.
+   A questo punto, Ntdsutil conferma che il controller di dominio è stato rimosso correttamente. Se viene visualizzato un messaggio di errore che indica che l'oggetto non è stato trovato, è possibile che il controller di dominio sia stato rimosso in precedenza.
 
-6. Nel `metadata cleanup:` e `ntdsutil:` prompt, digitare `quit`, quindi premere INVIO.
+6. Al prompt `metadata cleanup:` dei `ntdsutil:` comandi e digitare `quit`, quindi premere INVIO.
 
 7. Per confermare la rimozione del controller di dominio:
 
-   Aprire utenti e computer Active Directory. Nel dominio del controller di dominio rimossi, fare clic su **controller di dominio**. Nel riquadro dei dettagli, un oggetto per il controller di dominio che sono stati rimossi non deve essere visualizzati.
+   Aprire Active Directory utenti e computer. Nel dominio del controller di dominio rimosso fare clic su **controller di dominio**. Nel riquadro dei dettagli, un oggetto per il controller di dominio rimosso non dovrebbe essere visualizzato.
 
-   Aprire servizi e siti di Active Directory. Passare il **server** contenitore e verificare che l'oggetto server per il controller di dominio che sono stati rimossi non contiene un oggetto impostazioni NTDS. Se nessun oggetto figlio viene visualizzato sotto l'oggetto server, è possibile eliminare l'oggetto server. Se viene visualizzato un oggetto figlio, non eliminare l'oggetto server perché l'oggetto è utilizzato da un'altra applicazione.
+   Aprire Active Directory siti e servizi. Passare al contenitore **Server** e verificare che l'oggetto server per il controller di dominio rimosso non contenga un oggetto Impostazioni NTDS. Se non vengono visualizzati oggetti figlio sotto l'oggetto server, è possibile eliminare l'oggetto server. Se viene visualizzato un oggetto figlio, non eliminare l'oggetto server perché l'oggetto viene utilizzato da un'altra applicazione.
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Abbassamento di livello i controller di dominio](Demoting-Domain-Controllers-and-Domains--Level-200-.md)
-* [Riferimento ai comandi di Ntdsutil](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753343(v=ws.10))
+* [Abbassamento di livello dei controller di dominio](Demoting-Domain-Controllers-and-Domains--Level-200-.md)
+* [Riferimento al comando Ntdsutil](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753343(v=ws.10))

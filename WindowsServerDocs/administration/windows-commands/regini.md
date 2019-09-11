@@ -1,6 +1,6 @@
 ---
 title: regini
-description: Informazioni su come modificare il Registro di sistema dal prompt dei comandi o tramite uno script.
+description: Informazioni su come modificare il registro di sistema dal prompt dei comandi o tramite uno script.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: e3f8454572b662c9327aeb4783c5e9651ad2022b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 80f8f4212d2054fc54ce33993a1cef8a1501c6d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441892"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868878"
 ---
 # <a name="regini"></a>regini
 
 Modifica del Registro di sistema dalla riga di comando o uno script e applica le modifiche che sono state preimpostate in uno o più file di testo. È possibile creare, modificare o eliminare le chiavi del Registro di sistema, oltre a modificare le autorizzazioni per le chiavi del Registro di sistema.
 
-Per informazioni dettagliate sul formato e il contenuto del file di script di testo che Regini.exe Usa per apportare modifiche al Registro di sistema, vedere [come modificare i valori del Registro di sistema o le autorizzazioni da una riga di comando o uno script](https://support.microsoft.com/help/264584/how-to-change-registry-values-or-permissions-from-a-command-line-or-a).
+Per informazioni dettagliate sul formato e il contenuto del file di script di testo utilizzato da Regini. exe per apportare modifiche al registro di sistema, vedere [come modificare i valori o le autorizzazioni del registro di sistema da una riga di comando o uno script](https://support.microsoft.com/help/264584/how-to-change-registry-values-or-permissions-from-a-command-line-or-a).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,11 +36,11 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 
 | Parametro | Descrizione |
 
-|-m \< \\ \\ComputerName >|Specifica il nome del computer remoto con un registro di sistema che devono essere modificati. Usare il formato  **\\ \\nomecomputer**.|
+|-m \< \\ nomecomputer\\>|Specifica il nome del computer remoto con un registro di sistema che devono essere modificati. Usare il  **\\ formato\\ComputerName**.|
 |---------------------|-|
 |-h \<hivefile hiveroot >|Specifica l'hive del Registro di sistema locale da modificare. È necessario specificare il nome del file di hive e la radice dell'hive nel formato **hivefile hiveroot**.|
-|-i \<n>|Specifica il livello di rientro da utilizzare per indicare la struttura ad albero delle chiavi del Registro di sistema nell'output del comando. Il **Regdmp.exe** strumento (che ottiene un registro di sistema di autorizzazioni correnti della chiave in formato binario) utilizza il rientro in multipli di 4, pertanto il valore predefinito è **4**.|
-|-o \<outputwidth>|Specifica la larghezza dell'output del comando, in caratteri. Se l'output verrà visualizzato nella finestra di comando, il valore predefinito è la larghezza della finestra. Se l'output viene indirizzato a un file, il valore predefinito è **240** caratteri.|
+|-i \<n >|Specifica il livello di rientro da utilizzare per indicare la struttura ad albero delle chiavi del Registro di sistema nell'output del comando. Lo strumento **Regdmp. exe** , che ottiene le autorizzazioni correnti della chiave del registro di sistema in formato binario, utilizza il rientro in multipli di quattro, quindi il valore predefinito è **4**.|
+|-o \<OutputWidth >|Specifica la larghezza dell'output del comando, in caratteri. Se l'output verrà visualizzato nella finestra di comando, il valore predefinito è la larghezza della finestra. Se l'output viene indirizzato a un file, il valore predefinito è **240** caratteri.|
 |-b|Specifica che **Regini.exe** output è compatibile con le versioni precedenti di **Regini.exe**. Vedere la sezione Osservazioni per informazioni dettagliate.|
 |textfiles|Specifica il nome di uno o più file di testo che contengono dati del Registro di sistema. È possibile elencare qualsiasi numero di file di testo ANSI o Unicode.|
 

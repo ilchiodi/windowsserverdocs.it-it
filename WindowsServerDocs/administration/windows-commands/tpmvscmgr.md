@@ -1,6 +1,6 @@
 ---
 title: tpmvscmgr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f6cfc15b7c089c9b6ad4d9a267b951373e63a63a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b1d9b049615322bffc39b5b372ce145579b57b2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888592"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868772"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -37,11 +37,11 @@ Tpmvscmgr destroy [/instance <instance ID>] [/?]
 
 ### <a name="parameters-for-create-command"></a>Parametri per il comando Create
 
-Il comando Create imposta una nuova smart card virtuali nel sistema dell'utente. Restituisce l'ID dell'istanza della scheda appena creata per riferimento futuro se è necessaria l'eliminazione. L'istanza nel formato ID **ROOT\SMARTCARDREADER\000n** dove **n** inizia da 0 e aumenta di 1 ogni volta che si crea una nuova smart card virtuale.
+Il comando crea configura nuove smart card virtuali nel sistema dell'utente. Restituisce l'ID dell'istanza della scheda appena creata per riferimento futuro se è necessaria l'eliminazione. L'istanza nel formato ID **ROOT\SMARTCARDREADER\000n** dove **n** inizia da 0 e aumenta di 1 ogni volta che si crea una nuova smart card virtuale.
 
 |Parametro|Descrizione|
 |---------|-----------|
-|al nome|Obbligatorio. Indica il nome della nuova smart card virtuale.|
+|al nome|Richiesto. Indica il nome della nuova smart card virtuale.|
 |/ AdminKey|Indica la chiave amministratore desiderato che può essere utilizzata per reimpostare il PIN della scheda se un utente dimentica il PIN.</br>**PREDEFINITO** Specifica il valore predefinito di 010203040506070801020304050607080102030405060708.</br>**Prompt dei COMANDI** richiede all'utente di immettere un valore per la chiave amministratore.</br>**CASUALE** comporta un'impostazione casuale per la chiave di amministrazione per una smart card che non viene restituita all'utente. Verrà creata una smart card che potrebbe non essere gestita tramite strumenti di gestione delle smart card. Quando è stato generato con RANDOM, la chiave amministratore deve essere inserita come 48 caratteri esadecimali.|
 |/ PIN|Indica il valore PIN utente desiderato.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PIN.</br>**Prompt dei COMANDI** richiede all'utente di immettere un PIN nella riga di comando. Il PIN deve contenere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali.|
 |/ PUK|Indica il valore di chiave PIN sblocco (PUK) desiderato. Il valore PUK deve essere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali. Se il parametro viene omesso, la scheda viene creata senza un PUK.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PUK.</br>**Prompt dei COMANDI** chiede all'utente di immettere un PUK nella riga di comando.|
@@ -51,7 +51,7 @@ Il comando Create imposta una nuova smart card virtuali nel sistema dell'utente.
 
 ### <a name="parameters-for-destroy-command"></a>Parametri del comando di eliminazione
 
-Il comando di eliminazione Elimina in modo sicuro una smart card virtuale dal computer dell'utente.
+Il comando destroy Elimina in modo sicuro una smart card virtuale dal computer dell'utente.
 
 > [!WARNING]
 > Quando viene eliminata una smart card virtuale, non può essere recuperato.
@@ -85,8 +85,8 @@ Il comando seguente crea una smart card virtuale con una chiave amministratore c
 ```
 tpmvscmgr.exe destroy /instance <instance ID> 
 ```
-in cui \<ID istanza > è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
+dove \<ID istanza > è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

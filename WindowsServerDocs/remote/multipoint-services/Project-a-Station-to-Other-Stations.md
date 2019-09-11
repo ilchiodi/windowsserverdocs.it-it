@@ -1,6 +1,6 @@
 ---
 title: Proiettare una stazione su altre stazioni
-description: Informazioni su come condividere un desktop da un sistema a altro in MultiPoint Services
+description: Informazioni su come condividere un desktop da un sistema a un altro in MultiPoint Services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,32 +13,32 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: a91460718d8f80b62ef7bde698f723a8be9ded90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db2b718154a7c41646ab25b16420eb0ee46a17cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858112"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871585"
 ---
 # <a name="project-a-station-to-other-stations"></a>Proiettare una stazione su altre stazioni
-Un utente di Dashboard MultiPoint, è possibile proiettare il desktop a stazione di un singolo utente o in altre stazioni (non amministratore) di tutti gli utenti. Questa funzionalità è utile quando si vuole illustrare un'attività a un utente o a un insieme di utenti.  
+In qualità di utente di Dashboard MultiPoint, è possibile proiettare il desktop sulla stazione di un singolo utente o su tutte le stazioni degli utenti (non amministratori). Questa funzionalità è utile quando si vuole illustrare un'attività a un utente o a un insieme di utenti.  
   
 ## <a name="to-project-your-desktop-to-a-standard-users-station"></a>Per proiettare il desktop sulla stazione di un utente standard  
   
-1.  Nel Dashboard MultiPoint, fare clic su immagine di anteprima del desktop a cui si vuole proiettare la stazione.  
-2.  Nel **Home** scheda, fare clic su **Your Desktop**, quindi fare clic su **Project Your Desktop selezionato desktop (s)**.  
-3.  Per terminare la proiezione, fare clic su **arrestare** (nelle **proiezione** scheda o nell'angolo a destra sotto la barra multifunzione).  
+1.  In Dashboard MultiPoint fare clic sull'immagine di anteprima del desktop in cui si vuole proiettare la stazione.  
+2.  Nella scheda **Home** fare clic sul **Desktop**, quindi fare clic su **proietta il desktop su desktop selezionati**.  
+3.  Per terminare la proiezione, fare clic su **Arresta** nella scheda **proiezione** o nell'angolo destro sotto la barra multifunzione.  
   
 ## <a name="to-project-your-desktop-to-all-stations"></a>Per proiettare il desktop su tutte le stazioni  
   
-1.  Nel Dashboard MultiPoint, sul **Home** scheda, fare clic su **Your Desktop**, quindi fare clic su **Project Your Desktop a tutti i desktop (s)**.  
+1.  Nel Dashboard MultiPoint, nella scheda **Home** , fare clic sul **Desktop**, quindi fare clic su **proietta il desktop su tutti i desktop**.  
   
-2.  Per terminare la proiezione, fare clic su **arrestare** (nelle **proiezione** scheda o nell'angolo a destra sotto la barra multifunzione).  
+2.  Per terminare la proiezione, fare clic su **Arresta** nella scheda **proiezione** o nell'angolo destro sotto la barra multifunzione.  
   
 ## <a name="to-project-a-different-desktop-to-all-desktops"></a>Per proiettare un altro desktop su tutti i desktop  
   
-1.  Selezionare l'immagine di anteprima del desktop da proiettare su tutti i desktop.  
+1.  Fare clic sull'immagine di anteprima del desktop che si desidera proiettare su tutti i desktop.  
   
-2.  Nel **Home** scheda, fare clic su **Desktop selezionati**e quindi fare clic su **selezionato Desktop**. Il desktop selezionato viene visualizzato su tutti i desktop.  
+2.  Nella scheda **Home** fare clic su **desktop selezionato**e quindi su **desktop selezionato**. Il desktop selezionato viene visualizzato su tutti i desktop.  
   
-3.  Per terminare la proiezione, fare clic su **arrestare** (nelle **proiezione** scheda o nell'angolo a destra sotto la barra multifunzione).  
+3.  Per terminare la proiezione, fare clic su **Arresta** nella scheda **proiezione** o nell'angolo destro sotto la barra multifunzione.  

@@ -9,15 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5af00db05c572a45811eea49b832a054a9e0e492
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188246"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869248"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Quando usare una regola Inviare attributi LDAP come attestazioni
-È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando si desidera rilasciare attestazioni in uscita contenenti effettivo Lightweight Directory Access Protocol \(LDAP\) valori esistenti nell'attributo un attributo di archiviazione e quindi associare un tipo di attestazione con ciascuno degli attributi LDAP. Per altre informazioni sugli archivi di attributi, vedere [il ruolo degli archivi attributi](The-Role-of-Attribute-Stores.md).  
+È possibile utilizzare questa regola in Active Directory Federation Services \(ad FS\) quando si desidera emettere attestazioni in uscita che contengono valori effettivi dell'attributo \(LDAP\) (Lightweight Directory Access Protocol) esistenti in un archivio di attributi e quindi associare un tipo di attestazione a ognuno degli attributi LDAP. Per ulteriori informazioni sugli archivi di attributi, vedere [il ruolo degli archivi di attributi](The-Role-of-Attribute-Stores.md).  
   
 Quando si usa questa regola, si rilascia un'attestazione per ogni attributo LDAP specificato e che corrisponde alla logica della regola, come descritto nella tabella seguente.  
   
@@ -41,14 +41,14 @@ Una regola attestazione rappresenta un'istanza di logica di business che recuper
 Per ulteriori informazioni sulle regole attestazione e i set di regole attestazione, vedere [ruolo delle attestazioni regole](The-Role-of-Claim-Rules.md). Per ulteriori informazioni sulle modalità di elaborazione delle regole, vedere [il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md). Per ulteriori informazioni, modalità di elaborazione dei set di regole attestazione, vedere [ruolo delle Pipeline delle attestazioni](The-Role-of-the-Claims-Pipeline.md).  
   
 ## <a name="mapping-of-ldap-attributes-to-outgoing-claim-types"></a>Mapping degli attributi LDP ai tipi di attestazioni in uscita  
-Quando si usa l'invio di attributi LDAP come modello di regola attestazioni, è possibile selezionare gli attributi da un archivio attributi LDAP, ad esempio Active Directory o Active Directory Domain Services \(Active Directory Domain Services\) per inviare i relativi valori come attestazioni alla relying party . In tal modo si esegue praticamente il mapping di attributi LDAP specifici da un archivio di attributi definito dall'utente a un set di attestazioni in uscita che può essere usato per l'autorizzazione.  
+Quando si usa il modello di regola Inviare attributi LDAP come attestazioni, è possibile selezionare gli attributi da un archivio attributi LDAP, ad esempio \(Active Directory o\) Active Directory Domain Services Servizi di dominio Active Directory per inviare i relativi valori come attestazioni al relying party . In tal modo si esegue praticamente il mapping di attributi LDAP specifici da un archivio di attributi definito dall'utente a un set di attestazioni in uscita che può essere usato per l'autorizzazione.  
   
 Usando questo modello, è possibile aggiungere più attributi, che verranno inviati come più attestazioni, da una singola regola. Ad esempio, è possibile usare questo modello di regola per creare una regola che eseguirà la ricerca di valori attributo per gli utenti autenticati dagli attributi **company** e **department** di Active Directory e quindi invierà tali valori come due diverse attestazioni in uscita.  
   
 È anche possibile usare questa regola per inviare tutte le appartenenze a gruppi dell'utente. Se si vuole inviare solo le singole appartenenze ai gruppi, usare il modello di regola Invio dell'appartenenza a un gruppo come attestazione. Per altre informazioni, vedere [quando usare un gruppo di invio dell'appartenenza a una regola di attestazione](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
   
 ## <a name="how-to-create-this-rule"></a>Come creare la regola  
-È possibile creare questa regola utilizzando il linguaggio di regola attestazione o tramite l'invio di attributi LDAP come modello di regola attestazioni in Gestione AD FS blocca\-in. Questo modello di regola offre le opzioni di configurazione seguenti:  
+È possibile creare questa regola usando il linguaggio delle regole attestazioni o usando il modello di regola Inviare attributi LDAP come attestazioni nello snap\--in gestione ad FS. Questo modello di regola offre le opzioni di configurazione seguenti:  
   
 -   Specificare un nome della regola attestazione  
   
@@ -59,14 +59,14 @@ Usando questo modello, è possibile aggiungere più attributi, che verranno invi
 Per altre informazioni su come creare questa regola, vedere [creare una regola per inviare attributi LDAP come attestazioni](https://technet.microsoft.com/library/dd807115.aspx).  
   
 ## <a name="using-the-claim-rule-language"></a>Uso del linguaggio delle regole attestazioni  
-Se la query ad Active Directory, Active Directory Domain Services o Active Directory Lightweight Directory Services \(AD LDS\) deve confrontare rispetto a un attributo LDAP diverso da **samAccountname**, è invece necessario utilizzare una regola personalizzata. Se non è presente alcuna attestazione Nome account Windows nel set di input, è necessario usare anche una regola personalizzata per specificare l'attestazione da usare per l'esecuzione di query di Servizi di dominio Active Directory o AD LDS.  
+Se la query per Active Directory, servizi di dominio Active Directory \(o\) Active Directory Lightweight Directory Services ad LDS deve essere confrontata con un attributo LDAP diverso da **sAMAccountName**, è necessario usare invece una regola personalizzata. Se non è presente alcuna attestazione Nome account Windows nel set di input, è necessario usare anche una regola personalizzata per specificare l'attestazione da usare per l'esecuzione di query di Servizi di dominio Active Directory o AD LDS.  
   
 Gli esempi seguenti consentono di comprendere alcuni dei modi in cui è possibile creare una regola personalizzata usando il linguaggio delle regole attestazioni per interrogare ed estrarre i dati in un archivio attributi.  
   
 ### <a name="example-how-to-query-an-adlds-attribute-store-and-return-a-specified-value"></a>Esempio: Come eseguire le query in un archivio attributi AD LDS e restituire un valore specificato  
 I parametri devono essere separati da punto e virgola. Il primo parametro è il filtro LDAP. I parametri successivi sono gli attributi da restituire in tutti gli oggetti corrispondenti.  
   
-Nell'esempio seguente viene illustrato come cercare un utente con il **sAMAccountName** attributo ed emettere una e\-attestazione indirizzo di posta elettronica, utilizzando il valore dell'attributo mail dell'utente:  
+Nell'esempio seguente viene illustrato come cercare un utente dall'attributo **sAMAccountName** ed emettere un'\-attestazione di indirizzo di posta elettronica, usando il valore dell'attributo mail dell'utente:  
   
 ```  
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]  
@@ -74,14 +74,14 @@ c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsacco
   
 ```  
   
-L'esempio seguente mostra come cercare un utente con l'attributo **mail** e le attestazioni issue Title e Display Name usando il valore degli attributi **title** e **displayname** dell'utente:  
+Nell'esempio seguente viene illustrato come cercare un utente tramite l'attributo **mail** e rilasciare le attestazioni title e display name, usando i valori degli attributi **title** e **DisplayName** dell'utente:  
   
 ```  
 c:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress ", Issuer == "AD AUTHORITY"]  
 => issue(store = "AD LDS ", types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/title","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/displayname"), query = "mail={0};title;displayname", param = c.Value);  
 ```  
   
-L'esempio seguente mostra come cercare un utente con in base a indirizzo e titolo e quindi rilasciare un'attestazione Display Name usando l'attributo **displayname** dell'utente:  
+L'esempio seguente mostra come cercare un utente per posta elettronica e titolo e quindi rilasciare un'attestazione del nome visualizzato usando l'attributo **DisplayName** dell'utente:  
   
 ```  
 c1:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] && c2:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/title"]  
@@ -89,7 +89,7 @@ c1:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
 ```  
   
 ### <a name="example-how-to-query-an-activedirectory-attribute-store-and-return-a-specified-value"></a>Esempio: Come eseguire le query in un archivio attributi Active Directory e restituire un valore specificato  
-La query di Active Directory deve includere il nome dell'utente \(con il nome di dominio\) come il parametro finale in modo da archiviare l'attributo di Active Directory possa eseguire una query il dominio corretto. In caso contrario, sarà supportata la stessa sintassi.  
+La query Active Directory deve includere il nome \(dell'utente con il nome\) di dominio come parametro finale in modo che l'archivio attributi Active Directory possa eseguire query nel dominio corretto. In caso contrario, sarà supportata la stessa sintassi.  
   
 L'esempio seguente mostra come cercare un utente con l'attributo **sAMAccountName** nel relativo dominio e quindi restituire l'attributo **mail**:  
   
@@ -115,16 +115,16 @@ c:[Type == "http://test/name"]
   
 La query precedente è costituita dalle parti seguenti:  
   
--   Il filtro LDAP: specifica questa parte della query per recuperare gli oggetti per cui si vogliono richiedere gli attributi. Per informazioni generali sulle query LDAP valide, vedere RFC 2254. Quando si esegue una query di un archivio attributi Active Directory e non si specifica un filtro LDAP, l'attributo samAccountName\= {0} presuppone query e l'archivio di attributi di Active Directory prevede un parametro che può alimentare il valore per {0}. In caso contrario, la query genererà un errore. Per un archivio attributi LDAP diverso da Active Directory, non è possibile omettere la parte del filtro LDAP della query, altrimenti la query genererà un errore.  
+-   Il filtro LDAP: specifica questa parte della query per recuperare gli oggetti per cui si vogliono richiedere gli attributi. Per informazioni generali sulle query LDAP valide, vedere RFC 2254. Quando si esegue una query su un archivio attributi Active Directory e non si specifica un filtro LDAP, viene presupposta la query sAMAccountName\= {0} e l'archivio di attributi Active Directory prevede un parametro che può inserire il valore per {0}. In caso contrario, la query genererà un errore. Per un archivio attributi LDAP diverso da Active Directory, non è possibile omettere la parte del filtro LDAP della query, altrimenti la query genererà un errore.  
   
--   Specifica degli attributi, In questa seconda parte della query, specificare gli attributi \(quali sono virgole\-separate, se si usano più valori di attributo\) che si desidera includere gli oggetti filtrati. Il numero di attributi specificato deve corrispondere al numero di tipi di attestazione definiti nella query.  
+-   Specifica degli attributi: in questa seconda parte della query, si specificano gli \(attributi separati da\-virgole se si usano più valori\) di attributo che si desidera escludere dagli oggetti filtrati. Il numero di attributi specificato deve corrispondere al numero di tipi di attestazione definiti nella query.  
   
--   Dominio di Active Directory: specificare l'ultima parte della query solo quando l'archivio attributi è Active Directory \(Non è necessario quando si esegue una query altri archivi di attributi.\) Questa parte della query viene usata per specificare l'account utente nel formato dominio\\nome. L'archivio attributi di Active Directory usa la parte del dominio per determinare il controller di dominio appropriato per connettersi ed eseguire la query e richiedere gli attributi.  
+-   Dominio di Active Directory: specificare l'ultima parte della query solo quando l'archivio attributi è Active Directory \(Non è necessario quando si esegue una query in altri archivi di attributi.\) Questa parte della query viene usata per specificare l'account utente nel formato nome dominio\\. L'archivio attributi di Active Directory usa la parte del dominio per determinare il controller di dominio appropriato per connettersi ed eseguire la query e richiedere gli attributi.  
   
-### <a name="example-how-to-use-two-custom-rules-to-extract-the-manager-e-mail-from-an-attribute-in-activedirectory"></a>Esempio: Come usare due regole personalizzate per estrarre la gestione e\-posta elettronica da un attributo in Active Directory  
-Le due regole personalizzate seguenti, se utilizzati insieme nell'ordine riportato di seguito, eseguire una query Active Directory per il **gestore** attributo dell'account utente \(regola 1\) e quindi usare tale attributo per chiedere all'utente account del manager per il **mail** attributo \(regola 2\). Infine, l'attributo **mail** viene rilasciato come attestazione “ManagerEmail”. In sintesi, regola 1 interroga Active Directory e passa il risultato della query alla regola 2, che estrae quindi la gestione e\-i valori di posta elettronica.  
+### <a name="example-how-to-use-two-custom-rules-to-extract-the-manager-e-mail-from-an-attribute-in-activedirectory"></a>Esempio: Come usare due regole personalizzate per estrarre il gestore e\-la posta da un attributo in Active Directory  
+Le due regole personalizzate seguenti, quando usate insieme nell'ordine indicato di seguito, eseguono una query Active Directory per l'attributo **Manager** della regola \(dell'account\) utente 1 e quindi usano tale attributo per eseguire una query sull'account utente del gestore per regola dell'attributo \(di posta\)2. Infine, l'attributo **mail** viene rilasciato come attestazione “ManagerEmail”. In sintesi, la regola 1 esegue una query Active Directory e passa il risultato della query alla regola 2, che estrae quindi i\-valori di posta elettronica del Manager.  
   
-Ad esempio, quando queste regole di completamento dell'esecuzione, viene rilasciata un'attestazione che contiene e del gestore della\-indirizzo per un utente nel dominio corp.fabrikam.com di posta elettronica.  
+Ad esempio, al termine dell'esecuzione di queste regole, viene rilasciata un'attestazione contenente\-l'indirizzo di posta elettronica del Manager per un utente nel dominio Corp.fabrikam.com.  
   
 **Regola 1**  
   
@@ -145,7 +145,7 @@ param = regexreplace(c1.Value, ".*DC=(?<domain>.+),DC=corp,DC=fabrikam,DC=com", 
 ```  
   
 > [!NOTE]  
-> Queste regole funzionano solo se il responsabile dell'utente è nello stesso dominio dell'utente \(corp.fabrikam.com in questo esempio\).  
+> Queste regole funzionano solo se il manager dell'utente si trova nello stesso dominio dell'utente \(Corp.fabrikam.com in questo esempio.\)  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 [Creare una regola per inviare attributi LDAP come attestazioni](https://technet.microsoft.com/library/dd807115.aspx)  

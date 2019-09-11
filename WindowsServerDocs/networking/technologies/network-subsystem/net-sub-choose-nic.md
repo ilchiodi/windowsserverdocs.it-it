@@ -1,6 +1,6 @@
 ---
 title: Scelta di una scheda di rete
-description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete di Windows Server 2016.
+description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,125 +8,125 @@ ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2b50f4b286e90a450278243c0294ea0aa7f221bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19318bfa9807d209bd9a195b668c1787bd3aff25
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875852"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871925"
 ---
 # <a name="choosing-a-network-adapter"></a>Scelta di una scheda di rete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su alcune delle funzionalità delle schede di rete che potrebbero influire sulle scelte di acquisto.
+È possibile utilizzare questo argomento per apprendere alcune delle funzionalità delle schede di rete che potrebbero influire sulle scelte di acquisto.
 
-Le applicazioni a elevato utilizzo di rete richiedono le schede di rete ad alte prestazioni. In questa sezione illustra alcune considerazioni per la scelta delle schede di rete, nonché come configurare le impostazioni di scheda di rete diversa per ottenere le migliori prestazioni di rete.
+Per le applicazioni a elevato utilizzo di rete sono richieste schede di rete ad alte prestazioni. In questa sezione vengono illustrate alcune considerazioni per la scelta delle schede di rete, nonché la configurazione di impostazioni della scheda di rete diverse per ottenere le migliori prestazioni di rete.
 
 > [!TIP]
->  È possibile configurare le impostazioni della scheda di rete tramite Windows PowerShell. Per altre informazioni, vedere [cmdlet per scheda di rete in Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
+>  È possibile configurare le impostazioni della scheda di rete usando Windows PowerShell. Per altre informazioni, vedere [cmdlet per le schede di rete in Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
 
-##  <a name="bkmk_offload"></a> Eseguire l'offload delle funzionalità
+##  <a name="bkmk_offload"></a>Funzionalità di offload
 
-L'offload delle attività da unità di elaborazione centrale \(CPU\) alla rete adapter può ridurre l'utilizzo della CPU sul server, che consente di migliorare le prestazioni complessive del sistema.
+L'offload delle attività dalla CPU \(\) dell'unità di elaborazione centrale alla scheda di rete può ridurre l'utilizzo della CPU nel server, migliorando così le prestazioni complessive del sistema.
 
-Lo stack di rete in prodotti Microsoft può scaricare uno o più attività a una scheda di rete se si seleziona una scheda di rete che è appropriato eseguire l'offload delle funzionalità. Nella tabella seguente fornisce una breve panoramica delle funzionalità di offload diversi che sono disponibili in Windows Server 2016.
+Lo stack di rete nei prodotti Microsoft può eseguire l'offload di una o più attività in una scheda di rete se si seleziona una scheda di rete con le funzionalità di offload appropriate. La tabella seguente fornisce una breve panoramica delle diverse funzionalità di offload disponibili in Windows Server 2016.
   
 |Tipo di offload|Descrizione|
 |------------------|-----------------|  
-|Calcolo del checksum per il protocollo TCP|Lo stack di rete può eseguire l'offload di calcolo e la convalida dei Transmission Control Protocol \(TCP\) checksum in inviare e ricevere i percorsi del codice. Può anche scaricare il calcolo e la convalida di IPv4 e IPv6 i valori di checksum su inviare e ricevere i percorsi del codice.|  
-|Calcolo del checksum per UDP |Lo stack di rete può eseguire l'offload di calcolo e convalida di User Datagram Protocol \(UDP\) checksum in inviare e ricevere i percorsi del codice.|
-|Calcolo del checksum per IPv4 |Lo stack di rete può eseguire l'offload di calcolo e convalida di IPv4, i valori di checksum su inviare e ricevere i percorsi del codice. |
-|Calcolo del checksum per IPv6 |Lo stack di rete può eseguire l'offload di calcolo e convalida di IPv6 i valori di checksum su inviare e ricevere i percorsi del codice. | 
-|Segmentazione di grandi dimensioni pacchetti TCP|Il livello di trasporto TCP/IP supporta v2 Large Send Offload (LSOv2). Con LSOv2, il livello di trasporto TCP/IP può eseguire l'offload di segmentazione dei pacchetti TCP grandi alla scheda di rete.|  
-|Receive-Side Scaling \(RSS\)|RSS è una tecnologia di driver di rete che consente la distribuzione efficiente di rete ricevono l'elaborazione su più CPU nei sistemi multiprocessore. Più in dettaglio RSS viene fornito più avanti in questo argomento.|  
-|Unione segmenti ricevuti \(RSC\)|RSC è la possibilità di pacchetti gruppo interagiscono per ridurre al minimo l'intestazione di elaborazione che è necessaria per l'host da eseguire. Un massimo di 64 KB di payload ricevuto può essere unito in un singolo pacchetto di dimensioni maggiori per l'elaborazione. Informazioni più dettagliate sulle funzionalità RSC viene fornita più avanti in questo argomento.|  
+|Calcolo del checksum per TCP|Lo stack di rete può eseguire l'offload del calcolo e \(della\) convalida di Transmission Control Protocol checksum TCP nei percorsi del codice di trasmissione e ricezione. Consente inoltre di eseguire l'offload del calcolo e della convalida dei checksum IPv4 e IPv6 nei percorsi del codice di trasmissione e ricezione.|  
+|Calcolo del checksum per UDP |Lo stack di rete può eseguire l'offload del calcolo e della convalida \(dei\) checksum UDP del protocollo del datagramma utente nei percorsi del codice di trasmissione e ricezione.|
+|Calcolo del checksum per IPv4 |Lo stack di rete può eseguire l'offload del calcolo e della convalida dei checksum IPv4 nei percorsi del codice di trasmissione e ricezione. |
+|Calcolo del checksum per IPv6 |Lo stack di rete può eseguire l'offload del calcolo e della convalida dei checksum IPv6 nei percorsi del codice di trasmissione e ricezione. | 
+|Segmentazione di pacchetti TCP di grandi dimensioni|Il livello trasporto TCP/IP supporta l'offload di invio di grandi dimensioni V2 (LSOv2). Con LSOv2, il livello di trasporto TCP/IP può scaricare la segmentazione dei pacchetti TCP di grandi dimensioni nella scheda di rete.|  
+|RSS per Receive \(-Side Scaling\)|RSS è una tecnologia di driver di rete che consente di distribuire in modo efficiente l'elaborazione della ricezione di rete tra più CPU nei sistemi multiprocessore. Ulteriori dettagli su RSS sono disponibili più avanti in questo argomento.|  
+|Unione del segmento \(di ricezione RSC\)|RSC è la possibilità di raggruppare i pacchetti per ridurre al minimo l'elaborazione dell'intestazione necessaria per l'esecuzione dell'host. È possibile unire un massimo di 64 KB di payload ricevuti in un singolo pacchetto di dimensioni maggiori per l'elaborazione. Ulteriori dettagli su RSC sono disponibili più avanti in questo argomento.|  
   
-###  <a name="bkmk_rss"></a> Receive-Side Scaling
+###  <a name="bkmk_rss"></a>Receive-Side Scaling
 
 Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 e Windows Server 2008 supportano Receive-Side Scaling \(RSS\). 
 
-Alcuni server configurati con più processori logici che condividono le risorse hardware \(ad esempio un core fisici\) e che vengono trattati come multithreading simultaneo \(SMT\) peer. La tecnologia Intel Hyper-Threading è un esempio. RSS indirizza l'elaborazione di rete di fino a un processore logico per ogni core. In un server con Hyper-Threading di Intel, 4 core e 8 processori logici, ad esempio, RSS Usa non più di 4 processori logici per l'elaborazione di rete.  
+Alcuni server sono configurati con più processori logici che \(condividono risorse hardware, ad\) esempio un core fisico, e che vengono trattati come \(peer\) SMT simultanei a thread multipli. Un esempio è la tecnologia Intel Hyper-Threading. RSS indirizza l'elaborazione di rete a un processore logico per core. Ad esempio, in un server con Hyper-Threading Intel, 4 core e 8 processori logici, RSS USA non più di 4 processori logici per l'elaborazione di rete.  
 
-RSS distribuisce i pacchetti dei / o di rete in ingresso tra processori logici in modo che i pacchetti che appartengono alla stessa connessione TCP sono elaborati sullo stesso processore logico, che mantiene l'ordinamento. 
+RSS distribuisce i pacchetti I/O di rete in ingresso tra i processori logici in modo che i pacchetti che appartengono alla stessa connessione TCP vengano elaborati nello stesso processore logico, che consente di mantenere l'ordinamento. 
 
-RSS caricare anche il traffico multicast e unicast UDP di saldi e instrada i flussi correlati \(determinate eseguendo l'hashing gli indirizzi di origine e destinazione\) sul processore logico stesso, mantenendo l'ordine degli arrivi correlati. Ciò consente di migliorare scalabilità e prestazioni per scenari a elevato utilizzo di ricezione per i server con un minor numero di schede di rete che non idonei processori logici. 
+RSS consente inoltre di bilanciare il traffico UDP unicast e multicast e di indirizzare \(i flussi correlati, determinati dall'hashing degli indirizzi\) di origine e di destinazione allo stesso processore logico, mantenendo l'ordine degli arrivi correlati. Ciò consente di migliorare la scalabilità e le prestazioni per gli scenari con utilizzo intensivo di ricezione per i server che dispongono di un numero inferiore di schede di rete rispetto a quelli che 
 
 #### <a name="configuring-rss"></a>Configurazione di RSS
 
-In Windows Server 2016, è possibile configurare RSS tramite i cmdlet di Windows PowerShell e i profili RSS. 
+In Windows Server 2016 è possibile configurare RSS usando i cmdlet di Windows PowerShell e i profili RSS. 
 
-È possibile definire profili RSS tramite le **– profilo** parametro del **Set-NetAdapterRss** cmdlet di Windows PowerShell.
+È possibile definire i profili RSS usando il parametro **– profile** del cmdlet **set-NetAdapterRss** di Windows PowerShell.
 
-**Comandi di Windows PowerShell per la configurazione di RSS**
+**Comandi di Windows PowerShell per la configurazione RSS**
 
 I cmdlet seguenti consentono di visualizzare e modificare i parametri RSS per ogni scheda di rete.
   
 >[!NOTE]
->Per un riferimento al comando dettagliati per ogni cmdlet, inclusi la sintassi e parametri, è possibile fare clic sui collegamenti seguenti. Inoltre, è possibile passare il nome del cmdlet **Get-Help** al prompt di Windows PowerShell per informazioni dettagliate su ogni comando.  
+>Per un riferimento dettagliato ai comandi per ogni cmdlet, inclusa la sintassi e i parametri, è possibile fare clic sui collegamenti seguenti. Inoltre, è possibile passare il nome del cmdlet a **Get-Help** al prompt di Windows PowerShell per informazioni dettagliate su ogni comando.  
 
-- [Disable-NetAdapterRss](https://technet.microsoft.com/library/jj130892). Questo comando disabilita RSS nella scheda di rete specificato.
+- [Disable-NetAdapterRss](https://technet.microsoft.com/library/jj130892). Questo comando Disabilita RSS nella scheda di rete specificata.
 
-- [Enable-NetAdapterRss](https://technet.microsoft.com/library/jj130859). Questo comando abilita RSS nella scheda di rete specificato.
+- [Enable-NetAdapterRss](https://technet.microsoft.com/library/jj130859). Questo comando Abilita RSS nella scheda di rete specificata.
   
-- [Get-NetAdapterRss](https://technet.microsoft.com/library/jj130912). Questo comando recupera le proprietà RSS della scheda di rete specificato.
+- [Get-NetAdapterRss](https://technet.microsoft.com/library/jj130912). Questo comando recupera le proprietà RSS della scheda di rete specificata.
   
-- [Set-NetAdapterRss](https://technet.microsoft.com/library/jj130863). Questo comando imposta le proprietà RSS nella scheda di rete specificato.  
+- [Set-NetAdapterRss](https://technet.microsoft.com/library/jj130863). Questo comando imposta le proprietà RSS nella scheda di rete specificata.  
 
 #### <a name="rss-profiles"></a>Profili RSS
 
-È possibile usare la **-profilo** parametro del cmdlet Set-NetAdapterRss per specificare quali processori logici vengono assegnati a quale scheda di rete. I valori disponibili per questo parametro sono:
+È possibile utilizzare il parametro **– profile** del cmdlet Set-NetAdapterRss per specificare i processori logici a cui è assegnata la scheda di rete. I valori disponibili per questo parametro sono:
 
-- **Più vicino**. Sono preferibili numeri processore logico che si avvicinano alla processore RSS di base della scheda di rete. Con questo profilo, il sistema operativo potrebbe ribilanciare dinamicamente in base al carico di processori logici.
+- **Più vicino**. Sono preferibili i numeri di processori logici vicini al processore RSS di base della scheda di rete. Con questo profilo, il sistema operativo potrebbe ribilanciare i processori logici in modo dinamico in base al carico.
   
-- **ClosestStatic**. I numeri dei processori logici in prossimità del processore RSS di base della scheda di rete vengono preferiti. Con questo profilo, il sistema operativo non ribilanciare dinamicamente in base al carico di processori logici.
+- **ClosestStatic**. Sono preferibili i numeri di processori logici vicini al processore RSS di base della scheda di rete. Con questo profilo, il sistema operativo non ribilancia i processori logici in modo dinamico in base al carico.
   
-- **NUMA**. I numeri dei processori logici vengono in genere selezionati in nodi NUMA diversi per distribuire il carico. Con questo profilo, il sistema operativo potrebbe ribilanciare dinamicamente in base al carico di processori logici.
+- **NUMA**. I numeri di processori logici vengono in genere selezionati in nodi NUMA diversi per distribuire il carico. Con questo profilo, il sistema operativo potrebbe ribilanciare i processori logici in modo dinamico in base al carico.
   
-- **NUMAStatic**. Questo è il **profilo predefinito**. I numeri dei processori logici vengono in genere selezionati in nodi NUMA diversi per distribuire il carico. Con questo profilo, il sistema operativo non bilancerà processori logici dinamicamente in base al carico.
+- **NUMAStatic**. Questo è il **profilo predefinito**. I numeri di processori logici vengono in genere selezionati in nodi NUMA diversi per distribuire il carico. Con questo profilo, il sistema operativo non ribilancia i processori logici in modo dinamico in base al carico.
 
-- **Conservativa**. RSS Usa il minor numero di processori per sostenere il carico possibile. Questa opzione consente di ridurre il numero di interrupt.
+- **Conservativa**. RSS utilizza il minor numero possibile di processori per sostenere il carico. Questa opzione consente di ridurre il numero di interrupt.
 
-A seconda dello scenario e le caratteristiche del carico di lavoro, è anche possibile usare altri parametri del **Set-NetAdapterRss** cmdlet di Windows PowerShell per specificare quanto segue:
+A seconda dello scenario e delle caratteristiche del carico di lavoro, è anche possibile usare altri parametri del cmdlet **set-NetAdapterRss** di Windows PowerShell per specificare quanto segue:
 
-- In base all'adapter per ogni rete, il numero di processori logico è utilizzabile per RSS.
-- L'offset iniziale dell'intervallo di processori logici.
-- Nodo da cui la scheda di rete alloca la memoria.
+- Per ogni scheda di rete, il numero di processori logici che è possibile usare per RSS.
+- Offset iniziale per l'intervallo di processori logici.
+- Nodo da cui la scheda di rete alloca memoria.
 
-Di seguito sono aggiuntiva **Set-NetAdapterRss** parametri che è possibile utilizzare configurazione di RSS:
+Di seguito sono riportati i parametri **set-NetAdapterRss** aggiuntivi che è possibile usare per configurare RSS:
 
 >[!NOTE]
->La sintassi di esempio per ogni parametro di seguito, il nome della scheda di rete **Ethernet** viene utilizzato come un valore di esempio per il **– Name** parametro del **Set-NetAdapterRss** comando. Quando si esegue il cmdlet, assicurarsi che il nome di scheda di rete che usa sia appropriato per l'ambiente.
+>Nella sintassi di esempio per ogni parametro riportato di seguito, il nome della scheda di rete **Ethernet** viene usato come valore di esempio per il parametro **– Name** del comando **set-NetAdapterRss** . Quando si esegue il cmdlet, assicurarsi che il nome della scheda di rete utilizzato sia appropriato per l'ambiente in uso.
 
-- **\* MaxProcessors**: Imposta il numero massimo di processori RSS da utilizzare. Ciò garantisce che il traffico dell'applicazione è associato a un numero massimo di processori in una determinata interfaccia. Sintassi di esempio:
+- **MaxProcessors\*** : Imposta il numero massimo di processori RSS da usare. Ciò garantisce che il traffico dell'applicazione venga associato a un numero massimo di processori in una determinata interfaccia. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –MaxProcessors <value>`
 
-- **\* BaseProcessorGroup**: Imposta il gruppo di processori di base di un nodo NUMA. Ciò ha effetto sulla matrice del processore utilizzata da RSS. Sintassi di esempio:
+- **BaseProcessorGroup\*** : Imposta il gruppo di processori di base di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorGroup <value>`
   
-- **\* MaxProcessorGroup**: Imposta il gruppo di processori massima di un nodo NUMA. Ciò ha effetto sulla matrice del processore utilizzata da RSS. Un gruppo di processori massimo impostando questo determinerebbe una limitazione in modo che il bilanciamento del carico è allineata all'interno di un gruppo k. Sintassi di esempio:
+- **MaxProcessorGroup\*** : Imposta il gruppo di processori massimo di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. L'impostazione di questa opzione consente di limitare un gruppo di processori massimo in modo che il bilanciamento del carico sia allineato all'interno di un gruppo k. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –MaxProcessorGroup <value>`
 
-- **\* BaseProcessorNumber**: Imposta il numero di processori di base di un nodo NUMA. Ciò ha effetto sulla matrice del processore utilizzata da RSS. In questo modo il partizionamento processori nelle schede di rete. Questo è il processore logico prima nei processori intervallo di RSS che viene assegnato a ogni scheda. Sintassi di esempio:
+- **BaseProcessorNumber\*** : Imposta il numero del processore di base di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. In questo modo è possibile partizionare i processori tra le schede di rete. Si tratta del primo processore logico nell'intervallo di processori RSS assegnato a ogni adapter. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorNumber <Byte Value>`
 
-- **\* NumaNode**: Nodo NUMA che ogni scheda di rete può allocare memoria da. Può trattarsi di un gruppo k o da diversi gruppi k. Sintassi di esempio:
+- **NumaNode\*** : Nodo NUMA da cui ogni scheda di rete può allocare memoria. Può trovarsi all'interno di un gruppo k o di gruppi k diversi. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –NumaNodeID <value>`
 
-- **\* NumberofReceiveQueues**: Se i processori logici sembrano sottoutilizzati per la ricezione del traffico \(ad esempio, come visualizzato in Gestione attività\), è possibile provare ad aumentare il numero di code RSS dal valore predefinito di 2 al valore massimo supportato dalla scheda di rete . La scheda di rete può avere opzioni per modificare il numero di code RSS come parte del driver. Sintassi di esempio:
+- **NumberofReceiveQueues\*** : Se i processori logici sembrano essere sottoutilizzati per il traffico \(di ricezione, ad esempio, come visualizzato\)in Gestione attività, è possibile provare ad aumentare il numero di code RSS dal valore predefinito 2 al valore massimo supportato dalla scheda di rete. . È possibile che la scheda di rete disponga delle opzioni per modificare il numero di code RSS come parte del driver. Sintassi di esempio:
 
      `Set-NetAdapterRss –Name “Ethernet” –NumberOfReceiveQueues <value>`
 
-Per altre informazioni, fare clic sul collegamento seguente per scaricare [Scalable Networking: Eliminando ricevere l'elaborazione di un collo di bottiglia: Introduzione a RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) in formato Word.
+Per ulteriori informazioni, fare clic sul collegamento seguente per [scaricare la rete scalabile: Eliminazione del collo di bottiglia per l'elaborazione della](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) ricezione: Introduzione a RSS in formato Word.
   
-#### <a name="understanding-rss-performance"></a>La comprensione delle prestazioni di RSS
+#### <a name="understanding-rss-performance"></a>Informazioni sulle prestazioni RSS
 
-RSS di ottimizzazione, è necessario conoscere la configurazione e la logica di bilanciamento del carico. Per verificare che le impostazioni di RSS sono diventate effettive, è possibile esaminare l'output quando si esegue la **Get-NetAdapterRss** cmdlet di Windows PowerShell. Seguito è riportato l'output di questo cmdlet.
+Per ottimizzare RSS è necessario conoscere la configurazione e la logica di bilanciamento del carico. Per verificare che le impostazioni RSS siano state applicate, è possibile esaminare l'output quando si esegue il cmdlet **Get-NetAdapterRss** di Windows PowerShell. Di seguito è riportato un esempio di output di questo cmdlet.
   
 ```
 
@@ -148,29 +148,29 @@ IndirectionTable: [Group:Number]:
                           0:0    0:4    0:0    0:4    0:0    0:4    0:0    0:4  
 ```  
 
-Oltre ai parametri che sono stati impostati di ripetizione, l'aspetto principale dell'output è l'output di tabella di riferimento indiretto. La tabella di riferimento indiretto consente di visualizzare i bucket nella tabella hash che vengono usati per distribuire il traffico in ingresso. In questo esempio, la notazione n:c designa il K Numa-coppia indice: CPU di gruppo che viene utilizzato per dirigere il traffico in ingresso. Vediamo esattamente 2 voci univoche (0:0 e 0:4), gruppo k. 0/cpu0 e gruppo k. 0/cpu 4, che rappresentano rispettivamente.
+Oltre ai parametri di eco impostati, l'aspetto chiave dell'output è l'output della tabella di riferimento indiretto. La tabella di riferimento indiretto Visualizza i bucket della tabella hash utilizzati per distribuire il traffico in ingresso. In questo esempio la notazione n:c designa la coppia NUMA K-Group: CPU index usata per indirizzare il traffico in ingresso. Vengono visualizzate esattamente 2 voci univoche (0:0 e 0:4), che rappresentano rispettivamente k-Group 0/CPU0 e k-Group 0/CPU 4.
 
-È presente un solo gruppo k per questo sistema (gruppo k 0) e un n (dove n < = 128) voce della tabella di riferimento indiretto. Poiché il numero di code di ricezione è impostato su 2, solo 2 processori (0:0, 0:4) vengono scelti - anche se i processori massimi è impostata su 8. In effetti, la tabella di riferimento indiretto è hashing il traffico in ingresso per l'uso solo 2 CPU da 8 che sono disponibili.
+Per questo sistema è presente un solo gruppo k (k-Group 0) e una voce della tabella di riferimento indiretto n (dove n < = 128). Poiché il numero di code di ricezione è impostato su 2, vengono scelti solo 2 processori (0:0, 0:4), anche se il numero massimo di processori è impostato su 8. In effetti, la tabella di riferimento indiretto esegue l'hashing del traffico in ingresso per usare solo 2 CPU fuori dagli 8 disponibili.
 
-Per sfruttare appieno le CPU, il numero di code RSS di ricezione deve essere uguale o maggiore di processori Max. Nell'esempio precedente, la coda di ricezione deve essere impostata su 8 o versione successiva.
+Per utilizzare completamente le CPU, il numero di code di ricezione RSS deve essere maggiore o uguale al numero massimo di processori. Nell'esempio precedente, la coda di ricezione deve essere impostata su un valore maggiore o uguale a 8.
 
 #### <a name="nic-teaming-and-rss"></a>Gruppo NIC e RSS
 
-RSS può essere abilitata in una scheda di rete è raggruppata con un'altra scheda di interfaccia di rete utilizza gruppo NIC. In questo scenario, solo la scheda di rete fisica sottostante può essere configurata per l'utilizzo di RSS. Un utente non è possibile impostare i cmdlet di RSS nella scheda di rete raggruppata.
+RSS può essere abilitato in una scheda di rete raggruppata con un'altra scheda di interfaccia di rete che utilizza il gruppo NIC. In questo scenario è possibile configurare solo la scheda di rete fisica sottostante per l'utilizzo di RSS. Un utente non può impostare i cmdlet RSS nella scheda di rete di gruppo.
   
-###  <a name="bkmk_rsc"></a> Receive Segment Coalescing (RSC)
+###  <a name="bkmk_rsc"></a>Unione segmento di ricezione (RSC)
 
-Unione segmenti ricevuti \(RSC\) consente prestazioni riducendo il numero di intestazioni IP che vengono elaborati per una determinata quantità di dati ricevuti. Da utilizzare per ridimensionare le prestazioni dei dati ricevuti raggruppando \(o coalescing\) i pacchetti più piccoli in unità più grandi.
+Unione del segmento \(di ricezione\) RSC aiuta le prestazioni riducendo il numero di intestazioni IP elaborate per una determinata quantità di dati ricevuti. Deve essere usato per semplificare la scalabilità delle prestazioni dei dati ricevuti raggruppando \(o\) combinando i pacchetti più piccoli in unità più grandi.
 
-Questo approccio può influire sulla latenza con vantaggi principalmente visualizzati in incrementi di velocità effettiva. RSC è consigliabile aumentare la velocità effettiva per carichi di lavoro ricevuti. È consigliabile distribuire schede di rete che supportano RSC. 
+Questo approccio può influire sulla latenza con i vantaggi che si riscontrano principalmente nei miglioramenti della velocità effettiva. È consigliabile usare RSC per aumentare la velocità effettiva per carichi di lavoro elevati ricevuti. Prendere in considerazione la distribuzione di schede di rete che supportano RSC. 
 
-In queste schede di rete, verificare la funzionalità RSC in \(questo è l'impostazione predefinita\), a meno che non si dispone di carichi di lavoro specifici \(bassa latenza, ad esempio, la rete di velocità effettiva bassa\) grado di sfruttare show RSC viene disattivata .
+In queste schede di rete, assicurarsi che RSC sia \(l'impostazione\)predefinita, a meno che non siano presenti carichi \(di lavoro specifici, ad esempio, bassa latenza,\) rete a velocità effettiva ridotta che mostrino vantaggi da RSC .
 
 #### <a name="understanding-rsc-diagnostics"></a>Informazioni sulla diagnostica RSC
 
-È possibile diagnosticare RSC mediante i cmdlet di Windows PowerShell **Get-NetAdapterRsc** e **Get-NetAdapterStatistics**.
+È possibile diagnosticare RSC usando i cmdlet di Windows PowerShell **Get-NetAdapterRsc** e **Get-NetAdapterStatistics**.
 
-Seguito è riportato l'output quando si esegue il cmdlet Get-NetAdapterRsc.
+Di seguito è riportato un esempio di output quando si esegue il cmdlet Get-NetAdapterRsc.
 
 ```  
 
@@ -183,11 +183,11 @@ Ethernet                       True         False        True            False  
   
 ```  
 
-Il **ottenere** cmdlet Mostra se la funzionalità RSC è abilitata nell'interfaccia e se TCP consente RSC in uno stato operativo. Il motivo dell'errore fornisce informazioni dettagliate sull'errore per abilitare RSC in quell'interfaccia.
+Il cmdlet **Get** indica se RSC è abilitato nell'interfaccia e se TCP consente a RSC di trovarsi in uno stato operativo. Il motivo dell'errore fornisce informazioni dettagliate sull'errore di abilitazione di RSC su tale interfaccia.
 
-Nello scenario precedente, RSC IPv4 è supportato e operativa nell'interfaccia. Per comprendere gli errori di diagnostica, si può osservare il byte fuse o le eccezioni causate. Ciò offre un'indicazione dei problemi di unione.
+Nello scenario precedente, IPv4 RSC è supportato e operativo nell'interfaccia. Per comprendere gli errori di diagnostica, è possibile visualizzare i byte o le eccezioni Uniti. In questo modo viene fornita un'indicazione dei problemi di Unione.
 
-Seguito è riportato l'output quando si esegue il cmdlet Get-NetAdapterStatistics.
+Di seguito è riportato un esempio di output quando si esegue il cmdlet Get-NetAdapterStatistics.
 
 ```  
 PS C:\Users\Administrator> $x = Get-NetAdapterStatistics “myAdapter”   
@@ -202,15 +202,15 @@ CoalescingExceptions : 0
 
 #### <a name="rsc-and-virtualization"></a>RSC e virtualizzazione
 
-RSC è supportata solo in host fisici quando la scheda di rete host non è associata al commutatore virtuale Hyper-V. RSC è disabilitata per il sistema operativo quando l'host è associata al commutatore virtuale Hyper-V. Inoltre, le macchine virtuali non beneficiare di RSC poiché le schede di rete virtuale non supportano RSC.
+RSC è supportato solo nell'host fisico quando la scheda di rete host non è associata al Commuter virtuale Hyper-V. RSC viene disabilitato dal sistema operativo quando l'host è associato al Commuter virtuale Hyper-V. Inoltre, le macchine virtuali non ottengono il vantaggio di RSC perché le schede di rete virtuali non supportano RSC.
 
-La funzionalità RSC può essere abilitata per una macchina virtuale quando Single Root Input/Output Virtualization \(SR-IOV\) è abilitata. In questo caso, le funzioni virtuali supportano la funzionalità RSC; di conseguenza, le macchine virtuali ricevono inoltre il vantaggio di RSC.
+RSC può essere abilitato per una macchina virtuale quando è abilitata la funzionalità Single \(root input/\) output Virtualization SR-IOV. In questo caso, le funzioni virtuali supportano la funzionalità RSC; di conseguenza, le macchine virtuali ricevono anche il vantaggio di RSC.
 
-##  <a name="bkmk_resources"></a> Risorse della scheda di rete
+##  <a name="bkmk_resources"></a>Risorse scheda di rete
 
-Alcune schede di rete gestiscono attivamente le risorse per ottenere prestazioni ottimali. Più schede di rete consentono di configurare manualmente le risorse usando il **Advanced Networking** scheda per l'adapter. Per questi adapter, è possibile impostare i valori di un numero di parametri, incluso il numero di buffer di ricezione e invio di buffer.
+Alcune schede di rete gestiscono attivamente le proprie risorse per ottenere prestazioni ottimali. Diverse schede di rete consentono di configurare manualmente le risorse utilizzando la scheda **rete avanzata** per la scheda. Per tali schede è possibile impostare i valori di un numero di parametri, incluso il numero di buffer di ricezione e di invio.
 
-Configurazione delle risorse di scheda di rete viene semplificata dall'uso dei cmdlet di Windows PowerShell seguente.
+La configurazione delle risorse della scheda di rete è semplificata mediante l'utilizzo dei cmdlet di Windows PowerShell seguenti.
 
 - [Get-NetAdapterAdvancedProperty](https://technet.microsoft.com/library/jj130901.aspx)
 
@@ -234,6 +234,6 @@ Configurazione delle risorse di scheda di rete viene semplificata dall'uso dei c
 
 - [Enable-NetAdapterSriov](https://technet.microsoft.com/library/jj130899.aspx)
 
-Per altre informazioni, vedere [cmdlet per scheda di rete in Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
+Per altre informazioni, vedere [cmdlet per le schede di rete in Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
 
-Per collegamenti a tutti gli argomenti in questa Guida, vedere [ottimizzazione delle prestazioni di rete sottosistema](net-sub-performance-top.md).
+Per i collegamenti a tutti gli argomenti di questa guida, vedere [ottimizzazione delle prestazioni del sottosistema di rete](net-sub-performance-top.md).

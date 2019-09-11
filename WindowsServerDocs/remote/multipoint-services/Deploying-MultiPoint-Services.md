@@ -13,38 +13,38 @@ ms.assetid: 594bc09e-5d2d-4984-a9de-79d40b1308d6
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: e2d71d691c61f5e1208d97ad77d3a5ba9c207c0a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19e1b52c79e0d87804a76ec8963662b96c82b41b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830712"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871718"
 ---
 # <a name="deploying-multipoint-services"></a>Distribuzione di MultiPoint Services
-Questa guida viene descritto come distribuire un server che esegue MultiPoint Services e configurare le stazioni MultiPoint, installare e configurare il sistema, configurare gli account utente ed eseguire alcune attività di amministrazione di base, ad esempio protezione disco di attivazione e configurazione di backup, prima di iniziare a usare il sistema.  
+Questa guida descrive come distribuire un server che esegue MultiPoint Services e configurare le stazioni MultiPoint, installare e configurare il sistema, configurare gli account utente ed eseguire alcune attività di amministrazione di base, ad esempio l'attivazione della protezione del disco e la configurazione dei backup, prima di iniziare a usare il sistema.  
   
 > [!NOTE]  
-> Per ulteriore supporto, vedere la Guida di MultiPoint Services, che può essere aperta facendo clic sull'icona Guida o F1 in qualsiasi schermata di gestione MultiPoint o Dashboard MultiPoint.  
+> Per ulteriore supporto, vedere la Guida di MultiPoint Services, che può essere aperta facendo clic sull'icona della guida o su F1 in qualsiasi schermata MultiPoint Manager o Dashboard MultiPoint.  
   
-Le informazioni di distribuzione sono organizzate nel modo seguente. Come minimo, è necessario completare le attività per la distribuzione del sistema e preparazione dell'ambiente per gli utenti. Altre attività può o potrebbe non essere applicabili all'ambiente. 
--   [Distribuire un nuovo sistema MultiPoint Services](Deploy-a-new-MultiPoint-services-system.md)  
+Le informazioni sulla distribuzione sono organizzate nel modo seguente. Come minimo, è necessario completare le attività per la distribuzione del sistema e la preparazione dell'ambiente per gli utenti. Altre attività potrebbero o meno essere valide per l'ambiente in uso. 
+-   [Distribuire un nuovo sistema di Servizi MultiPoint](Deploy-a-new-MultiPoint-services-system.md)  
   
-    Configurare il computer che esegue servizi MultiPoint e stazioni. Installare e configurare servizi MultiPoint. configurare le stazioni; installare i driver, aggiornamenti e software; Se lo si desidera aggiungere un dominio. aggiungere licenze CAL (client) per ogni stazione.  
+    Configurare il computer e le stazioni MultiPoint Services. Installare e configurare MultiPoint Services; configurare le stazioni; installare driver, aggiornamenti e software; aggiungere facoltativamente un dominio; aggiungere licenze client (CAL) per ogni stazione.  
   
--   [Attività di configurazione facoltative per una distribuzione di MultiPoint Services](Optional-configuration-tasks-for-a-MultiPoint-services-deployment.md)  
+-   [Attività di configurazione facoltative per una distribuzione di Servizi MultiPoint](Optional-configuration-tasks-for-a-MultiPoint-services-deployment.md)  
   
-    Eseguire attività di configurazione facoltative. Configurare una stazione con schermo diviso; aggiungere stampanti; abilitare l'accesso tramite una LAN wireless; creare i desktop virtuali per le stazioni con Windows 10, Windows 8 o sistema operativo Windows 7; modificare la lingua di visualizzazione per il sistema o per i singoli utenti.  
+    Eseguire attività di configurazione facoltative. Configurare una stazione a schermo diviso; Aggiungi stampanti; abilitare l'accesso tramite una LAN wireless; creazione di desktop virtuali per le stazioni con sistema operativo Windows 10, Windows 8 o Windows 7. modificare la lingua di visualizzazione del sistema o dei singoli utenti.  
   
 -   [Preparare il sistema MultiPoint Services per gli utenti](Prepare-your-MultiPoint-services-system-for-users.md)  
   
-    Pianificare e creare account utente. limitare l'accesso degli utenti al server. Per accedere, configurare le stazioni per l'accesso automatico; Consenti più sessioni per gli account utente condivise; implementare per gli utenti di condivisione file.  
+    Pianificare e creare gli account utente; limitare l'accesso degli utenti al server; per l'accesso aperto, configurare le stazioni per l'accesso automatico; Consenti più sessioni per gli account utente condivisi; implementare la condivisione di file per gli utenti.  
   
--   [Amministrazione del sistema MultiPoint Services](System-administration-in-MultiPoint-services.md)  
+-   [Amministrazione del sistema in Servizi MultiPoint](System-administration-in-MultiPoint-services.md)  
   
-    Eseguire alcune attività di amministrazione di base del server prima di iniziare a usare il server. Attivare la protezione del disco; installare Server Backup; Per risparmiare energia, configurare le impostazioni di sospensione. configurare i criteri di gruppo e il Registro di sistema per la distribuzione di un dominio.  
+    Prima di iniziare a utilizzare il server, è necessario eseguire alcune attività di amministrazione di base del server. Attivare la protezione del disco; installare il backup del server; per risparmiare energia, configurare le impostazioni di sospensione; configurare i criteri di gruppo e il registro di sistema per la distribuzione di un dominio.  
   
 ## <a name="see-also"></a>Vedere anche  
   
-- [MultiPoint Services](MultiPoint-Services.md)
--   [Forum di multiPoint Services](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=windowsmultipointserver&filter=alltypes&sort=lastpostdesc)  
+- [Servizi MultiPoint](MultiPoint-Services.md)
+-   [Forum su MultiPoint Services](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=windowsmultipointserver&filter=alltypes&sort=lastpostdesc)  
   

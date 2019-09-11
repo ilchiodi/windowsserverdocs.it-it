@@ -1,6 +1,6 @@
 ---
 title: Preparare il file CAPolicy.inf
-description: Il file CAPolicy. inf contiene varie impostazioni che vengono usate quando si installa il servizio di certificazione Active Directory (AD CS) o durante il rinnovo del certificato CA.
+description: Il file CAPolicy. inf contiene varie impostazioni che vengono usate durante l'installazione del servizio di certificazione Active Directory (AD CS) o durante il rinnovo del certificato della CA.
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
@@ -8,41 +8,41 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 19a87df7c4f165d3b0e6c5add4bc40ff97cc87cb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb2e25dcd27ed3046eeeb444a9f167ccff6e1dd3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446467"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868956"
 ---
 # <a name="capolicyinf-syntax"></a>Sintassi di CAPolicy. inf
->   Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>   Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Il file CAPolicy. inf è un file di configurazione che definisce le estensioni, vincoli e altre impostazioni di configurazione che vengono applicate a un certificato CA radice e tutti i certificati rilasciati dalla CA radice. Il file CAPolicy. inf deve essere installato in un server host prima la routine di installazione per la radice che della CA viene avviata. Quando vengono modificati le restrizioni di sicurezza in una CA radice, deve essere rinnovato il certificato radice e un file CAPolicy. inf aggiornato deve essere installato nel server prima che inizi il processo di rinnovo.
+CAPolicy. inf è un file di configurazione che definisce le estensioni, i vincoli e altre impostazioni di configurazione applicate a un certificato CA radice e a tutti i certificati emessi dalla CA radice. Il file CAPolicy. inf deve essere installato in un server host prima dell'inizio della routine di installazione per la CA radice. Quando è necessario modificare le restrizioni di sicurezza in una CA radice, è necessario rinnovare il certificato radice e installare nel server un file CAPolicy. inf aggiornato prima che il processo di rinnovo venga avviato.
 
 Il file CAPolicy. inf è:
 
--   Creata e definita manualmente dall'amministratore
+-   Creato e definito manualmente da un amministratore
 
--   Utilizzati durante la creazione di radice e certificati della CA subordinata
+-   Utilizzato durante la creazione di certificati della CA radice e subordinata
 
--   Definiti nella firma CA in cui si accedere ed emettere il certificato (non la CA in cui viene concesso le richiesta)
+-   Definito nella CA di firma dove si firma ed emette il certificato (non la CA a cui viene concessa la richiesta)
 
-Dopo aver creato il file CAPolicy. inf, è necessario copiarlo nel **% systemroot %** cartella del server prima di installare Servizi certificati Active Directory o rinnovare il certificato della CA.
+Dopo aver creato il file CAPolicy. inf, è necessario copiarlo nella cartella **% systemroot%** del server prima di installare gli ADC o rinnovare il certificato della CA.
 
-Il file CAPolicy. inf rende possibile specificare e configurare un'ampia gamma di opzioni e gli attributi di autorità di certificazione. La sezione seguente descrive tutte le opzioni per creare un file. inf personalizzate in base a esigenze specifiche.
+Il file CAPolicy. inf consente di specificare e configurare un'ampia gamma di attributi e opzioni della CA. Nella sezione seguente vengono descritte tutte le opzioni per la creazione di un file con estensione inf adattato a specifiche esigenze.
 
-## <a name="capolicyinf-file-structure"></a>Struttura del File CAPolicy. inf
+## <a name="capolicyinf-file-structure"></a>Struttura del file CAPolicy. inf
 
-I termini seguenti vengono utilizzati per descrivere la struttura di file. inf:
+I termini seguenti vengono usati per descrivere la struttura dei file. inf:
 
--   _Sezione_ – è un'area del file che descrive un gruppo logico di chiavi. I nomi delle sezioni nel file con estensione inf sono identificati da visualizzati tra parentesi quadre. Le sezioni molte, ma non tutte, vengono utilizzate per configurare le estensioni del certificato.
+-   _Section_ : area del file che copre un gruppo logico di chiavi. I nomi delle sezioni nei file con estensione inf sono identificati da parentesi quadre. Molte, ma non tutte, le sezioni vengono usate per configurare le estensioni di certificato.
 
 -   _Chiave_ : è il nome di una voce e viene visualizzato a sinistra del segno di uguale.
 
--   _Valore_ : è il parametro e viene visualizzato a destra del segno di uguale.
+-   _Value_ : è il parametro e viene visualizzato a destra del segno di uguale.
 
-Nell'esempio riportato di seguito **[versione]** è la sezione **firma** è la chiave, e **"\$Windows NT\$"** è il valore.
+Nell'esempio seguente **[Version]** è la sezione, **Signature** è la chiave e **\$"Windows NT\$"** è il valore.
 
 Esempio:
 
@@ -51,17 +51,17 @@ Esempio:
 Signature="$Windows NT$"      #key=value
 ```
 
-###  <a name="version"></a>Version
+###  <a name="version"></a>Versione
 
-Identifica il file con estensione inf. Versione è l'unica sezione obbligatorio e deve trovarsi all'inizio del file CAPolicy. inf.
+Identifica il file come file con estensione inf. Version è l'unica sezione obbligatoria e deve trovarsi all'inizio del file CAPolicy. inf.
 
 ###  <a name="policystatementextension"></a>PolicyStatementExtension
 
-Elenca i criteri che sono stati definiti dall'organizzazione, e se sono obbligatori o facoltativi. Più criteri sono separati da virgole. I nomi hanno un significato nel contesto di una distribuzione specifica, o in relazione ad applicazioni personalizzate che consentono di controllare la presenza di questi criteri.
+Elenca i criteri definiti dall'organizzazione e indica se sono facoltativi o obbligatori. Più criteri sono separati da virgole. I nomi hanno un significato nel contesto di una distribuzione specifica o in relazione alle applicazioni personalizzate che verificano la presenza di questi criteri.
 
-Per ogni criterio definita, deve esistere una sezione che definisce le impostazioni per il criterio specifico. Per ogni criterio, è necessario fornire un identificatore di oggetto definito dall'utente (OID) e il testo da visualizzare come l'istruzione del criterio o un puntatore di URL per l'istruzione del criterio. L'URL può essere sotto forma di un HTTP, FTP o URL LDAP.
+Per ogni criterio definito, è necessario che sia presente una sezione che definisce le impostazioni per quel particolare criterio. Per ogni criterio, è necessario fornire un identificatore di oggetto definito dall'utente (OID) e il testo che si desidera visualizzare come istruzione del criterio o un puntatore URL all'istruzione del criterio. L'URL può essere sotto forma di URL HTTP, FTP o LDAP.
 
-Se si intende avere un testo descrittivo nell'istruzione del criterio, le tre righe successive del file CAPolicy. inf si presenta come:
+Se si prevede un testo descrittivo nell'istruzione Policy, le tre righe successive di CAPolicy. inf avranno un aspetto simile al seguente:
 
 ```
 [InternalPolicy]
@@ -69,7 +69,7 @@ OID=1.1.1.1.1.1.1
 Notice=”Legal policy statement text”
 ```
 
-Se si intende usare un URL per ospitare l'istruzione del criterio della CA, quindi tre righe successive sarà invece simile:
+Se si prevede di usare un URL per ospitare l'istruzione dei criteri di autorità di certificazione, le tre righe successive avranno un aspetto simile al seguente:
 
 ```
 [InternalPolicy]
@@ -79,13 +79,13 @@ URL=https://pki.wingtiptoys.com/policies/legalpolicy.asp
 
 Inoltre:
 
--   Sono supportate più chiavi di URL e l'avviso.
+-   Sono supportate più chiavi URL e di avviso.
 
--   Le chiavi di avviso e l'URL nella sezione criteri stessi sono supportate.
+-   Sono supportate le chiavi di avviso e URL nella stessa sezione dei criteri.
 
--   Testo con spazi o gli URL contenenti spazi deve essere racchiuso tra virgolette. Questo vale per il **URL** chiave, indipendentemente dalla sezione in cui è presente.
+-   Gli URL con spazi o testo con spazi devono essere racchiusi tra virgolette. Questa condizione è valida per la chiave **URL** , indipendentemente dalla sezione in cui viene visualizzata.
 
-Un esempio di più avvisi e gli URL in una sezione di criteri si presenta come:
+Un esempio di più notifiche e URL in una sezione di criteri avrà un aspetto simile al seguente:
 
 ```
 [InternalPolicy]
@@ -97,58 +97,58 @@ Notice=”Legal policy statement text”
 
 ### <a name="crldistributionpoint"></a>CRLDistributionPoint
 
-È possibile specificare i punti di distribuzione CRL (CDP) per un certificato CA radice nel file CAPolicy. inf.  Dopo aver installato l'autorità di certificazione, è possibile configurare gli URL CDP che include l'autorità di certificazione in ogni certificato rilasciato. Il certificato CA radice vengono visualizzati gli URL specificati in questa sezione del file CAPolicy. inf. 
+È possibile specificare i punti di distribuzione CRL (CDP) per un certificato CA radice nel file CAPolicy. inf.  Dopo aver installato la CA, è possibile configurare gli URL CDP inclusi nell'autorità di certificazione in ogni certificato emesso. Il certificato CA radice Mostra gli URL specificati in questa sezione del file CAPolicy. inf. 
 
 ```
 [CRLDistributionPoint]
 URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 ```
 
-Informazioni aggiuntive su questa sezione:
--   supporta:
+Altre informazioni su questa sezione:
+-   Supporta
     - HTTP 
-    - URL di file
+    - URL file
     - URL LDAP 
     - Più URL
    
     >[!IMPORTANT]
-    >Non supporta URL HTTPS.
+    >Non supporta gli URL HTTPS.
 
 -   Le virgolette devono racchiudere gli URL con spazi.
 
--   Se è stato specificato alcun URL, vale a dire, se il **[CRLDistributionPoint]** sezione nel file è presente ma è vuota – l'estensione AIA viene omesso dal certificato radice CA. Si tratta in genere preferibile quando si configura una CA radice. Windows non eseguirà revoche su un certificato CA radice, in modo che l'estensione CDP è superfluo a partire da un certificato CA radice.
+-   Se non viene specificato alcun URL, ovvero se la sezione **[CRLDistributionPoint]** esiste nel file ma è vuota, l'estensione di accesso alle informazioni dell'autorità viene omessa dal certificato CA radice. Questa operazione è in genere preferibile quando si configura una CA radice. Windows non esegue il controllo delle revoche su un certificato CA radice, quindi l'estensione CDP è superflua in un certificato CA radice.
 
--    Autorità di certificazione può pubblicare al FILE UNC, ad esempio, in una condivisione che rappresenta la cartella di un sito Web in cui un client recupera tramite HTTP.
+-    CA può pubblicare nel FILE UNC, ad esempio, in una condivisione che rappresenta la cartella di un sito Web in cui un client recupera tramite HTTP.
 
--   Usare questa sezione solo se si desidera configurare una CA radice o rinnovare il certificato CA radice. L'autorità di certificazione determina le estensioni CDP CA subordinate.
+-   Usare questa sezione solo se si configura una CA radice o si rinnova il certificato CA radice. La CA determina le estensioni della CDP della CA subordinata.
    
 
 ### <a name="authorityinformationaccess"></a>AuthorityInformationAccess
 
-È possibile specificare i punti di accesso di informazioni autorità nel file CAPolicy. inf per il certificato CA radice.
+È possibile specificare i punti di accesso alle informazioni sull'autorità nel file CAPolicy. inf per il certificato CA radice.
 
 ```
 [AuthorityInformationAccess]
 URL=http://pki.wingtiptoys.com/Public/myCA.crt
 ```
 
-Alcune note aggiuntive sulla sezione di accesso di informazioni autorità:
+Altre note sulla sezione accesso alle informazioni sull'autorità:
 
 -   Sono supportati più URL.
 
--   HTTP, FTP, LDAP e gli URL di FILE sono supportati. Gli URL HTTPS non sono supportati.
+-   Gli URL HTTP, FTP, LDAP e FILE sono supportati. Gli URL HTTPS non sono supportati.
 
--   Questa sezione viene usata solo se si configurare una CA radice o rinnovare il certificato CA radice. Le estensioni AIA CA subordinate sono determinate dall'autorità di certificazione che ha emesso il certificato della CA subordinata.
+-   Questa sezione viene usata solo se si configura una CA radice o si rinnova il certificato CA radice. Le estensioni dell'AIA CA subordinate sono determinate dalla CA che ha emesso il certificato della CA subordinata.
 
--   Gli URL contenenti spazi devono essere racchiuso tra virgolette.
+-   Gli URL con spazi devono essere racchiusi tra virgolette.
 
--   Se è stato specificato alcun URL, vale a dire, se il **[AuthorityInformationAccess]** sezione nel file è presente ma è vuota, l'estensione punto di distribuzione CRL viene omesso dal certificato radice della CA. Anche in questo caso, sarebbe l'impostazione preferita in caso di un certificato CA radice come nessuna autorità superiore a una CA radice che sarà necessario farvi riferimento da un collegamento al relativo certificato.
+-   Se non vengono specificati URL, ovvero se la sezione **[AuthorityInformationAccess]** esiste nel file ma è vuota, l'estensione del punto di distribuzione CRL viene omessa dal certificato CA radice. Anche in questo caso, si tratta dell'impostazione preferita nel caso di un certificato CA radice, poiché non esiste un'autorità superiore a una CA radice a cui deve essere fatto riferimento da un collegamento al relativo certificato.
 
-### <a name="certsrvserver"></a>certsrv_Server
+### <a name="certsrv_server"></a>certsrv_Server
 
-Un'altra sezione facoltativa del file CAPolicy. inf è [certsrv_server], che consente di specificare la lunghezza della chiave rinnovo, il periodo di validità di rinnovo e il periodo di validità certificato revoche di certificati (CRL) elenco per un'autorità di certificazione viene rinnovato o installato. Le chiavi presenti in questa sezione non sono più necessari. Molte di queste impostazioni hanno valori predefiniti sono sufficienti per la maggior parte delle esigenze e possono essere omesse semplicemente dal file CAPolicy. inf. In alternativa, molte di queste impostazioni può essere modificati dopo aver installato l'autorità di certificazione.
+Un'altra sezione facoltativa di CAPolicy. inf è [certsrv_server], che consente di specificare la lunghezza della chiave di rinnovo, il periodo di validità del rinnovo e il periodo di validità dell'elenco di revoche di certificati (CRL) per un'autorità di certificazione che viene rinnovata o installata. Nessuna delle chiavi di questa sezione è obbligatoria. Molte di queste impostazioni includono valori predefiniti sufficienti per la maggior parte delle esigenze e possono essere semplicemente omessi dal file CAPolicy. inf. In alternativa, molte di queste impostazioni possono essere modificate dopo l'installazione dell'autorità di certificazione.
 
-Un esempio sarebbe simile:
+Un esempio potrebbe essere simile al seguente:
 
 ```
 [certsrv_server]
@@ -166,17 +166,17 @@ ForceUTF8=0
 EnableKeyCounting=0
 ```
 
-**RenewalKeyLength** imposta la dimensione della chiave solo per il rinnovo. Viene utilizzato solo quando una nuova coppia di chiavi viene generata durante il rinnovo del certificato della CA. La dimensione della chiave per il certificato della CA iniziale viene impostata quando viene installato l'autorità di certificazione.
+**RenewalKeyLength** imposta la dimensione della chiave solo per il rinnovo. Viene usato solo quando viene generata una nuova coppia di chiavi durante il rinnovo del certificato della CA. La dimensione della chiave per il certificato della CA iniziale viene impostata durante l'installazione dell'autorità di certificazione.
 
-Durante il rinnovo di un certificato della CA con una nuova coppia di chiavi, la lunghezza della chiave può essere aumentata o diminuita. Ad esempio, se è stata impostata una radice di dimensioni della chiave della CA di 4096 byte o versione successiva e quindi scoprire che è necessario App Java o dispositivi di rete che possono supportare solo dimensioni della chiave di 2048 byte. Se si aumentano o riducono le dimensioni, è necessario eseguire nuovamente tutti i certificati rilasciati dalla CA in questione.
+Quando si rinnova un certificato CA con una nuova coppia di chiavi, la lunghezza della chiave può essere aumentata o diminuita. Ad esempio, se è stata impostata una dimensione della chiave della CA radice di 4096 byte o superiore, quindi si scopre di avere app Java o dispositivi di rete che possono supportare solo le dimensioni delle chiavi di 2048 byte. Se si aumentano o si riducono le dimensioni, è necessario eseguire nuovamente tutti i certificati emessi da tale CA.
 
-**RenewalValidityPeriod** e **RenewalValidityPeriodUnits** stabilire la durata del nuovo certificato CA radice quando rinnovo il certificato CA radice precedente. Si applica solo a una CA radice. La durata del certificato della CA subordinata è determinata da quella di livello superiore. RenewalValidityPeriod può avere i valori seguenti: Ore, giorni, settimane, mesi e anni.
+**RenewalValidityPeriod** e **RenewalValidityPeriodUnits** stabiliscono la durata del nuovo certificato CA radice quando si rinnova il vecchio certificato CA radice. Si applica solo a una CA radice. La durata del certificato di una CA subordinata è determinata dal livello superiore. RenewalValidityPeriod può avere i valori seguenti: Hours, Days, weeks, months e years.
 
-**Parametri CRLPeriod** e **CRLPeriodUnits** stabilire il periodo di validità per il CRL di base. **Parametri CRLPeriod** può avere i valori seguenti: Ore, giorni, settimane, mesi e anni.
+**CRLPeriod** e **CRLPeriodUnits** stabiliscono il periodo di validità per il CRL di base. **CRLPeriod** può avere i valori seguenti: Hours, Days, weeks, months e years.
 
-**CRLDeltaPeriod** e **CRLDeltaPeriodUnits=0** stabilire il periodo di validità dei delta CRL. **CRLDeltaPeriod** può avere i valori seguenti: Ore, giorni, settimane, mesi e anni.
+**CRLDeltaPeriod** e **CRLDeltaPeriodUnits** stabiliscono il periodo di validità del Delta CRL. **CRLDeltaPeriod** può avere i valori seguenti: Hours, Days, weeks, months e years.
 
-Ognuna di queste impostazioni può essere configurata dopo aver installato l'autorità di certificazione:
+Ognuna di queste impostazioni può essere configurata dopo l'installazione dell'autorità di certificazione:
 
 ```
 Certutil -setreg CACRLPeriod Weeks
@@ -185,26 +185,26 @@ Certutil -setreg CACRLDeltaPeriod Days
 Certutil -setreg CACRLDeltaPeriodUnits 1
 ```
 
-Ricordarsi di riavviare Servizi certificati Active Directory per tutte le modifiche per rendere effettive.
+Ricordarsi di riavviare Active Directory Servizi certificati per rendere effettive le modifiche.
 
-**LoadDefaultTemplates=0** si applica solo durante l'installazione di una CA dell'organizzazione. Questa impostazione, entrambi True o False (o 1 o 0), determina se l'autorità di certificazione è configurata con uno qualsiasi dei modelli predefiniti.
+**LoadDefaultTemplates** si applica solo durante l'installazione di una CA globale (Enterprise). Questa impostazione, true o false (o 1 o 0), determina se la CA è configurata con uno dei modelli predefiniti.
 
-In un'installazione predefinita dell'autorità di certificazione, un subset dei modelli di certificato predefinito viene aggiunto alla cartella dei modelli di certificato nello snap-in Autorità di certificazione. Ciò significa che non appena viene avviato il servizio Servizi certificati Active Directory dopo aver installato il ruolo di un utente o un computer dotato di autorizzazioni sufficienti possono registrarsi immediatamente per un certificato.
+In un'installazione predefinita della CA, un subset dei modelli di certificato predefiniti viene aggiunto alla cartella modelli di certificato nello snap-in autorità di certificazione. Ciò significa che non appena viene avviato il servizio Servizi certificati Active Directory dopo l'installazione del ruolo, un utente o un computer con autorizzazioni sufficienti può eseguire immediatamente la registrazione per un certificato.
 
-Non è possibile emettere alcun certificato immediatamente dopo l'installazione di un'autorità di certificazione, quindi è possibile usare l'impostazione LoadDefaultTemplates=0 per impedire l'aggiunta all'autorità di certificazione dell'organizzazione di modelli predefiniti. Se non sono disponibili modelli configurati nell'autorità di certificazione è non possibile emettere alcun certificato.
+È possibile che non si desideri emettere certificati immediatamente dopo l'installazione di un'autorità di certificazione, quindi è possibile usare l'impostazione LoadDefaultTemplates per impedire che i modelli predefiniti vengano aggiunti alla CA globale (Enterprise). Se non sono configurati modelli sulla CA, è possibile che non vengano rilasciati certificati.
 
-**Alternatesignaturealgorithm=1** consente di configurare l'autorità di certificazione per supportare il PKCS\#1 V2.1 formato della firma per il certificato della CA e le richieste di certificati. Se impostato su 1 in una radice della CA il certificato della CA includerà il PKCS\#1 V2.1 formato della firma. Se impostato su una CA subordinata, l'autorità di certificazione subordinata verrà creata una richiesta di certificato che include il PKCS\#1 V2.1 formato della firma.
+**AlternateSignatureAlgorithm** configura la CA per supportare il formato di\#firma PKCS 1 v 2.1 sia per il certificato della CA che per le richieste di certificati. Se impostato su 1 in una CA radice, il certificato della CA includerà\#il formato di firma PKCS 1 v 2.1. Se impostata su una CA subordinata, la CA subordinata creerà una richiesta di certificato\#che include il formato di firma PKCS 1 v 2.1.
 
-**ForceUTF8** modifica l'impostazione predefinita la codifica dei nomi distinti relativi (nomi RDN) nell'oggetto e autorità emittente di nomi in UTF-8 distinti. Solo i nomi RDN che supporta UTF-8, ad esempio quelli che vengono definiti come tipi di stringa di Directory da una richiesta di modifica, sono interessate. Ad esempio, il nome distinto relativo componente di dominio (DC) supporta la codifica come IA5 o UTF-8, mentre il Country RDN (C) supporta solo la codifica sotto forma di stringa stampabili. La direttiva ForceUTF8 avrà pertanto effetto su RDN un controller di dominio, ma non avrà effetto su un RDN C.
+**ForceUTF8** modifica la codifica predefinita dei nomi distinti relativi (RDNS) nei nomi distinti del soggetto e dell'autorità emittente in UTF-8. Sono interessati solo i RDNs che supportano UTF-8, ad esempio quelli definiti come tipi di stringa di directory da una RFC. Ad esempio, l'RDN per il componente di dominio (DC) supporta la codifica come IA5 o UTF-8, mentre il paese RDN (C) supporta solo la codifica come stringa stampabile. La direttiva ForceUTF8 influirà quindi su un RDN del controller di dominio, ma non influirà su un RDN C.
 
-**EnableKeyCounting** consente di configurare la CA per incrementare un contatore ogni volta che viene usata chiave di firma della CA. Non abilitare questa impostazione se non si dispone di un modulo di protezione Hardware (HSM) e provider associato del servizio di crittografia (CSP) che supporta il conteggio di chiavi. Microsoft sicuro CSP né il Provider archiviazione chiavi (KSP) di Microsoft Software supporto chiave il conteggio.
+**EnableKeyCounting** configura la CA per incrementare un contatore ogni volta che viene usata la chiave di firma della CA. Non abilitare questa impostazione a meno che non si disponga di un modulo di protezione hardware (HSM) e del provider del servizio di crittografia (CSP) associato che supporta il conteggio delle chiavi. Né il CSP Microsoft Strong né il provider di archiviazione chiavi del software Microsoft (KSP) supportano il conteggio delle chiavi.
 
 
 ## <a name="create-the-capolicyinf-file"></a>Creare il file CAPolicy. inf
 
 Prima di installare Servizi certificati Active Directory, si configura il file CAPolicy. inf con impostazioni specifiche per la distribuzione.
 
-**Prerequisito:** È necessario essere un membro del gruppo Administrators.
+**Prerequisiti** È necessario essere un membro del gruppo Administrators.
 
 1. Nel computer in cui si prevede di installare Servizi certificati Active Directory, aprire Windows PowerShell, digitare **notepad c:\CAPolicy.inf** e premere INVIO.
 
@@ -231,9 +231,9 @@ Prima di installare Servizi certificati Active Directory, si configura il file C
    [CRLDistributionPoint]  
    [AuthorityInformationAccess]
    ```
-4. Fare clic su **File**, quindi fare clic su **Salva con nome**.
+4. Fare clic su **file**, quindi su **Salva con nome**.
 
-5. Passare alla cartella % systemroot %.
+5. Passare alla cartella% SystemRoot%.
 
 6. Verificare quanto segue:
 
@@ -252,7 +252,7 @@ Prima di installare Servizi certificati Active Directory, si configura il file C
    > [!CAUTION]
    >   Assicurarsi di salvare il file CAPolicy.inf con l'estensione inf. Se non digita specificamente **.inf** alla fine del nome del file e si selezionano le opzioni nel modo indicato, il file verrà salvato come file di testo e non verrà usato durante l'installazione della CA.
 
-9. Chiudere Blocco note.
+9. Chiudere il Blocco note.
 
 > [!IMPORTANT]
->   Nel file CAPolicy. inf, è possibile visualizzare una riga specificando l'URL https://pki.corp.contoso.com/pki/cps.txt. La sezione del criterio interno di CAPolicy.inf è riportata solo come esempio del modo in cui specificare il percorso di un'istruzione di pratica di certificazione (CPS). In questa Guida non viene richiesto per creare l'istruzione di pratica di certificato (CPS).
+>   Nel file CAPolicy. inf, è possibile notare che è presente una riga che specifica https://pki.corp.contoso.com/pki/cps.txt l'URL. La sezione del criterio interno di CAPolicy.inf è riportata solo come esempio del modo in cui specificare il percorso di un'istruzione di pratica di certificazione (CPS). In questa guida non viene richiesto di creare l'istruzione per la procedura di certificazione (CPS).

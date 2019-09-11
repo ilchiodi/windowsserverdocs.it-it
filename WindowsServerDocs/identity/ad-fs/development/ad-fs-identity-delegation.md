@@ -1,6 +1,6 @@
 ---
-title: Scenario con delega di identità con AD FS
-description: Questo scenario descrive un'applicazione che deve accedere alle risorse back-end che richiedono la catena di delega di identità per eseguire controlli di controllo di accesso.
+title: Scenario di delega dell'identità con AD FS
+description: Questo scenario descrive un'applicazione che deve accedere alle risorse back-end che richiedono la catena di delega dell'identità per eseguire i controlli di controllo di accesso.
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -8,85 +8,85 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b82d5fd749ac874d09bc54123727aaf902c4d778
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c461e1051e59fcdb533c00b45157545ffb15df1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819852"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867453"
 ---
-# <a name="identity-delegation-scenario-with-ad-fs"></a>Scenario con delega di identità con AD FS
+# <a name="identity-delegation-scenario-with-ad-fs"></a>Scenario di delega dell'identità con AD FS
 
 
-[A partire da .NET Framework 4.5, Windows Identity Foundation (WIF) è stato completamente integrato in .NET Framework. La versione di Windows Identity Foundation discusso in questo argomento, Windows Identity Foundation 3.5, è deprecata e deve essere usata solo quando lo sviluppo in .NET Framework 3.5 SP1 o .NET Framework 4. Per altre informazioni su WIF in .NET Framework 4.5, anche noto come Windows Identity Foundation 4.5, vedere la documentazione di Windows Identity Foundation nella Guida di sviluppo di .NET Framework 4.5.] 
+[A partire da .NET Framework 4,5, Windows Identity Foundation (WIF) è stato completamente integrato nel .NET Framework. La versione di WIF richiamata da questo argomento, WIF 3,5, è deprecata e deve essere utilizzata solo per lo sviluppo con .NET Framework 3,5 SP1 o con .NET Framework 4. Per ulteriori informazioni su WIF nella .NET Framework 4,5, nota anche come WIF 4,5, vedere la documentazione di Windows Identity Foundation nella Guida allo sviluppo di .NET Framework 4,5. 
 
-Questo scenario descrive un'applicazione che deve accedere alle risorse back-end che richiedono la catena di delega di identità per eseguire controlli di controllo di accesso. In genere, una catena di delega di identità semplice è costituito da alle informazioni sul chiamante iniziale e l'identità del chiamante immediato.
+Questo scenario descrive un'applicazione che deve accedere alle risorse back-end che richiedono la catena di delega dell'identità per eseguire i controlli di controllo di accesso. Una semplice catena di delega di identità è costituita in genere dalle informazioni sul chiamante iniziale e dall'identità del chiamante immediato.
 
-Con il modello di delega Kerberos nella piattaforma Windows oggi stesso, le risorse di back-end hanno accesso solo all'identità del chiamante immediato e non a quello del chiamante iniziale. Questo modello è noto come modello di sottosistema attendibile. WIF viene mantenuta l'identità del chiamante iniziale, nonché il chiamante immediato nella catena di delega usando la proprietà dell'attore.
+Con il modello di delega Kerberos attualmente presente nella piattaforma Windows, le risorse back-end possono accedere solo all'identità del chiamante immediato e non a quella del chiamante iniziale. Questo modello è comunemente noto come modello di sottosistema attendibile. WIF mantiene l'identità del chiamante iniziale e il chiamante immediato nella catena di delega usando la proprietà Actor.
 
-Il diagramma seguente illustra uno scenario di delega di identità tipico in cui un dipendente di Fabrikam accede alle risorse esposte in un'applicazione di Contoso.com.
+Il diagramma seguente illustra uno scenario tipico di delega delle identità in cui un dipendente Fabrikam accede alle risorse esposte in un'applicazione Contoso.com.
 
 ![identità](media/ad-fs-identity-delegation/id1.png)
 
-Gli utenti fittizi che fanno parte di questo scenario sono:
+Gli utenti fittizi che partecipano a questo scenario sono:
 
-- Frank: Un dipendente di Fabrikam che vogliono accedere alle risorse di Contoso.
-- Daniel: Uno sviluppatore di applicazioni di Contoso che implementa le modifiche necessarie nell'applicazione.
-- ADAM: L'amministratore IT di Contoso.
+- Frank Un dipendente Fabrikam che desidera accedere alle risorse di contoso.
+- Daniel Uno sviluppatore di applicazioni Contoso che implementa le modifiche necessarie nell'applicazione.
+- Adam Amministratore IT di contoso.
 
-I componenti coinvolti in questo scenario sono:
+I componenti interessati da questo scenario sono:
 
-- web1: Un'applicazione Web con collegamenti alle risorse back-end che richiedono l'identità delegata al chiamante iniziale. Questa applicazione viene compilata con ASP.NET.
-- Un servizio Web che accede a un Server SQL, che richiede l'identità del chiamante iniziale, insieme a quello del chiamante immediato delegata. Questo servizio viene compilato con WCF.
-- sts1: Un servizio token di sicurezza che si trova nel ruolo di provider di attestazioni e genera le attestazioni previste dall'applicazione (web1). Ha stabilito una relazione di trust con Fabrikam.com e anche con l'applicazione.
-- sts2: Un servizio token di sicurezza che si trova nel ruolo di provider di identità per Fabrikam.com e fornisce un endpoint che il dipendente Fabrikam Usa per eseguire l'autenticazione. Relazione di trust con Contoso.com è determinato in modo che i dipendenti di Fabrikam possono accedere alle risorse in Contoso.com.
+- web1 Applicazione Web con collegamenti alle risorse back-end che richiedono l'identità delegata del chiamante iniziale. Questa applicazione viene compilata con ASP.NET.
+- Servizio Web che accede a una SQL Server, che richiede l'identità delegata del chiamante iniziale, insieme al chiamante immediato. Questo servizio è compilato con WCF.
+- sts1 Un servizio token di servizio che si trova nel ruolo di provider di attestazioni e genera attestazioni previste dall'applicazione (Web1). Ha stabilito una relazione di trust con Fabrikam.com e anche con l'applicazione.
+- sts2 Un STS che si trova nel ruolo di provider di identità per Fabrikam.com e fornisce un endpoint che il dipendente Fabrikam USA per l'autenticazione. Ha stabilito una relazione di trust con Contoso.com in modo che i dipendenti Fabrikam possano accedere alle risorse in Contoso.com.
 
 >[!NOTE] 
->Il termine "Token ActAs", che viene spesso usato in questo scenario, si riferisce a un token emesso dal servizio token di sicurezza e contiene l'identità dell'utente. La proprietà di attore contiene l'identità del servizio token di sicurezza.
+>Il termine "token ActAs", che viene usato spesso in questo scenario, fa riferimento a un token emesso da un STS e contiene l'identità dell'utente. La proprietà Actor contiene l'identità del servizio token di servizio.
 
 Come illustrato nel diagramma precedente, il flusso in questo scenario è:
 
 
-1. L'applicazione Contoso è configurato per ottenere un token ActAs contenente sia l'identità del dipendente Fabrikam che l'identità del chiamante immediato nella proprietà dell'attore. Daniel ha implementato queste modifiche all'applicazione.
-2. L'applicazione Contoso è configurato per passare il token ActAs al servizio back-end. Daniel ha implementato queste modifiche all'applicazione.
-3. Il servizio Web di Contoso è configurato per convalidare il token ActAs chiamando sts1. Davide ha abilitato sts1 elaborare le richieste di delega.
-4. Utente di Fabrikam Frank accede all'applicazione Contoso e viene concesso l'accesso alle risorse back-end.
+1. L'applicazione Contoso è configurata in modo da ottenere un token ActAs che contiene l'identità del dipendente Fabrikam e l'identità del chiamante immediato nella proprietà Actor. Daniel ha implementato queste modifiche nell'applicazione.
+2. L'applicazione Contoso è configurata per passare il token ActAs al servizio back-end. Daniel ha implementato queste modifiche nell'applicazione.
+3. Il servizio Web di Contoso è configurato per convalidare il token ActAs chiamando sts1. Davide ha abilitato sts1 per elaborare le richieste di delega.
+4. L'utente di Fabrikam ha accesso all'applicazione Contoso e viene concesso l'accesso alle risorse back-end.
 
-## <a name="set-up-the-identity-provider-ip"></a>Configurare il Provider di identità (IP)
+## <a name="set-up-the-identity-provider-ip"></a>Configurare il provider di identità (IP)
 
 Sono disponibili tre opzioni per l'amministratore di Fabrikam.com, Frank:
 
 
-1. Acquistare e installare un prodotto del servizio token di sicurezza, ad esempio Active Directory® Federation Services (ADFS).
-2. Sottoscrivere un prodotto di servizio token di sicurezza cloud come servizio token di sicurezza di Windows Live ID.
-3. Creare un servizio token di sicurezza personalizzato mediante WIF.
+1. Acquistare e installare un prodotto STS, ad esempio Active Directory® Federation Services (AD FS).
+2. Sottoscrivere un prodotto STS cloud come LiveID STS.
+3. Creare un STS personalizzato usando WIF.
 
-Per questo scenario di esempio, si presuppone che Frank seleziona opzione1 e viene installato AD FS come IP-STS. Ezio configura inoltre un endpoint, denominato \windowsauth, per autenticare gli utenti. Che fa riferimento alla documentazione del prodotto AD FS e comunica con Adam, l'amministratore IT di Contoso, Frank stabilisce relazioni di trust con il dominio Contoso.com.
+Per questo scenario di esempio si presuppone che Frank selezioni opzione1 e installa AD FS come IP-STS. Configura inoltre un endpoint, denominato \windowsauth, per autenticare gli utenti. Facendo riferimento alla documentazione del prodotto AD FS e parlando con Adam, l'amministratore IT di Contoso, Frank stabilisce una relazione di trust con il dominio Contoso.com.
 
-## <a name="set-up-the-claims-provider"></a>Configurare il Provider di attestazioni
+## <a name="set-up-the-claims-provider"></a>Configurare il provider di attestazioni
 
-Le opzioni disponibili per l'amministratore di Contoso.com, Adam, sono uguali a quelli descritti in precedenza per il provider di identità. Per questo scenario di esempio, si presuppone che Adam seleziona l'opzione 1 e viene installato AD FS 2.0 come applicazione relying Party-STS.
+Le opzioni disponibili per l'amministratore di Contoso.com, Adam, sono le stesse descritte in precedenza per il provider di identità. Per questo scenario di esempio si presuppone che Davide selezioni l'opzione 1 e installa AD FS 2,0 come RP-STS.
 
-## <a name="set-up-trust-with-the-ip-and-application"></a>Impostare relazioni di Trust con l'indirizzo IP e dell'applicazione
+## <a name="set-up-trust-with-the-ip-and-application"></a>Configurare la relazione di trust con l'IP e l'applicazione
 
-Facendo riferimento alla documentazione di AD FS, Adam stabilisce relazioni di trust tra Fabrikam.com e l'applicazione.
+Facendo riferimento alla documentazione di AD FS, Davide stabilisce la relazione di trust tra Fabrikam.com e l'applicazione.
 
 ## <a name="set-up-delegation"></a>Configurare la delega
 
-ADFS offre l'elaborazione di delega. Facendo riferimento alla documentazione di AD FS, Adam consente l'elaborazione dei token ActAs.
+AD FS fornisce l'elaborazione della delega. Facendo riferimento alla documentazione di AD FS, davide consente l'elaborazione dei token ActAs.
 
 ## <a name="application-specific-changes"></a>Modifiche specifiche dell'applicazione
 
-Per aggiungere il supporto per la delega dell'identità a un'applicazione esistente, è necessario effettuare le seguenti modifiche. Daniel viene utilizzato WIF per apportare queste modifiche.
+Per aggiungere il supporto per la delega dell'identità a un'applicazione esistente, è necessario apportare le modifiche seguenti. Daniel USA WIF per apportare queste modifiche.
 
 
-- Memorizzare nella cache il token di bootstrap che web1 ricevuti da sts1.
-- Usare CreateChannelActingAs con il token emesso per creare un canale al servizio Web back-end.
+- Memorizzare nella cache il token di bootstrap ricevuto da web1 da sts1.
+- Usare CreateChannelActingAs con il token emesso per creare un canale per il servizio Web back-end.
 - Chiamare il metodo del servizio back-end.
 
-## <a name="cache-the-bootstrap-token"></a>Memorizzare nella cache il Token di Bootstrap
+## <a name="cache-the-bootstrap-token"></a>Memorizzare nella cache il token bootstrap
 
-Token di bootstrap è il token iniziale generato dal servizio token di sicurezza e l'applicazione estrae le attestazioni da quest'ultimo. In questo scenario di esempio, questo token viene emesso da sts1 per l'utente Frank e l'applicazione memorizza nella cache. Esempio di codice seguente mostra come recuperare un bootstrap token in un'applicazione ASP.NET:
+Il token di bootstrap è il token iniziale emesso dal servizio token di servizio e l'applicazione estrae le attestazioni. In questo scenario di esempio, questo token viene emesso da sts1 per l'utente Frank e l'applicazione lo memorizza nella cache. Nell'esempio di codice seguente viene illustrato come recuperare un token bootstrap in un'applicazione ASP.NET:
 
 ```
 // Get the Bootstrap Token
@@ -99,9 +99,9 @@ if ( claimsPrincipal != null )
     bootstrapToken = claimsIdentity.BootstrapToken;
 }
 ```
-WIF fornisce un metodo, [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), che consente di creare un canale del tipo specificato che aumenta le richieste di rilascio dei token con token di sicurezza specificato come elemento ActAs. È possibile passare il token di bootstrap per questo metodo e quindi chiamare il metodo di servizio necessario nel canale restituito. In questo scenario di esempio identità di Frank ha il [attore](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) proprietà è impostata su identità di web1.
+WIF fornisce un metodo, [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), che crea un canale del tipo specificato che aumenta le richieste di rilascio di token con il token di sicurezza specificato come elemento ActAs. È possibile passare il token di bootstrap a questo metodo e quindi chiamare il metodo del servizio necessario sul canale restituito. In questo scenario di esempio, l'identità di Frank ha la proprietà [Actor](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) impostata su web1's Identity.
 
-Il frammento di codice seguente viene illustrato come chiamare il servizio Web con [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx) e quindi chiamare uno dei metodi del servizio, ComputeResponse, nel canale restituito:
+Il frammento di codice seguente mostra come chiamare il servizio Web con [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx) e quindi chiamare uno dei metodi del servizio, ComputeResponse, sul canale restituito:
 
 ```
 // Get the channel factory to the backend service from the application state
@@ -136,9 +136,9 @@ try
 ```
 ## <a name="web-service-specific-changes"></a>Modifiche specifiche del servizio Web
 
-Poiché il servizio Web viene compilato con WCF e abilitato per WIF, dopo l'associazione è configurata con IssuedSecurityTokenParameters con l'indirizzo dell'autorità di certificazione corretta, la convalida del ActAs viene gestita automaticamente da WIF. 
+Poiché il servizio Web viene compilato con WCF e abilitato per WIF, una volta che l'associazione viene configurata con IssuedSecurityTokenParameters con l'indirizzo dell'autorità emittente appropriato, la convalida di ActAs viene gestita automaticamente da WIF. 
 
-Il servizio Web espone i metodi specifici necessari per l'applicazione. Non sono presenti modifiche di codice specifici necessari nel servizio. Esempio di codice seguente illustra la configurazione del servizio Web con IssuedSecurityTokenParameters:
+Il servizio Web espone i metodi specifici richiesti dall'applicazione. Non sono necessarie modifiche al codice specifiche per il servizio. Nell'esempio di codice seguente viene illustrata la configurazione del servizio Web con IssuedSecurityTokenParameters:
 
 ```
 // Configure the issued token parameters with the correct settings
@@ -183,4 +183,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Sviluppare AD FS](../../ad-fs/AD-FS-Development.md)  
+[Sviluppo di AD FS](../../ad-fs/AD-FS-Development.md)  

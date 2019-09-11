@@ -1,6 +1,6 @@
 ---
 title: Requisiti hardware e consigli sulle prestazioni
-description: Fornisce i requisiti hardware e prestazioni e consigli per i servizi MultiPoint
+description: Fornisce i requisiti di hardware e prestazioni e consigli per MultiPoint Services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,51 +13,51 @@ ms.assetid: 99a5c9c2-270f-4753-a28c-434882c03125
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: b47f4c224d4a4f6f4aa104b6d5ee5d93590ac0c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: afabab738527e7a0994c917b0065baa4f8c53fda
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823392"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871442"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Requisiti hardware e consigli sulle prestazioni
-Questo argomento descrive l'hardware necessario per eseguire un sistema MultiPoint Services e supportare scenari di applicazione utente. Lo scenario utente influisce direttamente sulla CPU, RAM e requisiti di larghezza di banda di rete.  
+Questo argomento descrive l'hardware necessario per eseguire un sistema MultiPoint Services e supportare scenari di applicazioni utente. Lo scenario utente influiscono direttamente sulla CPU, sulla RAM e sui requisiti della larghezza di banda di rete.  
 
 ## <a name="optimize-multipoint-services-system-performance"></a>Ottimizzare le prestazioni del sistema MultiPoint Services  
-Le prestazioni del sistema MultiPoint Services ne risentirà direttamente dalla capacità di CPU, GPU e la quantità di RAM disponibile nel computer che esegue MultiPoint Services.  
+Le prestazioni del sistema MultiPoint Services saranno influenzate direttamente dalla capacità della CPU, dalla GPU e dalla quantità di RAM disponibile nel computer che esegue MultiPoint Services.  
   
-### <a name="applications-and-internet-content"></a>Le applicazioni e contenuto Internet  
-Poiché servizi MultiPoint è una soluzione di computing risorsa condivisa, il tipo e il numero di applicazioni che eseguono le stazioni possono compromettere le prestazioni del sistema MultiPoint Services. È importante considerare i tipi di programmi che vengono utilizzati regolarmente durante la pianificazione del sistema. Ad esempio, un'applicazione a elevato utilizzo di grafica richiede un computer più potente rispetto a un'applicazione, ad esempio un elaboratore di testo. L'overload del computer con le applicazioni a elevato utilizzo di grafica si comportano problemi di ritardo per l'intero sistema.  
+### <a name="applications-and-internet-content"></a>Applicazioni e contenuto Internet  
+Poiché MultiPoint Services è una soluzione per l'elaborazione di risorse condivise, il tipo e il numero di applicazioni in esecuzione nelle stazioni possono avere un effetto sulle prestazioni del sistema MultiPoint Services. È importante prendere in considerazione i tipi di programmi usati regolarmente quando si pianifica il sistema. Un'applicazione a elevato utilizzo di grafica, ad esempio, richiede un computer più potente rispetto a un'applicazione, ad esempio un elaboratore di testo. L'overload del computer con applicazioni a elevato utilizzo di grafica provocherà probabilmente problemi di ritardo nell'intero sistema.  
   
-Il tipo di contenuto a cui accessibile applicazioni influisce anche sulle prestazioni del sistema. Se più stazioni Usa web browser per accedere al contenuto multimedia, ad esempio video in movimento, meno le stazioni possono essere connesse prima di produrre effetti negativi sulle prestazioni del sistema. Viceversa, se le stazioni più Usa web browser per accedere al contenuto web statico, altre stazioni possono essere connesse senza un impatto significativo sulle prestazioni.  
+Il tipo di contenuto a cui si accede dalle applicazioni influiscono anche sulle prestazioni del sistema. Se più stazioni usano Web browser per accedere al contenuto multimediale, ad esempio un video con movimento completo, è possibile connettere un minor numero di stazioni prima di influire negativamente sulle prestazioni del sistema. Viceversa, se le più stazioni utilizzano Web browser per accedere al contenuto Web statico, è possibile connettere più stazioni senza un effetto significativo sulle prestazioni.  
   
 ### <a name="hardware-recommendations"></a>Suggerimenti hardware  
-Per ottenere prestazioni ottimali con il sistema MultiPoint Services in vari carichi elevati, utilizzare le linee guida nella tabella seguente durante la pianificazione e la verifica del sistema. Questi sono i requisiti di base forMultiPoint servizi. Il dimensionamento delle configurazione effettiva varia a seconda della configurazione del sistema, il carico di lavoro che è in esecuzione e la funzionalità di hardware. È sempre opportuno convalidare testando le applicazioni e hardware.  
+Per ottenere prestazioni ottimali con il sistema MultiPoint Services in vari carichi, usare le linee guida riportate nella tabella seguente quando si pianifica e si testa il sistema. Questi sono i requisiti di base di forMultiPoint Services. Il dimensionamento effettivo della configurazione dipende dalla configurazione del sistema, dal carico di lavoro in esecuzione e dalla funzionalità hardware. È sempre necessario eseguire la convalida testando le applicazioni e l'hardware.  
   
 > [!NOTE]  
-> 2. C = 2 core, 4, C = 4 core, 6, C = 6 core, server di destinazione master = il multithreading. Velocità del processore deve essere almeno 2.0 gigahertz (GHz).  
+> 2C = 2 Core, 4C = 4 core, 6C = 6 core, MT = multithreading. La velocità del processore deve essere almeno di 2,0 gigahertz (GHz).  
   
-### <a name="minimum-recommended-hardware-for-running-default-multipoint-server-stations"></a>Consigliati minimo hardware per l'esecuzione di stazioni MultiPoint Server predefinito  
+### <a name="minimum-recommended-hardware-for-running-default-multipoint-server-stations"></a>Hardware minimo consigliato per l'esecuzione di stazioni MultiPoint Server predefinite  
   
-|Application Scenario|Stazioni fino a 5|6 a 8 stazioni|Stazioni di 9 a 12|13-16 stazioni|17 a 20 stazioni|21 a 24 stazioni|  
+|Scenario dell'applicazione|Fino a 5 stazioni|6-8 stazioni|9-12 stazioni|13-16 stazioni|17-20 stazioni|21-24 stazioni|  
 |------------------------|----------------------|-------------------|------------------|-------------------|-------------------|-----------------|  
-|**Produttività**<br /><br />Office, applicazioni line-of-business, esplorazione web|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C<br /><br />RAM: 8 GB|CPU: C + MT 4 o 6C<br /><br />RAM: 10 GB| CPU: 6C+MT<br /><br />RAM: 12 GB|
-|**Mixed**<br /><br />Office, esplorazione del web, applicazioni line-of-business e l'utilizzo occasionale video da alcuni utenti|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: C + MT 4 o 6C<br /><br />RAM: 8 GB|CPU: 6C+MT<br /><br />RAM: 10 GB| CPU: 6C+MT<br /><br />RAM: 12 GB| 
-|**Video con utilizzo intensivo**<br /><br />Office, esplorazione del web, applicazioni line-of-business e uso frequente di video da tutti gli utenti **Nota:** Video di test è stato eseguito usando lo standard video H.264 360p risoluzione nativa.|CPU: 4C+MT<br /><br />RAM: 2 GB|CPU: 6C+MT<br /><br />RAM: 4 GB|CPU: 8C+MT<br /><br />RAM: 6 GB|CPU: 12C+MT<br /><br />RAM: 8 GB|CPU: 16C+MT<br /><br />RAM: 10 GB<br /><br />-Thin Client: RemoteFX<br />-Video USB non consigliata| CPU: 20C+MT<br /><br />RAM: 12 GB<br /><br />-Thin Client: RemoteFX<br />-Video USB non consigliata|   
+|**Produttività**<br /><br />Office, esplorazione Web, applicazioni line-of-business|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C<br /><br />RAM: 8 GB|CPU: 4C + MT o 6C<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB|
+|**Misto**<br /><br />Office, esplorazione Web, applicazioni line-of-business e uso occasionale di video da parte di alcuni utenti|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C + MT o 6C<br /><br />RAM: 8 GB|CPU: 6C + MT<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB| 
+|**Video intensivo**<br /><br />Office, esplorazione Web, applicazioni line-of-business e utilizzo frequente di video da parte di tutti gli utenti **Nota:** Il test video è stato eseguito usando il video 360p H. 264 alla risoluzione nativa.|CPU: 4C + MT<br /><br />RAM: 2 GB|CPU: 6C + MT<br /><br />RAM: 4 GB|CPU: 8C + MT<br /><br />RAM: 6 GB|CPU: 12C + MT<br /><br />RAM: 8 GB|CPU: 16C + MT<br /><br />RAM: 10 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato| CPU: 20 M + MT<br /><br />RAM: 12 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato|   
   
-## <a name="minimum-recommended-hardware-for-running-full-windows-10-virtual-desktops"></a>Consigliati minimo hardware per l'esecuzione completo desktop virtuali di Windows 10  
-Esecuzione di un'istanza virtuale completo del sistema operativo per ogni stazione è che più grande quantità di risorse di calcolo rispetto all'esecuzione, le sessioni di desktop MultiPoint predefinito, in modo che i requisiti di hardware host per ogni stazione sono superiori:  
+## <a name="minimum-recommended-hardware-for-running-full-windows-10-virtual-desktops"></a>Hardware minimo consigliato per l'esecuzione di desktop completi Windows 10 virtuali  
+L'esecuzione di un'istanza del sistema operativo virtuale completa per ogni stazione è un numero di risorse di calcolo molto elevato rispetto all'esecuzione delle sessioni di MultiPoint desktop predefinite, quindi i requisiti hardware per ogni stazione sono superiori:  
   
-1.  CPU: 1 core o thread per ogni stazione  
+1.  CPU: 1 core o thread per stazione  
   
 2.  Unità di stato solido (SSD)  
   
-    1.  Capacità > = 20GB per stazione + 40GB per sistema operativo dell'host di WMS  
+    1.  Capacity > = 20 GB per stazione + 40 GB per il sistema operativo host WMS  
   
-    2.  IOPS di lettura/scrittura casuali > = 3K per stazione  
+    2.  IOPS di lettura/scrittura casuale > = 3K per stazione  
   
-3.  RAM > = 2GB per stazione + 2GB per sistema operativo dell'host di WMS  
+3.  RAM > = 2GB per stazione + 2 GB per il sistema operativo host WMS  
   
-Impostazione del BIOS CPU configurato per abilitare la virtualizzazione – secondo SLAT Level Address Translation)  
+L'impostazione della CPU BIOS è stata configurata per abilitare la virtualizzazione: secondo livello Address Translation (stecca)  
   
-Per altre informazioni sulla scelta dell'hardware di MultiPoint Services migliore per le proprie esigenze, contattare il fornitore dell'hardware.  
+Per ulteriori informazioni sulla scelta del migliore hardware MultiPoint Services per le proprie esigenze, rivolgersi al fornitore dell'hardware.  

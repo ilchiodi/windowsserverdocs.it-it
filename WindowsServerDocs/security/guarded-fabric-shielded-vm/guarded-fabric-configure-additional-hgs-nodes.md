@@ -8,39 +8,39 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 10/22/2018
-ms.openlocfilehash: c0741845bdbd8bfbea00df21d1fe810a27fc6a3b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fe9cd63f08da849c2cb002ab853501370d736f0f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443865"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870595"
 ---
 # <a name="configure-additional-hgs-nodes"></a>Configurare nodi HGS aggiuntivi
 
->Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-Negli ambienti di produzione HGS devono essere configurate in un cluster a disponibilità elevata per garantire che le macchine virtuali schermate possono essere accesi anche se si arresta un nodo HGS. Per gli ambienti di test, i nodi HGS secondari non sono necessari.
+Negli ambienti di produzione, HGS deve essere configurato in un cluster a disponibilità elevata per garantire che le macchine virtuali schermate possano essere accese anche se un nodo HGS diventa inattivo. Per gli ambienti di test, i nodi HGS secondari non sono obbligatori.
 
-Usare uno dei metodi seguenti per aggiungere nodi HGS, come più adatti per l'ambiente.
+Usare uno di questi metodi per aggiungere nodi HGS, come più appropriato per l'ambiente in uso.
 
 |                |                         |                              | 
 |----------------|-------------------------|------------------------------|
-|Nuova foresta di HGS  | [Uso di file PFX](#dedicated-hgs-forest-with-pfx-certificates) | [Usando le identificazioni personali del certificato](#dedicated-hgs-forest-with-certificate-thumbprints) |
-|Foresta bastion esistente |  [Uso di file PFX](#existing-bastion-forest-with-pfx-certificates) | [Usando le identificazioni personali del certificato](#existing-bastion-forest-with-certificate-thumbprints) |
+|Nuova foresta HGS  | [Uso di file PFX](#dedicated-hgs-forest-with-pfx-certificates) | [Uso delle identificazioni personali del certificato](#dedicated-hgs-forest-with-certificate-thumbprints) |
+|Foresta Bastion esistente |  [Uso di file PFX](#existing-bastion-forest-with-pfx-certificates) | [Uso delle identificazioni personali del certificato](#existing-bastion-forest-with-certificate-thumbprints) |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Assicurarsi che ogni nodo aggiuntivo: 
-- Con la stessa configurazione hardware e software del nodo primario 
-- È connesso alla stessa rete come gli altri server HGS
-- Per risolvere gli altri server HGS, i relativi nomi DNS
+Verificare che ogni nodo aggiuntivo: 
+- Ha la stessa configurazione hardware e software del nodo primario 
+- È connesso alla stessa rete degli altri server HGS
+- Può risolvere gli altri server HGS in base ai relativi nomi DNS
 
-## <a name="dedicated-hgs-forest-with-pfx-certificates"></a>Foresta dedicata alla HGS con i certificati PFX
+## <a name="dedicated-hgs-forest-with-pfx-certificates"></a>Foresta HGS dedicata con certificati PFX
 
-1. Alzare di livello il nodo servizio HGS da un controller di dominio
+1. Innalzamento di livello del nodo HGS a controller di dominio
 2. Inizializzare il server HGS
 
-### <a name="promote-the-hgs-node-to-a-domain-controller"></a>Alzare di livello il nodo servizio HGS da un controller di dominio
+### <a name="promote-the-hgs-node-to-a-domain-controller"></a>Innalzamento di livello del nodo HGS a controller di dominio
 
 [!INCLUDE [Promote to a domain controller](../../../includes/guarded-fabric-promote-domain-controller.md)] 
 
@@ -48,13 +48,13 @@ Assicurarsi che ogni nodo aggiuntivo:
 
 [!INCLUDE [Initialize the HGS server](../../../includes/guarded-fabric-initialize-hgs-on-the-node.md)] 
 
-## <a name="dedicated-hgs-forest-with-certificate-thumbprints"></a>Foresta dedicata alla HGS con identificazioni personali del certificato
+## <a name="dedicated-hgs-forest-with-certificate-thumbprints"></a>Foresta HGS dedicata con identificazione personale del certificato
  
-1. Alzare di livello il nodo servizio HGS da un controller di dominio
+1. Innalzamento di livello del nodo HGS a controller di dominio
 2. Inizializzare il server HGS
 3. Installare le chiavi private per i certificati
 
-### <a name="promote-the-hgs-node-to-a-domain-controller"></a>Alzare di livello il nodo servizio HGS da un controller di dominio
+### <a name="promote-the-hgs-node-to-a-domain-controller"></a>Innalzamento di livello del nodo HGS a controller di dominio
 
 [!INCLUDE [Promote to a domain controller](../../../includes/guarded-fabric-promote-domain-controller.md)] 
 
@@ -66,18 +66,18 @@ Assicurarsi che ogni nodo aggiuntivo:
 
 [!INCLUDE [Install private keys](../../../includes/guarded-fabric-install-private-keys.md)]
 
-## <a name="existing-bastion-forest-with-pfx-certificates"></a>Foresta bastion esistente con i certificati PFX
+## <a name="existing-bastion-forest-with-pfx-certificates"></a>Foresta Bastion esistente con certificati PFX
 
 1. Aggiungere il nodo al dominio esistente
-2. Concedere i diritti per il computer per recuperare la password gMSA ed eseguire Install-ADServiceAccount
+2. Concedere i diritti del computer per recuperare la password di gMSA ed eseguire Install-ADServiceAccount
 3. Inizializzare il server HGS
 
 ### <a name="join-the-node-to-the-existing-domain"></a>Aggiungere il nodo al dominio esistente
 
-1. Assicurarsi che almeno una scheda di rete nel nodo è configurato per usare il server DNS nel primo server HGS.
-2. Aggiungere il nuovo nodo HGS allo stesso dominio come il primo nodo del servizio HGS. 
+1. Assicurarsi che almeno una scheda di interfaccia di rete nel nodo sia configurata per l'uso del server DNS nel primo server HGS.
+2. Aggiungere il nuovo nodo HGS allo stesso dominio del primo nodo HGS. 
 
-### <a name="grant-the-machine-rights-to-retrieve-gmsa-password-and-run-install-adserviceaccount"></a>Concedere i diritti per il computer per recuperare la password gMSA ed eseguire Install-ADServiceAccount
+### <a name="grant-the-machine-rights-to-retrieve-gmsa-password-and-run-install-adserviceaccount"></a>Concedere i diritti del computer per recuperare la password di gMSA ed eseguire Install-ADServiceAccount
 
 [!INCLUDE [Grant the machine rights to retrieve the group MSA](../../../includes/guarded-fabric-grant-machine-rights-to-retrieve-gmsa.md)] 
 
@@ -85,19 +85,19 @@ Assicurarsi che ogni nodo aggiuntivo:
 
 [!INCLUDE [Initialize the HGS server](../../../includes/guarded-fabric-initialize-hgs-on-the-node.md)] 
 
-## <a name="existing-bastion-forest-with-certificate-thumbprints"></a>Foresta bastion esistente con identificazioni personali del certificato
+## <a name="existing-bastion-forest-with-certificate-thumbprints"></a>Foresta Bastion esistente con identificazioni personali del certificato
 
 1. Aggiungere il nodo al dominio esistente
-2. Concedere i diritti per il computer per recuperare la password gMSA ed eseguire Install-ADServiceAccount
+2. Concedere i diritti del computer per recuperare la password di gMSA ed eseguire Install-ADServiceAccount
 3. Inizializzare il server HGS
 4. Installare le chiavi private per i certificati
 
 ### <a name="join-the-node-to-the-existing-domain"></a>Aggiungere il nodo al dominio esistente
 
-1. Assicurarsi che almeno una scheda di rete nel nodo è configurato per usare il server DNS nel primo server HGS.
-2. Aggiungere il nuovo nodo HGS allo stesso dominio come il primo nodo del servizio HGS. 
+1. Assicurarsi che almeno una scheda di interfaccia di rete nel nodo sia configurata per l'uso del server DNS nel primo server HGS.
+2. Aggiungere il nuovo nodo HGS allo stesso dominio del primo nodo HGS. 
 
-### <a name="grant-the-machine-rights-to-retrieve-gmsa-password-and-run-install-adserviceaccount"></a>Concedere i diritti per il computer per recuperare la password gMSA ed eseguire Install-ADServiceAccount
+### <a name="grant-the-machine-rights-to-retrieve-gmsa-password-and-run-install-adserviceaccount"></a>Concedere i diritti del computer per recuperare la password di gMSA ed eseguire Install-ADServiceAccount
 
 [!INCLUDE [Grant the machine rights to retrieve the group MSA](../../../includes/guarded-fabric-grant-machine-rights-to-retrieve-gmsa.md)] 
 
@@ -105,52 +105,52 @@ Assicurarsi che ogni nodo aggiuntivo:
 
 [!INCLUDE [Initialize the HGS server](../../../includes/guarded-fabric-initialize-hgs-on-the-node.md)] 
 
-Richiederà fino a 10 minuti per la crittografia e certificati di firma del primo server HGS per replicare in questo nodo.
+Per la replica del primo server HGS in questo nodo sono necessari fino a 10 minuti per la crittografia e la firma dei certificati.
 
 ### <a name="install-the-private-keys-for-the-certificates"></a>Installare le chiavi private per i certificati
 
 [!INCLUDE [Install private keys](../../../includes/guarded-fabric-install-private-keys.md)]
 
-## <a name="configure-hgs-for-https-communications"></a>Configurare il servizio HGS per le comunicazioni HTTPS
+## <a name="configure-hgs-for-https-communications"></a>Configurare HGS per le comunicazioni HTTPS
 
-Se si desidera proteggere gli endpoint di servizio HGS con un certificato SSL, è necessario configurare il certificato SSL in questo nodo, così come ogni altro nodo del cluster del servizio HGS.
-I certificati SSL *non sono* replicato dal servizio HGS e non è necessario utilizzare le stesse chiavi per ogni nodo (ad esempio è possibile avere diversi certificati SSL per ogni nodo).
+Per proteggere gli endpoint HGS con un certificato SSL, è necessario configurare il certificato SSL in questo nodo, così come tutti gli altri nodi del cluster HGS.
+I certificati SSL *non vengono* replicati da HGS e non devono usare le stesse chiavi per ogni nodo, ad esempio è possibile avere diversi certificati SSL per ogni nodo.
 
-Quando si richiede un certificato SSL, assicurarsi che il nome di dominio completo del cluster (come illustrato nell'output di `Get-HgsServer`) è entrambi il nome comune del soggetto del certificato o incluso come nome alternativo del soggetto DNS.
-Quando è stato ottenuto un certificato dall'autorità di certificazione, è possibile configurare per usarlo con HGS [Set-HgsServer](https://technet.microsoft.com/itpro/powershell/windows/hgsserver/set-hgsserver).
+Quando si richiede un certificato SSL, verificare che il nome di dominio completo del cluster, come illustrato nell'output `Get-HgsServer`di, sia il nome comune del soggetto del certificato o incluso come nome DNS alternativo del soggetto.
+Una volta ottenuto un certificato dall'autorità di certificazione, è possibile configurare HGS per l'uso con [set-HgsServer](https://technet.microsoft.com/itpro/powershell/windows/hgsserver/set-hgsserver).
 
 ```powershell
 $sslPassword = Read-Host -AsSecureString -Prompt "SSL Certificate Password"
 Set-HgsServer -Http -Https -HttpsCertificatePath 'C:\temp\HgsSSLCertificate.pfx' -HttpsCertificatePassword $sslPassword
 ```
 
-Se già stato installato il certificato nell'archivio certificati locale e vuole farvi riferimento tramite identificazione personale, eseguire invece il comando seguente:
+Se il certificato è già stato installato nell'archivio certificati locale e si vuole farvi riferimento tramite identificazione personale, eseguire invece il comando seguente:
 
 ```powershell
 Set-HgsServer -Http -Https -HttpsCertificateThumbprint 'A1B2C3D4E5F6...'
 ```
 
-HGS verrà sempre esporre le porte HTTP e HTTPS per la comunicazione.
-Non è supportata per rimuovere l'associazione HTTP in IIS, ma è possibile usare il Firewall di Windows o altre tecnologie di firewall di rete per bloccare le comunicazioni tramite la porta 80.
+HGS esporrà sempre le porte HTTP e HTTPS per la comunicazione.
+Non è supportata la rimozione dell'associazione HTTP in IIS. Tuttavia, è possibile usare la Windows Firewall o altre tecnologie firewall di rete per bloccare le comunicazioni sulla porta 80.
 
 ## <a name="decommission-an-hgs-node"></a>Rimuovere le autorizzazioni di un nodo HGS
 
-Rimozione delle autorizzazioni di un nodo HGS:
+Per rimuovere le autorizzazioni per un nodo HGS:
 
-1. [Cancellare la configurazione del servizio HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration).
+1. [Deselezionare la configurazione HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration).
 
-   Questo rimuove il nodo dal cluster e si disinstalla l'attestazione e i servizi di protezione con chiave. 
-   Se è l'ultimo nodo del cluster, - Force serve a indicare che si desidera rimuovere l'ultimo nodo e il cluster in Active Directory. 
+   Questa operazione rimuove il nodo dal cluster e Disinstalla i servizi di attestazione e protezione delle chiavi. 
+   Se è l'ultimo nodo del cluster,-Force è necessario per indicare che si vuole rimuovere l'ultimo nodo ed eliminare il cluster in Active Directory. 
    
-   Se HGS è distribuito in una foresta bastione (impostazione predefinita), che è l'unico passaggio. 
-   È facoltativamente possibile separare il computer dal dominio e rimuovere l'account gMSA da Active Directory.
+   Se HGS è distribuito in una foresta Bastion (impostazione predefinita), questo è l'unico passaggio. 
+   Facoltativamente, è possibile separare il computer dal dominio e rimuovere l'account gMSA dalla Active Directory.
 
-1. Se HGS creato il proprio dominio, è necessario anche [disinstallare HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) per separare il dominio e abbassare di livello il controller di dominio.
+1. Se HGS ha creato il proprio dominio, è necessario [disinstallare anche HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) per separare il dominio e abbassare il controllo del controller di dominio.
 
 
 
 ## <a name="next-step"></a>Passaggio successivo
 
 > [!div class="nextstepaction"]
-> [Convalidare la configurazione del servizio HGS](guarded-fabric-verify-hgs-configuration.md)
+> [Convalidare la configurazione di HGS](guarded-fabric-verify-hgs-configuration.md)
 

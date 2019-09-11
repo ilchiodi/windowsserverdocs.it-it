@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: ee4dfe223635b176f10691c186144ed5360e3af7
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 5bf85938f242ec29d75b32cdcb8b03c5f34bd1bb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560527"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871968"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
 
@@ -125,7 +125,7 @@ Non utilizzare Replica DFS con File offline in un ambiente multiutente, perché 
 
 ### <a name="what-antivirus-applications-are-compatible-with-dfs-replication"></a>Quali applicazioni antivirus sono compatibili con Replica DFS?
 
-Le applicazioni antivirus possono causare una replica eccessiva se le attività di analisi modificano i file in una cartella replicata. Per ulteriori informazioni, testare l'interoperabilità delle [applicazioni antivirus con replica DFS](http://go.microsoft.com/fwlink/?linkid=73990) (http://go.microsoft.com/fwlink/?LinkId=73990).
+Le applicazioni antivirus possono causare una replica eccessiva se le attività di analisi modificano i file in una cartella replicata. Per ulteriori informazioni, [testare l'interoperabilità delle applicazioni antivirus con replica DFS](http://go.microsoft.com/fwlink/?linkid=73990) (http://go.microsoft.com/fwlink/?LinkId=73990).
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Quali sono i vantaggi dell'utilizzo di Replica DFS anziché Windows SharePoint Services?
 
@@ -191,7 +191,7 @@ No. Replica DFS supporta solo volumi formattati con il file system NTFS. il file
 
 ### <a name="does-dfs-replication-work-with-sparse-files"></a>Replica DFS funziona con i file sparse?
 
-Sì. È possibile replicare file sparse. L' attributo sparse viene mantenuto nel membro ricevente.
+Sì. È possibile replicare file sparse. L'attributo **sparse** viene mantenuto nel membro ricevente.
 
 ### <a name="do-i-need-to-log-in-as-administrator-to-replicate-files"></a>È necessario accedere come amministratore per replicare i file?
 
@@ -205,7 +205,7 @@ Per aggiornare o sostituire un membro di Replica DFS, vedere questo post di Blog
 
 ### <a name="is-dfs-replication-suitable-for-replicating-roaming-profiles"></a>Replica DFS è adatto per la replica di profili mobili?
 
-Sì. Alcuni scenari sono supportati quando si replicano i profili utente mobili. Per informazioni sugli scenari supportati, vedere la pagina relativa all' [istruzione di supporto di Microsoft](http://go.microsoft.com/fwlink/?linkid=201282) relativa ai dati http://go.microsoft.com/fwlink/?LinkId=201282) del profilo utente replicati (.
+Sì. Alcuni scenari sono supportati quando si replicano i profili utente mobili. Per informazioni sugli scenari supportati, vedere la pagina relativa all' [istruzione di supporto di Microsoft relativa ai dati del profilo utente replicati](http://go.microsoft.com/fwlink/?linkid=201282) (http://go.microsoft.com/fwlink/?LinkId=201282).
 
 ### <a name="is-there-a-file-character-limit-or-limit-to-the-folder-depth"></a>È previsto un limite di caratteri di file o un limite alla profondità della cartella?
 
@@ -247,7 +247,7 @@ L'elenco seguente include un set di linee guida per la scalabilità che sono sta
 <br>
 
 
-Per un elenco delle linee guida per la scalabilità testate da Microsoft per Windows Server 2003 R2, vedere [replica DFS linee guida](http://go.microsoft.com/fwlink/?linkid=75043) sulla scalabilità (http://go.microsoft.com/fwlink/?LinkId=75043).
+Per un elenco delle linee guida per la scalabilità testate da Microsoft per Windows Server 2003 R2, vedere [replica DFS linee guida sulla scalabilità](http://go.microsoft.com/fwlink/?linkid=75043) (http://go.microsoft.com/fwlink/?LinkId=75043).
 
 ### <a name="when-should-i-not-use-dfs-replication"></a>Quando non è consigliabile usare Replica DFS?
 
@@ -610,7 +610,7 @@ Per impostazione predefinita, un massimo di 16 (quattro in Windows Server 2003 R
 
 ### <a name="how-do-i-force-replication-or-polling"></a>Ricerca per categorie forzare la replica o il polling?
 
-È possibile forzare immediatamente la replica usando Gestione DFS, come descritto in modificare le pianificazioni della [replica](https://technet.microsoft.com/library/Cc732278). È anche possibile forzare la replica usando `Sync-DfsReplicationGroup` il cmdlet, incluso nel modulo DFSR di PowerShell introdotto con Windows Server 2012 R2 oppure il comando **Dfsrdiag SyncNow** . È possibile forzare il polling usando `Update-DfsrConfigurationFromAD` il cmdlet o il comando **Dfsrdiag PollAD** .
+È possibile forzare immediatamente la replica usando Gestione DFS, come descritto in [modificare le pianificazioni della replica](https://technet.microsoft.com/library/Cc732278). È anche possibile forzare la replica usando `Sync-DfsReplicationGroup` il cmdlet, incluso nel modulo DFSR di PowerShell introdotto con Windows Server 2012 R2 oppure il comando **Dfsrdiag SyncNow** . È possibile forzare il polling usando `Update-DfsrConfigurationFromAD` il cmdlet o il comando **Dfsrdiag PollAD** .
 
 ### <a name="is-it-possible-to-configure-a-quiet-time-between-replications-for-files-that-change-frequently"></a>È possibile configurare un tempo di attesa tra le repliche per i file che cambiano di frequente?
 

@@ -1,6 +1,6 @@
 ---
 title: Kerberos con nome dell'entità servizio (SPN)
-description: Controller di rete supporta più metodi di autenticazione per la comunicazione con i client di gestione. È possibile usare l'autenticazione basata su Kerberos, X509 l'autenticazione basata su certificato. È anche possibile usare senza autenticazione per le distribuzioni di test.
+description: Il controller di rete supporta più metodi di autenticazione per la comunicazione con i client di gestione. È possibile usare l'autenticazione basata su Kerberos, l'autenticazione basata su certificati X509. È anche possibile usare nessuna autenticazione per le distribuzioni di test.
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,65 +9,65 @@ ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 2459cfa8dfec3de4aa23da7aba192d6eeed7f8ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c8c5367eeda576f87ac5de20b7885a1a29aeb4d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828972"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869909"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>Kerberos con nome dell'entità servizio (SPN)
 
->Si applica a: Windows Server 2019
+>Si applica a Windows Server 2019
 
-Controller di rete supporta più metodi di autenticazione per la comunicazione con i client di gestione. È possibile usare l'autenticazione basata su Kerberos, X509 l'autenticazione basata su certificato. È anche possibile usare senza autenticazione per le distribuzioni di test.
+Il controller di rete supporta più metodi di autenticazione per la comunicazione con i client di gestione. È possibile usare l'autenticazione basata su Kerberos, l'autenticazione basata su certificati X509. È anche possibile usare nessuna autenticazione per le distribuzioni di test.
 
-System Center Virtual Machine Manager utilizza l'autenticazione basata su Kerberos. Se si usa l'autenticazione basata su Kerberos, è necessario configurare un nome dell'entità servizio (SPN) per il Controller di rete in Active Directory. Il nome SPN è un identificatore univoco per l'istanza del servizio Controller di rete, che viene usato dall'autenticazione Kerberos per associare un'istanza del servizio con un account di accesso del servizio. Per altre informazioni, vedere [Service Principal Names](https://docs.microsoft.com/windows/desktop/ad/service-principal-names).
+System Center Virtual Machine Manager utilizza l'autenticazione basata su Kerberos. Se si usa l'autenticazione basata su Kerberos, è necessario configurare un nome dell'entità servizio (SPN) per il controller di rete in Active Directory. Il nome SPN è un identificatore univoco per l'istanza del servizio di controller di rete, che viene utilizzata dall'autenticazione Kerberos per associare un'istanza del servizio a un account di accesso al servizio. Per ulteriori informazioni, vedere [nomi dell'entità servizio](https://docs.microsoft.com/windows/desktop/ad/service-principal-names).
 
-## <a name="configure-service-principal-names-spn"></a>Configurare nomi dell'entità servizio (SPN)
+## <a name="configure-service-principal-names-spn"></a>Configurare i nomi dell'entità servizio (SPN)
 
-Il Controller di rete configura automaticamente il nome SPN. È sufficiente eseguire consiste nel fornire le autorizzazioni per le macchine di Controller di rete registrare e modificare il nome SPN.
+Il controller di rete configura automaticamente il nome SPN. È sufficiente fornire le autorizzazioni per la registrazione e la modifica del nome SPN da parte dei computer del controller di rete.
 
-1.  Nel computer del Controller di dominio, avviare **Active Directory Users and Computers**.
+1.  Nel computer controller di dominio avviare **Active Directory utenti e computer**.
 
-2.  Selezionare **View \> Advanced**.
+2.  Selezionare **Visualizza \> avanzate**.
 
-3.  Sotto **computer**, uno degli account computer del Controller di rete, individuare e quindi fare doppio clic e selezionare **proprietà**.
+3.  In **computer**individuare uno degli account del computer del controller di rete, quindi fare clic con il pulsante destro del mouse e scegliere **Proprietà**.
 
-4.  Selezionare il **sicurezza** scheda e fare clic su **avanzate**.
+4.  Selezionare la scheda **sicurezza** e fare clic su **Avanzate**.
 
-5.  Nell'elenco, se tutti gli account computer del Controller di rete o sicurezza gruppo con tutti gli account computer del Controller di rete non è elencato, fare clic su **Add** per aggiungerlo.
+5.  Nell'elenco, se non sono elencati tutti gli account del computer del controller di rete o un gruppo di sicurezza con tutti gli account del computer del controller di rete, fare clic su **Aggiungi** per aggiungerlo.
 
-6.  Per ogni account del computer Controller di rete o un singolo gruppo di sicurezza contenenti gli account computer Controller di rete:
+6.  Per ogni account computer del controller di rete o un singolo gruppo di sicurezza contenente gli account del computer del controller di rete:
 
-    a.  Selezionare l'account o gruppo e fare clic su **modifica**.
+    a.  Selezionare l'account o il gruppo e fare clic su **modifica**.
 
-    b.  In selezionare le autorizzazioni **convalidare Write servicePrincipalName**.
+    b.  In autorizzazioni selezionare **convalida scrittura servicePrincipalName**.
 
-    d.  Scorrere verso il basso e sotto **proprietà** selezionare:
+    d.  Scorrere verso il basso e sotto **Proprietà** selezionare:
 
-       -  **Lettura servicePrincipalName**
+       -  **Leggi servicePrincipalName**
 
-       -  **Write servicePrincipalName**
+       -  **Scrivi servicePrincipalName**
 
     e.  Fare clic su **OK** due volte.
 
-7.  Ripetere il passaggio 3 a 6 per ogni computer Controller di rete.
+7.  Ripetere il passaggio 3-6 per ogni computer del controller di rete.
 
 8.  Chiudere **Utenti e computer di Active Directory**.
 
-## <a name="failure-to-provide-permissions-for-spn-registrationmodification"></a>Se non vengono fornite le autorizzazioni per la registrazione SPN/modifica
+## <a name="failure-to-provide-permissions-for-spn-registrationmodification"></a>Impossibile fornire le autorizzazioni per la registrazione o la modifica del nome SPN
 
-In un **NEW** si verifica un errore di distribuzione di Windows Server 2019, se si sceglie di Kerberos per l'autenticazione di client REST e non concedere l'autorizzazione per i nodi di Controller di rete registrare o modificare il nome SPN, operazioni REST sui Controller di rete consente la gestione di rete SDN.
+In una **nuova** distribuzione di Windows Server 2019, se si sceglie Kerberos per l'autenticazione client REST e non si concede l'autorizzazione per i nodi del controller di rete per la registrazione o la modifica del nome SPN, le operazioni REST sul controller di rete non riescono a impedire la gestione di SDN.
 
-Per un aggiornamento da Windows Server 2016 per Windows Server 2019 e si sceglie Kerberos per l'autenticazione di client REST, le operazioni REST non bloccarsi, garantendo trasparenza per le distribuzioni di produzione esistenti. 
+Per un aggiornamento da Windows Server 2016 a Windows Server 2019 e si è scelto Kerberos per l'autenticazione client REST, le operazioni REST non vengono bloccate, garantendo la trasparenza per le distribuzioni di produzione esistenti. 
 
-Se il SPN non è registrato, l'autenticazione del client REST utilizza NTLM, che è meno sicuro. Otterrai anche un evento critico nel canale di amministrazione di **NetworkController-Framework** canale degli eventi in cui viene chiesto di fornire le autorizzazioni per i nodi di Controller di rete di registrare SPN. Dopo aver specificato l'autorizzazione, Controller di rete registra automaticamente il nome SPN e Kerberos di usare tutte le operazioni client.
+Se SPN non è registrato, l'autenticazione client REST usa NTLM, che è meno sicuro. Si riceve anche un evento critico nel canale di amministrazione del canale degli eventi **NetworkController-Framework,** in cui viene chiesto di fornire le autorizzazioni per i nodi del controller di rete per registrare il nome SPN. Una volta fornita l'autorizzazione, il controller di rete registra automaticamente il nome SPN e tutte le operazioni client utilizzano Kerberos.
 
 
 >[!TIP]
->In genere, è possibile configurare il Controller di rete per usare un indirizzo IP o nome DNS per operazioni basate su REST. Tuttavia, quando si configura Kerberos, è possibile utilizzare un indirizzo IP per query REST nel Controller di rete. Ad esempio, è possibile usare \< https://networkcontroller.consotso.com\>, ma non è possibile usare \< https://192.34.21.3\>. Nomi dell'entità servizio non può funzionare se vengono usati gli indirizzi IP.
+>In genere, è possibile configurare il controller di rete per usare un indirizzo IP o un nome DNS per le operazioni basate su REST. Tuttavia, quando si configura Kerberos, non è possibile usare un indirizzo IP per le query REST per il controller di rete. Ad esempio, è possibile utilizzare \< https://networkcontroller.consotso.com\> , ma non è possibile \< utilizzare https://192.34.21.3\>. I nomi dell'entità servizio non possono funzionare se si usano indirizzi IP.
 >
->Se si Usa indirizzo IP per le operazioni REST con l'autenticazione Kerberos in Windows Server 2016, la comunicazione effettiva sarebbe stato rispetto all'autenticazione NTLM. In questo tipo di distribuzione, dopo l'aggiornamento a Windows Server 2019, continuare a utilizzare l'autenticazione basata su NTLM. Per spostare l'autenticazione basata su Kerberos, è necessario usare il nome DNS di Controller di rete per le operazioni REST e fornire le autorizzazioni per i nodi di Controller di rete di registrare SPN.
+>Se si usa l'indirizzo IP per le operazioni REST insieme all'autenticazione Kerberos in Windows Server 2016, la comunicazione effettiva sarebbe stata rispetto all'autenticazione NTLM. Quando si esegue l'aggiornamento a Windows Server 2019 in una distribuzione di questo tipo, si continua a usare l'autenticazione basata su NTLM. Per passare all'autenticazione basata su Kerberos, è necessario usare il nome DNS del controller di rete per le operazioni REST e fornire l'autorizzazione per i nodi del controller di rete per la registrazione del nome SPN.
 
 ---

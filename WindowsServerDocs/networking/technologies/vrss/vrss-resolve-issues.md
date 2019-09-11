@@ -1,6 +1,6 @@
 ---
 title: Risolvere problemi di vRSS
-description: Risolvere i problemi di vRSS se non viene visualizzata vRSS il carico del traffico a LPs la macchina virtuale.
+description: Risolvere i problemi di vRSS se non viene visualizzato il traffico di bilanciamento del carico vRSS per la macchina virtuale LPs.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -10,31 +10,31 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
-ms.openlocfilehash: a2d6eb43149361b4270565b63fc99f483f364f74
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 412f24e25f75b390ac6315609705b463548c4345
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824032"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871809"
 ---
 ## <a name="resolve-vrss-issues"></a>Risolvere problemi di vRSS
 
-Se è stato completato tutti i passaggi di preparazione e ancora non risulta vRSS il carico del traffico per la macchina virtuale LPs, esistono diversi possibili problemi.
+Se sono stati completati tutti i passaggi di preparazione e non viene ancora visualizzato il traffico di bilanciamento del carico vRSS per la macchina virtuale LPs, esistono diversi possibili problemi.
 
-1. Prima di avere eseguito i passaggi di preparazione, vRSS è stata disabilitata - e ora deve essere abilitato. È possibile eseguire **Set-VMNetworkAdapter** abilitare vRSS per le VM.
+1. Prima di eseguire i passaggi di preparazione, vRSS è stato disabilitato e ora deve essere abilitato. È possibile eseguire **set-VMNetworkAdapter** per abilitare vRSS per la macchina virtuale.
 
    ```PowerShell
    Set-VMNetworkAdapter <VMname> -VrssEnabled $TRUE
    Set-VMNetworkAdapter -ManagementOS -VrssEnabled $TRUE
    ```
 
-2. RSS è stata disabilitata nella macchina virtuale o in vNIC host. Windows Server 2016 consente RSS per impostazione predefinita. qualcuno potrebbe averla disattivata. 
+2. RSS è stato disabilitato nella macchina virtuale o nell'host vNIC. Windows Server 2016 Abilita RSS per impostazione predefinita; qualcuno potrebbe averlo disabilitato. 
 
-   - Abilitato = **True**
+   - Enabled = **true**
 
    **Visualizzare le impostazioni correnti:** 
 
-   Eseguire il seguente cmdlet di PowerShell nella macchina virtuale\(per vRSS in una macchina virtuale\) o nell'host \(per host vNIC vRSS\).
+   Eseguire il cmdlet di PowerShell seguente nella macchina\(virtuale per vRSS in una\) macchina virtuale o nell' \(host per l'host\)vNIC vRSS.
 
    ```PowerShell
    Get-NetAdapterRss
@@ -42,26 +42,26 @@ Se è stato completato tutti i passaggi di preparazione e ancora non risulta vRS
 
    **Abilitare la funzionalità:** 
 
-   Per modificare il valore da False a True, eseguire il cmdlet di PowerShell seguente.
+   Per modificare il valore da false a true, eseguire il cmdlet di PowerShell seguente.
 
    ```PowerShell
    Enable-NetAdapterRss *
    ```
    
-   Un altro modo a livello di sistema per configurare RSS utilizza netsh. Uso 
+   Un altro modo a livello di sistema per configurare RSS consiste nell'usare netsh. Uso 
    
     ```cmd
    netsh int tcp show global
    ```
    
-   Per assicurarsi che tale RSS non è disabilitato a livello globale. E, se necessario riabilitarlo. Questa impostazione non è interessata dalle *-NetAdapterRSS.
+   per assicurarsi che RSS non sia disabilitato a livello globale. E abilitarla, se necessario. Questa impostazione non viene toccata da *-NetAdapterRSS.
 
-3. Se si ritiene che VMMQ non è abilitato dopo aver configurato vRSS, verificare le impostazioni seguenti in ogni scheda collegata al commutatore virtuale:
+3. Se VMMQ non è abilitato dopo la configurazione di vRSS, verificare le impostazioni seguenti in ogni scheda collegata al Commuter virtuale:
 
-   - VmmqEnabled = **False**
-   - VmmqEnabledRequested = **True**
+   - VmmqEnabled = **false**
+   - VmmqEnabledRequested = **true**
 
-   ![vmmq-enabled](../../media/vmmq-enabled.png)
+   ![Abilitazione di vmmq](../../media/vmmq-enabled.png)
 
    **Visualizzare le impostazioni correnti:** 
 
@@ -75,7 +75,7 @@ Se è stato completato tutti i passaggi di preparazione e ancora non risulta vRS
    Set-NetAdapterAdvancedProperty -Name NICName -DisplayName 'Virtual Switch RSS' -DisplayValue Enabled”
    ```
  
-4. _(Windows Server 2019)_  Non è possibile abilitare VMMQ (VmmqEnabled = False) mentre l'impostazione **VrssQueueSchedulingMode** al **dinamico**. Il VrssQueueSchedulingMode non cambia in dinamico dopo aver abilitato VMMQ.<p>Il **VrssQueueSchedulingMode** dei **dinamico** richiede il supporto del driver quando VMMQ è abilitata.  VMMQ è un offload della posizione dei pacchetti su processori logici e di conseguenza, richiede il supporto di driver per sfruttare l'algoritmo dinamico.  Installare driver e firmware che supporta VMMQ dinamica il fornitore di interfaccia di rete.
+4. _(Windows Server 2019)_ Non è possibile abilitare VMMQ (VmmqEnabled = false) quando si imposta **VrssQueueSchedulingMode** su **Dynamic**. Il VrssQueueSchedulingMode non passa a Dynamic dopo l'abilitazione di VMMQ.<p>Il **VrssQueueSchedulingMode** di **Dynamic** richiede supporto driver quando VMMQ è abilitato.  VMMQ è un offload del posizionamento dei pacchetti sui processori logici e, di conseguenza, richiede il supporto del driver per sfruttare l'algoritmo dinamico.  Installare il driver e il firmware del fornitore NIC che supporta VMMQ dinamici.
 
 
 

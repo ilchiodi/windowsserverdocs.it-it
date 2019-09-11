@@ -1,6 +1,6 @@
 ---
 title: Scelta dell'hardware per il sistema di Servizi MultiPoint
-description: Considerazioni relative all'hardware per i servizi MultiPoint
+description: Considerazioni sull'hardware per servizi MultiPoint
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,12 +13,12 @@ ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 969ab0e97b5456c71a43cc14bd82204481bdcc42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 697ab9a1f97eab399dafac4e0c5fa5b641ed841c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835222"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871405"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>Scelta dell'hardware per il sistema di Servizi MultiPoint
 Quando si compila un sistema di servizi MultiPoint, è consigliabile selezionare un computer che soddisfi i requisiti di sistema di Windows Server 2016. Se si decide di selezionare i componenti, considerare quanto segue:  
@@ -29,7 +29,7 @@ Quando si compila un sistema di servizi MultiPoint, è consigliabile selezionare
   
 -   Se lo scenario ha le richieste di elaborazione o di memoria elevate.  
   
--   Il numero di utenti che potrebbero utilizzare il sistema nello stesso momento. Se si prevede di avere molti utenti nel sistema nello stesso momento o gli utenti che utilizzano applicazioni a elevato utilizzo di sistema, è necessario pianificare maggiore potenza di elaborazione per il sistema.  
+-   Il numero di utenti che potrebbero utilizzare il sistema nello stesso momento. Se si prevede di usare contemporaneamente molti utenti nel sistema o se gli utenti usano programmi a elevato utilizzo di sistema, è consigliabile pianificare una maggiore potenza di calcolo per il sistema.  
   
 -   Il tipo di stazioni. Il numero di porte USB o porte video è necessario?  
   
@@ -59,10 +59,10 @@ Servizi multiPoint richiede un x64\-basato su CPU e deve soddisfare i requisiti 
   
 I seguenti tipi di processori sono stati testati per essere utilizzato in un sistema di servizi MultiPoint con elevata\-richiedono programmi di elaborazione, ad esempio programmi multimediali:  
   
--   **Doppia\-processore core:** Può supportare fino a 8 stazioni.  
--   **Quad\-processore core:** Può supportare fino a 16 stazioni.
--   **Quad\-core processore con multithreading:** Può supportare fino a 20 stazioni.      
--   **Sei\-core processore con multithreading:** Può supportare fino a 24 stazioni.  
+-   **Processore\-Dual Core:** Può supportare fino a 8 stazioni.  
+-   **Processore\-quad core:** Può supportare fino a 16 stazioni.
+-   **Processore\-quad core con multithreading:** Può supportare fino a 20 stazioni.      
+-   **Processore\-a sei core con multithreading:** Può supportare fino a 24 stazioni.  
   
 Con queste informazioni, selezionare una CPU che soddisfi i requisiti di elaborazione per il sistema di servizi MultiPoint. 
 > [!NOTE] 
@@ -95,11 +95,11 @@ Dopo aver selezionato i componenti hardware del sistema MultiPoint servizi, assi
   
 Gli argomenti seguenti forniscono informazioni dettagliate che consentono di selezionare i componenti del sistema MultiPoint servizi:  
   
-[Scelta dell'hardware video](#selecting-video-hardware)  
-[Selezione diretta\-video\-connesso o USB zero dispositivi stazione client](#BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices)   
-[Selezionando altre periferiche stazione](#selecting-other-station-peripheral-devices)  
-[Selezione di RDP\-failover\-LAN\-stazione hardware collegato](#BKMK_SelectingRDP-over-LAN-connectedstationhardware)  
-[Selezionare i dispositivi audio](#selecting-audio-devices)  
+[Selezione dell'hardware video](#selecting-video-hardware)  
+[Selezione dei\-dispositivi\-Direct video Connected o USB zero client Station](#BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices)   
+[Selezione di altre periferiche della stazione](#selecting-other-station-peripheral-devices)  
+[Selezione dell'\-hardware\-della\-stazione connessa RDP su LAN](#BKMK_SelectingRDP-over-LAN-connectedstationhardware)  
+[Selezione dei dispositivi audio](#selecting-audio-devices)  
   
 ## <a name="selecting-video-hardware"></a>Scelta dell'hardware video
 L'hardware video selezionato deve supportare il numero di monitor che risulteranno necessari per il numero di utenti che si intende disporre funzionante in stazioni servizi MultiPoint. Inoltre, i diversi tipi di hardware video possono fornire un livello più elevato\-Esplora prestazioni per la grafica\-programmi con utilizzo intensivo, ad esempio il contenuto multimediale.  
@@ -129,15 +129,15 @@ I client USB zero contengono un controller video esterno per collegare un monito
   
 Selezionare una porta USB zero client se si desidera abilitare il supporto per monitor aggiuntivi senza aprire il computer o se si desidera supportare ulteriori stazioni di output video disponibili. Ad esempio, se in precedenza erano quattro monitor collegato\-in schede video e si desidera aggiungere due ulteriori monitor, è possibile collegare\-in due controller video esterno al computer e per i due più monitor. In questo modo, è possibile combinare un USB zero-client con il controller video e non utilizzare slot PCI o PCIe aggiuntivi sulla scheda madre.  
   
-## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Selezione diretta\-video\-connesso o USB zero dispositivi stazione client  
+## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Selezione dei\-dispositivi\-Direct video Connected o USB zero client Station  
 Una stazione di servizi MultiPoint è costituito da un hub di stazione o USB zero client con una tastiera e mouse collegato\-in e un monitor collegato\-al computer host o in un client USB zero. Altre periferiche possono essere inserite\-in per la stazione di hub o USB zero client, ma non è necessario creare stazione MultiPoint. Le altre periferiche sono descritti in [selezionando altre periferiche stazione](#selecting-other-station-peripheral-devices).  
   
 I dispositivi che si desidera per creare una stazione di servizi MultiPoint devono soddisfare i requisiti minimi per lavorare con i servizi MultiPoint. In questo argomento vengono fornite informazioni dettagliate sui requisiti per i dispositivi stazione MultiPoint servizi seguenti:  
   
--   [Selezionare hub USB](#selecting-usb-hubs)  
--   [Selezione USB zero client](#selecting-usb-zero-clients)  
--   [Selezione di tastiere e mouse](#selecting-keyboards-and-mouse-devices)  
--   [Selezione di monitor](#selecting-monitors)  
+-   [Selezione degli hub USB](#selecting-usb-hubs)  
+-   [Selezione dei client USB zero](#selecting-usb-zero-clients)  
+-   [Selezione di tastiere e dispositivi mouse](#selecting-keyboards-and-mouse-devices)  
+-   [Selezione di monitoraggi](#selecting-monitors)  
   
 ### <a name="selecting-usb-hubs"></a>Selezionare hub USB  
 Gli hub USB che vengono utilizzati in un sistema di servizi MultiPoint possono essere un hub USB generico. Tale hub dispongono in genere di quattro o più porte USB e consentono a più dispositivi USB da collegare a una singola porta USB del computer. Altri dispositivi, ad esempio tastiere e monitor, possono inoltre comportare un hub USB in fase di progettazione.  
@@ -164,12 +164,12 @@ Come hub di espansione, è possibile utilizzare una tastiera con un hub interno.
 Se si utilizza split\-stazioni con schermo, si consiglia di utilizzare una tastiera mini che non dispone di un tastierino numerico, in modo che sia in grado di soddisfare due tastiere davanti il monitoraggio.  
   
 ### <a name="selecting-monitors"></a>Selezione di monitor  
-Dovrebbe esserci un monitor fornito per ogni stazione MultiPoint servizi, a meno che una divisione\-schermata è stata pianificata. Monitor siano collegati nella scheda video del computer, il client USB zero o LAN\-basato su client. Qualsiasi tipo di monitoraggio supportati dalla scheda video, USB zero-client o LAN\-basata su client può essere utilizzato, tra cui i monitor CRT.  
+Dovrebbe esserci un monitor fornito per ogni stazione MultiPoint servizi, a meno che una divisione\-schermata è stata pianificata. I monitoraggi sono collegati alla scheda video del computer, il client USB zero o il client basato su\-LAN. Qualsiasi tipo di monitoraggio supportati dalla scheda video, USB zero-client o LAN\-basata su client può essere utilizzato, tra cui i monitor CRT.  
   
 Alcuni monitoraggi speciali includono una LAN interna\-basato su client o USB zero-client. Tali monitoraggi in genere contiene input audio\/output jack e hub USB interno per la connessione tastiere e mouse. Questi si connettono al server tramite USB o una connessione LAN.  
   
 #### <a name="display-resolution"></a>Risoluzione dello schermo  
-La risoluzione minima supportata per l'area di visualizzazione della stazione è 512 x 768 pixel. Se il sistema di servizi MultiPoint viene avviata e rileva area di visualizzazione della stazione è minore rispetto alla risoluzione minima, verrà visualizzata una schermata vuota in tale stazione e la stazione non sarà utilizzabile.  
+La risoluzione minima supportata per l'area di visualizzazione di una stazione è 512 x 768 pixel. Se il sistema MultiPoint Services viene avviato e rileva che l'area di visualizzazione di una stazione è inferiore alla risoluzione minima, verrà visualizzata una schermata vuota in tale stazione e la stazione non sarà utilizzabile.  
   
 Se un monitor di visualizzazione sta per essere condiviso da due stazioni come divisione\-schermata stazioni, il requisito minimo per la visualizzazione è 1024 x 768, in modo che le aree dello schermo stazione singoli risultanti siano almeno 512 x 768. Per il miglior suddivise\-esperienza utente di schermata, è consigliabile una schermata con un minimo di risoluzione di 1600 x 900 wide.  
   
@@ -193,7 +193,7 @@ Servizi multiPoint supporta periferiche connesse a un hub, stazione un USB zero-
 |Controllo Consumer HID|Non funzionante|Stazione disponibile a singole|  
 |Altri dispositivi USB, quali fotocamere, lettori di documenti e unità DVD|Disponibile a tutte le stazioni se supportato da Windows Server 2012|Disponibile a tutte le stazioni se supportato da Windows Server 2008 R2 Servizi Desktop remoto|  
   
-## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Selezione di RDP\-failover\-LAN\-stazione hardware collegato  
+## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Selezione dell'\-hardware\-della\-stazione connessa RDP su LAN  
 Qualsiasi client LAN che possono connettersi a Servizi Desktop remoto, utilizzando Remote Desktop Protocol, può diventare una stazione di servizi MultiPoint.  
   
 Se si desidera che il client di LAN a essere utilizzato solo come stazione MultiPoint, si desidera "bloccare" il client di rete LAN. Ad esempio, configurare il thin client in modo che può connettersi a una sessione di servizi MultiPoint, o configurare i computer desktop in modo che l'accesso alle icone del desktop e Menu Start elementi come un web browser viene rimossa per impedire l'accesso diretto a Internet. È possibile rendere tali configurazioni tramite strumenti di configurazione client LAN o gruppo o criteri locali.  
@@ -201,6 +201,6 @@ Se si desidera che il client di LAN a essere utilizzato solo come stazione Multi
 ## <a name="selecting-audio-devices"></a>Selezionare i dispositivi audio  
 È importante assicurarsi che quando si selezionano dispositivi audio, e possono essere inseriti nell'hub stazione, USB zero-client o client LAN. Alcuni hub USB, USB zero client e client delle reti LAN sono spina audio analogico che può essere utilizzato con i dispositivi audio analogici tradizionali \(ad esempio le cuffie o auricolari\). Hub stazione che non dispongono di jack analogico possono usare dispositivi audio USB.  
   
-Se è stato configurato un server di elaborazione\/2 diretto\-video\-stazione con connessione tramite PS\/2 porte sulla scheda madre del computer per la tastiera e mouse, è necessario utilizzare l'audio analogico di scheda madre del computer affinché il dispositivo audio sia disponibile per questa workstation quando il sistema di servizi MultiPoint è in esecuzione in modalità di espansione.  
+Se è stata configurata\/una stazione\-di\-connessione video diretta di PS\/2 usando le porte PS 2 sulla scheda madre del computer per la tastiera e il mouse, è necessario usare l'audio analogico sulla scheda madre del computer in ordine di disponibilità del dispositivo audio per questa stazione quando il sistema MultiPoint Services è in esecuzione in modalità stazione.  
   
-Se non si dispone di un server di elaborazione\/2 diretto\-video\-stazione connesso, il dispositivo audio host sulla scheda madre del sistema saranno disponibili solo quando il sistema di servizi MultiPoint è in esecuzione in modalità console.  
+Se non si dispone di una stazione\/di connessione\-video\-diretta di PS 2, il dispositivo audio host sulla scheda madre del sistema sarà disponibile solo quando il sistema di servizi multipoint è in esecuzione in modalità console.  

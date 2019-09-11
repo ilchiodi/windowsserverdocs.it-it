@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5f2e1cbc05d25536e39a1109154f22fe729ab110
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 8ddefae96806b50b0ab98f67b9313b85c577bb70
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560482"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865833"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS blocco Extranet e blocco intelligente Extranet
 
@@ -203,7 +203,7 @@ Per rendere effettive le nuove modalità, riavviare il servizio AD FS in tutti i
 ## <a name="manage-user-account-activity"></a>Attività Gestisci account utente
 AD FS fornisce tre cmdlet per gestire i dati dell'attività dell'account. Questi cmdlet si connettono automaticamente al nodo della farm che include il ruolo di master.
 >[!NOTE]
->È possibile usare just enough Administration (JEA) per delegare AD FS cmdlet per reimpostare i blocchi degli account. Ad esempio, è possibile delegare le autorizzazioni per l'uso di cmdlet ESL per il personale del supporto tecnico. Per informazioni sulla delega delle autorizzazioni per l'uso di questi cmdlet, vedere delegare [ad FS PowerShell cmdlet accesso a utenti non amministratori](delegate-ad-fs-pshell-access.md)
+>È possibile usare just enough Administration (JEA) per delegare AD FS cmdlet per reimpostare i blocchi degli account. Ad esempio, è possibile delegare le autorizzazioni per l'uso di cmdlet ESL per il personale del supporto tecnico. Per informazioni sulla delega delle autorizzazioni per l'uso di questi cmdlet, vedere [Delegare ad FS PowerShell cmdlet accesso a utenti non amministratori](delegate-ad-fs-pshell-access.md)
 
 È possibile eseguire l'override di questo comportamento passando il parametro-Server.
 

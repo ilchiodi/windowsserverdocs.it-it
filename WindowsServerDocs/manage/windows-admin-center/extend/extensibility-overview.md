@@ -8,16 +8,16 @@ ms.author: jol
 ms.date: 09/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: beb2b3d1eefc5d70e39baa461708938ac9c17be5
-ms.sourcegitcommit: 3be280c8638214857dc355b201eb56a04499a5e5
+ms.openlocfilehash: c318f3dba1d1264c91a7134aafecdd177882f5f8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67396698"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869734"
 ---
 # <a name="extensions-for-windows-admin-center"></a>Estensioni per Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 Windows Admin Center è creato come una piattaforma estendibile che consente a partner e sviluppatori di sfruttare le funzionalità esistenti in Windows Admin Center, integrare facilmente altri prodotti e soluzioni per l'amministrazione IT e offrire un valore aggiunto ai clienti. Tutte le soluzioni e gli strumenti in Windows Admin Center sono creati come estensione e usano le stesse funzionalità di estendibilità disponibili per i partner e gli sviluppatori, così puoi creare strumenti potenti quanto quelli attualmente disponibili in Windows Admin Center.
 
@@ -25,24 +25,24 @@ Le estensioni di Windows Admin Center sono state create con tecnologie Web moder
 
 ## <a name="why-you-should-consider-developing-an-extension-for-windows-admin-center"></a>Perché dovresti sviluppare un'estensione di Windows Admin Center?
 
-Sviluppando le estensioni per Windows Admin Center, puoi migliorare il prodotto e offrire più valore ai clienti, ad esempio grazie ai vantaggi seguenti:
+Questo è il valore che è possibile portare al prodotto e ai clienti sviluppando estensioni per l'interfaccia di amministrazione di Windows:
 
-- **Integrare con strumenti di Windows Admin Center:** Integra i prodotti e servizi con gli strumenti di gestione di server e cluster in Windows Admin Center e potrai distribuire unificata e uniforme, end-to-end di monitoraggio, gestione, risoluzione dei problemi relativi ai tuoi clienti esperienze.
-- **È possibile sfruttare le funzionalità di sicurezza, identità e gestione della piattaforma:** Abilitare il supporto di Azure Active Directory (AAD), multi-Factor Authentication, controllo di accesso basato sui ruoli (RBAC), la registrazione, il controllo per i servizi e prodotti sfruttando le funzionalità della piattaforma Windows Admin Center per soddisfare i requisiti complessi degli attuali Organizzazioni IT.
-- **Sviluppare usando le tecnologie web più recenti:** Creare rapidamente esperienze utente straordinarie usando tecnologie web moderne incluse HTML5, CSS, Angular, TypeScript e jQuery e i controlli dell'interfaccia utente completo e avanzati inclusi in Windows Admin Center SDK.
-- **Estendere outreach prodotto:** Diventano una parte dell'ecosistema Windows Admin Center nuova con outreach ai nostri base clienti in rapida crescita e sfrutta il 2019 Server Windows avviare momentum quest'anno.
+- **Eseguire l'integrazione con gli strumenti di amministrazione di Windows:** Integra i tuoi prodotti e servizi con gli strumenti di gestione di server e cluster nell'interfaccia di amministrazione di Windows e Distribuisci le esperienze di monitoraggio, gestione e risoluzione dei problemi unificate e senza problemi ai tuoi clienti.
+- **Sfruttare le funzionalità di sicurezza, identità e gestione della piattaforma:** Abilita il supporto di Azure Active Directory (AAD), Multi-Factor Authentication, il controllo degli accessi in base al ruolo (RBAC), la registrazione, il controllo per il prodotto e i servizi sfruttando le funzionalità della piattaforma Windows Admin Center per soddisfare i requisiti complessi di oggi Organizzazioni IT.
+- **Sviluppare utilizzando le tecnologie Web più recenti:** Crea rapidamente esperienze utente straordinarie usando tecnologie Web moderne, tra cui HTML5, CSS, angolare, TypeScript e jQuery, oltre a potenti controlli dell'interfaccia utente inclusi nell'SDK di Windows Admin Center.
+- **Estendi la copertura del prodotto:** Entra a far parte del nuovo ecosistema di amministrazione di Windows con il raggiungimento della base dei clienti in rapida crescita e sfrutta il momento di avvio di Windows Server 2019 più avanti nell'anno.
 
-## <a name="start-developing-with-the-windows-admin-center-sdk"></a>Inizia a sviluppare con il SDK di Windows Admin Center
+## <a name="start-developing-with-the-windows-admin-center-sdk"></a>Inizia a sviluppare con Windows Admin Center SDK
 
-Introduzione allo sviluppo di Windows Admin Center è facile!  Codice di esempio è disponibile per [tool](develop-tool.md), [soluzione](develop-solution.md), e [plug-in gateway](develop-gateway-plugin.md) tipi di estensione nella documentazione SDK. Non esiste è possibile usare l'interfaccia CLI di Windows Admin Center per generare un nuovo progetto di estensione e quindi seguire le guide per personalizzare il progetto per soddisfare le esigenze individuali.
+Iniziare a usare lo sviluppo con il centro di amministrazione di Windows è facile.  Il codice di esempio è disponibile per i tipi di estensione di plug-in per [strumenti](develop-tool.md), [soluzioni](develop-solution.md)e [gateway](develop-gateway-plugin.md) nella documentazione di SDK. Sarà possibile usare l'interfaccia della riga di comando di Windows Admin Center per compilare un nuovo progetto di estensione, quindi seguire le singole guide per personalizzare il progetto in base alle esigenze.
 
-Sono state apportate una Windows Admin Center [toolkit progettazione SDK](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip) disponibili che consentono di simulare rapidamente le estensioni in PowerPoint con stili di Windows Admin Center, controlli e modelli di pagina. Vedere l'estensione può come appaiono nel Windows Admin Center prima di iniziare a scrivere codice!
+È stato reso disponibile un toolkit di [progettazione](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip) di Windows Admin Center SDK che consente di simulare rapidamente le estensioni in PowerPoint usando gli stili, i controlli e i modelli di pagina dell'interfaccia di amministrazione di Windows. Prima di iniziare a scrivere il codice, vedere l'aspetto dell'estensione nell'interfaccia di amministrazione di Windows.
 
-Abbiamo anche codice di esempio ospitata in GitHub: [Strumenti di sviluppo](https://aka.ms/wacsdk) è un'estensione di soluzioni di esempio contenente un insieme avanzato di controlli che è possibile esplorare e utilizzare in un'estensione personalizzata. Strumenti di sviluppo è un'estensione completamente funzionante che può essere trasferita localmente in Windows Admin Center in modalità di sviluppo.
+È disponibile anche codice di esempio ospitato in GitHub: [Strumenti di sviluppo](https://aka.ms/wacsdk) è un'estensione della soluzione di esempio contenente un'ampia raccolta di controlli che è possibile esplorare e utilizzare nella propria estensione. Strumenti di sviluppo è un'estensione completamente funzionante che può essere trasferita localmente in Windows Admin Center in modalità di sviluppo.
 
 Vedi gli argomenti riportati di seguito per altre informazioni su SDK e su come iniziare:
 
-- [Informazioni sul funzionano delle estensioni](understand-extensions.md)
+- [Informazioni sul funzionamento delle estensioni](understand-extensions.md)
 - [Sviluppare un'estensione](developing-extensions.md)
 - [Guide](guides.md)
 - [Pubblicare l'estensione](publish-extensions.md)
@@ -52,37 +52,37 @@ Vedi gli argomenti riportati di seguito per altre informazioni su SDK e su come 
 Scopri l'enorme valore che i nostri partner hanno iniziato ad apportare all'ecosistema di Windows Admin Center e prova subito le loro estensioni. Altre informazioni su [come installare le estensioni](../configure/using-extensions.md) da Windows Admin Center.
 
 ### <a name="biitops"></a>BiitOps
-L'estensione BiitOps modifiche offre rilevamento delle modifiche per le impostazioni di configurazione hardware, software e nei computer fisici/virtuali Windows Server. Le modifiche BiitOps estensione mostrerà esattamente quali sono le novità, cosa è cambiato e cosa è stata eliminata in un singolo riquadro-di-vetro per rilevare i problemi correlati alla sicurezza, affidabilità e conformità. [Altre informazioni sull'estensione BiitOps modifiche](case-studies/biitops.md).
+L'estensione BiitOps changes fornisce il rilevamento delle modifiche per l'hardware, il software e le impostazioni di configurazione sulle macchine virtuali o fisiche di Windows Server. L'estensione BiitOps changes mostrerà esattamente quali sono le novità, cosa è stato modificato e cosa è stato eliminato in un singolo riquadro di vetro per tenere traccia dei problemi relativi a conformità, affidabilità e sicurezza. [Altre informazioni sull'estensione BiitOps changes](case-studies/biitops.md).
 
 ![Estensione BiitOps](../media/extensibility-overview/biitops-1.png)
 
 ### <a name="dataon"></a>DataON
 
-L'estensione deve DataON offre il monitoraggio, gestione ed end-to-end approfondite sull'infrastruttura iperconvergente di DataON e sistemi di archiviazione basati su Windows Server. L'estensione deve aggiunge valore univoco, ad esempio report sui dati cronologici, mapping del disco, gli avvisi di sistema e servizio home chiamata simile a SAN, arricchire le funzionalità di gestione dell'infrastruttura iperconvergente, tramite un facile, server Windows Admin Center esperienza unificata. [Altre informazioni sull'estensione DataON MUST e sull'esperienza di sviluppo](case-studies/dataon.md).
+L'estensione DataON deve fornire informazioni dettagliate su monitoraggio, gestione e end-to-end nell'infrastruttura iperconvergente di DataON e nei sistemi di archiviazione basati su Windows Server. L'estensione MUST aggiunge un valore univoco, ad esempio la creazione di report cronologici dei dati, il mapping del disco, gli avvisi di sistema e il servizio di chiamata a SAN, che integra il server dell'interfaccia di amministrazione di Windows e le funzionalità di gestione dell'infrastruttura iperconvergente, grazie a una soluzione semplice esperienza unificata. [Altre informazioni sull'estensione DataON MUST e sull'esperienza di sviluppo](case-studies/dataon.md).
 
 ![Estensione DataON MUST](../media/extensibility-overview/dataon-must-extension.png)
 
 ### <a name="fujitsu"></a>Fujitsu
 
-Fujitsu ServerView integrità e le estensioni di integrità di RAID per Windows Admin Center forniscono approfondita di monitoraggio e gestione dei componenti hardware importanti, ad esempio processori, memoria, sottosistemi di archiviazione e potenza per i server di Fujitsu PRIMERGY. Usando i controlli dell'interfaccia utente e i modelli di progettazione UX di Windows Admin Center, Fujitsu ha consentito un enorme avanzamento verso la nostra visione di una comprensione end-to-end di servizi e ruoli server, del sistema operativo e della gestione dell'hardware grazie alla piattaforma Windows Admin Center. [Altre informazioni sulle estensioni Fujitsu e sull'esperienza di sviluppo](case-studies/fujitsu.md).
+Le estensioni ServerView Health e RAID Health di Fujitsu per l'interfaccia di amministrazione di Windows forniscono funzionalità di monitoraggio e gestione approfondite dei componenti hardware critici, ad esempio processori, memoria, alimentazione e sottosistemi di archiviazione per i server Fujitsu PRIMERGY. Usando i controlli dell'interfaccia utente e i modelli di progettazione UX di Windows Admin Center, Fujitsu ha consentito un enorme avanzamento verso la nostra visione di una comprensione end-to-end di servizi e ruoli server, del sistema operativo e della gestione dell'hardware grazie alla piattaforma Windows Admin Center. [Altre informazioni sulle estensioni Fujitsu e sull'esperienza di sviluppo](case-studies/fujitsu.md).
 
 ![Estensione Fujitsu ServerView](../media/extensibility-overview/fujitsu-serverview-extension.png)
 
 ### <a name="lenovo"></a>Lenovo
 
-L'estensione di Lenovo XClarity Integrator richiede la gestione dell'hardware al livello successivo grazie alla perfetta integrazione nelle esperienze diverse all'interno di Windows Admin Center. La soluzione Integrator XClarity offre una visualizzazione generale di tutti i server di Lenovo e le estensioni di strumenti diversi forniscono i dettagli sull'hardware se si è connessi a un singolo server, cluster di failover o un cluster iperconvergente. [Altre informazioni sull'estensione Lenovo XClarity Integrator](case-studies/lenovo.md).
+L'estensione Lenovo XClarity Integrator consente la gestione dell'hardware al livello successivo grazie all'integrazione semplificata in diverse esperienze all'interno dell'interfaccia di amministrazione di Windows. La soluzione XClarity Integrator fornisce una visualizzazione di alto livello di tutti i server Lenovo e diverse estensioni degli strumenti forniscono dettagli sull'hardware se si è connessi a un singolo server, a un cluster di failover o a un cluster iperconvergente. [Altre informazioni sull'estensione Lenovo XClarity Integrator](case-studies/lenovo.md).
 
-![Estensione di Lenovo](../media/extensibility-overview/lenovo-extension.png)
+![Estensione Lenovo](../media/extensibility-overview/lenovo-extension.png)
 
 ### <a name="pure-storage"></a>Pure Storage
 
-Archiviazione pure offre enterprise, soluzioni di archiviazione dati all-flash che recapitano architettura incentrate sui dati per accelerare il tuo business per un vantaggio competitivo. L'estensione di archiviazione Pure per Windows Admin Center offre una visualizzazione a riquadro singolo prodotti FlashArray Pure e permette agli utenti di eseguire attività di monitoraggio, visualizzare le metriche delle prestazioni in tempo reale e gestire volumi di archiviazione e gli iniziatori tramite un'unica interfaccia utente esperienza. [Altre informazioni sulle estensioni del Pure e l'esperienza di sviluppo](case-studies/purestorage.md).
+L'archiviazione pure offre soluzioni di archiviazione dei dati aziendali e di tutti i flash che offrono un'architettura incentrata sui dati per accelerare l'attività aziendale per un vantaggio competitivo. L'estensione di archiviazione pure per l'interfaccia di amministrazione di Windows offre una visualizzazione a un unico riquadro dei prodotti FlashArray puri e consente agli utenti di eseguire attività di monitoraggio, visualizzare le metriche delle prestazioni in tempo reale e gestire i volumi e gli iniziatori di archiviazione tramite un'unica interfaccia utente esperienza. [Scopri di più sulle estensioni pure e sull'esperienza di sviluppo](case-studies/purestorage.md).
 
 ![Estensione di archiviazione pure](../media/extensibility-overview/purestorage-extension.png)
 
 ### <a name="qct"></a>QCT
 
-L'estensione QCT Management Suite si integra con Windows Admin Center, fornendo il monitoraggio del server fisico e la gestione per sistemi con certificazione QCT Azure Stack uomo. L'estensione QCT Management Suite consente di visualizzare informazioni sull'hardware di server e fornisce una procedura guidata intuitiva interfaccia utente per la sostituzione fisico di dischi in modo efficiente, gli strumenti di registro eventi di hardware e S.M.A.R.T. basato su Gestione disco predittiva. [Altre informazioni sull'estensione QCT Management Suite](case-studies/qct.md).
+L'estensione QCT Management Suite è complementare all'interfaccia di amministrazione di Windows offrendo la gestione e il monitoraggio dei server fisici per i sistemi certificati QCT Azure Stack HCI. L'estensione QCT Management Suite Visualizza informazioni sull'hardware del server e fornisce un'interfaccia utente intuitiva per la sostituzione dei dischi fisici in modo efficiente, strumenti per il registro eventi hardware e S.M.A.R.T. gestione dei dischi predittivi basata su. [Altre informazioni sull'estensione QCT Management Suite](case-studies/qct.md).
 
 ![Estensione QCT](../media/extensibility-overview/qct-extension.png)
 

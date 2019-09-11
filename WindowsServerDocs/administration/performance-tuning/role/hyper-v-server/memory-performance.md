@@ -1,59 +1,59 @@
 ---
-title: Prestazioni della memoria di Hyper-V
-description: Considerazioni sulla memoria in Hyper-V l'ottimizzazione delle prestazioni
+title: Prestazioni di memoria Hyper-V
+description: Considerazioni sulla memoria nell'ottimizzazione delle prestazioni di Hyper-V
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 63a1b654b8ac52725cc5dd87c8b245f9dfaf40f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddb336e0d6e16342dd60f2f61e50afeda61837e9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848072"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866582"
 ---
-# <a name="hyper-v-memory-performance"></a>Prestazioni della memoria di Hyper-V
+# <a name="hyper-v-memory-performance"></a>Prestazioni di memoria Hyper-V
 
 
-L'hypervisor virtualizza la memoria fisica guest per isolare le macchine virtuali tra loro e per fornire uno spazio di memoria contigue, in base zero per ogni sistema operativo guest, come in sistemi non virtualizzati.
+L'hypervisor virtualizza la memoria fisica Guest per isolare le macchine virtuali tra loro e per fornire uno spazio di memoria contiguo e in base zero per ogni sistema operativo guest, come nei sistemi non virtualizzati.
 
 ## <a name="correct-memory-sizing-for-child-partitions"></a>Correggere il dimensionamento della memoria per le partizioni figlio
 
-È necessario adattare le dimensioni di memoria della macchina virtuale come avviene in genere per le applicazioni server in un computer fisico. È necessario ridimensionare in modo che in grado di gestire il carico previsto in ordinario e ore di picco perché memoria insufficiente può aumentare notevolmente i tempi di risposta e l'utilizzo della CPU o i/o.
+È consigliabile ridimensionare la memoria della macchina virtuale come in genere per le applicazioni server in un computer fisico. È necessario dimensionarlo per gestire ragionevolmente il carico previsto in orari normali e di punta, perché la memoria insufficiente può aumentare significativamente i tempi di risposta e l'utilizzo di CPU o I/O.
 
-È possibile abilitare la memoria dinamica consentire di Windows impostare le dimensioni di memoria della macchina virtuale in modo dinamico. Se le applicazioni nella macchina virtuale si verifichino problemi effettua allocazioni di grandi quantità di memoria improvvisi, con la memoria dinamica, è possibile aumentare le dimensioni del file di paging per la macchina virtuale garantire backup temporaneo mentre la memoria dinamica risponde alle richieste di memoria.
+È possibile abilitare memoria dinamica per consentire a Windows di ridimensionare dinamicamente la memoria della macchina virtuale. Con memoria dinamica, se le applicazioni nella macchina virtuale riscontrano problemi di allocazione di memoria improvvisi di grandi dimensioni, è possibile aumentare le dimensioni del file di paging della macchina virtuale per garantire il supporto temporaneo mentre memoria dinamica risponde alla pressione della memoria.
 
-Per altre informazioni sulla memoria dinamica, vedere [Hyper-V Dynamic Memory Overview]( https://go.microsoft.com/fwlink/?linkid=834434) e [Guida configurazione memoria dinamica di Hyper-V](https://go.microsoft.com/fwlink/?linkid=834435).
+Per ulteriori informazioni su memoria dinamica, vedere [panoramica memoria dinamica Hyper-v]( https://go.microsoft.com/fwlink/?linkid=834434) e la [Guida alla configurazione di memoria dinamica Hyper-v](https://go.microsoft.com/fwlink/?linkid=834435).
 
-Durante l'esecuzione di Windows nella partizione figlio, è possibile utilizzare i seguenti contatori delle prestazioni all'interno di una partizione figlio per determinare se la partizione figlio ha riscontrato un utilizzo elevato della memoria ed è probabile che offrono prestazioni migliori con una dimensione maggiore di memoria macchina virtuale.
+Quando si esegue Windows nella partizione figlio, è possibile utilizzare i contatori delle prestazioni seguenti all'interno di una partizione figlio per identificare se la partizione figlio sta riscontrando un numero eccessivo di richieste di memoria ed è probabile che venga eseguita in modo migliore con una dimensione di memoria della macchina virtuale superiore.
 
-| Contatore delle prestazioni                                                         | Valore di soglia suggerito                                                                                                                                                           |
+| Contatore delle prestazioni                                                         | Valore soglia suggerito                                                                                                                                                           |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Memoria: byte di riserva Cache di Standby                                        | Somma dei byte di riserva Cache di Standby e gratuito e byte di pagine deve essere pari a 200 MB o altre informazioni su sistemi con 1 GB e 300 MB o più nei sistemi con almeno 2 GB di RAM visibile. |
-| Memoria-gratuita & Zero byte di pagine                                        | Somma dei byte di riserva Cache di Standby e gratuito e byte di pagine deve essere pari a 200 MB o altre informazioni su sistemi con 1 GB e 300 MB o più nei sistemi con almeno 2 GB di RAM visibile. |
-| Memoria: Input pagine/Sec                                                    | In un periodo di 1 ora la media è inferiore a 10.                                                                                                                                       | 
+| Memoria-byte riserva cache di standby                                        | La somma dei byte di riserva della cache di standby e dei byte di elenco di pagine gratuite e zero deve essere 200 MB o superiore nei sistemi con 1 GB e 300 MB o superiore nei sistemi con almeno 2 GB di RAM visibile. |
+| Memoria-byte gratuiti & elenco pagine zero                                        | La somma dei byte di riserva della cache di standby e dei byte di elenco di pagine gratuite e zero deve essere 200 MB o superiore nei sistemi con 1 GB e 300 MB o superiore nei sistemi con almeno 2 GB di RAM visibile. |
+| Memoria-input pagine/sec                                                    | La media in un periodo di 1 ora è minore di 10.                                                                                                                                       | 
 
 ## <a name="correct-memory-sizing-for-root-partition"></a>Correggere il dimensionamento della memoria per la partizione radice
 
-La partizione radice deve disporre di memoria sufficiente per fornire servizi, ad esempio i/o virtualization, snapshot della macchina virtuale e la gestione a supporto delle partizioni figlio.
+La partizione radice deve disporre di memoria sufficiente per fornire servizi quali la virtualizzazione I/O, lo snapshot della macchina virtuale e la gestione per supportare le partizioni figlio.
 
-Hyper-V in Windows Server 2016 consente di monitorare lo stato di runtime del sistema operativo di gestione della partizione radice per determinare la quantità di memoria può essere allocata in modo sicuro alle partizioni figlio, continuando a garantire prestazioni elevate e l'affidabilità della partizione radice.
+Hyper-V in Windows Server 2016 monitora lo stato di runtime del sistema operativo di gestione della partizione radice per determinare la quantità di memoria che può essere allocata in modo sicuro alle partizioni figlio garantendo allo stesso tempo prestazioni e affidabilità elevate della partizione radice.
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
--   [Configurazione del server Hyper-V](configuration.md)
+-   [Configurazione dei server Hyper-V](configuration.md)
 
 -   [Prestazioni del processore di Hyper-V](processor-performance.md)
 
--   [Archiviazione di Hyper-V delle prestazioni dei / o](storage-io-performance.md)
+-   [Prestazioni di I/O dell'archiviazione di Hyper-V](storage-io-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Rilevamento dei colli di bottiglia in un ambiente virtualizzato](detecting-virtualized-environment-bottlenecks.md)
 

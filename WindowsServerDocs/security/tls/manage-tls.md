@@ -12,131 +12,131 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 872647f09898bf8ae08ee69f28b717d28abf7c78
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f691775d5ab24de8b23df048c13ec3d7c572833f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447300"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870289"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gestire Transport Layer Security (TLS)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10
+>Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows 10
 
-## <a name="configuring-tls-cipher-suite-order"></a>Configurazione TLS Cipher Suite ordine
+## <a name="configuring-tls-cipher-suite-order"></a>Configurazione dell'ordine del pacchetto di crittografia TLS
 
-Versioni diverse di Windows supportano diversi pacchetti di crittografia TLS e ordine di priorità. Visualizzare [pacchetti di crittografia in TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx) per l'ordine predefinito supportato dal Provider Schannel Microsoft nelle diverse versioni di Windows.
+Diverse versioni di Windows supportano i diversi pacchetti di crittografia TLS e l'ordine di priorità. Vedere pacchetti di [crittografia in TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx) per l'ordine predefinito supportato dal provider Microsoft Schannel in diverse versioni di Windows.
 
 > [!NOTE] 
-> È inoltre possibile modificare l'elenco dei pacchetti di crittografia usando funzioni di CNG, vedere [assegnare la priorità ai pacchetti di crittografia Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx) per informazioni dettagliate.
+> È anche possibile modificare l'elenco di pacchetti di crittografia usando le funzioni CNG. per informazioni dettagliate, vedere priorità dei pacchetti di [crittografia Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx) .
 
-Le modifiche apportate all'ordine TLS cipher suite saranno effettive all'avvio successivo. Fino al riavvio o l'arresto, l'ordine esistente resteranno attive.
+Le modifiche apportate all'ordine del pacchetto di crittografia TLS diverranno effettive al successivo avvio. Fino a quando non viene riavviato o arrestato, l'ordine esistente sarà attivo.
 
 > [!WARNING] 
-> Aggiornamento delle impostazioni del Registro di sistema per l'ordine di priorità predefinito non è supportata e può essere reimpostato con gli aggiornamenti di manutenzione. 
+> L'aggiornamento delle impostazioni del registro di sistema per l'ordine di priorità predefinito non è supportato e può essere reimpostato con gli aggiornamenti del servizio. 
 
-### <a name="configuring-tls-cipher-suite-order-by-using-group-policy"></a>Configurazione TLS Cipher Suite ordine tramite criteri di gruppo
+### <a name="configuring-tls-cipher-suite-order-by-using-group-policy"></a>Configurazione dell'ordine del pacchetto di crittografia TLS tramite Criteri di gruppo
 
-È possibile utilizzare le impostazioni di criteri di gruppo dell'ordine di SSL Cipher Suite per configurare l'ordine predefinito TLS cipher suite.
+Per configurare l'ordine predefinito del pacchetto di crittografia TLS, è possibile usare le impostazioni di Criteri di gruppo dell'ordine dei pacchetti di crittografia SSL.
 
-1. Da Console Gestione criteri di gruppo, passare a **configurazione Computer** > **modelli amministrativi** > **reti**  >  **Le impostazioni di configurazione di SSL**.
-2. Fare doppio clic su **ordine dei pacchetti di crittografia SSL**, quindi fare clic sui **abilitato** opzione.
-3. Fare doppio clic su **pacchetti di crittografia SSL** e selezionare **Seleziona tutto** nel menu a comparsa.
+1. Dal console Gestione criteri di gruppo passare a **configurazione** > computer**modelli amministrativi** > **reti** > **configurazione SSL impostazioni**.
+2. Fare doppio clic su **Order suite di crittografia SSL**, quindi fare clic sull'opzione **Enabled** .
+3. Fare clic con il pulsante destro del mouse su **gruppi di crittografia SSL** e scegliere **Seleziona tutto** dal menu a comparsa.
 
    ![Impostazione di Criteri di gruppo](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4. Il testo selezionato e scegliere **copia** nel menu a comparsa.
-5. Incollare il testo in un editor di testo, ad esempio notepad.exe e aggiornamento con il nuovo elenco di ordini cipher suite.
+4. Fare clic con il pulsante destro del mouse sul testo selezionato e scegliere **copia** dal menu a comparsa.
+5. Incollare il testo in un editor di testo, ad esempio Notepad. exe, e aggiornare con il nuovo elenco di ordini del pacchetto di crittografia.
 
    > [!NOTE]
-   > Elenco degli ordini TLS cipher suite deve essere in formato delimitato da virgole di tipo strict. Ogni stringa di crittografia suite terminerà con una virgola (,) sul lato destro di esso. 
+   > L'elenco di ordini del pacchetto di crittografia TLS deve essere in un formato delimitato da virgole. Ogni stringa del pacchetto di crittografia termina con una virgola (,) sul lato destro. 
    > 
-   > Inoltre, l'elenco dei pacchetti di crittografia è limitato a 1.023 caratteri.
+   > Inoltre, l'elenco di pacchetti di crittografia è limitato a 1.023 caratteri.
 
-6. Sostituire l'elenco nel **pacchetti di crittografia SSL** con l'elenco ordinato aggiornato.
+6. Sostituire l'elenco nei pacchetti di **crittografia SSL** con l'elenco ordinato aggiornato.
 7. Fare clic su **OK** o **applicare**.
 
-### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Configurazione TLS Cipher Suite ordine tramite MDM
+### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Configurazione dell'ordine del pacchetto di crittografia TLS tramite MDM
 
-Il provider CSP dei criteri di Windows 10 supporta la configurazione dei pacchetti di crittografia TLS. Visualizzare [Cryptography/TLSCipherSuites](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/policy-configuration-service-provider#cryptography-tlsciphersuites) per altre informazioni.
+Il CSP dei criteri di Windows 10 supporta la configurazione dei pacchetti di crittografia TLS. Per ulteriori informazioni, vedere [Cryptography/TLSCipherSuites](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/policy-configuration-service-provider#cryptography-tlsciphersuites) .
 
-### <a name="configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets"></a>Configurazione TLS Cipher Suite ordine utilizzando i cmdlet di PowerShell di TLS
+### <a name="configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets"></a>Configurazione dell'ordine del pacchetto di crittografia TLS tramite i cmdlet di PowerShell per TLS
 
-Il modulo PowerShell di TLS supporta il recupero dell'elenco ordinato dei pacchetti di crittografia TLS, la disabilitazione di un pacchetto di crittografia e l'abilitazione di un pacchetto di crittografia. Visualizzare [TLS modulo](https://technet.microsoft.com/itpro/powershell/windows/tls/tls) per altre informazioni.
+Il modulo di PowerShell TLS supporta il recupero dell'elenco ordinato dei pacchetti di crittografia TLS, la disabilitazione di un pacchetto di crittografia e l'abilitazione di un pacchetto di crittografia. Per ulteriori informazioni, vedere il [modulo TLS](https://technet.microsoft.com/itpro/powershell/windows/tls/tls) .
 
-## <a name="configuring-tls-ecc-curve-order"></a>Configurazione di ordine di curva ECC TLS 
+## <a name="configuring-tls-ecc-curve-order"></a>Configurazione dell'ordine delle curve TLS ECC 
 
-A partire da Windows 10 e Windows Server 2016, ordine curva ECC può essere configurato indipendentemente dall'ordine cipher suite. Se TLS cipher suite di ordinamento elenco suffissi a curva ellittica, si eseguirà l'override del nuovo ordine di priorità a curva ellittica, se abilitato. Ciò consente alle organizzazioni di usare un oggetto Criteri di gruppo per configurare diverse versioni di Windows con lo stesso ordine di pacchetti di crittografia.
+A partire da Windows 10 & Windows Server 2016, l'ordine di curva ECC può essere configurato indipendentemente dall'ordine del pacchetto di crittografia. Se l'elenco di ordini del pacchetto di crittografia TLS presenta suffissi a curva ellittica, questi verranno sostituiti dal nuovo ordine di priorità della curva ellittica, se abilitato. Questo consente alle organizzazioni di usare un oggetto Criteri di gruppo per configurare versioni diverse di Windows con lo stesso ordine dei pacchetti di crittografia.
 
 > [!NOTE]
-> Prima di Windows 10, pacchetti di crittografia suite stringhe sono stati aggiunti con la curva ellittica per determinare la priorità della curva.
+> Prima di Windows 10, le stringhe del pacchetto di crittografia venivano aggiunte con la curva ellittica per determinare la priorità della curva.
 
-### <a name="managing-windows-ecc-curves-using-certutil"></a>La gestione di curve ECC Windows utilizzando CertUtil
+### <a name="managing-windows-ecc-curves-using-certutil"></a>Gestione delle curve ECC di Windows tramite CertUtil
 
-A partire da Windows 10 e Windows Server 2016, Windows prevede la gestione di parametro a curva ellittica tramite certutil.exe l'utilità della riga di comando. I parametri della curva ellittica vengono archiviati nel bcryptprimitives.dll. Usa certutil.exe, gli amministratori possono aggiungere e rimuovere i parametri della curva verso e da Windows, rispettivamente. Certutil.exe archivia i parametri della curva in modo sicuro nel Registro di sistema. Windows può iniziare a usare i parametri della curva per il nome associato della curva.    
+A partire da Windows 10 e Windows Server 2016, Windows fornisce la gestione dei parametri a curva ellittica tramite l'utilità della riga di comando certutil. exe. I parametri della curva ellittica vengono archiviati in bcryptprimitives. dll. Utilizzando certutil. exe, gli amministratori possono aggiungere e rimuovere parametri di curva rispettivamente da e verso Windows. Certutil. exe archivia i parametri della curva in modo sicuro nel registro di sistema. Windows può iniziare a usare i parametri della curva in base al nome associato alla curva.    
 
-#### <a name="displaying-registered-curves"></a>La visualizzazione delle curve registrate
+#### <a name="displaying-registered-curves"></a>Visualizzazione di curve registrate
 
-Usare il comando certutil.exe seguente per visualizzare un elenco di curve registrato per il computer corrente.
+Usare il comando certutil. exe seguente per visualizzare un elenco di curve registrate per il computer corrente.
 
 ```powershell
 certutil.exe –displayEccCurve
 ```
 
-![Curve di visualizzazione di certutil](../media/Transport-Layer-Security-protocol/certutil-display-curves.png)
+![Curve di visualizzazione certutil](../media/Transport-Layer-Security-protocol/certutil-display-curves.png)
 
-*Figura 1 Certutil.exe di output per visualizzare l'elenco delle curve registrate.*
+*Figura 1. output di certutil. exe per visualizzare l'elenco delle curve registrate.*
 
-#### <a name="adding-a-new-curve"></a>Aggiunta di una curva di nuovo
+#### <a name="adding-a-new-curve"></a>Aggiunta di una nuova curva
 
-Le organizzazioni possono creare e usare i parametri della curva analizzati da altre entità attendibili.  
-Gli amministratori che desiderano utilizzare queste curve di nuovo in Windows è necessario aggiungere la curva.  
-Usare il comando certutil.exe seguente per aggiungere una curva a computer corrente:
+Le organizzazioni possono creare e usare i parametri della curva ricercati da altre entità attendibili.  
+Gli amministratori che desiderano utilizzare queste nuove curve in Windows devono aggiungere la curva.  
+Usare il comando certutil. exe seguente per aggiungere una curva al computer corrente:
 
 ```powershell
 Certutil —addEccCurue curveName curveParameters [curveOID] [curveType]
 ```
 
-- Il **curveName** argomento rappresenta il nome della curva in cui sono stati aggiunti i parametri della curva.
-- Il **curveParameters** argomento rappresenta il nome del file di un certificato che contiene i parametri delle curve di cui si desidera aggiungere.
-- Il **curveOid** argomento rappresenta il nome di un certificato che contiene l'OID dei parametri della curva si desidera aggiungere (facoltativo).
-- Il **curveType** argomento rappresenta un valore decimale della curva denominata dalle [registro curva denominata EC](http://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8) (facoltativo).
+- L'argomento **curvename** rappresenta il nome della curva in cui sono stati aggiunti i parametri della curva.
+- L'argomento **curveParameters** rappresenta il nome file di un certificato che contiene i parametri delle curve che si desidera aggiungere.
+- L'argomento **curveOid** rappresenta un nome di file di un certificato contenente l'OID dei parametri della curva che si desidera aggiungere (facoltativo).
+- L'argomento **curveType** rappresenta un valore decimale della curva denominata dal [Registro di sistema della curva EC denominata](http://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8) (facoltativo).
 
 ![Certutil aggiungere curve](../media/Transport-Layer-Security-protocol/certutil-add-curves.png)
 
-*Figura 2 aggiungendo una curva con certutil.exe.*
+*Figura 2 aggiunta di una curva tramite Certutil. exe.*
 
-#### <a name="removing-a-previously-added-curve"></a>Rimozione di una curva aggiunta in precedenza
+#### <a name="removing-a-previously-added-curve"></a>Rimozione di una curva precedentemente aggiunta
 
-Gli amministratori possono rimuovere una curva aggiunta in precedenza usando il comando certutil.exe seguente:
+Gli amministratori possono rimuovere una curva aggiunta in precedenza usando il comando certutil. exe seguente:
 
 ```powershell
 Certutil.exe –deleteEccCurve curveName
 ```
 
-Windows non è possibile usare una curva denominata dopo che un amministratore rimuove la curva dal computer.
+Windows non può utilizzare una curva denominata dopo che un amministratore ha rimosso la curva dal computer.
 
-## <a name="managing-windows-ecc-curves-using-group-policy"></a>La gestione delle curve ECC Windows tramite criteri di gruppo
+## <a name="managing-windows-ecc-curves-using-group-policy"></a>Gestione delle curve ECC di Windows con Criteri di gruppo
 
-Le organizzazioni possono distribuire i parametri della curva a enterprise, dominio, computer tramite criteri di gruppo e l'estensione del Registro di preferenze criteri di gruppo.  
+Le organizzazioni possono distribuire i parametri della curva al computer aziendale, aggiunto a un dominio, usando Criteri di gruppo e l'estensione del registro di sistema delle preferenze Criteri di gruppo.  
 Il processo per la distribuzione di una curva è:
 
-1.  In Windows 10 e Windows Server 2016, usare **certutil.exe** per aggiungere una curva denominata registrata nuovi per Windows.
-2.  Da quel computer stesso, aprire la Console Gestione criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
-3.  Passare a **configurazione Computer | Preferenze | Le impostazioni di Windows | Registro di sistema**.  Fare doppio clic su **Registro di sistema**. Passare il mouse su **New** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in base al nome della curva. Si creerà un elemento della raccolta del Registro di sistema per ogni chiave di registro *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Configurare la raccolta del Registro di sistema preferenza di criteri di gruppo appena creato aggiungendo una nuova **elemento Registro di sistema** per ogni valore del Registro di sistema elencata sotto *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[curveName]* .
-5.  Distribuire l'oggetto Criteri di gruppo che contiene elementi di raccolta del Registro di sistema dei criteri di gruppo per computer Windows 10 e Windows Server 2016 che deve ricevere le curve denominate nuovo.
+1.  In Windows 10 e Windows Server 2016, utilizzare **certutil. exe** per aggiungere una nuova curva denominata registrata a Windows.
+2.  Dallo stesso computer aprire il Console Gestione Criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
+3.  Passare a **Configurazione computer | Preferenze | Impostazioni di Windows | Registro di sistema**.  Fare clic con il pulsante destro del mouse su **Registry**. Passare il puntatore su **nuovo** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in modo che corrisponda al nome della curva. Verrà creato un elemento della raccolta del registro di sistema per ogni chiave del registro di sistema in *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
+4.  Configurare la raccolta del registro di sistema delle preferenze di criteri di gruppo appena creata aggiungendo un nuovo **elemento del registro** di sistema per ogni valore del registro di sistema elencato in *\[HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters curvename ]* .
+5.  Distribuire l'oggetto Criteri di gruppo contenente Criteri di gruppo elemento della raccolta registro di sistema nei computer Windows 10 e Windows Server 2016 che devono ricevere le nuove curve denominate.
 
-    ![GPP distribuire curve](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
+    ![GPP distribuisce le curve](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
 
-    *Figura 3 Using Group Policy Preferences per distribuire le curve*
+    *Figura 3 uso delle preferenze di Criteri di gruppo per distribuire le curve*
 
-## <a name="managing-tls-ecc-order"></a>La gestione dell'ordine di TLS ECC
+## <a name="managing-tls-ecc-order"></a>Gestione dell'ordine di TLS
 
-A partire da Windows 10 e Windows Server 2016, i criteri di gruppo dell'ordine di curva ECC impostazioni consentono di configurare il valore predefinito dell'ordine di curva ECC TLS. Usando ECC generico e questa impostazione, le organizzazioni possa aggiungere i propri denominato curve (che vengono approvate per l'uso con TLS) per il sistema operativo attendibile e quindi aggiungere le curve denominate per l'impostazione di criteri di gruppo di priorità curva per assicurarsi che vengono usati in futuro TLS Handshake. Nuovi elenchi con priorità curva diventano attivi al riavvio successivo dopo aver ricevuto le impostazioni dei criteri.     
+A partire da Windows 10 e Windows Server 2016, è possibile usare le impostazioni di criteri di gruppo dell'ordine di curva ECC. configurare l'ordine predefinito della curva TLS ECC. Utilizzando ECC generico e questa impostazione, le organizzazioni possono aggiungere al sistema operativo le proprie curve denominate attendibili (approvate per l'uso con TLS), quindi aggiungere le curve denominate alla priorità della curva Criteri di gruppo impostazione per assicurarsi che vengano usate in TLS futuro strette. I nuovi elenchi priorità curva diventano attivi al riavvio successivo dopo aver ricevuto le impostazioni dei criteri.     
 
-![GPP distribuire curve](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
+![GPP distribuisce le curve](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
 
-*Figura 4 Gestione TLS curva priorità tramite criteri di gruppo*
+*Figura 4 gestione della priorità della curva TLS con Criteri di gruppo*
 
 

@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 08892fe771928fa4b68ce50bfef2b6a041c2d210
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 2ab6141b84d03102c5dedd1ede0ba99e5adf3e4a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983539"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867751"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Scenario: API Web che chiama l'API Web (per conto dello scenario) 
 > Si applica a: AD FS 2019 e versioni successive 
@@ -223,6 +223,6 @@ Una volta apportate modifiche al codice, ricompilare la soluzione
       ![Reg app](media/adfs-msal-web-api-web-api/webapi33.png)
  
  ## <a name="next-steps"></a>Passaggi successivi
-[AD FS i flussi OpenID Connect/OAuth e gli scenari di applicazione](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[Flussi e scenari applicativi di OpenID Connect/OAuth in AD FS](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  
  

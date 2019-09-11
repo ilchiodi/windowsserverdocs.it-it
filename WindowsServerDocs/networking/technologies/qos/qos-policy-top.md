@@ -1,6 +1,6 @@
 ---
 title: Criteri Qualità del servizio (QoS)
-description: In questo argomento viene fornita una panoramica dei criteri di qualità del servizio (QoS), che consentono di usare criteri di gruppo per definire le priorità della larghezza di banda di rete del traffico di specifiche applicazioni e servizi in Windows Server 2016.
+description: Questo argomento fornisce una panoramica dei criteri di qualità del servizio (QoS), che consente di usare Criteri di gruppo per assegnare priorità alla larghezza di banda del traffico di rete di applicazioni e servizi specifici in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,33 +8,33 @@ ms.assetid: 16918506-102c-482e-89d3-004ad8d6aabe
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a3ef81825ef6544bc96506e37bc027e0ac2a78db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f139f047218c4c8da3a462206d4541c1fc255ec
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820282"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871857"
 ---
-# <a name="quality-of-service-qos-policy"></a>Qualità del servizio \(QoS\) criteri
+# <a name="quality-of-service-qos-policy"></a>Criteri QoS \(\) di qualità del servizio
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016
 
 Puoi utilizzare i criteri QoS come un punto centrale per la gestione della larghezza di banda di rete tra l'intera infrastruttura di Active Directory creando profili QoS, le cui impostazioni vengono distribuite con Criteri di gruppo.
 
 >[!NOTE]
->  Oltre a questo argomento, è disponibile la documentazione seguente i criteri QoS.  
+>  Oltre a questo argomento, è disponibile la documentazione seguente relativa ai criteri QoS.  
 >   
->  - [Introduzione a criteri QoS](qos-policy-get-started.md)
->  - [Gestire i criteri QoS](qos-policy-manage.md)
+>  - [Introduzione con criteri QoS](qos-policy-get-started.md)
+>  - [Gestisci criteri QoS](qos-policy-manage.md)
 >  - [Domande frequenti sui criteri QoS](qos-policy-faq.md)
 
-I criteri QoS vengono applicati a una sessione di accesso utente o un computer come parte di un oggetto Criteri di gruppo \(GPO\) che è stato collegato a un contenitore di Active Directory, ad esempio un dominio, sito o unità organizzativa \(OU\).
+I criteri QoS vengono applicati a una sessione di accesso utente o a un computer come parte di \(un\) oggetto Criteri di gruppo criteri di gruppo oggetto collegato a un contenitore di Active Directory, ad esempio un dominio, un \(sito\)o un'unità organizzativa unità organizzativa.
 
-Gestione del traffico di QoS si verifica di sotto il livello dell'applicazione, il che significa che le applicazioni esistenti non sono necessario modificarla per beneficiare dei vantaggi forniti dai criteri di QoS.
+La gestione del traffico QoS si verifica sotto il livello dell'applicazione, il che significa che non è necessario modificare le applicazioni esistenti per trarre vantaggio dai vantaggi offerti dai criteri QoS.
 
 ## <a name="operating-systems-that-support-qos-policy"></a>Sistemi operativi che supportano i criteri QoS
 
-È possibile usare i criteri QoS per la gestione della larghezza di banda per computer o utenti con i seguenti sistemi operativi Microsoft.
+È possibile utilizzare i criteri QoS per gestire la larghezza di banda per i computer o gli utenti con i seguenti sistemi operativi Microsoft.
 
 - Windows Server 2016
 - Windows 10
@@ -47,83 +47,83 @@ Gestione del traffico di QoS si verifica di sotto il livello dell'applicazione, 
 - Windows Server 2008
 - Windows Vista
 
-### <a name="location-of-qos-policy-in-group-policy"></a>Percorso dei criteri di QoS in Criteri di gruppo
+### <a name="location-of-qos-policy-in-group-policy"></a>Posizione dei criteri QoS in Criteri di gruppo
 
-In Windows Server 2016 Editor criteri di gruppo gestione, il percorso ai criteri di QoS per la configurazione del Computer è il seguente.
+In Windows Server 2016 Editor Gestione Criteri di gruppo il percorso dei criteri QoS per la configurazione del computer è il seguente.
 
-**Criterio dominio predefinito | Configurazione computer | I criteri | Le impostazioni di Windows | Criteri\-basato QoS**
+**Criterio dominio predefinito | Configurazione computer | Criteri | Impostazioni di Windows | QoS\-basata su criteri**
 
-Questo percorso è illustrato nell'immagine seguente.
+Questo percorso è illustrato nella figura seguente.
 
-![Percorso dei criteri di QoS in Criteri di gruppo](../../media/QoS/QoS-Gp.jpg)
+![Posizione dei criteri QoS in Criteri di gruppo](../../media/QoS/QoS-Gp.jpg)
 
-In Windows Server 2016 Editor criteri di gruppo gestione, il percorso ai criteri di QoS per la configurazione utente è il seguente.
+In Windows Server 2016 Editor Gestione Criteri di gruppo il percorso dei criteri QoS per la configurazione utente è il seguente.
 
-**Criterio dominio predefinito | Configurazione utente | I criteri | Le impostazioni di Windows | Criteri\-basato QoS**
+**Criterio dominio predefinito | Configurazione utente | Criteri | Impostazioni di Windows | QoS\-basata su criteri**
 
-Per impostazione predefinita non viene configurato alcun criterio QoS.
+Per impostazione predefinita, non sono configurati criteri QoS.
 
 ## <a name="why-use-qos-policy"></a>Perché usare i criteri QoS?
   
-Man mano che aumenta il traffico sulla rete, è sempre più importante bilanciare le prestazioni di rete con il costo del servizio, ma non è in genere facile da definire la priorità e gestire il traffico di rete.
+Con l'aumentare del traffico sulla rete, è sempre più importante bilanciare le prestazioni di rete con il costo del servizio, ma il traffico di rete non è in genere facile da definire in ordine di priorità e gestire.
 
-Nella rete, applicazioni di importanza\-critici e della latenza\-applicazioni sensibili devono si contendono la larghezza di banda di rete con il traffico di priorità inferiore. Allo stesso tempo, alcuni utenti e computer con prestazioni di rete specifici potrebbero richiedere requisiti distingue tra i livelli di servizio.
+In rete,\-le applicazioni cruciali e\-di latenza devono competere per la larghezza di banda di rete rispetto al traffico con priorità più bassa. Allo stesso tempo, alcuni utenti e computer con requisiti specifici per le prestazioni di rete potrebbero richiedere livelli di servizio distinti.
 
-Le sfide di fornire livelli di prestazioni di rete alternativa conveniente e prevedibile spesso inizialmente visualizzate tramite rete WAN \(WAN\) connessioni o con le applicazioni sensibili alla latenza, ad esempio di voice over IP \(VoIP\) e lo streaming di video. Tuttavia, al fine di offrire livelli di servizio di rete prevedibili si applica a tutti gli ambienti di rete \(ad esempio, un'azienda LAN\)e a più applicazioni VoIP, ad esempio di riga personalizzato della società\-di\-applicazioni aziendali.
+Le esigenze di offrire livelli di prestazioni di rete convenienti e prevedibili vengono spesso visualizzate prima \(Wide Area Network\) connessioni WAN o con applicazioni sensibili alla latenza, ad esempio \(Voice over IP VoIP\) e streaming video. Tuttavia, l'obiettivo finale di fornire livelli di servizio di rete prevedibili si applica a \(qualsiasi ambiente di rete, ad esempio una rete\)locale delle aziende e a più di applicazioni VoIP, ad esempio la lineapersonalizzatadellasocietà\-delle\-applicazioni aziendali.
   
-QoS basata su criteri è lo strumento di gestione della larghezza di banda di rete che fornisce controllo di rete - basato su applicazioni, gli utenti e computer. 
+QoS basata su criteri è lo strumento di gestione della larghezza di banda di rete che fornisce il controllo di rete basato su applicazioni, utenti e computer. 
 
-Quando si usa criteri di QoS, le applicazioni non devono essere scritti per applicazioni specifiche interfacce di programmazione \(API\). Questo offre la possibilità di usare la funzionalità QoS con le applicazioni esistenti. Inoltre, QoS basata su criteri consente di sfruttare l'infrastruttura di gestione esistente, poiché QoS basata su criteri è incorporata in Criteri di gruppo.
+Quando si usano i criteri QoS, le applicazioni non devono essere scritte per API \(\)specifiche delle interfacce di programmazione dell'applicazione. Questo consente di usare QoS con le applicazioni esistenti. Inoltre, la funzionalità QoS basata su criteri sfrutta l'infrastruttura di gestione esistente, perché la funzionalità QoS basata su criteri è incorporata in Criteri di gruppo.
 
-## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Definire la priorità QoS tramite un punto di codice servizi differenziati \(DSCP\)
+## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Definire la priorità QoS tramite un servizi differenziati punto \(di codice DSCP\)
   
-È possibile creare criteri di QoS che definiscono priorità di traffico di rete con un Differentiated Services Code Point \(DSCP\) valore assegnato a diversi tipi di traffico di rete. 
+È possibile creare criteri QoS che definiscono la priorità del traffico di rete con un \(servizi differenziati\) valore DSCP del punto di codice assegnabile a diversi tipi di traffico di rete. 
 
-Il DSCP consente di applicare un valore \(0 – 63\) all'interno del tipo di servizio \(TOS\) campo nell'intestazione del pacchetto IPv4 e all'interno del campo di classe di traffico IPv6. 
+DSCP consente di \(applicare un valore compreso tra 0 e 63\) all'interno del campo tipo di servizio \(TOS\) nell'intestazione di un pacchetto IPv4 e all'interno del campo della classe di traffico in IPv6. 
 
-Il valore di DSCP fornisce classificazione del traffico di rete a Internet Protocol \(IP\) livello, quali router consente di decidere di comportamento del traffico di Accodamento messaggi. 
+Il valore DSCP fornisce la classificazione del traffico di rete al \(livello\) IP del protocollo Internet, che i router utilizzano per decidere il comportamento di Accodamento del traffico. 
 
-Ad esempio, è possibile configurare i router per collocare i pacchetti con valori DSCP specifici in uno dei tre code: priorità elevata massimo sforzo o inferiori a massimo sforzo. 
+È possibile, ad esempio, configurare i router in modo da inserire i pacchetti con valori DSCP specifici in una delle tre code seguenti: priorità alta, massimo sforzo o inferiore rispetto al migliore sforzo. 
 
-Il traffico di rete critiche, si trova nella coda con priorità alta, non ha preferenza sul resto del traffico.
+Il traffico di rete cruciale, che si trova nella coda con priorità alta, ha la preferenza su altro traffico.
 
-### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Limite larghezza di banda usata per ogni applicazione con limitazione della velocità
+### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Limitare l'uso della larghezza di banda di rete per applicazione con frequenza di limitazione
 
-È anche possibile limitare il traffico di rete in uscita di un'applicazione specificando una limitazione della velocità in Criteri di QoS.
+È anche possibile limitare il traffico di rete in uscita di un'applicazione specificando una velocità di limitazione nei criteri QoS.
 
-Un criterio di QoS che definisce i limiti della limitazione determina la frequenza del traffico di rete in uscita. Ad esempio, per gestire i costi della WAN, un reparto IT può implementare un contratto di servizio che specifica che un file server non può fornire mai download oltre a una specifica velocità.  
+Un criterio QoS che definisce i limiti di limitazione determina la frequenza di traffico di rete in uscita. Per gestire i costi WAN, ad esempio, un reparto IT può implementare un contratto di servizio che specifica che un file server non può mai fornire download oltre una tariffa specifica.  
 
-### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Usare i criteri QoS per applicare DSCP valori e applicherà la limitazione di velocità
+### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Usare i criteri QoS per applicare i valori DSCP e le frequenze di limitazione
 
-È anche possibile usare criteri QoS per applicare i valori di DSCP e limitare le tariffe per il traffico di rete in uscita ai seguenti:
+È anche possibile usare i criteri QoS per applicare i valori DSCP e le frequenze di limitazione per il traffico di rete in uscita ai seguenti elementi:
 
-- Applicazione mittente e il percorso di directory
+- Invio del percorso dell'applicazione e della directory
 
-- I prefissi di indirizzo o indirizzi IPv4 o IPv6 di origine e destinazione
+- Prefissi di indirizzo o indirizzi IPv4 o IPv6 di origine e di destinazione
 
-- Protocollo: Transmission Control Protocol \(TCP\) e User Datagram Protocol \(UDP\)
+- Protocollo Transmission Control Protocol \(TCP\) e UDP del protocollo \(del datagramma utente\)
 
-- Porte di origine e destinazione e gli intervalli di porte \(TCP o UDP\)
+- Porte di origine e di destinazione e \(intervalli di porte TCP o UDP\)
 
-- Specifici gruppi di utenti o computer mediante la distribuzione in Criteri di gruppo
+- Gruppi specifici di utenti o computer tramite la distribuzione in Criteri di gruppo
 
-Tramite questi controlli, è possibile specificare un criterio QoS con un valore DSCP 46 per un'applicazione, VoIP consentono ai router collocare i pacchetti VoIP in una coda a bassa latenza, oppure è possibile usare un criterio di QoS per limitare un set di traffico in uscita del server su 512 kilobyte al secondo <c1/>KBps\) durante l'invio dalla porta TCP 443.
+Usando questi controlli, è possibile specificare un criterio QoS con un valore DSCP di 46 per un'applicazione VoIP, consentire ai router di collocare i pacchetti VoIP in una coda a bassa latenza oppure usare un criterio QoS per limitare un set di server in uscita del traffico a 512 kilobyte alsecondo./>Kbps\) durante l'invio dalla porta TCP 443.
 
-È anche possibile applicare i criteri QoS a una specifica applicazione che ha requisiti di larghezza di banda speciali. Per altre informazioni, vedere [scenari relativi ai criteri di QoS](qos-policy-scenarios.md).
+È anche possibile applicare i criteri QoS a una particolare applicazione con requisiti di larghezza di banda specifici. Per ulteriori informazioni, vedere la pagina relativa agli [scenari dei criteri QoS](qos-policy-scenarios.md).
   
 ## <a name="advantages-of-qos-policy"></a>Vantaggi dei criteri QoS
 
-Con i criteri di QoS, è possibile configurare e imporre i criteri di QoS che non possono essere configurati sul router e commutatori. I criteri QoS offre i vantaggi seguenti.
+Con i criteri QoS, è possibile configurare e applicare i criteri QoS che non possono essere configurati nei router e nei commutatori. I criteri QoS offrono i vantaggi seguenti.
   
-1. **Livello di dettaglio:** È difficile creare criteri QoS a livello di utente nel router o switch, soprattutto se il computer dell'utente configurate tramite l'assegnazione di indirizzi IP dinamici o se il computer non è connesso a interruttore fisso o porte di router, come accade spesso con computer portatili. Al contrario, i criteri QoS rende più semplice configurare un utente\-il livello di criteri di QoS in un controller di dominio e propagare i criteri al computer dell'utente.
-2. **Flessibilità**. Indipendentemente dal fatto dove o come un computer si connette alla rete, viene applicato il criterio di QoS: il computer può connettersi tramite Ethernet o Wi-Fi da qualsiasi posizione. Per utente\-il livello di criteri di QoS, i criteri QoS criterio viene applicato in qualsiasi dispositivo compatibile in qualsiasi posizione in cui l'utente accede.
-3. **Sicurezza:** Se il reparto IT non crittografa il traffico degli utenti dall'inizio alla fine tramite Internet Protocol security \(IPsec\), è possibile classificare il traffico sui router basato su tutte le informazioni sopra il livello IP nel pacchetto \(, ad esempio, un La porta TCP\). Tuttavia, tramite criteri di QoS, è possibile classificare i pacchetti a livello di dispositivo finale per indicare la priorità dei pacchetti nell'intestazione IP prima vengono crittografati i payload IP e i pacchetti vengono inviati.
-4. **Prestazioni:** Alcune funzioni di QoS, ad esempio la limitazione, sono meglio eseguire quando si trovano più vicino all'origine. I criteri QoS consente di spostare tali funzioni QoS più vicini all'origine.
-5. **Facilità di gestione:** I criteri QoS migliora la gestibilità di rete in due modi:
+1. **Livello di dettaglio:** È difficile creare criteri QoS a livello di utente su router o commutatori, soprattutto se il computer dell'utente è configurato tramite l'assegnazione di indirizzi IP dinamici o se il computer non è connesso a un commutatore fisso o a porte router, come spesso accade con computer portatili. Al contrario, i criteri QoS rendono più semplice la configurazione di\-criteri QoS a livello di utente in un controller di dominio e la propagazione dei criteri al computer dell'utente.
+2. **Flessibilità**. Indipendentemente dalla posizione o dal modo in cui un computer si connette alla rete, vengono applicati i criteri QoS. il computer può connettersi usando il Wi-Fi o Ethernet da qualsiasi posizione. Per i\-criteri QoS a livello di utente, il criterio QoS viene applicato a qualsiasi dispositivo compatibile in qualsiasi posizione in cui l'utente esegue l'accesso.
+3. **Sicurezza** Se il reparto IT crittografa il traffico degli utenti da un lato all'altro usando Internet Protocol Security \(IPSec\), non è possibile classificare il traffico sui router in base a qualsiasi informazione sopra il livello IP nel \(pacchetto, ad esempio Porta\)TCP. Tuttavia, usando i criteri QoS, è possibile classificare i pacchetti nel dispositivo finale per indicare la priorità dei pacchetti nell'intestazione IP prima che i payload IP vengano crittografati e i pacchetti vengano inviati.
+4. **Prestazioni** Alcune funzioni QoS, ad esempio la limitazione delle richieste, vengono eseguite meglio quando sono più vicine all'origine. Il criterio QoS sposta tali funzioni QoS più vicine all'origine.
+5. **Gestibilità** I criteri QoS migliorano la gestibilità della rete in due modi:
 
-    **a**. Poiché si basa su criteri di gruppo, è possibile utilizzare i criteri QoS per configurare e gestire un set di criteri QoS per utente/computer quando necessario e nel computer di un controller di dominio centrale.
+    **oggetto**. Poiché è basato su Criteri di gruppo, è possibile utilizzare i criteri QoS per configurare e gestire un set di criteri QoS utente/computer quando necessario e in un computer controller di dominio centrale.
 
-    **b**. I criteri QoS facilita la configurazione utente/computer fornendo un meccanismo per specificare i criteri da Uniform Resource Locator \(URL\) invece di specificare criteri basati sugli indirizzi IP della ognuno dei server in cui i criteri QoS necessitano da applicare. Si supponga, ad esempio, che la rete dispone di un cluster di server che condividono un URL comune. Usando i criteri QoS, è possibile creare un criterio basato sull'URL comune, invece di creare un criterio per ogni server del cluster, con tutti i criteri in base all'indirizzo IP di ogni server.
+    **b**. I criteri QoS facilitano la configurazione utente/computer fornendo un meccanismo per specificare i criteri \(in\) base Uniform Resource Locator URL anziché specificare i criteri in base agli indirizzi IP di ognuno dei server in cui sono necessari i criteri QoS da applicare. Si supponga, ad esempio, che la rete disponga di un cluster di server che condividono un URL comune. Usando i criteri QoS, è possibile creare un criterio basato sull'URL comune, anziché creare un criterio per ogni server nel cluster, con ogni criterio basato sull'indirizzo IP di ogni server.
 
-Per l'argomento successivo in questa Guida, vedere [Introduzione a criteri di QoS](qos-policy-get-started.md).
+Per l'argomento successivo di questa guida, vedere [Introduzione con criteri QoS](qos-policy-get-started.md).
 

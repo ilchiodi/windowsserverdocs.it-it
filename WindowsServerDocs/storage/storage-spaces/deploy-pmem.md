@@ -1,7 +1,7 @@
 ---
 title: Comprendere e distribuire memoria persistente
-description: Informazioni dettagliate su quali memoria persistente è e come configurarlo con spazi di archiviazione diretta in Windows Server 2019.
-keywords: Spazi di archiviazione diretta, memoria persistente, pmem, archiviazione, S2D
+description: Informazioni dettagliate sulla memoria persistente e su come configurarla con spazi di archiviazione diretta in Windows Server 2019.
+keywords: Spazi di archiviazione diretta, memoria persistente, PMEM, archiviazione, S2D
 ms.assetid: ''
 ms.prod: ''
 ms.author: adagashe
@@ -10,70 +10,70 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: ed4b2669ad35a2ce0f818c65f7024ce905d9e4d6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 497fa201c500919fc857d25166d37ce87613d0f0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280039"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872015"
 ---
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Comprendere e distribuire memoria persistente
 
->Si applica a: Windows Server 2019
+>Si applica a Windows Server 2019
 
-Memoria persistente (o PMem) è un nuovo tipo di tecnologia di memoria che offre una combinazione univoca di grande capacità convenienti e la persistenza. In questo argomento illustra PMem e i passaggi per distribuirlo con Windows Server 2019 con spazi di archiviazione diretta.
+La memoria persistente (o PMem) è un nuovo tipo di tecnologia di memoria che offre una combinazione univoca di capacità e persistenza di grandi dimensioni. Questo argomento fornisce informazioni di base su PMem e i passaggi per distribuirlo con Windows Server 2019 con Spazi di archiviazione diretta.
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Sfondo
 
-PMem è un tipo di comandi non volatile DRAM (NVDIMM) che ha la velocità di DRAM, ma conserva il contenuto di memoria tramite cicli di alimentazione (il contenuto della memoria rimanga anche quando l'alimentazione del sistema si arresta in caso di un imprevista dell'alimentazione, un arresto avviato dall'utente, un arresto anomalo del sistema, e così via.). Per questo motivo, riprendere da dove era stato interrotto è notevolmente più veloce, perché non è necessario ricaricare il contenuto della RAM. Un'altra caratteristica univoca è PMem byte indirizzabili, ovvero che è possibile usare anche come risorsa di archiviazione (che è il motivo per cui si può sentire PMem cui viene fatto riferimento alla memoria della classe di archiviazione).
+PMem è un tipo di DRAM non volatile (NVDIMM) con la velocità della DRAM, ma mantiene il contenuto della memoria attraverso i cicli di alimentazione (il contenuto della memoria rimane anche quando l'alimentazione del sistema si interrompe in caso di interruzione imprevista dell'alimentazione, arresto avviato dall'utente, arresto anomalo del sistema, e così via). Per questo motivo, la ripresa dal punto in cui è stato interrotto è notevolmente più veloce, perché non è necessario ricaricare il contenuto della RAM. Un'altra caratteristica univoca è che PMem è indirizzabile ai byte, il che significa che è possibile usarlo anche come risorsa di archiviazione (per questo motivo è possibile che PMem venga definito memoria della classe di archiviazione).
 
 
-Per visualizzare alcuni di questi vantaggi, esaminiamo questa demo di Microsoft Ignite 2018:
+Per visualizzare alcuni di questi vantaggi, esaminiamo la demo di Microsoft Ignite 2018:
 
-[![Microsoft Ignite 2018 Pmem demo](http://img.youtube.com/vi/8WMXkMLJORc/0.jpg)](http://www.youtube.com/watch?v=8WMXkMLJORc)
+[![Demo di Microsoft Ignite 2018 PMEM](http://img.youtube.com/vi/8WMXkMLJORc/0.jpg)](http://www.youtube.com/watch?v=8WMXkMLJORc)
 
-Qualsiasi sistema di archiviazione fornisce tolleranza d'errore necessariamente crea copie distribuite di scritture, che devono attraversare la rete e comporta amplificazione scrittura back-end. Per questo motivo, i numeri di benchmark di IOPS massimi assoluti in genere si ottengono con operazioni di lettura solo, soprattutto se il sistema di archiviazione è disponibili ottimizzazioni di comune buon senso per leggere dalla copia locale quando possibile, quali spazi di archiviazione diretta viene.
+Qualsiasi sistema di archiviazione che fornisce tolleranza di errore crea necessariamente copie distribuite delle Scritture, che devono attraversare la rete e l'amplificazione di scrittura back-end. Per questo motivo, i numeri di benchmark di IOPS di dimensioni assolute vengono in genere realizzati solo con le letture, soprattutto se il sistema di archiviazione dispone di ottimizzazioni comuni per la lettura dalla copia locale, laddove possibile, che Spazi di archiviazione diretta.
 
-**Grazie al 100% di letture, il cluster offre 13,798,674 IOPS.**
+**Con le letture del 100%, il cluster recapita 13.798.674 IOPS.**
 
-![schermata record IOPS 13,7 m](media/deploy-pmem/iops-record.png)
+![schermata del record IOPS da 13,7 m](media/deploy-pmem/iops-record.png)
 
-Se si guarda il video attentamente, si noterà che ulteriormente della thatwhat strabiliante è la latenza: anche a oltre 13,7 IOPS M, il file System in Windows invia report di latenza è costantemente inferiore a 40 µs! (Che è il simbolo per microsecondi, milionesimo di secondo). Si tratta un ordine di grandezza superiore alla velocità quali fornitori all-flash tipici con orgoglio annunciano oggi stesso.
+Se si guarda attentamente il video, si noterà che questoche è ancora più importante per la rimozione della mascella: anche con oltre 13,7 M di IOPS, il filesystem in Windows segnala una latenza costantemente inferiore a 40 μs! Si tratta del simbolo per i microsecondi, un milionesimo di secondo. Si tratta di un ordine di grandezza più veloce rispetto a quello che i normali fornitori di tutti i flash pubblicizzano oggi.
 
-Insieme, spazi di archiviazione diretta in Windows Server 2019 e memoria persistente di controller di dominio di Intel® Optane™ offrono prestazioni all'avanguardia. Questo benchmark uomo leader di settore di oltre 13,7 M IOPS, con una latenza estremamente bassa e prevedibile, è più del doppio nostro precedente benchmark leader di settore di M 6.7 IOPS. Inoltre, questa volta eravamo solo 12 nodi di server, 25% inferiore rispetto a due anni fa.
+Insieme, Spazi di archiviazione diretta in Windows Server 2019 e Intel® Optane™ controller di dominio persistente forniscono prestazioni eccezionali. Questo benchmark di HCI leader nel settore di oltre 13,7 milioni di IOPS, con latenza prevedibile ed estremamente bassa, è più del doppio del precedente benchmark leader nel settore di 6.7 milioni di IOPS. Questa volta sono necessari solo 12 nodi server, il 25% meno di due anni fa.
 
-![Miglioramenti IOPS](media/deploy-pmem/iops-gains.png)
+![Guadagni IOPS](media/deploy-pmem/iops-gains.png)
 
-L'hardware usato è stato un cluster 12-server con mirroring a tre vie e delimitato volumi ReFS **12** x Intel® S2600WFT, **GiB 384** memoria, core 2 x 28 "CascadeLake" **1,5 TB**Memoria persistente Intel® Optane™ DC cache **32 TB** NVMe (4 x 8 P4510 TB Intel® DC) come capacità **2** x Mellanox ConnectX-4 25 Gbps
+L'hardware utilizzato era un cluster a 12 server che utilizzava il mirroring a tre vie e i volumi ReFS delimitati, **12** x Intel® S2600WFT, **384 GIB** Memory, 2 x 28 core "CASCADELAKE", **1,5 TB** Intel® Optane™ DC persistent Memory As cache, **32 TB** NVMe ( 4 x 8 TB Intel® DC P4510) As Capacity, **2** x Mellanox ConnectX-4 25 Gbps
 
-La tabella seguente contiene i numeri delle prestazioni completi: 
+La tabella seguente presenta i numeri di prestazioni completi: 
 
-| Benchmark                   | Prestazioni         |
+| Riferimento                   | Prestazioni         |
 |-----------------------------|---------------------|
-| Lettura casuale 100% di 4 KB         | 13,8 milioni di operazioni IOPS   |
-| 4 K 90/10% in lettura/scrittura casuali | 9.45 milione di IOPS   |
-| Lettura sequenziale di 2MB         | 549 GB/s di velocità effettiva |
+| Lettura casuale 4K 100%         | 13,8 milioni IOPS   |
+| 4K 90/10% di lettura/scrittura casuale | 9.450.000 IOPS   |
+| 2MB lettura sequenziale         | Velocità effettiva 549 GB/s |
 
 ### <a name="supported-hardware"></a>Hardware supportato
 
-La tabella seguente mostra l'hardware supportati memoria persistente per Windows Server 2016 e Windows Server 2019. Si noti che Intel Optane supporta in modo specifico sia in modalità di memoria in modalità di app con accesso diretto. Windows Server 2019 supporta le operazioni in modalità mista.
+La tabella seguente mostra l'hardware di memoria permanente supportato per Windows Server 2019 e Windows Server 2016. Si noti che Intel Optane supporta specificamente sia la modalità di memoria sia la modalità app-Direct. Windows Server 2019 supporta operazioni in modalità mista.
 
-| Tecnologia di memoria persistente                                      | Windows Server 2016 | Windows Server 2019 |
+| Tecnologia di memoria permanente                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **NVDIMM-N** in modalità di App con accesso diretto                                       | Supportato                | Supportato                |
-| **Memoria persistente Optane™ DC Intel** in modalità di App con accesso diretto             | Non supportato            | Supportato                |
-| **Memoria persistente Optane™ DC Intel** in modalità a livello di memoria esaurita due (2LM) | Non supportato            | Supportato                |
+| **NVDIMM-N** in modalità app-Direct                                       | Supportato                | Supportato                |
+| **Intel Optane™ DC Persistent Memory** in modalità app-Direct             | Non supportato            | Supportato                |
+| **Memoria persistente Intel Optane™ controller** di dominio in modalità di memoria a due livelli (2LM) | Non supportato            | Supportato                |
 
-A questo punto, passiamo la configurazione di memoria persistente.
+A questo punto, è possibile approfondire la configurazione della memoria persistente.
 
-## <a name="interleave-sets"></a>Interleave set
+## <a name="interleave-sets"></a>Set di interfoliazione
 
-### <a name="understanding-interleave-sets"></a>Informazioni su quelle con interleave set
+### <a name="understanding-interleave-sets"></a>Informazioni sui set di interfoliazione
 
-È importante ricordare che il dispositivo NVDIMM-N si trova in uno slot DIMM (memoria) standard, inserendo i dati del processore (in questo modo, riducendo la latenza e prestazioni migliori di recupero). Per compilare su questo, un set di interleave è quando due o più NVDIMMs crea un'interfoliazione di N-Way impostate per fornire operazioni di lettura/scrittura strisce per migliorare la produttività. Le configurazioni più comuni sono l'interleave vie 2 o 4 vie.
+Tenere presente che NVDIMM-N risiede in uno slot standard DIMM (memoria), inserendo i dati più vicini al processore, riducendo così la latenza e il recupero di prestazioni migliori. Per eseguire questa operazione, un set di Interleave è quando due o più NVDIMMs creano un set di interfoliazione a N vie per fornire operazioni di lettura/scrittura a strisce per una maggiore velocità effettiva. Le configurazioni più comuni sono l'interfoliazione bidirezionale o a 4 vie.
 
-Set interfogliati possono spesso essere creati nel BIOS della piattaforma per rendere più dispositivi di memoria persistente vengono visualizzati come un singolo disco logico Windows Server. Ogni disco logico di memoria persistente contiene un set interfogliato dei dispositivi fisici tramite l'esecuzione:
+I set con interfoliazione possono spesso essere creati in un BIOS della piattaforma per fare in modo che più dispositivi di memoria permanenti vengano visualizzati come un singolo disco logico in Windows Server. Ogni disco logico di memoria persistente contiene un set di dispositivi fisici con interfoliazione eseguendo:
 
 ```PowerShell
 Get-PmemDisk
@@ -88,7 +88,7 @@ DiskNumber Size   HealthStatus AtomicityType CanBeRemoved PhysicalDeviceIds Unsa
 3          252 GB Healthy      None          True         {1020, 1120}      0
 ```
 
-Noteremo che il disco logico pmem #2 dispositivi fisici di Id20 e Id120, che il disco logico pmem #3 ha dispositivi fisici di Id1020 e Id1120. È anche possibile feed un disco specifico pmem a Get-PmemPhysicalDevice per ottenere tutti i relativi NVDIMMs fisica nell'interleave impostata come indicato di seguito.
+Si noterà che il disco PMEM logico #2 dispone di dispositivi fisici di Id20 e Id120 e del disco PMEM logico #3 dispone di dispositivi fisici Id1020 e Id1120. È anche possibile inviare un disco PMEM specifico a Get-PmemPhysicalDevice per ottenere tutti i NVDIMMs fisici nel set di interfoliazione come indicato di seguito.
 
 
 ```PowerShell
@@ -104,9 +104,9 @@ DeviceId DeviceType           HealthStatus OperationalStatus PhysicalLocation Fi
 120      Intel INVDIMM device Healthy      {Ok}              CPU1_DIMM_F1     102005310        126 GB                 0 GB
 ```
 
-### <a name="configuring-interleave-sets"></a>Configurazione di interleave set
+### <a name="configuring-interleave-sets"></a>Configurazione di set di interfoliazione
 
-Per configurare un set di interleave, eseguire il cmdlet di PowerShell seguente:
+Per configurare un set di Interleave, eseguire il cmdlet PowerShell seguente:
 
 ```PowerShell
 Get-PmemUnusedRegion
@@ -117,9 +117,9 @@ RegionId TotalSizeInBytes DeviceId
        3     270582939648 {1020, 1120}
 ```
 
-Mostra tutte le aree di memoria persistente non è assegnate a un disco logico di memoria persistente nel sistema.
+Mostra tutte le aree di memoria permanenti non assegnate a un disco di memoria persistente logico nel sistema.
 
-Per visualizzare tutte le informazioni di dispositivi di memoria persistente nel sistema, compresi tipo di dispositivo, posizione, integrità e lo stato operativo e così via è possibile eseguire il cmdlet seguente nel server locale:
+Per visualizzare tutte le informazioni sui dispositivi di memoria permanenti nel sistema, inclusi il tipo di dispositivo, la posizione, l'integrità e lo stato operativo e così via, è possibile eseguire il cmdlet seguente sul server locale:
 
 ```PowerShell
 Get-PmemPhysicalDevice
@@ -133,14 +133,14 @@ DeviceId DeviceType           HealthStatus OperationalStatus PhysicalLocation Fi
 20       Intel INVDIMM device Healthy      {Ok}              CPU1_DIMM_C1     102005310        126 GB                 0 GB
 ```
 
-Poiché sono presenti area disponibile pmem inutilizzati, è possibile creare nuovi dischi memoria persistente. È possibile creare più dischi persistenti memoria usando le aree inutilizzate da:
+Poiché è disponibile un'area PMEM inutilizzata, è possibile creare nuovi dischi di memoria permanenti. È possibile creare più dischi di memoria permanenti usando le aree inutilizzate:
 
 ```PowerShell
 Get-PmemUnusedRegion | New-PmemDisk
 Creating new persistent memory disk. This may take a few moments.
 ```
 
-Dopo che questa operazione viene eseguita, è possibile osservare i risultati eseguendo:
+A questo scopo, è possibile visualizzare i risultati eseguendo:
 
 ```PowerShell
 Get-PmemDisk
@@ -151,20 +151,20 @@ DiskNumber Size   HealthStatus AtomicityType CanBeRemoved PhysicalDeviceIds Unsa
 3          252 GB Healthy      None          True         {1020, 1120}      0
 ```
 
-Vale la pena notare che potremmo avere eseguiamo **Get-PhysicalDisk | In cui MediaType - Eq SCM** invece di **Get-PmemDisk** per ottenere gli stessi risultati. Il disco appena creato memoria persistente corrisponde 1:1 per unità visualizzate nella PowerShell e Windows Admin Center.
+Vale la pena notare che è possibile eseguire **Get-PhysicalDisk | Dove MediaType-EQ SCM** invece di **Get-PmemDisk** per ottenere gli stessi risultati. Il disco di memoria persistente appena creato corrisponde a 1:1 alle unità visualizzate in PowerShell e nell'interfaccia di amministrazione di Windows.
 
-### <a name="using-persistent-memory-for-cache-or-capacity"></a>Utilizzo di memoria persistente per la cache o la capacità
+### <a name="using-persistent-memory-for-cache-or-capacity"></a>Uso della memoria persistente per la cache o la capacità
 
-Spazi di archiviazione diretta in Windows Server 2019 supporta l'utilizzo di memoria persistente come una cache o una capacità di unità. Vedere questo [documentazione](understand-the-cache.md) per altri dettagli su come configurare le unità di capacità e della cache.
+Spazi di archiviazione diretta in Windows Server 2019 supporta l'uso di memoria permanente come unità cache o capacità. Per ulteriori informazioni sulla configurazione delle unità cache e capacità, vedere la [documentazione](understand-the-cache.md) .
 
-## <a name="creating-a-dax-volume"></a>Creazione di un Volume DAX
+## <a name="creating-a-dax-volume"></a>Creazione di un volume DAX
 
 ### <a name="understanding-dax"></a>Informazioni su DAX
 
-Esistono due metodi per l'accesso a memoria persistente. Sono:
+Esistono due metodi per accedere alla memoria persistente. Sono:
 
-1. **DirectAccess (DAX)** , che agisce come memoria per ottenere la latenza più bassa. L'app modifica direttamente la memoria persistente, ignorando lo stack. Si noti che questo può essere utilizzato solo con NTFS.
-2. **Bloccare l'accesso**, che agisce come archiviazione per la compatibilità dell'applicazione. I dati passano attraverso lo stack in questa configurazione, e può essere usato con NTFS e ReFS.
+1. **Accesso diretto (DAX)** , che funziona come la memoria per ottenere la latenza più bassa. L'app modifica direttamente la memoria persistente, ignorando lo stack. Si noti che questa operazione può essere utilizzata solo con NTFS.
+2. **Blocca l'accesso**, che funziona come l'archiviazione per la compatibilità delle app. I dati passano attraverso lo stack in questa configurazione e possono essere usati con NTFS e ReFS.
 
 Di seguito è riportato un esempio:
 
@@ -172,13 +172,13 @@ Di seguito è riportato un esempio:
 
 ### <a name="configuring-dax"></a>Configurazione di DAX
 
-È necessario usare i cmdlet di PowerShell per creare un volume DAX in una memoria persistente. Tramite il **- IsDax** switch, è possibile formattare un volume da DAX abilitata.
+È necessario usare i cmdlet di PowerShell per creare un volume DAX in una memoria permanente. Utilizzando l'opzione **-IsDax** , è possibile formattare un volume in modo che sia abilitato DAX.
 
 ```PowerShell
 Format-Volume -IsDax:$true
 ```
 
-Il seguente frammento di codice ti aiuterà a creare un volume DAX su un disco persistente di memoria.
+Il seguente frammento di codice consente di creare un volume DAX in un disco di memoria permanente.
 
 ```PowerShell
 # Here we use the first pmem disk to create the volume as an example
@@ -231,14 +231,14 @@ Size                 : 251.98 GB
 Type                 : Basic
 ```
 
-## <a name="monitoring-health"></a>Monitoraggio dell'integrità
+## <a name="monitoring-health"></a>Monitoraggio dello stato
 
-Quando si utilizza memoria persistente, esistono alcune differenze nell'esperienza di monitoraggio:
+Quando si usa la memoria persistente, esistono alcune differenze nell'esperienza di monitoraggio:
 
-1. Memoria persistente non è possibile creare contatori delle prestazioni, in modo che non verrà visualizzato se vengono visualizzati nei grafici in Windows Admin Center del disco fisico.
-2. Memoria persistente non crea dati 505 Storport, in modo che non si otterranno rilevamento proattivo degli outlier.
+1. La memoria persistente non crea contatori delle prestazioni del disco fisico, pertanto non verrà visualizzato se nei grafici nell'interfaccia di amministrazione di Windows.
+2. La memoria persistente non crea dati Storport 505, pertanto non si otterrà il rilevamento proattivo di outlier.
 
-A parte ciò, l'esperienza di monitoraggio è lo stesso come qualsiasi altro disco fisico. È possibile eseguire una query per l'integrità di un disco persistente di memoria eseguendo:
+A parte questo, l'esperienza di monitoraggio è identica a qualsiasi altro disco fisico. È possibile eseguire una query per lo stato di un disco di memoria persistente eseguendo:
 
 ```PowerShell
 Get-PmemDisk
@@ -256,9 +256,9 @@ SerialNumber               HealthStatus OperationalStatus  OperationalDetails
 802c-01-1602-117cb64f      Warning      Predictive Failure {Threshold Exceeded,NVDIMM_N Error}
 ```
 
-**HealthStatus** Mostra se il disco di memoria persistente è integro o meno. Il **UnsafeshutdownCount** tiene traccia del numero di arresti che può causare la perdita di dati su questo disco logico. È la somma dei conteggi unsafe arresto di tutti i dispositivi di memoria persistente sottostante di questo disco. È anche possibile usare i comandi seguenti per informazioni sull'integrità di query. Il **OperationalStatus** e **OperationalDetails** vengono fornite ulteriori informazioni sullo stato di integrità.
+**HealthStatus** indica se il disco di memoria persistente è integro o meno. Il **UnsafeshutdownCount** tiene traccia del numero di arresti che possono causare la perdita di dati su questo disco logico. Si tratta della somma dei conteggi di arresto non sicuro di tutti i dispositivi di memoria permanenti sottostanti del disco. È anche possibile usare i comandi seguenti per eseguire query sulle informazioni sull'integrità. **OperationalStatus** e **OperationalDetails** forniscono ulteriori informazioni sullo stato di integrità.
 
-Per eseguire una query di integrità del dispositivo di memoria persistente:
+Per eseguire una query sullo stato del dispositivo di memoria persistente:
 
 ```PowerShell
 Get-PmemPhysicalDevice
@@ -271,13 +271,13 @@ DeviceId DeviceType           HealthStatus OperationalStatus PhysicalLocation Fi
 20       Intel INVDIMM device Unhealthy    {HardwareError}   CPU1_DIMM_C1     102005310        126 GB                 0 GB
 ```
 
-Ciò indica quale dispositivo di memoria persistente non è integro. Il dispositivo non integri (**DeviceId**) 20 corrisponde a quello nell'esempio precedente. Il **PhysicalLocation** dal BIOS può consentire di identificare quali memoria persistente dispositivo è in uno stato difettoso.
+Viene visualizzato il dispositivo di memoria permanente non integro. Il dispositivo non integro (**DeviceID**) 20 corrisponde al caso nell'esempio precedente. **PhysicalLocation** dal BIOS consente di identificare quale dispositivo di memoria persistente è in stato di errore.
 
-## <a name="replacing-persistent-memory"></a>Sostituzione di memoria persistente
+## <a name="replacing-persistent-memory"></a>Sostituzione della memoria persistente
 
-Sopra è stato illustrato come visualizzare lo stato di integrità di memoria persistente. Se è necessario sostituire un modulo guasto, è necessario rieseguire il provisioning del disco di memoria persistente (vedere i passaggi sono descritti in precedenza).
+Sopra è stato descritto come visualizzare lo stato di integrità della memoria persistente. Se è necessario sostituire un modulo che ha avuto esito negativo, sarà necessario eseguire nuovamente il provisioning del disco di memoria persistente (fare riferimento ai passaggi illustrati in precedenza).
 
-Per risolvere il problema, potrebbe essere necessario usare **Remove-PmemDisk**, che rimuove un disco specifico memoria persistente. È possibile rimuovere tutti i dischi persistenti correnti da:
+Per la risoluzione dei problemi, potrebbe essere necessario usare **Remove-PmemDisk**, che rimuove un disco di memoria persistente specifico. È possibile rimuovere tutti i dischi permanenti correnti per:
 
 ```PowerShell
 Get-PmemDisk | Remove-PmemDisk
@@ -292,9 +292,9 @@ Remove the persistent memory disk(s)?
 Removing the persistent memory disk. This may take a few moments.
 ```
 
-È importante notare che la rimozione di un disco persistente di memoria comporterà la perdita di dati presenti su tale disco.
+È importante tenere presente che la rimozione di un disco di memoria persistente comporterà la perdita di dati su tale disco.
 
-È un altro cmdlet potrebbe essere necessario **Initialize-PmemPhysicalDevice**, che verrà inizializzato l'area di archiviazione di etichetta nei dispositivi fisici memoria persistente. Utilizzabile per cancellare informazioni di archiviazione danneggiato etichetta nei dispositivi di memoria persistente.
+Un altro cmdlet potrebbe essere necessario è **Initialize-PmemPhysicalDevice**, che consente di inizializzare l'area di archiviazione delle etichette nei dispositivi di memoria permanenti fisici. Questa operazione può essere usata per cancellare le informazioni sull'archiviazione delle etichette danneggiate nei dispositivi di memoria permanenti.
 
 ```PowerShell
 Get-PmemPhysicalDevice | Initialize-PmemPhysicalDevice
@@ -308,10 +308,10 @@ Initializing the physical persistent memory device. This may take a few moments.
 Initializing the physical persistent memory device. This may take a few moments.
 ```
 
-È importante notare che questo comando deve essere utilizzato come ultima risorsa correggere memoria persistente problemi correlati. Si verificherà una perdita di dati per la memoria persistente.
+È importante notare che questo comando deve essere usato come ultima risorsa per correggere i problemi persistenti correlati alla memoria. Questa operazione comporterà la perdita di dati nella memoria persistente.
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
-- [Gestione dell'integrità della memoria (memoria NVDIMM-N)-classe di archiviazione in Windows](storage-class-memory-health.md)
+- [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
+- [Gestione dell'integrità della memoria della classe di archiviazione (NVDIMM-N) in Windows](storage-class-memory-health.md)
 - [Informazioni sulla cache](understand-the-cache.md)

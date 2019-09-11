@@ -1,7 +1,7 @@
 ---
-title: Quorum del cluster e pool di comprensione
-description: Informazioni su Cluster e Pool di Quorum, con esempi specifici, esaminare le complicazioni.
-keywords: Spazi di archiviazione diretta, Quorum, controllo del mirroring, S2D, Cluster Quorum, quorum del Pool, Cluster, Pool
+title: Informazioni sul quorum del cluster e del pool
+description: Informazioni sul quorum del cluster e del pool, con esempi specifici per approfondire le complessità.
+keywords: Spazi di archiviazione diretta, quorum, server di controllo del mirroring, S2D, quorum del cluster, quorum del pool, cluster, pool
 ms.prod: windows-server-threshold
 ms.author: adagashe
 ms.manager: eldenc
@@ -10,169 +10,169 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 30958b8b1e8b0009626509409d1f031611c76a20
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: 962a4edc1a171167a6af336d4fb32188a526f455
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455431"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872129"
 ---
-# <a name="understanding-cluster-and-pool-quorum"></a>Quorum del cluster e pool di comprensione
+# <a name="understanding-cluster-and-pool-quorum"></a>Informazioni sul quorum del cluster e del pool
 
->Si applica a: Windows Server 2019, Windows Server 2016
+>Si applica a Windows Server 2019, Windows Server 2016
 
-[Windows Server Failover Clustering](../../failover-clustering/failover-clustering-overview.md) garantisce un'elevata disponibilità per carichi di lavoro. Queste risorse sono considerate a disponibilità elevata se i nodi che ospitano le risorse sono attivi; Tuttavia, il cluster in genere richiede più della metà dei nodi sia in esecuzione, caratteristica nota come se avessero *quorum*.
+[Windows Server failover clustering](../../failover-clustering/failover-clustering-overview.md) fornisce disponibilità elevata per i carichi di lavoro. Queste risorse vengono considerate a disponibilità elevata se i nodi che ospitano risorse sono attivati; Tuttavia, il cluster richiede in genere più della metà dei nodi in esecuzione, che è noto come *quorum*.
 
-Quorum è progettato per impedire *"split Brain"* scenari che possono verificarsi quando è presente una partizione nella rete e subset di nodi non possono comunicare tra loro. Ciò può provocare entrambi sottoinsiemi dei nodi per tentare il proprietario del carico di lavoro e scrivere sul disco stesso che può causare numerosi problemi. Tuttavia, non è possibile con concetto del Clustering di Failover di quorum che impone solo uno di questi gruppi di nodi per continuare l'esecuzione, in modo che solo uno di questi gruppi verrà rimanere online.
+Il quorum è progettato per impedire scenari *Split Brain* che possono verificarsi quando è presente una partizione nella rete e i subset di nodi non possono comunicare tra loro. Questo può causare l'esecuzione di entrambi i subset di nodi per provare a eseguire il proprietario del carico di lavoro e scrivere nello stesso disco che può causare numerosi problemi. Tuttavia, questo viene impedito con il concetto di quorum del clustering di failover che impone la continua esecuzione solo di uno di questi gruppi di nodi, quindi solo uno di questi gruppi rimarrà online.
 
-Quorum determina il numero di errori che il cluster può sostenere pur rimanendo online. Quorum è progettato per gestire lo scenario quando si verifica un problema con la comunicazione tra i subset di nodi del cluster, in modo che non tenti più server simultaneamente un gruppo di risorse host e scrivere lo stesso disco nello stesso momento. Con questo concetto del quorum, il cluster forzerà l'arresto in uno dei subset di nodi da verificare che sia presente solo un vero proprietario di un determinato gruppo di risorse del servizio cluster. Una volta che i nodi che sono stati arrestati ancora una volta possono comunicare con il gruppo principale dei nodi, verrà automaticamente ricostituzione del cluster e avviare il servizio cluster.
+Il quorum determina il numero di errori che il cluster può sostenere rimanendo online. Il quorum è progettato per gestire lo scenario quando si verifica un problema di comunicazione tra subset di nodi del cluster, in modo che più server non tentino di ospitare simultaneamente un gruppo di risorse e di scrivere sullo stesso disco nello stesso momento. Con questo concetto di quorum, il cluster forza l'arresto del servizio cluster in uno dei subset di nodi per garantire che esista un solo proprietario reale di un determinato gruppo di risorse. Una volta che i nodi che sono stati interrotti possono comunicare di nuovo con il gruppo principale di nodi, verranno aggiunti automaticamente al cluster e avvierà il servizio cluster.
 
-In Windows Server 2019 e Windows Server 2016, esistono due componenti del sistema che hanno i propri meccanismi di quorum:
+In Windows Server 2019 e Windows Server 2016 sono disponibili due componenti del sistema con i propri meccanismi di quorum:
 
-- **Il Quorum del cluster**: Questo oggetto opera a livello di cluster (ad esempio è possibile perdere i nodi e cluster restare sempre aggiornato)
-- **Pool Quorum**: Si opera a livello di pool quando spazi di archiviazione diretta è abilitato (ovvero è possibile perdere i nodi e le unità e il pool di restare sempre aggiornato). I pool di archiviazione sono stati progettati per essere usato in scenari sia cluster sia non cluster, motivo per cui dispongono di un meccanismo di quorum diverse.
+- **Quorum del cluster**: Questa operazione funziona a livello di cluster, ad esempio se è possibile perdere i nodi e il cluster rimane attivo
+- **Quorum pool**: Questa operazione funziona a livello di pool quando Spazi di archiviazione diretta è abilitato, ovvero è possibile perdere i nodi e le unità e fare in caso di rimanere attivi. I pool di archiviazione sono stati progettati per essere utilizzati in scenari in cluster e non in cluster ed è per questo motivo che hanno un meccanismo di quorum diverso.
 
 ## <a name="cluster-quorum-overview"></a>Panoramica del quorum del cluster
 
-Nella tabella seguente offre una panoramica dei risultati del quorum del Cluster per ogni scenario:
+La tabella seguente offre una panoramica dei risultati del quorum del cluster per ogni scenario:
 
-| Nodi del server | Possono restare attive quando un errore del nodo server | Errore del nodo un server, poi un altro possono restare attive quando | Possono restare attive quando due errori dei nodi simultanee server |
+| Nodi server | Può sopravvivere a un errore del nodo server | Può sopravvivere a un errore del nodo server e quindi a un altro | Può sopravvivere a due errori simultanei del nodo server |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | 50/50                               | No                                                | No                                                 |
 | 2 + server di controllo  | Yes                                 | No                                                | No                                                 |
 | 3            | Yes                                 | 50/50                                             | No                                                 |
-| 3 + server di controllo  | Yes                                 | Yes                                               | No                                                 |
+| 3 + server di controllo  | Yes                                 | Sì                                               | No                                                 |
 | 4            | Yes                                 | Yes                                               | 50/50                                              |
 | 4 + server di controllo  | Yes                                 | Yes                                               | Yes                                                |
 | 5 e versioni successive  | Yes                                 | Yes                                               | Yes                                                |
 
 ### <a name="cluster-quorum-recommendations"></a>Raccomandazioni del quorum del cluster
 
-- Se si dispone di due nodi, è un controllo del mirroring **obbligatorio**.
-- Se si dispone di tre o quattro nodi, è witness **consigliabile**.
-- Se si ha accesso a Internet, usare una  **[cloud di controllo](../../failover-clustering/deploy-cloud-witness.md)**
-- Se lavora in un ambiente IT con altri computer e le condivisioni file, usare una condivisione file di controllo
+- Se si dispone di due nodi, è **necessario**un server di controllo del mirroring.
+- Se si dispone di tre o quattro nodi, il server di controllo del mirroring è **fortemente consigliato**.
+- Se si dispone di accesso a Internet, usare un  **[cloud](../../failover-clustering/deploy-cloud-witness.md) di controllo**
+- Se ci si trova in un ambiente IT con altri computer e condivisioni file, usare una condivisione file di controllo
 
 ## <a name="how-cluster-quorum-works"></a>Funzionamento del quorum del cluster
 
-Quando i nodi hanno esito negativo o quando alcuni subset di nodi perde il contatto con un altro subset, nodi restanti necessari verificare che costituiscano la *maggioranza* del cluster deve rimanere online. Se non è possibile verificare che, si rivolgeranno offline.
+Quando i nodi hanno esito negativo o quando un subset di nodi perde il contatto con un altro subset, i nodi superstiti devono verificare che costituiscano la *maggior parte* del cluster per rimanere online. Se non riescono a verificarlo, passeranno offline.
 
-Il concetto di ma *maggioranza* solo funziona correttamente quando il numero totale di nodi del cluster sia dispari (ad esempio, tre nodi in un cluster con cinque nodi). Pertanto, per quanto riguarda i cluster con un numero pari di nodi (ad esempio, un cluster a quattro nodi)?
+Tuttavia, il concetto di *maggioranza* funziona solo quando il numero totale di nodi nel cluster è dispari, ad esempio tre nodi in un cluster a cinque nodi. Quindi, cosa accade per i cluster con un numero pari di nodi (ad indicare un cluster a quattro nodi)?
 
-Esistono due modi per il cluster può rendere il *numero totale di voti* dispari:
+Esistono due modi in cui il cluster può rendere dispari il *numero totale di voti* :
 
-1. In primo luogo, può passare *iscrizione* uno tramite l'aggiunta di un *witness* con un voto aggiuntivo. Ciò richiede la configurazione utente.
-2.  In alternativa, è possibile accedere *verso il basso* uno azzerando uno sfortunato voto del nodo (viene eseguita automaticamente in base alle esigenze).
+1. Per prima cosa, può *diventare uno aggiungendo* un server di controllo del *mirroring* con un voto aggiuntivo. Questa operazione richiede la configurazione dell'utente.
+2.  In alternativa, è possibile *che si verifichi uno,* azzerando il voto di un nodo sfortunato (si verifica automaticamente in base alle esigenze).
 
-Ogni volta che nodi rimasti attivi correttamente, verificare che siano i *maggioranza*, la definizione di *maggioranza dei nodi* viene aggiornato per essere tra solo oggetti esclusi. In questo modo il cluster perde un nodo, quindi un altro, poi un altro e così via. Questo concetto del *numero totale di voti* adattamento dopo gli errori successivi è noto come ***dinamica del quorum***.  
+Ogni volta che i nodi superstiti verificano la *maggior parte della maggioranza*, la definizione della *maggioranza* viene aggiornata in modo da essere tra i soli superstiti. In questo modo, il cluster può perdere un nodo, un altro, un altro e così via. Questo concetto del *numero totale di voti* che si adattano dopo errori successivi è noto come ***quorum dinamico***.  
 
-### <a name="dynamic-witness"></a>Controllo del mirroring dinamico
+### <a name="dynamic-witness"></a>Server di controllo dinamico
 
-Controllo dinamico attiva o disattiva il voto di controllo del mirroring per assicurarsi che il *numero totale di voti* è dispari. Se sono presenti un numero dispari di voti, il server di controllo non dispone di un voto. Se è presente un numero pari di voti, il controllo del mirroring dispone di un voto. Controllo dinamico riduce notevolmente il rischio che il cluster sarà disattivato a causa di errori di controllo del mirroring. Il cluster decide se utilizzare il voto di controllo in base al numero di nodi votanti disponibili nel cluster.
+Il controllo dinamico consente di impostare il voto del server di controllo del mirroring per assicurarsi che il *numero totale di voti* sia dispari. Se è presente un numero dispari di voti, il server di controllo del mirroring non dispone di un voto. Se è presente un numero pari di voti, il server di controllo del mirroring ha un voto. Il server di controllo dinamico riduce significativamente il rischio che il cluster si arresti a causa di un errore del server di controllo. Il cluster decide se usare il voto del server di controllo del mirroring in base al numero di nodi votanti disponibili nel cluster.
 
-Dinamica del quorum funziona con server di controllo dinamico nel modo descritto di seguito.
+Il quorum dinamico funziona con il server di controllo dinamico nel modo descritto di seguito.
 
-### <a name="dynamic-quorum-behavior"></a>Comportamento di quorum dinamico
+### <a name="dynamic-quorum-behavior"></a>Comportamento del quorum dinamico
 
-- Se si dispone di un **anche** numero di nodi e non del server di controllo *un nodo Ottiene proprio voto azzerato*. Ad esempio, solo tre dei quattro nodi ottenere voti, in modo che il *numero totale di voti* è la terza e due i superstiti con voti vengono considerati una maggioranza dei nodi.
-- Se si dispone di un **dispari** numero di nodi e non del server di controllo *ricevono voti*.
-- Se si dispone di un **persino** numero di nodi e del server di controllo *voti il controllo del mirroring*, pertanto il totale è dispari.
-- Se si dispone di un **dispari** numero di nodi e del server di controllo *controllo del mirroring non vota*.
+- Se è presente un numero **pari** di nodi e nessun server di controllo del mirroring, *il voto viene azzerato da un nodo*. Ad esempio, solo tre dei quattro nodi ottengono voti, quindi il *numero totale di voti* è tre e due superstiti con voti sono considerati di maggioranza.
+- Se è presente un numero **dispari** di nodi e nessun server di controllo del mirroring, *tutti ricevono voti*.
+- Se si dispone di un numero **pari** di nodi più Witness, il server di controllo del *mirroring*, il totale è dispari.
+- Se si dispone di un numero **dispari** di nodi e di un server di controllo del mirroring, *il server*di controllo
 
-Quorum dinamico offre la possibilità di assegnare un voto a un nodo in modo dinamico per evitare di perdere la maggioranza di voti e consentire al cluster per l'esecuzione con un nodo (noto come permanente last-man). Diamo un cluster a quattro nodi come esempio. Si supponga di che cui il quorum richiede 3 voti. 
+Il quorum dinamico consente di assegnare un voto a un nodo in modo dinamico per evitare di perdere la maggior parte dei voti e di consentire l'esecuzione del cluster con un nodo (noto come ultimo uomo). Si prenda come esempio un cluster a quattro nodi. Si supponga che il quorum richieda 3 voti. 
 
-In questo caso, sarebbe stati nel cluster verso il basso se più di due nodi.
+In questo caso, il cluster sarebbe diminuito se si perdessero due nodi.
 
-![Diagramma che mostra quattro nodi del cluster, ognuno dei quali Ottiene un voto](media/understand-quorum/dynamic-quorum-base.png)
+![Diagramma che mostra quattro nodi del cluster, ognuno dei quali ottiene un voto](media/understand-quorum/dynamic-quorum-base.png)
 
-Tuttavia, dinamica del quorum impedisce che questo accada. Il *numero totale di voti* necessari per quorum a questo punto è determinato in base al numero di nodi disponibili. Pertanto, con dinamica del quorum, il cluster rimarrà backup anche se si perdono tre nodi.
+Tuttavia, il quorum dinamico impedisce che ciò accada. Il *numero totale di voti* richiesti per il quorum è ora determinato in base al numero di nodi disponibili. Pertanto, con il quorum dinamico, il cluster resterà attivo anche se si perdono tre nodi.
 
-![Diagramma che mostra quattro nodi del cluster, con nodi di errori uno alla volta e il numero di voti necessari rettificare dopo ogni errore.](media/understand-quorum/dynamic-quorum-step-through.png)
+![Diagramma che mostra quattro nodi del cluster, con i nodi non riusciti uno alla volta e il numero di voti necessari per la regolazione dopo ogni errore.](media/understand-quorum/dynamic-quorum-step-through.png)
 
-Lo scenario riportato sopra si applica a un cluster generale che non dispone di spazi di archiviazione diretta abilitata. Tuttavia, quando spazi di archiviazione diretta è abilitato, il cluster può supportare solo due errori di nodo. Questo aspetto viene spiegato più il [sezione del quorum del pool](#pool-quorum-overview).
+Lo scenario precedente si applica a un cluster generale in cui non è abilitato Spazi di archiviazione diretta. Tuttavia, quando Spazi di archiviazione diretta è abilitato, il cluster può supportare solo due errori del nodo. Questa operazione è illustrata più nella [sezione quorum del pool](#pool-quorum-overview).
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="two-nodes-without-a-witness"></a>Due nodi senza un server di controllo. 
-Viene riempito di zeri voto del nodo, in modo che il *maggioranza* voto è determinato su un totale di **1 voto**. Se il nodo non di voto si arresta in modo imprevisto, superstite ha 1/1 e il cluster continua a funzionare. Se il voto nodo si arresta in modo imprevisto, superstite ha 0/1 e il cluster si arresta. Se il nodo voto normalmente è spento, il voto viene trasferito a altro nodo e continua a funzionare, il cluster. ***È per questo motivo è fondamentale per configurare un server di controllo.***
+#### <a name="two-nodes-without-a-witness"></a>Due nodi senza un server di controllo del mirroring. 
+Il voto di un nodo viene azzerato, quindi il voto di *maggioranza* è determinato da un totale di **1 voto**. Se il nodo che non vota il voto si interrompe in modo imprevisto, il superstite ha 1/1 e il cluster sopravvive. Se il nodo votante si arresta in modo imprevisto, il superstite ha 0/1 e il cluster diventa inattivo. Se il nodo votante è spento normalmente, il voto viene trasferito all'altro nodo e il cluster sopravvive. ***Questo è il motivo per cui è essenziale configurare un server di controllo del mirroring.***
 
-![Quorum spiegato nel caso con due nodi senza un server di controllo](media/understand-quorum/2-node-no-witness.png)
+![Spiegazione del quorum nel caso di due nodi senza un server di controllo del mirroring](media/understand-quorum/2-node-no-witness.png)
 
-- Possono restare attive quando un errore del server: **Il 50 percento di probabilità**.
-- Errore di un server, poi un altro, possono restare attive quando: **No**.
-- Possono restare attive quando due errori del server in una sola volta: **No**. 
+- Può sopravvivere a un errore del server: **50% di probabilità**.
+- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
-#### <a name="two-nodes-with-a-witness"></a>Due nodi con un server di controllo. 
-Votano entrambi i nodi, più voti il controllo del mirroring, in modo che il *maggioranza* viene determinato su un totale di **3 voti**. Se dei nodi diventa inattivo, superstite dispone di 2 o 3 e il cluster continua a funzionare.
+#### <a name="two-nodes-with-a-witness"></a>Due nodi con un server di controllo del mirroring. 
+Entrambi i nodi votano, oltre ai voti del witness, quindi la *maggior parte* è determinata da un totale di **3 voti**. Se uno dei nodi diventa inattivo, il superstite ha 2/3 e il cluster sopravvive.
 
-![Quorum spiegato nel caso con due nodi con un server di controllo](media/understand-quorum/2-node-witness.png)
+![Spiegazione del quorum nel caso di due nodi con un server di controllo del mirroring](media/understand-quorum/2-node-witness.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **No**.
-- Possono restare attive quando due errori del server in una sola volta: **No**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
-#### <a name="three-nodes-without-a-witness"></a>Tre nodi senza un server di controllo.
-Votano tutti i nodi, in modo che il *maggioranza* viene determinato su un totale di **3 voti**. Se qualsiasi nodo diventa inattivo, i superstiti sono 2 o 3 e il cluster continua a funzionare. Il cluster diventa due nodi senza un server di controllo: a questo punto, ci si trova in uno Scenario 1.
+#### <a name="three-nodes-without-a-witness"></a>Tre nodi senza un server di controllo del mirroring.
+Tutti i nodi votano, quindi la *maggior parte* è determinata da un totale di **3 voti**. Se un nodo diventa inattivo, i superstiti sono 2/3 e il cluster sopravvive. Il cluster diventa due nodi senza un server di controllo del mirroring. a questo punto, si trova nello scenario 1.
 
-![Quorum spiegato nel caso con tre nodi senza un server di controllo](media/understand-quorum/3-node-no-witness.png)
+![Spiegazione del quorum nel caso di tre nodi senza un server di controllo del mirroring](media/understand-quorum/3-node-no-witness.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Il 50 percento di probabilità**.
-- Possono restare attive quando due errori del server in una sola volta: **No**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **50% di probabilità**.
+- Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
-#### <a name="three-nodes-with-a-witness"></a>Tre nodi con un server di controllo.
-Votano tutti i nodi, in modo che il server di controllo non viene inizialmente votare. Il *maggioranza* viene determinato su un totale di **3 voti**. Dopo un errore, il cluster ha due nodi con un server di controllo – torna allo Scenario 2. Quindi, ora i due nodi e il controllo di votare.
+#### <a name="three-nodes-with-a-witness"></a>Tre nodi con un server di controllo del mirroring.
+Tutti i nodi votano, quindi il server di controllo del mirroring non vota inizialmente. La *maggior parte* è determinata da un totale di **3 voti**. Dopo un errore, il cluster ha due nodi con un server di controllo del mirroring, che è riportato allo scenario 2. Quindi, ora i due nodi e il voto del server di controllo del mirroring.
 
-![Quorum spiegato nel caso con tre nodi con un server di controllo](media/understand-quorum/3-node-witness.png)
+![Spiegazione del quorum nel caso di tre nodi con un server di controllo del mirroring](media/understand-quorum/3-node-witness.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Sì**.
-- Possono restare attive quando due errori del server in una sola volta: **No**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
-#### <a name="four-nodes-without-a-witness"></a>Quattro nodi senza un server di controllo
-Viene riempito di zeri voto del nodo, in modo che il *maggioranza* viene determinato su un totale di **3 voti**. Dopo un errore, il cluster diventa tre nodi e ci si trova in uno Scenario 3.
+#### <a name="four-nodes-without-a-witness"></a>Quattro nodi senza un server di controllo del mirroring
+Il voto di un nodo viene azzerato, quindi la *maggior parte* è determinata da un totale di **3 voti**. Dopo un errore, il cluster diventa tre nodi e si trova nello scenario 3.
 
-![Quorum spiegato nel caso con quattro nodi senza un server di controllo](media/understand-quorum/4-node-no-witness.png)
+![Il quorum è stato illustrato nel caso di quattro nodi senza un server di controllo del mirroring](media/understand-quorum/4-node-no-witness.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Sì**.
-- Possono restare attive quando due errori del server in una sola volta: **Il 50 percento di probabilità**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a due errori del server contemporaneamente: **50% di probabilità**. 
 
-#### <a name="four-nodes-with-a-witness"></a>Quattro nodi con un server di controllo.
-Tutti i voti a nodi e i voti di controllo del mirroring, in modo che il *maggioranza* viene determinato su un totale di **5 voti**. Dopo un errore, viene visualizzato lo Scenario 4. Dopo due errori simultanei, passare direttamente allo Scenario 2.
+#### <a name="four-nodes-with-a-witness"></a>Quattro nodi con un server di controllo del mirroring.
+Tutti i nodi votano e i voti del witness, quindi la *maggior parte* è determinata da un totale di **5 voti**. In seguito a un errore, lo scenario è 4. Dopo due errori simultanei, passare allo scenario 2.
 
-![Quorum spiegato nel caso con quattro nodi con un server di controllo](media/understand-quorum/4-node-witness.png)
+![Spiegazione del quorum nel caso di quattro nodi con un server di controllo del mirroring](media/understand-quorum/4-node-witness.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Sì**.
-- Possono restare attive quando due errori del server in una sola volta: **Sì**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
-#### <a name="five-nodes-and-beyond"></a>Cinque nodi e versioni successive.
-Tutti tranne uno voto, qualsiasi effettua il totale dispari o votano tutti i nodi. Spazi di archiviazione diretta non possono gestire più di due nodi verso il basso, pertanto a questo punto, nessun controllo del mirroring è necessario o utile.
+#### <a name="five-nodes-and-beyond"></a>Cinque nodi e oltre.
+Tutti i nodi votano, o tutti i voti tranne uno, qualunque sia il totale dispari. Spazi di archiviazione diretta non può gestire comunque più di due nodi, quindi, a questo punto, non è necessario o utile alcun server di controllo del mirroring.
 
-![Quorum spiegato nel caso con cinque nodi e altro ancora](media/understand-quorum/5-nodes.png)
+![Spiegazione del quorum nel caso di cinque nodi e oltre](media/understand-quorum/5-nodes.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Sì**.
-- Possono restare attive quando due errori del server in una sola volta: **Sì**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
-Ora che abbiamo capito di funzionamento del quorum, esaminiamo i tipi di server di controllo del quorum.
+Dopo aver compreso il funzionamento del quorum, verranno esaminati i tipi di testimoni del quorum.
 
-### <a name="quorum-witness-types"></a>Tipi di controllo del quorum
+### <a name="quorum-witness-types"></a>Tipi di server di controllo del quorum
 
-Clustering di failover supporta tre tipi di Quorum server di controllo:
+Il clustering di failover supporta tre tipi di testimoni del quorum:
 
-- **[Cloud Witness](../../failover-clustering/deploy-cloud-witness.md)**  -Blob di archiviazione di Azure accessibili da tutti i nodi del cluster. Conserva le informazioni del clustering in un file witness log, ma non archivia una copia del database del cluster.
-- **Controllo di condivisione di file** : condivisione di file SMB A cui è configurato in un file server che esegue Windows Server. Conserva le informazioni del clustering in un file witness log, ma non archivia una copia del database del cluster.
-- **Disco di controllo** -un piccolo disco che si trova in gruppo di Cluster archiviazione disponibile. Questo disco è a disponibilità elevata e possibile eseguire il failover tra nodi. Contiene una copia del database del cluster.  ***Un disco di controllo non è supportato con spazi di archiviazione diretta***.
+- **[Cloud Witness](../../failover-clustering/deploy-cloud-witness.md)** -archiviazione BLOB in Azure accessibile da tutti i nodi del cluster. Mantiene le informazioni di clustering in un file witness. log, ma non archivia una copia del database del cluster.
+- **Condivisione file** di controllo: una condivisione file SMB configurata in un file server che esegue Windows Server. Mantiene le informazioni di clustering in un file witness. log, ma non archivia una copia del database del cluster.
+- **Disco** di controllo: un disco in cluster di piccole dimensioni che si trova nel gruppo di archiviazione disponibile nel cluster. Questo disco è a disponibilità elevata ed è in grado di failover tra i nodi. Contiene una copia del database del cluster.  ***Il disco di controllo non è supportato con spazi di archiviazione diretta***.
 
 ## <a name="pool-quorum-overview"></a>Panoramica del quorum del pool
 
-Abbiamo appena detto quorum del Cluster, che opera a livello di cluster. A questo punto, passiamo il Quorum del Pool, che opera a livello di pool (ad esempio si possono perdere i nodi e le unità e disporre il pool di restare sempre aggiornato). I pool di archiviazione sono stati progettati per essere usato in scenari sia cluster sia non cluster, motivo per cui dispongono di un meccanismo di quorum diverse.
+Abbiamo appena parlato del quorum del cluster, che funziona a livello di cluster. Esaminiamo ora il quorum del pool, che funziona a livello di pool, ovvero è possibile perdere i nodi e le unità e fare in modo che il pool sia sempre attivo. I pool di archiviazione sono stati progettati per essere utilizzati in scenari in cluster e non in cluster ed è per questo motivo che hanno un meccanismo di quorum diverso.
 
-Nella tabella seguente offre una panoramica dei risultati del Quorum del Pool per ogni scenario:
+La tabella seguente offre una panoramica dei risultati del quorum del pool per ogni scenario:
 
-| Nodi del server | Possono restare attive quando un errore del nodo server | Errore del nodo un server, poi un altro possono restare attive quando | Possono restare attive quando due errori dei nodi simultanee server |
+| Nodi server | Può sopravvivere a un errore del nodo server | Può sopravvivere a un errore del nodo server e quindi a un altro | Può sopravvivere a due errori simultanei del nodo server |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | No                                  | No                                                | No                                                 |
 | 2 + server di controllo  | Yes                                 | No                                                | No                                                 |
@@ -184,48 +184,48 @@ Nella tabella seguente offre una panoramica dei risultati del Quorum del Pool pe
 
 ## <a name="how-pool-quorum-works"></a>Funzionamento del quorum del pool
 
-Quando le unità hanno esito negativo o quando un subset delle unità perde contatto con un altro sottoinsieme, superstite unità necessario verificare che costituiscano la *maggioranza* del pool di rimanere online. Se non è possibile verificare che, si rivolgeranno offline. Il pool è l'entità che viene portato offline o rimane in linea di base a eventuale numero sufficiente di dischi per il quorum (50% + 1). Il proprietario della risorsa del pool (nodo attivo del cluster) può essere il + 1.
+Quando le unità hanno esito negativo o quando un subset di unità perde il contatto con un altro subset, le unità superstiti devono verificare che costituiscano la *maggior parte* del pool per rimanere online. Se non riescono a verificarlo, passeranno offline. Il pool è l'entità che passa alla modalità offline o rimane online in base alla presenza di dischi sufficienti per il quorum (50% + 1). Il proprietario della risorsa del pool (nodo del cluster attivo) può essere + 1.
 
-Ma quorum del pool funziona in modo diverso dal quorum del cluster nei modi seguenti:
+Tuttavia, il quorum del pool funziona in modo diverso rispetto al quorum del cluster nei modi seguenti:
 
-- il pool Usa un nodo del cluster come server di controllo come un spareggio necessaria per superare la metà delle unità verificata (in questo nodo è il proprietario della risorsa del pool)
-- il pool non dispone di quorum dinamico
-- il pool può neimplementuje METODU la propria versione della rimozione di un voto
+- il pool usa un nodo nel cluster come server di controllo del mirroring come un tie-breaker per sopravvivere alla metà delle unità (questo nodo che è il proprietario della risorsa del pool)
+- il pool non dispone del quorum dinamico
+- il pool non implementa la propria versione della rimozione di un voto
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="four-nodes-with-a-symmetrical-layout"></a>Quattro nodi con un layout simmetrico. 
-Ogni 16 unità dispone di un voto e nodo due dispone anche di un voto (perché è il proprietario della risorsa del pool). Il *maggioranza* viene determinato su un totale di **16 voti**. Se si disattivano tre e quattro i nodi, il subset superstito ha 8 unità e il proprietario della risorsa del pool, ovvero i voti 9/16. Pertanto, il pool continua a funzionare.
+#### <a name="four-nodes-with-a-symmetrical-layout"></a>Quattro nodi con layout simmetrico. 
+Ognuna delle 16 unità ha un voto e il nodo due ha anche un voto, perché è il proprietario della risorsa del pool. La *maggior parte* è determinata da un totale di **16 voti**. Se i nodi tre e quattro si arrestano, il subset superstite ha 8 unità e il proprietario della risorsa del pool, che corrisponde a 9/16 voti. Quindi, il pool non è più presente.
 
-![Pool Quorum 1](media/understand-quorum/pool-1.png)
+![Quorum pool 1](media/understand-quorum/pool-1.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **Sì**.
-- Possono restare attive quando due errori del server in una sola volta: **Sì**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
-#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quattro nodi con un errore di layout e l'unità simmetrico. 
-Ogni 16 unità dispone di un voto e il nodo 2 ha anche un voto (perché è il proprietario della risorsa del pool). Il *maggioranza* viene determinato su un totale di **16 voti**. In primo luogo, unità 7 si arresta. Se si disattivano tre e quattro i nodi, il sottoinsieme superstito ha 7 unità e il proprietario della risorsa del pool, ovvero i voti di 8 o 16. Pertanto, il pool non ha maggioranza dei nodi e si arresta.
+#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quattro nodi con un layout simmetrico e un errore di unità. 
+Ognuna delle 16 unità ha un voto e il nodo 2 dispone anche di un voto, dal momento che si tratta del proprietario della risorsa del pool. La *maggior parte* è determinata da un totale di **16 voti**. In primo luogo, l'unità 7 diventa inattiva. Se i nodi tre e quattro si arrestano, il subset superstite include 7 unità e il proprietario della risorsa del pool, che corrisponde a 8/16 voti. Quindi, il pool non ha la maggioranza e diventa inattivo.
 
-![Pool Quorum 2](media/understand-quorum/pool-2.png)
+![Quorum del pool 2](media/understand-quorum/pool-2.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Errore di un server, poi un altro, possono restare attive quando: **No**.
-- Possono restare attive quando due errori del server in una sola volta: **No**. 
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
-#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quattro nodi con un layout non simmetrica. 
-Ogni 24 unità dispone di un voto e nodo due dispone anche di un voto (perché è il proprietario della risorsa del pool). Il *maggioranza* viene determinato su un totale di **24 voti**. Se si disattivano tre e quattro i nodi, il sottoinsieme superstito ha 8 unità e il proprietario della risorsa del pool, ovvero i voti 9/24. Pertanto, il pool non ha maggioranza dei nodi e si arresta.
+#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quattro nodi con layout non simmetrico. 
+Ognuna delle 24 unità ha un voto e il nodo due ha anche un voto (poiché si tratta del proprietario della risorsa del pool). La *maggior parte* è determinata da un totale di **24 voti**. Se i nodi tre e quattro si arrestano, il subset superstite ha 8 unità e il proprietario della risorsa del pool, che corrisponde a 9/24 voti. Quindi, il pool non ha la maggioranza e diventa inattivo.
 
-![Pool Quorum 3](media/understand-quorum/pool-3.png)
+![Quorum del pool 3](media/understand-quorum/pool-3.png)
 
-- Possono restare attive quando un errore del server: **Sì**.
-- Possono restare attive quando un errore di un server, poi un altro: * * Depends * * (non può sopravvivere se entrambi i nodi, tre e quattro diventano inattivi, ma possono restare attive quando tutti gli altri scenari.
-- Possono sopravvivere due errori del server in una sola volta: * * Depends * * (non può sopravvivere se entrambi i nodi, tre e quattro diventano inattivi, ma possono restare attive quando tutti gli altri scenari.
+- Può sopravvivere a un errore del server: **Sì**.
+- Può sopravvivere a un errore del server, un altro: * * dipende * * (non può sopravvivere se entrambi i nodi tre e quattro si arrestano, ma possono sopravvivere a tutti gli altri scenari.
+- Può sopravvivere a due errori del server contemporaneamente: * * dipende * * (non può sopravvivere se entrambi i nodi tre e quattro si arrestano, ma possono sopravvivere a tutti gli altri scenari.
 
-### <a name="pool-quorum-recommendations"></a>Raccomandazioni per i pool del quorum
+### <a name="pool-quorum-recommendations"></a>Raccomandazioni del quorum del pool
 
-- Assicurarsi che ogni nodo del cluster è simmetrico (ogni nodo ha lo stesso numero di unità)
-- Abilitare tre vie o doppia parità in modo che è possibile tollerare i guasti di un nodo e mantenere online i dischi virtuali. Vedere la [pagina di informazioni aggiuntive sul volume](plan-volumes.md) per altri dettagli.
-- Se un disco in un altro nodo e più di due nodi sono inattivi o due nodi sono inattivi, i volumi potrebbero non avere accesso a tutte le tre copie dei dati e pertanto essere portati offline e non essere disponibile. È consigliabile per riportare online il server o sostituire dischi rapidamente per garantire la resilienza la maggior parte per tutti i dati nel volume.
+- Verificare che ogni nodo del cluster sia simmetrico (ogni nodo ha lo stesso numero di unità)
+- Abilitare il mirroring a tre vie o la doppia parità per poter tollerare gli errori dei nodi e tenere online i dischi virtuali. Per ulteriori informazioni, vedere la pagina relativa alle [linee guida sui volumi](plan-volumes.md) .
+- Se più di due nodi sono inattivi o se due nodi e un disco in un altro nodo sono inattivi, i volumi potrebbero non avere accesso a tutte e tre le copie dei dati e quindi essere portati offline e non disponibili. È consigliabile ripristinare i server o sostituirli rapidamente per garantire la massima resilienza per tutti i dati del volume.
 
 ## <a name="more-information"></a>Altre informazioni
 

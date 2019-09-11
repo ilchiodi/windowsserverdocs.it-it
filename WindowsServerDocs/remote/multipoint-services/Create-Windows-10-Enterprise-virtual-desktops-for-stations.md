@@ -1,6 +1,6 @@
 ---
 title: Creare desktop virtuali di Windows 10 Enterprise per le stazioni
-description: Informazioni su come creare i desktop di Windows Server 2016 per stazione
+description: Informazioni su come creare desktop Windows Server 2016 per la stazione
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 0aa81ef3633adf27a25b45b3b7c00082d83bf0bb
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: e68412808e037b788d5b25c1c2c7b14253e40ea6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034621"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871733"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Creare desktop virtuali di Windows 10 Enterprise per le stazioni
 Questa configurazione facoltativa in servizi MultiPoint è destinata principalmente in situazioni in cui un'applicazione essenziale richiede un'istanza di un sistema operativo client per ciascun utente. Sono esempi di applicazioni che non possono essere installate in Windows Server e applicazioni che non vengono eseguiranno più istanze nello stesso computer host.  
@@ -44,9 +44,9 @@ Per prepararsi alla creazione stazione di desktop virtuali, assicurarsi che i se
 ## <a name="procedures"></a>Procedure  
 Usare le procedure seguenti per:  
   
--   [Creare un modello di desktop virtuali](#create-a-template-for-virtual-desktops)  
+-   [Creare un modello per i desktop virtuali](#create-a-template-for-virtual-desktops)  
   
--   [Creare i desktop virtuali dal modello](#create-virtual-machine-desktops-from-the-template)  
+-   [Creare desktop virtuali dal modello](#create-virtual-machine-desktops-from-the-template)  
   
 -   [Copiare un modello di desktop virtuale esistente](#copy-an-existing-virtual-desktop-template)  
   
@@ -102,14 +102,14 @@ Il passaggio successivo consiste nel configurare il modello con il software e l'
   
     Il modello verrà aperto in Hyper-V **VM connettersi** finestra e l'accesso automatico viene eseguita utilizzando l'account Administrator predefinito.  
   
-5.  A questo punto è possibile installare gli aggiornamenti software e applicazioni, modificare le impostazioni e aggiornare il profilo amministratore. Tutte le modifiche apportate al profilo administrator predefinito del modello verranno copiate nel profilo utente predefinito in stazioni di desktop virtuali creati dal modello.  
+5.  A questo punto è possibile installare gli aggiornamenti software e applicazioni, modificare le impostazioni e aggiornare il profilo amministratore. Tutte le modifiche apportate al profilo amministratore predefinito del modello verranno copiate nel profilo utente predefinito nelle stazioni desktop virtuali create dal modello.  
   
     Se ci si connette le stazioni in un dominio, si consiglia creare un account utente locale e aggiungerlo al gruppo Administrators locale durante la personalizzazione.  
   
     > [!NOTE]  
     > Se il riavvio del sistema mentre è da personalizzare un modello, utilizzando l'account Administrator predefinito l'accesso automatico potrebbe non riuscire dopo il riavvio del sistema. Per risolvere questo problema, accedere manualmente utilizzando l'account amministratore locale che è stato creato, modificare la password dell'account amministratore predefinito, disconnettersi e quindi eseguire nuovamente l'accesso utilizzando l'account Administrator predefinito e la nuova password. (È necessario eliminare il profilo creato quando l'utente connesso utilizzando l'account amministratore locale.)  
   
-6.  Dopo aver completato la configurazione del sistema, fare doppio clic su di **CompleteCustomization** collegamento sul desktop dell'amministratore per eseguire Sysprep e arrestare il modello. Durante la personalizzazione, lo strumento Sysprep rimuove tutte le informazioni di sistema univoco per preparare l'installazione di Windows per l'Imaging.  
+6.  Al termine della configurazione del sistema, fare doppio clic sul collegamento **CompleteCustomization** sul desktop dell'amministratore per eseguire Sysprep, quindi arrestare il modello. Durante la personalizzazione, lo strumento Sysprep rimuove tutte le informazioni di sistema univoco per preparare l'installazione di Windows per l'Imaging.  
   
 ### <a name="create-virtual-machine-desktops-from-the-template"></a>Creare desktop delle macchine virtuali dal modello  
 Con il modello di desktop virtuale configurato nel modo desiderato i desktop sia, si è pronti per iniziare la creazione di desktop virtuali. Verrà creato un desktop virtuale per ogni stazione di cui è collegata al computer MultiPoint Server. Alla successiva che un utente accede a una stazione visualizzano il desktop virtuale anziché il desktop basato sulla sessione che è stato visualizzato prima.  

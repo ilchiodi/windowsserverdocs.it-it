@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7bec16ab3f716148bb009dd56be475fcd058a897
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437236"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868903"
 ---
 # <a name="msdt"></a>msdt
 
 
 
-Richiama un pacchetto di risoluzione dei problemi nella riga di comando o come parte di uno script automatizzato e abilita le opzioni aggiuntive senza l'intervento dell'utente.
+Richiama un pacchetto di risoluzione dei problemi dalla riga di comando o come parte di uno script automatizzato e Abilita opzioni aggiuntive senza input utente.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,14 +34,14 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ## <a name="parameters"></a>Parametri
 
-La tabella seguente include i parametri e opzioni supportate da msdt.exe.
+Nella tabella seguente sono inclusi i parametri e le opzioni supportati da MSDT. exe.
 
 
 |      Parametro      |                                                                                            Descrizione                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /ID \<nome pacchetto > |        Specifica il pacchetto di diagnostica per l'esecuzione. Per un elenco dei pacchetti disponibili, vedere l'ID di pacchetto di risoluzione dei problemi in "disponibile risoluzione dei problemi relativi a pacchetti? sezione più avanti in questo argomento.         |
-|  /Path \<directory  |                                                                                           file .diagpkg                                                                                            |
-|   /dci \<passkey>   |                                        Vengono precompilate da per il campo passkey per il supporto tecnico Microsoft. Questo parametro viene utilizzato solo quando un servizio di supporto tecnico è fornito una passkey.                                         |
-|  /dt \<directory>   | Consente di visualizzare la cronologia di risoluzione dei problemi nella directory specificata. I risultati di diagnostica vengono archiviati dell'utente **%LOCALAPPDATA%\Diagnostics** oppure **%LOCALAPPDATA%\ElevatedDiagnostics** le directory. |
-| visualizzare \<file di risposte >  |                                               Specifica un file di risposte in formato XML che contiene le risposte a uno o più interazioni di diagnostica.                                               |
+| nome \<del pacchetto/ID > |        Specifica il pacchetto di diagnostica da eseguire. Per un elenco dei pacchetti disponibili, vedere la sezione Troubleshooting Pack ID nella sezione "available Troubleshooting Packs" più avanti in questo argomento.         |
+|  Directory \</Path  |                                                                                           file con estensione diagpkg                                                                                            |
+|   > \<passkey/DCI   |                                        Popola il campo passkey in MSDT. Questo parametro viene utilizzato solo quando un provider di supporto ha fornito una passkey.                                         |
+|  > \<directory/DT   | Visualizza la cronologia di risoluzione dei problemi nella directory specificata. I risultati diagnostici vengono archiviati nelle directory **%LocalAppData%\Diagnostics** o **%LocalAppData%\ElevatedDiagnostics** dell'utente. |
+| > \<file di risposte/AF  |                                               Specifica un file di risposte in formato XML che contiene risposte a una o più interazioni di diagnostica.                                               |
 

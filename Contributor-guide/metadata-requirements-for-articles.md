@@ -1,28 +1,28 @@
 ---
-title: Aggiungere i tag di metadati richiesti per l'articolo correlati a Windows Server
-description: Un elenco delle informazioni è necessario aggiungere come tag dei metadati nella parte superiore degli articoli correlati a Windows Server. I tag richiesti sono soggette a modifiche, in base ai requisiti di creazione di report sia team.
+title: Aggiungere i tag di metadati necessari all'articolo relativo a Windows Server
+description: Elenco delle informazioni che è necessario aggiungere come tag dei metadati all'inizio degli articoli correlati a Windows Server. I tag obbligatori sono soggetti a modifiche, in base ai requisiti del team e della creazione di report.
 author: eross-msft
 ms.author: lizross
 ms.date: 05/06/2019
-ms.openlocfilehash: f7c514def1353d44386b1bc53c8cabffe1e31fda
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: f0af6b48cd3fd28ae0a15752cb21bfe9a4abf14f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461638"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865087"
 ---
-# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>Aggiungere i tag di metadati richiesti per l'articolo correlati a Windows Server
+# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>Aggiungere i tag di metadati necessari all'articolo relativo a Windows Server
 
-Nella parte superiore di ogni articolo, ci sono metadati specifico che devono essere incluso per scopi SEO e rilevamento. I tag richiesti sono soggette a modifiche, basato su requisiti di report. Tuttavia, dovrebbe ricevere una notifica se è necessario aggiungere o rimuovere tutti i campi.
+Nella parte superiore di ogni articolo sono disponibili metadati specifici che devono essere inclusi a scopo di rilevamento e SEO. I tag obbligatori sono soggetti a modifiche, in base ai requisiti per la creazione di report. Tuttavia, è necessario ricevere una notifica se è necessario aggiungere o rimuovere i campi.
 
-Dovrebbe essere simile al seguente, inclusi i tre segni meno (-) nella parte superiore e inferiore:
+Dovrebbe essere simile al seguente, inclusi i tre trattini (---) nella parte superiore e inferiore:
 
 ```markdown
 
 ---
 title: The title of the article should go here. This is used in SEO and search results.
 
-description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they’re looking for.
+description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they're looking for.
 
 ms.prod: Use this specific text, windows-server-threshold
 
@@ -32,7 +32,7 @@ author: Your GitHub alias
 
 ms.author: Your Microsoft alias
 
-manager: Your manager’s Microsoft alias
+manager: Your manager's Microsoft alias
 
 ms.topic: Type of article, including article, landing-page, get-started-article, or reference
 

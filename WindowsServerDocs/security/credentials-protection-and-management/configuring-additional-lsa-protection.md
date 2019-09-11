@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd5863a46f77fd4ac53c8559ff17279271dc5c46
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 90efc49b0d7ff6edd8367cece42bf7f2950de952
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849692"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870562"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Configurazione di protezione LSA aggiuntiva
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento per professionisti IT viene illustrato come configurare protezione aggiuntiva per il processo dell'autorità di sicurezza locale (LSA) per impedire l'inserimento di codice che potrebbe compromettere le credenziali.
 
-LSA, che include il processo del servizio server dell'autorità di sicurezza locale (LSASS), convalida gli utenti per gli accessi locali e remoti e impone i criteri di sicurezza locali. Il sistema operativo Windows 8.1 offre protezione aggiuntiva per LSA per impedire la lettura e inserimento di codice da processi non protetti. In questo modo le credenziali archiviate e gestite in LSA sono più sicure. L'impostazione di processo protetto per LSA può essere configurata in Windows 8.1, ma non può essere configurato in Windows RT 8.1. Quando questa impostazione viene utilizzata insieme all'avvio protetto, viene raggiunto un livello di protezione maggiore perché la disabilitazione della chiave del Registro di sistema HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa non ha alcun effetto.
+LSA, che include il processo del servizio server dell'autorità di sicurezza locale (LSASS), convalida gli utenti per gli accessi locali e remoti e impone i criteri di sicurezza locali. Il sistema operativo Windows 8.1 offre protezione aggiuntiva per LSA per impedire la lettura di memoria e l'inserimento di codice da processi non protetti. In questo modo le credenziali archiviate e gestite in LSA sono più sicure. L'impostazione del processo protetto per LSA può essere configurata in Windows 8.1, ma non può essere configurata in Windows RT 8,1. Quando questa impostazione viene utilizzata insieme all'avvio protetto, viene raggiunto un livello di protezione maggiore perché la disabilitazione della chiave del Registro di sistema HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa non ha alcun effetto.
 
 ### <a name="protected-process-requirements-for-plug-ins-or-drivers"></a>Requisiti del processo protetto per plug-in o driver
 Affinché un plug-in o un driver LSA venga caricato correttamente come processo protetto, deve soddisfare i criteri seguenti:
@@ -35,7 +35,7 @@ Affinché un plug-in o un driver LSA venga caricato correttamente come processo 
 
     La modalità protetta richiede che ogni plug-in che viene caricato in LSA sia firmato digitalmente con una firma Microsoft. Tutti i plug-in che non sono firmati oppure che sono firmati con una firma non Microsoft non verranno caricati in LSA. Esempi di questi plug-in sono i driver delle smart card, i plug-in crittografici e i filtri password.
 
-    I plug-in che sono driver, come i driver delle smart card, devono essere firmati mediante la certificazione WHQL. Per altre informazioni, vedere [firma della versione WHQL](https://msdn.microsoft.com/library/windows/hardware/ff553976%28v=vs.85%29.aspx).
+    I plug-in che sono driver, come i driver delle smart card, devono essere firmati mediante la certificazione WHQL. Per ulteriori informazioni, vedere [firma della versione WHQL](https://msdn.microsoft.com/library/windows/hardware/ff553976%28v=vs.85%29.aspx).
 
     I plug-in che non dispongono di un processo di certificazione WHQL devono essere firmati mediante il [servizio di firma file per LSA](https://go.microsoft.com/fwlink/?LinkId=392590).
 
@@ -59,9 +59,9 @@ Utilizzare l'elenco seguente per verificare che la protezione LSA sia abilitata 
 
 #### <a name="limitations-introduced-with-enabled-lsa-protection"></a>Limitazioni introdotte con la protezione LSA abilitata
 
-Se la protezione LSA viene abilitata, è possibile eseguire il debug di un plug-in LSA personalizzato.
-Quando si tratta di un processo protetto, è possibile collegare un debugger a LSASS.
-In generale, non è supportata per eseguire il debug di un processo protetto in esecuzione.
+Se è abilitata la protezione LSA, non è possibile eseguire il debug di un plug-in LSA personalizzato.
+Non è possibile aggiungere un debugger a LSASS quando si tratta di un processo protetto.
+In generale, non esiste alcun modo supportato per eseguire il debug di un processo protetto in esecuzione.
 
 ## <a name="how-to-identify-lsa-plug-ins-and-drivers-that-fail-to-run-as-a-protected-process"></a>Come identificare i plug-in e i driver LSA che non vengono eseguiti come processi protetti
 Gli eventi descritti in questa sezione sono disponibili nel log operativo in Registri applicazioni e servizi\Microsoft\Windows\CodeIntegrity. Tali eventi consentono di identificare i plug-in e i driver LSA che non vengono caricati per problemi di firma. Per gestire questi eventi, è possibile utilizzare lo strumento da riga di comando **wevtutil**. Per informazioni su questo strumento, vedere [Wevtutil](../../administration/windows-commands/Wevtutil.md).
@@ -79,7 +79,7 @@ Gli eventi descritti in questa sezione sono disponibili nel log operativo in Reg
 
 Analizzare i risultati degli eventi 3065 e 3066.
 
-Al termine, si potrebbero visualizzare questi eventi nel Visualizzatore eventi: Microsoft-Windows-Codeintegrity/Operational:
+Successivamente, è possibile che vengano visualizzati questi eventi in Visualizzatore eventi: Microsoft-Windows-CodeIntegrity/Operational:
 
 -   **Evento 3065**: questo evento registra il fatto che un controllo dell'integrità del codice ha rilevato che un processo (in genere lsass.exe) ha tentato di caricare un driver specifico che non soddisfa i requisiti di sicurezza per le sezioni condivise. A causa dei criteri di sistema impostati, è stato comunque consentito il caricamento dell'immagine.
 
@@ -104,7 +104,7 @@ Per abilitare la modalità di controllo per più computer in un dominio, è poss
 
 5.  Fare clic con il pulsante destro del mouse su **Registro di sistema**, scegliere **Nuovo** e quindi fare clic su **Elemento Registro di sistema**. Verrà visualizzata la finestra di dialogo **Nuove proprietà Registro di sistema**.
 
-6.  Nel **Hive** fare clic su **HKEY_LOCAL_MACHINE.**
+6.  Nell'elenco **hive** fare clic su **HKEY_LOCAL_MACHINE.**
 
 7.  Nell'elenco **Percorso chiave** passare a **SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe**.
 
@@ -126,7 +126,7 @@ Per il consenso esplicito della protezione LSA aggiuntiva in più computer, è p
 
 Analizzare i risultati degli eventi 3033 e 3063.
 
-Al termine, si potrebbero visualizzare questi eventi nel Visualizzatore eventi: Microsoft-Windows-Codeintegrity/Operational:
+Successivamente, è possibile che vengano visualizzati questi eventi in Visualizzatore eventi: Microsoft-Windows-CodeIntegrity/Operational:
 
 -   **Evento 3033**: questo evento registra il fatto che un controllo dell'integrità del codice ha rilevato che un processo (in genere lsass.exe) ha tentato di caricare un driver che non soddisfa i requisiti del livello di firma Microsoft.
 
@@ -134,8 +134,8 @@ Al termine, si potrebbero visualizzare questi eventi nel Visualizzatore eventi: 
 
 Le sezioni condivise sono in genere il risultato di tecniche di programmazione che consentono ai dati dell'istanza di interagire con altri processi che utilizzano lo stesso contesto di sicurezza. Questo può creare vulnerabilità di sicurezza.
 
-## <a name="BKMK_HowToConfigure"></a>Come configurare protezione LSA aggiuntiva delle credenziali
-Nei dispositivi che eseguono Windows 8.1 (con o senza avvio protetto o UEFI), configurazione è possibile mediante le procedure descritte in questa sezione. Per i dispositivi che eseguono Windows RT 8.1, lsass.exe protezione è sempre abilitata e non può essere disattivata.
+## <a name="BKMK_HowToConfigure"></a>Come configurare la protezione LSA aggiuntiva delle credenziali
+Nei dispositivi che eseguono Windows 8.1 (con o senza avvio protetto o UEFI), è possibile eseguire la configurazione eseguendo le procedure descritte in questa sezione. Per i dispositivi che eseguono Windows RT 8,1, la protezione di Lsass. exe è sempre abilitata e non può essere disattivata.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Utilizzo dell'avvio protetto e di UEFI su dispositivi basati su x86 o x64
 Se la protezione LSA viene abilitata mediante la chiave del Registro di sistema, sui dispositivi basati su x86 o x64 che utilizzano l'avvio protetto e UEFI viene impostata una variabile UEFI nel firmware UEFI. Quando l'impostazione viene archiviata nel firmware, la variabile UEFI non può essere eliminata o modificata nella chiave del Registro di sistema. La variabile UEFI deve essere reimpostata.
@@ -166,13 +166,13 @@ Per abilitare o disabilitare la protezione LSA, è possibile utilizzare le proce
 
 6.  Nell'elenco **Hive** fare clic su **HKEY_LOCAL_MACHINE**.
 
-7.  Nel **percorso di chiave** elencare, esplorare **SYSTEM\CurrentControlSet\Control\Lsa**.
+7.  Nell'elenco **percorso chiave** passare a **SYSTEM\CurrentControlSet\Control\Lsa**.
 
-8.  Nel **nome del valore** , digitare **Runasppl"=DWORD:00000001**.
+8.  Nella casella **nome valore** digitare **RunAsPPL**.
 
 9. Nella casella **Tipo valore** fare clic su **REG_DWORD**.
 
-10. Nel **dati valore** , digitare **00000001**.
+10. Nella casella **dati valore** Digitare **00000001**.
 
 11. Fare clic su **OK**.
 
@@ -199,6 +199,6 @@ Per verificare se LSA è stato avviato in modalità protetta all'avvio di Window
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Gestione e protezione delle credenziali](credentials-protection-and-management.md)
 
-[File servizio di firma per LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
+[Servizio di firma file per LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
 
 

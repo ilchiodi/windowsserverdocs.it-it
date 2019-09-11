@@ -1,6 +1,6 @@
 ---
 title: Rete ad alte prestazioni
-description: In questo argomento viene fornita una panoramica delle tecnologie di ottimizzazione in Windows Server 2016 e l'Offload e include collegamenti a indicazioni aggiuntive su queste tecnologie.
+description: In questo argomento viene fornita una panoramica delle tecnologie di offload e ottimizzazione di Windows Server 2016 e sono inclusi collegamenti a ulteriori indicazioni su tali tecnologie.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,76 +9,76 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 09e18a41452baa0add8e055ceb22d2f5c2ad886e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3a561096da49efc4c217c0736d888674b2acf202
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815832"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871953"
 ---
 ## <a name="hardware-only-ho-features-and-technologies"></a>Funzionalità e tecnologie per solo hardware (HO, Hardware Only)
 
-Le accelerazioni hardware migliorare le prestazioni di rete in combinazione con il software ma non sono strettamente parte di qualsiasi funzionalità del software. Esempi includono regolazione di Interrupt, controllo di flusso e Receive-side dell'Offload Checksum IPv4.
+Queste accelerazioni hardware migliorano le prestazioni di rete insieme al software, ma non fanno parte di alcuna funzionalità software. Alcuni esempi includono la moderazione di interrupt, il controllo di flusso e l'offload di checksum IPv4 sul lato di ricezione.
 
 >[!TIP]
->SH e HO funzionalità sono disponibili se supporta l'interfaccia di rete installata. Le descrizioni delle funzionalità seguente illustra le procedure indicare se la scheda di rete supporta la funzionalità.
+>Le funzionalità SH e HO sono disponibili se la scheda di interfaccia di rete installata la supporta. Le descrizioni delle funzionalità seguenti illustrano come stabilire se la scheda di interfaccia di rete supporta la funzionalità.
 
-### <a name="address-checksum-offload"></a>Offload Checksum indirizzo
+### <a name="address-checksum-offload"></a>Offload di checksum degli indirizzi
 
-Offload checksum indirizzo sono una funzionalità di interfaccia di rete che trasferisce il carico di calcolo del checksum di indirizzo (IP, TCP, UDP) per l'hardware di interfaccia di rete per inviare e ricevere.
+Gli offload di checksum degli indirizzi sono una funzionalità NIC che esegue l'offload del calcolo dei checksum degli indirizzi (IP, TCP, UDP) nell'hardware della scheda di interfaccia di rete per l'invio e la ricezione.
 
-Nel percorso di ricezione, l'offload checksum calcola i checksum nelle intestazioni IP TCP e UDP (se necessario) e indica al sistema operativo se i checksum passano, non è riuscita o non controllata. Se l'interfaccia di rete indica che i checksum siano validi, che il sistema operativo accetta il pacchetto non verificato. Se l'interfaccia di rete asserzioni che sono il checksum non valido o non verificato, lo stack IP/TCP/UDP internamente calcola anche in questo caso i valori di checksum. Se il valore di checksum calcolato non riesce, il pacchetto Ottiene eliminato.
+Nel percorso di ricezione, l'offload di checksum calcola i checksum nelle intestazioni IP, TCP e UDP (a seconda dei casi) e indica al sistema operativo se i checksum sono stati superati, non superati o non controllati. Se la scheda di interfaccia di rete dichiara che i checksum sono validi, il sistema operativo accetta il pacchetto in questione. Se la scheda di interfaccia di rete dichiara che i checksum non sono validi o non sono controllati, lo stack IP/TCP/UDP calcola internamente i checksum. Se il checksum calcolato ha esito negativo, il pacchetto viene ignorato.
 
-Nel percorso di invio, l'offload checksum calcola e inserisce i valori di checksum nell'intestazione IP, TCP o UDP come appropriato.
+Nel percorso di trasmissione, l'offload di checksum calcola e inserisce i checksum nell'intestazione IP, TCP o UDP, a seconda dei casi.
 
-La disabilitazione di Offload checksum nel percorso di invio non disabilita l'inserimento per i pacchetti inviati al driver miniport usando la funzionalità di grandi dimensioni Offload invio (LSO) e calcolo del checksum.  Per disabilitare tutti i calcoli di offload checksum, l'utente deve anche disabilitare LSO.
+La disabilitazione degli offload di checksum sul percorso di trasmissione non disabilita il calcolo e l'inserimento di checksum per i pacchetti inviati al driver miniport utilizzando la funzionalità di offload di invio (LSO).  Per disabilitare tutti i calcoli di offload di checksum, l'utente deve anche disabilitare LSO.
 
-_**Gestire gli offload Checksum indirizzo**_
+_**Gestisci offload di checksum degli indirizzi**_
 
 Nelle proprietà avanzate sono disponibili diverse proprietà distinte:
 
--   IPv4 Checksum Offload
+-   Offload Checksum IPv4
 
--   TCP Checksum Offload (IPv4)
+-   Offload checksum TCP (IPv4)
 
--   Offload Checksum TCP (IPv6)
+-   Offload checksum TCP (IPv6)
 
--   Offload Checksum UDP (IPv4)
+-   Offload checksum UDP (IPv4)
 
--   Offload Checksum UDP (IPv6)
+-   Offload checksum UDP (IPv6)
 
-Per impostazione predefinita, questi sono tutti sempre abilitati. È consigliabile abilitare sempre tutti questi Offload.
+Per impostazione predefinita, tutti i valori sono sempre abilitati. È consigliabile abilitare sempre tutti questi offload.
 
-L'offload Checksum possono essere gestite tramite i cmdlet Enable-NetAdapterChecksumOffload e Disable-NetAdapterChecksumOffload. Ad esempio, il cmdlet seguente Abilita il TCP (IPv4) e il calcolo del checksum UDP (IPv4):
+È possibile gestire gli offload di checksum usando i cmdlet Enable-NetAdapterChecksumOffload e Disable-NetAdapterChecksumOffload. Ad esempio, il cmdlet seguente Abilita i calcoli di checksum TCP (IPv4) e UDP (IPv4):
 
 ```PowerShell
 Enable-NetAdapterChecksumOffload –Name * -TcpIPv4 -UdpIPv4
 ```
 
-_**Suggerimenti sull'uso di offload Checksum indirizzo**_
+_**Suggerimenti sull'utilizzo degli offload di checksum degli indirizzi**_
 
-Offload Checksum indirizzo deve essere sempre abilitato indipendentemente dal carico di lavoro o circostanza. Ciò offload basic la maggior parte di tutte le tecnologie sempre servirà a migliorare le prestazioni di rete. Offload checksum è necessaria anche per altri offload senza stato usare inclusi receive-side scaling (RSS), ricevere segmento coalescing (RSC) e l'offload di invio di grandi dimensioni (LSO).
+Gli offload di checksum degli indirizzi devono essere sempre abilitati indipendentemente dal carico di lavoro o dalle circostanze. Questa più base di tutte le tecnologie di offload migliora sempre le prestazioni della rete. L'offload di checksum è necessario anche per il funzionamento di altri offload senza stato, tra cui Receive-Side Scaling (RSS), Receiver Segment coalesation (RSC) e Large Send Offload (LSO).
 
-### <a name="interrupt-moderation-im"></a>(IM) regolazione di interrupt
+### <a name="interrupt-moderation-im"></a>Moderazione interrupt (IM)
 
-Messaggistica immediata di memorizza nel buffer più pacchetti ricevuti prima di interrompere il sistema operativo. Quando una scheda di rete riceve un pacchetto, viene avviato un timer. Quando il buffer è pieno o il timer scade, a seconda del valore raggiunto per primo, l'interfaccia di rete consente di interrompere il sistema operativo. 
+IM memorizza nel buffer più pacchetti ricevuti prima di interrompere il sistema operativo. Quando una scheda di interfaccia di rete riceve un pacchetto, viene avviato un timer. Quando il buffer è pieno o il timer scade, a seconda di quale sia il primo, la NIC interrompe il sistema operativo. 
 
-Molte schede di rete supporta più di solo attivazione/disattivazione per la regolazione di Interrupt. La maggior parte delle interfacce di rete supporta i concetti di un basso, medio e ad alta velocità per la messaggistica immediata. I vari tassi di rappresentano i timer di brevi o più e sulle regolazioni per dimensioni del buffer appropriata per ridurre la latenza (regolazione di interrupt bassa) o ridurre gli interrupt (regolazione di interrupt alta).
+Molte schede di rete supportano più di solo on/off per la moderazione delle interruzioni. La maggior parte delle schede di rete supporta i concetti di bassa, media e alta velocità di messaggistica immediata. Le diverse frequenze rappresentano timer più brevi o più lunghi e regolazioni appropriate per la dimensione del buffer per ridurre la latenza (moderazione di interrupt ridotta) o ridurre gli interrupt (moderazione di interrupt elevata).
 
-È presente un saldo per essere equilibrio tra riducendo gli interrupt e ritardare eccessivamente recapito ordinato dei pacchetti. In generale, elaborazione dei pacchetti è più efficiente con regolazione di Interrupt abilitata. Applicazioni a bassa latenza o ad alte prestazioni potrebbe essere necessario valutare l'impatto della disabilitazione o la riduzione di regolazione di Interrupt.
+Si verifica un equilibrio tra la riduzione degli interrupt e il ritardo eccessivo del recapito del pacchetto. L'elaborazione dei pacchetti è in genere più efficiente con la moderazione di interrupt abilitata. È possibile che le applicazioni ad alte prestazioni o a bassa latenza debbano valutare l'effetto della disabilitazione o della riduzione della moderazione degli interrupt.
 
 ### <a name="jumbo-frames"></a>Frame jumbo
 
-I frame Jumbo è una funzionalità di interfaccia di rete e di rete che consente a un'applicazione per l'invio di frame che sono molto più grandi rispetto a quello predefinito 1500 byte. In genere il limite per i frame jumbo è circa 9000 byte, ma potrebbe essere più piccolo.
+I frame Jumbo sono una scheda di interfaccia di rete e una funzionalità di rete che consente a un'applicazione di inviare frame di dimensioni molto maggiori rispetto ai 1500 byte predefiniti. Il limite per i frame Jumbo è in genere pari a circa 9000 byte, ma può essere minore.
 
-Non sono previste modifiche al supporto di frame jumbo in Windows Server 2012 R2.
+Non sono state apportate modifiche al supporto di frame Jumbo in Windows Server 2012 R2.
 
-In Windows Server 2016 che è un nuovo offload: MTU_for_HNV. Questo nuovo offload funziona con le impostazioni di Frame jumbo nell'ambito per verificare che il traffico incapsulato non richiede la segmentazione tra l'host e il commutatore adiacente. Questa nuova funzionalità dello stack SDN con l'interfaccia di rete calcolare automaticamente quali MTU per pubblicizzare e quali MTU da usare durante la trasmissione. Questi valori per il valore MTU variano se qualsiasi offload HNV è in uso. (Della tabella di compatibilità delle funzionalità, nella tabella 1, MTU_for_HNV avrà le stesse interazioni come gli Offload di HNVv2 offload hanno in quanto è direttamente correlato il HNVv2.)
+In Windows Server 2016 è disponibile un nuovo Offload: MTU_for_HNV. Questo nuovo offload funziona con le impostazioni del frame Jumbo per garantire che il traffico incapsulato non richieda la segmentazione tra l'host e l'opzione adiacente. Questa nuova funzionalità dello stack SDN prevede che la scheda di interfaccia di rete calcoli automaticamente la MTU da pubblicizzare e la MTU da usare in rete. Questi valori per MTU sono diversi se è in uso un HNV offload. Nella tabella di compatibilità delle funzionalità della tabella 1, MTU_for_HNV avrà le stesse interazioni degli offload HNVv2, poiché è direttamente correlato al HNVv2 offload.
 
 ### <a name="large-send-offload-lso"></a>LSO (Large Send Offload)
 
-LSO consente a un'applicazione passare un grande blocco di dati per l'interfaccia di rete e le interruzioni di interfaccia di rete i dati in pacchetti che rientrano all'interno di unità di MTU (Maximum Transfer) di rete.
+LSO consente a un'applicazione di passare un blocco di dati di grandi dimensioni alla scheda di interfaccia di rete e la scheda di interfaccia di rete suddivide i dati in pacchetti che rientrano nell'unità di trasferimento massima (MTU) della rete.
 
 ### <a name="receive-segment-coalescing-rsc"></a>Receive Segment Coalescing (RSC)
 
-Unione segmenti Receive, noto anche come grandi ricezione Offload è una funzionalità di interfaccia di rete che richiede i pacchetti che fanno parte dello stesso flusso che arriva tra interruzioni di rete e li assegna un singolo pacchetto prima di inviarli al sistema operativo. RSC non è disponibile nelle schede NIC che sono associate al commutatore virtuale Hyper-V. Per altre informazioni, vedere [Receive segmento Coalescing (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).
+L'Unione dei segmenti di ricezione, nota anche come offload di ricezione di grandi dimensioni, è una funzionalità NIC che accetta pacchetti che fanno parte dello stesso flusso proveniente da interruzioni di rete e li unisce in un unico pacchetto prima di distribuirli al sistema operativo. RSC non è disponibile sulle schede di rete associate al Commuter virtuale Hyper-V. Per ulteriori informazioni, vedere la pagina relativa all'Unione dei [segmenti Receive (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).

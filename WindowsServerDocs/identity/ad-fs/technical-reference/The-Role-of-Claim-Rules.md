@@ -9,15 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 06f2f0d1fb48c6b9dea89762a30fdf77643d0e53
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: af0fce04fcb48e9c93076ca8d0f261c5170dc9fc
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188567"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865492"
 ---
 # <a name="the-role-of-claim-rules"></a>Ruolo delle regole attestazioni
-La funzione generale del servizio federativo in Active Directory Federation Services \(ADFS\) consiste nel rilasciare un token che contiene un set di attestazioni. La decisione che riguarda le attestazioni ADFS accetta e quindi invia è disciplinata dalle regole attestazione.  
+La funzione complessiva del servizio federativo in Active Directory Federation Services \(ad FS\) consiste nell'emettere un token che contiene un set di attestazioni. La decisione che riguarda le attestazioni ADFS accetta e quindi invia è disciplinata dalle regole attestazione.  
   
 ## <a name="what-are-claim-rules"></a>Che cosa sono le regole attestazioni?  
 Una regola attestazione rappresenta un'istanza di logica di business che recupera uno o più attestazioni in ingresso, applicarvi condizioni \(Se x y quindi\) e produrre uno o più attestazioni in uscita in base ai parametri di condizione. Per ulteriori informazioni sulle attestazioni in ingresso e in uscita, vedere [il ruolo di attestazioni](The-Role-of-Claims.md).  
@@ -37,7 +37,7 @@ Le regole attestazioni offrono i vantaggi seguenti:
 ### <a name="how-claim-rules-are-processed"></a>Modalità di elaborazione delle regole attestazioni  
 Le regole attestazioni vengono elaborate tramite la pipeline delle attestazioni usando il *motore delle attestazioni*. Il motore delle attestazioni è un componente logico del servizio federativo che esamina il set di attestazioni in ingresso fornite da un utente e quindi, in base alla logica di ogni regola, produce un set di attestazioni di output.  
   
-Insieme, il motore delle regole attestazioni e il set di regole attestazioni associato a un trust federativo specifico determinano se le attestazioni in ingresso devono essere passate come sono, filtrate in modo da soddisfare i criteri di una condizione specifica o trasformate in un set completamente nuovo di attestazioni prima di essere rilasciate come attestazioni in uscita dal servizio federativo.  
+Insieme, il motore delle regole attestazioni e il set di regole attestazioni associato a un trust federativo specifico determinano se le attestazioni in ingresso devono essere passate come sono, filtrate in modo da soddisfare i criteri di una condizione specifica o trasformate in un set completamente nuovo di attestazioni prima di essere rilasciate come attestazioni in uscita dal Servizio federativo.  
   
 Per ulteriori informazioni su questo processo, vedere [il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md).  
   
@@ -84,7 +84,7 @@ Per ulteriori informazioni che descrivono ognuno di questi modelli di regole di 
 Per le regole di business che non rientrano nell'ambito dei modelli di regole attestazioni standard, è possibile usare un modello di regola personalizzata per esprimere una serie di condizioni logiche complesse usando la lingua delle regole attestazioni. Per ulteriori informazioni sull'utilizzo di una regola personalizzata, vedere [quando utilizzare una regola attestazione personalizzata](When-to-Use-a-Custom-Claim-Rule.md).  
   
 #### <a name="using-windowspowershell"></a>Uso di Windows PowerShell  
-È anche possibile usare l'oggetto cmdlet ADFSClaimRuleSet con Windows PowerShell per creare o gestire le regole in ADFS. Per altre informazioni su come usare Windows PowerShell con questo cmdlet, vedere [Amministrazione di AD FS con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
+È anche possibile usare l'oggetto cmdlet ADFSClaimRuleSet con Windows PowerShell per creare o amministrare regole in AD FS. Per altre informazioni su come usare Windows PowerShell con questo cmdlet, vedere [Amministrazione di AD FS con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
   
 ## <a name="what-is-a-claim-rule-set"></a>Che cos'è un set di regole attestazioni?  
 Come illustrato nella figura seguente, un set di regole attestazioni è un raggruppamento di una o più regole per un trust federativo specifico che definisce come verranno elaborate le attestazioni dal motore delle regole attestazioni. Quando il servizio federativo riceve un'attestazione in ingresso, il motore delle regole attestazioni applica la logica specificata dal set di regole attestazioni appropriato. È la somma della logica di ogni regola nel set che determina come verranno rilasciate le attestazioni per un trust specifico.  

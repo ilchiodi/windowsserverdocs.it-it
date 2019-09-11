@@ -1,114 +1,114 @@
 ---
-title: Consente di delimitare l'allocazione dei volumi in spazi di archiviazione diretta
+title: Delimitare l'allocazione di volumi in Spazi di archiviazione diretta
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: c93cbf4ba418f6702cf8747508605952d993508d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: faf9547833764e9075e86515d1f486a5a3f61ff8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889052"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872082"
 ---
-# <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Consente di delimitare l'allocazione dei volumi in spazi di archiviazione diretta
-> Si applica a: Windows Server Insider Preview build 17093 e versioni successive
+# <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Delimitare l'allocazione di volumi in Spazi di archiviazione diretta
+> Si applica a Windows Server 2019
 
-Windows Server Insider Preview è stata introdotta un'opzione per delimitare manualmente l'allocazione dei volumi in spazi di archiviazione diretta. Tale operazione in modo che può aumentare notevolmente la tolleranza di errore in determinate condizioni, ma vengono applicate alcune considerazioni sulla gestione di aggiunta e la complessità. Questo argomento viene illustrato come funziona e fornisce esempi di PowerShell.
+Windows Server 2019 introduce un'opzione che consente di delimitare manualmente l'allocazione di volumi in Spazi di archiviazione diretta. Questa operazione può aumentare significativamente la tolleranza di errore in determinate condizioni, ma impone alcune considerazioni e complessità di gestione aggiuntive. Questo argomento spiega come funziona e fornisce esempi in PowerShell.
 
    > [!IMPORTANT]
-   > Questa funzionalità è stata introdotta in Windows Server Insider Preview build 17093 e versioni successive. Non è disponibile in Windows Server 2016. Ti invitiamo i professionisti IT per aggiungere il [programma di Windows Server Insider](https://aka.ms/serverinsider) commenti e suggerimenti su cosa possiamo fare per rendere Windows Server funzionano meglio per l'organizzazione.
+   > Questa funzionalità è una novità di Windows Server 2019. Non è disponibile in Windows Server 2016. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![Icona segno di spunta verde.](media/delimit-volume-allocation/supported.png) È consigliabile usare questa opzione se:
+### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![Icona segno di spunta verde.](media/delimit-volume-allocation/supported.png) Provare a usare questa opzione se:
 
-- Il cluster dispone di sei o più server. e
-- Il cluster Usa solo [vie](storage-spaces-fault-tolerance.md#mirroring) resilienza
+- Il cluster ha sei o più server; e
+- Il cluster usa solo la resilienza con [mirroring a tre vie](storage-spaces-fault-tolerance.md#mirroring)
 
-### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![Icona X rossa.](media/delimit-volume-allocation/unsupported.png) Non utilizzare questa opzione se:
+### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![Icona X rossa.](media/delimit-volume-allocation/unsupported.png) Non usare questa opzione se:
 
-- Il cluster con meno di sei server; o
-- Il cluster usi [parità](storage-spaces-fault-tolerance.md#parity) oppure [parità con accelerazione mirror](storage-spaces-fault-tolerance.md#mirror-accelerated-parity) resilienza
+- Il cluster ha meno di sei server; o
+- Il [cluster usa la](storage-spaces-fault-tolerance.md#parity) resilienza di parità o con [accelerazione speculare](storage-spaces-fault-tolerance.md#mirror-accelerated-parity)
 
 ## <a name="understand"></a>Esaminare con attenzione
 
 ### <a name="review-regular-allocation"></a>Revisione: allocazione regolare
 
-Con il mirroring, in modo normale, il volume è suddivisa in molti piccoli "allocazioni memoria" che viene copiati per tre volte e distribuiti uniformemente tra tutte le unità in ogni server del cluster. Per altre informazioni, leggere [questo blog di approfondimento](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/).
+Con il normale mirroring a tre vie, il volume è suddiviso in molte piccole "solette" copiate tre volte e distribuite in modo uniforme in ogni unità in ogni server del cluster. Per altri dettagli, leggi [questo Blog di approfondimento](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/).
 
-![Diagramma che mostra il volume viene suddivisa in tre gli stack di allocazioni memoria e distribuito uniformemente tra tutti i server.](media/delimit-volume-allocation/regular-allocation.png)
+![Diagramma che mostra il volume suddiviso in tre stack di lastre e distribuito in modo uniforme in ogni server.](media/delimit-volume-allocation/regular-allocation.png)
 
-Questa allocazione predefinita Ottimizza parallelo legge e scrive, determinando prestazioni migliori, è molto interessante nella relativa semplicità: ogni server è occupato in modo uniforme, ogni unità è altrettanto completa e tutti i volumi di rimangono online o alla modalità offline contemporaneamente. Ogni volume è garantita per sopravvivere a errori simultanei fino a due, come [questi esempi](storage-spaces-fault-tolerance.md#examples) illustrare.
+Questa allocazione predefinita ottimizza le letture e le Scritture parallele, ottenendo prestazioni migliori ed è accattivante nella sua semplicità: ogni server è ugualmente occupato, ogni unità è ugualmente piena e tutti i volumi vengono mantenuti online oppure passano in modalità offline. Ogni volume garantisce che sopravviva fino a due errori simultanei, come illustrato in [questi esempi](storage-spaces-fault-tolerance.md#examples) .
 
-Tuttavia, con questa allocazione, i volumi non possono sopravvivere tre errori simultanei. Se tre server non riesce in una sola volta, o errori delle unità in tre server in una sola volta, i volumi diventano inaccessibili perché almeno alcune allocazioni di memoria (con una probabilità molto alta) allocati esattamente tre unità o nei server che non è riuscita.
+Con questa allocazione, tuttavia, i volumi non possono sopravvivere a tre errori simultanei. Se si verifica un errore in una sola volta in tre server o se le unità in tre server hanno un errore in una sola volta, i volumi diventano inaccessibili perché almeno alcune piastre erano (con probabilità molto elevata) allocate alle tre unità o ai server che hanno avuto esito negativo.
 
-Nell'esempio seguente, i server 1, 3 e 5 eseguire nello stesso momento. Anche se molte allocazioni di memoria disponibile che sopravvivono copie, alcune non si:
+Nell'esempio seguente, i server 1, 3 e 5 hanno esito negativo nello stesso momento. Anche se molte lastre hanno superstiti copie, alcune non:
 
-![Diagramma che mostra tre di sei server evidenziato in rosso e il volume complessivo è rosso.](media/delimit-volume-allocation/regular-does-not-survive.png)
+![Diagramma che mostra tre di sei server evidenziati in rosso e il volume complessivo è rosso.](media/delimit-volume-allocation/regular-does-not-survive.png)
 
-Il volume viene portata offline e non è accessibile fino a quando non vengono ripristinati i server.
+Il volume passa alla modalità offline e diventa inaccessibile fino al ripristino dei server.
 
-### <a name="new-delimited-allocation"></a>Novità: delimitati allocazione
+### <a name="new-delimited-allocation"></a>Nuovo: allocazione delimitata
 
-Con allocazione delimitato da virgole, si specifica un subset di server da usare (minimo tre per vie). Il volume è suddivisa in allocazioni di memoria che vengono copiati tre volte, come in precedenza, ma invece di allocare in ogni server **le allocazioni di memoria vengono allocate solo al sottoinsieme del server è specificare**.
+Con l'allocazione delimitata è possibile specificare un subset di server da usare (minimo tre per il mirroring a tre vie). Il volume è diviso in lastre che vengono copiate tre volte, ad esempio prima, ma anziché allocare in ogni server, **le solette vengono allocate solo al subset di server specificato**.
 
-![Diagramma che mostra il volume viene suddivisa in tre gli stack di allocazioni memoria e distribuito solo a tre dei sei server.](media/delimit-volume-allocation/delimited-allocation.png)
+![Diagramma che mostra il volume suddiviso in tre stack di lastre e distribuito solo a tre di sei server.](media/delimit-volume-allocation/delimited-allocation.png)
 
 #### <a name="advantages"></a>Vantaggi
 
-Con questa allocazione, il volume è probabilmente necessaria superare tre errori simultanei: infatti, alla probabilità di sopravvivenza aumenta da % 0 (con allocazione regolari) al 95% (con allocazione delimitato da virgole) in questo caso. Intuitivamente, questo avviene perché non fa affidamento sui server 4, 5 o 6, in modo non viene interessato dalle loro errori.
+Con questa allocazione, è probabile che il volume sopravviva a tre errori simultanei: in realtà, la probabilità di sopravvivenza aumenta da 0% (con allocazione regolare) al 95% (con allocazione delimitata) in questo caso. In modo intuitivo, ciò è dovuto al fatto che non dipende dai server 4, 5 o 6, quindi non è influenzato dai relativi errori.
 
-Nell'esempio precedente, i server 1, 3 e 5 eseguire nello stesso momento. Poiché delimitato allocazione garantita che server 2 contiene una copia di ogni slab, ogni slab dispone di una copia superstita e il volume rimane online e accessibili:
+Nell'esempio precedente, i server 1, 3 e 5 hanno esito negativo nello stesso momento. Poiché l'allocazione delimitata ha assicurato che il server 2 contenga una copia di ogni lastra, ogni lastra presenta una copia superstite e il volume rimane online e accessibile:
 
-![Diagramma che mostra tre di sei server evidenziato in rosso, ma il volume complessivo è verde.](media/delimit-volume-allocation/delimited-does-survive.png)
+![Diagramma che mostra tre di sei server evidenziati in rosso, ma il volume complessivo è verde.](media/delimit-volume-allocation/delimited-does-survive.png)
 
-Probabilità di sopravvivenza dipende dal numero di server e altri fattori: consente di visualizzare [analisi](#analysis) per informazioni dettagliate.
+La probabilità di sopravvivenza dipende dal numero di server e da altri fattori. per ulteriori informazioni, vedere l' [analisi](#analysis) .
 
 #### <a name="disadvantages"></a>Svantaggi
 
-Allocazione delimitato impone alcune considerazioni sulla gestione di aggiunta e la complessità:
+L'allocazione delimitata impone alcune considerazioni e complessità di gestione aggiuntive:
 
-1. L'amministratore è responsabile che delimitano l'allocazione di ogni volume per bilanciare l'uso dell'archiviazione su server e incontrarsi elevata probabilità di sopravvivenza, come descritto nel [procedure consigliate](#best-practices) sezione.
+1. L'amministratore è responsabile della delimitazione dell'allocazione di ogni volume per bilanciare l'utilizzo dello spazio di archiviazione tra i server e sostenere un'elevata probabilità di sopravvivenza, come descritto nella sezione [procedure consigliate](#best-practices) .
 
-2. Con allocazione delimitato da virgole, l'equivalente di riservare **unità di uno capacità per ogni server (con nessun valore massimo)**. Questo è superiore al [pubblicato indicazioni](plan-volumes.md#choosing-the-size-of-volumes) per l'allocazione normali, quali superarne in base alla capacità di quattro unità totali.
+2. Con allocazione delimitata, riservare l'equivalente di **un'unità di capacità per ogni server (senza valore massimo)** . Questo è più della [raccomandazione pubblicata](plan-volumes.md#choosing-the-size-of-volumes) per l'allocazione regolare, che Zadok a quattro unità di capacità totali.
 
-3. Se un server ha esito negativo e deve essere sostituito, come descritto in [rimuovere un server con le relative unità](remove-servers.md#remove-a-server-and-its-drives), l'amministratore è responsabile dell'aggiornamento di delimitazione dei volumi interessati aggiungendo il nuovo server e rimuovendo l'one – esempio non riuscito di seguito.
+3. Se un server ha esito negativo e deve essere sostituito, come descritto in [rimuovere un server e le relative unità](remove-servers.md#remove-a-server-and-its-drives), l'amministratore è responsabile dell'aggiornamento del delimitatore dei volumi interessati mediante l'aggiunta del nuovo server e la rimozione dell'esempio non riuscito: di seguito.
 
 ## <a name="usage-in-powershell"></a>Utilizzo in PowerShell
 
-È possibile usare il `New-Volume` cmdlet per creare i volumi in spazi di archiviazione diretta.
+È possibile utilizzare il `New-Volume` cmdlet per creare volumi in spazi di archiviazione diretta.
 
-Ad esempio, per creare un volume con mirroring, in modo regolare:
+Ad esempio, per creare un normale volume mirror a tre vie:
 
 ```PowerShell
 New-Volume -FriendlyName "MyRegularVolume" -Size 100GB
 ```
 
-### <a name="create-a-volume-and-delimit-its-allocation"></a>Creare un volume e consente di delimitare le allocazione
+### <a name="create-a-volume-and-delimit-its-allocation"></a>Creare un volume e delimitare l'allocazione
 
-Per creare un volume con mirroring a tre vie e consente di delimitare le allocazione:
+Per creare un volume mirror a tre vie e delimitare l'allocazione:
 
-1. Innanzitutto assegnare il server del cluster per la variabile `$Servers`:
+1. Assegnare prima i server del cluster alla variabile `$Servers`:
 
     ```PowerShell
     $Servers = Get-StorageFaultDomain -Type StorageScaleUnit | Sort FriendlyName
     ```
 
    > [!TIP]
-   > In spazi di archiviazione diretta, il termine 'Unità di scala di archiviazione' si riferisce all'archiviazione non elaborato collegato a un server, incluse le unità collegato direttamente e direct-attached enclosure esterne con le unità. In questo contesto, è uguale a quello 'server'.
+   > In Spazi di archiviazione diretta, il termine "unità di scala di archiviazione" si riferisce a tutti i dati di archiviazione non elaborati collegati a un server, incluse le unità collegate direttamente e le enclosure esterne collegate con le unità. In questo contesto, equivale a "Server".
 
-2. Specificare i server da utilizzare con il nuovo `-StorageFaultDomainsToUse` parametro e da indicizzando `$Servers`. Ad esempio, per delimitare l'allocazione per il primo, secondo e terzo server (indici 0, 1 e 2):
+2. Specificare i server da utilizzare con il nuovo `-StorageFaultDomainsToUse` parametro e indicizzando in. `$Servers` Ad esempio, per delimitare l'allocazione al primo, al secondo e al terzo server (indici 0, 1 e 2):
 
     ```PowerShell
     New-Volume -FriendlyName "MyVolume" -Size 100GB -StorageFaultDomainsToUse $Servers[0,1,2]
     ```
 
-### <a name="see-a-delimited-allocation"></a>Vedere un'allocazione delimitato da virgole
+### <a name="see-a-delimited-allocation"></a>Vedere un'allocazione delimitata
 
-Per visualizzare come *volume* viene allocato, utilizzare il `Get-VirtualDiskFootprintBySSU.ps1` lo script in [appendice](#appendix):
+Per vedere come viene allocato il *volume* , usare `Get-VirtualDiskFootprintBySSU.ps1` lo script in [appendice](#appendix):
 
 ```PowerShell
 PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
@@ -118,37 +118,37 @@ VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 S
 MyVolume                300 GB         100 GB  100 GB  100 GB  0       0       0      
 ```
 
-Si noti che solo Server1, Server2 e Server3 contiene allocazioni di memoria di *volume*.
+Si noti che solo Server1, Server2 e Server3 contengono solette di *volume*.
 
-### <a name="change-a-delimited-allocation"></a>Modificare un'allocazione delimitato da virgole
+### <a name="change-a-delimited-allocation"></a>Modificare un'allocazione delimitata
 
-Usare le nuove `Add-StorageFaultDomain` e `Remove-StorageFaultDomain` cmdlet per modificare delimitato come l'allocazione.
+Utilizzare i nuovi `Add-StorageFaultDomain` cmdlet `Remove-StorageFaultDomain` e per modificare la modalità di delimitazione dell'allocazione.
 
-Ad esempio, per spostare *volume* carico da un unico server:
+Ad esempio, per spostare il *volume* su un solo server:
 
-1. Specificare che il server quarto **può** allocazioni di memoria di archiviare *volume*:
+1. Specificare che il quarto server è in **grado** di archiviare le solette di *volume*:
 
     ```PowerShell
     Get-VirtualDisk MyVolume | Add-StorageFaultDomain -StorageFaultDomains $Servers[3]
     ```
 
-2. Specificare che il primo server **Impossibile** allocazioni di memoria di archiviare *volume*:
+2. Consente di specificare che il primo server **non è in grado** di archiviare le solette del *volume*:
 
     ```PowerShell
     Get-VirtualDisk MyVolume | Remove-StorageFaultDomain -StorageFaultDomains $Servers[0]
     ```
 
-3. Ribilanciare il pool di archiviazione rendere effettiva la modifica:
+3. Ribilanciare il pool di archiviazione per rendere effettive le modifiche:
 
     ```PowerShell
     Get-StoragePool S2D* | Optimize-StoragePool
     ```
 
-![Diagramma che mostra che le allocazioni di memoria migrare en-masse dai server 1, 2 e 3 per 2, 3 e 4 i server.](media/delimit-volume-allocation/move.gif)
+![Diagramma che mostra le lastre migrate dal server 1, 2 e 3 ai server 2, 3 e 4.](media/delimit-volume-allocation/move.gif)
 
 È possibile monitorare lo stato di avanzamento del ribilanciamento con `Get-StorageJob`.
 
-Una volta completata, verificare che *volume* è stato spostato eseguendo `Get-VirtualDiskFootprintBySSU.ps1` nuovamente.
+Al termine, verificare che il *volume* sia stato spostato di `Get-VirtualDiskFootprintBySSU.ps1` nuovo eseguendo nuovamente.
 
 ```PowerShell
 PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
@@ -158,25 +158,25 @@ VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 S
 MyVolume                300 GB         0       100 GB  100 GB  100 GB  0       0      
 ```
 
-Si noti che non contiene Server1 allocazioni memoria dei *volume* più – invece Server04 viene.
+Si noti che Server1 non contiene più le solette del *volume* , bensì Server04.
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Ecco le procedure consigliate da seguire quando uso delimitati allocazione di volume:
+Ecco le procedure consigliate da seguire quando si usa l'allocazione di volumi delimitati:
 
-### <a name="choose-three-servers"></a>Scegliere i tre server
+### <a name="choose-three-servers"></a>Scegliere tre server
 
-Delimitare ogni volume vie in tre server, non più.
+Delimitare ogni volume mirror a tre vie a tre server, non più.
 
-### <a name="balance-storage"></a>Bilanciare al meglio archiviazione
+### <a name="balance-storage"></a>Bilancia archiviazione
 
-Bilanciare quanto spazio di archiviazione viene allocata a ogni server, per le dimensioni del volume.
+Bilanciare la quantità di spazio di archiviazione allocata a ogni server, considerando le dimensioni del volume.
 
-### <a name="every-delimited-allocation-unique"></a>Ogni allocazione delimitato univoco
+### <a name="every-delimited-allocation-unique"></a>Ogni allocazione delimitata univoca
 
-Per ottimizzare la tolleranza di errore, apportare allocazione di ogni volume univoco, vale a dire non condivide *tutti* relativi server con un altro volume (alcuni aspetti comuni sono accettabile). Con i server di N, esistono combinazioni univoche "N scegliere 3", ecco cosa significa per alcune dimensioni comuni per il cluster:
+Per ottimizzare la tolleranza di errore, rendere univoca l'allocazione di ogni volume, vale a dire che non condivide *tutti* i server con un altro volume (alcune sovrapposizioni è accettabile). Con N server sono disponibili "N scegliere 3" combinazioni univoche. Ecco cosa significa per alcune dimensioni comuni del cluster:
 
-| Numero di server (N) | Numero di univoci delimitati allocazioni (selezione di N 3) |
+| Numero di server (N) | Numero di allocazioni delimitate univoche (N scegliere 3) |
 |-----------------------|-----------------------------------------------------|
 | 6                     | 20                                                  |
 | 8                     | 56                                                  |
@@ -184,101 +184,101 @@ Per ottimizzare la tolleranza di errore, apportare allocazione di ogni volume un
 | 16                    | 560                                                 |
 
    > [!TIP]
-   > Prendere in considerazione questo utile esaminare [combinatorics scegliere notazione](https://betterexplained.com/articles/easy-permutations-and-combinations/).
+   > Prendere in considerazione questa utile revisione di [combinatoria e scegliere Notation](https://betterexplained.com/articles/easy-permutations-and-combinations/).
 
-Di seguito è riportato un esempio che ottimizza la tolleranza di errore, ogni volume contiene un'allocazione delimitata univoca:
+Di seguito è riportato un esempio in cui viene ottimizzata la tolleranza di errore. ogni volume ha un'allocazione delimitata univoca:
 
-![allocazione univoca](media/delimit-volume-allocation/unique-allocation.png)
+![univoco-allocazione](media/delimit-volume-allocation/unique-allocation.png)
 
-Al contrario, nell'esempio seguente, i primi tre volumi usare la stessa allocazione delimitato da virgole (per server 1, 2 e 3) e le ultime tre volumi usano la stessa allocazione delimitato da virgole (per server di 4, 5 e 6). In questo modo non ottimizzare la tolleranza di errore: se tre server hanno esito negativo, più volumi è stato possibile venga portato offline e inaccessibili in una sola volta.
+Viceversa, nell'esempio successivo, i primi tre volumi utilizzano la stessa allocazione delimitata (ai server 1, 2 e 3) e gli ultimi tre volumi utilizzano la stessa allocazione delimitata (ai server 4, 5 e 6). Questa operazione non massimizza la tolleranza di errore: se tre server hanno esito negativo, più volumi potrebbero andare offline e diventare inaccessibili in una sola volta.
 
-![non univoco-di allocazione](media/delimit-volume-allocation/non-unique-allocation.png)
+![allocazione non univoca](media/delimit-volume-allocation/non-unique-allocation.png)
 
 ## <a name="analysis"></a>Analisi
 
-In questa sezione deriva la matematica probabilità che un volume rimane online e accessibile (o allo stesso modo, la frazione previsto di spazio di archiviazione complessivo che rimane online e accessibili) come funzione del numero di errori e le dimensioni del cluster.
+In questa sezione viene derivata la probabilità matematica che un volume rimanga online e accessibile (o equivalente, la frazione prevista dell'archiviazione complessiva che rimane online e accessibile) come funzione del numero di errori e delle dimensioni del cluster.
 
    > [!NOTE]
-   > Questa sezione è facoltativa la lettura. Se si voglia visualizzare le operazioni matematiche, continuare a leggere. Ma in caso contrario, non bisogna preoccuparsi: [Utilizzo di PowerShell](#usage-in-powershell) e [procedure consigliate](#best-practices) è sufficiente per implementare correttamente l'allocazione delimitato da virgole.
+   > Questa sezione è facoltativa per la lettura. Se si è interessati a vedere la matematica, leggere il In caso contrario, non preoccuparti: L' [utilizzo in PowerShell](#usage-in-powershell) e le [procedure consigliate](#best-practices) è sufficiente per implementare correttamente l'allocazione delimitata.
 
-### <a name="up-to-two-failures-is-always-okay"></a>Fino a due tentativi non riusciti è sempre opportuno
+### <a name="up-to-two-failures-is-always-okay"></a>Un massimo di due errori è sempre accettabile
 
-Ogni volume con mirroring a tre vie può sopravvivere a errori fino a due allo stesso tempo, come [questi esempi](storage-spaces-fault-tolerance.md#examples) illustrare, indipendentemente dalla propria allocazione. Se due unità hanno esito negativo, esito negativo di due server o uno dei ogni, ogni volume vie rimane online e accessibile, anche con allocazione regolari.
+Ogni volume mirror a tre vie può sopravvivere fino a due errori allo stesso tempo, come illustrato in [questi esempi](storage-spaces-fault-tolerance.md#examples) , indipendentemente dall'allocazione. Se due unità hanno esito negativo o due server hanno esito negativo o uno di essi, ogni volume mirror a tre vie rimane online e accessibile, anche con l'allocazione regolare.
 
-### <a name="more-than-half-the-cluster-failing-is-never-okay"></a>Più della metà l'errore del cluster non è corretto
+### <a name="more-than-half-the-cluster-failing-is-never-okay"></a>Più della metà del cluster il guasto non è mai accettabile
 
-Al contrario, nel caso estremo più della metà dei server o unità nel cluster non riuscite, in una sola volta [quorum viene perso](understand-quorum.md) e passa alla modalità offline e diventa inaccessibile, indipendentemente dalla propria allocazione di ogni volume con mirroring a tre vie.
+Viceversa, nel caso estremo che più della metà dei server o delle unità del cluster abbiano esito negativo contemporaneamente, il [quorum viene perso](understand-quorum.md) e ogni volume mirror a tre vie passa alla modalità offline e diventa inaccessibile, indipendentemente dall'allocazione.
 
-### <a name="what-about-in-between"></a>Per quanto riguarda tra?
+### <a name="what-about-in-between"></a>Che cosa c'è tra?
 
-Se tre o più errori si verificano in una sola volta, ma ad almeno metà delle unità e server sono ancora attivi, i volumi con allocazione delimitato possono rimanere online e accessibili, a seconda del server che presentano errori. Eseguiamo i numeri per determinare quante probabilità ci precisare.
+Se si verificano tre o più errori in una sola volta, ma almeno la metà dei server e delle unità è ancora attiva, i volumi con allocazione delimitata possono rimanere online e accessibili, a seconda di quali server presentano errori. Eseguiamo i numeri per determinare la probabilità esatta.
 
-Semplicità, presuppone che i volumi sono in modo indipendente e distribuite in modo identico (IID) secondo le procedure consigliate e tale sufficientemente univoco combinazioni sono disponibili per l'allocazione di ogni volume sia univoco. È la probabilità di ogni volume continua a funzionare anche la frazione previsto di spazio di archiviazione complessivo viene conservata da linearità della previsione. 
+Per semplicità, si supponga che i volumi siano distribuiti in modo indipendente e identico (IID) in base alle procedure consigliate descritte in precedenza e che siano disponibili combinazioni univoche sufficienti per rendere univoca l'allocazione di ogni volume. La probabilità che un determinato volume venga escluso è anche la frazione prevista dell'archiviazione complessiva che rimane in base alla linearità dell'attesa. 
 
-Dato **N** server di cui **F** presentano errori, di un volume allocato a **3** di esse passa offline se-e-only-se tutti i **3** sono tra i  **F** con errori. Esistono **(N scegliere F)** modi **F** errori si verificano, dei quali **(F scegliere 3)** comportare il volume sarà offline e diventare inaccessibile. La probabilità che può essere espresso come:
+Dati **N** server di cui **f** presentano errori, un volume allocato a **3** di essi passa offline solo se-e-Only-se tutti i **3** sono tra i **f** con errori. È possibile che si verifichino **(N scegliere f)** i possibili errori di **f** , di cui **(F scegliere 3)** il volume viene portato offline e diventa inaccessibile. La probabilità può essere espressa come:
 
-![P_offline = Fc3 / NcF](media/delimit-volume-allocation/probability-volume-offline.png)
+![P_offline = Fc3/NcF](media/delimit-volume-allocation/probability-volume-offline.png)
 
-In tutti gli altri casi, il volume rimane online e accessibili:
+In tutti gli altri casi, il volume rimane online e accessibile:
 
-![P_online = 1 – (Fc3 / NcF)](media/delimit-volume-allocation/probability-volume-online.png)
+![P_online = 1 – (Fc3/NcF)](media/delimit-volume-allocation/probability-volume-online.png)
 
-Nelle tabelle seguenti valutano la probabilità per alcune dimensioni comuni per il cluster e un massimo di 5 errori, che rivela che allocazione delimitato aumenta la tolleranza di errore rispetto alle normale allocazione in ogni caso considerato.
+Le tabelle seguenti valutano la probabilità per alcune dimensioni del cluster comuni e fino a 5 errori, rivelando che l'allocazione delimitata aumenta la tolleranza di errore rispetto all'allocazione regolare in tutti i casi considerati.
 
-### <a name="with-6-servers"></a>Con i 6 server
+### <a name="with-6-servers"></a>Con 6 Server
 
-| Allocazione                           | Probabilità di sopravvivenza agli 1 errori | Probabilità di sopravvivenza agli errori di 2 | Probabilità di sopravvivenza agli errori di 3 | Probabilità di sopravvivenza agli errori di 4 | Probabilità di sopravvivenza agli errori di 5 |
+| Allocazione                           | Probabilità di sopravvivere 1 errore | Probabilità di sopravvivere a 2 errori | Probabilità di sopravvivere a 3 errori | Probabilità di sopravvivere a 4 errori | Probabilità di sopravvivere a 5 errori |
 |--------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| Normale, distribuiti in tutti i 6 server | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| Delimitato da 3 solo per i server          | 100%                               | 100%                                | 95.0%                               | 0%                                  | 0%                                  |
+| Regolare, distribuiti in tutti i 6 Server | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| Delimitato solo a 3 server          | 100%                               | 100%                                | 95,0%                               | 0                                  | 0                                  |
 
    > [!NOTE]
-   > Dopo avere più di 3 errori su 6 server totale, il cluster perde il quorum.
+   > Dopo più di 3 errori di 6 server totali, il cluster perde il quorum.
 
-### <a name="with-8-servers"></a>Con i 8 server
+### <a name="with-8-servers"></a>Con 8 Server
 
-| Allocazione                           | Probabilità di sopravvivenza agli 1 errori | Probabilità di sopravvivenza agli errori di 2 | Probabilità di sopravvivenza agli errori di 3 | Probabilità di sopravvivenza agli errori di 4 | Probabilità di sopravvivenza agli errori di 5 |
+| Allocazione                           | Probabilità di sopravvivere 1 errore | Probabilità di sopravvivere a 2 errori | Probabilità di sopravvivere a 3 errori | Probabilità di sopravvivere a 4 errori | Probabilità di sopravvivere a 5 errori |
 |--------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| Normale, distribuiti in tutti i 8 server | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| Delimitato da 3 solo per i server          | 100%                               | 100%                                | 98.2%                               | 94.3%                               | 0%                                  |
+| Regolare, distribuiti in tutti gli 8 Server | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| Delimitato solo a 3 server          | 100%                               | 100%                                | 98,2%                               | 94.3%                               | 0                                  |
 
    > [!NOTE]
-   > Dopo avere più di 4 errori su 8 server totale, il cluster perde il quorum.
+   > Dopo più di 4 errori di 8 Server totali, il cluster perde il quorum.
 
 ### <a name="with-12-servers"></a>Con 12 server
 
-| Allocazione                            | Probabilità di sopravvivenza agli 1 errori | Probabilità di sopravvivenza agli errori di 2 | Probabilità di sopravvivenza agli errori di 3 | Probabilità di sopravvivenza agli errori di 4 | Probabilità di sopravvivenza agli errori di 5 |
+| Allocazione                            | Probabilità di sopravvivere 1 errore | Probabilità di sopravvivere a 2 errori | Probabilità di sopravvivere a 3 errori | Probabilità di sopravvivere a 4 errori | Probabilità di sopravvivere a 5 errori |
 |---------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| Normale, distribuiti in tutti i 12 server | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| Delimitato da 3 solo per i server           | 100%                               | 100%                                | 99.5%                               | 99.2%                               | 98.7%                               |
+| Regolari, distribuiti in tutti i 12 server | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| Delimitato solo a 3 server           | 100%                               | 100%                                | 99,5%                               | 99,2%                               | 98,7%                               |
 
 ### <a name="with-16-servers"></a>Con 16 server
 
-| Allocazione                            | Probabilità di sopravvivenza agli 1 errori | Probabilità di sopravvivenza agli errori di 2 | Probabilità di sopravvivenza agli errori di 3 | Probabilità di sopravvivenza agli errori di 4 | Probabilità di sopravvivenza agli errori di 5 |
+| Allocazione                            | Probabilità di sopravvivere 1 errore | Probabilità di sopravvivere a 2 errori | Probabilità di sopravvivere a 3 errori | Probabilità di sopravvivere a 4 errori | Probabilità di sopravvivere a 5 errori |
 |---------------------------------------|------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
-| Normale, distribuiti in tutti i 16 server | 100%                               | 100%                                | 0%                                  | 0%                                  | 0%                                  |
-| Delimitato da 3 solo per i server           | 100%                               | 100%                                | 99.8%                               | 99.8%                               | 99.8%                               |
+| Regolari, distribuiti in tutti i 16 server | 100%                               | 100%                                | 0                                  | 0                                  | 0                                  |
+| Delimitato solo a 3 server           | 100%                               | 100%                                | 99,8%                               | 99,8%                               | 99,8%                               |
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="can-i-delimit-some-volumes-but-not-others"></a>È possibile delimitare alcuni volumi, ma non altri?
 
-Sì. È possibile scegliere per il volume per delimitare l'allocazione o meno.
+Sì. È possibile scegliere se delimitare l'allocazione per volume.
 
-### <a name="does-delimited-allocation-change-how-drive-replacement-works"></a>Allocazione delimitato modifica come sostituzione di un'unità funziona?
+### <a name="does-delimited-allocation-change-how-drive-replacement-works"></a>L'allocazione delimitata cambia in che modo funziona la sostituzione delle unità?
 
-No, è analogo a quello di allocazione regolari.
+No, è uguale a quello dell'allocazione normale.
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
-- [Tolleranza di errore in spazi di archiviazione diretta](storage-spaces-fault-tolerance.md)
+- [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
+- [Tolleranza di errore in Spazi di archiviazione diretta](storage-spaces-fault-tolerance.md)
 
 ## <a name="appendix"></a>Appendice
 
-Questo script consente di vedere come vengono allocati i volumi.
+Questo script consente di visualizzare il modo in cui vengono allocati i volumi.
 
-Per usarlo come descritto in precedenza, copiare e incollare e salvare come `Get-VirtualDiskFootprintBySSU.ps1`.
+Per usarlo come descritto in precedenza, copiare e incollare e salvare `Get-VirtualDiskFootprintBySSU.ps1`con nome.
 
 ```PowerShell
 Function ConvertTo-PrettyCapacity {

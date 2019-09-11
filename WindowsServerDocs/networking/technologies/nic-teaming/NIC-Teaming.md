@@ -1,6 +1,6 @@
 ---
 title: Gruppo NIC
-description: In questo argomento viene fornita è una panoramica del gruppo di schede di interfaccia di rete (NIC) in Windows Server 2016. Gruppo NIC consente di raggruppare tra 1 e 32 schede di rete Ethernet fisiche in una o più schede di rete virtuale basata su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.
+description: In questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,153 +13,153 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 7e7ae609d41fc41770c43283033b623881b2d48e
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: acbb01acb39990126d5dce1d0811aefb8c931164
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283786"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871913"
 ---
 # <a name="nic-teaming"></a>Gruppo NIC
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento viene fornita è una panoramica del gruppo di schede di interfaccia di rete (NIC) in Windows Server 2016. Gruppo NIC consente di raggruppare tra 1 e 32 schede di rete Ethernet fisiche in una o più schede di rete virtuale basata su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.  
+In questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.  
   
 > [!IMPORTANT]
-> È necessario installare schede di rete di gruppo NIC membro nello stesso computer host fisico. 
+> È necessario installare schede di rete membro del gruppo NIC nello stesso computer host fisico. 
 
 > [!TIP]  
-> Un gruppo NIC che contiene una sola scheda di rete non può fornire il bilanciamento del carico e failover. Tuttavia, con una scheda di rete, è possibile utilizzare gruppo NIC per la separazione del traffico di rete quando vengono specificate anche le reti locali virtuali (VLAN).  
+> Un gruppo NIC che contiene una sola scheda di rete non può fornire il bilanciamento del carico e il failover. Tuttavia, con una scheda di rete, è possibile usare il gruppo NIC per la separazione del traffico di rete quando si usano anche reti locali virtuali (VLAN).  
   
-Quando si configurano le schede di rete in un gruppo NIC, si connettono nel NIC teaming soluzione core comune, che presenta quindi uno o più schede di rete virtuali (denominati anche interfacce team o team NIC [tNICs]) al sistema operativo. 
+Quando si configurano le schede di rete in un gruppo NIC, si connettono alla soluzione di gruppo NIC Common Core, che quindi presenta al sistema operativo una o più schede virtuali, denominate anche NIC del team [tNICs] o interfacce del team. 
 
-Poiché Windows Server 2016 supporta un massimo di 32 interfacce team per ogni team, sono disponibili un'ampia gamma di algoritmi che distribuisce il traffico in uscita (caricamento) tra le schede di rete.  La figura seguente illustra un gruppo NIC con tNICs più.  
+Poiché Windows Server 2016 supporta fino a 32 interfacce del team per ogni team, esistono diversi algoritmi che distribuiscono il traffico in uscita (carico) tra le schede di interfaccia di rete.  La figura seguente illustra un gruppo NIC con più tNICs.  
   
 ![Gruppo NIC con più tNICs](../../media/NIC-Teaming/nict_overview.jpg)  
   
-Inoltre, è possibile connettersi i gruppi NIC per il commutatore stesso o diversi commutatori. Se ci si connette le schede NIC a diversi commutatori, entrambe le opzioni devono essere nella stessa subnet.  
+Inoltre, è possibile connettere le NIC raggruppate allo stesso commutatore o a diversi commutatori. Se si connettono le schede NIC a diversi commutatori, entrambi i commutatori devono trovarsi nella stessa subnet.  
   
 ## <a name="availability"></a>Disponibilità  
-Gruppo NIC è disponibile in tutte le versioni di Windows Server 2016. È possibile usare un'ampia gamma di strumenti per la gestione di gruppo NIC dai computer che eseguono un sistema operativo client, ad esempio: • • i cmdlet di PowerShell di Windows Desktop remoto • strumenti di amministrazione remota del Server  
+Gruppo NIC è disponibile in tutte le versioni di Windows Server 2016. È possibile utilizzare un'ampia gamma di strumenti per gestire il gruppo NIC da computer che eseguono un sistema operativo client, ad esempio: • cmdlet di Windows PowerShell • Desktop remoto • Strumenti di amministrazione remota del server  
   
-## <a name="supported-and-unsupported-nics"></a>Interfacce di rete supportati e non supportati   
-È possibile utilizzare qualsiasi interfaccia di rete Ethernet che ha superato il test di qualifica di Hardware di Windows e Logo (test WHQL) in un gruppo NIC in Windows Server 2016.  
+## <a name="supported-and-unsupported-nics"></a>NIC supportate e non supportate   
+È possibile usare qualsiasi scheda di interfaccia di rete Ethernet che ha superato il test del logo e la qualifica hardware Windows (test WHQL) in un gruppo NIC in Windows Server 2016.  
   
-Non è possibile immettere le seguenti schede di rete in un gruppo NIC:
+Non è possibile inserire le schede di interfaccia di rete seguenti in un gruppo NIC:
   
--   Schede di rete virtuale Hyper-V presenti porte di commutatori virtuali Hyper-V esposte come schede di rete nella partizione host.  
+-   Schede di rete virtuali Hyper-V che sono porte del Commuter virtuale Hyper-V esposte come NIC nella partizione host.  
   
     > [!IMPORTANT]  
-    > Non inserire NIC virtuali Hyper-V esposta nella partizione host (Vnic) di un team. Raggruppamento di schede all'interno della partizione host non è supportato in qualsiasi configurazione. I tentativi di Vnic team potrebbero causare una perdita completa di comunicazione, se si verificano errori di rete.  
+    > Non posizionare le schede di rete virtuali Hyper-V esposte nella partizione host (schede) in un team. Il gruppo di schede all'interno della partizione host non è supportato in alcuna configurazione. Se si verificano errori di rete, i tentativi di schede del team potrebbero causare una perdita completa della comunicazione.  
   
 -   Scheda di rete di debug del kernel (KDNIC).  
   
--   Interfacce di rete utilizzati per l'avvio di rete.  
+-   Schede di rete utilizzate per l'avvio di rete.  
   
--   Interfacce di rete che usano tecnologie diverse da Ethernet, ad esempio nella rete WWAN WLAN/Wi-Fi, Bluetooth e Infiniband, incluso Internet Protocol su schede di rete Infiniband (IPoIB).  
+-   NIC che usano tecnologie diverse da Ethernet, ad esempio WWAN, WLAN/Wi-Fi, Bluetooth e InfiniBand, incluse schede NIC Internet Protocol over InfiniBand (IPoIB).  
   
 ## <a name="compatibility"></a>Compatibilità  
 Gruppo NIC è compatibile con tutte le tecnologie di rete in Windows Server 2016 con le eccezioni seguenti.  
   
--   **Single-root i/o virtualization (SR-IOV)** . Per SR-IOV, i dati vengono recapitati direttamente alla scheda di rete senza passare attraverso lo stack di rete (nel sistema operativo host, nel caso di virtualizzazione). Non è pertanto possibile che il gruppo NIC controllare o reindirizzare i dati a un altro percorso nel gruppo.  
+-   **Single-Root I/O Virtualization (SR-IOV)** . Per SR-IOV, i dati vengono recapitati direttamente alla scheda di interfaccia di rete senza passarli attraverso lo stack di rete (nel sistema operativo host, nel caso della virtualizzazione). Pertanto, il team NIC non può ispezionare o reindirizzare i dati a un altro percorso del team.  
   
--   **Qualità del servizio (QoS) di host nativo**. Quando si impostano i criteri QoS alle nativo o del sistema host e i criteri di richiamano le limitazioni di larghezza di banda minima, la velocità effettiva complessiva per un gruppo NIC è minore di quanto sarebbe possibile senza i criteri di larghezza di banda in uso.  
+-   **QoS (Quality of Service) host nativo**. Quando si impostano i criteri QoS in un sistema nativo o host e tali criteri richiamano limitazioni minime per la larghezza di banda, la velocità effettiva complessiva per un gruppo NIC è inferiore a quella dei criteri di larghezza di banda.  
   
--   **TCP Chimney**. TCP Chimney non è supportato con gruppo NIC perché TCP Chimney Offload l'intero stack di rete direttamente all'interfaccia di rete.  
+-   **TCP Chimney**. TCP Chimney non è supportato con gruppo NIC perché TCP Chimney trasferisce l'intero stack di rete direttamente alla scheda di interfaccia di rete.  
   
--   **802.1 l'autenticazione x**. Non utilizzare l'autenticazione 802.1x con gruppo NIC perché alcune opzioni non consentono la configurazione dell'autenticazione 802.1X e gruppo NIC sulla stessa porta.  
+-   **autenticazione 802.1 x**. Non è consigliabile usare l'autenticazione 802.1 X con gruppo NIC perché alcuni commutatori non consentono la configurazione dell'autenticazione 802.1 X e del gruppo NIC sulla stessa porta.  
   
-Per altre informazioni sull'utilizzo di gruppo NIC all'interno di macchine virtuali (VM) in esecuzione su un host Hyper-V, vedere [creare un nuovo gruppo NIC in una VM o computer host](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md).
+Per informazioni sull'uso del gruppo NIC all'interno delle macchine virtuali (VM) in esecuzione in un host Hyper-V, vedere [creare un nuovo gruppo NIC in un computer host o una macchina virtuale](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md).
   
-## <a name="virtual-machine-queues-vmqs"></a>Code di macchine virtuali (Code)  
+## <a name="virtual-machine-queues-vmqs"></a>Code di macchine virtuali (code macchine virtuali)  
 
-Code è una funzionalità di interfaccia di rete che consente di allocare una coda per ogni macchina virtuale.  Ogni volta che si dispone di Hyper-V abilitato. è anche necessario abilitare coda macchine Virtuali. In Windows Server 2016, code usano VPort commutatore di interfaccia di rete con una singola coda assegnata al vPort per fornire la stessa funzionalità. 
+Code macchine virtuali è una funzionalità NIC che alloca una coda per ogni macchina virtuale.  Quando Hyper-V è abilitato, è anche necessario abilitare VMQ. In Windows Server 2016, code macchine virtuali usa l'opzione NIC finestre con una singola coda assegnata al vPort per fornire la stessa funzionalità. 
 
-A seconda della modalità di configurazione di commutatore e l'algoritmo di distribuzione del carico, NIC teaming presenta il minor numero di code disponibile e supportate da alcun adattatore del team (modalità Min-code) o il numero totale delle code disponibili in tutti i team membri (modalità Sum-di-code).  
+A seconda della modalità di configurazione del compartitore e dell'algoritmo di distribuzione del carico, gruppo NIC presenta il minor numero di code disponibili e supportate da qualsiasi adapter del team (modalità min-Queues) o il numero totale di code disponibili in tutti i team membri (modalità Sum-of-queues).  
 
-Se il team è in modalità gruppo indipendenti dal commutatore e la distribuzione del carico è impostato su modalità di porta Hyper-V o dinamico, il numero di code segnalato è la somma di tutte le code disponibili dai membri del team (modalità Sum-di-code). In caso contrario, il numero di code segnalato è il più piccolo numero di code supportati da qualsiasi membro del team (modalità Min-code).
+Se il team è in modalità gruppo indipendente dall'opzione e si imposta la distribuzione del carico sulla modalità della porta Hyper-V o dinamica, il numero di code restituite è la somma di tutte le code disponibili dai membri del team (modalità Sum-of-queues). In caso contrario, il numero di code restituite è il minor numero di code supportate da qualsiasi membro del team (modalità min-Queues).
 
 Ecco perché:  
   
--   Quando il team indipendenti dal commutatore è in modalità di porta Hyper-V o dinamico il traffico in ingresso per una porta del commutatore Hyper-V (VM) sempre arriva nella stesso membro del team. L'host può prevedere/controllo quale membro riceve il traffico per una determinata macchina virtuale in modo che gruppo NIC può essere più precise sulle code che coda macchine Virtuali da allocare in un membro del team specifico. Gruppo NIC, lavorare con il commutatore Hyper-V, imposta la funzionalità coda macchine Virtuali per una macchina virtuale in modo preciso un membro del team e sapere che il traffico in ingresso raggiunge tale coda.  
+-   Quando il team indipendente dal commutire si trova in modalità porta Hyper-V o in modalità dinamica, il traffico in ingresso per una porta di commutazione Hyper-V (VM) arriva sempre allo stesso membro del team. L'host può stimare/controllare il membro che riceve il traffico per una determinata macchina virtuale, in modo che gruppo NIC possa essere più attento alle code VMQ da allocare in un particolare membro del team. Gruppo NIC, uso del compilatore Hyper-V, imposta VMQ per una macchina virtuale su un solo membro del team e sa che il traffico in ingresso raggiunge la coda.  
   
--   Quando il team è in qualsiasi modalità dipendenti switch (Creazione gruppi statica o LACP gruppo NIC), il commutatore che il team è connesso a consente di controllare la distribuzione del traffico in ingresso. Software gruppo NIC dell'host non è possibile prevedere quale team member Ottiene il traffico in ingresso per una macchina virtuale e potrebbe essere che l'opzione distribuisce il traffico per una macchina virtuale tra tutti i membri del team. Come risultato il software gruppo NIC, lavorare con il commutatore Hyper-V, i programmi una coda per la macchina virtuale in ogni membro del team, non solo un membro del team.  
+-   Quando il team è in qualsiasi modalità dipendente dal Commuter (gruppo statico o gruppo LACP), l'opzione a cui il team è connesso controlla la distribuzione del traffico in ingresso. Il software di gruppo NIC dell'host non è in grado di stimare il membro del team che ottiene il traffico in ingresso per una macchina virtuale e potrebbe essere il fatto che il Commuter distribuisce il traffico per una macchina virtuale in tutti i membri del team. In seguito al software gruppo NIC, l'uso del Commuter Hyper-V, programma una coda per la macchina virtuale in ogni membro del team, non solo un membro del team.  
   
--   Quando il team si trova in modalità indipendenti dal commutatore e hash indirizzo Usa il bilanciamento del carico, il traffico in ingresso sempre proviene da un'interfaccia di rete (membro del team primario) - tutto su un solo membro del team. Poiché altri membri del team non gestiscono il traffico in ingresso, in modo che se il membro primario non riesce, può essere utilizzato qualsiasi altro membro del team per prelevare il traffico in ingresso e le code sono già presenti ottenere programmati con le code stesso come membro primario.  
+-   Quando il team è in modalità indipendente dal cambio e usa il bilanciamento del carico hash degli indirizzi, il traffico in ingresso viene sempre eseguito in una scheda di interfaccia di rete (il membro del team primario), tutto in un solo membro del team. Poiché gli altri membri del team non gestiscono il traffico in ingresso, vengono programmati con le stesse code del membro primario, in modo che se il membro primario ha esito negativo, qualsiasi altro membro del team può essere usato per prelevare il traffico in ingresso e le code sono già presenti.  
 
-- La maggior parte delle interfacce di rete presenti code utilizzate per Receive-Side Scaling (RSS) o per coda macchine Virtuali, ma non contemporaneamente. Alcune impostazioni di coda macchine Virtuali vengono visualizzate sia le impostazioni per le code RSS ma sono le impostazioni nelle code generiche che usa RSS e coda macchine Virtuali a seconda di quale funzionalità è attualmente in uso. Ogni interfaccia di rete ha, nelle relative proprietà avanzate, i valori per * RssBaseProcNumber e \*MaxRssProcessors. Di seguito sono alcune impostazioni di coda macchine Virtuali che offrono prestazioni migliori di sistema.  
+- Per la maggior parte delle schede di rete sono disponibili code utilizzate per Receive-Side Scaling (RSS) o VMQ, ma non nello stesso momento. Alcune impostazioni di VMQ sembrano essere impostazioni per le code RSS, ma sono impostazioni sulle code generiche usate da RSS e da VMQ a seconda della funzionalità attualmente in uso. Ogni scheda di interfaccia di rete ha, nelle proprietà avanzate, i valori \*per * RssBaseProcNumber e MaxRssProcessors. Di seguito sono riportate alcune impostazioni VMQ che garantiscono prestazioni di sistema migliori.  
   
--   Idealmente, ogni interfaccia di rete deve avere il * RssBaseProcNumber impostata su un numero maggiore o uguale a due (2). Il primo processore fisico, Core 0 (processori logici 0 e 1), in genere la maggior parte dell'elaborazione di sistema in modo che l'elaborazione di rete debba guidare lontano da questo processore fisico. Alcune architetture di computer non dispongono di due processori logici per processore fisico, pertanto per tali macchine, l'elaboratore di base deve essere maggiore o uguale a 1. Se in dubbio presuppongono l'host sta utilizzando un processore logico 2 per ogni architettura del processore fisico.  
+-   Idealmente, ogni scheda di interfaccia di rete deve avere la * RssBaseProcNumber impostata su un numero pari maggiore o uguale a due (2). Il primo processore fisico, Core 0 (processori logici 0 e 1), in genere esegue la maggior parte dell'elaborazione del sistema, in modo da evitare che l'elaborazione della rete venga ricavata dal processore fisico. Alcune architetture di computer non dispongono di due processori logici per processore fisico. per tali computer, quindi, il processore di base deve essere maggiore o uguale a 1. Se in dubbio si presuppone che l'host usi un processore logico 2 per ogni architettura del processore fisico.  
   
--   Se il team è in modalità di somma-di-code processori dei membri del team devono essere non sovrapposti. In un host di 4 core (8 processori logici) con un team di 2 schede di rete 10 Gbps, ad esempio, è possibile impostare il primo da usare il processore di base di 2 e 4 core, usare il secondo verrebbe impostato per usare il processore di base 6 e utilizzare 2 core.  
+-   Se il team è in modalità di somma coda, i processori dei membri del team non devono sovrapporsi. Ad esempio, in un host con 4 core (8 processori logici) con un team di due schede di rete 10Gbps, è possibile impostare la prima per l'uso del processore di base 2 e per l'uso di 4 core. il secondo verrebbe impostato in modo da usare il processore di base 6 e usare 2 Core.  
   
--   Se il team è in modalità Min-code i gruppi di processori usati dai membri del team devono essere identici.  
+-   Se il team è in modalità min-queues, i set di processori usati dai membri del team devono essere identici.  
 
   
 ## <a name="hyper-v-network-virtualization-hnv"></a>Virtualizzazione rete Hyper-V (HNV)  
-Gruppo NIC è completamente compatibile con Hyper-V rete virtualizzazione.  Il sistema di gestione di virtualizzazione rete fornisce informazioni per il driver NIC Teaming che consente di distribuire il carico in modo che consente di ottimizzare il traffico di virtualizzazione rete gruppo NIC.  
+Gruppo NIC è completamente compatibile con la virtualizzazione rete Hyper-V (HNV).  Il sistema di gestione di HNV fornisce informazioni al driver gruppo NIC che consente al gruppo NIC di distribuire il carico in modo da ottimizzare il traffico di HNV.  
   
 ## <a name="live-migration"></a>Migrazione in tempo reale  
-Gruppo NIC nelle macchine virtuali non influiscono sulla migrazione in tempo reale. Le stesse regole esistano per la migrazione in tempo reale indipendentemente dalla configurazione di gruppo NIC nella macchina virtuale.  
+Gruppo NIC nelle macchine virtuali non influisce Live Migration. Esistono le stesse regole per Live Migration se si configura il gruppo NIC nella macchina virtuale.  
 
 
 ## <a name="virtual-local-area-networks-vlans"></a>Reti locali virtuali (VLAN)
-Quando si Usa gruppo NIC, creazione di più interfacce di team consente a un host per la connessione a VLAN diverse nello stesso momento. Configurare l'ambiente usando le linee guida seguenti:
+Quando si usa il gruppo NIC, la creazione di più interfacce del team consente a un host di connettersi a VLAN diverse nello stesso momento. Configurare l'ambiente usando le linee guida seguenti:
   
-- Prima di abilitare gruppo NIC, configurare le porte del commutatore fisico connesse all'host del gruppo NIC per utilizzare la modalità trunk (promiscue). Il commutatore fisico deve passare tutto il traffico all'host per il filtro senza modificare il traffico.  
+- Prima di abilitare il gruppo NIC, configurare le porte di commutazione fisiche connesse all'host di raggruppamento per l'utilizzo della modalità trunk (promiscua). Il Commuter fisico deve passare tutto il traffico all'host per filtrare senza modificare il traffico.  
 
-- Non configurare i filtri VLAN nelle schede di rete usando l'interfaccia di rete delle proprietà impostazioni avanzata. Lasciare che il software gruppo NIC o il commutatore virtuale Hyper-V (se presente) filtrare le VLAN.  
+- Non configurare i filtri VLAN nelle schede di interfaccia di rete usando le impostazioni avanzate delle proprietà della scheda di interfaccia di rete. Consentire al software gruppo NIC o al Commuter virtuale Hyper-V (se presente) di eseguire il filtro VLAN.  
   
-### <a name="use-vlans-with-nic-teaming-in-a-vm"></a>Usare alcuna VLAN con gruppo NIC in una macchina virtuale  
-Quando un team si connette a un commutatore virtuale Hyper-V, la separazione di tutte le VLAN deve essere eseguita nel commutatore virtuale Hyper-V anziché nel gruppo NIC.  
+### <a name="use-vlans-with-nic-teaming-in-a-vm"></a>Usare VLAN con gruppo NIC in una macchina virtuale  
+Quando un team si connette a un Commuter virtuale Hyper-V, è necessario eseguire tutte le operazioni di separazione VLAN nel Commuter virtuale Hyper-V anziché nel gruppo NIC.  
 
-Prevede di usare alcuna VLAN in una macchina virtuale configurata con un gruppo NIC usando le linee guida seguenti:
+Pianificare l'uso delle VLAN in una macchina virtuale configurata con un gruppo NIC usando le linee guida seguenti:
   
--   Il metodo preferito di supportare più VLAN in una macchina virtuale consiste nel configurare la macchina virtuale con più porte del commutatore virtuale Hyper-V e associare ogni porta a una VLAN. Non team mai queste porte nella macchina virtuale perché in caso contrario, i problemi di comunicazione di rete.  
+-   Il metodo preferito per supportare più VLAN in una macchina virtuale consiste nel configurare la macchina virtuale con più porte nel Commuter virtuale Hyper-V e associare ogni porta a una VLAN. Non eseguire mai il team di queste porte nella macchina virtuale perché causa problemi di comunicazione di rete.  
 
--   Se la VM ha più funzioni virtuali SR-IOV (VFs), assicurarsi che siano nella stessa VLAN prima li gruppo NIC nella macchina virtuale. È facilmente possibile configurare i diversi VFs come presente su VLAN diverse e in caso contrario, i problemi di comunicazione di rete.  
+-   Se la macchina virtuale ha più funzioni virtuali SR-IOV (VFs), assicurarsi che si trovino nella stessa VLAN prima di raggrupparle nella macchina virtuale. È possibile configurare facilmente i diversi VFs in modo che si trovino in VLAN diverse e questo provochi problemi di comunicazione di rete.  
  
   
 ### <a name="manage-network-interfaces-and-vlans"></a>Gestire le interfacce di rete e le VLAN 
-Se è necessario avere più di una VLAN esposta in un sistema operativo guest, è consigliabile rinominare le interfacce Ethernet per chiarire VLAN assegnato all'interfaccia. Ad esempio, se si associa **Ethernet** interfacciarsi con 12 VLAN e la **Ethernet 2** interfacciarsi con 48 VLAN, rinominare l'interfaccia Ethernet per **EthernetVLAN12** e il per altri **EthernetVLAN48**. 
+Se è necessario disporre di più VLAN esposte in un sistema operativo guest, prendere in considerazione la possibilità di rinominare le interfacce Ethernet per chiarire la VLAN assegnata all'interfaccia. Ad esempio, se si associa l'interfaccia **Ethernet** con VLAN 12 e l'interfaccia **Ethernet 2** con VLAN 48, rinominare l'interfaccia Ethernet in **EthernetVLAN12** e l'altra in **EthernetVLAN48**. 
 
 Rinominare le interfacce usando il comando di Windows PowerShell **Rename-NetAdapter** o eseguendo la procedura seguente:
   
-1.  In Server Manager in **proprietà** della scheda di rete che si desidera rinominare, fare clic sul collegamento a destra del nome della scheda di rete. 
+1.  In Server Manager, in **Proprietà** della scheda di rete che si desidera rinominare, fare clic sul collegamento a destra del nome della scheda di rete. 
   
-2.  Fare doppio clic su scheda di rete che si desidera rinominare e selezionare **Rinomina**.  
+2.  Fare clic con il pulsante destro del mouse sulla scheda di rete che si desidera rinominare, quindi scegliere **Rinomina**.  
   
-3.  Digitare il nuovo nome per la scheda di rete e premere INVIO.  
+3.  Digitare il nuovo nome della scheda di rete e premere INVIO.  
 
 
 ## <a name="virtual-machines-vms"></a>Macchine virtuali (VM)
 
-Se si desidera utilizzare gruppo NIC in una macchina virtuale, è necessario connettersi le schede di rete virtuale nella macchina virtuale per Hyper-V commutatori virtuali esterni solo. In questo modo la macchina virtuale a sostenere la connettività di rete anche nei casi quando una delle schede di rete fisica connessa a un commutatore virtuale non riesce o viene disconnesso. Schede di rete virtuale connesse a commutatori virtuali Hyper-V interno o privato non sono in grado di connettersi al commutatore quando si trovano in un team e si verifica un errore di rete per la macchina virtuale.  
+Se si vuole usare il gruppo NIC in una macchina virtuale, è necessario connettere le schede di rete virtuali nella macchina virtuale solo ai commutatori virtuali Hyper-V esterni. Questa operazione consente alla macchina virtuale di sostenere la connettività di rete anche quando una delle schede di rete fisiche connesse a un Commuter virtuale ha esito negativo o viene scollegata. Le schede di rete virtuali connesse a commutatori virtuali Hyper-V interni o privati non sono in grado di connettersi al commutatore quando si trovano in un team e la rete non riesce per la macchina virtuale.  
   
-Gruppo NIC in Windows Server 2016 supporta i team con due membri nelle macchine virtuali. È possibile creare team più grandi, ma non è supportata per i team più grandi. Ogni membro del team deve connettersi a un commutatore virtuale del Hyper-V esterno diverso, e le interfacce di rete della macchina virtuale devono essere configurate per consentire di gruppo NIC.
+Gruppo NIC in Windows Server 2016 supporta i team con due membri nelle macchine virtuali. È possibile creare team di grandi dimensioni, ma non è disponibile alcun supporto per i team di grandi dimensioni. Ogni membro del team deve connettersi a un Commuter virtuale Hyper-V esterno diverso e le interfacce di rete della macchina virtuale devono essere configurate per consentire il raggruppamento.
 
   
-Se si configura un gruppo NIC in una macchina virtuale, è necessario selezionare una **modalità gruppo** dei _commutatore indipendente_ e un **modalità di bilanciamento del carico** di _Hash indirizzo_.   
+Se si sta configurando un gruppo NIC in una macchina virtuale, è necessario selezionare una **modalità gruppo** di _commutazione indipendente_ e una **modalità di bilanciamento del carico** per _hash Indirizzo_.   
   
   
-## <a name="sr-iov-capable-network-adapters"></a>Schede di rete SR-IOV-per  
-Un gruppo NIC in o in host Hyper-V non è possibile proteggere il traffico SR-IOV perché qualcosa non va attraverso il commutatore Hyper-V.  Con l'opzione gruppo NIC di macchina virtuale, è possibile configurare due commutatori virtuali esterni di Hyper-V, ciascuna connessa a un proprio SR-IOV-per interfaccia di rete.  
+## <a name="sr-iov-capable-network-adapters"></a>Schede di rete che supportano SR-IOV  
+Un gruppo NIC in o nell'host Hyper-V non può proteggere il traffico SR-IOV perché non passa attraverso il Commuter Hyper-V.  Con l'opzione Gruppo NIC VM è possibile configurare due commutatori virtuali Hyper-V esterni, ciascuno connesso alla propria NIC con supporto SR-IOV.  
   
-![Gruppo NIC con schede di rete SR-IOV-per](../../media/NIC-Teaming-in-Virtual-Machines--VMs-/nict_in_vm.jpg)  
+![Gruppo NIC con schede di rete compatibili con SR-IOV](../../media/NIC-Teaming-in-Virtual-Machines--VMs-/nict_in_vm.jpg)  
   
-Ogni macchina virtuale può avere una funzione virtuale (VF) da una o entrambe le schede di rete SR-IOV e, in caso di disconnessione di una scheda di rete, il failover da primario VF nell'adapter di backup (VF). In alternativa, la macchina virtuale abbia un VF da una scheda di rete e a sua volta non VF connessi a un altro commutatore virtuale. Se l'interfaccia di rete associato VF è disconnessa, il traffico possibile eseguire il failover su altro commutatore senza perdere la connettività.  
+Ogni VM può avere una funzione virtuale (VF) di una o entrambe le schede di interfaccia di rete SR-IOV e, in caso di disconnessione di una scheda di interfaccia di rete, eseguire il failover dal dispositivo VF primario a quello di backup (VF). In alternativa, la macchina virtuale può avere un VF da una scheda di interfaccia di rete e una scheda non VF connessa a un altro Commuter virtuale. Se la scheda di interfaccia di rete associata al VF viene disconnessa, il traffico può eseguire il failover all'altro switch senza perdita di connettività.  
   
-Poiché il failover tra schede di rete in una macchina virtuale potrebbe comportare il traffico inviato con l'indirizzo MAC delle altre vmNIC, ogni porta del commutatore virtuale Hyper-V associata a una macchina virtuale utilizza gruppo NIC deve essere impostato su Consenti gruppo NIC. 
+Poiché il failover tra schede di interfaccia di rete in una macchina virtuale può causare il traffico inviato con l'indirizzo MAC degli altri scheda, ogni porta del Commuter virtuale Hyper-V associata a una macchina virtuale che usa gruppo NIC deve essere impostata in modo da consentire il raggruppamento. 
 
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Gestione e uso di indirizzi MAC di NIC Teaming](NIC-Teaming-MAC-Address-Use-and-Management.md): Quando si configura un gruppo NIC con hash indirizzo o la distribuzione del carico dinamico e Cambia modalità indipendente, l'accesso ai supporti il team utilizza controllo indirizzo (MAC) del membro del Team di interfaccia di rete primario sul traffico in uscita. Membro del Team di interfaccia di rete primario è una scheda di rete selezionata per il sistema operativo del set iniziale di membri del team.
+- [Gestione e utilizzo degli indirizzi MAC del gruppo NIC](NIC-Teaming-MAC-Address-Use-and-Management.md): Quando si configura un gruppo NIC con modalità indipendente dal commutine e una distribuzione con hash di indirizzi o di carico dinamico, il team USA l'indirizzo Media Access Control (MAC) del membro del gruppo NIC primario nel traffico in uscita. Il membro del gruppo NIC primario è una scheda di rete selezionata dal sistema operativo dal set iniziale di membri del team.
 
-- [Le impostazioni di gruppo NIC](nic-teaming-settings.md): In questo argomento è fornire una panoramica delle proprietà del Team di interfaccia di rete, ad esempio gruppo NIC e modalità di bilanciamento del carico. È inoltre offrono informazioni dettagliate sull'impostazione della scheda di Standby e la proprietà dell'interfaccia gruppo primaria. Se si dispone di almeno due schede di rete in un gruppo NIC, non devi designare una scheda di Standby per la tolleranza di errore.
+- [Impostazioni gruppo NIC](nic-teaming-settings.md): In questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
   
-- [Creare un nuovo gruppo NIC in una VM o computer host](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In questo argomento, creare un nuovo gruppo NIC in un computer host o in una macchina virtuale di Hyper-V (VM) che esegue Windows Server 2016.
+- [Creare un nuovo gruppo NIC in un computer host o una macchina virtuale](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In questo argomento viene creato un nuovo gruppo NIC in un computer host o in una macchina virtuale (VM) Hyper-V che esegue Windows Server 2016.
 
-- [Risoluzione dei problemi di gruppo NIC](Troubleshooting-NIC-Teaming.md): In questo argomento vengono illustrati modi per risolvere i problemi gruppo NIC, ad esempio hardware, titoli commutatore fisico e l'abilitazione o disabilitazione schede di rete tramite Windows PowerShell. 
+- [Risoluzione dei problemi relativi al gruppo NIC](Troubleshooting-NIC-Teaming.md): In questo argomento vengono illustrati i metodi per risolvere i problemi relativi al gruppo NIC, ad esempio l'hardware, i titoli dei commutatori fisici e la disabilitazione o l'abilitazione di schede di rete con Windows PowerShell. 
  

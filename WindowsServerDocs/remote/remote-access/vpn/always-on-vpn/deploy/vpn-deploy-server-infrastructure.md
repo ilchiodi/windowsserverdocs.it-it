@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: b954419904f97102cef14fbd4a7a68496e8730af
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546520"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871300"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Passaggio 2. Configurare l'infrastruttura server
 
@@ -298,7 +298,7 @@ Server VPN aggiunti a un dominio
 
     2. Nella finestra di dialogo **modifica estensione criteri di applicazione** selezionare **Aggiungi**.
 
-    3. Nella finestra di dialogo **Aggiungi criteri di applicazione** selezionare intermediario di **sicurezza IP IKE**, quindi selezionare **OK**.
+    3. Nella finestra di dialogo **Aggiungi criteri di applicazione** selezionare **intermediario di sicurezza IP IKE**, quindi selezionare **OK**.
    
         L'aggiunta di un livello intermedio IKE di protezione IP all'EKU è utile negli scenari in cui esistono più certificati di autenticazione server nel server VPN. Quando è presente la protezione IP IKE intermedio, IPSec utilizza solo il certificato con entrambe le opzioni EKU. Senza questo, l'autenticazione IKEv2 potrebbe non riuscire con l'errore 13801: Le credenziali di autenticazione IKE sono inaccettabili.
 
@@ -448,7 +448,7 @@ Diversamente dal certificato utente, è necessario registrare manualmente il cer
 
 11. Nella scheda **generale** verificare che la data indicata in **validità da** sia data odierna. In caso contrario, è possibile che sia stato selezionato il certificato non corretto.
 
-12. Nella scheda **Dettagli** selezionare **utilizzo chiavi avanzato**e verificare che l' **autenticazione del server** e intermedio **IKE di sicurezza IP** sia visualizzata nell'elenco.
+12. Nella scheda **Dettagli** selezionare **utilizzo chiavi avanzato**e verificare che l' **autenticazione del server** e **intermedio IKE di sicurezza IP** sia visualizzata nell'elenco.
 
 13. Selezionare **OK** per chiudere il certificato.
 

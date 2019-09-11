@@ -1,6 +1,6 @@
 ---
 title: Minroot
-description: Configurazione dei controlli delle risorse della CPU Host
+description: Configurazione di controlli risorse CPU host
 keywords: windows 10, hyper-v
 author: allenma
 ms.date: 12/15/2017
@@ -8,64 +8,64 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: ''
-ms.openlocfilehash: e1269c11df32c8ce95cc7455d47d7170e9d0b1c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92de899a39aed05e2f598fcb3aae3fbae3f1cb67
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872045"
 ---
-# <a name="hyper-v-host-cpu-resource-management"></a>Gestione delle risorse CPU Host Hyper-V
+# <a name="hyper-v-host-cpu-resource-management"></a>Gestione delle risorse della CPU dell'host Hyper-V
 
-I controlli delle risorse CPU host Hyper-V introdotti in Windows Server 2016 o versioni successive consentono agli amministratori di Hyper-V gestire meglio e allocare le risorse della CPU tra "root", o partizione di gestione e le macchine virtuali guest server host. Usa questi controlli, gli amministratori possono dedicare un subset dei processori di un sistema host nella partizione radice. Ciò può isolare il lavoro svolto in un host Hyper-V dai carichi di lavoro in esecuzione nelle macchine virtuali guest eseguendoli in base a subset dei processori di sistema separate.
+I controlli delle risorse della CPU dell'host Hyper-V introdotti in Windows Server 2016 o versioni successive consentono agli amministratori di Hyper-V di gestire e allocare in modo migliore le risorse della CPU del server host tra la "radice" o la partizione di gestione e le macchine virtuali guest. Utilizzando questi controlli, gli amministratori possono dedicare un subset dei processori di un sistema host alla partizione radice. In questo modo è possibile separare il lavoro eseguito in un host Hyper-V dai carichi di lavoro in esecuzione nelle macchine virtuali guest eseguendoli in subset distinti dei processori di sistema.
 
-Per informazioni dettagliate sull'hardware per gli host Hyper-V, vedere [requisiti di sistema di Windows 10 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
+Per informazioni dettagliate sull'hardware per gli host Hyper-V, vedere [requisiti di sistema di Hyper-v per Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Sfondo
 
-Prima di impostazione controlla per Hyper-V ospita le risorse di CPU, è utile esaminare le nozioni di base dell'architettura di Hyper-V.  
-È possibile trovare un riepilogo generale nella console di [architettura di Hyper-V](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) sezione.
-Si tratta di concetti importanti di questo articolo:
+Prima di impostare i controlli per le risorse della CPU dell'host Hyper-V, è utile esaminare le nozioni di base dell'architettura Hyper-V.  
+È possibile trovare un riepilogo generale nella sezione relativa all' [architettura di Hyper-V](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) .
+Questi sono concetti importanti per questo articolo:
 
-* Hyper-V crea e gestisce le partizioni di macchina virtuale, tra cui calcolo delle risorse sono allocate e condivisa, sotto il controllo di hypervisor.  Le partizioni forniscono i limiti di isolamento forte tra tutte le macchine virtuali guest e tra le macchine virtuali guest e nella partizione radice.
+* Hyper-V crea e gestisce le partizioni delle macchine virtuali, in cui le risorse di calcolo vengono allocate e condivise, sotto il controllo dell'hypervisor.  Le partizioni forniscono limiti di isolamento forti tra tutte le macchine virtuali guest e tra le macchine virtuali guest e la partizione radice.
 
-* La partizione radice è a sua volta una partizione di macchina virtuale, anche se presenta proprietà univoche e molto maggiori privilegi rispetto alle macchine virtuali guest.  La partizione radice fornisce i servizi di gestione che consentono di controllare tutte le macchine virtuali guest, fornisce il supporto di dispositivi virtuali per i guest e gestisce tutti i dispositivi dei / o per le macchine virtuali guest.  Microsoft consiglia vivamente di una partizione host non è in esecuzione carichi di lavoro dell'applicazione.
+* La partizione radice è a sua volta una partizione di macchina virtuale, anche se dispone di proprietà univoche e privilegi molto maggiori rispetto alle macchine virtuali guest.  La partizione radice fornisce i servizi di gestione che controllano tutte le macchine virtuali guest, fornisce il supporto per i dispositivi virtuali per i guest e gestisce tutte le I/O dei dispositivi per le macchine virtuali guest.  Microsoft consiglia vivamente di non eseguire i carichi di lavoro di applicazioni in una partizione host.
 
-* Ogni processore virtuale (VP) della partizione radice è 1:1 con mapping a un processore logico sottostante (LP).  Un host VP verrà sempre eseguito sulla stessa LP sottostante, non vi è alcuna migrazione del VPs della partizione radice.  
+* Ogni processore virtuale (VP) della partizione radice viene mappato a 1:1 a un processore logico sottostante (LP).  Un host VP verrà sempre eseguito sullo stesso LP sottostante. non viene eseguita alcuna migrazione del VPs della partizione radice.  
 
-* Per impostazione predefinita, il LPs su cui eseguire VPs host possono essere eseguiti anche VPs guest.
+* Per impostazione predefinita, l'LP su cui è in esecuzione VPs host può eseguire anche il VPs Guest.
 
-* Vice presidente del settore un guest possono essere pianificati dall'hypervisor per l'esecuzione su tutti i processori logici disponibili.  Mentre l'utilità di pianificazione di hypervisor gestisce da prendere in considerazione la località della cache temporali, la topologia NUMA e molti altri fattori quando si pianifica un guest Vice presidente del settore, in definitiva la VP è stato possibile pianificare in qualsiasi host LP.
+* Un VP Guest può essere pianificato dall'hypervisor per l'esecuzione in qualsiasi processore logico disponibile.  Mentre l'utilità di pianificazione dell'hypervisor prende in considerazione la località della cache temporale, la topologia NUMA e molti altri fattori durante la pianificazione di un VP Guest, infine il VP potrebbe essere pianificato in qualsiasi LP host.
 
-## <a name="the-minimum-root-or-minroot-configuration"></a>La radice minima, o "Minroot" configurazione
+## <a name="the-minimum-root-or-minroot-configuration"></a>La configurazione radice minima o "Minroot"
 
-Nelle versioni precedenti di Hyper-V ha un limite massimo dell'architettura di 64 VPs per partizione.  Ciò applicato alle partizioni root e guest.  Come è stata visualizzata sistemi con più di 64 processori logici nel server di fascia alta, Hyper-V evoluto relativi limiti di scalabilità di host per supportare questi sistemi più grandi, a un certo punto un host con un massimo di 320 LPs di supporto.  Tuttavia, rilievo 64 presentato numerose sfide e introdotte delle complessità che ha effettuato che supportano più di 64 VPs per ogni partizione proibitivi Vice presidente del settore per ogni limite per le partizioni in quel momento.  Per risolvere questo problema, Hyper-V di un numero limitato di VPs assegnato a una partizione radice a 64, anche se il computer sottostante ha numero di processori logici disponibili.  L'hypervisor potrebbe continuare a usare tutti LPs disponibili per l'esecuzione di VPs guest, tuttavia limitati artificialmente la partizione radice a 64.  Questa configurazione è diventato noto come la "radice minimo" o "minroot" configuration.  Test delle prestazioni confermato che, anche nei sistemi su larga scala con più di 64 LPs radice non sono necessarie più di 64 VPs radice per fornire supporto sufficiente a un numero elevato di macchine virtuali guest e VPs guest, in realtà, molto meno di 64 radice VPs spesso era adeguata , a seconda naturalmente il numero e dimensioni delle macchine virtuali guest, le specifiche dei carichi di lavoro in esecuzione e così via.
+Nelle versioni precedenti di Hyper-V era previsto un limite massimo di architettura di 64 VPs per partizione.  Questa operazione viene applicata sia alla radice che alle partizioni guest.  Poiché i sistemi con più di 64 processori logici sono apparsi nei server di fascia alta, Hyper-V ha anche sviluppato i limiti di scalabilità dell'host per supportare questi sistemi più grandi, a un certo punto per supportare un host con un massimo di 320 LPs.  Tuttavia, il limite di 64 VP per partizione in quel momento presenta diverse difficoltà e introduce complessità che hanno consentito di supportare più di 64 VPs per partizione.  Per risolvere questo problema, Hyper-V limita il numero di VPs assegnato alla partizione radice a 64, anche se nel computer sottostante sono disponibili molti più processori logici.  L'hypervisor continuerà a usare tutti gli LPs disponibili per l'esecuzione del VPs Guest, ma ha artificialmente limitato la partizione radice a 64.  Questa configurazione era nota come configurazione "radice minima" o "minroot".  Il test delle prestazioni ha confermato che, anche su sistemi su larga scala con più di 64 LPs, la radice non ha bisogno di più di 64 VPs radice per fornire un supporto sufficiente a un numero elevato di macchine virtuali guest e VPs Guest. in realtà, molto meno di 64, il VPs radice era spesso adatto , a seconda del corso sul numero e sulle dimensioni delle VM guest, sui carichi di lavoro specifici eseguiti e così via.
 
-Questo concetto di "minroot" continua a essere utilizzato oggi stesso.  In effetti, anche se Windows Server 2016 Hyper-V aumentato il limite massimo supporto per l'architettura per host LPs 512 LPs, la partizione radice continuerà a essere limitata a un massimo di 320 LPs.
+Questo concetto "minroot" continua a essere utilizzato oggi.  Di fatto, anche se Windows Server 2016 Hyper-V ha aumentato il limite massimo di supporto per l'architettura per gli LPs degli host a 512 LPs, la partizione radice sarà ancora limitata a un massimo di 320 LPs.
 
-## <a name="using-minroot-to-constrain-and-isolate-host-compute-resources"></a>Uso di Minroot per vincolare e isolare le risorse di calcolo di Host
-Con la soglia predefinita elevata di 320 LPs in Windows Server 2016 Hyper-V, la configurazione minroot verrà utilizzata solo nei sistemi server molto più grandi.  Tuttavia, questa funzionalità può essere configurata per una soglia molto inferiore dall'amministratore di host Hyper-V e pertanto sfruttata per limitare notevolmente la quantità di risorse CPU host disponibile nella partizione radice.  Il numero specifico di radice LPs utilizzare naturalmente deve essere scelta attentamente per soddisfare le esigenze di numero massime di macchine virtuali e i carichi di lavoro allocati all'host.  Valori accettabili per il numero di host LPs, tuttavia, possono essere determinato mediante un'attenta valutazione e monitoraggio di carichi di lavoro di produzione e convalidato in ambienti non di produzione prima di distribuzioni di grandi dimensioni.
+## <a name="using-minroot-to-constrain-and-isolate-host-compute-resources"></a>Uso di Minroot per vincolare e isolare le risorse di calcolo host
+Con la soglia predefinita elevata di 320 LPs in Windows Server 2016 Hyper-V, la configurazione di minroot verrà utilizzata solo nei sistemi server molto più grandi.  Tuttavia, questa funzionalità può essere configurata su una soglia molto inferiore da parte dell'amministratore host Hyper-V e pertanto utilizzata per limitare notevolmente la quantità di risorse della CPU dell'host disponibili per la partizione radice.  Il numero specifico di LP radice da usare deve essere ovviamente scelto con attenzione per supportare le richieste massime delle VM e dei carichi di lavoro allocati all'host.  Tuttavia, i valori ragionevoli per il numero di LPs host possono essere determinati mediante un'attenta valutazione e monitoraggio dei carichi di lavoro di produzione e convalidati in ambienti non di produzione prima della distribuzione estesa.
 
-## <a name="enabling-and-configuring-minroot"></a>Abilitazione e configurazione Minroot
+## <a name="enabling-and-configuring-minroot"></a>Abilitazione e configurazione di Minroot
 
-La configurazione minroot è controllata tramite le voci di BCD hypervisor. Per abilitare minroot, da un prompt dei comandi con privilegi di amministratore:
+La configurazione minroot è controllata tramite le voci BCD hypervisor. Per abilitare minroot, da un prompt dei comandi con privilegi di amministratore:
 
 ```
     bcdedit /set hypervisorrootproc n
 ```
-Dove n è il numero di radice VPs. 
+Dove n è il numero di VPs radice. 
 
-È necessario riavviare il sistema e il nuovo numero di processori di primo livello verrà mantenuti per la durata dell'avvio del sistema operativo.  La configurazione minroot non può essere modificata in modo dinamico in fase di esecuzione.
+Il sistema deve essere riavviato e il nuovo numero di processori radice verrà mantenuto per la durata dell'avvio del sistema operativo.  La configurazione di minroot non può essere modificata dinamicamente in fase di esecuzione.
 
-Se sono presenti più nodi NUMA, ogni nodo verrà visualizzato `n/NumaNodeCount` processori.
+Se sono presenti più nodi NUMA, ogni nodo `n/NumaNodeCount` otterrà i processori.
 
-Si noti che con più nodi NUMA, è necessario verificare che la topologia della macchina virtuale è tale che esistono sufficienti LPs gratuito (ovvero LPs senza radice VPs) in ogni nodo NUMA per nodo NUMA della macchina virtuale corrispondente VPs di esecuzione.
+Si noti che con più nodi NUMA, è necessario assicurarsi che la topologia della macchina virtuale sia tale che ci siano sufficienti LPs gratuiti (ad esempio, LPs senza VP radice) in ogni nodo NUMA per eseguire il VPs del nodo NUMA della VM corrispondente.
 
-## <a name="verifying-the-minroot-configuration"></a>Verifica della configurazione Minroot
+## <a name="verifying-the-minroot-configuration"></a>Verifica della configurazione di Minroot
 
-È possibile verificare la configurazione dell'host minroot tramite Gestione attività, come illustrato di seguito.
+È possibile verificare la configurazione minroot dell'host tramite Gestione attività, come illustrato di seguito.
 
 ![](./media/minroot-taskman.png)
 
-Quando Minroot è attivo, Gestione attività visualizzerà il numero di processori logici attualmente allocato all'host, oltre al numero totale di processori logici nel sistema.
+Quando Minroot è attivo, gestione attività visualizzerà il numero di processori logici attualmente assegnati all'host, oltre al numero totale di processori logici nel sistema.
  

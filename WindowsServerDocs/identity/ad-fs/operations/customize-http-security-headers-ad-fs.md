@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3c497cbafb8f9313f988a1b892d2b8fef68115eb
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 4fd1e62e67f66a217a1d4f3a26933723a4645a31
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68523908"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865569"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare le intestazioni di risposta di sicurezza HTTP con AD FS 2019 
  
@@ -179,7 +179,7 @@ Questa intestazione della risposta di sicurezza HTTP viene usata per impedire l'
 #### <a name="csp-customization"></a>Personalizzazione CSP 
 La personalizzazione dell'intestazione CSP comporta la modifica dei criteri di sicurezza che definiscono il browser risorse che è autorizzato a caricare per la pagina Web. I criteri di sicurezza predefiniti sono  
  
-`Content-Security-Policy: default-src ‘self’ ‘unsafe-inline’ ‘’unsafe-eval’; img-src ‘self’ data:;` 
+`Content-Security-Policy: default-src ‘self' ‘unsafe-inline' ‘'unsafe-eval'; img-src ‘self' data:;` 
  
 La direttiva **default-src** viene usata per modificare le [direttive-src](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) senza elencare in modo esplicito ogni direttiva. Nell'esempio seguente, ad esempio, il criterio 1 corrisponde al criterio 2.  
 
@@ -190,14 +190,14 @@ Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue
  
 Criterio 2
 ```PowerShell 
-Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "script-src ‘self’; img-src ‘self’; font-src 'self';  
+Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "script-src ‘self'; img-src ‘self'; font-src 'self';  
 frame-src 'self'; manifest-src 'self'; media-src 'self';" 
 ```
 
 Se una direttiva è elencata in modo esplicito, il valore specificato sostituisce il valore specificato per default-src. Nell'esempio seguente, img-src accetta il valore come ' *' (consentendo il caricamento delle immagini da qualsiasi origine) mentre altre direttive src accettano il valore come ' self ' (limitandosi alla stessa origine della pagina Web).  
 
 ```PowerShell
-Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self’; img-src *" 
+Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 
 ```
 È possibile definire le origini seguenti per i criteri default-src 
  

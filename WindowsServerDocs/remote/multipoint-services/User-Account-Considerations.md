@@ -1,6 +1,6 @@
 ---
 title: Considerazioni sull'account utente
-description: Fornisce considerazioni relative alle password per i servizi MultiPoint, nome utente e account utente
+description: Fornisce considerazioni sull'account utente, sul nome utente e sulla password per servizi MultiPoint
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,18 +13,18 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 00fb5e83921ba0b8ad86a6f75bdfd7bf16419b73
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c4a0355b5e081e0673447fb86f1475d0b34c3792
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850792"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871504"
 ---
 # <a name="user-account-considerations"></a>Considerazioni sull'account utente
 In questo argomento vengono descritti i problemi che, come un utente amministratore, tenere presenti quando si creano e gestiscono gli account utente. Gestire gli account utente nella scheda utenti gestione MultiPoint. Per altre informazioni, vedere l'argomento [Gestire account utente](Manage-User-Accounts.md).  
   
 ## <a name="user-account-types"></a>Tipi di account utente  
-Un account utente è una raccolta di informazioni che comunica a MultiPoint Services i file e le cartelle a cui è possibile accedere, le modifiche che è possibile apportare al sistema MultiPoint Services e le preferenze di ciascun utente, ad esempio lo sfondo del desktop. Ogni persona accede al proprio account utente usando un nome utente e una password univoci. Servizi multiPoint supporta tre tipi di account utente:  
+Un account utente è una raccolta di informazioni che indica a MultiPoint Services i file e le cartelle a cui un utente può accedere, le modifiche che possono apportare al sistema MultiPoint Services e le preferenze di ogni utente, ad esempio lo sfondo del desktop. Ogni persona accede al proprio account utente usando un nome utente e una password univoci. Servizi multiPoint supporta tre tipi di account utente:  
   
 -   **Gli account utente con privilegi amministrativi** sono per le persone che verrà utilizzato Gestione MultiPoint per utilizzare e gestire il sistema di servizi MultiPoint. Per altre informazioni, vedere [Creare un account utente amministrativo](Create-an-Administrative-User-Account.md).  
   
@@ -38,10 +38,10 @@ Gli utenti con privilegi amministrativi possono eseguire attività che riguardan
 Una considerazione importante sugli account utente è che a ogni account utente è allocata una libreria **Documenti** univoca di Esplora risorse che include la cartella **Documenti**. Se gli utenti standard del sistema MultiPoint Services archiviano documenti privati nella libreria **Documenti** in Esplora risorse, dovranno anch'essi accedere al sistema MultiPoint Services usando nome utente e password univoci noti solo a loro. Per altre informazioni sull'archiviazione di documenti in Esplora risorse, vedere l'argomento [Gestire file utente](Manage-User-Files.md).  
   
 > [!TIP]  
-> Per una maggiore sicurezza del sistema, tutte le password utente devono essere complesse. Una password complessa che non può essere individuato facilmente o violata, è costituita da almeno otto caratteri, non contiene tutto o parte del nome dell'account dell'utente e include almeno tre delle quattro seguenti categorie di caratteri: lettere maiuscole caratteri, caratteri minuscoli, numeri e simboli di una tastiera (ad esempio!, @, #).  
+> Per una maggiore sicurezza del sistema, tutte le password degli utenti devono essere password complesse. Una password complessa non può essere facilmente indovinata o incrinata, è costituita da almeno otto caratteri, non contiene il nome dell'account utente o parte di esso e contiene almeno tre delle quattro categorie di caratteri seguenti: caratteri maiuscoli, minuscoli caratteri, numeri e simboli trovati in una tastiera (ad esempio!, @, #).  
   
 ## <a name="see-also"></a>Vedere anche  
-[Creare un Account utente con privilegi amministrativi](Create-an-Administrative-User-Account.md)  
-[Creare un Account utente Standard](Create-a-Standard-User-Account.md)  
+[Creare un account utente con privilegi amministrativi](Create-an-Administrative-User-Account.md)  
+[Creare un account utente standard](Create-a-Standard-User-Account.md)  
 [Gestire i file utente](Manage-User-Files.md)
 [gestire gli account utente](Manage-User-Accounts.md)

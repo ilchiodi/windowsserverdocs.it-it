@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 585d0195b096056ba769f4e9a08d5c4d2156b96a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c6c37b6f98b3ac80179b0ae3b7e2a0c1e34a4975
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191455"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867875"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Server farm federativa che usa SQL Server
 
-Questa topologia di Active Directory Federation Services \(ADFS\) differisce dalla server farm federativa utilizzando Database interno di Windows \(WID\) topologia di distribuzione in cui non viene replicato i dati da ogni server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune che viene archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
+Questa topologia per \(Active Directory Federation Services\) ad FS è diversa dalla Federazione server farm utilizzando la topologia \(di\) distribuzione database interno di Windows wid in quanto non replica i dati in ciascun server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
   
 > [!IMPORTANT]  
 > Se si desidera creare una farm ADFS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
@@ -30,24 +30,24 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 -   Le organizzazioni di grandi dimensioni con più di 100 relazioni di trust che è necessario fornire loro utenti interni e gli utenti esterni con single sign-\-in \(SSO\) l'accesso a servizi o applicazione federata  
   
--   Le organizzazioni che già utilizzano SQL Server e si desidera sfruttare gli strumenti esistenti e competenze  
+-   Organizzazioni che usano già SQL Server e vogliono sfruttare i vantaggi offerti dagli strumenti e dalle competenze esistenti  
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quali sono i vantaggi dell'utilizzo di questa topologia?  
   
--   Supporto per numeri elevati di relazioni di trust \(più di 100\)  
+-   Supporto per un numero maggiore di relazioni \(di trust maggiori di 100\)  
   
--   Supporto per il rilevamento riproduzione token \(una funzionalità di sicurezza\) e la risoluzione artefatto \(fa parte di Security Assertion Markup Language \(SAML\) protocollo 2.0\)  
+-   Supporto per il \(rilevamento della riproduzione dei token una funzionalità\) di sicurezza \(e una parte della \(risoluzione\) dell'artefatto del protocollo Security Assertion Markup Language SAML 2,0\)  
   
--   Strumenti di supporto per i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, reporting e gestione  
+-   Supporto per tutti i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, la creazione di report e gli strumenti di gestione  
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quali sono le limitazioni dell'utilizzo di questa topologia?  
   
--   Per impostazione predefinita questa topologia non fornisce ridondanza del database. Anche se una server farm federativa con topologia WID vengono replicati automaticamente il database interno di Windows in ogni server federativo nella farm, la server farm federativa con topologia SQL Server contiene solo una copia del database  
+-   Per impostazione predefinita questa topologia non fornisce ridondanza del database. Anche se una Federazione server farm con la topologia WID replica automaticamente il database WID in ogni server federativo della farm, la Federazione server farm con SQL Server topologia contiene solo una copia del database  
   
 > [!NOTE]  
-> SQL Server supporta molti dati diversi e opzioni di ridondanza dell'applicazione tra cui clustering di failover del mirroring del database e diversi tipi di replica di SQL Server.  
+> SQL Server supporta diverse opzioni di ridondanza dei dati e delle applicazioni, tra cui il clustering di failover, il mirroring del database e diversi tipi diversi di replica SQL Server.  
   
-Microsoft Information Technology \(IT\) reparto utilizza il mirroring del database di SQL Server in alta\-safety \(sincrono\) modalità e clustering di failover per fornire elevata\- supporto della disponibilità per l'istanza di SQL Server. SQL Server transazionale \(peer\-al\-peer\) e replica di tipo merge non sono stati testati dal team del prodotto AD FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
+Il reparto IT\) di \(Microsoft Information Technology USA SQL Server il mirroring del database \(in\) modalità sincrona a sicurezza elevata\-e il\- clustering di failover per offrire elevata supporto della disponibilità per l'istanza di SQL Server. SQL Server \(peer\-transazionale\) e\-la replica di tipo merge non sono stati testati dal team del prodotto ad FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
   
 ### <a name="supported-sql-server-versions"></a>Versioni supportate di SQL Server  
 Sono supportate le seguenti versioni SQL server con AD FS in Windows Server 2012 R2:  
@@ -61,7 +61,7 @@ Sono supportate le seguenti versioni SQL server con AD FS in Windows Server 2012
 ## <a name="server-placement-and-network-layout-recommendations"></a>Consigli di layout posizionamento e la rete di server  
 Come per la server farm federativa con topologia database interno di Windows, tutti i server federativi nella farm sono configurati per utilizzare un cluster Domain Name System \(DNS\) nome \(che rappresenta il nome del servizio federativo\) e l'indirizzo IP di un cluster come parte di bilanciamento carico di rete \(Bilanciamento carico di RETE\) configurazione del cluster. In questo modo l'host di bilanciamento carico di RETE di allocare le richieste client per i server federativi singoli. I proxy server federativi utilizzabile per le richieste client proxy per la server farm federativa.  
   
-La figura seguente mostra come la società fittizia Contoso Pharmaceuticals distribuite la server farm federativa con topologia SQL Server nella rete aziendale. Viene inoltre illustrato come la società configurata la rete perimetrale con accesso a un server DNS, un host di bilanciamento carico di RETE aggiuntiva che utilizza lo stesso nome DNS del cluster \(fs.contoso.com\) utilizzato nel cluster di bilanciamento carico di RETE alla rete aziendale e con due proxy applicazione web \(wap1 e wap2\).  
+Nella figura seguente viene illustrato il modo in cui la società fittizia Contoso Pharmaceuticals ha distribuito il server farm della Federazione con SQL Server topologia nella rete aziendale. Viene inoltre illustrato come la società configurata la rete perimetrale con accesso a un server DNS, un host di bilanciamento carico di RETE aggiuntiva che utilizza lo stesso nome DNS del cluster \(fs.contoso.com\) utilizzato nel cluster di bilanciamento carico di RETE alla rete aziendale e con due proxy applicazione web \(wap1 e wap2\).  
   
 ![server farm con SQL](media/SQLFarmADFSBlue.gif)  
   
@@ -111,11 +111,11 @@ Il diagramma seguente mostra un SQL Server Farm ADFS con gruppo di disponibilit�
 > [!NOTE]  
 > Solo una replica di disponibilità può fungere da una destinazione del failover automatico, altri tre si baserà su failover manuale.  
   
-**Considerazioni sulla distribuzione di chiavi**  
+**Considerazioni principali sulla distribuzione**  
   
 Se si prevede di utilizzare gruppi di disponibilità AlwaysOn in combinazione con la replica di tipo merge di SQL Server, per prendere nota dei problemi descritti in "Considerazioni sulla distribuzione di chiave per l'utilizzo di ADFS con replica di tipo Merge SQL Server" di seguito.  In particolare, quando un gruppo di disponibilità AlwaysOn contenente un database che è un sottoscrittore di replica esegue il failover, la sottoscrizione di replica ha esito negativo. Per riprendere la replica, un amministratore di replica deve riconfigurare manualmente il sottoscrittore.  Vedere la descrizione di SQL Server del problema specifico [sottoscrittori della replica e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh882436.aspx) e complessiva supportano le istruzioni per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, il rilevamento delle modifiche, Change Data Capture e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh403414.aspx).  
   
-**Configurazione di AD FS per usare un gruppo di disponibilità AlwaysOn**  
+**Configurazione di AD FS per l'utilizzo di un gruppo di disponibilità AlwaysOn**  
   
 La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richiede una modifica quasi irrilevante per la procedura di distribuzione di ADFS:  
   
@@ -123,9 +123,9 @@ La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richied
   
 2.  Dopo avere creati i database di ADFS, assegnarli a gruppi di disponibilità AlwaysOn e creare il listener TCP/IP comune utilizzando gli strumenti di SQL Server ed elaborare in [creazione e configurazione di gruppi di disponibilità \(SQL Server\)](https://technet.microsoft.com/library/ff878265.aspx).  
   
-3.  Infine, utilizzare PowerShell per modificare le proprietà di ADFS per aggiornare la stringa di connessione SQL per utilizzare l'indirizzo DNS del listener del gruppo di disponibilità AlwaysOn.  
+3.  Infine, utilizzare PowerShell per modificare le proprietà di AD FS per aggiornare la stringa di connessione SQL per utilizzare l'indirizzo DNS del listener del gruppo di disponibilità AlwaysOn.  
   
-    Esempi di comandi PSH per aggiornare la stringa di connessione SQL per il database di configurazione di AD FS:  
+    Esempi di comandi PSH per aggiornare la stringa di connessione SQL per il database di configurazione AD FS:  
   
     ```  
     PS:\>$temp= Get-WmiObject -namespace root/ADFS -class SecurityTokenService  
@@ -134,7 +134,7 @@ La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richied
   
     ```  
   
-4.  Esempi di comandi PSH per aggiornare la stringa di connessione SQL per il database di servizio AD FS risoluzione artefatto:  
+4.  Comandi PSH di esempio per aggiornare la stringa di connessione SQL per il database del servizio di risoluzione dell'artefatto AD FS:  
   
     ```  
     PS:\> Set-AdfsProperties –artifactdbconnection ”Data source=<SQLCluster\SQLInstance >;Initial Catalog=AdfsArtifactStore;Integrated Security=True”  
@@ -143,7 +143,7 @@ La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richied
 ### <a name="sql-server-merge-replication"></a>Replica di tipo Merge SQL Server  
 Inoltre introdotto in SQL Server 2012, replica di tipo merge consente la ridondanza dei dati dei criteri ADFS con le seguenti caratteristiche:  
   
--   Lettura e scrittura di funzionalità in tutti i nodi \(non appena il database primario\)  
+-   Funzionalità di lettura e scrittura in tutti \(i nodi non solo nel database primario\)  
   
 -   Più piccole quantità di dati replicati in modo asincrono per evitare l'introduzione di latenza per il sistema  
   
@@ -151,7 +151,7 @@ Il diagramma seguente illustra una farm di SQL Server ADFS geograficamente ridon
   
 ![server farm con SQL](media/ADFSSQLGeoRedundancy3.png)  
   
-**Considerazioni sulla distribuzione di chiave per l'uso di AD FS con la replica di tipo Merge di SQL Server \(i numeri nel diagramma precedente\)**  
+**Considerazioni sulla distribuzione chiave per l'utilizzo di ad FS con \(SQL Server i numeri di nota della replica di tipo merge nel diagramma precedente\)**  
   
 -   Database di distribuzione non è supportato per l'utilizzo con i gruppi di disponibilità AlwaysOn o il mirroring del database.  Vedere SQL Server supportano le istruzioni per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, il rilevamento delle modifiche, Change Data Capture e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh403414.aspx).  
   

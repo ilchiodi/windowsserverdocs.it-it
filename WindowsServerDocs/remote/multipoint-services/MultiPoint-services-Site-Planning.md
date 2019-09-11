@@ -1,6 +1,6 @@
 ---
 title: Pianificazione del sito di Servizi MultiPoint
-description: Informazioni sulla pianificazione per le distribuzioni di servizi MultiPoint in Windows Server 2016
+description: Informazioni sulla pianificazione per le distribuzioni MultiPoint Services in Windows Server 2016
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,147 +13,147 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3d49b2861d81a938fb20544c3edeb0976ac6d327
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871639"
 ---
 # <a name="multipoint-services-site-planning"></a>Pianificazione del sito di Servizi MultiPoint
-È necessario considerare la posizione in cui verrà distribuito uno o più computer che esegue MultiPoint Services e le stazioni associate.  
+È necessario prendere in considerazione la posizione in cui verranno distribuiti uno o più computer che eseguono MultiPoint Services e le stazioni associate.  
   
-Il computer che esegue MultiPoint Services ruolo deve avere un pratico accesso a un alimentatore e per le periferiche che sono connessi direttamente a essa, ad esempio una stampante. Inoltre, il computer che esegue MultiPoint Services deve avere un pratico accesso a una connessione di rete. È necessaria per l'accesso a Internet, una connessione di rete e in cui è disponibile, una rete LAN.  
+Il computer che esegue il ruolo Servizi MultiPoint deve disporre di un comodo accesso a un alimentatore e ai dispositivi periferici connessi direttamente, ad esempio una stampante. Inoltre, il computer in cui è in esecuzione MultiPoint Services deve disporre di un comodo accesso a una connessione di rete. È necessaria una connessione di rete per l'accesso a Internet e, laddove disponibile, una LAN.  
   
-Altri fattori da considerare includono quanto segue:  
+Di seguito sono riportati alcuni fattori da considerare:  
   
--   Sarà nel sistema MultiPoint Services configurato in una camera specifica, o essere configurerà in un carrello della spesa in sequenza o una tabella, in modo che può essere spostato da una posizione?  
+-   Il sistema di servizi MultiPoint verrà configurato in una stanza specifica oppure verrà configurato in un carrello o in una tabella in sequenza, in modo che possa essere spostato da una posizione all'altra?  
   
     > [!NOTE]  
-    > Se si prevede di usare una configurazione per dispositivi mobili, è possibile *associare* le stazioni servizi MultiPoint ogni volta che vengono riconnessi per assicurarsi che ogni tastiera e mouse è associato il monitoraggio appropriato.  
+    > Se si prevede di usare una configurazione per dispositivi mobili, è possibile *associare* le stazioni con servizi multipoint ogni volta che vengono riconnesse per assicurarsi che ogni tastiera e mouse siano associati al monitor appropriato.  
   
--   La stazione principale si troverà accanto alle altre stazioni o verrà separato? Ad esempio, se il sistema MultiPoint Services è configurato in una classe, verrà la stazione principale in ufficio del docente e le stazioni standard posizionata altrove nella chat room? Quando viene riavviato il computer che esegue servizi MultiPoint, stazione principale avranno accesso per le schermate di avvio. Se si è preoccupati per questo livello di accesso in un'impostazione in aula, è preferibile inserire la stazione principale alla scrivania del docente.  
+-   La stazione primaria sarà posizionata accanto alle altre stazioni o sarà separata? Se, ad esempio, il sistema MultiPoint Services è configurato in una classe, la stazione primaria si troverà sulla scrivania dell'insegnante e sulle stazioni standard posizionate altrove nella stanza? Quando il computer che esegue MultiPoint Services viene riavviato, la stazione primaria avrà accesso alle schermate di avvio. Se si è interessati a questo livello di accesso in una classe, è preferibile inserire la stazione primaria presso la scrivania del docente.  
   
--   Le stazioni di quanti possa essere inserito nella chat room?  
+-   Quante stazioni rientreranno nello spazio?  
   
--   È necessaria una rete? Una soluzione server singolo che utilizza connesse video diretta o USB zero-client connesso stazioni non è necessaria una rete.  
+-   È necessaria una rete? Una soluzione a server singolo che usa Direct video Connected o USB zero client Station non necessita di una rete.  
   
--   Sono presenti connessioni di rete sufficienti nella chat room per supportare il numero necessario di computer che eseguono MultiPoint Services  
+-   Sono disponibili connessioni di rete sufficienti per supportare il numero necessario di computer che eseguono MultiPoint Services  
   
--   Dove si trovano le prese di corrente?  
+-   Dove si trovano i Power Outlet?  
   
--   È necessario un dispositivo di visualizzazione aggiuntive, ad esempio un proiettore? Se si prevede di usare un proiettore, verrà interrotta dal tetto massimo, o posizionato in una tabella?  
+-   Sarà necessario un dispositivo di visualizzazione aggiuntivo, ad esempio un proiettore? Se si prevede di usare un proiettore, questo verrà bloccato dal limite o sarà posizionato in una tabella?  
   
--   Tipologia di cavi verrà richiesto e il numero di essere necessaria?  
+-   Quali tipi di cavi saranno necessari e quanti saranno necessari?  
   
--   Prendere in considerazione come si potrebbe voler espansione in futuro. Verranno aggiunte altre stazioni?  
+-   Si consideri come si desidera espandersi in futuro. Verranno aggiunte altre stazioni?  
   
-## <a name="station-layout-and-configuration"></a>Configurazione e il layout di stazione  
-Il layout fisico del sito potrebbe influire sulla scelta del tipo stazione. Per altre informazioni sui tipi diversi di stazione, vedere [stazioni MultiPoint](MultiPoint-services-Stations.md) in questa Guida. Più tipi di stazione sono consentiti in un singolo di MultiPoint Services. Ciò consente una flessibilità aggiuntiva per soddisfare le esigenze di installazione.  
+## <a name="station-layout-and-configuration"></a>Layout e configurazione della stazione  
+Il layout fisico del sito potrebbe influire sulla scelta del tipo di stazione. Per altri dettagli sui diversi tipi di stazioni, vedere le [stazioni MultiPoint](MultiPoint-services-Stations.md) in questa guida. In un singolo servizio MultiPoint sono consentiti più tipi di stazione. Questo offre una maggiore flessibilità per soddisfare le esigenze di installazione.  
   
-### <a name="layout-for-direct-video-connected-stations"></a>Layout per le stazioni direct-video-connessi  
+### <a name="layout-for-direct-video-connected-stations"></a>Layout per le stazioni con connessione video diretta  
   
--   Per una stazione di direct-video-connessi, la distanza tra i monitoraggi e il computer è limitata dalla lunghezza del video via cavo.  
+-   Per una stazione connessa con video diretto, la distanza tra i monitoraggi e il computer è limitata dalla lunghezza del cavo video.  
   
--   Uso di hub intermedio o hub di stazione a cascata è supportata per semplificare la distribuzione, ma il numero massimo consigliato di hub consecutivi è tre. Ciò significa che la distanza massima dal computer per l'hub di stazione è 15 metri, perché ogni cavo USB 2.0 è la lunghezza massima di cinque misuratori.  
+-   L'uso di hub intermedi o di hub di stazione concatenati a Margherita è supportato per semplificare la distribuzione, ma il numero massimo consigliato di hub consecutivi è tre. Ciò significa che la distanza massima dal computer all'hub di stazione è 15 metri, perché ogni cavo USB 2,0 ha la lunghezza massima di cinque contatori.  
   
 > [!IMPORTANT]  
-> Deve esistere sempre almeno una diretta stazione connesso video per ogni computer di agire come la stazione principale.  
+> Deve essere sempre presente almeno una stazione video connessa diretta per computer per fungere da stazione primaria.  
   
-### <a name="layout-for-usb-zero-client-connected-stations"></a>Layout per client USB zero stazioni con connessione  
+### <a name="layout-for-usb-zero-client-connected-stations"></a>Layout per le stazioni USB zero client connesse  
   
--   Uso di hub intermedio o hub di stazione a cascata è supportata per semplificare la distribuzione, ma il numero massimo consigliato di hub consecutivi è tre. Ciò significa che la distanza massima dal computer per l'hub di stazione è 15 metri, perché ogni cavo USB 2.0 è la lunghezza massima di cinque misuratori.  
+-   L'uso di hub intermedi o di hub di stazione concatenati a Margherita è supportato per semplificare la distribuzione, ma il numero massimo consigliato di hub consecutivi è tre. Ciò significa che la distanza massima dal computer all'hub di stazione è 15 metri, perché ogni cavo USB 2,0 ha la lunghezza massima di cinque contatori.  
   
--   Il numero massimo consigliato di USB zero client connessi a un singolo hub intermedio è tre.  
+-   Il numero massimo consigliato di client USB zero connessi a un singolo hub intermedio è tre.  
   
     > [!NOTE]  
-    > Alcuni computer dotati di un hub generico sulla scheda madre, che ha l'effetto dell'aggiunta di un hub aggiuntivo tra le *hub radice* del computer e gli hub di stazione.  
+    > Alcuni computer dispongono di un hub generico sulla scheda madre, che ha l'effetto di aggiungere un hub aggiuntivo tra l' *hub radice* del computer e gli hub di stazione.  
   
--   Se verrà utilizzata principalmente video, è consigliabile che i client USB zero non più di due sia connettersi a una porta USB nel server. Ad esempio, se viene usato un hub intermedio, i client USB zero solo due devono connesso. O se sei un collegamento a margherita concatenamento client USB zero, solo due USB zero client devono essere incatenati insieme. L'aggiunta di ogni client USB zero per la porta USB del server consente di ridurre la larghezza di banda video disponibile.  
+-   Se si usa molto spesso il video, è consigliabile connettere non più di due client USB zero a una porta USB sul server. Se, ad esempio, si usa un hub intermedio, è necessario che siano connessi solo due client USB zero. In alternativa, se si esegue il concatenamento di un client USB zero, solo due client USB zero devono essere concatenati. L'aggiunta di ogni client USB zero alla porta USB sul server riduce la larghezza di banda del video disponibile.  
   
--   Se si prevede di connettere più di tre client USB zero a una singola porta USB nel server, è consigliabile utilizzare USB 3.0 tra il server e l'hub intermedio.  
+-   Se si prevede di connettere più di tre client USB zero a una singola porta USB sul server, è consigliabile usare USB 3,0 tra il server e l'hub intermedio.  
   
 > [!NOTE]  
-> È consigliabile che è verificare le prestazioni usando le applicazioni e hardware per decidere quanti USB zero client, è possibile connettersi a una porta USB nel server.  
+> Si consiglia di verificare le prestazioni utilizzando le applicazioni e l'hardware per stabilire il numero di client USB zero che è possibile connettere a una porta USB sul server.  
   
 ![Hub downstream](./media/WMS_diagram6.gif)  
   
-**Figura 5** sistema MultiPoint Services con tre USB zero client connessi a un singolo hub intermediario  
+**Figura 5** Sistema MultiPoint Services con tre client USB zero connessi a un singolo hub intermedio  
   
-### <a name="layout-for-rdp-over-lan-connected-stations"></a>Stazioni con connessione layout per RDP-over-LAN  
-Non esistono limitazioni distanza fisica per i client LAN. Purché siano nella rete LAN, possono essere connessi al sistema MultiPoint Services.  
+### <a name="layout-for-rdp-over-lan-connected-stations"></a>Layout per le stazioni connesse RDP-over-LAN  
+Non sono previste limitazioni a distanza fisica per i client LAN. Fino a quando si trovano nella LAN, possono connettersi al sistema MultiPoint Services.  
   
-## <a name="using-additional-hubs"></a>Uso di hub aggiuntive  
-Altri hub è utilizzabile per semplificare l'installazione. Esistono tre tipi di hub che vengono usati in un sistema MultiPoint Services:  
+## <a name="using-additional-hubs"></a>Uso di hub aggiuntivi  
+Hub aggiuntivi può essere usato per semplificare l'installazione. Sono disponibili tre tipi di hub usati in un sistema MultiPoint Services:  
   
 -   [Hub di stazione](#station-hubs)  
   
--   [Hub intermediario](#intermediate-hubs)  
+-   [Hub intermedi](#intermediate-hubs)  
   
 -   [Hub downstream](#downstream-hubs)  
   
 ### <a name="station-hubs"></a>Hub di stazione  
-Hub di stazione è un hub esterno che è stato associato a una stazione MultiPoint Services. Come minimo, l'hub di stazione avrà una tastiera alimentazione da rete elettrica aggiuntivo a esso. È anche possibile che altre periferiche collegate. Un hub di stazione può essere un hub USB generico che è conforme all'USB 2.0 o versioni successive. Hub di stazione deve essere spenti esternamente se i dispositivi avanzati verranno plug-in a essi.  
+Un hub di stazione è un hub esterno che è stato associato a una stazione MultiPoint Services. Come minimo, l'hub di stazione avrà una tastiera collegata. Potrebbero inoltre essere presenti periferiche aggiuntive collegate. Un hub di stazione può essere un hub USB generico che è conforme alla specifica USB 2,0 o successiva. L'hub di stazione deve essere alimentato esternamente se i dispositivi a elevato consumo eseguiranno il plug-in.  
   
-**Hub radice** hub USB A predefiniti per il controller host sulla scheda madre del computer è noto come un *hub radice*. Hub di stazione sono in genere alimentazione da rete elettrica aggiuntivo per l'hub radice del computer che esegue MultiPoint Services.  
+**Hub radice** Un hub USB incorporato nel controller host sulla scheda madre di un computer è noto come *hub radice*. Gli hub di stazione vengono in genere collegati all'hub radice nel computer in cui è in esecuzione MultiPoint Services.  
   
 > [!NOTE]  
-> Non usare gli hub radice come hub di stazione. Quando le porte USB sono incorporate in un computer, spesso non è possibile determinare quale hub USB root internamente sono connessi a. Di conseguenza, se è collegato aggiuntivo stazione tastiera e mouse direttamente alle porte USB del computer, si può effettivamente essere inserimento-in di tastiera e mouse hub radice USB diversi. Per garantire che la tastiera e mouse sullo stesso hub, plug-in un hub di stazione a porta USB del computer e quindi plug-in di tastiera e mouse che hub di stazione.  
+> Gli hub radice non devono essere usati come hub di stazione. Quando le porte USB sono incorporate in un computer, spesso non è possibile determinare l'hub radice USB a cui sono connesse internamente. Di conseguenza, se la tastiera e il mouse sono stati collegati direttamente alle porte USB del computer, è possibile che si stia effettivamente collegando la tastiera e il mouse a hub radice USB diversi. Per garantire che la tastiera e il mouse si trovino nello stesso hub, collegare un hub di stazione alla porta USB del computer e quindi collegare la tastiera e il mouse all'hub di stazione.  
   
-**Collegamento a margherita concatenamento stazioni** può risultare più hub di stazione a un altro hub di stazione anziché direttamente nel computer. In questo modo è possibile collegare un hub USB a un hub di stazione che è già collegato al computer, in modo da avere un hub di stazione collegato a un altro hub di stazione.  
+**Stazioni di concatenamento Daisy** Potrebbe essere più facile connettere Hub stazione a un altro hub di stazione invece che direttamente al computer. In questo modo è possibile connettere un hub USB a un hub di stazione già collegato al computer, in modo da avere un hub di stazione collegato a un altro hub di stazione.  
   
-Dovrebbe esserci client USB zero non più di tre o stazione hub cascata consecutivamente. Prestare attenzione che non venga superata la larghezza di banda USB quando margherita hub di stazione.  
+Non devono essere presenti più di tre client USB zero o della Margherita concatenati di hub di stazione consecutivi. È necessario prestare attenzione che la larghezza di banda USB non venga superata quando si concatenano gli hub di stazione a Margherita.  
   
 ![Stazioni con collegamento a margherita](./media/WMS_diagram5.gif)  
   
-**Figura 6** sistema MultiPoint Services con oggetti finestra a cascata  
+**Figura 6** Sistema MultiPoint Services con stazioni concatenate a Margherita  
   
-### <a name="intermediate-hubs"></a>Hub intermediario  
-Un hub intermedio è un hub di lunghezza compresa tra il server e un hub di stazione. Viene in genere usato per aumentare il numero di porte disponibili per gli hub di stazione o per estendere la distanza delle stazioni dal computer. Si consiglia di non più di due hub intermediario vengono utilizzati tra i server e un hub di stazione.  
+### <a name="intermediate-hubs"></a>Hub intermedi  
+Un hub intermedio è un hub tra il server e un hub di stazione. Viene in genere usato per aumentare il numero di porte disponibili per gli hub di stazione o per estendere la distanza delle stazioni dal computer. Si consiglia di usare non più di due hub intermedi tra un hub di stazione e il server.  
   
-Hub intermediario deve essere USB 2.0 o versione successiva e deve essere spenti esternamente. Se ci si connette più di tre client USB zero a un hub intermedio, USB 3.0 è consigliabile tra il server e l'hub intermedio.  
+Gli hub intermedi devono essere USB 2,0 o versioni successive e devono essere basati esternamente. Se si connettono più di tre client zero a un hub intermedio, è consigliabile usare USB 3,0 tra il server e l'hub intermedio.  
   
 ### <a name="downstream-hubs"></a>Hub downstream  
-Un hub downstream è connesso a un hub di stazione per aggiungere porte non è più disponibile per i dispositivi stazione. Un hub downstream può essere alimentato esternamente o bus-con tecnologia, a seconda di dispositivi collegati in all'hub.  
+Un hub downstream è connesso a un hub di stazione per aggiungere altre porte disponibili per i dispositivi di stazione. Un hub downstream può essere alimentato esternamente o alimentato da bus, a seconda dei dispositivi collegati all'hub.  
   
-![Più connessioni client USB zero](./media/WMS_diagram4.gif "WMS_diagram4")  
+![Più connessioni USB zero client](./media/WMS_diagram4.gif "WMS_diagram4")  
   
-**Figura 7** sistema MultiPoint Services con un hub intermedio, un hub di stazione e un hub downstream  
+**Figura 7** Sistema MultiPoint Services con un hub intermedio, un hub di stazione e un hub downstream  
   
-## <a name="users-stations-and-computers"></a>Le stazioni, utenti e computer  
-Il numero di stazioni che sarà necessario dipende dal numero di persone che dovranno accedere ai computer che esegue MultiPoint Services nello stesso momento. Allo stesso modo, il numero di computer che esegue MultiPoint Services, sarà necessario dipende dal numero totale delle stazioni necessari. Le stazioni Direct-video-connessi e stazioni connessi tramite USB zero-client RDP-over-LAN-connessi stazioni sono tutte le stazioni considerate. Inoltre, se viene utilizzata la funzionalità con schermo diviso, ogni semestre viene considerato una stazione.  
+## <a name="users-stations-and-computers"></a>Utenti, stazioni e computer  
+Il numero di stazioni necessarie dipende dal numero di utenti che dovranno accedere ai computer che eseguono MultiPoint Services nello stesso momento. Analogamente, il numero di computer che eseguono MultiPoint Services sarà necessario dipende dal numero totale di stazioni necessarie. Le stazioni con connessione diretta a video, le stazioni USB-zero-client-connected e le stazioni con connessione RDP-over-LAN sono tutte considerate stazioni. Inoltre, se viene utilizzata la funzionalità a schermo diviso, ciascuna metà viene considerata una stazione.  
   
-## <a name="power-considerations"></a>Considerazioni di risparmio energia  
-I componenti seguenti richiedono l'accesso a una striscia di alimentazione o outlet:  
+## <a name="power-considerations"></a>Considerazioni sull'alimentazione  
+I componenti seguenti richiedono l'accesso a un Power Strip o un Outlet:  
   
 -   Server  
 -   Monitoraggi
--   Hub a livello intermedio \(se usato\) 
+-   Hub \(intermedi se usati\) 
 -   Alcuni client USB zero  
--   Dispositivi con tecnologia USB, ad esempio alcuni dispositivi di archiviazione esterni e unità DVD  
+-   Dispositivi USB accesi, ad esempio alcuni dispositivi di archiviazione esterni e unità DVD  
   
-## <a name="sample-multipoint-services-system-layouts"></a>Layout del sistema MultiPoint Services di esempio  
-A seconda di arredi disponibili, le dimensioni della chat room, il numero di computer che eseguono MultiPoint Services e le stazioni nella chat room, esistono diversi modi che possono essere disposte le stazioni fisiche. I diagrammi seguenti illustrano cinque alternative possibili.  
+## <a name="sample-multipoint-services-system-layouts"></a>Layout di sistema MultiPoint Services di esempio  
+A seconda della mobilia disponibile, delle dimensioni della stanza, del numero di computer che eseguono MultiPoint Services e delle stazioni della stanza, esistono diversi modi in cui è possibile disporre le stazioni fisiche. I diagrammi seguenti illustrano cinque possibili alternative.  
   
 > [!NOTE]  
-> Alcuni di questi diagrammi mostrano un proiettore connesso al sistema MultiPoint Services. Questo è solo un esempio; tra cui un proiettore in un sistema MultiPoint Services è facoltativo.  
+> Alcuni di questi diagrammi mostrano un proiettore connesso al sistema MultiPoint Services. Questo è solo un esempio. l'inclusione di un proiettore in un sistema MultiPoint Services è facoltativo.  
   
-**Laboratorio informatico** In questa configurazione, le stazioni sono disposti intorno le pareti del stanza, insieme agli studenti le pareti affiancate.  
+**Lab del computer** In questa configurazione, le stazioni sono disposte intorno alle pareti della stanza, con gli studenti che si trovano alle pareti.  
   
 ![Configurazione di una classe con un lab informatico](./media/WMS_ComputerLabLayout.gif)  
   
-**Gruppi** In questa configurazione, sono presenti tre computer che eseguono MultiPoint Services, con le stazioni intorno a ogni computer in cluster.  
+**Gruppi** di In questa configurazione sono presenti tre computer che eseguono MultiPoint Services, con le stazioni raggruppate intorno a ogni computer.  
   
 ![Classe configurata con gruppi di server](./media/WMS_ClassroomPods.gif)  
   
-**Lezione chat room** In questa configurazione le stazioni impostate nelle righe. Un vantaggio di questa configurazione è che tutti gli studenti devono affrontare l'insegnante.  
+**Sala conferenze** In questa configurazione le stazioni sono configurate in righe. Un vantaggio di questa configurazione è che tutti gli studenti facciano parte dell'insegnante.  
   
 ![Classe configurata come sala conferenze](./media/WMS_LectureRoom.gif)  
   
-**Centro attività** questa configurazione è costituito da un layout tradizionale di sala conferenze per la prossimità e ha un'area separata con un singolo computer che esegue MultiPoint Services con le stazioni associate.  
+**Centro attività** Questa configurazione è costituita da un layout tradizionale di conferenze per le scrivanie e ha un'area separata con un singolo computer che esegue MultiPoint Services con le stazioni associate.  
   
-![MultiPoint Services Activity Center](./media/WMSActivityCenter.gif)  
+![Centro attività servizi MultiPoint](./media/WMSActivityCenter.gif)  
   
-**Office Small business** In questa configurazione, il computer che esegue MultiPoint Services viene posizionato in una posizione centrale e gli utenti in tutta l'office connettersi ad esso tramite una rete locale \(LAN\).  
+**Small Business Office** In questa configurazione, il computer in cui è in esecuzione MultiPoint Services si trova in una posizione centrale e gli utenti in tutta la sede si connettono a \(quest\)' area utilizzando una LAN di rete locale.  
   
 ![Stazione con connessione USB zero-client](./media/Diagram1.gif)
