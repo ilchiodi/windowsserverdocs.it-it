@@ -7,16 +7,16 @@ ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 01/08/2018
-ms.openlocfilehash: d12a6c66c5e76852900828af04f4c6ec63a9a4f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9c7f0e589980f7d985f165e318667ebe2e5d5c5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891982"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866750"
 ---
 # <a name="server-hardware-performance-considerations"></a>Considerazioni sulle prestazioni dell'hardware del server
 
-La sezione seguente elenca gli elementi importanti da considerare quando si sceglie l'hardware del server. Attenendosi alle linee guida è possibile evitare colli di bottiglia delle prestazioni che potrebbero influire sulle prestazioni del server.
+La sezione seguente elenca gli elementi importanti da considerare quando si sceglie l'hardware del server. Attenendosi a queste linee guida è possibile evitare colli di bottiglia delle prestazioni che potrebbero influire sulle prestazioni del server.
 
 ## <a name="processor-recommendations"></a>Consigli per i processori
 
@@ -46,7 +46,7 @@ Scegliere cache di processore estese L2 o L3. Nelle architetture più recenti, a
 Aumentare la quantità di RAM per soddisfare le esigenze di memoria.
 Se la memoria del computer è insufficiente e deve essere aumentata immediatamente, Windows usa lo spazio su disco rigido per integrare la RAM di sistema tramite una procedura denominata paging. Un paging eccessivo comporta una riduzione delle prestazioni complessive del sistema.
 È possibile ottimizzare il paging usando le linee guida seguenti per il posizionamento del file di paging:
-- Isolare il file di paging nel proprio dispositivo di archiviazione o almeno assicurarsi che non condivida gli stessi dispositivi di archiviazione di altri file utilizzati di frequente. Posizionare ad esempio il file di paging e i file del sistema operativo su unità disco fisiche separate.
+- Isola il file di paging nel dispositivo di archiviazione o almeno assicurati che non condivida gli stessi dispositivi di archiviazione di altri file usati di frequente. Posizionare ad esempio il file di paging e i file del sistema operativo su unità disco fisiche separate.
 
 - Posizionare il file di paging su un'unità non a tolleranza di errore. In caso di errore del disco, è probabile che si verifichi un arresto anomalo del sistema. Se si posiziona il file di paging su un'unità a tolleranza di errore, tenere presente che i sistemi a tolleranza di errore sono spesso più lenti per la scrittura dei dati in quanto devono scrivere i dati in più posizioni.
 

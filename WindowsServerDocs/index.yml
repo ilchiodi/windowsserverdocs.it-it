@@ -1,0 +1,184 @@
+### YamlMime:Hub
+title: Documentazione di Windows Server
+summary: Windows Server è la piattaforma per la creazione di un'infrastruttura di applicazioni, reti e servizi Web collegati, dal gruppo di lavoro al datacenter.
+metadata:
+  title: Documentazione di Windows Server - Microsoft Docs
+  description: Windows Server è la piattaforma per la creazione di un'infrastruttura di applicazioni, reti e servizi Web collegati, dal gruppo di lavoro al datacenter.
+  author: eross-msft
+  manager: daveba
+  ms.service: windows-server-threshold
+  ms.topic: hub-page
+  ms.date: 06/06/2019
+  ms.author: lizross
+  ms.openlocfilehash: 9af5ed848f824699d3ddf1830ff61f38a9475ac8
+  ms.sourcegitcommit: c7c743acada0ddf574d169a5c67b32d153fe77e7
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70876256"
+highlightedContent:
+  items:
+  - title: Novità di Windows Server 2019
+    itemType: whats-new
+    url: /windows-server/get-started-19/whats-new-19
+  - title: Introduzione a Windows Server 2019
+    itemType: overview
+    url: /windows-server/get-started-19/get-started-19
+  - title: Windows Admin Center
+    itemType: how-to-guide
+    url: /windows-server/manage/windows-admin-center/overview
+  - title: Infrastruttura iperconvergente
+    itemType: overview
+    url: /windows-server/hyperconverged/index
+  - title: Connessione ai servizi ibridi di Azure
+    itemType: how-to-guide
+    url: /windows-server/azure-hybrid-services/index
+  - title: Introduzione a Windows Server 2016
+    itemType: how-to-guide
+    url: /windows-server/get-started/server-basics
+  - title: Fine del supporto per Windows Server 2008 R2 e Windows Server 2008
+    itemType: overview
+    url: /windows-server/get-started/modernize-windows-server-2008
+  - title: Programma Windows Insider per i server
+    itemType: overview
+    url: /windows-insider/at-work/
+conceptualContent:
+  items:
+  - title: Identità e accesso
+    links:
+    - url: /windows-server/identity/ad-ds/ad-ds-getting-started
+      itemType: overview
+      text: Guida introduttiva ad Active Directory Domain Services (AD DS)
+    - url: /windows-server/identity/active-directory-federation-services
+      itemType: overview
+      text: Active Directory Federation Services (ADFS)
+    - url: /windows-server/identity/securing-privileged-access/securing-privileged-access
+      itemType: concept
+      text: Protezione dell'accesso con privilegi
+    footerLink:
+      url: /windows-server/identity/identity-and-access
+      text: Altre risorse
+  - title: Clustering di failover
+    links:
+    - url: /windows-server/failover-clustering/whats-new-in-failover-clustering
+      itemType: whats-new
+      text: What's new in Failover Clustering (Novità del clustering di failover)
+    - url: /windows-server/failover-clustering/create-failover-cluster
+      itemType: how-to-guide
+      text: Creare un cluster di failover
+    - url: /windows-server/failover-clustering/cluster-aware-updating
+      itemType: overview
+      text: Panoramica di Aggiornamento compatibile con cluster
+    footerLink:
+      url: /windows-server/failover-clustering/failover-clustering-overview
+      text: Altre risorse
+  - title: Management
+    links:
+    - url: /windows-server/manage/windows-admin-center/overview
+      itemType: overview
+      text: Usare Windows Admin Center per gestire l'ambiente
+    - url: /windows-server/manage/system-insights/overview
+      itemType: overview
+      text: Panoramica di informazioni dettagliate di sistema
+    - url: /windows-server/administration/performance-tuning/
+      itemType: overview
+      text: Linee guida per l'ottimizzazione delle prestazioni per Windows Server 2016
+    footerLink:
+      url: /windows-server/administration/manage-windows-server
+      text: Altre risorse
+  - title: Rete
+    links:
+    - url: /windows-server/networking/what-s-new-in-networking
+      itemType: whats-new
+      text: Novità relative alle funzionalità di rete
+    - url: /windows-server/networking/sdn/
+      itemType: overview
+      text: Panoramica di SDN (Software-Defined Networking)
+    - url: /windows-server/networking/sdn/technologies/network-controller/network-controller
+      itemType: overview
+      text: Controller di rete
+    footerLink:
+      url: /windows-server/networking/networking
+      text: Altre risorse
+  - title: Telecomando
+    links:
+    - url: /windows-server/remote/remote-desktop-services/welcome-to-rds
+      itemType: overview
+      text: Panoramica di Servizi Desktop remoto
+    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+      itemType: overview
+      text: Client Desktop remoto
+    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access
+      itemType: how-to-guide
+      text: Desktop remoto - Consentire l'accesso al PC
+    footerLink:
+      url: /windows-server/remote/index
+      text: Altre risorse
+  - title: Sicurezza e controllo
+    links:
+    - url: /windows-server/security/windows-authentication/windows-authentication-overview
+      itemType: overview
+      text: Panoramica dell'autenticazione di Windows
+    - url: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts
+      itemType: how-to-guide
+      text: Guida introduttiva agli account del servizio gestito del gruppo
+    - url: /windows-server/security/windows-authentication/credentials-processes-in-windows-authentication
+      itemType: overview
+      text: Processi relativi alle credenziali nell'autenticazione di Windows
+    footerLink:
+      url: /windows-server/security/security-and-assurance
+      text: Altre risorse
+  - title: Archiviazione
+    links:
+    - url: /windows-server/storage/whats-new-in-storage
+      itemType: whats-new
+      text: What's new in storage (Novità dell'archiviazione)
+    - url: /windows-server/storage/disk-management/overview-of-disk-management
+      itemType: overview
+      text: Panoramica di Gestione disco
+    - url: /windows-server/storage/storage-spaces/understand-quorum
+      itemType: overview
+      text: Informazioni sul quorum di cluster e pool
+    footerLink:
+      url: /windows-server/storage/storage
+      text: Altre risorse
+  - title: Risoluzione dei problemi
+    links:
+    - url: /windows-server/manage/windows-admin-center/support/troubleshooting
+      itemType: how-to-guide
+      text: Risoluzione dei problemi relativi a Windows Admin Center
+    - url: /windows-server/failover-clustering/troubleshooting-using-wer-reports
+      itemType: how-to-guide
+      text: Risoluzione dei problemi relativi al clustering di failover con Segnalazione errori Windows
+    - url: /windows-server/storage/disk-management/troubleshooting-disk-management
+      itemType: how-to-guide
+      text: Risoluzione dei problemi relativi a Gestione disco
+    footerLink:
+      url: /windows-server/troubleshoot/windows-server-support-solutions
+      text: Altre risorse
+  - title: Virtualizzazione
+    links:
+    - url: /virtualization/windowscontainers/
+      itemType: overview
+      text: Panoramica dei contenitori in Windows
+    - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+      itemType: overview
+      text: Hyper-V in Windows Server
+    - url: /windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch
+      itemType: overview
+      text: Panoramica del commutatore virtuale Hyper-V
+    footerLink:
+      url: /windows-server/virtualization/virtualization
+      text: Altre risorse
+additionalContent:
+  sections:
+  - items:
+    - title: Windows Server 2012 R2 e Windows Server 2012
+      summary: Contenuto tecnico per i professionisti IT che amministrano Windows Server 2012 R2 e Windows Server 2012.
+      url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)
+    - title: Windows Server 2008 R2 e Windows Server 2008
+      summary: Contenuto tecnico per i professionisti IT che amministrano Windows Server 2008 R2 e Windows Server 2008.
+      url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801(v=ws.10)
+    - title: Windows Server 2008 Developer Story
+      summary: Contenuto per sviluppatori e altri esperti e responsabili della tecnologia interessati ad esplorare alcune delle funzionalità nuove ed estese di Windows Server 2008.
+      url: https://docs.microsoft.com/previous-versions/windows/server-2008/bb852234(v=msdn.10)

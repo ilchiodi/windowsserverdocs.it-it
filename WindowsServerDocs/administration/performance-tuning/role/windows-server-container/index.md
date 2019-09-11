@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: 072d71a7825907ada7d4bc02eb5390722692e81d
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 1318a023d827b9e7ade2c6f420ba1aa532dfffe3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863415"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866433"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Ottimizzazione delle prestazioni per i contenitori di Windows Server
 
@@ -45,7 +45,7 @@ Il tempo di avvio del contenitore è una metrica fondamentale in molti degli sce
 Microsoft offre un'immagine di base sia per Server Core che per Nano Server. L'immagine di base che viene fornita per Server Core è stata ottimizzata rimuovendo il sovraccarico del tempo di avvio associato al primo accesso (Configurazione guidata). Ciò non avviene con l'immagine di base per Nano Server. Questo costo tuttavia può essere rimosso dalle immagini basate su Nano Server eseguendo il commit di almeno un livello per l'immagine del contenitore. Gli avvii successivi del contenitore a partire dall'immagine non comporteranno il costo del primo accesso.
 ### <a name="scratch-space-location"></a>Posizione dell'area scratch
 
-Per impostazione predefinita, i contenitori usano un'area scratch temporanea sui supporti di memorizzazione delle unità del sistema dell'host del contenitore per l'archiviazione nell'ambito della durata del contenitore in esecuzione. Viene usata come unità del sistema del contenitore e di conseguenza molte delle operazioni di scrittura e lettura durante l'utilizzo del contenitore seguono questo percorso. Per i sistemi host in cui l'unità di sistema è presente su supporti di memorizzazione magnetici a dischi rotanti (HDD) ma è disponibile un supporto di memorizzazione più veloce (HDD o SSD più veloci), è possibile spostare l'area scratch del contenitore in un'unità diversa. A tale scopo viene usato il comando dockerd -g. Questo comando è globale e ha effetto su tutti i contenitori in esecuzione nel sistema.
+Per impostazione predefinita, i contenitori usano uno spazio di lavoro temporaneo sui supporti di memorizzazione delle unità di sistema dell'host del contenitore per l'archiviazione nell'ambito della durata del contenitore in esecuzione. Questo spazio viene usato come unità di sistema del contenitore e di conseguenza molte delle operazioni di scrittura e lettura durante l'utilizzo del contenitore seguono questo percorso. Per i sistemi host in cui l'unità di sistema è presente su supporti di memorizzazione magnetici a dischi rotanti (HDD) ma è disponibile un supporto di memorizzazione più veloce (HDD o SSD più veloci), è possibile spostare l'area scratch del contenitore in un'unità diversa. A tale scopo viene usato il comando dockerd -g. Questo comando è globale e ha effetto su tutti i contenitori in esecuzione nel sistema.
 
 ### <a name="nested-hyper-v-containers"></a>Contenitori di Hyper-V annidati
 Hyper-V per Windows Server 2016 introduce il supporto di hypervisor annidato. È ora possibile pertanto eseguire una macchina virtuale dall'interno di una macchina virtuale. In questo modo si aprono molti scenari utili, ma si accentuano anche alcuni effetti negativi sulle prestazioni prodotti dall'hypervisor. Sono presenti infatti due livelli di hypervisor in esecuzione al di sopra dell'host fisico.

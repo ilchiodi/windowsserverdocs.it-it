@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 05/31/2019
-ms.openlocfilehash: 460399a57bc229b44d37a9fdd1e4938bf9e7d6ac
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: b4b1f42db7d80fabe2e3361f3ab9ebf41ad8bc29
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455359"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865425"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Connessione di Windows Server a servizi ibridi di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "66455359"
 Per estendere le distribuzioni locali di Windows Server al cloud, puoi usare i servizi ibridi di Azure. Questi servizi cloud offrono numerose funzioni utili e consentono, ad esempio, di:
 
 - Proteggere le macchine virtuali e usare backup e ripristino di emergenza basato sul cloud (disponibilità elevata/ripristino di emergenza) con Azure Site Recovery. 
-- Tenere traccia degli eventi nelle applicazioni, nella rete e nell'infrastruttura, grazie a funzionalità di analisi avanzate e intelligenza artificiale in Monitoraggio di Azure. 
+- Tenere traccia degli eventi nelle applicazioni, nella rete e nell'infrastruttura, grazie a funzionalità di analisi avanzate e Machine Learning in Monitoraggio di Azure. 
 - Semplificare la connettività di rete in Azure con la scheda di rete di Azure.
 - Mantenere aggiornate le macchine virtuali con Gestione aggiornamenti di Azure.
 
