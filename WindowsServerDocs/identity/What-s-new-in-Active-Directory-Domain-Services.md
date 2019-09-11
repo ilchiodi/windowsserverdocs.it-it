@@ -12,12 +12,12 @@ ms.topic: article
 author: Femila
 ms.author: billmath
 ms.date: 05/31/2017
-ms.openlocfilehash: ffa8bcb43b17ae8779c70d499bff27a8f77cce75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 3fc45782af7aaaccf87569c59f936abd8cbc5d08
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868273"
 ---
 # <a name="what39s-new-in-active-directory-domain-services"></a>Cosa &#39; s novità di servizi di dominio Active Directory 
 
@@ -25,19 +25,19 @@ ms.locfileid: "59841332"
 
 Le seguenti nuove funzionalità in servizi di dominio Active Directory (AD DS) è migliorare la capacità per le organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni cloud-only e distribuzioni ibride, in alcune applicazioni e servizi sono ospitati nel cloud e ad altri utenti sono ospitati in locale. I miglioramenti includono:  
   
--   [Gestione degli accessi con privilegi](https://technet.microsoft.com/library/mt150258.aspx   
+-   [Privileged Access Management](https://technet.microsoft.com/library/mt150258.aspx   
 )  
   
-- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
+- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
   
-- [Connettere dispositivi aggiunti a un dominio ad Azure AD per Windows 10 esperienze](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
+- [Connessione di dispositivi aggiunti a un dominio a Azure AD per le esperienze di Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
   
 - [Abilitare Microsoft Passport for Work nell'organizzazione](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)    
   
--  [Deprecazione di livelli di funzionalità del servizio Replica File (FRS) e Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
+-  [Deprecazione del servizio Replica file (FRS) e dei livelli di funzionalità di Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
   
   
-## <a name="BKMK_PAM"></a>Gestione degli accessi con privilegi  
+## <a name="BKMK_PAM"></a>Privileged Access Management  
 Gestione accesso con privilegi (PAM) riduce i rischi di sicurezza per gli ambienti di Active Directory che sono causati da problemi di credenziali tecniche furto tali pass-the-hash, spear phishing e tipi di attacchi simili. Fornisce una nuova soluzione di accesso amministrativo che viene configurata tramite Microsoft Identity Manager (MIM). Sono stati introdotti PAM:  
   
 -   Bastione una nuova foresta di Active Directory, che viene eseguito il provisioning da MIM. La foresta bastione ha una relazione di trust con una foresta esistente PAM speciali. Fornisce un nuovo ambiente Active Directory che sono privi di qualsiasi attività dannose e isolamento da una foresta esistente per l'utilizzo di account privilegiati.  
@@ -61,22 +61,22 @@ Gestione accesso con privilegi (PAM) riduce i rischi di sicurezza per gli ambien
   
 -   Livello di funzionalità di Windows Server 2012 R2 o versioni successive di foresta di Active Directory.  
   
-## <a name="BKMK_AzureADJoin"></a>Aggiunta ad Azure AD  
+## <a name="BKMK_AzureADJoin"></a>Join Azure AD  
 Azure Active Directory Join migliora le esperienze di identità per enterprise e business EDU clienti - con funzionalità migliorate per i dispositivi personali e aziendali.  
   
 Vantaggi:  
   
--   **Disponibilità delle attuali impostazioni** nei dispositivi Windows di proprietà della società. Servizi ossigeno non richiedono un account Microsoft personale: eseguono ora disattivare account aziendali esistenti degli utenti per garantire la conformità. Servizi ossigeno funzionerà su computer che fanno parte di un dominio di Windows locale, e PC e dispositivi connessi "" a tenant di Azure AD ("dominio cloud"). Queste impostazioni includono:  
+-   **Disponibilità delle attuali impostazioni** nei dispositivi Windows di proprietà della società. I servizi di ossigeno non richiedono più un account Microsoft personale: ora eseguono gli account di lavoro esistenti degli utenti per garantire la conformità. Servizi ossigeno funzionerà su computer che fanno parte di un dominio di Windows locale, e PC e dispositivi connessi "" a tenant di Azure AD ("dominio cloud"). Queste impostazioni includono:  
   
     -   Il roaming o personalizzazione, le impostazioni di accessibilità e le credenziali  
   
     -   Backup e ripristino  
   
-    -   Accesso a Microsoft Store con account aziendale  
+    -   Accesso a Microsoft Store con account di lavoro  
   
     -   I riquadri animati e notifiche  
   
--   **Accedere alle risorse aziendale** nei dispositivi mobili (telefoni, phablets) che non possono essere aggiunti a un dominio Windows, se sono proprietà della società o BYOD  
+-   **Accedere alle risorse aziendali** nei dispositivi mobili (telefoni, phablet) che non possono essere aggiunti a un dominio di Windows, indipendentemente dal fatto che siano di proprietà di Corp o BYOD  
   
 -   **Single-Sign On** a Office 365 e altre applicazioni aziendale, siti Web e risorse.  
   
@@ -90,7 +90,7 @@ Vantaggi:
   
 -   **Imaging** opzione consente di scegliere tra l'immagine e consentire agli utenti di configurare i dispositivi di proprietà della società direttamente durante la prima esecuzione.  
   
-Per altre informazioni, vedere [Windows 10 per le aziende: Modalità d'uso dei dispositivi per lavoro](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
+Per ulteriori informazioni, [vedere Windows 10 per l'azienda: Modalità di utilizzo dei dispositivi per](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1)il lavoro.  
   
 ## <a name="BKMK_IDLocker"></a>Microsoft Passport  
 Microsoft Passport è un'autenticazione basata su chiave nuovo approccio alle organizzazioni e ai consumatori, che vanno oltre le password. Questo tipo di autenticazione si basa su violazioni, furti e credenziali resistente per attività di phishing.  
@@ -99,16 +99,16 @@ L'utente accede al dispositivo con un log biometrico o PIN nelle informazioni co
   
 Per ulteriori informazioni, vedere [autenticazione delle identità senza password con Microsoft Passport](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport/)  
   
-## <a name="BKMK_FRSDeprecation"></a>Deprecazione di livelli di funzionalità del servizio Replica File (FRS) e Windows Server 2003  
+## <a name="BKMK_FRSDeprecation"></a>Deprecazione del servizio Replica file (FRS) e dei livelli di funzionalità di Windows Server 2003  
 Sebbene il servizio Replica File (FRS) e i livelli di funzionalità di Windows Server 2003 sono stati deprecati nelle versioni precedenti di Windows Server, vale la pena ripetere che il sistema operativo Windows Server 2003 non è più supportato. Di conseguenza, qualsiasi controller di dominio che esegue Windows Server 2003 devono essere rimossi dal dominio. Il livello di funzionalità del dominio e foresta deve essere generato almeno a Windows Server 2008 per evitare che un controller di dominio che esegue una versione precedente di Windows Server venga aggiunto all'ambiente.  
   
 In Windows Server 2008 e più livelli funzionali di dominio, replica del file system distribuito (DFS, Distributed File Service) viene utilizzata per la replica di contenuto della cartella SYSVOL tra i controller di dominio. Se si crea un nuovo dominio a livello funzionale di dominio di Windows Server 2008 o versione successiva, replica DFS viene automaticamente utilizzata per replicare SYSVOL. Se è stato creato il dominio a un livello funzionale inferiore, è necessario eseguire la migrazione da utilizza FRS a replica DFS per SYSVOL. Per la procedura di migrazione, è possibile seguire il [procedure su TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) o è possibile fare riferimento il [semplificata di set di passaggi nel blog del Team di archiviazione File CAB](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
   
 I livelli di funzionalità dominio e foresta Windows Server 2003 continuano a essere supportate, ma le organizzazioni devono aumentare il livello di funzionalità a Windows Server 2008 (o versioni successive, se possibile) per garantire la compatibilità di replica di SYSVOL e il supporto in futuro. Inoltre, sono disponibili molti altri vantaggi e funzionalità a più livelli di funzionalità superiore. Per altre informazioni, vedere le risorse seguenti:  
   
--   [La comprensione di Active Directory Domain Services i livelli di funzionalità (AD DS)](ad-ds/active-directory-functional-levels.md)  
+-   [Informazioni sui livelli di funzionalità di Active Directory Domain Services (AD DS)](ad-ds/active-directory-functional-levels.md)  
   
--   [Aumentare il livello funzionale di dominio](https://technet.microsoft.com/library/cc753104.aspx)  
+-   [Aumentare il livello di funzionalità del dominio](https://technet.microsoft.com/library/cc753104.aspx)  
   
--   [Aumentare il livello funzionale di foresta](https://technet.microsoft.com/library/cc730985.aspx)  
+-   [Aumentare il livello di funzionalità della foresta](https://technet.microsoft.com/library/cc730985.aspx)  
   

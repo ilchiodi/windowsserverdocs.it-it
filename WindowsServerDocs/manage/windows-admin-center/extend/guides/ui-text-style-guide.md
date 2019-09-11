@@ -1,6 +1,6 @@
 ---
 title: Guida di stile per la progettazione e il testo dell'interfaccia utente di Windows Admin Center
-description: Interfaccia utente di Windows Admin Center progettazione e testo della Guida di stile SDK
+description: Testo dell'interfaccia utente del centro di amministrazione di Windows e guida di stile di progettazione
 ms.technology: manage
 ms.topic: article
 author: jasongerend
@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 229a911039ba88847de42e542f47b344d7a032c2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445919"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869604"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guida di stile per la progettazione e il testo dell'interfaccia utente di Windows Admin Center
 
@@ -25,7 +25,7 @@ Windows Admin Center e tutte le estensioni devono seguire [i principi della comu
 
 ## <a name="buttons"></a>Pulsanti
 
-- I pulsanti devono essere costituiti da una sola parola se possibile e in particolare se pensi di localizzare lo strumento. Due o tre è OK, ma provare a evitare più. Se si dispone di quattro parole o più, sarebbe preferibile usare un controllo collegamento.
+- I pulsanti devono essere costituiti da una sola parola se possibile e in particolare se pensi di localizzare lo strumento. Due o tre sono OK, ma tentano di evitare più tempo. Se si dispone di quattro parole o più, sarebbe preferibile utilizzare un controllo di collegamento.
 - Le etichette dei pulsanti devono essere concise, specifiche e di chiara interpretazione. Invece di un pulsante "Invia" generico, utilizza un verbo corrispondente all'azione dell'utente, ad esempio "Crea", "Elimina", "Aggiungi", "Formatta" e così via.
 - Se un pulsante segue una domanda, l'etichetta deve corrispondere chiaramente alla domanda (in genere "Sì" o "No").
 
@@ -40,30 +40,30 @@ Per l'uso delle [maiuscole e minuscole](https://docs.microsoft.com/style-guide/c
 
 ## <a name="colons"></a>Due punti
 
-Usare i due punti per introdurre gli elenchi. Ad esempio:
+Usare i due punti per inserire gli elenchi. Esempio:
 
     Choose one of the following:
     Cats
     Dogs
     Quokkas
 
-Non usare i due punti nel testo dell'interfaccia utente quando un'etichetta si trova in un'altra riga dalla cosa che le etichette o quando è presente una chiara distinzione tra l'etichetta e la cosa è l'assegnazione di etichette.
+Non usare i due punti nel testo dell'interfaccia utente quando un'etichetta si trova su una riga diversa rispetto a quella che etichetta o quando esiste una netta distinzione tra l'etichetta e la caratteristica.
 
-Utilizzare i due punti nel testo dell'interfaccia utente quando un'etichetta è sulla stessa riga del testo ed etichettati ed è necessario impedire che i due elementi sono in esecuzione contemporaneamente.
+Usare i due punti nel testo dell'interfaccia utente quando un'etichetta si trova sulla stessa riga del testo da essa etichetta ed è necessario evitare che i due elementi vengano eseguiti insieme.
 
 ## <a name="confirmation-messages"></a>Messaggi di conferma
 
-Le finestre di dialogo di conferma sono utili quando si continua potrà avere risultati imprevisti, ad esempio la perdita di dati. Devono contenere informazioni utili, possono essere analizzate con un risultato non crittografato, in particolare per gli eventi che non può essere annullata. 
+Le finestre di dialogo di conferma sono utili quando la continuazione potrebbe avere risultati imprevisti, ad esempio la perdita di dati. Devono contenere analizzabili, informazioni utili con un risultato chiaro, in particolare per gli eventi che non possono essere annullati. 
 
-- Assicurarsi che sia necessario un messaggio di conferma. Se è presente alcuna informazione di nuovo per offrire (ad esempio, "continuare?"), quindi un messaggio di conferma non sia necessario.  
-- Verificare che il cliente vuole procedere con l'azione.
-- Assicurarsi che l'istruzione principale (intestazione) e testo esplicativo (corpo) non sono ridondanti.
-- Nell'intestazione, definiscono i possibili risultati come una domanda o una dichiarazione in merito a ciò che avverrà successivamente. Ad esempio, "cancellare tutti i dati in questa unità? o "Si sta per cancellare tutti i dati".
-- Aggiungere i dettagli nel corpo. Se c'è una variabile, ad esempio il nome dell'articolo che si è su Modifica, includerlo.
-- Include una semplice domanda (nell'intestazione o nel corpo) che delimita una scelta definita tra due pulsanti di azione.
-- Per una scelta complessa, usare Sì/No pulsanti, incoraggiano la lettura di attenzione. Per una scelta più semplice, usare i pulsanti che sono specifici per l'azione, ad esempio elimina tutto o annullare.
+- Verificare che sia necessaria una conferma. Se non sono presenti nuove informazioni da offrire (ad esempio, "si è certi?"), potrebbe non essere necessario un messaggio di conferma.  
+- Verificare che il cliente desideri procedere con l'azione.
+- Assicurarsi che l'istruzione principale (intestazione) e il testo esplicativo (corpo) non siano ridondanti.
+- Nell'intestazione definire i possibili risultati come una domanda o un'istruzione su cosa accadrà successivamente. Ad esempio, "Cancella tutti i dati in questa unità? oppure "si sta per cancellare tutti i dati".
+- Aggiungere i dettagli nel corpo. Se è presente una variabile, ad esempio il nome dell'elemento che si sta cambiando, includerla qui.
+- Includere una semplice domanda (nell'intestazione o nel corpo) che incornicia una scelta chiara tra due pulsanti di azione.
+- Per una scelta complessa, usare i pulsanti Sì/No, che favoriscono una lettura attenta. Per una scelta più semplice, utilizzare i pulsanti specifici dell'azione, ad esempio delete all o Cancel.
 
-## <a name="first-run-experiences"></a>Prima esecuzione esperienze
+## <a name="first-run-experiences"></a>Esperienze di prima esecuzione
 
 La prima volta che un utente visita una pagina, hai l'opportunità di aiutarlo a iniziare usare il tuo strumento. Questo aiuto può essere:
 
@@ -76,10 +76,10 @@ Di seguito sono riportati alcuni suggerimenti della guida di stile di Windows:
 ### <a name="1-be-helpful"></a>1. Sii utile
 
 - Evita il linguaggio e lo stile marketing.
-- Quando dimostri o suggerisci qualcosa, assicurati che il risultato finale sia chiaro, mostrare semplicemente al cliente come si fa qualcosa non è efficace se non sa perché lo sta facendo.
-- Non mostrare suggerimenti se il cliente non ne ha bisogno.
+- Quando si esegue una demo o si suggerisce qualcosa, verificare che il risultato finale sia chiaro; la semplice visualizzazione del cliente come eseguire un'operazione non è efficace se non ne conosce il motivo.
+- Non presentare suggerimenti se il cliente non ne ha bisogno.
 
-### <a name="2-show-dont-tell"></a>2. Mostra, non raccontare
+### <a name="2-show-dont-tell"></a>2. Mostra, non indica
 
 Mantieni il testo il più semplice possibile (pensa a piccole animazioni o video).
 
@@ -87,18 +87,18 @@ Mantieni il testo il più semplice possibile (pensa a piccole animazioni o video
 
 - Limita i popup e i suggerimenti a 4 per sessione di utilizzo combinati, comprese le notifiche di sistema e le notifiche della shell.
 - Assicurati che la tempistica dei popup sia utile.
-- Non impedire al cliente di eseguire qualcosa.
+- Non impedire al cliente di eseguire alcuna operazione.
 - Verifica che i popup possano essere chiusi facilmente.
 
-### <a name="4-keep-it-contextual"></a>4. Mantenerla contestuali
+### <a name="4-keep-it-contextual"></a>4. Mantieni contesto
 
 - I momenti di insegnamento sono più efficaci se presentati al momento giusto.
 - Se crei tutorial o presentazioni, mantieni le informazioni concrete.
 - Nessuna "indoratura" marketing, concentrati su suggerimenti e trucchi specifici.
-- Fornisci ai clienti il modo per tornare al tutorial in un secondo momento, se pertinente (le persone spesso non memorizzano le informazioni la prima volta mentre le istruzioni di configurazione potrebbero essere importanti una sola volta).
+- Fornire ai clienti un modo per tornare all'esercitazione in un secondo momento, se pertinente (spesso le persone non conservano le informazioni per la prima volta, ma le istruzioni di configurazione potrebbero essere rilevanti solo una volta).
 - La messaggistica non causata da un problema è un momento naturale per l'apprendimento e/o il piacere, mantienila semplice e informativa.
 
-### <a name="5-minimize-painful-setup"></a>5. Ridurre al minimo il programma di installazione più complesso
+### <a name="5-minimize-painful-setup"></a>5. Minimizzare l'installazione dolorosa
 
 Quando è necessario che il cliente esegua un'altra azione per provare il valore complessivo (accesso a un servizio online e così via), rendilo il più semplice possibile.
 
@@ -107,115 +107,115 @@ Quando è necessario che il cliente esegua un'altra azione per provare il valore
 - Se puoi, offri l'opzione per farlo in un secondo momento, quindi ricorda loro di farlo in un secondo momento.
 - Se li fai uscire dall'esperienza, fornisci un modo per tornare indietro rapidamente e facilmente.
 
-## <a name="help-links"></a>Collegamenti della Guida
+## <a name="help-links"></a>Collegamenti alla guida
 
 Di seguito sono riportati alcuni suggerimenti della guida di stile di Windows:
 
-### <a name="when-should-we-provide-a-help-link"></a>Quando si dovrebbe fornire un collegamento alla Guida?
+### <a name="when-should-we-provide-a-help-link"></a>Quando è necessario fornire un collegamento alla guida?
 
-Quasi mai. Fornire un collegamento alla Guida solo quando:
+Quasi mai. Fornire un collegamento alla guida solo nei casi seguenti:
 
-- È presente un problema ovvio e importante che i clienti possono avere quando sono fisicamente nell'interfaccia utente a cui la risposta aiutano gli amministratori hanno esito positivo nell'attività dell'interfaccia utente. 
-- C'è spazio sufficiente nell'interfaccia utente per fornire la quantità di informazioni necessarie per gli utenti riescono all'attività dell'interfaccia utente. 
+- Si tratta di una domanda ovvia e importante che i clienti hanno probabilmente a disposizione mentre si trovano nell'interfaccia utente la cui risposta sarà utile per l'attività dell'interfaccia utente. 
+- Nell'interfaccia utente non è disponibile spazio sufficiente per fornire la quantità di informazioni necessarie per l'esito positivo degli utenti nell'attività dell'interfaccia utente. 
 
-### <a name="where-should-help-links-appear"></a>Dove dovrebbe aiutare i collegamenti vengono visualizzati? 
+### <a name="where-should-help-links-appear"></a>Dove vengono visualizzati i collegamenti alla guida? 
 
-- I collegamenti di testo dovrebbero essere visualizzato il più vicino di elemento dell'interfaccia utente che la Guida è indirizzata possibili. 
-- Se è necessario fornire un collegamento di testo che si applica a un'intera schermata dell'interfaccia utente, inserirlo nella parte inferiore della schermata. 
-- Se si fornisce un collegamento tramite un pulsante della Guida (?), la descrizione comando deve essere "Help".
+- I collegamenti di testo dovrebbero apparire come vicini all'elemento dell'interfaccia utente che la guida viene indirizzata al più possibile. 
+- Se è necessario fornire un collegamento di testo che si applica a un'intera schermata dell'interfaccia utente, posizionarlo nella parte inferiore sinistra della schermata. 
+- Se si fornisce un collegamento tramite un pulsante? (?), la descrizione comando dovrebbe essere "Help".
 
-### <a name="what-url-should-we-use"></a>Quale URL consigliabile usare?
+### <a name="what-url-should-we-use"></a>Quale URL usare?
 
-Non collegare mai direttamente a un indirizzo web, usare invece un servizio di reindirizzamento.
+Non collegare mai direttamente a un indirizzo Web, bensì usare un servizio di reindirizzamento.
 
-Gli sviluppatori di Microsoft devono usare un FWLink tranne quando è un collegamento alla Guida che gli utenti potrebbero dover digitare manualmente, nel qual caso utilizzare un collegamento aka.ms (fino a quando la destinazione dell'URL è un sito Web che riconosce automaticamente le impostazioni locali del browser, ad esempio Docs.microsoft.com)
+Gli sviluppatori Microsoft devono usare un FWLink tranne quando si tratta di un collegamento alla guida che gli utenti potrebbero dover digitare manualmente, nel qual caso usare un collegamento aka.ms (purché la destinazione dell'URL sia un sito Web che riconosce automaticamente le impostazioni locali del browser, ad esempio Docs.microsoft.com)
 
-### <a name="text-guidelines"></a>Linee guida di testo 
+### <a name="text-guidelines"></a>Linee guida per il testo 
 
-- Usare frasi intere.
-- Non includere la punteggiatura, ad eccezione di punti interrogativi finale. 
-- Non è necessario usare lo stesso testo come il titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma occorre assicurarsi che vi sia una connessione logica tra i due. Ad esempio: 
-- Collegamento alla Guida: Quali sono i rischi di autorizzazione delle eccezioni? 
-- Titolo dell'argomento della Guida: "Consentendo a un programma di comunicare tramite Windows Firewall"
-- Sia il più preciso possibile sul contenuto dell'argomento della Guida. 
-    - Nostro stile di visualizzazione
-        - Come Windows Firewall consente di proteggere il computer?
-        - Il motivo per cui evidenziazioni possono migliorare un'immagine
-    - Non nostro stile di visualizzazione
-        - Altre informazioni su Windows Firewall
+- Utilizzare frasi complete.
+- Non includere la punteggiatura finale ad eccezione dei punti interrogativi. 
+- Non è necessario usare lo stesso testo del titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma assicurarsi che esista una connessione logica tra i due. Esempio: 
+- Collegamento alla guida: Quali sono i rischi per consentire le eccezioni? 
+- Titolo dell'argomento della guida: "Consentire a un programma di comunicare tramite Windows Firewall"
+- Essere più specifici possibile sul contenuto dell'argomento della guida. 
+    - Nostro stile
+        - In che modo Windows Firewall proteggere il computer?
+        - Motivi per cui le evidenziazioni possono migliorare un'immagine
+    - Non lo stile
+        - Ulteriori informazioni su Windows Firewall
         - Altre informazioni sulla gestione dei colori
-        - Scopri di più
-- Usare l'intera frase per il testo del collegamento, non solo le parole chiave. 
-    - Nostro stile di visualizzazione 
-        - [Quali sono i rischi di autorizzazione delle eccezioni?]()
-    - Non nostro stile di visualizzazione
-        - Quali sono le [rischi per la concessione di eccezioni]()? 
+        - Altre informazioni
+- Usare l'intera frase per il testo del collegamento, non solo per le parole chiave. 
+    - Nostro stile 
+        - [Quali sono i rischi per consentire le eccezioni?]()
+    - Non lo stile
+        - Quali sono i [rischi per consentire le eccezioni]()? 
 
-## <a name="error-messages"></a>Messaggi di errore
+## <a name="error-messages"></a>messaggi di errore
 
-Ecco alcune indicazioni adattato dalla Guida di stile Windows:
+Ecco alcune indicazioni adattate dalla Guida di stile di Windows:
 
-La scrittura di un messaggio valido è un equilibrio tra fornendo sufficiente spiegazione, ma non in corso eccessivamente technical; tra la occasionali e personalizzabile, ma non fastidioso o offensivi.
+La scrittura di un buon messaggio è un equilibrio tra fornire una spiegazione sufficiente ma non essere troppo tecnica; tra essere casuali e personali ma non fastidiosi o offensivi.
 
-### <a name="general-guidelines"></a>Linee guida generali
+### <a name="general-guidelines"></a>Indicazioni generali
 
 Usare un messaggio per ogni caso di errore.
 
 #### <a name="headings"></a>Intestazioni
 
-- Essere concisi e spiegare in modo conciso che cos'è il problema oppure **idealmente operazioni da eseguire**. <br>Alcune aree dell'interfaccia utente potrebbero contenere le intestazioni che tronca invece di racchiudere quando sono troppo lunghi, quindi Preparatevi per questi.
-- Se si tratta di un semplice passaggio, usare la soluzione nell'intestazione.
-- Assicurarsi che l'intestazione è correlato direttamente al pulsante nel caso in cui il lettore ignora il corpo del testo.
-- Evitare di usare "Si è verificato un problema" nelle intestazioni, a meno che non si ha altra scelta. Essere più specifici relativi al problema.
-- Evitare di usare le variabili (ad esempio nomi di file, cartelle e app) nelle intestazioni. Inserirli nel corpo.
+- Mantenerla concisa e spiegare in modo conciso il problema o la **soluzione ideale**. <br>Alcune superfici dell'interfaccia utente possono avere intestazioni che troncano invece di incapsulare quando sono troppo lunghe, quindi è necessario tenere sotto controllo.
+- Usare la soluzione nell'intestazione se è un semplice passaggio.
+- Verificare che l'intestazione sia correlata direttamente al pulsante nel caso in cui il lettore ignori il testo del corpo.
+- Evitare di usare "si è verificato un problema" nelle intestazioni, a meno che non si disponga di un'altra scelta. Essere più specifici del problema.
+- Evitare di usare le variabili, ad esempio i nomi di file, cartelle e app, nelle intestazioni. Inserirli nel corpo.
 
 #### <a name="body"></a>Body
 
-- Se l'intestazione sufficientemente spiega il problema o la soluzione, non è necessario il corpo del testo.
-- Don't repeat il titolo nel messaggio con una formulazione leggermente diversa.
-- Comunicare in modo chiaro e conciso che cos'è la soluzione.
-- Concentrarsi sulle offrendo prima di tutto i fatti.
-- Non segnala l'errore gli utenti per l'errore.
-- Se è presente un codice di errore associato all'errore e se si ritiene che il cliente o il supporto tecnico Microsoft per condurre ricerche sul problema, può essere utile includere il codice di errore includerlo direttamente sotto il testo del corpo e scriverli come indicato di seguito:
+- Se l'intestazione spiega adeguatamente il problema o la soluzione, non è necessario il testo del corpo.
+- Non ripetere il titolo nel messaggio con una formulazione leggermente diversa.
+- Comunicazione chiara e concisa della soluzione.
+- Concentrarsi innanzitutto sull'assegnazione dei fatti.
+- Non incolpare gli utenti dell'errore.
+- Se è presente un codice di errore associato all'errore e si ritiene che l'inclusione del codice di errore possa aiutare il cliente o il supporto Microsoft a cercare il problema, includerlo direttamente sotto il testo del corpo e scriverlo come segue:
 
-    Codice di errore: # # #
+    Codice errore: ####
 
-    Se il cliente ha tutte le informazioni necessarie per risolvere l'errore senza il codice, non è necessario includerlo.
+    Se il cliente dispone di tutte le informazioni necessarie per risolvere l'errore senza il codice, non è necessario includerlo.
 
 #### <a name="buttons"></a>Pulsanti
 
-- Scrivere il testo del pulsante in modo che si tratti di una risposta specifica per l'istruzione principale. Se ciò non è possibile, usare "Chiudi" per il testo del pulsante licenziamento (invece di "Okay" o "Done").
-- Se si dispone di più di un pulsante, verificare l'azione che l'utente è stimolato a richiedere il pulsante più a sinistra. Rendere il pulsante all'estrema destra l'azione più conservativo, ad esempio "Cancel".
+- Scrivere il testo del pulsante in modo che sia una risposta specifica all'istruzione principale. Se non è possibile, usare "close" per il testo del pulsante dismissable (invece di "OK" o "Done").
+- Se è presente più di un pulsante, rendere il pulsante più a sinistra l'azione che l'utente è incoraggiato a eseguire. Rendere il pulsante più a destra l'azione più conservativa, ad esempio "Annulla".
 
-#### <a name="help-links"></a>Collegamenti della Guida
+#### <a name="help-links"></a>Collegamenti alla guida
 
-Considerare solo i collegamenti della Guida per i messaggi di errore che non è possibile apportare specifici e pratici.
+Considerare solo i collegamenti della Guida per i messaggi di errore che non è possibile rendere specifici e interoperabili.
 
-## <a name="null-state-text"></a>Testo stato null
+## <a name="null-state-text"></a>Testo di stato null
 
-Ecco alcuni argomenti della Guida dalla Guida di stile Windows.
+Di seguito sono riportate alcune informazioni dalla Guida di stile di Windows.
 
-Stato null si verifica quando i dati del cliente o il contenuto è assente dall'app o funzionalità, quando viene restituito alcun risultato dopo una ricerca o quando richiesto, mancano le informazioni da un form, ad esempio le informazioni per una transazione di fatturazione.
+Lo stato null si verifica quando il contenuto o i dati del cliente sono assenti da un'app o da una funzionalità, quando non vengono restituiti risultati dopo una ricerca o quando le informazioni richieste non sono presenti in un modulo, ad esempio le informazioni di fatturazione per una transazione.
 
-### <a name="guidelines"></a>Linee guida
+### <a name="guidelines"></a>Indicazioni
 
-- Se possibile, usare situazioni dello stato null come un'opportunità per informare gli utenti su come usare la funzionalità (ad esempio, come aggiungere musica, dove per cercare immagini e così via.)  
-  - Se si dispone di un titolo nell'interfaccia utente, descrivere l'azione da eseguire "corretti" stato null (ad esempio, "aggiungere alcuni musica") 
-  - Buon divertimento con il testo. Quest'area può essere un'opportunità per fornire apprezzate dagli poiché probabile che non verrà visualizzato più volte. 
-  - Evitare di "ci sono." Si tratta sad ed è stato eccessivo. 
-  - Evitare di domande come "Non sono connesse la stampante?" Ideale per usare una sola volta, ma questo formato tende a ottenere eccessivo e domande inserire onere comporti un utilizzo elevato del cliente. Può anche risultare condescending. 
-  - Diversi nel testo di stato null sono un fatto positivo. 
+- Se possibile, usare le situazioni di stato null come opportunità per informare gli utenti su come usare la funzionalità (ad esempio, come aggiungere musica, dove trovare immagini e così via).  
+  - Se è presente un titolo nell'interfaccia utente, spiegare l'azione da intraprendere per "correggere" lo stato null (ad esempio, "aggiungere musica") 
+  - Divertirsi con il testo. Questo spazio può essere utile perché probabilmente non verrà visualizzato più volte. 
+  - Evitare che "si trovi da soli". Questo è triste ed è stato sovrautilizzato. 
+  - Evitare domande come "non è stata connessa la stampante?" OK per usare una sola volta, ma questo formato tende a essere utilizzato in modo eccessivo e le domande inseriscono un carico/pressione aggiuntivo per il cliente. Può anche essere condiscendente. 
+  - La varietà nel testo di stato null è un aspetto positivo. 
 
 ### <a name="examples"></a>Esempi
 
-- "Aggiungere un utente come preferito e sarà possibile visualizzarli qui."
-- "Hai qualsiasi traguardi o gioco clip sei particolarmente orgoglioso? Aggiungerli per la presentazione."
-- Del "Nessuno della ancora un'entità. Avviare un computer."
-- "Quando un utente si aggiunge come friend, sarà possibile visualizzarli qui."
-- "Quando resto come raggiungere gli obiettivi, registrare clip giochi e per aggiungere amici, si noterà tutto qui."
-- "I tuoi amici preferiti verranno visualizzate qui, in modo da visualizzare quando si è online e che cosa sono in."
+- "Aggiungi un utente come preferito, che verrà visualizzato qui".
+- "Hai ottenuto tutti i risultati o le clip di gioco che sei particolarmente orgoglioso? Aggiungerli alla presentazione ".
+- "Non ci sono ancora in un'entità. Inizia una volta! "
+- "Quando un utente aggiunge un amico, li visualizzerà qui".
+- "Quando si eseguono operazioni quali sbloccare i risultati, registrare clip di gioco e aggiungere amici, il tutto verrà visualizzato qui".
+- "I tuoi amici preferiti verranno visualizzati qui, quindi potrai vedere quando sono online e a cosa sono."
 
-## <a name="punctuation"></a>Segni di punteggiatura
+## <a name="punctuation"></a>Punteggiatura
 
 - Nessuna punteggiatura finale (punti, punti interrogativi) per intestazioni o frasi incomplete. Fa eccezione la finestra di dialogo in cui nell'intestazione è presente una domanda
 - Utilizza le linee guida della Guida di stile Microsoft per [i punti](https://docs.microsoft.com/style-guide/punctuation/periods) e [i punti interrogativi](https://docs.microsoft.com/style-guide/punctuation/question-marks).
@@ -234,20 +234,20 @@ Ecco alcuni consigli dettagliati per i messaggi di notifica:
 
 |Tipo di stringa         | Note                               |
 |------------        |-------------------------------------|
-|Avviato             |Ometti quando possibile: in genere puoi passare direttamente al messaggio che indica un'operazione in corso per ridurre il numero di distrazioni.|
-|In progress         |Inizia con l'azione che stai eseguendo e finisci con l'ellissi per indicare che l'operazione è in corso. Di seguito è riportato un esempio:<br> *Creazione del volume "Dati dei clienti"...*|
-|Riuscito             |Inizia con l'azione e termina con l'indicazione che è stata completata. Di seguito è riportato un esempio:<br> *È stato creato il volume "Dati dei clienti".*|
-|Operazione non riuscita             |Inizia con "Non è possibile" e termina con l'operazione che non è stata eseguita. Di seguito è riportato un esempio:<br> *Non è stato possibile creare il volume "Dati dei clienti".*|
+|Started             |Ometti quando possibile: in genere puoi passare direttamente al messaggio che indica un'operazione in corso per ridurre il numero di distrazioni.|
+|In progress         |Inizia con l'azione che stai eseguendo e finisci con l'ellissi per indicare che l'operazione è in corso. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente"...*|
+|Riuscito             |Inizia con l'azione e termina con l'indicazione che è stata completata. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente" completata.*|
+|Errore             |Inizia con "Non è possibile" e termina con l'operazione che non è stata eseguita. Di seguito è riportato un esempio:<br> *Non è stato possibile creare il volume "dati cliente".*|
 
 ## <a name="tooltips"></a>Descrizioni comandi
 
-Le descrizioni comandi buona brevemente descrivono senza etichetta controlli o forniscono alcune informazioni aggiuntive per i controlli con etichettati, quando ciò è utile. Sono inoltre può aiutare i clienti passare l'interfaccia utente, offrendo aggiuntive, ovvero non ridondante, informazioni sulle etichette del controllo, icone, collegamenti, e così via.
+Le descrizioni comando valide descrivono brevemente i controlli senza etichetta o forniscono informazioni aggiuntive per i controlli con etichetta, quando questa operazione è utile. Possono anche aiutare i clienti a esplorare l'interfaccia utente offrendo informazioni aggiuntive, non ridondanti, su etichette di controllo, icone, collegamenti e così via.
 
-Le descrizioni comandi devono essere utilizzati con moderazione o non ereditarli affatto. Può trattarsi di una cliente, in modo da non includere una descrizione comando che indica l'ovvio o si ripete un'etichetta semplicemente un'interruzione. Sempre consigliabile aggiungere informazioni preziose.
+Le descrizioni comandi devono essere usate in qualsiasi momento. È possibile che si verifichi un'interruzione del cliente, quindi non includere una descrizione comando che ripete semplicemente un'etichetta o ne indica l'ovvio. Deve sempre aggiungere informazioni preziose.
 
 |    Contesto                                 |    Come scrivere le descrizioni comandi    |
 |    -----------------------                 |    -------------------------    |
-|Quando un controllo o elemento dell'interfaccia utente è senza etichetta...|Usare un semplice e descrittivo sintagma nominale. Ad esempio:<br> L'evidenziazione della penna |
-|Quando un elemento dell'interfaccia utente con l'etichetta, ma il suo scopo è necessario un chiarimento...|<ul><li>Descrivere brevemente operazioni possibili con questo elemento dell'interfaccia utente. </li><li>Usare il formato verbo imperativa. Ad esempio, "Trova testo in questo file" (non "trova il testo nel file").</li><li>Non includere la punteggiatura finale, a meno che non sono presenti più frasi complete.</li> </ul>|
-|Quando un'etichetta di testo è troncata o probabilità per il troncamento in alcune lingue...|<ul><li>Specificare l'etichetta non troncato nella descrizione comando.</li><li>Facoltativo: In un'altra riga, fornire una descrizione e chiarire, ma solo se necessario.</li><li>Non fornire una descrizione comando se le informazioni non troncata viene fornita in un' posizione nella pagina o nel flusso.</li></ul>|
-|Se un tasto di scelta rapida è disponibile...|<ul><li>Facoltativo: Fornire il tasto di scelta rapida in parentesi che seguono l'etichetta o la frase descrittiva, ad esempio "Print (Ctrl + P)" o "Trova testo in questo file (Ctrl + F)"</li><li>È anche possibile aggiungere una scelta rapida da tastiera utili a una descrizione comando e chiarire, ma evitare di aggiungere una descrizione comandi solo per mostrare i tasti di scelta rapida. </li></ul>|
+|Quando un controllo o un elemento dell'interfaccia utente è senza etichetta...|Usare una semplice frase del sostantivo descrittivo. Esempio:<br> Evidenziazione della penna |
+|Quando viene etichettato un elemento dell'interfaccia utente, ma lo scopo necessita di chiarimenti...|<ul><li>Descrivere brevemente le operazioni che è possibile eseguire con questo elemento dell'interfaccia utente. </li><li>Usare il formato verbo imperativo. Ad esempio, "trova testo in questo file" (non "trova il testo in questo file").</li><li>Non includere la punteggiatura finale a meno che non siano presenti più frasi complete.</li> </ul>|
+|Quando un'etichetta di testo viene troncata o è probabile che venga troncata in alcune lingue...|<ul><li>Consente di specificare l'etichetta non troncata nella descrizione comando.</li><li>Facoltativo: In un'altra riga, fornire una descrizione chiarificata, ma solo se necessario.</li><li>Non specificare una descrizione comando se le informazioni non troncate vengono fornite altrove nella pagina o nel flusso.</li></ul>|
+|Se è disponibile un tasto di scelta rapida...|<ul><li>Facoltativo: Fornire il tasto di scelta rapida tra parentesi dopo l'etichetta o la frase descrittiva, ad esempio "Print (CTRL + P)" o "trova testo in questo file (CTRL + F)"</li><li>È possibile aggiungere un tasto di scelta rapida utile a una descrizione comando chiarificata, ma evitare di aggiungere una descrizione comando solo per mostrare un tasto di scelta rapida. </li></ul>|

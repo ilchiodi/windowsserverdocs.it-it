@@ -1,6 +1,6 @@
 ---
 title: Configurazione dell'archiviazione server
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: ef7ddcdd-3a74-40ca-9487-c3a6fc5155a5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6de485f6fd46464ba707bc0871f60ac2fec5a1db
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 718080c050dadc20837ab6b11a677029227e1709
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433739"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865039"
 ---
 # <a name="configure-server-storage"></a>Configurazione dell'archiviazione server
 
@@ -27,15 +27,15 @@ ms.locfileid: "66433739"
  La seguente tabella suggerisce degli esempi di configurazione del disco rigido. Le stime si basano sulla funzionalità e sull'utilizzo tipico, ma non si riferiscono a problemi che influiscono sulle prestazioni ottimali. Per queste configurazioni, è possibile utilizzare qualsiasi tipo di disco rigido supportato (come SATA o SCSI), in base alle preferenze e alle esigenze del cliente.  
   
 > [!IMPORTANT]
->   Windows Server Essentials deve essere installato come volume c:, e le dimensioni del volume devono essere almeno 60 GB. È consigliabile creare due partizioni sul disco del sistema operativo ed è preferibile non utilizzare la partizione di sistema C: per archiviare i dati aziendali.  
+>   Windows Server Essentials deve essere installato come volume C: e la dimensione del volume deve essere almeno di 60 GB. È consigliabile creare due partizioni sul disco del sistema operativo ed è preferibile non utilizzare la partizione di sistema C: per archiviare i dati aziendali.  
   
 |Livello del server|Configurazione del disco|  
 |------------------|------------------------|  
-|Voce|-Due dischi fisici<br /><br /> -Configurata come un set con mirroring RAID 1 che contiene gli elementi seguenti:<br /><br /> - C: volume  ? 60 GB<br /><br /> - D: volume  ? 1000 GB|  
-|Medio|-Tre dischi fisici<br /><br /> -Configurata come un set RAID 5 che contiene gli elementi seguenti:<br /><br /> - C: volume  ? 60 GB<br /><br /> - D: volume  ? 1500 GB|  
-|Alto|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 che contiene il volume c:? 100 GB<br /><br /> -Tutti gli altri dischi in un set RAID 5 che contiene gli elementi seguenti:<br /><br /> - D: volume  ? 1500 GB<br /><br /> - E: volume  ? 1500 GB|  
+|Voce|-Due dischi fisici<br /><br /> -Configurato come un set con mirroring RAID 1 che contiene quanto segue:<br /><br /> -C: volume? 60 GB<br /><br /> -D: volume? 1000 GB|  
+|Medio|-Tre dischi fisici<br /><br /> -Configurato come un set RAID 5 che contiene quanto segue:<br /><br /> -C: volume? 60 GB<br /><br /> -D: volume? 1500 GB|  
+|Alto|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 che contiene il volume C:? 100 GB<br /><br /> -Tutti i dischi rimanenti in un set RAID 5 che contiene quanto segue:<br /><br /> -D: volume? 1500 GB<br /><br /> -E: volume? 1500 GB|  
   
- Queste indicazioni prendono in considerazione le dimensioni del sistema operativo installato, le dimensioni medie dell'archivio dei dati utilizzate dal server e l'espansione prevista dell'archivio dei dati nella durata del server. I volumi possono essere partizioni su un singolo disco fisico o possono essere posizionati su dischi fisici separati. Dal momento che il server archivia i dati importanti per il cliente, è consigliabile usare più dischi fisici e proteggere i dati di s cliente utilizzando RAID hardware o spazi di archiviazione.  
+ Queste indicazioni prendono in considerazione le dimensioni del sistema operativo installato, le dimensioni medie dell'archivio dei dati utilizzate dal server e l'espansione prevista dell'archivio dei dati nella durata del server. I volumi possono essere partizioni su un singolo disco fisico o possono essere posizionati su dischi fisici separati. Poiché il server archivia dati importanti per il cliente, è consigliabile utilizzare più dischi fisici e proteggere i dati del cliente utilizzando RAID hardware o spazi di archiviazione.  
   
 ## <a name="configuring-your-server-backup"></a>Configurazione del backup del server  
  Oltre ai dischi rigidi interni del server, è opportuno che i clienti prendano in considerazione l'uso di dischi rigidi USB esterni per i backup. Idealmente, il cliente dovrebbe disporre di almeno due dischi rigidi esterni con una capacità sufficiente a eseguire il backup di tutti i dati presenti sul server. Se si utilizzano dischi rigidi esterni, ogni sera il cliente può portare un disco fuori sede per proteggere ulteriormente i dati.  
@@ -45,13 +45,13 @@ ms.locfileid: "66433739"
   
 ## <a name="see-also"></a>Vedere anche  
 
- [Guida introduttiva a Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Introduzione con Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
  [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)
 
- [Guida introduttiva a Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Introduzione con Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   

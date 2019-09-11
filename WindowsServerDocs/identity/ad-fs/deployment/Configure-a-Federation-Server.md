@@ -9,27 +9,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8f97237da1f53ee02f68b894ec0b8cd657edff6d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868090"
 ---
 # <a name="configure-a-federation-server"></a>Configurare un server federativo
 
-Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio ruolo nel computer, si è pronti per configurare questo computer come un server federativo. Eseguire una delle operazioni seguenti:  
+Dopo aver installato il servizio \(ruolo\) Active Directory Federation Services ad FS nel computer, si è pronti per configurare il computer in modo che diventi un server federativo. Eseguire una delle operazioni seguenti:  
   
--   [Configurare il primo server federativo in una nuova server farm federativa](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_1)  
+-   [Configurare il primo server federativo in una nuova Federazione server farm](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_1)  
   
--   [Aggiungere un server federativo a una server farm federativa esistente](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_2)  
+-   [Aggiungere un server federativo a un server farm di federazione esistente](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_2)  
   
-## <a name="BKMK_1"></a>Configurare il primo server federativo in una nuova server farm federativa  
+## <a name="BKMK_1"></a>Configurare il primo server federativo in una nuova Federazione server farm  
   
-### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>Per configurare il primo server federativo in una nuova server farm federativa tramite configurazione guidata servizi di dominio Active Directory  
+### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>Per configurare il primo server federativo in una nuova server farm di federazione utilizzando la configurazione guidata Active Directory Servizio federativo  
   
 > [!NOTE]  
-> Assicurarsi di disporre delle autorizzazioni di amministratore di dominio o dispone di credenziali di amministratore di dominio disponibile prima di eseguire questa procedura.  
+> Prima di eseguire questa procedura, assicurarsi di disporre delle autorizzazioni di amministratore di dominio o di disporre delle credenziali di amministratore di dominio.  
   
 1.  Nella pagina **Dashboard** di Server Manager fare clic sul flag **Notifiche** e quindi su **Configurare il servizio federativo nel server**.  
   
@@ -37,52 +37,52 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
   
 2.  Nella **pagina iniziale** selezionare **Crea il primo server di federazione di una server farm di federazione**e quindi fare clic su **Avanti**.  
   
-3.  Nel **connessione ad AD DS** , specificare un account con autorizzazioni di amministratore di dominio di Active Directory \(AD\) dominio a cui viene aggiunto questo computer e quindi fare clic su **Next**.  
+3.  Nella pagina **connessione a servizi di dominio Active Directory** specificare un account utilizzando le autorizzazioni di amministratore di dominio \(per\) il Active Directory dominio di Active Directory a cui viene aggiunto il computer e quindi fare clic su **Avanti**.  
   
 4.  Nella pagina **Impostazione proprietà del servizio** eseguire le operazioni seguenti e quindi fare clic su **Avanti**:  
   
-    -   Importare il file con estensione pfx che contiene il Secure Socket Layer \(SSL\) certificato e la chiave ottenuta in precedenza. In [passaggio 2: Registrare un certificato SSL per ADFS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), aver ottenuto il certificato e viene copiato nel computer che si desidera configurare come server federativo. Per importare il file con estensione pfx tramite la procedura guidata, fare clic su **importare**e quindi passare al percorso del file. Quando viene richiesto, immettere la password per il file con estensione pfx.  
+    -   Importare il file con estensione PFX contenente il certificato SSL \(\) Secure Socket Layer e la chiave ottenuta in precedenza. Nel [passaggio 2: Registrare un certificato SSL per ad FS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), il certificato è stato ottenuto e copiato nel computer che si desidera configurare come server federativo. Per importare il file con estensione pfx tramite la procedura guidata, fare clic su **Importa**, quindi selezionare il percorso del file. Quando richiesto, immettere la password per il file con estensione pfx.  
   
-    -   Specificare un nome per il servizio federativo. Ad esempio, **fs.contoso.com**. Questo nome deve corrispondere al soggetto o i nomi alternativi del soggetto nel certificato.  
+    -   Consente di specificare un nome per il servizio federativo. Ad esempio, **FS.contoso.com**. Questo nome deve corrispondere a uno dei nomi alternativi del soggetto o del soggetto nel certificato.  
   
-    -   Specificare un nome visualizzato per il servizio federativo. Ad esempio, **Contoso Corporation**. Questo nome viene visualizzato agli utenti in Active Directory Federation Services \(ADFS\) sign\-nella pagina.  
+    -   Consente di specificare un nome visualizzato per il servizio federativo. Ad esempio, **Contoso Corporation**. Questo nome viene visualizzato dagli utenti nella \(Active Directory Federation Services\) ad FS\-pagina di accesso.  
   
-5.  Nel **impostazione Account del servizio** , specificare un account del servizio. È possibile creare o usare un Account del servizio gestito di gruppo esistente \(gMSA\) o usare un account utente di dominio esistente. Se si seleziona l'opzione per creare un nuovo account gMSA, specificare un nome per il nuovo account. Se si seleziona l'opzione per usare un account di dominio o un gMSA esistente, fare clic su **seleziona** per selezionare un account.  
+5.  Nella pagina **Specifica account del servizio** specificare un account del servizio. È possibile creare o usare un account \(del servizio gestito del gruppo esistente gMSA\) o usare un account utente di dominio esistente. Se si seleziona l'opzione per creare un nuovo account gMSA, specificare un nome per il nuovo account. Se si seleziona l'opzione per l'utilizzo di un account di dominio o di gMSA esistente, fare clic su **Seleziona** per selezionare un account.  
   
     > [!NOTE]  
-    > Il vantaggio di usare un account gMSA è relativo auto\-negoziato funzionalità di aggiornamento password.  
+    > Il vantaggio dell'uso di un account gMSA è la\-funzionalità di aggiornamento automatico delle password negoziata.  
   
     > [!WARNING]  
-    > Se si desidera utilizzare un account gestito, è necessario disporre almeno un controller di dominio nell'ambiente in cui è in esecuzione il sistema operativo Windows Server 2012.  
+    > Se si vuole usare un account gMSA, è necessario disporre di almeno un controller di dominio nell'ambiente in cui è in esecuzione il sistema operativo Windows Server 2012.  
     >   
-    > Se l'opzione gMSA è disabilitata e viene visualizzato un messaggio di errore, ad esempio **account del servizio gestiti del gruppo non sono disponibili perché non è stata impostata la chiave radice KDS**, è possibile abilitare gMSA nel dominio tramite l'esecuzione di Windows seguenti Comando di PowerShell in un controller di dominio che esegue Windows Server 2012 o versioni successive, nel dominio di Active Directory: `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Tornare quindi alla procedura guidata, fare clic su **Previous**e quindi fare clic su **successiva** a Ri\-immettere il **impostazione Account del servizio** pagina. L'opzione gMSA dovrà ora essere abilitata. È possibile selezionarlo e immettere un nome dell'account gMSA che si desidera utilizzare.  
+    > Se l'opzione gMSA è disabilitata e viene visualizzato un messaggio di errore, ad esempio **gli account del servizio gestito del gruppo non sono disponibili perché la chiave radice KDS non è stata impostata**, è possibile abilitare gMSA nel dominio eseguendo il comando di Windows PowerShell seguente in un dominio controller, che esegue Windows Server 2012 o versione successiva, nel dominio Active Directory: `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Tornare quindi alla procedura guidata, fare clic su **precedente**, quindi fare clic su\- **Avanti** per immettere nuovamente la pagina **Specifica account del servizio** . L'opzione gMSA dovrebbe ora essere abilitata. È possibile selezionarlo e immettere un nome di account gMSA che si vuole usare.  
   
-6.  Nel **impostazione Database di configurazione** pagina, specificare un database di configurazione di ADFS e quindi fare clic su **successivo**. È possibile creare un database in questo computer utilizzando Database interno di Windows \(WID\), oppure è possibile specificare il percorso e il nome dell'istanza di Microsoft SQL Server.  
+6.  Nella pagina **Specifica database di configurazione** specificare un database di configurazione ad FS, quindi fare clic su **Avanti**. È possibile creare un database in questo computer utilizzando database \(interno di Windows wid\)oppure è possibile specificare il percorso e il nome dell'istanza di Microsoft SQL Server.  
   
     Per altre informazioni, vedere [Ruolo del database di configurazione di ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
     > [!IMPORTANT]  
-    > Se si desidera creare una farm AD FS e usare SQL Server per archiviare i dati di configurazione, è possibile usare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
+    > Se si desidera creare una farm AD FS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni più recenti, tra cui SQL Server 2012 e SQL Server 2014.  
   
 7.  Nella pagina **Verifica opzioni** verificare le opzioni di configurazione selezionate e quindi fare clic su **Avanti**.  
   
-8.  Nel **Pre\-controlli previsti** pagina, verificare che tutti i controlli dei prerequisiti siano stati completati correttamente e quindi fare clic su **configura**.  
+8.  Nella pagina **controlli\-dei prerequisiti** verificare che tutti i controlli dei prerequisiti siano stati completati correttamente e quindi fare clic su **Configura**.  
   
-9. Nel **risultati** pagina, esaminare i risultati e controllare se la configurazione è stata completata correttamente e quindi fare clic su **passaggi successivi necessari per completare la distribuzione del servizio federativo**. Per altre informazioni, vedere [passaggi successivi per completare l'installazione di AD FS](https://go.microsoft.com/fwlink/p/?LinkId=286704). Fare clic su **Chiudi** per uscire dalla procedura guidata.  
+9. Nella pagina **risultati** esaminare i risultati e verificare se la configurazione è stata completata correttamente e quindi fare clic su **passaggi successivi necessari per completare la distribuzione del servizio federativo**. Per ulteriori informazioni, vedere [passaggi successivi per il completamento dell'installazione di ad FS](https://go.microsoft.com/fwlink/p/?LinkId=286704). Fare clic su **Chiudi** per uscire dalla procedura guidata.  
   
-### <a name="BKMK_3"></a>Per configurare il primo server federativo in una nuova server farm federativa tramite Windows PowerShell  
-È possibile creare una nuova server farm federativa utilizzando un account gMSA nuovo o esistente o un account utente di dominio esistente.  
+### <a name="BKMK_3"></a>Per configurare il primo server federativo in una nuova Federazione server farm tramite Windows PowerShell  
+È possibile creare un nuovo server farm della Federazione usando un account gMSA nuovo o esistente o un account utente di dominio esistente.  
   
 -   **Se si desidera creare un nuovo server federativo utilizzando un nuovo account gMSA, eseguire le operazioni seguenti:**  
   
     > [!IMPORTANT]  
     > È necessario disporre delle autorizzazioni di amministratore di dominio per creare il primo server federativo in una nuova server farm federativa.  
   
-    1.  Nel computer che si desidera configurare come server federativo, assicurarsi che il certificato SSL necessario sia stato importato nel **Computer locale\\Store My** directory. È possibile verificare se è stato importato il certificato SSL eseguendo il comando seguente nella finestra di comando di Windows PowerShell: `dir Cert:\LocalMachine\My`. Il certificato è indicato dalla relativa identificazione personale nel **Computer locale\\Store My** directory.  
+    1.  Nel computer che si desidera configurare come server federativo, verificare che il certificato SSL richiesto sia stato importato nella directory **Archivio del computer\\locale** . È possibile verificare se il certificato SSL è stato importato eseguendo il comando seguente nella finestra di comando di Windows `dir Cert:\LocalMachine\My`PowerShell:. Il certificato è elencato in base all'identificazione personale nella directory del **\\computer locale archivio** .  
   
-    2.  Nel controller di dominio, aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente per verificare se nel dominio sia stata creata la chiave radice KDS: `Get-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Se non è stato creato in modo che l'output non visualizzato alcuna informazione, eseguire il comando seguente per creare la chiave: `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`.  
+    2.  Nel controller di dominio aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente per verificare se la chiave radice KDS è stata creata nel dominio: `Get-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Se non è stato creato in modo che nell'output non vengano visualizzate informazioni, eseguire il comando seguente per creare la chiave `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`:.  
   
-    3.  Nel computer che si desidera configurare come server federativo, aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente:  
+    3.  Nel computer che si desidera configurare come server federativo aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente:  
   
         ```  
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_Name>$  
@@ -91,24 +91,24 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
         > [!WARNING]  
         > Il `$` segno alla fine del comando precedente è obbligatorio.  
   
-        Per ottenere il valore per `<certificate_thumbprint>`, eseguire `dir Cert:\LocalMachine\My`e quindi selezionare l'identificazione personale del certificato SSL. Il valore di `<federation_service_name>` è il nome del servizio federativo, ad esempio **fs.contoso.com**.  
+        Per ottenere il valore per `<certificate_thumbprint>`, eseguire `dir Cert:\LocalMachine\My`, quindi selezionare l'identificazione personale del certificato SSL. Il valore di `<federation_service_name>` è il nome del servizio federativo, ad esempio **FS.contoso.com**.  
   
         > [!NOTE]  
-        > Se non si tratta la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
+        > Se non è la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
   
         > [!NOTE]  
-        > Il comando precedente crea una farm database interno di Windows. Se si desidera creare una server farm SQL Server, è necessario disporre di un'istanza di SQL Server già installato e funzionante.  
+        > Il comando precedente crea una farm WID. Se si desidera creare un SQL Server server farm, è necessario disporre di un'istanza di SQL Server già installato e operativo.  
         >   
-        > È possibile usare il comando seguente per creare il primo server federativo in una nuova farm che usa un'istanza di SQL Server: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name?\<SQL_instance_ name>;Integrated Security=True"` in cui **< SQL\_Host\_nome >** è il nome del server in cui SQL Server è in esecuzione, e **< SQL\_istanza\_name >** è il nome dell'istanza di SQL Server. Se si usa l'istanza predefinita di SQL Server, usare una **SQLConnectionString** pari a "**Zdroj dat\=< SQL\_Host\_nome >; Integrated Security\=True** ".  
+        > È possibile usare il comando seguente per creare il primo server federativo in una nuova farm che usa un'istanza di SQL Server: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name?\<SQL_instance_ name>;Integrated Security=True"` dove **< nome\_host\_SQL >** è il nome del server in cui è in esecuzione SQL Server e **< nome\_istanza\_SQL >** è il nome dell'istanza di SQL Server. Se si utilizza l'istanza predefinita di SQL Server, utilizzare un **valore sqlConnectionString** "**Data Source\=< nome host\_\_SQL >; Integrated Security\=true**".  
   
         > [!IMPORTANT]  
         > Se si desidera creare una farm ADFS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni successive, incluso SQL Server 2012.  
   
--   **Se si desidera creare un nuovo server federativo utilizzando un account utente di dominio esistente, eseguire le operazioni seguenti:**  
+-   **Se si desidera creare un nuovo server federativo utilizzando un account utente di dominio esistente, effettuare le seguenti operazioni:**  
   
-    1.  Nel computer che si desidera configurare come server federativo, assicurarsi che il certificato SSL necessario sia stato importato nel **Computer locale\\Store My** directory. È possibile verificare se è stato importato il certificato SSL eseguendo il comando seguente nella finestra di comando di Windows PowerShell: `dir Cert:\LocalMachine\My`. Il certificato è indicato dalla relativa identificazione personale nel **Computer locale\\Store My** directory.  
+    1.  Nel computer che si desidera configurare come server federativo, verificare che il certificato SSL richiesto sia stato importato nella directory **Archivio del computer\\locale** . È possibile verificare se il certificato SSL è stato importato eseguendo il comando seguente nella finestra di comando di Windows `dir Cert:\LocalMachine\My`PowerShell:. Il certificato è elencato in base all'identificazione personale nella directory del **\\computer locale archivio** .  
   
-    2.  Nel computer che si desidera configurare come server federativo, aprire la finestra di comando di Windows PowerShell e quindi eseguire il comando seguente: `$fscred = Get-Credential`. Immettere le credenziali dell'account utente di dominio che si desidera utilizzare per l'account del servizio federativo nel dominio formato\\nome utente.  
+    2.  Nel computer che si desidera configurare come server federativo aprire la finestra di comando di Windows PowerShell, quindi eseguire il comando seguente: `$fscred = Get-Credential`. Immettere le credenziali dell'account utente di dominio che si desidera utilizzare per l'account del servizio federativo nel formato\\dominio nome utente.  
   
     3.  Nella stessa finestra di comando di Windows PowerShell eseguire il comando seguente:  
   
@@ -116,91 +116,91 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscred  
         ```  
   
-        Per ottenere il valore per **< certificato\_identificazione personale >** , eseguire `dir Cert:\LocalMachine\My`e quindi selezionare l'identificazione personale del certificato SSL. Il valore di **< federazione\_service\_name >** è il nome del servizio federativo, ad esempio fs.contoso.com.  
+        Per ottenere il valore per **< identificazione\_personale del certificato >** , eseguire `dir Cert:\LocalMachine\My`, quindi selezionare l'identificazione personale del certificato SSL. Il valore di **< nome\_servizio\_federativo >** è il nome del servizio federativo, ad esempio FS.contoso.com.  
   
         > [!NOTE]  
-        > Se non si tratta la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
+        > Se non è la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
   
         > [!NOTE]  
-        > Il comando precedente crea una farm database interno di Windows. Se si desidera creare una farm SQL Server, è necessario disporre di istanza di SQL Server già installato e funzionante.  
+        > Il comando precedente crea una farm WID. Se si desidera creare una farm di SQL Server, è necessario disporre dell'istanza di SQL Server già installata e operativa.  
         >   
-        > È possibile usare il comando seguente per creare il primo server federativo in una nuova farm che usa un'istanza di SQL Server: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` in cui **SQL\_Host\_nome** è il nome del server in cui è SQL Server in esecuzione, e **SQL\_istanza\_nome** è il nome dell'istanza di SQL Server. Se si usa l'istanza predefinita di SQL Server, usare una **SQLConnectionString** pari a "**Zdroj dat\=< SQL\_Host\_nome >; Integrated Security\=True** ".  
+        > È possibile usare il comando seguente per creare il primo server federativo in una nuova farm che usa un'istanza di SQL Server: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` dove **SQL\_host\_Name** è il nome del server in cui è in esecuzione SQL Server e **SQL nomeistanza\_è il nome dell'istanza di SQL Server. \_** Se si utilizza l'istanza predefinita di SQL Server, utilizzare un **valore sqlConnectionString** "**Data Source\=< nome host\_\_SQL >; Integrated Security\=true**".  
   
         > [!IMPORTANT]  
-        > Se si desidera creare una farm AD FS e usare SQL Server per archiviare i dati di configurazione, è possibile usare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
+        > Se si desidera creare una farm AD FS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni più recenti, tra cui SQL Server 2012 e SQL Server 2014.  
   
-## <a name="BKMK_2"></a>Aggiungere un server federativo a una server farm federativa esistente  
-  
-> [!IMPORTANT]  
-> Assicurarsi che siano state completate [passaggio 3: Installare il servizio ruolo ADFS](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md), prima di iniziare le procedure in questa sezione.  
+## <a name="BKMK_2"></a>Aggiungere un server federativo a un server farm di federazione esistente  
   
 > [!IMPORTANT]  
-> Assicurarsi di avere ottenuto un server SSL valido certificato di autenticazione prima di completare questa procedura.  
+> Assicurarsi di aver completato [il passaggio 3: Installare il servizio](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md)ruolo ad FS prima di avviare una delle procedure descritte in questa sezione.  
   
-### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-the-active-directory-federation-service-configuration-wizard"></a>Per aggiungere un server federativo a una server farm federativa esistente tramite configurazione guidata servizi di dominio Active Directory  
+> [!IMPORTANT]  
+> Assicurarsi di aver ottenuto un certificato di autenticazione server SSL valido prima di completare questa procedura.  
+  
+### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-the-active-directory-federation-service-configuration-wizard"></a>Per aggiungere un server federativo a una server farm federativa esistente tramite la configurazione guidata Active Directory Servizio federativo  
   
 1.  Nella pagina **Dashboard** di Server Manager fare clic sul flag **Notifiche** e quindi su **Configurare il servizio federativo nel server**.  
   
     Viene aperta la **Configurazione guidata Servizi di dominio Active Directory** .  
   
-2.  Nel **benvenuto** pagina, selezionare **aggiungere un server federativo a una server farm federativa**e quindi fare clic su **Next**.  
+2.  Nella pagina **iniziale** selezionare **Aggiungi un server federativo a un server farm di Federazione**, quindi fare clic su **Avanti**.  
   
-3.  Nel **connessione ad AD DS** , specificare un account con autorizzazioni di amministratore di dominio per il dominio di Active Directory a cui viene aggiunto questo computer e quindi fare clic su **successivo**.  
+3.  Nella pagina **connessione a servizi di** dominio Active Directory specificare un account utilizzando le autorizzazioni di amministratore di dominio per il dominio di Active Directory a cui viene aggiunto il computer e quindi fare clic su **Avanti**.  
   
-4.  Nel **impostazione Farm** pagina, specificare il nome del server federativo primario in una farm che Usa database interno di Windows oppure specificare il nome host del database e il nome dell'istanza del database di una server farm federativa esistente che utilizza SQL Server.  
+4.  Nella pagina **Specifica farm specificare** il nome del server federativo primario in una farm che utilizza wid o specificare il nome host del database e il nome dell'istanza di database di un server farm di federazione esistente che utilizza SQL Server.  
   
     > [!WARNING]  
-    > In Windows Server® 2012 R2, è disponibile una soluzione per specificare l'istanza predefinita di SQL Server. La soluzione alternativa consiste nel non utilizzare l'interfaccia utente. Usare invece la procedura descritta in [per configurare il primo server federativo in una nuova server farm federativa tramite Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).  
+    > In Windows Server® 2012 R2 esiste una soluzione alternativa per specificare l'istanza predefinita di SQL Server. La soluzione alternativa consiste nell'evitare di utilizzare l'interfaccia utente. Usare invece i passaggi descritti in [per configurare il primo server federativo in una nuova federazione server farm tramite Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).  
   
     > [!IMPORTANT]  
     > Se si desidera creare una farm ADFS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni successive, incluso SQL Server 2012.  
   
-5.  Nel **specifica il certificato SSL** pagina, importare il file con estensione pfx che contiene il certificato SSL e la chiave che sono state ottenute in precedenza. Questo è certificato di autenticazione del servizio obbligatorio. In [passaggio 2: Registrare un certificato SSL per ADFS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), aver ottenuto il certificato e viene copiato nel computer in cui si desidera configurare come server federativo. Per importare il file con estensione pfx tramite la procedura guidata, fare clic su **importare** e passare al percorso del file. Quando viene richiesto, immettere la password per il file con estensione pfx.  
+5.  Nella pagina **specificare il certificato SSL** importare il file con estensione PFX contenente il certificato e la chiave SSL ottenuti in precedenza. Questo è certificato di autenticazione del servizio obbligatorio. Nel [passaggio 2: Registrare un certificato SSL per ad FS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), il certificato è stato ottenuto e copiato nel computer che si desidera configurare come server federativo. Per importare il file con estensione pfx tramite la procedura guidata, fare clic su **Importa** e selezionare il percorso del file. Quando richiesto, immettere la password per il file con estensione pfx.  
   
-6.  Nel **impostazione Account del servizio** , specificare lo stesso account di servizio configurato durante la creazione del primo server federativo nella farm. È possibile usare un Account del servizio gestito di gruppo esistente o un account utente di dominio esistente.  
+6.  Nella pagina **Specifica account del servizio** specificare lo stesso account di servizio configurato durante la creazione del primo server federativo nella farm. È possibile utilizzare un account del servizio gestito del gruppo esistente o un account utente di dominio esistente.  
   
     > [!IMPORTANT]  
-    > L'account specificato deve essere lo stesso account come account che è stato usato nel server federativo primario nella farm.  
+    > L'account specificato deve essere lo stesso account usato nel server federativo primario di questa farm...  
   
 7.  Nella pagina **Verifica opzioni** verificare le opzioni di configurazione selezionate e quindi fare clic su **Avanti**.  
   
-8.  Nel **Pre\-controlli previsti** pagina, verificare che tutti i controlli dei prerequisiti siano stati completati correttamente e quindi fare clic su **configura**.  
+8.  Nella pagina **controlli\-dei prerequisiti** verificare che tutti i controlli dei prerequisiti siano stati completati correttamente e quindi fare clic su **Configura**.  
   
-9. Nel **risultati** pagina, esaminare i risultati e controllare se la configurazione è stata completata correttamente e quindi fare clic su **passaggi successivi necessari per completare la distribuzione del servizio federativo**. Per altre informazioni, vedere [passaggi successivi per completare l'installazione di AD FS](https://go.microsoft.com/fwlink/p/?LinkId=286704). Fare clic su **Chiudi** per uscire dalla procedura guidata.  
+9. Nella pagina **risultati** esaminare i risultati e verificare se la configurazione è stata completata correttamente e quindi fare clic su **passaggi successivi necessari per completare la distribuzione del servizio federativo**. Per ulteriori informazioni, vedere [passaggi successivi per il completamento dell'installazione di ad FS](https://go.microsoft.com/fwlink/p/?LinkId=286704). Fare clic su **Chiudi** per uscire dalla procedura guidata.  
   
-### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-windows-powershell"></a>Per aggiungere un server federativo a una server farm federativa esistente tramite Windows PowerShell  
+### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-windows-powershell"></a>Per aggiungere un server federativo a un server farm di federazione esistente tramite Windows PowerShell  
 È possibile aggiungere un server federativo a una farm esistente usando un account gMSA esistente o un account utente di dominio esistente.  
   
--   Se si desidera aggiungere un server federativo a una farm con un account gMSA esistente, eseguire le operazioni seguenti:  
+-   Se si desidera aggiungere un server federativo a una farm utilizzando un account gMSA esistente, eseguire le operazioni seguenti:  
   
-    1.  Nel computer che si desidera configurare come server federativo, assicurarsi che il certificato SSL necessario sia stato importato nel **Computer locale\\Store My** directory. È possibile verificare se è stato importato il certificato SSL eseguendo il comando seguente nella finestra di comando di Windows PowerShell: `dir Cert:\LocalMachine\My`. Il certificato è indicato dalla relativa identificazione personale nel **Computer locale\\Store My** directory.  
+    1.  Nel computer che si desidera configurare come server federativo, verificare che il certificato SSL richiesto sia stato importato nella directory **Archivio del computer\\locale** . È possibile verificare se il certificato SSL è stato importato eseguendo il comando seguente nella finestra di comando di Windows `dir Cert:\LocalMachine\My`PowerShell:. Il certificato è elencato in base all'identificazione personale nella directory del **\\computer locale archivio** .  
   
-    2.  Nel computer che si desidera configurare come server federativo, aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente.  
+    2.  Nel computer che si desidera configurare come server federativo aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente.  
   
         ```  
         Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -PrimaryComputerName <first_federation_server_hostname> -CertificateThumbprint <certificate_thumbprint>  
         ```  
   
-        `<domain>\<GMSA_name>` è il dominio di Active Directory e il nome dell'account gMSA in tale dominio. `<first_federation_server_hostname>` è il nome host del server federativo primario nella farm esistente.  
+        `<domain>\<GMSA_name>`è il dominio di Active Directory e il nome dell'account gMSA in tale dominio. `<first_federation_server_hostname>`nome host del server federativo primario della farm esistente.  
   
-        È possibile ottenere il valore per `<certificate_thumbprint>` eseguendo `dir Cert:\LocalMachine\My` nel passaggio precedente.  
-  
-        > [!NOTE]  
-        > Se non si tratta la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
+        È possibile ottenere il valore per `<certificate_thumbprint>` `dir Cert:\LocalMachine\My` eseguendo nel passaggio precedente.  
   
         > [!NOTE]  
-        > Il comando precedente crea un nodo della farm database interno di Windows. Se si desidera creare un nodo della server farm di computer che eseguono SQL Server, è necessario disporre di istanza di SQL Server già installato e funzionante.  
+        > Se non è la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
+  
+        > [!NOTE]  
+        > Il comando precedente crea un nodo della farm WID. Se si desidera creare un server farm nodo dei computer che eseguono SQL Server, è necessario disporre dell'istanza di SQL Server già installato e operativo.  
         >   
-        > È possibile usare il comando seguente per aggiungere un server federativo a una farm esistente che usa un'istanza di SQL Server: `Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` in cui **SQL\_Host\_nome** è il nome del server in cui è SQL Server in esecuzione, e **SQL\_istanza\_nome** è il nome dell'istanza di SQL Server. Se si usa l'istanza predefinita di SQL Server, usare una **SQLConnectionString** pari a "**Zdroj dat\=< SQL\_Host\_nome >; Integrated Security\=True** ".  
+        > È possibile utilizzare il comando seguente per aggiungere un server federativo a una farm esistente che utilizza un'istanza di SQL Server: `Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` dove **nome host\_\_SQL** è il nome del server in cui è in esecuzione SQL Server e **SQL nomeistanza\_è il nome dell'istanza di SQL Server. \_** Se si utilizza l'istanza predefinita di SQL Server, utilizzare un **valore sqlConnectionString** "**Data Source\=< nome host\_\_SQL >; Integrated Security\=true**".  
   
         > [!IMPORTANT]  
-        > Se si desidera creare una farm AD FS e usare SQL Server per archiviare i dati di configurazione, è possibile usare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
+        > Se si desidera creare una farm AD FS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni più recenti, tra cui SQL Server 2012 e SQL Server 2014.  
   
--   Se si desidera aggiungere un server federativo a una farm con un account utente di dominio esistente, eseguire le operazioni seguenti:  
+-   Se si desidera aggiungere un server federativo a una farm utilizzando un account utente di dominio esistente, effettuare le seguenti operazioni:  
   
-    1.  Nel computer che si desidera configurare come server federativo, aprire la finestra di Windows PowerShellcommand, e quindi eseguire il comando seguente: `$fscred = get-credential`. Immettere le credenziali dell'account utente di dominio che si desidera utilizzare per l'account del servizio federativo nel dominio formato\\nome utente.  
+    1.  Nel computer che si desidera configurare come server federativo aprire la finestra PowerShellcommand Windows e quindi eseguire il comando seguente: `$fscred = get-credential`. Immettere le credenziali dell'account utente di dominio che si desidera utilizzare per l'account del servizio federativo nel formato\\dominio nome utente.  
   
-    2.  Nel computer che si desidera configurare come server federativo, assicurarsi che il certificato SSL necessario sia stato importato nel **Computer locale\\Store My** directory. È possibile verificare se è stato importato il certificato SSL eseguendo il comando seguente nella finestra di Windows PowerShellcommand: `dir Cert:\LocalMachine\My`. Il certificato è indicato dalla relativa identificazione personale nel **Computer locale\\Store My** directory.  
+    2.  Nel computer che si desidera configurare come server federativo, verificare che il certificato SSL richiesto sia stato importato nella directory **Archivio del computer\\locale** . È possibile verificare se il certificato SSL è stato importato eseguendo il comando seguente nella finestra PowerShellcommand di Windows `dir Cert:\LocalMachine\My`:. Il certificato è elencato in base all'identificazione personale nella directory del **\\computer locale archivio** .  
   
     3.  Nella stessa finestra di comando di Windows PowerShell, eseguire il comando seguente.  
   
@@ -209,13 +209,13 @@ Dopo l'installazione di Active Directory Federation Services \(ADFS\) servizio r
         ```  
   
         > [!NOTE]  
-        > Se non si tratta la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
+        > Se non è la prima volta che si esegue questo comando, aggiungere il `OverwriteConfiguration` parametro.  
   
         > [!NOTE]  
-        > Il comando precedente crea un nodo della farm database interno di Windows. Se si desidera creare un nodo della server farm di computer che eseguono SQL Server, è necessario disporre di istanza di SQL Server già installato e funzionante. È possibile usare il comando seguente per aggiungere un server federativo a una farm esistente usando un'istanza di SQL Server: `Add-AdfsFarmNode -ServiceAccountCredential $fscred -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` in cui **SQL\_Host\_nome** è il nome del server in cui l'istanza di SQL Server è in esecuzione, e **SQL\_istanza\_nome** è il nome dell'istanza di SQL Server. Se si usa l'istanza predefinita di SQL Server, usare una **SQLConnectionString** pari a "**Zdroj dat\=< SQL\_Host\_nome >; Integrated Security\=True** ".  
+        > Il comando precedente crea un nodo della farm WID. Se si desidera creare un server farm nodo dei computer che eseguono SQL Server, è necessario disporre dell'istanza di SQL Server già installato e operativo. È possibile utilizzare il comando seguente per aggiungere un server federativo a una farm esistente utilizzando un'istanza di SQL Server: `Add-AdfsFarmNode -ServiceAccountCredential $fscred -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` dove **nome host\_\_SQL** è il nome del server in cui è in esecuzione l'istanza di SQL Server e **Nome\_istanza\_SQL** è il nome dell'istanza di SQL Server. Se si utilizza l'istanza predefinita di SQL Server, utilizzare un **valore sqlConnectionString** "**Data Source\=< nome host\_\_SQL >; Integrated Security\=true**".  
   
         > [!IMPORTANT]  
-        > Se si desidera creare una farm AD FS e usare SQL Server per archiviare i dati di configurazione, è possibile usare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
+        > Se si desidera creare una farm AD FS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni più recenti, tra cui SQL Server 2012 e SQL Server 2014.  
   
 ## <a name="see-also"></a>Vedere anche 
 

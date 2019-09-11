@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: d4eb2ad65f436db28264650b8c8d7b0cf69b2cee
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 89676ba821b99d44865bc6f45c34c05edb771d9d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544674"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865263"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Domande frequenti su Replica archiviazione
 
@@ -83,7 +83,7 @@ Per i vincoli della rete di configurazione in un cluster esteso:
 No, replica archiviazione supporta solo una replica di un nodo server, cluster o cluster esteso. Questo limite potrebbe venire superato nelle versioni successive. Naturalmente, è possibile configurare la replica tra i vari server di una coppia di volumi specifica, in entrambe le direzioni. Ad esempio, Server 1 può replicare il volume D su Server 2 e il volume E su Server 3.
 
 ## <a name="FAQ5"></a>È possibile aumentare o ridurre I volumi replicati replicati dalla replica di archiviazione?  
-Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinita, Replica di archiviazione impedisce agli amministratori di estendere i volumi replicati. Utilizza l'opzione `Set-SRGroup -AllowVolumeResize $TRUE` nel gruppo di origine, prima del ridimensionamento. Ad esempio:
+Puoi espandere (estendere) i volumi, ma non ridurli. Per impostazione predefinita, Replica di archiviazione impedisce agli amministratori di estendere i volumi replicati. Utilizza l'opzione `Set-SRGroup -AllowVolumeResize $TRUE` nel gruppo di origine, prima del ridimensionamento. Esempio:
 
 1. Utilizzare nel computer di origine:`Set-SRGroup -Name YourRG -AllowVolumeResize $TRUE`
 2. Espandere il volume utilizzando la tecnica preferita
@@ -141,7 +141,7 @@ Per impedire l'esecuzione della nuova funzionalità di resilienza delle macchine
 
 ## <a name="FAQ13"></a>È possibile delegare gli utenti per amministrare la replica?  
 
-È possibile utilizzare il `Grant-SRDelegation` cmdlet. Ciò consente di impostare utenti specifici in scenari di replica da server a server, da cluster a cluster e con cluster esteso che abbiano le autorizzazioni per creare, modificare o rimuovere la replica, pur non essendo un membro del gruppo di amministratori locale. Ad esempio:  
+È possibile utilizzare il `Grant-SRDelegation` cmdlet. Ciò consente di impostare utenti specifici in scenari di replica da server a server, da cluster a cluster e con cluster esteso che abbiano le autorizzazioni per creare, modificare o rimuovere la replica, pur non essendo un membro del gruppo di amministratori locale. Esempio:  
 
     Grant-SRDelegation -UserName contso\tonywang  
 
@@ -188,8 +188,8 @@ Nota: Il cmdlet test-SRTopology richiede ICMPv4/ICMPv6, ma non per la replica o 
 ## <a name="FAQ15.5"></a>Quali sono le procedure consigliate per i volumi di log?
 Le dimensioni ottimali del log variano notevolmente in base all'ambiente e al carico di lavoro e sono determinate dalla quantità di i/o di scrittura eseguita dal carico di lavoro. 
 
-1.  Un log più grande o più piccolo non determina una velocità superiore o inferiore
-2.  Un log più grande o più piccolo non ha alcuna influenza su un volume di dati di 10 GB rispetto a un volume di dati di 10 TB
+1.  Un log più grande o più piccolo non rende più veloce o più lento
+2.  Un log più grande o più piccolo non ha alcun impatto su un volume di dati da 10 GB rispetto a un volume di dati 10 TB, ad esempio
 
 Un log più grande può semplicemente raccogliere e conservare più operazioni di I/O di scrittura prima che vengano estratte. Questo consente il protrarsi di un'interruzione nel servizio tra il computer di origine e di destinazione, ad esempio un'interruzione di rete o una destinazione offline. Se il log può contenere 10 ore di scritture e la rete rimane inattiva per 2 ore, non appena quest'ultima tornerà attiva l'origine potrà semplicemente riprodurre molto rapidamente i delta delle modifiche non sincronizzate nella destinazione ripristinando altrettanto rapidamente la protezione. Se il log contiene 10 ore e il periodo di inattività è di 2 giorni, l'origine deve eseguire la riproduzione da un altro log denominato bitmap e la sincronizzazione sarà probabilmente più lenta. Una volta eseguita la sincronizzazione, tornerà a utilizzare il log.
 
@@ -218,7 +218,7 @@ Replica archiviazione include anche una modalità da server a sé stesso, dove l
 
 Sì, i dati Deduplcation sono supportati con replica archiviazione. Abilitare la deduplicazione dei dati in un volume nel server di origine e durante la replica il server di destinazione riceve una copia deduplicata del volume.
 
-Sebbene sia necessario *installare* la deduplicazione dei dati sia nel server di origine che in quello di destinazione (vedere [installazione e abilitazione](../data-deduplication/install-enable.md)della deduplicazione dei dati), è importante non *abilitare* la deduplicazione dei dati nel server di destinazione. Replica archiviazione consente solo scritture nel server di origine. Poiché la deduplicazione dei dati effettua scritture nel volume, deve essere eseguita solo nel server di origine. 
+Sebbene sia necessario *installare* la deduplicazione dei dati sia nel server di origine che in quello di destinazione (vedere [installazione e abilitazione della deduplicazione dei](../data-deduplication/install-enable.md)dati), è importante non *abilitare* la deduplicazione dei dati nel server di destinazione. Replica archiviazione consente solo scritture nel server di origine. Poiché la deduplicazione dei dati effettua scritture nel volume, deve essere eseguita solo nel server di origine. 
 
 ## <a name="FAQ19"></a>È possibile eseguire la replica tra Windows Server 2019 e Windows Server 2016?
 

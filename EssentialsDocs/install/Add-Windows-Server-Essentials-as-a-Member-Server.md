@@ -1,6 +1,6 @@
 ---
 title: Aggiungere Windows Server Essentials come server membro
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,21 +12,21 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 502e54cf719895dd11030cf163159f6cdda47164
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 09943f9708af3839ff21717316853fab9ba0283b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433737"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865051"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Aggiungere Windows Server Essentials come server membro
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In questo argomento si applica a un server che esegue Windows Server 2012 R2 Standard, Windows Server 2012 R2 Datacenter o Windows Server 2016 con il ruolo esperienza Windows Server Essentials installato. Nella parte restante del documento, il ruolo Esperienza Windows Server Essentials verrà denominato Windows Server Essentials.  
+Questo argomento si applica a un server che esegue Windows Server 2012 R2 Standard, Windows Server 2012 R2 Datacenter o Windows Server 2016 con il ruolo esperienza Windows Server Essentials installato. Nella parte restante del documento, il ruolo Esperienza Windows Server Essentials verrà denominato Windows Server Essentials.  
   
 > [!NOTE]
->   Windows Server Essentials può essere distribuito solo come controller di dominio. In questo documento, Windows Server Essentials non include Windows Server Essentials.  
+>   Windows Server Essentials può essere distribuito solo come controller di dominio. In questo documento Windows Server Essentials non include Windows Server Essentials.  
   
  Non è necessario che Windows Server Essentials sia un server primario all'interno di un dominio Windows. È possibile aggiungere Windows Server Essentials come server membro a un ambiente di dominio Active Directory esistente e sfruttarne le semplici funzionalità di protezione dei dati, accesso remoto sicuro e integrazione del cloud. Inoltre, è possibile distribuire Windows Server Essentials in un ambiente Active Directory esistente senza configurarlo come controller di dominio. In questo modo è possibile estendere le risorse di archiviazione oppure usare una succursale per l'amministrazione e l'archiviazione locale.  
   
@@ -34,12 +34,12 @@ In questo argomento si applica a un server che esegue Windows Server 2012 R2 Sta
   
 -   Aggiungere Windows Server Essentials in una succursale e aggiungerlo al controller di dominio situato nell'ufficio principale in un'ubicazione diversa usando gli strumenti nativi. È possibile attivare le funzionalità BranchCache per l'uso ottimale della larghezza di banda in questo server membro.  
   
--   Aggiungere Windows Server Essentials come server membro all'interno di una rete di Windows Server Essentials per estendere le risorse di archiviazione di rete aggiungendo altre cartelle server nel server membro.  
+-   Aggiungere Windows Server Essentials come server membro all'interno di una rete di Windows Server Essentials per estendere l'archiviazione nella rete aggiungendo altre cartelle server nel server membro.  
   
--   Aggiungere Windows Server Essentials come server membro nell'ufficio locale se il server primario che esegue Windows Server Essentials è ospitato in Microsoft Azure o da un provider di terze parti. Disporre di Windows Server Essentials come server membro presso l'ufficio locale consente di ottimizzare l'utilizzo della larghezza di banda.  
+-   Aggiungere Windows Server Essentials come server membro nell'ufficio locale se il server primario che esegue Windows Server Essentials è ospitato in Microsoft Azure o ospitato da un host di terze parti. Disporre di Windows Server Essentials come server membro presso l'ufficio locale consente di ottimizzare l'utilizzo della larghezza di banda.  
   
 ## <a name="adding-windows-server-essentials-as-a-member-server"></a>Aggiungere Windows Server Essentials come server membro  
- Per aggiungere Windows Server Essentials come server membro a un server primario che esegue Windows Server 2012 R2 o Windows Server Essentials in un ambiente Active Directory esistente, è necessario completare i passaggi seguenti:  
+ Per aggiungere Windows Server Essentials come server membro a un server primario che esegue Windows Server 2012 R2 o Windows Server Essentials in un ambiente di Active Directory esistente, è necessario completare i passaggi seguenti:  
   
 1.  Aggiungere il server che esegue Windows Server Essentials a un gruppo di lavoro.  
   
@@ -57,7 +57,7 @@ In questo argomento si applica a un server che esegue Windows Server 2012 R2 Sta
   
 4. In **Nome computer**, nella sezione **Dominio** , fare clic su **Cambia**.  
   
-5. In **cambiamenti dominio/nome Computer**, nella **membro** keychains se si vuole aggiungere il server che esegue Windows Server Essentials a un **Workgroup** o a un **Dominio**.  
+5. In **modifiche dominio/nome computer**, nella sezione **membro** , scegliere se si vuole aggiungere il server che esegue Windows Server Essentials a un **gruppo** di lavoro o a un **dominio**.  
   
    -   Per aggiungere il server a un gruppo di lavoro, digitare **workgroup** e fare clic su **OK**.  
   
@@ -65,14 +65,14 @@ In questo argomento si applica a un server che esegue Windows Server 2012 R2 Sta
   
 6. Riavviare il server per rendere effettive le modifiche.  
   
-   Dopo aver aggiunto server al dominio s server primario, è possibile continuare a configurare Windows Server Essentials tramite l'esecuzione guidata di configurare Windows Server Essentials da Server Manager.  
+   Dopo aver aggiunto il server al dominio del server primario, è possibile continuare a configurare Windows Server Essentials eseguendo la configurazione guidata di Windows Server Essentials da Server Manager.  
   
 #### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>Per configurare Esperienza Windows Server Essentials in un server membro  
   
 1.  (Facoltativo) Se necessario, modificare il nome del server.  
   
     > [!IMPORTANT]
-    >  Dopo aver configurato esperienza Windows Server Essentials, è possibile modificare il nome del server.  
+    >  Non è possibile modificare il nome del server dopo aver configurato esperienza Windows Server Essentials.  
   
 2.  Accedere al server usando l'account amministratore di dominio.  
   

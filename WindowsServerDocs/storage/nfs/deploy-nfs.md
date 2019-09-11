@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: cc02f0a82b4143b80fc1107a63d234b117502d2d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 761394f3190f02eedfea27a7d873c4c36535f23b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544647"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865122"
 ---
 # <a name="deploy-network-file-system"></a>Distribuire Network File System
 
@@ -35,7 +35,7 @@ Ecco cosa è cambiato per NFS in Windows Server 2012:
 - **Modulo NFS per Windows PowerShell**. La disponibilità dei cmdlet predefiniti di NFS rende più semplice l'automazione di varie operazioni. I nomi dei cmdlet sono coerenti con gli altri cmdlet di Windows PowerShell (usando verbi quali "Get" e "set"), semplificando gli utenti che hanno familiarità con Windows PowerShell per imparare a usare i nuovi cmdlet.
 - **Miglioramenti alla gestione NFS**. Una nuova console di gestione centralizzata basata sull'interfaccia utente semplifica la configurazione e la gestione di condivisioni SMB e NFS, quote, schermate e classificazione dei file, oltre alla gestione di file server in cluster.
 - **Miglioramenti al mapping delle identità**. Nuovo supporto dell'interfaccia utente e cmdlet di Windows PowerShell basati su attività per la configurazione del mapping delle identità, che consente agli amministratori di configurare rapidamente un'origine del mapping di identità e quindi di creare singole identità mappate per gli utenti. I miglioramenti semplificano la configurazione di una condivisione per l'accesso a più protocolli tramite NFS e SMB.
-- Ristrutturare il **modello di risorse cluster**. Questo miglioramento garantisce la coerenza tra il modello di risorse cluster per i server del protocollo SMB e NFS di Windows e semplifica l'amministrazione. Per i server NFS con molte condivisioni, viene ridotta la rete delle risorse e il numero di chiamate WMI necessarie per eseguire il failover di un volume contenente un numero elevato di condivisioni NFS.
+- **Ristrutturare il modello di risorse cluster**. Questo miglioramento garantisce la coerenza tra il modello di risorse cluster per i server del protocollo SMB e NFS di Windows e semplifica l'amministrazione. Per i server NFS con molte condivisioni, viene ridotta la rete delle risorse e il numero di chiamate WMI necessarie per eseguire il failover di un volume contenente un numero elevato di condivisioni NFS.
 - **Integrazione con la gestione delle chiavi di ripresa**. Resume Key Manager è un componente che tiene traccia file server e file system stato e consente di eseguire il failover dei server del protocollo SMB e NFS di Windows senza interrompere i client o le applicazioni server che archiviano i dati nel file server. Questo miglioramento è un componente chiave della funzionalità di disponibilità continua del file server che esegue Windows Server 2012.
 
 ## <a name="scenarios-for-using-network-file-system"></a>Scenari per l'utilizzo di file System di rete
@@ -113,7 +113,7 @@ Istruzioni per la configurazione dell'autenticazione NFS in descritta nella sezi
 
 1. Accedere al server come membro del gruppo Administrators locale.
 2. Server Manager verrà avviato automaticamente. Se non viene avviato automaticamente, selezionare **Start**, digitare **ServerManager. exe**, quindi selezionare **Server Manager**.
-3. A sinistra selezionare **Servizi file e archiviazione**e quindi selezionare condivisioni.
+3. A sinistra selezionare **Servizi file e archiviazione**e quindi selezionare **condivisioni**.
 4. Selezionare **questa impostazione per creare una condivisione file e avviare la creazione guidata nuova condivisione**.
 5. Nella pagina **Seleziona profilo** selezionare **condivisione NFS-rapida** o **condivisione NFS-avanzate**, quindi fare clic su **Avanti**.
 6. Nella pagina **percorso condivisione** selezionare un server e un volume e fare clic su **Avanti**.

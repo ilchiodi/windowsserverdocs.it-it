@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Come distribuire Cartelle di lavoro, tra cui l'installazione del ruolo del server, la creazione di condivisioni di sincronizzazione e di record DNS.
-ms.openlocfilehash: d2ba117a021cfc7361c0f7c8df2ed9f3c4bc9d94
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792344"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867030"
 ---
 # <a name="deploying-work-folders"></a>Distribuzione di Cartelle di lavoro
 
@@ -51,7 +51,7 @@ In questo argomento vengono illustrati i passaggi necessari per la distribuzione
 ## <a name="step-2-create-dns-records"></a>Passaggio 2: Creare record DNS  
  Per fare in modo che gli utenti possano eseguire la sincronizzazione tramite Internet, è necessario creare un record host (A) nel DNS pubblico per consentire ai client Internet di risolvere l'URL di Cartelle di lavoro. Questo record DNS deve eseguire la risoluzione nell'interfaccia esterna del server del proxy inverso.  
   
- Nella rete interna, crea un record CNAME in DNS denominato cartellelavoro che esegue la risoluzione nel nome di dominio completo di un server Cartelle di lavoro. Quando i client di cartelle di lavoro usano l'individuazione automatica, l'URL usato per individuare il server di cartelle di lavoro è https:\//workfolders.domain.com. Se si prevede di utilizzare l'individuazione automatica, il record CNAME di cartellelavoro deve essere presente in DNS.  
+ Nella rete interna, crea un record CNAME in DNS denominato cartellelavoro che esegue la risoluzione nel nome di dominio completo di un server Cartelle di lavoro. Quando i client di cartelle di lavoro usano l'individuazione automatica, l'URL usato per individuare il server di\/cartelle di lavoro è https:/workfolders.Domain.com. Se si prevede di utilizzare l'individuazione automatica, il record CNAME di cartellelavoro deve essere presente in DNS.  
   
 ## <a name="step-3-install-work-folders-on-file-servers"></a>Passaggio 3: Installare Cartelle di lavoro nei file server  
  È possibile installare Cartelle di lavoro in un server che fa parte di un dominio utilizzando Server Manager o Windows PowerShell in locale o in remoto in una rete. Questa operazione risulta utile nella se si configurano più server di sincronizzazione.  
@@ -212,7 +212,7 @@ L'esempio precedente consente di creare una nuova condivisione di sincronizzazio
 > [!TIP]
 >  Dopo aver creato le condivisioni di sincronizzazione, è possibile utilizzare la funzionalità Gestione risorse file server per gestire i dati nelle condivisioni. Ad esempio, è possibile utilizzare il riquadro **Quota** della pagina Cartelle di lavoro in Server Manager per impostare quote nelle cartelle degli utenti. È inoltre possibile utilizzare [Gestione screening dei file](https://technet.microsoft.com/library/cc732074.aspx) per controllare i tipi di file sincronizzati da Cartelle di lavoro oppure utilizzare gli scenari descritti in [Controllo dinamico degli accessi](https://technet.microsoft.com/windows-server-docs/identity/solution-guides/dynamic-access-control--scenario-overview) per attività di classificazione dei file più avanzate.  
   
-## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Passaggio 8: Facoltativamente specificare un indirizzo di posta elettronica del supporto tecnico   
+## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Passaggio 8: Facoltativamente, specificare un indirizzo di posta elettronica del supporto tecnico   
  Dopo l'installazione di Cartelle di lavoro in un file server, è consigliabile specificare un indirizzo di posta elettronica di un contatto amministrativo per il server. Per aggiungere un indirizzo di posta elettronica, utilizzare la procedura seguente:  
   
 #### <a name="specifying-an-administrative-contact-email"></a>Specifica di un indirizzo di posta elettronica di un contatto amministrativo 
@@ -229,7 +229,7 @@ L'esempio precedente consente di creare una nuova condivisione di sincronizzazio
  Se nell'ambiente in uso sono ospitati più server di sincronizzazione, è consigliabile configurare l'individuazione automatica del server popolando la proprietà **msDS-SyncServerURL** negli account utente in AD DS.  
   
 >[!NOTE]
->La proprietà msDS-SyncServerURL in Active Directory non deve essere definita per gli utenti remoti che accedono a Cartelle di lavoro tramite una soluzione di proxy inverso, ad esempio Proxy applicazione Web o Proxy di applicazione di Azure AD. Se la proprietà msDS-SyncServerURL è definita, il client Cartelle di lavoro tenterà di accedere a un URL interno che non è accessibile tramite la soluzione di proxy inverso. Quando si utilizza Proxy applicazione Web o proxy dell'applicazione Azure AD, devi creare applicazioni proxy univoche per ogni server Cartelle di lavoro. Per altre informazioni, vedere [distribuzione di cartelle di lavoro con AD FS e Proxy applicazione Web: Cenni preliminari sulla](deploy-work-folders-adfs-overview.md) oppure [distribuzione di cartelle di lavoro con Azure AD Application Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
+>La proprietà msDS-SyncServerURL in Active Directory non deve essere definita per gli utenti remoti che accedono a Cartelle di lavoro tramite una soluzione di proxy inverso, ad esempio Proxy applicazione Web o Proxy di applicazione di Azure AD. Se è stata definita la proprietà msDS-SyncServerURL, il client di cartelle di lavoro tenterà di accedere a un URL interno non accessibile tramite la soluzione del proxy inverso. Quando si utilizza Proxy applicazione Web o proxy dell'applicazione Azure AD, devi creare applicazioni proxy univoche per ogni server Cartelle di lavoro. Per informazioni dettagliate, vedere [distribuzione di cartelle di lavoro con ad FS e proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md) o [distribuzione di cartelle di lavoro con Azure ad proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
 
 
  Prima di poter eseguire questa operazione, è necessario installare un controller di dominio di Windows Server 2012 R2 oppure aggiornare gli schemi della foresta e del dominio utilizzando i comandi `Adprep /forestprep` e `Adprep /domainprep`. Per informazioni su come eseguire correttamente questi comandi, vedere [Eseguire Adprep](https://technet.microsoft.com/library/dd464018.aspx).  
@@ -251,7 +251,7 @@ L'esempio precedente consente di creare una nuova condivisione di sincronizzazio
 6.  Nella casella **Valore da aggiungere** digitare l'URL del server di sincronizzazione con cui si desidera che l'utente esegua la sincronizzazione, fare clic su **Aggiungi**, su **OK** e quindi di nuovo su **OK**.  
   
     > [!NOTE]
-    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio, **https:\//sync1.contoso.com**.
+    >  L'URL del server di sincronizzazione è semplicemente `https://` o `http://` (a seconda che si desideri utilizzare una connessione sicura) seguito dal nome di dominio completo del server di sincronizzazione. Ad esempio **https:\//sync1.contoso.com**.
 
 Per popolare l'attributo per più utenti, utilizzare Active Directory PowerShell. L'esempio seguente consente di popolare l'attributo per tutti i membri del gruppo *Utenti condivisione sincronizzazione HR* illustrato nel passaggio 5.
   
@@ -264,7 +264,7 @@ Set-ADUser –Add @{"msDS-SyncServerURL"=$SyncServerURL}
   
 ```  
   
-## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Passaggio 10: Se si desidera configurare Proxy applicazione Web, Azure AD Application Proxy o un altro proxy inverso  
+## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Passaggio 10: Facoltativamente, configurare il proxy dell'applicazione Web, Azure AD proxy di applicazione o un altro proxy inverso  
 
 Per consentire agli utenti remoti di accedere ai loro file, è necessario pubblicare il server Cartelle di lavoro tramite un proxy inverso per renderle disponibili esternamente su Internet. È possibile utilizzare Proxy applicazione Web, Proxy di applicazione di Azure Active Directory o un'altra soluzione di proxy inverso.  
   
@@ -289,12 +289,12 @@ Se si dispone di un numero elevato di computer che fanno parte di un dominio in 
 > [!NOTE]
 >  Queste impostazioni dei criteri sono disponibili solo quando si modifica Criteri di gruppo da un computer che esegue Gestione Criteri di gruppo in Windows 8.1, Windows Server 2012 R2 o versioni successive. Nelle versioni di Gestione Criteri di gruppo dei sistemi operativi precedenti non è disponibile questa funzionalità. Queste impostazioni dei criteri si applicano ai computer con Windows 7 in cui l'app [Cartelle di lavoro per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) è stata installata.  
   
-##  <a name="BKMK_LINKS"></a> Vedere anche  
+##  <a name="BKMK_LINKS"></a>Vedere anche  
  Per altre informazioni correlate, vedere le risorse seguenti.  
   
 |Tipo di contenuto|Riferimenti|  
 |------------------|----------------|  
-|**Informazioni su**|-   [Cartelle di lavoro](work-folders-overview.md)|  
+|**Comprensione**|-   [Cartelle di lavoro](work-folders-overview.md)|  
 |**Pianificazione**|-   [Progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)|
-|**Distribuzione**|-   [Distribuzione di cartelle di lavoro con AD FS e Proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Distribuzione di Lab di Test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di blog)<br />-   [Un nuovo attributo utente per l'Url del server di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (post di blog)|  
-|**Riferimento tecnico**|-   [Accesso interattivo: Soglia di blocco degli account computer](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Cmdlet di condivisione di sincronizzazione](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|
+|**Distribuzione**|-   [Distribuzione di cartelle di lavoro con AD FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Distribuzione Lab di test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di Blog)<br />-   [Un nuovo attributo utente per l'URL del server di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (post di Blog)|  
+|**Riferimento tecnico**|-   [Accesso interattivo: Soglia di blocco account computer](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Cmdlet di condivisione di sincronizzazione](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|

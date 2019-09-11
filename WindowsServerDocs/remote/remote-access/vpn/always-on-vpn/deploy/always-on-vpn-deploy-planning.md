@@ -1,6 +1,6 @@
 ---
 title: Pianificare la distribuzione di VPN Always On
-description: In questo argomento fornisce istruzioni di pianificazione per la distribuzione VPN Always On in Windows Server 2016.
+description: Questo argomento fornisce istruzioni di pianificazione per la distribuzione di Always On VPN in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -9,68 +9,68 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: db309f451eb9187463f71dfd85a82d214c464e2b
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 7b194bc2eefbe28b75b66ef644c199f3416c14fb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749460"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871367"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Passaggio 1. Pianificare la distribuzione di VPN Always On
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente:** Informazioni sul flusso di lavoro per la distribuzione VPN Always On](always-on-vpn-deploy-deployment.md)
-- [**prossimo:** Passaggio 2. Configurare l'infrastruttura di Server](vpn-deploy-server-infrastructure.md)
+- [**Precedente** Informazioni sul flusso di lavoro per la distribuzione di Always On VPN](always-on-vpn-deploy-deployment.md)
+- [**Prossimo** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
 
-In questo passaggio, si inizia a pianificare e preparare la distribuzione VPN Always On. Prima di installare il ruolo server Accesso remoto al computer in cui che si prevede di utilizzare come server VPN, eseguire le attività seguenti. Dopo la corretta pianificazione, è possibile distribuire VPN Always On e, facoltativamente, configurare l'accesso condizionale per la connettività VPN con Azure AD.
+In questo passaggio si inizia a pianificare e preparare la distribuzione di Always On VPN. Prima di installare il ruolo del server accesso remoto nel computer che si sta pianificando di usare come server VPN, eseguire le attività seguenti. Dopo la pianificazione corretta, è possibile distribuire Always On VPN e, facoltativamente, configurare l'accesso condizionale per la connettività VPN usando Azure AD.
 
 [!INCLUDE [always-on-vpn-standard-config-considerations-include](../../../includes/always-on-vpn-standard-config-considerations-include.md)]
 
-## <a name="prepare-the-remote-access-server"></a>Preparare il Server di accesso remoto
+## <a name="prepare-the-remote-access-server"></a>Preparare il server di accesso remoto
 
-È necessario eseguire le operazioni seguenti nel computer usato come server VPN:
+Nel computer utilizzato come server VPN è necessario eseguire le operazioni seguenti:
 
-- **Assicurarsi che la configurazione hardware e software del server VPN sia corretta**. Installare Windows Server 2016 nel computer in cui si prevede di usare come server Accesso remoto VPN. Questo server deve avere due schede di rete fisiche installate, uno per la connessione alla rete perimetrale esterno e uno per la connessione alla rete perimetrale interna.
+- **Verificare che la configurazione hardware e software del server VPN sia corretta**. Installare Windows Server 2016 nel computer che si intende usare come server VPN di accesso remoto. Questo server deve disporre di due schede di rete fisiche installate, una per la connessione alla rete perimetrale esterna e una per la connessione alla rete perimetrale interna.
 
-- **Identificare quale scheda di rete si connette a Internet e quale scheda di rete alla rete privata**. Configurare la scheda di rete con connessione Internet con un indirizzo IP pubblico, mentre la scheda con connessione Intranet può usare un indirizzo IP dalla rete locale.
+- **Identificare la scheda di rete connessa a Internet e la scheda di rete connessa alla rete privata**. Configurare la scheda di rete che si trova in Internet con un indirizzo IP pubblico, mentre la scheda che si trova sulla rete Intranet può utilizzare un indirizzo IP della rete locale.
 
     >[!TIP]
-    >Se si preferisce non usare un indirizzo IP pubblico nella rete perimetrale, è possibile configurare il Firewall perimetrale con un indirizzo IP pubblico e quindi configurare il firewall per inoltrare le richieste di connessione VPN al server VPN.
+    >Se si preferisce non usare un indirizzo IP pubblico nella rete perimetrale, è possibile configurare il firewall perimetrale con un indirizzo IP pubblico e quindi configurare il firewall in modo che inoltri le richieste di connessione VPN al server VPN.
 
-- **Connettersi al server VPN alla rete**. Installare il server VPN in una rete perimetrale, tra i firewall perimetrali e firewall perimetrale.
+- **Connettere il server VPN alla rete**. Installare il server VPN in una rete perimetrale tra il firewall perimetrale e il firewall perimetrale.
 
 ## <a name="plan-authentication-methods"></a>Pianificare i metodi di autenticazione
 
-IKEv2 è una VPN descritta nel protocollo di tunneling [Internet Engineering Task Force richiesta per i commenti 7296](https://datatracker.ietf.org/doc/rfc7296/). Il vantaggio principale di IKEv2 è che tollera interruzioni della connessione di rete sottostante. Ad esempio, se una perdita temporanea nella connessione o se un utente si sposta un computer client da una rete a un altro, quando che venga ristabilita la connessione di rete IKEv2 consente di ripristinare la connessione VPN automaticamente, senza l'intervento dell'utente.
+IKEv2 è un protocollo di tunneling VPN descritto in [Internet Engineering Task Force Request per i commenti 7296](https://datatracker.ietf.org/doc/rfc7296/). Il vantaggio principale di IKEv2 è che tollera le interruzioni nella connessione di rete sottostante. Se, ad esempio, si verifica una perdita temporanea di connessione o se un utente sposta un computer client da una rete a un'altra, quando viene ristabilita la connessione di rete IKEv2 ripristina automaticamente la connessione VPN, senza l'intervento dell'utente.
 
 >[!TIP]
->È possibile configurare il server di accesso remoto VPN per supportare le connessioni IKEv2 durante anche la disabilitazione di protocolli inutilizzati, riducendo così il footprint di sicurezza del server. 
+>È possibile configurare il server VPN di accesso remoto per supportare le connessioni IKEv2, disabilitando al tempo stesso i protocolli non usati, riducendo il footprint di sicurezza del server. 
 
 ## <a name="plan-ip-addresses-for-remote-clients"></a>Pianificare gli indirizzi IP per i client remoti
 
-È possibile configurare il server VPN per assegnare gli indirizzi IP da un server DHCP o indirizzi ai client VPN da un pool di indirizzi statici configurato. 
+È possibile configurare il server VPN per assegnare indirizzi ai client VPN da un pool di indirizzi statici configurato o da indirizzi IP da un server DHCP. 
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 
-- **Assicurarsi di disporre di autorizzazioni per configurare il firewall esterno e di disporre di un indirizzo IP pubblico valido**. Aprire le porte del firewall per supportare le connessioni VPN IKEv2. È anche necessario un indirizzo IP pubblico per accettare connessioni dai client esterni.
+- Assicurarsi **di disporre delle autorizzazioni per configurare il firewall esterno e di disporre di un indirizzo IP pubblico valido**. Aprire le porte del firewall per supportare le connessioni VPN IKEv2. È necessario anche un indirizzo IP pubblico per accettare le connessioni da client esterni.
 
-- **Scegliere un intervallo di indirizzi IP statici per i client VPN**. Determinare il numero massimo di client simultanei di VPN che si desidera supportare. Inoltre, pianificare un intervallo di indirizzi IP statici nella rete perimetrale interna per soddisfare tale requisito, vale a dire il *pool di indirizzi statici*. Se si usa DHCP per fornire indirizzi IP nella rete Perimetrale interno, si potrebbe essere necessario anche creare un'esclusione per gli indirizzi IP statici in DHCP.
+- **Scegliere un intervallo di indirizzi IP statici per i client VPN**. Determinare il numero massimo di client VPN simultanei che si desidera supportare. Pianificare anche un intervallo di indirizzi IP statici nella rete perimetrale interna per soddisfare tale requisito, ovvero il pool di *indirizzi statici*. Se si usa DHCP per fornire gli indirizzi IP nella rete perimetrale interna, potrebbe essere necessario anche creare un'esclusione per gli indirizzi IP statici in DHCP.
 
-- **Assicurarsi che è possibile modificare la zona DNS pubblica**. Aggiungere i record DNS per il dominio DNS pubblico per supportare l'infrastruttura VPN. 
+- Assicurarsi **di poter modificare la zona DNS pubblica**. Aggiungere i record DNS al dominio DNS pubblico per supportare l'infrastruttura VPN. 
 
-- **Assicurarsi che tutti gli utenti VPN dispongono di account utente in utente di Active Directory (AD DS)** . Prima che gli utenti possono connettersi alla rete con le connessioni VPN, devono avere account utente in Active Directory Domain Services.
+- Assicurarsi **che tutti gli utenti VPN dispongano di account utente in Active Directory utente (ad DS)** . Prima che gli utenti possano connettersi alla rete con le connessioni VPN, è necessario che dispongano di account utente in servizi di dominio Active Directory.
 
-## <a name="prepare-routing-and-firewall"></a>Preparare il Routing e del Firewall 
+## <a name="prepare-routing-and-firewall"></a>Preparare il routing e il firewall 
 
-Installare il server VPN nella rete perimetrale, che partiziona la rete perimetrale in una rete perimetrale interni ed esterni. A seconda dell'ambiente di rete, si potrebbe essere necessario apportare diverse modifiche al routing.
+Installare il server VPN all'interno della rete perimetrale, che esegue il partizionamento della rete perimetrale in reti perimetrali interne ed esterne. A seconda dell'ambiente di rete, potrebbe essere necessario apportare diverse modifiche al routing.
 
-- **(Facoltativo) Configurare il port forwarding.** Firewall perimetrale è necessario aprire le porte e protocolli ID associati a una VPN IKEv2 e li inoltrano al server VPN. Nella maggior parte degli ambienti, questa operazione richiede di configurare il port forwarding. Reindirizzare le porte Universal Datagram Protocol (UDP) 500 e 4500 per il server VPN.
+- **Opzionale Configurare l'invio di porte.** Il firewall perimetrale deve aprire le porte e gli ID di protocollo associati a una VPN IKEv2 e inviarli al server VPN. Nella maggior parte degli ambienti, in questo modo è necessario configurare l'invio delle porte. Reindirizza le porte UDP (Universal Datagram Protocol) 500 e 4500 al server VPN.
 
-- **Configurare il routing in modo che il server DNS e server VPN possano raggiungere Internet**. Questa distribuzione Usa IKEv2 e Network Address Translation (NAT). Assicurarsi che il server VPN possa raggiungere tutte le reti interne necessarie e le risorse di rete. Qualsiasi risorsa non è raggiungibile dal server VPN o rete è raggiungibile anche tramite connessioni VPN da posizioni remote.
+- **Configurare il routing in modo che i server DNS e i server VPN possano raggiungere Internet**. Questa distribuzione USA IKEv2 e Network Address Translation (NAT). Verificare che il server VPN sia in grado di raggiungere tutte le reti interne e le risorse di rete necessarie. Non è possibile raggiungere qualsiasi rete o risorsa irraggiungibile dal server VPN tramite connessioni VPN da posizioni remote.
 
-Nella maggior parte degli ambienti, per raggiungere la nuova rete perimetrale interna, regolare le route statiche nel firewall periferico e nel server VPN. In ambienti più complessi, tuttavia, potrebbe essere necessario aggiungere le route statiche ai router interno o modificare le regole del firewall interno per il server VPN e il blocco di indirizzi IP associati con i client VPN.
+Nella maggior parte degli ambienti, per raggiungere la nuova rete perimetrale interna, modificare le route statiche nel firewall perimetrale e nel server VPN. In ambienti più complessi, tuttavia, potrebbe essere necessario aggiungere route statiche ai router interni o modificare le regole interne del firewall per il server VPN e il blocco di indirizzi IP associati ai client VPN.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 2. Configurare l'infrastruttura Server](vpn-deploy-server-infrastructure.md): In questo passaggio installare e configurare i componenti lato server necessari per supportare la connessione VPN. I componenti lato server è inclusa la configurazione di infrastruttura a chiave pubblica per distribuire i certificati usati da utenti, il server VPN e il server NPS.
+[Passaggio 2. Configurare l'infrastruttura](vpn-deploy-server-infrastructure.md)server: In questo passaggio si installano e configurano i componenti lato server necessari per supportare la VPN. I componenti lato server includono la configurazione dell'infrastruttura a chiave pubblica per distribuire i certificati utilizzati dagli utenti, dal server VPN e dal server dei criteri di rete.

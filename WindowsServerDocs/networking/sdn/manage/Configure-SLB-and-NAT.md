@@ -1,6 +1,6 @@
 ---
 title: Configurare il servizio di bilanciamento del carico software per il bilanciamento del carico e Network Address Translation (NAT)
-description: Questo argomento fa parte della Guida di Software Defined Networking su come gestire i carichi di lavoro Tenant e reti virtuali in Windows Server 2016.
+description: Questo argomento fa parte della Guida Software Defined Networking su come gestire i carichi di lavoro e le reti virtuali dei tenant in Windows Server 2016.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,38 +13,38 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 70bc6aa6a1276506d81b56520b7e127cd271cc83
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446677"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867157"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Configurare il servizio di bilanciamento del carico software per il bilanciamento del carico e Network Address Translation (NAT)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su come usare il Software Defined Networking \(SDN\) bilanciamento del carico software \(SLB\) per fornire NAT in uscita \(NAT\), NAT in ingresso, o il bilanciamento del carico tra più istanze di un'applicazione.
+È possibile usare questo argomento per informazioni su come usare Software Defined Networking \(Sdn\) software Load Balancer \(SLB\) per fornire Network Address Translation \(NAT\)in uscita, NAT in ingresso o bilanciamento del carico tra più istanze di un'applicazione.
 
-## <a name="software-load-balancer-overview"></a>Panoramica del bilanciamento del carico software
+## <a name="software-load-balancer-overview"></a>Panoramica di Load Balancer software
 
-Il bilanciamento del carico Software SDN \(SLB\) offre alta disponibilità e prestazioni di rete per le applicazioni. Si tratta di un livello 4 \(TCP, UDP\) bilanciamento del carico che distribuisce il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali definite in un set di bilanciamento del carico.
+Il software Sdn Load Balancer \(SLB\) offre disponibilità elevata e prestazioni di rete per le applicazioni. È un servizio di bilanciamento \(del carico UDP\) di livello 4 che distribuisce il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali definite in un set di bilanciamento del carico.
 
-Configurare Bilanciamento del carico software per eseguire le operazioni seguenti:
+Configurare SLB per eseguire le operazioni seguenti:
 
-- Bilanciare il carico in ingresso esterno a una rete virtuale alle macchine virtuali \(macchine virtuali\), detto anche bilanciamento del carico di indirizzo VIP pubblico.
-- Carico bilanciare il traffico in ingresso tra le macchine virtuali in una rete virtuale, tra le macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. 
-- Inoltrare il traffico di rete della macchina virtuale dalla rete virtuale a destinazioni esterne tramite il protocollo NAT (NAT), chiamato anche NAT in uscita.
-- Inoltrare il traffico esterno a una VM specifica, detto anche NAT in ingresso.
-
-
+- Bilanciare il carico del traffico in ingresso esterno a una rete virtuale \(alle\)VM di macchine virtuali, detto anche bilanciamento del carico VIP pubblico.
+- Bilanciare il carico del traffico in ingresso tra le macchine virtuali in una rete virtuale, tra macchine virtuali in servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. 
+- Inviare il traffico di rete della macchina virtuale dalla rete virtuale a destinazioni esterne usando Network Address Translation (NAT), detto anche NAT in uscita.
+- Inviare il traffico esterno a una VM specifica, chiamata anche NAT in ingresso.
 
 
-## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Esempio: Creare un indirizzo VIP pubblico per un pool di due macchine virtuali in una rete virtuale di bilanciamento del carico
 
-In questo esempio, si crea un oggetto di bilanciamento del carico con un indirizzo VIP pubblico e due macchine virtuali come membri del pool per soddisfare le richieste all'indirizzo VIP. Questo esempio di codice aggiunge anche un probe di integrità HTTP per rilevare se uno dei membri del pool è diventato non risponde.
 
-1. Preparare l'oggetto di servizio di bilanciamento del carico.
+## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Esempio: Creare un indirizzo VIP pubblico per il bilanciamento del carico di un pool di due macchine virtuali in una rete virtuale
+
+In questo esempio viene creato un oggetto di bilanciamento del carico con un indirizzo VIP pubblico e due macchine virtuali come membri del pool per soddisfare le richieste all'indirizzo VIP. Questo codice di esempio aggiunge anche un probe di integrità HTTP per rilevare se uno dei membri del pool non risponde.
+
+1. Preparare l'oggetto del servizio di bilanciamento del carico.
 
    ```PowerShell
     import-module NetworkController
@@ -56,7 +56,7 @@ In questo esempio, si crea un oggetto di bilanciamento del carico con un indiriz
     $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-2. Assegnare un indirizzo IP front-end, noto come IP virtuale (VIP).<p>Deve essere l'indirizzo VIP da un indirizzo IP non usato in uno dei pool IP di rete logica specificato al gestore del servizio di bilanciamento del carico. 
+2. Assegnare un indirizzo IP front-end, comunemente definito IP virtuale (VIP).<p>Il VIP deve provenire da un indirizzo IP non usato in uno dei pool IP di rete logica assegnati al gestore del servizio di bilanciamento del carico. 
 
    ```PowerShell
     $VIPIP = "10.127.134.5"
@@ -75,7 +75,7 @@ In questo esempio, si crea un oggetto di bilanciamento del carico con un indiriz
     $LoadBalancerProperties.FrontEndIPConfigurations += $FrontEndIPConfig
    ```
 
-3. Allocare un pool di indirizzi back-end, che contiene gli indirizzi IP dinamici (DIP) che costituiscono i membri del set con bilanciamento del carico delle macchine virtuali. 
+3. Allocare un pool di indirizzi back-end che contiene gli indirizzi IP dinamici (DIP) che costituiscono i membri del set con carico bilanciato di macchine virtuali. 
 
    ```PowerShell 
     $BackEndAddressPool = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -87,10 +87,10 @@ In questo esempio, si crea un oggetto di bilanciamento del carico con un indiriz
     $LoadBalancerProperties.backendAddressPools += $BackEndAddressPool
    ```
 
-4. Definire un probe di integrità servizio di bilanciamento del carico Usa per determinare lo stato dei membri del pool back-end.<p>In questo esempio è definire un probe HTTP che esegue una query per il RequestPath di "/ health.htm."  La query viene eseguita ogni 5 secondi, come specificato dalla proprietà IntervalInSeconds.<p>Il probe di integrità deve ricevere un codice di risposta HTTP 200 per query consecutive 11 per il probe da prendere in considerazione l'indirizzo IP back-end integre. Se l'indirizzo IP back-end non è integro, non riceve il traffico dal bilanciamento del carico.
+4. Definire un probe di integrità usato dal servizio di bilanciamento del carico per determinare lo stato di integrità dei membri del pool back-end.<p>In questo esempio viene definito un probe HTTP che esegue una query su RequestPath di "/Health.htm."  La query viene eseguita ogni 5 secondi, come specificato dalla proprietà IntervalInSeconds.<p>Il probe di integrità deve ricevere un codice di risposta HTTP 200 per 11 query consecutive affinché il probe consideri l'IP back-end in modo che sia integro. Se l'indirizzo IP back-end non è integro, non riceve il traffico dal servizio di bilanciamento del carico.
 
    >[!IMPORTANT]
-   >Non bloccare il traffico da o verso il primo indirizzo IP nella subnet per qualsiasi controllo elenchi di accesso (ACL) che applicano all'IP back-end perché questo è il punto di origine per i probe.
+   >Non bloccare il traffico verso o dal primo IP nella subnet per gli elenchi di controllo di accesso (ACL) applicati all'IP back-end, perché si tratta del punto di origine per i probe.
 
    Usare l'esempio seguente per definire un probe di integrità.
 
@@ -109,7 +109,7 @@ In questo esempio, si crea un oggetto di bilanciamento del carico con un indiriz
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5. Definire una regola per inviare il traffico che raggiunge l'indirizzo IP front-end all'IP back-end di bilanciamento del carico.  In questo esempio, il pool back-end riceve il traffico TCP sulla porta 80.<p>Per definire una regola di bilanciamento del carico, usare l'esempio seguente:
+5. Definire una regola di bilanciamento del carico per inviare il traffico che arriva all'indirizzo IP front-end all'indirizzo IP back-end.  In questo esempio, il pool back-end riceve il traffico TCP sulla porta 80.<p>Usare l'esempio seguente per definire una regola di bilanciamento del carico:
 
    ```PowerShell
    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
@@ -127,20 +127,20 @@ In questo esempio, si crea un oggetto di bilanciamento del carico con un indiriz
    $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
-6. Aggiungere la configurazione di bilanciamento del carico al Controller di rete.<p>Usare l'esempio seguente per aggiungere la configurazione di bilanciamento del carico al Controller di rete:
+6. Aggiungere la configurazione del servizio di bilanciamento del carico al controller di rete.<p>Usare l'esempio seguente per aggiungere la configurazione del servizio di bilanciamento del carico al controller di rete:
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-7. Seguire l'esempio successivo per aggiungere le interfacce di rete a questo pool back-end.
+7. Seguire l'esempio seguente per aggiungere le interfacce di rete a questo pool back-end.
 
 
 ## <a name="example-use-slb-for-outbound-nat"></a>Esempio: Usare SLB per NAT in uscita
 
-In questo esempio, si configura il bilanciamento del carico software con un pool di back-end per fornire funzionalità NAT in uscita per una macchina virtuale in spazio di indirizzi privato della rete virtuale raggiungere in uscita a internet. 
+In questo esempio viene configurato SLB con un pool back-end per fornire la funzionalità NAT in uscita per una VM nello spazio degli indirizzi privato di una rete virtuale per raggiungere il traffico in uscita verso Internet. 
 
-1. Creare la proprietà del servizio di bilanciamento del carico, IP front-end e pool back-end.
+1. Creare le proprietà del servizio di bilanciamento del carico, l'indirizzo IP front-end e il pool back-end.
 
    ```PowerShell
     import-module NetworkController
@@ -187,20 +187,20 @@ In questo esempio, si configura il bilanciamento del carico software con un pool
     $LoadBalancerProperties.OutboundNatRules += $OutboundNAT
    ```
 
-3. Aggiungere l'oggetto di servizio di bilanciamento del carico in Controller di rete.
+3. Aggiungere l'oggetto del servizio di bilanciamento del carico nel controller di rete.
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-4. Seguire l'esempio successivo per aggiungere le interfacce di rete a cui si desidera fornire l'accesso a internet.
+4. Seguire l'esempio seguente per aggiungere le interfacce di rete a cui si vuole fornire l'accesso a Internet.
 
-## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Esempio: Aggiungere interfacce di rete al pool di back-end
-In questo esempio, si aggiungere interfacce di rete al pool back-end.  È necessario ripetere questo passaggio per ogni interfaccia di rete in grado di elaborare le richieste effettuate all'indirizzo VIP. 
+## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Esempio: Aggiungere interfacce di rete al pool back-end
+In questo esempio si aggiungono interfacce di rete al pool back-end.  È necessario ripetere questo passaggio per ogni interfaccia di rete in grado di elaborare le richieste effettuate all'indirizzo VIP. 
 
-È anche possibile ripetere questo processo in una singola interfaccia di rete per aggiungerlo a più oggetti di servizio di bilanciamento di carico. Ad esempio, se si dispone di un oggetto di bilanciamento del carico per un indirizzo IP virtuale server web e un oggetto di servizio di bilanciamento del carico separato per fornire NAT in uscita.
+È anche possibile ripetere questo processo su una singola interfaccia di rete per aggiungerla a più oggetti del servizio di bilanciamento del carico. Ad esempio, se si dispone di un oggetto di bilanciamento del carico per un indirizzo VIP del server Web e di un oggetto del servizio di bilanciamento del carico separato per fornire NAT in uscita.
     
-1. Ottiene l'oggetto di bilanciamento del carico che contiene il pool back-end per aggiungere un'interfaccia di rete.
+1. Ottenere l'oggetto del servizio di bilanciamento del carico contenente il pool back-end per aggiungere un'interfaccia di rete.
 
    ```PowerShell
    $lbresourceid = "LB2"
@@ -221,16 +221,16 @@ In questo esempio, si aggiungere interfacce di rete al pool back-end.  È necess
    ``` 
 
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Esempio: Usare il servizio di bilanciamento del carico Software per l'inoltro del traffico
-Se è necessario eseguire il mapping di un indirizzo IP virtuale a una singola interfaccia di rete in una rete virtuale senza definire le singole porte, è possibile creare una regola di inoltro L3.  Questa regola consente di inoltrare tutto il traffico da e verso la macchina virtuale tramite l'indirizzo VIP assegnato contenuto in un oggetto indirizzo IP pubblico.
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Esempio: Usare il software Load Balancer per l'invio del traffico
+Se è necessario eseguire il mapping di un indirizzo IP virtuale a una singola interfaccia di rete in una rete virtuale senza definire singole porte, è possibile creare una regola di invio L3.  Questa regola trasmette tutto il traffico da e verso la macchina virtuale tramite l'indirizzo VIP assegnato contenuto in un oggetto PublicIPAddress.
 
-Se è stato definito l'indirizzo VIP e DIP della stessa subnet, quindi questa operazione equivale a eseguire l'inoltro L3 senza NAT.
+Se è stato definito il VIP e DIP come stessa subnet, equivale a eseguire l'invio L3 senza NAT.
 
 >[!NOTE]
->Questo processo non richiede di creare un oggetto di bilanciamento del carico.  Assegnare l'indirizzo IP pubblico all'interfaccia di rete è informazioni sufficienti per il bilanciamento del carico Software eseguire la configurazione.
+>Questo processo non richiede la creazione di un oggetto del servizio di bilanciamento del carico.  L'assegnazione di PublicIPAddress all'interfaccia di rete è un numero sufficiente di informazioni per consentire al software Load Balancer di eseguire la propria configurazione.
 
 
-1. Creare un oggetto IP pubblico per contenere l'indirizzo VIP.
+1. Creare un oggetto IP pubblico che contenga l'indirizzo VIP.
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -240,7 +240,7 @@ Se è stato definito l'indirizzo VIP e DIP della stessa subnet, quindi questa op
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. Assegnare l'indirizzo IP pubblico a un'interfaccia di rete.
+2. Assegnare PublicIPAddress a un'interfaccia di rete.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
@@ -248,10 +248,10 @@ Se è stato definito l'indirizzo VIP e DIP della stessa subnet, quindi questa op
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Esempio: Usare il servizio di bilanciamento del carico Software per inoltrare il traffico con un indirizzo IP virtuale allocato in modo dinamico
-In questo esempio si ripete la stessa azione dell'esempio precedente, ma alloca automaticamente l'indirizzo VIP dal pool di indirizzi VIP disponibili nel servizio di bilanciamento del carico anziché specificare un indirizzo IP specifico. 
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Esempio: Usare il Load Balancer software per l'invio del traffico con un indirizzo VIP allocato in modo dinamico
+In questo esempio viene ripetuta la stessa azione dell'esempio precedente, ma viene automaticamente allocato l'indirizzo VIP dal pool di indirizzi VIP disponibile nel servizio di bilanciamento del carico invece di specificare un indirizzo IP specifico. 
 
-1. Creare un oggetto IP pubblico per contenere l'indirizzo VIP.
+1. Creare un oggetto IP pubblico che contenga l'indirizzo VIP.
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -260,7 +260,7 @@ In questo esempio si ripete la stessa azione dell'esempio precedente, ma alloca 
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. Eseguire una query della risorsa indirizzo IP pubblico per stabilire quale è stato assegnato l'indirizzo IP.
+2. Eseguire una query sulla risorsa PublicIPAddress per determinare l'indirizzo IP assegnato.
 
    ```PowerShell
     (Get-NetworkControllerPublicIpAddress -ConnectionUri $uri -ResourceId "MyPIP").properties
@@ -280,17 +280,17 @@ In questo esempio si ripete la stessa azione dell'esempio precedente, ma alloca 
     PreviousIpConfiguration  :
    ```
  
-3. Assegnare l'indirizzo IP pubblico a un'interfaccia di rete.
+3. Assegnare PublicIPAddress a un'interfaccia di rete.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Esempio: Rimuovere un indirizzo IP pubblico che viene utilizzato per l'inoltro del traffico e restituirla al pool di indirizzi VIP
-   In questo esempio rimuove la risorsa indirizzo IP pubblico creato negli esempi precedenti.  Una volta rimosso l'indirizzo IP pubblico, il riferimento al valore PublicIPAddress verrà rimossi automaticamente dall'interfaccia di rete, il traffico interromperà l'inoltro e l'indirizzo IP verrà restituito al pool di indirizzi VIP pubblici per essere riusata.  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Esempio: Rimuovere un indirizzo IP pubblico usato per l'invio del traffico e restituirlo al pool VIP
+   Questo esempio Mostra come rimuovere la risorsa PublicIPAddress creata dagli esempi precedenti.  Una volta rimosso il PublicIPAddress, il riferimento al PublicIPAddress verrà rimosso automaticamente dall'interfaccia di rete, il traffico verrà interrotto e l'indirizzo IP verrà restituito al pool di indirizzi VIP pubblici per il riutilizzo.  
 
-4. Rimuovere l'indirizzo IP pubblico
+4. Rimuovere IP pubblico
 
    ```PowerShell
    Remove-NetworkControllerPublicIPAddress -ConnectionURI $uri -ResourceId "MyPIP"

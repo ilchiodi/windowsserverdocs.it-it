@@ -9,15 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7891f1d0b96df84e8ac4f3eb670f30350d3c194c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: cd5ca15a9e098f60c6c82980e3148ebcf9ee9932
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188436"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869340"
 ---
 # <a name="the-role-of-the-claims-pipeline"></a>Ruolo delle pipeline delle attestazioni
-La pipeline delle attestazioni in Active Directory Federation Services \(ADFS\) rappresenta il percorso che le attestazioni devono seguire attraverso il servizio federativo prima che possano essere rilasciati. Il servizio federativo gestisce la fine intera\-a\-Termina processo di propagazione attestazioni le varie fasi della pipeline di attestazioni, che include anche l'elaborazione delle regole attestazione dal motore regole attestazione.  
+La pipeline delle attestazioni \(in\) Active Directory Federation Services ad FS rappresenta il percorso che le attestazioni devono seguire attraverso il servizio federativo prima che possano essere rilasciate. Il servizio federativo gestisce la fine intera\-a\-Termina processo di propagazione attestazioni le varie fasi della pipeline di attestazioni, che include anche l'elaborazione delle regole attestazione dal motore regole attestazione.  
   
 Per ulteriori informazioni sulle regole di attestazione, vedere [ruolo delle attestazioni regole](The-Role-of-Claim-Rules.md). Per altre informazioni su come il motore delle regole attestazioni elabora le regole, vedere [The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md).  
   
@@ -36,7 +36,7 @@ Tutte e tre le fasi eseguono l'elaborazione delle regole di attestazione, ma usa
   
 Le attestazioni sono token\-indipendente ma che vengono trasmessi in rete incapsulata nei token di sicurezza. Le regole attestazioni vengono applicate alle attestazioni indipendentemente dal formato del token di sicurezza in ingresso o in uscita.  
   
-Attestazioni regole contengono l'amministratore\-logica definita mediante il quale il motore delle attestazioni verrà accettati le attestazioni in ingresso, autorizzare le attestazioni in base all'identità del richiedente e rilasciano attestazioni che sono necessari per una relying party. Infine, è il motore delle attestazioni a determinare quali attestazioni entreranno nel token di sicurezza che verrà rilasciato al termine del flusso dell'attestazione nella pipeline delle attestazioni.  
+Le regole delle attestazioni\-contengono la logica definita dall'amministratore mediante la quale il motore delle attestazioni accetterà le attestazioni in ingresso, autorizzerà le attestazioni in base all'identità del richiedente e rilascia le attestazioni richieste da un relying party. Infine, è il motore delle attestazioni a determinare quali attestazioni entreranno nel token di sicurezza che verrà rilasciato al termine del flusso dell'attestazione nella pipeline delle attestazioni.  
   
 Come illustrato nella figura seguente, la pipeline delle attestazioni è responsabile per l'intera entità finale\-a\-Termina processo di propagazione di un'attestazione le varie fasi della pipeline per finire con un'attestazione emessa che verrà inviata tramite un trust della relying party. L'attestazione in uscita nell'illustrazione rappresenta l'attestazione rilasciata.  
   

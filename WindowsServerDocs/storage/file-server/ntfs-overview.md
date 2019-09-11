@@ -1,6 +1,6 @@
 ---
 title: Panoramica di NTFS
-description: Spiegazione delle novità di NTFS.
+description: Una spiegazione della funzionalità NTFS.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,96 +8,96 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e45fd1eb13044fdf0ba0f66a6e909a3f2d39bc3
-ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
+ms.openlocfilehash: e43d0520f97f28af54f794daf7ad263bc9928fac
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196161"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867353"
 ---
 # <a name="ntfs-overview"></a>Panoramica di NTFS
 
->Si applica a: Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>Si applica a Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-NTFS, ovvero il file system primario delle versioni recenti di Windows e Windows Server, fornisce un set completo di funzionalità, tra cui i descrittori di protezione, crittografia, le quote disco e metadata complessi e può essere usato con volumi condivisi Cluster (CSV) per fornire in modo continuo volumi disponibili che possono accedere contemporaneamente da più nodi di un cluster di failover.
+NTFS, il file system principale per le versioni recenti di Windows e Windows Server, offre un set completo di funzionalità, tra cui descrittori di sicurezza, crittografia, quote disco e metadati avanzati, e può essere usato con volumi condivisi cluster (CSV) per fornire continuamente volumi disponibili a cui è possibile accedere simultaneamente da più nodi di un cluster di failover.
 
-Per altre informazioni sulle funzionalità nuove e modificate in NTFS in Windows Server 2012 R2, vedere [What ' s New in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)). Per informazioni sulle funzionalità aggiuntive, vedere la [informazioni aggiuntive](#additional-information) sezione di questo argomento. Per altre informazioni sulle più recenti Resilient File System (ReFS), vedere [Panoramica di Resilient File System (ReFS)](../refs/refs-overview.md).
+Per ulteriori informazioni sulle funzionalità nuove e modificate in NTFS in Windows Server 2012 R2, vedere Novità [di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)). Per ulteriori informazioni sulle funzionalità, vedere la sezione [informazioni aggiuntive](#additional-information) in questo argomento. Per ulteriori informazioni su ReFS (Resilient file System), vedere Panoramica di [Resilient file System (Refs)](../refs/refs-overview.md).
 
 ## <a name="practical-applications"></a>Applicazioni pratiche
 
 ### <a name="increased-reliability"></a>Una maggiore affidabilità
 
-NTFS utilizza le informazioni di checkpoint e file di log per ripristinare la coerenza del file system quando il computer viene riavviato dopo un errore di sistema. Dopo un errore di settori danneggiati, NTFS in modo dinamico esegue un nuovo mapping del cluster che contiene il settore danneggiato, alloca un nuovo cluster per i dati, contrassegna il cluster originale non valido e non viene più utilizzato il vecchio cluster. Ad esempio, dopo un arresto anomalo del server, NTFS può ripristinare i dati riproducendo i file di log.
+NTFS utilizza le informazioni relative al file di log e al checkpoint per ripristinare la coerenza del file system quando il computer viene riavviato dopo un errore di sistema. Dopo un errore di settore non valido, NTFS esegue automaticamente il mapping del cluster che contiene il settore danneggiato, alloca un nuovo cluster per i dati, contrassegna il cluster originale come non valido e non usa più il vecchio cluster. Ad esempio, dopo un arresto anomalo del server, NTFS è in grado di ripristinare i dati riproducendo i file di log.
 
-NTFS monitora continuamente e corregge i problemi di danneggiamento temporanei in background senza portare offline il volume (questa funzionalità è detta [correzione automatica di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)), introdotta in Windows Server 2008). Per problemi di danneggiamento dei più grandi, l'utilità Chkdsk in Windows Server 2012 e versioni successive, analizza e analizza le unità, mentre il volume è online, la limitazione di tempo offline per il tempo necessario per ripristinare la coerenza dei dati nel volume. Quando NTFS viene usato con volumi condivisi del Cluster, non è necessario alcun tempo di inattività. Per altre informazioni, vedere [Integrità NTFS e Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11)).
+NTFS monitora e corregge continuamente i problemi di danneggiamento temporaneo in background senza portare il volume offline. questa funzionalità è nota come NTFS con correzione [automatica](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)), introdotta in Windows Server 2008. Per i problemi di danneggiamento più grandi, l'utilità Chkdsk, in Windows Server 2012 e versioni successive, analizza e analizza l'unità mentre il volume è online, limitando il tempo offline al tempo necessario per ripristinare la coerenza dei dati nel volume. Quando NTFS viene usato con volumi condivisi del cluster, non è necessario alcun tempo di inattività. Per altre informazioni, vedere [Integrità NTFS e Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11)).
 
-### <a name="increased-security"></a>Una maggiore sicurezza
+### <a name="increased-security"></a>Maggiore sicurezza
 
-- **In base al controllo elenco ACL di sicurezza per i file e cartelle**: NTFS è possibile impostare autorizzazioni su un file o cartella, specificare i gruppi e utenti per cui si desidera limitare o consentire l'accesso e selezionare il tipo di accesso.
+- **Sicurezza basata sull'elenco di controllo di accesso (ACL) per file e cartelle**: NTFS consente di impostare le autorizzazioni per un file o una cartella, specificare i gruppi e gli utenti di cui si vuole limitare o consentire l'accesso e selezionare tipo di accesso.
 
-- **Supporto per crittografia unità BitLocker**: crittografia unità BitLocker offre sicurezza aggiuntiva per le informazioni di sistema critici e altri dati archiviati in volumi NTFS. Partire da Windows Server 2012 R2 e Windows 8.1, BitLocker offre supporto per la crittografia del dispositivo nei computer x86 e basate su x64 con un Trusted Platform Module (TPM) che supporta lo standby connesso (in precedenza disponibili solo nei dispositivi Windows RT). Crittografia del dispositivo consente di proteggere i dati nei computer basati su Windows, e consente di impedire agli utenti malintenzionati di accedere ai file di sistema si basano su per individuare la password dell'utente, o accedere a un'unità rimuovendola dal PC fisicamente e installandolo in un uno diverso. Per altre informazioni, vedere [quali sono le novità di BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn306081(v%3dws.11)).
+- **Supporto per crittografia unità BitLocker**: crittografia unità BitLocker fornisce sicurezza aggiuntiva per informazioni di sistema critiche e altri dati archiviati in volumi NTFS. A partire da Windows Server 2012 R2 e Windows 8.1, BitLocker fornisce supporto per la crittografia dei dispositivi nei computer x86 e x64 con una Trusted Platform Module (TPM) che supporta la modalità standby connessa (disponibile in precedenza solo nei dispositivi Windows RT). La crittografia del dispositivo consente di proteggere i dati nei computer basati su Windows e contribuisce a impedire agli utenti malintenzionati di accedere ai file di sistema su cui si basano per individuare la password dell'utente o di accedere a un'unità rimuovendo fisicamente dal PC e installando il file in un un altro. Per ulteriori informazioni, vedere Novità [di BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn306081(v%3dws.11)).
 
-- **Supporto per volumi di grandi dimensioni**: NTFS può supportare volumi di dimensioni pari a 256 TB. Volume con dimensioni sono interessate dalle dimensioni del cluster e il numero di cluster è supportata. Con (2<sup>32</sup> – 1) sono supportati i cluster (il numero massimo di cluster che supporta NTFS), il volume seguente e le dimensioni dei file.
+- **Supporto per volumi di grandi dimensioni**: NTFS può supportare volumi di dimensioni pari a 256 terabyte. Le dimensioni del volume supportate sono influenzate dalle dimensioni del cluster e dal numero di cluster. Con (2<sup>32</sup> -1) cluster (il numero massimo di cluster supportati da NTFS), sono supportate le dimensioni del volume e dei file seguenti.
 
-  |Dimensione del cluster|Volume più grande|File di dimensioni maggiori|
+  |Dimensioni del cluster|Volume più grande|File più grande|
   |---|---|---|
   |4 KB (dimensione predefinita)|16 TB|16 TB|
   |8 KB|32 TB|32 TB|
   |16 KB|64 TB|64 TB|
   |32 KB|128 TB|128 TB|
-  |64 KB (dimensione massima)|256 TB|256 TB|
+  |64 KB (dimensioni massime)|256 TB|256 TB|
 
 >[!IMPORTANT]
->Servizi e App imponga limiti aggiuntivi sulle dimensioni di file e il volume. Ad esempio, la dimensione massima volume è 64 TB se si usa la funzionalità versioni precedenti o un'app di backup che consente di usare gli snapshot servizio Copia Shadow del Volume (VSS) (e non si usa un'enclosure RAID o SAN). Tuttavia, si potrebbe essere necessario usare i volumi di dimensioni inferiori a seconda del carico di lavoro e le prestazioni delle risorse di archiviazione.
+>I servizi e le app potrebbero imporre limiti aggiuntivi sulle dimensioni dei file e dei volumi. Il limite delle dimensioni del volume, ad esempio, è 64 TB se si usa la funzionalità versioni precedenti o un'app di backup che usa gli snapshot Servizio Copia Shadow del volume (VSS) e non si usa un'enclosure SAN o RAID. Tuttavia, potrebbe essere necessario usare dimensioni del volume inferiori a seconda del carico di lavoro e delle prestazioni dell'archiviazione.
 
 ### <a name="formatting-requirements-for-large-files"></a>Requisiti di formattazione per file di grandi dimensioni
 
-Per consentire l'estensione corretta dei file vhdx di grandi dimensioni, sono disponibili nuove raccomandazioni per la formattazione di volumi. Quando si formatta i volumi che verranno usati con la deduplicazione dei dati è o saranno ospitata file molto grandi, ad esempio file con estensione vhdx superiori a 1 TB, usare il **Format-Volume** cmdlet in Windows PowerShell con i parametri seguenti.
+Per consentire l'estensione corretta di file VHDX di grandi dimensioni, sono disponibili nuove raccomandazioni per la formattazione dei volumi. Quando si formattano i volumi che verranno usati con la deduplicazione dati o si ospitano file di grandi dimensioni, ad esempio file con estensione VHDX di dimensioni superiori a 1 TB, usare il cmdlet **Format-volume** in Windows PowerShell con i parametri seguenti.
 
 |Parametro|Descrizione|
 |---|---|
-|-AllocationUnitSize 64KB|Imposta una dimensione di unità di allocazione NTFS 64 KB.|
-|-UseLargeFRS|Abilita il supporto per segmenti di record di grandi dimensioni file (FRS). È necessario aumentare il numero di extent consentito per ogni file nel volume. Per record del servizio Replica file di grandi dimensioni, il limite aumenta da extent circa 1,5 milioni per gli extent di circa 6 milioni.|
+|-AllocationUnitSize 64KB|Imposta una dimensione dell'unità di allocazione NTFS di 64 KB.|
+|-UseLargeFRS|Abilita il supporto per i segmenti di record di file di grandi dimensioni (FRS). Questa operazione è necessaria per aumentare il numero di extent consentiti per ogni file nel volume. Per i record FRS di grandi dimensioni, il limite aumenta da circa 1,5 milioni extent a circa 6 milioni extent.|
 
-Ad esempio, i formati di cmdlet seguenti l'unità D come volume NTFS, con il servizio Replica file abilitata e una dimensione di unità di allocazione di 64 KB.
+Il cmdlet seguente, ad esempio, formatta l'unità D come volume NTFS, con FRS abilitato e una dimensione dell'unità di allocazione di 64 KB.
 
 ```PowerShell
 Format-Volume -DriveLetter D -FileSystem NTFS -AllocationUnitSize 64KB -UseLargeFRS
 ```
 
-È anche possibile usare la **formato** comando. Un prompt dei comandi di sistema, immettere il comando seguente, dove **/L** formatta un volume elevato di FRS e **/A:64 k** imposta una dimensione di unità di allocazione di 64 KB:
+È anche possibile usare il **formato** comando. Al prompt dei comandi di sistema, immettere il comando seguente, dove **/l** formatta un volume FRS di grandi dimensioni e **/a: 64K** imposta una dimensione dell'unità di allocazione di 64 KB:
 
 ```PowerShell
 format /L /A:64k
 ```
 
-### <a name="maximum-file-name-and-path"></a>Percorso e nome file massima
+### <a name="maximum-file-name-and-path"></a>Nome file e percorso massimi
 
-NTFS supporta nomi di file lunghi e sui percorsi estesi a lunghezza, con i valori massimi seguenti:
+NTFS supporta nomi di file lunghi e percorsi a lunghezza estesa con i valori massimi seguenti:
 
-- **Supporto per i nomi di file di lunga durata, con compatibilità con le versioni precedenti**: NTFS è nomi file lunghi, archiviare un 8.3 alias su disco (in formato Unicode) per garantire la compatibilità con sistemi di file che è previsto un limite 8.3 per i nomi di file ed estensioni. Se necessario (per motivi di prestazioni), è possibile disabilitare in modo selettivo gli alias 8.3 nei singoli volumi NTFS in Windows Server 2008 R2, Windows 8 e versioni più recenti del sistema operativo Windows.
-  In Windows Server 2008 R2 e successive, i nomi brevi sono disabilitati per impostazione predefinita quando si formatta un volume con il sistema operativo. Compatibilità delle applicazioni, i nomi brevi ancora sono abilitati nel volume di sistema.
+- **Supporto per nomi di file lunghi, con compatibilità con le versioni precedenti**: NTFS consente nomi di file lunghi, archiviando un alias 8,3 su disco (in Unicode) per garantire la compatibilità con i file System che impongono un limite di 8,3 per i nomi di file e le estensioni. Se necessario, per motivi di prestazioni, è possibile disabilitare selettivamente gli alias 8,3 nei singoli volumi NTFS in Windows Server 2008 R2, Windows 8 e versioni più recenti del sistema operativo Windows.
+  Nei sistemi Windows Server 2008 R2 e versioni successive, i nomi brevi sono disabilitati per impostazione predefinita quando un volume viene formattato con il sistema operativo. Per la compatibilità delle applicazioni, i nomi brevi sono ancora abilitati nel volume di sistema.
 
-- **Il supporto dei percorsi di lunghezza esteso**: molte API di Windows funzioni hanno versioni di Unicode che consentono un percorso di lunghezza esteso di circa 32.767 caratteri, ovvero oltre il limite di 260 caratteri percorso definito per il numero massimo di\_impostazione del percorso. Nome del file dei dettagli e i requisiti di formato di percorso e indicazioni per l'implementazione di percorsi estesi a lunghezza, vedere [denominazione di file, percorsi e spazi dei nomi](https://msdn.microsoft.com/library/windows/desktop/aa365247).
+- **Supporto per percorsi a lunghezza estesa**: molte funzioni API Windows hanno versioni Unicode che consentono un percorso di lunghezza estesa di circa 32.767 caratteri, oltre il limite del percorso di 260 caratteri definito dall'impostazione\_del percorso massimo. Per i requisiti dettagliati per il nome e il formato del percorso e per l'implementazione di percorsi a lunghezza estesa, vedere [denominazione di file, percorsi e spazi dei nomi](https://msdn.microsoft.com/library/windows/desktop/aa365247).
 
-- **Archiviazione in cluster**: quando usati nei cluster di failover, NTFS supporta volumi continuamente disponibili che sono accessibili da più nodi del cluster contemporaneamente quando usato in combinazione con il file system di volumi condivisi Cluster (CSV). Per altre informazioni, vedere [usare volumi condivisi Cluster in un Cluster di Failover](../../failover-clustering/failover-cluster-csvs.md).
+- **Archiviazione in cluster**: se usato nei cluster di failover, NTFS supporta i volumi continuamente disponibili a cui è possibile accedere contemporaneamente da più nodi del cluster se usati insieme ai volumi condivisi del cluster (CSV) file System. Per ulteriori informazioni, vedere [utilizzare volumi condivisi cluster in un cluster di failover](../../failover-clustering/failover-cluster-csvs.md).
 
-### <a name="flexible-allocation-of-capacity"></a>Assegnazione flessibile della capacità
+### <a name="flexible-allocation-of-capacity"></a>Allocazione flessibile della capacità
 
-Se lo spazio su un volume è limitato, NTFS nei seguenti modi per lavorare con la capacità di archiviazione di un server:
+Se lo spazio su un volume è limitato, NTFS fornisce i modi seguenti per lavorare con la capacità di archiviazione di un server:
 
-- Usare le quote disco per tenere traccia e controllare l'utilizzo di spazio su disco nei volumi NTFS per i singoli utenti.
-- Utilizzare la compressione del file per ottimizzare la quantità di dati che possono essere archiviati.
-- Aumentare le dimensioni di un volume NTFS mediante l'aggiunta di spazio non allocato dallo stesso disco o da un altro disco.
-- Montare un volume in una cartella vuota in un volume NTFS locale se si esaurisce le lettere di unità o è necessario creare spazio aggiuntivo che è accessibile da una cartella esistente.
+- Usare le quote disco per tenere traccia e controllare l'utilizzo dello spazio su disco nei volumi NTFS per i singoli utenti.
+- Utilizzare la compressione file system per ottimizzare la quantità di dati che è possibile archiviare.
+- Aumentare le dimensioni di un volume NTFS aggiungendo spazio non allocato dallo stesso disco o da un disco diverso.
+- Montare un volume in qualsiasi cartella vuota in un volume NTFS locale se si esauriscono le lettere di unità oppure è necessario creare ulteriore spazio accessibile da una cartella esistente.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
-- [Consigli relativi alle dimensioni del cluster per NTFS e ReFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
-- [Panoramica di resilient File System (ReFS)](../refs/refs-overview.md)
-- [Che cosa sono le novità di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)
-- [Che cosa sono le novità di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)
-- [Integrità di NTFS e CHKDSK](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))
-- [Riparazione automatica di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) (introdotta in Windows Server 2008)
-- [Transactional NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (introdotta in Windows Server 2008)
+- [Consigli sulle dimensioni del cluster per ReFS e NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [Panoramica di Resilient file System (ReFS)](../refs/refs-overview.md)
+- [Novità di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)
+- [Novità di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)
+- [Integrità NTFS e CHKDSK](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))
+- [Correzione automatica di NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) (introdotta in Windows Server 2008)
+- [NTFS transazionale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (introdotta in Windows Server 2008)
 - [Archiviazione in Windows Server](../storage.md)

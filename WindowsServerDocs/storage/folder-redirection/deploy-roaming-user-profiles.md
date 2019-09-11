@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560549"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867286"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Distribuzione dei profili utente mobili
 
@@ -64,7 +64,7 @@ Se si decide di usare profili utente mobili in più versioni di Windows è consi
 - Usare il Reindirizzamento cartelle per archiviare i file utente, quali documenti e immagini all'esterno dei profili utente. Ciò rende disponibili gli stessi file agli utenti di versioni differenti del sistema operativo e consente anche di contenere le dimensioni dei profili e di accelerare gli accessi.
 - Prevedere risorse di archiviazione sufficienti per i profili utente mobili Se si supportano due versioni del sistema operativo, il numero dei profili raddoppia (e di conseguenza anche lo spazio totale consumato) perché viene mantenuto un profilo separato per ogni versione del sistema operativo.
 - Non usare i profili utente mobili su computer che eseguono Windows Vista/Windows Server 2008 e Windows 7/Windows Server 2008 R2. Il roaming tra queste versioni del sistema operativo non è supportato a causa di incompatibilità nelle rispettive versioni del profilo.
-- Informare gli utenti che non verrà effettuato il roaming delle modifiche apportate da una versione a un'altra del sistema operativo.
+- Informare gli utenti che le modifiche apportate a una versione del sistema operativo non verranno spostate in un'altra versione del sistema operativo.
 - Quando si trasferisce l'ambiente a una versione di Windows che usa una versione diversa del profilo, ad esempio da Windows 10 a Windows 10, versione [1607, vedere l'Appendice B: Informazioni di riferimento sulla](#appendix-b-profile-version-reference-information) versione del profilo per un elenco), gli utenti ricevono un nuovo profilo utente mobile vuoto. È possibile ridurre al minimo l'effetto di ottenere un nuovo profilo usando il reindirizzamento cartelle per reindirizzare le cartelle comuni. Non esiste un metodo supportato per la migrazione dei profili utente mobili da una versione del profilo a un'altra.
 
 ## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Passaggio 1: Abilitare l'uso delle versioni di profili separati
@@ -73,7 +73,7 @@ Se si distribuiscono profili utente mobili su computer che eseguono Windows 8.1,
 
 Per apportare queste modifiche, usare la procedura seguente.
 
-1. Scaricare e installare l'aggiornamento software appropriato su tutti i computer sui quali si userà il roaming (profili predefiniti obbligatori, super obbligatori o predefiniti di dominio):
+1. Scaricare e installare l'aggiornamento software appropriato in tutti i computer in cui verranno usati i profili di roaming, obbligatori, Super-obbligatori o predefiniti di dominio:
 
     - Windows 8.1 o Windows Server 2012 R2: installare l'aggiornamento software descritto nell'articolo [2887595](http://support.microsoft.com/kb/2887595) della Microsoft Knowledge base (quando rilasciato).
     - Windows 8 o Windows Server 2012: installare l'aggiornamento del software descritto nell'articolo [2887239](http://support.microsoft.com/kb/2887239) della Microsoft Knowledge Base.
@@ -118,7 +118,7 @@ Se non si dispone già di una condivisione file separata per i profili utente mo
 
 Ecco come creare una condivisione file in Windows Server:
 
-1. Nel riquadro di spostamento Server Manager selezionare **Servizi file e archiviazione**e quindi selezionare condivisioni per visualizzare la pagina condivisioni.
+1. Nel riquadro di spostamento Server Manager selezionare **Servizi file e archiviazione**e quindi selezionare **condivisioni** per visualizzare la pagina condivisioni.
 2. Nel riquadro condivisioni selezionare **attività**, quindi selezionare **nuova condivisione**. Verrà visualizzata la Creazione guidata nuova condivisione.
 3. Nella pagina **Seleziona profilo** selezionare **condivisione SMB-rapida**. Se Gestione risorse file server è installato e si usano le proprietà di gestione delle cartelle, selezionare invece **condivisione SMB-avanzate**.
 4. Nella pagina **Percorso condivisione** selezionare il server e il volume sui quali creare la condivisione.
@@ -208,11 +208,11 @@ Di seguito viene illustrato come configurare i profili utente mobili nei compute
 2. Dal menu **strumenti** selezionare **Gestione criteri di gruppo**. Verrà visualizzata la gestione Criteri di gruppo.
 3. In Gestione Criteri di gruppo fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo creato nel passaggio 3 (ad esempio, **impostazioni dei profili utente mobili**) e quindi scegliere **modifica**.
 4. Nella finestra Editor Gestione Criteri di gruppo passare a **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Sistema** e quindi **Profili utente**.
-5. Fare clic con il pulsante destro del mouse su **Imposta percorso profilo mobile per tutti gli utenti** che accedono al computer e quindi scegliere **modifica**.
+5. Fare clic con il pulsante destro del mouse su **Imposta percorso profilo mobile per tutti gli utenti che accedono al computer** e quindi scegliere **modifica**.
     > [!TIP]
     > La home directory di un utente, se configurata, è la cartella predefinita usata da alcuni programmi come Windows PowerShell. È possibile configurare un percorso di rete o locale alternativo in base al numero di utenti con la sezione **Home directory** delle proprietà dell'account utente in Servizi di dominio Active Directory. Per configurare il percorso della Home Directory per tutti gli utenti di un computer in cui è in esecuzione Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un ambiente di desktop virtuale, abilitare la **Home directory dell'utente** . impostazione dei criteri, quindi specificare la condivisione file e la lettera di unità di cui eseguire il mapping (oppure specificare una cartella locale). Non usare variabili di ambiente o puntini di sospensione. L'alias dell'utente viene aggiunto alla fine del percorso specificato durante l'accesso dell'utente.
 6. Nella finestra di dialogo **Proprietà** selezionare **abilitato**
-7. Nella casella **utenti che accedono al computer devono utilizzare il percorso del profilo** di roaming, immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene sostituito automaticamente con il nome utente la prima volta che l'utente accede. Esempio:
+7. Nella casella **utenti che accedono al computer devono utilizzare il percorso del profilo di roaming** , immettere il percorso della condivisione file in cui si desidera archiviare il profilo utente mobile dell'utente, seguito da `%username%` (che viene sostituito automaticamente con il nome utente la prima volta che l'utente accede. Esempio:
 
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
 

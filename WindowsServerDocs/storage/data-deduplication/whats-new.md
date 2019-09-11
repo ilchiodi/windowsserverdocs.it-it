@@ -8,33 +8,33 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
-ms.openlocfilehash: 44a08443312d4e48b8fa518755e2a9b7aa50643c
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ab32f6bec44b69b70c9e8cca2dadb4dff752cf88
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476086"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870245"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Novità di Deduplicazione dati
 
-> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+> Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
-[La deduplicazione dei dati](overview.md) in Windows Server è stata ottimizzata per essere estremamente efficiente, flessibile e gestibile a livello di cloud privato. Per altre informazioni sullo stack dell'archiviazione definita da software in Windows Server, vedere [What ' s New in archiviazione in Windows Server](../whats-new-in-storage.md).
+La [deduplicazione dei dati](overview.md) in Windows Server è stata ottimizzata per essere estremamente efficiente, flessibile e gestibile a livello di cloud privato. Per ulteriori informazioni sullo stack di archiviazione definito dal software in Windows Server, vedere Novità [di archiviazione in Windows Server](../whats-new-in-storage.md).
 
-Deduplicazione dati include i seguenti miglioramenti in Windows Server 2019:
+La deduplicazione dei dati presenta i miglioramenti seguenti in Windows Server 2019:
 
 | Funzionalità | Novità o aggiornamento | Descrizione |
 |---------------|----------------|-------------|
-| Supporto per reFS  | Nuova            | Store fino a 10 volte maggiore quantità di dati nello stesso volume con la deduplicazione e compressione per il file System (Refs). (Dispone [un solo clic](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) per attivare con Windows Admin Center.) L'archivio di blocchi di dimensioni variabili con la compressione facoltativa ottimizza i tassi di risparmio, mentre l'architettura di post-elaborazione multithreading mantiene minimo impatto sulle prestazioni. Supporta volumi fino a 64 TB e verrà deduplicare i 4 TB prima di ogni file.|
+| Supporto ReFS  | Nuova            | Archivia fino a 10 volte più dati nello stesso volume con deduplicazione e compressione per il file System ReFS. È [sufficiente un solo clic](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) per attivare l'interfaccia di amministrazione di Windows. L'archivio di blocchi di dimensioni variabili con compressione facoltativa ottimizza i tassi di risparmio, mentre l'architettura di post-elaborazione multithread mantiene un effetto minimo sulle prestazioni. Supporta volumi fino a 64 TB e deduplica i primi 4 TB di ogni file.|
 
-Deduplicazione dati include i miglioramenti seguenti a partire da Windows Server 2016:
+La deduplicazione dei dati presenta i miglioramenti seguenti a partire da Windows Server 2016:
 
 | Funzionalità | Novità o aggiornamento | Descrizione |
 |---------------|----------------|-------------|
 | [Supporto per volumi di grandi dimensioni](whats-new.md#large-volume-support) | Aggiornamento | Prima di Windows Server 2016, i volumi dovevano essere ridimensionati in modo specifico per la varianza prevista e i volumi di dimensioni superiori a 10 TB non erano buoni candidati per la deduplicazione. In Windows Server 2016 Deduplicazione dati supporta dimensioni di volume fino a 64 TB. |
 | [Supporto per file di grandi dimensioni](whats-new.md#large-file-support) | Aggiornamento | Prima di Windows Server 2016 i file che raggiungevano 1 TB non erano buoni candidati per la deduplicazione. In Windows Server 2016 i file fino a 1 TB sono completamente supportati. |
-| [Supporto per Nano Server](whats-new.md#nano-server-support) | Nuova | La deduplicazione dati è disponibile e completamente supportata nella nuova opzione di distribuzione Nano Server per Windows Server 2016. |
-| [Supporto del backup semplificato](whats-new.md#simple-backup-support) | Nuova | In Windows Server 2012 R2 le applicazioni di backup virtualizzato come [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) di Microsoft erano supportate grazie a una serie di passaggi di configurazione manuale. In Windows Server 2016 è stato aggiunto il nuovo tipo di utilizzo predefinito "Backup", per una distribuzione semplice di Deduplicazione dati per le applicazioni di backup virtualizzato.|
+| [Supporto per nano server](whats-new.md#nano-server-support) | Nuova | La deduplicazione dati è disponibile e completamente supportata nella nuova opzione di distribuzione Nano Server per Windows Server 2016. |
+| [Supporto semplificato per il backup](whats-new.md#simple-backup-support) | Nuova | In Windows Server 2012 R2 le applicazioni di backup virtualizzato come [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) di Microsoft erano supportate grazie a una serie di passaggi di configurazione manuale. In Windows Server 2016 è stato aggiunto il nuovo tipo di utilizzo predefinito "Backup", per una distribuzione semplice di Deduplicazione dati per le applicazioni di backup virtualizzato.|
 | [Supporto per l'aggiornamento in sequenza del sistema operativo cluster](whats-new.md#cluster-upgrade-support) | Nuova | La deduplicazione dati supporta la nuova funzionalità [Aggiornamento in sequenza del sistema operativo cluster](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md) di Windows Server 2016. |
 
 ## <a name="large-volume-support"></a>Supporto per volumi di grandi dimensioni
@@ -60,7 +60,7 @@ In Windows Server 2012 R2, i file molto grandi non sono candidati ideali per la 
 **Differenze di funzionamento**  
 In Windows Server 2016 Deduplicazione dati sfrutta nuove strutture della mappa di flusso e altri miglioramenti avanzati per migliorare la velocità effettiva di ottimizzazione e le prestazioni di accesso. La pipeline di elaborazione di Deduplicazione dati ora può riprendere il processo di ottimizzazione dopo un failover, anziché effettuare un riavvio. Queste modifiche rendono la deduplicazione su file fino a 1 TB estremamente efficiente.
 
-## <a name="nano-server-support"></a>Supporto per Nano Server
+## <a name="nano-server-support"></a>Supporto per nano server
 **Valore aggiunto da queste modifiche**  
 Nano Server è una nuova opzione di distribuzione headless di Windows Server 2016 che prevede un footprint di risorse di sistema molto piccolo, si avvia molto più velocemente e richiede un numero minore di aggiornamenti e riavvii rispetto all'opzione di distribuzione Windows Server Core. Deduplicazione dati è completamente supportata in Nano Server. Per altre informazioni su Nano Server, vedere [Getting Started with Nano Server](../../get-started/getting-started-with-nano-server.md) (Introduzione a Nano Server).
 

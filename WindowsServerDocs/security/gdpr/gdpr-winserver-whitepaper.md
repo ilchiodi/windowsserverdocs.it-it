@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: f196be152e339b229c4c476f73a2d4b0e7a644d5
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 506cd5cb44d93c9d7d221917505f76a2c5625baa
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980319"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870547"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Inizio del percorso di Regolamento generale sulla protezione dei dati (GDPR) per Windows Server 
 
@@ -48,12 +48,12 @@ Nell'ambito dell'impegno per la conformità all'RGPD dovrai comprendere come il 
 
 L'RGPD considera come dati personali qualsiasi dato relativo a una persona naturale identificata o identificabile. Ciò può includere sia l'identificazione diretta (ad esempio, il nome legale) sia l'identificazione indiretta (ad esempio, dati specifici che identifichino chiaramente la persona cui fanno riferimento). L'RGPD chiarisce inoltre che il concetto di dati personali include gli identificatori online (ad esempio, gli indirizzi IP, gli ID del dispositivo mobile) e i dati sulla posizione.
 
-L'RGPD introduce le definizioni specifiche di dati genetici (ad esempio, la sequenza genetica di una persona) e di dati biometrici. I dati genetici e i dati biometrici insieme ad altre categorie secondarie di dati personali (dati personali che rivelano l'origine razziale o etnica, le opinioni politiche, religiose o filosofiche o l'appartenenza a sindacati: dati relativi alla salute o dati relativi alla vita o all'orientamento sessuale di una persona) sono considerati dati personali sensibili ai sensi dell'RGPD. I dati personali sensibili sono sottoposti a protezioni avanzate e in genere richiedono il consenso esplicito di una persona laddove devono essere trattati.
+GDPR introduce definizioni specifiche per i dati genetici (ad esempio, la sequenza genica di un singolo) e i dati biometrici. Dati genetici e dati biometrici insieme ad altre sottocategorie di dati personali (dati personali che rivelano origini razziali o etniche, opinioni politiche, credenze religiose o filosofiche o appartenenza a sindacato): dati relativi all'integrità o dati relativi a un la vita sessuale o l'orientamento sessuale della persona viene considerata come dati personali sensibili sotto la GDPR. Per i dati personali sensibili viene garantita la protezione avanzata e in genere è necessario il consenso esplicito di un utente in cui devono essere elaborati.
 
 ### <a name="examples-of-info-relating-to-an-identified-or-identifiable-natural-person-data-subject"></a>Esempi di dati relativi a una persona naturale identificata o identificabile (soggetto titolare di dati)
 In questo elenco vengono forniti esempi di diversi tipi di dati che saranno regolati tramite l'RGPD. Non è un elenco esaustivo.
 
--   Name
+-   NOME
 
 -   Numero di identificazione (ad esempio, CF)
 
@@ -85,7 +85,7 @@ Per ognuna delle fasi abbiamo descritto gli strumenti di esempio, le risorse e l
 ## <a name="windows-server-security-and-privacy"></a>Sicurezza e privacy di Windows Server
 GDPR richiede di implementare misure di sicurezza tecniche e organizzative appropriate per proteggere i dati e i sistemi di elaborazione personali. Nel contesto di GDPR, gli ambienti di server fisici e virtuali stanno elaborando potenzialmente dati personali e sensibili. L'elaborazione può indicare qualsiasi operazione o set di operazioni, ad esempio la raccolta, l'archiviazione e il recupero dei dati.
 
-La possibilità di soddisfare questo requisito e di implementare misure di sicurezza tecnica appropriate deve riflettere le minacce che si affrontano nell'ambiente IT sempre più ostile. Il panorama attuale delle minacce alla sicurezza mostra minacce aggressive e resistenti. Negli anni precedenti gli autori degli attacchi dannosi erano principalmente alla ricerca del riconoscimento da parte della community degli attacchi o del brivido di una disconnessione temporanea del sistema. Da allora le motivazioni dell'utente malintenzionato sono cambiate per includere la possibilità di un guadagno, compresa la presa in ostaggio di dispositivi e dati fino a quando il proprietario non paghi il ransom richiesto.
+La possibilità di soddisfare questo requisito e di implementare misure di sicurezza tecnica appropriate deve riflettere le minacce che si affrontano nell'ambiente IT sempre più ostile. Il panorama delle minacce per la sicurezza odierno è una delle minacce aggressive e tenacie. Negli anni precedenti gli autori degli attacchi dannosi erano principalmente alla ricerca del riconoscimento da parte della community degli attacchi o del brivido di una disconnessione temporanea del sistema. Da allora, i motivi dell'autore dell'attacco si sono spostati verso il denaro, inclusi i dispositivi e l'host dei dati fino a quando il proprietario non paga il riscatto richiesto.
 
 Gli attacchi moderni si concentrano sempre più sul furto della proprietà intellettuale su larga scala, sulla riduzione delle prestazioni del sistema di destinazione che può comportare perdite finanziarie e ora anche sul terrorismo informatico che minaccia la sicurezza delle persone, delle aziende e degli interessi nazionali a livello mondiale. Questi attacchi sono in genere progettati da persone altamente specializzate ed esperti in sicurezza, alcune delle quali sono alle dipendente di stati-nazione con grandi budget e risorse umane apparentemente illimitate. Minacce come queste richiedono un approccio all'altezza della sfida.
 
@@ -139,7 +139,7 @@ Il chip include più meccanismi di sicurezza fisica in grado di proteggerlo da m
 
 -   Generare, archiviare e limitare l'uso di chiavi di crittografia.
 
--   Usare la tecnologia TPM per l'autenticazione dei dispositivi della piattaforma usando la chiave RSA univoca del TPM, che è integrata al suo interno.
+-   Usare la tecnologia TPM per l'autenticazione del dispositivo della piattaforma usando la chiave RSA univoca del TPM, che viene masterizzata in se stessa.
 
 -   Garantire l'integrità della piattaforma mediante l'analisi e l'archiviazione delle misure di sicurezza.
 
@@ -187,7 +187,7 @@ Si supponga questo scenario se le credenziali dell'amministratore DNS sono state
 
 Molte organizzazioni usano inoltre la soluzione gratuita per la [password dell'amministratore locale](http://aka.ms/laps) come meccanismo di amministrazione JIT semplice ma potente per i sistemi server e client. La funzionalità di giri consente di gestire le password degli account locali dei computer aggiunti a un dominio. Le password vengono archiviate in Active Directory (AD) e protette da e l'elenco di controllo di accesso (ACL), in modo che solo gli utenti idonei possano leggerlo o richiederne la reimpostazione.
 
-Come indicato nella Guida alla mitigazione del [furto delle credenziali di Windows](https://www.microsoft.com/en-us/download/confirmation.aspx?id=54095), 
+Come indicato nella [Guida alla mitigazione del furto delle credenziali di Windows](https://www.microsoft.com/en-us/download/confirmation.aspx?id=54095), 
 
 > "_gli strumenti e le tecniche che i criminali usano per eseguire il furto e il riutilizzo delle credenziali migliorano, gli utenti malintenzionati possono trovare più facilmente gli obiettivi. Il furto di credenziali spesso si basa su procedure operative o sull'esposizione delle credenziali utente, pertanto le mitigazioni efficaci richiedono un approccio olistico che indirizzi persone, processi e tecnologia. Inoltre, questi attacchi si basano sull'utente malintenzionato che ruba le credenziali dopo aver comprometteto un sistema per espandere o rendere permanente l'accesso, in modo che le organizzazioni debbano avere violazioni rapide implementando strategie che impediscono agli utenti malintenzionati di muoversi liberamente e non rilevati in rete compromessa._ "
 
@@ -217,7 +217,7 @@ Windows Defender Credential Guard USA:
 #### <a name="windows-defender-remote-credential-guard"></a>Windows Defender Remote Credential Guard
 Windows Defender Remote Credential Guard in Windows Server 2016 e l'aggiornamento dell'anniversario di Windows 10 consentono inoltre di proteggere le credenziali per gli utenti con connessioni Desktop remoto. In precedenza, tutti gli utenti che utilizzavano Servizi Desktop remoto avrebbero dovuto accedere al computer locale, quindi dovranno eseguire di nuovo l'accesso quando eseguivano una connessione remota al computer di destinazione. Il secondo account di accesso passa le credenziali al computer di destinazione, mostrandogli gli attacchi pass-the-hash o pass-the-ticket.
 
-Con Windows Defender Remote Credential Guard, Windows Server 2016 implementa l'accesso Single Sign-on per le sessioni di Desktop remoto, eliminando la necessità di immettere nuovamente il nome utente e la password. Si avvale invece delle credenziali già utilizzate per accedere al computer locale. Per usare Windows Defender Remote Credential Guard, il client e il server Desktop remoto devono soddisfare i requisiti seguenti:
+Con Windows Defender Remote Credential Guard, Windows Server 2016 implementa Single Sign-On per le sessioni di Desktop remoto, eliminando la necessità di immettere nuovamente il nome utente e la password. Si avvale invece delle credenziali già utilizzate per accedere al computer locale. Per usare Windows Defender Remote Credential Guard, il client e il server Desktop remoto devono soddisfare i requisiti seguenti:
 
 - Deve essere aggiunto a un dominio di Active Directory e trovarsi nello stesso dominio o in un dominio con una relazione di trust.
 
@@ -259,7 +259,7 @@ Windows Defender AV è una soluzione antimalware incorporata che fornisce la ges
 
 - I **sensori globali estesi** consentono di tenere Windows Defender AV corrente e consapevole anche del malware più recente. Questo è possibile in due modi: raccogliendo i dati del contesto locale avanzato dagli endpoint e analizzando centralmente questi dati.
 
-- La **correzione** delle manomissioni aiuta a sorvegliare Windows Defender AV stesso contro gli attacchi malware. Ad esempio, Windows Defender AV usa processi protetti che impediscono ai processi non attendibili di manomettere i componenti di Windows Defender AV, le chiavi del registro di sistema e così via.
+- La **correzione delle manomissioni** aiuta a sorvegliare Windows Defender AV stesso contro gli attacchi malware. Ad esempio, Windows Defender AV usa processi protetti che impediscono ai processi non attendibili di manomettere i componenti di Windows Defender AV, le chiavi del registro di sistema e così via.
 
 - Le **funzionalità a livello aziendale** offrono ai professionisti IT gli strumenti e le opzioni di configurazione necessari per rendere Windows Defender AV una soluzione antimalware di livello aziendale.
 
@@ -334,14 +334,14 @@ I vantaggi principali di Windows Defender ATP sono i seguenti:
 
 - **Potenza di Microsoft Graph.** Sfrutta il grafo Microsoft Intelligence Security per integrare il rilevamento e l'esplorazione con la sottoscrizione di Office 365 ATP, per tenere traccia degli attacchi e rispondere agli attacchi.
 
-Altre informazioni in [What’s new in the Windows Defender ATP Creators Update preview](https://blogs.microsoft.com/microsoftsecure/2017/03/13/whats-new-in-the-windows-defender-atp-creators-update-preview/).
+Per altre informazioni, vedere Novità [di Windows Defender ATP Creators Update Preview](https://blogs.microsoft.com/microsoftsecure/2017/03/13/whats-new-in-the-windows-defender-atp-creators-update-preview/).
 
 ATA è un prodotto locale che consente di rilevare la compromissione delle identità in un'organizzazione. ATA è in grado di acquisire e analizzare il traffico di rete per i protocolli di autenticazione, autorizzazione e raccolta di informazioni, ad esempio Kerberos, DNS, RPC, NTLM e altri protocolli. ATA usa questi dati per creare un profilo comportamentale sugli utenti e altre entità in una rete, in modo che possa rilevare le anomalie e i modelli di attacco noti. La tabella seguente elenca i tipi di attacco rilevati da ATA.
 
 
 |Tipo di attacco |Descrizione |
 |---------|---------|
-|Attacchi dannosi |Questi attacchi vengono rilevati cercando gli attacchi da un elenco noto di tipi di attacco, tra cui:<ul><li>Pass-the-ticket (PtT)</li><li>Pass-the-hash (PtH)</li><li>Overpass-the-hash</li><li>PAC falsificata (MS14-068)</li><li>Golden Ticket</li><li>Repliche dannose</li><li>Esplorazione</li><li>Forza bruta</li><li>Esecuzione remota</li></ul>Per un elenco completo di attacchi dannosi che possono essere rilevati e la loro descrizione, vedere [quali attività sospette possono](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats)essere rilevate da ATA?.|
+|Attacchi dannosi |Questi attacchi vengono rilevati cercando gli attacchi da un elenco noto di tipi di attacco, tra cui:<ul><li>Pass-the-ticket (PtT)</li><li>Pass-the-hash (PtH)</li><li>Overpass-the-hash</li><li>PAC falsificata (MS14-068)</li><li>Golden Ticket</li><li>Repliche dannose</li><li>Esplorazione</li><li>Forza bruta</li><li>Esecuzione remota</li></ul>Per un elenco completo di attacchi dannosi che possono essere rilevati e la loro descrizione, vedere [quali attività sospette possono essere rilevate da ATA?](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats).|
 |Comportamento anomalo |Questi attacchi vengono rilevati tramite l'analisi comportamentale e usano Machine Learning per identificare le attività discutibili, tra cui:<ul><li>Accessi anomali</li><li>Minacce sconosciute</li><li>Condivisione password</li><li>Spostamento laterale</li></ul>|
 |Problemi di sicurezza e rischi |Questi attacchi vengono rilevati osservando la configurazione di rete e di sistema corrente, tra cui:<ul><li>Attendibilità interruppe</li><li>Protocolli vulnerabili</li><li>Vulnerabilità del protocollo note</li></ul>|
 
@@ -362,7 +362,7 @@ ATA è un prodotto locale che consente di rilevare la compromissione delle ident
 - **Sicurezza e garanzia:** https://docs.microsoft.com/windows-server/security/security-and-assurance
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
-Questo articolo è un commento sull'RGPD, su come Microsoft lo interpreta alla data di pubblicazione. Abbiamo speso molto tempo sull'RGPD e ci piace pensare che abbiamo riflettuto sulla finalità e il significato. Ma l'applicazione dell'RGPD è molto legata alla situazione e non tutti gli aspetti e le interpretazioni dell'RGPD sono ben noti.
+Questo articolo è un commento sull'RGPD, su come Microsoft lo interpreta alla data di pubblicazione. Abbiamo dedicato molto tempo con GDPR e come pensiamo che siamo stati attenti al suo scopo e al suo significato. Ma l'applicazione dell'RGPD è molto legata alla situazione e non tutti gli aspetti e le interpretazioni dell'RGPD sono ben noti.
 
 Di conseguenza, questo articolo viene fornito solo a scopo informativo e non deve essere necessariamente visto come consulenza legale o per stabilire in che modo l'RGPD potrebbe applicarsi a te o alla tua organizzazione. Ti consigliamo di utilizzare un professionista legalmente qualificato per discutere dell'RGPD, di come si applica in modo specifico alla tua organizzazione e di come garantire la conformità.
 

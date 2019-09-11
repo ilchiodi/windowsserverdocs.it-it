@@ -8,23 +8,23 @@ ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8283b87e9505b1d3f47ddc823016fbcc7c0c29e6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884162"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867051"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 
->Si applica a: Windows 10, Windows Server (canale semestrale),
+>Si applica a Windows 10, Windows Server (canale semestrale),
 
 Windows 10, versione 1703 e successive e Windows Server (Canale semestrale) includono la possibilità di aggiornare il firmware delle unità disco rigido e delle unità SSD che sono state certificate con Firmware Upgradeable AQ (Additional Qualifier) tramite PowerShell.
 
 Puoi trovare altre informazioni su questa funzionalità qui:
 
-- [Aggiornamento del firmware delle unità di Windows Server 2016](update-firmware.md)
-- [Aggiornare il Firmware dell'unità senza tempi di inattività in spazi di archiviazione diretta](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Aggiornamento del firmware delle unità in Windows Server 2016](update-firmware.md)
+- [Aggiornare il firmware dell'unità senza tempi di inattività in Spazi di archiviazione diretta](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 Gli aggiornamenti del firmware potrebbero non riuscire per vari motivi. Lo scopo di questo articolo è la risoluzione avanzata dei problemi.
 
@@ -41,7 +41,7 @@ Dal punto di vista dell'architettura, questa nuova funzionalità si basa sulle A
 Le sezioni seguenti delineano le informazioni sulla risoluzione dei problemi, a seconda se vengono utilizzati driver Microsoft o di terze parti.
 
 ## <a name="identifying-inappropriate-hardware"></a>Identificazione dell'hardware non appropriato
-Il modo più rapido per identificare se un dispositivo supporta il set di comandi corretto consiste semplicemente nell'avviare PowerShell e passare l'oggetto PhysicalDisk di rappresentazione di un disco nel cmdlet Get-StorageFirmwareInfo. Segue un esempio:
+Il modo più rapido per identificare se un dispositivo supporta il set di comandi corretto consiste semplicemente nell'avviare PowerShell e passare l'oggetto PhysicalDisk di rappresentazione di un disco nel cmdlet Get-StorageFirmwareInfo. Di seguito è fornito un esempio:
 
 ```powershell
 Get-PhysicalDisk -SerialNumber 15140F55976D | Get-StorageFirmwareInformation
@@ -64,7 +64,7 @@ Il campo SupportsUpdate segnalerà sempre "True" per i dispositivi collegati a S
 
 Per verificare se un dispositivo SAS supporta il set di comandi necessario esistono due opzioni:
 1.  Provare tramite il cmdlet Update-StorageFirmware con un'immagine del firmware appropriato o
-2.  Catalogo di Server Windows per identificare quali dispositivi SAS completata abbia avuto il (AQ Update firewall, consultare https://www.windowsservercatalog.com/)
+2.  Consultare il catalogo di Windows Server per identificare i dispositivi SAS che hanno ottenuto correttamente l'aggiornamento del dispositivo FW (https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Opzioni di correzione
 Se un determinato dispositivo sottoposto a test non supporta il set di comandi appropriato, esegui una query al fornitore per vedere se è disponibile un firmware aggiornato che fornisce il set di comandi necessario o consulta Windows Server Catalogue per identificare i dispositivi per l'approvvigionamento che implementano il set di comandi appropriato.
@@ -119,7 +119,7 @@ CdbBytes    3B0E0000000001000000
 NumberOfRetriesDone 0
 ```
 
-L'evento ETW 507 del canale mostra che una richiesta SRB SCSI ha avuto esito negativo e fornisce informazioni aggiuntive che indicano che SenseKey era "5" (richiesta non valida) e che AdditionalSense era "36" (campo non valido in CDB).
+L'evento ETW 507 dal canale indica che una richiesta SRB SCSI ha avuto esito negativo e fornisce le informazioni aggiuntive che SenseKey è' 5' (richiesta non valida) e che le informazioni di AdditionalSense sono '36 ' (campo non valido in CDB).
 
    > [!Note]
    > Queste informazioni vengono fornite direttamente dal miniport in questione e la loro accuratezza dipenderà dall'implementazione e della complessità del driver miniport.
@@ -134,7 +134,7 @@ Se viene identificato che il driver di terze parti non implementa le API o le co
 ## <a name="additional-troubleshooting-with-microsoft-drivers-satanvme"></a>Altri strumenti di risoluzione dei problemi con i driver Microsoft (SATA/NVMe)
 Quando per i dispositivi di archiviazione vengono utilizzati i driver nativi di Windows, ad esempio StorAHCI.sys o StorNVMe.sys, è possibile ottenere ulteriori informazioni sui casi di errore possibili durante le operazioni di aggiornamento del firmware.
 
-Oltre il canale operativo ClassPnP, StorAHCI e StorNVMe registreranno i codici restituiti specifici del protocollo del dispositivo nel seguente canale ETW:
+Oltre al canale operativo ClassPnP, StorAHCI e StorNVMe registreranno i codici restituiti specifici del protocollo del dispositivo nel canale ETW seguente:
 
 Visualizzatore eventi - Registri applicazioni e servizi - Microsoft - Windows - StorDiag - **Microsoft-Windows-Storage-StorPort/Diagnose**
 
@@ -142,7 +142,7 @@ I registri di diagnostica non vengono visualizzati per impostazione predefinita 
 
 Per raccogliere queste voci di log avanzate, abilitare il log, riprodurre l'errore di aggiornamento del firmware e salvare il log di diagnostica.
 
-Di seguito è riportato un esempio di un aggiornamento del firmware in un errore di dispositivi SATA, perché il download dell'immagine non è valida (ID evento: 258):
+Di seguito è riportato un esempio di aggiornamento del firmware in un dispositivo SATA che non riesce perché l'immagine da scaricare non è valida (ID evento: 258):
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 L'evento precedente contiene informazioni dettagliate sul dispositivo nei valori di parametro da 2 a 6. Qui stiamo osservando diversi valori di registro ATA. La specifica di ACS ATA può essere utilizzata per decodificare i valori di seguito per l'errore di un comando download microcodice:
-- Codice restituito: 0 (0000 0000) (n/d - privo di significato perché è stato trasferito alcun payload)
-- Funzionalità: 15 (0000 1111) (bit 1 è impostata su '1' e indica "Interrompi")
-- SectorCount: 0 (0000 0000) (N/A)
-- DriveHead: 160 (1010 0000) (n/d, solo obsoleto bit sono impostati)
-- Comando: 146 (1001 0010) (1 bit è impostato su '1', che indica la disponibilità dei dati di rilevamento)
+- Codice restituito: 0 (0000 0000) (N/d: non significativo perché non è stato trasferito alcun payload)
+- Funzionalità: 15 (0000 1111) (bit 1 è impostato su "1" e indica "Abort")
+- SectorCount: 0 (0000 0000) (N/D)
+- DriveHead: 160 (1010 0000) (N/d: sono impostati solo bit obsoleti)
+- Comando 146 (1001 0010) (bit 1 è impostato su "1" che indica la disponibilità dei dati di rilevamento)
 
 Ciò indica che l'operazione di aggiornamento del firmware è stata interrotta dal dispositivo.
 

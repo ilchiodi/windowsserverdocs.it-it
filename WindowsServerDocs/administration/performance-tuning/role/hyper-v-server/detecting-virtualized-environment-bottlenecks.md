@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: cdad5f0cc3b0e49ae46e975e3acc2c48a18e5f70
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "63722886"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866603"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Rilevamento di colli di bottiglia in un ambiente virtualizzato
 

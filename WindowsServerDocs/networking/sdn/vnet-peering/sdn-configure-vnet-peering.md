@@ -1,6 +1,6 @@
 ---
 title: Configura il peering della rete virtuale
-description: Configurare il peering di rete virtuale consiste nel creare due reti virtuali di cui ottengano il peering.
+description: La configurazione del peering di rete virtuale comporta la creazione di due reti virtuali con peering.
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,18 +9,18 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 3ef3db879080e3372e7b287dcc55ae052c1fe109
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 417585ffbe1e8374be1560073d5636659eaf4332
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816392"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869885"
 ---
 # <a name="configure-virtual-network-peering"></a>Configura il peering della rete virtuale
 
->Si applica a: Windows Server
+>Si applica a Windows Server
 
-In questa procedura usare Windows PowerShell per creare due reti virtuali, ognuna con una subnet. Quindi, si configurare il peering tra le due reti virtuali per abilitare la connettività tra di essi.
+In questa procedura viene usato Windows PowerShell per creare due reti virtuali, ognuna con una subnet. Configurare quindi il peering tra le due reti virtuali per consentire la connettività tra di essi.
 
 - [Passaggio 1. Creare la prima rete virtuale](#step-1-create-the-first-virtual-network)
 
@@ -28,15 +28,15 @@ In questa procedura usare Windows PowerShell per creare due reti virtuali, ognun
 
 - [Passaggio 3. Configurare il peering dalla prima rete virtuale alla seconda rete virtuale](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
 
-- [Passaggio 4. Configurare il peering dalla seconda rete virtuale per la prima rete virtuale](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
+- [Passaggio 4. Configurare il peering dalla seconda rete virtuale alla prima rete virtuale](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
 
 
 >[!IMPORTANT]
->Ricordarsi di aggiornare le proprietà per l'ambiente.
+>Ricordarsi di aggiornare le proprietà dell'ambiente.
 
 ## <a name="step-1-create-the-first-virtual-network"></a>Passaggio 1. Creare la prima rete virtuale
 
-In questo passaggio si usa ricerca di Windows PowerShell la rete logica provider HNV per creare la prima rete virtuale con una subnet. Lo script di esempio seguente crea rete virtuale di Contoso con una subnet.
+In questo passaggio viene usato Windows PowerShell per trovare la rete logica del provider HNV per creare la prima rete virtuale con una subnet. Lo script di esempio seguente crea la rete virtuale di Contoso con una subnet.
 
 ``` PowerShell
 #Find the HNV Provider Logical Network  
@@ -68,7 +68,7 @@ New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $
 
 ## <a name="step-2-create-the-second-virtual-network"></a>Passaggio 2. Creare la seconda rete virtuale
 
-In questo passaggio si crea una seconda rete virtuale con una subnet. Lo script di esempio seguente crea rete virtuale di Woodgrove con una subnet.
+In questo passaggio viene creata una seconda rete virtuale con una subnet. Lo script di esempio seguente crea la rete virtuale di Woodgrove con una subnet.
 
 ``` PowerShell
 
@@ -92,7 +92,7 @@ New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri
 
 ## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Passaggio 3. Configurare il peering dalla prima rete virtuale alla seconda rete virtuale
 
-In questo passaggio si configura il peering tra la prima rete virtuale e la seconda rete virtuale creata in due passaggi precedenti. Lo script di esempio seguente stabilisce il peering di rete virtuale dalla **Contoso_vnet1** al **Woodgrove_vnet1**.
+In questo passaggio si configura il peering tra la prima rete virtuale e la seconda rete virtuale creata nei due passaggi precedenti. Lo script di esempio seguente stabilisce il peering di rete virtuale da **Contoso_vnet1** a **Woodgrove_vnet1**.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties
@@ -116,11 +116,11 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 ```
 
 >[!IMPORTANT]
->Dopo aver creato questo peering, viene illustrato lo stato della rete virtuale **Initiated**.
+>Dopo la creazione di questo peering, lo stato di VNET indica **avviato**.
 
-## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Passaggio 4. Configurare il peering dalla seconda rete virtuale per la prima rete virtuale
+## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Passaggio 4. Configurare il peering dalla seconda rete virtuale alla prima rete virtuale
 
-In questo passaggio si configura il peering tra la seconda rete virtuale e la prima rete virtuale creata nei passaggi 1 e 2 descritti sopra. Lo script di esempio seguente stabilisce il peering di rete virtuale dalla **Woodgrove_vnet1** al **Contoso_vnet1**.
+In questo passaggio si configura il peering tra la seconda rete virtuale e la prima rete virtuale creata nei passaggi 1 e 2 precedenti. Lo script di esempio seguente stabilisce il peering di rete virtuale da **Woodgrove_vnet1** a **Contoso_vnet1**.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties 
@@ -133,16 +133,16 @@ $peeringProperties.allowVirtualnetworkAccess = $true
 # Indicates whether forwarded traffic will be allowed across the vnets
 $peeringProperties.allowForwardedTraffic = $true 
 
-# Indicates whether the peer virtual network can access this virtual network’s gateway
+# Indicates whether the peer virtual network can access this virtual network's gateway
 $peeringProperties.allowGatewayTransit = $false 
 
-# Indicates whether this virtual network will use peer virtual network’s gateway
+# Indicates whether this virtual network will use peer virtual network's gateway
 $peeringProperties.useRemoteGateways =$false 
 
 New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId “Woodgrove_vnet1” -ResourceId “WoodgrovetoContoso” -Properties $peeringProperties 
 
 ```
 
-Dopo aver creato questo peering, il stato di peering reti virtuali illustra **Connected** per entrambi i peer. A questo punto, le macchine virtuali in una rete virtuale possono comunicare con le macchine virtuali nella rete virtuale con peering.
+Dopo la creazione di questo peering, lo stato del peering VNET Visualizza **connesso** per entrambi i peer. A questo punto, le macchine virtuali in una rete virtuale possono comunicare con le macchine virtuali nella rete virtuale con peering.
 
 ---

@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bfa305103e81f316dc5ad5df22cd238f6fb5ec31
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: da3214b715b415eed2cbce351cae93eff14a88c7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314341"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865527"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS risoluzione dei problemi-eventi e registrazione
 AD FS fornisce due log principali che possono essere utilizzati per la risoluzione dei problemi.  Sono:

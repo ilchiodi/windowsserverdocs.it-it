@@ -9,15 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b69277cdedd697605f57aa4cf7214f5b65bb2e81
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 055f9baff9c20019493a54fbb92e5c53c199a5e3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188470"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865521"
 ---
 # <a name="the-role-of-the-claims-engine"></a>Ruolo del motore delle attestazioni
-Al livello più alto, il motore delle attestazioni in Active Directory Federation Services \(ADFS\) è una regola\-basato su motore dedicato al servizio e l'elaborazione delle richieste di attestazione per il servizio federativo. Il motore delle attestazioni è l'unica entità del Servizio federativo responsabile dell'esecuzione di ogni set di regole in tutte le relazioni di trust federative configurate e della trasmissione del risultato di output alla pipeline delle attestazioni.  
+Al livello più alto, il motore delle attestazioni \(in\) Active Directory Federation Services ad FS è\-un motore basato su regole dedicato alla gestione e all'elaborazione delle richieste di attestazione per il servizio federativo. Il motore delle attestazioni è l'unica entità del Servizio federativo responsabile dell'esecuzione di ogni set di regole in tutte le relazioni di trust federative configurate e della trasmissione del risultato di output alla pipeline delle attestazioni.  
   
 Mentre la pipeline delle attestazioni è più un concetto logico della fine\-a\-Termina processo per il flusso di attestazioni, le regole sono un elemento amministrativo effettivo che è possibile utilizzare per personalizzare il flusso di attestazioni durante il processo di esecuzione delle regole attestazione di attestazione. Per ulteriori informazioni sul processo di pipeline, vedere [ruolo delle Pipeline delle attestazioni](The-Role-of-the-Claims-Pipeline.md).  
   
@@ -53,7 +53,7 @@ Tutte le regole di un set di regole attestazioni condividono lo stesso set di at
 ### <a name="step-2--execution"></a>Passaggio 2: Esecuzione  
 In questo passaggio del processo delle regole attestazioni le regole attestazioni vengono elaborate quando il motore delle attestazioni esegue una alla volta in ordine cronologico tutte le regole di un determinato set di regole. Ogni regola all'interno di un solo set di regole viene eseguita una volta e viene eseguita nell'ordine in cui vengono visualizzati dall'alto verso il basso visualizzato nella finestra di dialogo Modifica regole attestazione nello snap di gestione di ADFS\-in. La regola attestazioni all'inizio del set di regole viene elaborata per prima e quindi vengono elaborate le regole successive finché vengono eseguite tutte le regole.  
   
-Come definito nel linguaggio delle regole attestazioni, una regola attestazioni è costituita da due parti, la condizione e l'istruzione di rilascio. Set di attestazioni processi prima di attestazioni motore set per determinare se la condizione specificata all'interno della regola vale per le attestazioni contenute nell'input di attestazioni parte condizione utilizzando i dati di input \(le attestazioni che corrispondono alla condizione della regola vengono definite come una corrispondenza attestazioni\). Se vengono trovate attestazioni corrispondenti, il motore delle attestazioni esegue l'istruzione di rilascio della regola per ogni set delle attestazioni corrispondenti. L'istruzione di rilascio della regola può eseguire una delle attività seguenti con le regole corrispondenti:  
+Come definito nel linguaggio delle regole attestazioni, una regola attestazioni è costituita da due parti, la condizione e l'istruzione di rilascio. Il motore delle attestazioni elabora prima la parte della condizione usando i dati nel set di attestazioni di input per determinare se la condizione specificata nella regola è vera per le attestazioni contenute nel \(set di attestazioni di input e le attestazioni che corrispondono alla regola la condizione è indicata come attestazioni\)corrispondenti. Se vengono trovate attestazioni corrispondenti, il motore delle attestazioni esegue l'istruzione di rilascio della regola per ogni set delle attestazioni corrispondenti. L'istruzione di rilascio della regola può eseguire una delle attività seguenti con le regole corrispondenti:  
   
 1.  Copiare un'attestazione corrispondente nel set di attestazione di output  
   
@@ -65,7 +65,7 @@ Come definito nel linguaggio delle regole attestazioni, una regola attestazioni 
 Il *set di attestazioni di output* è una posizione nella memoria inizialmente vuota ed è importante perché il motore delle attestazioni restituirà solo le attestazioni presenti nel set di attestazioni di output al termine del processo di esecuzione. Per questo motivo le attestazioni presenti solo nel set di attestazioni di input e non nel set di attestazioni di output verranno ignorate al momento di calcolare il set finale di attestazioni in uscita.  
   
 #### <a name="adding-a-claim-to-both-claim-sets-for-a-rule-set"></a>Aggiunta di un'attestazione a entrambi i set di attestazioni per un set di regole  
-Quando una regola viene elaborata, vengono aggiunte attestazioni nel set di attestazioni di input oppure sia nel set di attestazioni di input che nel set di attestazioni di output in base all'istruzione usata nell'istruzione di rilascio della regola. Nel linguaggio delle regole attestazione queste istruzioni sono chiamate *add* o *issue*.  
+Quando una regola viene elaborata, le attestazioni vengono aggiunte nel set di attestazioni di input oppure sia nel set di attestazioni di input che nel set di attestazioni di output in base all'istruzione usata nell'istruzione di rilascio della regola. Nel linguaggio delle regole attestazione queste istruzioni sono chiamate *add* o *issue*.  
   
 Se viene usata l'istruzione *add* , le attestazioni vengono aggiunte solo al set di attestazioni di input e le attestazioni esisteranno solo ai fini dell'esecuzione e smetteranno di esistere al termine dell'esecuzione. Se viene usata l'istruzione *issue*, le attestazioni vengono aggiunte sia al set di attestazioni di input che al set di attestazioni di output e le attestazioni verranno restituite nel set di attestazioni di output al termine dell'esecuzione. Per ulteriori informazioni su queste istruzioni, vedere [il ruolo del linguaggio di regola attestazione](The-Role-of-the-Claim-Rule-Language.md).  
   
@@ -101,7 +101,7 @@ In questo caso, l'output delle regole di accettazione viene usato dalla pipeline
 Le attestazioni in uscita finalizzate, dopo essere state restituite dal motore per il set di regole di rilascio, verranno inserite in un token SAML e il Servizio federativo invierà il token di nuovo al client.  
   
 ## <a name="processing-authorization-rules"></a>Elaborazione delle regole di autorizzazione  
-Se il set di regole attestazione che viene eseguito durante il passaggio 2, il processo di esecuzione delle regole attestazione è costituito da regole di autorizzazione \(che hanno un input diverso e set di regole di accettazione o il rilascio di attestazioni di output\), quindi verranno eseguite le regole di autorizzazione per determinare se un token richiedente è autorizzato a ottenere un token di sicurezza per una determinata relying party dal servizio federativo basata sulle attestazioni del richiedente.  
+Se il set di regole attestazioni eseguito durante il passaggio 2 del processo di esecuzione delle regole attestazioni è costituito da regole \(di autorizzazione con un set di attestazioni di input e output diverso rispetto alle regole\)di accettazione o di rilascio, vengono eseguite le regole di autorizzazione per determinare se un richiedente del token è autorizzato a ottenere un token di sicurezza per un determinato relying party dall'Servizio federativo in base alle attestazioni del richiedente.  
   
 L'obiettivo delle regole di autorizzazione è rilasciare un'attestazione per il consenso o il rifiuto a seconda che all'utente sia consentito o meno ottenere un token per la relying party specifica. Come illustrato nella figura seguente, l'output dell'esecuzione di autorizzazione viene utilizzato per determinare se il set di regole di rilascio viene eseguito o meno dalla pipeline, basato su presenza o meno dell'autorizzazione e\/o negare l'attestazione, ma l'output dell'esecuzione autorizzazione stessa non viene usato come input per il set di regole attestazione.  
   

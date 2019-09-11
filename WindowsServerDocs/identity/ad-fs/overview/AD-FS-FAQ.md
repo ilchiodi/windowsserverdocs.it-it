@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 46e8548e24f0d0991f69427741b0e04da6398334
-ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
+ms.openlocfilehash: 8444e417fe089c1a3cf2acc2648b222ec5c9774c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70009099"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865469"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -99,7 +99,7 @@ In particolare, è necessario verificare che i server di AD FS e WAP supportino 
 
 È possibile abilitare e disabilitare le versioni SSL 2,0 e 3,0 e TLS 1,0, 1,1 e 1,2 usando [Gestisci protocolli SSL in ad FS](../operations/Manage-SSL-Protocols-in-AD-FS.md).
 
-Per assicurarsi che i server AD FS e WAP negoziino solo i pacchetti di crittografia TLS che supportano ATP, è possibile disabilitare tutti i pacchetti di crittografia non inclusi nell' [elenco di pacchetti di crittografia](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57)conformi a ATP.  A tale scopo, usare i [cmdlet di Windows TLS PowerShell](https://technet.microsoft.com/itpro/powershell/windows/tls/index).
+Per assicurarsi che i server AD FS e WAP negoziino solo i pacchetti di crittografia TLS che supportano ATP, è possibile disabilitare tutti i pacchetti di crittografia non inclusi nell' [elenco di pacchetti di crittografia conformi a ATP](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  A tale scopo, usare i [cmdlet di Windows TLS PowerShell](https://technet.microsoft.com/itpro/powershell/windows/tls/index).
 
 ## <a name="developer"></a>Sviluppatore
 
@@ -249,7 +249,7 @@ Una soluzione appropriata a questo problema consiste nel configurare i server AD
 
 Quando si esporta il certificato SSL, da un computer, per essere importato nell'archivio personale del computer, dei server AD FS e WAP, assicurarsi di esportare la chiave privata e selezionare **scambio informazioni personali-PKCS #12**.
 
-È importante che la casella di controllo **includa tutti i certificati nel percorso del certificato, se possibile** , sia selezionata, così come vengono esportate **tutte le proprietà estese**.  
+È importante che la casella di controllo **includa tutti i certificati nel percorso del certificato, se possibile** , sia selezionata, così come vengono **esportate tutte le proprietà estese**.  
 
 Eseguire certlm. msc nei server Windows e importare *. PFX nell'archivio certificati personale del computer. In questo modo il server passerà l'intera catena di certificati alla libreria ADAL.
 

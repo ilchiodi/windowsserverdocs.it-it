@@ -9,24 +9,24 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2af0950e52d800202235bf674545f6c47e9cd88
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ba7ed6baa30d15eea5ae08326847187ac85605d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190776"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867590"
 ---
 # <a name="using-ad-ds-claims-with-ad-fs"></a>Utilizzo di attestazioni Active Directory Domain Services con ADFS
   
   
-È possibile abilitare controllo di accesso più completo per applicazioni federate con Active Directory Domain Services \(AD DS\)\-rilasciate le attestazioni utente e dispositivo con Active Directory Federation Services \(AD FS \).  
+È possibile abilitare il controllo di accesso più completo per le applicazioni federate \(utilizzando Active Directory Domain Services\)servizi di dominio Active Directory\-con attestazioni \(utente e dispositivo con Active Directory Federation Services ad FS \).  
   
 ## <a name="about-dynamic-access-control"></a>Informazioni sul controllo di accesso dinamico  
 In Windows Server® 2012, la funzionalità controllo dinamico degli accessi consente alle organizzazioni di concedere l'accesso ai file in base alle attestazioni utente \(che vengono originate dagli attributi di account utente\) del dispositivo e \(che vengono originate dagli attributi di account computer\) che vengono rilasciati da servizi di dominio Active Directory \(AD DS\). Dominio di Active Directory rilasciate le attestazioni è integrati nell'autenticazione integrata di Windows tramite il protocollo di autenticazione Kerberos.  
   
 Per ulteriori informazioni su controllo dinamico degli accessi, vedere [dinamica Guida del contenuto controllo accesso](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
   
-### <a name="whats-new-in-ad-fs"></a>Novità di ADFS?  
+### <a name="whats-new-in-ad-fs"></a>Novità di AD FS  
 Come un'estensione allo scenario controllo dinamico degli accessi, ADFS in Windows Server 2012 è ora:  
   
 -   Attributi di account accesso computer oltre a attributi di account utente all'interno di Active Directory. Nelle versioni precedenti di ADFS, il servizio federativo Impossibile accedere gli attributi degli account computer del tutto da AD DS.  
@@ -42,9 +42,9 @@ Queste rilasciate le attestazioni di Active Directory può essere inserito un ti
   
     -   AD DS gruppi di sicurezza, in caso contrario, viene utilizzati per controllare l'accesso alle applicazioni e risorse che sono accessibili tramite l'autenticazione integrata di Windows.  
   
-    -   Relazioni di trust in caso contrario, può essere usati per controllare l'accesso a Business della foresta\-al\-Business \(B2B\) \/ Internet accessibile applicazioni e risorse.  
+    -   Trust tra foreste che verrebbero altrimenti usati per controllare l'\-accesso alle\- \(applicazioni e alle risorse\) internet B2B \/ accessibili per le aziende.  
   
--   Le organizzazioni possono ora impedire accessi non autorizzati alle risorse di rete da computer client basati su se un account di computer specifico attributo valore archiviato in Active Directory \(ad esempio, un nome del computer\) soddisfi i criteri di controllo di accesso della risorsa \(ad esempio, un file server che è stato consentito con attestazioni\) o criteri di relying party \(ad esempio, un attestazioni\-applicazione Web\). Ciò consente agli amministratori di impostare criteri di controllo di accesso più preciso per le risorse o le applicazioni:  
+-   Le organizzazioni possono ora impedire l'accesso non autorizzato alle risorse di rete dai computer client a seconda che un valore di attributo dell'account computer specifico \(archiviato in servizi di dominio Active Directory,\) ad esempio, il nome DNS di un computer corrisponda al controllo di accesso \(criteri della risorsa, ad esempio, un file server che è stato consentito con attestazioni \(\) o i criteri di relying party, ad esempio\-, un'applicazione\)Web in grado di riconoscere attestazioni. Ciò consente agli amministratori di impostare criteri di controllo di accesso più preciso per le risorse o le applicazioni:  
   
     -   Accessibile solo tramite l'autenticazione integrata di Windows.  
   
@@ -58,7 +58,7 @@ Esistono due fattori discriminanti importanti comprendere le attestazioni inviat
 -   ADFS può rilasciare solo le attestazioni vengono incapsulate nei token SAML, non i ticket Kerberos. Per ulteriori informazioni su come ADFS emette attestazioni, vedere [il ruolo del motore di attestazioni](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md).  
   
 ## <a name="how-ad-ds-issued-claims-work-with-ad-fs"></a>Come funzionano le attestazioni rilasciate da Servizi di dominio Active Directory con ADFS  
-Rilasciate le attestazioni di Active Directory è utilizzabile con ADFS per accedere alle attestazioni utente sia al dispositivo direttamente dal contesto di autenticazione dell'utente, anziché effettuare una chiamata LDAP ad Active Directory. La figura riportata di seguito e i passaggi corrispondenti vengono illustrati il funzionamento del processo in modo più dettagliato per abilitare le attestazioni\-controllo di accesso per lo scenario controllo dinamico degli accessi basato.  
+Le attestazioni rilasciate da servizi di dominio Active Directory possono essere utilizzate con AD FS per accedere alle attestazioni utente e dispositivo direttamente dal contesto di autenticazione dell'utente, invece di effettuare una chiamata LDAP separata a Active Directory. La figura riportata di seguito e i passaggi corrispondenti vengono illustrati il funzionamento del processo in modo più dettagliato per abilitare le attestazioni\-controllo di accesso per lo scenario controllo dinamico degli accessi basato.  
   
 ![uso delle attestazioni](media/UsingADDSClaimswithADFS.gif)  
   

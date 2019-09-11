@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: ad08d8716819773484fc1d1fbe3cc79dd203c498
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 681e07b85af603d11295bf1ca2a08f0eb7181725
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590566"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865247"
 ---
 # <a name="known-issues-with-storage-replica"></a>Problemi noti di Replica di archiviazione
 
@@ -226,7 +226,7 @@ Tale comando non funzionerà con l'archiviazione locale nel nodo. Puoi usare Rep
 
 ## <a name="the-smb-bandwidth-limiter-fails-to-throttle-storage-replica-bandwidth"></a>Il limitatore di larghezza di banda SMB non riesce a limitare la larghezza di banda di Replica di archiviazione
 
-Quando si specifica un limite di larghezza di banda di Replica di archiviazione, il limite viene ignorato e si utilizza la larghezza di banda piena. Ad esempio:
+Quando si specifica un limite di larghezza di banda di Replica di archiviazione, il limite viene ignorato e si utilizza la larghezza di banda piena. Esempio:
 
 `Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond 32MB`
 
@@ -234,7 +234,7 @@ Questo problema si verifica a causa di un problema di interoperabilità tra Repl
 
 ## <a name="event-1241-warning-repeated-during-initial-sync"></a>Avviso evento 1241 ripetuto durante la sincronizzazione iniziale
 
-Quando si specifica che una relazione di replica è asincrona, il computer di origine registra ripetutamente l'evento di avviso 1241 nel canale dell'amministratore di Replica di archiviazione. Ad esempio:
+Quando si specifica che una relazione di replica è asincrona, il computer di origine registra ripetutamente l'evento di avviso 1241 nel canale dell'amministratore di Replica di archiviazione. Esempio:
 
     Log Name:      Microsoft-Windows-StorageReplica/Admin
     Source:        Microsoft-Windows-StorageReplica
@@ -297,7 +297,7 @@ In circostanze rare e di solito non riproducibili, il riavvio di un server che s
 
 ## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Errore "Impossibile connettere la risorsa "Cluster Disk x". con un cluster esteso
 
-Nel tentativo di connettere un disco del cluster in seguito a un failover dall'esito positivo, in cui si sta tentando di rendere nuovamente primario al sito di origine, viene visualizzato un errore in Gestione cluster di failover. Ad esempio:
+Nel tentativo di connettere un disco del cluster in seguito a un failover dall'esito positivo, in cui si sta tentando di rendere nuovamente primario al sito di origine, viene visualizzato un errore in Gestione cluster di failover. Esempio:
 
     Error
     The operation has failed.
@@ -306,7 +306,7 @@ Nel tentativo di connettere un disco del cluster in seguito a un failover dall'e
     Error Code: 0x80071397
     The operation failed because either the specified cluster node is not the owner of the resource, or the node is not a possible owner of the resource.
 
-Se si tenta di spostare manualmente disco o CSV, viene visualizzato un errore aggiuntivo. Ad esempio:
+Se si tenta di spostare manualmente disco o CSV, viene visualizzato un errore aggiuntivo. Esempio:
 
     Error
     The operation has failed.

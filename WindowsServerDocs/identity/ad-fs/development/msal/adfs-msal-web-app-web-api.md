@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2ac36180992d44f837ce74ace40cf95533309c9
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 03328ff8c94d96fcf34dcef29ac1a1daefc9d14a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983429"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867485"
 ---
 # <a name="scenario-web-app-server-app-calling-web-api"></a>Scenario: App Web (app Server) che chiama l'API Web 
 >Si applica a: AD FS 2019 e versioni successive 
@@ -121,5 +121,5 @@ In questa sezione viene illustrato come eseguire il test dell'esempio configurat
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp13.png)
  
  ## <a name="next-steps"></a>Passaggi successivi
-[AD FS i flussi OpenID Connect/OAuth e gli scenari di applicazione](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[Flussi e scenari applicativi di OpenID Connect/OAuth in AD FS](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

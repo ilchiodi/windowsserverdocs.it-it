@@ -1,6 +1,6 @@
 ---
 title: Usare i criteri DNS per l'applicazione di filtri alle query DNS
-description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
+description: Questo argomento fa parte della Guida allo scenario dei criteri DNS per Windows Server 2016
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,89 +8,89 @@ ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e9322da3142c584c7b9d0a28396a1d1fd62ce6ee
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 71e6bb5bf5fd439682277a9a8304aa785eba658d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446399"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868905"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>Usare i criteri DNS per l'applicazione di filtri alle query DNS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su come configurare criteri DNS in Windows Server&reg; 2016 per creare filtri per query sono basati su criteri che viene fornito. 
+È possibile utilizzare questo argomento per informazioni su come configurare i criteri DNS in Windows&reg; server 2016 per creare filtri di query in base ai criteri forniti. 
 
-Filtri di query in Criteri di DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e client DNS che invia la query DNS.
+I filtri query nei criteri DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e al client DNS che invia la query DNS.
 
-Ad esempio, è possibile configurare criteri DNS con query filtro elenco di blocchi che blocca le query DNS da domini dannosi noti, che impedisce di DNS di rispondere alle query da questi domini. Poiché viene inviata alcuna risposta dal server DNS, query DNS del dominio dannoso membro verifica il timeout.
+È ad esempio possibile configurare criteri DNS con elenco Blocca filtro query che blocca le query DNS da domini dannosi noti, evitando che il DNS risponda alle query di questi domini. Poiché non viene inviata alcuna risposta dal server DNS, si verifica il timeout della query DNS del membro del dominio dannoso.
 
-Un altro esempio consiste nel creare un filtro di query elenco Consenti che consente solo un set specifico di client per risolvere determinati nomi.
+Un altro esempio è la creazione di un elenco di Consenti filtro query che consente solo a un set specifico di client di risolvere determinati nomi.
 
-## <a name="bkmk_criteria"></a> Criteri di filtro query
-È possibile creare filtri di query con qualsiasi combinazione logica (e/o/non) dei criteri seguenti.
+## <a name="bkmk_criteria"></a>Criteri di filtro query
+È possibile creare filtri di query con qualsiasi combinazione logica (e/o/senza) dei criteri seguenti.
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |-----------------|---------------------|
-|Subnet del client|Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata.|
-|Protocollo di trasporto|Il trasporto di protocollo utilizzato nella query. I valori possibili sono TCP e UDP.|
-|Internet Protocol|Protocollo di rete utilizzato nella query. I valori possibili sono IPv4 e IPv6.|
-|Indirizzo IP dell'interfaccia del server|Indirizzo IP dell'interfaccia di rete del server DNS che ha ricevuto la richiesta DNS.|
+|Subnet client|Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata.|
+|Protocollo di trasporto|Il trasporto di protocollo utilizzato nella query. I valori possibili sono UDP e TCP.|
+|Protocollo Internet|Protocollo di rete utilizzato nella query. I valori possibili sono IPv4 e IPv6.|
+|Indirizzo IP dell'interfaccia server|Indirizzo IP dell'interfaccia di rete del server DNS che ha ricevuto la richiesta DNS.|
 |FQDN|Nome di dominio completo del record nella query, con la possibilità di usare un carattere jolly.|
-|Tipo di query|Tipo di record sottoposto \(A, SRV, TXT, ecc.\).|
+|Tipo di query|Tipo di record su cui viene \(eseguita la query A, SRV, txt\)e così via.|
 |Ora del giorno|Ora del giorno che viene ricevuta la query.|
 
-Negli esempi seguenti mostrano come creare filtri per i criteri DNS che uno dei blocchi o consentire a query la risoluzione dei nomi DNS.
+Gli esempi seguenti illustrano come creare filtri per i criteri DNS che bloccano o consentono query di risoluzione dei nomi DNS.
 
 >[!NOTE]
->I comandi di esempio in questo argomento usano il comando di Windows PowerShell **Aggiungi DnsServerQueryResolutionPolicy**. Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps). 
+>Nei comandi di esempio di questo argomento viene usato il comando di Windows PowerShell **Add-DnsServerQueryResolutionPolicy**. Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps). 
 
-## <a name="bkmk_block1"></a>Query di blocco da un dominio
+## <a name="bkmk_block1"></a>Blocca le query da un dominio
 
-In alcuni casi si potrebbe voler bloccare la risoluzione dei nomi DNS per i domini che è stata identificata come dannoso o per i domini che non rispettano le linee guida sull'utilizzo della propria organizzazione. È possibile eseguire query di blocco per i domini tramite criteri di DNS.
+In alcuni casi potrebbe essere necessario bloccare la risoluzione dei nomi DNS per i domini che sono stati identificati come dannosi o per i domini che non sono conformi alle linee guida di utilizzo dell'organizzazione. È possibile eseguire query di blocco per i domini usando i criteri DNS.
 
-I criteri che si configurano in questo esempio non viene creato in una determinata zona, è invece necessario creare un criterio a livello di Server che viene applicato a tutte le zone configurate nel server DNS. I criteri a livello di server sono il primo da valutare e pertanto prima di tutto per cui trovare una corrispondenza quando una query viene ricevuto dal server DNS.
+I criteri configurati in questo esempio non vengono creati in una particolare zona, bensì si creano criteri a livello di server applicati a tutte le zone configurate nel server DNS. I criteri a livello di server sono i primi a essere valutati e pertanto devono essere prima di tutto corrispondenti quando una query viene ricevuta dal server DNS.
 
-Il comando seguente configura un criterio a livello di Server per bloccare tutte le query con il dominio **suffisso contosomalicious.com**.
+Il comando di esempio seguente configura un criterio a livello di server per bloccare qualsiasi query con il **suffisso**di dominio contosomalicious.com.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicy" -Action IGNORE -FQDN "EQ,*.contosomalicious.com" -PassThru 
 `
 
 >[!NOTE]
->Quando si configura il **azione** parametro con il valore **IGNORE**, il server DNS è configurato per eliminare le query senza risposta affatto. In questo modo il client DNS del dominio dannoso timeout.
+>Quando si configura il parametro dell' **azione** con il valore **Ignore**, il server DNS è configurato in modo da eliminare le query senza alcuna risposta. In questo modo si verificherà il timeout del client DNS nel dominio dannoso.
 
-## <a name="bkmk_block2"></a>Query di blocco da una subnet
-Con questo esempio, è possibile bloccare le query da una subnet se risulta essere infettati da alcuni tipi di malware e viene eseguito il tentativo di contattare i siti dannosi usando il server DNS. 
+## <a name="bkmk_block2"></a>Bloccare le query da una subnet
+Con questo esempio, è possibile bloccare le query da una subnet se è stato rilevato che è stato infettato da malware e si sta tentando di contattare siti dannosi usando il server DNS. 
 
-` Add-DnsServerClientSubnet -Name "MaliciousSubnet06" -IPv4Subnet 172.0.33.0/24 -PassThru
+' Add-DnsServerClientSubnet-Name "MaliciousSubnet06"-IPv4Subnet 172.0.33.0/24-PassThru
 
-Aggiungi DnsServerQueryResolutionPolicy-denominare "BlockListPolicyMalicious06"-azione Ignora - ClientSubnet "EQ, MaliciousSubnet06" - PassThru '
+Add-DnsServerQueryResolutionPolicy-Name "BlockListPolicyMalicious06"-Action IGNOre-ClientSubnet "EQ, MaliciousSubnet06"-PassThru '
 
-Nell'esempio seguente viene illustrato come è possibile usare i criteri di subnet in combinazione con i criteri di nome di dominio completo per bloccare le query per determinati domini dannosi da subnet infette.
+Nell'esempio seguente viene illustrato come è possibile utilizzare i criteri di subnet in combinazione con i criteri FQDN per bloccare le query per determinati domini dannosi da subnet infette.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyMalicious06" -Action IGNORE -ClientSubnet  "EQ,MaliciousSubnet06" –FQDN “EQ,*.contosomalicious.com” -PassThru
 `
 
-## <a name="bkmk_block3"></a>Blocco di un tipo di query
-Potrebbe essere necessario bloccare la risoluzione dei nomi per determinati tipi di query sui server. Ad esempio, è possibile bloccare la query 'ANY', che possa essere usata da utenti malintenzionati per creare attacchi amplificazione.
+## <a name="bkmk_block3"></a>Blocca un tipo di query
+Potrebbe essere necessario bloccare la risoluzione dei nomi per determinati tipi di query sui server. Ad esempio, è possibile bloccare la query ' ANY ', che può essere usata in modo dannoso per creare attacchi di amplificazione.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyQType" -Action IGNORE -QType "EQ,ANY" -PassThru
 `
 
-## <a name="bkmk_allow1"></a>Consenti query su solo da un dominio
-Non è possibile utilizzare solo i criteri DNS alle query di blocco, è possibile usarli per approvare automaticamente le query verso subnet o domini specifici. Quando si configura consentire sono elencate, il server DNS elabora solo le query da domini consentiti, durante il blocco di tutte le altre query dagli altri domini.
+## <a name="bkmk_allow1"></a>Consenti query solo da un dominio
+Non solo è possibile usare i criteri DNS per bloccare le query, ma è possibile usarli per approvare automaticamente le query da domini o subnet specifici. Quando si configurano gli elenchi Consenti, il server DNS elabora solo le query da domini consentiti, bloccando tutte le altre query da altri domini.
 
-Il comando seguente consente solo i computer e dispositivi in domini di contoso.com e figlio per eseguire una query server DNS.
+Il comando di esempio seguente consente solo ai computer e ai dispositivi nei domini contoso.com e figlio di eseguire query sul server DNS.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicyDomain" -Action IGNORE -FQDN "NE,*.contoso.com" -PassThru 
 `
 
-## <a name="bkmk_allow2"></a>Consenti query su solo da una subnet
-È possibile anche creare elenchi Consenti per le subnet IP, in modo che tutte le query non ha origine da queste subnet vengono ignorate.
+## <a name="bkmk_allow2"></a>Consenti solo query da una subnet
+È anche possibile creare elenchi Consenti per subnet IP, in modo che tutte le query che non provengono da tali subnet vengano ignorate.
 
 `
 Add-DnsServerClientSubnet -Name "AllowedSubnet06" -IPv4Subnet 172.0.33.0/24 -PassThru
@@ -99,10 +99,10 @@ Add-DnsServerClientSubnet -Name "AllowedSubnet06" -IPv4Subnet 172.0.33.0/24 -Pas
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicySubnet” -Action IGNORE -ClientSubnet  "NE, AllowedSubnet06" -PassThru
 `
 
-## <a name="bkmk_allow3"></a>Consentire solo determinate QTypes
-È possibile applicare elenchi Consenti a QTYPEs. 
+## <a name="bkmk_allow3"></a>Consenti solo determinati QTypes
+È possibile applicare gli elenchi Consenti a QTYPEs. 
 
-Ad esempio, se si dispone di una query di interfaccia di server DNS 164.8.1.1 ai clienti esterni, sono consentiti solo determinati QTYPEs essere sottoposti a query, anche se esistono altri QTYPEs come i record SRV o TXT che vengono utilizzati dai server interno per la risoluzione dei nomi o a scopo di monitoraggio.
+Se, ad esempio, sono presenti clienti esterni che eseguono query sull'interfaccia del server DNS 164.8.1.1, è possibile eseguire query solo su determinati QTYPEs, mentre sono presenti altri QTYPEs come i record SRV o TXT usati dai server interni per la risoluzione dei nomi o per scopi di monitoraggio.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "AllowListQType" -Action IGNORE -QType "NE,A,AAAA,MX,NS,SOA" –ServerInterface “EQ,164.8.1.1” -PassThru

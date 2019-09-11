@@ -9,19 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2544001b871a1eda2c03005c384a99d5209e7282
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0d69c92209a2998cf2c249b865ad8d16424735ca
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190551"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867577"
 ---
 # <a name="when-to-use-identity-delegation"></a>Quando usare la delega di identità
   
 ## <a name="what-is-identity-delegation"></a>Che cos'è la delega di identità?  
-Delega dell'identità è una funzionalità di Active Directory Federation Services \(ADFS\) che consente l'amministrazione\-specificati account per rappresentare gli utenti. L'account che rappresenta l'utente viene chiamato *delegato*. Questa funzionalità di delega è fondamentale per molte applicazioni distribuite per le quali è disponibile una serie di verifiche del controllo di accesso che devono essere eseguite in sequenza per ogni applicazione, database o servizio che fa parte della catena di autorizzazione per la richiesta di origine. Numero reale\-esistono scenari in cui un'applicazione "front-end Web" deve recuperare dati da un più sicuro "back-end", ad esempio un servizio Web che è connesso a un database Microsoft SQL Server.  
+La delega dell'identità è una funzionalità \(di\) Active Directory Federation Services ad FS che\-consente agli account specificati dall'amministratore di rappresentare gli utenti. L'account che rappresenta l'utente viene chiamato *delegato*. Questa funzionalità di delega è fondamentale per molte applicazioni distribuite per le quali è disponibile una serie di verifiche del controllo di accesso che devono essere eseguite in sequenza per ogni applicazione, database o servizio che fa parte della catena di autorizzazione per la richiesta di origine. Esistono molti\-scenari reali in cui il "front-end" di un'applicazione Web deve recuperare dati da un "back-end" più sicuro, ad esempio un servizio Web connesso a un database Microsoft SQL Server.  
   
-Ad esempio, un parti esistenti\-ordinamento può essere migliorato a livello di codice del sito Web in modo che consente alle organizzazioni di visualizzare il proprio stato di cronologia e account di acquisto al partner. Per motivi di sicurezza tutti i dati finanziari di partner è archiviato in un database protetto in dedicato Structured Query Language \(SQL\) server. In questo caso, il codice nella parte anteriore\-applicazione end non riconosce i dati finanziari dell'organizzazione partner. Pertanto, è necessario recuperare i dati da un altro computer in un punto della rete che ospita \(in questo caso\) il servizio Web per il database di parti \(back-end\).  
+Ad esempio, un parti esistenti\-ordinamento può essere migliorato a livello di codice del sito Web in modo che consente alle organizzazioni di visualizzare il proprio stato di cronologia e account di acquisto al partner. Per motivi di sicurezza tutti i dati finanziari di partner è archiviato in un database protetto in dedicato Structured Query Language \(SQL\) server. In questa situazione, il codice nell'applicazione front\--end non riconosce i dati finanziari dell'organizzazione partner. Pertanto, è necessario recuperare i dati da un altro computer in un punto della rete che ospita \(in questo caso\) il servizio Web per il database di parti \(back-end\).  
   
 Per questi dati\-il processo di recupero abbia esito positivo, alcuni successione di autorizzazione "mano\-agitazione" deve avvenire tra l'applicazione Web e il servizio Web per il database di parti, come illustrato nella figura seguente.  
   
@@ -36,11 +36,11 @@ Le applicazioni Web nelle architetture di applicazioni multilivello spesso chiam
   
 1.  Frank tenta di accedere a parte\-ordinamento cronologia da un'applicazione Web in un'altra organizzazione. Il computer client richiede e riceve un token da ADFS per la parte anteriore\-terminare parte\-ordinamento applicazione Web.  
   
-2.  Il computer client invia una richiesta all'applicazione Web, includendo il token ottenuto nel passaggio 1, per dimostrare l'identità del client.  
+2.  Il computer client invia una richiesta all'applicazione Web, incluso il token ottenuto nel passaggio 1, per dimostrare l'identità del client.  
   
 3.  L'applicazione Web deve comunicare con il servizio Web per completare la transazione per il client. L'applicazione Web contatta ADFS per ottenere un token di delega per interagire con il servizio Web. I token di delega sono token di sicurezza rilasciati affinché un delegato possa agire come un utente. ADFS restituisce un token di delega con attestazioni relative al client, per il servizio Web di destinazione.  
   
-4.  L'applicazione Web Usa il token ottenuto da ADFS nel passaggio 3 per accedere al servizio Web che funge da client. Esaminando il token di delega, il servizio Web può stabilire che l'applicazione Web funge da client. Il servizio Web esegue il proprio criterio di autorizzazione, registra la richiesta e fornisce i dati di cronologia sulle parti necessarie originariamente richiesti da Frank all'applicazione Web e quindi a Frank.  
+4.  L'applicazione Web usa il token ottenuto da AD FS nel passaggio 3 per accedere al servizio Web che funge da client. Esaminando il token di delega, il servizio Web può stabilire che l'applicazione Web funge da client. Il servizio Web esegue il proprio criterio di autorizzazione, registra la richiesta e fornisce i dati di cronologia sulle parti necessarie originariamente richiesti da Frank all'applicazione Web e quindi a Frank.  
   
 Per un determinato delegato, ADFS può limitare i servizi Web per cui l'applicazione Web potrebbe richiedere un token di delega. Il computer client non ha un account di Active Directory per eseguire questa operazione. Infine, come indicato in precedenza, il servizio Web può facilmente determinare l'identità del delegato che opera come utente. In questo modo i servizi Web possono presentare un comportamento diverso a seconda che comunichino direttamente con il computer client o tramite un delegato.  
   
@@ -53,7 +53,7 @@ ADFS non limitano gli utenti che possono essere rappresentati. Dopo aver configu
   
 -   Stabilisce e mantiene separati sia il contesto dell'identità per l'account del client delegato che per il server che agisce come delegato.  
   
-È possibile configurare la delega dell'identità mediante l'aggiunta di regole di autorizzazione di delega per una relying party trust nello snap di gestione di ADFS\-in. Per altre informazioni su come eseguire questa operazione, vedere [elenco di controllo: Creazione di regole attestazione per un Trust della Relying Party](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md).  
+È possibile configurare la delega dell'identità mediante l'aggiunta di regole di autorizzazione di delega per una relying party trust nello snap di gestione di ADFS\-in. Per ulteriori informazioni su come eseguire questa operazione, vedere [elenco di controllo: Creazione di regole attestazione per un trust](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md)della relying party.  
   
 ## <a name="configuring-the-front-end-web-application-for-identity-delegation"></a>Configurazione di primo piano\-terminare l'applicazione Web per la delega dell'identità  
 Gli sviluppatori sono disponibili diverse opzioni che consentono di programmare in modo appropriato all'inizio di Web\-terminare l'applicazione o un servizio per reindirizzare le richieste di delega in un computer di ADFS. Per altre informazioni su come personalizzare un'applicazione Web in modo che funzioni con la delega dell'identità, vedere [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  

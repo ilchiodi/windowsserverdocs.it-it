@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7cc5709723b300f46ce108b36501e7ace272cd45
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 30fdda5ada01510027100efce1e95f310f69c6a1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544570"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865102"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Risoluzione dei problemi Spazi di archiviazione diretta
 
@@ -203,7 +203,7 @@ L' **analisi dell'integrità dei dati per il ripristino di arresto anomalo del**
 
 Per ulteriori informazioni, vedere la pagina relativa alla [risoluzione dei problemi spazi di archiviazione diretta stato operativo](storage-spaces-states.md).
 
-## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Evento 5120 con STATUS_IO_TIMEOUT c00000b5 
+## <a name="event-5120-with-status_io_timeout-c00000b5"></a>Evento 5120 con STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
 > **Per Windows Server 2016:** Per ridurre la possibilità di riscontrare questi sintomi durante l'applicazione dell'aggiornamento con la correzione, è consigliabile usare la procedura relativa alla modalità di manutenzione dell'archiviazione riportata di seguito per installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928) o una versione successiva. Quando i nodi hanno attualmente installato un aggiornamento cumulativo di Windows Server 2016 rilasciato dall' [8 maggio 2018](https://support.microsoft.com/help/4103723) fino al [9 ottobre 2018](https://support.microsoft.com/help/KB4462917).
@@ -217,7 +217,7 @@ Event Source: Microsoft-Windows-FailoverClustering
 Event ID: 5120
 Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_IO_TIMEOUT(c00000b5)'. All I/O will temporarily be queued until a path to the volume is reestablished. 
 
-Cluster Shared Volume ‘CSVName’ ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
+Cluster Shared Volume ‘CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
 Quando viene registrato un evento 5120, viene generato un dump attivo per raccogliere informazioni di debug che possono causare sintomi aggiuntivi o avere un effetto sulle prestazioni. La generazione del dump attivo crea una breve pausa per consentire l'esecuzione di uno snapshot della memoria per la scrittura del file di dump. I sistemi con una grande quantità di memoria e sottoposti a stress possono causare l'eliminazione dei nodi dall'appartenenza al cluster e la registrazione dell'evento 1135 seguente.
@@ -246,7 +246,7 @@ Una modifica introdotta nell'8 maggio 2018 a Windows Server 2016, che è un aggi
    Get-StorageFaultDomain -type StorageScaleUnit | Where-Object {$_.FriendlyName -eq "<NodeName>"} | Enable-StorageMaintenanceMode
    ```
 4. Eseguire il cmdlet **Get-PhysicalDisk** e verificare che il valore di OperationalStatus sia in modalità manutenzione.
-5. Eseguire il cmdlet Restart **-computer** per riavviare il nodo.
+5. Eseguire il cmdlet **Restart-computer** per riavviare il nodo.
 6. Dopo il riavvio del nodo, rimuovere i dischi del nodo dalla modalità di manutenzione dell'archiviazione eseguendo il cmdlet seguente:
 
    ```powershell
@@ -333,7 +333,7 @@ Esistono due modi per verificare:
     2. Eseguire "IPMO storage"
     3. eseguire "$d". Si noti che l'utilizzo è selezione automatica, non Journal. verrà visualizzato un output simile al seguente: 
 
-   |FriendlyName|  SerialNumber| MediaType| CanPool| OperationalStatus| HealthStatus| Uso| Size|
+   |FriendlyName|  SerialNumber| MediaType| CanPool| OperationalStatus| HealthStatus| Utilizzo| Size|
    |-----------|------------|---------| -------| -----------------| ------------| -----| ----|
    |NVMe INTEL SSDPE7KX02| PHLF733000372P0LGN| SSD| False|   OK|                Integro|      Selezionare automaticamente 1,82 TB|
    |NVMe INTEL SSDPE7KX02 |PHLF7504008J2P0LGN| SSD|  False|    OK|                Integro| Selezione automatica| 1,82 TB|
@@ -358,7 +358,7 @@ Il passaggio successivo consiste nel rimuovere il pool di archiviazione fantasma
 
 A questo punto, se si esegue **Get-PhysicalDisk** su uno qualsiasi dei nodi, verranno visualizzati tutti i dischi presenti nel pool. Ad esempio, in un Lab con un cluster a 4 nodi con 4 dischi SAS, 100 GB ciascuno presentati a ogni nodo. In tal caso, dopo che lo spazio di archiviazione diretto è disabilitato, che rimuove il SBL (livello del bus di archiviazione) ma lascia il filtro, se si esegue **Get-PhysicalDisk**, dovrebbe segnalare 4 dischi, escluso il disco del sistema operativo locale. Invece è stato segnalato 16. Questo è lo stesso per tutti i nodi del cluster. Quando si esegue un comando **Get-disk** , verranno visualizzati i dischi collegati localmente numerati come 0, 1, 2 e così via, come illustrato in questo esempio di output:
 
-|Number| Nome descrittivo| Numero di serie|HealthStatus|OperationalStatus|Dimensioni totali| Stile partizione|
+|NUMBER| Nome descrittivo| Numero di serie|HealthStatus|OperationalStatus|Dimensioni totali| Stile partizione|
 |-|-|-|-|-|-|-|-|
 |0|Virtu MSFT...  ||Integro | Online|  127 GB| GPT|
 ||Virtu MSFT... ||Integro| Offline| 100 GB| RAW|

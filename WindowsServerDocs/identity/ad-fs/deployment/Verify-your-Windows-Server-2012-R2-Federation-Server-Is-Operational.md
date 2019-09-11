@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1115d276-00f6-4c23-9278-eedcc31295d8
-title: Verificare che il Server federativo di Windows Server 2012 R2 sia operativo
+title: Verificare che il server federativo di Windows Server 2012 R2 sia operativo
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7cab415cc599f388c2bb5966d45998874ce56987
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d32338d0e9242d12ab18fd30192736ea3b44fdb4
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191836"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868060"
 ---
-# <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>Verificare che il Server federativo di Windows Server 2012 R2 sia operativo
+# <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>Verificare che il server federativo di Windows Server 2012 R2 sia operativo
 
 
 
@@ -28,11 +28,11 @@ Per eseguire questa procedura è richiesta almeno l'appartenenza al gruppo **Use
   
 1.  Per verificare che Internet Information Services \(IIS\) sia configurato correttamente nel server federativo, accedere a un computer client che si trova nella stessa foresta del server federativo.  
   
-2.  Aprire una finestra del browser, nella barra degli indirizzi digitare nome host DNS del server federativo e quindi accodare \/adfs\/fs\/federationserverservice.asmx a esso per il nuovo server federativo, ad esempio:  
+2.  Aprire una finestra del browser, nella barra degli indirizzi digitare il nome host DNS del server federativo, quindi \/accodare\/ADFS\/fs FederationServerService. asmx per il nuovo server federativo, ad esempio:  
   
-    **https:\/\/fs1.fabrikam.com\/adfs\/fs\/federationserverservice.asmx**  
+    **https:\/\/FS1.fabrikam.comADFS\/fsFederationServerService\/. asmx\/**  
   
-3.  Premere INVIO, quindi completare la procedura successiva sul computer server federativo. Se viene visualizzato il messaggio **Si è verificato un problema con il certificato di protezione del sito Web**, fare clic su **Continuare con il sito Web**.  
+3.  Premere INVIO, quindi completare la procedura successiva sul computer server federativo. Se viene visualizzato il messaggio si **è verificato un problema con il certificato di sicurezza del sito Web**, fare clic su continuare con il **sito Web**.  
   
     L'output previsto è una visualizzazione XML con il documento di descrizione del servizio. Se viene visualizzata questa pagina, IIS è operativo sul server federativo e serve le pagine.  
   
@@ -42,11 +42,11 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 1.  Accedere al nuovo server federativo come amministratore.  
   
-2.  Nel **avviare** digitare**Visualizzatore eventi**, quindi premere INVIO.  
+2.  Nella schermata **Start** Digitare**Visualizzatore eventi**e quindi premere INVIO.  
   
-3.  Nel riquadro dei dettagli fare doppio\-fare clic su **registri applicazioni e servizi**, double\-fare clic su **gestione eventi ADFS**, quindi fare clic su **Admin**.  
+3.  Nel riquadro dei dettagli fare doppio\-clic su **registri applicazioni e servizi**,\-fare doppio clic su **ad FS evento**, quindi fare clic su **Amministrazione**.  
   
-4.  Nel **ID evento** colonne, cercare l'evento ID 100. Se il server federativo è configurato correttamente, viene visualizzato un nuovo evento, ovvero nel registro applicazioni del Visualizzatore eventi, ovvero con l'evento ID 100. Tale evento verifica che il server federativo è stato in grado di comunicare correttamente con il servizio federativo.  
+4.  Nella colonna **ID evento** cercare l'id evento 100. Se il server federativo è configurato correttamente, viene visualizzato un nuovo evento, nel registro applicazioni di Visualizzatore eventi, con l'ID evento 100. Questo evento verifica che il server federativo sia stato in grado di comunicare correttamente con il Servizio federativo.  
   
 ## <a name="see-also"></a>Vedere anche 
 

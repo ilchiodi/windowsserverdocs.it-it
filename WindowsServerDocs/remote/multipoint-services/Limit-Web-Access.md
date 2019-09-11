@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: cb91914608110d26ff2db8eff1cd28d26d04669b
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590346"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871663"
 ---
 # <a name="limit-web-access"></a>Limitare l'accesso al Web
 Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente amministratore può limitare l'accesso degli utenti ai siti Web specificati indicando i siti Web e i siti Web consentiti a cui si desidera bloccare l'accesso utente.  
@@ -46,7 +46,7 @@ Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente ammin
   
 2. Per aggiungere un sito consentito, fare clic su **Allow only these sites** (Consenti solo questi siti), digitare l'indirizzo Web e quindi fare clic su **Add** (Aggiungi).  
   
-   Per aggiungere un sito che non si desidera venga visitato da altri utenti, fare clic su **Disallow only these sites** (Proibisci solo questi siti), digitare l'indirizzo Web e quindi fare clic su **Add** (Aggiungi).  
+   Per aggiungere un sito che non si desidera venga visitato dagli utenti, fare clic su non **consentire solo questi siti**, digitare l'indirizzo Web che non si vuole che gli utenti visitino e quindi fare clic su **Aggiungi**.  
   
    > [!NOTE]
    > Ad esempio, l'immissione di "Contoso.com" consente o blocca i siti relativi a www.contoso.com (ad esempio, www.newpage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  

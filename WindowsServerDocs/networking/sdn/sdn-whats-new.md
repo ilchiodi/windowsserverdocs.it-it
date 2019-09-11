@@ -1,6 +1,6 @@
 ---
-title: Nuove funzionalità di SDN in Windows Server
-description: In questo argomento vengono fornite informazioni sulle nuove funzionalità di Software Defined Networking per Windows Server 1709
+title: Novità di SDN per Windows Server
+description: Questo argomento fornisce informazioni sulle nuove funzionalità di Software Defined Networking per Windows Server 1709
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,24 +9,24 @@ ms.assetid: efad919b-e9e7-4a0c-b373-e68a092f93b5
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: aef2bc32f249550d4e8d33d4b871ca98010e2f49
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 803ca27ca138281cbea1a93aca7e5a8b799bd862
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446297"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870163"
 ---
 # <a name="whats-new-in-sdn-for-windows-server-2019"></a>Novità di SDN per Windows Server 2019
 
->Si applica a: Windows Server (Canale semestrale)
+>Si applica a Windows Server (Canale semestrale)
 
 
-|                         **Funzionalità**                          |                                                                                                                                                                                         **Descrizione**                                                                                                                                                                                         | **New/updated** |
+|                         **Funzionalità**                          |                                                                                                                                                                                         **Descrizione**                                                                                                                                                                                         | **Nuovo/aggiornato** |
 |--------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Reti crittografate](vnet-encryption/sdn-vnet-encryption.md) | Crittografia di rete virtuale consente la crittografia del traffico della rete virtuale tra le macchine virtuali che comunicano tra loro all'interno di subnet contrassegnata come 'Crittografia Enabled'. Utilizza anche Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare pacchetti. DTLS impedisce intercettazioni, manomissioni e contraffazioni da parte di chiunque abbia accesso alla rete fisica. |       Nuova       |
-|    [Il controllo del firewall](security/sdn-firewall-auditing.md)    |                                                                                            Il controllo firewall è una nuova funzionalità per il firewall di rete SDN in Windows Server 2019. Quando si abilita il firewall di rete SDN, ottiene registrato qualsiasi flusso elaborata dalle regole di firewall di rete SDN (ACL) che hanno abilitata la registrazione.                                                                                            |       Nuova       |
-| [Peering di rete virtuale](vnet-peering/sdn-vnet-peering.md)  |                                                                                                                      Peering reti virtuali consente di connettere due reti virtuali senza problemi. Una volta eseguito il peering, per motivi di connettività, le reti virtuali vengono visualizzate come una.                                                                                                                      |       Nuova       |
-|           [Dati in uscita di misurazione](manage/sdn-egress.md)            |                  Questa nuova funzionalità di Windows Server 2019 Abilita SDN offrire i contatori di utilizzo per i trasferimenti di dati in uscita. Con questa funzionalità aggiunta, mantiene di Controller di rete, un elenco elementi consentiti per ogni rete virtuale di tutti gli intervalli IP usati all'interno di SDN e prendere in considerazione qualsiasi pacchetto associato per una destinazione che non è incluso in uno di questi intervalli di essere fatturato trasferimenti dati in uscita.                   |       Nuova       |
+| [Reti crittografate](vnet-encryption/sdn-vnet-encryption.md) | La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata". Utilizza anche Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare pacchetti. DTLS impedisce intercettazioni, manomissioni e contraffazioni da parte di chiunque abbia accesso alla rete fisica. |       Nuova       |
+|    [Controllo del firewall](security/sdn-firewall-auditing.md)    |                                                                                            Il controllo del firewall è una nuova funzionalità per il firewall SDN in Windows Server 2019. Quando si Abilita il firewall SDN, viene registrato qualsiasi flusso elaborato dalle regole del firewall SDN (ACL) con la registrazione abilitata.                                                                                            |       Nuova       |
+| [Peering di rete virtuale](vnet-peering/sdn-vnet-peering.md)  |                                                                                                                      Il peering di rete virtuale consente di connettere facilmente due reti virtuali. Una volta eseguito il peering, per finalità di connettività, le reti virtuali vengono visualizzate come una sola.                                                                                                                      |       Nuova       |
+|           [Misurazione in uscita](manage/sdn-egress.md)            |                  Questa nuova funzionalità di Windows Server 2019 consente a SDN di offrire contatori di utilizzo per i trasferimenti di dati in uscita. Con questa funzionalità aggiunta, il controller di rete mantiene un elenco di elementi consentiti per ogni rete virtuale di tutti gli intervalli IP usati in SDN e considera i pacchetti associati a una destinazione non inclusa in uno di questi intervalli per la fatturazione dei trasferimenti di dati in uscita.                   |       Nuova       |
 
 ---
 

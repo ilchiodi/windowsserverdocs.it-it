@@ -10,12 +10,12 @@ ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 180ffbd1e96448d7a7ea12c5e08e9fc5b35f7f8b
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 56f485491340b3974d8bf5ba697c6cf01f3e56ac
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031592"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868211"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Accesso automatico a Winlogon (al riavvio Winlogon)
 

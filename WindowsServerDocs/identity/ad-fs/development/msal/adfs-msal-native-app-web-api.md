@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f1de6229d5360a4ea95d285f34ad32532762edca
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 588d717b8f03987b86af7dc0576d537ebd88c4ba
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983559"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867621"
 ---
 # <a name="scenario-native-app-calling-web-api"></a>Scenario: App nativa che chiama l'API Web 
 >Si applica a: AD FS 2019 e versioni successive 
@@ -81,11 +81,11 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
   
       ![Reg app](media/adfs-msal-native-app-web-api/native9.png) 
 
-  12. Nella procedura guidata Aggiungi regola attestazione di trasformazione selezionare **trasformazione di un'attestazione in ingresso** dal modello di **regola attestazione:** elenco a discesa e fare clic su **Avanti**.  
+  12. Nella procedura guidata Aggiungi regola attestazione di trasformazione selezionare **trasformazione di un'attestazione in ingresso** dal **modello di regola attestazione:** elenco a discesa e fare clic su **Avanti**.  
   
       ![Reg app](media/adfs-msal-native-app-web-api/native10.png) 
 
-  13. Immettere **NameID** in **Nome regola attestazione:** campo. Selezionare **nome** per **tipo di attestazione in ingresso:** , **ID nome** per tipo di attestazione in **uscita:** e **nome comune** per il **formato ID nome in uscita:** . fare clic su **fine**.
+  13. Immettere **NameID** in **Nome regola attestazione:** campo. Selezionare **nome** per **tipo di attestazione in ingresso:** , **ID nome** per **tipo di attestazione in uscita:** e **nome comune** per il **formato ID nome in uscita:** . Fare clic su **fine**.
   
       ![Reg app](media/adfs-msal-native-app-web-api/native11.png) 
 
@@ -146,5 +146,5 @@ In questa sezione viene illustrato come eseguire il test dell'esempio configurat
        ![Test app](media/adfs-msal-native-app-web-api/native19.png)
  
 ## <a name="next-steps"></a>Passaggi successivi
-[AD FS i flussi OpenID Connect/OAuth e gli scenari di applicazione](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[Flussi e scenari applicativi di OpenID Connect/OAuth in AD FS](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

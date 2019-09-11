@@ -9,49 +9,49 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 06946942bcdc5ea00acc22b91d6551a826357fcf
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191847"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868033"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Guida alla distribuzione di AD FS in Windows Server 2012
 
 
-È possibile usare Active Directory® Federation Services \(ADFS\) con il sistema operativo Windows Server® 2012 per compilare una soluzione di gestione delle identità federate che estende l'identificazione distribuita, l'autenticazione, e servizi di autorizzazione Web\-applicazioni basate su confini dell'organizzazione e piattaforma. Con la distribuzione di ADFS, è possibile estendere a Internet le funzionalità di gestione delle identità esistenti dell'organizzazione.  
+È possibile utilizzare Active Directory® servizi \(federativi ad FS\) con il sistema operativo Windows Server® 2012 per compilare una soluzione di gestione delle identità federate che estende l'identificazione distribuita, l'autenticazione e Servizi di autorizzazione per\-le applicazioni basate sul Web oltre i confini dell'organizzazione e della piattaforma. Distribuendo AD FS, è possibile estendere a Internet le funzionalità di gestione delle identità esistenti dell'organizzazione.  
   
-È possibile distribuire AD FS:  
+È possibile distribuire AD FS in:  
   
--   Offrire ai dipendenti o i clienti con un sito Web\-base, l'accesso single\-sign\-sul \(SSO\) esperienza nei momenti desiderati accesso remoto a internamente ospitata in siti Web o servizi.  
+-   Offrire ai dipendenti o ai clienti un'esperienza\-SSO\) basata sul\-Web, \(Single Sign\--on, quando necessitano di accesso remoto a siti o servizi Web ospitati internamente.  
   
--   Offrire ai dipendenti o i clienti con un sito Web\-base, esperienza SSO durante l'accesso cross-\-siti Web dell'organizzazione o servizi all'interno di firewall della rete.  
+-   Offrire ai dipendenti o ai clienti un'esperienza\-SSO basata sul Web quando accedono a\-siti Web o servizi tra organizzazioni dall'interno dei firewall della rete.  
   
--   Offrire ai dipendenti o i clienti con accesso in modo trasparente a Web\-in base alle risorse in qualsiasi organizzazione partner federativo su Internet senza chiedere ai dipendenti o ai clienti di accedere più volte.  
+-   Offri ai tuoi dipendenti o ai tuoi clienti l'accesso\-trasparente alle risorse basate sul Web in qualsiasi organizzazione partner federativo su Internet senza richiedere a dipendenti o clienti di accedere più di una volta.  
   
--   Mantenere il controllo completo delle identità di dipendenti o clienti senza usare altri sign\-sui provider \(Windows Live ID, Liberty Alliance e altri\).  
+-   Mantieni il controllo completo sulle identità di dipendenti o clienti senza usare altri provider\- \(di accesso Windows Live ID, Liberty Alliance e altri ancora\).  
   
 ## <a name="about-this-guide"></a>Informazioni sulla guida  
-Questa guida è destinata ad amministratori di sistema e sistemisti. Vengono fornite istruzioni dettagliate per la distribuzione di una progettazione di ADFS che è stata preselezionata dall'utente o da un'infrastruttura specialista architetto di sistema all'interno dell'organizzazione.  
+Questa guida è destinata ad amministratori di sistema e sistemisti. Fornisce indicazioni dettagliate per la distribuzione di un progetto di AD FS preselezionato dall'utente o da uno specialista dell'infrastruttura o un architetto di sistema all'interno dell'organizzazione.  
   
-Se non è ancora stata selezionata una progettazione, è consigliabile attendere per seguire le istruzioni in questa guida fino a dopo aver esaminato le opzioni di progettazione nel [Guida alla progettazione di AD FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) ed è stata selezionata la maggior parte progettazione appropriata per l'organizzazione. Per altre informazioni sull'uso di questa Guida con una progettazione che è già stata selezionata, vedere [che implementa il piano di progettazione di AD FS](Implementing-Your-AD-FS-Design-Plan.md).  
+Se non è ancora stata selezionata una progettazione, è consigliabile attendere per seguire le istruzioni riportate in questa guida fino a quando non sono state esaminate le opzioni di progettazione nella [Guida alla progettazione di ad FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) ed è stata selezionata la progettazione più appropriata per il organizzazione. Per ulteriori informazioni sull'utilizzo di questa guida con una progettazione già selezionata, vedere [implementazione del piano di progettazione ad FS](Implementing-Your-AD-FS-Design-Plan.md).  
   
-Dopo aver selezionato la progettazione dalla Guida alla progettazione e raccogliere le informazioni necessarie su attestazioni, tipi di token, archivi di attributi e altri elementi, è possibile usare questa guida per distribuire una progettazione di ADFS nell'ambiente di produzione. Questa guida fornisce passaggi per la distribuzione delle progettazioni di AD FS primarie seguente:  
+Dopo aver selezionato la progettazione dalla guida alla progettazione e avere raccolto le informazioni necessarie su attestazioni, tipi di token, archivi di attributi e altri elementi, è possibile usare questa guida per distribuire la progettazione AD FS nell'ambiente di produzione. Questa guida illustra i passaggi per la distribuzione di uno dei seguenti progetti di AD FS primari:  
   
 -   Web SSO  
   
 -   Web SSO federativo  
   
-Usare gli elenchi di controllo nella [che implementa il piano di progettazione di AD FS](Implementing-Your-AD-FS-Design-Plan.md) per determinare il modo migliore per usare le istruzioni in questa guida per distribuire una particolare progettazione. Per informazioni sui requisiti hardware e software per la distribuzione di AD FS, vedere il [appendice a: Requisiti per ADFS](https://technet.microsoft.com/library/ff678034.aspx) la progettazione di AD FS Guida.  
+Utilizzare gli elenchi di controllo in [implementazione del piano di progettazione di ad FS](Implementing-Your-AD-FS-Design-Plan.md) per determinare il modo migliore per utilizzare le istruzioni in questa guida per distribuire la progettazione specifica. Per informazioni sui requisiti hardware e software per la distribuzione di ad FS, [vedere l'Appendice A: Revisione dei requisiti](https://technet.microsoft.com/library/ff678034.aspx) di ad FS nella Guida alla progettazione di ad FS.  
   
 ### <a name="what-this-guide-does-not-provide"></a>Informazioni non contenute in questa guida  
 Questa guida non contiene:  
   
--   Indicazioni su quando e dove posizionare i server federativi, proxy server federativi o server Web nell'infrastruttura di rete esistente. Queste informazioni, vedere [pianificazione posizionamento del Server federativo](https://technet.microsoft.com/library/dd807069.aspx) e [pianificazione posizionamento del Proxy Server federativo](https://technet.microsoft.com/library/dd807130.aspx) nella Guida alla progettazione di AD FS.  
+-   Indicazioni su quando e dove collocare i server federativi, i proxy server federativi o i server Web nell'infrastruttura di rete esistente. Per informazioni, vedere [Planning Federation Server Placement](https://technet.microsoft.com/library/dd807069.aspx) and [Planning Federation Server Proxy Placement](https://technet.microsoft.com/library/dd807130.aspx) nella Guida alla progettazione ad FS.  
   
--   Linee guida per l'uso di autorità di certificazione \(CAs\) configurare AD FS  
+-   Linee guida per l'utilizzo \(di\) autorità di certificazione CA per configurare ad FS  
   
--   Linee guida per l'installazione o configurazione Web specifiche\-applicazioni basate su  
+-   Linee guida per la configurazione o la configurazione\-di specifiche applicazioni basate sul Web  
   
 -   Istruzioni di configurazione specifiche per l'impostazione di un ambiente lab di test.  
   
@@ -67,7 +67,7 @@ Questa guida non contiene:
   
 -   [Elenco di controllo: Implementazione di un progetto di Web SSO federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
--   [Configurazione di organizzazioni Partner](Configuring-Partner-Organizations.md)  
+-   [Configurazione di organizzazioni partner](Configuring-Partner-Organizations.md)  
   
 -   [Configurazione delle regole delle attestazioni](Configuring-Claim-Rules.md)  
   

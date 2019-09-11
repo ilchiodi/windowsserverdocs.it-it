@@ -1,5 +1,5 @@
 ---
-title: Creare una chiave di host e aggiungerlo al servizio HGS
+title: Creare una chiave host e aggiungerla a HGS
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -8,54 +8,54 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 0526831fb0648e7f8f6fb1a081180f2e2aa9f09f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 655ebae66b234d62e5863e2a22e785d5a0028da7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447494"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870537"
 ---
-# <a name="create-a-host-key-and-add-it-to-hgs"></a>Creare una chiave di host e aggiungerlo al servizio HGS
+# <a name="create-a-host-key-and-add-it-to-hgs"></a>Creare una chiave host e aggiungerla a HGS
 
->Si applica a: Windows Server 2019
+>Si applica a Windows Server 2019
 
 
-Questo argomento illustra come preparare gli host Hyper-V per acquisire gli host sorvegliati usando l'attestazione chiave host (modalità chiave). Si sarà crea una coppia di chiavi host (o usare un certificato esistente) e aggiungere la parte pubblica della chiave del servizio HGS.
+Questo argomento illustra come preparare gli host Hyper-V per diventare host sorvegliati usando l'attestazione chiave host (modalità chiave). Si creerà una coppia di chiavi host (o si userà un certificato esistente) e si aggiungerà la metà pubblica della chiave a HGS.
 
 ## <a name="create-a-host-key"></a>Creare una chiave host
 
 1.  Installare Windows Server 2019 nel computer host Hyper-V.
-2.  Installare le funzionalità di Hyper-V e supporto Hyper-V per sorveglianza Host:
+2.  Installare le funzionalità di supporto Hyper-V per Hyper-V e sorveglianza host:
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ``` 
 
-3.  Generare automaticamente una chiave host oppure selezionare un certificato esistente. Se si usa un certificato personalizzato, deve avere almeno una chiave RSA a 2048 bit, l'EKU di autenticazione Client e utilizzo delle chiave di firma digitale.
+3.  Generare automaticamente una chiave host oppure selezionare un certificato esistente. Se si usa un certificato personalizzato, deve avere almeno una chiave RSA a 2048 bit, l'EKU di autenticazione client e l'utilizzo della chiave di firma digitale.
 
     ```powershell
     Set-HgsClientHostKey
     ```
 
-    In alternativa, è possibile specificare un'identificazione personale se si desidera usare il proprio certificato. 
-    Ciò può essere utile se vuoi condividere un certificato tra più computer, oppure utilizzare un certificato associato a un modulo TPM o un modulo HSM. Ecco un esempio di creazione di un certificato associato a TPM (che impedisce l'utilizzo della chiave privata rubato e usato in un altro computer e richiede solo un TPM 1.2):
+    In alternativa, è possibile specificare un'identificazione personale se si vuole usare il proprio certificato. 
+    Questo può essere utile se si vuole condividere un certificato tra più computer oppure usare un certificato associato a un modulo TPM o un modulo di protezione hardware. Ecco un esempio di creazione di un certificato associato a TPM (che impedisce che la chiave privata venga rubata e usata in un altro computer e richiede solo un TPM 1,2):
 
     ```powershell
     $tpmBoundCert = New-SelfSignedCertificate -Subject “Host Key Attestation ($env:computername)” -Provider “Microsoft Platform Crypto Provider”
     Set-HgsClientHostKey -Thumbprint $tpmBoundCert.Thumbprint
     ```
 
-4.  Ottenere la metà pubblica della chiave per fornire al server HGS. È possibile usare il cmdlet seguente o, se si hanno il certificato archiviato in un' posizione, specificare una CER contenente il pubblico metà della chiave. Si noti che stiamo solo l'archiviazione e convalidare la chiave pubblica su servizio HGS; non si mantengono le informazioni del certificato, né si convalida la data catena o la scadenza del certificato.
+4.  Ottenere la metà pubblica della chiave da fornire al server HGS. È possibile usare il cmdlet seguente o, se il certificato è archiviato altrove, fornire un. cer contenente la metà pubblica della chiave. Si noti che la chiave pubblica viene archiviata e convalidata solo in HGS; non vengono conservate informazioni sui certificati né viene convalidata la data di scadenza o la catena di certificati.
 
     ```powershell
     Get-HgsClientHostKey -Path "C:\temp\$env:hostname-HostKey.cer"
     ```
 
-5.  Copiare il file con estensione CER per il server HGS.
+5.  Copiare il file con estensione cer nel server HGS.
 
-## <a name="add-the-host-key-to-the-attestation-service"></a>Aggiungere il codice Product key host per il servizio di attestazione
+## <a name="add-the-host-key-to-the-attestation-service"></a>Aggiungere la chiave host al servizio di attestazione
 
-Questo passaggio viene eseguito nel server HGS e consente all'host a eseguire VM schermate. È consigliabile che si imposta il nome per il nome di dominio completo o identificatore di risorsa della macchina host, per averle facilmente host in cui la chiave di cui è installata.
+Questo passaggio viene eseguito nel server HGS e consente all'host di eseguire VM schermate. È consigliabile impostare il nome sull'FQDN o sull'identificatore di risorsa del computer host, in modo che sia possibile fare facilmente riferimento all'host in cui è installata la chiave.
 
 ```powershell
 Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
@@ -64,8 +64,8 @@ Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
 ## <a name="next-step"></a>Passaggio successivo
 
 > [!div class="nextstepaction"]
-> [Verificare che gli host consente di attestare correttamente](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [Verificare che gli host possano essere attestati correttamente](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Il servizio sorveglianza Host per la distribuzione di host sorvegliati e macchine virtuali schermate](guarded-fabric-deploying-hgs-overview.md)
+- [Distribuzione del servizio sorveglianza host per host sorvegliati e macchine virtuali schermate](guarded-fabric-deploying-hgs-overview.md)

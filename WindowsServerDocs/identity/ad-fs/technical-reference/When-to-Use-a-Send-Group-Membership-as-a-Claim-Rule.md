@@ -9,19 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ea537aa61cd7bfbe05ed1dd151eddd4a0bfc5ca7
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 546507254f796e6a2fbe71e3ba30a7597ea51295
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188304"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869268"
 ---
 # <a name="when-to-use-a-send-group-membership-as-a-claim-rule"></a>Quando usare una regola di invio dell'appartenenza a un gruppo come attestazione
-È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando si vuole emettere un nuovo valore attestazione in uscita per solo gli utenti che sono membri di un gruppo di sicurezza di Active Directory specificato. Quando si usa questa regola, si emette una singola attestazione solo per il gruppo specificato e che corrisponde alla logica della regola, come descritto nella tabella seguente.  
+È possibile utilizzare questa regola in Active Directory Federation Services \(ad FS\) quando si desidera emettere un nuovo valore attestazione in uscita solo per gli utenti che sono membri di un gruppo di sicurezza Active Directory specificato. Quando si usa questa regola, si emette una singola attestazione solo per il gruppo specificato e che corrisponde alla logica della regola, come descritto nella tabella seguente.  
   
 |Opzione della regola|Logica della regola|  
 |---------------|--------------|  
-|Valore attestazione in uscita|Se l'appartenenza al gruppo di un utente corrisponde al *gruppo specificato* e il tipo di attestazione in uscita corrisponde al *tipo di attestazione specificato*, allora sostituire il valore del nome del gruppo esistente con il *valore attestazione in uscita specificato* ed emettere l'attestazione.|  
+|Valore attestazione in uscita|Se l'appartenenza a un gruppo di un utente è uguale al *gruppo specificato* e il tipo di attestazione in uscita è uguale al *tipo di attestazione*specificato, sostituire il valore del nome del gruppo esistente con il *valore attestazione in uscita specificato* ed emettere l'attestazione.|  
   
 Le sezioni seguenti forniscono un'introduzione di base alle regole attestazioni, Forniscono anche informazioni dettagliate su quando usare una regola di invio dell'appartenenza a un gruppo come attestazione.  
   
@@ -41,7 +41,7 @@ Per ulteriori informazioni sulle regole attestazione e i set di regole attestazi
 ## <a name="outgoing-claim-value"></a>Valore attestazione in uscita  
 Usando il modello di regola di invio dell'appartenenza a un gruppo come attestazione, è possibile emettere un'attestazione che dipende dal fatto che un utente sia membro di un gruppo specificato.  
   
-In altre parole, questo modello di regola emette un'attestazione solo quando l'utente ha l'ID del gruppo di sicurezza \(SID\) che corrisponde al gruppo Active Directory specificato dall'amministratore. Tutti gli utenti autenticati in servizi di dominio Active Directory \(Active Directory Domain Services\) avranno attestazioni SID per ogni gruppo cui appartiene di gruppo. Per impostazione predefinita, le regole di trasformazione accettazione nel trust del provider di attestazioni Active Directory attraversano queste attestazioni SID di gruppo. L'uso di questi SID di gruppo come base per l'emissione delle attestazioni è molto più veloce rispetto alla ricerca dei gruppi dell'utente in Servizi di dominio Active Directory.  
+In altre parole, questo modello di regola rilascia un'attestazione solo se l'utente dispone del SID \(\) ID sicurezza gruppo che corrisponde al gruppo Active Directory specificato dall'amministratore. Tutti gli utenti che eseguono l'autenticazione \(con Active Directory Domain Services\) servizi di dominio Active Directory avranno attestazioni SID di gruppo in ingresso per ogni gruppo a cui appartengono. Per impostazione predefinita, le regole di trasformazione accettazione nel trust del provider di attestazioni Active Directory attraversano queste attestazioni SID di gruppo. L'uso di questi SID di gruppo come base per l'emissione delle attestazioni è molto più veloce rispetto alla ricerca dei gruppi dell'utente in servizi di dominio Active Directory.  
   
 Quando si usa questa regola, viene inviata solo una singola attestazione, in base al gruppo di Active Directory selezionato. Ad esempio, è possibile usare questo modello di regola per creare una regola che invierà un'attestazione di gruppo con un valore "Admin" se l'utente è membro del gruppo di sicurezza Domain Admins.  
   
@@ -49,24 +49,24 @@ Quando si usa questa regola, viene inviata solo una singola attestazione, in bas
 Gli amministratori devono usare questo tipo di regola nelle regole di trasformazione accettazione di un trust del provider di attestazioni solo quando vengono ricevuti SID di gruppo dal provider di attestazioni, scenario molto insolito per tutti i provider di attestazioni ad eccezione di Active Directory o Servizi di dominio Active Directory.  
   
 ## <a name="how-to-create-this-rule"></a>Come creare la regola  
-Creare questa regola utilizzando il linguaggio di regola attestazione o tramite l'appartenenza al gruppo LDAP di invio come un modello di regola attestazione in Gestione AD FS snap\-in. Questo modello di regola offre le opzioni di configurazione seguenti:  
+È possibile creare questa regola usando il linguaggio delle regole attestazioni o il modello di regola di invio dell'appartenenza a un gruppo LDAP come attestazione\-nello snap-in di gestione ad FS. Questo modello di regola offre le opzioni di configurazione seguenti:  
   
 -   Specificare un nome della regola attestazione  
   
--   Selezionare un gruppo di un utente tramite il selettore oggetti  
+-   Selezionare il gruppo di un utente usando il selettore oggetti  
   
 -   Selezionare un tipo di attestazione in uscita  
   
--   Selezionare un formato ID nome in uscita \(che è disponibile solo quando viene scelto ID nome del campo di tipo attestazione in uscita\)  
+-   Selezionare un formato \(ID nome in uscita disponibile solo quando si sceglie ID nome dal campo tipo attestazione in uscita\)  
   
 -   Specificare un valore attestazione in uscita  
   
-Per altre informazioni su come creare questa regola, vedere [creare una regola per inviare l'appartenenza al gruppo come attestazione](https://technet.microsoft.com/library/ee913569.aspx).  
+Per altre informazioni su come creare questa regola, vedere [creare una regola per inviare l'appartenenza a un gruppo come attestazione](https://technet.microsoft.com/library/ee913569.aspx).  
   
 ## <a name="using-the-claim-rule-language"></a>Uso del linguaggio delle regole attestazioni  
 Se si vogliono emettere attestazioni basate su un SID in ingresso diverso da un SID di gruppo, usare il modello di regola di trasformazione di un'attestazione in ingresso. Se l'amministratore vuole recuperare i nomi per tutti i gruppi di cui l'utente è membro, usare invece il modello di regola di invio di attributi LDAP come attestazioni con l'attributo **tokenGroups**.  
   
-### <a name="example-how-to-issue-group-claims-based-on-the-users-group-membership"></a>Esempio: Come emettere attestazioni di gruppo basate sull'appartenenza dell'utente a un gruppo  
+### <a name="example-how-to-issue-group-claims-based-on-the-users-group-membership"></a>Esempio: Come emettere attestazioni di gruppo in base all'appartenenza a gruppi dell'utente  
 La regola seguente emette attestazioni di gruppo per un utente in base a un SID di gruppo in ingresso:  
   
 ```  

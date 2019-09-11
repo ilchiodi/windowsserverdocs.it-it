@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66435660"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866617"
 ---
 # <a name="hyper-v-configuration"></a>Configurazione di Hyper-V
 
@@ -44,9 +44,9 @@ In un ambiente di Data Center ideale, il consumo di energia è gestito consolida
 
 Le tecniche di risparmio energia del server hanno un costo, in particolare perché i carichi di lavoro dei tenant non sono attendibili per dettare i criteri sull'infrastruttura fisica del provider di hosting. Il software del livello host viene lasciato dedurre a massimizzare la velocità effettiva riducendo al minimo il consumo di energia elettrica. Nella maggior parte dei computer inattivi, questa situazione può causare la conclusione dell'infrastruttura fisica, in modo da garantire che il risparmio di energia moderato sia appropriato, in modo che i singoli carichi di lavoro del tenant vengano eseguiti più lentamente rispetto a quelli
 
-Windows Server utilizza la virtualizzazione in un'ampia gamma di scenari. Da un server IIS con caricamento leggero a un SQL Server moderatamente occupato, a un host cloud con Hyper-V che esegue centinaia di macchine virtuali per server. Ognuno di questi scenari può avere requisiti hardware, software e di prestazioni univoci. Per impostazione predefinita, Windows Server usa e consiglia la combinazione per il risparmio di energia bilanciata che consente la conservazione del risparmio energia ridimensionando le prestazioni del processore in base all'utilizzo della CPU.
+Windows Server utilizza la virtualizzazione in un'ampia gamma di scenari. Da un server IIS con caricamento leggero a un SQL Server moderatamente occupato, a un host cloud con Hyper-V che esegue centinaia di macchine virtuali per server. Ognuno di questi scenari può avere requisiti hardware, software e di prestazioni univoci. Per impostazione predefinita, Windows Server usa e consiglia la combinazione per il risparmio di energia **bilanciata** che consente la conservazione del risparmio energia ridimensionando le prestazioni del processore in base all'utilizzo della CPU.
 
-Con la combinazione per il risparmio di energia bilanciata, gli Stati di alimentazione più elevati e le latenze di risposta più bassa nei carichi di lavoro dei tenant vengono applicati solo quando l'host fisico è relativamente occupato. Se si imposta un valore di risposta deterministica a bassa latenza per tutti i carichi di lavoro del tenant, è consigliabile passare dalla combinazione per il risparmio di energia predefinita bilanciata a quella a **prestazioni elevate** . La combinazione per il risparmio di energia a **prestazioni elevate** consente di eseguire tutti i processori alla massima velocità, disabilitando in modo efficace il cambio basato su richiesta insieme ad altre tecniche di risparmio energia e ottimizzando le prestazioni rispetto al risparmio energetico.
+Con la combinazione per il risparmio di energia **bilanciata** , gli Stati di alimentazione più elevati e le latenze di risposta più bassa nei carichi di lavoro dei tenant vengono applicati solo quando l'host fisico è relativamente occupato. Se si imposta un valore di risposta deterministica a bassa latenza per tutti i carichi di lavoro del tenant, è consigliabile passare dalla combinazione per il risparmio di energia predefinita **bilanciata** a quella a **prestazioni elevate** . La combinazione per il risparmio di energia a **prestazioni elevate** consente di eseguire tutti i processori alla massima velocità, disabilitando in modo efficace il cambio basato su richiesta insieme ad altre tecniche di risparmio energia e ottimizzando le prestazioni rispetto al risparmio energetico.
 
 Per i clienti, che sono soddisfatti del risparmio sui costi derivanti dalla riduzione del numero di server fisici e vogliono garantire che raggiungano le massime prestazioni per i carichi di lavoro virtualizzati, è consigliabile usare la combinazione per il risparmio di energia a **prestazioni elevate** .
 

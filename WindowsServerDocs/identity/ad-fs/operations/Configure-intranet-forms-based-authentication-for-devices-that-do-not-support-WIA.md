@@ -9,17 +9,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a730483f99e1c937c3618853ee6d3dbd175356b
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 010315796c6f6328dde661ce79947898f95a80c4
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544586"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865822"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Configurazione autenticazione intranet basata su form per i dispositivi che non supportano WIA
 
 
-Per impostazione predefinita, l'autenticazione integrata Windows (WIA) sia attivato in Active Directory Federation Services (ADFS) in Windows Server 2012 R2 per le richieste di autenticazione che si verificano nella rete interna dell'organizzazione (intranet) per qualsiasi applicazione che utilizza un browser per l'autenticazione. Ad esempio, possono essere applicazioni basate su browser che usano protocolli WS-Federation o SAML e applicazioni complete che usano il protocollo OAuth. WIA fornisce agli utenti finali con accesso trasparente alle applicazioni senza dover immettere manualmente le proprie credenziali. Tuttavia, alcuni dispositivi e browser non sono in grado di supportare WIA e di conseguenza non le richieste di autenticazione da tali dispositivi. Inoltre, l'esperienza in alcuni browser che negoziano NTLM non è auspicabile. L'approccio consigliato è di fallback per l'autenticazione basata su form per tali dispositivi e browser.
+Per impostazione predefinita, l'autenticazione integrata di Windows (WIA) è abilitata in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 per le richieste di autenticazione che si verificano all'interno della rete interna dell'organizzazione (Intranet) per qualsiasi applicazione che usa un browser per l'autenticazione. Ad esempio, possono essere applicazioni basate su browser che usano protocolli WS-Federation o SAML e applicazioni complete che usano il protocollo OAuth. WIA fornisce agli utenti finali con accesso trasparente alle applicazioni senza dover immettere manualmente le proprie credenziali. Tuttavia, alcuni dispositivi e browser non sono in grado di supportare WIA e di conseguenza non le richieste di autenticazione da tali dispositivi. Inoltre, l'esperienza in alcuni browser che negoziano NTLM non è auspicabile. L'approccio consigliato è di fallback per l'autenticazione basata su form per tali dispositivi e browser.
 
 ADFS in Windows Server 2012 R2 e Windows Server 2016 fornisce agli amministratori la possibilità di configurare l'elenco degli agenti utente che supportano il fallback per l'autenticazione basata su form. Il fallback è reso possibile da due configurazioni:
 
@@ -72,6 +72,6 @@ Verificare che la stringa agente utente per Chrome sia ora impostata nelle propr
 (È necessario un nuovo screenshot qui) ![Configura autenticazione](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
 
 >[!NOTE]   
-> Non vengono rilasciati nuovi browser e dispositivi, è consigliabile che le funzionalità di tali agenti utente di riconciliare e aggiornare di conseguenza la configurazione di ADFS per ottimizzare l'esperienza di autenticazione dell'utente quando si utilizzando detto browser e dispositivi. In particolare, è consigliabile valutare nuovamente la **WIASupportedUserAgents** impostazione in ADFS, quando si aggiunge un nuovo tipo di dispositivo o browser alla matrice di supporto per WIA.
+> Quando vengono rilasciati nuovi browser e dispositivi, è consigliabile riconciliare le funzionalità degli agenti utente e aggiornare la configurazione del AD FS di conseguenza per ottimizzare l'esperienza di autenticazione dell'utente quando si usano i browser e i dispositivi. In particolare, è consigliabile valutare nuovamente la **WIASupportedUserAgents** impostazione in ADFS, quando si aggiunge un nuovo tipo di dispositivo o browser alla matrice di supporto per WIA.
 
 

@@ -1,6 +1,6 @@
 ---
 title: Glossario
-description: Definisce le parole, termini e concetti in MultiPoint Services
+description: Definisce parole, termini e concetti in Servizi MultiPoint
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,86 +13,86 @@ ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4449d2d6fb87f74496b7d482a7a7263f703c7822
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 759dc5d0b8210dc4d8da3ef18caff2ee3ca2cceb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831112"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871686"
 ---
 # <a name="glossary"></a>Glossario
 **associare una stazione**  
-Per specificare quale monitoraggio viene usato con quali stazione e periferiche, ad esempio una tastiera e mouse. Per stazioni connesse video dirette, questa operazione viene eseguita premendo una chiave specificata tastiera della stazione quando viene richiesto di farlo. Per USB zero client connesso le stazioni, ciò in genere avviene automaticamente.  
+Per specificare quale monitor viene utilizzato con la stazione e i dispositivi periferici, ad esempio una tastiera e un mouse. Per le stazioni con connessione video diretta, questa operazione viene eseguita premendo un tasto specificato sulla tastiera della stazione quando richiesto. Per le stazioni USB zero client connesse, questa situazione si verifica in genere automaticamente.  
   
-**hub bus con tecnologia**  
-Hub che consente di disegnare tutte le potenzialità dell'interfaccia USB del computer. Hub bus con tecnologia non è necessario le connessioni di alimentazione separate. Tuttavia, molti dispositivi non funzionano con questo tipo di hub perché richiedono maggiore potenza di questo tipo di hub fornisce.  
+**hub alimentato da bus**  
+Hub che disegna tutta la potenza dall'interfaccia USB del computer. Gli hub basati su bus non necessitano di connessioni di alimentazione separate. Tuttavia, molti dispositivi non funzionano con questo tipo di hub perché richiedono una potenza maggiore di quella fornita da questo tipo di hub.  
   
 **modalità console**  
-Una delle due modalità di MultiPoint services è possibile iniziare. Quando il sistema è in modalità console, nessuna stazione sono disponibile per l'uso. Al contrario, tutti i monitoraggi vengono considerati come un unico desktop esteso per la sessione della console di sistema del computer. Modalità console viene in genere utilizzata per installare, aggiornare o configurare il software, che non può essere eseguito quando il computer è in modalità stazione. Vedere anche: *modalità stazione*.  
+È possibile avviare una delle due modalità MultiPoint Services. Quando il sistema è in modalità console, non sono disponibili stazioni da usare. Al contrario, tutti i monitoraggi vengono considerati come un singolo desktop esteso per la sessione della console del computer. La modalità console viene in genere utilizzata per installare, aggiornare o configurare il software, che non può essere eseguita quando il computer è in modalità stazione. Vedere anche: *modalità stazione*.  
   
-**stazione di Direct-video-connessi**  
-Una stazione MultiPoint costituito da un monitoraggio che è direttamente connesso a un output video nel server e come minimo, include una tastiera e mouse che sono connessi al server tramite un hub USB.  
+**Direct-video-stazione connessa**  
+Una stazione MultiPoint costituita da un monitoraggio connesso direttamente a un output video nel server e, come minimo, include una tastiera e un mouse connessi al server tramite un hub USB.  
   
-**Account utente di dominio**  
-Un account utente che è ospitato in un computer di dominio. Account utente di dominio è possibile accedere da qualsiasi computer in cui è connesso al dominio e non sono associate a un particolare computer.  
+**account utente di dominio**  
+Un account utente ospitato in un computer di dominio. È possibile accedere agli account utente di dominio da qualsiasi computer connesso al dominio e che non sono collegati a un particolare computer.  
   
 **hub downstream**  
-Hub che è connesso a un hub di stazione per aggiungere porte non è più disponibile per i dispositivi stazione. Un hub downstream non deve avere una tastiera collegata a esso.  
+Hub connesso a un hub di stazione per aggiungere altre porte disponibili per i dispositivi di stazione. Un hub downstream non deve avere una tastiera collegata.  
   
-**hub esternamente spenta**  
-Noto anche come un hub di alimentazione autonoma, l'hub accetta la potenza da un'unità di alimentazione esterno; Pertanto, può fornire potenza completa (fino a 500 mA) per ogni porta. Molti hub può fungere da hub basati su bus o alimentato esternamente.  
+**hub alimentato esternamente**  
+Detto anche hub autoalimentato, questo hub prende la sua potenza da un'unità di alimentazione esterna; Pertanto, può fornire energia completa (fino a 500 mA) a ogni porta. Molti hub possono funzionare come hub alimentato da bus o esternamente.  
   
 **Dispositivo di controllo consumer HID**  
-Un HID Human Interface Device () è un dispositivo di computer che interagisce direttamente con gli esseri umani. Può accettare l'input dal o fornire output esseri umani. Esempi sono tastiera, mouse, trackball, touchpad, chiavetta puntamento, tabella grafici, joystick, scanner di impronta digitale, gamepad, webcam, visore VR e simulatori determinante. Un dispositivo di controllo consumer HID è una classe particolare di dispositivi HID che include i controlli volume dell'audio e tasti di scelta del browser e multimedia.  
+Un dispositivo di interfaccia umana (HID) è un dispositivo computer che interagisce direttamente con gli utenti. Potrebbe richiedere input o recapitare l'output agli utenti. Gli esempi sono la tastiera, il mouse, la trackball, il touchpad, il puntamento, la tabella grafica, il joystick, lo scanner di impronte digitali, il gamepad, la webcam, l'auricolare e i dispositivi simulatori Un dispositivo di controllo consumer HID è una classe particolare di dispositivi HID che include controlli volume audio e chiavi di controllo del browser e multimediali.  
   
-**intermediate hub**  
-Un hub di lunghezza compresa tra un *hub radice* sul server e un hub di stazione. Gli hub intermedi in genere vengono usati per aumentare il numero di porte disponibili per gli hub di stazioni o per estendere la distanza delle stazioni dal computer.  
+**hub intermedio**  
+Hub tra un hub *radice* nel server e un hub di stazione. Gli hub intermedi vengono in genere usati per aumentare il numero di porte disponibili per gli hub delle stazioni o per estendere la distanza delle stazioni dal computer.  
   
 **account utente locale**  
 Un account utente in un computer specifico. Un account utente locale è disponibile solo nel computer in cui è definito l'account.  
   
-**hub multifunzione**  
-Visualizzare *USB zero-client*.  
+**Hub multifunzione**  
+Vedere *USB zero client*.  
   
-**Sistema multiPoint Services**  
-Raccolta di hardware e software che è costituito da un computer dotato di Windows Server 2016 già installato con il ruolo di servizi MultiPoint abilitato e almeno una stazione MultiPoint. Per altre informazioni sulle opzioni di layout di sistema, vedere [pianificazione del sito di MultiPoint Services](MultiPoint-services-Site-Planning.md)  
+**Sistema MultiPoint Services**  
+Un insieme di hardware e software costituito da un computer in cui è installato Windows Server 2016 con il ruolo Servizi MultiPoint abilitato e almeno una stazione MultiPoint. Per altre informazioni sulle opzioni di layout del sistema, vedere [pianificazione del sito di servizi multipoint](MultiPoint-services-Site-Planning.md)  
   
 **partition**  
-Una sezione di spazio su disco fisico che funziona come se si tratta di un disco separato.  
+Sezione di spazio su un disco fisico che funziona come se fosse un disco separato.  
   
-**stazione principale**  
-Stazione di cui è il primo avvio all'avvio di servizi MultiPoint. La stazione principale è utilizzabile da un amministratore per accedere alle impostazioni e i menu di avvio. Quando non è utilizzato dall'amministratore, può essere utilizzato come stazione normale (non è necessario essere riservate esclusivamente per l'amministrazione). Monitor di stazione principale deve essere sempre connessi direttamente a un output video nel computer che esegue MultiPoint Services. Vedere anche: stazione.  
+**stazione primaria**  
+La stazione che è la prima ad essere avviata quando vengono avviati i servizi MultiPoint. La stazione primaria può essere usata da un amministratore per accedere ai menu e alle impostazioni di avvio. Quando non viene utilizzato dall'amministratore, può essere utilizzato come stazione normale (non è necessario che sia riservato esclusivamente per l'amministrazione). Il monitoraggio della stazione primaria deve essere sempre connesso direttamente a un output video nel computer in cui è in esecuzione MultiPoint Services. Vedere anche: stazione.  
   
-**RDP-over-LAN-stazione connesso**  
-Una stazione che è un thin client, un desktop tradizionali o un computer portatile che connette ai servizi MultiPoint utilizzando Remote Desktop Protocol (RDP) tramite la rete locale (LAN).  
+**Stazione connessa a RDP-over-LAN**  
+Una stazione che è un thin client, un desktop tradizionale o un computer portatile che si connette a MultiPoint Services usando Remote Desktop Protocol (RDP) tramite la rete locale (LAN).  
   
-**hub radice**  
-Un hub USB predefinito per il controller host sulla scheda madre del computer.  
+**Hub radice**  
+Un hub USB incorporato nel controller host sulla scheda madre di un computer.  
   
-**Dividi schermo**  
-Una stazione in cui un solo monitor può essere utilizzato per visualizzare due desktop degli utenti indipendenti. Due set di hub, tastiere e mouse sono associati a un solo monitor. Uno di essi è associato al lato sinistro della finestra di monitoraggio e l'altro è associato a destra del monitoraggio.  
+**schermata di suddivisione**  
+Stazione in cui è possibile usare un singolo monitoraggio per visualizzare due desktop utente indipendenti. Due set di hub, tastiere e topi sono associati a un singolo monitor. Un set è associato al lato sinistro del monitoraggio e l'altro set è associato al lato destro del monitoraggio.  
   
-**stazione standard**  
-A differenza di *stazione principale*, che può essere usato da un amministratore per i menu di avvio di accesso, stazioni standard non verranno visualizzati i menu di avvio e possono essere usati solo dopo che i servizi MultiPoint ha completato il processo di avvio . Vedere anche: stazione.  
+**Stazione standard**  
+A differenza della *stazione primaria*, che può essere usata da un amministratore per accedere ai menu di avvio, le stazioni standard non visualizzano i menu di avvio e possono essere usate solo dopo che MultiPoint Services ha completato il processo di avvio. Vedere anche: stazione.  
   
-*station*  
-Endpoint di utente per la connessione al computer che esegue MultiPoint Services. Sono supportati tre tipi di espansione: stazioni direct-video-connessi e connessi tramite USB zero-client RDP-over-LAN-connessi. Per altre informazioni sulle stazioni, vedere [stazioni MultiPoint](MultiPoint-services-Stations.md).  
+*Stazione*  
+Endpoint utente per la connessione al computer che esegue MultiPoint Services. Sono supportati tre tipi di stazione: stazioni connesse Direct-video-connected, USB-zero-client-connected e RDP-over-LAN. Per altre informazioni sulle stazioni, vedere [multipoint stations](MultiPoint-services-Stations.md).  
   
-**hub di stazione**  
-Un hub USB che è stato associato a un monitoraggio per creare una stazione MultiPoint. Si connette periferiche USB di MultiPoint Services. Vedere anche: *Client USB zero* e *hub USB*.  
+**Hub stazione**  
+Un hub USB che è stato associato a un monitoraggio per creare una stazione MultiPoint. Connette i dispositivi USB periferici a MultiPoint Services. Vedere anche: *USB zero client* e *hub USB*.  
   
 **modalità stazione**  
-Una delle due modalità di MultiPoint services è possibile iniziare. In genere, il sistema MultiPoint Services è in modalità stazione. In modalità stazione, le stazioni MultiPoint Services si comportano come se ogni stazione è un computer separato che esegue il sistema operativo Windows, e più utenti possono usare il sistema nello stesso momento. Vedere anche: *modalità console*.  
+È possibile avviare una delle due modalità MultiPoint Services. In genere, il sistema MultiPoint Services è in modalità stazione. Quando si è in modalità stazione, le stazioni di servizi MultiPoint si comportano come se ogni stazione fosse un computer separato che esegue il sistema operativo Windows e più utenti possono utilizzare il sistema nello stesso momento. Vedere anche: *modalità console*.  
   
 **Hub USB**  
-Un hub USB multiporta generico espansione conforme alle specifiche USB universal serial bus () 2.0 o versione successiva. Tale hub dispongono in genere diverse porte USB, che consente a più dispositivi USB da collegare a una singola porta USB del computer. Gli hub USB sono in genere dispositivi separati che possono essere *spenti esternamente* oppure *basati su bus*. Altri dispositivi, come alcune tastiere e monitor video, possono includere un hub USB in fase di progettazione. Vedere anche: *Client USB zero*.  
+Hub di espansione USB multiporta generico conforme alle specifiche USB (Universal Serial Bus) 2,0 o versioni successive. Tali Hub sono in genere dotati di diverse porte USB, che consentono la connessione di più dispositivi USB a una singola porta USB del computer. Gli hub USB sono in genere dispositivi distinti che possono essere *alimentati esternamente* o in *bus*. Alcuni altri dispositivi, ad esempio alcune tastiere e monitor video, possono incorporare un hub USB nella propria progettazione. Vedere anche: *USB zero client*.  
   
-**USB nel client Ethernet zero**  
-Un client USB zero che si connette al computer tramite una connessione LAN anziché a una porta USB. Questo client viene visualizzato al server quando un dispositivo USB anche tramite i dati verrà inviato tramite la connessione Ethernet.  
+**USB over Ethernet zero client**  
+Un client USB zero che si connette al computer tramite una connessione LAN anziché una porta USB. Questo client viene visualizzato sul server come dispositivo USB anche attraverso i dati inviati tramite la connessione Ethernet.  
   
-**Client USB zero**  
-Un hub di espansione che si connette al computer tramite una porta USB e consente la connessione di un'ampia gamma di dispositivi non USB all'hub. I client USB zero vengono prodotte dai produttori di hardware specifico, e richiedono l'installazione di un driver specifico del dispositivo. I client USB zero supportano la connessione di un monitor video (tramite VGA DVI e così via) e le periferiche (tramite USB, talvolta PS/2 e audio analogico). Il dispositivo USB zero client può essere *esternamente con tecnologia* oppure *basati su bus*. Vedere anche *hub USB*.  
+**USB zero client**  
+Un hub di espansione che si connette al computer tramite una porta USB e consente la connessione di un'ampia gamma di dispositivi non USB all'hub. I client USB zero sono prodotti da produttori di hardware specifici e richiedono l'installazione di un driver specifico per il dispositivo. I client USB zero supportano la connessione di un monitor video (tramite VGA, DVI e così via) e le periferiche (tramite USB, a volte PS/2 e audio analogico). Il client USB zero può essere *alimentato esternamente* o *alimentato da bus*. Vedere anche *hub USB*.  
   
-**Stazione con connessione USB zero-client**  
-Una stazione MultiPoint Services che è costituito da (come minimo) un monitor, tastiera e mouse, che sono connessi al server tramite un client USB zero.  
+**Stazione USB zero client connessa**  
+Una stazione MultiPoint Services costituita come minimo da un monitor, una tastiera e un mouse, che sono connessi al server tramite un client USB zero.  
   

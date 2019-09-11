@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b2b42c0a1878a2d9f5f9002dd36e0124e2101cc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: fb36f0ff804b139149922596a05d1ff649884bdd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546561"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868966"
 ---
 # <a name="networking"></a>Rete
 
@@ -26,7 +26,7 @@ ms.locfileid: "69546561"
 
 La funzionalità di rete è una parte fondamentale della piattaforma software defined \(datacenter SDDC\) e Windows Server 2016 fornisce tecnologie Sdn\) nuove e migliorate \(di Software Defined Networking per facilitare il passaggio a una soluzione SDDC completamente realizzata per la tua organizzazione.
 
-Quando si gestiscono le reti come risorse software–defined, è possibile descrivere i requisiti di un'applicazione relativi all'infrastruttura una sola volta e quindi scegliere dove eseguire l'applicazione, se in locale o nel cloud. 
+Quando si gestiscono le reti come risorsa definita dal software, è possibile descrivere i requisiti dell'infrastruttura di un'applicazione una sola volta e quindi scegliere la posizione in cui viene eseguita l'applicazione, in locale o nel cloud. 
 
 Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono essere eseguite senza problemi ovunque e sempre con lo stesso livello di sicurezza, prestazioni, qualità del servizio e disponibilità.
 
@@ -514,6 +514,7 @@ WINS (Windows Internet Name Service) è un servizio legacy di registrazione e ri
                                         <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Rete di contenitori di Windows</a><hr /></h3>
                                         <p>
 Rete di contenitori di Windows ti consente di creare e gestire le reti per la connessione di endpoint contenitore su host Windows 10 e Windows Server, utilizzando flussi di lavoro e strumenti standard di settore. Le reti di contenitori di Windows supportano più topologie, tra cui reti private, L2 piatte e L3 reindirizzate.</p>
+
                                         <p>Sono supportate anche le sovrimpressioni che è possibile creare localmente nell'host usando Docker, Kubernetes o Windows PowerShell tramite plug-in che comunicano con il servizio di rete host Windows (HNS). È possibile creare e gestire reti di cluster a più nodi tramite sistemi di orchestrazione di livello superiore tramite la comunicazione tramite un agente locale per il HNS di ciascun nodo.</p>
                     </div>
                 </div>
@@ -550,4 +551,4 @@ Le risorse sulla rete per i sistemi operativi precedenti a Windows Server 2016 s
 
 - [Panoramica delle reti](https://technet.microsoft.com/library/hh831357.aspx) di Windows Server 2012 e Windows Server 2012 R2
 - Windows Server 2008 and Windows Server 2008 R2 [Networking](https://technet.microsoft.com/library/cc753940) (Funzionalità di rete di Windows Server 2008 e Windows Server 2008 R2)
-- Contenuti ritirati di Windows Server 2003 [Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)
+- [Contenuti ritirati di Windows server 2003 Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)

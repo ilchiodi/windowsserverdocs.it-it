@@ -1,6 +1,6 @@
 ---
 title: Configurare Protezione disco in MultiPoint Services
-description: Informazioni su come configurare la protezione del disco per i servizi MultiPoint
+description: Informazioni su come configurare la protezione del disco per servizi MultiPoint
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,74 +13,74 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: dc0a46b57753f08cc7d79fd05de7a9e81469cc86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 867848b65b02b6a7436fc5c86ba796a1b42aec42
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820172"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871743"
 ---
-# <a name="configure-disk-protection"></a>Configurare la protezione disco
-È possibile usare la protezione disco in Multipoint Services per proteggere il volume di sistema da derivare aggiornamenti, pianificare gli aggiornamenti di Windows deve essere mantenuto mentre è attiva, disabilitare temporaneamente la protezione disco e la disinstallazione di protezione disco di protezione su disco.  
+# <a name="configure-disk-protection"></a>Configurare la protezione del disco
+È possibile utilizzare la protezione del disco in MultiPoint Services per proteggere il volume di sistema da aggiornamenti imprevisti, pianificare la conservazione degli aggiornamenti di Windows mentre è attiva la protezione del disco, disabilitare temporaneamente la protezione del disco e disinstallare la protezione del disco.  
   
-Abilita protezione disco in MultiPoint Services, è possibile proteggere il volume di sistema (l'unità in cui è installato Windows, in genere c) da modifiche indesiderate. Quando è abilitata la protezione disco, le modifiche apportate al volume di sistema vengono archiviate in un percorso temporaneo in modo che è sufficiente il riavvio del computer di eliminarli e restituisce automaticamente il sistema allo stato precedente noto.  
+Abilitando la protezione del disco in MultiPoint Services, è possibile proteggere il volume di sistema (l'unità in cui è installato Windows, in genere C:) da modifiche indesiderate. Quando la protezione del disco è abilitata, le modifiche apportate al volume di sistema vengono archiviate in un percorso temporaneo, in modo che il riavvio del computer lo elimini e ritorni automaticamente il sistema allo stato precedente valido.  
   
-L'amministratore può facilmente installare software o apportare modifiche di configurazione tramite la disabilitazione temporanea della protezione del disco. Per evitare che il sistema corrente con gli aggiornamenti di Windows e le definizioni anti-malware, protezione disco consente di pianificare una finestra di manutenzione per scaricare e installare gli aggiornamenti. L'amministratore può anche fornire uno script personalizzato da eseguire durante la finestra di manutenzione per soddisfare le esigenze di manutenzione di là di Windows Update.  
+L'amministratore può installare facilmente il software o apportare modifiche alla configurazione disabilitando temporaneamente la protezione del disco. Per mantenere aggiornato il sistema con le definizioni degli aggiornamenti di Windows e anti-malware, la protezione del disco pianifica una finestra di manutenzione per scaricare e installare gli aggiornamenti. L'amministratore può anche fornire uno script personalizzato da eseguire durante la finestra di manutenzione per soddisfare le esigenze di manutenzione oltre Windows Update.  
   
 ## <a name="enable-disk-protection"></a>Abilitare la protezione del disco  
-Prima di abilitare Protezione disco, assicurarsi che tutte le applicazioni e i driver siano installati e aggiornati e spostare i profili utente in un volume che non verrà protetti. Se è necessario eseguire gli aggiornamenti manuali dopo aver abilitato la protezione disco, è possibile disabilitare temporaneamente protezione su disco. Tuttavia, è più semplice ottenere il sistema in uno stato ideale prima protezione disco sia attivata.  
+Prima di abilitare la protezione del disco, verificare che tutte le applicazioni e i driver siano installati e aggiornati e spostare i profili utente in un volume che non verrà protetto. Se è necessario eseguire aggiornamenti manuali dopo aver abilitato la protezione del disco, è possibile disabilitare temporaneamente la protezione del disco. Tuttavia, è più semplice ottenere il sistema in uno stato ideale prima che la protezione del disco sia attivata.  
   
  
-1.  Accedere al server che esegue servizi MultiPoint come amministratore.  
+1.  Accedere al server che esegue MultiPoint Services come amministratore.  
   
-2.  Prima di abilitare la protezione su disco:  
+2.  Prima di abilitare la protezione del disco:  
   
-    -   Verificare che i servizi MultiPoint sistema è esattamente lo stato in cui si desidera mantenerlo. Ad esempio, assicurarsi che il software installato, le impostazioni di sistema e gli aggiornamenti siano corretti.  
+    -   Verificare che il sistema MultiPoint Services sia esattamente nello stato in cui si desidera che rimanga. Verificare, ad esempio, che il software installato, le impostazioni di sistema e gli aggiornamenti siano corretti.  
   
-    -   Spostare i profili utente in un volume non protetto, o configurare un percorso di file condiviso dal volume di sistema come descritto [Abilita Condivisione file in MultiPoint Services](Enable-file-sharing-in-MultiPoint-services.md).  
+    -   Spostare i profili utente in un volume non protetto o impostare un percorso di file condiviso dal volume di sistema, come descritto in [abilitare la condivisione di file in MultiPoint Services](Enable-file-sharing-in-MultiPoint-services.md).  
   
-3.  Dal **avviare** schermata, aprire **MultiPoint Manager**.  
+3.  Dalla schermata **Start** aprire **Gestione MultiPoint**.  
   
-4.  Fare clic sui **Home** scheda, fare clic su **abilitare Protezione disco**, quindi fare clic su **OK**.  
+4.  Fare clic sulla scheda **Home** , fare clic su **Abilita protezione disco**, quindi fare clic su **OK**.  
   
-Quando Protezione disco è abilitata per la prima volta, il sistema è pronto, installazione di un driver e creare un file di cache nel volume di sistema. Il file di cache archivia temporaneamente le modifiche apportate al volume del sistema mentre è attiva la protezione disco. Poiché gli aggiornamenti del sistema vengono archiviati nel file di cache, non modificano il contenuto protetto del volume all'esterno del file di cache. Ogni volta che viene avviato il sistema, il file di cache viene reimpostato, che rimuove tutte le modifiche archiviate vengono eliminati dopo l'avvio del sistema precedente. Di conseguenza, il sistema inizi sempre con lo stesso se è stata abilitata la protezione del disco.  
+Quando la protezione del disco è abilitata per la prima volta, il sistema viene preparato installando un driver e creando un file di cache nel volume di sistema. Il file di cache archivia temporaneamente le modifiche apportate al volume di sistema, mentre la protezione del disco è attiva. Poiché gli aggiornamenti del sistema vengono archiviati nel file di cache, non modificano il contenuto protetto del volume all'esterno del file di cache. Ogni volta che il sistema viene avviato, il file di cache viene reimpostato, che elimina tutte le modifiche archiviate dall'avvio del sistema precedente. Pertanto, il sistema viene sempre avviato nello stesso stato in cui è stata abilitata la protezione del disco.  
   
-Windows deve aggiornare alcuni file system, inclusi i file di paging del sistema, percorso dump di arresto anomalo del sistema e i registri eventi. Tali file non vengono rimossi quando Protezione disco è abilitata. A tale scopo, viene creato un nuovo volume denominato DpReserved quando Protezione disco è abilitata per la prima volta, e tali file vengono spostati in tale volume. La partizione DpReserved non è protetta, in modo da salvare in modo permanente scritture a tali file con il riavvio, anche quando è abilitata la protezione disco.  
+Windows deve aggiornare alcuni file di sistema, tra cui il file di paging del sistema, il percorso del dump di arresto anomalo del sistema e i registri eventi. Questi file non vengono rimossi quando la protezione del disco è abilitata. A tale scopo, viene creato un nuovo volume denominato DpReserved quando la protezione del disco è abilitata per la prima volta e tali file vengono spostati in tale volume. La partizione DpReserved non è protetta, quindi le Scritture in tali file vengono mantenute durante i riavvii, anche quando la protezione del disco è abilitata.  
   
 ## <a name="schedule-software-updates"></a>Pianificare gli aggiornamenti software  
-Se Windows è configurato per installare automaticamente gli aggiornamenti di Windows, protezione disco consente gli aggiornamenti al momento configurata e non elimina gli aggiornamenti. Ad esempio, se gli aggiornamenti di Windows vengono pianificati per 3:00, protezione disco di verifica per gli aggiornamenti ogni giorno alle 3:00 Se vengono trovati aggiornamenti, servizi MultiPoint temporaneamente Disabilita protezione disco, applica gli aggiornamenti e quindi Abilita di nuovo la protezione disco.  
+Se Windows è configurato per installare automaticamente gli aggiornamenti di Windows, la protezione del disco consente questi aggiornamenti in fase di configurazione e non rimuove gli aggiornamenti. Se, ad esempio, gli aggiornamenti di Windows sono pianificati per le ore 3:00, la protezione del disco controlla la disponibilità di aggiornamenti ogni giorno alle 3:00. Se vengono rilevati aggiornamenti, MultiPoint Services Disabilita temporaneamente la protezione del disco, applica gli aggiornamenti e quindi Abilita nuovamente la protezione del disco.  
    
-1.  Selezionare Gestione MultiPoint, visualizzare il **casa** scheda e quindi fare clic su **pianificare gli aggiornamenti software**.  
+1.  In Gestione MultiPoint visualizzare la scheda **Home** , quindi fare clic su **Pianifica aggiornamenti software**.  
   
-2.  Nella finestra di dialogo pianificare gli aggiornamenti Software, fare clic su **aggiornate di volta in**e selezionare, ad esempio, un'ora per gli aggiornamenti - **3:00 AM**.  
+2.  Nella finestra di dialogo Pianifica aggiornamenti software, fare clic su **Aggiorna in**e selezionare un'ora per gli aggiornamenti, ad esempio **3:00 AM**.  
   
-3.  Selezionare il **eseguire Windows Update** casella di controllo.  
+3.  Selezionare la casella di controllo **esegui Windows Update** .  
   
-4.  Se l'organizzazione esegue il proprio script di aggiornamento, selezionare la **eseguire il programma seguente** casella di controllo e specificare il percorso dello script di aggiornamento della propria organizzazione.  
+4.  Se l'organizzazione esegue uno script di aggiornamento, selezionare la casella di controllo **Esegui il programma seguente** e specificare il percorso dello script di aggiornamento dell'organizzazione.  
   
-5.  Selezionare un tempo massimo per consentire gli aggiornamenti per l'esecuzione.  
+5.  Selezionare un tempo massimo per consentire l'esecuzione degli aggiornamenti.  
   
-6.  Sotto **al termine**, scegliere se restituire lo stato dell'alimentazione precedente o arrestato dopo aver applicato gli aggiornamenti del sistema.  
+6.  In al **termine**scegliere se il sistema deve tornare allo stato di alimentazione precedente o arrestarsi dopo l'applicazione degli aggiornamenti.  
   
 7.  Fare clic su **OK**.  
   
 ## <a name="temporarily-disable-disk-protection"></a>Disabilitare temporaneamente la protezione disco  
-Se un amministratore deve installare il software, modificare le impostazioni di sistema o eseguire altre attività di manutenzione che coinvolgono gli aggiornamenti del sistema, è possibile disabilitare temporaneamente protezione su disco. Dopo aver apportato le modifiche, riabilitare la protezione del disco. Durante il riavvio del sistema, il sistema conserverà lo stato quando Protezione disco è stata abilitata.  
+Se un amministratore deve installare software, modificare le impostazioni di sistema o eseguire altre attività di manutenzione che coinvolgono gli aggiornamenti del sistema, può disabilitare temporaneamente la protezione del disco. Dopo aver apportato le modifiche, abilitare di nuovo la protezione del disco. Durante i riavvii del sistema, il sistema manterrà il proprio stato quando la protezione del disco è stata abilitata.  
     
-1.  Selezionare Gestione MultiPoint il **Home** scheda.  
+1.  In Gestione MultiPoint fare clic sulla scheda **Home** .  
   
-2.  Nella scheda Home fare clic su **disabilitare Protezione disco**, quindi fare clic su **OK**.  
+2.  Nella scheda Home fare clic su **Disabilita protezione disco**, quindi fare clic su **OK**.  
   
 > [!NOTE]  
-> Ricordarsi di riabilitare la protezione disco dopo la manutenzione è stata completata. Il sistema non verrà protetti nuovamente fino a quando l'amministratore in modo esplicito riabilita la protezione disco.  
+> Ricordarsi di riabilitare la protezione del disco dopo aver completato la manutenzione. Il sistema non verrà più protetto finché l'amministratore non riabilita in modo esplicito la protezione del disco.  
   
-## <a name="uninstall-disk-protection"></a>Disinstallare protezione disco  
-Protezione disco di disinstallazione rimuove il driver e il file di cache, pertanto è consigliabile eseguire questa operazione solo se si desidera interrompere l'uso di protezione disco a lungo termine. Se si desidera semplicemente eseguire operazioni di manutenzione o arrestare temporaneamente la protezione dati, utilizzare l'attività di protezione disco Disable.  
+## <a name="uninstall-disk-protection"></a>Disinstalla protezione disco  
+La disinstallazione della protezione disco rimuove il driver e il file di cache, quindi è consigliabile eseguire questa operazione solo se si desidera interrompere l'utilizzo della protezione del disco a lungo termine. Se si desidera semplicemente eseguire una manutenzione o arrestare temporaneamente la protezione, utilizzare invece l'attività disabilita protezione disco.  
   
-È possibile disinstallare protezione disco se è abilitato o disabilitato.  
+È possibile disinstallare la protezione del disco se è abilitata o disabilitata.  
    
-1.  Selezionare Gestione MultiPoint il **Home** scheda.  
+1.  In Gestione MultiPoint fare clic sulla scheda **Home** .  
   
-2.  Nella scheda Home e fare clic su **disinstallare protezione disco**, quindi fare clic su **OK**.  
+2.  Nella scheda Home, fare clic su **Disinstalla protezione disco**, quindi fare clic su **OK**.  
   
-    Dopo aver fatto clic **OK**, il riavvio del computer. Il processo di disinstallazione richiede diversi riavvii, durante i quali il driver e file di cache vengono rimossi. Il DpReserved partizionare rimane e il file di paging, percorso di dump di arresto anomalo del sistema, log eventi e i file rimangono configurato per usare la partizione DpReserved.
+    Dopo aver fatto clic su **OK**, il computer viene riavviato. Il processo di disinstallazione richiede diversi riavvii durante i quali il driver e il file di cache vengono rimossi. La partizione DpReserved rimane e il file di paging, il percorso del dump di arresto anomalo e i file del registro eventi rimangono configurati per l'uso della partizione DpReserved.

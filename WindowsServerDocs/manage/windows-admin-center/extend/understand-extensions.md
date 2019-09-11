@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b00ee847088d038e59266154bcbbe9499bfe47fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e54101e90005a1845820ecf0bb99df527ac7051
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850112"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869768"
 ---
 # <a name="understanding-windows-admin-center-extensions"></a>Informazioni sulle estensioni di Windows Admin Center
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-Nel caso in cui non si abbia ancora familiarità con il funzionamento di Windows Admin Center, iniziamo con l'architettura di alto livello. Windows Admin Center è composto da due componenti principali:
+Se non si ha ancora familiarità con il funzionamento del centro di amministrazione di Windows, iniziamo con l'architettura di alto livello. Windows Admin Center è composto da due componenti principali:
 
 - Il **servizio Web** Lightweight che serve le pagine Web dell'interfaccia utente di Windows Admin Center alle richieste del browser Web.
 - Il **componente di gateway** che ascolta le richieste API REST dalle pagine Web e inoltra le chiamate WMI o gli script PowerShell da eseguire su un server o cluster di destinazione.
@@ -52,4 +52,4 @@ Il servizio gateway espone le API REST per l'interfaccia utente per chiamare e i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A seconda delle funzionalità che vuoi creare in Windows Admin Center, la [creazione di un'estensione dello strumento](develop-tool.md) per una soluzione cluster o server esistente può essere sufficiente e costituire il primo passaggio più semplice per la creazione delle estensioni. Tuttavia, se la tua funzione è per la gestione di un dispositivo, un servizio o qualcosa di completamente nuovo, piuttosto che un server o un cluster, è necessario prendere in considerazione la [creazione di un'estensione della soluzione](develop-solution.md) con uno o più strumenti. Infine, se è necessario comunicare con la destinazione tramite un protocollo diverso da WMI o PowerShell, dovrai [creare un plug-in del gateway](develop-gateway-plugin.md). [Continua la lettura in](developing-extensions.md) per informazioni su come impostare l'ambiente di sviluppo e avviare la scrittura della prima estensione.
+A seconda delle funzionalità che vuoi creare in Windows Admin Center, la [creazione di un'estensione dello strumento](develop-tool.md) per una soluzione cluster o server esistente può essere sufficiente e costituire il primo passaggio più semplice per la creazione delle estensioni. Tuttavia, se la tua funzione è per la gestione di un dispositivo, un servizio o qualcosa di completamente nuovo, piuttosto che un server o un cluster, è necessario prendere in considerazione la [creazione di un'estensione della soluzione](develop-solution.md) con uno o più strumenti. Infine, se è necessario comunicare con la destinazione tramite un protocollo diverso da WMI o PowerShell, è necessario [compilare un plug](develop-gateway-plugin.md)-in del gateway. [Continua la lettura in](developing-extensions.md) per informazioni su come impostare l'ambiente di sviluppo e avviare la scrittura della prima estensione.

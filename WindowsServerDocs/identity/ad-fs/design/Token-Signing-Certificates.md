@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9db69cfb2eb42af90b392433a6e05eaab9978160
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d31b7d60021e72f80c762df5b4e1a4199ea3909c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190814"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867685"
 ---
 # <a name="token-signing-certificates"></a>Certificati per la firma di token
 
@@ -25,7 +25,7 @@ Un token\-certificato di firma deve soddisfare i requisiti seguenti per lavorare
   
 -   Per un token\-certificato per firmare un token di sicurezza, il token di firma\-certificato di firma deve contenere una chiave privata.  
   
--   L'account del servizio ADFS deve avere accesso al token\-firma chiave privata del certificato nell'archivio personale del computer locale. Questo viene preso in considerazione dal programma di installazione. È inoltre possibile utilizzare lo snap di gestione di ADFS\-per verificare l'accesso se successivamente si modifica il token\-certificato di firma.  
+-   L'account del servizio ad FS deve avere accesso alla chiave\-privata del certificato per la firma di token nell'archivio personale del computer locale. Questo viene preso in considerazione dal programma di installazione. È inoltre possibile utilizzare lo snap di gestione di ADFS\-per verificare l'accesso se successivamente si modifica il token\-certificato di firma.  
   
 > [!NOTE]  
 > Si tratta di un'infrastruttura a chiave pubblica \(PKI\) consigliata per condividere la chiave privata per più scopi. Pertanto, non utilizzare il certificato di comunicazione del servizio che è stato installato nel server federativo come token\-certificato di firma.  
@@ -33,7 +33,7 @@ Un token\-certificato di firma deve soddisfare i requisiti seguenti per lavorare
 ## <a name="how-token-signing-certificates-are-used-across-partners"></a>Come token\-certificati di firma vengono usati tra i partner  
 Ogni token\-certificato di firma contiene chiavi private di crittografia e le chiavi pubbliche utilizzate per firmare digitalmente \(tramite la chiave privata\) un token di sicurezza. In un secondo momento, dopo la ricezione da un server federativo del partner, queste chiavi convalidare l'autenticità \(tramite la chiave pubblica\) del token di sicurezza crittografato.  
   
-Poiché ogni token di sicurezza è firmato digitalmente da partner account, il partner risorse può verificare che il token di sicurezza è stato infatti rilasciato dal partner account e che sia stato modificato. Vengono verificate le firme digitali per la parte pubblica del token di un partner\-certificato di firma. Dopo la firma viene verificata, il server federativo di risorsa genera il proprio token di sicurezza per l'organizzazione e ne firma il token di sicurezza con il proprio token\-certificato di firma.  
+Poiché ogni token di sicurezza è firmato digitalmente da partner account, il partner risorse può verificare che il token di sicurezza è stato infatti rilasciato dal partner account e che sia stato modificato. Le firme digitali vengono verificate dalla parte della chiave pubblica del certificato per\-la firma di token di un partner. Dopo la firma viene verificata, il server federativo di risorsa genera il proprio token di sicurezza per l'organizzazione e ne firma il token di sicurezza con il proprio token\-certificato di firma.  
   
 Per gli ambienti di partner di federazione, quando il token\-certificato di firma sia stato emesso da un'autorità di certificazione, verificare che:  
   
@@ -66,11 +66,11 @@ Sono disponibili due opzioni di farm di server che è possibile considerare quan
   
 ![la firma di token](media/adfs2_fedserver_certstory_4.gif)  
   
-Per informazioni sull'installazione di un certificato quando si utilizza Microsoft Certificate Services come CA dell'organizzazione, vedere [IIS 7.0: Creare un certificato di dominio in IIS 7.0](https://go.microsoft.com/fwlink/?LinkId=108548).  
+Per informazioni sull'installazione di un certificato quando si utilizzano i servizi certificati Microsoft come CA globale ( [Enterprise), vedere IIS 7,0: Creare un certificato del server di dominio in](https://go.microsoft.com/fwlink/?LinkId=108548)IIS 7,0.  
   
 Per informazioni sull'installazione di un certificato da un'autorità di certificazione pubblica, consultare [IIS 7.0: Richiedere un certificato del server Internet](https://go.microsoft.com/fwlink/?LinkId=108549).  
   
-Per informazioni sull'installazione automatica\-firma del certificato, vedere [IIS 7.0: Creare un Self\-firma certificato del Server in IIS 7.0](https://go.microsoft.com/fwlink/?LinkID=108271).  
+Per informazioni sull'installazione di un\-certificato autofirmato [, vedere IIS 7,0: Creare un\-certificato server autofirmato in IIS](https://go.microsoft.com/fwlink/?LinkID=108271)7,0.  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

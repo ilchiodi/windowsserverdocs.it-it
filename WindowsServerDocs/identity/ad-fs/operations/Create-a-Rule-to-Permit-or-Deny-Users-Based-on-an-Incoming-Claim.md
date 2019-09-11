@@ -9,17 +9,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 72fe425b040f83a217a144976265c7754830c91b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d057c943b9c14b74b44472d446625b60f5ad9d22
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189498"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865954"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Creare una regola per consentire o negare agli utenti in base a un'attestazione in ingresso 
 
 
-In Windows Server 2016, è possibile usare un **criteri di controllo di accesso** per creare una regola per consentire o negare agli utenti in base a un'attestazione in ingresso.  In Windows Server 2012 R2, utilizzando il **Permit or Deny Users Based on an Incoming Claim** modello di regola in Active Directory Federation Services \(ADFS\), è possibile creare una regola di autorizzazione che verrà concesso o negare l'accesso dell'utente per la relying party basata sul tipo e valore di un'attestazione in ingresso. 
+In Windows Server 2016, è possibile usare un **criterio di controllo di accesso** per creare una regola che consentirà o negherà gli utenti in base a un'attestazione in ingresso.  In Windows Server 2012 R2, usando il modello di regola **consentire o negare agli utenti in base a un'attestazione in ingresso** in Active Directory Federation Services \(ad FS\), è possibile creare una regola di autorizzazione che consentirà o negherà l'accesso dell'utente al relying party in base al tipo e al valore di un'attestazione in ingresso. 
 
 Ad esempio, è possibile utilizzare per creare una regola che consente solo agli utenti che dispongono di un gruppo di un'attestazione con un valore del gruppo Domain Admins per accedere alla relying party. Se si desidera consentire tutti gli utenti di accedere alla relying party, usare il **consentire Everyone** criteri di controllo di accesso o **consentire tutti gli utenti** il modello di regola a seconda della versione di Windows Server. Agli utenti che hanno ricevuto l'autorizzazione di accesso alla relying parti da parte del Servizio federativo potrebbe comunque essere negato l'accesso dalla stessa relying party.  
   
@@ -107,7 +107,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
     -   **Consenti l'accesso agli utenti con questa attestazione in ingresso**  
   
-    -   **Nega accesso agli utenti con questa attestazione in ingresso**  
+    -   **Nega l'accesso agli utenti con questa attestazione in ingresso**  
 ![Crea regola](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny2.PNG)  
 7.  Scegliere **Fine**.  
   
@@ -118,7 +118,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
  
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
   
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

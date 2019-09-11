@@ -1,6 +1,6 @@
 ---
 title: Configurare una workstation connessa direct-video in servizi MultiPoint
-description: Informazioni su come creare una stazione di direct-video-connessi in MultiPoint Services
+description: Informazioni su come creare una stazione connessa con video diretto in MultiPoint Services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,19 +13,19 @@ ms.assetid: 82ba3517-9743-4cde-8eea-63a17edb016f
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 58197164c91ab6b69b0ef331c025287f593f94c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eda8d5eee0635370873adec5b1fde2d65fc9fd9c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850742"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871597"
 ---
 # <a name="set-up-a-direct-video-connected-station-in-multipoint-services"></a>Configurare una workstation connessa direct-video in servizi MultiPoint
 In una stazione connesso video diretta, il monitoraggio è connesso direttamente a una porta video sul computer del Server MultiPoint. Tastiera e mouse vengono quindi connessi a un hub USB e sono associati il monitoraggio.  
   
 Nella figura seguente mostra un ambiente MultiPoint Server che dispone di un singolo computer MultiPoint Server e quattro le stazioni direct-video-connesso. Per ulteriori informazioni, vedere [MultiPoint Server stazioni](MultiPoint-services-Stations.md).  
   
-**Sistema di servizi multiPoint con quattro connessioni video dirette**  
+**Sistema MultiPoint Services con quattro connessioni video dirette**  
   
 ![Immagine del layout del sistema basato su USB servizi MultiPoint](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
@@ -63,7 +63,7 @@ Se si aggiunta più diretta stazione video connessi all'ambiente di servizi Mult
   
 ## <a name="to-find-out-which-direct-video-connected-station-is-the-primary-station"></a>Per scoprire quale indirizzare stazione connesso video è la stazione principale  
   
-1.  Attivare tutti i monitoraggi che sono connesse direttamente a schede video del computer (schede video).  
+1.  Attivare tutti i monitoraggi connessi direttamente alle schede video del computer (schede video).  
   
 2.  Avviare o riavviare il computer che esegue servizi MultiPoint e vedere quale monitoraggio consente di visualizzare le schermate di avvio. Che è la stazione principale.  
   

@@ -1,6 +1,6 @@
 ---
-title: Protezione di AD FS Password attacco
-description: Questo documento descrive come proteggere gli utenti di AD FS da attacchi alle password
+title: Protezione da attacchi AD FS password
+description: Questo documento descrive come proteggere AD FS utenti dagli attacchi con password
 author: billmath
 manager: mtillman
 ms.reviewer: andandyMSFT
@@ -9,25 +9,25 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: c446ec86d426148836267e29610f86691cf0798a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865463"
 ---
-# <a name="ad-fs-password-attack-protection"></a>Protezione di AD FS Password attacco
+# <a name="ad-fs-password-attack-protection"></a>Protezione da attacchi AD FS password
 
-## <a name="what-is-a-password-attack"></a>Che cos'è un attacco di tipo password?
+## <a name="what-is-a-password-attack"></a>Che cos'è un attacco con password?
 
-Un requisito per l'accesso single sign-on federato è la disponibilità degli endpoint per l'autenticazione tramite internet. La disponibilità degli endpoint di autenticazione su internet consente agli utenti di accedere alle applicazioni anche quando non sono in una rete aziendale. 
+Un requisito per la Single Sign-On federata è la disponibilità degli endpoint per l'autenticazione su Internet. La disponibilità degli endpoint di autenticazione in Internet consente agli utenti di accedere alle applicazioni anche quando non si trovano in una rete aziendale. 
 
-Tuttavia, questo significa anche che alcuni cattivi attori può sfruttare i vantaggi degli endpoint federati disponibili su internet e utilizzare questi endpoint per tentare di determinare le password o per creare attacchi denial of service. Un attacco che sta diventando sempre più comune viene chiamato un **attacco password**. 
+Tuttavia, ciò significa anche che alcuni attori cattivi possono sfruttare gli endpoint federati disponibili su Internet e usare questi endpoint per provare a determinare le password o per creare attacchi di tipo Denial of Service. Uno di questi attacchi che sta diventando più comune è denominato **attacco con password**. 
 
-Esistono 2 tipi di attacchi di password comuni. Password spray attacco & brute force alla password. 
+Esistono due tipi di attacchi comuni alle password. Attacco spray per la password & attacco di forza bruta. 
 
-### <a name="password-spray-attack"></a>Password Spray attacco
-In un attacco spray password, queste cattivi attori proverà la password più comuni tra numerosi account diversi e servizi per ottenere l'accesso a tutte le risorse protette da password che sono disponibili. In genere le soluzioni offerte comprendono molte organizzazioni diverse e provider di identità. Ad esempio, un utente malintenzionato utilizzerà un toolkit comunemente disponibile per enumerare tutti gli utenti in organizzazioni diverse e quindi provare a "P@$$w0rd" e "Password1" contro questi account. Per dare l'idea generale, un attacco potrebbe essere simile:
+### <a name="password-spray-attack"></a>Attacco spray per la password
+In un attacco di spray per le password, questi cattivi attori proveranno le password più comuni tra molti account e servizi diversi per ottenere l'accesso a qualsiasi risorsa protetta da password che è in grado di trovare. In genere si estendono in molte organizzazioni e provider di identità diversi. Un utente malintenzionato utilizzerà, ad esempio, un toolkit di uso comune per enumerare tutti gli utenti in diverse organizzazioni, quindi provare "P @ $ $w 0RD" e "Password1" su tutti gli account. Per dare un'idea, un attacco potrebbe essere simile al seguente:
 
 
 |  Utente di destinazione   | Password di destinazione |
@@ -37,90 +37,90 @@ In un attacco spray password, queste cattivi attori proverà la password più co
 | User1@org2.com |    Password1    |
 | User2@org2.com |    Password1    |
 |       …        |        …        |
-| User1@org1.com |    P@$$w0rd     |
-| User2@org1.com |    P@$$w0rd     |
-| User1@org2.com |    P@$$w0rd     |
-| User2@org2.com |    P@$$w0rd     |
+| User1@org1.com |    P @ $ $w 0RD     |
+| User2@org1.com |    P @ $ $w 0RD     |
+| User1@org2.com |    P @ $ $w 0RD     |
+| User2@org2.com |    P @ $ $w 0RD     |
 
-Questo schema di attacco sfugge la maggior parte delle tecniche di rilevamento perché dal punto di vista dell'utente privato o aziendale, l'attacco solo simile a un account di accesso non riusciti isolato.
+Questo modello di attacco sottrae la maggior parte delle tecniche di rilevamento poiché dal punto di vista di un singolo utente o società, l'attacco sembra un accesso non riuscito isolato.
 
-Per gli utenti malintenzionati, è un gioco di numeri: sanno che esistono alcune password disponibili che sono molto comuni.  L'autore dell'attacco otterrà alcune operazioni riuscite per ogni migliaia account attaccato, e che è sufficiente per essere efficace. Usano gli account per ottenere dati dai messaggi di posta elettronica, raccogliere le informazioni di contatto e inviare collegamenti di phishing o semplicemente espandere il gruppo di destinazione spray password. Gli utenti malintenzionati non interessano molto chi sono le destinazioni iniziali, solo che dispongono di alcune operazioni riuscite che possono sfruttare.
+Per gli utenti malintenzionati, si tratta di un gioco di numeri: sanno che alcune password sono molto comuni.  L'autore dell'attacco riuscirà ad avere pochi successi per ogni migliaia di account attaccati e questo è sufficiente per essere efficace. Usano gli account per ottenere i dati da messaggi di posta elettronica, raccogliere informazioni di contatto e inviare collegamenti di phishing o semplicemente espandere il gruppo di destinazione spray per le password. Gli utenti malintenzionati non sono interessati a chi sono gli obiettivi iniziali, ma hanno un certo successo che possono sfruttare.
 
-Ma eseguendo alcuni passaggi per configurare AD FS e di rete in modo corretto, gli endpoint AD FS possono essere protetti contro questi tipi di attacchi. Questo articolo illustra 3 aree che devono essere configurati correttamente per la protezione da questi attacchi.
+Tuttavia, eseguendo alcuni passaggi per configurare correttamente il AD FS e la rete, è possibile proteggere gli endpoint AD FS da questi tipi di attacchi. Questo articolo illustra tre aree che devono essere configurate correttamente per garantire la protezione da questi attacchi.
 
-### <a name="brute-force-password-attack"></a>Attacco di forza bruta Password 
-In questa forma di attacco, un utente malintenzionato prova più tentativi di password rispetto a un set di account di destinazione. In molti casi saranno destinati questi account di accesso agli utenti che hanno un maggiore livello di accesso all'interno dell'organizzazione. Può trattarsi di dirigenti all'interno dell'organizzazione o gli amministratori che gestiscono l'infrastruttura critica.  
+### <a name="brute-force-password-attack"></a>Attacco di forza bruta alla password 
+In questo tipo di attacco, un utente malintenzionato tenterà più tentativi di accesso tramite password a un set di account di destinazione. In molti casi questi account saranno destinati agli utenti che hanno un livello di accesso più elevato all'interno dell'organizzazione. Questi possono essere dirigenti all'interno dell'organizzazione o amministratori che gestiscono l'infrastruttura critica.  
 
-Questo tipo di attacco potrebbe anche verificarsi nei modelli di DOS. Ciò può essere a livello di servizio in cui ADFS è riuscito a elaborare un & elevato di richieste dovuto a & insufficiente di server oppure potrebbe essere a livello di utente in cui un utente viene bloccato dal proprio account.  
+Questo tipo di attacco può anche causare modelli DOS. Questo potrebbe essere a livello di servizio in cui ADFS non è in grado di elaborare un numero elevato di richieste a causa di un numero insufficiente di server o potrebbe essere a livello di utente in cui un utente è bloccato dall'account.  
 
-## <a name="securing-ad-fs-against-password-attacks"></a>Protezione di AD FS contro gli attacchi alle password 
+## <a name="securing-ad-fs-against-password-attacks"></a>Protezione AD FS dagli attacchi con password 
 
-Ma eseguendo alcuni passaggi per configurare AD FS e di rete in modo corretto, gli endpoint AD FS possono essere protetti contro questi tipi di attacchi. Questo articolo illustra 3 aree che devono essere configurati correttamente per la protezione da questi attacchi. 
+Tuttavia, eseguendo alcuni passaggi per configurare correttamente il AD FS e la rete, è possibile proteggere gli endpoint AD FS da questi tipi di attacchi. Questo articolo illustra tre aree che devono essere configurate correttamente per garantire la protezione da questi attacchi. 
 
 
-- Livello 1, linea di base: Queste sono le impostazioni di base che devono essere configurate in un server AD FS per garantire che gli attori dannosi non possono gli utenti federato attacco attacchi di forza bruta. 
-- Livello 2, la protezione di rete extranet: Queste sono le impostazioni che devono essere configurate per garantire che l'accesso extranet è configurato per usare i protocolli sicuri, i criteri di autenticazione e applicazioni appropriate. 
-- Livello 3, spostarsi senza password per l'accesso extranet: Questi sono avanzati delle impostazioni e le linee guida per abilitare l'accesso alle risorse federative con più sicura delle credenziali anziché le password che sono soggette agli attacchi. 
+- Livello 1, linea di base: Queste sono le impostazioni di base che devono essere configurate in un server di AD FS per assicurarsi che gli attori cattivi non possano attaccare la forza bruta degli utenti federati. 
+- Livello 2, protezione della rete Extranet: Queste sono le impostazioni che devono essere configurate per garantire che l'accesso Extranet sia configurato per l'utilizzo di protocolli protetti, criteri di autenticazione e applicazioni appropriate. 
+- Livello 3, passare a senza password per l'accesso Extranet: Si tratta di impostazioni avanzate e linee guida per consentire l'accesso alle risorse federate con credenziali più sicure anziché password soggette ad attacchi. 
 
-## <a name="level-1-baseline"></a>Livello 1: Linea di base
+## <a name="level-1-baseline"></a>Livello 1: base
 
-1. Se ad FS 2016, implementare [extranet blocco smart](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) Extranet blocco smart tiene traccia delle posizioni note e consentirà a un utente valido per sempre passare attraverso se essi hanno precedentemente eseguito l'accesso da quel percorso. Usando il blocco smart extranet, è possibile assicurarsi che i cattivi attori non sarà in grado di attacchi di forza bruta gli utenti di attacco e nello stesso momento consentirà utente legittimo di essere produttivi.
-    - Se non si usa AD FS 2016, è fortemente consigliabile [aggiornare](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) ad AD FS 2016. È un percorso di aggiornamento semplice di AD FS 2012 R2. Se si usa AD FS 2012 R2, implementare [blocco extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). Uno svantaggio di questo approccio è che gli utenti validi siano bloccati dagli accessi extranet in presenza di un modello di attacchi di forza bruta. ADFS in Server 2016 non presenta questo svantaggio.
+1. Se ad FS 2016, [l'implementazione del](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) blocco Smart Extranet per il blocco intelligente Extranet rileva percorsi familiari e consente a un utente valido di passare attraverso se si è precedentemente connessi correttamente da tale percorso. Utilizzando il blocco intelligente Extranet, è possibile assicurarsi che gli attori non corretti non possano attaccare la forza bruta agli utenti e, allo stesso tempo, consentiranno agli utenti legittimi di essere produttivi.
+    - Se non si è AD FS 2016, si consiglia vivamente di [eseguire l'aggiornamento](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) a ad FS 2016. Si tratta di un percorso di aggiornamento semplice da AD FS 2012 R2. Se si è AD FS 2012 R2, implementare il [blocco Extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). Uno svantaggio di questo approccio consiste nel fatto che gli utenti validi possono essere bloccati dall'accesso Extranet se si utilizza un modello di forza bruta. AD FS sul server 2016 non presenta questo svantaggio.
 
-2. Monitoraggio & blocco di indirizzi IP sospetti 
-    - Se si dispone di Azure AD Premium, l'implementazione di Connect Health per ad FS e usare la [report sugli indirizzi IP rischiosi](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) notifiche che offre.
+2. Monitorare & bloccare gli indirizzi IP sospetti 
+    - Se si dispone di Azure AD Premium, implementare Connect Health per ADFS e utilizzare le notifiche dei [report IP rischiosi](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) fornite.
 
-        a. Gestione delle licenze non è presente per tutti gli utenti e richiede 25 server licenze/ad FS/WAP che può essere facile per un cliente.
+        a. Le licenze non sono destinate a tutti gli utenti e richiedono 25 licenze/server ADFS/WAP, che possono essere semplici per un cliente.
 
-        b. È ora possibile esaminare IP che generano grandi & di accessi non riusciti
+        b. È ora possibile esaminare gli IP che generano un numero elevato di accessi non riusciti
 
-        c. Questo richiederà di abilitare il controllo sui server ad FS.
+        c. Questa operazione richiederà l'abilitazione del controllo sui server ADFS.
 
-3.  Bloccare l'IP sospetto.  Questo potenzialmente consente di bloccare attacchi Denial of Service.
+3.  Blocca gli IP sospetti.  Questo blocca potenzialmente gli attacchi DOS.
 
-    a. Se nel 2016, usare il [ *indirizzi IP da escludere Extranet* ](../../ad-fs/operations/configure-ad-fs-banned-ip.md) funzionalità per bloccare tutte le richieste da indirizzi IP contrassegnati da #3 (o l'analisi manuale).
+    a. Se il 2016, utilizzare la funzionalità di [*indirizzi IP esclusi Extranet*](../../ad-fs/operations/configure-ad-fs-banned-ip.md) per bloccare le richieste dall'indirizzo IP contrassegnato da #3 (o analisi manuale).
 
-    b. Se si usa AD FS 2012 R2 o versione precedente, bloccare l'indirizzo IP direttamente in Exchange Online e, facoltativamente, nel firewall.
+    b. Se si è in AD FS 2012 R2 o versioni precedenti, bloccare l'indirizzo IP direttamente in Exchange Online e, facoltativamente, nel firewall.
 
-4. Se si dispone di Azure AD Premium, usare [protezione di Password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) per impedire che le password da indovinare introduzione in Azure AD  
+4. Se si dispone di Azure AD Premium, utilizzare [Azure ad la protezione con password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) per impedire l'inserimento di password indovinabili Azure ad  
 
-    a. Si noti che se si dispone di password da indovinare, è in grado di decifrare li con solo 1 a 3 tentativi. Questa funzionalità evita che queste informazioni dal recupero di set. 
+    a. Si noti che, se si dispone di password indovinabili, è possibile craccarle con soli 1-3 tentativi. Questa funzionalità impedisce che questi siano impostati. 
 
-    b. Dal nostro statistiche di anteprima, quasi 20 al 50% di nuove password bloccate da impostare. Ciò implica che % di utenti sono vulnerabili alle password facilmente identificabili.
+    b. Dalle statistiche di anteprima, l'impostazione di quasi il 20-50% delle nuove password viene bloccata. Questo implica che il% degli utenti è vulnerabile a password facilmente indovinate.
 
-## <a name="level-2-protect-your-extranet"></a>Livello 2: Proteggere la rete extranet
+## <a name="level-2-protect-your-extranet"></a>Livello 2: Proteggi la tua Extranet
 
-5. Spostare l'autenticazione moderna per i client che accedono dalla rete extranet. I client di posta elettronica rappresentano una parte importante di questo oggetto. 
+5. Passare all'autenticazione moderna per tutti i client che accedono dalla rete Extranet. I client di posta sono una parte importante di questa operazione. 
 
-    a. Dovrai usare Outlook per dispositivi mobili per dispositivi mobili. La nuova app di posta elettronica nativo di iOS supporta anche l'autenticazione moderna. 
+    a. Sarà necessario utilizzare Outlook Mobile per dispositivi mobili. La nuova app di posta elettronica nativa iOS supporta anche l'autenticazione moderna. 
 
-    b. È necessario utilizzare Outlook 2013 (con le patch di aggiornamento Cumulativo più recente) o Outlook 2016.
+    b. Sarà necessario usare Outlook 2013 (con le patch CU più recenti) o Outlook 2016.
 
-6. Abilitare MFA per tutti gli accessi extranet. In questo modo è stata aggiunta la protezione per qualsiasi accesso alla rete extranet.
+6. Abilitare l'autenticazione a più fattori per l'accesso Extranet. In questo modo si garantisce una maggiore protezione per qualsiasi accesso Extranet.
 
-   a.  Se si dispone di Azure AD premium, usare [criteri di accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) per controllare questo problema.  Questa soluzione è preferibile rispetto all'implementazione di regole in AD FS.  Questo avviene perché le app client moderni vengono applicate in modo più frequente.  In questo caso, in Azure AD, quando viene richiesto un nuovo token di accesso (in genere ogni ora) con un token di aggiornamento.  
+   a.  Se si dispone di Azure AD Premium, utilizzare [Azure ad criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) per controllarlo.  Si tratta di una soluzione migliore rispetto all'implementazione delle regole in AD FS.  Ciò è dovuto al fatto che le app client moderne vengono applicate su base più frequente.  Ciò si verifica, in Azure AD, quando si richiede un nuovo token di accesso (in genere ogni ora) utilizzando un token di aggiornamento.  
 
-   b.  Se non si dispone di Azure AD premium o sono App aggiuntive su AD FS da internet consentire l'accesso basato su, implementare l'autenticazione a più fattori (può essere Azure MFA anche su AD FS 2016) ed eseguire un' [criteri di autenticazione a più fattori globali](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) per tutti gli accessi extranet.
+   b.  Se non si ha Azure AD Premium o si hanno app aggiuntive in AD FS che consentono l'accesso in base a Internet, implementare l'autenticazione a più fattori (può essere anche l'autenticazione a più fattori di Azure in AD FS 2016) ed eseguire i criteri di autenticazione a più fattori [globali](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) per tutti gli accessi Extranet.
 
-## <a name="level-3-move-to-password-less-for-extranet-access"></a>Livello 3: Passare alla password per l'accesso extranet
+## <a name="level-3-move-to-password-less-for-extranet-access"></a>Livello 3: Passa alla password meno per l'accesso Extranet
 
-7. Sposta in Windows 10 e Usa [Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+7. Passare alla finestra 10 e usare [Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-8. Per altri dispositivi, nel caso di AD FS 2016, è possibile usare [Azure MFA OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) come il primo fattore e la password come 2nd factor. 
+8. Per gli altri dispositivi, se il AD FS 2016, è possibile usare OTP di autenticazione a più fattori di [Azure](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) come primo fattore e password come secondo fattore. 
 
-9. Per i dispositivi mobili, se si consentono solo dispositivi gestiti da MDM, è possibile usare [certificati](../../ad-fs/operations/configure-user-certificate-authentication.md) per l'accesso all'utente. 
+9. Per i dispositivi mobili, se si concedono solo dispositivi gestiti da MDM, è possibile usare i [certificati](../../ad-fs/operations/configure-user-certificate-authentication.md) per l'accesso dell'utente. 
 
-## <a name="urgent-handling"></a>Gestione delle priorità alta
+## <a name="urgent-handling"></a>Gestione urgente
 
-Se l'ambiente di AD FS è sotto attacco attivo, la procedura seguente deve essere implementata appena possibile:
+Se l'ambiente AD FS è sotto attacco attivo, i passaggi seguenti devono essere implementati al più presto:
 
- - Disabilitare l'endpoint U o P in ad FS e richiede tutti gli utenti VPN per accedere o essere all'interno della rete. Ciò è necessario disporre passo **livello 2 & 1a** completata. In caso contrario, tutte le richieste di Outlook interne verranno comunque indirizzate tramite il cloud tramite EXO proxy auth
- - Se l'attacco proviene solo tramite EXO, è possibile disabilitare l'autenticazione di base per i protocolli di Exchange (POP, IMAP, SMTP, EWS e così via) usando i criteri di autenticazione, questi protocolli e metodi di autenticazione in uso nella maggior parte di questi attacchi. Inoltre, regole di accesso Client di abilitazione di protocollo EXO e cassette postali vengono valutati post-autenticazione e sono inefficaci nella riduzione del rischio di attacchi. 
- - In modo selettivo offrono l'accesso extranet tramite il livello 3 #1-3.
+ - Disabilitare l'endpoint U/P in ADFS e richiedere a tutti gli utenti di eseguire la VPN per ottenere l'accesso o all'interno della rete. A questo scopo, è necessario aver completato il passaggio di **livello 2 #1a** . In caso contrario, tutte le richieste di Outlook interne verranno comunque indirizzate tramite il cloud tramite l'autenticazione proxy di EXO.
+ - Se l'attacco è disponibile solo tramite EXO, è possibile disabilitare l'autenticazione di base per i protocolli di Exchange (POP, IMAP, SMTP, EWS e così via) usando i criteri di autenticazione, questi protocolli e metodi di autenticazione vengono usati nella maggior parte di questi attacchi. Inoltre, le regole di accesso client in EXO e l'abilitazione del protocollo per cassetta postale vengono valutate dopo l'autenticazione e non aiutano a mitigare gli attacchi. 
+ - Offrire in modo selettivo l'accesso Extranet usando il livello 3 #1-3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire l'aggiornamento al server AD FS 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
-- [Blocco intelligente Extranet di AD FS 2016](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md)
+- [Eseguire l'aggiornamento a AD FS server 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
+- [Blocco intelligente Extranet in AD FS 2016](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md)
 - [Configurare i criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Protezione tramite password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)
+- [Protezione Azure AD password](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)

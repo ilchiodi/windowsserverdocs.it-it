@@ -1,6 +1,6 @@
 ---
 title: Sospendere e lasciare attiva una sessione utente
-description: Informazioni su come sospendere un utente da una sessione di MultiPoint senza eseguire la disconnessione
+description: Informazioni su come sospendere un utente da una sessione MultiPoint senza disconnetterle
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cc4310e6f7609464cf037b750bec6e5e805e0b26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7c94b9d1edd36efc8651e35dfabbc95239335cb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815222"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871527"
 ---
 # <a name="suspend-and-leave-user-session-active"></a>Sospendere e lasciare attiva una sessione utente
-È possibile scollegare o sospendere gli utenti dal sistema servizi MultiPoint quando non si desidera terminare le sessioni degli utenti. Una sessione può essere disconnessa anche dall'utente stesso. Quando una sessione utente è sospesa, tale sessione rimane attiva nella memoria del computer del sistema MultiPoint Services finché il computer non viene arrestato o riavviato. In quel momento, tutte le sessioni sospese vengono chiuse e il lavoro non salvato viene perso.  
+Quando non si desidera terminare le sessioni degli utenti, è possibile disconnettere o sospendere gli utenti dal sistema MultiPoint Services. Una sessione può essere disconnessa anche dall'utente stesso. Mentre una sessione utente viene sospesa, la sessione rimane attiva nella memoria del computer del sistema MultiPoint Services fino a quando il computer non viene arrestato o riavviato. In quel momento, tutte le sessioni sospese vengono chiuse e il lavoro non salvato viene perso.  
   
 1.  Aprire Gestione MultiPoint in modalità stazione e quindi fare clic sui **stazioni** scheda.  
   
@@ -32,5 +32,5 @@ ms.locfileid: "59815222"
 Dopo che una sessione utente è stata sospesa, l'utente può accedere alla stessa stazione o a una stazione diversa e continuare a lavorare nella sessione originaria.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestire desktop utente](manage-user-desktops-using-multipoint-dashboard.md)  
+[Gestire i desktop degli utenti](manage-user-desktops-using-multipoint-dashboard.md)  
 [Scollegare o disconnettere sessioni utente](Log-off-or-Disconnect-User-Sessions.md)

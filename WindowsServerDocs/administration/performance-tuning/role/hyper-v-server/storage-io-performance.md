@@ -1,70 +1,70 @@
 ---
-title: Prestazioni dei / o di archiviazione di Hyper-V
-description: Considerazioni sulle prestazioni dei / o di archiviazione nell'ottimizzazione delle prestazioni di Hyper-V
+title: Prestazioni di I/O di archiviazione Hyper-V
+description: Considerazioni sulle prestazioni di i/o di archiviazione nell'ottimizzazione delle prestazioni di Hyper-V
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fedc23083914bcf97a8cde12b78c0b174143de25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52eff180f4eb429c8676c301e8acd062505f3ce2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831312"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866572"
 ---
-# <a name="hyper-v-storage-io-performance"></a>Prestazioni dei / o di archiviazione di Hyper-V
+# <a name="hyper-v-storage-io-performance"></a>Prestazioni di I/O di archiviazione Hyper-V
 
-Questa sezione descrive diverse opzioni e considerazioni per l'ottimizzazione delle prestazioni dei / o in una macchina virtuale di archiviazione. Il percorso dei / o di archiviazione si estende dal guest sullo stack di archiviazione, a livello di virtualizzazione dell'host, lo stack di archiviazione host, quindi al disco fisico. Di seguito sono le spiegazioni su come le ottimizzazioni sono possibili in ognuna di queste fasi.
+In questa sezione vengono descritte le diverse opzioni e considerazioni per l'ottimizzazione delle prestazioni di I/O di archiviazione in una macchina virtuale. Il percorso di I/O di archiviazione si estende dallo stack di archiviazione Guest, tramite il livello di virtualizzazione dell'host, allo stack di archiviazione host e quindi al disco fisico. Di seguito sono illustrate le procedure di ottimizzazione possibili in ognuna di queste fasi.
 
 ## <a name="virtual-controllers"></a>Controller virtuali
 
-Hyper-V offre tre tipi di controller virtuali: IDE, SCSI e virtuali, schede bus host (HBA).
+Hyper-V offre tre tipi di controller virtuali: IDE, SCSI e schede bus host virtuali (HBA).
 
 ## <a name="ide"></a>IDE
 
-I controller IDE espongono i dischi IDE per la macchina virtuale. Il controller IDE viene emulato, ed è l'unico controller che è disponibile per le macchine virtuali guest in esecuzione la versione precedente di Windows senza i servizi di integrazione di macchina virtuale. Disco i/o che viene eseguita usando il driver del filtro dell'IDE che viene fornito con i servizi di integrazione di macchina virtuale è significativamente migliori rispetto al disco delle prestazioni dei / o che viene fornito con il controller IDE emulato. È consigliabile che i dischi IDE essere usato solo per i dischi del sistema operativo perché presentano le limitazioni delle prestazioni a causa della dimensione dei / o massima che può essere emesso per questi dispositivi.
+I controller IDE espongono dischi IDE alla macchina virtuale. Il controller IDE è emulato ed è l'unico controller disponibile per le macchine virtuali guest che eseguono la versione precedente di Windows senza la Integration Services della macchina virtuale. L'I/O su disco eseguito utilizzando il driver del filtro IDE fornito con la macchina virtuale Integration Services è significativamente migliore rispetto alle prestazioni di I/O del disco fornite con il controller IDE emulato. È consigliabile usare i dischi IDE solo per i dischi del sistema operativo perché presentano limitazioni delle prestazioni a causa delle dimensioni massime di I/O che possono essere rilasciate a questi dispositivi.
 
-## <a name="scsi-sas-controller"></a>SCSI (controller di firma di accesso condiviso)
+## <a name="scsi-sas-controller"></a>SCSI (controller SAS)
 
-I controller SCSI espongono dischi SCSI nella macchina virtuale e ogni controller SCSI virtuale può supportare fino a 64 dispositivi. Per ottenere prestazioni ottimali, si consiglia di collegare più dischi a un singolo controller SCSI virtuali e creare ulteriori controller solo perché sono richiesti per ridimensionare il numero di dischi connessi alla macchina virtuale. Percorso SCSI non viene emulato che rende il controller preferito per qualsiasi disco diverso da quello del disco del sistema operativo. Con le macchine virtuali di generazione 2, in realtà è l'unico tipo di controller possibili. Introdotta in Windows Server 2012 R2, questo controller è segnalato come firma di accesso condiviso per il supporto VHDX condiviso.
+I controller SCSI espongono i dischi SCSI alla macchina virtuale e ogni controller SCSI virtuale può supportare fino a 64 dispositivi. Per prestazioni ottimali, è consigliabile collegare più dischi a un singolo controller SCSI virtuale e creare controller aggiuntivi solo quando sono necessari per ridimensionare il numero di dischi connessi alla macchina virtuale. Il percorso SCSI non è emulato, che lo rende il controller preferito per qualsiasi disco diverso dal disco del sistema operativo. In realtà con le macchine virtuali di seconda generazione, è possibile usare solo il tipo di controller. Introdotta in Windows Server 2012 R2, questo controller viene segnalato come SAS per supportare VHDX condivisi.
 
-## <a name="virtual-fibre-channel-hbas"></a>Nelle schede HBA Fibre Channel virtuale
+## <a name="virtual-fibre-channel-hbas"></a>HBA Fibre Channel virtuali
 
-Nelle schede HBA Fibre Channel virtuale può essere configurato per consentire l'accesso diretto per le macchine virtuali per Fibre Channel e Fibre Channel tramite LUN Ethernet (FCoE). I dischi virtuali Fibre Channel ignorano il file system NTFS nella partizione radice, che riduce l'utilizzo della CPU dei / o archiviazione.
+È possibile configurare HBA Fibre Channel virtuali per consentire l'accesso diretto alle macchine virtuali ai Fibre Channel e ai LUN Fibre Channel over Ethernet (FCoE). I dischi Fibre Channel virtuali ignorano i file system NTFS nella partizione radice, riducendo l'utilizzo della CPU da parte dell'I/O di archiviazione.
 
-Le unità di dati di grandi dimensioni e le unità che vengono condivisi tra più macchine virtuali (per gli scenari di clustering dei guest) sono i candidati ideali per i dischi virtuali Fibre Channel.
+Unità dati e unità di grandi dimensioni condivise tra più macchine virtuali (per gli scenari di clustering guest) sono candidati principali per i dischi Fibre Channel virtuali.
 
-I dischi virtuali Fibre Channel richiedono uno o più host schede bus Fibre Channel (HBA) da installare nell'host. È necessario usare un driver HBA che supporta le funzionalità di Windows Server 2016 Virtual Fibre Channel/NPIV ogni host HBA. L'infrastruttura SAN deve supportare NPIV e le porte HBA usate per Fibre Channel virtuale devono essere configurate in una topologia Fibre Channel che supporti NPIV.
+Per i dischi Fibre Channel virtuali sono necessarie una o più Fibre Channel schede bus host (HBA) da installare nell'host. Ogni host HBA è necessario per usare un driver HBA che supporta le funzionalità Fibre Channel/NPIV virtuali di Windows Server 2016. L'infrastruttura SAN deve supportare NPIV e le porte HBA usate per la Fibre Channel virtuale devono essere configurate in una topologia di Fibre Channel che supporti NPIV.
 
-Per ottimizzare la velocità effettiva in host tramite cui vengono installati con più di una scheda HBA, si consiglia di configurare più schede HBA virtuale all'interno della macchina virtuale Hyper-V (fino a quattro schede HBA può essere configurata per ogni macchina virtuale). Hyper-V verranno automaticamente modo migliore per bilanciare le HBA virtuali per HBA host che accedono alla stessa SAN virtuale.
+Per ottimizzare la velocità effettiva negli host installati con più di una HBA, è consigliabile configurare più HBA virtuali all'interno della macchina virtuale Hyper-V (è possibile configurare fino a quattro schede HBA per ogni macchina virtuale). Hyper-V tenterà automaticamente di bilanciare le schede HBA virtuali per ospitare HBA che accedono alla stessa rete SAN virtuale.
 
 ## <a name="virtual-disks"></a>Dischi virtuali
 
-I dischi possono essere esposti a macchine virtuali tramite il controller virtuali. Questi dischi potrebbe essere dischi rigidi virtuali che sono astrazioni di file di un disco o un disco pass-through sull'host.
+I dischi possono essere esposti alle macchine virtuali tramite i controller virtuali. Questi dischi potrebbero essere dischi rigidi virtuali che sono astrazioni di file di un disco o un disco pass-through nell'host.
 
 ## <a name="virtual-hard-disks"></a>Dischi rigidi virtuali
 
-Esistono due formati di disco rigido virtuale, VHD e VHDX. Ognuno di questi formati supporta tre tipi di file di disco rigido virtuale.
+Sono disponibili due formati di disco rigido virtuale, VHD e VHDX. Ognuno di questi formati supporta tre tipi di file di disco rigido virtuale.
 
-## <a name="vhd-format"></a>Formato di disco rigido virtuale
+## <a name="vhd-format"></a>Formato VHD
 
-Il formato di disco rigido virtuale è stato il formato di disco rigido virtuale solo che era supportato da Hyper-V in versioni precedenti. Introdotta in Windows Server 2012, il formato di disco rigido virtuale è stato modificato per consentire di migliorare l'allineamento, con conseguente miglioramento significativo delle prestazioni su nuovi dischi con settori di grandi dimensioni.
+Il formato VHD è l'unico formato di disco rigido virtuale supportato da Hyper-V nelle versioni precedenti. Introdotta in Windows Server 2012, il formato VHD è stato modificato per consentire un migliore allineamento, il che comporta prestazioni significativamente migliori nei nuovi dischi di settore di grandi dimensioni.
 
-Qualsiasi nuovo disco rigido virtuale che viene creato in un Windows Server 2012 o versione successiva è l'allineamento di 4 KB ottimale. Questo formato allineato è completamente compatibile con sistemi operativi Windows Server precedenti. Tuttavia, la proprietà di allineamento è interrotta per le nuove allocazioni dal parser che sono compatibili con l'allineamento, ad esempio (un parser di disco rigido virtuale da una versione precedente di Windows Server) o un parser non Microsoft non 4 KB.
+Qualsiasi nuovo VHD creato in Windows Server 2012 o versioni successive dispone dell'allineamento ottimale di 4 KB. Questo formato allineato è completamente compatibile con i sistemi operativi Windows Server precedenti. Tuttavia, la proprietà di allineamento verrà interruppe per le nuove allocazioni dai parser che non sono compatibili con l'allineamento a 4 KB (ad esempio un parser VHD da una versione precedente di Windows Server o un parser non Microsoft).
 
-Qualsiasi disco rigido virtuale che viene spostato da una versione precedente non ottenere convertito automaticamente in questo nuovo formato di disco rigido virtuale migliorato.
+Qualsiasi disco rigido virtuale spostato da una versione precedente non viene convertito automaticamente in questo nuovo formato VHD migliorato.
 
-Per convertire in nuovo formato di disco rigido virtuale, eseguire il comando Windows PowerShell seguente:
+Per eseguire la conversione in un nuovo formato VHD, eseguire il comando seguente di Windows PowerShell:
 
 ``` syntax
 Convert-VHD –Path E:\vms\testvhd\test.vhd –DestinationPath E:\vms\testvhd\test-converted.vhd
 ```
 
-È possibile controllare la proprietà di allineamento per tutti i dischi rigidi virtuali nel sistema e deve essere convertito l'allineamento di 4 KB ottimale. Creare un nuovo disco rigido virtuale con i dati dal disco rigido virtuale originale usando il **Create dall'origine** opzione.
+È possibile controllare la proprietà di allineamento per tutti i dischi rigidi virtuali nel sistema e deve essere convertita nell'allineamento ottimale di 4 KB. Si crea un nuovo disco rigido virtuale con i dati del disco rigido virtuale originale usando l'opzione **Crea da origine** .
 
-Per verificare l'allineamento mediante Windows Powershell, esaminare la riga di allineamento, come illustrato di seguito:
+Per verificare l'allineamento utilizzando Windows PowerShell, esaminare la linea di allineamento, come illustrato di seguito:
 
 ``` syntax
 Get-VHD –Path E:\vms\testvhd\test.vhd
@@ -87,7 +87,7 @@ IsDeleted               : False
 Number                  :
 ```
 
-Per verificare l'allineamento mediante Windows PowerShell, esaminare la riga di allineamento, come illustrato di seguito:
+Per verificare l'allineamento utilizzando Windows PowerShell, esaminare la linea di allineamento, come illustrato di seguito:
 
 ``` syntax
 Get-VHD –Path E:\vms\testvhd\test-converted.vhd
@@ -112,107 +112,107 @@ Number                  :
 
 ## <a name="vhdx-format"></a>Formato VHDX
 
-VHDX è un nuovo formato di disco rigido virtuale introdotto in Windows Server 2012, che consente di creare resilienti ad alte prestazioni per i dischi virtuali, fino a 64 terabyte. Vantaggi di questo formato:
+VHDX è un nuovo formato di disco rigido virtuale introdotto in Windows Server 2012, che consente di creare dischi virtuali resilienti a prestazioni elevate fino a 64 terabyte. I vantaggi di questo formato includono:
 
--   Supporto per la capacità di archiviazione di disco rigido virtuale di fino a 64 terabyte.
+-   Supporto per la capacità di archiviazione su disco rigido virtuale fino a 64 terabyte.
 
 -   Protezione contro il danneggiamento dei dati in caso di interruzioni dell'alimentazione grazie alla registrazione degli aggiornamenti nelle strutture dei metadati VHDX.
 
--   Possibilità di archiviare metadati personalizzati su un file, che un utente può decidere di registrare, come versione del sistema operativo o patch applicate.
+-   Possibilità di archiviare metadati personalizzati su un file, che un utente potrebbe voler registrare, ad esempio la versione del sistema operativo o le patch applicate.
 
-Il formato VHDX offre anche i vantaggi delle prestazioni seguenti:
+Il formato VHDX offre inoltre i seguenti vantaggi in merito alle prestazioni:
 
 -   Migliore allineamento del formato di disco rigido virtuale per assicurare risultati migliori sui dischi con settori di grandi dimensioni.
 
--   Blocchi di dimensioni maggiori per i dischi dinamici e backup differenziali, che consente a tali dischi per l'adattamento alle esigenze del carico di lavoro.
+-   Dimensioni dei blocchi più grandi per i dischi dinamici e differenziali, che consentono a questi dischi di adattamento alle in base alle esigenze del carico di lavoro.
 
--   4 KB disco con settore logico virtuale che consente di migliorare le prestazioni quando viene utilizzato dalle applicazioni e carichi di lavoro progettati per settori di 4 KB.
+-   disco virtuale con settore logico da 4 KB che consente un miglioramento delle prestazioni quando viene usato da applicazioni e carichi di lavoro progettati per settori di 4 KB.
 
--   Efficienza nella rappresentazione di dati, che genera file di dimensioni inferiori e consente al dispositivo di archiviazione fisica sottostante recuperare lo spazio inutilizzato. Per trim è necessario pass-through o dischi SCSI e hardware siano compatibili.
+-   Efficienza nella rappresentazione dei dati, che comporta dimensioni di file più ridotte e consente al dispositivo di archiviazione fisica sottostante di recuperare lo spazio inutilizzato. Per il trim sono necessari i dischi pass-through o SCSI e i componenti hardware compatibili con trim.
 
-Quando esegue l'aggiornamento a Windows Server 2016, è consigliabile convertire tutti i file di disco rigido virtuale in formato VHDX a causa di questi vantaggi. L'unico scenario in cui è opportuno conservare i file in formato VHD è quando una macchina virtuale ha la possibilità di essere spostato in una versione precedente di Hyper-V che non supporta il formato VHDX.
+Quando si esegue l'aggiornamento a Windows Server 2016, è consigliabile convertire tutti i file VHD nel formato VHDX a causa di questi vantaggi. L'unico scenario in cui avrebbe senso mantenere i file nel formato VHD è quando una macchina virtuale può essere spostata in una versione precedente di Hyper-V che non supporta il formato VHDX.
 
 ## <a name="types-of-virtual-hard-disk-files"></a>Tipi di file di disco rigido virtuale
 
-Esistono tre tipi di file di disco rigido virtuale. Le sezioni seguenti sono le caratteristiche di prestazioni e i compromessi tra i tipi.
+Sono disponibili tre tipi di file VHD. Le sezioni seguenti rappresentano le caratteristiche di prestazioni e i compromessi tra i tipi.
 
-I consigli seguenti devono essere prese in considerazione per quanto riguarda la selezione di un tipo di file di disco rigido virtuale:
+Per quanto riguarda la selezione di un tipo di file VHD, è necessario prendere in considerazione le indicazioni seguenti:
 
--   Quando si usa il formato di disco rigido virtuale, è consigliabile usare il tipo predefinito perché ha una migliore resilienza e le caratteristiche di prestazioni rispetto ad altri tipi di file di disco rigido virtuale.
+-   Quando si usa il formato VHD, si consiglia di usare il tipo fisso perché offre migliori caratteristiche di resilienza e prestazioni rispetto agli altri tipi di file VHD.
 
--   Quando si usa il formato VHDX, è consigliabile usare il tipo dinamico perché offre garanzie di resilienza oltre al risparmio di spazio che derivano dall'allocazione di spazio solo quando è necessario eseguire questa operazione.
+-   Quando si usa il formato VHDX, è consigliabile usare il tipo dinamico perché offre garanzie di resilienza oltre al risparmio di spazio associato all'allocazione dello spazio solo quando è necessario.
 
--   Il tipo predefinito è inoltre consigliabile, indipendentemente dal formato, quando lo spazio di archiviazione sul volume di hosting non viene monitorato attivamente per garantire che sia presente quando si espande il file di disco rigido virtuale in fase di esecuzione spazio su disco sufficiente.
+-   È inoltre consigliabile usare il tipo fisso, indipendentemente dal formato, quando l'archiviazione sul volume di hosting non viene monitorata attivamente per assicurarsi che sia presente spazio su disco sufficiente quando si espande il file VHD in fase di esecuzione.
 
--   Gli snapshot di una macchina virtuale crea una differenziazione disco rigido virtuale per archiviare alla scrittura dei dischi. Con solo alcuni snapshot possono elevare non notevolmente l'utilizzo della CPU di spazio di archiviazione i/o, ma è possibile influire sulle prestazioni, ad eccezione dei carichi di lavoro server altamente I/O intensivo. Tuttavia, disponibilità di una catena di snapshot influiscono notevolmente sulle prestazioni poiché la lettura dal disco rigido virtuale può richiedere la verifica dei blocchi necessari in molti dischi rigidi virtuali differenze. Mantenere brevi le catene dello snapshot è importante per la gestione delle prestazioni dei / o disco valida.
+-   Gli snapshot di una macchina virtuale creano un disco rigido virtuale differenze per archiviare le scritture nei dischi. Avere solo pochi snapshot può elevare l'utilizzo della CPU delle operazioni di I/O di archiviazione, ma potrebbe non influire negativamente sulle prestazioni, tranne nei carichi di lavoro del server a elevato utilizzo di I/O. Tuttavia, la presenza di una catena di snapshot di grandi dimensioni può influire in modo significativo sulle prestazioni perché la lettura dal disco rigido virtuale può richiedere la verifica dei blocchi richiesti in molti dischi rigidi virtuali differenze. Mantenere brevi le catene di snapshot è importante per garantire prestazioni ottimali di I/O su disco.
 
 ## <a name="fixed-virtual-hard-disk-type"></a>Tipo di disco rigido virtuale fisso
 
-Lo spazio per il disco rigido virtuale prima di tutto viene allocato quando viene creato il file di disco rigido virtuale. Questo tipo di file di disco rigido virtuale è meno probabile che la frammentazione, che riduce la velocità effettiva dei / o quando un / o singola è suddiviso in diversi i/o. Include il sovraccarico della CPU più basso tra i tre tipi di file di disco rigido virtuale perché le letture e scritture non sono necessario ricercare il mapping del blocco.
+Lo spazio per il disco rigido virtuale viene innanzitutto allocato quando viene creato il file VHD. Questo tipo di file VHD è meno probabile che venga frammentato, riducendo la velocità effettiva di I/O quando un singolo I/O viene suddiviso in più I/O. Dispone del sovraccarico minimo della CPU dei tre tipi di file VHD poiché le letture e le Scritture non richiedono la ricerca del mapping del blocco.
 
 ## <a name="dynamic-virtual-hard-disk-type"></a>Tipo di disco rigido virtuale dinamico
 
-Lo spazio per il disco rigido virtuale è allocato su richiesta. I blocchi nel disco avviare come blocchi non allocati e non sono supportati da qualsiasi spazio effettivo nel file. Quando a un blocco viene scritto, lo stack di virtualizzazione deve allocare spazio all'interno del file di disco rigido virtuale per il blocco e quindi aggiornare i metadati. Ciò aumenta il numero dei / o del disco necessari per la scrittura e aumenta l'utilizzo della CPU. Letture e scritture a blocchi esistenti non comportano un sovraccarico della CPU e dei dischi durante la ricerca di mapping dei blocchi nei metadati.
+Lo spazio per il disco rigido virtuale viene allocato su richiesta. I blocchi nel disco iniziano come blocchi non allocati e non sono supportati da alcuno spazio effettivo nel file. Quando un blocco viene scritto per la prima volta in, lo stack di virtualizzazione deve allocare spazio all'interno del file VHD per il blocco, quindi aggiornare i metadati. Ciò aumenta il numero di i/o del disco necessari per la scrittura e aumenta l'utilizzo della CPU. Letture e scritture nei blocchi esistenti comportano l'accesso al disco e il sovraccarico della CPU durante la ricerca del mapping dei blocchi nei metadati.
 
 ## <a name="differencing-virtual-hard-disk-type"></a>Tipo di disco rigido virtuale differenze
 
-Il disco rigido virtuale punta a un file di disco rigido virtuale padre. Tutte le scritture a blocchi non scritti come risultato lo spazio viene allocato nel file di disco rigido virtuale, come con un VHD a espansione dinamica. Le letture vengono servite dal file di disco rigido virtuale se il blocco è stato scritto. In caso contrario, che siano gestite dal file di disco rigido virtuale padre. In entrambi i casi, i metadati vengono letti per determinare il mapping del blocco. Letture e scritture su disco rigido virtuale possono utilizzare più CPU e comportare più i/o rispetto a un file di disco rigido virtuale fisso.
+Il disco rigido virtuale punta a un file VHD padre. Le scritture nei blocchi non scritti per comportare l'allocazione di spazio nel file VHD, come per un VHD ad espansione dinamica. Se il blocco è stato scritto, le letture vengono gestite dal file VHD. In caso contrario, vengono serviti dal file VHD padre. In entrambi i casi, i metadati vengono letti per determinare il mapping del blocco. Le operazioni di lettura e scrittura in questo VHD possono richiedere più CPU e ottenere un numero maggiore di operazioni di I/o rispetto a un file VHD fisso.
 
-## <a name="block-size-considerations"></a>Considerazioni relative alle dimensioni di blocco
+## <a name="block-size-considerations"></a>Considerazioni sulle dimensioni del blocco
 
-Dimensione del blocco può influire significativamente sulle prestazioni. È ottimale in base alle dimensioni di blocco per i modelli di allocazione del carico di lavoro che usa il disco. Ad esempio, se un'applicazione sta allocando in blocchi da 16 MB, sarebbe ottimale per avere una dimensione del blocco di disco rigido virtuale di 16 MB. Dimensione del blocco di &gt;solo in dischi rigidi virtuali con il formato VHDX è 2 MB. Presenza di blocchi di dimensioni maggiori del criterio di allocazione per un carico di lavoro dei / o casuali aumenterà in modo significativo l'utilizzo dello spazio nell'host.
+Le dimensioni del blocco possono avere un notevole effetto sulle prestazioni. È ottimale per abbinare le dimensioni del blocco ai modelli di allocazione del carico di lavoro che utilizza il disco. Se, ad esempio, un'applicazione viene allocata in blocchi di 16 MB, sarà ottimale avere una dimensione del blocco del disco rigido virtuale di 16 MB. Una dimensione di blocco &gt;di 2 MB è possibile solo nei dischi rigidi virtuali con il formato VHDX. Una dimensione di blocco maggiore rispetto al modello di allocazione per un carico di lavoro di I/O casuale aumenterà significativamente l'utilizzo dello spazio nell'host.
 
-## <a name="sector-size-implications"></a>Implicazioni relative alla dimensione di settore
+## <a name="sector-size-implications"></a>Implicazioni sulle dimensioni del settore
 
-La maggior parte del settore del software ha dipendono i settori del disco di 512 byte, ma lo standard viene spostata nei settori del disco da 4 KB. Per ridurre i problemi di compatibilità che potrebbero verificarsi da una modifica nelle dimensioni di settore, i fornitori di disco rigido di introdurre una dimensione transitoria definita come unità di emulazione 512 (512e).
+La maggior parte del settore del software è dipendono da settori disco di 512 byte, ma lo standard sta per essere spostato in settori di dischi da 4 KB. Per ridurre i problemi di compatibilità che potrebbero derivare da una modifica nelle dimensioni del settore, i fornitori di dischi rigidi introducono una dimensione transitoria denominata unità di emulazione 512 (512e).
 
-Queste unità emulazione offrono alcuni dei vantaggi offerti da 4 KB settore native unità disco, ad esempio l'efficienza di formato migliorato e uno schema ottimizzato per i codici di correzione errore (ECC). Vengono forniti con meno problemi di compatibilità che si verificano esponendo una dimensione di settore 4 KB all'interfaccia del disco.
+Queste unità di emulazione offrono alcuni dei vantaggi offerti da unità native del settore disco da 4 KB, ad esempio un miglioramento dell'efficienza del formato e uno schema migliorato per i codici di correzione degli errori (ECC). Presentano un minor numero di problemi di compatibilità che si verificano esponendo una dimensione di settore di 4 KB sull'interfaccia disco.
 
-## <a name="support-for-512e-disks"></a>Supporto per i dischi 512e
+## <a name="support-for-512e-disks"></a>Supporto per dischi 512e
 
-Un disco 512e può eseguire un'operazione di scrittura solo in termini di settore fisico, vale a dire, non è possibile scrivere direttamente un settore da 512 byte rilasciato ad esso. Il processo interno nel disco che rende possibili i diritti appropriati a questi passaggi:
+Un disco 512e può eseguire operazioni di scrittura solo in termini di settore fisico, ovvero non può scrivere direttamente un settore 512byte emesso. Il processo interno nel disco che rende possibili queste Scritture segue questa procedura:
 
--   Il disco legge il settore fisico a 4 KB per la cache interna, che contiene il settore logico a 512 byte a cui l'operazione di scrittura.
+-   Il disco legge il settore fisico a 4 KB nella propria cache interna, che contiene il settore logico a 512 byte a cui si fa riferimento nella scrittura.
 
 -   I dati nel buffer a 4 KB vengono modificati in modo da includere il settore a 512 byte aggiornato.
 
--   Il disco esegue un'operazione di scrittura del buffer da 4 KB aggiornato al proprio settore fisico sul disco.
+-   Il disco esegue una scrittura del buffer a 4 KB aggiornato nel proprio settore fisico sul disco.
 
-Questo processo è detto read-modify-write (RMW). L'impatto sulle prestazioni complessive del processo di RMW varia in base i carichi di lavoro. Il processo di RMW provoca una riduzione delle prestazioni in dischi rigidi virtuali per i motivi seguenti:
+Questo processo è denominato lettura-modifica-scrittura (RMW). L'effetto complessivo sulle prestazioni del processo RMW dipende dai carichi di lavoro. Il processo RMW causa un calo delle prestazioni nei dischi rigidi virtuali per i motivi seguenti:
 
--   Dischi rigidi virtuali dinamici e differenze sono una bitmap settore a 512 byte prima del payload dati. Inoltre, un piè di pagina, intestazione e i localizzatori padre Allinea in un settore da 512 byte. È comune per il driver del disco rigido virtuale per eseguire i comandi di scrittura a 512 byte per aggiornare queste strutture, causando il processo RMW descritto in precedenza.
+-   I dischi rigidi virtuali dinamici e differenze presentano una bitmap settore a 512 byte prima del payload dei dati. Inoltre, il piè di pagina, l'intestazione e i localizzatori padre sono allineati a un settore a 512 byte. È comune che il driver del disco rigido virtuale rilascia i comandi di scrittura a 512 byte per aggiornare queste strutture, dando come risultato il processo RMW descritto in precedenza.
 
--   Le applicazioni comunemente problema legge e scrive in multipli di 4 KB dimensione (la dimensione del cluster del file system NTFS). Perché è una bitmap settore a 512 byte prima il blocco del payload dati dinamico e dischi rigidi virtuali differenze, i blocchi di 4 KB non allineati al limite di 4 KB fisico. La figura seguente mostra un disco rigido virtuale 4 KB blocco (evidenziato) vale a dire non allineato con limite di 4 KB fisico.
+-   Le applicazioni in genere rilasciano letture e scritture in multipli di 4 KB di dimensioni (la dimensione predefinita del cluster NTFS). Poiché è presente una bitmap settore a 512 byte prima del blocco del payload dei dati di dischi rigidi virtuali dinamici e differenze, i blocchi da 4 KB non sono allineati al limite fisico di 4 KB. Nella figura seguente viene illustrato un blocco VHD da 4 KB (evidenziato) non allineato con un limite fisico di 4 KB.
 
-![blocchi di 4 kb di disco rigido virtuale](../../media/perftune-guide-vhd-4kb-block.png)
+![blocco VHD da 4 KB](../../media/perftune-guide-vhd-4kb-block.png)
 
-Ogni comando di scrittura 4 KB che viene generato dal parser corrente per aggiornare i dati di payload comporta due operazioni di lettura per due blocchi sul disco, che vengono quindi aggiornati e successivamente scritti in due blocchi del disco. Hyper-V in Windows Server 2016 consente di ridurre alcuni degli effetti sulle prestazioni su dischi 512e sullo stack di disco rigido virtuale preparandone le strutture menzionate in precedenza per l'allineamento ai limiti di 4 KB in formato VHD. Questo evita l'effetto RMW durante l'accesso a dati all'interno del file di disco rigido virtuale e quando si aggiornano le strutture di metadati del disco rigido virtuale.
+Ogni comando Write di 4 KB emesso dal parser corrente per aggiornare i dati del payload restituisce due letture per due blocchi sul disco, che vengono quindi aggiornati e successivamente riscritti nei due blocchi del disco. Hyper-V in Windows Server 2016 attenua alcuni degli effetti sulle prestazioni sui dischi 512e nello stack VHD, preparando le strutture citate in precedenza per l'allineamento a limiti di 4 KB nel formato VHD. In questo modo si evita l'effetto RMW quando si accede ai dati all'interno del file del disco rigido virtuale e quando si aggiornano le strutture dei metadati del disco rigido virtuale.
 
-Come accennato in precedenza, i dischi rigidi virtuali copiati da versioni precedenti di Windows Server non verranno automaticamente allineati a 4 KB. È possibile convertirli manualmente per allineare in modo ottimale tramite il **copia dall'origine** opzione disponibile nelle interfacce di disco rigido virtuale del disco.
+Come indicato in precedenza, i VHD copiati da versioni precedenti di Windows Server non verranno allineati automaticamente a 4 KB. È possibile convertirli manualmente per allinearli in modo ottimale utilizzando l'opzione **copia da** disco di origine disponibile nelle interfacce VHD.
 
-Per impostazione predefinita, i dischi rigidi virtuali vengono esposte con dimensioni fisiche di settore di 512 byte. Questa operazione viene eseguita per garantire che le applicazioni dipendenti di dimensioni fisiche di settore non sono interessate quando l'applicazione e i dischi rigidi virtuali vengono spostati da una versione precedente di Windows Server.
+Per impostazione predefinita, i VHD vengono esposti con una dimensione di settore fisico di 512 byte. Questa operazione viene eseguita per garantire che le applicazioni dipendenti dalle dimensioni del settore fisico non siano interessate quando l'applicazione e i dischi rigidi virtuali vengono spostati da una versione precedente di Windows Server.
 
-Per impostazione predefinita, i dischi con il formato VHDX vengono creati con le dimensioni fisiche di settore di 4 KB per ottimizzare i dischi dei profili regolari delle prestazioni e i dischi con settori di grandi dimensioni. Per le funzionalità complete dei settori di 4 KB è consigliabile per usare il formato VHDX.
+Per impostazione predefinita, i dischi con il formato VHDX vengono creati con le dimensioni del settore fisico da 4 KB per ottimizzare i dischi regolari del profilo di prestazioni e i dischi di settore di grandi dimensioni. Per sfruttare al massimo i settori di 4 KB, è consigliabile usare il formato VHDX.
 
-## <a name="support-for-native-4kb-disks"></a>Supporto per dischi a 4 KB nativo
+## <a name="support-for-native-4kb-disks"></a>Supporto per dischi nativi da 4 KB
 
-Hyper-V in Windows Server 2012 R2 e versioni successive supporta i dischi nativi di 4 KB. Ma è comunque possibile per l'archiviazione disco rigido virtuale su disco di 4 KB nativo. Questa operazione viene eseguita mediante l'implementazione di un software RMW algoritmo nel livello dello stack di archiviazione virtuale che converte le richieste di accesso e l'aggiornamento a 512 byte corrispondenti a 4 KB accede e degli aggiornamenti.
+Hyper-V in Windows Server 2012 R2 e versioni successive supportano dischi nativi da 4 KB. Tuttavia è comunque possibile archiviare il disco rigido virtuale in un disco nativo da 4 KB. Questa operazione viene eseguita implementando un algoritmo software RMW nel livello stack di archiviazione virtuale che converte le richieste di accesso e aggiornamento a 512 byte ai corrispondenti accessi e aggiornamenti a 4 KB.
 
-Perché file di disco rigido virtuale può solo esposte come dischi di dimensioni di settore logico a 512 byte, è molto probabile che siano presenti applicazioni che inviano richieste dei / o a 512 byte. In questi casi, il livello RMW verrà soddisfare queste richieste e provocare una riduzione delle prestazioni. Questo vale anche per un disco che viene formattato con VHDX che ha una dimensione di settore logico di 512 byte.
+Poiché il file VHD può esporsi solo come dischi di dimensioni del settore logico a 512 byte, è molto probabile che siano presenti applicazioni che emettono richieste di I/O a 512 byte. In questi casi, il livello RMW soddisferà queste richieste e causerà un calo delle prestazioni. Questo vale anche per un disco formattato con VHDX con una dimensione di settore logica di 512 byte.
 
-È possibile configurare un file VHDX deve essere esposta come un disco di dimensioni di settore logico di 4 KB, e si tratterà di una configurazione ottimale per le prestazioni, quando il disco è ospitato in un dispositivo fisico native da 4 KB. Dovrebbe prestare attenzione per assicurarsi che il guest e l'applicazione che usa il disco virtuale sono supportati per le dimensioni di settore logico di 4 KB. Il file VHDX formattazione funzioneranno correttamente in un dispositivo di dimensioni con settore logico di 4 KB.
+È possibile configurare un file VHDX in modo che venga esposto come disco di dimensioni del settore logico da 4 KB e si tratta di una configurazione ottimale per le prestazioni quando il disco è ospitato su un dispositivo fisico nativo da 4 KB. È necessario prestare attenzione per garantire che il Guest e l'applicazione che usa il disco virtuale siano supportati dalle dimensioni del settore logico di 4 KB. La formattazione VHDX funzionerà correttamente in un dispositivo con dimensioni di settore logico da 4 KB.
 
 ## <a name="pass-through-disks"></a>Dischi pass-through
 
-Il disco rigido virtuale in una macchina virtuale può eseguire il mapping direttamente a un disco fisico o il numero di unità logica (LUN), anziché in un file di disco rigido virtuale. Il vantaggio è che questa configurazione consente di ignorare il file system NTFS nella partizione radice, che riduce l'utilizzo della CPU dei / o archiviazione. Il rischio è che i LUN o dischi fisici possono essere più difficili per spostarsi tra i computer rispetto ai file di disco rigido virtuale.
+Il disco rigido virtuale in una macchina virtuale può essere mappato direttamente a un disco fisico o a un numero di unità logica (LUN), anziché a un file VHD. Il vantaggio è che questa configurazione Ignora la file system NTFS nella partizione radice, riducendo l'utilizzo della CPU da parte dell'I/O di archiviazione. Il rischio è che i dischi fisici o i LUN possono essere più difficili da spostare tra computer rispetto ai file VHD.
 
-Evitare di dischi pass-through causa sono le limitazioni introdotte con scenari di migrazione di macchine virtuali.
+I dischi pass-through devono essere evitati a causa delle limitazioni introdotte negli scenari di migrazione delle macchine virtuali.
 
-## <a name="advanced-storage-features"></a>Funzionalità avanzate di archiviazione
+## <a name="advanced-storage-features"></a>Funzionalità di archiviazione avanzate
 
 ### <a name="storage-quality-of-service-qos"></a>QoS di archiviazione
 
-A partire da Windows Server 2012 R2, Hyper-V include la possibilità di impostare determinati parametri di qualità del servizio (QoS) per l'archiviazione nelle macchine virtuali. QoS di archiviazione consente di isolare le prestazioni di archiviazione in un ambiente multitenant e fornisce meccanismi di notifica per le situazioni in cui le prestazioni di I/O di archiviazione non soddisfano la soglia definita per garantire un'esecuzione efficiente dei carichi di lavoro delle macchine virtuali.
+A partire da Windows Server 2012 R2, Hyper-V offre la possibilità di impostare determinati parametri di qualità del servizio (QoS) per l'archiviazione nelle macchine virtuali. QoS di archiviazione consente di isolare le prestazioni di archiviazione in un ambiente multitenant e fornisce meccanismi di notifica per le situazioni in cui le prestazioni di I/O di archiviazione non soddisfano la soglia definita per garantire un'esecuzione efficiente dei carichi di lavoro delle macchine virtuali.
 
 QoS di archiviazione consente di specificare un valore massimo per le operazioni di input/output al secondo (IOPS) per un disco rigido virtuale. Un amministratore può limitare l'I/O di archiviazione per impedire a un tenant di continuare a consumare una quantità di risorse di archiviazione eccessiva, con possibili ripercussioni negative su un altro tenant.
 
@@ -220,69 +220,69 @@ QoS di archiviazione consente di specificare un valore massimo per le operazioni
 
 È stata aggiornata anche l'infrastruttura metrica delle macchine virtuali, con parametri di archiviazione che consentono all'amministratore di monitorare le prestazioni ed eseguire il chargeback dei parametri correlati.
 
-Valori massimi e minimi sono specificati in termini di IOPS normalizzato, dove ogni 8 KB di dati viene conteggiato come un / o.
+I valori massimi e minimi sono specificati in termini di IOPS normalizzato, dove ogni 8 KB di dati viene conteggiato come un I/O.
 
-Alcune delle limitazioni sono i seguenti:
+Di seguito sono riportate alcune limitazioni:
 
 -   Solo per i dischi virtuali
 
--   Disco differenze non può avere del disco virtuale principale su un volume diverso
+-   Il disco differenze non può avere un disco virtuale padre in un volume diverso
 
--   Replica - QoS per il sito di replica configurato separatamente dal sito primario
+-   Replica: QoS per il sito di replica configurato separatamente dal sito primario
 
 -   VHDX condiviso non è supportato
 
-Per altre informazioni su QoS di archiviazione, vedi [QoS di archiviazione per Hyper-V](https://technet.microsoft.com/library/dn282281.aspx).
+Per altre informazioni sulla qualità del servizio di archiviazione, vedere la pagina relativa alla [qualità del servizio di archiviazione per Hyper-V](https://technet.microsoft.com/library/dn282281.aspx).
 
-### <a name="numa-io"></a>NUMA I/O
+### <a name="numa-io"></a>I/O NUMA
 
-Windows Server 2012 e versioni successive supporta macchine virtuali grandi e qualsiasi configurazione di macchine virtuali di grandi dimensioni (ad esempio, una configurazione con Microsoft SQL Server in esecuzione con 64 processori virtuali) sarà necessario anche la scalabilità in termini di velocità effettiva dei / o.
+Windows Server 2012 e versioni successive supportano macchine virtuali di grandi dimensioni e qualsiasi configurazione di macchine virtuali di grandi dimensioni (ad esempio, una configurazione con Microsoft SQL Server in esecuzione con processori virtuali 64) richiederà anche la scalabilità in termini di velocità effettiva di I/O.
 
-I seguenti miglioramenti principali introdotti inizialmente nello stack di archiviazione di Windows Server 2012 e Hyper-V forniscono le esigenze di scalabilità dei / o di grandi dimensioni di macchine virtuali:
+I seguenti miglioramenti chiave introdotti per la prima volta nello stack di archiviazione di Windows Server 2012 e Hyper-V forniscono le esigenze di scalabilità di I/O di macchine virtuali di grandi dimensioni:
 
--   Un aumento del numero di canali di comunicazione tra i dispositivi guest e stack di archiviazione host creato.
+-   Aumento del numero di canali di comunicazione creati tra i dispositivi Guest e lo stack di archiviazione host.
 
--   Un meccanismo di completamento i/o più efficiente che interessa la distribuzione di interruzione tra i processori virtuali per evitare costose interruzioni interprocessor.
+-   Meccanismo di completamento I/O più efficiente che interferisce con la distribuzione di interrupt tra i processori virtuali per evitare interruzioni di interprocessore dispendiose.
 
-Introdotta in Windows Server 2012, sono presenti alcune voci del Registro di sistema, che si trova in HKLM\\System\\CurrentControlSet\\Enum\\VMBUS\\{id dispositivo}\\{id istanza}\\StorChannel, che consentono il numero di canali affinché venga regolato. Vengono inoltre allineati i processori virtuali che gestiscono i completamenti dei / o alle CPU virtuale vengono assegnati per l'applicazione per cui i processori dei / o. Le impostazioni del Registro di sistema sono configurate su una base di ogni scheda per la chiave del dispositivo hardware.
+Introdotta in Windows Server 2012, sono presenti alcune voci del registro di sistema,\\situate\\in\\HKLM\\System\\CurrentControlSet Enum VMBus\\{Device ID} {Instance ID}\\StorChannel, che consente di modificare il numero di canali. Consentono inoltre di allineare i processori virtuali che gestiscono i completamenti di I/O alle CPU virtuali assegnate dall'applicazione come processori di I/O. Le impostazioni del registro di sistema sono configurate in base all'adapter sulla chiave hardware del dispositivo.
 
--   **ChannelCount (DWORD)** il numero totale di canali da usare, con un massimo di 16. Per impostazione predefinita un tetto massimo, ovvero il numero di processori virtuali/16.
+-   **ChannelCount (DWORD)** Numero totale di canali da usare, con un massimo di 16. Il valore predefinito è un limite massimo, ovvero il numero di processori virtuali/16.
 
--   **ChannelMask (QWORD)** l'affinità processori per i canali. Se non è impostata o è impostato su 0, per impostazione predefinita l'algoritmo di distribuzione canale esistente che usa per l'archiviazione normale o per canali di networking. Ciò garantisce che i canali di archiviazione non siano in conflitto con i canali di rete.
+-   **ChannelMask (QWord)** Affinità processori per i canali. Se non è impostato o è impostato su 0, per impostazione predefinita viene usato l'algoritmo di distribuzione del canale esistente usato per l'archiviazione normale o per i canali di rete. In questo modo si garantisce che i canali di archiviazione non siano in conflitto con i canali di rete.
 
-### <a name="offloaded-data-transfer-integration"></a>Integrazione di trasferimento di dati ODX
+### <a name="offloaded-data-transfer-integration"></a>Trasferimento dati l'integrazione con offload
 
-Attività di manutenzione cruciali per i dischi rigidi virtuali, come unione, spostare e compact, variano in copia grandi quantità di dati. Con il metodo corrente il processo di copia implica la lettura e la scrittura dei dati in posizioni diverse e può quindi richiedere molto tempo. Usa inoltre le risorse della CPU e memoria nell'host, che sarebbe stato possibile utilizzare per macchine virtuali del servizio.
+Le attività di manutenzione cruciali per i dischi rigidi virtuali, ad esempio merge, spostamento e compattazione, dipendono dalla copia di grandi quantità di dati. Con il metodo corrente il processo di copia implica la lettura e la scrittura dei dati in posizioni diverse e può quindi richiedere molto tempo. Vengono inoltre utilizzate risorse di CPU e memoria nell'host, che potrebbero essere state utilizzate per il servizio di macchine virtuali.
 
-I fornitori di reti di archiviazione (SAN, Storage Area Network) sono già al lavoro per offrire operazioni di copia quasi istantanea di grandi quantità di dati. Questa risorsa di archiviazione è progettato per consentire al sistema in cui i dischi di specificare lo spostamento di un set di dati specifico da una posizione a un'altra. Questa funzionalità di hardware è noto come un Offloaded Data Transfer.
+I fornitori di reti di archiviazione (SAN, Storage Area Network) sono già al lavoro per offrire operazioni di copia quasi istantanea di grandi quantità di dati. Questa archiviazione è progettata per consentire al sistema superiore ai dischi di specificare lo spostamento di un set di dati specifico da una posizione a un'altra. Questa funzionalità hardware è nota come Trasferimento dati con offload.
 
-Hyper-V in Windows Server 2012 e versioni successive supporta le operazioni di Offloaded Data Transfer () in modo che queste operazioni possono essere passate dal sistema operativo guest per l'hardware host. Ciò garantisce che il carico di lavoro è possibile utilizzare ODX abilitato archiviazione come se fosse in esecuzione in un ambiente non virtualizzato. Lo stack di archiviazione di Hyper-V rilascia anche le operazioni ODX durante operazioni di manutenzione per i dischi rigidi virtuali, ad esempio l'unione di dischi e archiviazione meta-operazioni di migrazione in cui vengono spostate grandi quantità di dati.
+Hyper-V in Windows Server 2012 e versioni successive supporta le operazioni di offload Trasferimento dati (ODX) in modo che queste operazioni possano essere passate dal sistema operativo guest all'hardware host. Ciò garantisce che il carico di lavoro possa usare l'archiviazione abilitata per ODX come se fosse in esecuzione in un ambiente non virtualizzato. Lo stack di archiviazione Hyper-V rilascia anche le operazioni ODX durante le operazioni di manutenzione per i dischi rigidi virtuali, ad esempio l'Unione di dischi e le metaoperazioni di migrazione dell'archiviazione in cui vengono spostati grandi quantità di dati
 
-### <a name="unmap-integration"></a>Annullare il mapping di integrazione
+### <a name="unmap-integration"></a>Integrazione annullare
 
-File disco rigido virtuale sono presenti in un volume di archiviazione che condividono lo spazio disponibile con gli altri file. Poiché le dimensioni di questi file tendono a essere di grandi dimensioni, lo spazio che consumano una quantità può aumentare rapidamente. Richiesta per l'archiviazione fisica aggiuntiva interessa il budget per l'hardware IT. È importante ottimizzare l'uso di archiviazione fisica quanto più possibile.
+I file del disco rigido virtuale esistono come file in un volume di archiviazione e condividono lo spazio disponibile con altri file. Poiché le dimensioni di questi file tendono a essere di grandi dimensioni, lo spazio utilizzato può crescere rapidamente. La richiesta di una maggiore quantità di risorse di archiviazione fisica influiscono sul budget hardware IT. È importante ottimizzare il più possibile l'uso dell'archiviazione fisica.
 
-Prima di Windows Server 2012, quando le applicazioni eliminano contenuto all'interno di un disco rigido virtuale, che ha abbandonato in modo efficiente lo spazio di archiviazione del contenuto, lo stack di archiviazione di Windows nel sistema operativo guest e host Hyper-V con limitazioni che ha impedito a questa informazioni da viene comunicato al disco rigido virtuale e il dispositivo di archiviazione fisica. Questo ha impedito lo stack di archiviazione di Hyper-V ottimizzando l'utilizzo dello spazio dai file di disco virtuale basato su disco rigido virtuale. Inoltre, ha impedito il dispositivo di archiviazione sottostante dal recupero di spazio occupata dai dati eliminati.
+Prima di Windows Server 2012, quando le applicazioni eliminano il contenuto all'interno di un disco rigido virtuale, che ha effettivamente abbandonato lo spazio di archiviazione del contenuto, lo stack di archiviazione di Windows nel sistema operativo guest e nell'host Hyper-V aveva limitazioni che impedivano questa operazione le informazioni vengono comunicate al disco rigido virtuale e al dispositivo di archiviazione fisica. Ciò ha impedito allo stack di archiviazione Hyper-V di ottimizzare l'utilizzo dello spazio da parte dei file di disco virtuale basati su VHD. Ha inoltre impedito al dispositivo di archiviazione sottostante di recuperare lo spazio occupato in precedenza dai dati eliminati.
 
-A partire da Windows Server 2012, Hyper-V supporta annullare il mapping delle notifiche, che consentono di essere più efficiente nel caso che rappresenta i dati in esso contenuti dei file VHDX. Il risultato è più piccolo delle dimensioni di file e consente al dispositivo di archiviazione fisica sottostante recuperare lo spazio inutilizzato.
+A partire da Windows Server 2012, Hyper-V supporta le notifiche annullare, che consentono di rendere più efficienti i file VHDX per rappresentare i dati al suo interno. Ciò comporta dimensioni di file più ridotte e consente al dispositivo di archiviazione fisica sottostante di recuperare lo spazio inutilizzato.
 
-Solo SCSI specifici di Hyper-V, abilitate per IDE e Fibre Channel virtuale controller di consentire il comando di annullamento del mapping del guest per raggiungere lo stack di archiviazione virtuale host. Nei dischi rigidi virtuali, solo i dischi virtuali formattati VHDX supporta annullare il mapping di comandi dal guest.
+Solo i controller SCSI specifici di Hyper-V, IDE illuminati e Fibre Channel virtuali consentono al comando annullare del Guest di raggiungere lo stack di archiviazione virtuale dell'host. Nei dischi rigidi virtuali solo i dischi virtuali formattati come VHDX supportano i comandi annullare dal Guest.
 
-Per questi motivi, è consigliabile usare i file VHDX collegati a un controller SCSI quando non usano dischi virtuali Fibre Channel.
+Per questi motivi, è consigliabile usare i file VHDX collegati a un controller SCSI quando non si usano dischi Fibre Channel virtuali.
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
--   [Configurazione del server Hyper-V](configuration.md)
+-   [Configurazione dei server Hyper-V](configuration.md)
 
 -   [Prestazioni del processore di Hyper-V](processor-performance.md)
 
 -   [Prestazioni della memoria di Hyper-V](memory-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Rilevamento dei colli di bottiglia in un ambiente virtualizzato](detecting-virtualized-environment-bottlenecks.md)
 

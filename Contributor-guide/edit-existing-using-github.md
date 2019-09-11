@@ -1,41 +1,41 @@
 ---
-title: Modifica di un articolo di Windows Server esistente tramite GitHub e Visual Studio Code
-description: Come modificare un articoli esistenti basate su Windows Server, tramite GitHub e Visual Studio Code, come i dipendenti Microsoft.
+title: Modificare un articolo di Windows Server esistente usando GitHub e Visual Studio Code
+description: Come modificare gli articoli esistenti relativi a Windows Server, usando GitHub e Visual Studio Code, come dipendenti Microsoft.
 author: eross-msft
 ms.author: lizross
 ms.date: 05/06/2019
-ms.openlocfilehash: d2d95cc28089ceb74bf9690f6bd78611e7d9a27a
-ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
+ms.openlocfilehash: d681d2fc2b69898e841932a95738b89515ffb51a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65624582"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865074"
 ---
-# <a name="edit-an-existing-windows-server-article-using-github-and-visual-studio-code"></a>Modifica di un articolo di Windows Server esistente tramite GitHub e Visual Studio Code
+# <a name="edit-an-existing-windows-server-article-using-github-and-visual-studio-code"></a>Modificare un articolo di Windows Server esistente usando GitHub e Visual Studio Code
 
-Esistono due posizioni distinte, in cui vengono conservati contenuti tecnici di Windows Server. Uno dei percorsi è pubblico (windowsserverdocs) mentre l'altra privata (windowsserverdocs-richiesta pull). Identità dell'utente determina la posizione a cui vuole:
+Sono disponibili due posizioni separate in cui si mantiene contenuto tecnico di Windows Server. Uno dei percorsi è Public (windowsserverdocs) mentre l'altro è privato (windowsserverdocs-PR). Determinare il percorso a cui si contribuisce:
 
-- **Sono dipendenti Microsoft.** Qualità di dipendente Microsoft, sono disponibili opzioni, basate su ciò che si sta tentando di eseguire:
+- **Sono un dipendente Microsoft.** In qualità di dipendente Microsoft, sono disponibili opzioni basate su ciò che si sta tentando di eseguire:
 
-    - **Creare un nuovo articolo.** Per creare un nuovo articolo, è necessario creare e configurare gli strumenti e un account GitHub, fork e clonazione del repository windowsserverdocs-richiesta pull, impostare il ramo remoto, creare l'articolo e infine creare una nuova richiesta pull per l'approvazione e pubblicazione. Per queste istruzioni, è possibile seguire le istruzioni riportate nel [creare nuovi articoli di Windows Server tramite GitHub e Visual Studio Code](create-new-using-github.md) articolo.
+    - **Creare un nuovo articolo.** Per creare un nuovo articolo, è necessario creare e configurare l'account GitHub e gli strumenti, creare un fork e clonare il repository windowsserverdocs-PR, configurare il ramo remoto, creare l'articolo e infine creare una nuova richiesta pull per l'approvazione e la pubblicazione. Per queste istruzioni, è possibile seguire le istruzioni riportate nell'articolo [creare nuovi articoli su Windows Server usando GitHub e Visual Studio Code](create-new-using-github.md) .
 
-    - **Apportare le modifiche estese a un articolo esistente.** Per apportare modifiche sostanziali a un articolo esistente, è possibile seguire le istruzioni riportate in questo articolo.
+    - **Apportare modifiche di grandi dimensioni a un articolo esistente.** Per apportare modifiche sostanziali a un articolo esistente, è possibile seguire le istruzioni riportate in questo articolo.
 
-    - **Apportare piccole modifiche a un articolo esistente.** Per apportare piccole modifiche a un articolo esistente, è possibile seguire le istruzioni riportate nel [aggiornano gli articoli di Windows Server esistenti usando un web browser e GitHub](github-browser-updates.md) articolo.
+    - **Apportare modifiche minime a un articolo esistente.** Per apportare modifiche minime a un articolo esistente, è possibile seguire le istruzioni riportate nell'articolo [aggiornare gli articoli di Windows Server esistenti usando un Web browser e GitHub](github-browser-updates.md) .
 
-- **Non sono dipendenti Microsoft.** Qualità di dipendente non Microsoft, è necessario contribuire al percorso pubblico. Per informazioni su come eseguire questa operazione, vedere la [aggiunta come contributo alla documentazione tecnica di Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) articolo.
+- **Non sono un dipendente Microsoft.** In qualità di dipendente non Microsoft, è necessario contribuire al percorso pubblico. Per informazioni su come eseguire questa operazione, vedere l'articolo relativo alla [documentazione tecnica di Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) .
 
-## <a name="switch-your-repo-and-create-a-new-branch"></a>Passare al repository e creare un nuovo ramo
+## <a name="switch-your-repo-and-create-a-new-branch"></a>Cambiare il repository e creare un nuovo ramo
 
-Seguire questi passaggi per modificare un articolo esistente.
+Per modificare un articolo esistente, seguire questa procedura.
 
-### <a name="create-a-new-branch-and-locate-the-file-you-want-to-update"></a>Creare un nuovo ramo e individuare il file da aggiornare
+### <a name="create-a-new-branch-and-locate-the-file-you-want-to-update"></a>Creare un nuovo ramo e individuare il file che si desidera aggiornare
 
-Prima di iniziare a lavorare sul tuo contenuto, è necessario innanzitutto modificare al repository windowsserverdocs-pr e quindi individuare l'articolo che si desidera aggiornare.
+Prima di iniziare a lavorare sul contenuto, è necessario innanzitutto passare al repository windowsserverdocs-PR e individuare l'articolo che si vuole aggiornare.
 
-#### <a name="to-create-a-new-branch-in-git-bash"></a>Per creare un nuovo ramo nel Git Bash
+#### <a name="to-create-a-new-branch-in-git-bash"></a>Per creare un nuovo ramo in git bash
 
-- Aprire Git Bash e digitare i comandi (una alla volta):
+- Aprire git bash e digitare i comandi (uno alla volta):
 
     ```markdown
     cd windowsserverdocs-pr
@@ -46,41 +46,41 @@ Prima di iniziare a lavorare sul tuo contenuto, è necessario innanzitutto modif
     ```
 
     >[!Note]
-    >Si consiglia di denominazione il ramo di un elemento ovvio e univoco in modo che è possibile trovarlo in un secondo momento.
+    >Si consiglia vivamente di assegnare un nome al ramo in modo chiaro e univoco per ritrovarlo in un secondo momento.
 
-    Al termine, i comandi che verrà di nuovo ramo e pronto per modificare il file.
+    Al termine del comando, il nuovo ramo sarà pronto per la modifica del file.
 
-#### <a name="to-locate-your-article-and-make-your-edits"></a>Per individuare un articolo e apportare le modifiche
+#### <a name="to-locate-your-article-and-make-your-edits"></a>Per individuare l'articolo e apportare le modifiche
 
-1. Aprire Visual Studio Code e passare a **File**, selezionare **Apri cartella**e quindi passare al percorso di GitHub della cartella che contiene l'articolo da modificare.
+1. Aprire Visual Studio Code e passare a **file**, selezionare **Apri cartella**, quindi passare al percorso GitHub della cartella che contiene l'articolo da modificare.
 
-2. Dal **Explorer** riquadro, selezionare il file.
+2. Nel riquadro di **esplorazione** selezionare il file.
 
-3. Aggiornare le informazioni nella pagina e quindi selezionare **File** > **salvare**.
+3. Aggiornare le informazioni nella pagina e quindi selezionare **file** > **Salva**.
 
-### <a name="preview-your-text"></a>Anteprima testo
+### <a name="preview-your-text"></a>Visualizzare in anteprima il testo
 
-Dopo aver aggiornato il testo, è necessario visualizzare in anteprima le modifiche per assicurarsi che vengano visualizzati correttamente.
+Dopo aver aggiornato il testo, è necessario visualizzare in anteprima le modifiche per assicurarsi che vengano visualizzate correttamente.
 
-#### <a name="to-preview-your-text"></a>Per visualizzare l'anteprima del testo
+#### <a name="to-preview-your-text"></a>Per visualizzare in anteprima il testo
 
-1. In Visual Studio Code, selezionare una delle **Preview** pulsanti nell'angolo in alto a destra.
+1. In Visual Studio Code selezionare uno dei pulsanti **Anteprima** nell'angolo superiore destro.
 
-    ![icona pulsante Anteprima](media/create-new-using-github/preview-button-full-page.png): Passa a un'intera pagina anteprima del contenuto.
+    ![icona pulsante Anteprima](media/create-new-using-github/preview-button-full-page.png): Passa a un'anteprima a pagina intera del contenuto.
 
-    ![icona pulsante Anteprima](media/create-new-using-github/preview-button-side-by-side.png): Verrà visualizzata la pagina di anteprima accanto alla pagina di lavoro, side-by-side.
+    ![icona pulsante Anteprima](media/create-new-using-github/preview-button-side-by-side.png): Apre la pagina di anteprima accanto alla pagina di lavoro affiancata.
 
-2. Assicurarsi che l'articolo viene descritto come si prevede di eseguire la ricerca.
+2. Assicurarsi che l'articolo abbia un aspetto simile a quello previsto.
 
-    Dopo aver verificato che sembra corretto, è possibile eseguire il commit delle modifiche e creare una richiesta pull per la pubblicazione.
+    Dopo aver verificato che l'aspetto è corretto, è possibile eseguire il commit delle modifiche e creare una richiesta pull per la pubblicazione.
 
 ### <a name="commit-your-changes"></a>Eseguire il commit delle modifiche
 
-Dopo essersi assicurati che il testo appare corretto, è possibile eseguire il commit delle modifiche alla versione locale del repository.
+Dopo aver verificato che il testo sia corretto, è possibile eseguire il commit delle modifiche apportate alla versione locale del repository.
 
 #### <a name="to-commit-your-changes"></a>Per eseguire il commit delle modifiche
 
-- Aprire Git Bash e digitare i comandi (una alla volta, la rimozione dei tag facoltativi):
+- Aprire git bash e digitare i comandi (uno alla volta, rimuovendo i tag FACOLTATIVi):
 
     ```markdown
     OPTIONAL: git status
@@ -95,49 +95,49 @@ Dopo essersi assicurati che il testo appare corretto, è possibile eseguire il c
 
     ```
 
-    Comando facoltativo di git status Mostra quali file sono stati modificati come parte di questo commit. Facoltativo git pull pull master a monte verso il basso le modifiche del contenuto più recente dal ramo master MicrosoftDocs, sincronizzare il contenuto locale con il principale contenuto master. In questo modo descrive tutti gli eventuali conflitti potenziali anticipo in modo che è possibile correggerli prima di procedere con la fase di richiesta pull.
+    Il comando facoltativo stato git Mostra i file che sono stati modificati come parte del commit. Il Master facoltativo pull a Monte git estrae le ultime modifiche apportate al contenuto dal ramo master di MicrosoftDocs, sincronizzando il contenuto locale con il contenuto master primario. Ciò consente di mostrare in anticipo eventuali conflitti di merge, in modo da poterli correggere prima di passare alla fase di pull.
 
-### <a name="submit-a-pull-request-for-review-and-publication"></a>Inviare una richiesta pull per la verifica e pubblicazione
+### <a name="submit-a-pull-request-for-review-and-publication"></a>Inviare una richiesta pull per la revisione e la pubblicazione
 
-Dopo aver completato gli aggiornamenti, è necessario ottenere l'approvazione dal writer (consentire tempo per l'oggetto) per la pubblicazione.
+Dopo aver completato gli aggiornamenti, è necessario ottenere l'approvazione dal writer (attendere un po' di tempo) per la pubblicazione.
 
 #### <a name="to-submit-your-pull-request"></a>Per inviare la richiesta pull
 
-1. Passare a https://github.com/MicrosoftDocs/windowsserverdocs-pr e selezionare il **richieste Pull** scheda.
+1. Passare a https://github.com/MicrosoftDocs/windowsserverdocs-pr e selezionare la scheda **richieste pull** .
 
-2. Nel **revisori** area del riquadro destro, selezionare l'icona a forma di ingranaggio e quindi immettere il _windowsservercontent_ alias per la revisione.
+2. Nell'area **revisori** del riquadro destro selezionare l'icona a forma di ingranaggio, quindi immettere l'alias _windowsservercontent_ per la revisione.
 
-    Un membro del _windowsservercontent_ alias verrà esaminare le modifiche o aggiungere commenti sugli aspetti che devono essere modificate prima che l'unione può verificarsi.
+    Un membro dell'alias _windowsservercontent_ esamina le modifiche o aggiunge commenti sugli elementi che devono essere modificati prima che l'Unione possa verificarsi.
 
-3. Tipo di **#sign-off** nei commenti in modo che i revisori sappiano si desidera consegnare per revisione e la pubblicazione. Il **#sign-off** commento:
+3. Digitare **#sign-off** nei commenti in modo che i revisori sappiano che si sta passando per la revisione e la pubblicazione. Commento **#sign** :
 
-    - Aggiorna l'etichetta per la richiesta pull dal **do-not-merge** al **ready-to-merge**.
+    - Aggiorna l'etichetta per la richiesta pull da **do-not-merge** a **Ready-to-merge**.
 
-    - Consente l'alias e i writer che sei pronto per ricevere i contenuti esaminato.
+    - Consente all'alias e ai writer di tenere presente che si è pronti per rivedere il contenuto.
 
-    - Consente gli amministratori sanno che dopo l'approvazione, il contenuto è pronto go live.
+    - Consente agli amministratori di tenere presente che, dopo l'approvazione, il contenuto è pronto per l'uso.
 
     >[!Important]
-    >Dopo aver aggiunto il commento #sign-off, un membro del team windowsservercontent esaminerà il testo ed eseguirne il push nel master, in modo che verrà inviata con la successiva pianificata di pubblicazione per live (10:30 e giorni della settimana 3.30 pm).
+    >Dopo aver aggiunto il commento #sign, un membro del team di windowsservercontent esaminerà il testo e lo invierà al database master, in modo che venga escluso con le successive pubblicazioni pianificate in tempo reale (10.00 e 3: pm giorni feriali).
     >
-    >Se non si aggiungono #sign-off come commento finale alla richiesta pull, il contenuto rimarrà nella coda senza esserne eseguito il push al Master e infine TTL.
+    >Se non si aggiunge #sign come commento finale alla richiesta pull, il contenuto rimarrà nella coda senza che venga effettuato il push al master e, infine, a vivere.
 
 ## <a name="related-information"></a>Informazioni correlate
 
-Per altre informazioni su GitHub e il linguaggio markdown, vedere:
+Per ulteriori informazioni su GitHub e sul linguaggio Markdown, vedere:
 
-### <a name="git-concepts"></a>Concetti GIT
+### <a name="git-concepts"></a>Concetti di git
 
-- [Introduzione a Handbook GitHub Guide-Git](https://guides.github.com/introduction/git-handbook/)
+- [Guide su GitHub-Introduzione a git Manual](https://guides.github.com/introduction/git-handbook/)
 
-- [Progetti di duplicazione Guide per GitHub](https://guides.github.com/activities/forking/)
+- [Guide su GitHub-progetti di fork](https://guides.github.com/activities/forking/)
 
-- [Il flusso GitHub comprensione del Guide per GitHub](https://guides.github.com/introduction/flow/)
+- [Guide di GitHub-informazioni sul flusso di GitHub](https://guides.github.com/introduction/flow/)
 
-- [Informazioni su Git Branching](https://learngitbranching.js.org/ (ideale per gli strumenti di apprendimento visual!))
+- [Informazioni sulla diramazione git] (https://learngitbranching.js.org/ (Ideale per gli Learner visivi.))
 
 ### <a name="markdown"></a>Markdown
 
-- [Linee guida interne markdown](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master)
+- [Linee guida Markdown interne](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master)
 
-- [Esercitazione di GitHub esterni,](https://www.markdowntutorial.com/)
+- [Esterno, esercitazione su GitHub](https://www.markdowntutorial.com/)

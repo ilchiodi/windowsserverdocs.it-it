@@ -1,6 +1,6 @@
 ---
 title: Visualizzare lo stato delle connessioni utente
-description: Informazioni su come visualizzare lo stato utente in servizi MultiPoint
+description: Informazioni su come visualizzare lo stato degli utenti in MultiPoint Services
 ms.custom: na
 ms.date: 07/08/2016
 ms.prod: windows-server-threshold
@@ -13,26 +13,26 @@ ms.assetid: 426df382-07a0-4be1-a87a-12e63bd8157b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 8ac5d18d9e85680861f48b4ce215f0abd411a122
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea162c24dd9fe68e9492dea007583a6b1293da2d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850422"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871456"
 ---
 # <a name="view-user-connection-status"></a>Visualizzare lo stato delle connessioni utente
-Utilizzare il **stazioni** scheda per determinare lo stato di connessione di altro utente di amministrazione per una stazione di servizi MultiPoint o standard.  
+Usare la scheda **stations (stazioni** ) per determinare lo stato di una connessione di un utente standard o di un altro amministratore a una stazione MultiPoint Services.  
   
 I valori dello stato includono:  
   
--   **Ha effettuato l'accesso**: Una sessione utente che è attiva su una stazione  
+-   **Connesso**: Una sessione utente attiva in una stazione  
   
--   **Sospeso**: Una sessione utente che viene sospesa, ma è ancora attivo nel computer. La sessione desktop dell'utente viene conservata finché l'utente accede nuovamente  
+-   **Sospeso**: Sessione utente sospesa, ma ancora attiva nel computer. La sessione desktop dell'utente viene mantenuta fino a quando l'utente non si riconnette  
   
--   **Connesso off**: Un utente che si è disconnesso non è visualizzato scegliere le **stazioni** scheda  
+-   **Disconnesso**: Un utente disconnesso non viene visualizzato nella scheda **stazioni**  
   
 Per visualizzare lo stato di espansione, aprire Gestione MultiPoint in modalità stazioni e quindi fare clic su **stazioni**.
 
 ## <a name="see-also"></a>Vedere anche  
-[Gestire desktop utente](manage-user-desktops-using-multipoint-dashboard.md)  
-[Passare da una modalità](Switch-Between-Modes.md)
+[Gestire i desktop degli utenti](manage-user-desktops-using-multipoint-dashboard.md)  
+[Passare da una modalità all'altra](Switch-Between-Modes.md)

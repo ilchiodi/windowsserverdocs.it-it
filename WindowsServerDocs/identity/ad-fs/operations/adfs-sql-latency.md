@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione di SQL e risoluzione dei problemi di latenza con AD FS
-description: Questo documento illustra come ottimizzare SQL con AD FS.
+description: In questo documento viene illustrato come ottimizzare SQL con AD FS.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -8,115 +8,115 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fb699a1f92013f5657d2fbb48b203f96a5e5a5ba
-ms.sourcegitcommit: 6b6c3601fb7493ab145ccff02db26d7123df9a3d
+ms.openlocfilehash: 29c8e8ba52f62a335ab136756e759b6114ecfb20
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322859"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865605"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Ottimizzazione di SQL e risoluzione dei problemi di latenza con AD FS
-In un aggiornamento per [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) abbiamo introdotto i miglioramenti seguenti per ridurre tra latenza del database. Un aggiornamento futuro per AD FS 2019 includerà questi miglioramenti.
+In un aggiornamento per [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) sono stati introdotti i miglioramenti seguenti per ridurre la latenza tra database. Un aggiornamento imminente per AD FS 2019 includerà questi miglioramenti.
 
-## <a name="in-memory-cache-update-in-background-thread"></a>Aggiornamento della cache in memoria nel thread in background 
-In previo sempre in distribuzioni di disponibilità (AoA), la latenza esistenti per una "Operazione di lettura" come è stato possibile individuare il nodo master in un Data Center separato. La chiamata tra due diversi Data Center ha comportato la latenza.  
+## <a name="in-memory-cache-update-in-background-thread"></a>Aggiornamento della cache in memoria in un thread in background 
+Nelle distribuzioni precedenti di disponibilità always on (AoA), la latenza esisteva per qualsiasi operazione di "lettura" poiché il nodo master potrebbe trovarsi in un data center separato. La chiamata tra due diversi Data Center ha comportato una latenza.  
 
-Nell'ultimo aggiornamento ad AD FS, una riduzione della latenza di destinazione mediante l'aggiunta di un thread in background per aggiornare la cache di configurazione di AD FS e un'impostazione per impostare il periodo di tempo l'aggiornamento. Il tempo impiegato per una ricerca nel database viene notevolmente ridotto nel thread di richiesta, come gli aggiornamenti della cache di database vengono spostati nel thread in background.  
+Nell'aggiornamento più recente per AD FS, una riduzione della latenza viene indirizzata tramite l'aggiunta di un thread in background per aggiornare la cache di configurazione AD FS e un'impostazione per impostare il periodo di tempo di aggiornamento. Il tempo impiegato per la ricerca di un database viene ridotto significativamente nel thread della richiesta, perché gli aggiornamenti della cache del database vengono spostati nel thread in background.  
 
-Quando il `backgroundCacheRefreshEnabled` è impostato su true, ADFS abiliterà il thread in background eseguire aggiornamenti della cache. La frequenza di recupero dei dati dalla cache può essere personalizzata con un valore di ora impostando `cacheRefreshIntervalSecs`. Il valore predefinito è impostato su 300 secondi quando `backgroundCacheRefreshEnabled` è impostato su true. Dopo che il set di valore di durata, AD FS inizia l'aggiornamento della cache relativo e mentre è in corso l'aggiornamento, i dati della cache precedente continuerà a essere utilizzato.  
+`backgroundCacheRefreshEnabled` Quando è impostato su true, ad FS consentirà al thread in background di eseguire gli aggiornamenti della cache. La frequenza di recupero dei dati dalla cache può essere personalizzata in base a un valore di ora `cacheRefreshIntervalSecs`impostando. Il valore predefinito è impostato su 300 secondi quando `backgroundCacheRefreshEnabled` è impostato su true. Dopo la durata del valore impostato, AD FS inizia ad aggiornare la cache e mentre è in corso l'aggiornamento, i dati della cache obsoleti continueranno a essere usati.  
 
 >[!NOTE]
-> Dati della cache verranno aggiornati di fuori del `cacheRefreshIntervalSecs` valore se ADFS riceve una notifica da SQL a indicare che si è verificata una modifica nel database. Questa notifica verrà attivata la cache per essere aggiornati. 
+> I dati della cache verranno aggiornati al di fuori del `cacheRefreshIntervalSecs` valore se ADFS riceve una notifica da SQL, a indicare che si è verificata una modifica nel database. Questa notifica attiverà la cache da aggiornare. 
 
-### <a name="recommendations-for-setting-the-cache-refresh"></a>Raccomandazioni per l'impostazione di aggiornamento della cache 
-Il valore predefinito per l'aggiornamento della cache viene **cinque minuti**. È consigliabile impostarlo **1 ora** per ridurre un aggiornamento di dati non necessari da AD FS, perché verranno aggiornati i dati della cache se si verificano le modifiche SQL.  
+### <a name="recommendations-for-setting-the-cache-refresh"></a>Suggerimenti per l'impostazione dell'aggiornamento della cache 
+Il valore predefinito per l'aggiornamento della cache è **cinque minuti**. È consigliabile impostarla su **1 ora** per ridurre l'aggiornamento dei dati non necessario per ad FS perché i dati della cache verranno aggiornati in caso di modifiche SQL.  
 
-AD FS registra un callback per le modifiche SQL e dopo una modifica, ad FS riceve una notifica. Tramite questo metodo, ad FS riceve ogni nuova modifica da SQL, non appena si verifica. 
+AD FS registra un callback per le modifiche SQL e, in seguito a una modifica, ADFS riceve una notifica. Tramite questo metodo, ADFS riceve ogni nuova modifica da SQL non appena si verifica. 
 
-In caso di un problema di rete determinando in AD FS manca la notifica di SQL, AD FS verrà aggiornato nell'intervallo specificato dalla cache aggiorni il valore. Se eventuali problemi di connettività sono sospetti tra ADFS e SQL, è consigliabile impostare il valore di aggiornamento della cache a minore di 1 ora.  
+In caso di problemi di rete che determinano AD FS manca la notifica SQL, AD FS aggiornerà in base all'intervallo specificato dal valore di aggiornamento della cache. Se si sospettano problemi di connettività tra AD FS e SQL, è consigliabile impostare il valore di aggiornamento della cache su un valore inferiore a 1 ora.  
 
 ### <a name="configuration-instructions"></a>Istruzioni di configurazione 
-Il file di configurazione supporta più voci della cache. Di seguito elencate di seguito può essere configurate in base alle esigenze dell'organizzazione. 
+Il file di configurazione supporta più voci della cache. Gli elementi elencati di seguito possono essere configurati in base alle esigenze dell'organizzazione. 
 
-Nell'esempio seguente Abilita l'aggiornamento della cache in background e imposta il periodo di aggiornamento della cache su 1800 secondi o 30 minuti. Questa operazione deve essere eseguita in ogni nodo di ad FS e il servizio ADFS deve essere riavviato in un secondo momento. Le modifiche non compromettere gli altri nodi e testare il primo nodo prima di apportare la modifica in tutti i nodi. 
+L'esempio seguente abilita l'aggiornamento della cache in background e imposta il periodo di aggiornamento della cache su 1800 secondi o 30 minuti. Questa operazione deve essere eseguita in ogni nodo ADFS e il servizio ADFS deve essere riavviato in seguito. Le modifiche non influiscano sugli altri nodi e testano il primo nodo prima di apportare la modifica in tutti i nodi. 
 
-  1. Passare al file di configurazione di AD FS e nella sezione "Microsoft.IdentityServer.Service", aggiungere la seguente voce:  
+  1. Passare al file di configurazione AD FS e, nella sezione "Microsoft. IdentityServer. Service", aggiungere la voce seguente:  
   
-  - `backgroundCacheRefreshEnabled`  -Specifica se è abilitata la funzionalità di cache in background. valori "true/false".
-  - `cacheRefreshIntervalSecs` -Valore in secondi in cui ADFS aggiornerà la cache. Se si verifica alcun cambiamento in SQL, AD FS aggiornerà la cache. AD FS riceverà una notifica di SQL e aggiornare la cache.  
+  - `backgroundCacheRefreshEnabled`: Specifica se la funzionalità della cache in background è abilitata. valori "true/false".
+  - `cacheRefreshIntervalSecs`: Valore in secondi in cui ADFS aggiornerà la cache. AD FS aggiornerà la cache in caso di modifiche in SQL. AD FS riceverà una notifica SQL e aggiornerà la cache.  
  
  >[!NOTE]
- > Tutte le voci nel file di configurazione sono tra maiuscole e minuscole.  
- &lt;cache cacheRefreshIntervalSecs="1800" backgroundCacheRefreshEnabled="true" /&gt; 
+ > Tutte le voci nel file di configurazione fanno distinzione tra maiuscole e minuscole.  
+ &lt;cache cacheRefreshIntervalSecs = "1800" backgroundCacheRefreshEnabled = "true"/&gt; 
  
-Altri valori configurabili supportati: 
+Valori configurabili aggiuntivi supportati: 
 
-   - **maxRelyingPartyEntries** - massimo numero di voci di terze parti relying party che continui ad AD FS in memoria. Questo valore viene utilizzato anche per la cache di autorizzazione oAuth dell'applicazione. Se sono presenti altre autorizzazioni per l'applicazione più richieste al secondo e se sarà essere tutte archiviate in memoria, questo valore deve essere il numero di autorizzazioni per l'applicazione. Il valore predefinito è 1000.
-   - **maxIdentityProviderEntries** - questo è il numero massimo di attestazioni AD FS verrà mantenuto nella memoria le voci di provider. Il valore predefinito è 200. 
-   - **maxClientEntries** -questo è il numero massimo di voci di client OAuth ADFS verrà mantenuto nella memoria. Il valore predefinito è 500. 
-   - **maxClaimDescriptorEntries** - massimo numero di voci di descrittore attestazioni AD FS verrà mantenuto nella memoria. Il valore predefinito è 500. 
-   - **maxNullEntries** -viene utilizzato come cache negativa. Quando viene eseguita la ricerca per una voce nel database e non viene trovato, AD FS aggiunge nella cache negativa. Questa è la dimensione massima della cache. Di ogni tipo di oggetti di negativo cache, non è una singola cache per tutti gli oggetti. Il valore predefinito è 50,0000. 
+   - **maxRelyingPartyEntries** : numero massimo di voci di relying party che ad FS manterranno in memoria. Questo valore viene usato anche dalla cache delle autorizzazioni dell'applicazione oAuth. Se sono presenti più autorizzazioni dell'applicazione rispetto a RPs e se tutte verranno archiviate in memoria, questo valore deve corrispondere al numero di autorizzazioni dell'applicazione. Il valore predefinito è 1000.
+   - **maxIdentityProviderEntries** : numero massimo di voci del provider di attestazioni ad FS manterrà in memoria. Il valore predefinito è 200. 
+   - **maxClientEntries** : numero massimo di voci client OAuth ad FS manterrà in memoria. Il valore predefinito è 500. 
+   - **maxClaimDescriptorEntries** : numero massimo di voci del descrittore di attestazione ad FS manterrà in memoria. Il valore predefinito è 500. 
+   - **maxNullEntries** : viene usato come cache negativa. Quando AD FS cerca una voce nel database e non viene trovata, AD FS aggiunge nella cache negativa. Si tratta della dimensione massima della cache. È presente una cache negativa per ogni tipo di oggetto, non è una singola cache per tutti gli oggetti. Il valore predefinito è 50, 0000. 
 
-## <a name="multiple-artifact-db-support-across-datacenters"></a>Elemento più DB supporta in diversi Data Center 
-Per le configurazioni precedenti di più Data Center, ADFS è supportato solo un singolo database, dell'elemento causando center tra Data Center latenza durante le chiamate di recupero.  
+## <a name="multiple-artifact-db-support-across-datacenters"></a>Supporto per più database di artefatti tra i Data Center 
+Per le configurazioni precedenti di più data center, AD FS ha supportato un solo database di elementi, causando latenza tra i Data Center durante le chiamate di recupero.  
 
-Per ridurre la latenza tra Data Center, un amministratore di AD FS possa ora distribuire più istanze di database dell'elemento e quindi modificare il file di configurazione del nodo un ADFS in modo che punti a istanze diverse dell'artefatto DB. È possibile specificare la stringa di connessione del database dell'elemento nel file di configurazione che consente a un database di artefatto per ogni nodo. Se la stringa di connessione non è presente all'interno del file di configurazione, il nodo tornerà alla progettazione precedente per usare il database dell'elemento che è presente nella configurazione del database.  
-Gli ambienti ibridi sono anche supportati con questa configurazione.  
+Per ridurre la latenza tra Data Center, un amministratore AD FS ora può distribuire più istanze di database di artefatto e quindi modificare il file di configurazione di un nodo di AD FS in modo che punti a istanze di database di artefatto diverse. La stringa di connessione del database di elementi può essere specificata nel file di configurazione che consente un database di artefatto per nodo. Se la stringa di connessione non è presente nel file di configurazione, il nodo eseguirà il fallback alla progettazione precedente per usare il database degli artefatti presente nel database di configurazione.  
+Con questa configurazione sono supportati anche gli ambienti ibridi.  
 
 ### <a name="requirements"></a>Requisiti: 
-Prima di configurare il supporto per database multipli di artefatto, eseguire un aggiornamento in tutti i nodi e aggiornare i file binari poiché le chiamate a più nodi si verificano tramite questa funzionalità. 
-  1. Generare script di distribuzione per creare il database dell'artefatto: Per distribuire più istanze di database dell'elemento, un amministratore dovrà generare lo script di distribuzione di SQL per il database dell'elemento. Come parte di questo aggiornamento, l'oggetto esistente `Export-AdfsDeploymentSQLScript`cmdlet è stato aggiornato per eseguire facoltativamente in un parametro che specifica il database di ADFS da generare uno script di distribuzione SQL. 
+Prima di configurare più supporto per database di elementi, eseguire un aggiornamento su tutti i nodi e aggiornare i file binari poiché le chiamate a più nodi si verificano tramite questa funzionalità. 
+  1. Generare lo script di distribuzione per creare il database dell'artefatto: Per distribuire più istanze di database di artefatto, un amministratore deve generare lo script di distribuzione SQL per il database dell'artefatto. Nell'ambito di questo aggiornamento, il cmdlet `Export-AdfsDeploymentSQLScript`esistente è stato aggiornato per includere facoltativamente un parametro che specifica il database ad FS per cui generare uno script di distribuzione SQL. 
  
- Ad esempio, per generare lo script di distribuzione per appena il database dell'elemento, specificare il `-DatabaseType` parametro e passare il valore "Elemento". L'opzione facoltativa `-DatabaseType` parametro specifica il tipo di database di AD FS e può essere impostato su: Tutte (predefinito), dell'elemento o alla configurazione. Se nessun `-DatabaseType` viene specificato, lo script configurerà gli script di configurazione sia l'artefatto.  
+ Ad esempio, per generare lo script di distribuzione solo per il database di artefatto `-DatabaseType` , specificare il parametro e passare il valore "artefatto". Il parametro `-DatabaseType` facoltativo specifica il tipo di database ad FS e può essere impostato su: All (impostazione predefinita), artefatto o configurazione. Se non `-DatabaseType` viene specificato alcun parametro, lo script configurerà sia l'artefatto che gli script di configurazione.  
 
    ```PowerShell
    PS C:\> Export-AdfsDeploymentSQLScript -DestinationFolder <script folder where scripts will be created> -ServiceAccountName <domain\serviceaccount> -DatabaseType "Artifact" 
    ```
-Lo script generato deve essere eseguito nella macchina virtuale di SQL per creare i database necessari e assegnare l'account del servizio AD FS, le autorizzazioni a SA di SQL per tali database.
+Lo script generato deve essere eseguito nel computer SQL per creare i database necessari e assegnare all'account del servizio AD FS le autorizzazioni di SQL SA per tali database.
 
- 2. Creare il database dell'elemento usando lo script di distribuzione. Copiare gli script di distribuzione appena generati createdb. SQL e SetPermissions.sql al computer di SQL server ed eseguire in modo da creare il database dell'elemento locale. 
+ 2. Creare il database degli artefatti usando lo script di distribuzione. Copiare gli script di distribuzione CreateDB. SQL e setlocale. SQL appena generati nel computer SQL Server ed eseguirli per creare il database degli artefatti locali. 
  
- 3. Modificare il file di configurazione per aggiungere la connessione al database dell'elemento. 
- Passare al file di configurazione del nodo AD FS e, nella sezione "Microsoft.IdentityServer.Service", aggiungere un punto di ingresso per il ArtifactDB appena configurata. 
+ 3. Modificare il file di configurazione per aggiungere la connessione al database dell'artefatto. 
+ Passare al file di configurazione del nodo AD FS e, nella sezione "Microsoft. IdentityServer. Service", aggiungere un punto di ingresso al ArtifactDB appena configurato. 
 
  >[!NOTE] 
- > artifactStore e connectionString sono valori distinzione maiuscole / minuscole. Assicurarsi che siano configurati correttamente. &lt;artifactStore connectionString = "Data Source =. \SQLInstance; Integrated Security = True; Initial Catalog = AdfsArtifactStore" /&gt; 
+ > artifactStore e connectionString sono valori con distinzione tra maiuscole e minuscole. Verificare che siano configurati correttamente. &lt;artifactStore connectionString = "data source = .\SQLInstance; Integrated Security = true; catalogo iniziale = AdfsArtifactStore"/&gt; 
 >
->Usare un valore di origine dati che corrisponde alla connessione sql.
+>Utilizzare un valore dell'origine dati corrispondente alla connessione SQL.
 
 
 
- 4. Riavviare il servizio AD FS rendere effettive le modifiche. 
+ 4. Riavviare il servizio AD FS per rendere effettive le modifiche. 
  
  >[!NOTE] 
- > È consigliabile non usare replica di SQL o la sincronizzazione tra i database dell'elemento. Si consiglia di configurare un database di artefatto per ogni Data Center. 
+ > Non è consigliabile usare la replica SQL o la sincronizzazione tra i database degli artefatti. Si consiglia di configurare un database di artefatto per ogni data center. 
  
-### <a name="cross-datacenter-failover-and-database-recovery"></a>Tra Data Center failover e ripristino del database  
-Si consiglia di creare database artefatto failover su stesso Data Center del database master dell'artefatto. Se si verifica un failover, non vi sarà alcun aumento della latenza. I database dell'artefatto di failover tra Data Center non è consigliata. Il seguente illustra in dettaglio come le chiamate per OAuth, SAML, ESL e token Riproduci funzione di rilevamento con più database dell'elemento. 
+### <a name="cross-datacenter-failover-and-database-recovery"></a>Failover tra data center e ripristino del database  
+Si consiglia di creare database di artefatto di failover nello stesso data center del database dell'artefatto master. Se si verifica un failover, non si verificherà alcun aumento della latenza. Non è consigliabile usare i database di artefatto di failover nei data center. Di seguito vengono illustrati i dettagli relativi alle chiamate per la funzione di rilevamento OAuth, SAML, ESL e token replay con più database di artefatto. 
  - **OAuth e SAML** 
 
-   Per le richieste di artefatto SAML e OAuth, il nodo verrà creato l'artefatto l'elemento DB presente nel file di configurazione. Se il file di configurazione non contiene una connessione al database dell'elemento, userà l'artefatto DB comune. Quando la richiesta successiva per recuperare l'elemento viene inserito in un altro nodo, l'altro nodo renderà l'API rest per il 1 ° nodo per recuperare l'elemento dall'elemento DB. Ciò è necessario in nodi diversi potrebbero avere artefatto diversi database e i nodi non avvertono che. Se il 1 ° nodo è inattivo, la risoluzione artefatto avrà esito negativo. A causa di questa struttura, la replica l'artefatto di DB in diversi Data Center non è necessaria. Se un intero Data Center è inattivo, molto probabilmente il nodo che ha creato l'elemento viene anche verso il basso, ciò significa che tale elemento non è più possibile risolvere.  
+   Per le richieste di elementi OAuth e SAML, il nodo creerà l'artefatto nel database di elementi presente nel file di configurazione. Se il file di configurazione non contiene una connessione del database di artefatti, utilizzerà il DB dell'artefatto comune. Quando la richiesta successiva di recupero dell'artefatto passa a un altro nodo, l'altro nodo renderà l'API REST al primo nodo per recuperare l'artefatto dal database dell'artefatto. Questa operazione è necessaria perché i nodi diversi possono avere database di artefatto diversi e i nodi non lo conoscono. Se il primo nodo è inattivo, la risoluzione dell'artefatto avrà esito negativo. A causa di questa progettazione, non è necessario replicare il database di artefatti in diversi Data Center. Se un intero Data Center è inattivo, probabilmente anche il nodo che ha creato l'artefatto è inattivo, ovvero non è più possibile risolvere l'artefatto.  
 
  - **Blocco Extranet** 
 
-    Il database dell'elemento fa riferimento nel file di configurazione verrà utilizzato per i dati di blocco Extranet. Tuttavia, per la funzionalità di ESL ADFS sceglie un master che scrive i dati nel database l'artefatto. Tutti i nodi di eseguire un'API REST chiamata nel nodo master per ottenere e impostare le informazioni più recenti relative a ciascun utente. Se più database dell'elemento è in uso, l'amministratore deve selezionare un nodo master per ogni artefatto database o Data Center. 
+    Il database di elementi a cui si fa riferimento nel file di configurazione verrà usato per i dati di blocco Extranet. Tuttavia, per la funzionalità ESL, AD FS sceglie un master che scrive i dati nel database dell'artefatto. Tutti i nodi effettuano una chiamata API REST al nodo master per ottenere e impostare le informazioni più recenti su ogni utente. Se sono in uso più database di artefatto, l'amministratore deve selezionare un nodo master per ogni elemento DB o Datacenter. 
 
-    Per selezionare un nodo per essere il master ESL, passare al file di configurazione del nodo ad FS e nella sezione "Microsoft.IdentityServer.Service", aggiungere quanto segue:       
+    Per selezionare un nodo come master ESL, passare al file di configurazione del nodo ADFS e, nella sezione "Microsoft. IdentityServer. Service", aggiungere quanto segue:       
     
-    Sul master aggiungere il seguente voce. Si noti che tutte e tre le chiavi sono tra maiuscole e minuscole. 
+    Nel master aggiungere la voce seguente. Si noti che le tre chiavi fanno distinzione tra maiuscole e minuscole. 
 
-    &lt;useractivityfarmrole masterFQDN isMaster [nome di dominio completo del database primario selezionato] = = "true" /&gt;
+    &lt;useractivityfarmrole masterFQDN = [FQDN del primario selezionato] Master = "true"/&gt;
     
-    In altri nodi aggiungere la seguente voce:
+    Negli altri nodi aggiungere la voce seguente:
 
-   &lt;useractivityfarmrole masterFQDN isMaster [nome di dominio completo del database primario selezionato] = = "false" /&gt;
+   &lt;useractivityfarmrole masterFQDN = [FQDN del primario selezionato] Master = "false"/&gt;
  
     >[!NOTE] 
-    >Poiché più database di artefatto non sincronizzano dati, i valori ESL non verranno sincronizzati tra i database dell'elemento.
-    Un utente può potenzialmente rilevare un Data Center diverso per una richiesta, rendendo pertanto il ExtranetLockoutThreshold dipende dal numero di database dell'elemento, ExtranetLockoutThreshold * numero di database dell'elemento. 
+    >Poiché i database di più artefatti non sincronizzano i dati, i valori di ESL non verranno sincronizzati tra i database di artefatto.
+    Un utente può potenzialmente raggiungere un data center diverso per una richiesta, rendendo quindi il ExtranetLockoutThreshold dipendente dal numero di database di artefatto, ExtranetLockoutThreshold * numero di database di artefatto. 
  
   - **Rilevamento riproduzione token** 
     
-    I dati di rilevamento riproduzione token viene sempre chiamati dal database centrale dell'elemento. AD FS Salva il token di attendibilità Provider di attestazioni, garantendo che lo stesso token non possono essere riprodotti. Se un utente malintenzionato tenta di riprodurre lo stesso token, ADFS verifica se il token è presente nel database dell'elemento. Se il token è presente, la richiesta verrà rifiutata. Il database centrale dell'elemento viene usato per la sicurezza, poiché i dati dell'elemento DB non vengono replicati, un utente malintenzionato potrebbe inviare la richiesta a un altro Data Center e un token di riproduzione. Creazione di copie di sola lettura aggiuntive del ArtifactDB non impedirà la latenza tra Data Center in questo scenario, poiché viene usato solo il database centrale dell'elemento.    
+    I dati di rilevamento della riproduzione dei token vengono sempre chiamati dal database dell'artefatto centrale. AD FS Salva il token dall'attendibilità del provider di attestazioni, assicurando che non sia possibile riprodurre lo stesso token. Se un utente malintenzionato tenta di riprodurre lo stesso token, AD FS verifica se il token esiste nel database dell'artefatto. Se il token è presente, la richiesta verrà rifiutata. Il database dell'artefatto centrale viene usato per la sicurezza, poiché i dati del database di artefatto non vengono replicati, un utente malintenzionato potrebbe inviare la richiesta a un altro Data Center e riprodurre un token. La creazione di altre copie di sola lettura di ArtifactDB non impedirà la latenza tra data center in questo scenario, poiché viene usato solo il database degli artefatti centrali.    
  
  

@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b409b2e0bcc5e5a01aeb9f244ebaa55ac0e1e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544606"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865799"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
@@ -39,7 +39,7 @@ Un'organizzazione potrebbe dover utilizzare un ID alternativo negli scenari segu
 L'esperienza dell'utente finale varia a seconda del metodo di autenticazione utilizzato con l'ID di accesso alternativo.  Attualmente esistono tre modi diversi in cui è possibile ottenere l'utilizzo di un ID di accesso alternativo.  Sono:
 
 - **Autenticazione normale (legacy)** : usa il protocollo di autenticazione di base.
-- **Autenticazione moderna** : consente l'accesso basato su Active Directory Authentication Library (adal) alle applicazioni. Questo consente funzionalità di accesso come multi-factor authentication, provider di identità di terze parti basati su SAML con applicazioni client di Office, autenticazione basata su smart card e certificati.
+- **Autenticazione moderna** : consente l'accesso basato su Active Directory Authentication Library (adal) alle applicazioni. Questo consente funzionalità di accesso come Multi-Factor Authentication (multi-factor authentication), provider di identità di terze parti basati su SAML con applicazioni client Office, smart card e autenticazione basata su certificati.
 - **Autenticazione moderna ibrida** : offre tutti i vantaggi dell'autenticazione moderna e fornisce agli utenti la possibilità di accedere alle applicazioni locali usando i token di autorizzazione ottenuti dal cloud.
 
 >[!NOTE]
@@ -145,7 +145,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 ![Flusso di autenticazione](media/Configure-Alternate-Login-ID/alt1a.png)
 
-1. un Viene eseguito il provisioning dell'utente in Azure AD usando l'ID alternativo
+1. Un Viene eseguito il provisioning dell'utente in Azure AD usando l'ID alternativo
    </br>b L'amministratore della directory inserisce le impostazioni chiave necessarie per i computer client interessati
 2. L'utente esegue l'autenticazione nel computer locale e apre un'applicazione di Office
 3. L'applicazione di Office accetta le credenziali della sessione locale

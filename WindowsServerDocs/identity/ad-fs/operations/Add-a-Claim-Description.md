@@ -9,17 +9,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 00ae720a933289e3cd4bde5fe9d20610e38ae726
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444374"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866043"
 ---
 # <a name="add-a-claim-description"></a>Aggiungere una descrizione di attestazione
 
 
-In un'organizzazione partner account, gli amministratori creano le attestazioni per rappresentare l'appartenenza dell'utente in un gruppo o ruolo oppure per rappresentare alcuni dati relativi a un utente, ad esempio, numero di identificazione dipendente dell'utente.
+In un'organizzazione partner account, gli amministratori creano attestazioni per rappresentare l'appartenenza di un utente a un gruppo o a un ruolo o per rappresentare alcuni dati relativi a un utente, ad esempio il numero di identificazione del dipendente di un utente.
 
 In un'organizzazione partner risorse, gli amministratori di creare attestazioni corrispondente per rappresentare i gruppi e utenti che possono essere riconosciuti come gli utenti di risorse. Poiché in uscita attestazioni nella mappa dell'organizzazione partner account per le attestazioni in ingresso nell'organizzazione partner risorse, il partner risorse è in grado di accettare le credenziali fornite al partner account. 
 
@@ -32,7 +32,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**. 
 
 2. Espandere **servizio** clic destro sul **Aggiungi descrizione attestazione**.
-   ![aggiungere una descrizione di attestazione](media/Add-a-Claim-Description/claimdesc1.png)
+   ![Aggiungi descrizione attestazione](media/Add-a-Claim-Description/claimdesc1.png)
 
 3. Aggiungi una descrizione di attestazione della finestra di dialogo **nome**, digitare un nome univoco che identifica il gruppo o ruolo per l'attestazione.
 

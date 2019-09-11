@@ -1,6 +1,6 @@
 ---
-title: secedit:analyze
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'secedit: analizza'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9122c5c0fa8c42b0ccfc77ceb3f2d337b44ee5dc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 83f9e977a059e1a1f1b882d5a968054dacf6b3be
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441567"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868873"
 ---
-# <a name="seceditanalyze"></a>secedit:analyze
+# <a name="seceditanalyze"></a>secedit: analizza
 
 
 
@@ -36,17 +36,17 @@ Secedit /analyze /db <database file name> [/cfg <configuration file name>] [/ove
 
 |Parametro|Descrizione|
 |---------|-----------|
-|db|Obbligatorio.</br>Specifica il percorso e il nome di un database che contiene la configurazione memorizzata con cui verrà eseguita l'analisi.</br>Se il nome di file specifica un database che non ha un modello di sicurezza (come indicato dal file di configurazione) associato, il `/cfg \<configuration file name>` essere specificata anche l'opzione della riga di comando.|
-|config.|Facoltativo.</br>Specifica il percorso e il nome del modello di protezione che verrà importato nel database per l'analisi.</br>Questa opzione /cfg è valida solo quando utilizzato con il `/db \<database file name>` parametro. Se non viene specificato, l'analisi viene eseguita con le configurazioni già memorizzate nel database.|
-|overwrite|Facoltativo.</br>Specifica se il modello di sicurezza nel parametro /cfg sovrascriverà qualsiasi modello o modello composito, che viene archiviato nel database anziché aggiungere i risultati al modello archiviato.</br>Questa opzione della riga di comando è valido solo quando il `/cfg \<configuration file name>` parametro viene utilizzato anche. Se non viene specificato, il modello nel parametro /cfg viene aggiunto al modello archiviato.|
-|log|Facoltativo.</br>Specifica il percorso e il nome del file di log da utilizzare nel processo.|
-|quiet|Facoltativo.</br>Disattiva l'output dello schermo. È possibile visualizzare i risultati di analisi tramite l'analisi e configurazione della protezione snap-in a Microsoft Management Console (MMC).|
+|db|Richiesto.</br>Specifica il percorso e il nome di un database che contiene la configurazione memorizzata con cui verrà eseguita l'analisi.</br>Se il nome di file specifica un database che non ha un modello di sicurezza (come indicato dal file di configurazione) associato, il `/cfg \<configuration file name>` essere specificata anche l'opzione della riga di comando.|
+|config.|facoltativo.</br>Specifica il percorso e il nome del modello di protezione che verrà importato nel database per l'analisi.</br>Questa opzione /cfg è valida solo quando utilizzato con il `/db \<database file name>` parametro. Se non viene specificato, l'analisi viene eseguita con le configurazioni già memorizzate nel database.|
+|overwrite|facoltativo.</br>Specifica se il modello di sicurezza nel parametro /cfg sovrascriverà qualsiasi modello o modello composito, che viene archiviato nel database anziché aggiungere i risultati al modello archiviato.</br>Questa opzione della riga di comando è valido solo quando il `/cfg \<configuration file name>` parametro viene utilizzato anche. Se non viene specificato, il modello nel parametro /cfg viene aggiunto al modello archiviato.|
+|log|facoltativo.</br>Specifica il percorso e il nome del file di log da utilizzare nel processo.|
+|quiet|facoltativo.</br>Disattiva l'output dello schermo. È possibile visualizzare i risultati di analisi tramite l'analisi e configurazione della protezione snap-in a Microsoft Management Console (MMC).|
 
 ## <a name="remarks"></a>Note
 
 I risultati dell'analisi vengono archiviati in un'area separata del database e possono essere visualizzati nella configurazione della protezione e analisi snap-in MMC.
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*NomeDatabase</em>. viene usato log).
+Se il percorso del file di log non viene specificato, viene usato il file di logpredefinito, ovvero systemroot\*\Documents and Settings AccountUtente<em>\My Documents\Security\Logs\*DatabaseName</em>. log.
 
 In Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 
@@ -56,7 +56,7 @@ Eseguire l'analisi per i parametri di sicurezza nel database di protezione, SecD
 ```
 Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /log C:\Security\FY11\SecAnalysisContosoFY11.log
 ```
-Si supponga che l'analisi rivelate alcuni inadeguatezze pertanto il modello di protezione, SecContoso.inf, è stato modificato. Eseguire nuovamente il comando per rendere effettive le modifiche, indirizzando l'output al file esistente SecAnalysisContosoFY11 senza richiesta.
+Si direbbe che l'analisi ha rivelato alcune carenze, quindi il modello di sicurezza SecContoso. inf è stato modificato. Eseguire nuovamente il comando per rendere effettive le modifiche, indirizzando l'output al file esistente SecAnalysisContosoFY11 senza richiesta.
 ```
 Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /overwrite /log C:\Security\FY11\SecAnalysisContosoFY11.xml /quiet
 ```

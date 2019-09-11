@@ -1,5 +1,5 @@
 ---
-title: Impostazione del servizio sorveglianza Host per Always Encrypted in SQL Server
+title: Configurazione del servizio sorveglianza host per Always Encrypted in SQL Server
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -7,83 +7,83 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/03/2018
-ms.openlocfilehash: 70f6f8c2db742361deecaa216b053d8b1d057a3d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 74146e854f4183970d2b92bb26babbd1b31f0bc2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812608"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870348"
 ---
-# <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>Configurare il servizio sorveglianza Host per Always Encrypted con zone franche sicure in SQL Server 
+# <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>Configurazione del servizio sorveglianza host per Always Encrypted con enclave sicure in SQL Server 
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2019, anteprima di SQL Server 2019
+>Si applica a Windows Server (canale semestrale), Windows Server 2019, SQL Server 2019 Preview
  
-[Always Encrypted con zone franche sicuri](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in SQL Server 2019 preview è una funzionalità progettata per consentire riservati calcoli sui dati sensibili archiviati in un database. Il servizio sorveglianza Host (HGS) svolge un ruolo importante nella protezione dei dati sicuro quando un'enclave protetta, configurata per la crittografia sempre attiva, è un'enclave memoria sicurezza basata su virtualizzazione (VBS). La sicurezza di un enclave memoria VBS dipende la sicurezza dell'Hypervisor di Windows e, più in generale, la sicurezza dei computer che ospita SQL Server. 
+[Always Encrypted con enclave sicure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in SQL Server 2019 Preview è una funzionalità progettata per consentire calcoli riservati sui dati sensibili archiviati in un database. Il servizio sorveglianza host (HGS) svolge un ruolo importante nel garantire la sicurezza dei dati quando un enclave protetto, configurato per Always Encrypted, è un'enclave di memoria basata sulla virtualizzazione (VBS). La sicurezza di un'enclave di memoria VBS dipende dalla sicurezza dell'hypervisor di Windows e, in maniera più ampia, dalla sicurezza del computer che ospita SQL Server. 
 
-Pertanto, prima di un'applicazione client di database consente l'enclave memoria VBS utilizzato per Always Encrypted per eseguire calcoli sui dati riservati, l'applicazione deve attestare con un servizio HGS attendibile. Attestato conferma il computer che ospita SQL Server, che contiene l'enclave, si trova nello stato corretto e può essere considerato attendibile. Per il resto di questo argomento, si farà riferimento al computer che ospita SQL Server come semplicemente il computer host.
+Pertanto, prima che un'applicazione client di database consenta l'enclave di memoria VBS utilizzata per Always Encrypted per eseguire calcoli sui dati sensibili, l'applicazione deve attestare un HGS attendibile. L'attestazione dimostra che il computer che ospita SQL Server, che contiene l'enclave, è nello stato corretto e può essere considerato attendibile. Nella parte restante di questo argomento verrà fatto riferimento al computer che ospita SQL Server come semplicemente il computer host.
 
-Esistono due modalità si escludono a vicenda per l'applicazione di attestare: 
+Esistono due modi, che si escludono a vicenda, per attestare l'applicazione: 
 
-- Attestazione chiave host autorizza un host dimostrando e possiede una chiave privata conosciuta e attendibile. Attestazione chiave host e un computer host fisico o una macchina virtuale di generazione 2 che esegue SQL Server è consigliata per ambienti di pre-produzione.
-- L'attestazione TPM convalida le misurazioni di hardware per assicurarsi che un host esegue solo i file binari corretti e i criteri di sicurezza. L'attestazione TPM e un computer host fisico (non una macchina virtuale) che esegue SQL Server è consigliata per ambienti di produzione.
+- L'attestazione chiave host autorizza un host dimostrando che possiede una chiave privata nota e attendibile. Per gli ambienti di pre-produzione è consigliabile usare l'attestazione chiave host e un computer host fisico o una macchina virtuale di seconda generazione che esegue SQL Server.
+- L'attestazione TPM convalida le misurazioni hardware per assicurarsi che un host esegua solo i file binari e i criteri di sicurezza corretti. Per gli ambienti di produzione è consigliabile l'attestazione TPM e un computer host fisico (non una macchina virtuale) che esegue SQL Server.
 
-Per altre informazioni sul servizio sorveglianza Host e che cosa può misurare, vedere [sorvegliati fabric e panoramica di macchine virtuali schermate](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms). Si noti che anche se i documenti si riferiscono alle macchine virtuali schermate, la stessa funzionalità di protezione, architettura e procedure consigliate si applicano a SQL Server Always Encrypted usando zone franche VBS. 
+Per altre informazioni sul servizio sorveglianza host e su cosa può misurare, vedere [Panoramica dell'infrastruttura sorvegliata e delle macchine virtuali schermate](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms). Si noti che anche se i documenti parlano di VM schermate, le stesse protezioni, l'architettura e le procedure consigliate si applicano a SQL Server Always Encrypted con le enclave VBS. 
 
-Questo articolo consente di impostare HGS in una configurazione consigliata. 
+Questo articolo consente di configurare HGS in una configurazione consigliata. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Questa sezione descrive i prerequisiti per le macchine host e HGS. 
+In questa sezione vengono illustrati i prerequisiti per HGS e i computer host. 
 
 ### <a name="hgs-servers"></a>Server HGS
 
-- server da 1 a 3 per l'esecuzione di HGS. 
+- Server 1-3 per eseguire HGS. 
 
   > [!NOTE]
-  > È necessario per un ambiente di test o di pre-produzione solo 1 server HGS.
+  > Per un ambiente di test o di pre-produzione è necessario solo 1 server HGS.
 
-  Questi server devono essere protetti con attenzione perché controllano i computer in cui è possono eseguire le istanze di SQL Server usando Always Encrypted con zone franche sicure. 
-  È consigliabile che gli amministratori diversi gestiscono il cluster del servizio HGS e di eseguire il servizio HGS su hardware fisico isolato dal resto dell'infrastruttura, o in infrastrutture di virtualizzazione separato o sottoscrizioni di Azure.
+  Questi server devono essere protetti attentamente perché controllano quali computer possono eseguire le istanze di SQL Server usando Always Encrypted con enclave sicure. 
+  Si consiglia agli amministratori diversi di gestire il cluster HGS e di eseguire il HGS su hardware fisico isolato dal resto dell'infrastruttura o in infrastrutture di virtualizzazione separate o sottoscrizioni di Azure.
 
-  - Windows Server 2019 Standard o Datacenter edition.
+  - Windows Server 2019 standard o Datacenter Edition.
   - 2 CPU
-  - 8GB RAM
-  - 100GB di archiviazione
+  - 8 GB DI RAM
+  - 100 GB di spazio di archiviazione
 
-  È possibile usare il [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) o nella [canale semestrale](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#semi-annual-channel). 
-  Per registrare e scarica Windows Server Insider Preview, vedere [Guida introduttiva a programma Windows Insider](https://insider.windows.com/for-business-getting-started-server/).
+  È possibile utilizzare il [canale di manutenzione a lungo termine (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) o il [canale semestrale](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#semi-annual-channel). 
+  Per registrare e scaricare Windows Server Insider Preview, vedere [Introduzione al programma Windows Insider](https://insider.windows.com/for-business-getting-started-server/).
 
-- Scegliere un nome per la nuova foresta di Active Directory creato dal servizio sorveglianza Host. 
-  HGS non deve essere aggiunto al dominio aziendale esistente e deve avere amministratori diversi per gestirla.   
+- Scegliere un nome per la nuova foresta Active Directory creata dal servizio sorveglianza host. 
+  HGS non deve essere aggiunto al dominio aziendale esistente e deve essere gestito da amministratori distinti.   
 
-- Firewall e regole di routing per consentire il traffico HTTPS (porta TCP 443) o HTTP in ingresso (TCP 80) nei nodi del servizio sorveglianza Host da: 
+- Regole relative al firewall e al routing per consentire il traffico HTTP (TCP 80) o HTTPS (TCP 443) in ingresso nei nodi del servizio sorveglianza host da: 
 
-  - I computer che eseguono SQL Server
-  - I computer che eseguono applicazioni client del database (ad esempio server web) che rilasciano le query di database e usano Always Encrypted con zone franche sicure. 
+  - Computer che eseguono SQL Server
+  - I computer che eseguono applicazioni client di database, ad esempio i server Web, che emettono query di database e usano Always Encrypted con enclave sicure. 
 
 ### <a name="sql-server-host-machines"></a>Computer host SQL Server
 
-- Istanza di SQL Server deve essere eseguito in un computer che soddisfi i requisiti seguenti:
+- L'istanza di SQL Server deve essere eseguita in un computer che soddisfi i requisiti seguenti:
 
   - Windows: 
     - Windows 10 Enterprise, versione 1809  
-    - Windows Server 2019 Datacenter (canale semestrale), versione 1809
+    - Windows Server 2019 datacenter (canale semestrale), versione 1809
     - Windows Server 2019 Datacenter
-  - Computer fisico per la produzione o di una macchina virtuale di generazione 2 per il test (si noti che Azure non supporta macchine virtuali di generazione 2)
-  - Requisiti generali elencati nella [Hardware and Software Requirements for Installing SQL Server](https://docs.microsoft.com/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-2017).   
+  - Computer fisico per la produzione o una macchina virtuale di seconda generazione per i test (si noti che Azure non supporta le macchine virtuali di seconda generazione)
+  - Requisiti generali elencati in [requisiti hardware e software per l'installazione di SQL Server](https://docs.microsoft.com/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-2017).   
 
-  È possibile usare il [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) o nella [canale semestrale](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#semi-annual-channel). 
-  Per registrare e scarica Windows Server Insider Preview, vedere [Guida introduttiva a programma Windows Insider](https://insider.windows.com/for-business-getting-started-server/).
+  È possibile utilizzare il [canale di manutenzione a lungo termine (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) o il [canale semestrale](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#semi-annual-channel). 
+  Per registrare e scaricare Windows Server Insider Preview, vedere [Introduzione al programma Windows Insider](https://insider.windows.com/for-business-getting-started-server/).
 
-- Requisiti specifici per la modalità di attestazione selezionato:
-  - **Modalità TPM** è la modalità di attestazione più forte e userà un Trusted Platform Module (TPM) per convalidare crittograficamente che i computer host sono note al tuo Data Center (usando un ID univoco in ogni TPM), esecuzione di firmware e hardware attendibile le configurazioni (utilizzando una linea di base TPM) e che eseguono kernel trustworthy e codice in modalità utente (con controllo delle applicazioni di Windows Defender). Componenti hardware seguenti è necessario usare la modalità TPM: 
-    - Modulo TPM 2.0 sia installato e abilitato 
-    - Avvio protetto è abilitato con i criteri di avvio protetto di Microsoft (non abilitare il criterio di accesso Condizionale avvio protetto di terze parti 3rd o eventuali criteri personalizzati)
-    - IOMMU (Intel VT-d o IOV AMD) per impedire attacchi di accesso diretto a memoria 
+- Requisiti specifici per la modalità di attestazione scelta:
+  - La **modalità TPM** è la modalità di attestazione più avanzata e utilizzerà un Trusted Platform Module (TPM) per convalidare in modo crittografico che i computer host sono noti al Data Center (usando un ID univoco da ogni TPM), eseguendo hardware e firmware attendibili. configurazioni (usando una baseline TPM) ed esecuzione di codice in modalità utente e kernel attendibile (tramite il controllo delle applicazioni di Windows Defender). Per usare la modalità TPM sono necessari i componenti hardware seguenti: 
+    - Modulo TPM 2,0 installato e abilitato 
+    - Avvio protetto abilitato con i criteri di avvio protetto di Microsoft (non abilitare i criteri della CA di avvio protetto di terze parti o i criteri personalizzati)
+    - IOMMU (Intel VT-d o AMD IOV) per impedire attacchi diretti alla memoria 
 
-  - **Modalità chiave host** utilizza una coppia di chiavi asimmetrica (analogo a quello delle chiavi SSH) per identificare e autorizzare macchine host che desidera eseguire SQL Server. Questa modalità è più facile da configurare e non dispone di tutti i requisiti hardware specifico, ma non verrà verificata il software o il firmware in esecuzione nel computer host.  
+  - La **modalità chiave host** utilizza una coppia di chiavi asimmetriche (molto simile alle chiavi SSH) per identificare e autorizzare i computer host che desiderano eseguire SQL Server. Questa modalità è più semplice da configurare e non prevede requisiti hardware specifici, ma non verificherà il software o il firmware in esecuzione nei computer host.  
 
-Per verificare se TPM è compatibile, eseguire i comandi seguenti nel computer host in cui si prevede di eseguire SQL Server usando Always Encrypted con zone franche sicure. "2.0" deve essere visualizzato nell'elenco di SpecVersions supportate è possibile usare l'attestazione TPM:
+Per verificare se il TPM è compatibile, eseguire i comandi seguenti nel computer host in cui si intende eseguire SQL Server usando Always Encrypted con le enclave sicure. "2,0" deve essere visualizzato nell'elenco dei SpecVersions supportati per l'uso dell'attestazione TPM:
 
 ```powershell
 Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm 
@@ -91,9 +91,9 @@ Get-CimInstance -ClassName Win32_Tpm -Namespace root/cimv2/Security/MicrosoftTpm
 
 ## <a name="set-up-the-first-hgs-node"></a>Configurare il primo nodo HGS 
 
-Il servizio sorveglianza Host viene eseguita in una configurazione a disponibilità elevata usando un cluster a 3 nodi. È consigliabile configurare un nodo completamente prima di aggiungere altri nodi. 
+Il servizio sorveglianza host funziona in una configurazione a disponibilità elevata usando un cluster a 3 nodi. È consigliabile configurare completamente un nodo prima di aggiungere altri nodi. 
 
-Eseguire tutti i comandi seguenti in una sessione di PowerShell con privilegi elevata.
+Eseguire tutti i comandi seguenti in una sessione di PowerShell con privilegi elevati.
 
 1. [!INCLUDE [Install the HGS server role](../../includes/guarded-fabric-install-hgs-server-role.md)]
 
@@ -101,13 +101,13 @@ Eseguire tutti i comandi seguenti in una sessione di PowerShell con privilegi el
 
 3. [!INCLUDE [Determine a DNN](../../includes/guarded-fabric-initialize-hgs-default-step-one.md)]
 
-   Per Always Encrypted con zone franche sicuri, le macchine host che eseguono SQL Server e nei computer che eseguono applicazioni client del database che sia necessario contattare il servizio HGS, anche se solo i computer host richiedono l'attestazione.
+   Per Always Encrypted con enclave sicure, i computer host che eseguono SQL Server e i computer che eseguono applicazioni client di database devono contattare HGS, anche se solo i computer host richiedono l'attestazione.
 
-4. Dopo il riavvio della macchina, HGS verrà installato e il server sarà anche un controller di dominio con Active Directory configurato. 
-   Durante la configurazione di Active Directory, l'account amministratore del computer locale viene aggiunto al gruppo Domain Admins, e solo i membri di questo gruppo possono accedere a un controller di dominio.
-   Accedere usando l'account amministratore di dominio (ad esempio, administrator@bastion.local o bastion.local\administrator) o creare un altro account di amministratore di dominio per accedere e quindi configurare il servizio di attestazione.
-   È necessario scegliere l'attestazione chiave TPM o host ed eseguire il comando corrispondente. 
-   Per il HgsServiceName, specificare la rete neurale profonda scelto.
+4. Al termine del riavvio del computer, verrà installato HGS e il server sarà anche un controller di dominio con Active Directory configurata. 
+   Durante la configurazione di Active Directory, l'account amministratore del computer locale viene aggiunto al gruppo Domain Admins e solo i membri di questo gruppo possono accedere a un controller di dominio.
+   Accedere con l'account di amministratore di dominio (ad esempio administrator@bastion.local , o Bastion. local\administrator) oppure creare un altro account amministratore di dominio per l'accesso e quindi configurare il servizio di attestazione.
+   Sarà necessario scegliere TPM o attestazione chiave host ed eseguire il comando corrispondente. 
+   Per HgsServiceName specificare il DNN scelto.
 
    Per la modalità TPM:
 
@@ -121,21 +121,21 @@ Eseguire tutti i comandi seguenti in una sessione di PowerShell con privilegi el
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustHostKey 
    ```
 
-5. Verificare che il computer host che eseguono SQL Server sarà in grado di risolvere i nomi DNS di ai membri del nuovo dominio HGS configurando un server d'inoltro dai server DNS aziendale per il nuovo controller di dominio HGS. Se si usa DNS di Windows Server, può configurare un server d'inoltro condizionale eseguendo i comandi seguenti in una console di PowerShell con privilegi elevata in un server DNS nell'organizzazione. Sostituire i nomi e indirizzi nella sintassi riportata di seguito come necessario per l'ambiente Windows PowerShell. Dopo aver aggiunto altri nodi HGS, eseguire questo comando per aggiungerli come server master.
+5. Assicurarsi che i computer host che eseguono SQL Server saranno in grado di risolvere i nomi DNS dei nuovi membri del dominio HGS impostando un server d'avvio dai server DNS aziendali sul nuovo controller di dominio HGS. Se si usa il DNS di Windows Server, è possibile configurare un server d'esecuzione condizionale eseguendo i comandi seguenti in una console di PowerShell con privilegi elevati in un server DNS dell'organizzazione. Sostituire i nomi e gli indirizzi nella sintassi di Windows PowerShell riportata di seguito, in base alle esigenze dell'ambiente in uso. Dopo aver aggiunto altri nodi HGS, eseguire di nuovo questo comando per aggiungerli come server master.
 
    ```powershell
    Add-DnsServerConditionalForwarderZone -Name <HGS domain name> -ReplicationScope "Forest" -MasterServers <IP addresses of HGS servers>
    ```
 
-## <a name="set-up-additional-hgs-nodes-for-production-deployments"></a>Configurare i nodi HGS aggiuntivi per le distribuzioni di produzione
+## <a name="set-up-additional-hgs-nodes-for-production-deployments"></a>Configurare nodi HGS aggiuntivi per le distribuzioni di produzione
 
-Per aggiungere nodi al cluster, eseguire i comandi seguenti in una sessione di PowerShell con privilegi elevata. 
+Per aggiungere nodi al cluster, eseguire i comandi seguenti in una sessione di PowerShell con privilegi elevati. 
 
 1. [!INCLUDE [Install the HGS server role](../../includes/guarded-fabric-install-hgs-server-role.md)]
 
-2. Impostare il sistema di risoluzione client DNS in modo che punti al server HGS primario in modo che è possibile risolvere il nome di dominio del servizio HGS. Se si usa Server con esperienza Desktop, è possibile farlo nel centro rete e condivisione. In Server Core, è possibile usare la **sconfig.exe** dello strumento, opzione 8, o **Set-DnsClientServerAddress** per impostare l'indirizzo DNS. 
+2. Impostare il resolver del client DNS in modo che punti al server HGS primario in modo che possa risolvere il nome di dominio HGS. Se si usa server con esperienza desktop, è possibile eseguire questa operazione nel centro rete e condivisione. In Server Core è possibile usare lo strumento **sconfig. exe** , l'opzione 8 o **set-DnsClientServerAddress** per impostare l'indirizzo DNS. 
 
-3. Successivamente, si promuoverà il server a un controller di dominio. Si sono necessarie credenziali di amministratore di dominio per completare questa attività e verrà richiesto di immettere una password modalità ripristino servizi Directory dopo l'esecuzione del comando. 
+3. Successivamente, il server verrà innalzato di livello a controller di dominio. Per completare questa attività, è necessario disporre delle credenziali di amministratore di dominio e verrà richiesto di immettere una password per la modalità di ripristino dei servizi directory dopo l'esecuzione del comando. 
 
    ```powershell
    $HgsDomainName = 'bastion.local' 
@@ -146,38 +146,38 @@ Per aggiungere nodi al cluster, eseguire i comandi seguenti in una sessione di P
 
 4. [!INCLUDE [Initialize HGS](../../includes/guarded-fabric-initialize-hgs-on-the-node.md)] 
 
-## <a name="configure-hgs-for-https"></a>Configurare il servizio HGS per HTTPS 
+## <a name="configure-hgs-for-https"></a>Configurare HGS per HTTPS 
 
-Per impostazione predefinita, quando si inizializza il server HGS verrà configurata i siti web IIS per le comunicazioni solo HTTP.
+Per impostazione predefinita, quando si inizializza il server HGS, i siti Web IIS vengono configurati per le comunicazioni solo HTTP.
 
 > [!NOTE]
-> Configurazione di HTTPS con un certificato server HGS ben noto e attendibile è necessaria per evitare attacchi man-in-the-middle e pertanto è consigliabile per le distribuzioni di produzione.
+> La configurazione di HTTPS con un certificato del server HGS noto e attendibile è necessaria per prevenire gli attacchi man-in-the-Middle ed è quindi consigliata per le distribuzioni di produzione.
 
 [!INCLUDE [Configure HTTPS](../../includes/configure-hgs-for-https.md)] 
 
 > [!NOTE]
-> Per Always Encrypted con zone franche sicuri, il certificato SSL deve essere considerato attendibile in entrambi i computer host che eseguono SQL Server e le macchine che eseguono applicazioni client del database è necessario contattare il servizio HGS. 
+> Per Always Encrypted con enclave sicure, il certificato SSL deve essere considerato attendibile in entrambi i computer host che eseguono SQL Server e i computer che eseguono applicazioni client di database devono contattare HGS. 
 
-## <a name="collect-attestation-info-from-the-host-machines"></a>Raccogliere informazioni di attestazione dai computer host
+## <a name="collect-attestation-info-from-the-host-machines"></a>Raccogliere le informazioni di attestazione dai computer host
 
-Dopo aver configurato HGS, deve essere configurato con le informazioni di attestazione dai computer host, in modo che rilevi che i computer in cui devono essere autorizzati a eseguire calcoli riservati usando Always Encrypted e VBS zone franche sicure. Questi passaggi variano in base a modalità attestazione usata. 
+Dopo la configurazione di HGS, è necessario configurarla con le informazioni di attestazione dei computer host, in modo da sapere quali computer devono essere autorizzati a eseguire calcoli riservati usando le enclave sicure Always Encrypted e VBS. Questa procedura varia in base alla modalità di attestazione usata. 
 
-### <a name="collect-tpm-attestation-artifacts"></a>Raccogliere gli artefatti l'attestazione TPM 
+### <a name="collect-tpm-attestation-artifacts"></a>Raccogli elementi di attestazione TPM 
 
-Se si utilizza la modalità TPM, eseguire i comandi seguenti in una sessione di PowerShell con privilegi elevata in ogni computer host per installare il supporto per l'attestazione e raccogliere le informazioni da registrare con il servizio sorveglianza Host. 
+Se si usa la modalità TPM, eseguire i comandi seguenti in una sessione di PowerShell con privilegi elevati in ogni computer host per installare il supporto per l'attestazione e raccogliere le informazioni necessarie per la registrazione al servizio sorveglianza host. 
 
-1. Per installare il client HGS nel computer host, installare la funzionalità Host sorvegliato, che verrà installato anche Hyper-V. 
-   Anche se è non verranno eseguiti le macchine virtuali in questo computer, l'hypervisor è necessario abilitare le funzionalità di sicurezza basata su virtualizzazione che isolano zone franche VBS.
+1. Per installare il client HGS nel computer host, installare la funzionalità host sorvegliato, che installerà anche Hyper-V. 
+   Anche se non si eseguono macchine virtuali in questo computer, l'hypervisor è necessario per abilitare le funzionalità di sicurezza basate su virtualizzazione che isolano le enclave VBS.
 
    ```powershell
    Enable-WindowsOptionalFeature -Online -FeatureName HostGuardian -All 
    ```
 
 2. Riavviare il computer quando viene richiesto di completare l'installazione di Hyper-V. 
-3. Un criterio di integrità del codice per limitare il software può essere eseguito nel sistema di composizione. 
-   Qualsiasi criterio di Windows Defender Application Control è sufficiente. 
-   Se si eseguono solo il software Microsoft sul server, i comandi seguenti rapidamente creerà un criterio per l'utente. 
-   Il criterio sarà in modalità di controllo, vale a dire registrerà un evento di codice non autorizzato, ma non impedisce che in esecuzione.  
+3. Comporre un criterio di integrità del codice per limitare il software che può essere eseguito nel sistema. 
+   Qualsiasi criterio di controllo delle applicazioni di Windows Defender è sufficiente. 
+   Se si esegue il software Microsoft solo sul server, i comandi seguenti creeranno rapidamente un criterio. 
+   Il criterio sarà in modalità di controllo, ovvero registrerà un evento sul codice non autorizzato, ma non ne manterrà l'esecuzione.  
 
    ```powershell
    mkdir C:\artifacts
@@ -188,31 +188,31 @@ Se si utilizza la modalità TPM, eseguire i comandi seguenti in una sessione di 
    Restart-Computer 
    ```
 
-   Controllo delle applicazioni di Windows Defender offre numerose funzionalità per una vasta gamma di maneggevolezza di sicurezza. 
-   Se è necessario consentire di software non Microsoft o personalizzare i criteri predefiniti, se il [Guida alla distribuzione di Windows Defender Application Control](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).   
+   Il controllo delle applicazioni di Windows Defender include numerose funzionalità che consentono di coprire diverse posizioni di sicurezza. 
+   Se è necessario consentire il software non Microsoft o personalizzare i criteri predefiniti, se la [Guida alla distribuzione di controllo delle applicazioni di Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).   
 
 
-4. Verificare che la sicurezza basata sulla virtualizzazione sia in esecuzione nel computer locale con il comando seguente. 
-   Si saprà che VBS sia in esecuzione se il campo DeviceGuardSecurityServicesRunning ha "HypervisorEnforcedCodeIntegrity" elencato in esso. 
-   Se non viene eseguito, scaricare il [strumento di conformità di Device Guard](https://www.microsoft.com/download/details.aspx?id=53337) ed eseguire "DG_Readiness.ps1-abilitare - HVCI" per abilitarlo.  
+4. Verificare che la sicurezza basata sulla virtualizzazione sia in esecuzione nel computer con il comando seguente. 
+   Si saprà che VBS è in esecuzione se nel campo DeviceGuardSecurityServicesRunning è elencato "HypervisorEnforcedCodeIntegrity". 
+   Se non è in esecuzione, scaricare lo [strumento di preparazione di Device Guard](https://www.microsoft.com/download/details.aspx?id=53337) ed eseguire "DG_Readiness. ps1-Enable-hvci obbligatoria" per abilitarlo.  
    
    ```powershell
    Get-ComputerInfo -Property DeviceGuard* 
    ```
 
-5. Raccogliere l'identificatore TPM e la linea di base:
+5. Raccogliere l'identificatore e la baseline del TPM:
 
    ```powershell 
    (Get-PlatformIdentifier -Name $env:computername).Save("C:\artifacts\TpmID-$env:computername.xml") 
    Get-HgsAttestationBaselinePolicy -SkipValidation -Path "C:\artifacts\TpmBaseline-$env:computername.tcglog" 
    ```
    
-6. Copiare il xml tcglog e file della cartella bin da C:\artifacts al server HGS.
-7. Se questo è il primo host TPM che si aggiunge al server HGS, è necessario installare i certificati radice Trusted TPM in ogni server HGS. 
-   Seguire le [materiale sussidiario sulla documentazione HGS](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-install-trusted-tpm-root-certificates) per completare questo passaggio.
-8. Nel server HGS, autorizzare questo host per passare l'attestazione. 
-   Gli script seguenti si presuppongono i 3 file sono stati copiati C:\temp nel server HGS e che il nome del computer server è "ServerA". 
-   Modificare i percorsi e nomi in modo che corrisponda il proprio ambiente. 
+6. Copiare i file XML, tcglog e bin da C:\artifacts nel server HGS.
+7. Se si tratta del primo host TPM che si sta aggiungendo al server HGS, sarà necessario installare i certificati radice TPM attendibili in ogni server HGS. 
+   Per completare questo passaggio, seguire le istruzioni riportate nella [documentazione di HGS](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-install-trusted-tpm-root-certificates) .
+8. Nel server HGS autorizzare l'host a passare l'attestazione. 
+   Gli script riportati di seguito presuppongono che i 3 file siano stati copiati in C:\Temp nel server HGS e che il nome computer del server sia "ServerA". 
+   Modificare i percorsi e i nomi in modo che corrispondano al proprio ambiente. 
 
    ```powershell
    Add-HgsAttestationTpmHost -Name ServerA -Path C:\temp\TpmID-ServerA.xml 
@@ -220,35 +220,35 @@ Se si utilizza la modalità TPM, eseguire i comandi seguenti in una sessione di 
    Add-HgsAttestationCiPolicy -Name AllowMicrosoft-Audit -Path C:\temp\AllowMicrosoft-Audit.bin 
    ```
 
-9. Il primo server è ora pronto per attestare. 
-   Nel computer host, eseguire il comando seguente per specificare dove attestare (modificare che il nome DNS a quella del cluster di HGS, in genere si utilizzerà il nome del servizio HGS combinato con il nome di dominio HGS). 
-   Se si riceve un errore HostUnreachable, verificare che è possibile risolvere ed effettuare il ping i nomi DNS dei server HGS. 
+9. Il primo server è ora pronto per l'attestazione. 
+   Nel computer host eseguire il comando seguente per indicare la posizione in cui attestare (modificare il nome DNS con quello del cluster HGS, in genere si userà il nome del servizio HGS combinato con il nome di dominio HGS). 
+   Se viene visualizzato un errore HostUnreachable, verificare che sia possibile risolvere e effettuare il ping dei nomi DNS dei server HGS. 
 
    ```powershell
    Set-HgsClientConfiguration -AttestationServerUrl https://hgs.bastion.local/Attestation -KeyProtectionServerUrl https://hgs.bastion.local/KeyProtection/ 
    ```
 
-10. Il risultato del comando precedente visualizzerà tale AttestationStatus = esito positivo. In caso contrario, vedere [attestazione errori](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-hosts#attestation-failures) per indicazioni su come risolvere l'errore.   
-11. Ripetere i passaggi da 1 a 10 per ogni computer host. 
-    Se si usa hardware identico, non è necessario acquisire una nuova linea di base o dei criteri di integrazione continua per ogni computer. 
-    La linea di base dal primo server coprirà tutte le macchine con la stessa configurazione e i criteri degli elementi di configurazione possono essere riusato in più computer, purché il software Microsoft è l'unico software nel computer.
+10. Il risultato del comando precedente dovrebbe indicare che AttestationStatus = superato. In caso contrario, vedere [errori di attestazione](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-hosts#attestation-failures) per indicazioni su come risolvere l'errore.   
+11. Ripetere i passaggi 1-10 per ogni computer host. 
+    Se si usa un hardware identico, non sarà necessario acquisire un nuovo criterio di base o CI per ogni computer. 
+    La linea di base del primo server coprirà tutti i computer configurati in modo identico e i criteri CI possono essere riutilizzati in più computer, a condizione che il software Microsoft sia l'unico software presente nel computer.
 
-### <a name="collecting-host-keys"></a>La raccolta di chiavi Host 
+### <a name="collecting-host-keys"></a>Raccolta delle chiavi host 
 
 > [!NOTE] 
-> Attestazione chiave host è consigliata solo per l'uso in ambienti di test. L'attestazione TPM garantisce il più efficaci che zone franche VBS l'elaborazione dei dati sensibili in SQL Server sono in esecuzione codice attendibile e i computer sono configurati con le impostazioni di sicurezza consigliata. 
+> L'attestazione della chiave host è consigliata solo per l'uso in ambienti di test. L'attestazione TPM fornisce le garanzie più sicure che le enclavi VBS che elaborano i dati sensibili in SQL Server eseguono codice attendibile e i computer sono configurati con le impostazioni di sicurezza consigliate. 
 
-Se si sceglie di configurare HGS in modalità di attestazione chiave host, è necessario generare e raccogliere le chiavi da ogni computer host e registrarlo con il servizio sorveglianza Host. 
+Se si è scelto di impostare HGS in modalità di attestazione chiave host, sarà necessario generare e raccogliere chiavi da ogni computer host e registrarle con il servizio sorveglianza host. 
 
-1. Per ottenere il client HGS installato nel computer host, installare la funzionalità Host sorvegliato, che verrà installato anche Hyper-V. 
-   Anche se è non verranno eseguiti le macchine virtuali in questo computer, l'hypervisor è necessario abilitare le funzionalità di sicurezza basata su virtualizzazione che isolano le zone franche VBS di eseguire query con Always Encrypted. 
+1. Per fare in modo che il client di HGS sia installato nel computer host, installare la funzionalità host sorvegliato, che installerà anche Hyper-V. 
+   Anche se non si eseguono macchine virtuali in questo computer, l'hypervisor è necessario per abilitare le funzionalità di sicurezza basate su virtualizzazione che isolano le enclave VBS che eseguono Always Encrypted query. 
 
    ```powershell
    Enable-WindowsOptionalFeature -Online -FeatureName HostGuardian -All 
    ```
 
 2. Riavviare il computer quando viene richiesto di completare l'installazione di Hyper-V.
-3. Generare una chiave host univoci ed esportare la chiave pubblica risulta in un file. 
+3. Generare una chiave host univoca ed esportare la chiave pubblica risultante in un file. 
 
    ```powershell
    Set-HgsClientHostKey 
@@ -256,35 +256,35 @@ Se si sceglie di configurare HGS in modalità di attestazione chiave host, è ne
    Get-HgsClientHostKey -Path C:\artifacts\$env:computername.cer 
    ```
    
-   In alternativa, è possibile specificare un'identificazione personale se si desidera usare il proprio certificato. 
-   Ciò può essere utile se vuoi condividere un certificato tra più computer, oppure utilizzare un certificato associato a un modulo TPM o un modulo HSM. Ecco un esempio di creazione di un certificato associato a TPM (che impedisce l'utilizzo della chiave privata rubato e usato in un altro computer e richiede solo un TPM 1.2):
+   In alternativa, è possibile specificare un'identificazione personale se si vuole usare il proprio certificato. 
+   Questo può essere utile se si vuole condividere un certificato tra più computer oppure usare un certificato associato a un modulo TPM o un modulo di protezione hardware. Ecco un esempio di creazione di un certificato associato a TPM (che impedisce che la chiave privata venga rubata e usata in un altro computer e richiede solo un TPM 1,2):
 
    ```powershell
    $tpmBoundCert = New-SelfSignedCertificate -Subject “Host Key Attestation ($env:computername)” -Provider “Microsoft Platform Crypto Provider”
    Set-HgsClientHostKey -Thumbprint $tpmBoundCert.Thumbprint
    ```
 
-4. Copiare il codice Product key host del servizio sorveglianza Host. 
-5. Registrare il codice Product key host con qualsiasi nodo del servizio HGS, usando un nome rilevante e un percorso per l'ambiente: 
+4. Copiare la chiave host nel servizio sorveglianza host. 
+5. Registrare la chiave host con qualsiasi nodo HGS, usando un nome e un percorso appropriati per l'ambiente: 
 
    ```powershell
    Add-HgsAttestationHostKey -Name 'ServerA' -Path C:\temp\ServerA.cer 
    ``` 
 
-6. Il primo server è ora pronto per attestare. 
-   Nel computer host, eseguire il comando seguente per specificare dove attestare (modificare che il nome DNS a quella del cluster di HGS, in genere si utilizzerà il nome del servizio HGS combinato con il nome di dominio HGS). 
-   Se si riceve un errore HostUnreachable, verificare che è possibile risolvere ed effettuare il ping i nomi DNS dei server HGS.    
+6. Il primo server è ora pronto per l'attestazione. 
+   Nel computer host eseguire il comando seguente per indicare la posizione in cui attestare (modificare il nome DNS con quello del cluster HGS, in genere si userà il nome del servizio HGS combinato con il nome di dominio HGS). 
+   Se viene visualizzato un errore HostUnreachable, verificare che sia possibile risolvere e effettuare il ping dei nomi DNS dei server HGS.    
 
    ```powershell
    Set-HgsClientConfiguration -AttestationServerUrl http://hgs.bastion.local/Attestation -KeyProtectionServerUrl http://hgs.bastion.local/KeyProtection/  
    ```
 
-7. Il risultato del comando precedente visualizzerà tale AttestationStatus = esito positivo. 
-   Se si verifica un errore HostUnreachable, significa che nel computer host non può comunicare con HGS. 
-   Assicurarsi che sia impostata la risoluzione DNS tra il computer host e i server HGS e che è possibile effettuare il ping dei server. 
-   Un errore UnauthorizedHost indica che la chiave pubblica non è stata registrata con il server HGS, ripetere i passaggi 4 e 5 per risolvere l'errore. 
-   Se tutto il resto non riesce, eseguire Clear-HgsClientHostKey e ripetere i passaggi da 3 a 6.   
+7. Il risultato del comando precedente dovrebbe indicare che AttestationStatus = superato. 
+   Se viene ricevuto un errore HostUnreachable, significa che il computer host non è in grado di comunicare con HGS. 
+   Assicurarsi che la risoluzione DNS sia configurata tra il computer host e i server HGS e che sia possibile eseguire il ping dei server. 
+   Un errore UnauthorizedHost indica che la chiave pubblica non è stata registrata con il server HGS: ripetere i passaggi 4 e 5 per risolvere l'errore. 
+   Se l'operazione non riesce, eseguire Clear-HgsClientHostKey e ripetere i passaggi 3-6.   
 
-8. Ripetere i passaggi da 1 a 7 per ogni server che verrà eseguito SQL Server Always Encrypted usando zone franche VBS.     
+8. Ripetere i passaggi 1-7 per ogni server che eseguirà SQL Server Always Encrypted utilizzando le enclave VBS.     
 
 

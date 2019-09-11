@@ -4,12 +4,12 @@ description: Come creare nuovi articoli correlati a Windows Server usando GitHub
 author: eross-msft
 ms.author: lizross
 ms.date: 05/02/2019
-ms.openlocfilehash: f5e7e3d0cd17c64175fddaaac73c12daa2c2a32c
-ms.sourcegitcommit: ffd9c42374c7448deb5f53f7a865cb427b5e4e9e
+ms.openlocfilehash: 3f09c36c1e3960728ff016f5801deb854e3d3c96
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887952"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865073"
 ---
 # <a name="create-new-windows-server-articles-using-github-and-visual-studio-code"></a>Creare nuovi articoli su Windows Server usando GitHub e Visual Studio Code
 
@@ -193,7 +193,7 @@ Dopo aver completato l'articolo, è necessario ottenere l'approvazione dal write
 
 1. Passare a https://github.com/MicrosoftDocs/windowsserverdocs-pr e selezionare la scheda **richieste pull** .
 
-2. Nell'area revisori del riquadro destro selezionare l'icona a forma di ingranaggio, quindi immettere l'alias _windowsservercontent_ per la revisione.
+2. Nell'area **revisori** del riquadro destro selezionare l'icona a forma di ingranaggio, quindi immettere l'alias _windowsservercontent_ per la revisione.
 
     Un membro dell'alias _windowsservercontent_ esamina le modifiche o aggiunge commenti sugli elementi che devono essere modificati prima che l'Unione possa verificarsi.
 
@@ -222,7 +222,7 @@ Per ulteriori informazioni su GitHub e sul linguaggio Markdown, vedere:
 
 - [Guide di GitHub-informazioni sul flusso di GitHub](https://guides.github.com/introduction/flow/)
 
-- [Informazioni] sulla diramazione git (https://learngitbranching.js.org/ (Ideale per gli Learner visivi.))
+- [Informazioni sulla diramazione git] (https://learngitbranching.js.org/ (Ideale per gli Learner visivi.))
 
 ### <a name="markdown"></a>Markdown
 

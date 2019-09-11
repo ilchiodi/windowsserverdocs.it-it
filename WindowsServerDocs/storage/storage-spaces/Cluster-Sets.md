@@ -6,156 +6,156 @@ ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 01/30/2019
-description: Questo articolo viene descritto lo scenario di set di Cluster
+description: Questo articolo descrive lo scenario dei set di cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 349b69835ae68c626e886cad30f4d5a89d358372
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 973725d56fcd3a276a2aad3c61820b454d613684
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719711"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865017"
 ---
 # <a name="cluster-sets"></a>Set di cluster
 
-> Si applica a: Windows Server 2019
+> Si applica a Windows Server 2019
 
-Set di cluster è la nuova tecnologia di tipo scale-out cloud nella versione di Windows Server 2019 che aumenta il numero di nodi del cluster in un unico cloud Software definito Data Center (SDDC) di ordini di grandezza. Un set di cluster è un raggruppamento a regime di controllo di più cluster di Failover: calcolo, archiviazione convergente o iperconvergente. Cluster imposta tecnologia Abilita fluidità di macchina virtuale tra cluster di membro all'interno di un set di cluster e uno spazio dei nomi archiviazione unificata nel set per il supporto della fluidità di macchina virtuale.
+Set di cluster è la nuova tecnologia per la scalabilità orizzontale del cloud nella versione di Windows Server 2019 che aumenta il numero di nodi del cluster in un singolo Cloud SDDC (software defined Data Center) per ordine di grandezza. Un set di cluster è un raggruppamento a regime di controllo libero di più cluster di failover: calcolo, archiviazione o iperconvergenza. Set di cluster la tecnologia consente la fluidità delle macchine virtuali tra i cluster di membri all'interno di un set di cluster e uno spazio dei nomi di archiviazione unificato nel set a supporto della fluidità delle macchine virtuali.
 
-Anche se si verifica nel mantenimento gestione Cluster di Failover esistenti nei cluster di membro, un'istanza del set di cluster sono inoltre disponibili principali casi d'uso per la gestione del ciclo di vita nell'aggregazione. Questa Guida alla valutazione di Windows Server 2019 Scenario fornisce le informazioni necessarie in background insieme alle istruzioni dettagliate per valutare la tecnologia di set di cluster tramite PowerShell.
+Mantenendo le esperienze di gestione del cluster di failover esistenti sui cluster di membri, un'istanza del set di cluster offre inoltre i casi di utilizzo chiave per la gestione del ciclo di vita nell'aggregazione. Questa guida alla valutazione dello scenario di Windows Server 2019 fornisce le informazioni di base necessarie insieme a istruzioni dettagliate per la valutazione della tecnologia dei set di cluster con PowerShell.
 
-## <a name="technology-introduction"></a>Introduzione di tecnologie
+## <a name="technology-introduction"></a>Introduzione alla tecnologia
 
-Tecnologia di set di cluster è stata sviluppata per soddisfare le richieste dei clienti specifici gestione di Software definito Datacenter (SDDC) cloud su larga scala. Proposta di valore di set di cluster può essere riepilogato come indicato di seguito:  
+La tecnologia dei set di cluster è stata sviluppata per soddisfare specifiche richieste dei clienti che operano su cloud SDDC (software defined Data Center) su larga scala. La proposta del valore dei set di cluster può essere riepilogata come indicato di seguito:  
 
-- Aumentare notevolmente la scalabilità cloud SDDC supportata per l'esecuzione di macchine virtuali a disponibilità elevata tramite la combinazione di più cluster più piccoli in un'unica infrastruttura di grandi dimensioni, pur mantenendo il limite di errore software in un singolo cluster
-- Gestire l'intero ciclo di vita del Cluster di Failover tra cui onboarding e la rimozione dei cluster, senza influire sulla disponibilità delle macchine virtuali tenant, tramite agevolmente la migrazione delle macchine virtuali tra questa infrastruttura di grandi dimensioni
-- Modificare con facilità il rapporto di calcolo-a-storage nell'iperconvergente ho
-- Beneficiare [domini di errore simile a Azure e set di disponibilità](htttps://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) tra cluster nella selezione host per macchina virtuale iniziale e migrazione delle macchine virtuali successive
-- Generazioni diverse e combinare di CPU hardware nello stesso cluster impostare fabric, persino, mantenendo i domini di errore singolo omogenei per garantire la massima efficienza.  Si noti che l'indicazione della stesso hardware sia ancora presente all'interno di ogni cluster, nonché il set intero cluster.
+- Aumenta significativamente la scalabilità cloud SDDC supportata per l'esecuzione di macchine virtuali a disponibilità elevata combinando più cluster più piccoli in un'unica infrastruttura di grandi dimensioni, anche mantenendo il limite di errore software in un singolo cluster
+- Gestire il ciclo di vita di un intero cluster di failover, inclusi il caricamento e il ritiro dei cluster, senza alcun effetto sulla disponibilità delle macchine virtuali tenant, tramite la migrazione fluida delle macchine virtuali in questa infrastruttura di grandi dimensioni
+- Modificare con facilità il rapporto tra calcolo e archiviazione in iperconvergenza I
+- Vantaggi offerti da [domini di errore e set di disponibilità di Azure](htttps://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) tra cluster nel posizionamento iniziale delle macchine virtuali e nella successiva migrazione della macchina virtuale
+- Combina le diverse generazioni di hardware della CPU nella stessa infrastruttura del set di cluster, anche mantenendo i singoli domini di errore omogenei per la massima efficienza.  Si noti che la raccomandazione dello stesso hardware è ancora presente all'interno di ogni singolo cluster, nonché dell'intero set di cluster.
 
-Da una vista di alto livello, si tratta quali cluster sono simili a set.
+Da una visualizzazione di alto livello, questo è l'aspetto dei set di cluster.
 
-![Cluster imposta soluzione visualizzazione](media/Cluster-sets-Overview/Cluster-sets-solution-View.png)
+![Visualizzazione soluzione set di cluster](media/Cluster-sets-Overview/Cluster-sets-solution-View.png)
 
-Di seguito viene fornita un breve riepilogo della ognuno degli elementi nell'immagine precedente:
+Di seguito viene fornito un riepilogo rapido di ognuno degli elementi nell'immagine precedente:
 
 **Cluster di gestione**
 
-Cluster di gestione in un set di cluster è un Cluster di Failover che ospita il piano di gestione a disponibilità elevata del set intero cluster e il riferimento dello spazio dei nomi (Cluster Set Namespace) di archiviazione unificata del File Server di scalabilità orizzontale (SOFS). Un cluster di gestione è logicamente separato dal cluster di membri che eseguono i carichi di lavoro di macchina virtuale. In questo modo il cluster impostato resiliente piano di gestione su eventuali errori a livello di cluster localizzati, ad esempio, interruzione dell'alimentazione di un cluster di membro.   
+Il cluster di gestione in un set di cluster è un cluster di failover che ospita il piano di gestione a disponibilità elevata dell'intero set di cluster e il riferimento File server di scalabilità orizzontale (SOFS) per lo spazio dei nomi di archiviazione unificato (cluster set Namespace). Un cluster di gestione è disaccoppiato logicamente dai cluster membri che eseguono i carichi di lavoro delle macchine virtuali. In questo modo il piano di gestione del set di cluster è resiliente agli errori localizzati a livello di cluster, ad esempio la perdita di potenza di un cluster membro.   
 
-**Cluster di membro**
+**Cluster membro**
 
-Un cluster di membro in un set di cluster è in genere un cluster iperconvergente tradizionali che eseguono macchine virtuali e dei carichi di lavoro di spazi di archiviazione diretta. Partecipare a più cluster di membro in una distribuzione di set singolo cluster, che costituiscono l'infrastruttura cloud SDDC più grande. I cluster di membro sono diversi da un cluster di gestione in due aspetti principali: i cluster membro fanno parte di dominio di errore e costrutti di set di disponibilità e cluster membro vengono ridimensionate anche alla macchina virtuale host e i carichi di lavoro di spazi di archiviazione diretta. Macchine virtuali del set di cluster che si spostano attraverso i limiti di cluster in un set di cluster non deve essere ospitate nel cluster di gestione per questo motivo.
+Un cluster membro in un set di cluster è in genere un cluster iperconvergente tradizionale che esegue carichi di lavoro di macchine virtuali e Spazi di archiviazione diretta. I cluster di più membri partecipano a una singola distribuzione di set di cluster, che costituisce l'infrastruttura cloud SDDC più ampia. I cluster membro differiscono da un cluster di gestione in due aspetti principali: i cluster membro partecipano a costrutti di dominio di errore e di set di disponibilità e i cluster di membri vengono anche dimensionati per ospitare macchine virtuali e carichi di lavoro di Spazi di archiviazione diretta. Per questo motivo, le macchine virtuali del set di cluster che si spostano tra i limiti del cluster in un set di cluster non devono essere ospitate nel cluster di gestione.
 
-**Cluster impostato lo spazio dei nomi riferimento SOFS**
+**Riferimento spazio dei nomi set cluster SOFS**
 
-Un riferimento di spazio dei nomi di set di cluster (Cluster Set Namespace) SOFS è un File Server di scalabilità orizzontale in cui ogni condivisione SMB sul SOFS Namespace impostare Cluster è una condivisione di riferimento: di tipo 'SimpleReferral' appena introdotta in Windows Server 2019. Questo rinvio consente l'accesso alla destinazione di condivisione SMB ospitata nel cluster SOFS membro i client Server Message Block (SMB). Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze.
+Un riferimento allo spazio dei nomi del set di cluster (cluster set Namespace) SOFS è un File server di scalabilità orizzontale in cui ogni condivisione SMB nello spazio dei nomi del set di cluster SOFS è una condivisione di riferimento, di tipo ' SimpleReferral ' introdotta in Windows Server 2019. Questo riferimento consente ai client SMB (Server Message Block) di accedere alla condivisione SMB di destinazione ospitata nel cluster membro SOFS. Il riferimento dello spazio dei nomi del set di cluster SOFS è un meccanismo di riferimento leggero e, di conseguenza, non partecipa al percorso di I/O. I riferimenti SMB vengono memorizzati nella cache perpetuamente su ognuno dei nodi client e il cluster imposta lo spazio dei nomi in modo dinamico aggiorna automaticamente questi riferimenti in base alle esigenze.
 
-**Cluster di imposta il nodo master**
+**Master del set di cluster**
 
-In un set di cluster, la comunicazione tra i cluster di membro è regime di controllo ed è coordinata da una nuova risorsa di cluster denominata "Cluster Set Master" (CS-Master). Come qualsiasi altra risorsa cluster, CS-Master è estremamente disponibile e resiliente agli errori di singoli membri del cluster e/o gli errori dei nodi del cluster di gestione. Tramite un nuovo provider WMI di Set di Cluster, CS-Master fornisce l'endpoint di gestione per tutte le interazioni gestibilità Cluster impostato.
+In un set di cluster, la comunicazione tra i cluster membro è a regime di controllo libero ed è coordinata da una nuova risorsa cluster denominata "cluster set master" (CS-Master). Analogamente a qualsiasi altra risorsa cluster, CS-Master è altamente disponibile e resiliente per i singoli errori del cluster membro e/o per gli errori dei nodi del cluster di gestione. Tramite un nuovo provider WMI per set di cluster, CS-Master fornisce l'endpoint di gestione per tutte le interazioni di gestione dei set di cluster.
 
-**Cluster worker di set**
+**Ruolo di lavoro del set di cluster**
 
-In una distribuzione Cluster impostato, CS-Master interagisce con una nuova risorsa di cluster nel membro del cluster denominato "Cluster impostare ruolo di lavoro" (CS-ruolo di lavoro). CS / ruolo di lavoro agisce come l'anello di congiunzione solo sul cluster per orchestrare le interazioni cluster locale, come richiesto da CS-Master. Sono esempi di tali interazioni posizionamento delle macchine virtuali e l'inventario delle risorse cluster locale. È presente una sola istanza di CS-ruolo di lavoro per ogni membro del cluster in un set di cluster. 
+In una distribuzione di set di cluster, il CS-Master interagisce con una nuova risorsa cluster nei cluster membri denominati "cluster set worker" (CS-Worker). CS-Worker funge da unico collegamento sul cluster per orchestrare le interazioni del cluster locale come richiesto dal CS-Master. Esempi di tali interazioni includono la selezione host per macchina virtuale e l'inventario delle risorse locali del cluster. Esiste una sola istanza del ruolo di lavoro CS per ogni cluster membro in un set di cluster. 
 
-**dominio di errore**
+**Dominio di errore**
 
-Un dominio di errore è il raggruppamento di software e gli elementi hardware che determina l'amministratore potrebbe non riuscire insieme quando si verifica un errore.  Mentre un amministratore è stato possibile designare uno o più cluster insieme come un dominio di errore, ogni nodo può partecipare a un dominio di errore in un set di disponibilità. Cluster imposta da Progettazione lascia la decisione di determinazione di limite dominio di errore all'amministratore che è buona familiarità con considerazioni sulla topologia centro dati – ad esempio, PDU, rete, che condividono i cluster di membro. 
+Un dominio di errore è il raggruppamento di elementi software e hardware che l'amministratore determina potrebbe non riuscire insieme quando si verifica un errore.  Sebbene un amministratore possa designare uno o più cluster come dominio di errore, ogni nodo potrebbe partecipare a un dominio di errore in un set di disponibilità. I set di cluster in base alla progettazione lasciano la decisione della determinazione dei limiti del dominio di errore all'amministratore, che è ben versato con data center considerazioni sulla topologia, ad esempio PDU, rete, che i cluster membro condividono. 
 
 **Set di disponibilità**
 
-Un set di disponibilità consente all'amministratore di configurare la ridondanza desiderata dei carichi di lavoro in cluster nei domini di errore, organizzando tali file in un set di disponibilità e la distribuzione di carichi di lavoro in tale set di disponibilità. Si supponga che se si sta distribuendo un'applicazione a due livelli, è consigliabile configurare almeno due macchine virtuali in un set di disponibilità per ogni livello che garantisce che quando un dominio di errore in tale set di disponibilità diventa inattiva, l'applicazione avrà almeno una macchina virtuale in ogni livello ospitato in un dominio di errore differenti di questo stesso set di disponibilità.
+Un set di disponibilità consente all'amministratore di configurare la ridondanza desiderata dei carichi di lavoro in cluster tra domini di errore, organizzando questi in un set di disponibilità e distribuendo i carichi di lavoro in tale set di disponibilità. Supponiamo che se si distribuisce un'applicazione a due livelli, è consigliabile configurare almeno due macchine virtuali in un set di disponibilità per ogni livello, in modo da garantire che quando un dominio di errore nel set di disponibilità diventa inattivo, l'applicazione avrà almeno una macchina virtuale in ogni livello ospitata in un dominio di errore diverso dello stesso set di disponibilità.
 
 ## <a name="why-use-cluster-sets"></a>Perché usare i set di cluster
 
-Set di cluster offre i vantaggi di scalabilità senza sacrificare la resilienza.  
+I set di cluster offrono il vantaggio della scalabilità senza sacrificare la resilienza.  
 
-Set di cluster consente di clustering più cluster insieme per creare un'infrastruttura di grandi dimensioni, mentre ogni cluster rimane indipendente per garantire la resilienza.  Ad esempio, si dispone di un uomo di 4 nodi diversi cluster di macchine virtuali in esecuzione.  Ogni cluster offre la flessibilità necessaria per se stesso.  Se la memoria o archiviazione inizia a riempirsi, la scalabilità verticale è il passaggio successivo.  Con scalabilità verticale, esistono alcune opzioni e considerazioni.
+I set di cluster consentono di raggruppare più cluster per creare un'infrastruttura di grandi dimensioni, mentre ogni cluster rimane indipendente per la resilienza.  Ad esempio, sono disponibili diversi cluster HCI a 4 nodi che eseguono macchine virtuali.  Ogni cluster fornisce la resilienza necessaria per se stessa.  Se lo spazio di archiviazione o la memoria inizia a riempirsi, la scalabilità verticale è il passaggio successivo.  Con la scalabilità verticale sono disponibili alcune opzioni e considerazioni.
 
-1. Aggiungere ulteriore spazio di archiviazione per il cluster corrente.  Con spazi di archiviazione diretta, questa operazione può risultare difficile, come le stesse unità di modello/firmware esatta potrebbe non essere disponibile.  La considerazione di tempi di ricompilazione è inoltre necessario tenere conto.
-2. Aggiungere ulteriore memoria.  Cosa accade se sono raggiunge il limite massimo della memoria che possono gestire i computer?  Cosa accade se tutti gli slot di memoria disponibile sono completi?
-3. Aggiungere nodi di calcolo aggiuntive con le unità in cluster corrente.  Questo atteggiamento nuovamente all'opzione 1 che devono essere considerati.
-4. Acquisto di un cluster completamente nuovo
+1. Aggiungere altro spazio di archiviazione al cluster corrente.  Con Spazi di archiviazione diretta, questo potrebbe essere difficile perché le stesse unità del modello/firmware potrebbero non essere disponibili.  È necessario tenere in considerazione anche i tempi di ricompilazione.
+2. Aggiungere ulteriore memoria.  Che cosa accade se si è raggiunto il limite massimo della memoria che i computer sono in grado di gestire?  Cosa accade se tutti gli slot di memoria disponibili sono pieni?
+3. Aggiungere nodi di calcolo aggiuntivi con le unità nel cluster corrente.  Questa operazione ci riporta all'opzione 1 che deve essere considerata.
+4. Acquistare un intero nuovo cluster
 
-Si tratta in cui il set di cluster offre i vantaggi della scalabilità.  Se si aggiungono i miei cluster in un set di cluster, è possibile sfruttare i vantaggi dell'archiviazione o memoria, che può essere disponibile in un altro cluster senza l'acquisto di altri componenti.  Dal punto di vista la resilienza, aggiunta di nodi aggiuntivi per un spazi di archiviazione diretta non verrà fornita aggiuntivi voti di quorum.  Come accennato [qui](drive-symmetry-considerations.md), un Cluster di spazi di archiviazione diretta può resistere alla perdita di 2 nodi prima di procedere verso il basso.  Se si dispone di un cluster di 4 nodi uomo, 3 nodi si disattivano richiederà l'intero cluster verso il basso.  Se si dispone di un cluster a 8 nodi, 3 nodi si disattivano richiederà l'intero cluster verso il basso.  Con set di Cluster con due cluster uomo di 4 nodi del set e 2 nodi in un uomo diventano inattivi e diventi non disponibile 1 nodo nell'altro uomo, entrambi i cluster di rimangano attive.  È preferibile per creare un cluster di spazi di archiviazione diretta 16 nodi grandi dimensioni o suddividerla in quattro cluster di 4 nodi e usare i set di cluster?  Con quattro cluster di 4 nodi con cluster set fornisce la stessa scala, ma una migliore resilienza in quanto più nodi di calcolo possono scendere (in modo imprevisto o per la manutenzione) e rimane di ambiente di produzione.
+Questo è il punto in cui i set di cluster forniscono i vantaggi della scalabilità.  Se aggiungo i cluster in un set di cluster, posso sfruttare i vantaggi dell'archiviazione o della memoria che potrebbero essere disponibili in un altro cluster senza ulteriori acquisti.  Dal punto di vista della resilienza, l'aggiunta di nodi aggiuntivi a una Spazi di archiviazione diretta non fornirà ulteriori voti per il quorum.  Come indicato in [questo](drive-symmetry-considerations.md)articolo, un cluster spazi di archiviazione diretta può sopravvivere alla perdita di 2 nodi prima di procedere.  Se si dispone di un cluster HCI a 4 nodi, 3 nodi si arrestano per difetto l'intero cluster.  Se si dispone di un cluster a 8 nodi, la disattivazione di 3 nodi comporterà l'intero cluster.  Con i set di cluster con due cluster HCI a 4 nodi nel set, 2 nodi in un HCI si arrestano e 1 nodo nell'altro HCI si arrestano, entrambi i cluster rimangono attivi.  È preferibile creare un cluster di Spazi di archiviazione diretta a 16 nodi di grandi dimensioni o suddividerlo in quattro cluster a 4 nodi e usare i set di cluster?  La presenza di quattro cluster a 4 nodi con set di cluster offre la stessa scalabilità, ma una resilienza migliore in quanto più nodi di calcolo possono rallentare (in modo imprevisto o per la manutenzione) e la produzione rimane.
 
 ## <a name="considerations-for-deploying-cluster-sets"></a>Considerazioni per la distribuzione di set di cluster
 
-Quando si valuta se il set di cluster è un elemento è necessario usare, considerare queste domande:
+Quando si considerano i set di cluster che è necessario usare, prendere in considerazione le domande seguenti:
 
-- È necessario andare oltre i corrente uomo calcolo e archiviazione di limiti di scalabilità?
-- Tutti di calcolo e archiviazione non sono esattamente uguali?
-- È in tempo reale la migrazione delle macchine virtuali tra i cluster?
-- Si vuole il set di disponibilità di Azure simile a computer e domini di errore in più cluster?
-- È necessario il tempo necessario per esaminare tutti i cluster per determinare dove devono essere inseriti eventuali nuove macchine virtuali?
+- È necessario superare i limiti di scalabilità di calcolo e archiviazione di HCI correnti?
+- Tutte le risorse di calcolo e di archiviazione non sono identiche?
+- Si esegue la migrazione in tempo reale di macchine virtuali tra cluster?
+- Si desidera che i set di disponibilità di computer e i domini di errore di Azure siano in più cluster?
+- È necessario esaminare tutti i cluster per determinare la posizione in cui devono essere inserite le nuove macchine virtuali?
 
-Se la risposta è affermativa, set di cluster è ciò che è necessario.
+Se la risposta è sì, i set di cluster sono gli elementi necessari.
 
-Esistono alcuni altri elementi da considerare in cui una più grande SDDC potrebbe cambiare le strategie di centro dati complessivi.  SQL Server è un buon esempio.  Lo spostamento delle macchine virtuali di SQL Server tra i cluster richiede licenze di SQL per l'esecuzione nei nodi aggiuntivi?  
+Ci sono alcuni altri elementi da considerare dove una SDDC più ampia potrebbe modificare le strategie di data center globale.  SQL Server è un esempio valido.  Lo stato di trasferimento di SQL Server macchine virtuali tra cluster richiede l'esecuzione di SQL licenze per i nodi aggiuntivi?  
 
-## <a name="scale-out-file-server-and-cluster-sets"></a>File server di scalabilità orizzontale e i set di cluster
+## <a name="scale-out-file-server-and-cluster-sets"></a>Scalabilità orizzontale file server e set di cluster
 
-In Windows Server 2019, vi è un nuovo ruolo di server di scalabilità orizzontale file chiamato infrastruttura Scale-Out File Server di scalabilità orizzontale (SOFS). 
+In Windows Server 2019 è disponibile un nuovo ruolo di file server con scalabilità orizzontale denominato Infrastructure File server di scalabilità orizzontale (SOFS). 
 
-Le considerazioni seguenti si applicano a un ruolo di infrastruttura SOFS:
+Le considerazioni seguenti si applicano a un ruolo SOFS dell'infrastruttura:
 
-1.  In un Cluster di Failover possono essere presenti al massimo un solo ruolo del cluster SOFS dell'infrastruttura. Ruolo SOFS infrastruttura viene creato specificando la " **-infrastruttura**" passare parametri per il **Add-ClusterScaleOutFileServerRole** cmdlet.  Ad esempio:
+1.  In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Esempio:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
-2.  Ogni volume CSV creato automaticamente il failover determina la creazione di una condivisione SMB con un nome generato automaticamente in base al nome del volume CSV. Un amministratore non può direttamente creare o modificare le condivisioni SMB in un ruolo SOFS, diverso da tramite operazioni di creazione/modifica volume CSV.
+2.  Ogni volume CSV creato nel failover attiva automaticamente la creazione di una condivisione SMB con un nome generato automaticamente in base al nome del volume CSV. Un amministratore non può creare o modificare direttamente le condivisioni SMB in un ruolo SOFS, oltre che tramite operazioni di creazione/modifica del volume CSV.
 
-3.  Nelle configurazioni iperconvergenti, un SOFS infrastruttura consente a un client SMB (host Hyper-V) per comunicare con garantite disponibilità continua (CA) per il server di infrastruttura SOFS SMB. Questo codice iperconvergente SMB loopback autorità di certificazione viene realizzata attraverso le macchine virtuali l'accesso ai relativi file di disco virtuale (VHDx) in cui l'identità della macchina virtuale proprietaria viene inoltrato tra il client e server. Questa funzionalità di inoltro di identità consente i file VHDx di ACL ing come in configurazioni cluster iperconvergente standard come prima.
+3.  Nelle configurazioni iperconvergenti, un SOFS di infrastruttura consente a un client SMB (host Hyper-V) di comunicare con la disponibilità continua garantita (CA) al server SMB SOFS di infrastruttura. Questa CA di loopback SMB iperconvergente viene eseguita tramite macchine virtuali che accedono ai file del disco virtuale (VHDx) in cui l'identità della macchina virtuale proprietaria viene trasmessa tra il client e il server. Questo tipo di inoltri consente ai file VHDx ACL come nelle configurazioni di cluster iperconvergenti standard come prima.
 
-Dopo aver creato un set di cluster, lo spazio dei nomi di set di cluster si basa su un SOFS infrastruttura in ognuno dei cluster membro e inoltre un SOFS infrastruttura nel cluster di gestione.
+Una volta creato un set di cluster, lo spazio dei nomi del set di cluster si basa su un SOFS di infrastruttura in ognuno dei cluster membri, oltre a un'infrastruttura SOFS nel cluster di gestione.
 
-Al momento un cluster del membro viene aggiunto a un set di cluster, se ne esiste già, l'amministratore specifica il nome di un SOFS infrastruttura in tale cluster. Se il SOFS infrastruttura non esiste, viene creato un nuovo ruolo di infrastruttura SOFS nel nuovo cluster membro da questa operazione. Se esiste già un ruolo SOFS infrastruttura nel cluster di membro, l'operazione di aggiunta in modo implicito viene rinominato con il nome specificato in base alle esigenze. Qualsiasi server SMB singleton esistenti, o i ruoli non - infrastruttura SOFS nel membro del cluster vengono lasciati inutilizzate per il set di cluster. 
+Quando un cluster membro viene aggiunto a un set di cluster, l'amministratore specifica il nome di un'infrastruttura SOFS nel cluster, se ne esiste già una. Se il SOFS dell'infrastruttura non esiste, viene creato un nuovo ruolo SOFS infrastruttura nel nuovo cluster membro per questa operazione. Se nel cluster membro è già presente un ruolo SOFS dell'infrastruttura, l'operazione di aggiunta la rinomina in modo implicito nel nome specificato, in base alle esigenze. Eventuali server SMB singleton esistenti o ruoli SOFS non di infrastruttura nei cluster membro non vengono utilizzati dal set di cluster. 
 
-In fase di creazione del set di cluster, l'amministratore ha la possibilità di usare un oggetto computer di Active Directory già esistente come radice dello spazio dei nomi nel cluster di gestione. Operazioni di creazione di set di cluster create il ruolo del cluster SOFS infrastruttura nel cluster di gestione o Rinomina il ruolo infrastruttura SOFS esistente semplicemente come descritto in precedenza per i cluster di membro. SOFS infrastruttura nel cluster di gestione viene utilizzato come cluster di set di riferimento dello spazio dei nomi (Cluster Set Namespace) SOFS. Significa semplicemente che ogni condivisione SMB nel cluster di impostare lo spazio dei nomi che SOFS è una condivisione di riferimento, di tipo 'SimpleReferral' - appena introdotta in Windows Server 2019.  Questo rinvio consente l'accesso ai client SMB per la destinazione di condivisione SMB ospitata nel cluster SOFS membro. Il cluster imposta lo spazio dei nomi riferimento SOFS è un meccanismo di riferimento leggeri e di conseguenza, non fa parte del percorso dei / o. Vengono memorizzati nella cache perennemente i riferimenti di SMB in ognuno dei nodi client e lo spazio dei nomi di set di cluster in modo dinamico viene aggiornato automaticamente questi riferimenti in base alle esigenze
+Al momento della creazione del set di cluster, l'amministratore ha la possibilità di usare un oggetto computer AD già esistente come radice dello spazio dei nomi nel cluster di gestione. Le operazioni di creazione di set di cluster creano il ruolo del cluster SOFS dell'infrastruttura nel cluster di gestione o rinominano il ruolo SOFS dell'infrastruttura esistente come descritto in precedenza per i cluster di membri. Il SOFS dell'infrastruttura nel cluster di gestione viene usato come riferimento allo spazio dei nomi del set di cluster (spazio dei nomi del set di cluster) SOFS. Significa semplicemente che ogni condivisione SMB nello spazio dei nomi del set di cluster SOFS è una condivisione di riferimento, di tipo ' SimpleReferral ', appena introdotta in Windows Server 2019.  Questo riferimento consente ai client SMB di accedere alla condivisione SMB di destinazione ospitata nel cluster membro SOFS. Il riferimento dello spazio dei nomi del set di cluster SOFS è un meccanismo di riferimento leggero e, di conseguenza, non partecipa al percorso di I/O. I riferimenti SMB vengono memorizzati nella cache perpetuamente su ognuno dei nodi client e il cluster imposta lo spazio dei nomi in modo dinamico aggiorna automaticamente questi riferimenti in base alle esigenze
 
-## <a name="creating-a-cluster-set"></a>Creazione di un Set di Cluster
+## <a name="creating-a-cluster-set"></a>Creazione di un set di cluster
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Durante la creazione di un cluster di set, è consigliabile si dei prerequisiti seguenti:
+Quando si crea un set di cluster, sono consigliati i prerequisiti seguenti:
 
 1. Configurare un client di gestione che esegue Windows Server 2019.
-2. Installare gli strumenti di Cluster di Failover sul server di gestione.
-3. Creare i membri del cluster (almeno due cluster con almeno due volumi condivisi del Cluster in ogni cluster)
-4. Creare un cluster di gestione (fisico o guest) che attraversa i cluster di membro.  Questo approccio assicura che i set di Cluster piano di gestione continua a essere disponibile indipendentemente dagli errori di cluster possibili membro.
+2. Installare gli strumenti del cluster di failover in questo server di gestione.
+3. Creare membri del cluster (almeno due cluster con almeno due volumi condivisi del cluster in ogni cluster)
+4. Creare un cluster di gestione (fisico o Guest) che risieda nei cluster di membri.  Questo approccio assicura che il piano di gestione dei set di cluster continui a essere disponibile nonostante i possibili errori del cluster di membri.
 
 ### <a name="steps"></a>Passaggi
 
-1. Creare un nuovo cluster impostate da tre cluster come definito nei prerequisiti.  Il seguente grafico verrà fornito un esempio di cluster da creare.  Il nome del cluster impostato in questo esempio sarà **CSMASTER**.
+1. Creare un nuovo set di cluster da tre cluster come definito nei prerequisiti.  Il grafico seguente fornisce un esempio di cluster da creare.  Il nome del cluster impostato in questo esempio sarà **csmaster**.
 
-   | Nome del cluster               | Nome SOFS infrastruttura da utilizzare in un secondo momento | 
+   | Nome del cluster               | Nome SOFS dell'infrastruttura da usare in un secondo momento | 
    |----------------------------|-------------------------------------------|
    | SET-CLUSTER                | SOFS-CLUSTERSET                           |
    | CLUSTER1                   | SOFS-CLUSTER1                             |
    | CLUSTER2                   | SOFS-CLUSTER2                             |
 
-2. Dopo avere creato tutti i cluster, usare i comandi seguenti per creare il cluster set master.
+2. Una volta creato tutto il cluster, usare i comandi seguenti per creare il master del set di cluster.
 
         New-ClusterSet -Name CSMASTER -NamespaceRoot SOFS-CLUSTERSET -CimSession SET-CLUSTER
 
-3. Per aggiungere un Cluster di Server al gruppo di cluster, di seguito viene usato.
+3. Per aggiungere un server del cluster al set di cluster, viene usato il seguente.
 
         Add-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER1
         Add-ClusterSetMember -ClusterName CLUSTER2 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER2
 
    > [!NOTE]
-   > Se si usa una combinazione di indirizzo IP statica, è necessario includere *x.x.x. x - StaticAddress* nel **New-ClusterSet** comando.
+   > Se si usa uno schema di indirizzi IP statici, è necessario includere *-StaticAddress x* . x.x. x nel comando **New-ClusterSet** .
 
-4. Dopo aver creato il cluster all'esterno dei membri del cluster, è possibile elencare il set di nodi e le relative proprietà.  Per enumerare tutti i cluster di membro nel set di cluster:
+4. Una volta creato il cluster impostato sui membri del cluster, è possibile elencare il set di nodi e le relative proprietà.  Per enumerare tutti i cluster membro nel set di cluster:
 
         Get-ClusterSetMember -CimSession CSMASTER
 
-5. Per enumerare tutti i cluster del membro del cluster impostare inclusi nodi del cluster di gestione:
+5. Per enumerare tutti i cluster di membri nel set di cluster, inclusi i nodi del cluster di gestione:
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterNode
 
-6. Per elencare tutti i nodi dal cluster membro:
+6. Per elencare tutti i nodi dei cluster membro:
 
         Get-ClusterSetNode -CimSession CSMASTER
 
@@ -163,39 +163,39 @@ Durante la creazione di un cluster di set, è consigliabile si dei prerequisiti 
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
 
-8. Per verificare il cluster impostare il processo di creazione creato una condivisione SMB (identificata come Volume1 o qualsiasi cartella CSV viene etichettata con la ScopeName è il nome del File Server dell'infrastruttura e il percorso sia) il server di scalabilità orizzontale dell'infrastruttura per ogni membro del cluster Volume condiviso cluster:
+8. Per verificare che il processo di creazione del set di cluster abbia creato una condivisione SMB (identificata come volume1 o la cartella CSV con l'etichetta ScopeName come nome del file server dell'infrastruttura e il percorso come entrambi) nell'infrastruttura SOFS per ogni membro del cluster Volume CSV:
 
         Get-SmbShare -CimSession CSMASTER
 
-8. Set di cluster include registri di debug che possono essere raccolti per la revisione.  Imposta il cluster e per tutti i membri e il cluster di gestione è possono raccogliere i log di debug di cluster.
+8. I set di cluster dispongono di log di debug che possono essere raccolti per la revisione.  Sia il set di cluster che i log di debug del cluster possono essere raccolti per tutti i membri e il cluster di gestione.
 
         Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
 
-9. Configurare Kerberos [per la delega vincolata](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) tra tutti i cluster di impostazione dei membri.
+9. Configurare la [delega vincolata](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) Kerberos tra tutti i membri del set di cluster.
 
-10. Configurare il tipo di autenticazione di migrazione in tempo reale di macchina virtuale tra cluster di Kerberos in ogni nodo in un Set di Cluster.
+10. Configurare il tipo di autenticazione della migrazione in tempo reale di una macchina virtuale tra cluster in Kerberos in ogni nodo del set di cluster.
 
         foreach($h in $hosts){ Set-VMHost -VirtualMachineMigrationAuthenticationType Kerberos -ComputerName $h }
 
-11. Aggiungere il cluster di gestione al gruppo administrators locale in ogni nodo nel set di cluster.
+11. Aggiungere il cluster di gestione al gruppo Administrators locale in ogni nodo del set di cluster.
 
         foreach($h in $hosts){ Invoke-Command -ComputerName $h -ScriptBlock {Net localgroup administrators /add <management_cluster_name>$} }
 
-## <a name="creating-new-virtual-machines-and-adding-to-cluster-sets"></a>Creazione di nuove macchine virtuali e aggiunta al set di cluster
+## <a name="creating-new-virtual-machines-and-adding-to-cluster-sets"></a>Creazione di nuove macchine virtuali e aggiunta a set di cluster
 
-Dopo la creazione del cluster è stato impostato, il passaggio successivo consiste nel creare nuove macchine virtuali.  In genere, quando è possibile creare macchine virtuali e aggiungerli a un cluster, è necessario eseguire alcuni controlli nei cluster per vedere quale potrebbe essere preferibile eseguire nell'ambito.  Questi controlli possono includere:
+Dopo aver creato il set di cluster, il passaggio successivo consiste nel creare nuove macchine virtuali.  In genere, quando è il momento di creare macchine virtuali e aggiungerle a un cluster, è necessario eseguire alcuni controlli sui cluster per vedere quale potrebbe essere l'esecuzione migliore.  Questi controlli possono includere:
 
-- Quantità di memoria è disponibile nei nodi del cluster?
-- Spazio su disco è disponibile nei nodi del cluster?
-- La macchina virtuale richiede requisiti di archiviazione specifico (ovvero voglio macchine virtuali SQL Server per passare a un cluster che eseguono le unità più veloce; in alternativa, la macchina virtuale dell'infrastruttura non è critica ed eseguibili in unità più lente).
+- La quantità di memoria disponibile nei nodi del cluster
+- Quanto spazio su disco è disponibile nei nodi del cluster?
+- La macchina virtuale richiede requisiti di archiviazione specifici, ad esempio se si desidera che le macchine virtuali SQL Server accedano a un cluster che esegue unità più veloci. in caso contrario, la macchina virtuale dell'infrastruttura non è cruciale e può essere eseguita in unità più lente).
 
-Dopo questo domande, si crea la macchina virtuale nel cluster che è necessario che sia.  Uno dei vantaggi dei set di cluster è che i set di cluster eseguire tali controlli per l'utente e inserire la macchina virtuale nel nodo ottimale.
+Una volta soddisfatte queste domande, è necessario creare la macchina virtuale nel cluster.  Uno dei vantaggi dei set di cluster è che i set di cluster eseguono tali verifiche e posizionano la macchina virtuale nel nodo più ottimale.
 
-I comandi seguenti verranno entrambi identificare il cluster ottima e distribuire la macchina virtuale ad esso.  Nell'esempio seguente viene creata una nuova macchina virtuale specifica che almeno 4 GB di memoria è disponibile per la macchina virtuale e che dovrà utilizzare 1 processore virtuale.
+I comandi seguenti consentono di identificare il cluster ottimale e di distribuire la macchina virtuale.  Nell'esempio seguente viene creata una nuova macchina virtuale che specifica che sono disponibili almeno 4 gigabyte di memoria per la macchina virtuale e che sarà necessario utilizzare 1 processore virtuale.
 
-- Assicurarsi che sia disponibile per la macchina virtuale di 4gb
-- impostare il processore virtuale utilizzato in 1
-- controllo per assicurarsi che ci sia almeno il 10% della CPU disponibile per la macchina virtuale
+- Assicurarsi che 4GB sia disponibile per la macchina virtuale
+- imposta il processore virtuale usato su 1
+- Verificare che sia disponibile almeno il 10% di CPU per la macchina virtuale
 
    ```PowerShell
    # Identify the optimal node to create a new virtual machine
@@ -212,69 +212,69 @@ I comandi seguenti verranno entrambi identificare il cluster ottima e distribuir
    Get-VM CSVM1 -ComputerName $targetnode.name | fl State, ComputerName
    ```
 
-Al termine, sarà possibile le informazioni relative alla macchina virtuale e in cui è stato inserito.  Nell'esempio precedente, questo verrà visualizzato come:
+Al termine, verranno fornite le informazioni relative alla macchina virtuale e alla posizione in cui sono state inserite.  Nell'esempio precedente, verrebbe visualizzato come:
 
         State         : Running
         ComputerName  : 1-S2D2
 
-Se non dispone di sufficiente memoria, cpu o spazio su disco per aggiungere la macchina virtuale, si riceverà l'errore:
+Se non si dispone di memoria sufficiente, CPU o spazio su disco per aggiungere la macchina virtuale, verrà visualizzato l'errore seguente:
 
       Get-ClusterSetOptimalNodeForVM : A cluster node is not available for this operation.  
 
-Dopo aver creata la macchina virtuale, verrà visualizzato nella console di gestione Hyper-V sul nodo specifico specificato.  Per aggiungerla come un cluster di set di macchine virtuali e al cluster, il comando sarà il seguente.  
+Una volta creata, la macchina virtuale verrà visualizzata nella console di gestione di Hyper-V nel nodo specifico specificato.  Per aggiungerlo come macchina virtuale del set di cluster e nel cluster, il comando è riportato di seguito.  
 
         Register-ClusterSetVM -CimSession CSMASTER -MemberName $targetnode.Member -VMName CSVM1
 
-Al termine, l'output sarà:
+Al termine dell'operazione, l'output sarà:
 
          Id  VMName  State  MemberName  PSComputerName
          --  ------  -----  ----------  --------------
           1  CSVM1      On  CLUSTER1    CSMASTER
 
-Se è stato aggiunto un cluster con le macchine virtuali esistenti, le macchine virtuali anche dovrà essere registrato con il Cluster set quindi, registrare tutte le macchine virtuali in una sola volta, il comando da usare è:
+Se è stato aggiunto un cluster con macchine virtuali esistenti, sarà necessario registrare anche le macchine virtuali con i set di cluster, in modo da registrare tutte le macchine virtuali contemporaneamente. il comando da usare è:
 
         Get-ClusterSetMember -name CLUSTER3 -CimSession CSMASTER | Register-ClusterSetVM -RegisterAll -CimSession CSMASTER
 
-Tuttavia, il processo non è completo, come il percorso per la macchina virtuale deve essere aggiunto allo spazio dei nomi di set di cluster.
+Tuttavia, il processo non è completo perché il percorso della macchina virtuale deve essere aggiunto allo spazio dei nomi del set di cluster.
 
-Ad esempio, viene aggiunto un cluster esistente e dispone di macchine virtuali preconfigurate si trovano nel locale Cluster Shared Volume (CSV), il percorso per il file VHDX sarà qualcosa di simile a "C:\ClusterStorage\Volume1\MYVM\Virtual Disks\MYVM.vhdx disco rigido.  Migrazione dell'archiviazione dovrà essere eseguita come previsto da Progettazione locale a un cluster singolo membro sono i percorsi CSV. Di conseguenza, non sarà accessibile alla macchina virtuale quando sono in tempo reale la migrazione tra cluster di membro. 
+Quindi, ad esempio, viene aggiunto un cluster esistente e le macchine virtuali preconfigurate si trovano nel Volume condiviso cluster locale (CSV), il percorso per il VHDX è simile a "C:\ClusterStorage\Volume1\MYVM\Virtual hard Disks\MYVM.vhdx.  È necessario eseguire una migrazione dell'archiviazione perché i percorsi CSV sono progettati in locale in un singolo cluster membro. Quindi, non sarà accessibile alla macchina virtuale dopo la migrazione in tempo reale tra i cluster membri. 
 
-In questo esempio CLUSTER3 è stato aggiunto al cluster impostato utilizzando Add-ClusterSetMember con Scale-Out File Server dell'infrastruttura come SOFS CLUSTER3.  Per spostare la configurazione della macchina virtuale e l'archiviazione, il comando è:
+In questo esempio, CLUSTER3 è stato aggiunto al set di cluster usando Add-ClusterSetMember con l'infrastruttura File server di scalabilità orizzontale come SOFS-CLUSTER3.  Per spostare la configurazione e l'archiviazione della macchina virtuale, il comando è:
 
         Move-VMStorage -DestinationStoragePath \\SOFS-CLUSTER3\Volume1 -Name MYVM
 
-Al termine, si riceverà un avviso:
+Al termine, verrà visualizzato un avviso:
 
         WARNING: There were issues updating the virtual machine configuration that may prevent the virtual machine from running.  For more information view the report file below.
         WARNING: Report file location: C:\Windows\Cluster\Reports\Update-ClusterVirtualMachineConfiguration '' on date at time.htm.
 
-Questo avviso può essere ignorato l'avviso è "senza modificare la configurazione archiviazione del ruolo macchina virtuale sono state rilevate".  Il motivo per l'avviso come percorso fisico effettivo non è modificabile; solo i percorsi di configurazione. 
+Questo avviso può essere ignorato perché l'avviso è "non sono state rilevate modifiche nella configurazione dell'archiviazione del ruolo macchina virtuale".  Il motivo dell'avviso perché la posizione fisica effettiva non cambia; solo i percorsi di configurazione. 
 
-Per altre informazioni su Move-VMStorage, consultare questa [collegamento](https://docs.microsoft.com/powershell/module/hyper-v/move-vmstorage?view=win10-ps). 
+Per ulteriori informazioni su Move-VMStorage, consultare questo [collegamento](https://docs.microsoft.com/powershell/module/hyper-v/move-vmstorage?view=win10-ps). 
 
-In tempo reale la migrazione di una macchina virtuale tra cluster diversi set di cluster è non uguale come in passato. In scenari set non cluster, la procedura sarebbe:
+La migrazione in tempo reale di una macchina virtuale tra cluster di set di cluster diversi non è uguale a quella del passato. Negli scenari di set non cluster, i passaggi sono i seguenti:
 
-1. rimuovere il ruolo di macchina virtuale dal Cluster.
-2. migrazione in tempo reale della macchina virtuale a un nodo membro di un cluster diverso.
-3. aggiungere la macchina virtuale al cluster come un nuovo ruolo di macchina virtuale.
+1. rimuovere il ruolo di macchina virtuale dal cluster.
+2. eseguire la migrazione in tempo reale della macchina virtuale in un nodo membro di un cluster diverso.
+3. aggiungere la macchina virtuale al cluster come nuovo ruolo macchina virtuale.
 
-Con i set di Cluster non sono necessari questi passaggi e solo un comando è necessaria.  In primo luogo, è necessario impostare tutte le reti siano disponibili per la migrazione con il comando:
+Con cluster imposta questi passaggi non sono necessari ed è necessario un solo comando.  Per prima cosa, è necessario impostare tutte le reti in modo che siano disponibili per la migrazione con il comando:
 
     Set-VMHost -UseAnyNetworkMigration $true
 
-Ad esempio, desidera spostare una macchina virtuale di Cluster impostato dal CLUSTER1 in NODE2 CL3 su CLUSTER3.  Il singolo comando sarà:
+Ad esempio, voglio spostare una macchina virtuale del set di cluster da CLUSTER1 a NODE2-CL3 in CLUSTER3.  Il singolo comando è:
 
         Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
 
-Si noti che ciò non modifica i file di archiviazione o la configurazione di macchina virtuale.  Non è necessario il percorso per la macchina virtuale rimane come \\SOFS CLUSTER1\VOLUME1.  Dopo la registrazione di una macchina virtuale con i set di cluster ha il percorso della condivisione File Server di infrastruttura, l'unità e macchina virtuale non è necessario in corso nello stesso computer della macchina virtuale.
+Si noti che questa operazione non consente di spostare i file di configurazione o di archiviazione della macchina virtuale.  Questa operazione non è necessaria perché il percorso della macchina virtuale rimane come \\SOFS-CLUSTER1\VOLUME1.  Quando una macchina virtuale è stata registrata con i set di cluster ha il percorso di condivisione del file server dell'infrastruttura, le unità e la macchina virtuale non devono essere nello stesso computer della macchina virtuale.
 
-## <a name="creating-availability-sets-fault-domains"></a>Disponibilità di creazione di set di domini di errore
+## <a name="creating-availability-sets-fault-domains"></a>Creazione di gruppi di disponibilità domini di errore
 
-Come descritto nell'introduzione, domini di errore simile a Azure e i set di disponibilità possono essere configurati in un set di cluster.  Ciò è utile per le migrazioni tra cluster e selezioni host per macchina virtuale iniziale.  
+Come descritto nell'introduzione, i domini di errore e i set di disponibilità di tipo Azure possono essere configurati in un set di cluster.  Questa operazione è utile per le migrazioni e le migrazioni iniziali delle macchine virtuali tra i cluster.  
 
-Nell'esempio seguente, sono presenti quattro cluster che fanno parte del set di cluster.  All'interno del set, verrà creato un dominio di errore logico con due i cluster e un dominio di errore creati con altri due cluster.  Questi due domini di errore includerà il Set di disponibilità. 
+Nell'esempio seguente sono presenti quattro cluster che partecipano al set di cluster.  All'interno del set verrà creato un dominio di errore logico con due cluster e un dominio di errore creato con gli altri due cluster.  Questi due domini di errore costituiranno il set di disponibilità. 
 
-Nell'esempio seguente, CLUSTER1 e CLUSTER2 saranno in un dominio di errore chiamato **FD1** mentre CLUSTER3 e CLUSTER4 saranno in un dominio di errore chiamato **FD2**.  Il set di disponibilità verrà chiamato **CSMASTER-AS** ed essere costituito di due domini di errore.
+Nell'esempio seguente CLUSTER1 e CLUSTER2 si troveranno in un dominio di errore denominato **FD1** mentre CLUSTER3 e CLUSTER4 si troveranno in un dominio di errore denominato **FD2**.  Il set di disponibilità sarà denominato **csmaster-As** e sarà costituito dai due domini di errore.
 
 Per creare i domini di errore, i comandi sono:
 
@@ -282,7 +282,7 @@ Per creare i domini di errore, i comandi sono:
 
         New-ClusterSetFaultDomain -Name FD2 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER3,CLUSTER4 -Description "This is my second fault domain"
 
-Per garantire che sono state create correttamente, è possibile eseguire Get-ClusterSetFaultDomain con il proprio output illustrato.
+Per assicurarsi che siano stati creati correttamente, è possibile eseguire Get-ClusterSetFaultDomain con l'output visualizzato.
 
         PS C:\> Get-ClusterSetFaultDomain -CimSession CSMASTER -FdName FD1 | fl *
 
@@ -294,15 +294,15 @@ Per garantire che sono state create correttamente, è possibile eseguire Get-Clu
         Id                    : 1
         PSComputerName        : CSMASTER
 
-Ora che sono stati creati i domini di errore, il set di disponibilità deve essere creata.
+Ora che sono stati creati i domini di errore, è necessario creare il set di disponibilità.
 
         New-ClusterSetAvailabilitySet -Name CSMASTER-AS -FdType Logical -CimSession CSMASTER -ParticipantName FD1,FD2
 
-Per la convalida è stata creata, quindi usare:
+Per convalidare che è stato creato, usare:
 
         Get-ClusterSetAvailabilitySet -AvailabilitySetName CSMASTER-AS -CimSession CSMASTER
 
-Quando si creano nuove macchine virtuali, è necessario quindi usare il parametro - set di disponibilità come parte di determinare il nodo ottima.  Pertanto hanno quindi un aspetto simile al seguente:
+Quando si creano nuove macchine virtuali, è necessario usare il parametro-abilitate per come parte della determinazione del nodo ottimale.  Quindi, avrà un aspetto simile al seguente:
 
         # Identify the optimal node to create a new virtual machine
         $memoryinMB=4096
@@ -312,12 +312,12 @@ Quando si creano nuove macchine virtuali, è necessario quindi usare il parametr
         $secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
         $cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
 
-Rimozione di un cluster dal cluster imposta a causa di diversi cicli di vita. Vi sono casi quando un cluster deve essere rimosso da un set di cluster. Come procedura consigliata, tutte le macchine virtuali del set di cluster deve essere spostate all'esterno del cluster. Ciò è possibile usare la **Move-ClusterSetVM** e **Move-VMStorage** comandi.
+Rimozione di un cluster da set di cluster a causa di diversi cicli di vita. In alcuni casi è necessario rimuovere un cluster da un set di cluster. Come procedura consigliata, tutte le macchine virtuali del set di cluster devono essere spostate all'esterno del cluster. Questa operazione può essere eseguita usando i comandi **Move-ClusterSetVM** e **Move-VMStorage** .
 
-Tuttavia, se non verranno spostate anche le macchine virtuali, set di cluster esegue una serie di azioni per fornire un risultato intuitivo per l'amministratore.  Quando il cluster viene rimosso dal set, tutti i restanti set di macchine virtuali del cluster ospitate nel cluster da rimuovere semplicemente diventerà macchine virtuali a disponibilità elevata associate a tale cluster, purché che abbiano accesso al relativo spazio di archiviazione.  Set di cluster aggiornerà automaticamente anche l'inventario da:
+Tuttavia, se anche le macchine virtuali non vengono spostate, i set di cluster eseguono una serie di azioni per fornire un risultato intuitivo all'amministratore.  Quando il cluster viene rimosso dal set, tutte le macchine virtuali del set di cluster rimanenti ospitate nel cluster da rimuovere diventeranno semplicemente macchine virtuali a disponibilità elevata associate a tale cluster, presumendo che abbiano accesso alla propria archiviazione.  I set di cluster aggiornano inoltre automaticamente l'inventario per:
 
-- Non è più rilevamento dell'integrità del cluster rimosso ora e le macchine virtuali in esecuzione su di essa
-- Rimuove dal cluster set dello spazio dei nomi e tutti i riferimenti a condivisioni ospitate nel cluster rimosso adesso
+- Non è più possibile tenere traccia dello stato del cluster ora rimosso e delle macchine virtuali in esecuzione
+- Rimuove dallo spazio dei nomi del set di cluster e tutti i riferimenti alle condivisioni ospitate nel cluster ora rimosso
 
 Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sarà:
 
@@ -325,55 +325,55 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
-**Domanda:** Nel set di cluster, è previsto un limite all'uso dei soli cluster iperconvergente? <br>
-**Risposta:** No.  È possibile combinare gli spazi di archiviazione diretta con i cluster tradizionali.
+**Domanda** Nel set di cluster sono limitati a usare solo cluster iperconvergenti? <br>
+**Risposta** No.  È possibile combinare Spazi di archiviazione diretta con i cluster tradizionali.
 
-**Domanda:** È possibile gestire il Cluster impostato tramite System Center Virtual Machine Manager? <br>
-**Risposta:** System Center Virtual Machine Manager non supporta attualmente i set di Cluster <br><br> **Domanda:** Possono Windows Server 2012 R2 o 2016 cluster coesistere nello stesso set di cluster? <br>
-**Domanda:** È possibile migrare i carichi di lavoro disattivare Windows Server 2012 R2 o 2016 cluster per la disponibilità di tali cluster partecipare allo stesso Set di Cluster? <br>
-**Risposta:** Set di cluster è una nuova tecnologia introdotta in Windows Server 2019, pertanto, di conseguenza, non esiste nelle versioni precedenti. I cluster basati su sistemi operativi legacy non è possibile aggiungere un set di cluster. Tuttavia, la tecnologia degli aggiornamenti in sequenza del sistema operativo del Cluster deve fornire la funzionalità di migrazione che si sta cercando eseguendo l'aggiornamento di questi cluster a Windows Server 2019.
+**Domanda** È possibile gestire il set di cluster tramite System Center Virtual Machine Manager? <br>
+**Risposta** System Center Virtual Machine Manager attualmente non supporta i set di cluster <br><br> **Domanda** I cluster Windows Server 2012 R2 o 2016 possono coesistere nello stesso set di cluster? <br>
+**Domanda** È possibile eseguire la migrazione dei carichi di lavoro dai cluster Windows Server 2012 R2 o 2016 semplicemente se tali cluster si aggiungono allo stesso set di cluster? <br>
+**Risposta** I set di cluster sono una nuova tecnologia introdotta in Windows Server 2019, pertanto non esiste nelle versioni precedenti. I cluster basati su sistema operativo legacy non possono essere aggiunti a un set di cluster. Tuttavia, la tecnologia di aggiornamento in sequenza del sistema operativo del cluster deve fornire la funzionalità di migrazione che si sta cercando aggiornando questi cluster a Windows Server 2019.
 
-**Domanda:** Possibile set di Cluster consente la scalabilità di archiviazione o di calcolo (da sole)? <br>
-**Risposta:** Sì, aggiungendo semplicemente un spazio di archiviazione diretta o cluster Hyper-V tradizionale. Con i set di cluster, è una semplice modifica del rapporto di calcolo-a-Storage anche in un set di cluster iperconvergente.
+**Domanda** I set di cluster possono ridimensionare l'archiviazione o il calcolo (da solo)? <br>
+**Risposta** Sì, aggiungendo semplicemente un cluster Hyper-V con spazio di archiviazione diretto o tradizionale. Con i set di cluster, si tratta di una semplice modifica del rapporto tra calcolo e archiviazione anche in un set di cluster iperconvergente.
 
-**Domanda:** What ' s gli strumenti di gestione per i set di cluster <br>
-**Risposta:** PowerShell o WMI in questa versione.
+**Domanda** Quali sono gli strumenti di gestione per i set di cluster <br>
+**Risposta** PowerShell o WMI in questa versione.
 
-**Domanda:** Come si integrano la migrazione in tempo reale tra cluster con processori di generazioni diversi?  <br>
-**Risposta:** Set di cluster non ovviare alle differenze di processore e sostituiscono quelle attualmente supportate la tecnologia Hyper-V.  Pertanto, la modalità di compatibilità processore deve essere utilizzata con migrazioni rapide.  La raccomandazione per i set di Cluster consiste nell'usare lo stesso hardware del processore all'interno di ogni Cluster, nonché l'intero Cluster impostato per migrazioni in tempo reale tra cluster di cui si verifichi.
+**Domanda** In che modo è possibile usare la migrazione in tempo reale tra cluster con processori di generazioni diverse?  <br>
+**Risposta** I set di cluster non sono compatibili con le differenze del processore e sostituiscono quelle attualmente supportate da Hyper-V.  Pertanto, è necessario utilizzare la modalità di compatibilità del processore con migrazioni rapide.  Il Consiglio per i set di cluster consiste nell'utilizzare lo stesso hardware del processore all'interno di ogni singolo cluster, nonché l'intero set di cluster per le migrazioni in tempo reale tra i cluster.
 
-**Domanda:** È il set di cluster virtuale macchine automaticamente il failover su un errore del cluster?  <br>
-**Risposta:** In questa versione, le macchine virtuali di set di cluster può essere solo manualmente live-eseguire la migrazione tra cluster; ma non automaticamente il failover. 
+**Domanda** Il cluster può impostare automaticamente il failover delle macchine virtuali in caso di errore del cluster?  <br>
+**Risposta** In questa versione, le macchine virtuali del set di cluster possono essere migrate solo manualmente tra i cluster. ma non è possibile eseguire il failover automatico. 
 
-**Domanda:** Come è possibile garantire l'archiviazione è resiliente agli errori del cluster? <br>
-**Risposta:** Usare soluzioni di Replica archiviazione (SR) tra cluster tra cluster di membro per realizzare la resilienza di archiviazione per gli errori del cluster.
+**Domanda** Come è possibile garantire che l'archiviazione sia resiliente agli errori del cluster? <br>
+**Risposta** Usare la soluzione di replica di archiviazione tra cluster (SR) tra i cluster di membri per realizzare la resilienza dell'archiviazione in caso di errori del cluster.
 
-**Domanda:** Usare Replica archiviazione (SR) per la replica tra i cluster di membro. Cluster archiviazione dello spazio dei nomi dei set di modifiche di percorsi UNC in SR failover nel cluster di spazi di archiviazione diretta di destinazione di replica? <br>
-**Risposta:** In questa versione, tale cluster set dello spazio dei nomi riferimento modifica non viene eseguito con il failover di SR. Comunicarlo a Microsoft se questo scenario è essenziale è e come si prevede di usarlo.
+**Domanda** Si usa la replica di archiviazione (SR) per eseguire la replica tra I cluster di membri. I percorsi UNC dello spazio dei nomi del set di cluster cambiano nel failover SR alla destinazione di replica Spazi di archiviazione diretta cluster? <br>
+**Risposta** In questa versione, la modifica del riferimento dello spazio dei nomi del set di cluster non si verifica con il failover SR. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
 
-**Domanda:** È possibile failover delle macchine virtuali nei domini di errore in una situazione di ripristino di emergenza (ad esempio il dominio di errore intera si è arrestato)? <br>
-**Risposta:** No, si noti che il failover tra cluster all'interno di un errore logico dominio non è ancora supportato. 
+**Domanda** È possibile eseguire il failover delle macchine virtuali tra domini di errore in una situazione di ripristino di emergenza (ad eccezione del fatto che l'intero dominio di errore è stato arrestato)? <br>
+**Risposta** No. si noti che il failover tra cluster all'interno di un dominio di errore logico non è ancora supportato. 
 
-**Domanda:** Il cluster impostabile span cluster in più siti (o i domini DNS)? <br> 
-**Risposta:** Si tratta di uno scenario non testato e non immediatamente pianificato per il supporto di produzione. Comunicarlo a Microsoft se questo scenario è essenziale è e come si prevede di usarlo.
+**Domanda** Il cluster può estendersi sui cluster in più siti o domini DNS? <br> 
+**Risposta** Si tratta di uno scenario non testato e non pianificato immediatamente per il supporto di produzione. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
 
-**Domanda:** Funziona con IPv6 è set da cluster? <br>
-**Risposta:** IPv4 e IPv6 sono supportati con i set di cluster come cluster di Failover.
+**Domanda** Il set di cluster funziona con IPv6? <br>
+**Risposta** Sia IPv4 che IPv6 sono supportati con i set di cluster come per i cluster di failover.
 
-**Domanda:** Quali sono i requisiti di foresta di Active Directory per il cluster imposta <br>
-**Risposta:** Tutti i cluster di membro devono essere nella stessa foresta Active Directory.
+**Domanda** Quali sono i requisiti della foresta Active Directory per i set di cluster <br>
+**Risposta** Tutti i cluster membro devono trovarsi nella stessa foresta di Active Directory.
 
-**Domanda:** Il numero di nodi o cluster può essere parte di un singolo cluster impostata? <br>
-**Risposta:** In Windows Server 2019, cluster di set di stati testati e supportati al massimo 64 nodi del cluster complessivo. Tuttavia, cluster imposta architettura scale molto ampi e non è un elemento che è hardcoded per un limite. Comunicarlo a Microsoft se scala più ampia è essenziale è e come si prevede di usarlo.
+**Domanda** Quanti cluster o nodi possono far parte di un singolo set di cluster? <br>
+**Risposta** In Windows Server 2019 i set di cluster sono stati testati e sono supportati fino a 64 nodi totali del cluster. Tuttavia, il cluster imposta la scalabilità dell'architettura a limiti molto più grandi e non è un elemento hardcoded per un limite. Microsoft sa se la scalabilità più ampia è fondamentale per l'utente e il modo in cui si prevede di usarla.
 
-**Domanda:** Tutti i cluster di spazi di archiviazione diretta in un set di cluster costituiranno un unico pool di archiviazione? <br>
-**Risposta:** No. La tecnologia Direct degli spazi di archiviazione funziona comunque all'interno di un singolo cluster e non in cluster di membro in un set di cluster.
+**Domanda** Tutti i cluster Spazi di archiviazione diretta in un set di cluster formano un singolo pool di archiviazione? <br>
+**Risposta** No. Spazi di archiviazione diretta tecnologia opera comunque all'interno di un singolo cluster e non tra i cluster membro in un set di cluster.
 
-**Domanda:** Il cluster viene impostato lo spazio dei nomi a disponibilità elevata? <br>
-**Risposta:** Sì, lo spazio dei nomi di set di cluster viene fornito tramite un server di spazio dei nomi SOFS riferimento continuamente disponibili (CA) in esecuzione nel cluster di gestione. Microsoft consiglia di includere un numero sufficiente di macchine virtuali dal cluster di membro per renderla resilienti agli errori a livello di cluster localizzati. Tuttavia, per conto di errori irreversibili imprevisti – ad esempio, tutte le macchine virtuali nel cluster di gestione verso la parte inferiore allo stesso tempo, le informazioni di riferimento viene inoltre in modo permanente memorizzato nella cache in ogni nodo del set di cluster, anche dopo i riavvii.
+**Domanda** Lo spazio dei nomi del set di cluster è a disponibilità elevata? <br>
+**Risposta** Sì, lo spazio dei nomi del set di cluster viene fornito tramite un server dello spazio dei nomi SOFS a disponibilità continua (CA) in esecuzione nel cluster di gestione. Microsoft consiglia di disporre di un numero sufficiente di macchine virtuali dai cluster membro per renderlo resiliente agli errori localizzati a livello di cluster. Tuttavia, per tenere conto di errori irreversibili non previsti, ad esempio tutte le macchine virtuali nel cluster di gestione si arrestano contemporaneamente, le informazioni di riferimento vengono memorizzate nella cache in modo permanente in ogni nodo del set di cluster, anche in caso di riavvio.
  
-**Domanda:** Cluster imposta accesso di archiviazione basata su spazio dei nomi rallenterà le prestazioni di archiviazione in un set di cluster? <br>
-**Risposta:** No. Lo spazio dei nomi di set di cluster offre uno spazio dei nomi di sovrapposizione dei riferimenti all'interno di un set di cluster, ovvero a livello concettuale, ad esempio Distributed File System gli spazi dei nomi (DFSN). A differenza DFSN, tutti i metadati di riferimento dello spazio dei nomi di set di cluster è non popolata automaticamente e aggiornate automaticamente in tutti i nodi senza alcun intervento dell'amministratore, pertanto non è quasi alcun overhead di prestazioni nel percorso di accesso di archiviazione. 
+**Domanda** L'accesso di archiviazione basato su spazio dei nomi rallenta le prestazioni di archiviazione in un set di cluster? <br>
+**Risposta** No. Lo spazio dei nomi del set di cluster offre uno spazio dei nomi di riferimento sovrapposto all'interno di un cluster, concettualmente come file system distribuito spazi dei nomi (DFSN) A differenza di DFSN, tutti i metadati del riferimento dello spazio dei nomi del set di cluster vengono compilati automaticamente e aggiornati automaticamente in tutti i nodi senza alcun intervento da parte dell'amministratore, quindi non si verifica alcun sovraccarico delle prestazioni nel percorso di accesso di archiviazione. 
 
-**Domanda:** Come è possibile il backup dei metadati di set di cluster? <br>
-**Risposta:** Questo materiale sussidiario è analoga a quella del Cluster di Failover. Il Backup dello stato del sistema verrà backup nonché lo stato del cluster.  Tramite Windows Server Backup, è possibile eseguire ripristini di solo i database cluster del nodo (che non deve essere mai necessario a causa di una serie di funzionalità di riparazione automatica per la logica è disponibile) o eseguire un ripristino autorevole per ripristinare il database intero cluster in tutti i nodi. Nel caso di set di cluster, si consiglia di fare innanzitutto tali un ripristino autorevole nel cluster di membro e quindi il cluster di gestione, se necessario.
+**Domanda** Come è possibile eseguire il backup dei metadati del set di cluster? <br>
+**Risposta** Questa guida è identica a quella del cluster di failover. Il backup dello stato del sistema eseguirà il backup anche dello stato del cluster.  Tramite Windows Server Backup, è possibile eseguire il ripristino di un solo database cluster del nodo, che non dovrebbe mai essere necessario a causa di una serie di logica di correzione automatica, oppure eseguire un ripristino autorevole per eseguire il rollback dell'intero database del cluster in tutti i nodi. Nel caso dei set di cluster, Microsoft consiglia di eseguire un ripristino autorevole per primo sul cluster membro e quindi il cluster di gestione, se necessario.

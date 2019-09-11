@@ -1,6 +1,6 @@
 ---
 title: Funzionalità e tecnologie per solo software (SO, Software Only)
-description: Queste funzionalità vengono implementate come parte del sistema operativo e sono indipendenti tra le schede di rete sottostante. A volte queste funzionalità richiedono alcune ottimizzazione dell'interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità di Hyper-v, ad esempio la qualità del servizio (vmQoS) di macchina virtuale, elenchi di controllo di accesso (ACL) e le funzionalità di Hyper-V come gruppo NIC.
+description: Queste funzionalità vengono implementate come parte del sistema operativo e sono indipendenti dalle schede di interfaccia di rete sottostanti. A volte queste funzionalità richiedono l'ottimizzazione della scheda di interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità includono funzionalità Hyper-v, ad esempio la qualità del servizio di macchine virtuali (vmQoS), gli elenchi di controllo di accesso (ACL) e le funzionalità non Hyper-V come gruppo NIC.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,79 +9,79 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: 504bc92971e778b468812dc4064fa6f0afff87ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 27fbbcc5eedb1bc8ee37a85356542335c2eac77a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823782"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871926"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Funzionalità e tecnologie per solo software (SO, Software Only)
-Solo le funzionalità di software vengono implementate come parte del sistema operativo e sono indipendenti tra le schede di rete sottostante. A volte queste funzionalità richiedono alcune ottimizzazione dell'interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità di Hyper-v, ad esempio la qualità del servizio (vmQoS) di macchina virtuale, elenchi di controllo di accesso (ACL) e le funzionalità di Hyper-V come gruppo NIC.
+Le funzionalità di solo software sono implementate come parte del sistema operativo e sono indipendenti dalle schede di interfaccia di rete sottostanti. A volte queste funzionalità richiedono l'ottimizzazione della scheda di interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità includono funzionalità Hyper-v, ad esempio la qualità del servizio di macchine virtuali (vmQoS), gli elenchi di controllo di accesso (ACL) e le funzionalità non Hyper-V come gruppo NIC.
 
 ## <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
-Una funzionalità di Hyper-V e SDNv1 per la gestione della sicurezza per una macchina virtuale. Questa caratteristica è applicabile per lo stack di Hyper-V non virtualizzato e lo stack HVNv1. È possibile gestire Hyper-V passare tramite ACL [Add-VMNetworkAdapterAcl](https://docs.microsoft.com/powershell/module/hyper-v/add-vmnetworkadapteracl?view=win10-ps) e [Remove-VMNetworkAdapterAcl](https://docs.microsoft.com/powershell/module/hyper-v/remove-vmnetworkadapteracl?view=win10-ps) i cmdlet di PowerShell.
+Funzionalità Hyper-V e SDNv1 per la gestione della sicurezza per una macchina virtuale. Questa funzionalità si applica allo stack Hyper-V non virtualizzato e allo stack HVNv1. È possibile gestire gli ACL dei commutiri Hyper-V usando i cmdlet di PowerShell [Add-VMNetworkAdapterAcl](https://docs.microsoft.com/powershell/module/hyper-v/add-vmnetworkadapteracl?view=win10-ps) e [Remove-VMNetworkAdapterAcl](https://docs.microsoft.com/powershell/module/hyper-v/remove-vmnetworkadapteracl?view=win10-ps) .
 
 ## <a name="extended-acls"></a>ACL estesi
 
-Commutatore virtuale Hyper-V gli ACL estesi consente di configurare Hyper-V Virtual Switch porta gli ACL estesi per offrire protezione firewall e applicare criteri di sicurezza per le macchine virtuali tenant nei Data Center. Poiché l'ACL delle porte sono configurati nel commutatore virtuale Hyper-V anziché nelle macchine virtuali, l'amministratore può gestire i criteri di sicurezza per tutti i tenant in un ambiente multi-tenant.
+Gli ACL estesi del Commuter virtuale Hyper-V consentono di configurare gli ACL delle porte estese del Commuter virtuale Hyper-V per garantire la protezione del firewall e applicare criteri di sicurezza per le macchine virtuali tenant nei data center. Poiché gli ACL della porta sono configurati nel Commuter virtuale Hyper-V anziché nelle macchine virtuali, l'amministratore può gestire i criteri di sicurezza per tutti i tenant in un ambiente multi-tenant.
 
-È possibile gestire il commutatore Hyper-V gli ACL tramite esteso il [Add-VMNetworkAdapterExtendedAcl](https://docs.microsoft.com/powershell/module/hyper-v/add-vmnetworkadapterextendedacl?view=win10-ps) e [Remove-VMNetworkAdapterExtendedAcl](https://docs.microsoft.com/powershell/module/hyper-v/remove-vmnetworkadapteracl?view=win10-ps) i cmdlet di PowerShell.
+È possibile gestire gli ACL estesi del commutire Hyper-V usando i cmdlet di PowerShell [Add-VMNetworkAdapterExtendedAcl](https://docs.microsoft.com/powershell/module/hyper-v/add-vmnetworkadapterextendedacl?view=win10-ps) e [Remove-VMNetworkAdapterExtendedAcl](https://docs.microsoft.com/powershell/module/hyper-v/remove-vmnetworkadapteracl?view=win10-ps) .
 
 >[!TIP] 
->Questa funzionalità si applica allo stack di HNVv1. Per gli ACL nello stack SDN, fare riferimento alla SDN Software Defined Networking) elenchi ACL riportato di seguito.
+>Questa funzionalità si applica allo stack HNVv1. Per gli ACL nello stack SDN, vedere gli ACL di Software Defined Networking SDN di seguito.
 
-Per ulteriori informazioni estesa porta elenchi di controllo in questa libreria, vedere [creare i criteri di sicurezza con estesa porta controllo elenchi di accesso](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/Create-Security-Policies-with-Extended-Port-Access-Control-Lists).
+Per altre informazioni sugli elenchi di controllo di accesso di porta estesi in questa libreria, vedere [creare criteri di sicurezza con elenchi di controllo di accesso di porta estesi](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/Create-Security-Policies-with-Extended-Port-Access-Control-Lists).
 
 ## <a name="nic-teaming"></a>Gruppo NIC
 
-Gruppo NIC, detto anche associazione NIC, rappresenta l'aggregazione di più porte di interfaccia di rete in un'entità che host percepisce come una singola porta di interfaccia di rete. Gruppo NIC consente di proteggere il guasto di una singola porta di interfaccia di rete (o il cavo sia connesso a esso). Aggrega anche il traffico di rete per una velocità effettiva. Per altre informazioni, vedere [NIC Teaming](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+Gruppo NIC, detto anche collegamento NIC, è l'aggregazione di più porte NIC in un'entità che l'host percepisce come una singola porta NIC. Gruppo NIC protegge da un errore di una singola porta NIC (o dal cavo connesso). Aggrega inoltre il traffico di rete per una maggiore velocità effettiva. Per ulteriori informazioni, vedere [Gruppo NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
 
-Con Windows Server 2016 sono disponibili due modi per eseguire operazioni di raggruppamento:
+Con Windows Server 2016 sono disponibili due modi per eseguire il raggruppamento:
 
-1.  Soluzione gruppo NIC di Windows Server 2012
+1.  Soluzione di gruppo di Windows Server 2012
 
-2.  Windows Server 2016 Switch Embedded Teaming (SET)
+2.  Windows Server 2016 switch Embedded Teaming (SET)
 
 
-## <a name="rsc-in-the-vswitch"></a>RSC nel commutatore virtuale
+## <a name="rsc-in-the-vswitch"></a>RSC in vSwitch
 
-Ricezione segmento Coalescing (RSC) nel commutatore virtuale è una funzionalità che richiede i pacchetti che fanno parte dello stesso flusso e di arrivano tra interruzioni di rete e li assegna un singolo pacchetto prima di inviarli al sistema operativo. Il commutatore virtuale in Windows Server 2019 ha questa funzionalità. Per altre informazioni su questa funzionalità, vedere [ricezione unione segmenti di vSwitch](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).
+La funzione di Unione del segmento Receive (RSC) in vSwitch è una funzionalità che accetta pacchetti che fanno parte dello stesso flusso e arrivano tra interruzioni di rete e li unisce in un unico pacchetto prima di distribuirli al sistema operativo. Il Commuter virtuale in Windows Server 2019 dispone di questa funzionalità. Per ulteriori informazioni su questa funzionalità, vedere Unione [dei segmenti Receive in vswitch](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).
 
-## <a name="software-defined-networking-sdn-acls"></a>Software Defined Networking (SDN) ACL
+## <a name="software-defined-networking-sdn-acls"></a>ACL di Software Defined Networking (SDN)
 
-L'estensione di SDN in Windows Server 2016 migliorata modi per supportare gli ACL. Nello stack v2 di Windows Server 2016 SDN, vengono usati gli ACL di rete SDN anziché gli ACL e ACL estesi. È possibile utilizzare Controller di rete per gestire gli ACL di rete SDN. 
+L'estensione SDN in Windows Server 2016 ha migliorato i modi per supportare gli ACL. Nello stack Windows Server 2016 SDN V2 vengono usati gli ACL SDN anziché gli ACL e gli ACL estesi. È possibile usare il controller di rete per gestire gli ACL SDN. 
 
-## <a name="sdn-quality-of-service-qos"></a>SDN Quality of Service (QoS)
+## <a name="sdn-quality-of-service-qos"></a>QoS (Quality of Service) SDN
 
-L'estensione SDN in Windows Server 2016 migliorata modi per fornire il controllo della larghezza di banda (prenotazioni in uscita, limiti di uscita e i limiti di ingresso) in base a una tupla con 5 elementi. In genere, questi criteri vengono applicati a livello di scheda di rete virtuale o vmNIC, ma è possibile renderli molto più specifico. Nello stack v2 di Windows Server 2016 SDN, anziché vmQoS viene utilizzato QoS di rete SDN. È possibile utilizzare Controller di rete per la gestione di QoS di rete SDN.
+L'estensione SDN in Windows Server 2016 ha migliorato i modi per fornire il controllo della larghezza di banda (prenotazioni in uscita, limiti in uscita e limiti di ingresso) in base a 5 tuple. In genere, questi criteri vengono applicati a livello di vNIC o scheda, ma è possibile renderli molto più specifici. Nello stack di Windows Server 2016 SDN V2, viene usato SDN QoS anziché vmQoS. È possibile usare il controller di rete per gestire QoS SDN.
 
 ## <a name="switch-embedded-teaming-set"></a>Switch Embedded Teaming (SET)
 
-SET è una soluzione alternativa gruppo NIC che è possibile usare in ambienti che includono Hyper-V e lo stack di rete SDN (Software Defined) in Windows Server 2016. SET integra alcune funzionalità gruppo NIC nel commutatore virtuale Hyper-V. Per informazioni su Switch Embedded Teaming in questa libreria, vedere [diretta accesso memoria remota (RDMA) e Switch Embedded Teaming (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+SET è una soluzione di gruppo NIC alternativa che è possibile usare in ambienti che includono Hyper-V e lo stack SDN (Software Defined Networking) in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V. Per informazioni su switch Embedded Teaming in questa libreria, vedere [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 
 ## <a name="virtual-receive-side-scaling-vrss"></a>Virtual Receive Side Scaling (vRSS)
 
-VRSS software viene usato per distribuire il traffico in arrivo destinato a una macchina virtuale tra più processori logici (LPs) della macchina virtuale. VRSS software offre la VM sarà in grado di gestire la capacità di gestire più traffico di rete rispetto a un singolo LP. Per altre informazioni, vedere [Virtual Receive-Side Scaling (vRSS)](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top).
+Il software vRSS viene usato per distribuire il traffico in ingresso destinato a una macchina virtuale in più processori logici (LPs) della macchina virtuale. VRSS software offre alla VM la possibilità di gestire più traffico di rete di quanto un singolo LP possa gestire. Per ulteriori informazioni, vedere [Virtual Receive Side Scaling (vRSS)](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top).
 
-## <a name="virtual-machine-quality-of-service-vmqos"></a>Virtual Machine Quality of Service (vmQoS)
+## <a name="virtual-machine-quality-of-service-vmqos"></a>Qualità del servizio della macchina virtuale (vmQoS)
 
-Qualità del servizio macchina virtuale è una funzionalità di Hyper-V che consente il passaggio a impostare i limiti per il traffico generato da ogni macchina virtuale. Consente inoltre una macchina virtuale di riservare una quantità di larghezza di banda per la connessione di rete esterna, in modo che una macchina virtuale non può sottrarre risorse a un'altra macchina virtuale per la larghezza di banda. Nello stack v2 di Windows Server 2016 SDN, QoS SDN sostituisce vmQoS.
+La qualità del servizio della macchina virtuale è una funzionalità di Hyper-V che consente all'opzione di impostare limiti per il traffico generato da ogni macchina virtuale. Consente inoltre a una macchina virtuale di riservare una quantità di larghezza di banda nella connessione di rete esterna, in modo che una macchina virtuale non riesca a morire per la larghezza di banda. Nello stack di Windows Server 2016 SDN V2, SDN QoS sostituisce vmQoS.
 
-vmQoS possibile impostare limiti di uscita e le prenotazioni di traffico in uscita. Prima di creare il commutatore Hyper-V, è necessario determinare la modalità di prenotazione in uscita (peso relativo o assoluto della larghezza di banda).
+vmQoS può impostare limiti in uscita e prenotazioni in uscita. Prima di creare il commutire Hyper-V, è necessario determinare la modalità di prenotazione in uscita (peso relativo o larghezza di banda assoluta).
 
 -  Determinare la modalità di prenotazione in uscita con il parametro – MinimumBandwidthMode del cmdlet di PowerShell New-VMSwitch.
 
--  Impostare il valore del limite per il traffico in uscita con il parametro – MaximumBandwidth nel cmdlet di PowerShell Set-VMNetworkAdapter.
+-  Impostare il valore del limite in uscita con il parametro – MaximumBandwidth nel cmdlet di PowerShell set-VMNetworkAdapter.
 
--  Impostare il valore per la prenotazione in uscita con uno dei seguenti parametri del cmdlet di VMNetworkAdapter PowerShell impostare:
+-  Impostare il valore per la prenotazione in uscita con uno dei seguenti parametri del cmdlet Set VMNetworkAdapter di PowerShell:
 
-   -  Se il parametro – MinimumBandwidthMode sul cmdlet New-VMSwitch è assoluto, quindi impostare il parametro – MinimumBandwidthAbsolute sul cmdlet VMNetworkAdapter impostato.
+   -  Se il parametro – MinimumBandwidthMode nel cmdlet New-VMSwitch è Absolute, impostare il parametro – MinimumBandwidthAbsolute nel cmdlet Set VMNetworkAdapter.
 
-   -  Se il parametro – MinimumBandwidthMode sul cmdlet New-VMSwitch peso, quindi impostare il parametro – i parametri MinimumBandwidthWeight sul cmdlet VMNetworkAdapter impostato.
+   -  Se il parametro – MinimumBandwidthMode nel cmdlet New-VMSwitch è Weight, impostare il parametro – I parametri minimumbandwidthweight nel cmdlet Set VMNetworkAdapter.
 
-A causa delle limitazioni nell'algoritmo utilizzato per questa funzionalità, è consigliabile che il peso più alto o la larghezza di banda assoluta non più di 20 volte il peso più basso o della larghezza di banda assoluta. Se è necessario un maggiore controllo, è consigliabile usare lo stack SDN e la funzionalità QoS di rete SDN.
+A causa delle limitazioni nell'algoritmo usato per questa funzionalità, è consigliabile che il peso massimo o la larghezza di banda assoluta non siano superiori a 20 volte il peso minimo o la larghezza di banda assoluta. Se è necessario un maggiore controllo, provare a usare lo stack SDN e la funzionalità SDN-QoS.
 
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Sempre nella panoramica della tecnologia VPN
-description: 'Questa pagina fornisce un una breve panoramica delle tecnologie VPN Always On con collegamenti a documenti dettagliati. '
+title: Panoramica della tecnologia VPN Always On
+description: 'In questa pagina viene illustrata una breve panoramica delle Always On tecnologie VPN con collegamenti a documenti dettagliati. '
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -8,111 +8,111 @@ ms.date: 11/05/2018
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 65a575b24ea3c70ad7eedd95fe287d955ccaeea6
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: de5dd8e17c07e46db28c529847607eec2a05a069
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749679"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871386"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Panoramica della tecnologia VPN Always On
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente:** Scopri i miglioramenti di VPN Always On](always-on-vpn-enhancements.md)
-- [**prossimo:** Informazioni sulle funzionalità avanzate di VPN Always On](deploy/always-on-vpn-adv-options.md)
+- [**Precedente** Informazioni sui miglioramenti apportati alla VPN Always On](always-on-vpn-enhancements.md)
+- [**Prossimo** Informazioni sulle funzionalità avanzate di Always On VPN](deploy/always-on-vpn-adv-options.md)
 
-Per questa distribuzione, è necessario installare un nuovo server di accesso remoto che esegue Windows Server 2016, nonché modificare alcuni dell'infrastruttura esistente per la distribuzione.
+Per questa distribuzione, è necessario installare un nuovo server di accesso remoto che esegue Windows Server 2016, nonché modificare parte dell'infrastruttura esistente per la distribuzione.
 
-La figura seguente mostra l'infrastruttura necessaria per la distribuzione VPN Always On.
+Nella figura seguente è illustrata l'infrastruttura necessaria per distribuire Always On VPN.
 
-![Always On infrastruttura VPN](../../../media/Always-On-Vpn/Ao-Vpn-Overview.jpg)
+![Infrastruttura VPN Always On](../../../media/Always-On-Vpn/Ao-Vpn-Overview.jpg)
 
-Il processo di connessione illustrato in questa illustrazione è costituito da questa procedura:
+Il processo di connessione illustrato in questa illustrazione è costituito dai passaggi seguenti:
 
-1. Usano i server DNS pubblici, il client VPN di Windows 10 esegue una query di risoluzione dei nomi per l'indirizzo IP del gateway VPN.
+1. Usando i server DNS pubblici, il client VPN di Windows 10 esegue una query di risoluzione dei nomi per l'indirizzo IP del gateway VPN.
 
-2. Usando l'indirizzo IP restituito dal DNS, il client VPN invia una richiesta di connessione al gateway VPN.
+2. Usando l'indirizzo IP restituito da DNS, il client VPN invia una richiesta di connessione al gateway VPN.
 
-3. Il gateway VPN è configurato anche come Client RADIUS Remote Authentication Dial-In User Service (); il Client RADIUS VPN invia la richiesta di connessione al server dei criteri di rete aziendali / dell'organizzazione per l'elaborazione richiesta di connessione.
+3. Il gateway VPN viene anche configurato come client di Remote Authentication Dial-In User Service (RADIUS); il client RADIUS VPN Invia la richiesta di connessione al server dei criteri di rete aziendale/aziendale per l'elaborazione della richiesta di connessione.
 
-4. Il server dei criteri di rete elabora la richiesta di connessione, inclusa l'esecuzione di autorizzazione e autenticazione e determina se consentire o negare la richiesta di connessione.
+4. Il server NPS elabora la richiesta di connessione, tra cui l'esecuzione dell'autorizzazione e l'autenticazione, e determina se consentire o rifiutare la richiesta di connessione.
 
-5. Il server dei criteri di rete inoltra una risposta di autorizzazione di accesso o nega l'accesso al gateway VPN.
+5. Il server NPS invia una risposta di accesso-accettazione o di accesso negato al gateway VPN.
 
-6. Viene avviata o interruzione della connessione in base alla risposta ricevuti dal server VPN dal server dei criteri di rete.
+6. La connessione viene avviata o terminata in base alla risposta ricevuta dal server VPN dal server dei criteri di rete.
 
-Per altre informazioni su ogni componente dell'infrastruttura illustrata nella figura sopra riportata, vedere le sezioni seguenti.
+Per ulteriori informazioni su ogni componente dell'infrastruttura illustrato nella figura precedente, vedere le sezioni seguenti.
 
 >[!NOTE]
->Se si dispone già di alcune di queste tecnologie distribuite nella rete, è possibile utilizzare le istruzioni riportate in questa Guida alla distribuzione per eseguire un'ulteriore configurazione delle tecnologie per questo scopo della distribuzione.
+>Se sono già state distribuite alcune di queste tecnologie nella rete, è possibile usare le istruzioni disponibili in questa guida alla distribuzione per eseguire ulteriori configurazioni delle tecnologie a questo scopo della distribuzione.
 
 ## <a name="domain-name-system-dns"></a>Domain Name System (DNS)
 
-Le zone di sistema DNS (Domain Name) interne ed esterne sono necessari, che presuppone che l'area interna è un sottodominio delegato della zona esterno (ad esempio, corp.contoso.com e contoso.com).
+Sono necessarie entrambe le zone di Domain Name System interno ed esterno (DNS), che presuppone che la zona interna sia un sottodominio delegato della zona esterna, ad esempio corp.contoso.com e contoso.com.
 
-Altre informazioni sulle [sistema DNS (Domain Name)](../../../../networking/dns/dns-top.md) oppure [Guida alla rete Core](../../../../networking/core-network-guide/core-network-guide.md).
+Altre informazioni su [Domain Name System (DNS)](../../../../networking/dns/dns-top.md) o la [Guida alla rete core](../../../../networking/core-network-guide/core-network-guide.md).
 
 >[!NOTE]
->Altri servizi DNS progetta, ad esempio DNS "split Brain" (usando lo stesso nome di dominio internamente ed esternamente in zone DNS separate) o non correlata interni e sono possibili anche i domini esterni (ad esempio, contoso. Local e contoso.com). Per altre informazioni sulla distribuzione di DNS "split Brain", vedere [usare i criteri DNS per la distribuzione DNS Split-Brain](../../../../networking/dns/deploy/split-brain-DNS-deployment.md).
+>Sono inoltre possibili altre progettazioni DNS, ad esempio il DNS split brain (che usa lo stesso nome di dominio internamente ed esternamente in zone DNS separate) o domini interni ed esterni non correlati, ad esempio contoso. local e contoso.com. Per altre informazioni sulla distribuzione del DNS "Split Brain", vedere [usare i criteri DNS per la distribuzione DNS split-brain](../../../../networking/dns/deploy/split-brain-DNS-deployment.md).
 
 ## <a name="firewalls"></a>Firewall
 
-Verificare che i firewall consentano il traffico che è necessario per le comunicazioni di VPN sia RADIUS funzionare correttamente.
+Assicurarsi che i firewall consentano il corretto funzionamento del traffico necessario per le comunicazioni VPN e RADIUS.
 
 Per altre informazioni, vedere [configurare i firewall per il traffico RADIUS](../../../../networking/technologies/nps/nps-firewalls-configure.md).
 
-## <a name="remote-access-as-a-ras-gateway-vpn-server"></a>Accesso remoto come Server VPN Gateway RAS
+## <a name="remote-access-as-a-ras-gateway-vpn-server"></a>Accesso remoto come server VPN gateway RAS
 
-In Windows Server 2016, il ruolo server Accesso remoto è progettato per essere eseguita anche da un router sia un server di accesso remoto; Pertanto, supporta un'ampia gamma di funzionalità. Per questa Guida alla distribuzione, è necessario solo un piccolo subset di queste funzionalità: supporto per le connessioni VPN IKEv2 e routing LAN.
+In Windows Server 2016, il ruolo del server accesso remoto è progettato per essere eseguito correttamente sia come router sia come server di accesso remoto. Pertanto, supporta una vasta gamma di funzionalità. Per questa guida alla distribuzione è necessario solo un piccolo subset di queste funzionalità: supporto per le connessioni VPN IKEv2 e il routing LAN.
 
-IKEv2 è una protocollo descritto in Internet Engineering Task Force richiesta per i commenti 7296 di tunneling VPN. Il vantaggio principale di IKEv2 è che tollera interruzioni della connessione di rete sottostante. Ad esempio, se la connessione viene temporaneamente persa o se un utente si sposta un computer client da una rete a un altro, IKEv2 Ripristina automaticamente la connessione VPN quando viene ristabilita la connessione di rete, ovvero senza l'intervento dell'utente.
+IKEv2 è un protocollo di tunneling VPN descritto in Internet Engineering Task Force Request per i commenti 7296. Il vantaggio principale di IKEv2 è che tollera le interruzioni nella connessione di rete sottostante. Se ad esempio la connessione viene persa temporaneamente o un utente sposta un computer client da una rete a un'altra, IKEv2 ripristina automaticamente la connessione VPN quando viene ristabilita la connessione di rete, senza l'intervento dell'utente.
 
-Tramite il Gateway RAS, è possibile distribuire le connessioni VPN per fornire agli utenti finali con accesso remoto alla rete e le risorse dell'organizzazione. Distribuire VPN Always On mantiene una connessione permanente tra i client e rete dell'organizzazione ogni volta che i computer remoti connessi a Internet. Con Gateway RAS, è anche possibile creare una connessione VPN site-to-site tra due server in posizioni diverse, ad esempio tra la sede principale e una succursale e usare Network Address Translation (NAT) in modo che gli utenti all'interno della rete possono accedere esterno risorse, ad esempio Internet. Inoltre, Gateway RAS supporta protocollo BGP (Border Gateway), che fornisce servizi di routing dinamici quando le sedi remote dispone anche di gateway edge che supportano il protocollo BGP.
+Tramite il gateway RAS è possibile distribuire connessioni VPN per offrire agli utenti finali accesso remoto alla rete e alle risorse dell'organizzazione. La distribuzione di Always On VPN mantiene una connessione permanente tra i client e la rete dell'organizzazione ogni volta che i computer remoti sono connessi a Internet. Con il gateway RAS è inoltre possibile creare una connessione VPN da sito a sito tra due server in posizioni diverse, ad esempio tra l'ufficio principale e una succursale e utilizzare NAT (Network Address Translation) in modo che gli utenti all'interno della rete possano accedere a External risorse, ad esempio Internet. Il gateway RAS supporta inoltre Border Gateway Protocol (BGP), che fornisce servizi di routing dinamico quando i percorsi di ufficio remoto hanno anche gateway perimetrali che supportano BGP.
 
-È possibile gestire i gateway di servizi di accesso remoto (RAS) usando i comandi di Windows PowerShell e il Microsoft Management Console (MMC) l'accesso remoto.
+È possibile gestire i gateway del servizio di accesso remoto (RAS) usando i comandi di Windows PowerShell e Microsoft Management Console (MMC) di accesso remoto.
 
 ## <a name="network-policy-server-nps"></a>Server dei criteri di rete
 
-Criteri di rete consente di creare e applicare criteri di accesso di rete a livello di organizzazione per la connessione richiesta autenticazione e autorizzazione. Quando si usa criteri di rete come server RADIUS Remote Authentication Dial-In User Service (), configurare i server di accesso di rete, ad esempio i server VPN, come client RADIUS in Criteri di rete.
+Server dei criteri di rete consente di creare e applicare criteri di accesso alla rete a livello di organizzazione per l'autenticazione e l'autorizzazione delle richieste di connessione. Quando si usa server dei criteri di rete come server RADIUS (Remote Authentication Dial-In User Service), si configurano i server di accesso alla rete, ad esempio i server VPN, come client RADIUS in NPS.
 
 È inoltre possibile configurare criteri di rete utilizzati da Server dei criteri di rete per autorizzare richieste di connessione, nonché configurare l'accounting RADIUS in modo che Server dei criteri di rete registri le informazioni di accounting in file di registro sul disco rigido locale oppure in un database di Microsoft SQL Server.
 
-Per altre informazioni, vedere [Strumentazione gestione Windows (NPS, Network Policy Server)](../../../../networking/technologies/nps/nps-top.md).
+Per ulteriori informazioni, vedere [Server dei criteri di rete (NPS)](../../../../networking/technologies/nps/nps-top.md).
 
 ## <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory
 
-Il Server di autorità di certificazione (CA) è un'autorità di certificazione che esegue Servizi certificati Active Directory. La configurazione VPN richiede una basata su Active Directory dall'infrastruttura a chiave pubblica (PKI).
+Il server dell'autorità di certificazione (CA) è un'autorità di certificazione che esegue Active Directory Servizi certificati. La configurazione VPN richiede un'infrastruttura a chiave pubblica (PKI) basata su Active Directory.
 
 Le organizzazioni possono utilizzare Servizi certificati Active Directory per migliorare la sicurezza associando l'identità di una persona, un dispositivo o un servizio a una chiave pubblica corrispondente. Servizi certificati Active Directory include inoltre funzionalità che consentono di gestire la registrazione di certificati e le revoche in una vasta gamma di ambienti scalabili. Per ulteriori informazioni, vedere [Panoramica di servizi di Active Directory certificato](https://technet.microsoft.com/library/hh831740.aspx) e [linee guida alla progettazione di infrastruttura di chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).
 
-Durante il completamento della distribuzione, si configurerà i seguenti modelli di certificato nell'autorità di certificazione.
+Durante il completamento della distribuzione, si configureranno i modelli di certificato seguenti nell'autorità di certificazione.
 
-- Il modello di certificato di autenticazione utente
+- Modello di certificato di autenticazione utente
 
-- Il modello di certificato di autenticazione Server VPN
+- Modello di certificato di autenticazione server VPN
 
-- Il modello di certificato di autenticazione del Server dei criteri di rete
+- Modello di certificato di autenticazione server NPS
 
 ### <a name="certificate-templates"></a>Modelli di certificato
 
-Modelli di certificato possono semplificare notevolmente l'attività di amministrazione di un'autorità di certificazione (CA) offrendo la possibilità di rilasciare certificati che sono preconfigurati per le attività selezionate. Lo snap-in MMC di modelli di certificato consente di eseguire le attività seguenti.
+I modelli di certificato possono semplificare notevolmente l'amministrazione di un'autorità di certificazione (CA) consentendo di rilasciare certificati preconfigurati per le attività selezionate. Lo snap-in MMC modelli di certificato consente di eseguire le operazioni seguenti.
 
 - Visualizzare le proprietà per ogni modello di certificato.
 
 - Copiare e modificare i modelli di certificato.
 
-- Controllare quali utenti e computer possono leggere modelli e si registra per i certificati.
+- Controllare quali utenti e computer possono leggere i modelli e registrarsi per i certificati.
 
 - Eseguire altre attività amministrative relative ai modelli di certificato.
 
-Modelli di certificato sono parte integrante di un'autorità di certificazione (CA). Sono un elemento importante dei criteri del certificato per un ambiente, ovvero il set di regole e i formati per la registrazione del certificato, l'uso e gestione.
+I modelli di certificato sono parte integrante di un'autorità di certificazione (CA) dell'organizzazione (Enterprise). Si tratta di un elemento importante del criterio dei certificati per un ambiente, ovvero il set di regole e formati per la registrazione, l'utilizzo e la gestione dei certificati.
 
-Per altre informazioni, vedere [modelli di certificato](https://technet.microsoft.com/library/cc730705.aspx).
+Per ulteriori informazioni, vedere [modelli di certificato](https://technet.microsoft.com/library/cc730705.aspx).
 
-### <a name="digital-server-certificates"></a>Certificati digitali Server
+### <a name="digital-server-certificates"></a>Certificati server digitali
 
-Questa Guida alla distribuzione vengono fornite istruzioni per l'uso di servizi certificati Active Directory (AD CS) per registrare sia registrare automaticamente certificati per accesso remoto e server dell'infrastruttura Criteri di rete. Servizi certificati Active Directory consente di compilare un'infrastruttura a chiave pubblica (PKI) e fornire funzionalità di firma digitale, certificati digitali e crittografia a chiave pubblica dell'organizzazione.
+In questa guida alla distribuzione vengono fornite istruzioni per l'utilizzo di Active Directory Servizi certificati (AD CS) per registrare e registrare automaticamente i certificati per l'accesso remoto e i server di infrastruttura NPS. Servizi certificati Active Directory consente di compilare un'infrastruttura a chiave pubblica (PKI) e fornire funzionalità di firma digitale, certificati digitali e crittografia a chiave pubblica dell'organizzazione.
 
 Quando si utilizzano i certificati digitali server per l'autenticazione tra computer della rete, forniscano i certificati:
 
@@ -120,92 +120,92 @@ Quando si utilizzano i certificati digitali server per l'autenticazione tra comp
 
 2. Integrità tramite firme digitali.
 
-3. Autenticazione di associazione di chiavi del certificato con un account computer, utente o dispositivo in una rete di computer.
+3. Autenticazione mediante l'associazione di chiavi del certificato a un computer, un utente o un account di dispositivo in una rete di computer.
 
-Per altre informazioni, vedere [Guida dettagliata di AD CS: A due livelli di distribuzione di gerarchia infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx).
+Per ulteriori informazioni, vedere [la guida dettagliata di Servizi certificati Active Directory: Distribuzione](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx)della gerarchia PKI a due livelli.
 
 ## <a name="active-directory-domain-services-ad-ds"></a>Servizi di dominio Active Directory
 
 Servizi di dominio Active Directory fornisce un database distribuito che consente di archiviare e gestire informazioni sulle risorse di rete e dati specifici delle applicazioni provenienti da applicazioni abilitate all'uso di directory. Gli amministratori possono utilizzare Servizi di dominio Active Directory per organizzare gli elementi di una rete, ad esempio utenti, computer e altri dispositivi, in una struttura di contenimento gerarchica. Tale struttura include la foresta di Active Directory, i domini della foresta e le unità organizzative (OU, Organizational Unit) di ogni dominio. Un server che esegue Servizi di dominio Active Directory viene definito controller di dominio.
 
-AD DS contiene gli account utente, gli account computer e proprietà dell'account necessari da PEAP Protected Extensible Authentication Protocol () per autenticare le credenziali dell'utente e per valutare l'autorizzazione per le richieste di connessione VPN. Per informazioni sulla distribuzione di Active Directory Domain Services, vedere Windows Server 2016 [Guida alla rete Core](../../../../networking/core-network-guide/Core-Network-Guide.md).
+Servizi di dominio Active Directory contiene gli account utente, gli account computer e le proprietà dell'account richiesti da PEAP (Protected Extensible Authentication Protocol) per autenticare le credenziali utente e per valutare l'autorizzazione per le richieste di connessione VPN. Per informazioni sulla distribuzione di servizi di dominio Active Directory, vedere la [Guida alla rete core](../../../../networking/core-network-guide/Core-Network-Guide.md)di Windows Server 2016.
 
-Durante il completamento dei passaggi di questa distribuzione, si configurerà gli elementi seguenti nel controller di dominio.
+Durante il completamento dei passaggi di questa distribuzione, si configureranno gli elementi seguenti nel controller di dominio.
 
 - Abilitare la registrazione automatica dei certificati in Criteri di gruppo per computer e utenti
 
-- Creare il gruppo di utenti VPN
+- Creare il gruppo utenti VPN
 
 - Creare il gruppo di server VPN
 
-- Creare il gruppo di server dei criteri di rete
+- Creare il gruppo server NPS
 
 ### <a name="active-directory-users-and-computers"></a>Utenti e computer di Active Directory
 
-Active Directory Users and Computers è un componente di dominio Active Directory che contiene gli account che rappresentano entità fisiche, ad esempio un computer, una persona o un gruppo di sicurezza. Un gruppo di sicurezza è una raccolta di account utente o computer che gli amministratori possono gestire come singola unità. Account utente e computer appartenenti a un determinato gruppo sono indicati come membri del gruppo.
+Active Directory Users and Computers è un componente di dominio Active Directory che contiene gli account che rappresentano entità fisiche, ad esempio un computer, una persona o un gruppo di sicurezza. Un gruppo di sicurezza è una raccolta di account utente o computer che gli amministratori possono gestire come una singola unità. Gli account utente e computer che appartengono a un determinato gruppo sono detti membri del gruppo.
 
-Gli account utente in Active Directory Users and Computers hanno proprietà di connessione remota che valuta dei criteri di rete durante il processo di autorizzazione -, a meno che il **l'autorizzazione di accesso di rete** dell'account utente è impostata su **controllo accesso tramite criteri di rete NPS**. Si tratta dell'impostazione predefinita per tutti gli account utente. In alcuni casi, tuttavia, questa impostazione potrebbe essere una configurazione diversa che impedisce all'utente di connettersi tramite VPN. Per evitare questa eventualità, è possibile configurare il server NPS per ignorare la proprietà di connessione remota account utente.
+Gli account utente in Active Directory utenti e computer dispongono di proprietà di connessione remota che i server dei criteri di rete valutano durante il processo di autorizzazione, a meno che la proprietà **autorizzazioni di accesso alla rete** dell'account utente non sia impostata per **controllare l'accesso tramite criteri di rete NPS** . Questa è l'impostazione predefinita per tutti gli account utente. In alcuni casi, tuttavia, questa impostazione potrebbe avere una configurazione diversa che impedisce all'utente di connettersi usando la VPN. Per evitare questa possibilità, è possibile configurare il server NPS per ignorare le proprietà di connessione remota dell'account utente.
 
-Per altre informazioni, vedere [configurare criteri di rete per le proprietà di connessione a Account utente di ignorare](../../../../networking/technologies/nps/nps-np-configure.md#configure-nps-to-ignore-user-account-dial-in-properties).
+Per ulteriori informazioni, vedere [configurare NPS per ignorare le proprietà di connessione remota dell'account utente](../../../../networking/technologies/nps/nps-np-configure.md#configure-nps-to-ignore-user-account-dial-in-properties).
 
 ### <a name="group-policy-management"></a>Gestione Criteri di gruppo
 
-Gestione criteri di gruppo Abilita directory gestione basate su modifiche e della configurazione delle impostazioni utente e computer, incluse le informazioni di sicurezza e utente. Si usano criteri di gruppo per definire le configurazioni per i gruppi di utenti e computer.
+Criteri di gruppo Management consente la gestione delle modifiche e della configurazione basata su directory delle impostazioni utente e computer, incluse le informazioni sulla sicurezza e sugli utenti. Usare Criteri di gruppo per definire le configurazioni per gruppi di utenti e computer.
 
-Con criteri di gruppo, è possibile specificare le impostazioni per le voci del Registro di sistema, sicurezza, installazione del software, script, reindirizzamento cartelle, servizi di installazione remota e la manutenzione di Internet Explorer. Sono contenute le impostazioni di criteri di gruppo creati in un oggetto Criteri di gruppo (GPO). Associando un oggetto Criteri di gruppo di contenitori di sistema di Active Directory selezionati, siti, domini e unità organizzative, è possibile applicare le impostazioni dell'oggetto Criteri di gruppo a utenti e computer presenti in tali contenitori Active Directory. Per gestire gli oggetti Criteri di gruppo in un'organizzazione, è possibile usare gruppo di criteri di gestione Editor Microsoft Management Console (MMC).
+Con Criteri di gruppo è possibile specificare le impostazioni per le voci del registro di sistema, sicurezza, installazione software, script, Reindirizzamento cartelle, servizi di installazione remota e manutenzione di Internet Explorer. Le impostazioni Criteri di gruppo create sono contenute in un oggetto Criteri di gruppo (GPO). Associando un oggetto Criteri di gruppo di contenitori di sistema di Active Directory selezionati, siti, domini e unità organizzative, è possibile applicare le impostazioni dell'oggetto Criteri di gruppo a utenti e computer presenti in tali contenitori Active Directory. Per gestire Criteri di gruppo oggetti in un'organizzazione, è possibile utilizzare la Editor Gestione Criteri di gruppo Microsoft Management Console (MMC).
 
 ## <a name="windows-10-vpn-clients"></a>Client VPN di Windows 10
 
-Oltre ai componenti server, assicurarsi che i computer client configurati per l'uso di VPN siano in esecuzione Windows 10 Anniversary Update (versione 1607). I client VPN di Windows 10 devono essere aggiunto al dominio nel dominio di Active Directory.
+Oltre ai componenti server, assicurarsi che i computer client configurati per l'uso della VPN eseguano l'aggiornamento dell'anniversario di Windows 10 (versione 1607). I client VPN di Windows 10 devono essere aggiunti a un dominio Active Directory dominio.
 
 
-Il client VPN di Windows 10 è ampiamente configurabile e offre numerose opzioni. Per illustrare meglio questo scenario Usa la funzionalità specifiche, nella tabella 1 identifica le categorie di funzionalità VPN e le configurazioni specifiche che fa riferimento a questa distribuzione. Si configurerà le singole impostazioni per queste funzionalità usando il provider di servizi di configurazione VPNv2 (CSP) illustrata più avanti in questa distribuzione. 
+Il client VPN di Windows 10 è altamente configurabile e offre numerose opzioni. Per illustrare meglio le funzionalità specifiche usate in questo scenario, nella tabella 1 vengono identificate le categorie di funzionalità VPN e le configurazioni specifiche a cui fa riferimento questa distribuzione. Si configureranno le singole impostazioni per queste funzionalità usando il provider del servizio di configurazione VPNv2 (CSP) descritto più avanti in questa distribuzione. 
 
-Tabella 1. Funzionalità VPN e configurazioni descritte in questa distribuzione
+Tabella 1. Funzionalità e configurazioni VPN descritte in questa distribuzione
 
-| Funzionalità VPN     |     Configurazione di uno scenario di distribuzione         |
+| Funzionalità VPN     |     Configurazione dello scenario di distribuzione         |
 |-----------------|-----------------------------------------------|
-| Tipo di connessione |                 Native IKEv2                  |
-|     Routing     |                Lo split tunneling                |
-| Risoluzione dei nomi |  Suffisso DNS e l'elenco di informazioni sul nome di dominio  |
-|   Attivazione    |    Rilevamento di rete Always On e attendibile    |
-| Autenticazione  | PEAP-TLS con i certificati utente protetto da TPM: |
+| Tipo di connessione |                 IKEv2 nativo                  |
+|     Routing     |                Split tunneling                |
+| Risoluzione dei nomi |  Elenco di informazioni sul nome di dominio e suffisso DNS  |
+|   Attivazione    |    Rilevamento della rete Always On e attendibile    |
+| Authentication  | PEAP-TLS con TPM-certificati utente protetti |
 
 >[!NOTE]
->PEAP-TLS e TPM sono rispettivamente "Protected Extensible Authentication Protocol con Transport Layer Security" e "Trusted Platform Module".
+>PEAP-TLS e TPM sono rispettivamente "Protected Extensible Authentication Protocol with Transport Layer Security" e "Trusted Platform Module".
 
-### <a name="vpnv2-csp-nodes"></a>Nodi di VPNv2 CSP
+### <a name="vpnv2-csp-nodes"></a>Nodi CSP VPNv2
 
-In questa distribuzione, utilizzare il nodo ProfileXML VPNv2 CSP per creare il profilo VPN che viene recapitato al computer client Windows 10. I provider di servizi di configurazione (CSP) sono le interfacce che espongono diverse funzionalità di gestione all'interno del client di Windows. Concettualmente, CSP funzionano in modo analogo al funzionamento di criteri di gruppo. Nodo di configurazione che rappresentano le singole impostazioni ogni CSP. Inoltre, ad esempio le impostazioni di criteri di gruppo, è possibile collegare le impostazioni di CSP per le chiavi del Registro di sistema, file, autorizzazioni e così via. Analogamente a come utilizzare Editor Gestione criteri di gruppo per configurare gli oggetti Criteri di gruppo (GPO), si configurare nodi CSP usando una soluzione di gestione (MDM) di dispositivi mobili, ad esempio Microsoft Intune. I prodotti MDM come Intune offrono un'opzione di configurazione intuitiva che consente di configurare il provider CSP nel sistema operativo.
+In questa distribuzione si usa il nodo CSP ProfileXML VPNv2 per creare il profilo VPN che viene recapitato ai computer client Windows 10. I provider di servizi di configurazione (CSP) sono interfacce che espongono diverse funzionalità di gestione all'interno del client Windows; concettualmente, i CSP funzionano in modo analogo al funzionamento Criteri di gruppo. Ogni CSP dispone di nodi di configurazione che rappresentano singole impostazioni. Inoltre, come Criteri di gruppo impostazioni, è possibile collegare le impostazioni CSP alle chiavi del registro di sistema, ai file, alle autorizzazioni e così via. Analogamente a come si usa il Editor Gestione Criteri di gruppo per configurare gli oggetti di Criteri di gruppo (GPO), si configurano i nodi CSP usando una soluzione di gestione di dispositivi mobili (MDM), ad esempio Microsoft Intune. I prodotti MDM come Intune offrono un'opzione di configurazione intuitiva che configura il CSP nel sistema operativo.
 
-![Gestione dei dispositivi mobili alla configurazione CSP](../../../media/Always-On-Vpn/Vpn-Mdm.jpg)
+![Gestione dei dispositivi mobili per la configurazione CSP](../../../media/Always-On-Vpn/Vpn-Mdm.jpg)
 
-Tuttavia, è possibile configurare alcuni nodi CSP direttamente tramite un'interfaccia utente (UI), ad esempio la Console di amministrazione di Intune. In questi casi, è necessario configurare le impostazioni di Open Mobile Alliance Uniform Resource Identifier (URI OMA) manualmente. Per configurare OMA-URI, utilizzando il protocollo OMA Device Management (OMA-DM), una specifica di gestione dispositivo universale che supportano i dispositivi di Apple, Android e Windows più recenti. Finché sono conformi alla specifica OMA-DM, tutti i prodotti MDM devono interagire con questi sistemi operativi nello stesso modo.
+Tuttavia, non è possibile configurare alcuni nodi CSP direttamente tramite un'interfaccia utente come la console di amministrazione di Intune. In questi casi, è necessario configurare manualmente le impostazioni Open Mobile Alliance Uniform Resource Identifier (OMA-URI). Per configurare gli URI OMA è possibile usare il protocollo OMA-DM (OMA Device Management Protocol), una specifica di gestione universale dei dispositivi supportata dalla maggior parte dei dispositivi Apple, Android e Windows moderni. Fino a quando si rispetta la specifica OMA-DM, tutti i prodotti MDM dovrebbero interagire con questi sistemi operativi nello stesso modo.
 
-Windows 10 offre molte CSP, ma questa distribuzione è incentrato sull'uso di VPNv2 CSP per configurare il client VPN. VPNv2 CSP consente la configurazione di ogni impostazione del profilo VPN in Windows 10 tramite un nodo CSP univoco. Contenuti anche nel VPNv2 CSP è un nodo chiamato *ProfileXML*, che consente di configurare tutte le impostazioni in un nodo anziché singolarmente. Per altre informazioni sulle ProfileXML, vedere la sezione "Panoramica ProfileXML" più avanti in questa distribuzione. Per informazioni dettagliate su ogni nodo VPNv2 CSP, vedere la [VPNv2 CSP](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp).
+Windows 10 offre molti CSP, ma questa distribuzione è incentrata sull'uso del CSP VPNv2 per configurare il client VPN. Il CSP VPNv2 consente la configurazione di ogni impostazione del profilo VPN in Windows 10 tramite un nodo CSP univoco. Contenuto anche in VPNv2 CSP è un nodo denominato *ProfileXML*, che consente di configurare tutte le impostazioni in un nodo anziché singolarmente. Per ulteriori informazioni su ProfileXML, vedere la sezione "Panoramica di ProfileXML" più avanti in questa distribuzione. Per informazioni dettagliate su ogni nodo VPNv2 CSP, vedere [VPNV2 CSP](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su alcune delle funzionalità avanzate VPN Always On](deploy/always-on-vpn-adv-options.md)
+- [Informazioni su alcune delle funzionalità avanzate di Always On VPN](deploy/always-on-vpn-adv-options.md)
 
-- [Iniziare a pianificare la distribuzione VPN Always On](deploy/always-on-vpn-deploy-deployment.md)
+- [Inizia a pianificare la distribuzione di Always On VPN](deploy/always-on-vpn-deploy-deployment.md)
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Supporto del software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): Questo articolo illustra i criteri di supporto per l'esecuzione di software server Microsoft nell'ambiente di macchina virtuale di Microsoft Azure (infrastructure-as-a-service).
+- [Supporto del software server Microsoft per Microsoft Azure macchine virtuali](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): Questo articolo illustra i criteri di supporto per l'esecuzione del software server Microsoft nell'ambiente di Microsoft Azure macchina virtuale (infrastruttura distribuita come servizio).
 
-- [Accesso remoto](../../Remote-Access.md): In questo argomento viene fornita una panoramica del ruolo del server Accesso remoto in Windows Server 2016.
+- [Accesso remoto](../../Remote-Access.md): Questo argomento fornisce una panoramica del ruolo del server accesso remoto in Windows Server 2016.
 
-- [Guida tecnica di Windows 10 VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): Questa guida illustra le scelte effettuate per i client Windows 10 nell'azienda soluzione VPN e come configurare la distribuzione. Questa guida fa riferimento a VPNv2 Configuration Service Provider (CSP) e fornisce la gestione dei dispositivi mobili le istruzioni di configurazione (MDM) con Microsoft Intune e il modello di profilo VPN per Windows 10.
+- [Guida tecnica VPN di Windows 10](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): Questa guida illustra le decisioni che si faranno per i client Windows 10 nella soluzione VPN aziendale e come configurare la distribuzione. Questa guida fa riferimento al provider di servizi di configurazione VPNv2 (CSP) e fornisce istruzioni di configurazione per la gestione di dispositivi mobili (MDM) usando Microsoft Intune e il modello di profilo VPN per Windows 10.
 
 - [Guida alla rete core](../../../../networking/core-network-guide/Core-Network-Guide.md): In questa guida vengono fornite istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta.
 
-- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): In questo argomento offre una panoramica dei sistemi DNS (Domain Name). In Windows Server 2016, DNS è un ruolo del server che è possibile installare usando i comandi di Server Manager o Windows PowerShell. Se si sta installando un nuovo insieme di strutture Active Directory e un dominio, DNS viene installato automaticamente con Active Directory come server di catalogo globale per la foresta e del dominio.
+- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): In questo argomento viene fornita una panoramica di DNS (Domain Name System). In Windows Server 2016, DNS è un ruolo del server che è possibile installare usando Server Manager o i comandi di Windows PowerShell. Se si installa una nuova foresta Active Directory e un dominio, il DNS viene installato automaticamente con Active Directory come server di catalogo globale per la foresta e il dominio.
 
-- [Panoramica di servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): Questo documento viene fornita una panoramica di servizi certificati Active Directory (AD CS) in Windows Server® 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
+- [Panoramica di Servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): In questo documento viene fornita una panoramica di Active Directory Servizi certificati (AD CS) in Windows Server® 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
 
-- [Linee guida alla progettazione di infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx):  In questo wiki fornisce materiale sussidiario sulla progettazione di infrastrutture a chiave pubblica (PKI). Prima di configurare una gerarchia infrastruttura a chiave pubblica e certificazione di autorità (CA), è consigliabile tenere dei criteri e il certificato pratica informativa security dell'organizzazione (CPS).
+- [Linee guida per la progettazione dell'infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx):  Questo wiki fornisce indicazioni sulla progettazione di infrastrutture a chiave pubblica (PKI). Prima di configurare un'infrastruttura a chiave pubblica (PKI) e una gerarchia di autorità di certificazione (CA), è necessario conoscere i criteri di sicurezza dell'organizzazione e l'istruzione di pratica del certificato (CPS).
 
-- [Guida dettagliata di AD CS: A due livelli di distribuzione di gerarchia infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): In questa Guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di servizi certificati di Active Directory® (AD CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server® 2008 R2 offre servizi personalizzabili per la creazione e gestione dei certificati di chiave pubblica utilizzati in sistemi di sicurezza software che utilizza tecnologie a chiave pubblica.
+- [Guida dettagliata di Servizi certificati Active Directory: Distribuzione](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx)della gerarchia PKI a due livelli: Questa guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di Active Directory® Servizi certificati (AD CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server® 2008 R2 offre servizi personalizzabili per la creazione e la gestione di certificati di chiave pubblica usati nei sistemi di sicurezza software che usano tecnologie a chiave pubblica.
 
-- [Server dei criteri di (rete NPS) di rete](../../../../networking/technologies/nps/nps-top.md): In questo argomento viene fornita una panoramica di Server dei criteri di rete in Windows Server 2016. Server dei criteri di rete consente di creare e imporre criteri di accesso di rete a livello di organizzazione per l'autorizzazione e l'autenticazione delle richieste di connessione.
+- [Server dei criteri di rete](../../../../networking/technologies/nps/nps-top.md): Questo argomento fornisce una panoramica di server dei criteri di rete in Windows Server 2016. Server dei criteri di rete consente di creare e imporre criteri di accesso di rete a livello di organizzazione per l'autorizzazione e l'autenticazione delle richieste di connessione.

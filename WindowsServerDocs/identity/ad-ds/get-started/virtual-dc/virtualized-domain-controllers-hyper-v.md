@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 491f4f2e2526e7cff024779ee3ecf9f771e64af4
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 287d7ef0b8645d8e808b8b8d9f195d05ffed1cc0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560574"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868332"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualizzazione di controller di dominio con Hyper-V
 
@@ -77,7 +77,7 @@ Grazie all'utilizzo delle macchine virtuali è possibile disporre di diversi tip
 
 ## <a name="security-of-vhd-files"></a>Sicurezza dei file VHD
 
-Un file VHD di un controller di dominio virtuale equivale all'unità disco rigido fisica di un controller di dominio fisico. Per questo motivo è necessario proteggerla con la stessa cautela con cui si protegge l'unità disco rigido di un controller di dominio fisico. Verificare che l'accesso ai file VHD del controller di dominio sia consentito solo ad amministratori affidabili e attendibili.
+Un file VHD di un controller di dominio virtuale equivale all'unità disco rigido fisica di un controller di dominio fisico. Per questo motivo è necessario proteggerla con la stessa cautela con cui si protegge l'unità disco rigido di un controller di dominio fisico. Assicurarsi che l'accesso ai file VHD del controller di dominio sia consentito solo a amministratori affidabili e attendibili.
 
 ## <a name="rodcs"></a>Controller di dominio di sola lettura
 
@@ -328,7 +328,7 @@ Per i controller di dominio di sola lettura, il processo di ripristino e le deci
 Se è disponibile un backup dello stato del sistema valido per la macchina virtuale del controller di dominio, è possibile ripristinarlo seguendo la procedura di ripristino indicata dallo strumento di backup utilizzato per il backup del file VHD.
 
 > [!IMPORTANT]
-> Per ripristinare correttamente il controller di dominio, è necessario avviarlo in modalità ripristino servizi directory. Non consentire l'avvio del controller di dominio in modalità normale. Se si perde questa opportunità di attivare la modalità ripristino servizi directory durante l'avvio del sistema, spegnere la macchina virtuale del controller di dominio prima che l'avvio in modalità normale venga completato. È importante avviare il controller di dominio in modalità ripristino servizi directory in quanto l'avvio di un controller di dominio in modalità normale ne incrementa gli USN, anche se il controller di dominio viene disconnesso dalla rete. Per ulteriori informazioni sul rollback degli USN, vedere USN e rollback degli USN. 
+> Per ripristinare correttamente il controller di dominio, è necessario avviarlo in modalità ripristino servizi directory. Non consentire l'avvio del controller di dominio in modalità normale. Se non si ha la possibilità di immettere la modalità ripristino servizi directory durante l'avvio del sistema, spegnere la macchina virtuale del controller di dominio prima di poter avviare completamente in modalità normale. È importante avviare il controller di dominio in modalità ripristino servizi directory in quanto l'avvio di un controller di dominio in modalità normale ne incrementa gli USN, anche se il controller di dominio viene disconnesso dalla rete. Per ulteriori informazioni sul rollback degli USN, vedere USN e rollback degli USN. 
 
 ## <a name="to-restore-the-system-state-backup-of-a-virtual-domain-controller"></a>Per ripristinare il backup dello stato del sistema di un controller di dominio virtuale
 
@@ -375,7 +375,7 @@ Se non è disponibile un backup dei dati di stato del sistema antecedente all'er
     ```
 
 11. Chiudere il Visualizzatore eventi.
-12. Utilizzare l'Editor del Registro di sistema per verificare che il valore di **DSA Previous Restore Count** sia uguale al valore precedente più uno. Se non è il valore corretto e non è possibile trovare una voce per l'ID evento 1109 nel Visualizzatore eventi, verificare che i service pack del controller di dominio siano aggiornati. Non è possibile provare nuovamente questa procedura sullo stesso VHD. È possibile ritentare la procedura su una copia del VHD o un differente VHD che non è stato avviato in modalità normale ricominciando dal passaggio 1.
+12. Utilizzare l'Editor del Registro di sistema per verificare che il valore di **DSA Previous Restore Count** sia uguale al valore precedente più uno. Se questo valore non è corretto e non è possibile trovare una voce per l'ID evento 1109 in Visualizzatore eventi, verificare che i Service Pack del controller di dominio siano aggiornati. Non è possibile provare nuovamente questa procedura sullo stesso VHD. È possibile ritentare la procedura su una copia del VHD o un differente VHD che non è stato avviato in modalità normale ricominciando dal passaggio 1.
 13. Chiudi l'Editor del Registro di sistema.
 
 ## <a name="usn-and-usn-rollback"></a>Rollback USN e USN
@@ -395,7 +395,7 @@ Le due tabelle di metadati di replica seguenti contengono USNs. I controller di 
 
 ## <a name="directory-database-identity"></a>Identità database di directory
 
-Oltre agli USN, i controller di dominio tengono traccia del database di directory dei partner di replica di origine. L'identità del database di directory in esecuzione sul server viene gestita separatamente dall'identità dell'oggetto server stesso. L'identità del database di directory in ogni controller di dominio viene archiviata nell'attributo **invocationID** dell'oggetto Impostazioni NTDS, disponibile nel seguente percorso LDAP (Lightweight Directory Access Protocol): CN = NTDS Settings, CN = ServerName, CN = Servers, CN= nomesito, CN = Sites, CN = Configuration, DC =*DominioRadiceForesta*. L'identità dell'oggetto server viene archiviata nell'attributo **objectGUID** dell'oggetto Impostazioni NTDS e non cambia mai. Tuttavia, l'identità del database di directory viene modificata quando si verifica una procedura di ripristino dello stato del sistema nel server o quando viene aggiunta una partizione di directory applicativa, quindi rimossa e successivamente aggiunta nuovamente dal server. (altro scenario: quando un'istanza di HyperV attiva i relativi writer VSS in una partizione contenente un disco rigido virtuale di un controller di dominio virtuale, il Guest a sua volta attiva i propri writer VSS (lo stesso meccanismo utilizzato dal backup/ripristino precedente), causando un altro mezzo con cui invocationID è reimpostazione
+Oltre agli USN, i controller di dominio tengono traccia del database di directory dei partner di replica di origine. L'identità del database di directory in esecuzione sul server viene gestita separatamente dall'identità dell'oggetto server stesso. L'identità del database di directory in ogni controller di dominio viene archiviata nell'attributo **invocationID** dell'oggetto Impostazioni NTDS, disponibile nel seguente percorso LDAP (Lightweight Directory Access Protocol): CN = NTDS Settings, CN = ServerName, CN = Servers, CN =*nomesito*, CN = Sites, CN = Configuration, DC =*DominioRadiceForesta*. L'identità dell'oggetto server viene archiviata nell'attributo **objectGUID** dell'oggetto Impostazioni NTDS e non cambia mai. Tuttavia, l'identità del database di directory viene modificata quando si verifica una procedura di ripristino dello stato del sistema nel server o quando viene aggiunta una partizione di directory applicativa, quindi rimossa e successivamente aggiunta nuovamente dal server. (altro scenario: quando un'istanza di HyperV attiva i relativi writer VSS in una partizione contenente un disco rigido virtuale di un controller di dominio virtuale, il Guest a sua volta attiva i propri writer VSS (lo stesso meccanismo utilizzato dal backup/ripristino precedente), causando un altro mezzo con cui invocationID è reimpostazione
 
 Di conseguenza, **invocationID** mette in correlazione un insieme di aggiornamenti di origine su un controller di dominio con una specifica versione del database di directory. Il vettore di aggiornamento e le tabelle del limite massimo utilizzano rispettivamente il GUID **invocationID** e DC, in modo che i controller di dominio conoscano la copia del database di Active Directory in arrivo le informazioni di replica.
 
@@ -438,7 +438,7 @@ In Windows Server 2008 e Windows Server 2003 SP1 quando un controller di do
    - Servizi di dominio Active Directory disabilita la replica di Active Directory in entrata e in uscita.  
    - Servizi di dominio Active Directory genera l'ID evento 2095 nel registro eventi di Directory Service per indicare la condizione.  
 
-Nell'illustrazione seguente viene mostrata la sequenza di eventi che si verifica quando il rollback degli USN viene rilevato su VDC2, ovvero il controller di dominio di destinazione in esecuzione su una macchina virtuale. Nell'illustrazione il rilevamento del rollback degli USN si verifica su VDC2 quando un partner di replica rileva che VDC2 ha inviato un valore USN di aggiornamento già ricevuto in precedenza dal controller di dominio di destinazione, a indicare che il database di VDC2 ha eseguito il rollback in tempo ma in modo errato.
+Nell'illustrazione seguente viene mostrata la sequenza di eventi che si verifica quando il rollback degli USN viene rilevato su VDC2, ovvero il controller di dominio di destinazione in esecuzione su una macchina virtuale. In questa illustrazione, il rilevamento del rollback degli USN si verifica in VDC2 quando un partner di replica rileva che VDC2 ha inviato un valore USN di aggiornamento che è stato rilevato in precedenza dal controller di dominio di destinazione, a indicare che è stato eseguito il rollback del database di già ricevuto nel tempo in modo errato.
 
 ![](media/virtualized-domain-controller-architecture/Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
 
@@ -451,7 +451,7 @@ Se il registro eventi di Directory Service segnala l'ID evento 2095, completare 
 
    Per stabilirlo è possibile utilizzare lo strumento Repadmin. Per informazioni sull'utilizzo di Repadmin, vedere [monitoraggio e risoluzione dei problemi di replica Active Directory tramite repadmin](https://go.microsoft.com/fwlink/?linkid=122830). Se non si è in grado di determinare questo problema, contattare [supporto tecnico Microsoft](https://support.microsoft.com) per assistenza.
 
-3. Imporre un abbassamento dei livello del controller di dominio, effettuando una pulizia dei metadati di tale controller e assegnando i ruoli di master operazioni, anche noti come ruoli FSMO (Flexible Single Master Operations). Per ulteriori informazioni, vedere la sezione "ripristino da un rollback degli USN" di [come rilevare e ripristinare da un rollback degli USN in Windows server 2003, Windows server 2008 e Windows server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) nella Microsoft Knowledge base.
+3. Imporre un abbassamento dei livello del controller di dominio, Ciò comporta la pulizia dei metadati del controller di dominio e l'assegnazione dei ruoli master operazioni (noti anche come FSMO, Flexible Single Master Operation). Per ulteriori informazioni, vedere la sezione "ripristino da un rollback degli USN" di [come rilevare e ripristinare da un rollback degli USN in Windows server 2003, Windows server 2008 e Windows server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) nella Microsoft Knowledge base.
 4. Eliminare tutti i file VHD precedenti per il controller di dominio.
 
 ## <a name="undetected-usn-rollback"></a>Rollback degli USN non rilevato

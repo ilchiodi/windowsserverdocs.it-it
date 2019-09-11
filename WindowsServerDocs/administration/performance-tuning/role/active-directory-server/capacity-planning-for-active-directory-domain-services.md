@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 5a9e2d39d4eedd1e8fdb4bfeaf267ad4cb4c596a
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67799833"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866722"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Pianificazione della capacità per Active Directory Domain Services
 
@@ -769,7 +769,7 @@ Una volta identificati i componenti, è possibile calcolare la quantità di dati
   
   |I/O supportati dalla dimensione del bus SCSI per blocco|Dimensioni blocco 2 KB|Dimensioni blocco da 8 KB (AD Jet) (SQL Server 7.0/SQL Server 2000)
   |-|-|-|
-  |20 MB/s|10.000|2\.500|
+  |20 MB/s|10,000|2\.500|
   |40 MB/s|20.000|5\.000|
   |128 MB/s|65.536|16.384|
   |320 MB/s|160.000|40.000|

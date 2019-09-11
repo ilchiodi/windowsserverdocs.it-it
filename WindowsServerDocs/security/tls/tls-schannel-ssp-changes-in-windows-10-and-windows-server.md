@@ -1,5 +1,5 @@
 ---
-title: TLS (Schannel SSP)
+title: TLS (SSP Schannel)
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -8,131 +8,131 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 05/16/2018
-ms.openlocfilehash: 030fd81e0c6ba0423f1fa73e680006766cf2b180
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a8928d89c42d4462dbcabc756adcfdc5678c7a9d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890772"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870234"
 ---
 # <a name="tls-schannel-ssp-changes-in-windows-10-and-windows-server-2016"></a>Modifiche TLS (SSP Schannel) in Windows 10 e Windows Server 2016
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016 e Windows 10
 
-## <a name="cipher-suite-changes"></a>Modifiche apportate alla Suite di crittografia
+## <a name="cipher-suite-changes"></a>Modifiche del pacchetto di crittografia
 
-Windows 10, versione 1511 e Windows Server 2016 è possibile aggiungere il supporto per la configurazione dell'ordine dei pacchetti di crittografia con Gestione dispositivi mobili (MDM).
+Windows 10, versione 1511 e Windows Server 2016 aggiungono il supporto per la configurazione dell'ordine dei pacchetti di crittografia tramite la gestione di dispositivi mobili (MDM).
 
-Per le modifiche nell'ordine di priorità suite pacchetti di crittografia, vedere [pacchetti di crittografia in Schannel](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).
+Per le modifiche all'ordine di priorità del pacchetto di crittografia, vedere pacchetti [di crittografia in Schannel](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).
 
-Aggiunta del supporto per pacchetti di crittografia seguenti:
+Aggiunta del supporto per i pacchetti di crittografia seguenti:
 
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (RFC 5289) in Windows 10, versione 1507 e Windows Server 2016
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (RFC 5289) in Windows 10, versione 1507 e Windows Server 2016
 
-DisabledByDefault modificare per i pacchetti di crittografia seguenti:
+DisabledByDefault modifiche per i pacchetti di crittografia seguenti:
 
-- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (RFC 5246) in Windows 10 versione 1703
-- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (RFC 5246) in Windows 10 versione 1703
-- TLS_DHE_DSS_WITH_AES_256_CBC_SHA (RFC 5246) in Windows 10 versione 1703
-- TLS_DHE_DSS_WITH_AES_128_CBC_SHA (RFC 5246) in Windows 10 versione 1703
-- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA (RFC 5246) in Windows 10 versione 1703
-- TLS_RSA_WITH_RC4_128_SHA in Windows 10, versione 1709
-- TLS_RSA_WITH_RC4_128_MD5 in Windows 10, versione 1709
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (RFC 5246) in Windows 10, versione 1703
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (RFC 5246) in Windows 10, versione 1703
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA (RFC 5246) in Windows 10, versione 1703
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA (RFC 5246) in Windows 10, versione 1703
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA (RFC 5246) in Windows 10, versione 1703
+- TLS_RSA_WITH_RC4_128_SHA in Windows 10 versione 1709
+- TLS_RSA_WITH_RC4_128_MD5 in Windows 10 versione 1709
 
-A partire da Windows 10, versione 1507 e Windows Server 2016, sono supportati i certificati SHA 512 per impostazione predefinita.
+A partire da Windows 10, versione 1507 e Windows Server 2016, i certificati SHA 512 sono supportati per impostazione predefinita.
 
-### <a name="rsa-key-changes"></a>Modifiche delle chiavi RSA
+### <a name="rsa-key-changes"></a>Modifiche della chiave RSA
 
-Windows 10, versione 1507 e Windows Server 2016 è possibile aggiungere opzioni di configurazione del Registro di sistema per le dimensioni della chiave RSA client.
+Windows 10, versione 1507 e Windows Server 2016 aggiungono le opzioni di configurazione del registro di sistema per le dimensioni delle chiavi RSA del client.
 
-Per altre informazioni, vedere [KeyExchangeAlgorithm - dimensioni della chiave RSA Client](tls-registry-settings.md#keyexchangealgorithm---client-rsa-key-sizes).
+Per altre informazioni, vedere [KeyExchangeAlgorithm-dimensioni delle chiavi RSA del client](tls-registry-settings.md#keyexchangealgorithm---client-rsa-key-sizes).
 
-### <a name="diffie-hellman-key-changes"></a>Modifiche delle chiavi Diffie-Hellman
+### <a name="diffie-hellman-key-changes"></a>Modifiche della chiave Diffie-Hellman
 
-Windows 10, versione 1507 e Windows Server 2016 è possibile aggiungere opzioni di configurazione del Registro di sistema per le dimensioni della chiave Diffie-Hellman.
+Windows 10, versione 1507 e Windows Server 2016 aggiungono le opzioni di configurazione del registro di sistema per le dimensioni della chiave Diffie-Hellman.
 
-Per altre informazioni, vedere [KeyExchangeAlgorithm - dimensioni della chiave Diffie-Hellman](tls-registry-settings.md#keyexchangealgorithm---diffie-hellman-key-sizes).
+Per ulteriori informazioni, vedere la pagina relativa alle [dimensioni delle chiavi KeyExchangeAlgorithm-Diffie-Hellman](tls-registry-settings.md#keyexchangealgorithm---diffie-hellman-key-sizes).
 
-### <a name="schusestrongcrypto-option-changes"></a>Modifiche apportate alle opzioni SCH_USE_STRONG_CRYPTO
+### <a name="sch_use_strong_crypto-option-changes"></a>Modifiche all'opzione SCH_USE_STRONG_CRYPTO
 
-Con Windows 10, versione 1507 e Windows Server 2016 [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) opzione ora Disabilita NULL, MD5, DES ed esportare le crittografie.
+Con Windows 10, versione 1507 e Windows Server 2016, l'opzione [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) Disabilita ora le crittografie null, MD5, des ed export.
 
-## <a name="elliptical-curve-changes"></a>Modifiche di curva ellittiche
+## <a name="elliptical-curve-changes"></a>Modifiche a curva ellittica
 
-Windows 10, versione 1507 e Windows Server 2016 aggiungere la configurazione di criteri di gruppo per le curve ellittiche in configurazione Computer > modelli amministrativi > rete > Impostazioni di configurazione di SSL. Elenco degli ordini curva ECC specifica l'ordine in cui sono preferibili curve ellittiche nonché Abilita curve supportate che non sono abilitate. 
+Windows 10, versione 1507 e Windows Server 2016 aggiungono Criteri di gruppo configurazione per le curve ellittiche in configurazione computer > Modelli amministrativi > rete > le impostazioni di configurazione SSL. L'elenco di ordine di curva ECC specifica l'ordine in cui le curve ellittiche sono preferite e Abilita le curve supportate che non sono abilitate. 
  
 Aggiunta del supporto per le curve ellittiche seguenti:
 
 - BrainpoolP256r1 (RFC 7027) in Windows 10, versione 1507 e Windows Server 2016
 - BrainpoolP384r1 (RFC 7027) in Windows 10, versione 1507 e Windows Server 2016 
 - BrainpoolP512r1 (RFC 7027) in Windows 10, versione 1507 e Windows Server 2016
-- Curve25519 (RFC draft-ietf-tls-curve25519) in Windows 10, versione 1607 e Windows Server 2016
+- Curve25519 (RFC draft-ietf-TLS-Curve25519) in Windows 10, versione 1607 e Windows Server 2016
 
-## <a name="dispatch-level-support-for-sealmessage--unsealmessage"></a>Supporto a livello di invio per SealMessage & UnsealMessage
+## <a name="dispatch-level-support-for-sealmessage--unsealmessage"></a>Supporto del livello di invio per SealMessage & UnsealMessage
 
-Windows 10, versione 1507 e Windows Server 2016 è possibile aggiungere il supporto per SealMessage/UnsealMessage a livello di invio.
+Windows 10, versione 1507 e Windows Server 2016 aggiungono il supporto per SealMessage/UnsealMessage a livello di distribuzione.
 
-## <a name="dtls-12"></a>DTLS 1.2
+## <a name="dtls-12"></a>DTLS 1,2
 
-Windows 10, versione 1607 e Windows Server 2016 è possibile aggiungere il supporto per 1.2 DTLS (RFC 6347).
+Windows 10, versione 1607 e Windows Server 2016 aggiungono il supporto per DTLS 1,2 (RFC 6347).
 
 ## <a name="httpsys-thread-pool"></a>HTTP. Pool di thread SYS 
 
-Windows 10, versione 1607 e Windows Server 2016 è possibile aggiungere la configurazione del Registro di sistema delle dimensioni del pool di thread utilizzati per gestire gli handshake di TLS per HTTP. SYS.
+Windows 10, versione 1607 e Windows Server 2016 aggiungono la configurazione del registro di sistema delle dimensioni del pool di thread usato per gestire gli handshake TLS per HTTP. SYS.
 
-Percorso del Registro di sistema: 
+Percorso del registro di sistema: 
 
 HKLM\SYSTEM\CurrentControlSet\Control\LSA
 
-Per specificare una dimensione del pool massimo di thread per core della CPU, creare un **MaxAsyncWorkerThreadsPerCpu** voce. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Dopo aver creato la voce, modificare il valore DWORD per le dimensioni desiderate. Se non è configurato, il valore massimo è 2 thread per core della CPU.
+Per specificare le dimensioni massime del pool di thread per core CPU, creare una voce **MaxAsyncWorkerThreadsPerCpu** . Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Dopo aver creato la voce, modificare il valore DWORD con le dimensioni desiderate. Se non è configurato, il valore massimo è 2 thread per core CPU.
 
-## <a name="next-protocol-negotiation-npn-support"></a>Supporto successivo protocollo negoziazione (NPN)
+## <a name="next-protocol-negotiation-npn-support"></a>Supporto per la negoziazione del protocollo successivo (NPN)
 
-A partire da Windows 10 versione 1703, successivo protocollo di negoziazione (NPN) è stata rimossa e non è più supportata.
+A partire da Windows 10 versione 1703, la negoziazione del protocollo successiva (NPN) è stata rimossa e non è più supportata.
 
-## <a name="pre-shared-key-psk"></a>Chiave precondivisa (PSK)
+## <a name="pre-shared-key-psk"></a>Chiave pre-condivisa (PSK)
 
-Windows 10, versione 1607 e Windows Server 2016 è possibile aggiungere il supporto per l'algoritmo di scambio delle chiavi PSK (RFC 4279).
+Windows 10, versione 1607 e Windows Server 2016 aggiungono il supporto per l'algoritmo di scambio delle chiavi PSK (RFC 4279).
 
 Aggiunta del supporto per i pacchetti di crittografia PSK seguenti:
 
 - TLS_PSK_WITH_AES_128_CBC_SHA256 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
-- TLS_PSK_WITH_AES_256_CBC_SHA384(RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
+- TLS_PSK_WITH_AES_256_CBC_SHA384 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
 - TLS_PSK_WITH_NULL_SHA256 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
 - TLS_PSK_WITH_NULL_SHA384 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
 - TLS_PSK_WITH_AES_128_GCM_SHA256 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
 - TLS_PSK_WITH_AES_256_GCM_SHA384 (RFC 5487) in Windows 10, versione 1607 e Windows Server 2016
 
-## <a name="session-resumption-without-server-side-state-server-side-performance-improvements"></a>Ripresa della sessione senza miglioramenti delle prestazioni sul lato server dello stato lato Server
+## <a name="session-resumption-without-server-side-state-server-side-performance-improvements"></a>Ripresa della sessione senza miglioramenti delle prestazioni sul lato server dello stato lato server
 
-Windows 10, versione 1507 e Windows Server 2016 fornisce superiori del 30% delle riprese della sessione al secondo con i ticket di sessione, rispetto a Windows Server 2012.
+Windows 10, versione 1507 e Windows Server 2016 forniscono il 30% più riprese di sessione al secondo con ticket di sessione rispetto a Windows Server 2012.
 
-## <a name="session-hash-and-extended-master-secret-extension"></a>Hash di sessione e l'estensione di segreto Master estesa
+## <a name="session-hash-and-extended-master-secret-extension"></a>Hash della sessione ed estensione master secret estesa
 
-Windows 10, versione 1507 e Windows Server 2016 è possibile aggiungere il supporto per RFC 7627: Hash di sessione Layer Security (TLS) del trasporto ed esteso Master Secret estensione.
+Windows 10, versione 1507 e Windows Server 2016 aggiungono il supporto per RFC 7627: Hash della sessione Transport Layer Security (TLS) ed estensione master secret esteso.
 
-A causa di questa modifica, Windows 10 e Windows Server 2016 richiede 3rd party [provider CNG SSL](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) gli aggiornamenti per supportare NCRYPT_SSL_INTERFACE_VERSION_3 e per descrivere questa nuova interfaccia.
+A causa di questa modifica, Windows 10 e Windows Server 2016 richiedono aggiornamenti del [provider SSL CNG](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) di terze parti per supportare NCRYPT_SSL_INTERFACE_VERSION_3 e per descrivere questa nuova interfaccia.
 
 
 ## <a name="ssl-support"></a>Supporto SSL
 
-A partire da Windows 10, versione 1607 e Windows Server 2016, il client TLS e il server SSL 3.0 è disabilitato per impostazione predefinita. Ciò significa che, a meno che l'applicazione o servizio in modo specifico richiede SSL 3.0 tramite l'interfaccia SSPI, il client verrà mai offerta o accettare SSL 3.0 e il server non selezionerà mai SSL 3.0.
+A partire da Windows 10, versione 1607 e Windows Server 2016, il client TLS e il server SSL 3,0 sono disabilitati per impostazione predefinita. Ciò significa che, a meno che l'applicazione o il servizio non richieda specificamente SSL 3,0 tramite SSPI, il client non offrirà né accetterà mai SSL 3,0 e il server non selezionerà mai SSL 3,0.
 
-A partire da Windows 10 versione 1607 e Windows Server 2016, SSL 2.0 è stata rimossa e non è più supportata.
+A partire da Windows 10 versione 1607 e Windows Server 2016, SSL 2,0 è stato rimosso e non è più supportato.
 
-## <a name="changes-to-windows-tls-adherence-to-tls-12-requirements-for-connections-with-non-compliant-tls-clients"></a>Modifiche per la conformità di Windows TLS ai requisiti di TLS 1.2 per le connessioni con client TLS non conformi
+## <a name="changes-to-windows-tls-adherence-to-tls-12-requirements-for-connections-with-non-compliant-tls-clients"></a>Modifiche alla conformità TLS di Windows ai requisiti di TLS 1,2 per le connessioni con client TLS non conformi
 
-In TLS 1.2, il client utilizza il [estensione "signature_algorithms"](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) per indicare al server quali coppie di algoritmi di firma/hash possono essere utilizzate nelle firme digitali (ad esempio, i certificati del server e scambio di chiavi server). RFC TLS 1.2 richiede inoltre che il messaggio di certificato server rispettano "signature_algorithms" estensione:
+In TLS 1,2 il client usa l' [estensione "signature_algorithms"](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) per indicare al server quali coppie di algoritmi di firma/hash possono essere usate nelle firme digitali, ad esempio i certificati server e lo scambio di chiave del server. Per la RFC di TLS 1,2 è inoltre necessario che il messaggio del certificato del server richieda l'estensione "signature_algorithms":
 
-"Se il client fornito un'estensione"signature_algorithms", quindi tutti i certificati forniti dal server devono essere firmati da una coppia di algoritmo di firma/hash che viene visualizzato nell'estensione."
+"Se il client ha fornito un'estensione" signature_algorithms ", tutti i certificati forniti dal server devono essere firmati da una coppia di algoritmi hash/firma visualizzata in tale estensione".
 
-In pratica, alcuni client TLS di terze parti non conformi a RFC di TLS 1.2 e hanno esito negativo per includere tutti la firma e l'hashing coppie di algoritmi sono disposti ad accettare l'estensione "signature_algorithms" oppure omettere completamente l'estensione (quest'ultimo indica a il server che il client supporta solo SHA1 con RSA, DSA o ECDSA).
+In pratica, alcuni client TLS di terze parti non sono conformi alla RFC TLS 1,2 e non includono tutte le coppie di firma e algoritmo hash che sono disposti ad accettare nell'estensione "signature_algorithms" oppure ometteno completamente l'estensione (il secondo indica Server che il client supporta solo SHA1 con RSA, DSA o ECDSA.
 
-Un server TLS dispone solo di un certificato configurato per ogni endpoint, che significa che il server non può sempre fornire un certificato che soddisfa i requisiti del client.
+Un server TLS ha spesso un solo certificato configurato per ogni endpoint, il che significa che il server non può sempre fornire un certificato che soddisfi i requisiti del client.
 
-Prima di Windows 10 e Windows Server 2016, lo stack TLS Windows scrupolosamente a TLS 1.2 requisiti RFC, causando errori di connessione con il client TLS non conforme di RFC e problemi di interoperabilità. In Windows 10 e Windows Server 2016, i vincoli sono flessibili e il server può inviare un certificato che non è conforme alla RFC TLS 1.2, se che è l'unica opzione disponibile del server. I client possono quindi continuare o terminare l'handshake.
+Prima di Windows 10 e Windows Server 2016, lo stack di Windows TLS rispettava rigorosamente i requisiti RFC di TLS 1,2, causando errori di connessione con client TLS non conformi a RFC e problemi di interoperabilità. In Windows 10 e Windows Server 2016 i vincoli sono rilassati e il server può inviare un certificato che non è conforme a TLS 1,2 RFC, se questa è l'unica opzione del server. Il client può quindi continuare o terminare l'handshake.
 
-Durante la convalida server e i certificati client, lo stack TLS Windows è strettamente conforme a RFC TLS 1.2 e consente solo gli algoritmi di hash e firma negoziato i certificati server e client.
+Quando si convalidano i certificati client e server, lo stack TLS di Windows è strettamente conforme alla RFC TLS 1,2 e consente solo la firma negoziata e gli algoritmi hash nei certificati server e client.
 
 

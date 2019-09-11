@@ -1,6 +1,6 @@
 ---
-title: Collegare stazioni aggiuntive al server MultiPoint
-description: Aggiungere ulteriori stazioni alla distribuzione di MultiPoint Services
+title: Alleghi altre stazioni al server MultiPoint
+description: Aggiungere altre stazioni alla distribuzione di MultiPoint Services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,39 +13,39 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 57fc8ed6774c3266298ecd98e8f609ec01f63ef6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70609d491f5eb60daf89df219c06c8b9d4c3cd3e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889262"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871408"
 ---
-# <a name="attach-additional-stations-to-multipoint-services"></a>Collegare stazioni aggiuntive ai servizi MultiPoint
-Nell'ambiente MultiPoint Services, gli utenti usano le stazioni per connettersi ai servizi MultiPoint e svolgere il proprio lavoro. Le stazioni sono gli endpoint di utente per la connessione al computer che esegue Multipoint Services.  
+# <a name="attach-additional-stations-to-multipoint-services"></a>Connetti stazioni aggiuntive a servizi MultiPoint
+Nell'ambiente MultiPoint Services gli utenti usano le stazioni per connettersi a MultiPoint Services ed eseguire le operazioni. Le stazioni sono gli endpoint utente per la connessione al computer che esegue multipoint Services.  
   
-Servizi multiPoint supporta tre tipi di stazione:  
+MultiPoint Services supporta tre tipi di stazione:  
   
--   Stazioni Direct-video-connessi  
+-   Direct-video-stazioni connesse  
   
--   USB zero client connesso stazioni (e USB su stazioni client connesso Ethernet zero)  
+-   USB zero stazioni connesse al client (e USB su Ethernet zero-stazioni connesse client)  
   
--   Stazioni con connessione RDP-over-LAN  
+-   Stazioni connesse RDP-over-LAN  
   
-Le classificazioni si basano su hardware della stazione e il tipo di connessione che usa. È possibile combinare e associare i tipi di connessione per le stazioni. L'unico requisito è che la stazione principale (che è stato installato in precedenza) deve essere una stazione di direct-video-connessi. Per altre informazioni sulle impostazioni di stazione, vedere [stazioni MultiPoint](MultiPoint-services-Stations.md).  
+Le classificazioni si basano sull'hardware di una stazione e sul tipo di connessione utilizzato. È possibile combinare e abbinare i tipi di connessione per le stazioni. L'unico requisito è che la stazione primaria, installata in precedenza, deve essere una stazione connessa con video diretto. Per ulteriori informazioni sulle configurazioni delle stazioni, vedere [multipoint](MultiPoint-services-Stations.md)Station.  
   
-Per le istruzioni su come configurare ogni tipo di stazione, vedere gli argomenti seguenti:  
+Per istruzioni su come configurare ogni tipo di stazione, vedere gli argomenti seguenti:  
   
--   [Configurare una stazione di direct-video-connessi](Set-up-a-direct-video-connected-station-in-MultiPoint-services.md)  
+-   [Configurare una stazione con connessione direct-video](Set-up-a-direct-video-connected-station-in-MultiPoint-services.md)  
   
--   [Configurare una porta USB zero stazione client connesso](Set-up-a-USB-zero-client-connected-station-in-MultiPoint-services.md)  
+-   [Configurare una stazione con connessione USB zero-client](Set-up-a-USB-zero-client-connected-station-in-MultiPoint-services.md)  
   
--   [Configurare una stazione di RDP-over-LAN connessa](Set-up-an-RDP-over-LAN-connected-station-in-MultiPoint-services.md)  
+-   [Configurare una stazione con connessione RDP su LAN](Set-up-an-RDP-over-LAN-connected-station-in-MultiPoint-services.md)  
   
-Per un confronto dettagliato dei tipi di stazione, vedere [confronto di tipo stazione](multipoint-services-stations.md#BKMK_StationTypeComparison).  
+Per un confronto dettagliato dei tipi di stazione, vedere [confronto tra](multipoint-services-stations.md#BKMK_StationTypeComparison)i tipi di stazione.  
   
 > [!NOTE]  
-> -   Le procedure per collegare stazioni non descrivono come configurare hub intermedio o hub downstream. Per informazioni su come installare questi hub, vedere [stazioni MultiPoint](MultiPoint-services-Stations.md).  
-> -   In alcuni casi, potrebbe essere necessario creare stazione di desktop virtuali, che vengono eseguite in macchine virtuali. Ad esempio, si utilizzano applicazioni che non possono essere installate in Windows Server o applicazioni che non vengono eseguite più istanze nello stesso computer host. Per altre informazioni, vedere [desktop virtuale creare Windows 10 Enterprise per le stazioni](Create-Windows-10-Enterprise-virtual-desktops-for-stations.md).  
+> -   Le procedure per il fissaggio delle stazioni non descrivono come configurare gli hub intermedi o gli hub downstream. Per informazioni sulla posizione in cui installare questi hub, vedere [multipoint stations](MultiPoint-services-Stations.md).  
+> -   In alcuni casi, potrebbe essere necessario creare desktop virtuali della stazione, che vengono eseguiti in macchine virtuali. Ad esempio, si usano applicazioni che non possono essere installate in Windows Server o applicazioni che non eseguono più istanze nello stesso computer host. Per altre informazioni, vedere [creare desktop virtuali Windows 10 Enterprise per le stazioni](Create-Windows-10-Enterprise-virtual-desktops-for-stations.md).  
   
 > [!TIP]  
-> È utile creare le stazioni nell'ordine dei relativi percorsi fisici in modo che vengono identificati in modo sequenziale in MultiPoint Server. Se in un secondo momento si desidera modificare il nome di una stazione, è possibile farlo selezionare Gestione MultiPoint. Per altre informazioni, vedere la modifica del mapping tutte le stazioni MultiPoint Server Guida e supporto tecnico.
+> È utile creare le stazioni nell'ordine dei percorsi fisici in modo che vengano identificate in sequenza in MultiPoint Server. Se in seguito si vuole modificare il nome di una stazione, è possibile farlo in Gestione MultiPoint. Per ulteriori informazioni, vedere l'argomento relativo al mapping di tutte le stazioni in MultiPoint Server Guida e supporto tecnico.

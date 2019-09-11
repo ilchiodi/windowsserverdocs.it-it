@@ -1,6 +1,6 @@
 ---
 title: Gestire Registrazione accesso utenti
-description: Viene descritto come gestire registrazione accesso utenti
+description: Viene descritto come gestire la registrazione accesso utenti
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: manage-user-access-logging
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c3a172f37d491cb37d897c586312107fe62a4c55
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435352"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866239"
 ---
 # <a name="manage-user-access-logging"></a>Gestire Registrazione accesso utenti
 
@@ -30,9 +30,9 @@ Registrazione accesso utenti è una funzionalità che gli amministratori del ser
   
 La funzionalità Registrazione accesso utenti viene installata e abilitata per impostazione predefinita e raccoglie i dati in tempo quasi reale. Per Registrazione accesso utenti è disponibile un numero limitato di opzioni di configurazione. In questo documento tali opzioni vengono descritte insieme agli scopi previsti.  
   
-Per altre informazioni sui vantaggi della registrazione accesso utenti, vedere la [Introduzione a registrazione accesso utenti](get-started-with-user-access-logging.md).  
+Per altre informazioni sui vantaggi di registrazione accesso utenti, vedere la pagina relativa all' [Introduzione a registrazione accesso utenti](get-started-with-user-access-logging.md).  
   
-**In questo documento**  
+**Contenuto del documento**  
   
 Le opzioni di configurazione descritte in questo documento includono:  
   
@@ -48,8 +48,8 @@ Le opzioni di configurazione descritte in questo documento includono:
   
 -   Abilitare la verifica delle licenze per l'utilizzo di Cartelle di lavoro   
   
-## <a name="BKMK_Step1"></a>La disabilitazione e abilitazione del servizio registrazione accesso utenti  
-Registrazione accesso utenti è abilitato e viene eseguito per impostazione predefinita quando un computer che esegue Windows Server 2012, o in un secondo momento, sono installato e avviato per la prima volta. Gli amministratori potrebbero avere la necessità di disattivare e disabilitare Registrazione accesso utenti per rispettare requisiti di privacy specifici o soddisfare altre esigenze operative. È possibile disattivare registrazione accesso utenti tramite la console servizi, dalla riga di comando o tramite i cmdlet di PowerShell. Tuttavia, per assicurarsi che registrazione accesso utenti non viene eseguito nuovamente al successivo che avvio del computer, è inoltre necessario disabilitare il servizio. Le procedure seguenti viene descritto come disattivare e disabilitare registrazione accesso utenti.  
+## <a name="BKMK_Step1"></a>Disabilitazione e abilitazione del servizio registrazione accesso utenti  
+REGISTRAZIONE accesso utenti è abilitato e viene eseguito per impostazione predefinita quando si installa e si avvia per la prima volta un computer che esegue Windows Server 2012 o versione successiva. Gli amministratori potrebbero avere la necessità di disattivare e disabilitare Registrazione accesso utenti per rispettare requisiti di privacy specifici o soddisfare altre esigenze operative. È possibile disattivare registrazione accesso utenti tramite la console servizi, dalla riga di comando o tramite i cmdlet di PowerShell. Tuttavia, per assicurarsi che registrazione accesso utenti non venga eseguito di nuovo al successivo avvio del computer, è necessario disabilitare anche il servizio. Nelle procedure seguenti viene descritto come disattivare e disabilitare registrazione accesso utenti.  
   
 > [!NOTE]  
 > È possibile usare il cmdlet di PowerShell `Get-Service UALSVC` per recuperare informazioni sul servizio Registrazione accesso utenti e determinare tra l'altro se il servizio è in esecuzione o arrestato e se è abilitato o disabilitato.  
@@ -62,7 +62,7 @@ Registrazione accesso utenti è abilitato e viene eseguito per impostazione pred
   
 3.  Scorrere verso il basso e selezionare **Servizio registrazione accessi utente**. Fare clic su **Arrestare il servizio**.  
   
-4.  A destra\-fare clic sul nome del servizio e selezionare **proprietà**. Nella scheda **Generale** impostare **Tipo di avvio** su **Disabilitato**e quindi fare clic su **OK**.  
+4.  Fare\-clic con il pulsante destro del mouse sul nome del servizio e scegliere **proprietà**. Nella scheda **Generale** impostare **Tipo di avvio** su **Disabilitato**e quindi fare clic su **OK**.  
   
 #### <a name="to-stop-and-disable-ual-from-the-command-line"></a>Per arrestare e disabilitare Registrazione accesso utenti dalla riga di comando  
   
@@ -89,7 +89,7 @@ Stop-service ualsvc
 Disable-ual  
 ```  
   
-Se in un secondo momento si desidera riavviare e riabilitare registrazione accesso utenti è possibile farlo con le seguenti procedure.  
+Se in un secondo momento si desidera riavviare e riabilitare registrazione accesso utenti, è possibile utilizzare le procedure seguenti.  
   
 #### <a name="to-start-and-enable-the-ual-service-by-using-the-services-console"></a>Per avviare e abilitare il servizio Registrazione accesso utenti tramite la console Servizi  
   
@@ -126,8 +126,8 @@ Enable-ual
 Start-service ualsvc  
 ```  
   
-## <a name="BKMK_Step2"></a>La raccolta dei dati di registrazione accesso utenti  
-Oltre ai cmdlet di PowerShell descritti nella sezione precedente, altri 12 cmdlet può essere usato per raccogliere dati di registrazione accesso utenti:  
+## <a name="BKMK_Step2"></a>Raccolta dei dati di registrazione accesso utenti  
+Oltre ai cmdlet di PowerShell descritti nella sezione precedente, è possibile usare 12 cmdlet aggiuntivi per raccogliere i dati di registrazione accesso utenti:  
   
 -   **Get-UalOverview**: fornisce informazioni dettagliate correlate a Registrazione accesso utenti e una cronologia dei prodotti e dei ruoli installati.  
   
@@ -151,10 +151,10 @@ Oltre ai cmdlet di PowerShell descritti nella sezione precedente, altri 12 cmdle
   
 -   **Get-UalSystemId**: fornisce i dati specifici di sistema per l'identificazione univoca del server locale o di destinazione.  
   
-`Get-UalSystemId` è progettato per restituire un profilo univoco di un server per tutti gli altri dati dal tale server da correlare.  Se un server modificato in qualsiasi uno dei parametri di `Get-UalSystemId` viene creato un nuovo profilo.  `Get-UalOverview` è progettato per fornire all'amministratore un elenco dei ruoli installati e in uso nel server.  
+`Get-UalSystemId` è progettato per restituire un profilo univoco di un server per tutti gli altri dati dal tale server da correlare.  Se viene creato un server in cui viene apportata una modifica in `Get-UalSystemId` uno dei parametri di un nuovo profilo.  `Get-UalOverview` è progettato per fornire all'amministratore un elenco dei ruoli installati e in uso nel server.  
   
 > [!NOTE]  
-> Funzionalità di base di servizi File e di stampa e di servizi vengono installate per impostazione predefinita. Gli amministratori possono quindi aspettarsi di visualizzare sempre le informazioni su questi servizi come se fossero installati i ruoli completi. Sono inclusi cmdlet di Registrazione accesso utenti separati per Hyper-V e DNS, in considerazione dei dati univoci raccolti da Registrazione accesso utenti per questi ruoli del server.  
+> Per impostazione predefinita, vengono installate le funzionalità di base dei servizi file e Servizi di stampa e digitalizzazione. Gli amministratori possono quindi aspettarsi di visualizzare sempre le informazioni su questi servizi come se fossero installati i ruoli completi. Sono inclusi cmdlet di Registrazione accesso utenti separati per Hyper-V e DNS, in considerazione dei dati univoci raccolti da Registrazione accesso utenti per questi ruoli del server.  
   
 Un caso di utilizzo tipico per i cmdlet di Registrazione accesso utenti per un amministratore può essere l'esecuzione di una query in Registrazione accesso utenti per recuperare gli accessi client univoci in un intervallo di date. Questa operazione può essere eseguita in svariati modi. Quello che segue è un metodo consigliato per recuperare gli accessi univoci ai dispositivi in un intervallo di tempo.  
   
@@ -165,7 +165,7 @@ PS C:\Windows\system32>Gwmi -Namespace "root\AccessLogging" -query "SELECT * FRO
   
 Verrà restituito un elenco dettagliato di tutti i dispositivi client univoci, per indirizzo IP, che hanno effettuato richieste al server nell'intervallo di date.  
   
-Il valore ‘ActivityCount’ per ogni client univoco è limitato a 65.535 al giorno. La chiamata in WMI da PowerShell, inoltre, è necessaria solo se si eseguono query per data.  Tutti gli altri parametri dei cmdlet di Registrazione accesso utenti possono essere utilizzati nelle query di PowerShell nei modi previsti, come nell'esempio seguente:  
+' ActivityCount ' per ogni client univoco è limitato a 65.535 al giorno. La chiamata in WMI da PowerShell, inoltre, è necessaria solo se si eseguono query per data.  Tutti gli altri parametri dei cmdlet di Registrazione accesso utenti possono essere utilizzati nelle query di PowerShell nei modi previsti, come nell'esempio seguente:  
   
 ```  
 PS C:\Windows\system32> Get-UalDeviceAccess -IPAddress "10.36.206.112"  
@@ -182,9 +182,9 @@ PSComputerName
   
 ```  
   
-Registrazione accesso utenti mantiene una cronologia fino a due anni. Per consentire a un amministratore di recuperare i dati di Registrazione accesso utenti quando il servizio è in esecuzione, Registrazione accesso utenti crea una copia del file di database attivo, current.mdb, in un file denominato *GUID.mdb* ogni 24 ore per l'utilizzo da parte del provider WMI.  
+REGISTRAZIONE accesso utenti mantiene la cronologia di un massimo di due anni. Per consentire il recupero dei dati registrazione accesso utenti da un amministratore quando il servizio è in esecuzione, registrazione accesso utenti crea una copia del file di database attivo, Current. mdb, in un file denominato *GUID. mdb* ogni 24 ore per l'utilizzo da parte del provider WMI.  
   
-Nel primo giorno dell'anno, Registrazione accesso utenti creerà un nuovo *GUID.mdb*. Il vecchio file *GUID.mdb* viene mantenuto come archivio per l'utilizzo da parte del provider.  Dopo due anni, il file *GUID.mdb* originale verrà sovrascritto.  
+Nel primo giorno dell'anno, Registrazione accesso utenti creerà un nuovo *GUID.mdb*. Il vecchio *GUID. mdb* viene mantenuto come archivio per l'utilizzo da parte del provider.  Dopo due anni, il file *GUID.mdb* originale verrà sovrascritto.  
   
 > [!IMPORTANT]  
 > La procedura seguente dovrebbe essere eseguita solo da un utente avanzato e potrebbe essere usata comunemente da uno sviluppatore per testare la strumentazione creata per le API di Registrazione accesso utente.  
@@ -200,14 +200,14 @@ Nel primo giorno dell'anno, Registrazione accesso utenti creerà un nuovo *GUID.
     > [!WARNING]  
     > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, è consigliabile eseguire il backup dei dati importanti nel computer.  
   
-    Nell'esempio seguente viene illustrato come aggiungere un intervallo di due minuti (non consigliato come stato di esecuzione di lungo termine): **REG ADD HKLM\System\CurrentControlSet\Control\WMI\\AutoLogger\Sum /v PollingInterval /t REG\_DWORD /d 120000 /F**  
+    Nell'esempio seguente viene illustrato come aggiungere un intervallo di due minuti (non consigliato come stato di esecuzione di lungo termine): **REG add HKLM\System\CurrentControlSet\Control\WMI\\AutoLogger\Sum/v PollingInterval/t reg\_DWORD/d 120000/f**  
   
     I valori di tempo sono espressi in millisecondi. Il valore minimo è 60 secondi, il massimo è sette giorni e il predefinito è 24 ore.  
   
 4.  Usare la console Servizi per arrestare e riavviare il Servizio registrazione accessi utente.  
   
 ## <a name="deleting-data-logged-by-ual"></a>Eliminazione dei dati registrati da Registrazione accesso utenti  
-Registrazione accesso utenti non è progettato come componente cruciale. È pensato per un impatto minimo sulle operazioni di sistema locali, pur mantenendo un alto livello di affidabilità. Ciò consente anche all'amministratore di eliminare manualmente i database di registrazione accesso utenti e i file (tutti i file nella directory \Windows\System32\LogFilesSUM\) di supporto per soddisfare le esigenze operative.  
+Registrazione accesso utenti non è progettato come componente cruciale. È pensato per un impatto minimo sulle operazioni di sistema locali, pur mantenendo un alto livello di affidabilità. Ciò consente anche all'amministratore di eliminare manualmente il database registrazione accesso utenti e i file di supporto (tutti i file nella directory \Windows\System32\LogFilesSUM\) per soddisfare le esigenze operative.  
   
 #### <a name="to-delete-data-logged-by-ual"></a>Per eliminare i dati registrati da Registrazione accesso utenti  
   
@@ -222,11 +222,11 @@ Registrazione accesso utenti non è progettato come componente cruciale. È pens
 ## <a name="managing-ual-in-high-volume-environments"></a>Gestione di Registrazione accesso utenti in ambienti con volumi elevati  
 In questa sezione viene descritto cosa può aspettarsi un amministratore quando si usa Registrazione accesso utenti in un server con un volume elevato di client:  
   
-Il numero massimo di accessi che possono essere registrati con Registrazione accesso utenti è 65.535 al giorno.  L'utilizzo di Registrazione accesso utenti non è consigliato nei server connessi direttamente a Internet, come i server Web connessi direttamente a Internet, o in scenari in cui la funzione principale del server è offrire prestazioni estremamente elevate, come in ambienti con carichi di lavoro HPC. Registrazione accesso utenti è destinato principalmente per piccole, medie e gli scenari intranet aziendale in cui sono previsti volumi elevati, ma non così elevati come molte distribuzione che gestiscono il volume di traffico a Internet su base regolare.  
+Il numero massimo di accessi che possono essere registrati con Registrazione accesso utenti è 65.535 al giorno.  L'utilizzo di Registrazione accesso utenti non è consigliato nei server connessi direttamente a Internet, come i server Web connessi direttamente a Internet, o in scenari in cui la funzione principale del server è offrire prestazioni estremamente elevate, come in ambienti con carichi di lavoro HPC. REGISTRAZIONE accesso utenti è destinato principalmente a scenari Intranet piccoli, medi e aziendali in cui è previsto un volume elevato, ma non il numero massimo di distribuzioni che gestiscono il volume di traffico con connessione Internet a intervalli regolari.  
   
-**Registrazione accesso utenti in memoria**: dal momento che Registrazione accesso utenti usa Extensible Storage Engine (ESE), i requisiti di memoria per Registrazione accesso utenti sono destinati a crescere nel tempo o in base alla quantità di richieste client. La memoria verrà comunque rilasciata non appena il sistema la richiede per ridurre al minimo l'impatto sulle prestazioni del sistema.  
+**Registrazione accesso utenti in memoria**: Poiché registrazione accesso utenti utilizza Extensible Storage Engine (ESE), i requisiti di memoria di registrazione accesso utenti aumenteranno nel tempo o in base alla quantità di richieste client. La memoria verrà comunque rilasciata non appena il sistema la richiede per ridurre al minimo l'impatto sulle prestazioni del sistema.  
   
-**Registrazione accesso utenti su disco**: i requisiti a livello di disco rigido per Registrazione accesso utenti sono approssimativamente i seguenti:  
+**Registrazione accesso utenti su disco**: I requisiti del disco rigido di registrazione accesso utenti sono approssimativamente quelli indicati di seguito:  
   
 -   0 record client univoci: 22 MB  
   
@@ -234,10 +234,10 @@ Il numero massimo di accessi che possono essere registrati con Registrazione acc
   
 -   500.000 record client univoci: 384 MB  
   
--   1.000.000 record client univoci: 729 MB  
+-   1\.000.000 record client univoci: 729 MB  
   
 ## <a name="recovering-from-a-corrupt-state"></a>Ripristino da uno stato di danneggiamento  
-In questa sezione viene offerta una descrizione di alto livello dell'utilizzo di Extensible Storage Engine (ESE) per Registrazione accesso utenti e vengono indicate le misure che può adottare un amministratore nel caso i dati di Registrazione accesso utenti risultino danneggiati o irrecuperabili.  
+Questa sezione illustra l'uso di Extensible Storage Engine (ESE) di registrazione accesso utenti a un livello elevato e ciò che un amministratore può eseguire se i dati di registrazione accesso utenti sono danneggiati o irrecuperabili.  
   
 Registrazione accesso utenti usa ESE per ottimizzare l'utilizzo delle risorse di sistema e per la resistenza di ESE al danneggiamento.  Per altre informazioni sui vantaggi di ESE, vedere l'articolo relativo a [Extensible Storage Engine](https://msdn.microsoft.com/library/windows/desktop/gg269259(v=exchg.10).aspx) su MSDN.  
   
@@ -259,10 +259,10 @@ Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\SyncShareSrv /v EnableWor
   
 Dopo aver aggiunto la chiave del Registro di sistema, per abilitare la registrazione è necessario riavviare il servizio SyncShareSvc nel server.  
   
-Dopo l'abilitazione della registrazione, ogni volta che un client si connette al server nel canale Registri di Windows\Applicazione vengono registrati due eventi informativi. Per Cartelle di lavoro ogni utente può avere uno o più dispositivi client che si connettono al server e controllano la disponibilità di dati aggiornati ogni 10 minuti. Se il server viene usato da 1000 utenti, ognuno con due dispositivi, i registri applicazioni vengono sovrascritti ogni 70 minuti, di conseguenza la risoluzione di problemi non correlati potrebbe risultare complicata. Per evitare questo problema, è possibile disabilitare temporaneamente il servizio registrazione accesso utenti o aumentare le dimensioni del canale di Windows di windows\applicazione del server.  
+Dopo l'abilitazione della registrazione, ogni volta che un client si connette al server nel canale Registri di Windows\Applicazione vengono registrati due eventi informativi. Per Cartelle di lavoro ogni utente può avere uno o più dispositivi client che si connettono al server e controllano la disponibilità di dati aggiornati ogni 10 minuti. Se il server viene usato da 1000 utenti, ognuno con due dispositivi, i registri applicazioni vengono sovrascritti ogni 70 minuti, di conseguenza la risoluzione di problemi non correlati potrebbe risultare complicata. Per evitare questo problema, è possibile disabilitare temporaneamente il servizio registrazione accessi utente o aumentare le dimensioni del canale registri Windows\Applicazione di Windows del server.  
   
 ## <a name="BKMK_Links"></a>Vedere anche  
 
-- [Introduzione a utente registrazione accesso](get-started-with-user-access-logging.md)
+- [Introduzione alla registrazione accesso utenti](get-started-with-user-access-logging.md)
   
 

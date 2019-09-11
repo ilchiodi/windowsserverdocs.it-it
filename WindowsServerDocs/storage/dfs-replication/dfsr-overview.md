@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: ac1f963fd369a5b18414ffcdf9b05519a2e33e14
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 7c092547688bed01d3d588116badf6191e87b1ed
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560506"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871956"
 ---
 # <a name="dfs-replication-overview"></a>Panoramica di Replica DFS
 
@@ -85,7 +85,7 @@ Aprire una sessione di Windows PowerShell con diritti utente elevati, quindi dig
 Install-WindowsFeature <name>
 ```
 
-|Servizio ruolo o funzionalità|Name|
+|Servizio ruolo o funzionalità|NOME|
 |---|---|
 |Replica DFS|`FS-DFS-Replication`|
 |Strumenti di gestione DFS|`RSAT-DFS-Mgmt-Con`|

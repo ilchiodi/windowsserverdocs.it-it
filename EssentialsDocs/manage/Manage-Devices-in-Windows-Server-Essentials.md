@@ -1,6 +1,6 @@
 ---
 title: Gestire i dispositivi in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433327"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865162"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gestire i dispositivi in Windows Server Essentials
 
@@ -25,19 +25,19 @@ ms.locfileid: "66433327"
  
  Le sezioni seguenti descrivono le funzionalità di gestione dei dispositivi di un server e illustrano come configurare e usare i dispositivi nella rete:  
   
--   [Gestire i dispositivi tramite il Dashboard](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Gestire i dispositivi tramite il dashboard](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Assegnare account utente l'autorizzazione per accedere a specifici computer della rete](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Assegnare l'autorizzazione degli account utente per accedere a specifici computer di rete](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
   
 -   [Rimuovere un computer dal server](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3)  
   
--   [Configurare le impostazioni di criteri di gruppo per Reindirizzamento cartelle e sicurezza](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Configurare le impostazioni di Criteri di gruppo per il reindirizzamento e la sicurezza delle cartelle](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_5)  
   
--   [Connettersi a un computer di rete tramite una sessione Desktop remoto](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_7)  
+-   [Connettersi a un computer di rete tramite una sessione di Desktop remoto](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_7)  
   
--   [Visualizzare le proprietà di computer](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Visualizza Proprietà computer](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a> Gestire i dispositivi tramite il Dashboard  
+##  <a name="BKMK_1"></a>Gestire i dispositivi tramite il dashboard  
  Windows Server Essentials permette di eseguire attività amministrative comuni tramite il dashboard di Windows Server Essentials. La pagina **Dispositivi** del dashboard contiene quanto segue:  
   
 -   Un elenco dei computer di rete, che visualizza:  
@@ -89,7 +89,7 @@ ms.locfileid: "66433327"
 |Connessione dei computer al server|Apre un argomento della Guida che descrive i passaggi da eseguire per aggiungere un computer alla rete.|  
 |Implementa criteri di gruppo|Applica le impostazioni di criteri ai computer Windows 8 e Windows 7 aggiunti al dominio.|  
   
-##  <a name="BKMK_2"></a> Assegnare account utente l'autorizzazione per accedere a specifici computer della rete  
+##  <a name="BKMK_2"></a>Assegnare l'autorizzazione degli account utente per accedere a specifici computer di rete  
  È possibile assegnare agli account utente le autorizzazioni per consentire agli utenti di accedere solo a specifici computer di rete quando accedono alla rete di Windows Server Essentials da un percorso remoto.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>Per cambiare l'accesso di un account utente ai computer  
@@ -100,15 +100,15 @@ ms.locfileid: "66433327"
   
 3.  Nell'elenco di account utente selezionare quello da modificare.  
   
-4.  Nel **< Account utente\> attività** riquadro, fare clic su **Visualizza proprietà account**. Sarà visualizzata la pagina **Proprietà** per l'account utente.  
+4.  Nel riquadro **attività < account\> utente** fare clic su **Visualizza proprietà account**. Sarà visualizzata la pagina **Proprietà** per l'account utente.  
   
 5.  Nella scheda **Accesso computer** selezionare il computer a cui l'utente può accedere in remoto e quindi fare clic su **OK**.  
   
-##  <a name="BKMK_3"></a> Rimuovere un computer dal server  
+##  <a name="BKMK_3"></a>Rimuovere un computer dal server  
  I computer rimossi da un server che esegue Windows Server Essentials tramite il dashboard non vengono più gestiti dal server. Di conseguenza, il server non creerà più i backup del computer e non ne monitorerà l'integrità dopo la rimozione dalla rete.  
   
 > [!NOTE]
->  Con la rimozione dal server, il computer non viene disconnesso dalla rete ma può ancora accedere alle risorse della rete come quando era connesso al server. Per impedire al computer di accedere alle risorse del server e per disconnetterlo dal server, è necessario rimuovere il computer dal dominio. Inoltre, la rimozione del computer dal server non comporta la disinstallazione automatica del software Connettore o della finestra di avvio dal computer rimosso. È necessario rimuovere manualmente il software Connettore dal computer. Per altre informazioni, vedere la sezione di disinstallare il software connettore nel [Connettiti](../use/Get-Connected-in-Windows-Server-Essentials.md).  
+>  Con la rimozione dal server, il computer non viene disconnesso dalla rete ma può ancora accedere alle risorse della rete come quando era connesso al server. Per impedire al computer di accedere alle risorse del server e per disconnetterlo dal server, è necessario rimuovere il computer dal dominio. Inoltre, la rimozione del computer dal server non comporta la disinstallazione automatica del software Connettore o della finestra di avvio dal computer rimosso. È necessario rimuovere manualmente il software Connettore dal computer. Per ulteriori informazioni, vedere la sezione disinstallare il software connettore in [Get Connected](../use/Get-Connected-in-Windows-Server-Essentials.md).  
   
 #### <a name="to-remove-a-computer-from-the-network-by-using-the-dashboard"></a>Per rimuovere un computer dalla rete tramite il dashboard  
   
@@ -118,7 +118,7 @@ ms.locfileid: "66433327"
   
 3.  Nell'elenco di computer fare clic con il pulsante destro del mouse sul computer da rimuovere dalla rete e quindi scegliere **Rimuovi il computer**.  
   
-##  <a name="BKMK_5"></a> Configurare le impostazioni di criteri di gruppo per Reindirizzamento cartelle e sicurezza  
+##  <a name="BKMK_5"></a>Configurare le impostazioni di Criteri di gruppo per il reindirizzamento e la sicurezza delle cartelle  
  È possibile configurare Criteri di gruppo e distribuirli nei computer della rete di Windows Server Essentials tramite il dashboard di Windows Server Essentials. Criteri di gruppo in Windows Server Essentials includono le impostazioni per il reindirizzamento e la sicurezza delle cartelle che influiscono su Windows Update, su Windows Defender e sul firewall della rete.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>Per configurare Criteri di gruppo in Windows Server Essentials  
@@ -139,8 +139,8 @@ ms.locfileid: "66433327"
   
 7.  Fare clic su **Fine** per implementare le impostazioni di Criteri di gruppo.  
   
-##  <a name="BKMK_7"></a> Connettersi a un computer di rete tramite una sessione Desktop remoto  
- Per accedere in remoto il computer di rete di Windows Server Essentials quando si è fuori sede, usare il Web browser accedere al sito Web accesso Web remoto l'organizzazione e nella **computer** scheda, fare clic sul nome del computer.  
+##  <a name="BKMK_7"></a>Connettersi a un computer di rete tramite una sessione di Desktop remoto  
+ Per accedere in remoto al computer di rete di Windows Server Essentials quando si è fuori sede, usare la Web browser per accedere al sito Web di Accesso Web remoto dell'organizzazione, quindi fare clic sul nome del computer nella scheda **computer** .  
   
  La colonna **Stato** mostra se è possibile connettersi a un computer nella rete e può includere i valori seguenti:  
   
@@ -148,7 +148,7 @@ ms.locfileid: "66433327"
   
      Il computer è attivato e disponibile per una connessione remota. Anche se questo stato è visualizzato, è possibile che non si riesca comunque a connettersi a questo computer se la connessione è bloccata da un firewall di terze parti.  
   
--   **Offline o inattivo**  
+-   **Offline o in sospensione**  
   
      Il computer è disattivato o si trova in modalità sospensione o ibernazione. Se un computer è offline o inattivo, lo stato sarà aggiornato in tempo reale, per permettere di sapere quando il computer diventa disponibile.  
   
@@ -160,7 +160,7 @@ ms.locfileid: "66433327"
   
      La connessione al computer è bloccata da un firewall o da Criteri di gruppo oppure il desktop remoto è disabilitato nel computer. In caso di modifica, potrebbero essere necessarie fino a sei ore per l'aggiornamento di questo stato sul server.  
   
-##  <a name="BKMK_8"></a> Visualizzare le proprietà di computer  
+##  <a name="BKMK_8"></a>Visualizza Proprietà computer  
  La sezione **Dispositivi** del dashboard di Windows Server Essentials visualizza un elenco di computer della rete. L'elenco include anche informazioni aggiuntive su ogni computer.  
   
 #### <a name="to-view-a-list-of-computers"></a>Per visualizzare un elenco di computer  
@@ -175,7 +175,7 @@ ms.locfileid: "66433327"
   
 1.  Nell'elenco di computer selezionare l'account per cui visualizzare o modificare le proprietà.  
   
-2.  Nel **< Computername\> attività** riquadro, fare clic su **Visualizza proprietà del computer**. Verrà visualizzata la pagina **Proprietà** dei computer.  
+2.  Nel riquadro **\> attività < ComputerName** fare clic su **Visualizza Proprietà computer**. Verrà visualizzata la pagina **Proprietà** dei computer.  
   
 3.  Fare clic su una scheda per visualizzare le proprietà del computer specifico.  
   
@@ -183,11 +183,11 @@ ms.locfileid: "66433327"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Gestire accesso Web remoto](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gestisci Accesso Web Remote](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Usare accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [USA Accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Gestire gli account utente usando il Dashboard](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
+-   [Gestire gli account utente tramite il dashboard](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

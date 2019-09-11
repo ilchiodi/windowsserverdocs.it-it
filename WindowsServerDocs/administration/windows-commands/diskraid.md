@@ -1,6 +1,6 @@
 ---
 title: diskraid
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,71 +13,71 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ebd65fb56114bff9e6ae4b6a76376561c686dfa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f2dfda058a7ca266adedbacf8860137c5d1782c7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439559"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867076"
 ---
 # <a name="diskraid"></a>diskraid
 
 
 
-DiskRAID è uno strumento da riga di comando che consente di configurare e gestire i sottosistemi di archiviazione dischi indipendenti (o poco costosa) (RAID) redundant array of.
+DiskRAID è uno strumento da riga di comando che consente di configurare e gestire la matrice ridondante di sottosistemi di archiviazione RAID ((o economici).
 
-RAID è un metodo usato per standardizzare e classificare i sistemi con dischi a tolleranza di errore. I livelli RAID offrono varie combinazioni di prestazioni, affidabilità e costo. RAID viene in genere usato nei server. Alcuni server sono disponibili tre livelli di RAID: Livello 0 (striping), livello 1 (mirroring) e il livello 5 (striping con parità).
+RAID è un metodo usato per standardizzare e classificare i sistemi disco a tolleranza di errore. I livelli RAID forniscono diverse combinazioni di prestazioni, affidabilità e costi. RAID viene in genere usato nei server. Alcuni server forniscono tre livelli RAID: Livello 0 (striping), livello 1 (mirroring) e livello 5 (striping con parità).
 
-Un sottosistema di RAID hardware consente di distinguere le unità di archiviazione fisicamente indirizzabile uno da altro utilizzando un numero di unità logica (LUN). Un oggetto LUN deve avere almeno un plessi e può avere un numero qualsiasi di plex aggiuntive. Ogni plessi contiene una copia dei dati nell'oggetto LUN. Plex possono essere aggiunti e rimossi da un oggetto LUN.
+Un sottosistema RAID hardware distingue le unità di archiviazione fisicamente indirizzabili l'una dall'altra utilizzando un numero di unità logica (LUN). Un oggetto LUN deve avere almeno un plex e può avere un numero qualsiasi di Plex aggiuntivi. Ogni plex contiene una copia dei dati nell'oggetto LUN. I plex possono essere aggiunti e rimossi da un oggetto LUN.
 
-La maggior parte dei comandi di DiskRAID operano su una porta scheda (HBA) bus host specifico, iniziatore, portale iniziatore, provider, sottosistema, controller, porta, unità, LUN, portale destinazione, destinazione o gruppo del portale di destinazione. Utilizzare il comando SELECT per selezionare un oggetto. L'oggetto selezionato viene definito lo stato attivo. Lo stato attivo semplifica le attività di configurazione comuni, ad esempio la creazione di più LUN all'interno del sottosistema stesso.
+La maggior parte dei comandi DiskRAID opera su una porta HBA (host bus adapter) specifica, un adapter Initiator, un portale Initiator, un provider, un sottosistema, un controller, una porta, un'unità, un LUN, un portale di destinazione, una destinazione o un gruppo di portale di destinazione. Usare il comando SELECT per selezionare un oggetto. Si dice che l'oggetto selezionato ha lo stato attivo. Lo stato attivo semplifica le attività di configurazione comuni, ad esempio la creazione di più lun nello stesso sottosistema.
 
 > [!NOTE]
 > Lo strumento da riga di comando DiskRAID funziona solo con i sottosistemi di archiviazione che supportano il servizio dischi virtuali (VDS).
 
-## <a name="diskraid-commands"></a>Comandi di DiskRAID
+## <a name="diskraid-commands"></a>Comandi DiskRAID
 
 Per visualizzare la sintassi del comando, fare clic su un comando:
 -   [add](#BKMK_1)
--   [associate](#BKMK_2)
+-   [associare](#BKMK_2)
 -   [automagic](#BKMK_3)
 -   [break](#BKMK_4)
--   [chap](#BKMK_5)
+-   [CHAP](#BKMK_5)
 -   [create](#BKMK_6)
--   [delete](#BKMK_7)
--   [detail](#BKMK_8)
--   [dissociate](#BKMK_9)
+-   [eliminare](#BKMK_7)
+-   [dettaglio](#BKMK_8)
+-   [annullare l'associazione](#BKMK_9)
 -   [exit](#BKMK_10)
 -   [extend](#BKMK_11)
--   [flushcache](#BKMK_12)
+-   [FlushCache](#BKMK_12)
 -   [help](#BKMK_13)
--   [importtarget](#BKMK_14)
+-   [IMPORTTARGET](#BKMK_14)
 -   [initiator](#BKMK_15)
 -   [invalidatecache](#BKMK_16)
 -   [lbpolicy](#BKMK_18)
 -   [list](#BKMK_19)
 -   [login](#BKMK_20)
 -   [logout](#BKMK_21)
--   [maintenance](#BKMK_22)
+-   [manutenzione](#BKMK_22)
 -   [name](#BKMK_23)
 -   [offline](#BKMK_24)
 -   [online](#BKMK_25)
 -   [recover](#BKMK_26)
--   [reenumerate](#BKMK_27)
+-   [Rienumera](#BKMK_27)
 -   [refresh](#BKMK_28)
 -   [rem](#BKMK_29)
 -   [remove](#BKMK_30)
 -   [replace](#BKMK_31)
--   [reset](#BKMK_32)
--   [select](#BKMK_33)
+-   [reimpostazione](#BKMK_32)
+-   [Selezionare](#BKMK_33)
 -   [setflag](#BKMK_34)
 -   [shrink](#BKMK_shrink)
 -   [standby](#BKMK_35)
--   [unmask](#BKMK_36)
+-   [annullare il mascheramento](#BKMK_36)
 
-### <a name="BKMK_1"></a>add
+### <a name="BKMK_1"></a>aggiungere
 
-Aggiunge un LUN esistente per il LUN attualmente selezionato o aggiunge un portale di destinazione iSCSI al gruppo del portale di destinazione iSCSI attualmente selezionato.
+Aggiunge un LUN esistente al LUN attualmente selezionato oppure aggiunge un portale di destinazione iSCSI al gruppo del portale di destinazione iSCSI attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -88,24 +88,24 @@ add tpgroup tportal=n [noerr]
 
 #### <a name="parameters"></a>Parametri
 
-**lun plessi**=*n*
+lun=Plex*n*
 
-Specifica il numero LUN da aggiungere come plex a LUN attualmente selezionato.
+Specifica il numero di LUN da aggiungere come plex al LUN attualmente selezionato.
 
 > [!CAUTION]
-> Tutti i dati nel LUN verrà pertanto aggiunto come un plessi verranno eliminati.
+> Tutti i dati nel LUN aggiunto come plex verranno eliminati.
 
-**portale di gestione della TPGROUP =** <em>n</em>
+**TPGROUP portale =** <em>n</em>
 
-Specifica il numero del portale di destinazione iSCSI da aggiungere al gruppo del portale di destinazione iSCSI attualmente selezionato.
+Specifica il numero del portale di destinazione iSCSI da aggiungere al gruppo del portale di destinazione iSCSI selezionato.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione verranno ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione verranno ignorati. Questa operazione è utile in modalità script.
 
-### <a name="BKMK_2"></a>associate
+### <a name="BKMK_2"></a>associare
 
-Imposta l'elenco specificato di controller di porte come attivo per il LUN attualmente selezionato (altri controller porte rese inattive), aggiunge le porte del controller specificato all'elenco delle porte esistenti su controller attivo per il LUN attualmente selezionato o associa il destinazione iSCSI specificato per il LUN attualmente selezionato.
+Imposta l'elenco specificato di porte del controller come attivo per il LUN attualmente selezionato (le altre porte del controller vengono rese inattive) oppure aggiunge le porte del controller specificate all'elenco delle porte del controller attive esistenti per il LUN attualmente selezionato o associa il destinazione iSCSI specificata per il LUN attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -117,35 +117,35 @@ associate targets [add] <n>[,<n> [,…]]
 
 #### <a name="parameters"></a>Parametri
 
-**controllers**
+**controller**
 
-Per l'uso con solo provider VDS 1.0. Aggiunge o sostituisce l'elenco di controller che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,0. Aggiunge o sostituisce l'elenco dei controller associati al LUN attualmente selezionato.
 
-**ports**
+**porte**
 
-Per l'uso con solo i provider VDS 1.1. Aggiunge o sostituisce l'elenco di porte di controller che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,1. Aggiunge o sostituisce l'elenco delle porte del controller associate al LUN attualmente selezionato.
 
-**targets**
+**obiettivi**
 
-Per l'uso con solo i provider VDS 1.1. Aggiunge o sostituisce l'elenco delle destinazioni iSCSI che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,1. Aggiunge o sostituisce l'elenco di destinazioni iSCSI associate al LUN attualmente selezionato.
 
 **add**
 
-Per i provider VDS 1.0, aggiunge il controller specificato per un elenco di controller associato con il numero di unità LOGICA esistente. Se questo parametro viene omesso, l'elenco dei controller sostituisce l'elenco di controller associati a questo numero di unità LOGICA esistente.
+Per i provider VDS 1,0, aggiunge i controller specificati all'elenco esistente di controller associati al LUN. Se questo parametro non viene specificato, l'elenco dei controller sostituisce quello esistente associato a questo LUN.
 
-Per i provider VDS 1.1, aggiunge le porte del controller specificato all'elenco esistente di porte controller associato al LUN. Se questo parametro viene omesso, l'elenco delle porte controller sostituisce l'elenco esistente di porte controller associato a questo LUN.
+Per i provider VDS 1,1, aggiunge le porte del controller specificate all'elenco esistente di porte del controller associate al LUN. Se questo parametro non viene specificato, l'elenco delle porte del controller sostituisce l'elenco esistente di porte del controller associate a questo LUN.
 ```
 <n>[,<n> [, ...]]
 ```
-Per l'uso con il **controller** oppure **destinazioni** parametro. Specifica i numeri del controller o le destinazioni iSCSI per impostato su attivo o associare.
+Per l'uso con il parametro **Controllers** o **targets** . Specifica il numero di controller o destinazioni iSCSI da impostare su attivo o associato.
 ```
 <n-m>[,<n-m>[,…]]
 ```
-Per l'uso con il **porte** parametro. Specifica le porte di controller per impostare active utilizzando un numero di controller (*n*) e numero di porta (*m*) coppia.
+Per l'utilizzo con il parametro **ports** . Specifica le porte del controller da impostare come attive usando un numero di controller (*n*) e una coppia di numeri di porta (*m*).
 
 #### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrato come associare e aggiungere le porte a un LUN che usa un provider VDS 1.1:
+Nell'esempio seguente viene illustrato come associare e aggiungere porte a un LUN che utilizza un provider VDS 1,1:
 ```
 DISKRAID> SEL LUN 5
 LUN 5 is now the selected LUN.
@@ -161,7 +161,7 @@ Controller port associations changed.
 
 ### <a name="BKMK_3"></a>automagic
 
-Imposta o Cancella flag di fornire suggerimenti per i provider su come configurare un LUN. Utilizzato senza parametri, il **automagic** operazione consente di visualizzare un elenco di flag.
+Imposta o cancella i flag che forniscono suggerimenti ai provider per la configurazione di un LUN. Usato senza parametri, l'operazione **automagic** Visualizza un elenco di flag.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -173,43 +173,43 @@ automagic {set | clear | apply} all <flag=value> [<flag=value> [...]]
 
 **set**
 
-Imposta i flag specificati per i valori specificati.
+Imposta i flag specificati sui valori specificati.
 
 **clear**
 
-Cancella i flag specificati. Il **tutti** (parola chiave) Cancella tutti i flag di automagic.
+Cancella i flag specificati. La parola chiave **All** Cancella tutti i flag automagic.
 
-**apply**
+**applicare**
 
 Applica i flag correnti al LUN selezionato.
 
-\<flag>
+\<> flag
 
-I flag sono identificati dall'acronimo di tre lettere.
+I flag sono identificati da acronimi di tre lettere.
 
 |Flag|Descrizione|
 |----|-----------|
-|FCR|Ripristino necessario|
+|FCR|Ripristino arresto anomalo rapido obbligatorio|
 |FTL|Tolleranza di errore|
 |MSR|Principalmente letture|
-|MXD|Unità massime|
-|MXS|Dimensione massima prevista|
+|MXD|Numero massimo di unità|
+|MXS|Dimensioni massime previste|
 |ORA|Allineamento di lettura ottimale|
-|ORS|Dimensioni ottimali di lettura|
-|OSR|Ottimizzare le letture sequenziali|
-|OSW|Ottimizzare le scritture sequenziali|
-|OWA|Allineamento di scrittura ottimali|
-|OWS|Dimensione di scrittura ottimali|
-|RBP|Ricompilare priorità|
-|RBV|Verificare nuovamente in lettura abilitata|
-|RMP|Modifica del mapping abilitato|
-|STS|Dimensione di striping|
-|WTC|Caching Write-Through abilitato|
-|YNK|Archivi rimovibili|
+|OR|Dimensioni di lettura ottimali|
+|OSR|Ottimizza per letture sequenziali|
+|OSW|Ottimizza per scritture sequenziali|
+|OWA|Allineamento di scrittura ottimale|
+|OWS|Dimensioni di scrittura ottimali|
+|RBP|Priorità di ricompilazione|
+|RBV|Verify back abilitato|
+|RMP|Mapping abilitato|
+|SERVIZIO TOKEN|Dimensioni stripe|
+|WTC|Memorizzazione nella cache write-through abilitata|
+|YNK|Rimovibile|
 
 ### <a name="BKMK_4"></a>interruzione
 
-Rimuove il plessi LUN attualmente selezionato. Plex e i dati che contenuto non vengono mantenuti e gli extent di unità possono essere recuperati.
+Rimuove il plex dal LUN attualmente selezionato. Il plex e i dati in esso contenuti non vengono conservati e gli extent delle unità possono essere recuperati.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -219,28 +219,28 @@ break plex=<plex_number> [noerr]
 
 #### <a name="parameters"></a>Parametri
 
-**plex**
+**plessi**
 
-Specifica il numero di plex da rimuovere. Plex e i dati che contenuto non verranno mantenuti e le risorse usate da questo plessi verranno revocate. I dati contenuti nel LUN non è garantiti a essere coerenti. Se si desidera mantenere questo plessi, usare il servizio Copia Shadow del Volume (VSS).
+Specifica il numero del plex da rimuovere. Il plex e i dati in esso contenuti non verranno conservati e le risorse usate da questo plex verranno recuperate. Non è garantito che i dati contenuti nel LUN siano coerenti. Se si desidera mantenere questo Plex, utilizzare il Servizio Copia Shadow del volume (VSS).
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione verranno ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione verranno ignorati. Questa operazione è utile in modalità script.
 
 #### <a name="remarks"></a>Note
 
 > [!NOTE]
-> È innanzitutto necessario selezionare un LUN con mirroring prima di usare la **interruzione** comando.
+> È innanzitutto necessario selezionare un LUN con mirroring prima di utilizzare il comando **Interrompi** .
 
 > [!CAUTION]
-> Verranno eliminati tutti i dati in plex.
+> Tutti i dati nel plex verranno eliminati.
 
 > [!CAUTION]
-> Tutti i dati contenuti nel LUN originale non è garantito a essere coerenti.
+> Non è garantito che tutti i dati contenuti nel LUN originale siano coerenti.
 
-### <a name="BKMK_5"></a>chap
+### <a name="BKMK_5"></a>CHAP
 
-Imposta il CHAP Challenge Handshake Authentication Protocol () condiviso segreto in modo che gli iniziatori iSCSI e le destinazioni iSCSI possono comunicare tra loro.
+Imposta il segreto condiviso Challenge Handshake Authentication Protocol (CHAP) in modo che gli iniziatori iSCSI e le destinazioni iSCSI possano comunicare tra loro.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -253,37 +253,37 @@ chap target remember secret=[<secret>] initiator=<initiatorname>
 
 #### <a name="parameters"></a>Parametri
 
-**gruppo di iniziatore**
+**set Initiator**
 
 Imposta il segreto condiviso nel servizio iniziatore iSCSI locale usato per l'autenticazione CHAP reciproca quando l'iniziatore autentica la destinazione.
 
-**ricordare di iniziatore**
+**iniziatore ricordare**
 
-Comunica il segreto CHAP della destinazione iSCSI per il servizio iniziatore iSCSI locale in modo che il servizio initiator è possibile usare la chiave privata per autenticare se stesso presso la destinazione durante l'autenticazione CHAP.
+Comunica il segreto CHAP di una destinazione iSCSI al servizio iniziatore iSCSI locale, in modo che il servizio Initiator possa usare il segreto per autenticarsi nella destinazione durante l'autenticazione CHAP.
 
 **set di destinazioni**
 
-Imposta il segreto condiviso nel database di destinazione iSCSI attualmente selezionato utilizzato per l'autenticazione CHAP quando la destinazione autentica l'iniziatore.
+Imposta il segreto condiviso nella destinazione iSCSI attualmente selezionata utilizzata per l'autenticazione CHAP quando la destinazione autentica l'iniziatore.
 
-**ricordare di destinazione**
+**memoria di destinazione**
 
-Comunica il segreto CHAP di un iniziatore iSCSI di destinazione iSCSI messa a fuoco corrente in modo che la destinazione è possibile usare la chiave privata per autenticare se stesso all'iniziatore durante l'autenticazione CHAP reciproca.
+Comunica il segreto CHAP di un iniziatore iSCSI alla destinazione iSCSI attualmente attiva in modo che la destinazione possa usare il segreto per autenticarsi all'initiator durante l'autenticazione CHAP reciproca.
 
 **secret**
 
-Specifica la chiave privata da usare. Il segreto verrà cancellato se è vuota.
+Specifica il segreto da usare. Se vuota, il segreto verrà cancellato.
 
-**target**
+**destinazione**
 
-Specifica una destinazione nel sottosistema attualmente selezionato per associare la chiave privata. Questa operazione è facoltativa quando si impostano una chiave privata per l'iniziatore e lasciarlo indica che la chiave privata verrà utilizzata per tutte le destinazioni che non dispongono già di un segreto associato.
+Specifica una destinazione nel sottosistema attualmente selezionato da associare al segreto. Questa operazione è facoltativa quando si imposta un segreto nell'initiator e si esce dall'esterno indica che il segreto verrà usato per tutte le destinazioni che non dispongono già di un segreto associato.
 
 **initiatorname**
 
-Specifica un nome di iSCSI initiator per associare la chiave privata. Questa operazione è facoltativa quando si imposta una chiave privata in una destinazione e lasciarlo indica che la chiave privata verrà utilizzata per tutti gli iniziatori che non dispongono già di un segreto associato.
+Specifica un nome iSCSI dell'Initiator da associare al segreto. Questa operazione è facoltativa quando si imposta un segreto in una destinazione e si esce dall'esterno indica che il segreto verrà usato per tutti gli iniziatori che non dispongono già di un segreto associato.
 
 ### <a name="BKMK_6"></a>creare
 
-Crea un nuovo LUN o destinazione iSCSI nel sottosistema a attualmente selezionato, oppure crea un gruppo del portale di destinazione nella destinazione attualmente selezionata. È possibile visualizzare l'associazione effettiva usando il **DiskRAID elenco** comando.
+Consente di creare un nuovo LUN o destinazione iSCSI nel sottosistema attualmente selezionato oppure di creare un gruppo di portale di destinazione nella destinazione attualmente selezionata. È possibile visualizzare l'associazione effettiva usando il comando **DiskRAID list** .
 
 #### <a name="syntax"></a>Sintassi
 
@@ -303,7 +303,7 @@ create tpgroup [noerr]
 
 Crea un LUN semplice.
 
-**stripe**
+**striscia**
 
 Crea un LUN con striping.
 
@@ -311,47 +311,47 @@ Crea un LUN con striping.
 
 Crea un LUN con striping con parità.
 
-**mirror**
+**specchio**
 
 Crea un LUN con mirroring.
 
 **automagic**
 
-Crea un LUN usando il *automagic* hint attualmente in vigore. Vedere le **automagic** Sub-comando per altre informazioni.
+Crea un LUN usando gli hint di *automagic* attualmente in vigore. Per ulteriori informazioni, vedere il sottocomando **automagic** .
 
-**size**=
+**dimensioni**=
 
-Specifica le dimensioni LUN totale in megabyte. Se il **dimensioni =** parametro viene omesso, il LUN creato sarà la dimensione massima possibile consentita da tutte le unità specificate.
+Specifica la dimensione totale del LUN in megabyte. Se il parametro **size =** non è specificato, il LUN creato corrisponderà alla dimensione massima consentita da tutte le unità specificate.
 
-Un provider in genere crea un LUN grande almeno come le dimensioni richieste, ma il provider potrebbe essere necessario arrotondate per eccesso alla successiva dimensione più grande in alcuni casi. Ad esempio, se è specificato come.99 GB e il provider può solo allocare gli extent del disco GB, il numero di unità LOGICA risulta sarebbe 1 GB.
+Un provider crea in genere un LUN almeno quanto la dimensione richiesta, ma è possibile che il provider debba arrotondare alla dimensione più grande successiva in alcuni casi. Se, ad esempio, la dimensione viene specificata come. 99 GB e il provider può allocare solo extent del disco da GB, il LUN risultante sarà di 1 GB.
 
-Per specificare le dimensioni utilizzando altre unità, usare uno dei seguenti suffissi riconosciuti immediatamente dopo le dimensioni:
+Per specificare le dimensioni usando altre unità, usare uno dei suffissi riconosciuti seguenti immediatamente dopo le dimensioni:
 -   **B** per byte.
 -   **KB** per kilobyte.
 -   **MB** per megabyte.
--   **GB** per gigabyte.
+-   **GB** per Gigabyte.
 -   **TB** per terabyte.
--   **PB** per livello di petabyte.
+-   **PB** per petabyte.
 
-**Unità**=
+**unità**=
 
-Specifica la *drive_number* per le unità da utilizzare per creare un LUN. Se il **dimensioni =** parametro viene omesso, il numero di unità LOGICA creata è la dimensione massima possibile consentita da tutte le unità specificate. Se il **dimensioni =** viene specificato, i provider selezionerà le unità nell'elenco di unità specificata per creare il LUN. I provider proverà a usare le unità nell'ordine specificato quando possibile.
+Specifica il *drive_number* per le unità da utilizzare per creare un lun. Se il parametro **size =** non è specificato, il LUN creato corrisponde alla dimensione massima consentita da tutte le unità specificate. Se viene specificato il parametro **size =** , i provider selezioneranno unità dall'elenco di unità specificato per creare il lun. I provider tenterà di usare le unità nell'ordine specificato, quando possibile.
 
 **stripesize**=
 
-Specifica le dimensioni in megabyte per un *stripe* oppure *RAID* LUN. Impossibile modificare il stripesize dopo aver creato il LUN.
+Specifica le dimensioni in megabyte per un LUN di *striping* o *RAID* . Il STRIPESIZE non può essere modificato dopo la creazione del LUN.
 
-Per specificare le dimensioni utilizzando altre unità, usare uno dei seguenti suffissi riconosciuti immediatamente dopo le dimensioni:
+Per specificare le dimensioni usando altre unità, usare uno dei suffissi riconosciuti seguenti immediatamente dopo le dimensioni:
 -   **B** per byte.
 -   **KB** per kilobyte.
 -   **MB** per megabyte.
--   **GB** per gigabyte.
+-   **GB** per Gigabyte.
 -   **TB** per terabyte.
--   **PB** per livello di petabyte.
+-   **PB** per petabyte.
 
-**target**
+**destinazione**
 
-Crea una nuova destinazione iSCSI nel sottosistema a attualmente selezionato.
+Crea una nuova destinazione iSCSI nel sottosistema attualmente selezionato.
 
 **name**
 
@@ -359,24 +359,24 @@ Fornisce il nome descrittivo per la destinazione.
 
 **iscsiname**
 
-Fornisce iSCSI assegnare un nome per la destinazione e può essere omesso per richiedere al provider di generano un nome.
+Fornisce il nome iSCSI per la destinazione e può essere omesso per fare in modo che il provider generi un nome.
 
-**tpgroup**
+**TPGROUP**
 
-Crea un nuovo gruppo del portale di destinazione iSCSI sulla destinazione attualmente selezionata.
+Consente di creare un nuovo gruppo di portale di destinazione iSCSI nella destinazione attualmente selezionata.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione verranno ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione verranno ignorati. Questa operazione è utile in modalità script.
 
 #### <a name="remarks"></a>Note
 
--   Entrambi i **dimensioni**= o il **unità**= parametro deve essere specificato. Possono inoltre essere utilizzati insieme.
--   La dimensione di striping per specificare un LUN non può essere modificata dopo la creazione.
+-   È necessario specificare il parametro **size**= o **Drives**=. Possono anche essere usati insieme.
+-   Non è possibile modificare le dimensioni dello stripe per un LUN dopo la creazione.
 
-### <a name="BKMK_7"></a>Delete
+### <a name="BKMK_7"></a>eliminare
 
-Elimina la LUN attualmente selezionato, destinazione iSCSI (se sono presenti non un LUN associato alla destinazione iSCSI) o il gruppo del portale di destinazione iSCSI.
+Elimina il LUN attualmente selezionato, destinazione iSCSI (purché non esistano lun associati alla destinazione iSCSI) o il gruppo portale di destinazione iSCSI.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -390,25 +390,25 @@ delete tpgroup [noerr]
 
 **lun**
 
-Elimina LUN attualmente selezionato e tutti i dati su di esso.
+Elimina il LUN attualmente selezionato e tutti i dati in esso contenuti.
 
-**uninstall**
+**disinstallare**
 
-Specifica che il disco del sistema locale associato al LUN verrà pulito prima che venga eliminato il LUN.
+Specifica che il disco nel sistema locale associato al LUN verrà pulito prima che il LUN venga eliminato.
 
-**target**
+**destinazione**
 
-Elimina la destinazione iSCSI attualmente selezionato se nessun LUN è associato alla destinazione.
+Elimina la destinazione iSCSI attualmente selezionata se nessun lun è associato alla destinazione.
 
-**tpgroup**
+**TPGROUP**
 
 Elimina il gruppo del portale di destinazione iSCSI attualmente selezionato.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione verranno ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione verranno ignorati. Questa operazione è utile in modalità script.
 
-### <a name="BKMK_8"></a>detail
+### <a name="BKMK_8"></a>dettaglio
 
 Visualizza informazioni dettagliate sull'oggetto attualmente selezionato del tipo specificato.
 
@@ -420,61 +420,61 @@ Detail {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 #### <a name="parameters"></a>Parametri
 
-**hbaport**
+**HBAPORT**
 
-Riporta informazioni dettagliate su porta della scheda (HBA) bus host attualmente selezionato.
+Elenca informazioni dettagliate sulla porta della scheda bus host (HBA) attualmente selezionata.
 
-**iadapter**
+**IADAPTER**
 
-Riporta informazioni dettagliate sull'adapter dell'iniziatore iSCSI attualmente selezionato.
+Elenca informazioni dettagliate sull'adapter iniziatore iSCSI attualmente selezionato.
 
-**iportal**
+**IPORTAL**
 
-Riporta informazioni dettagliate sul portale dell'iniziatore iSCSI attualmente selezionato.
+Elenca informazioni dettagliate sul portale iniziatore iSCSI attualmente selezionato.
 
 **provider**
 
-Riporta informazioni dettagliate su provider attualmente selezionato.
+Elenca informazioni dettagliate sul provider attualmente selezionato.
 
 **subsystem**
 
-Riporta informazioni dettagliate sul sottosistema attualmente selezionato.
+Elenca informazioni dettagliate sul sottosistema attualmente selezionato.
 
 **controller**
 
-Riporta informazioni dettagliate su controller attualmente selezionato.
+Elenca informazioni dettagliate sul controller attualmente selezionato.
 
-**port**
+**porta**
 
-Riporta informazioni dettagliate sulla porta controller attualmente selezionato.
+Elenca informazioni dettagliate sulla porta del controller attualmente selezionata.
 
 **drive**
 
-Riporta informazioni dettagliate sulle unità attualmente selezionata, inclusi i LUN occupying.
+Elenca informazioni dettagliate sull'unità attualmente selezionata, inclusi i LUN occupanti.
 
 **lun**
 
-Riporta informazioni dettagliate sui LUN attualmente selezionato, tra cui l'aggiunta come contributo le unità. L'output differisce leggermente a seconda del fatto che il LUN fa parte di un sottosistema di Fibre Channel o iSCSI. Se l'elenco di host senza maschera contiene solo un asterisco, significa che il numero di unità LOGICA è stato annullato il mascheramento per tutti gli host.
+Elenca informazioni dettagliate sul LUN attualmente selezionato, incluse le unità contribuendo. L'output differisce leggermente a seconda che il LUN faccia parte di un sottosistema Fibre Channel o iSCSI. Se l'elenco di host senza maschera contiene solo un asterisco, significa che il LUN viene annullato per tutti gli host.
 
-**tportal**
+**Portale**
 
-Riporta informazioni dettagliate sul portale di destinazione iSCSI attualmente selezionato.
+Elenca informazioni dettagliate sul portale di destinazione iSCSI attualmente selezionato.
 
-**target**
+**destinazione**
 
-Riporta informazioni dettagliate sulla destinazione iSCSI attualmente selezionato.
+Elenca informazioni dettagliate sulla destinazione iSCSI attualmente selezionata.
 
-**tpgroup**
+**TPGROUP**
 
-Riporta informazioni dettagliate relative al gruppo del portale di destinazione iSCSI attualmente selezionato.
+Elenca informazioni dettagliate sul gruppo del portale di destinazione iSCSI attualmente selezionato.
 
-**verbose**
+**dettagliato**
 
-Usata solo con il parametro LUN. Vengono fornite informazioni aggiuntive, tra cui relativo plex.
+Da usare solo con il parametro LUN. Elenca informazioni aggiuntive, inclusi i relativi Plex.
 
-### <a name="BKMK_9"></a>dissociate
+### <a name="BKMK_9"></a>annullare l'associazione
 
-Set specificati elenco di porte controller come inattivo per il LUN attualmente selezionato (altri controller non sono interessate le porte), o Annulla l'associazione di elenco specificato delle destinazioni iSCSI per il LUN attualmente selezionato.
+Imposta l'elenco specificato di porte del controller come inattivo per il LUN attualmente selezionato (altre porte del controller non sono interessate) o Annulla l'associazione dell'elenco specificato di destinazioni iSCSI per il LUN attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -486,25 +486,25 @@ dissociate targets <n> [,<n> [,…]]
 
 #### <a name="parameter"></a>Parametro
 
-**controllers**
+**controller**
 
-Per l'uso con solo provider VDS 1.0. Rimuove i controller nell'elenco di controller che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,0. Rimuove i controller dall'elenco dei controller associati al LUN attualmente selezionato.
 
-**ports**
+**porte**
 
-Per l'uso con solo i provider VDS 1.1. Rimuove le porte controller dall'elenco di porte di controller che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,1. Rimuove le porte del controller dall'elenco delle porte del controller associate al LUN attualmente selezionato.
 
-**targets**
+**obiettivi**
 
-Per l'uso con solo i provider VDS 1.1. Rimuove le destinazioni nell'elenco delle destinazioni iSCSI che sono associati il LUN attualmente selezionato.
+Da usare solo con provider VDS 1,1. Rimuove le destinazioni dall'elenco di destinazioni iSCSI associate al LUN attualmente selezionato.
 ```
 <n> [,<n> [,…]]
 ```
-Per l'uso con il **controller** oppure **destinazioni** parametro. Specifica i numeri del controller o le destinazioni iSCSI per impostare come inattivi o annullare l'associazione.
+Per l'uso con il parametro **Controllers** o **targets** . Specifica il numero di controller o destinazioni iSCSI da impostare come inattivo o dissociarsi.
 ```
 <n-m>[,<n-m>[,…]]
 ```
-Per l'uso con il **porte** parametro. Specifica le porte di controller da impostare come inattivi usando un numero di controller (*n*) e numero di porta (*m*) coppia.
+Per l'utilizzo con il parametro **ports** . Specifica le porte del controller da impostare come inattive usando un numero di controller (*n*) e una coppia di numeri di porta (*m*).
 
 #### <a name="example"></a>Esempio
 
@@ -525,9 +525,9 @@ Controller port associations changed.
 (Controller ports active after this command: Ctlr 0 Port 1)
 ```
 
-### <a name="BKMK_10"></a>exit
+### <a name="BKMK_10"></a>uscita
 
-Viene chiuso DiskRAID.
+Esce da DiskRAID.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -535,9 +535,9 @@ Viene chiuso DiskRAID.
 exit
 ```
 
-### <a name="BKMK_11"></a>extend
+### <a name="BKMK_11"></a>estendere
 
-Estende il LUN attualmente selezionato mediante l'aggiunta di settori alla fine del LUN. Non tutti i provider supportano l'estensione LUN. Non si estende tutti i volumi o i file System contenute nel LUN. Dopo aver esteso il LUN, è opportuno estendere le strutture su disco associate usando il **DiskPart estendere** comando.
+Estende il LUN attualmente selezionato aggiungendo settori alla fine del LUN. Non tutti i provider supportano l'estensione di lun. Non estende alcun volume o file System contenuti nel LUN. Una volta esteso il LUN, è necessario estendere le strutture su disco associate utilizzando il comando **DiskPart extend** .
 
 #### <a name="syntax"></a>Sintassi
 
@@ -547,33 +547,33 @@ extend lun [size=<LUN_size>] [drives=<drive_number>, [<drive_number>, ...]] [noe
 
 #### <a name="parameters"></a>Parametri
 
-**size=**
+**dimensioni =**
 
-Specifica le dimensioni in megabyte per estendere il LUN. Se il **dimensioni =** parametro viene omesso, il LUN verrà esteso mediante la dimensione massima possibile consentita da tutte le unità specificate. Se il **dimensioni =** viene specificato, i provider di selezionare le unità nell'elenco specificato dalle **unità =** parametro per creare il LUN.
+Specifica le dimensioni in megabyte per estendere il LUN. Se il parametro **size =** non è specificato, il numero di unità logica viene esteso in base alla dimensione massima consentita da tutte le unità specificate. Se viene specificato il parametro **size =** , i provider selezionano le unità dall'elenco specificato dal parametro **Drives =** per creare il lun.
 
-Per specificare le dimensioni utilizzando altre unità, usare uno dei seguenti suffissi riconosciuti immediatamente dopo le dimensioni:
+Per specificare le dimensioni usando altre unità, usare uno dei suffissi riconosciuti seguenti immediatamente dopo le dimensioni:
 -   **B** per byte.
 -   **KB** per kilobyte.
 -   **MB** per megabyte.
--   **GB** per gigabyte.
+-   **GB** per Gigabyte.
 -   **TB** per terabyte
--   **PB** per livello di petabyte
+-   **PB** per petabyte
 
-**drives=**
+**unità =**
 
-Specifica il \<drive_number > per le unità da usare durante la creazione di un LUN. Se il **dimensioni =** parametro viene omesso, il numero di unità LOGICA creata è la dimensione massima possibile consentita da tutte le unità specificate. Provider usano le unità nell'ordine specificato quando possibile.
+Specifica il \<> drive_number per le unità da usare durante la creazione di un lun. Se il parametro **size =** non è specificato, il LUN creato corrisponde alla dimensione massima consentita da tutte le unità specificate. I provider utilizzano le unità nell'ordine specificato, quando possibile.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione devono essere ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione devono essere ignorati. Questa operazione è utile in modalità script.
 
 #### <a name="remarks"></a>Note
 
-Entrambi i *dimensioni* o il \<unità > deve specificare il parametro. Possono inoltre essere utilizzati insieme.
+È necessario specificare il parametro \<size o drive >. Possono anche essere usati insieme.
 
-### <a name="BKMK_12"></a>flushcache
+### <a name="BKMK_12"></a>FlushCache
 
-Cancella la cache nel controller di attualmente selezionato.
+Cancella la cache sul controller attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -583,7 +583,7 @@ flushcache controller
 
 ### <a name="BKMK_13"></a>Guida
 
-Visualizza un elenco di tutti i comandi di DiskRAID.
+Visualizza un elenco di tutti i comandi DiskRAID.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -591,9 +591,9 @@ Visualizza un elenco di tutti i comandi di DiskRAID.
 help
 ```
 
-### <a name="BKMK_14"></a>importtarget
+### <a name="BKMK_14"></a>IMPORTTARGET
 
-Recupera o imposta la destinazione di importazione del servizio Copia Shadow del Volume (VSS) corrente che è impostata per il sottosistema attualmente selezionato.
+Recupera o imposta la destinazione di importazione Servizio Copia Shadow del volume (VSS) corrente impostata per il sottosistema attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -603,13 +603,13 @@ importtarget subsystem [set target]
 
 #### <a name="parameter"></a>Parametro
 
-**set di destinazione**
+**Imposta destinazione**
 
-Se specificato, imposta la destinazione attualmente selezionata alla destinazione importazione VSS per il sottosistema attualmente selezionato. Se non specificato, il comando recupera la destinazione di importazione VSS corrente che è impostata per il sottosistema attualmente selezionato.
+Se specificato, imposta la destinazione attualmente selezionata sulla destinazione di importazione VSS per il sottosistema attualmente selezionato. Se non specificato, il comando Recupera la destinazione di importazione VSS corrente impostata per il sottosistema attualmente selezionato.
 
-### <a name="BKMK_15"></a>initiator
+### <a name="BKMK_15"></a>iniziatore
 
-Recupera informazioni sull'iniziatore iSCSI locale.
+Recupera le informazioni sull'iniziatore iSCSI locale.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -619,7 +619,7 @@ initiator
 
 ### <a name="BKMK_16"></a>invalidatecache
 
-Invalida la cache nel controller di attualmente selezionato.
+Invalida la cache sul controller attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -629,7 +629,7 @@ invalidatecache controller
 
 ### <a name="BKMK_18"></a>lbpolicy
 
-Imposta il criterio di bilanciamento del carico nel LUN attualmente selezionato.
+Imposta i criteri di bilanciamento del carico sul LUN attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -642,27 +642,27 @@ lbpolicy set lun paths=<path>-{primary | <weight>}[,<path>-{primary | <weight>}[
 
 **type**
 
-Specifica il criterio di bilanciamento del carico. Se il tipo non è specificato, il **percorso** parametro deve essere specificato. Tipo può essere uno dei seguenti:
+Specifica i criteri di bilanciamento del carico. Se il tipo non è specificato, è necessario specificare il parametro **path** . Il tipo può essere uno dei seguenti:
 
-**FAILOVER**: Usa un percorso principale con gli altri percorsi in fase di percorsi di backup.
+**FAILOVER**: Usa un percorso primario con altri percorsi che sono percorsi di backup.
 
-**ROUNDROBIN**: Usa tutti i percorsi in modo round robin, che tenta di ogni percorso in modo sequenziale.
+**ROUNDROBIN**: USA tutti i percorsi nello stile Round Robin, che tenta in sequenza ogni percorso.
 
-**SUBSETROUNDROBIN**: Usa tutti i percorsi primari in modalità round robin; percorsi di backup vengono usati solo se tutti i percorsi primari non riescono.
+**SUBSETROUNDROBIN**: USA tutti i percorsi primari nello stile Round Robin; i percorsi di backup vengono utilizzati solo se tutti i percorsi primari hanno esito negativo.
 
 **DYNLQD**: Usa il percorso con il minor numero di richieste attive.
 
-**PONDERATO**: Usa il percorso con il peso minimo (ogni percorso deve essere assegnato un peso).
+**PONDERATO**: Usa il percorso con il peso minore (a ogni percorso deve essere assegnato un peso).
 
-**LEASTBLOCKS**: Usa il percorso con i minore di blocchi.
+**LEASTBLOCKS**: Usa il percorso con i blocchi minimi.
 
-**VENDORSPECIFIC**: Utilizza i criteri specifici del fornitore.
+**VENDORSPECIFIC**: Usa criteri specifici del fornitore.
 
-**paths**
+**percorsi**
 
-Specifica se un percorso fa **primari** o dispone di un particolare \<peso >. Eventuali percorsi specificati non sono impostati in modo implicito come backup. I percorsi elencati devono essere uno dei percorsi dei LUN attualmente selezionato.
+Specifica se un percorso è **primario** o ha un peso \<particolare >. Tutti i percorsi non specificati vengono impostati in modo implicito come backup. Tutti i percorsi elencati devono essere uno dei percorsi LUN attualmente selezionati.
 
-### <a name="BKMK_19"></a>list
+### <a name="BKMK_19"></a>elenco
 
 Visualizza un elenco di oggetti del tipo specificato.
 
@@ -676,55 +676,55 @@ List {hbaports | iadapters | iportals | providers | subsystems | controllers | p
 
 **hbaports**
 
-Elenca le informazioni di riepilogo su tutte le porte HBA noto a VDS. La porta HBA attualmente selezionata è contrassegnata da un asterisco (*).
+Elenca le informazioni di riepilogo su tutte le porte HBA note a VDS. La porta HBA attualmente selezionata è contrassegnata da un asterisco (*).
 
 **iadapters**
 
-Elenca le informazioni di riepilogo su tutte le schede degli iniziatori iSCSI noto a VDS. L'adapter iniziatore attualmente selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su tutti gli adapter iniziatori iSCSI noti a VDS. L'adapter initiator attualmente selezionato è contrassegnato da un asterisco (*).
 
-**iportals**
+**IPORTALS**
 
-Elenca le informazioni di riepilogo su tutti i portali dell'iniziatore iSCSI nell'adapter iniziatore attualmente selezionato. Il portale dell'initiator attualmente selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su tutti i portali dell'iniziatore iSCSI nell'adapter initiator attualmente selezionato. Il portale initiator attualmente selezionato è contrassegnato da un asterisco (*).
 
 **providers**
 
-Elenca le informazioni di riepilogo su ogni provider noti a VDS. Il provider attualmente selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su ogni provider noto a VDS. Il provider attualmente selezionato è contrassegnato da un asterisco (*).
 
-**subsystems**
+**sottosistemi**
 
 Elenca le informazioni di riepilogo su ogni sottosistema nel sistema. Il sottosistema attualmente selezionato è contrassegnato da un asterisco (*).
 
-**controllers**
+**controller**
 
-Elenca le informazioni di riepilogo su ogni controller nel sottosistema attualmente selezionato. Il controller selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su ogni controller nel sottosistema attualmente selezionato. Il controller attualmente selezionato è contrassegnato da un asterisco (*).
 
-**ports**
+**porte**
 
 Elenca le informazioni di riepilogo su ogni porta del controller nel controller attualmente selezionato. La porta attualmente selezionata è contrassegnata da un asterisco (*).
 
-**drives**
+**unità**
 
-Elenca le informazioni di riepilogo relative a ogni unità nel sottosistema attualmente selezionato. Le unità attualmente selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su ogni unità del sottosistema attualmente selezionato. L'unità attualmente selezionata è contrassegnata da un asterisco (*).
 
-**luns**
+**lun**
 
 Elenca le informazioni di riepilogo su ogni LUN nel sottosistema attualmente selezionato. Il LUN attualmente selezionato è contrassegnato da un asterisco (*).
 
-**tportals**
+**TPORTALS**
 
-Elenca le informazioni di riepilogo su tutti i portali di destinazione iSCSI nel sottosistema attualmente selezionato. Il portale di destinazione selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su tutti i portali di destinazione iSCSI nel sottosistema attualmente selezionato. Il portale di destinazione attualmente selezionato è contrassegnato da un asterisco (*).
 
-**targets**
+**obiettivi**
 
-Elenca le informazioni di riepilogo su tutte le destinazioni iSCSI nel sottosistema attualmente selezionato. La destinazione attualmente selezionata è contrassegnata da un asterisco (*).
+Elenca le informazioni di riepilogo relative a tutte le destinazioni iSCSI nel sottosistema attualmente selezionato. La destinazione attualmente selezionata è contrassegnata da un asterisco (*).
 
-**tpgroups**
+**TPGROUPS**
 
-Elenca le informazioni di riepilogo su tutti i gruppi del portale di destinazione iSCSI nel database di destinazione attualmente selezionata. Il gruppo del portale attualmente selezionato è contrassegnato da un asterisco (*).
+Elenca le informazioni di riepilogo su tutti i gruppi di portali di destinazione iSCSI nella destinazione attualmente selezionata. Il gruppo di portale attualmente selezionato è contrassegnato da un asterisco (*).
 
-### <a name="BKMK_20"></a>login
+### <a name="BKMK_20"></a>accesso
 
-Registra l'adapter di iniziatori iSCSI specificati nella destinazione iSCSI attualmente selezionato.
+Registra l'adapter iniziatore iSCSI specificato nella destinazione iSCSI attualmente selezionata.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -736,41 +736,41 @@ login target iadapter=<iadapter> [type={manual | persistent | boot}] [chap={none
 
 **type**
 
-Specifica il tipo di account di accesso per l'esecuzione: **manuali**, **permanente**, o **avvio**. Se non viene specificato, un account di accesso manuali verrà eseguita.
+Specifica il tipo di account di accesso da eseguire: **manuale**, **permanente**o di **avvio**. Se non è specificato, verrà eseguito un accesso manuale.
 
-**manuale** -account di accesso manualmente.
+**manuale** : eseguire manualmente l'accesso.
 
-**persistente** - automaticamente usare lo stesso accesso quando il computer viene riavviato.
+**persistente** : usa automaticamente lo stesso account di accesso quando il computer viene riavviato.
 
-**Boot** -(questa opzione è per lo sviluppo futuro e non è attualmente usata<em>.</em>)
+**avvio** : questa opzione è per lo sviluppo futuro e non è attualmente in uso<em>.</em>
 
-**chap**
+**CHAP**
 
-Specifica il tipo di autenticazione CHAP da utilizzare: **none**, **oneway** CHAP, o **reciproca** CHAP; se non viene specificato, non verrà utilizzata alcuna autenticazione.
+Specifica il tipo di autenticazione CHAP da usare: **None**, **OneWay** CHAP o CHAP **reciproca** ; Se non è specificato, non verrà utilizzata alcuna autenticazione.
 
-**tportal**
+**Portale**
 
-Specifica un portale destinazione facoltativo nel sottosistema attualmente selezionato da utilizzare per l'accesso.
+Specifica un portale di destinazione facoltativo nel sottosistema attualmente selezionato da utilizzare per l'accesso.
 
-**iportal**
+**IPORTAL**
 
-Specifica un portale iniziatore facoltativo dell'iniziatore specificato da utilizzare per l'accesso.
+Specifica un portale initiator facoltativo nell'adapter initiator specificato da utilizzare per l'accesso.
 
-\<flag>
+\<> flag
 
-Identificato dall'acronimo di tre lettere:
+Identificato da tre acronimi di lettering:
 
-**IPS**: L'utilizzo di IPsec
+**INDIRIZZI IP**: Richiedi IPsec
 
 **EMP**: Abilita percorsi multipli
 
-**EHD**: Abilitare digest intestazione
+**EHD**: Abilita Digest intestazione
 
-**EDD**: Abilitare digest di dati
+**EDD**: Abilita digest dati
 
 ### <a name="BKMK_21"></a>logout
 
-Registra l'adapter di iniziatori iSCSI specificati all'esterno di destinazione iSCSI attualmente selezionato.
+Registra la scheda dell'iniziatore iSCSI specificata dalla destinazione iSCSI attualmente selezionata.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -780,13 +780,13 @@ logout target iadapter= <iadapter>
 
 #### <a name="parameters"></a>Parametri
 
-**iadapter**
+**IADAPTER**
 
-Specifica la scheda iniziatore con una sessione di accesso per la disconnessione da.
+Specifica l'adapter initiator con una sessione di accesso da cui eseguire la disconnessione.
 
-### <a name="BKMK_22"></a>Manutenzione
+### <a name="BKMK_22"></a>manutenzione
 
-Esegue operazioni di manutenzione per l'oggetto attualmente selezionato del tipo specificato.
+Esegue operazioni di manutenzione sull'oggetto attualmente selezionato del tipo specificato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -796,21 +796,21 @@ maintenance <object operation> [count=<iteration>]
 
 #### <a name="parameters"></a>Parametri
 
-\<object>
+\<> oggetto
 
-Specifica il tipo di oggetto su cui eseguire l'operazione. Il *oggetto* tipo può essere una **sottosistema**, **controller**, **porta, unità** oppure **LUN**.
+Specifica il tipo di oggetto su cui eseguire l'operazione. Il tipo di *oggetto* può essere un **sottosistema**, un **controller**, una **porta, un'unità** o un **lun**.
 
-\<operazione >
+\<> operazione
 
-Specifica l'operazione di manutenzione da eseguire. Il *operazione* può essere di tipo **spinup**, **spindown**, **blink**, **segnale acustico** o **ping** . Un' *operazione* deve essere specificato.
+Specifica l'operazione di manutenzione da eseguire. Il tipo di *operazione* può essere **SpinUp**, **spindown**, **Blink**, **Beep** o **ping**. È necessario specificare un' *operazione* .
 
-**count=**
+**conteggio =**
 
-Specifica il numero di volte per cui ripetere il *operazione*. Viene in genere utilizzato con **blink**, **segnale acustico**, o **ping**.
+Specifica il numero di volte per cui ripetere l' *operazione*. Viene in genere utilizzato con **lampeggio**, **bip**o **ping**.
 
-### <a name="BKMK_23"></a>Nome
+### <a name="BKMK_23"></a>nome
 
-Imposta il nome descrittivo della destinazione del sottosistema o LUN iSCSI attualmente selezionata per il nome specificato.
+Imposta il nome descrittivo del sottosistema, LUN o destinazione iSCSI attualmente selezionato sul nome specificato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -820,13 +820,13 @@ name {subsystem | lun | target} [<name>]
 
 #### <a name="parameter"></a>Parametro
 
-\<Nome >
+\<nome >
 
-Specifica un nome per il sottosistema, LUN o destinazione. Il nome deve essere minore di 64 caratteri. Se viene specificato alcun nome, il nome esistente, se presente, viene eliminato.
+Specifica un nome per il sottosistema, il LUN o la destinazione. Il nome deve avere una lunghezza inferiore a 64 caratteri. Se non viene specificato alcun nome, il nome esistente, se presente, viene eliminato.
 
 ### <a name="BKMK_24"></a>offline
 
-Imposta lo stato dell'oggetto attualmente selezionato del tipo specificato da **offline**.
+Imposta lo stato dell'oggetto attualmente selezionato del tipo specificato su **offline**.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -836,15 +836,15 @@ offline <object>
 
 #### <a name="parameter"></a>Parametro
 
-\<object>
+\<> oggetto
 
-Specifica il tipo di oggetto su cui eseguire questa operazione. Il \<oggetto >
+Specifica il tipo di oggetto su cui eseguire questa operazione. \<Oggetto >
 
-il tipo può essere **sottosistema**, **controller**, **unità**, **LUN**, o **portale di gestione della**.
+il tipo può essere **sottosistema**, **controller**, **unità**, **lun**o **portale**.
 
 ### <a name="BKMK_25"></a>online
 
-Imposta lo stato dell'oggetto selezionato per il tipo specificato **online**. Se l'oggetto è **hbaport**, operazione modificherà lo stato dei percorsi per la porta HBA attualmente selezionata da **online**.
+Imposta lo stato dell'oggetto selezionato del tipo specificato su **online**. Se l'oggetto è **HBAPORT**, imposta lo stato dei percorsi sulla porta HBA attualmente selezionata su **online**.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -854,15 +854,15 @@ online <object>
 
 #### <a name="parameter"></a>Parametro
 
-\<object>
+\<> oggetto
 
-Specifica il tipo di oggetto su cui eseguire questa operazione. Il \<oggetto >
+Specifica il tipo di oggetto su cui eseguire questa operazione. \<Oggetto >
 
-il tipo può essere **hbaport**, **sottosistema**, **controller**, **unità**, **LUN**, o  **portale di gestione della**.
+il tipo può essere **HBAPORT**, **sottosistema**, **controller**, **unità**, **lun**o **portale**.
 
-### <a name="BKMK_26"></a>recover
+### <a name="BKMK_26"></a>ripristinare
 
-Esegue le operazioni necessarie, ad esempio la risincronizzazione o di riserva a caldo, per ripristinare il LUN e tolleranza di errore attualmente selezionato. Ad esempio, recupero potrebbe causare una riserva a caldo da associare a un set RAID con un disco guasto o altri riallocazione di extent del disco.
+Esegue le operazioni necessarie, ad esempio la risincronizzazione o la disattivazione a caldo, per ripristinare il LUN a tolleranza di errore correntemente selezionato. Ad esempio, il ripristino può causare il binding di una riserva a caldo a un set RAID con un disco guasto o altra riallocazione dell'extent del disco.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -870,9 +870,9 @@ Esegue le operazioni necessarie, ad esempio la risincronizzazione o di riserva a
 recover <lun>
 ```
 
-### <a name="BKMK_27"></a>enumerate nuovamente
+### <a name="BKMK_27"></a>Rienumera
 
-Enumera nuovamente gli oggetti del tipo specificato. Se si usa l'estensione comando LUN, è necessario utilizzare il comando di aggiornamento per aggiornare le dimensioni del disco prima di usare il comando enumerate nuovamente.
+Rienumera gli oggetti del tipo specificato. Se si usa il comando Estendi LUN, è necessario usare il comando Refresh per aggiornare le dimensioni del disco prima di usare il comando Reenumerate.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -882,15 +882,15 @@ reenumerate {subsystems | drives}
 
 #### <a name="parameters"></a>Parametri
 
-**subsystems**
+**sottosistemi**
 
-Esegue una query sul provider per individuare eventuali nuovi sottosistemi che sono stati aggiunti nel provider attualmente selezionato.
+Esegue una query sul provider per individuare eventuali nuovi sottosistemi aggiunti nel provider attualmente selezionato.
 
-**drives**
+**unità**
 
-Esegue una query interno bus i/o per individuare eventuali nuove unità che sono stati aggiunti nel sottosistema attualmente selezionato.
+Esegue una query sui bus di I/O interni per individuare le nuove unità aggiunte al sottosistema attualmente selezionato.
 
-### <a name="BKMK_28"></a>refresh
+### <a name="BKMK_28"></a>Refresh
 
 Aggiorna i dati interni per il provider attualmente selezionato.
 
@@ -900,9 +900,9 @@ Aggiorna i dati interni per il provider attualmente selezionato.
 refresh provider
 ```
 
-### <a name="BKMK_29"></a>rem
+### <a name="BKMK_29"></a>REM
 
-Usato per gli script di commento.
+Usato per commentare gli script.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -910,9 +910,9 @@ Usato per gli script di commento.
 Rem <comment>
 ```
 
-### <a name="BKMK_30"></a>remove
+### <a name="BKMK_30"></a>rimuovere
 
-Rimuove il portale di destinazione iSCSI specificato dal gruppo del portale di destinazione attualmente selezionata.
+Rimuove il portale di destinazione iSCSI specificato dal gruppo del portale di destinazione attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -922,17 +922,17 @@ remove tpgroup tportal=<tportal> [noerr]
 
 #### <a name="parameter"></a>Parametro
 
-**tpgroup tportal=** \<tportal>
+**TPGROUP portale =** \<> portale
 
 Specifica il portale di destinazione iSCSI da rimuovere.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione devono essere ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione devono essere ignorati. Questa operazione è utile in modalità script.
 
-### <a name="BKMK_31"></a>replace
+### <a name="BKMK_31"></a>sostituire
 
-Sostituisce l'unità specificata con le unità attualmente selezionata.
+Sostituisce l'unità specificata con l'unità attualmente selezionata.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -942,17 +942,17 @@ replace drive=<drive_number>
 
 #### <a name="parameter"></a>Parametro
 
-**drive=**
+**unità =**
 
-Specifica il \<drive_number > per l'unità da sostituire.
+Specifica il \<> drive_number per l'unità da sostituire.
 
 #### <a name="remarks"></a>Note
 
--   L'unità specificata potrebbe non essere unità attualmente selezionata.
+-   L'unità specificata non può essere l'unità attualmente selezionata.
 
-### <a name="BKMK_32"></a>reset
+### <a name="BKMK_32"></a>reimpostazione
 
-Reimposta il controller selezionato o la porta.
+Reimposta la porta o il controller attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -966,13 +966,13 @@ Reset {controller | port}
 
 Reimposta il controller.
 
-**port**
+**porta**
 
 Reimposta la porta.
 
 ### <a name="BKMK_33"></a>Selezionare
 
-Visualizza o modifica l'oggetto attualmente selezionato.
+Consente di visualizzare o modificare l'oggetto attualmente selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -982,65 +982,65 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 #### <a name="parameters"></a>Parametri
 
-**object**
+**oggetto**
 
-Specifica il tipo di oggetto da selezionare. Il \<oggetto > può essere di tipo **provider**, **sottosistema**, **controller**, **unità**, o **LUN**.
+Specifica il tipo di oggetto da selezionare. Il \<tipo di > dell'oggetto può essere **provider**, **sottosistema**, **controller**, **unità**o **lun**.
 
-**hbaport** [\<n>]
+**HBAPORT** [\<n >]
 
-Imposta lo stato attivo alla porta HBA locale specificata. Se viene specificata alcuna porta HBA, il comando Visualizza la porta HBA attualmente selezionata (se presente). Specificando un indice non valido di porta HBA viene generato alcun porta HBA messa a fuoco. Selezione di una porta HBA Deseleziona qualsiasi iniziatore selezionati e i portali dell'iniziatore.
+Imposta lo stato attivo sulla porta HBA locale specificata. Se non viene specificata alcuna porta HBA, il comando Visualizza la porta HBA attualmente selezionata (se presente). Se si specifica un indice di porta HBA non valido, non viene generata alcuna porta HBA in stato attivo. Se si seleziona una porta HBA, vengono deselezionati tutti i portali iniziatori e gli adapter initiator selezionati.
 
-**iadapter** [\<n>]
+**IADAPTER** [\<n >]
 
-Imposta lo stato attivo per l'iniziatore iSCSI locale specificati. Se non viene specificato alcun adattatore di iniziatore, il comando Visualizza la scheda attualmente selezionata dell'iniziatore (se presente). Specificando un indice della scheda dell'iniziatore non valido viene generato alcun iniziatore messa a fuoco. Selezione di un adattatore dell'iniziatore deseleziona eventuali porte HBA selezionate e i portali dell'iniziatore.
+Imposta lo stato attivo sull'adapter iniziatore iSCSI locale specificato. Se non viene specificato alcun Adapter Initiator, il comando Visualizza l'adapter initiator attualmente selezionato (se presente). Se si specifica un indice dell'adapter Initiator non valido, non viene restituito alcun Adapter initiator. Selezionando un adapter initiator vengono deselezionate le porte HBA e i portali dell'initiator selezionati.
 
 **IPORTAL** [\<n >]
 
-Imposta lo stato attivo per il portale dell'iniziatore iSCSI locale specificati all'interno dell'adapter dell'iniziatore iSCSI selezionato. Se non viene specificato alcun portale initiator, il comando Visualizza il portale dell'initiator attualmente selezionato (se presente). Specificando un indice del portale dell'iniziatore non valido viene generato alcun portale initiator selezionato.
+Imposta lo stato attivo sul portale dell'iniziatore iSCSI locale specificato all'interno dell'adapter iniziatore iSCSI selezionato. Se non viene specificato alcun portale Initiator, il comando Visualizza il portale initiator attualmente selezionato (se presente). Se si specifica un indice del portale Initiator non valido, non si ottiene alcun portale initiator selezionato.
 
-**provider** [\<n >]
+**provider** di [\<n >]
 
-Imposta lo stato attivo per il provider specificato. Se viene specificato alcun provider, il comando Visualizza il provider attualmente selezionato (se presente). Specificando un indice di provider non valido viene generato alcun provider messa a fuoco.
+Imposta lo stato attivo sul provider specificato. Se non viene specificato alcun provider, il comando Visualizza il provider attualmente selezionato (se presente). Se si specifica un indice del provider non valido, non viene restituito alcun provider attivo.
 
-**subsystem** [\<n>]
+**sottosistema** [\<n >]
 
-Imposta lo stato attivo per il sottosistema specificato. Se non viene specificato alcun sottosistema, il comando Visualizza il sottosistema con lo stato attivo (se presente). Specificando un indice non valido del sottosistema viene generato alcun sottosistema di messa a fuoco. Un sottosistema in modo implicito se si seleziona il provider associato.
+Imposta lo stato attivo sul sottosistema specificato. Se non viene specificato alcun sottosistema, il comando Visualizza il sottosistema con lo stato attivo (se presente). Se si specifica un indice del sottosistema non valido, non viene restituito alcun sottosistema in stato attivo. La selezione di un sottosistema seleziona in modo implicito il provider associato.
 
-**controller** [\<n>]
+**controller** di [\<n >]
 
-Imposta lo stato attivo per il controller specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun controller, il comando Visualizza controller attualmente selezionato (se presente). Specificando un indice non valido controller viene generato alcun controller di messa a fuoco. Quando si seleziona un controller deseleziona eventuali porte controller selezionato, le unità, LUN, portali di destinazione, destinazioni e gruppi del portale di destinazione.
+Imposta lo stato attivo sul controller specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun controller, il comando Visualizza il controller attualmente selezionato (se presente). Se si specifica un indice del controller non valido, il controller non è attivo. Selezionando un controller, vengono deselezionate tutte le porte, le unità, i lun, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**port** [\<n>]
+**porta** [\<n >]
 
-Imposta lo stato attivo per la porta del controller specificato all'interno del controller selezionato. Se viene specificata alcuna porta, il comando Visualizza la porta attualmente selezionata (se presente). Specificando un indice di porta non valido viene generato alcun porta selezionata.
+Imposta lo stato attivo sulla porta del controller specificata nel controller attualmente selezionato. Se non viene specificata alcuna porta, il comando Visualizza la porta attualmente selezionata (se presente). Se si specifica un indice di porta non valido, non viene selezionata alcuna porta.
 
-**drive** [\<n>]
+**unità** di [\<n >]
 
-Imposta lo stato attivo per l'unità specificata o dischi fisici, all'interno del sottosistema attualmente selezionato. Se viene specificata alcuna unità, il comando Visualizza le unità attualmente selezionato (se presente). Specificando un indice di unità non valida generato alcuna unità di messa a fuoco. Selezione di un'unità consente di deselezionare qualsiasi controller selezionato, le porte di controller, unità logiche, portali di destinazione, destinazioni e gruppi del portale di destinazione.
+Imposta lo stato attivo sull'unità specificata, o sull'asse fisico, all'interno del sottosistema attualmente selezionato. Se non viene specificata alcuna unità, il comando Visualizza l'unità attualmente selezionata (se presente). Se si specifica un indice di unità non valido, non viene generata alcuna unità messa a fuoco. Selezionando un'unità vengono deselezionati tutti i controller, le porte del controller, i lun, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**lun** [\<n>]
+**lun** [\<n >]
 
-Imposta lo stato attivo per il LUN specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun numero di unità LOGICA, il comando Visualizza il numero di unità LOGICA attualmente selezionato (se presente). Specificando un indice LUN non valido viene generato alcun numero di unità LOGICA selezionata. Selezione di un LUN Deseleziona qualsiasi controller selezionato, le porte di controller, unità, portali di destinazione, destinazioni e gruppi del portale di destinazione.
+Imposta lo stato attivo sul LUN specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun LUN, il comando Visualizza il LUN attualmente selezionato (se presente). Se si specifica un indice LUN non valido, non viene restituito alcun LUN selezionato. Selezionando un LUN vengono deselezionati tutti i controller, le porte del controller, le unità, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**portale di gestione della** [\<n >]
+**portale** [\<n >]
 
-Imposta lo stato attivo per il portale di destinazione iSCSI specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun portale destinazione, il comando Visualizza il portale di destinazione selezionato (se presente). Specificando un indice del portale di destinazione non valido viene generato alcun portale destinazione selezionata. Selezione di un portale destinazione Deseleziona qualsiasi controller, le porte di controller, unità, LUN, destinazioni e gruppi del portale di destinazione.
+Imposta lo stato attivo sul portale di destinazione iSCSI specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun portale di destinazione, il comando Visualizza il portale di destinazione attualmente selezionato (se presente). Se si specifica un indice del portale di destinazione non valido, non viene selezionato alcun portale di destinazione. Selezionando un portale di destinazione vengono deselezionati tutti i controller, le porte del controller, le unità, i lun, le destinazioni e i gruppi del portale di destinazione.
 
-**target** [\<n>]
+**destinazione** [\<n >]
 
-Imposta lo stato attivo alla destinazione iSCSI specificato all'interno del sottosistema attualmente selezionato. Se viene specificata alcuna destinazione, il comando Visualizza la destinazione attualmente selezionata (se presente). Specificando un indice di destinazione non valido viene generato in nessuna destinazione selezionata. Selezione di una destinazione Deseleziona qualsiasi controller, porte controller, unità, LUN, portali di destinazione e i gruppi del portale di destinazione.
+Imposta lo stato attivo sulla destinazione iSCSI specificata nel sottosistema attualmente selezionato. Se non viene specificata alcuna destinazione, il comando Visualizza la destinazione attualmente selezionata (se presente). Se si specifica un indice di destinazione non valido, non viene selezionata alcuna destinazione. Selezionando una destinazione vengono deselezionati tutti i controller, le porte del controller, le unità, i lun, i portali di destinazione e i gruppi del portale di destinazione.
 
-**tpgroup** [\<n>]
+**TPGROUP** [\<n >]
 
-Imposta lo stato attivo per il gruppo del portale di destinazione iSCSI specificato all'interno della destinazione iSCSI attualmente selezionato. Se viene specificato alcun gruppo del portale di destinazione, il comando Visualizza il gruppo del portale di destinazione selezionato (se presente). Specificando un indice di gruppo del portale di destinazione non valido viene generato alcun gruppo di portale destinazione messa a fuoco.
+Imposta lo stato attivo sul gruppo del portale di destinazione iSCSI specificato all'interno della destinazione iSCSI attualmente selezionata. Se non viene specificato alcun gruppo di portali di destinazione, il comando Visualizza il gruppo del portale di destinazione attualmente selezionato (se presente). Se si specifica un indice del gruppo di portali di destinazione non valido, non viene restituito alcun gruppo del portale di destinazione.
 
-[\<n>]
+[\<n >]
 
-Specifica il \<oggetto numero > per selezionare. Se il <object number> specificato non è valido, vengono cancellate tutte le selezioni di oggetti del tipo specificato. Se nessun <object number> viene specificato, viene visualizzato l'oggetto corrente.
+Specifica il \<numero dell'oggetto > da selezionare. Se l' <object number> oggetto specificato non è valido, vengono cancellate tutte le selezioni esistenti per gli oggetti del tipo specificato. Se non <object number> si specifica alcun parametro, viene visualizzato l'oggetto corrente.
 
 ### <a name="BKMK_34"></a>setflag
 
-Imposta le unità attualmente selezionata come riserva a caldo.
+Imposta l'unità attualmente selezionata come riserva a caldo.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -1052,19 +1052,19 @@ setflag drive hotspare={true | false}
 
 **true**
 
-Seleziona unità attualmente selezionata come riserva a caldo.
+Consente di selezionare l'unità attualmente selezionata come riserva a caldo.
 
 **false**
 
-Deseleziona le unità attualmente selezionata come riserva a caldo.
+Deseleziona l'unità attualmente selezionata come riserva a caldo.
 
 #### <a name="remarks"></a>Note
 
-Riserve a caldo non può essere utilizzati per le normali operazioni di associazione LUN. Ma sono riservate per la gestione degli errori solo. L'unità non deve essere associata attualmente a qualsiasi numero di unità LOGICA esistente.
+Non è possibile usare le riserve a caldo per le normali operazioni di binding LUN. Sono riservati solo per la gestione degli errori. L'unità non deve essere attualmente associata a un LUN esistente.
 
-### <a name="BKMK_shrink"></a>compattazione
+### <a name="BKMK_shrink"></a>strizzacervelli
 
-Riduce le dimensioni di LUN selezionato.
+Riduce le dimensioni del LUN selezionato.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -1074,17 +1074,17 @@ shrink lun size=<n> [noerr]
 
 #### <a name="parameters"></a>Parametri
 
-**size=**
+**dimensioni =**
 
-Specifica la quantità di spazio in megabyte (MB) per ridurre le dimensioni di LUN desiderata. Per specificare le dimensioni utilizzando altre unità, usare uno dei suffissi riconosciuti (B, KB, MB, GB, TB e PB) subito dopo la dimensione.
+Specifica la quantità di spazio disponibile in megabyte (MB) per ridurre le dimensioni del LUN. Per specificare le dimensioni usando altre unità, usare uno dei suffissi riconosciuti (B, KB, MB, GB, TB e PB) immediatamente dopo le dimensioni.
 
 **noerr**
 
-Specifica che gli eventuali errori che si verificano durante l'esecuzione di questa operazione verranno ignorate. Ciò è utile in modalità di script.
+Specifica che tutti gli errori che si verificano durante l'esecuzione di questa operazione verranno ignorati. Questa operazione è utile in modalità script.
 
 ### <a name="BKMK_35"></a>standby
 
-Modifica lo stato dei percorsi alla porta scheda (HBA) bus host attualmente selezionato in modalità STANDBY.
+Consente di modificare lo stato dei percorsi sulla porta della scheda bus host (HBA) attualmente selezionata in STANDBY.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -1094,13 +1094,13 @@ standby hbaport
 
 #### <a name="parameters"></a>Parametri
 
-**hbaport**
+**HBAPORT**
 
-Modifica lo stato dei percorsi alla porta scheda (HBA) bus host attualmente selezionato in modalità STANDBY.
+Consente di modificare lo stato dei percorsi sulla porta della scheda bus host (HBA) attualmente selezionata in STANDBY.
 
-### <a name="BKMK_36"></a>unmask
+### <a name="BKMK_36"></a>annullare il mascheramento
 
-Rende accessibili i LUN attualmente selezionati dall'host specificati.
+Rende accessibili i LUN attualmente selezionati dagli host specificati.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -1110,72 +1110,72 @@ unmask LUN {all | none | [add] wwn=<hexadecimal_number> [;<hexadecimal_number> [
 
 #### <a name="parameters"></a>Parametri
 
-**all**
+**tutti**
 
-Specifica che è necessario rendere accessibile da tutti gli host il LUN. Tuttavia, è possibile annullare il mascheramento a tutte le destinazioni in un sottosistema iSCSI.
-
-> [!IMPORTANT]
-> Disconnessione della destinazione prima di eseguire il comando Annulla il MASCHERAMENTO tutto, è necessario.
-
-**Nessuno**
-
-Specifica che il numero di unità LOGICA non deve essere accessibile a tutti gli host.
+Specifica che il LUN deve essere reso accessibile da tutti gli host. Tuttavia, non è possibile annullare il mascheramento del LUN in tutte le destinazioni in un sottosistema iSCSI.
 
 > [!IMPORTANT]
-> Disconnessione della destinazione prima di eseguire il comando Annulla il MASCHERAMENTO LUN NONE, è necessario.
+> Prima di eseguire il comando Annulla maschera tutto è necessario disconnettersi dalla destinazione.
+
+**nessuno**
+
+Specifica che il LUN non deve essere accessibile ad alcun host.
+
+> [!IMPORTANT]
+> Prima di eseguire il comando Annulla maschera LUN nessuno, è necessario disconnettersi dalla destinazione.
 
 **add**
 
-Specifica che è necessario aggiungere l'host specificato all'elenco esistente di host in cui è possibile accedere da questo LUN. Se questo parametro viene omesso, l'elenco degli host fornito sostituisce l'elenco esistente di host in cui è possibile accedere da questo LUN.
+Specifica che gli host specificati devono essere aggiunti all'elenco esistente di host da cui il LUN è accessibile. Se questo parametro non viene specificato, l'elenco di host fornito sostituisce l'elenco esistente di host da cui il LUN è accessibile.
 
 **WWN =**
 
-Specifica un elenco di numeri esadecimali che rappresenta i nomi di tutto il mondo da cui gli host o il LUN dovrebbero essere resi accessibili. Per mask/annullare il mascheramento per un set specifico di host in un sottosistema di Fibre Channel, è possibile digitare un elenco delimitato da punto e virgola per le porte del WWN nei computer host di interesse.
+Specifica un elenco di numeri esadecimali che rappresentano i nomi universali da cui devono essere resi accessibili i LUN o gli host. Per mascherare/annullare il mascheramento di un set specifico di host in un Fibre Channel sottosistema, è possibile digitare un elenco delimitato da punti e virgola di WWN per le porte sui computer host di interesse.
 
-**initiator=**
+**initiator =**
 
-Specifica un elenco degli iniziatori iSCSI a cui il LUN attualmente selezionato debba essere resi accessibile. Per mask/annullare il mascheramento per un set specifico di host in un sottosistema iSCSI, è possibile digitare un elenco delimitato da punto e virgola di nomi dell'iniziatore iSCSI per gli iniziatori nei computer host di interesse.
+Specifica un elenco di iniziatori iSCSI a cui deve essere reso accessibile il LUN attualmente selezionato. Per mascherare/annullare il mascheramento di un set specifico di host in un sottosistema iSCSI, è possibile digitare un elenco delimitato da punti e virgola di nomi di iniziatori iSCSI per gli iniziatori nei computer host di interesse.
 
-**uninstall**
+**disinstallare**
 
-Se specificato, consente di disinstallare il disco associato il LUN nel sistema locale prima del mascheramento del LUN.
+Se specificato, disinstalla il disco associato al LUN nel sistema locale prima che il LUN venga mascherato.
 
-## <a name="scripting-diskraid"></a>Scripting DiskRAID
+## <a name="scripting-diskraid"></a>Creazione di script per DiskRAID
 
-È possibile creare script DiskRAID in qualsiasi computer che esegue Windows Server 2008 o Windows Server 2003 con un provider hardware VDS associato. Per richiamare uno script di DiskRAID, al prompt dei comandi digitare:
+DiskRAID possono essere scritti in qualsiasi computer che esegue Windows Server 2008 o Windows Server 2003 con un provider hardware VDS associato. Per richiamare uno script DiskRAID, al prompt dei comandi digitare:
 ```
 diskraid /s <script.txt>
 ```
-Per impostazione predefinita, DiskRAID interrompe l'elaborazione dei comandi e restituisce un codice di errore se si è verificato un problema nello script. Per continuare l'esecuzione dello script e ignorare gli errori, includere il parametro NOERR sul comando. In questo modo pratiche utili quando si utilizza un unico script per eliminare tutte le unità logiche in un sottosistema indipendentemente dal numero totale di unità logiche. Non tutti i comandi supportano il parametro NOERR. In caso di errori di sintassi del comando, indipendentemente dal fatto che sia stato incluso il parametro NOERR, vengono sempre restituiti errori
+Per impostazione predefinita, DiskRAID interrompe l'elaborazione dei comandi e restituisce un codice di errore se si verifica un problema nello script. Per continuare a eseguire lo script e ignorare gli errori, includere il parametro NOERR nel comando. Ciò consente di utilizzare un unico script per eliminare tutti i LUN in un sottosistema, indipendentemente dal numero totale di lun. Non tutti i comandi supportano il parametro NOERR. Gli errori vengono sempre restituiti sugli errori di sintassi del comando, indipendentemente dal fatto che sia stato incluso il parametro NOERR,
 
 ### <a name="diskraid-error-codes"></a>Codici di errore DiskRAID
 
 |Codice di errore|Descrizione errore|
 |----------|-----------------|
-|0|Si è verificato alcun errore. L'intero script eseguito senza errori.|
+|0|Non si è verificato alcun errore. L'intero script è stato eseguito senza errori.|
 |1|Si è verificata un'eccezione irreversibile.|
-|2|Gli argomenti specificati nella riga di comando DiskRAID non sono corrette.|
-|3|Impossibile aprire il file di output o lo script specificato.|
-|4|Uno dei servizi che utilizza DiskRAID ha restituito un errore.|
-|5|Si è verificato un errore di sintassi del comando. Lo script non è riuscita perché un oggetto è stato selezionato in modo errato o non è valido per l'uso con tale comando.|
+|2|Gli argomenti specificati in una riga di comando di DiskRAID non sono corretti.|
+|3|DiskRAID non è riuscito ad aprire lo script o il file di output specificato.|
+|4|Uno dei servizi utilizzati da DiskRAID ha restituito un errore.|
+|5|Si è verificato un errore di sintassi del comando. Lo script non è riuscito perché un oggetto è stato selezionato in modo errato o non è valido per l'uso con il comando.|
 
-## <a name="example-interactively-view-status-of-subsystem"></a>Esempio: In modo interattivo consente di visualizzare lo stato del sottosistema
+## <a name="example-interactively-view-status-of-subsystem"></a>Esempio: Visualizza in modo interattivo lo stato del sottosistema
 
 Se si desidera visualizzare lo stato del sottosistema 0 nel computer, digitare quanto segue nella riga di comando:
 ```
 diskraid
 ```
-Premere INVIO. Verrà visualizzato quanto segue:
+Premere INVIO. Viene visualizzato quanto segue:
 ```
 Microsoft Diskraid version 5.2.xxxx
 Copyright (©) 2003 Microsoft Corporation
 On computer: COMPUTER_NAME
 ```
-Per selezionare il sottosistema 0, digitare quanto segue al prompt di DiskRAID:
+Per selezionare il sottosistema 0, digitare il comando seguente al prompt dei comandi di DiskRAID:
 ```
 select subsystem 0
 ```
-Premere INVIO. Viene visualizzato l'output sarà simile al seguente:
+Premere INVIO. Viene visualizzato un output simile al seguente:
 ```
 Subsystem 0 is now the selected subsystem.
 
@@ -1188,7 +1188,7 @@ DISKRAID> list drives
   Drive 2    Online      Healthy         107 GB    107 GB    0     2
   Drive 3    Not Ready   Healthy          19 GB     19 GB    1     1
 ```
-Per uscire dalla DiskRAID, digitare quanto segue al prompt di DiskRAID:
+Per uscire da DiskRAID, digitare il comando seguente al prompt di DiskRAID:
 ```
 exit
 ```

@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un gateway virtuale a una rete virtuale del tenant
-description: Informazioni su come usare i cmdlet di Windows PowerShell e script per fornire connettività site-to-site per le reti virtuali del tenant.
+description: Informazioni su come usare i cmdlet e gli script di Windows PowerShell per offrire connettività da sito a sito per le reti virtuali del tenant.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,35 +13,35 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 768a25c8c452a8c4bc85b38736b4241fa2570b32
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446365"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869955"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Aggiungere un gateway virtuale a una rete virtuale tenant 
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016 
+>Si applica a Windows Server (Canale semestrale), Windows Server 2016 
 
-Informazioni su come usare i cmdlet di Windows PowerShell e script per fornire connettività site-to-site per le reti virtuali del tenant. In questo argomento, si aggiunge gateway virtuale tenant per istanze del gateway RAS che sono membri del pool di gateway, controller di rete. Il gateway RAS supporta fino a 100 tenant, a seconda della larghezza di banda usata da ogni tenant. Controller di rete determina automaticamente il Gateway RAS migliore da usare quando si distribuisce un gateway virtuale nuovo per i tenant.  
+Informazioni su come usare i cmdlet e gli script di Windows PowerShell per offrire connettività da sito a sito per le reti virtuali del tenant. In questo argomento si aggiungono gateway virtuali tenant a istanze del gateway RAS che sono membri dei pool di gateway, usando il controller di rete. Il gateway RAS supporta fino a 100 tenant, a seconda della larghezza di banda usata da ogni tenant. Il controller di rete determina automaticamente il gateway RAS migliore da usare quando si distribuisce un nuovo gateway virtuale per i tenant.  
 
-Ogni gateway virtuale corrisponde a un particolare tenant e costituito da uno o più connessioni di rete (tunnel VPN site-to-site) e, facoltativamente, le connessioni protocollo BGP (Border Gateway). Quando si fornisce connettività site-to-site, i clienti possono connettersi la rete virtuale del tenant a una rete esterna, ad esempio una rete aziendale del tenant, una rete di service provider o Internet.
+Ogni gateway virtuale corrisponde a un tenant specifico ed è costituito da una o più connessioni di rete (tunnel VPN da sito a sito) e, facoltativamente, Border Gateway Protocol (BGP) connessioni. Quando si fornisce la connettività da sito a sito, i clienti possono connettere la rete virtuale tenant a una rete esterna, ad esempio una rete aziendale tenant, una rete del provider di servizi o Internet.
 
-**Quando si distribuisce un Gateway virtuale Tenant, sono disponibili le opzioni di configurazione seguenti:**  
+**Quando si distribuisce un gateway virtuale tenant, sono disponibili le opzioni di configurazione seguenti:**  
 
 
 |                                                        Opzioni di connessione di rete                                                         |                                              Opzioni di configurazione BGP                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| <ul><li>Rete privata virtuale IPSec da sito a sito (VPN)</li><li>Generic Routing Encapsulation (GRE)</li><li>Layer 3 forwarding</li></ul> | <ul><li>Configurazione del router BGP</li><li>Configurazione del peer BGP</li><li>Configurazione dei criteri di routing BGP</li></ul> |
+| <ul><li>Rete privata virtuale (VPN) da sito a sito IPSec</li><li>Generic Routing Encapsulation (GRE)</li><li>Layer 3 forwarding</li></ul> | <ul><li>Configurazione del router BGP</li><li>Configurazione del peer BGP</li><li>Configurazione di criteri di routing BGP</li></ul> |
 
 ---
 
-I comandi in questo argomento e gli script di esempio di Windows PowerShell viene illustrato come distribuire un gateway virtuale tenant in un Gateway RAS con ognuna di queste opzioni.  
+Gli script e i comandi di esempio di Windows PowerShell in questo argomento illustrano come distribuire un gateway virtuale tenant in un gateway RAS con ognuna di queste opzioni.  
 
 
 >[!IMPORTANT]  
->Prima di eseguire uno dei comandi di Windows PowerShell di esempio e gli script forniti, è necessario modificare tutti i valori delle variabili in modo che i valori siano appropriati per la distribuzione.  
+>Prima di eseguire uno degli esempi di comandi e script di Windows PowerShell forniti, è necessario modificare tutti i valori delle variabili in modo che i valori siano appropriati per la distribuzione.  
 
 1.  Verificare che l'oggetto pool di gateway esista nel controller di rete. 
 
@@ -56,7 +56,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
     ```  
 
-2.  Verificare che la subnet usata per il routing dei pacchetti all'esterno di rete virtuale del tenant esista nel Controller di rete. È anche possibile recuperare la subnet virtuale utilizzata per il routing tra il gateway tenant e la rete virtuale.  
+2.  Verificare che la subnet usata per il routing dei pacchetti dalla rete virtuale del tenant esista nel controller di rete. È anche possibile recuperare la subnet virtuale usata per il routing tra il gateway tenant e la rete virtuale.  
 
     ```PowerShell 
     $uri = "https://ncrest.contoso.com"   
@@ -75,7 +75,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
     ```  
 
-3.  Creare un nuovo oggetto per il gateway virtuale tenant e quindi aggiornare il riferimento al pool di gateway.  È inoltre possibile specificare la subnet virtuale utilizzata per il routing tra il gateway e una rete virtuale.  Dopo aver specificato la subnet virtuale è aggiornare il resto delle proprietà dell'oggetto gateway virtuale e quindi aggiungere il nuovo gateway virtuale per il tenant.
+3.  Creare un nuovo oggetto per il gateway virtuale tenant e quindi aggiornare il riferimento al pool di gateway.  È anche possibile specificare la subnet virtuale usata per il routing tra il gateway e la rete virtuale.  Dopo aver specificato la subnet virtuale, aggiornare il resto delle proprietà dell'oggetto gateway virtuale e quindi aggiungere il nuovo gateway virtuale per il tenant.
 
     ```PowerShell  
     # Create a new object for Tenant Virtual Gateway  
@@ -99,12 +99,12 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
     ```  
 
-4. Creare una connessione VPN site-to-site con IPsec, GRE, oppure Layer 3 forwarding (L3).  
+4. Creare una connessione VPN da sito a sito con l'invio di IPsec, GRE o Layer 3 (L3).  
 
    >[!TIP]
-   >Facoltativamente, è possibile combinare tutti i passaggi precedenti e configurare un gateway virtuale tenant tutte tre le opzioni di connessione.  Per altre informazioni, vedere [configurare un gateway con tutti i tipi di connessione (IPsec, GRE, L3) e il protocollo BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
+   >Facoltativamente, è possibile combinare tutti i passaggi precedenti e configurare un gateway virtuale tenant con tutte e tre le opzioni di connessione.  Per altri dettagli, vedere [configurare un gateway con tutti e tre i tipi di connessione (IPSec, GRE, L3) e BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
 
-   **Connessione di rete da sito a sito IPsec VPN**
+   **Connessione di rete da sito a sito VPN IPsec**
 
    ```PowerShell  
    # Create a new object for Tenant Network Connection  
@@ -154,7 +154,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
    ```  
 
-   **Connessione di rete da sito a sito GRE VPN**
+   **Connessione di rete da sito a sito VPN GRE**
 
    ```PowerShell  
    # Create a new object for the Tenant Network Connection  
@@ -189,10 +189,10 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
    ```  
 
-   **Connessione di rete di inoltro L3**<p>
-   Per un L3 di inoltro connessione di rete funzioni correttamente, è necessario configurare una rete logica corrispondente.   
+   **Connessione di rete di inoltri L3**<p>
+   Per il corretto funzionamento di una connessione di rete di inoltri L3, è necessario configurare una rete logica corrispondente.   
 
-   1. Configurare una rete logica L3 per la connessione di rete di inoltro.  <br>
+   1. Configurare una rete logica per la connessione di rete di inoltri L3.  <br>
 
       ```PowerShell  
       # Create a new object for the Logical Network to be used for L3 Forwarding  
@@ -216,7 +216,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
       ```  
 
-   2. Creare un oggetto JSON connessione di rete e aggiungerla al Controller di rete.  
+   2. Creare un oggetto JSON della connessione di rete e aggiungerlo al controller di rete.  
 
       ```PowerShell 
       # Create a new object for the Tenant Network Connection  
@@ -254,7 +254,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
       ```  
 
-5. Configurare il gateway come router BGP e aggiungerlo al Controller di rete. 
+5. Configurare il gateway come router BGP e aggiungerlo al controller di rete. 
 
    1. Aggiungere un router BGP per il tenant.  
 
@@ -272,7 +272,7 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
       ```  
 
-   2. Aggiungere un Peer BGP per questo tenant, corrispondente alla connessione di rete VPN site-to-site aggiunte in precedenza.  
+   2. Aggiungere un peer BGP per questo tenant, corrispondente alla connessione di rete VPN da sito a sito aggiunta in precedenza.  
 
       ```PowerShell
       # Create a new object for Tenant BGP Peer  
@@ -288,8 +288,8 @@ I comandi in questo argomento e gli script di esempio di Windows PowerShell vien
 
       ```  
 
-## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Passaggio facoltativo) Configurare un gateway con tutti i tipi di connessione (IPsec, GRE, L3) e il protocollo BGP  
-Facoltativamente, è possibile combinare tutti i passaggi precedenti e configurare un gateway virtuale tenant tutte tre le opzioni di connessione:   
+## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Passaggio facoltativo) Configurare un gateway con tutti e tre i tipi di connessione (IPsec, GRE, L3) e BGP  
+Facoltativamente, è possibile combinare tutti i passaggi precedenti e configurare un gateway virtuale tenant con tutte e tre le opzioni di connessione:   
 
 ```PowerShell  
 # Create a new Virtual Gateway Properties type object  
@@ -461,19 +461,19 @@ New-NetworkControllerVirtualGateway -ConnectionUri $uri  -ResourceId "Contoso_Vi
 ## <a name="modify-a-gateway-for-a-virtual-network"></a>Modificare un gateway per una rete virtuale  
 
 
-**Recuperare la configurazione per il componente e archiviarlo in una variabile**
+**Recuperare la configurazione per il componente e archiviarla in una variabile**
 
 ```PowerShell  
 $nwConnection = Get-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW"  
 ```  
 
-**Passare la struttura di variabile per raggiungere la proprietà obbligatoria e impostarlo sul valore di aggiornamenti**
+**Spostarsi sulla struttura della variabile per raggiungere la proprietà obbligatoria e impostarla sul valore degli aggiornamenti.**
 
 ```PowerShell  
 $nwConnection.properties.IpSecConfiguration.SharedSecret = "C0mplexP@ssW0rd"  
 ```  
 
-**Aggiungere la configurazione modificata per sostituire la configurazione precedente nel Controller di rete**
+**Aggiungere la configurazione modificata per sostituire la configurazione precedente nel controller di rete**
 
 ```PowerShell  
 New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId $nwConnection.ResourceId -Properties $nwConnection.Properties -Force  
@@ -481,7 +481,7 @@ New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -Virtua
 
 
 ## <a name="remove-a-gateway-from-a-virtual-network"></a>Rimuovere un gateway da una rete virtuale 
-È possibile usare i comandi di Windows PowerShell seguenti per rimuovere le funzionalità di gateway singoli o intero gateway.  
+È possibile usare i comandi di Windows PowerShell seguenti per rimuovere le singole funzionalità del gateway o l'intero gateway.  
 
 **Rimuovere una connessione di rete**  
 ```PowerShell  
@@ -498,7 +498,7 @@ Remove-NetworkControllerVirtualGatewayBgpPeer -ConnectionUri $uri -VirtualGatewa
 Remove-NetworkControllerVirtualGatewayBgpRouter -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_BgpRouter1" -Force  
 ```
 
-**Rimozione di un gateway**  
+**Rimuovere un gateway**  
 ```PowerShell  
 Remove-NetworkControllerVirtualGateway -ConnectionUri $uri -ResourceId "Contoso_VirtualGW" -Force   
 ```  

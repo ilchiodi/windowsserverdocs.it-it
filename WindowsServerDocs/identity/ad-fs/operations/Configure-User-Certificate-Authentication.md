@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 058433f98d986c0daa720dd19f283135763cfe30
-ms.sourcegitcommit: c307886e96622e9595700c94128103b84f5722ce
+ms.openlocfilehash: 1616a1fe2e28534cc30c8955b0309c233555fa14
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70108759"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878148"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configurazione AD FS per l'autenticazione dei certificati utente
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni sulla configurazione di questo per Chrome, consultare
 Questo documento è incentrato sulla risoluzione dei problemi comuni quando AD FS viene configurato per l'autenticazione dei certificati per gli utenti. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Verificare che le autorità emittenti attendibili del certificato siano configurate correttamente in tutti i server AD FS/WAP
-*Sintomo comune: HTTP 204 "nessun contenuto da https://certuath.adfs.contoso.com "*
+*Sintomo comune: HTTP 204 "nessun contenuto da https\://certuath.ADFS.contoso.com"*
 
 AD FS usa il sistema operativo Windows sottostante per dimostrare il possesso del certificato utente e verificare che corrisponda a un'autorità emittente attendibile eseguendo la convalida della catena di certificati attendibili. Per trovare la corrispondenza con l'emittente attendibile, è necessario assicurarsi che tutte le autorità radice e intermedie siano configurate come autorità emittenti attendibili nell'archivio Autorità di certificazione del computer locale. Per convalidare questa operazione automaticamente, usare lo [strumento Analizzatore diagnostica ad FS](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze). Lo strumento esegue una query su tutti i server e garantisce che venga eseguito correttamente il provisioning dei certificati corretti. 
 1)  Scaricare ed eseguire lo strumento in base alle istruzioni fornite nel collegamento precedente
@@ -76,7 +76,7 @@ Ogni AD FS e il server WAP dovranno raggiungere l'endpoint CRL per convalidare s
 2)  In ogni server AD FS/WAP verificare che gli endpoint CRL siano raggiungibili tramite il protocollo usato (in genere HTTPS o HTTP)
 3)  Per la convalida avanzata, [abilitare la registrazione degli eventi di CAPI2](https://blogs.msdn.microsoft.com/benjaminperkins/2013/09/30/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues/) in ogni server ad FS/WAP
 4) Verificare l'ID evento 41 (verificare la revoca) nei log operativi di CAPI2
-5) Verifica`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>’`
+5) Verifica`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>'`
 
 ***Suggerimento***: È possibile fare riferimento a un singolo server AD FS o WAP per semplificare la risoluzione dei problemi configurando la risoluzione DNS (file HOSTs in Windows) in modo che punti a un server specifico. In questo modo è possibile abilitare la traccia per un server. 
 

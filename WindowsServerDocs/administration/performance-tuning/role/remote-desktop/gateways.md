@@ -1,42 +1,42 @@
 ---
-title: Gateway Desktop remoto l'ottimizzazione delle prestazioni
-description: Raccomandazioni per i gateway Desktop remoto per l'ottimizzazione delle prestazioni
+title: Ottimizzazione delle prestazioni Desktop remoto Gateway
+description: Suggerimenti per l'ottimizzazione delle prestazioni per Gateway Desktop remoto
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ad314fbf6701da3f96ddc68a598bf3024eaafe16
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811430"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866473"
 ---
-# <a name="performance-tuning-remote-desktop-gateways"></a>Gateway Desktop remoto l'ottimizzazione delle prestazioni
+# <a name="performance-tuning-remote-desktop-gateways"></a>Ottimizzazione delle prestazioni Desktop remoto Gateway
 
 > [!NOTE]
-> In Windows 8 e versioni successive e Windows Server 2012 R2 +, Gateway Desktop remoto (Gateway Desktop remoto) supporta TCP, UDP e trasporti RPC legacy. La maggior parte dei dati seguenti sia per quanto riguarda il trasporto RPC legacy. Se non viene utilizzato il trasporto RPC legacy, in questa sezione non è applicabile.
+> In Windows 8 + e Windows Server 2012 R2 +, Desktop remoto Gateway (Gateway Desktop remoto) supporta i trasporti TCP, UDP e RPC legacy. La maggior parte dei seguenti dati riguarda il trasporto RPC legacy. Se il trasporto RPC legacy non è in uso, questa sezione non è applicabile.
 
-Questo argomento descrive i parametri relativi alle prestazioni che consentono di migliorare le prestazioni di una distribuzione dei clienti e se che si basano su modelli di utilizzo di rete del cliente.
+In questo argomento vengono descritti i parametri correlati alle prestazioni che consentono di migliorare le prestazioni di una distribuzione dei clienti e le ottimizzazioni basate sui modelli di utilizzo della rete del cliente.
 
-In sostanza, Gateway Desktop remoto consente di eseguire pacchetti molte operazioni tra le istanze di connessione Desktop remoto e le istanze del server Host sessione Desktop remoto all'interno di rete del cliente di inoltro.
+Al suo interno, Gateway Desktop remoto esegue numerose operazioni di invio di pacchetti tra Connessione Desktop remoto istanze e le istanze del server Host sessione Desktop remoto all'interno della rete del cliente.
 
 > [!NOTE]
-> I parametri seguenti si applicano a solo il trasporto RPC.
+> I parametri seguenti si applicano solo al trasporto RPC.
 
-Internet Information Services (IIS) e Gateway Desktop remoto Esporta i parametri del Registro di sistema seguenti per contribuire a migliorare le prestazioni del sistema in Gateway Desktop remoto.
+Internet Information Services (IIS) e Gateway Desktop remoto esportano i parametri del registro di sistema seguenti per contribuire a migliorare le prestazioni del sistema nel Gateway Desktop remoto.
 
-**Se di thread**
+**Ottimizzazioni di thread**
 
--   **MaxIoThreads**
+-   **MaxIOThreads**
 
     ``` syntax
     HKLM\Software\Microsoft\Terminal Server Gateway\Maxiothreads (REG_DWORD)
     ```
 
-    Questo pool di thread specifico dell'app specifica il numero di thread che Gateway Desktop remoto consente di creare e per gestire le richieste in ingresso. Se questa impostazione del Registro di sistema è presente, ha effetto. Il numero di thread è uguale al numero di processi logici. Se il numero di processori logici è minore di 5, il valore predefinito è 5 thread.
+    Questo pool di thread specifico dell'app specifica il numero di thread creati da Gateway Desktop remoto per gestire le richieste in ingresso. Se questa impostazione del registro di sistema è presente, avrà effetto. Il numero di thread è uguale al numero di processi logici. Se il numero di processori logici è minore di 5, il valore predefinito è 5 thread.
 
 -   **MaxPoolThreads**
 
@@ -44,19 +44,11 @@ Internet Information Services (IIS) e Gateway Desktop remoto Esporta i parametri
     HKLM\System\CurrentControlSet\Services\InetInfo\Parameters\MaxPoolThreads (REG_DWORD)
     ```
 
-    Questo parametro specifica il numero di thread di pool IIS da creare per ogni processore logico. I thread di pool IIS guardare la rete per le richieste ed elaborano tutte le richieste in ingresso. Il **MaxPoolThreads** numero non include thread che utilizza Gateway Desktop remoto. Il valore predefinito è 4.
+    Questo parametro specifica il numero di thread del pool IIS da creare per ogni processore logico. I thread del pool di IIS controllano la rete per le richieste ed elaborano tutte le richieste in ingresso. Il numero di **MaxPoolThreads** non include i thread utilizzati da Gateway Desktop remoto. Il valore predefinito è 4.
 
-**Se chiamata di procedura remota per Gateway Desktop remoto**
+**Ottimizzazione delle chiamate a procedure remote per Gateway Desktop remoto**
 
-I parametri seguenti consentono di ottimizzare le chiamate di procedura remota (RPC) che vengono ricevute dai computer di connessione Desktop remoto e Gateway Desktop remoto. La modifica di windows consente di limitare la quantità di dati viene trasmesso attraverso ogni connessione e può migliorare le prestazioni per RPC su scenari HTTP v2.
-
--   **ServerReceiveWindow**
-
-    ``` syntax
-    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
-    ```
-
-    Il valore predefinito è 64 KB. Questo valore specifica la finestra usata per i dati ricevuti dal proxy RPC dal server. Il valore minimo è impostato su 8 KB, e il valore massimo è impostato su 1 GB. Se un valore non è presente, viene utilizzato il valore predefinito. Quando vengono apportate modifiche a questo valore, è necessario riavviare IIS rendere effettiva la modifica.
+I parametri seguenti consentono di ottimizzare le chiamate a procedure remote (RPC) ricevute da Connessione Desktop remoto e computer Gateway Desktop remoto. La modifica delle finestre consente di limitare la quantità di dati che passano attraverso ogni connessione e può migliorare le prestazioni per gli scenari RPC su HTTP V2.
 
 -   **ServerReceiveWindow**
 
@@ -64,17 +56,25 @@ I parametri seguenti consentono di ottimizzare le chiamate di procedura remota (
     HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
     ```
 
-    Il valore predefinito è 64 KB. Questo valore specifica la finestra utilizzata dal client per i dati ricevuti dal proxy RPC. Il valore minimo è 8 KB, e il valore massimo è 1 GB. Se un valore non è presente, viene utilizzato il valore predefinito.
+    Il valore predefinito è 64 KB. Questo valore specifica la finestra utilizzata dal server per i dati ricevuti dal proxy RPC. Il valore minimo è impostato su 8 KB e il valore massimo è impostato su 1 GB. Se non è presente alcun valore, viene utilizzato il valore predefinito. Quando vengono apportate modifiche a questo valore, è necessario riavviare IIS per rendere effettive le modifiche.
 
-## <a name="monitoring-and-data-collection"></a>Monitoraggio e la raccolta dati
+-   **ServerReceiveWindow**
 
-Il seguente elenco di contatori delle prestazioni è considerato un set di contatori di base quando si monitora l'utilizzo delle risorse Gateway Desktop remoto:
+    ``` syntax
+    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
+    ```
+
+    Il valore predefinito è 64 KB. Questo valore specifica la finestra utilizzata dal client per i dati ricevuti dal proxy RPC. Il valore minimo è 8 KB e il valore massimo è 1 GB. Se non è presente alcun valore, viene utilizzato il valore predefinito.
+
+## <a name="monitoring-and-data-collection"></a>Monitoraggio e raccolta dati
+
+Il seguente elenco di contatori delle prestazioni è considerato un set di contatori di base quando si monitora l'utilizzo delle risorse nel Gateway Desktop remoto:
 
 -   \\Gateway di Servizi terminal\\\*
 
--   \\RPC/HTTP Proxy\\\*
+-   \\Proxy RPC/HTTP\\\*
 
--   \\Proxy RPC/HTTP per ogni Server\\\*
+-   \\Proxy RPC/HTTP per server\\\*
 
 -   \\Servizio Web\\\*
 
@@ -84,28 +84,28 @@ Il seguente elenco di contatori delle prestazioni è considerato un set di conta
 
 -   \\Memoria\\\*
 
--   \\Interfaccia di rete (\*)\\\*
+-   \\Interfaccia di rete\*()\\\*
 
--   \\Process(\*)\\\*
+-   \\Elabora (\*)\\\*
 
--   \\Informazioni sul processore (\*)\\\*
+-   \\Informazioni sul processore\*()\\\*
 
--   \\Synchronization(\*)\\\*
+-   \\Sincronizzazione (\*)\\\*
 
--   \\System\\\*
+-   \\Sistema\\\*
 
 -   \\TCPv4\\\*
 
-Contatori delle prestazioni seguenti sono applicabili solo per il trasporto RPC legacy:
+I contatori delle prestazioni seguenti sono applicabili solo per il trasporto RPC legacy:
 
--   \\RPC/HTTP Proxy\\\* RPC
+-   \\RPC proxy\\ \* RPC/http
 
--   \\Proxy RPC/HTTP per ogni Server\\ \* RPC
+-   \\RPC/proxy HTTP per server\\RPC \*
 
--   \\Web Service\\\* RPC
+-   \\RPC servizio\\ \* Web
 
--   \\W3SVC\_W3WP\\\* RPC
+-   \\\\ RPC\_W3WPW3WP\*
 
 > [!NOTE]
-> Se applicabile, aggiungere il \\IPv6\\ \* e \\TCPv6\\ \* oggetti. ReplaceThisText
+> Se applicabile, aggiungere gli \\oggetti\\ IPv6 \\\* e\\ TCPv6.\* ReplaceThisText
 
