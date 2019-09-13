@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: efd92e9f6a199ad901e95b18718f3b448c3207e2
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
+ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560589"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70923356"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -89,7 +89,7 @@ Per ovviare a questo problema:
 3. Sul computer dell'agente di orchestrazione, avviare Regedit. exe
 4. Individuare e fare clic sulla seguente sottochiave del Registro di sistema: 
 
-   `HKEY_LOCAL_MACHINE\\Software\\Microsoft\\SMSPowershell`
+   `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
 
 5. Dal menu Modifica, scegliere Nuovo e poi fare clic su Valore DWORD. 
 6. Digitare "WcfOperationTimeoutInMinutes" per il nome DWORD, quindi premere INVIO.
@@ -206,6 +206,44 @@ L'analisi del log StorageMigrationService-proxy/debug Mostra:
 in Microsoft. StorageMigration. proxy. Service. Transfer. TransferOperation. Validate () in Microsoft. StorageMigration. proxy. Service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
 Questo errore è previsto se l'account di migrazione non dispone almeno delle autorizzazioni di accesso di lettura per le condivisioni SMB. Per risolvere questo errore, aggiungere un gruppo di sicurezza contenente l'account di migrazione di origine alle condivisioni SMB nel computer di origine e concedergli la lettura, la modifica o il controllo completo. Al termine della migrazione, è possibile rimuovere questo gruppo. Una versione futura di Windows Server può modificare questo comportamento in modo da non richiedere più autorizzazioni esplicite per le condivisioni di origine.
+
+## <a name="error-0x80005000-when-running-inventory"></a>Errore 0x80005000 durante l'esecuzione dell'inventario
+
+Dopo l'installazione di [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) e il tentativo di eseguire l'inventario, l'inventario ha esito negativo con errori:
+
+  ECCEZIONE DA HRESULT: 0x80005000
+  
+  Nome registro:      Microsoft-Windows-StorageMigrationService/admin Source:        Microsoft-Windows-StorageMigrationService Data:          9/9/2019 5:21:42 PM ID evento:      2503 Categoria attività: Nessun livello:         Parole chiave Error:      
+  Utente:          Computer servizio di rete:      FS02. Descrizione TailwindTraders.net: Non è stato possibile inventariare i computer.
+Processo: ID foo2: Stato 20ac3f75-4945-41d1-9A79-d11dbb57798b: Errore non riuscito: Messaggio di errore 36934: Inventario non riuscito per tutte le indicazioni sui dispositivi: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. Il processo non è riuscito a inventariare uno dei computer di origine specificati. Questo potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere la rete, probabilmente a causa di una regola del firewall o di autorizzazioni mancanti.
+  
+  Nome registro:      Microsoft-Windows-StorageMigrationService/admin Source:        Microsoft-Windows-StorageMigrationService Data:          9/9/2019 5:21:42 PM ID evento:      2509 Categoria attività: Nessun livello:         Parole chiave Error:      
+  Utente:          Computer servizio di rete:      FS02. Descrizione TailwindTraders.net: Non è stato possibile inventariare un computer.
+Processo: computer foo2: FS01. Stato TailwindTraders.net: Errore non riuscito: messaggio di errore-2147463168: Materiale sussidiario: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. L'inventario non è stato in grado di determinare alcun aspetto del computer di origine specificato. Il problema potrebbe essere dovuto a autorizzazioni o privilegi mancanti nell'origine o in una porta del firewall bloccata.
+  
+Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), admeghan@contoso.comesempio ''. Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
+
+Per aggirare questo problema, fornire le credenziali nel formato dominio\utente, ad esempio ' Contoso\Meghan '.
+
+## <a name="error-serviceerror0x9006-or-the-proxy-isnt-currently-available-when-migrating-to-a-windows-server-failover-cluster"></a>Errore "ServiceError0x9006" o "il proxy non è attualmente disponibile". Quando si esegue la migrazione a un cluster di failover di Windows Server
+
+Quando si tenta di trasferire i dati in un file server in cluster, vengono visualizzati errori quali: 
+
+   Verificare che il servizio proxy sia installato e in esecuzione, quindi riprovare. Il proxy non è attualmente disponibile.
+0x9006 ServiceError0x9006, Microsoft. StorageMigration. Commands. UnregisterSmsProxyCommand
+
+Questo errore è previsto se la risorsa file server è stata spostata dal nodo proprietario del cluster Windows Server 2019 originale a un nuovo nodo e la funzionalità proxy del servizio migrazione archiviazione non è stata installata in tale nodo.
+
+Come soluzione alternativa, spostare di nuovo la risorsa del file server di destinazione nel nodo del cluster proprietario originale che era in uso al momento della prima configurazione delle associazioni di trasferimento.
+
+Come soluzione alternativa:
+
+1. Installare la funzionalità del proxy del servizio migrazione archiviazione in tutti i nodi di un cluster.
+2. Eseguire il seguente comando di PowerShell per il servizio migrazione archiviazione sul computer dell'agente di orchestrazione: 
+
+   ```PowerShell
+   Register-SMSProxy -ComputerName *destination server* -Force
+   ```
 
 ## <a name="see-also"></a>Vedere anche
 

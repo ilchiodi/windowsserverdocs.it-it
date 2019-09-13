@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 0b5b473460bf72143f517443eadad831dd2502c5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f90ffe5b6a81ab1b4c2616dce08c98cbd8c065b4
+ms.sourcegitcommit: a35ce5b166175c905edd09005b94e96ad48c57a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865145"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936972"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -44,12 +44,20 @@ Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi
 In questo passaggio si specificano i server di cui eseguire la migrazione e quindi li si analizza per raccogliere informazioni sui file e le configurazioni.
 
 1. Selezionare **nuovo processo**, denominare il processo e quindi fare clic su **OK**.
-1. Nella pagina **immissione credenziali** Digitare le credenziali di amministratore che funzionano nei server da cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
-1. Selezionare **Aggiungi un dispositivo**, digitare il nome del server di origine e quindi fare clic su **OK**. <br>Ripetere questa operazione per tutti gli altri server che si desidera includere nell'inventario.
-1. Selezionare **Avvia analisi**.<br>La pagina viene aggiornata per visualizzare il completamento dell'analisi.
+2. Nella pagina **immissione credenziali** Digitare le credenziali di amministratore che funzionano nei server da cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
+
+   > [!NOTE]
+   > Se si sceglie di eseguire la migrazione da server Samba Linux, sarà necessario eseguire un passaggio aggiuntivo per fornire la password SSH o la chiave privata
+
+3. Selezionare **Aggiungi un dispositivo**, digitare il nome del server di origine e quindi fare clic su **OK**. <br>Ripetere questa operazione per tutti gli altri server che si desidera includere nell'inventario.
+
+   > [!NOTE]
+   > Se si sceglie di eseguire la migrazione da un cluster di failover di, specificare il nome della risorsa file server cluster.
+
+4. Selezionare **Avvia analisi**.<br>La pagina viene aggiornata per visualizzare il completamento dell'analisi.
     ![Screenshot che mostra un server pronto per essere](media/migrate/inventory.png) analizzato **figura 2: Inventario di server**
-1. Selezionare ogni server per esaminare le condivisioni, la configurazione, le schede di rete e i volumi di cui è stato incluso l'inventario. <br><br>Il servizio migrazione archiviazione non trasferirà i file o le cartelle che sappiamo potrebbero interferire con l'operazione di Windows. in questa versione, quindi, verranno visualizzati avvisi per le condivisioni presenti nella cartella di sistema di Windows. È necessario ignorare queste condivisioni durante la fase di trasferimento. Per altre informazioni, vedere [quali file e cartelle sono esclusi dai trasferimenti](faq.md#what-files-and-folders-are-excluded-from-transfers).
-1. Selezionare **Avanti** per passare al trasferimento dei dati.
+5. Selezionare ogni server per esaminare le condivisioni, la configurazione, le schede di rete e i volumi di cui è stato incluso l'inventario. <br><br>Il servizio migrazione archiviazione non trasferirà i file o le cartelle che sappiamo potrebbero interferire con l'operazione di Windows. in questa versione, quindi, verranno visualizzati avvisi per le condivisioni presenti nella cartella di sistema di Windows. È necessario ignorare queste condivisioni durante la fase di trasferimento. Per altre informazioni, vedere [quali file e cartelle sono esclusi dai trasferimenti](faq.md#what-files-and-folders-are-excluded-from-transfers).
+6. Selezionare **Avanti** per passare al trasferimento dei dati.
 
 ## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Passaggio 2: Trasferire i dati dai server obsoleti ai server di destinazione
 
@@ -57,6 +65,10 @@ In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli
 
 1. Nella pagina **trasferimento dati** > **immissione credenziali** digitare le credenziali di amministratore che funzionano nei server di destinazione in cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
 2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**.
+
+   > [!NOTE]
+   > Se si sceglie di eseguire la migrazione a un cluster di failover di, specificare il nome della risorsa file server cluster.
+
 3. Eseguire il mapping dei volumi di origine ai volumi di destinazione, deselezionare la casella di controllo **Includi** per le condivisioni che non si desidera trasferire (incluse le condivisioni amministrative presenti nella cartella di sistema di Windows) e quindi selezionare **Avanti**.
    ![Screenshot che mostra un server di origine e i relativi volumi e condivisioni e la posizione in cui verranno](media/migrate/transfer.png) trasferiti nella destinazione **figura 3: Un server di origine e il percorso di archiviazione in cui verranno trasferiti**
 4. Aggiungere un server di destinazione e i mapping per tutti i server di origine e quindi fare clic su **Avanti**.
@@ -66,7 +78,7 @@ In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli
 8. Al termine del trasferimento, controllare il server di destinazione per verificare che tutto sia stato trasferito correttamente. Selezionare **log degli errori solo** se si desidera scaricare un log di tutti i file che non sono stati trasferiti.
 
    > [!NOTE]
-   > Se si desidera conservare un audit trail di trasferimenti o pianificare l'esecuzione di più di un trasferimento in un processo, fare clic su **trasferimento log** per salvare una copia CSV. Ogni trasferimento successivo sovrascrive le informazioni del database di un'esecuzione precedente. 
+   > Se si desidera conservare un audit trail di trasferimenti o pianificare l'esecuzione di più trasferimenti in un processo, fare clic su **trasferimento log** o sulle altre opzioni di salvataggio del log per salvare una copia CSV. Ogni trasferimento successivo sovrascrive le informazioni del database di un'esecuzione precedente. 
 
 A questo punto, sono disponibili tre opzioni:
 
@@ -76,20 +88,23 @@ A questo punto, sono disponibili tre opzioni:
 
 Se l'obiettivo consiste nel sincronizzare i file con Azure, è possibile configurare i server di destinazione con Sincronizzazione file di Azure dopo il trasferimento dei file o dopo il trasferimento nei server di destinazione. vedere [pianificazione per una distribuzione di sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning).
 
-## <a name="step-3-optionally-cut-over-to-the-new-servers"></a>Passaggio 3: Facoltativamente, è possibile passare ai nuovi server
+## <a name="step-3-cut-over-to-the-new-servers"></a>Passaggio 3: Riduci ai nuovi server
 
 In questo passaggio si passa dai server di origine ai server di destinazione e si trasferiscono gli indirizzi IP e i nomi dei computer ai server di destinazione. Al termine di questo passaggio, le app e gli utenti accedono ai nuovi server tramite i nomi e gli indirizzi dei server da cui è stata eseguita la migrazione.
 
- 1. Se si è passati dal processo di migrazione, nell'interfaccia di amministrazione di Windows passare a **Server Manager** > **servizio migrazione archiviazione** e quindi selezionare il processo che si desidera completare. 
- 1. Nella pagina passaggio **alla nuova immissione dei server** > **immettere le credenziali** selezionare **Avanti** per usare le credenziali digitate in precedenza.
- 1. Nella pagina **Configura cutover** specificare le schede di rete da assumere per le impostazioni del dispositivo di origine. In questo modo, l'indirizzo IP viene spostato dall'origine alla destinazione come parte del cutover.
- 1. Specificare l'indirizzo IP da utilizzare per il server di origine dopo che cutover sposta il proprio indirizzo nella destinazione. È possibile usare DHCP o un indirizzo statico. Se si usa un indirizzo statico, la nuova subnet deve essere identica a quella precedente oppure cutover avrà esito negativo.
-    ![Screenshot che mostra un server di origine e i relativi indirizzi IP e i nomi di computer e gli elementi in cui](media/migrate/cutover.png)
-    verranno sostituiti dopo cutover**figura 4: Un server di origine e il modo in cui la configurazione di rete viene spostata nella destinazione**
- 1. Specificare come rinominare il server di origine dopo che il server di destinazione acquisisce il nome. È possibile usare un nome generato in modo casuale o digitarne uno. Quindi selezionare **Avanti**.
- 1. Nella pagina **Modifica impostazioni cutover** selezionare **Avanti** .
- 1. Selezionare **convalida** nella pagina **convalida dispositivo di origine e destinazione** e quindi fare clic su **Avanti**.
- 1. Quando si è pronti per eseguire il cutover, selezionare **Avvia cutover**. <br>Gli utenti e le app potrebbero riscontrare un'interruzione mentre l'indirizzo e i nomi vengono spostati e i server vengono riavviati più volte, ma in caso contrario non saranno interessati dalla migrazione. Il tempo impiegato da cutover dipende dalla velocità con cui i server vengono riavviati, nonché da Active Directory e tempi di replica DNS.
+1. Se si è passati dal processo di migrazione, nell'interfaccia di amministrazione di Windows passare a **Server Manager** > **servizio migrazione archiviazione** e quindi selezionare il processo che si desidera completare. 
+2. Nella pagina passaggio **alla nuova immissione dei server** > **immettere le credenziali** selezionare **Avanti** per usare le credenziali digitate in precedenza.
+
+    > [!NOTE]
+   > Se la destinazione è un file server cluster, potrebbe essere necessario fornire le credenziali con le autorizzazioni per rimuovere il cluster dal dominio e quindi aggiungerlo di nuovo con il nuovo nome. 
+
+3. Nella pagina **Configura cutover** specificare le schede di rete da assumere per le impostazioni del dispositivo di origine. In questo modo, l'indirizzo IP viene spostato dall'origine alla destinazione come parte del cutover. È possibile ignorare tutte le migrazioni di rete o alcune interfacce. È necessario specificare sempre DHCP o un nuovo indirizzo IP statico per le interfacce di origine se si esegue il sezionamento sul server.
+4. Specificare l'indirizzo IP da utilizzare per il server di origine dopo che cutover sposta il proprio indirizzo nella destinazione. È possibile usare DHCP o un indirizzo statico. Se si usa un indirizzo statico, la nuova subnet deve essere identica a quella precedente oppure cutover avrà esito negativo.
+    ![Screenshot che mostra un server di origine e i relativi indirizzi IP e i nomi di computer e gli elementi in cui](media/migrate/cutover.png) verranno sostituiti dopo cutover **figura 4: Un server di origine e il modo in cui la configurazione di rete viene spostata nella destinazione**
+5. Specificare come rinominare il server di origine dopo che il server di destinazione acquisisce il nome. È possibile usare un nome generato in modo casuale o digitarne uno. Quindi selezionare **Avanti**.
+6. Nella pagina **Modifica impostazioni cutover** selezionare **Avanti** .
+7. Selezionare **convalida** nella pagina **convalida dispositivo di origine e destinazione** e quindi fare clic su **Avanti**.
+8. Quando si è pronti per eseguire il cutover, selezionare **Avvia cutover**. <br>Gli utenti e le app potrebbero riscontrare un'interruzione mentre l'indirizzo e i nomi vengono spostati e i server vengono riavviati più volte, ma in caso contrario non saranno interessati dalla migrazione. Il tempo impiegato da cutover dipende dalla velocità con cui i server vengono riavviati, nonché da Active Directory e tempi di replica DNS.
 
 ## <a name="see-also"></a>Vedere anche
 

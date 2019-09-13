@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f086143ae2e02a2d049189ff248e02fc44fe3cb2
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: a1e195ab755dfd0b61cc4201f43373421ce51aa2
+ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584806"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70923553"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -89,11 +89,13 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
 
 - **Usare Windows Server 2019 per il sistema operativo di destinazione.** Windows Server 2019 contiene il servizio proxy del servizio migrazione archiviazione. Quando si installa questa funzionalità e si esegue la migrazione a destinazioni di Windows Server 2019, tutti i trasferimenti funzionano come linea di visualizzazione diretta tra l'origine e la destinazione. Questo servizio viene eseguito nell'agente di orchestrazione durante il trasferimento se i computer di destinazione sono Windows Server 2012 R2 o Windows Server 2016, il che significa che i trasferimenti a doppio hop e saranno molto più lenti. Se sono in esecuzione più processi con le destinazioni di Windows Server 2012 R2 o Windows Server 2016, l'agente di orchestrazione diventa un collo di bottiglia. 
 
-- **Modifica i thread di trasferimento predefiniti.** Il servizio proxy del servizio migrazione archiviazione copia 8 file contemporaneamente in un determinato processo. È possibile aumentare il numero di thread di copia simultanei modificando il nome del valore REG_DWORD del registro di sistema seguente in Decimal in ogni nodo che esegue il proxy SMS:
+- **Modifica i thread di trasferimento predefiniti.** Il servizio proxy del servizio migrazione archiviazione copia 8 file contemporaneamente in un determinato processo. È possibile aumentare il numero di thread di copia simultanei modificando il nome del valore REG_DWORD del registro di sistema seguente in Decimal in ogni nodo in cui è in esecuzione il proxy del servizio migrazione archiviazione:
 
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy FileTransferThreadCount
+    HKEY_Local_Machine\Software\Microsoft\SMSProxy
+    
+    FileTransferThreadCount
 
-   L'intervallo valido è compreso tra 1 e 128 in Windows Server 2019. Dopo la modifica è necessario riavviare il servizio proxy del servizio migrazione archiviazione in tutti i computer che partecipano a una migrazione. Prestare attenzione con questa impostazione. l'impostazione di un valore superiore potrebbe richiedere Core aggiuntivi, prestazioni di archiviazione e larghezza di banda di rete. L'impostazione di un valore troppo alto può comportare una riduzione delle prestazioni rispetto alle impostazioni predefinite. La possibilità di modificare in modo euristico le impostazioni dei thread in base a CPU, memoria, rete e archiviazione è prevista per una versione successiva di SMS.
+   L'intervallo valido è compreso tra 1 e 128 in Windows Server 2019. Dopo la modifica è necessario riavviare il servizio proxy del servizio migrazione archiviazione in tutti i computer che partecipano a una migrazione. Prestare attenzione con questa impostazione. l'impostazione di un valore superiore potrebbe richiedere Core aggiuntivi, prestazioni di archiviazione e larghezza di banda di rete. L'impostazione di un valore troppo alto può comportare una riduzione delle prestazioni rispetto alle impostazioni predefinite.
 
 - **Aggiungere core e memoria.**  Si consiglia vivamente che l'origine, l'agente di orchestrazione e i computer di destinazione dispongano di almeno due core del processore o due vCPU e più possono aiutare significativamente le prestazioni di inventario e trasferimento, soprattutto se combinate con FileTransferThreadCount (sopra). Quando si trasferiscono file di dimensioni superiori ai normali formati di Office (gigabyte o superiori), le prestazioni di trasferimento trarranno vantaggio da una quantità di memoria superiore a quella del valore minimo predefinito di 2 GB.
 
@@ -112,7 +114,7 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
 
 - **Abilitare l'elaborazione ad alte prestazioni.** Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio energia in Windows Server sia impostato su prestazioni elevate. Riavviare se necessario. Non dimenticare di restituirli agli stati appropriati dopo il completamento della migrazione. 
 
-- **Ottimizzazione dell'hardware** Esaminare le [linee guida per l'ottimizzazione delle prestazioni per Windows server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) per l'ottimizzazione dell'agente di orchestrazione e dei computer di destinazione che eseguono windows server 2019 e windows server 2016. La sezione [ottimizzazione delle prestazioni](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) del sottosistema di rete contiene informazioni particolarmente utili.
+- **Ottimizzazione dell'hardware** Esaminare le [linee guida per l'ottimizzazione delle prestazioni per Windows server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) per l'ottimizzazione dell'agente di orchestrazione e dei computer di destinazione che eseguono windows server 2019 e windows server 2016. La sezione [ottimizzazione delle prestazioni del sottosistema di rete](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) contiene informazioni particolarmente utili.
 
 - **Usare una risorsa di archiviazione più veloce.** Sebbene possa essere difficile aggiornare la velocità di archiviazione del computer di origine, è necessario assicurarsi che l'archiviazione di destinazione sia almeno veloce alle prestazioni di i/o di scrittura, perché l'origine è a prestazioni di i/o di lettura per assicurarsi che non sia presente un collo di bottiglia non necessario nei trasferimenti. Se la destinazione è una macchina virtuale, assicurarsi che, almeno ai fini della migrazione, venga eseguita nel livello di archiviazione più veloce degli host hypervisor, ad esempio nel livello Flash o con Spazi di archiviazione diretta cluster HCI che usano gli spazi tutti i flash o ibridi con mirroring. Quando la migrazione di SMS è completata, è possibile eseguire la migrazione in tempo reale della macchina virtuale a un livello più lento o a un host.
 
