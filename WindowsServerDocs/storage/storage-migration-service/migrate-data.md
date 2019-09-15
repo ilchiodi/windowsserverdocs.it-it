@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f90ffe5b6a81ab1b4c2616dce08c98cbd8c065b4
-ms.sourcegitcommit: a35ce5b166175c905edd09005b94e96ad48c57a7
+ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70936972"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987410"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -34,8 +34,7 @@ Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi
     - Strumentazione gestione Windows (DCOM-in)
     - Strumentazione gestione Windows (WMI-In)
 
-   > [!NOTE]
-   > Se si usano firewall di terze parti, gli intervalli di porte in ingresso da aprire sono TCP/445 (SMB), TCP/135 (mapper di endpoint RPC/DCOM) e TCP 1025-65535 (porte temporanee RPC/DCOM). Le porte del servizio migrazione archiviazione sono TCP/28940 (agente di orchestrazione) e TCP/28941 (proxy).
+   Se si usano firewall di terze parti, gli intervalli di porte in ingresso da aprire sono TCP/445 (SMB), TCP/135 (mapper di endpoint RPC/DCOM) e TCP 1025-65535 (porte temporanee RPC/DCOM). Le porte del servizio migrazione archiviazione sono TCP/28940 (agente di orchestrazione) e TCP/28941 (proxy).
 
 1. Se si usa un server dell'agente di orchestrazione per gestire la migrazione e si vuole scaricare gli eventi o un log dei dati trasferiti, verificare che la regola del firewall condivisione file e stampanti (SMB-in) sia abilitata anche in tale server.
 
@@ -43,16 +42,10 @@ Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi
 
 In questo passaggio si specificano i server di cui eseguire la migrazione e quindi li si analizza per raccogliere informazioni sui file e le configurazioni.
 
-1. Selezionare **nuovo processo**, denominare il processo e quindi fare clic su **OK**.
-2. Nella pagina **immissione credenziali** Digitare le credenziali di amministratore che funzionano nei server da cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
+1. Selezionare **nuovo processo**, denominare il processo, quindi scegliere se eseguire la migrazione di server e cluster Windows o server Linux che usano Samba. Quindi selezionare **OK**.
+2. Nella pagina **immissione credenziali** Digitare le credenziali di amministratore che funzionano nei server da cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**. <br>Se si esegue la migrazione da server Linux, immettere le credenziali nelle pagine **credenziali di Samba** e credenziali di **Linux** , inclusa una password ssh o una chiave privata. 
 
-   > [!NOTE]
-   > Se si sceglie di eseguire la migrazione da server Samba Linux, sarà necessario eseguire un passaggio aggiuntivo per fornire la password SSH o la chiave privata
-
-3. Selezionare **Aggiungi un dispositivo**, digitare il nome del server di origine e quindi fare clic su **OK**. <br>Ripetere questa operazione per tutti gli altri server che si desidera includere nell'inventario.
-
-   > [!NOTE]
-   > Se si sceglie di eseguire la migrazione da un cluster di failover di, specificare il nome della risorsa file server cluster.
+3. Selezionare **Aggiungi un dispositivo**, digitare un nome del server di origine o il nome di un file server cluster e quindi fare clic su **OK**. <br>Ripetere questa operazione per tutti gli altri server che si desidera includere nell'inventario.
 
 4. Selezionare **Avvia analisi**.<br>La pagina viene aggiornata per visualizzare il completamento dell'analisi.
     ![Screenshot che mostra un server pronto per essere](media/migrate/inventory.png) analizzato **figura 2: Inventario di server**
@@ -64,15 +57,19 @@ In questo passaggio si specificano i server di cui eseguire la migrazione e quin
 In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli nei server di destinazione.
 
 1. Nella pagina **trasferimento dati** > **immissione credenziali** digitare le credenziali di amministratore che funzionano nei server di destinazione in cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
-2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**.
-
-   > [!NOTE]
-   > Se si sceglie di eseguire la migrazione a un cluster di failover di, specificare il nome della risorsa file server cluster.
-
+2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**.
 3. Eseguire il mapping dei volumi di origine ai volumi di destinazione, deselezionare la casella di controllo **Includi** per le condivisioni che non si desidera trasferire (incluse le condivisioni amministrative presenti nella cartella di sistema di Windows) e quindi selezionare **Avanti**.
    ![Screenshot che mostra un server di origine e i relativi volumi e condivisioni e la posizione in cui verranno](media/migrate/transfer.png) trasferiti nella destinazione **figura 3: Un server di origine e il percorso di archiviazione in cui verranno trasferiti**
 4. Aggiungere un server di destinazione e i mapping per tutti i server di origine e quindi fare clic su **Avanti**.
-5. Facoltativamente, modificare le impostazioni di trasferimento, quindi selezionare **Avanti**.
+5. Nella pagina **Modifica impostazioni di trasferimento** specificare se eseguire la migrazione di utenti e gruppi locali nei server di origine e quindi selezionare **Avanti**. In questo modo è possibile ricreare gli utenti e i gruppi locali nei server di destinazione in modo che le autorizzazioni file o condivisione impostate su utenti e gruppi locali non vadano perse. Di seguito sono riportate le opzioni per la migrazione di utenti e gruppi locali:
+
+    - **Rinominare gli account con lo stesso nome** è selezionato per impostazione predefinita ed esegue la migrazione di tutti gli utenti e i gruppi locali nel server di origine. Se trova utenti o gruppi locali con lo stesso nome nell'origine e nella destinazione, li Rinomina nella destinazione a meno che non siano predefiniti, ad esempio l'utente amministratore e il gruppo Administrators.
+    - Il **riutilizzo di account con lo stesso nome** esegue il mapping di utenti e gruppi con nome identico all'origine e alla destinazione.
+    - **Non trasferire utenti e gruppi** ignora la migrazione di utenti e gruppi locali, operazione necessaria durante il seeding dei dati per Replica DFS (replica DFS non supporta gruppi e utenti locali).
+
+   > [!NOTE]
+   > Gli account utente migrati sono disabilitati nella destinazione ed è stata assegnata una password di 127 caratteri sia complessa che casuale. sarà quindi necessario abilitarli e assegnare una nuova password al termine dell'uso. Ciò consente di garantire che tutti gli account obsoleti con password dimenticate e vulnerabili nell'origine non continuino a essere un problema di sicurezza nella destinazione. Per gestire le password degli amministratori locali, può essere utile anche consultare la [soluzione di password dell'amministratore locale](https://www.microsoft.com/download/details.aspx?id=46899) .
+
 6. Selezionare **convalida** , quindi fare clic su **Avanti**.
 7. Selezionare **Avvia trasferimento** per avviare il trasferimento dei dati.<br>La prima volta che si trasferisce, si sposteranno tutti i file esistenti in una destinazione in una cartella di backup. Ai trasferimenti successivi, per impostazione predefinita la destinazione verrà aggiornata senza prima eseguirne il backup. <br>Inoltre, il servizio migrazione archiviazione è sufficientemente intelligente da gestire le condivisioni sovrapposte. non verranno copiate due volte le stesse cartelle nello stesso processo.
 8. Al termine del trasferimento, controllare il server di destinazione per verificare che tutto sia stato trasferito correttamente. Selezionare **log degli errori solo** se si desidera scaricare un log di tutti i file che non sono stati trasferiti.
@@ -92,13 +89,12 @@ Se l'obiettivo consiste nel sincronizzare i file con Azure, è possibile configu
 
 In questo passaggio si passa dai server di origine ai server di destinazione e si trasferiscono gli indirizzi IP e i nomi dei computer ai server di destinazione. Al termine di questo passaggio, le app e gli utenti accedono ai nuovi server tramite i nomi e gli indirizzi dei server da cui è stata eseguita la migrazione.
 
-1. Se si è passati dal processo di migrazione, nell'interfaccia di amministrazione di Windows passare a **Server Manager** > **servizio migrazione archiviazione** e quindi selezionare il processo che si desidera completare. 
+1. Se si è passati dal processo di migrazione, nell'interfaccia di amministrazione di Windows passare a **Server Manager** > **servizio migrazione archiviazione** e quindi selezionare il processo che si desidera completare.
 2. Nella pagina passaggio **alla nuova immissione dei server** > **immettere le credenziali** selezionare **Avanti** per usare le credenziali digitate in precedenza.
 
-    > [!NOTE]
-   > Se la destinazione è un file server cluster, potrebbe essere necessario fornire le credenziali con le autorizzazioni per rimuovere il cluster dal dominio e quindi aggiungerlo di nuovo con il nuovo nome. 
+   Se la destinazione è un file server cluster, potrebbe essere necessario fornire le credenziali con le autorizzazioni per rimuovere il cluster dal dominio e quindi aggiungerlo di nuovo con il nuovo nome.
 
-3. Nella pagina **Configura cutover** specificare le schede di rete da assumere per le impostazioni del dispositivo di origine. In questo modo, l'indirizzo IP viene spostato dall'origine alla destinazione come parte del cutover. È possibile ignorare tutte le migrazioni di rete o alcune interfacce. È necessario specificare sempre DHCP o un nuovo indirizzo IP statico per le interfacce di origine se si esegue il sezionamento sul server.
+3. Nella pagina **Configura cutover** specificare la scheda di rete nella destinazione che deve assumere le impostazioni di ogni adapter nell'origine. In questo modo, l'indirizzo IP viene spostato dall'origine alla destinazione come parte di cutover, assegnando al server di origine un nuovo indirizzo IP statico o DHCP. È possibile ignorare tutte le migrazioni di rete o alcune interfacce. 
 4. Specificare l'indirizzo IP da utilizzare per il server di origine dopo che cutover sposta il proprio indirizzo nella destinazione. È possibile usare DHCP o un indirizzo statico. Se si usa un indirizzo statico, la nuova subnet deve essere identica a quella precedente oppure cutover avrà esito negativo.
     ![Screenshot che mostra un server di origine e i relativi indirizzi IP e i nomi di computer e gli elementi in cui](media/migrate/cutover.png) verranno sostituiti dopo cutover **figura 4: Un server di origine e il modo in cui la configurazione di rete viene spostata nella destinazione**
 5. Specificare come rinominare il server di origine dopo che il server di destinazione acquisisce il nome. È possibile usare un nome generato in modo casuale o digitarne uno. Quindi selezionare **Avanti**.

@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: ce5107e8e0ab573df7588428db65c8b223cf1f13
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 882410792c7b8df8a8275c357d64fc17c9f3479e
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476510"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975257"
 ---
 # <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Ruoli, servizi ruolo e funzionalità non in Windows Server-Server Core
 
@@ -25,68 +25,67 @@ I ruoli, i servizi ruolo e le funzionalità seguenti sono stati rimossi dall'opz
 
 ## <a name="roles-not-in-server-core"></a>Ruoli non in Server Core
 
-- Fax
-- MultiPointServerRole
-- NPAS
-- WDS
+- Server fax (**Fax**)
+- Servizi MultiPoint (**MultiPointServerRole**)
+- Servizi di accesso e criteri di rete (**npas**)
+- Servizi di distribuzione Windows (**WDS**) *(prima di windows Server versione 1803)*
 
 ## <a name="role-services-not-in-server-core"></a>Servizi ruolo non in Server Core
 Si noti che alcuni Desktop remoto Servizi ruolo sono inclusi in Server Core (Connection Broker, Licensing, Virtualization Host), mentre altri non lo sono (gateway, host sessione Desktop remoto, Accesso Web).
 
-- Print-Scan-Server
-- Stampa-Internet
-- Gateway RDS
-- RDS-RD-server
-- Accesso Web RDS
-- Web-Mgmt-Console
-- Web-Lgcy-Mgmt-Console
-- WDS-distribuzione
-- WDS-trasporto *(prima di Windows Server versione 1803)*
+- Servizi di stampa e digitalizzazione \ Server Digitalizzazione distribuita (**Print-Scan-Server**)
+- Servizi di stampa e digitalizzazione \ stampa Internet (**Print-Internet**)
+- Servizi Desktop remoto \ Desktop remoto Gateway (**RDS-Gateway**)
+- Servizi Desktop remoto \ host sessione Desktop remoto (**RDS-Rd-server**)
+- Servizi Desktop remoto \ Desktop remoto Accesso Web (Servizi Desktop remoto-**accesso Web**)
+- Server Web del servizio ruolo (IIS) \ strumenti di gestione \ console di gestione IIS (**Web-Mgmt-Console**)
+- Server Web del servizio ruolo (IIS) \ strumenti di gestione \ compatibilità di gestione con IIS 6 \ console di gestione IIS 6 (**Web-Lgcy-Mgmt-Console**)
+- Servizi di distribuzione Windows \ server di distribuzione (**WDS-Deployment**)
+- Servizi di distribuzione Windows \ server trasporto (**WDS-Transport**) *(prima di Windows Server versione 1803)*
 
 ## <a name="features-not-in-server-core"></a>Funzionalità non incluse in Server Core
-
-- BITS-IIS-Ext
-- BitLocker-NetworkUnlock
-- Riproduzione diretta
-- Internet-Print-client
-- LPR-porta-monitoraggio
-- MSMQ-multicast
-- CMAK
-- Assistenza remota
-- STRUMENTI DI AMMINISTRAZIONE REMOTA (SMTP)
-- Strumenti di amministrazione remota del server-funzionalità-BitLocker-RemoteAdminTool
-- Strumenti di amministrazione remota del server
-- AMMINISTRAZIONE REMOTA DI SERVER-NLB
-- STRUMENTI DI AMMINISTRAZIONE REMOTA DEL SERVER-SNMP
-- STRUMENTI DI AMMINISTRAZIONE REMOTA DEL SERVER-WINS
-- Strumenti di Hyper-V
-- Strumenti di amministrazione remota del server
-- Strumenti di amministrazione remota del gateway
-- Amministrazione remota Servizi Desktop remoto-gestione licenze-diagnosi-interfaccia utente
-- Servizi Desktop remoto-gestione licenze-interfaccia utente
-- UpdateServices-interfaccia utente
-- STRUMENTI DI AMMINISTRAZIONE REMOTA-ADC
-- Amministrazione remota del server-ADC-Mgmt
-- Strumenti di amministrazione remota-online-risponditore
-- STRUMENTI DI AMMINISTRAZIONE REMOTA DEL SERVER-ADRMS
-- Strumenti di amministrazione remota-fax
-- Strumenti di amministrazione remota dei servizi file
-- Strumenti di amministrazione remota-DFS-Mgmt-con
-- Strumenti di amministrazione remota-FSRM-Mgmt
-- Strumenti di amministrazione remota del server-NFS
-- STRUMENTI DI AMMINISTRAZIONE REMOTA (NPAS)
-- Servizi di stampa-amministrazione
-- Strumenti di amministrazione remota del server
-- WDS-Adminpak
-- Server SMTP
-- TFTP-client
-- WebDAV-redirector
-- Biometrico-Framework
-- Windows-Defender-GUI
-- Windows-Identity-Foundation
-- PowerShell-ISE
-- Servizio di ricerca
-- Windows-TIFF-IFilter
-- Rete wireless
-- XPS-Visualizzatore
-
+- Servizio trasferimento intelligente in background (BITS) \ IIS Server Extension (**bits-IIS-Ext**)
+- Sblocco di rete BitLocker (**BitLocker-NetworkUnlock**)
+- Riproduzione diretta (**Direct-Play**)
+- Client di stampa Internet (**Internet-Print-client**)
+- Monitoraggio porta LPR (**LPR-Port-Monitor**)
+- Accodamento messaggi \ servizi di Accodamento messaggi \ supporto multicast (**MSMQ-multicast**)
+- Connection Manager Administration Kit (**CMAK**) RAS
+- Assistenza remota (**assistenza remota**)
+- Strumenti**di amministrazione di**strumenti di amministrazione remota del server \ funzionalità \ strumenti server SMTP (strumenti di amministrazione SMTP)
+- Strumenti di amministrazione di Strumenti di amministrazione remota del server \ funzionalità \ Crittografia unità BitLocker Administration Utilities \ Crittografia unità BitLocker Tools (strumenti di amministrazione remota del server-**funzionalità-BitLocker-RemoteAdminTool**)
+- Strumenti di amministrazione di Strumenti di amministrazione remota del server \ funzionalità \ BITS Server Extensions Tools (strumenti**di amministrazione remota-BITS-Server**)
+- Strumenti di amministrazione di Strumenti di amministrazione remota del server \ funzionalità \ strumenti di bilanciamento carico**di rete (amministrazione remota**)
+- Strumenti di amministrazione di Strumenti di amministrazione remota del server \ funzionalità \ SNMP Tools (strumenti**di amministrazione remota**)
+- Strumenti**di amministrazione di**strumenti di amministrazione remota del server \ funzionalità \ strumenti server WINS (amministrazione remota)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ Hyper-V Management Tools \ Hyper-V GUI Management Tools (**Hyper-v-Tools**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Servizi Desktop remoto Tools \ Desktop remoto Gateway Tools (strumenti**di amministrazione remota**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Servizi Desktop remoto Tools \ Desktop remoto Gateway Tools (strumenti**di amministrazione remota**)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ Servizi Desktop remoto Tools \ Desktop remoto Licensing Diagnostics Tools (**amministrazione remota**dei servizi)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Servizi Desktop remoto Tools \ Desktop remoto Licensing Tools (**RDS-Licensing-UI**)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ Windows Server Update Services Tools \ User Interface Management Console (**UpdateServices-UI**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Active Directory strumenti per Servizi certificati (amministrazione**remota**dei certificati)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Active Directory strumenti di Servizi certificati \ strumenti di gestione dell'autorità di certificazione (strumenti**di amministrazione remota-ADC-Mgmt**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Active Directory strumenti**di**Servizi certificati \ strumenti risponditore online
+- Strumenti di amministrazione di Strumenti di amministrazione remota del server \ ruoli \ Active Directory Rights Management Services Tools (strumenti**di amministrazione remota**)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ Fax Server Tools (strumenti**di amministrazione remota**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ strumenti per servizi file (Servizi file **-** Server)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ file Services Tools \ DFS Management Tools (strumenti di amministrazione DFS **-DFS-Mgmt-con**)
+- Strumenti di amministrazione remota del server \ Role Administration Tools \ file Services Tools \ file server Gestione risorse Tools (**netFSRM-Mgmt**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ strumenti Servizi file \ servizi per strumenti di gestione del file System di rete (amministrazione**remota**dei file)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ servizi di accesso e criteri di rete (**npas**)
+- Strumenti di amministrazione dei ruoli Strumenti di amministrazione remota del server \ Servizi di stampa e digitalizzazione Tools (strumenti**di amministrazione remota**)
+- Strumenti di amministrazione ruoli di Strumenti di amministrazione remota del server \ Volume Activation Tools (strumenti**di**attivazione contratti multilicenza)
+- Strumenti di amministrazione remota del server \ strumenti di amministrazione ruoli \ strumenti di servizi di distribuzione Windows (**WDS-Adminpak**)
+- Servizi TCP/IP semplici (**Simple-Tcpip**)
+- Server SMTP (**server SMTP**)
+- Client TFTP (**TFTP-client**)
+- Redirector WebDAV (**WebDAV-redirector**)
+- Windows Biometric Framework (**biometrico-Framework**)
+- Funzionalità di Windows Defender \ GUI per Windows Defender (**Windows-Defender-GUI**)
+- Windows Identity Foundation 3,5 (**Windows-Identity-Foundation**)
+- Windows PowerShell \ Windows PowerShell ISE (**PowerShell-ISE**)
+- Windows servizio di ricerca (**servizio di ricerca**)
+- IFilter TIFF di Windows (**Windows-TIFF-IFilter**)
+- Servizio LAN wireless (**wireless-rete**)
+- Visualizzatore XPS (**XPS-Viewer**)

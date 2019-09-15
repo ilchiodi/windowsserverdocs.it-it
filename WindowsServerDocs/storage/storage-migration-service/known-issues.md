@@ -8,16 +8,20 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
-ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
+ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923356"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987399"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
 Questo argomento contiene le risposte ai problemi noti quando si usa il [servizio migrazione archiviazione](overview.md) per eseguire la migrazione dei server.
+
+Il servizio migrazione archiviazione è disponibile in due parti: il servizio in Windows Server e l'interfaccia utente nell'interfaccia di amministrazione di Windows. Il servizio è disponibile in Windows Server, canale di manutenzione a lungo termine, oltre a Windows Server, canale semestrale; mentre l'interfaccia di amministrazione di Windows è disponibile come download separato. Sono inoltre incluse periodicamente le modifiche apportate agli aggiornamenti cumulativi per Windows Server, rilasciate tramite Windows Update. 
+
+Ad esempio, Windows Server, versione 1903 include nuove funzionalità e correzioni per il servizio migrazione archiviazione, disponibili anche per Windows Server 2019 e Windows Server, versione 1809 con l'installazione di [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534).
 
 ## <a name="collecting-logs"></a>Come raccogliere i file di log quando si lavora con supporto tecnico Microsoft
 
@@ -109,7 +113,7 @@ Questo comportamento è progettato per evitare problemi di connettività dopo la
 
 Per aggirare questo problema, eseguire una migrazione a un computer nella stessa rete. Quindi spostare il computer in una nuova rete e riassegnare le informazioni IP. Ad esempio, se si esegue la migrazione ad Azure IaaS, eseguire prima la migrazione a una macchina virtuale locale, quindi usare Azure Migrate per spostare la macchina virtuale in Azure.  
 
-Questo problema è stato risolto in una versione successiva dell'interfaccia di amministrazione di Windows. A questo punto è possibile specificare le migrazioni che non modificano le impostazioni di rete del server di destinazione. L'estensione aggiornata verrà elencata qui quando viene rilasciata. 
+Questo problema è stato risolto in una versione successiva dell'interfaccia di amministrazione di Windows. È ora possibile specificare le migrazioni che non modificano le impostazioni di rete del server di destinazione. L'estensione aggiornata verrà elencata qui quando viene rilasciata. 
 
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Avvisi di convalida per i privilegi amministrativi del proxy di destinazione e delle credenziali
 
@@ -120,7 +124,7 @@ Quando si convalida un processo di trasferimento, vengono visualizzati gli avvis
  > **Il proxy di destinazione è registrato.**
  > Avviso: Il proxy di destinazione non è stato trovato.
 
-Se il servizio proxy del servizio migrazione archiviazione non è stato installato nel computer di destinazione Windows Server 2019 o il computer destinazione è Windows Server 2016 o Windows Server 2012 R2, questo comportamento è da progettazione. Si consiglia di eseguire la migrazione a un computer Windows Server 2019 con il proxy installato per migliorare significativamente le prestazioni di trasferimento.  
+Se il servizio proxy del servizio migrazione archiviazione non è stato installato nel computer di destinazione Windows Server 2019 o se il computer di destinazione è Windows Server 2016 o Windows Server 2012 R2, questo comportamento è da progettazione. Si consiglia di eseguire la migrazione a un computer Windows Server 2019 con il proxy installato per migliorare significativamente le prestazioni di trasferimento.  
 
 ## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Alcuni file non vengono inventariati o trasferiti. errore 5 "accesso negato"
 
@@ -129,7 +133,7 @@ Durante l'inventario o il trasferimento di file dai computer di origine a quello
   Nome registro:      Origine Microsoft-Windows-StorageMigrationService-proxy/debug:        Microsoft-Windows-StorageMigrationService-data proxy:          ID evento 2/26/2019 9:00:04 AM:      10000 Categoria attività: Nessun livello:         Parole chiave Error:      
   Utente:          Computer servizio di rete: srv1.contoso.com Descrizione:
 
-  02/26/2019-09:00:04.860 [erro] errore di trasferimento \\per srv1. contoso. com\public\indy.png: (5) accesso negato.
+  02/26/2019-09:00:04.860 [Error] errore di trasferimento \\per srv1. contoso. com\public\indy.png: (5) accesso negato.
 Analisi dello stack: in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode SHAREMODE, CreationDisposition CreationDisposition, FlagsAndAttributes flagsAndAttributes) at Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (percorso stringa) in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (file FileInfo) in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. InitializeSourceFileInfo () in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. Transfer () at Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs:: TryTransfer:: 55]
 
 
@@ -139,7 +143,7 @@ Per risolvere questo problema, installare [Windows Update 2 aprile 2019, ovvero 
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Mancata corrispondenza degli hash DFSR quando si usa il servizio migrazione archiviazione per eseguire il Preseeding dei dati
 
-Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica premutata o la clonazione del database DFSR, tutti i file experiemce un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'esame dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
+Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file experiemce un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
 
 File di origine:
 
@@ -171,7 +175,7 @@ Quando si tenta di scaricare i log degli errori o di trasferimento al termine di
 
 Questo errore è previsto se non è stata abilitata la regola del firewall "condivisione di file e stampanti (SMB-in)" sul server dell'agente di orchestrazione. Il download di file dell'interfaccia di amministrazione di Windows richiede la porta TCP/445 (SMB) nei computer connessi.  
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Errore "Impossibile trasferire lo spazio di archiviazione su uno degli endpoint" durante il trasferimento da Windows Server 2008 R2
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Errore "Impossibile trasferire lo spazio di archiviazione su uno degli endpoint" durante il trasferimento da Windows Server 2008 R2
 
 Quando si tenta di trasferire dati da un computer di origine Windows Server 2008 R2, non vengono trasferiti dati e viene visualizzato un errore:  
 
@@ -202,10 +206,10 @@ Esaminando il registro eventi di StorageMigrationService/admin viene visualizzat
 
 L'analisi del log StorageMigrationService-proxy/debug Mostra:
 
-   07/02/2019-13:35:57.231 [erro] la convalida del trasferimento non è riuscita. ErrorCode 40961, l'endpoint di origine non è raggiungibile o non esiste oppure le credenziali di origine non sono valide o l'utente autenticato non dispone di autorizzazioni sufficienti per accedervi.
+   07/02/2019-13:35:57.231 [errore] la convalida del trasferimento non è riuscita. ErrorCode 40961, l'endpoint di origine non è raggiungibile o non esiste oppure le credenziali di origine non sono valide o l'utente autenticato non dispone di autorizzazioni sufficienti per accedervi.
 in Microsoft. StorageMigration. proxy. Service. Transfer. TransferOperation. Validate () in Microsoft. StorageMigration. proxy. Service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
-Questo errore è previsto se l'account di migrazione non dispone almeno delle autorizzazioni di accesso di lettura per le condivisioni SMB. Per risolvere questo errore, aggiungere un gruppo di sicurezza contenente l'account di migrazione di origine alle condivisioni SMB nel computer di origine e concedergli la lettura, la modifica o il controllo completo. Al termine della migrazione, è possibile rimuovere questo gruppo. Una versione futura di Windows Server può modificare questo comportamento in modo da non richiedere più autorizzazioni esplicite per le condivisioni di origine.
+Questo errore è previsto se l'account di migrazione non dispone almeno delle autorizzazioni di accesso di lettura per le condivisioni SMB. Per risolvere questo errore, aggiungere un gruppo di sicurezza contenente l'account di migrazione di origine alle condivisioni SMB nel computer di origine e concedergli la lettura, la modifica o il controllo completo. Al termine della migrazione, è possibile rimuovere questo gruppo.
 
 ## <a name="error-0x80005000-when-running-inventory"></a>Errore 0x80005000 durante l'esecuzione dell'inventario
 

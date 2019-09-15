@@ -1,6 +1,6 @@
 ---
 title: tracerpt
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c105fe714e30866297e4f6c3c83a670ff7966a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440969"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975298"
 ---
 # <a name="tracerpt"></a>tracerpt
 
@@ -39,26 +39,26 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |              Flag di opzione               |                                                                    Descrizione                                                                    |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 |                   -?                   |                                                         Vengono visualizzate sensibile al contesto della Guida.                                                          |
-|          -config \<filename>           |                                                 Caricare un file di impostazioni che contiene le opzioni di comando.                                                  |
+|          -config \<nomefile >           |                                                 Caricare un file di impostazioni che contiene le opzioni di comando.                                                  |
 |                   -y                   |                                                  Rispondere Sì a tutte le domande senza chiedere conferma.                                                   |
-|                -f \<XML                |                                                                       HTML>                                                                       |
-|               -di \<CSV                |                                                                       EVTX                                                                        |
-|            -df \<nomefile >             |                                            Creare una specifica di Microsoft il conteggio e alla dichiarazione di file di schema.                                            |
+|            -f \<XML\|> HTML             |                                                                  Formato del report.                                                                   |
+|         -di \<CSV\|evtx\|XML >          |                                                         Formato di dump, il valore predefinito è XML.                                                          |
+|            -DF \<nomefile >             |                                            Creare una specifica di Microsoft il conteggio e alla dichiarazione di file di schema.                                            |
 |            -int \<nomefile >            |                                            Scarica la struttura dell'evento interpretate nel file specificato.                                            |
 |                  -rts                  |                        Timestamp non elaborato di report nell'intestazione della traccia eventi. Può essere utilizzato solo con -o, non - report o - riepilogo.                         |
-|            -tmf \<filename>            |                                                  Specificare un file di definizione del formato dei messaggi di traccia.                                                  |
-|              -tp \<valore >              |                            Specificare il percorso di ricerca file TMF. Possono essere utilizzati più percorsi, separati da un punto e virgola (;).                            |
-|              -i \<value>               | Specificare il percorso dell'immagine del provider. Il file PDB corrispondente si troverà nel Server di simboli. Più percorsi possono essere utilizzati, separati da un punto e virgola (;). |
-|             -pdb \<valore >              |                             Specificare il percorso del server di simboli. Più percorsi possono essere utilizzati, separati da un punto e virgola (;).                             |
+|            -MDF \<nomefile >            |                                                  Specificare un file di definizione del formato dei messaggi di traccia.                                                  |
+|              -valore \<TP >              |                            Specificare il percorso di ricerca file TMF. Possono essere utilizzati più percorsi, separati da un punto e virgola (;).                            |
+|              -i \<valore >               | Specificare il percorso dell'immagine del provider. Il file PDB corrispondente si troverà nel Server di simboli. Più percorsi possono essere utilizzati, separati da un punto e virgola (;). |
+|             -> \<valore PDB              |                             Specificare il percorso del server di simboli. Più percorsi possono essere utilizzati, separati da un punto e virgola (;).                             |
 |                  -ora di Greenwich                  |                                              Convertire i timestamp payload WPP ora di Greenwich.                                               |
-|              -rl \<valore >              |                                               Definire a livello di Report di sistema da 1 a 5. Valore predefinito è 1.                                               |
+|              -> \<valore RL              |                                               Definire a livello di Report di sistema da 1 a 5. Valore predefinito è 1.                                               |
 |          -Riepilogo [nomefile]           |                                  Generare un file di testo di riepilogo. Nome del file se non specificato è Summary. txt.                                   |
 |             -o [nomefile]              |                                      Generare un file di output di testo. Nome del file se non specificato è dumpfile. Xml.                                      |
 |           -report [nomefile]           |                                  Generare un file di report di output di testo. Nome del file se non specificato è Workload.                                   |
 |                  -lr                   |                        Specificare "meno restrittiva". Usa impegno per gli eventi che non corrispondono allo schema di eventi.                         |
 |           -esportare [nomefile]           |                                  Generare un file di esportazione dello Schema di eventi. Nome del file se non specificato è man.                                   |
-|       [-l] \<value [value […]]>        |                                                   Specificare il file di log traccia eventi per l'elaborazione.                                                    |
-| -rt \<session_name [session_name [...]] > |                                                Specificare origini dati di sessione di traccia di eventi in tempo reale.                                                |
+|       [-l] \<valore [valore [...]] >        |                                                   Specificare il file di log traccia eventi per l'elaborazione.                                                    |
+| -RT \<session_name [session_name [...]] > |                                                Specificare origini dati di sessione di traccia di eventi in tempo reale.                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>Esempi
 

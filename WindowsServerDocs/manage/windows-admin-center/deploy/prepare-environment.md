@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96aced2c062717aee0d2957b751bc2c25ac8e0da
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869102"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975323"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Preparare l'ambiente per Windows Admin Center
 
@@ -36,7 +36,7 @@ Windows Admin Center richiede funzionalità PowerShell non incluse per impostazi
 
 Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato.
 
-Se non è installato, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Se non è installato, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 ## <a name="prepare-windows-server-2008-r2"></a>Preparare Windows Server 2008 R2
 
@@ -48,7 +48,7 @@ Verificare che [.NET Framework 4.5.2 o versione successiva](https://docs.microso
 
 Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato.
 
-Se non è installato, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Se non è installato, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 Esegui `Enable-PSRemoting –force` in una console di PowerShell per consentire la connessione remota Powershell. 
 
@@ -114,7 +114,7 @@ Windows Admin Center richiede funzionalità PowerShell non incluse per impostazi
 
 Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato. 
 
-Se non è installato, puoi eseguire il [download di WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Se non è installato, puoi eseguire il [download di WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 ### <a name="step-2-enable-remote-management"></a>Passaggio 2: Abilita la gestione remota
 
