@@ -8,12 +8,12 @@ ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
-ms.openlocfilehash: 62821abc6c9eec660fa6af832bb1aba151708021
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 187abe06b469abe511d4bbbfb0aac9237d3c650a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63686394"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868517"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 
@@ -101,7 +101,7 @@ Microsoft si riserva il diritto di controllare il cliente finale in qualsiasi mo
 
 ## <a name="deployment-guidance"></a>Linee guida per la distribuzione 
 
-Abbiamo garantito la disponibilità di immagini della raccolta predefinite per tutti i clienti con licenze idonee, indipendentemente dal luogo di acquisto, e abbiamo consentito ai partner di eseguire le distribuzioni per conto dei clienti. 
+Le immagini della raccolta predefinite sono disponibili per tutti i clienti con licenze idonee, indipendentemente dal luogo di acquisto, e i partner sono autorizzati a eseguire le distribuzioni per conto dei clienti. 
 
 Puoi trovare [qui](https://azure.microsoft.com/pricing/hybrid-use-benefit/) le istruzioni per tutte le opzioni di distribuzione disponibili, tra cui: 
 -   Video dettagliato che mette in evidenza la nuova esperienza di distribuzione tramite le immagini della raccolta predefinite

@@ -66,6 +66,9 @@
 
 ## Accedere alle risorse di Desktop remoto
 ### [Client Desktop remoto disponibili](clients/remote-desktop-clients.md)
+### Client desktop di Windows
+#### [Introduzione al client desktop di Windows](clients/windowsdesktop.md)
+#### [Novità del client desktop di Windows](clients/windowsdesktop-whatsnew.md)
 ### Client Windows Store
 #### [Introduzione al client Windows Store](clients/windows.md)
 #### [Novità del client Windows Store](clients/windows-whatsnew.md)

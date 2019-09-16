@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9bd2b17296872d4b94de5a7468178fbb2ba39709
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443376"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868403"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure 
 
@@ -104,7 +104,7 @@ In questa sezione verrà distribuito il VHD dell'immagine in Azure.
      c. Seleziona una dimensione e un piano di SKU per la macchina virtuale.   
      d. Seleziona un'interfaccia di rete nella pagina delle impostazioni. Assicurati che l'interfaccia di rete abbia le seguenti regole specificate:
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
+        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
      e. Fare clic su **Crea**.
 
 

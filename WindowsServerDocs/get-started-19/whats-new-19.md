@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 665363c17cf5cb8d8ad52872128f2f63c07ea683
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810771"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868545"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Novità di Windows Server 2019
 
@@ -214,7 +214,7 @@ Il [servizio Ora di Windows](https://docs.microsoft.com/windows-server/networkin
 
 ### <a name="new-deployment-ui-and-windows-admin-center-extension-for-sdn"></a>Nuova estensione dell'interfaccia di distribuzione e di Windows Admin Center per SDN
 
-Con Windows Server 2019, è facile distribuire e gestire tramite una nuova interfaccia utente di sviluppo e un'estensione di Windows Admin Center che consentono a tutti di sfruttare le potenzialità di SDN. 
+Con Windows Server 2019, è facile ora eseguire operazioni di distribuzione e gestione tramite una nuova interfaccia utente di sviluppo e un'estensione di Windows Admin Center che consentono a tutti di sfruttare le potenzialità di SDN. 
 
 ### <a name="persistent-memory-support-for-hyper-v-vms"></a>Supporto della memoria persistente per macchine virtuali Hyper-V
 

@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: cdb831eb772114b86e6260063dff6ad881f2f37b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 639623b4ebb21a4f6a0025a71721204cbfc4f496
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280336"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868604"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canali di manutenzione di Windows Server: LTSC e Canale semestrale
 
@@ -25,7 +25,7 @@ Puoi mantenere i server sul canale Long-Term Servicing Channel (LTSC), spostarli
 
 ## <a name="long-term-servicing-channel-ltsc"></a>Long-Term Servicing Channel (LTSC)
 
-Questo modello di rilascio, in precedenza denominato "Long-Term Servicing *Branch*", ti è già noto e prevede il rilascio di una nuova versione principale di Windows Server ogni 2 o 3 anni. Gli utenti hanno diritto a 5 anni di supporto Mainstream e 5 anni di supporto Extended. Questo canale è appropriato per i sistemi che richiedono tempi di manutenzione più lunghi e una maggiore stabilità funzionale. Le distribuzioni di Windows Server 2016 e delle versioni precedenti di Windows Server non verranno influenzate dalle nuove versioni del Canale semestrale. Il Long-Term Servicing Channel continuerà a ricevere sia aggiornamenti della sicurezza sia aggiornamenti non relativi alla sicurezza, ma non riceverà le nuove funzioni e funzionalità.
+Questo modello di rilascio già noto, in precedenza denominato "Long-Term Servicing *Branch*", prevede il rilascio di una nuova versione principale di Windows Server ogni 2 o 3 anni. Gli utenti hanno diritto a 5 anni di supporto Mainstream e 5 anni di supporto Extended. Questo canale è appropriato per i sistemi che richiedono tempi di manutenzione più lunghi e una maggiore stabilità funzionale. Le distribuzioni di Windows Server 2016 e delle versioni precedenti di Windows Server non verranno influenzate dalle nuove versioni del Canale semestrale. Il Long-Term Servicing Channel continuerà a ricevere sia aggiornamenti della sicurezza sia aggiornamenti non relativi alla sicurezza, ma non riceverà le nuove funzioni e funzionalità.
 
 > [!Note]  
 > **Il prodotto LTSC corrente è Windows Server 2019**. Se vuoi restare in questo canale, ti consigliamo di installare (o continuare a usare) Windows Server 2019, che può essere installato con l'opzione di installazione dei componenti di base del server o l'opzione di installazione Server con Esperienza desktop.
@@ -78,7 +78,7 @@ Esistono molti strumenti con cui i professionisti IT possono eseguire la manuten
 - **Windows Server Update Services (WSUS)** consente un controllo esteso degli aggiornamenti di Windows 10 e Windows Server ed è disponibile in modalità nativa nel sistema operativo Windows Server. Oltre alla possibilità di rinviare gli aggiornamenti, le organizzazioni possono aggiungere un livello di approvazione per gli aggiornamenti e scegliere di distribuirli in computer o gruppi di computer specifici quando sono pronti.
 - **System Center Configuration Manager** offre il massimo controllo sulla manutenzione. I professionisti IT possono rinviare gli aggiornamenti, approvarli e hanno a disposizione più opzioni per decidere la destinazione delle distribuzioni e gestire l'utilizzo della larghezza di banda e i tempi di distribuzione.
 
-Probabilmente si è già scelto di usare almeno una di queste opzioni in base alle risorse, al personale e alle competenze. Puoi continuare a usare lo stesso processo per le versioni del Canale semestrale: ad esempio, se usi già System Center Configuration Manager per gestire gli aggiornamenti, puoi continuare a farlo. In modo analogo, se usi WSUS, puoi continuare a usarlo.
+Probabilmente hai già scelto di usare almeno una di queste opzioni in base alle risorse, al personale e alle competenze. Puoi continuare a usare lo stesso processo per le versioni del Canale semestrale: ad esempio, se usi già System Center Configuration Manager per gestire gli aggiornamenti, puoi continuare a farlo. In modo analogo, se usi WSUS, puoi continuare a usarlo.
 
 ## <a name="where-to-obtain-semi-annual-channel-releases"></a>Dove ottenere le versioni del Canale semestrale
 
@@ -104,7 +104,7 @@ Le versioni del Canale semestrale rilasciate prima di Windows Server 2019 usano 
 
 Uno degli approcci più importanti adottati per la pianificazione di ogni versione di Windows Server implica l'ascolto del feedback dei clienti: in che modo viene usato Windows Server? Quali nuove funzionalità avranno l'impatto maggiore sulle distribuzioni di Windows Server e, di conseguenza, sulle attività quotidiane? Il feedback dei clienti indica che la distribuzione di innovazioni nel modo più veloce ed efficiente possibile è una priorità chiave. Allo stesso tempo, i clienti che introducono più rapidamente le innovazioni indicano di usare principalmente script dalla riga di comando con PowerShell per gestire i data center e di conseguenza non hanno grande necessità di avere a disposizione un'interfaccia utente grafica desktop nell'installazione di Windows Server con Esperienza desktop, in particolare ora che è disponibile [Windows Admin Center](../manage/windows-admin-center/overview.md) per la gestione remota dei server.
 
-Concentrandosi sull'opzione di installazione dei componenti di base del server, è possibile dedicare più risorse alle innovazioni, pur mantenendo la compatibilità con le applicazioni e funzionalità tradizionali della piattaforma Windows Server. I commenti e suggerimenti su questo o altri problemi relativi a Windows Server e alle versioni future possono essere inviati tramite l'[Hub di Feedback](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+Concentrandosi sull'opzione di installazione Server Core, è possibile dedicare più risorse alle innovazioni, pur mantenendo la compatibilità con le applicazioni e funzionalità tradizionali della piattaforma Windows Server. I commenti e suggerimenti su questo o altri problemi relativi a Windows Server e alle versioni future possono essere inviati tramite l'[Hub di Feedback](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 ## <a name="what-about-nano-server"></a>Informazioni su Nano Server
 
