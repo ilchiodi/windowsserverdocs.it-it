@@ -68,6 +68,7 @@
 ### [Client Desktop remoto disponibili](clients/remote-desktop-clients.md)
 ### Client desktop di Windows
 #### [Introduzione al client desktop di Windows](clients/windowsdesktop.md)
+#### [Client desktop di Windows per amministratori](clients/windowsdesktop-admin.md)
 #### [Novità del client desktop di Windows](clients/windowsdesktop-whatsnew.md)
 ### Client Windows Store
 #### [Introduzione al client Windows Store](clients/windows.md)
