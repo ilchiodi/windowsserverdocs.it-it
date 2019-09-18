@@ -13,12 +13,12 @@ author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 91d032d1a7131fd0bc84e33bd2806d807eb1dafe
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ff782bc4d01709f56d19ee3e9a06a95267cf7a12
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63711989"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870744"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Gestire gli utenti nella raccolta di Servizi Desktop remoto
 
@@ -78,7 +78,7 @@ La procedura seguente mostra nei dettagli come installare gli strumenti di Activ
 Ora che sono stati creati gli utenti e i gruppi in Active Directory, è possibile aggiungere granularità in relazione a chi ha accesso alle raccolte di Desktop remoto nella distribuzione.
 
 1. Connettersi al server che esegue il ruolo Gestore Connessione Desktop remoto seguendo i passaggi descritti in precedenza.
-2. Aggiungere gli altri server di Desktop remoto al pool di server gestiti di Gestore Connessione Desktop remoto:
+2. Aggiungi gli altri server di Desktop remoto al pool di server gestiti di Gestore connessione Desktop remoto:
    1. In Server Manager fare clic su **Gestisci > Aggiungi server**.
    2. Fai clic su **Trova**.
    3. Fare clic su ogni server nella distribuzione che esegue un ruolo di Servizi Desktop remoto e quindi fare clic su **OK**.

@@ -13,18 +13,18 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 30f2d97c93c3df72eaf21896d596a4a10666013c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805196"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870749"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Distribuire un file server di scalabilità orizzontale di Spazi di archiviazione diretta a due nodi per l'archiviazione di dischi profili utente in Azure
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
 
-Servizi Desktop remoto (RDS) richiede un file server appartenente a un dominio per i dischi dei profili utente (UPD). Per distribuire un file server di scalabilità orizzontale appartenente a un dominio a disponibilità elevata (SOFS) in Azure, usare spazi di archiviazione diretta con Windows Server 2016. Se non si ha familiarità con gli UPD o con i Servizi Desktop remoto, consultare [Benvenuti in Servizi Desktop remoto](welcome-to-rds.md).
+Servizi Desktop remoto (RDS) richiede un file server appartenente a un dominio per i dischi dei profili utente (UPD). Per distribuire un file server di scalabilità orizzontale appartenente a un dominio a disponibilità elevata (SOFS) in Azure, usare spazi di archiviazione diretta con Windows Server 2016. Se non hai familiarità con gli UPD o con Servizi Desktop remoto, consulta [Introduzione a Servizi Desktop remoto](welcome-to-rds.md).
 
 > [!NOTE] 
 > Microsoft ha appena pubblicato un [modello di Azure per distribuire un file server di scalabilità orizzontale di spazi di archiviazione diretta](https://azure.microsoft.com/documentation/templates/301-storage-spaces-direct/). È possibile usare il modello per creare la distribuzione o usare i passaggi descritti in questo articolo. 
