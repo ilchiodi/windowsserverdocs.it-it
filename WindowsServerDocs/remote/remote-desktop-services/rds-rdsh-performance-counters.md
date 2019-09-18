@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
-ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
+ms.openlocfilehash: 3eb1e4b6da971d788383b8facbf8bbcbe00a5953
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863110"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870915"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Usare i contatori delle prestazioni per diagnosticare i problemi di prestazioni dell'applicazione su host sessione Desktop remoto
 
@@ -34,13 +34,13 @@ L'immagine seguente mostra una rappresentazione approssimativa del flusso di inp
 
 ![Desktop remoto: flussi di input dell'utente dal client Desktop remoto all'applicazione](./media/rds-user-input.png)
 
-Il contatore di ritardo di input utente misura il delta massimo (all'interno di un intervallo di tempo) tra l'input in coda e il momento in cui viene prelevato dall'app, in un [ciclo di messaggi tradizionale](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), come illustrato nel diagramma di flusso seguente:
+Il contatore di ritardo di input utente misura il delta massimo (all'interno di un intervallo di tempo) tra l'input in coda e il momento in cui viene prelevato dall'app in un [ciclo di messaggi tradizionale](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), come illustrato nel diagramma di flusso seguente:
 
 ![Desktop remoto: flusso del contatore delle prestazioni ritardo di input dell'utente](./media/rds-user-input-delay.png)
 
 Un dettaglio importante di questo contatore è che segnala il ritardo di input massimo dell'utente all'interno di un intervallo configurabile. Questo è il tempo massimo impiegato da un input per raggiungere l'applicazione, che può influire sulla velocità di operazioni importanti e visibili, ad esempio la digitazione.
 
-Ad esempio, nella tabella seguente, il ritardo di input dell'utente sarebbe stato segnalato come 1.000 millisecondi entro questo intervallo. Il contatore indica il ritardo di input più lento di dell'utente nell'intervallo poiché la percezione di "lento" è determinata dal tempo di input più lento (il valore massimo) che si verifica, non dalla la velocità media di tutti gli input totali.
+Ad esempio, nella tabella seguente, il ritardo di input dell'utente sarebbe stato segnalato come 1.000 millisecondi entro questo intervallo. Il contatore indica il ritardo di input più lento di dell'utente nell'intervallo perché la percezione di "lento" è determinata dal tempo di input più lento (il valore massimo) che si verifica, non dalla velocità media di tutti gli input totali.
 
 |Numero| 0 | 1 | 2 |
 |------|---|---|---|
@@ -78,7 +78,7 @@ Appena aggiunto il contatore inizia a inviare report sul ritardo dell'input dell
 
 ![Desktop remoto: un esempio di attività per Ritardo di input dell'utente per processo in Performance Monitor](./media/rds-sample-user-input-delay-perfmon.png)
 
-Ora esaminiamo il **Ritardo dell'input dell'utente per sessione**. Sono presenti istanze per ogni ID sessione e i relativi contatori mostrano il ritardo dell'input dell'utente di tutti i processi all'interno della sessione specificata. Inoltre, sono presenti due istanze denominate "Max" (il ritardo dell'input dell'utente massimo tra tutte le sessioni) e "Average" (la media di tutte le sessioni).
+È ora possibile esaminare il **Ritardo dell'input dell'utente per sessione**. Sono presenti istanze per ogni ID sessione e i relativi contatori mostrano il ritardo dell'input dell'utente di tutti i processi all'interno della sessione specificata. Inoltre, sono presenti due istanze denominate "Max" (il ritardo dell'input dell'utente massimo tra tutte le sessioni) e "Average" (la media di tutte le sessioni).
 
 Questa tabella mostra un esempio visivo di queste istanze. (È possibile ottenere le stesse informazioni in Perfmon passando al tipo di grafico Report.)
 
@@ -124,7 +124,7 @@ Per risolvere questo problema, è possibile impostare la chiave del Registro di 
 >[!NOTE]
 >Se si usa Windows 10, versione 1809 o versioni successive o Windows Server 2019 o versioni successive, non è necessario impostare LagCounterInterval per risolvere il problema del contatore delle prestazioni.
 
-Abbiamo anche aggiunta una coppia di chiavi che potrebbe risultare utile nella stessa chiave del Registro di sistema:
+È stata anche aggiunta una coppia di chiavi che potrebbe risultare utile nella stessa chiave del Registro di sistema:
 
 **LagCounterImageNameFirst** : impostare questa chiave su `DWORD 1` (valore predefinito 0 o la chiave non esiste). In questo modo i nomi dei contatori vengono modificati in "Image Name <SessionID:ProcessId>." Ad esempio, "explorer <1:7964>." Ciò è utile se si desidera eseguire l'ordinamento in base al nome dell'immagine.
 

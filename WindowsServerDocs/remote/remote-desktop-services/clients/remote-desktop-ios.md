@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f5a0808148068282c218343a923b357267e724e5
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 97f7c3e26a54b9170ebc65e0c48acd964d9e2429
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150946"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871165"
 ---
 # <a name="get-started-with-the-ios-client"></a>Introduzione al client iOS
 
@@ -163,7 +163,7 @@ Quando avvii una sessione Desktop remoto, sono disponibili strumenti che puoi us
 ### <a name="start-a-remote-desktop-connection"></a>Avviare una connessione Desktop remoto
 
 1. Toccare la connessione desktop remoto per avviare la sessione di desktop remota.
-2. Se viene chiesto di verificare il certificato per il desktop remoto, toccare **Accept**. È possibile scegliere di accettare sempre scorrendo il  **non visualizzare più questo messaggio per le connessioni al computer** passare **ON**.
+2. Se viene chiesto di verificare il certificato per il desktop remoto, toccare **Accept**. Puoi scegliere di accettare sempre facendo scorrere l'interruttore relativo a **Non visualizzare più questo messaggio per le connessioni a questo computer** su **Attivato**.
 
 ### <a name="connection-bar"></a>Barra delle connessioni
 

@@ -13,12 +13,12 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 39a0d00e64ecab93fe1826726b14969e5e034738
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66222789"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871045"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Creare una distribuzione di Servizi Desktop remoto con ridondanza geografica e in più data center per il ripristino di emergenza
 
@@ -119,7 +119,7 @@ I server Active Directory in ogni distribuzione sono repliche nello stesso domin
 Fornisci una [licenza CAL Per Utente di Desktop remoto](rds-client-access-license.md) per ogni utente non anonimo autorizzato ad accedere alla distribuzione con ridondanza geografica. Distribuisci le licenze CAL Per Utente in modo uniforme nei due server licenze Desktop remoto nella distribuzione attiva. Duplica quindi le licenze CAL Per Utente nei due server licenze Desktop remoto nella distribuzione passiva. Poiché le licenze CAL sono duplicate tra la distribuzione attiva e quella passiva, in qualsiasi momento può essere attiva una sola distribuzione con utenti che si connettono. In caso contrario, verrebbe violato il contratto di licenza.  
 
 ### <a name="image-management"></a>Gestione delle immagini 
-Quando aggiorni le immagini di Host sessione Desktop remoto per fornire aggiornamenti software o nuove applicazioni, devi aggiornare separatamente gli insiemi di Host sessione Desktop remoto in ogni distribuzione per mantenere un'esperienza utente comune in entrambe le distribuzioni. Puoi usare il [modello di aggiornamento di un insieme di Host sessione Desktop remoto](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/), ma tieni presente che l'infrastruttura di Servizi Desktop remoto della distribuzione passiva e le macchine virtuali di Host sessione Desktop remoto devono essere in esecuzione per poter eseguire il modello. 
+Quando aggiorni le immagini di Host sessione Desktop remoto per fornire aggiornamenti software o nuove applicazioni, devi aggiornare separatamente gli insiemi di Host sessione Desktop remoto in ogni distribuzione per mantenere un'esperienza utente comune in entrambe le distribuzioni. Puoi usare il [modello di aggiornamento di una raccolta di Host sessione Desktop remoto](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/), ma tieni presente che l'infrastruttura di Servizi Desktop remoto della distribuzione passiva e le macchine virtuali di Host sessione Desktop remoto devono essere in esecuzione per poter eseguire il modello. 
 
 ## <a name="failover"></a>Failover
 

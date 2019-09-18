@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14df478c681074f8081190048fb5579d7fa9f653
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150924"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987319"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Introduzione al client Windows Store
 
@@ -30,8 +30,8 @@ Il client Desktop remoto per Windows consente di usare desktop e app di Windows 
 Attieniti alle informazioni riportate di seguito per iniziare. In caso di dubbi, vedi le [domande frequenti](remote-desktop-client-faq.md).
 
 > [!NOTE]
-> - Se vuoi conoscere le nuove versioni per il client Windows, vedi [Novità per Desktop remoto in Windows](windows-whatsnew.md).
-> - Puoi eseguire il client in qualsiasi versione di Windows 10.
+> - Se vuoi conoscere le nuove versioni per il client Windows Store, vedi [Novità del client Windows Store](windows-whatsnew.md).
+> - Puoi eseguire il client in qualsiasi versione supportata di Windows 10.
 
 ## <a name="get-the-rd-client-and-start-using-it"></a>Ottenere il client Desktop remoto e iniziare a usarlo
 

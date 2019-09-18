@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e0dbe709681cf679347ccad2677ff3cda6690f3d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804954"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871229"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Domande frequenti sui client Desktop remoto
 
@@ -59,7 +59,7 @@ Per Windows 10, eseguire le operazioni seguenti:
 3. Usa il dispositivo di scorrimento per abilitare Desktop remoto.
 4. In generale è consigliabile mantenere il PC attivo e individuabile per facilitare le connessioni. Fai clic su **Mostra impostazioni** per accedere alle impostazioni di risparmio energia del PC, dove puoi modificare questa impostazione.
    > [!NOTE]
-   > Non puoi connetterti a un PC in modalità sospensione o ibernazione, quindi verifica che le impostazioni di sospensione e ibernazione nel PC remoto siano impostate su **Mai**. L'ibernazione non è disponibile in tutti i PC.
+   > Non puoi connetterti a un PC in modalità sospensione o ibernazione, quindi verifica che le impostazioni di sospensione e ibernazione nel PC remoto siano configurate su **Mai**. L'ibernazione non è disponibile in tutti i PC.
 
 
 Prendi nota del nome del PC visualizzato in **How to connect to this PC** (Come connettersi al PC). Tale nome sarà necessario per configurare i client.
@@ -75,9 +75,9 @@ Per Windows 8.1, seguire le istruzioni per consentire le connessioni remote in [
 
 ### <a name="why-cant-i-connect-using-remote-desktop"></a>Perché non riesco a connettermi tramite Desktop remoto?
 
-Ecco alcune possibili soluzioni a problemi comuni che possono verificarsi quando si tenta di connettersi a un computer remoto. Se queste soluzioni non funzionano, è possibile trovare ulteriori informazioni sul [sito Web Community Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=242079).
+Ecco alcune possibili soluzioni a problemi comuni che possono verificarsi quando si tenta di connettersi a un computer remoto. Se queste soluzioni non funzionano, puoi trovare altre informazioni sul [sito Web Microsoft Community](https://go.microsoft.com/fwlink/p/?LinkId=242079).
 
-- **Impossibile trovare il PC remoto.** Verifica di avere il nome del PC corretto e quindi controlla di averlo immesso correttamente. Se ancora non riesci a connetterti, prova a usare l'indirizzo IP anziché il nome del PC remoto.
+- **Impossibile trovare il computer remoto.** Verifica di avere il nome del PC corretto e quindi controlla di averlo immesso correttamente. Se ancora non riesci a connetterti, prova a usare l'indirizzo IP anziché il nome del PC remoto.
 - **Si è verificato un problema con la rete.** Verifica di avere la connessione Internet. 
 - **La porta di Desktop remoto potrebbe essere bloccata da un firewall.** Se si utilizza Windows Firewall, seguire questi passaggi:
 
@@ -89,7 +89,7 @@ Ecco alcune possibili soluzioni a problemi comuni che possono verificarsi quando
      Se si utilizza un firewall diverso, assicurarsi che la porta per Desktop remoto (in genere la 3389) sia aperta.
 - **Le connessioni remote potrebbero non essere configurate nel PC remoto.** Per risolvere il problema, scorri verso l'alto fino alla domanda [Come posso configurare un computer per Desktop remoto?](#how-do-i-set-up-a-pc-for-remote-desktop) in questo argomento.
 - **Il PC remoto potrebbe consentire la connessione solo da parte di PC in cui è impostata l'Autenticazione a livello di rete.** 
-- **Il PC remoto potrebbe essere spento.** Non è possibile connettersi a un computer è spento, nello stato di sospensione o ibernazione, quindi verificare che le impostazioni di sospensione e ibernazione nel computer remoto è impostate su **mai** (modalità di sospensione non è disponibile in tutti i PC.).
+- **Il PC remoto potrebbe essere spento.** Non puoi connetterti a un computer spento, in stato di sospensione o in ibernazione, quindi verifica che le impostazioni di sospensione e ibernazione nel computer remoto siano configurate su **Mai** (l'ibernazione non è disponibile in tutti i PC).
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Impossibile trovare o connettersi al computer.
 
@@ -234,7 +234,7 @@ In caso di un **errore RPC 23014** o **errore 0x59E6 riprovare dopo alcuni minut
 ### <a name="what-does-the-failed-to-parse-ntlm-challenge-error-mean"></a>Qual è il significato dell'errore "Failed to parse NTLM challenge" (Impossibile analizzare la richiesta di verifica NTLM)?
 Questo errore è causato da una configurazione errata nel PC remoto. Verifica che l'impostazione del livello di sicurezza RDP nel PC remoto sia configurata su "Compatibile con client". Rivolgiti all'amministratore di sistema se hai bisogno di aiuto per eseguire questa operazione.
 
-### <a name="what-does-tsrap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Qual è il significato dell'errore "TS_RAP You are not allowed to connect to the given host" (TS_RAP Non è consentito connettersi all'host specificato)?
+### <a name="what-does-ts_rap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Qual è il significato dell'errore "TS_RAP You are not allowed to connect to the given host" (TS_RAP Non è consentito connettersi all'host specificato)?
 Questo errore si verifica quando un criterio di autorizzazione delle risorse nel server gateway impedisce al tuo nome utente di connettersi al PC remoto. Ciò può accadere nei casi seguenti:
 
 - Il nome del PC remoto è identico al nome del gateway. Quindi, quando provi a connetterti al PC remoto, la connessione viene invece stabilita con il gateway, al quale probabilmente non sei autorizzato ad accedere. Se devi connetterti al gateway, non usare il nome gateway esterno come nome del PC. Usa invece "localhost" o l'indirizzo IP (127.0.0.1) oppure il nome server interno.

@@ -8,12 +8,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b5391677397660e3beacb9a71189bf3ffe2aeaab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501396"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868335"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Novità di Windows Server, versione 1709
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [Confronto dei canali di manutenzione](https://do
 
 ## <a name="application-containers-and-micro-services"></a>Contenitori applicazioni e micro servizi
 
-- L'immagine del contenitore di Server Core è stata ulteriormente ottimizzata per scenari lift-and-shift in cui è possibile eseguire la migrazione di applicazioni e basi codici esistenti in contenitori con modifiche minime. È inoltre il 60% più piccola. 
+- L'immagine del contenitore di Server Core è stata ulteriormente ottimizzata per scenari lift-and-shift in cui è possibile eseguire la migrazione di applicazioni o basi codici esistenti in contenitori con modifiche minime. È inoltre il 60% più piccola. 
 - L'immagine del contenitore Nano Server è quasi l'80% più piccola.
     - In Canale semestrale di Windows Server, l'immagine Nano Server come un'immagine del sistema operativo di base del contenitore è ridotta da 390 MB a 80 MB.
 - Contenitori Linux con isolamento di Hyper-V 
@@ -70,9 +70,9 @@ Il **supporto della memoria della classe di archiviazione per macchine virtuali*
 
 La **memoria persistente virtualizzata (vPMEM, Virtualized Persistent Memory)** è abilitata tramite la creazione di un file VHD (con estensione vhdpmem) su un volume ad accesso diretto in un host, l'aggiunta di un controller vPMEM a una macchina virtuale e l'aggiunta del dispositivo creato (con estensione vhdpmem) a una macchina virtuale. L'uso del file vhdpmem sui volumi ad accesso diretto in un host per eseguire il backup di vPMEM offre flessibilità di allocazione e sfrutta un modello di gestione familiare per l'aggiunta di dischi alle macchine virtuali.
 
-**Archiviazione contenitori, volumi di dati persistenti in volumi condivisi cluster (CSV)** . In Windows Server, versione 1709, nonché in Windows Server 2016 con gli aggiornamenti più recenti, abbiamo aggiunto il supporto che consente ai contenitori di accedere ai volumi di dati persistenti in volumi condivisi cluster, inclusi i volumi condivisi cluster in Spazi di archiviazione diretta. In questo modo, il contenitore applicazione dispone di accesso permanente al volume, indipendentemente dal nodo cluster su cui è in esecuzione l'istanza del contenitore. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Archiviazione contenitori, volumi di dati persistenti in volumi condivisi cluster (CSV)** . In Windows Server versione 1709, nonché in Windows Server 2016 con gli aggiornamenti più recenti è stato aggiunto il supporto che consente ai contenitori di accedere ai volumi di dati persistenti in volumi condivisi cluster, inclusi i volumi condivisi cluster in Spazi di archiviazione diretta. In questo modo, il contenitore applicazione dispone di accesso permanente al volume, indipendentemente dal nodo cluster su cui è in esecuzione l'istanza del contenitore. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Archiviazione contenitori, volumi di dati persistenti con mapping globale SMB**. In Windows Server, versione 1709 abbiamo aggiunto il supporto per il mapping di una condivisione file SMB per una lettera di unità all'interno di un contenitore. Ciò è noto con il nome di mapping globale SMB. Questa unità mappata è quindi accessibile a tutti gli utenti nel server locale in modo che l'I/O del contenitore nel volume di dati possa passare dall'unità montata alla condivisione di file sottostante. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Archiviazione contenitori, volumi di dati persistenti con mapping globale SMB**. In Windows Server versione 1709 è stato aggiunto il supporto per il mapping di una condivisione file SMB a una lettera di unità all'interno di un contenitore. Ciò è noto con il nome di mapping globale SMB. Questa unità mappata è quindi accessibile a tutti gli utenti nel server locale in modo che l'I/O del contenitore nel volume di dati possa passare dall'unità montata alla condivisione di file sottostante. Per altre informazioni, vedere la pagina relativa al [supporto di archiviazione contenitore con volumi condivisi cluster (CSV), spazi di archiviazione diretta (S2D), mapping globale SMB](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
 **Formato di file di configurazione della macchina virtuale (aggiornato)** . È stato aggiunto un ulteriore file (con estensione vmgs) per le macchine virtuali con una versione di configurazione 8.2 e versioni successive. VMGS è l'acronimo di "VM guest" (guest VM) ed è un nuovo file interno che include lo stato del dispositivo che in precedenza faceva parte del file di stato di runtime della macchina virtuale.
 
@@ -112,7 +112,7 @@ Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e 
 
 ## <a name="networking"></a>Rete
 
-La **mesh di routing di Docker** è supportata. La mesh routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedere la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
+La **mesh di routing di Docker** è supportata. La mesh di routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedere la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
 
 **Nuove funzionalità per Docker** sono disponibili. Per altre informazioni, vedere la pagina relativa a [interessanti novità per Docker con Windows Server 1709](https://blog.docker.com/2017/09/docker-windows-server-1709/).
 

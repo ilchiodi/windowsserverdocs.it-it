@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 964139ac5fdaee4d580d29ab0f7543c7d5f15d0b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810711"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868455"
 ---
 # <a name="kms-client-setup-keys"></a>Chiavi di configurazione di client del servizio di gestione delle chiavi
 
@@ -25,13 +25,13 @@ I computer che eseguono versioni con contratti multilicenza di Windows Server, W
 > [!NOTE]
 > Nelle tabelle seguenti, "LTSC" è l'acronimo di "Long-Term Servicing Channel", mentre per "LTSB" si intende "Long-Term Servicing Branch". 
 
-**Per usare i codici qui elencati (che sono GVLK) è necessario in primo luogo che sia in esecuzione un host del servizio di gestione delle chiavi nella distribuzione.** Se l'host del servizio di gestione delle chiavi non è già stato configurato, vedere [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) per ottenere una procedura di configurazione.
+**Per usare i codici qui elencati (che sono GVLK) è necessario in primo luogo che sia in esecuzione un host del servizio di gestione delle chiavi nella distribuzione.** Se l'host del servizio di gestione delle chiavi non è già stato configurato, puoi trovare una procedura di configurazione in [Distribuire l'attivazione con il servizio di gestione delle chiavi](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx).
 
 Se si converte un computer in un client KMS a partire da un host KMS, un codice ad attivazione multipla (MAK) o un'edizione retail di Windows, installare la chiave di configurazione corrispondente (GVLK) selezionandola dalle tabelle seguenti. Per installare la chiave di configurazione client, aprire un prompt dei comandi amministrativo nel client, digitare **slmgr /ipk \<chiave di configurazione\>** e quindi premere **INVIO**.
 
 | Per…    | …usare queste risorse   |
 |--------------------|------------------------|
-| Attivare Windows al di fuori di uno scenario di attivazione di contratti multilicenza, ovvero se si prova ad attivare una versione definitiva di Windows, **queste chiavi non funzioneranno**. | Per le versioni definitive di Windows, usare i collegamenti seguenti: |
+| Attiva Windows al di fuori di uno scenario di attivazione di contratti multilicenza, ovvero se provi ad attivare una versione definitiva di Windows, **queste chiavi non funzioneranno**. | Per le versioni definitive di Windows, usare i collegamenti seguenti: |
 | Correggere l'errore che viene generato quando si tenta di attivare un sistema Windows 8.1, Windows Server 2012 R2 o un sistema successivo: "Errore: 0xC004F050. Servizio gestione licenze software: codice "Product Key" non valido" | [Installare questo aggiornamento](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) nell'host di servizi di gestione delle chiavi se è in esecuzione Windows 8.1, Windows Server 2012 R2, Windows 8 o Windows Server 2012. |
 
 -   [Aggiornamento a Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)

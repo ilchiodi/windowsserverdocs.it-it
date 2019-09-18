@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 1099f1c8bb635ee1b4bb33c6483f128ee0ecdfb9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151013"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871237"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
@@ -100,7 +100,7 @@ Le applicazioni Desktop remoto supportano le connessioni di blocco nella scherma
 2. Toccare **widget**.
 3. Scorri tra i widget e cerca l'icona di Desktop remoto con la descrizione "Pin Remote Desktop" (Blocca Desktop remoto).
 4. Tenendo premuta widget Desktop remoto e spostarlo sullo schermo principale.
-5. Quando si rilascia l'icona, verrà visualizzato il desktop remoto salvato. Scegliere la connessione che si desidera salvare nella schermata iniziale.
+5. Rilasciando l'icona, visualizzerai i desktop remoti salvati. Scegliere la connessione che si desidera salvare nella schermata iniziale.
 
 Ora è possibile avviare la connessione desktop remoto direttamente dalla schermata iniziale per selezionarlo.
 
@@ -143,7 +143,7 @@ Quando si avvia una connessione desktop remoto, sono disponibili strumenti che �
 ### <a name="start-a-remote-desktop-connection"></a>Avviare una connessione Desktop remoto
 
 1. Tocca la connessione Desktop remoto per avviare la sessione. 
-2. Se viene chiesto di verificare il certificato per il desktop remoto, toccare **Connect**. È inoltre possibile selezionare **non visualizzare più questo messaggio per le connessioni al computer** sempre accettare il certificato.
+2. Se viene chiesto di verificare il certificato per il desktop remoto, toccare **Connect**. Puoi anche selezionare **Non visualizzare più questo messaggio per le connessioni a questo computer** per accettare sempre il certificato.
 
 ### <a name="manage-global-app-settings"></a>Gestire le impostazioni delle app globali
 

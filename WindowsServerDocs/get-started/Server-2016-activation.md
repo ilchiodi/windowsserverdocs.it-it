@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 88cab1965e299c7d25c177125cb504432bf987e8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 746434884701ba1a8a6781b485b3f1540abe975e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810644"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868419"
 ---
 # <a name="windows-server-2016-activation"></a>Attivazione di Windows Server 2016
 
@@ -48,7 +48,7 @@ La tabella seguente riepiloga i requisiti client e host del servizio di gestione
 > - Le installazioni del servizio di gestione delle chiavi in Windows 8.1 o Windows Server 2012 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10 e Windows Server 2016 o sistemi operativi client o server più recenti. Per altre informazioni, vedere  [Aggiornamento cumulativo di luglio 2016 per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2).  
 > - Non è possibile aggiornare Windows Server 2008 R2 per supportare l'attivazione dei client che eseguono Windows Server 2016 o sistemi operativi più recenti. 
 
-Uno stesso host del servizio di gestione delle chiavi è in grado di supportare un numero illimitato di client del servizio di gestione delle chiavi. Se sono presenti più di 50 client, consigliamo di disporre di almeno due host del servizio di gestione delle chiavi, nel caso in cui la disponibilità di uno dei due venga a mancare. L'intera infrastruttura della maggior parte delle organizzazioni è normalmente in grado di funzionare con appena due host del servizio di gestione delle chiavi.
+Uno stesso host del servizio di gestione delle chiavi è in grado di supportare un numero illimitato di client del servizio di gestione delle chiavi. Se sono presenti più di 50 client, consigliamo di disporre di almeno due host del Servizio di gestione delle chiavi, nel caso in cui la disponibilità di uno dei due venga a mancare. L'intera infrastruttura della maggior parte delle organizzazioni è normalmente in grado di funzionare con appena due host del servizio di gestione delle chiavi.
 
 # <a name="addressing-kms-operational-requirements"></a>Requisiti operativi del servizio di gestione delle chiavi
 Il servizio di gestione delle chiavi può attivare computer fisici e virtuali, ma per qualificarsi per questo servizio la rete deve includere un numero minimo di computer (la cosiddetta soglia di attivazione). I client del servizio di gestione delle chiavi si attivano solo dopo che questa soglia viene raggiunta. Per assicurarsi che la soglia di attivazione sia raggiunta, un host del servizio di gestione delle chiavi conta i computer che richiedono l'attivazione nella rete.
@@ -63,7 +63,7 @@ L'attivazione mediante il servizio di gestione delle chiavi richiede la connetti
 
 Dopo l'attivazione del primo host del servizio di gestione delle chiavi, con il codice Product Key del servizio di gestione delle chiavi utilizzato per questo host è possibile attivare fino a cinque altri host del servizio di gestione delle chiavi nella rete. Dopo l'attivazione di un host del servizio di gestione delle chiavi, gli amministratori possono riattivare lo stesso host fino a nove volte con lo stesso codice.
 
-Se l'organizzazione ha bisogno di più di sei host del servizio di gestione delle chiavi è necessario richiedere attivazioni aggiuntive per il codice Product Key, ad esempio se dieci posizioni fisiche sono comprese in un unico contratto multilicenza e si desidera che ciascuna abbia un host del servizio di gestione delle chiavi locale.
+Se l'organizzazione necessita di più di sei host del Servizio di gestione delle chiavi, dovrai richiedere attivazioni aggiuntive per il codice del Servizio di gestione delle chiavi dell'organizzazione, ad esempio se dieci posizioni fisiche sono comprese in un unico contratto multilicenza e vuoi che ciascuna abbia un host del Servizio di gestione delle chiavi locale.
 
 > [!NOTE] 
 > Per richiedere questa eccezione, contattare il call center dell'attivazione. Per altre informazioni, vedere [Contratti multilicenza Microsoft]( https://www.microsoft.com/licensing).

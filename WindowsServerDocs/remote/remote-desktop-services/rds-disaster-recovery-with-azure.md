@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 24b5fdaa815b6d2e84606cd8e681634eb3d0f4e9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 79e0364bcb9d2ed899568a6699c61b43d84044e5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63713084"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871012"
 ---
 # <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery
 
@@ -25,7 +25,7 @@ ms.locfileid: "63713084"
 
 È possibile usare Azure Site Recovery per creare una soluzione di ripristino di emergenza per la distribuzione di Servizi Desktop remoto. 
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) è un servizio basato su Azure che fornisce funzionalità di ripristino di emergenza tramite orchestrazione di replica, failover e ripristino delle macchine virtuali. Azure Site Recovery supporta una serie di tecnologie di replica per la replica, la protezione e il semplice failover di macchine virtuali e applicazioni in modo coerente in cloud privati, pubblici o ospitati. 
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) è un servizio basato su Azure che fornisce funzionalità di ripristino di emergenza tramite orchestrazione di replica, failover e ripristino delle macchine virtuali. Azure Site Recovery supporta una serie di tecnologie di replica per eseguire la replica in modo coerente, garantire la protezione ed effettuare il failover uniforme di macchine virtuali e applicazioni in cloud privati, pubblici o ospitati. 
 
 Usa le informazioni seguenti per creare e convalidare la soluzione di ripristino di emergenza.
 

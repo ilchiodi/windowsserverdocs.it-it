@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cc669fee4fbd31edc8813f16761ecb9f90532df
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 536d3265e6a29c2d5321d3d8a8ea3ecfa7b2cdcb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810915"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868686"
 ---
 # <a name="windows-server-2019-activation"></a>Attivazione di Windows Server 2019
 
@@ -46,7 +46,7 @@ La tabella seguente riepiloga i requisiti client e host del Servizio di gestione
 
 > [!NOTE]  
 > A seconda del sistema operativo eseguito dal server del Server di gestione delle chiavi e dei sistemi operativi che si intende attivare, potrebbe essere necessario installare uno o più degli aggiornamenti seguenti:
-> - Le installazioni del Servizio di gestione delle chiavi in Windows 7 o Windows Server 2008 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10. Per altre informazioni, vedi  [Aggiornamento che consente agli host del Servizio di gestione delle chiavi con Windows 7 e Windows Server 2008 R2 di attivare Windows 10](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10).  
+> - Le installazioni del servizio di gestione delle chiavi in Windows 7 o Windows Server 2008 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10. Per altre informazioni, vedi  [Aggiornamento che consente agli host del Servizio di gestione delle chiavi con Windows 7 e Windows Server 2008 R2 di attivare Windows 10](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10).  
 > - Le installazioni del Servizio di gestione delle chiavi in Windows Server 2012 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi client o server più recenti. Per altre informazioni, vedi  [Aggiornamento cumulativo di luglio 2016 per Windows Server 2012](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012). 
 > - Le installazioni del Servizio di gestione delle chiavi in Windows 8.1 o Windows Server 2012 R2 devono essere aggiornate per supportare l'attivazione dei client che eseguono Windows 10 e Windows Server 2016 o Windows Server 2019 o sistemi operativi client o server più recenti. Per altre informazioni, vedi  [Aggiornamento cumulativo di luglio 2016 per Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2).  
 > - Non è possibile aggiornare Windows Server 2008 R2 per supportare l'attivazione dei client che eseguono Windows Server 2016, Windows Server 2019 o sistemi operativi più recenti. 
@@ -62,18 +62,18 @@ Le attivazioni con il servizio di gestione delle chiavi sono valide per 180 gior
 
 # <a name="addressing-kms-functional-requirements"></a>Requisiti funzionali del servizio di gestione delle chiavi
 
-L'attivazione mediante il servizio di gestione delle chiavi richiede la connettività TCP/IP. Per impostazione predefinita, gli host e i client del servizio di gestione delle chiavi sono configurati per utilizzare DNS (Domain Name System). Per impostazione predefinita, gli host del Servizio di gestione delle chiavi usano l'aggiornamento dinamico DNS per pubblicare automaticamente le informazioni di cui i client del Servizio di gestione delle chiavi hanno bisogno per trovarli e connettersi a essi. È possibile accettare queste impostazioni predefinite oppure, in presenza di particolari esigenze di configurazione della sicurezza e di rete, configurare manualmente gli host e i client del servizio di gestione delle chiavi.
+L'attivazione mediante il servizio di gestione delle chiavi richiede la connettività TCP/IP. Per impostazione predefinita, gli host e i client del servizio di gestione delle chiavi sono configurati per utilizzare DNS (Domain Name System). Per impostazione predefinita, gli host del servizio di gestione delle chiavi usano l'aggiornamento dinamico DNS per pubblicare automaticamente le informazioni di cui i client del servizio di gestione delle chiavi hanno bisogno per trovarli e connettersi a essi. È possibile accettare queste impostazioni predefinite oppure, in presenza di particolari esigenze di configurazione della sicurezza e di rete, configurare manualmente gli host e i client del servizio di gestione delle chiavi.
 
 Dopo l'attivazione del primo host del servizio di gestione delle chiavi, con il codice Product Key del servizio di gestione delle chiavi utilizzato per questo host è possibile attivare fino a cinque altri host del servizio di gestione delle chiavi nella rete. Dopo l'attivazione di un host del servizio di gestione delle chiavi, gli amministratori possono riattivare lo stesso host fino a nove volte con lo stesso codice.
 
-Se l'organizzazione ha bisogno di più di sei host del servizio di gestione delle chiavi è necessario richiedere attivazioni aggiuntive per il codice Product Key, ad esempio se dieci posizioni fisiche sono comprese in un unico contratto multilicenza e si desidera che ciascuna abbia un host del servizio di gestione delle chiavi locale.
+Se l'organizzazione necessita di più di sei host del Servizio di gestione delle chiavi, dovrai richiedere attivazioni aggiuntive per il codice del Servizio di gestione delle chiavi dell'organizzazione, ad esempio se dieci posizioni fisiche sono comprese in un unico contratto multilicenza e vuoi che ciascuna abbia un host del Servizio di gestione delle chiavi locale.
 
 > [!NOTE] 
 > Per richiedere questa eccezione, contattare il call center dell'attivazione. Per altre informazioni, vedere [Contratti multilicenza Microsoft](https://go.microsoft.com/fwlink/?LinkID=73076).
 
 I computer che eseguono edizioni con contratti multilicenza di Windows 10, Windows Server 2019, Windows Server 2016, Windows 8.1, Windows Server 2012 R2, Windows Server 2012, Windows 7 e Windows Server 2008 R2 sono client del Servizio di gestione delle chiavi per impostazione predefinita, senza necessità di configurazioni aggiuntive.
 
-Se si converte un computer in un client KMS a partire da un host del Servizio di gestione delle chiavi, un codice ad attivazione multipla (MAK) o un'edizione retail di Windows, installare la chiave di configurazione client KMS pertinente. Per altre informazioni, vedi  [Chiavi di configurazione di client del Servizio di gestione delle chiavi](../get-started/KMSclientkeys.md). 
+Se si converte un computer in un client KMS a partire da un host del Servizio di gestione delle chiavi, un codice ad attivazione multipla (MAK) o un'edizione retail di Windows, installare la chiave di configurazione client KMS pertinente. Per altre informazioni, vedere  [Chiavi di configurazione di client del servizio di gestione delle chiavi](../get-started/KMSclientkeys.md). 
  
 
  

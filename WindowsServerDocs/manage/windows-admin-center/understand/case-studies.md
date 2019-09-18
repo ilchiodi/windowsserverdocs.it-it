@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 61f447f68ec6c85ed1554e176c78c4caec5dfde4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4707a6b54ad7a216f18c22367985e55d07e7a2eb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63747887"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869505"
 ---
 # <a name="windows-admin-center-case-studies"></a>Case study di Windows Admin Center
 
@@ -38,7 +38,7 @@ Ava6 usa Windows Server 2016 Core, Hyper-V, clustering di failover e S2D.
 
 ### <a name="the-challenge"></a>**La sfida**
 
-Il primo caso di uso di Ava6 per Windows Admin Center è Hyper-V e clustering di failover, ma sta valutando i cluster iperconvergenti.
+Il primo caso di utilizzo di Ava6 per Windows Admin Center è rappresentato da Hyper-V e clustering di failover, ma sta valutando i cluster iperconvergenti.
 
 Windows Admin Center consente ad Ava6 di gestire Windows Server distribuito in Core Edition, in particolare per la gestione dei driver.  Windows Admin Center offre ai clienti un'esperienza migliore per Hyper-V e il cluster di failover, in particolare per la gestione delle macchine virtuali, e mostra agli utenti la prossima disponibilità di un'interfaccia utente grafica per la soluzione iperconvergente.
 

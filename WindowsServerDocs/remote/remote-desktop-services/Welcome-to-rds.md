@@ -14,12 +14,12 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d148c99911be0cebfc29429d93241f24c2b9606
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 74ec3d9bfbdb435c5bcb93ea1ef2cd9cdf2dd9d2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66453010"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871282"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>Introduzione a Servizi Desktop remoto 
 
@@ -31,7 +31,7 @@ Servizi Desktop remoto offre flessibilità di distribuzione, convenienza ed este
 
 A seconda dell'ambiente e delle preferenze, puoi configurare la soluzione Servizi Desktop remoto per la virtualizzazione basata su sessione, come soluzione Virtual Desktop Infrastructure (VDI) o come una combinazione delle due opzioni:
 
-- **Virtualizzazione basata su sessione**: sfrutta la potenza di calcolo di Windows Server per offrire un ambiente multisessione conveniente per i carichi di lavoro quotidiani degli utenti.
+- **Virtualizzazione basata su sessione**: è possibile sfruttare la potenza di calcolo di Windows Server per offrire un ambiente multisessione conveniente in modo da guidare i carichi di lavoro quotidiani degli utenti.
 - **VDI**: sfrutta il client Windows per offrire compatibilità tra app, prestazioni elevate e la familiarità che gli utenti si aspettano dall'esperienza desktop in Windows.
 
 In questi ambienti di virtualizzazione hai l'ulteriore flessibilità di scegliere cosa pubblicare per gli utenti:

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: 14c32831445b12b314c71e538320c2ce5a9b7ee4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: f70cfbf7d65ee0a8fb4439ea51a995e6428ede5e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63749402"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871364"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architettura di Servizi Desktop remoto
 
@@ -49,7 +49,7 @@ Sebbene le architetture di distribuzione di Servizi Desktop remoto standard si a
 
 ### <a name="rds-deployment-with-azure-ad-domain-services"></a>Distribuzione di Servizi Desktop remoto con Azure Active Directory Domain Services
 
-I due diagrammi di architettura standard precedenti si basano su una distribuzione tradizionale di Active Directory (AD) in una macchina virtuale Windows Server. Se tuttavia non disponi di una distribuzione tradizionale di AD e hai solo un tenant Azure AD (attraverso servizi quali Office365), ma vuoi comunque sfruttare Servizi Desktop remoto, puoi usare [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) per creare un dominio completamente gestito in un ambiente IaaS di Azure che usa gli stessi utenti presenti nel tenant Azure AD. In questo modo si evita la difficoltà di dover sincronizzare manualmente gli utenti e gestire più macchine virtuali. Azure Active Directory Domain Services può essere usato in una distribuzione di base o a disponibilità elevata.
+I due diagrammi di architettura standard precedenti si basano su una distribuzione tradizionale di Active Directory (AD) in una macchina virtuale Windows Server. Se tuttavia non disponi di una distribuzione tradizionale di AD e hai solo un tenant Azure AD (attraverso servizi come Office 365), ma vuoi comunque sfruttare Servizi Desktop remoto, puoi usare [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) per creare un dominio completamente gestito nell'ambiente IaaS di Azure che usi gli stessi utenti presenti nel tenant Azure AD. In questo modo si evita la difficoltà di dover sincronizzare manualmente gli utenti e gestire più macchine virtuali. Azure Active Directory Domain Services può essere usato in una distribuzione di base o a disponibilità elevata.
 
 ![Distribuzione di Azure AD e Servizi Desktop remoto](./media/aadds-rds.png)
 

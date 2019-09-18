@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 79909767-a4c3-4ecf-8d3f-77d37a663153
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 40f8dbd560da359e8764ed715e7776cc2d230a7f
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 0207a1d69eb62b5a7ea02416408b67d2f5a0be32
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712094"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870763"
 ---
 # <a name="run-and-tune-your-remote-desktop-services-environment"></a>Eseguire e ottimizzare il proprio ambiente Servizi Desktop remoto
 
@@ -47,4 +47,4 @@ Per mantenere un'applicazione con scalabilità elevata in esecuzione, è necessa
 
 ## <a name="load-testing-avoid-surprises"></a>Test di carico: Evitare sorprese
 
-Si consiglia di verificare la distribuzione eseguendo con test di sforzo e una simulazione dell'uso reale. Variare le dimensioni del carico per evitare sorprese. Verificare che la velocità di risposta soddisfi i requisiti degli utenti e che l'intero sistema sia resiliente. Creare test di carico con strumenti di simulazione come LoginVSI, che verificano la capacità della distribuzione di soddisfare le esigenze degli utenti. 
+Si consiglia di verificare la distribuzione eseguendo con test di sforzo e una simulazione dell'uso reale. Variare le dimensioni del carico per evitare sorprese. Verificare che la velocità di risposta soddisfi i requisiti degli utenti e che l'intero sistema sia resiliente. Crea test di carico con strumenti di simulazione, come LoginVSI, che verificano la capacità della distribuzione di soddisfare le esigenze degli utenti. 

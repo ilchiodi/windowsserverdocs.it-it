@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: 87de04e3ca34217fbbc3ec451dc061ee228a1a60
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ca43a37bff28a035d9f7292da830a23ca29d23bc
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743822"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871033"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Creare una raccolta di Servizi Desktop remoto per desktop e l'esecuzione di app
 
@@ -28,7 +28,7 @@ Per creare una raccolta di sessioni di Servizi Desktop remoto usare la procedura
 
 Prima di creare una raccolta è necessario scegliere il tipo di raccolta necessario: sessioni desktop in pool o sessioni desktop personali. 
 
-- **Usare le sessioni desktop in pool per la virtualizzazione basata sulla sessione**: è possibile sfruttare la potenza di calcolo di Windows Server per offrire un ambiente multisessione conveniente in modo da guidare i carichi di lavoro quotidiani degli utenti.
+- **Usare le sessioni desktop in pool per la virtualizzazione basata sulla sessione**: è possibile sfruttare la potenza di calcolo di Windows Server per offrire un ambiente multisessione conveniente come base per i carichi di lavoro quotidiani degli utenti.
 - **Usare le sessioni desktop personali per creare un'infrastruttura desktop virtuale (VDI)** : è possibile sfruttare il client di Windows per offrire una compatibilità tra app, alte prestazioni e quella familiarità che gli utenti si aspettano dalla loro esperienza desktop di Windows.
  
 Con una sessione in pool vari utenti accedono a un pool condiviso di risorse, mentre con una sessione desktop personale a ogni utente viene assegnato il proprio desktop dall'interno del pool. La sessione in pool offre una riduzione complessiva dei costi mentre le sessioni personali consentono agli utenti di personalizzare la propria esperienza desktop.
@@ -50,11 +50,11 @@ Indipendentemente dal tipo di raccolta scelto è possibile popolare tali raccolt
 
 ## <a name="create-a-personal-desktop-session-collection"></a>Creare una raccolta di sessioni desktop personali
 
-Usare il cmdlet New-RDSessionCollection per creare una raccolta di sessioni desktop personali. I tre parametri seguenti offrono le necessarie informazioni di configurazione per le sessioni desktop personali:
+Usare il cmdlet New-RDSessionCollection per creare una raccolta di sessioni desktop personali. I tre parametri seguenti offrono le informazioni di configurazione necessarie per i desktop sessione personali:
 
-- **-PersonalUnmanaged**: specifica il tipo di raccolta di sessioni in modo da assegnare agli utenti un server host di sessioni personali. Se non si specifica questo parametro, la raccolta creata sarà una tradizionale raccolta di host sessione Desktop remoto, in cui gli utenti vengono assegnati al successivo host di sessione disponibile al momento dell'accesso.
-- **-GrantAdministrativePrivilege**: se si usa **- PersonalUnmanaged**, specifica che l'utente assegnato all'host sessione disporrà di privilegi amministrativi. Se non si usa questo parametro, agli utenti vengono concessi solo i privilegi di utente standard.
-- **-AutoAssignUser**: se si usa **- PersonalUnmanaged**, specifica che i nuovi utenti che si connettono tramite il Gestore connessione Desktop remoto vengono automaticamente assegnati a un host sessione non assegnato. Se non sono presenti host sessione non assegnati nella raccolta, l'utente vedrà un messaggio di errore. Se non si usa questo parametro, è necessario [assegnare manualmente gli utenti a un host sessione](rds-manage-personal-collection.md#manually-assign-a-user-to-a-personal-session-host) prima che del loro accesso.
+- **-PersonalUnmanaged**: specifica il tipo di raccolta di sessioni che consente di assegnare utenti a un server host sessione personale. Se non specifichi questo parametro, la raccolta verrà creata come una tradizionale raccolta di host sessione Desktop remoto, in cui gli utenti vengono assegnati al successivo host sessione disponibile al momento dell'accesso.
+- **-GrantAdministrativePrivilege**: se usi **-PersonalUnmanaged**, questo parametro specifica che all'utente assegnato all'host sessione devono essere concessi privilegi amministrativi. Se non usi questo parametro, agli utenti verranno concessi solo i privilegi utente standard.
+- **-AutoAssignUser**: se usi **-PersonalUnmanaged**, questo parametro specifica che i nuovi utenti che si connettono tramite Gestore connessione Desktop remoto devono essere automaticamente assegnati a un host sessione non assegnato. Se non sono presenti host sessione non assegnati nella raccolta, l'utente vedrà un messaggio di errore. Se non si usa questo parametro, è necessario [assegnare manualmente gli utenti a un host sessione](rds-manage-personal-collection.md#manually-assign-a-user-to-a-personal-session-host) prima che del loro accesso.
 
 È possibile usare i cmdlet di PowerShell per gestire le raccolte di sessioni desktop personali. Consultare la sezione [Gestire raccolte di sessioni desktop personali](rds-manage-personal-collection.md) per altre informazioni.
 

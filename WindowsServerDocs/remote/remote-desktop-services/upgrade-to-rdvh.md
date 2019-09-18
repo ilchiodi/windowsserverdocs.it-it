@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 5aed8ba7-f541-4416-b01c-4d3b1712e2b1
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 9e624517e5e7910a32a68d1ebc38b3f8d5ab8459
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a58231d908ff1ac32eca7d4ba3f1d5a6a18dd7fe
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805215"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870575"
 ---
 # <a name="upgrading-your-remote-desktop-virtualization-host-to-windows-server-2016"></a>Aggiornamento dell'Host di virtualizzazione Desktop remoto a Windows Server 2016
 
@@ -38,7 +38,7 @@ Questi server devono essere aggiornati contemporaneamente. Per eseguire l'aggior
 ## <a name="rd-virtualization-host-servers-in-the-deployment-where-vms-are-stored-in-cluster-shared-volumes-csv"></a>Server Host di virtualizzazione Desktop remoto nella distribuzione di macchine virtuali archiviate in Volumi condivisi di cluster (CSV) 
 
 1. Determinare una strategia di aggiornamento in cui alcuni server Host di virtualizzazione Desktop remoto (RDVH) verranno aggiornati e altri continueranno a ospitare le macchine virtuali su Windows Server 2012 R2.  
-2. Isolare uno o più server RDVH, destinati alla fase iniziale di aggiornamento, eseguendo la migrazione di tutte le macchine virtuali su altri server RDVH "non ancora da aggiornare" che continueranno a far parte del cluster originale di 2012 R2.
+2. Isola uno o più server RDVH, destinati alla fase iniziale di aggiornamento, eseguendo la migrazione di tutte le macchine virtuali verso altri server RDVH "non ancora da aggiornare" che continueranno a far parte del cluster 2012 R2 originale.
     1. Aprire Gestione cluster di failover. 
     1. Fare clic su **Ruoli**. 
     1. Selezionare una o più macchine virtuali. Fare clic con il pulsante destro del mouse per aprire il menu di scelta rapida. 
@@ -49,7 +49,7 @@ Questi server devono essere aggiornati contemporaneamente. Per eseguire l'aggior
 6. Aggiungere tutti i server RDVH aggiornati al nuovo cluster. 
 7. Creare una struttura di cartelle nel nuovo Volume condiviso cluster che simuli la struttura di cartelle esistente nel Volume condiviso cluster esistente. Ciò include le cartelle di raccolta e le sottocartelle di primo livello di ogni macchina virtuale. 
 8. Dalle varie cartelle di raccolta delle macchine virtuali sul Volume condiviso cluster originale copiare la cartella /IMGS e il contenuto nelle nuove cartelle di raccolta nelle stesse posizioni sul nuovo Volume condiviso cluster. 
-9. Nella macchina RDVH di origine utilizzare Gestione Cluster per rimuovere la configurazione della macchina virtuale per la disponibilità elevata:
+9. Nella macchina RDVH di origine usare Gestione Cluster per rimuovere la configurazione della macchina virtuale per la disponibilità elevata:
     1. Avviare Gestione Cluster. 
     1. Fare clic su **Ruoli**. 
     1. Fare clic con il pulsante destro del mouse sugli oggetti macchina virtuale e quindi fare clic su **Rimuovi**. 
@@ -58,8 +58,8 @@ Questi server devono essere aggiornati contemporaneamente. Per eseguire l'aggior
     2. Selezionare uno dei server RDVH non aggiornati. 
     3. Fare clic con il pulsante destro del mouse su una delle macchine virtuali da spostare e quindi fare clic su **Sposta**. 
     4. Selezionare **Sposta macchina virtuale** quindi fare clic su **Avanti**. 
-    5. Specificare il nome del server RDVH di destinazione aggiornato nella pagina **Specifica computer di destinazione** e quindi fare clic su **Avanti**. 
-    6. Scegliere **Sposta i dati della macchina virtuale in un unico percorso**, quindi fare clic su **Avanti**. 
+    5. Fornisci il nome del server RDVH di destinazione aggiornato nella pagina **Specifica computer di destinazione** e quindi fai clic su **Avanti**. 
+    6. Scegli **Sposta i dati della macchina virtuale in un unico percorso** e quindi fai clic su **Avanti**. 
     7. Individuare la posizione di destinazione. 
        > [!IMPORTANT]
        > Verificare che questo percorso si trovi in una cartella vuota per la macchina virtuale specifica. 

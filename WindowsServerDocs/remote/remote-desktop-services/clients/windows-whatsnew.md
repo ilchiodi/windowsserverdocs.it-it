@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 6a4a6ae860dc8eabc4856ff3aa66268ed8d588de
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150979"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987366"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Novità del client Windows Store
 
-Aggiorniamo regolarmente il [client di Desktop remoto per Windows](windows.md) aggiungendo nuove funzionalità e risolvendo i problemi. Di seguito sono riportate informazioni sugli aggiornamenti più recenti.
+Il [client Windows Store](windows.md) viene aggiornato regolarmente aggiungendo nuove funzionalità e risolvendo i problemi. Qui sono disponibili gli aggiornamenti più recenti.
 
 ## <a name="updates-for-version-1011098"></a>Aggiornamenti alla versione 10.1.1098
 
@@ -36,7 +36,7 @@ Aggiorniamo regolarmente il [client di Desktop remoto per Windows](windows.md) a
 
 ## <a name="updates-for-version-1011088"></a>Aggiornamenti alla versione 10.1.1088
 
-*Data di pubblicazione: 11/06/2018*
+*Data di pubblicazione: 06/11/2018*
 
 - Il nome visualizzato della connessione è ora più facilmente individuabile.
 - Corretto un arresto anomalo durante la chiusura della finestra del client quando una connessione è ancora attiva.

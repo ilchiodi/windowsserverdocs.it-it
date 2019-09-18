@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ce10575d38bccc0b22dadf55bd89156c6ce5ea7b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447115"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871055"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>Qual è la tecnologia per la virtualizzazione della grafica più adatta?
 
@@ -36,7 +36,7 @@ La figura seguente mostra le opzioni di virtualizzazione della grafica in Window
 ![Opzioni di virtualizzazione della grafica in Windows Server 2016 con Servizi Desktop remoto: mostra le tre tecnologie disponibili e le differenze in scalabilità e prestazioni](media/rds-graphics-virtualization.png)
 
 ## <a name="discrete-device-assignment"></a>Assegnazione di dispositivi discreti
-L'assegnazione di dispositivi discreti (DDA) è una soluzione di pass-through hardware che offre le migliori prestazioni, in quanto la VM ha accesso completo alla GPU usando il driver nativo. L'utente della VM può accedere alle funzionalità complete dei suoi dispositivi come il driver nativo del dispositivo. Questo significa che le caratteristiche e funzionalità del dispositivo eseguito in una VM rispecchiano l'esecuzione dello stesso dispositivo bare metal.
+L'assegnazione di dispositivi discreti (DDA) è una soluzione di pass-through hardware che offre le migliori prestazioni, in quanto la VM ha accesso completo alla GPU usando il driver nativo. L'utente della macchina virtuale può accedere alle funzionalità complete del proprio dispositivo così come al driver nativo del dispositivo. Questo significa che le caratteristiche e funzionalità del dispositivo eseguito in una VM rispecchiano l'esecuzione dello stesso dispositivo bare metal.
 
 Per altre informazioni sulla DDA, consultare [Pianificare la distribuzione dell'assegnazione di dispositivi discreti](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 

@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4eaa9a187b4a8f7879cabf15724bfcfe3f625939
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14d5eab00271ea825bb84a2d8189a44c38fa5388
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150952"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987371"
 ---
 # <a name="whats-new-in-the-web-client"></a>Novità del client Web
 
-Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-client.md) aggiungendo nuove funzionalità e risolvendo i problemi. Scopri gli aggiornamenti più recenti riportati di seguito.
+Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-client.md) aggiungendo nuove funzionalità e risolvendo i problemi. Qui sono disponibili gli aggiornamenti più recenti.
 
 > [!NOTE]
 > Abbiamo modificato il sistema di controllo delle versioni per il client Web. A partire dalla versione 1.0.18.0, tutte le versioni del client Web conterranno numeri (nel formato "W.X.Y.Z"). I numeri di versione per il client Web di Desktop remoto terminano sempre con il valore 0, ad esempio W.X.Y.0. Ogni versione del client Web di Desktop virtuale Windows modificherà l'ultima cifra fino alla successiva versione del client Web di Desktop remoto, ad esempio 1.0.18.1.
@@ -99,7 +99,7 @@ Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-cl
 - Sono state aggiunte le opzioni **Guida** e **Feedback**.
 
 ## <a name="updates-for-version-080"></a>Aggiornamenti alla versione 0.8.0
-*Data di pubblicazione: 28/03/2018*
+*Data di pubblicazione: 03/28/2018*
 
 - È stata rilasciata la versione di anteprima pubblica iniziale del client Web.
 - È stata aggiunta l'opzione per copiare e incollare testo dagli Appunti con **CTRL+C** e **CTRL+V**.

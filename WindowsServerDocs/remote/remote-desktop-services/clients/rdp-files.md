@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b30aae3f745f7ed9d40a9f4884205d9ca01f0eef
-ms.sourcegitcommit: f62a17bf72a772ee46fe807a5a482923e67ae7e7
+ms.openlocfilehash: 546f992a21576795383497c0fac7fb98761d0da5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060304"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871250"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Impostazioni supportate dei file RDP di Desktop remoto
 
@@ -32,7 +32,7 @@ Per informazioni su come usare PowerShell per personalizzare le proprietà di RD
 | alternate shell:s:value        | Determina se un programma si avvia automaticamente quando viene stabilita la connessione con RDP. Per specificare una shell alternativa, immetti un percorso valido di un file eseguibile per il valore, ad esempio "C:\Programmi\Office\word.exe". Questa impostazione determina anche il percorso o l'alias dell'applicazione remota da avviare in fase di connessione se l'opzione RemoteApplicationMode è abilitata. | "C:\Programmi\Office\word.exe" || x | x | x |
 | audiocapturemode:i:value | Indica se il reindirizzamento dell'input/output audio è abilitato. | - 0: Disabilita l'acquisizione audio dal dispositivo locale<br>- 1: Abilita l'acquisizione audio dal dispositivo locale e il reindirizzamento a un'applicazione audio nella sessione remota | 0 | x | x | |
 | audiomode:i:value | Determina se l'audio viene riprodotto dal computer locale o remoto. | - 0: Riproduce i suoni nel computer locale (Riproduci nel computer locale)<br>- 1: Riproduce i suoni nel computer remoto (Riproduci nel computer remoto)<br>- 2: Non riproduce i suoni (Non riprodurre) | 0 | x | x | x |
-| authentication level:i:value | Definisce le impostazioni del livello di autenticazione server. | - 0: Se l'autenticazione server non riesce, viene stabilita la connessione al computer senza alcun avviso (Connetti senza avvisare)<br>- 1: Se l'autenticazione server non riesce, non viene stabilita la connessione (Non connettere)<br>- 2: Se l'autenticazione server non riesce, viene visualizzato un avviso e l'utente può decidere se eseguire la connessione o rifiutarla (Avvisa)<br>- 3: Nessun requisito di autenticazione specificato. | 3 | x | x ||
+| authentication level:i:value | Definisce le impostazioni del livello di autenticazione server. | - 0: se l'autenticazione server non riesce, viene stabilita la connessione al computer senza alcun avviso (Connetti senza avvisare)<br>- 1: Se l'autenticazione server non riesce, non viene stabilita la connessione (Non connettere)<br>- 2: Se l'autenticazione server non riesce, viene visualizzato un avviso e l'utente può decidere se eseguire la connessione o rifiutarla (Avvisa)<br>- 3: Nessun requisito di autenticazione specificato. | 3 | x | x ||
 | autoreconnection enabled:i:value | Determina se il computer client proverà automaticamente a ristabilire la connessione al computer remoto se la connessione viene interrotta, ad esempio in caso di interruzione della connettività di rete. | - 0: Il computer client non prova a riconnettersi automaticamente<br>- 1: Il computer client prova a riconnettersi automaticamente| 1 | x | x | x |
 | bandwidthautodetect:i:value | Determina se è abilitato il rilevamento automatico del tipo di rete | - 0: Disabilita il rilevamento automatico del tipo di rete<br>- 1: Abilita il rilevamento automatico del tipo di rete | 1 | x | x | x |
 | camerastoredirect:s:value | Configura le videocamere da reindirizzare. Questa impostazione usa un elenco delimitato da punti e virgola di interfacce KSCATEGORY_VIDEO_CAMERA di videocamere abilitate per il reindirizzamento. | - *: Reindirizza tutte le videocamere<br> - È possibile escludere una videocamera specifica anteponendo "-" alla stringa di collegamento simbolico, ad esempio camerastoredirect:s:\\?\usb#vid_0bda&pid_58b0&mi | | x | x | |

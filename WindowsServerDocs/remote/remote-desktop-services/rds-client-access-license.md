@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2018
 manager: dongill
-ms.openlocfilehash: 0254c03396cba69a86eed021319ca2e2483ca625
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 7783fd19c3dedde81514512f0c81f54eada33dc4
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743870"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871063"
 ---
 # <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto
 
@@ -56,7 +56,7 @@ Nella tabella seguente vengono descritte le differenze tra i due tipi di licenze
 
 Quando si usa il modello Per dispositivo, viene rilasciata una licenza temporanea la prima volta che un dispositivo si connette all'host sessione Desktop remoto. Quando il dispositivo si connette per la seconda volta il server licenze rilascerà una licenza CAL permanente per dispositivo di Servizi Desktop remoto, se il server licenze è attivo e se sono disponibili licenze CAL.
 
-Quando si usa il modello Per utente, le licenze non vengono applicate e a ogni utente viene concessa una licenza per connettersi a un Host sessione Desktop remoto da qualsiasi dispositivo. Il server licenze rilascia le licenze da un pool di licenze CAL disponibili o da un pool di licenze CAL utilizzate più volte. È compito degli utenti assicurarsi che tutti dispongano di una licenza valida e che nessuna licenza CAL venga utilizzata più volte, in caso contrario si violano le condizioni di licenza di Servizi Desktop remoto.
+Quando si usa il modello Per utente, le licenze non vengono applicate e a ogni utente viene concessa una licenza per connettersi a un Host sessione Desktop remoto da qualsiasi dispositivo. Il server licenze rilascia le licenze da un pool di licenze CAL disponibili o da un pool di licenze CAL utilizzate più volte. È tuo compito assicurarti che tutti gli utenti dispongano di una licenza valida e che nessuna licenza CAL venga usata più volte del previsto; in caso contrario, vengono violate le condizioni di licenza di Servizi Desktop remoto.
 
 Per assicurarsi di essere conformi alle condizioni di licenza di Servizi Desktop remoto, tenere traccia del numero di licenze CAL per utente di Servizi Desktop remoto usate nell'organizzazione e assicurarsi di disporre di un numero sufficiente di licenze CAL per utente installate nel server licenze per tutti gli utenti.
 

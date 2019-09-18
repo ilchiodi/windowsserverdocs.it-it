@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 4185454c6351b752a6397109b3a333d3eab107cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150978"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871147"
 ---
 # <a name="get-started-with-the-web-client"></a>Introduzione al client Web
 
@@ -59,6 +59,6 @@ Seguire questa procedura per stampare dal client Web:
 
 Il client Web attualmente supporta la funzione di copia e incolla solo per testo. I file non possono essere copiati o incollati da e verso il client Web. Inoltre, è possibile usare solo **Ctrl+C** e **Ctrl+V** per copiare e incollare il testo.
 
-## <a name="get-help-with-the-web-client"></a>Assistenza per il client Web
+## <a name="get-help-with-the-web-client"></a>Ottenere assistenza per il client Web
 
-Se si è verificato un problema che non può essere risolto con le informazioni contenute in questo articolo, è possibile ottenere assistenza per il client Web inviando un'e-mail all'indirizzo indicato nella pagina di Informazioni sul client Web.
+Se si è verificato un problema che non può essere risolto con le informazioni contenute in questo articolo, puoi ottenere assistenza per il client Web inviando un messaggio di posta elettronica all'indirizzo indicato nella pagina di Informazioni sul client Web.
