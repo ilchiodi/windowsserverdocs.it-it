@@ -24,7 +24,7 @@ La funzionalità Protezione disco consente di ripristinare il sistema MultiPoint
   
 ## <a name="enable-disk-protection"></a>Abilitare la protezione del disco  
   
-1.  In Gestione MultiPoint fare clic sulla scheda **Home** , quindi in**attività*** nome computer * fare clic su **Abilita protezione disco**.  
+1.  In Gestione MultiPoint fare clic sulla scheda **Home** , quindi in**attività** *nome computer* fare clic su **Abilita protezione disco**.  
   
 2.  Controllare le informazioni e quindi fare clic su **OK**.  
   
@@ -32,7 +32,7 @@ Dopo il riavvio del sistema, tutte le modifiche apportate al sistema, tra cui l'
   
 ## <a name="disable-disk-protection"></a>Disabilitare la protezione del disco  
   
-1.  In Gestione MultiPoint fare clic sulla scheda **Home** , quindi in**attività*** nome computer * fare clic su **Disabilita protezione disco**.  
+1.  In Gestione MultiPoint fare clic sulla scheda **Home** , quindi in**attività** *nome computer* fare clic su **Disabilita protezione disco**.  
   
 2.  Controllare le informazioni e quindi fare clic su **OK**.  
   
