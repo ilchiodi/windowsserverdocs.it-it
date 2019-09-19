@@ -1,6 +1,6 @@
 ---
 title: nslookup set
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ac8736ca8223a1a444784c4cf605a973a9e4dd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 928d222714bf01cac1585a25e8cac3ec6c8b0233
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436539"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105048"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
@@ -33,12 +33,12 @@ set <KeyWord>[=<Value>]
 
 |    Parametro    |                                                                                                                    Descrizione                                                                                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <KeyWord>    | Identifica i sottocomandi che derivano dal **impostare** sottocomando. Ad esempio, il sottocomando **impostare d2** dispone di una parola chiave di [**alcun**]**d2**. Per un elenco di sottocomandi che derivano dal **impostare** il sottocomando, vedere riferimenti aggiuntivi. |
+|    <KeyWord>    | Identifica i sottocomandi che derivano dal **set** sottocomando. Ad esempio, il sottocomando **set D2** presenta una parola chiave [**No**]**D2**. Per l'elenco dei sottocomandi derivati dal **set** sottocomando, vedere riferimenti aggiuntivi. |
 |     <Value>     |                                                                                      Specifica il valore dell'impostazione di configurazione nslookup per ogni sottocomando.                                                                                      |
-| {help &#124; ?} |                                                                                               Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                                                                                               |
+| {Help &#124; ?} |                                                                                               Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                                                                                               |
 
 ## <a name="remarks"></a>Note
-Uso **imposta tutti** per visualizzare un elenco delle impostazioni correnti.
+Usare **set all** per visualizzare un elenco delle impostazioni correnti.
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[tutti i set nslookup](nslookup-set-all.md)
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)[nslookup set all](nslookup-set-all.md) 
+

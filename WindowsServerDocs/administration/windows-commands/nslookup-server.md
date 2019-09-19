@@ -1,6 +1,6 @@
 ---
 title: nslookup server
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba58e223d0aa35b4157b813b10bf1d274313a1c1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e24e55026d12a0d8afc5b6f1bef926ece9087bd0
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436959"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105016"
 ---
 # <a name="nslookup-server"></a>nslookup server
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cambia il server predefinito per il dominio del sistema DNS (Domain Name) specificato.
+Imposta il server predefinito sul dominio di Domain Name System (DNS) specificato.
 ## <a name="syntax"></a>Sintassi
 ```
 server <DNSDomain>
@@ -33,11 +33,11 @@ server <DNSDomain>
 
 |    Parametro    |                          Descrizione                           |
 |-----------------|----------------------------------------------------------------|
-|   <DNSDomain>   | Obbligatorio. Specifica il nuovo dominio DNS per il server predefinito. |
-| {help &#124; ?} |     Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.      |
+|   <DNSDomain>   | Richiesto. Specifica il nuovo dominio DNS per il server predefinito. |
+| {Help &#124; ?} |     Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.      |
 
 ## <a name="remarks"></a>Note
-- Il **server** comando Usa il server predefinito corrente per cercare le informazioni sul dominio DNS specificato. È in contrasto con la **lserver** comando, che usa l'iniziale del server.
+- Il comando **Server** usa il server predefinito corrente per cercare le informazioni sul dominio DNS specificato. Questo si differenzia dal comando **lserver** , che usa il server iniziale.
   ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
-  [lserver nslookup](nslookup-lserver.md)
+  [Chiave della sintassi della riga di comando](command-line-syntax-key.md)[nslookup lserver](nslookup-lserver.md) 
+  
