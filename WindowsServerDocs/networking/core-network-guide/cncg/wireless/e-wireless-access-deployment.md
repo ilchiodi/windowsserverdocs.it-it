@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bd951f221f1cf1c5715e26830b7da644d685634a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 64098a152d9ba485cfed80e0d0541f0e5ea72bf2
+ms.sourcegitcommit: 47a9514a68e42ac236065fd6b641204b769223d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868979"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127675"
 ---
 # <a name="wireless-access-deployment"></a>Distribuzione dell'accesso wireless
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Per distribuire l'accesso wireless, attenersi alla procedura seguente:
 
@@ -121,7 +121,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 6. Fare clic su **OK**.
 
-Se è necessario più di un gruppo di sicurezza per gli utenti wireless, ripetere questi passaggi per creare i gruppi di utenti senza fili aggiuntivi. In un secondo momento è possibile creare criteri di rete in Criteri di RETE per applicare diverse condizioni e Constraints a ogni gruppo, offrendo diverse autorizzazioni di accesso e le regole di connettività.
+Se è necessario più di un gruppo di sicurezza per gli utenti wireless, ripetere questi passaggi per creare i gruppi di utenti senza fili aggiuntivi. In un secondo momento è possibile creare criteri di rete singoli in NPS per applicare condizioni e vincoli diversi a ogni gruppo, offrendo loro autorizzazioni di accesso e regole di connettività diverse.
 
 ### <a name="bkmk_addusers"></a>Aggiungere utenti al gruppo di sicurezza utenti wireless
 

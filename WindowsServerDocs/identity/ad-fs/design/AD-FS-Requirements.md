@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91a1d69e4f7a77633d460f594ad3091f359df9c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867849"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143783"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -329,18 +329,18 @@ Nella tabella seguente fornisce informazioni sul supporto di crittografia aggiun
 ||||  
 |-|-|-|  
 |**Algoritmo**|**Lunghezze delle chiavi**|**Commenti\/sulle\/applicazioni per i protocolli**|  
-|TripleDES-valore predefinito \(192 supportato 192-\) \- 256 [http\/:\/www.w3.org\/2001\/04xmlenc\/TripleDES\#CBC\-](http://www.w3.org/2001/04/xmlenc)|>\=192|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
-|AES128 \- http:\/www.w3.org2001\/04 xmlencAES128\#CBC\/\/\/\-|128|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
-|Aes192 \- http:\/www.w3.org2001\/04 xmlencAes192\#CBC\/\/\/\-|192|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
-|AES256 \- [http:\/www.w3.org\/200104\/xmlencAES256\#CBC\/\/\-](http://www.w3.org/2001/04/xmlenc)|256|**Predefinito**. Algoritmo supportato per crittografare il token di sicurezza.|  
-|TripleDESKeyWrap \- http:\/www.w3.org2001\/04 xmlenckW\#TripleDES\/\/\/\-|Tutte le dimensioni delle chiavi supportate da .NET 4,0\+|Algoritmo supportato per crittografare la chiave simmetrica che crittografa un token di sicurezza.|  
-|AES128KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#AES128\/\/\-](http://www.w3.org/2001/04/xmlenc)|128|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
-|AES192KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#Aes192\/\/\-](http://www.w3.org/2001/04/xmlenc)|192|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
-|AES256KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#AES256\/\/\-](http://www.w3.org/2001/04/xmlenc)|256|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
-|RsaV15KeyWrap \- http:\/www.w3.org2001\/04 xmlenc RSA1\-5\/\/\/\#\_|1024|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
-|RsaOaepKeyWrap \- [http:\/www.w3.org\/200104\/xmlencRSAOAEP\-mgf1p\/\/\#\-](http://www.w3.org/2001/04/xmlenc)|1024|Valore predefinito. Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
-|SHA1\-http:\/www.w3.orgpics\/dsig SHA1 10\_. html\/\/\/\_|N\/A|Utilizzato dal server AD FS nella generazione SourceId artefatto:  In questo scenario, il servizio token di \(servizio utilizza SHA1 secondo la raccomandazione nello standard\) SAML 2,0 per creare un valore short 160 bit per l'elemento sourceiD.<br /><br />Anche utilizzato dall'agente web ADFS \(componente legacy dall'intervallo di tempo WS2003\) per identificare le modifiche in un tempo di "ultimo aggiornamento" valore in modo da determinare quando aggiornare le informazioni dal servizio token di sicurezza.|  
-|SHA1withRSA\-<br /><br />http:\/\/www.w3.orgpicsdsig\/RSA SHA1 10\_. html\-\/\/\_|N\/A|Utilizzata quando il Server ADFS convalida la firma di SAML AuthenticationRequest, firmare la richiesta di risoluzione dell'elemento o la risposta, creare token\-certificato di firma.<br /><br />In questi casi, il valore predefinito è SHA256 e SHA1 viene utilizzato solo se il partner \(relying party\) non è in grado di supportare SHA256 e devono utilizzare SHA1.|  
+|TripleDES-valore predefinito \(192 supportato 192-\) \- 256 [http\/:\/www.w3.org\/2001\/04xmlenc\/TripleDES\#CBC\-](http://www.w3.org/2001/04/xmlenc#tripledes-cbc)|>\=192|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
+|AES128 \- [http:\/www.w3.org\/200104\/xmlencAES128\#CBC\/\/\-](http://www.w3.org/2001/04/xmlenc#aes128-cbc)|128|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
+|Aes192 \- [http:\/www.w3.org\/200104\/xmlencAes192\#CBC\/\/\-](http://www.w3.org/2001/04/xmlenc#aes192-cbc)|192|Algoritmo supportato per la decrittografia del token di sicurezza. La crittografia del token di sicurezza con questo algoritmo non è supportata.|  
+|AES256 \- [http:\/www.w3.org\/200104\/xmlencAES256\#CBC\/\/\-](http://www.w3.org/2001/04/xmlenc#aes256-cbc)|256|**Predefinito**. Algoritmo supportato per crittografare il token di sicurezza.|  
+|TripleDESKeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#TripleDES\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-tripledes)|Tutte le dimensioni delle chiavi supportate da .NET 4,0\+|Algoritmo supportato per crittografare la chiave simmetrica che crittografa un token di sicurezza.|  
+|AES128KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#AES128\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes128)|128|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
+|AES192KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#Aes192\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes192)|192|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
+|AES256KeyWrap \- [http:\/www.w3.org\/200104\/xmlenckW\#AES256\/\/\-](http://www.w3.org/2001/04/xmlenc#kw-aes256)|256|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
+|RsaV15KeyWrap \- [http:\/www.w3.org\/200104\/xmlencRSA1\-5\/\/\#\_](http://www.w3.org/2001/04/xmlenc#rsa-1_5)|1024|Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
+|RsaOaepKeyWrap \- [http:\/www.w3.org\/200104\/xmlencRSAOAEP\-mgf1p\/\/\#\-](http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p)|1024|Valore predefinito. Algoritmo supportato per crittografare la chiave simmetrica che consente di crittografare il token di sicurezza.|  
+|SHA1\-[http:\/www.w3.org\/picsdsig\/SHA110.\_HTML\/\/\_](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|N\/A|Utilizzato dal server AD FS nella generazione SourceId artefatto:  In questo scenario, il servizio token di \(servizio utilizza SHA1 secondo la raccomandazione nello standard\) SAML 2,0 per creare un valore short 160 bit per l'elemento sourceiD.<br /><br />Anche utilizzato dall'agente web ADFS \(componente legacy dall'intervallo di tempo WS2003\) per identificare le modifiche in un tempo di "ultimo aggiornamento" valore in modo da determinare quando aggiornare le informazioni dal servizio token di sicurezza.|  
+|SHA1withRSA\-<br /><br />[http:\/\/www.w3.orgpicsdsig\/RSA SHA1 10\_. html\-\/\/\_](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|N\/A|Utilizzata quando il Server ADFS convalida la firma di SAML AuthenticationRequest, firmare la richiesta di risoluzione dell'elemento o la risposta, creare token\-certificato di firma.<br /><br />In questi casi, il valore predefinito è SHA256 e SHA1 viene utilizzato solo se il partner \(relying party\) non è in grado di supportare SHA256 e devono utilizzare SHA1.|  
   
 ## <a name="BKMK_13"></a>Requisiti per le autorizzazioni  
 L'amministratore che esegue l'installazione di e la configurazione iniziale di ad FS deve disporre delle autorizzazioni di amministratore di dominio \(nel dominio locale in altre parole, il dominio a cui è aggiunto il server federativo.\)  

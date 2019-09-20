@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9f3524261e8e93439ff48a3e6666fa7680a76a29
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871663"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143742"
 ---
 # <a name="limit-web-access"></a>Limitare l'accesso al Web
 Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente amministratore può limitare l'accesso degli utenti ai siti Web specificati indicando i siti Web e i siti Web consentiti a cui si desidera bloccare l'accesso utente.  
@@ -49,7 +49,7 @@ Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente ammin
    Per aggiungere un sito che non si desidera venga visitato dagli utenti, fare clic su non **consentire solo questi siti**, digitare l'indirizzo Web che non si vuole che gli utenti visitino e quindi fare clic su **Aggiungi**.  
   
    > [!NOTE]
-   > Ad esempio, l'immissione di "Contoso.com" consente o blocca i siti relativi a www.contoso.com (ad esempio, www.newpage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
+   > Ad esempio, l'immissione di "contoso.com" consente o blocca i siti relativi a www.contoso.com (ad esempio,\.www NewPage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
   
 3. Per rimuovere un indirizzo Web dall'elenco dei siti consentiti o bloccati, selezionare tale indirizzo e quindi fare clic su **Remove** (Rimuovi).  
   
