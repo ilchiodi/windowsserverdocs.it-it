@@ -4,16 +4,16 @@ description: Descrive come un amministratore può configurare il client Web Desk
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 11/2/2018
+ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 7de392b049fbe910688a4b950e1ca870b6ba3f46
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871169"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143744"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web Desktop remoto per gli utenti
 
@@ -265,6 +265,10 @@ Come amministratore, puoi scegliere di eliminare la raccolta della telemetria pe
 Per impostazione predefinita, l'utente può scegliere di abilitare o disabilitare la telemetria. Il valore booleano **$false** corrisponderà al comportamento predefinito del client. Il valore booleano **$true** disabilita la telemetria e impedisce all'utente di abilitarla.
 
 ### <a name="remote-resource-launch-method"></a>Metodo di avvio delle risorse remote
+
+>[!NOTE]
+>Questa impostazione attualmente funziona solo con il client Web Servizi Desktop remoto e non con il client Web Desktop virtuale Windows.
+
 Per impostazione predefinita, gli utenti possono scegliere di avviare le risorse remote (1) nel browser o (2) scaricando un file con estensione rdp da gestire con un altro client installato nel loro computer. Come amministratore, puoi scegliere di limitare il metodo di avvio delle risorse remote per la distribuzione con il comando di Powershell seguente:
 
    ```PowerShell

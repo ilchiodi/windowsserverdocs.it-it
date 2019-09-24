@@ -1,28 +1,24 @@
 ---
 title: Requisiti di sistema di Windows Server 2019
 description: Requisiti minimi per risorse di archiviazione, CPU, rete, memoria, RAM in un'installazione pulita di Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131f860e
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 70ebf445515fd227d0f35b0c267f4fe34b2b83a9
+ms.sourcegitcommit: 081661f50d6dafb77180149956a02e679270c710
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810722"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037577"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
->Si applica a: Windows Server 2019 
+> Si applica a: Windows Server 2019
 
 Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Windows Server&reg; 2019.
 
@@ -48,7 +44,8 @@ Oltre che dalla frequenza di clock del processore, le prestazioni del processore
 
 [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) è uno strumento che consente di verificare le funzionalità della CPU.
 
-## <a name="ram"></a>RAM  
+## <a name="ram"></a>RAM
+
 Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:  
 
 **Minimo**:  
@@ -60,7 +57,7 @@ Di seguito sono indicati i requisiti di RAM stimati per questo prodotto:
 >   
 > Per evitare il problema, eseguire una delle operazioni seguenti:  
 >   
-> -   Allocare più di 800 MB di RAM alla macchina virtuale in cui si intende installare questa versione. Al termine dell'installazione, è possibile modificare l'allocazione fino a un minimo di 512 MB di RAM, a seconda della configurazione effettiva del server.  
+> -   Allocare più di 800 MB di RAM alla macchina virtuale in cui si intende installare questa versione. Al termine dell'installazione, è possibile modificare l'allocazione fino a un minimo di 512 MB di RAM, a seconda della configurazione effettiva del server. Se hai modificato l'immagine d'avvio per l'installazione con altre lingue e aggiornamenti, potrebbe essere necessario allocare più di 800 MB di RAM per completare l'installazione  
 > -   Interrompere il processo di avvio di questa versione nella macchina virtuale con MAIUSC+F10. Nel prompt dei comandi aperto utilizzare Diskpart.exe per creare e formattare una partizione di installazione. Eseguire **Wpeutil createpagefile /path=C:\pf.sys** (supponendo che la partizione di installazione creata sia C:). Chiudere il prompt dei comandi e procedere con l'installazione.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Requisiti di spazio su disco e del controller di archiviazione  

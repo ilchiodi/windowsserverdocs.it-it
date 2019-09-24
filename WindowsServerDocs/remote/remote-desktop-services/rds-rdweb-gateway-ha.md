@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 869d47be73a39114ecc05080f8da16f460fb8198
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805141"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105043"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Aggiungere disponibilità elevata al front-end Web e Gateway Desktop remoto
 
@@ -96,12 +96,13 @@ Se usi l'infrastruttura di Azure, puoi creare un servizio di bilanciamento del c
 1.  Crea un servizio di bilanciamento del carico di Azure:  
     1.  Nel portale di Azure fai clic su **Sfoglia > Servizi di bilanciamento del carico > Aggiungi**.  
     2.  Immetti un nome, ad esempio **WebGwLB**.  
-    3.  Seleziona **Pubblico** per **Schema**, **Indirizzo IP pubblico** e quindi un **indirizzo IP pubblico**. Puoi selezionare un indirizzo IP pubblico esistente oppure crearne uno nuovo. 
-    4.  Seleziona valori appropriati per **Sottoscrizione**, **Gruppo risorse** e **Percorso**.
-    5.  Fare clic su **Crea**.  
+    3.  Seleziona **Pubblico** per **Schema**.
+    4.  In **Indirizzo IP pubblico** seleziona **Scegliere un indirizzo IP pubblico** e quindi seleziona un indirizzo IP pubblico esistente o creane uno nuovo.
+    5.  Seleziona valori appropriati per **Sottoscrizione**, **Gruppo risorse** e **Percorso**.
+    6.  Fare clic su **Crea**.  
 2. Crea un [probe](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) per monitorare quali server sono attivi:  
-    1.  Nel portale di Azure fai clic su **Sfoglia > Servizi di bilanciamento del carico**, sul servizio di bilanciamento del carico appena creato (ad esempio, WebGwLB) e infine su Impostazioni.  
-    2.  Fai clic su **Probe > Aggiungi**.  
+    1.  Nel portale di Azure seleziona **Sfoglia** > **Bilanciamenti del carico** e quindi scegli il servizio di bilanciamento del carico creato nel passaggio precedente.
+    2.  Seleziona **Tutte le impostazioni** > **Probe** > **Aggiungi**.  
     3.  Immetti un nome, ad esempio **HTTPS**, per il probe. Seleziona **TCP** come **Protocollo** e immetti **443** per il campo **Porta** e quindi fai clic su **OK**.   
 3.  Crea le regole di bilanciamento del carico HTTPS e UDP:  
     1.  In **Impostazioni** fai clic su **Regole di bilanciamento del carico**.  

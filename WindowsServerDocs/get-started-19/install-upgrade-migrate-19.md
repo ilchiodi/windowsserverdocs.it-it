@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e90738a157f620124bfca3d5f1f4c12789d3bf2
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: 1c0c6ca10e7ebac16d81fe1393e471a7878fd0ca
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023921"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143755"
 ---
 # <a name="install-upgrade-or-migrate-to-windows-server"></a>Eseguire l'installazione, l'aggiornamento e la migrazione a Windows Server
 
@@ -33,9 +33,7 @@ Il modo più semplice per installare Windows Server consiste nell'eseguire un'in
 
 Se vuoi mantenere lo stesso hardware e tutti i ruoli del server che hai configurato senza rendere flat il server, puoi eseguire un **aggiornamento sul posto**, che consente di passare da una versione meno recente a una versione più recente del sistema operativo, mantenendo intatti impostazioni, ruoli del server e dati. Se ad esempio il server esegue Windows Server 2012 R2, puoi eseguire l'aggiornamento a Windows Server 2016 o Windows Server 2019. Tuttavia, non tutti i sistemi operativi precedenti consentono l'aggiornamento a ogni versione più recente. 
 
-Per istruzioni passo passo sull'aggiornamento, visita [Windows Server Upgrade Center](http://aka.ms/upgradecenter):
-
-[![Screenshot di Windows Server Upgrade Center](media/upgrade-center.png)](http://aka.ms/upgradecenter)
+Per istruzioni dettagliate sull'aggiornamento, vedi il [contenuto sugli aggiornamenti di Windows Server](../upgrade/upgrade-overview.md).
 
 ## <a name="cluster-os-rolling-upgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 
