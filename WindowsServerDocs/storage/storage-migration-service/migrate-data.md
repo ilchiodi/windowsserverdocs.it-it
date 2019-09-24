@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 4b90f8c5713fbcefc1740b932e9a6f210901a974
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987410"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206907"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -23,7 +23,7 @@ Questo argomento illustra come eseguire la migrazione di un server, inclusi i re
 
 Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi che siano aperte le porte del firewall necessarie.
 
-1. Se non è già stato fatto, verificare i [requisiti del servizio migrazione archiviazione](overview.md#requirements) e installare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) nel PC o in un server di gestione.
+1. Se non è già stato fatto, verificare i [requisiti del servizio migrazione archiviazione](overview.md#requirements) e installare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) nel PC o in un server di gestione. Se si esegue la migrazione di computer di origine aggiunti a un dominio, è necessario installare ed eseguire il servizio migrazione archiviazione in un server aggiunto allo stesso dominio o insieme di strutture dei computer di origine.
 2. Nell'interfaccia di amministrazione di Windows connettersi al server dell'agente di orchestrazione che esegue Windows Server 2019. <br>Si tratta del server in cui verrà installato il servizio migrazione archiviazione e viene utilizzato per gestire la migrazione. Se si esegue la migrazione di un solo server, è possibile usare il server di destinazione purché sia in esecuzione Windows Server 2019. Si consiglia di utilizzare un server di orchestrazione separato per tutte le migrazioni multiserver.
 1. Passare a **Server Manager** (nell'interfaccia di amministrazione di Windows) > **servizio migrazione archiviazione** e selezionare **Installa** per installare il servizio migrazione archiviazione e i relativi componenti necessari, come illustrato nella figura 1.
     ![Screenshot della pagina del servizio migrazione archiviazione che mostra il pulsante](media/migrate/install.png) **di installazione Figura 1: Installazione del servizio migrazione archiviazione**
@@ -57,7 +57,7 @@ In questo passaggio si specificano i server di cui eseguire la migrazione e quin
 In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli nei server di destinazione.
 
 1. Nella pagina **trasferimento dati** > **immissione credenziali** digitare le credenziali di amministratore che funzionano nei server di destinazione in cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
-2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**.
+2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**. Se si esegue la migrazione da un computer di origine aggiunto al dominio, il server di destinazione deve appartenere allo stesso dominio.
 3. Eseguire il mapping dei volumi di origine ai volumi di destinazione, deselezionare la casella di controllo **Includi** per le condivisioni che non si desidera trasferire (incluse le condivisioni amministrative presenti nella cartella di sistema di Windows) e quindi selezionare **Avanti**.
    ![Screenshot che mostra un server di origine e i relativi volumi e condivisioni e la posizione in cui verranno](media/migrate/transfer.png) trasferiti nella destinazione **figura 3: Un server di origine e il percorso di archiviazione in cui verranno trasferiti**
 4. Aggiungere un server di destinazione e i mapping per tutti i server di origine e quindi fare clic su **Avanti**.

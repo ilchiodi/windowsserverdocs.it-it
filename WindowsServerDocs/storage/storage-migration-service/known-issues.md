@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: d8437e0e33a370ab698d25f25b43fbbcbae97792
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987399"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206917"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -40,7 +40,7 @@ Esaminare il file Leggimi per l'utilizzo.
 
 Quando si usa la versione 1809 dell'interfaccia di amministrazione di Windows per gestire un agente di orchestrazione di Windows Server 2019, non viene visualizzata l'opzione dello strumento per il servizio migrazione archiviazione. 
 
-L'estensione del servizio migrazione archiviazione dell'interfaccia di amministrazione di Windows è associata alla versione per gestire solo i sistemi operativi Windows Server 2019 versione 1809 o successiva. Se viene usato per gestire i sistemi operativi Windows Server meno recenti o le anteprime Insider, lo strumento non verrà visualizzato. Questo comportamento dipende dalla progettazione. 
+L'estensione del servizio migrazione archiviazione dell'interfaccia di amministrazione di Windows è associata alla versione per gestire solo i sistemi operativi Windows Server 2019 versione 1809 o successiva. Se viene usato per gestire i sistemi operativi Windows Server meno recenti o le anteprime Insider, lo strumento non verrà visualizzato. Questo comportamento è da progettazione. 
 
 Per risolvere, usare o eseguire l'aggiornamento a Windows Server 2019 Build 1809 o versione successiva.
 
@@ -248,6 +248,15 @@ Come soluzione alternativa:
    ```PowerShell
    Register-SMSProxy -ComputerName *destination server* -Force
    ```
+## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>Errore "Impossibile trovare la dll" durante l'esecuzione dell'inventario da un nodo del cluster
+
+Quando si tenta di eseguire l'inventario con l'agente di orchestrazione del servizio di migrazione archiviazione installato in un nodo del cluster di failover di Windows Server 2019 e si utilizza come destinazione un cluster di failover di Windows Server file server origine, viene visualizzato l'errore seguente:
+
+    DLL not found
+    [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   
+
+Per aggirare questo problema, installare "strumenti di gestione cluster di failover" (strumenti di gestione del cluster di failover) nel server che esegue l'agente di orchestrazione del servizio di migrazione archiviazione. 
+
 
 ## <a name="see-also"></a>Vedere anche
 
