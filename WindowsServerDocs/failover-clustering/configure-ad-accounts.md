@@ -6,15 +6,14 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3cc7449c8fbbad2ed4a3cd27513fcbe74b617e36
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 06fcb7ee7d05b85c1e7d1c6752268ea7e5dbbdb2
+ms.sourcegitcommit: 94ba5a33e783fdfb965c612943d0bfe35f9fcaa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560519"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250225"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configurazione di account di cluster in Active Directory
-
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008
 
@@ -106,7 +105,7 @@ Come descritto nelle tre sezioni precedenti, è necessario soddisfare alcuni req
           
       - L'account deve disporre di autorizzazioni amministrative per i server che diventeranno nodi del cluster. Il modo più semplice per fornire questo problema consiste nel creare un account utente di dominio, quindi aggiungere tale account al gruppo Administrators locale in ognuno dei server che diventeranno nodi del cluster. Per ulteriori informazioni, vedere la pagina relativa alla [procedura per la configurazione dell'account per la persona che installa il cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), più avanti in questa guida.  
           
-      - All'account o al gruppo di cui l'account è membro è necessario assegnare le autorizzazioni **Crea oggetti computer** e **Leggi tutte le proprietà** nel contenitore utilizzato per gli account computer nel dominio. Un'altra alternativa consiste nel rendere l'account un account amministratore di dominio. Per ulteriori informazioni, vedere la pagina relativa alla [procedura per la configurazione dell'account per la persona che installa il cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), più avanti in questa guida.  
+      - All'account o al gruppo di cui l'account è membro è necessario assegnare le autorizzazioni **Crea oggetti computer** e **Leggi tutte le proprietà** nel contenitore utilizzato per gli account computer nel dominio. Per ulteriori informazioni, vedere la pagina relativa alla [procedura per la configurazione dell'account per la persona che installa il cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), più avanti in questa guida.  
           
       - Se l'organizzazione sceglie di pre-installare l'account del nome del cluster (un account computer con lo stesso nome del cluster), l'account del nome del cluster pre-installato deve concedere l'autorizzazione controllo completo all'account della persona che installa il cluster. Per altri dettagli importanti su come pre-installare l'account del nome del cluster, vedere [passaggi per la pre-installazione dell'account del nome cluster](#steps-for-prestaging-the-cluster-name-account), più avanti in questa guida.  
           
@@ -119,13 +118,13 @@ Gli amministratori dei cluster di failover potrebbero talvolta dover reimpostare
 
 L'account della persona che installa il cluster è importante perché fornisce la base da cui viene creato un account computer per il cluster stesso.
 
-L'appartenenza al gruppo minima richiesta per completare la procedura seguente varia a seconda che si crei l'account di dominio e si assegni le autorizzazioni necessarie nel dominio o che si inserisca solo l'account (creato da un altro utente) nel gruppo **Administrators** locale sui server che saranno nodi del cluster di failover. Se il primo, l'appartenenza al gruppo **account Operators** o **Domain Admins**o a un gruppo equivalente è il requisito minimo necessario per completare questa procedura. Se il secondo, l'appartenenza al gruppo **Administrators** locale sui server che saranno nodi nel cluster di failover, o equivalente, è tutto ciò che è necessario. Esaminare i dettagli relativi all'utilizzo degli account appropriati e delle appartenenze ai gruppi all'indirizzo [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477).
+L'appartenenza al gruppo minima richiesta per completare la procedura seguente varia a seconda che si crei l'account di dominio e si assegni le autorizzazioni necessarie nel dominio o che si inserisca solo l'account (creato da un altro utente) nel gruppo **Administrators** locale sui server che saranno nodi del cluster di failover. Se il primo, l'appartenenza al gruppo **account Operators** o equivalente è il requisito minimo necessario per completare questa procedura. Se il secondo, l'appartenenza al gruppo **Administrators** locale sui server che saranno nodi nel cluster di failover, o equivalente, è tutto ciò che è necessario. Esaminare i dettagli relativi all'utilizzo degli account appropriati e delle appartenenze ai gruppi all'indirizzo [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-configure-the-account-for-the-person-who-installs-the-cluster"></a>Per configurare l'account per la persona che installa il cluster
 
-1.  Creare o ottenere un account di dominio per la persona che installa il cluster. Questo account può essere un account utente di dominio o un account amministratore di dominio (in **Domain Admins** o un gruppo equivalente).
+1.  Creare o ottenere un account di dominio per la persona che installa il cluster. Questo account può essere un account utente di dominio o un account di **Account Operator** . Se si usa un account utente standard, sarà necessario concedergli alcune autorizzazioni aggiuntive più avanti in questa procedura.
 
-2.  Se l'account creato o ottenuto nel passaggio 1 è un account utente di dominio o se gli account di amministratore di dominio nel dominio non vengono inclusi automaticamente nel gruppo **Administrators** locale nei computer del dominio, aggiungere l'account al locale  **Gruppo Administrators** sui server che saranno nodi del cluster di failover:
+2.  Se l'account creato o ottenuto nel passaggio 1 non è incluso automaticamente nel gruppo **Administrators** locale nei computer del dominio, aggiungere l'account al gruppo **Administrators** locale sui server che saranno nodi del failover cluster
     
     1.  Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Server Manager**.  
           
@@ -136,8 +135,6 @@ L'appartenenza al gruppo minima richiesta per completare la procedura seguente v
     4.  In **immettere i nomi degli oggetti da selezionare**Digitare il nome dell'account utente creato o ottenuto nel passaggio 1. Se richiesto, immettere un nome account e una password con autorizzazioni sufficienti per questa azione. Fare quindi clic su **OK**.  
           
     5.  Ripetere questi passaggi in ogni server che sarà un nodo nel cluster di failover.  
-          
-    
 
 > [!IMPORTANT]
 > Questi passaggi devono essere ripetuti in tutti i server che saranno nodi del cluster. 
