@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7d78258d8f1db9889b6d2db8c497780940ed35a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357574"
 ---
 # <a name="deploy-claims-across-forests"></a>Distribuire attestazioni nelle foreste
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In Windows Server 2012, un tipo di attestazione è un'asserzione relativa all'oggetto a cui sono associati. In Active Directory i tipi di attestazione sono definiti per foresta. Ci sono molti scenari in cui un'entità di sicurezza può avere la necessità di attraversare un limite di trust per accedere alle risorse in una foresta trusted. Trasformazione di attestazioni tra foreste in Windows Server 2012 consente di trasformare le attestazioni in ingresso e in uscita che attraversano le foreste in modo che il riconoscimento e accettazione nelle foreste trusted e trusting. Ecco alcuni scenari reali per la trasformazione delle attestazioni:  
+In Windows Server 2012, un tipo di attestazione è un'asserzione sull'oggetto a cui è associato. In Active Directory i tipi di attestazione sono definiti per foresta. Ci sono molti scenari in cui un'entità di sicurezza può avere la necessità di attraversare un limite di trust per accedere alle risorse in una foresta trusted. La trasformazione delle attestazioni tra foreste in Windows Server 2012 consente di trasformare le attestazioni in uscita e in ingresso che attraversano le foreste, in modo che le attestazioni vengano riconosciute e accettate nelle foreste trusting e trusted. Ecco alcuni scenari reali per la trasformazione delle attestazioni:  
   
 -   Le foreste trusting possono usare la trasformazione delle attestazioni come protezione contro l'elevazione dei privilegi filtrando le attestazioni in ingresso con valori specifici.  
   
@@ -45,11 +45,11 @@ Per impostazione predefinita, una foresta trusted consente il passaggio a tutte 
 ## <a name="in-this-scenario"></a>In questo scenario  
 Per questo scenario è disponibile il materiale sussidiario seguente:  
   
--   [Distribuire attestazioni nelle foreste &#40;passaggi dimostrativi&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
+-   [Distribuisci attestazioni &#40;tra foreste procedura dimostrativa&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
   
 -   [Linguaggio delle regole di trasformazione delle attestazioni](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
+## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

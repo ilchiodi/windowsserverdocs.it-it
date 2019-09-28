@@ -1,6 +1,6 @@
 ---
-title: Integrità dei servizi in Windows Server
-ms.prod: windows-server-threshold
+title: Servizio integrità in Windows Server
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,34 +8,34 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: 5afb64dcf0c59697ed55d7cf51ef1bc36e7e0e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361074"
 ---
-# <a name="health-service-in-windows-server"></a>Integrità dei servizi in Windows Server
+# <a name="health-service-in-windows-server"></a>Servizio integrità in Windows Server
 
-> Si applica a Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
-Il servizio integrità è una nuova funzionalità di Windows Server 2016 che consente di migliorare il monitoraggio quotidiano e l'esperienza operativa per i cluster che esegue spazi di archiviazione diretta.
+Il Servizio integrità è una nuova funzionalità di Windows Server 2016 che migliora l'esperienza di monitoraggio e operatività quotidiana per i cluster che eseguono Spazi di archiviazione diretta.
 
 ## <a name="prerequisites"></a>Prerequisiti  
 
-Servizio integrità è abilitato per impostazione predefinita con Spazi di archiviazione diretta. Non è necessario alcuna azione aggiuntiva per configurarlo o avviarlo. Per altre informazioni su spazi di archiviazione diretta, vedere [spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
+Servizio integrità è abilitato per impostazione predefinita con Spazi di archiviazione diretta. Non è necessario alcuna azione aggiuntiva per configurarlo o avviarlo. Per ulteriori informazioni su Spazi di archiviazione diretta, vedere [spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
 ## <a name="reports"></a>Rapporti
 
-Visualizzare [servizio integrità invia report](health-service-reports.md).
+Vedere [servizio integrità report](health-service-reports.md).
 
 ## <a name="faults"></a>Errori
 
-Visualizzare [gli errori di integrità servizio](health-service-faults.md).
+Vedere [servizio integrità errori](health-service-faults.md).
 
 ## <a name="actions"></a>Azioni
 
-Visualizzare [azioni del servizio integrità](health-service-actions.md).
+Vedere [servizio integrità actions](health-service-actions.md).
 
 ## <a name="automation"></a>Automazione  
 
@@ -76,34 +76,34 @@ Se possibile, Servizio integrità inizierà a far lampeggiare la luce della spia
 
 #### <a name="physical-replacement"></a>Sostituzione disco fisico  
 
-È necessario sostituire il disco fisico disconnesso quando possibile. In genere, si tratta di una hot swap - vale a dire lo spegnimento dell'enclosure di archiviazione o di nodo non è obbligatorio. Vedere i dettagli dell'errore per le informazioni sulla posizione e sulla parte.  
+È necessario sostituire il disco fisico disconnesso quando possibile. La maggior parte delle volte è costituita da uno scambio a caldo, ovvero la disattivazione del nodo o dell'enclosure di archiviazione non è obbligatoria. Vedere i dettagli dell'errore per le informazioni sulla posizione e sulla parte.  
 
 #### <a name="verification"></a>Verifica
 
-Quando viene inserito il disco sostitutivo, verrà verificato per il documento dei componenti supportati (vedere la sezione successiva).
+Quando viene inserito, il disco sostitutivo verrà verificato rispetto al documento dei componenti supportati (vedere la sezione successiva).
 
 #### <a name="pooling"></a>Inserimento nel pool  
 
 Se autorizzato, il disco sostitutivo verrà sostituito automaticamente nel pool del disco precedente per iniziare a essere usato. A questo punto, il sistema è tornato allo stato iniziale di integrità perfetta e quindi l'errore scompare.  
 
-## <a name="supported-components-document"></a>Documento dei componenti supportati  
+## <a name="supported-components-document"></a>Documento componenti supportati  
 
-Il servizio di integrità fornisce un meccanismo di imposizione per limitare i componenti usati per spazi di archiviazione diretta per quelle in un documento dei componenti supportati fornito dall'amministratore o fornitore della soluzione. In questo modo si evita che l’utente usi hardware non supportato e che insorgano problemi di garanzia o di conformità con il contratto di assistenza. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, tra cui unità HDD, SSD e unità NVMe. Il documento dei componenti supportati possono limitare in versione di modello, produttore (facoltativo) e del firmware (facoltativa).
+Il Servizio integrità fornisce un meccanismo di imposizione per limitare i componenti utilizzati da Spazi di archiviazione diretta a quelli presenti in un documento dei componenti supportati fornito dall'amministratore o dal fornitore della soluzione. In questo modo si evita che l’utente usi hardware non supportato e che insorgano problemi di garanzia o di conformità con il contratto di assistenza. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, incluse le unità SSD, HDD e NVMe. Il documento dei componenti supportati può limitare il modello, il produttore (facoltativo) e la versione del firmware (facoltativo).
 
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
 
-Il documento dei componenti supportati Usa una sintassi XML. È consigliabile usare un editor di testo, ad esempio la versione gratuita [Visual Studio Code](http://code.visualstudio.com/) o blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
+Il documento componenti supportati utilizza una sintassi ispirata a XML. È consigliabile utilizzare l'editor di testo preferito, ad esempio la [Visual Studio Code](http://code.visualstudio.com/) gratuita o il blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
 
 #### <a name="sections"></a>Sezioni
 
-Il documento contiene due sezioni indipendenti: `Disks` e `Cache`.
+Il documento include due sezioni indipendenti: `Disks` e `Cache`.
 
-Se il `Disks` sezione viene fornito, solo le unità elencati (come `Disk`) sono autorizzati ad aggiungere i pool. Tutte le unità non in elenco vengono impedite di aggiungersi ai pool, precluso loro uso in produzione. Se in questa sezione viene lasciata vuota, qualsiasi unità potrà essere aggiunto ai pool.
+Se viene fornita la sezione `Disks`, solo le unità elencate (come `Disk`) possono partecipare ai pool. Le unità non in elenco vengono impedite dall'Unione dei pool, che ne impedisce l'uso nell'ambiente di produzione. Se questa sezione viene lasciata vuota, a tutte le unità sarà consentito aggiungere pool.
 
-Se il `Cache` sezione viene fornito, solo le unità elencati (come `CacheDisk`) vengono usati per la memorizzazione nella cache. Se in questa sezione viene lasciata vuota, spazi di archiviazione diretta tenta [ipotesi basati sul tipo di supporti e tipo di bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Le unità elencate di seguito devono essere elencate anche in `Disks`.
+Se viene fornita la sezione `Cache`, per la memorizzazione nella cache vengono utilizzate solo le unità elencate (come `CacheDisk`). Se questa sezione viene lasciata vuota, Spazi di archiviazione diretta tenta di [indovinare in base al tipo di supporto e al tipo di bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Le unità elencate qui dovrebbero essere elencate anche in `Disks`.
 
 >[!IMPORTANT]
-> Il documento dei componenti supportati non si applica retroattivamente alle unità già in pool e in uso.  
+> Il documento dei componenti supportati non viene applicato in modo retroattivo alle unità già in pool e in uso.  
 
 #### <a name="example"></a>Esempio
 
@@ -141,16 +141,16 @@ Se il `Cache` sezione viene fornito, solo le unità elencati (come `CacheDisk`) 
 
 ```
 
-Per elencare più unità, è sufficiente aggiungere ulteriori `<Disk>` o `<CacheDisk>` tag.
+Per elencare più unità, è sufficiente aggiungere altri tag `<Disk>` o `<CacheDisk>`.
 
-Per inserire il codice XML durante la distribuzione di spazi di archiviazione diretta, usare il `-XML` parametro:
+Per inserire il codice XML durante la distribuzione di Spazi di archiviazione diretta, usare il parametro `-XML`:
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
 Enable-ClusterS2D -XML $MyXML
 ```
 
-Per impostare o modificare il documento dei componenti supportati spazi di archiviazione diretta è già stato distribuito:
+Per impostare o modificare il documento dei componenti supportati dopo la distribuzione di Spazi di archiviazione diretta:
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
@@ -168,12 +168,12 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 ## <a name="settings"></a>Impostazioni
 
-Visualizzare [le impostazioni del servizio integrità](health-service-settings.md).
+Vedere [servizio integrità impostazioni](health-service-settings.md).
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Report sull'integrità del servizio](health-service-reports.md)
-- [Errori del servizio integrità](health-service-faults.md)
-- [Azioni del servizio integrità](health-service-actions.md)
-- [Impostazioni del servizio integrità](health-service-settings.md)
+- [Report Servizio integrità](health-service-reports.md)
+- [Errori Servizio integrità](health-service-faults.md)
+- [Azioni Servizio integrità](health-service-actions.md)
+- [Impostazioni Servizio integrità](health-service-settings.md)
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

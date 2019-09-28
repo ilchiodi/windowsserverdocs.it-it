@@ -1,8 +1,8 @@
 ---
 title: del
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6e569443a56646862c7a2c9fbd2c599cede941a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433894"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378698"
 ---
 # <a name="del"></a>del
 
@@ -39,19 +39,19 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<I nomi >|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
+|\<Names >|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
 |/ p|Richiede una conferma prima di eliminare il file specificato.|
 |/f|Eliminazione di forza dei file di sola lettura.|
 |/s|Elimina i file dalla directory corrente e tutte le sottodirectory specificati. Visualizza i nomi dei file di come vengono eliminati.|
 |/q|Specifica la modalità non interattiva. Non viene chiesto di confermare l'eliminazione.|
-|/a [::]\<attributi >|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
+|/a [:] \<Attributes >|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 > [!CAUTION]
 > Se si utilizza **CANC** per eliminare un file dal disco, non è possibile recuperarlo.
-> -   Se si usa **/p**, **CANC** Visualizza il nome di un file e invia il messaggio seguente:
+> -   Se si usa **/p**, **Canc** Visualizza il nome di un file e invia il messaggio seguente:
 
     `FileName, Delete (Y/N)?`
 
@@ -61,11 +61,11 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
   ```
   del \work
   ```  
-- È possibile usare caratteri jolly ( **&#42;** e **?** ) per eliminare più file contemporaneamente. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
+- È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per eliminare più di un file alla volta. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
   ```
   del *.*
   ```  
-  Il **CANC** verrà visualizzato il messaggio seguente:
+  Il **Canc** comando Visualizza il messaggio seguente:
 
   `Are you sure (Y/N)?`
 

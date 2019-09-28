@@ -7,25 +7,25 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88513a889bc361f5733fc6b18f3d261dbcb2f1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 995ba44a64ae022b52213b9c912f94144d4c2543
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369334"
 ---
 # <a name="ad-ds-troubleshooting"></a>Risoluzione dei problemi relativi ad Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2
 
-In questa sezione include la risoluzione dei problemi di raccomandazioni e procedure per la diagnosi e risoluzione dei problemi che potrebbero verificarsi con replica di Active Directory.
+Questa sezione include indicazioni e procedure per la risoluzione dei problemi relativi alla diagnosi e alla correzione di problemi che possono verificarsi con la replica Active Directory.
 
-Questo contenuto è incentrato principalmente su risposte ai messaggi del registro eventi del servizio Directory e i messaggi di errore e basati su strumenti che potrebbero essere segnalati dagli strumenti Repadmin.exe e Dcdiag.exe. Questi strumenti sono disponibili in tutti i controller di dominio che eseguono Windows Server 2016 o 2012 R2. È anche possibile installare strumenti di amministrazione remota Server (RSAT) in un server membro che esegue Windows 10.
+Questo contenuto è incentrato principalmente sulle risposte ai messaggi del registro eventi del servizio directory e ai messaggi di errore basati su strumenti che potrebbero essere segnalati dagli strumenti repadmin. exe e Dcdiag. exe. Questi strumenti sono disponibili in tutti i controller di dominio che eseguono Windows Server 2016 o 2012 R2. È anche possibile installare Strumenti di amministrazione remota del server (strumenti di amministrazione remota del server) in un server membro che esegue Windows 10.
 
-Per informazioni sull'installazione di amministrazione remota del server, vedere l'articolo [strumenti di amministrazione remota del Server](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Per informazioni sull'installazione di strumenti di amministrazione remota del server, vedere l'articolo [strumenti di amministrazione remota del server](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
 
-[Configurazione di un Computer per la risoluzione dei problemi di Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
+[Configurazione di un computer per la risoluzione dei problemi Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
 
 [Risoluzione dei problemi di replica di Active Directory](../manage/troubleshoot/Troubleshooting-Active-Directory-Replication-Problems.md)

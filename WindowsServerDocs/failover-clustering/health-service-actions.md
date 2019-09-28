@@ -1,6 +1,6 @@
 ---
-title: Azioni del servizio integrità
-ms.prod: windows-server-threshold
+title: Azioni Servizio integrità
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,24 +8,24 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: efdf8f04e68fcbdc7051e78d6725cb919e740ffa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 519f0321f36fb7afc86962950aeab729d7a38adb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361102"
 ---
-# <a name="health-service-actions"></a>Azioni del servizio integrità
+# <a name="health-service-actions"></a>Azioni Servizio integrità
 
-> Si applica a Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
-Il servizio integrità è una nuova funzionalità di Windows Server 2016 che consente di migliorare il monitoraggio quotidiano e l'esperienza operativa per i cluster che esegue spazi di archiviazione diretta.
+Il Servizio integrità è una nuova funzionalità di Windows Server 2016 che migliora l'esperienza di monitoraggio e operatività quotidiana per i cluster che eseguono Spazi di archiviazione diretta.
 
 ## <a name="actions"></a>Azioni  
 
 La sezione seguente descrive i flussi di lavoro che vengono automatizzati da Servizio integrità. Per verificare che un'azione venga effettivamente eseguita in modo autonomo o per tenere traccia dell’avanzamento o dei risultati, Servizio integrità genera "Azioni". A differenza dei log, le azioni scompaiano subito dopo esser state completate e il loro scopo è principalmente quello di offrire informazioni approfondite sulle attività in corso che possono influire sulle prestazioni o la capacità, ad esempio il ripristino della resilienza o il ribilanciamento di dati.  
 
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
 
 Un nuovo cmdlet di PowerShell consente di visualizzare tutte le azioni:  
 
@@ -35,7 +35,7 @@ Get-StorageHealthAction
 
 ### <a name="coverage"></a>Ambito del servizio  
 
-In Windows Server 2016, il **Get-StorageHealthAction** cmdlet può restituire le informazioni seguenti:  
+In Windows Server 2016, il cmdlet **Get-StorageHealthAction** può restituire le informazioni seguenti:  
 
 -   Errore di disattivazione, perdita della connettività o mancata risposta del disco fisico  
 
@@ -47,5 +47,5 @@ In Windows Server 2016, il **Get-StorageHealthAction** cmdlet può restituire le
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Integrità dei servizi in Windows Server 2016](health-service-overview.md)
-- [Documentazione per sviluppatori, codice di esempio e riferimento API su MSDN](https://msdn.microsoft.com/windowshealthservice)
+- [Servizio integrità in Windows Server 2016](health-service-overview.md)
+- [Documentazione per gli sviluppatori, codice di esempio e informazioni di riferimento sulle API su MSDN](https://msdn.microsoft.com/windowshealthservice)

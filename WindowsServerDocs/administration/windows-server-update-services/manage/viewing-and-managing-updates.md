@@ -1,7 +1,7 @@
 ---
 title: Visualizzazione e gestione degli aggiornamenti
-description: Argomento di Windows Server Update Service (WSUS) - come visualizzare e gestire gli aggiornamenti nella console di WSUS
-ms.prod: windows-server-threshold
+description: Argomento Windows Server Update Service (WSUS)-come visualizzare e gestire gli aggiornamenti nella console di WSUS
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2ffc6680239fa468b058b74f9acf26d22f2b65f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: de2d12ad34ba11f948baa390546747a6bf4b635c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222614"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361489"
 ---
 # <a name="viewing-and-managing-updates"></a>Visualizzazione e gestione degli aggiornamenti
 
@@ -60,7 +60,7 @@ Nel **aggiornamenti** pagina, è possibile eseguire le operazioni seguenti:
 
 2.  Nel **azioni** riquadro, fare clic su **nuova vista di aggiornamento**.
 
-3.  Nel **Aggiungi visualizzazione aggiornare** finestra, sotto **passaggio 1: selezionare le proprietà**, selezionare le proprietà necessarie per filtrare la visualizzazione di aggiornamento:
+3.  Nella finestra **Aggiungi visualizzazione aggiornamenti** , in **passaggio 1: selezionare le proprietà**, selezionare le proprietà necessarie per filtrare la visualizzazione aggiornamenti:
 
     -   Selezionare gli aggiornamenti sono in una specifica classificazione per filtrare gli aggiornamenti appartenenti a uno o più classificazioni degli aggiornamenti.
 
@@ -72,9 +72,9 @@ Nel **aggiornamenti** pagina, è possibile eseguire le operazioni seguenti:
 
     -   Selezionare gli aggiornamenti sono aggiornamenti WSUS per filtrare gli aggiornamenti di WSUS.
 
-4.  Sotto **passaggio 2: modificare le proprietà**, fare clic sulle parole sottolineate per selezionare i valori desiderati.
+4.  In **passaggio 2: modificare le proprietà**fare clic sulle parole sottolineate per selezionare i valori desiderati.
 
-5.  In **passaggio 3: Specificare un nome**, denominare la nuova vista.
+5.  In **Step 3: Specificare un nome @ no__t-0, assegnare un nome alla nuova visualizzazione.
 
 6.  Fare clic su **OK**.
 
@@ -86,7 +86,7 @@ La nuova visualizzazione verrà visualizzato nel riquadro di visualizzazione alb
 
 2.  Nel **azioni** riquadro, fare clic su **ricerca**.
 
-3.  Nel **ricerca** finestra via il **aggiornamenti** immettere i criteri di ricerca. È possibile utilizzare testo dal **titolo**, **Descrizione**, e **al numero dell'articolo della Microsoft Knowledge Base (KB)** campi. Ognuno di questi elementi è una proprietà elencata nella **dettagli** scheda nelle proprietà dell'aggiornamento.
+3.  Nel **ricerca** finestra via il **aggiornamenti** immettere i criteri di ricerca. È possibile utilizzare testo dal **titolo**, **Descrizione**, e **al numero dell'articolo della Microsoft Knowledge Base (KB)** campi. Ognuno di questi elementi è una proprietà elencata nella scheda **Dettagli** nelle proprietà dell'aggiornamento.
 
 #### <a name="to-view-the-properties-for-an-update"></a>Per visualizzare le proprietà per un aggiornamento
 
@@ -102,7 +102,7 @@ La nuova visualizzazione verrà visualizzato nel riquadro di visualizzazione alb
 
     -   La sezione Descrizione visualizza una breve descrizione dell'aggiornamento.
 
-    -   La sezione dettagli aggiuntivi visualizza le informazioni seguenti:
+    -   Nella sezione dettagli aggiuntivi vengono visualizzate le informazioni seguenti:
 
         -   Il comportamento di installazione dell'aggiornamento (o meno è rimovibile, viene richiesto un riavvio, richiede l'input dell'utente, oppure deve essere installato in modo esclusivo).
 
@@ -123,11 +123,11 @@ Si noti che è possibile eseguire questa procedura in un solo aggiornamento alla
 ## <a name="managing-updates-with-wsus"></a>Gestione degli aggiornamenti con WSUS
 Gli aggiornamenti vengono utilizzati per l'aggiornamento o fornendo una sostituzione completa per il software installato in un computer. Ogni aggiornamento è disponibile in Microsoft Update è costituito da due componenti:
 
--   Metadati: Vengono fornite informazioni sull'aggiornamento. Ad esempio, i metadati forniscono informazioni per le proprietà di un aggiornamento, consentendo di individuare per quali l'aggiornamento è utile. Inoltre, i metadati includono condizioni di licenza Software Microsoft. Il pacchetto di metadati scaricato per un aggiornamento è in genere molto inferiore rispetto al pacchetto di file di aggiornamento effettivo.
+-   Metadati Fornisce informazioni sull'aggiornamento. Ad esempio, i metadati forniscono informazioni per le proprietà di un aggiornamento, consentendo di individuare per quali l'aggiornamento è utile. Inoltre, i metadati includono condizioni di licenza Software Microsoft. Il pacchetto di metadati scaricato per un aggiornamento è in genere molto inferiore rispetto al pacchetto di file di aggiornamento effettivo.
 
--   File di aggiornamento: I file effettivi necessari per installare un aggiornamento in un computer.
+-   File di aggiornamento: File effettivi necessari per installare un aggiornamento in un computer.
 
-Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere sezione [1.3. Scegliere una strategia di archiviazione WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) del passaggio 1: Preparare la distribuzione di WSUS, nella Guida alla distribuzione di WSUS.
+Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere sezione [1.3. Scegliere una strategia di archiviazione WSUS @ no__t-0 del passaggio 1: Preparare la distribuzione WSUS nella Guida alla distribuzione di WSUS.
 
 Verrà impostazione e l'esecuzione di sincronizzazioni, aggiunta di computer e gruppi di computer e la distribuzione degli aggiornamenti a intervalli regolari. Nell'elenco seguente vengono forniti esempi di attività generali che potrebbe intraprendere nell'aggiornamento dei computer con Windows Server Update SERVICES.
 
@@ -172,32 +172,32 @@ Classificazioni degli aggiornamenti rappresentano il tipo di aggiornamento. Per 
 
 ## <a name="icons-used-for-updates-in-windows-server-update-services"></a>Icone usate per gli aggiornamenti in Windows Server Update Services
  Gli aggiornamenti in WSUS sono rappresentati da una delle icone seguenti.  
- Per visualizzare queste icone, è necessario abilitare la colonna di sostituzione nella console di Update Services.
+ Per visualizzare queste icone, è necessario abilitare la colonna sostituzione nella console di Update Services.
  
-### <a name="no-icon"></a>Nessuna icona
- L'aggiornamento non ha alcuna relazione di sostituzione con qualsiasi altro aggiornamento.
+### <a name="no-icon"></a>Icona nessuna
+ L'aggiornamento non ha alcuna relazione di sostituzione con altri aggiornamenti.
 
  **Problemi operativi:**  
 
- Non sono presenti problemi operativi.  
+ Non esistono problemi operativi.  
  
-### <a name="superseding-icon"></a>Icona sostituzione
+### <a name="superseding-icon"></a>Icona sostitutiva
  ![icona](../../media/wsus/wsus-superseding.png) Questo aggiornamento sostituisce altri aggiornamenti.
 
  **Problemi operativi:**  
 
- Non sono presenti problemi operativi.  
+ Non esistono problemi operativi.  
 
-### <a name="superseded--superseding-icon"></a>Icona sostituito & sostitutivo
+### <a name="superseded--superseding-icon"></a>Icona di sostituzione & sostituita
  ![icona](../../media/wsus/wsus-superseded.png) Questo aggiornamento è stato sostituito da un altro aggiornamento e sostituisce altri aggiornamenti.
 
  **Problemi operativi:**  
 
- Sostituire questi aggiornamenti con gli aggiornamenti in sostituzione, quando possibile.
+ Sostituire questi aggiornamenti con gli aggiornamenti sostitutivi, quando possibile.
  
 ### <a name="superseded-icon"></a>Icona sostituito
  ![icona](../../media/wsus/wsus-superseded-leaf.png) Questo aggiornamento è stato sostituito da un altro aggiornamento.
 
  **Problemi operativi:**  
 
- Sostituire questi aggiornamenti con gli aggiornamenti in sostituzione, quando possibile.
+ Sostituire questi aggiornamenti con gli aggiornamenti sostitutivi, quando possibile.

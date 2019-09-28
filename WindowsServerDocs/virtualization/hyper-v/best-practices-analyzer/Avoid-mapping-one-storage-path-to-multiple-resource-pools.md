@@ -1,7 +1,7 @@
 ---
-title: Evitare il mapping di un percorso di archiviazione a più pool di risorse
+title: Evitare di eseguire il mapping di un percorso di archiviazione a più pool di risorse
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 24992453-762b-4892-9a50-55d237b9b7f2
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 7c012836309f722e55c28b2ddbe3d54de641b4af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e89c0382d20d586d8c0b50396ddbd56d6fdadf0b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365261"
 ---
-# <a name="avoid-mapping-one-storage-path-to-multiple-resource-pools"></a>Evitare il mapping di un percorso di archiviazione a più pool di risorse
+# <a name="avoid-mapping-one-storage-path-to-multiple-resource-pools"></a>Evitare di eseguire il mapping di un percorso di archiviazione a più pool di risorse
 
 >Si applica a: Windows Server 2016
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Operazioni|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
   
 ## <a name="issue"></a>**Problema**  
-*Viene eseguito il mapping di un percorso di file di archiviazione per più pool di risorse.*  
+*Viene eseguito il mapping di un percorso del file di archiviazione a più pool di risorse.*  
   
-## <a name="impact"></a>**Impact**  
-*Per il tipo di pool di archiviazione specificato, i seguenti pool padre e figlio condividono lo stesso percorso di archiviazione:*  
+## <a name="impact"></a>**Impatto**  
+*Per il tipo di pool di archiviazione specificato, i pool padre e figlio seguenti condividono lo stesso percorso di archiviazione:*  
   
-\<elenco di pool >  
+@no__t 0list dei pool >  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Usare Windows PowerShell per riconfigurare i pool di risorse di archiviazione in modo che più pool di non usare lo stesso percorso di archiviazione.*  
+*Usare Windows PowerShell per riconfigurare i pool di risorse di archiviazione in modo che più pool non usino lo stesso percorso di archiviazione.*  
   
 
 

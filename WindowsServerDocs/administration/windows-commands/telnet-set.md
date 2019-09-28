@@ -1,8 +1,8 @@
 ---
-title: set di Telnet
-description: 'Argomento i comandi di Windows per * * *- '
+title: set Telnet
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b68ce0ee87d80b25cf13db5bebc6c407a9fe091f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e39e2812edc9cd5f169a046def26beebda1d007e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441025"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383617"
 ---
-# <a name="telnet-set"></a>telnet: set
+# <a name="telnet-set"></a>Telnet: impostare
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,23 +33,23 @@ set [bsasdel] [crlf] [delasbs] [escape <Char>] [localecho] [logfile <FileName>] 
 
 |                    Parametro                     |                                                                                                                                              Descrizione                                                                                                                                              |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     bsasdel                      |                                                                                                                                 Invia **Backspace** come una **eliminare**.                                                                                                                                  |
-|                       crlf                       |                                                                                                        Invia CR e LF (0x0D, 0 x 0A) quando il **invio** viene premuto. Nota come modalità di nuova riga.                                                                                                        |
-|                     delasbs                      |                                                                                                                                 Invia **eliminare** come una **Backspace**.                                                                                                                                  |
-|                escape <Character>                | Imposta il carattere di escape utilizzato per accedere al prompt di client telnet. Il carattere di escape può essere un singolo carattere oppure può essere una combinazione dei **CTRL** principali oltre a un carattere. Per impostare una combinazione di tasti di controllo, tenere premuto il **CTRL** mentre si digita il carattere che si vuole assegnare. |
-|                    eco locale                     |                                                                                                                                         Attiva echo locale.                                                                                                                                          |
-|                logfile <FileName>                |                                                                                               Registra la sessione telnet corrente del file locale. Registrazione inizia automaticamente quando si imposta questa opzione.                                                                                               |
+|                     bsasdel                      |                                                                                                                                 Invia **BACKSPACE** come **Delete**.                                                                                                                                  |
+|                       CRLF                       |                                                                                                        Invia CR & LF (0x0D, 0x 0A) quando viene premuto il tasto **invio** . Noto come nuova modalità riga.                                                                                                        |
+|                     delasbs                      |                                                                                                                                 Invia **Delete** come **BACKSPACE**.                                                                                                                                  |
+|                Escape <Character>                | Imposta il carattere di escape utilizzato per immettere il prompt del client Telnet. Il carattere di escape può essere un singolo carattere o una combinazione del tasto **CTRL** più un carattere. Per impostare una combinazione di tasti di controllo, tenere premuto il tasto **CTRL** mentre si digita il carattere che si desidera assegnare. |
+|                    LOCALECHO                     |                                                                                                                                         Attiva l'eco locale.                                                                                                                                          |
+|                logfile <FileName>                |                                                                                               Registra la sessione Telnet corrente nel file locale. La registrazione viene avviata automaticamente quando si imposta questa opzione.                                                                                               |
 |                     logging                      |                                                                                                                  Attiva la registrazione. Se non è impostato alcun file di log, viene visualizzato un messaggio di errore.                                                                                                                   |
-|           modalità {console di &#124; schermata}           |                                                                                                                                       Imposta la modalità operativa.                                                                                                                                        |
-|                       ntlm                       |                                                                                                                                     Attiva l'autenticazione NTLM.                                                                                                                                     |
-| term {ansi &#124; vt100 &#124; vt52 &#124; vtnt} |                                                                                                                                        Imposta il tipo di terminale.                                                                                                                                        |
-|                        ?                         |                                                                                                                                    Visualizza la Guida per questo comando.                                                                                                                                    |
+|           modalità {console &#124; schermo}           |                                                                                                                                       Imposta la modalità operativa.                                                                                                                                        |
+|                       NTLM                       |                                                                                                                                     Attiva l'autenticazione NTLM.                                                                                                                                     |
+| termine {ANSI &#124; VT100 &#124; VT52 &#124; VTNT} |                                                                                                                                        Imposta il tipo di terminale.                                                                                                                                        |
+|                        ?                         |                                                                                                                                    Visualizza la guida per questo comando.                                                                                                                                    |
 
 ## <a name="remarks"></a>Note  
-1. È possibile usare la **unset** comando per disattivare un'opzione che è stata impostata in precedenza.  
-2. Nelle versioni localizzate di telnet, il **set di codici** <option> è disponibile. **Set di codici** <option> imposta il codice corrente impostato su un'opzione, che può essere una qualsiasi delle operazioni seguenti: **shift JIS**, **EUC giapponese**, **Kanji JIS**, **Kanji JIS (78)** , **Kanji DEC**, **NEC Kanji**. È consigliabile impostare lo stesso codice impostata nel computer remoto.  
+1. È possibile usare il comando **Annulla** per disattivare un'opzione precedentemente impostata.  
+2. Nelle versioni non in lingua inglese di Telnet, il **codificatore** <option> è disponibile. Il set di **codici** <option> imposta il codice corrente su un'opzione, che può essere uno dei seguenti: **Shift JIS**, **Japanese EUC**, **JIS kanji**, **JIS kanji (78)** , **Dec kanji**, **NEC**kanji. È necessario impostare lo stesso set di codice nel computer remoto.  
    ## <a name="BKMK_Examples"></a>Esempi  
-   Impostare il file di log e avviare la registrazione per il file locale tnlog.txt  
+   Impostare il file di log e iniziare la registrazione nel file locale tnlog. txt  
    ```  
    set logfile tnlog.txt  
    ```  

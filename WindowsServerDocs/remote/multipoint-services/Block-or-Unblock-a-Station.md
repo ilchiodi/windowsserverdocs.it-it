@@ -2,7 +2,7 @@
 title: Bloccare o sbloccare una stazione
 ms.custom: na
 description: Informazioni su come impedire a un utente o a un gruppo di accedere a un sistema MultiPoint Services.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 5972d7e596f4a35d323832cad68349bcc0fe99ed
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 06e47d8eb203007a20d24aa9d187bb1374d0a4d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871768"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395534"
 ---
 # <a name="block-or-unblock-a-station"></a>Bloccare o sbloccare una stazione
 È possibile bloccare uno o più utenti dal sistema MultiPoint Services se è necessario ottenere la loro attenzione. Mentre gli utenti sono bloccati, le relative sessioni rimangono attive nella memoria del computer del sistema MultiPoint Services fino a quando le stazioni non vengono sbloccate. È possibile personalizzare un messaggio da visualizzare per un utente bloccato.  

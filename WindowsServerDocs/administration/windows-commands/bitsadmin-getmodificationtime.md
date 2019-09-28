@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getmodificationtime
-description: Argomento i comandi di Windows per **bitsadmin getmodificationtime** -recupera l'ultima ora il processo è stato modificato o dei dati è stati trasferiti.
+description: "Argomento dei comandi di Windows per **BITSAdmin getmodificationtime** : Recupera l'ultima volta in cui il processo è stato modificato o i dati sono stati trasferiti."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4257f0ae4868b2f18221ab99268384f778c4bbbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48b4d252ce6161b288726190f41f08c64efdbcf2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381535"
 ---
 # <a name="bitsadmin-getmodificationtime"></a>bitsadmin getmodificationtime
 
 
 
-Recupera l'ultima volta che il processo è stato modificato o dei dati è stati trasferiti.
+Recupera l'ultima volta in cui il processo è stato modificato o il trasferimento dei dati è riuscito.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -40,11 +40,11 @@ bitsadmin /GetModificationTime <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera l'ora dell'ultima modifica per il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperata l'ora dell'Ultima modifica per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetModificationTime myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

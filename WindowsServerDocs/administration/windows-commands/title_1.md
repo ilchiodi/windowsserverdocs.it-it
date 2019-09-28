@@ -1,8 +1,8 @@
 ---
 title: title
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1d1ea70849c3beb4503edfdaa5116384c14a2fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42094e0f1231fee5ac9ef0ec9184ba685c8846b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385791"
 ---
 # <a name="title"></a>title
 
@@ -38,7 +38,7 @@ title [<String>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<String>|Specifica il titolo della finestra del prompt dei comandi.|
+|\<String >|Specifica il titolo della finestra del prompt dei comandi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -59,4 +59,4 @@ title Command Prompt
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

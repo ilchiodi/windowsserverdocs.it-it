@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/02/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fc924f5e5bdd7dabecac4fdd6805ad261a0fc634
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 77655ab414f83f2c74873b12719f9718c6fb59e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358518"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Strumento di ripristino rapido di AD FS
 
@@ -268,6 +268,6 @@ Versione Luglio 2018
 
 
 ### <a name="1000"></a>1.0.0.0
-Resa disponibile: Ottobre 2016
+Rilasciato Ottobre 2016
 
 Versione iniziale di AD FS strumento di ripristino rapido

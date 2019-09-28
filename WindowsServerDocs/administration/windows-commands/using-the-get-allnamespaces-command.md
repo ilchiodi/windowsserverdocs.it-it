@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-AllNamespaces
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b77bb80238ee63cc0d71d88592d75850720e33b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0cd90fc650271c863459dd809e47ca6309132de5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440518"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363295"
 ---
 # <a name="using-the-get-allnamespaces-command"></a>Utilizzando il comando get-AllNamespaces
 
@@ -41,7 +41,7 @@ wdsutil /Get-AllNamespaces [/Server:<Server name>] [/ContentProvider:<name>] [/d
 |  [/Server:<Server name>]  | Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale. |                        |
 | [/ Provider di contenuti:<name>] |                                                        Visualizza gli spazi dei nomi per solo il provider di contenuto specificato.                                                         |                        |
 |      [/ Show: client]      |                            Supportato solo per Windows Server 2008. Visualizza informazioni sui computer client connessi allo spazio dei nomi.                             |                        |
-|    [/ Dettagli: client]     |                           Supportato solo per Windows Server 2008 R2. Visualizza informazioni sui computer client connessi allo spazio dei nomi.                           |                        |
+|    [/Details: client]     |                           Supportato solo per Windows Server 2008 R2. Visualizza informazioni sui computer client connessi allo spazio dei nomi.                           |                        |
 |  [/ExcludedeletePending]  |                                                              Esclude tutte le trasmissioni disattivate dall'elenco.                                                              |                        |
 
 ## <a name="BKMK_examples"></a>Esempi

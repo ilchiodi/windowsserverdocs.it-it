@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8d1ea7a428b2d03649a7a9347421d717be3f468a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7b8d613653bc2effdae155d34a1a94a820bae3aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445828"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357594"
 ---
 # <a name="deploy-automatic-file-classification-demonstration-steps"></a>Deploy Automatic File Classification (Demonstration Steps)
 
@@ -26,15 +26,15 @@ Questo argomento spiega come abilitare le proprietà delle risorse in Active Dir
   
 -   Una regola di classificazione del contenuto che cerca in un gruppo di file un'espressione regolare che corrisponde a un codice fiscale almeno 10 volte in un file. Se l'espressione regolare viene trovata, il file viene classificato come contenente informazioni personali e la proprietà della risorsa Informazioni personali viene impostata su Alto.  
   
-**In questo documento**  
+**Contenuto del documento**  
   
--   [Passaggio 1: Creare definizioni delle proprietà risorse](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Passaggio 1: Creare definizioni di proprietà delle risorse @ no__t-0  
   
--   [Passaggio 2: Creare una regola di classificazione di contenuto stringa](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step2)  
+-   [Passaggio 2: Creare una regola di classificazione del contenuto stringa @ no__t-0  
   
--   [Passaggio 3: Creare una regola di classificazione di contenuto di espressione regolare](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [Passaggio 3: Creare una regola di classificazione del contenuto di un'espressione regolare @ no__t-0  
   
--   [Passaggio 4: Verificare che i file siano classificati](Deploy-Automatic-File-Classification--Demonstration-Steps-.md#BKMK_Step4)  
+-   [Passaggio 4: Verificare che i file siano classificati @ no__t-0  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -42,7 +42,7 @@ Questo argomento spiega come abilitare le proprietà delle risorse in Active Dir
 ## <a name="BKMK_Step1"></a>Passaggio 1: Creare definizioni delle proprietà delle risorse  
 Le proprietà delle risorse Impatto e Informazioni personali vengono abilitate in modo che Infrastruttura di classificazione file possa usarle per contrassegnare i file analizzati in una cartella di rete condivisa.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
 #### <a name="to-create-resource-property-definitions"></a>Per creare definizioni delle proprietà delle risorse  
   
@@ -56,7 +56,7 @@ Le proprietà delle risorse Impatto e Informazioni personali vengono abilitate i
   
 5.  Fare clic con il pulsante destro del mouse su **Informazioni personali** e quindi scegliere **Abilita**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -68,7 +68,7 @@ Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=PII_MS,CN=Resource Propert
 ## <a name="BKMK_Step2"></a>Passaggio 2: Creare una regola di classificazione di contenuto di tipo stringa  
 Una regola di classificazione di contenuto di tipo stringa cerca una stringa specifica in un file. Se la stringa viene trovata, il valore di una proprietà della risorsa può essere configurato. In questo esempio, si verrà analizzato ogni file in una cartella condivisa di rete e cercare la stringa "Contoso Confidential". Se la stringa viene trovata, il file associato viene classificato come ad alto impatto aziendale.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
 #### <a name="to-create-a-string-content-classification-rule"></a>Per creare una regola di classificazione di contenuto di tipo stringa  
   
@@ -107,7 +107,7 @@ Una regola di classificazione di contenuto di tipo stringa cerca una stringa spe
   
 13. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -121,7 +121,7 @@ New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -P
 ## <a name="BKMK_Step3"></a>Passaggio 3: Creare una regola di classificazione di contenuto di tipo espressione regolare  
 Una regola di classificazione di contenuto di tipo espressione regolare cerca in un file una stringa corrispondente all'espressione regolare. Se una stringa di questo tipo viene trovata, il valore di una proprietà della risorsa può essere configurato. In questo esempio verrà analizzato ogni file contenuto in una cartella condivisa alla ricerca di una stringa corrispondente allo schema di un codice fiscale (XXX-XX-XXXX). Se lo schema viene trovato, il file associato viene classificato come contenente informazioni personali.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
   
 #### <a name="to-create-a-regular-expression-content-classification-rule"></a>Per creare una regola di classificazione di contenuto di tipo espressione regolare  
   
@@ -149,13 +149,13 @@ Una regola di classificazione di contenuto di tipo espressione regolare cerca in
   
 9. Nella colonna **Tipo espressione** selezionare **Espressione regolare**.  
   
-10. Nel **espressione** colonna, tipo **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! \d 0000){4}$**  
+10. Nella colonna **espressione** Digitare **^ (?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-3 $**  
   
 11. Nella colonna **N. minimo occorrenze** digitare **10**e quindi fare clic su **OK**.  
   
 12. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -176,7 +176,7 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
     3.  Chiudere il Rapporto classificazione automatica.  
   
-    4.  A questo scopo è possibile eseguire il comando di Windows PowerShell seguente: **Start-FSRMClassification '"RunDuration 0 -Confirm:$false**  
+    4.  A questo scopo è possibile eseguire il comando di Windows PowerShell seguente: **Start-FSRMClassification ' "RunDuration 0-Confirm: $false**  
   
 2.  Passare alla cartella specificata nelle regole di classificazione, ad esempio D:\Finance Documents.  
   
@@ -188,7 +188,7 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
 -   [Scenario: Comprendere i dati mediante la classificazione](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
--   [Pianificare la classificazione automatica dei File](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
+-   [Pianificare la classificazione automatica dei file](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  

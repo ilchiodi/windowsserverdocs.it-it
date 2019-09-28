@@ -1,9 +1,9 @@
 ---
 title: Creare criteri di sicurezza con elenchi di controllo di accesso estesi per le porte
-description: In questo argomento vengono fornite informazioni estesa porta controllo elenchi di accesso (ACL) in Windows Server 2016.
+description: In questo argomento vengono fornite informazioni sugli elenchi di controllo di accesso (ACL) di porta estesi in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-hv-switch
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: a92e61c3-f7d4-4e42-8575-79d75d05a218
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d847213f0332b57ae38ada444d7a6cd98ab325ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f76a3146c1cb38dab26019be655fadbd15d924c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365599"
 ---
 # <a name="create-security-policies-with-extended-port-access-control-lists"></a>Creare criteri di sicurezza con elenchi di controllo di accesso estesi per le porte
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento vengono fornite informazioni estesa porta controllo elenchi di accesso (ACL) in Windows Server 2016. È possibile configurare ACL estesi nel commutatore virtuale Hyper-V in modo da consentire e bloccare il traffico di rete indirizzato e proveniente dalle macchine virtuali connesse al commutatore tramite schede di rete virtuali.  
+In questo argomento vengono fornite informazioni sugli elenchi di controllo di accesso (ACL) di porta estesi in Windows Server 2016. È possibile configurare ACL estesi nel commutatore virtuale Hyper-V in modo da consentire e bloccare il traffico di rete indirizzato e proveniente dalle macchine virtuali connesse al commutatore tramite schede di rete virtuali.  
   
 In questo argomento sono incluse le sezioni seguenti.  
   
@@ -79,7 +79,7 @@ Per configurare un ACL esteso, è necessario utilizzare il comando Windows Power
         [-ComputerName <string[]>] [-WhatIf] [-Confirm]  [<CommonParameters>]  
     ```  
   
-4.  Aggiungere un ACL esteso a un oggetto macchina Virtuale che è stato creato in Windows PowerShell, ad esempio **$vm = get-vm "macchina_virtuale"**. Nella riga di codice successiva è possibile eseguire questo comando per creare un ACL esteso con la sintassi seguente:  
+4.  Aggiungere un ACL esteso a un oggetto macchina Virtuale che è stato creato in Windows PowerShell, ad esempio **$vm = get-vm "macchina_virtuale"** . Nella riga di codice successiva è possibile eseguire questo comando per creare un ACL esteso con la sintassi seguente:  
   
     ```  
     Add-VMNetworkAdapterExtendedAcl [-VM] <VirtualMachine[]> [-Action] <VMNetworkAdapterExtendedAclAction> {Allow |  
@@ -94,9 +94,9 @@ Di seguito sono alcuni esempi di come è possibile utilizzare il **Add-VMNetwork
   
 -   [Applicare la sicurezza a livello di applicazione](#bkmk_enforce)  
   
--   [Applicare la sicurezza a livello utente sia a livello di applicazione](#bkmk_both)  
+-   [Applicare la sicurezza a livello di utente e a livello di applicazione](#bkmk_both)  
   
--   [Fornire il supporto di sicurezza per un'applicazione non TCP/UDP](#bkmk_tcp)  
+-   [Fornire supporto per la sicurezza a un'applicazione non TCP/UDP](#bkmk_tcp)  
   
 > [!NOTE]  
 > I valori del parametro di regola **Direction** nelle tabelle riportate di seguito sono basati sul flusso di traffico diretto o proveniente dalla macchina virtuale per cui si desidera creare la regola. Se la macchina virtuale riceve traffico, il traffico è in entrata. Se invece invia traffico, il traffico è in uscita. Se ad esempio si applica a una macchina virtuale una regola che blocca il traffico in entrata, la direzione del traffico in entrata sarà dalle risorse esterne verso la macchina virtuale. Se si applica una regola che blocca il traffico in uscita, la direzione del traffico in uscita sarà dalla macchina virtuale locale verso le risorse esterne.  
@@ -106,9 +106,9 @@ Poiché in molti server applicazioni vengono utilizzate porte TCP/UDP standardiz
   
 È ad esempio possibile consentire a un utente di eseguire l'accesso a un server applicazioni nel centro dati utilizzando Connessione Desktop remoto (RDP). Poiché il protocollo RDP utilizza la porta TCP 3389, è possibile configurare rapidamente la regola seguente:  
   
-|IP origine|IP destinazione|Protocollo|Porta di origine|Porta di destinazione|Direction|Azione|  
+|IP origine|IP destinazione|Protocol|Porta di origine|Porta di destinazione|Direction|Azione|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
-|*|*|TCP|*|3389|Verso l'interno|Consenti|  
+|*|*|TCP|*|3389|Verso l'interno|Allow|  
   
 Vengono riportati di seguito due esempi di creazione di regole con i comandi di Windows PowerShell. La prima regola di esempio blocca tutto il traffico alla macchina Virtuale denominata "ApplicationServer". La seconda regola di esempio, viene applicata alla scheda di rete della macchina Virtuale denominata "ApplicationServer", consente solo il traffico RDP in ingresso alla macchina Virtuale.  
   
@@ -120,16 +120,16 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Deny" -Dire
 Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Allow" -Direction "Inbound" -LocalPort 3389 -Protocol "TCP" -Weight 10  
 ```  
   
-### <a name="bkmk_both"></a>Applicare la sicurezza a livello utente sia a livello di applicazione  
+### <a name="bkmk_both"></a>Applicare la sicurezza a livello di utente e a livello di applicazione  
 Poiché può soddisfare un pacchetto IP di 5 tuple (IP origine, IP di destinazione, Protocollo, Porta di origine e Porta di destinazione), una regola consente di applicare criteri di sicurezza più dettagliati rispetto a un ACL delle porte.  
   
 Ad esempio, se si desidera fornire il servizio DHCP a un numero limitato di client computer utilizzando un set specifico di server DHCP, è possibile configurare le regole seguenti nel computer Windows Server 2016 che esegue Hyper-V, in cui sono ospitate le macchine virtuali utente:  
   
-|IP origine|IP destinazione|Protocollo|Porta di origine|Porta di destinazione|Direction|Azione|  
+|IP origine|IP destinazione|Protocol|Porta di origine|Porta di destinazione|Direction|Azione|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
-|*|255.255.255.255|UDP|*|67|Verso l'esterno|Consenti|  
-|*|10.175.124.0/25|UDP|*|67|Verso l'esterno|Consenti|  
-|10.175.124.0/25|*|UDP|*|68|Verso l'interno|Consenti|  
+|*|255.255.255.255|UDP|*|67|Verso l'esterno|Allow|  
+|*|10.175.124.0/25|UDP|*|67|Verso l'esterno|Allow|  
+|10.175.124.0/25|*|UDP|*|68|Verso l'interno|Allow|  
   
 Vengono riportati di seguito esempi di creazione di queste regole con i comandi di Windows PowerShell.  
   
@@ -140,16 +140,16 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction 
 Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction "Inbound" -RemoteIPAddress 10.175.124.0/25 -RemotePort 68 -Protocol "UDP"-Weight 20  
 ```  
   
-### <a name="bkmk_tcp"></a>Fornire il supporto di sicurezza per un'applicazione non TCP/UDP  
+### <a name="bkmk_tcp"></a>Fornire supporto per la sicurezza a un'applicazione non TCP/UDP  
 Mentre la maggior parte del traffico di rete in un centro dati è basato sui protocolli TCP e UDP, esiste comunque una parte di traffico basata su altri protocolli. Se ad esempio si desidera consentire a un gruppo di server di eseguire un'applicazione multicast IP basata sul protocollo IGMP (Internet Group Management Protocol), è possibile creare la regola seguente.  
   
 > [!NOTE]  
 > Il numero di protocollo IP designato per IGMP è 0x02.  
   
-|IP origine|IP destinazione|Protocollo|Porta di origine|Porta di destinazione|Direction|Azione|  
+|IP origine|IP destinazione|Protocol|Porta di origine|Porta di destinazione|Direction|Azione|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
-|*|*|0x02|*|*|Verso l'interno|Consenti|  
-|*|*|0x02|*|*|Verso l'esterno|Consenti|  
+|*|*|0x02|*|*|Verso l'interno|Allow|  
+|*|*|0x02|*|*|Verso l'esterno|Allow|  
   
 Viene riportato di seguito un esempio di creazione di queste regole con i comandi di Windows PowerShell.  
   
@@ -187,11 +187,11 @@ Per definire questa configurazione di regola, è possibile utilizzare le imposta
 |-------------|----------|----------|----------|  
 |IP origine|*|*|*|  
 |IP destinazione|*|*|*|  
-|Protocollo|*|*|TCP|  
+|Protocol|*|*|TCP|  
 |Porta di origine|*|*|*|  
 |Porta di destinazione|*|*|80|  
 |Direction|Verso l'interno|Verso l'esterno|Verso l'esterno|  
-|Azione|Nega|Nega|Consenti|  
+|Azione|Nega|Nega|Allow|  
 |Con stato|No|No|Yes|  
 |Timeout (in secondi)|N/D|N/D|3600|  
   

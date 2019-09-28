@@ -6,20 +6,20 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: cef87e725db7068ac4ed93524e09a25de95ec276
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 118c03ada32d3cd5b198ecd238078984a38df0db
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828515"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359827"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-both-the-perimeter-network-and-internet-clients"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve sia la rete perimetrale sia i client Internet
 
 
-In modo che la risoluzione dei nomi può funzionare correttamente per un proxy server federativo in una Active Directory Federation Services \(ADFS\) scenario in cui uno o più Domain Name System \(DNS\) zone servono sia la rete perimetrale e dai client Internet, è necessario completare le attività seguenti:  
+In modo che la risoluzione dei nomi possa funzionare correttamente per un proxy server federativo in uno scenario Active Directory Federation Services \(AD FS @ no__t-1 in cui una o più Domain Name System \(DNS @ no__t-3 zone servono sia la rete perimetrale che Internet client, è necessario completare le attività seguenti:  
   
 -   Per risolvere che nome per il proxy server federativo host tutte le richieste client Internet per ADFS è necessario configurare DNS nella zona Internet che è possibile controllare. A tale scopo, si aggiunge un host \(A\) record di risorse per la zona DNS Internet per il proxy server federativo.  
   
@@ -32,7 +32,7 @@ In modo che la risoluzione dei nomi può funzionare correttamente per un proxy s
 In modo che i computer client su Internet possono accedere un server federativo tramite un proxy server federativo appena distribuito, è innanzitutto necessario creare un host \(A\) record di risorse nella zona DNS Internet che è possibile controllare. Questo record di risorse consente di risolvere il nome host del server federativo di account \(ad esempio, fs.fabrikam.com\) all'indirizzo IP del proxy server federativo account \(ad esempio, 131.107.27.68\) nella rete perimetrale.  
   
 > [!NOTE]  
-> Si presuppone che si usa un server DNS che eseguono Windows 2000 Server, Windows Server 2003 o Windows Server 2008 con il servizio Server DNS per controllare la zona DNS Internet.  
+> Si presuppone che si stia usando un server DNS che esegue Windows 2000 Server, Windows Server 2003 o Windows Server 2008 con il servizio server DNS per controllare la zona DNS Internet.  
   
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -52,7 +52,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 In modo che le richieste client Internet possono essere elaborate correttamente dai proxy server federativo e raggiungano il server federativo dopo che vengono risolte nella zona DNS Internet, è necessario creare un host \(A\) record di risorse nella zona DNS perimetrale. Questo record di risorse consente di risolvere il nome host del server federativo di account \(ad esempio, fs. Fabrikam.com\) all'indirizzo IP del server federativo di account \(ad esempio, 192.168.1.4\) nella rete aziendale.  
   
 > [!NOTE]  
-> Si presuppone che si usa un server DNS che eseguono Windows 2000 Server, Windows Server 2003, Windows Server 2008 o Windows Server® 2012 con il servizio Server DNS per controllare la zona DNS perimetrale.  
+> Si presuppone che si stia usando un server DNS che esegue Windows 2000 Server, Windows Server 2003, Windows Server 2008 o Windows Server® 2012 con il servizio server DNS per controllare la zona DNS perimetrale.  
   
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   

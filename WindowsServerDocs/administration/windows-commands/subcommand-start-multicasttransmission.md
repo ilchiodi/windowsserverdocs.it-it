@@ -1,8 +1,8 @@
 ---
-title: Il sottocomando start-MulticastTransmission
-description: 'Argomento i comandi di Windows per * * *- '
+title: Sottocomando Start-MulticastTransmission
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7e3e59a0907caf2769d5df00aeaf00589ab450d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c0e05a1d625e560d85f0af6ae1d76ef8116ddfd8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383835"
 ---
 # <a name="subcommand-start-multicasttransmission"></a>Sottocomando: start-MulticastTransmission
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Avvia una trasmissione multicast pianificato di un'immagine.
+avvia una trasmissione multicast pianificata di un'immagine.
 ## <a name="syntax"></a>Sintassi
 **Windows Server 2008**
 ```
 wdsutil /start-MulticastTransmissiomedia:<Image name> [/Server:<Server namemediatype:InstallmediaGroup:<Image group name>] [/Filename:<File name>]
 ```
-**Windows Server 2008 R2** per immagini d'avvio:
+**Windows Server 2008 R2** per le immagini d'avvio:
 ```
 wdsutil [Options] /start-MulticastTransmissiomedia:<Image name>
         [/Server:<Server name>]
@@ -38,7 +38,7 @@ wdsutil [Options] /start-MulticastTransmissiomedia:<Image name>
         /Architecture:{x86 | ia64 | x64}
         [/Filename:<File name>]
 ```
-per immagini di installazione:
+per le immagini di installazione:
 ```
 wdsutil [Options] /start-MulticastTransmissiomedia:<Image name>
         [/Server:<Server name>]
@@ -49,7 +49,7 @@ wdsutil [Options] /start-MulticastTransmissiomedia:<Image name>
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-media:<Image name>|Specifica il nome dell'immagine.|
+supporto: <Image name>|Specifica il nome dell'immagine.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 mediatype:{Install&#124;Boot}|Specifica il tipo di immagine. Si noti che questa opzione deve essere impostata su **installare** per Windows Server 2008.|
 |/ Architettura: {x86 &#124; ia64 &#124; x64}|L'architettura dell'immagine di avvio associata per avviare la trasmissione. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire la corretta trasmissione viene utilizzata.|

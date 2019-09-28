@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 82added5018d83aeb9fe7d8033204a0d19bd047a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 37dd52b8771eda695069dd996fbd920e31f80ef1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868096"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359813"
 ---
 # <a name="configure-performance-monitoring"></a>Configurare il monitoraggio delle prestazioni
   
@@ -41,7 +41,7 @@ AD FS include contatori delle prestazioni dedicati che consentono di monitorare 
   
 7. Quando viene richiesto di aggiungere le chiavi del registro di sistema da monitorare, fare clic su **Avanti**.  
   
-8. Quando viene richiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso \(predefinito **% SystemDrive\\%\\regprest\\admin** _<\_agente di raccolta dati impostare\_>_ , quindi fare clic su **Avanti**.  
+8. Quando viene richiesto di specificare il percorso in cui salvare i dati sulle prestazioni, è possibile accettare il percorso predefinito \( **% SystemDrive% \\PerfLogs @ no__t-3Admin @ no__t-4** _< data @ no__t-6collector @ no__t-7SET) >_ e quindi fare clic su **Quindi**.  
   
 9. Quando viene richiesto di creare l'insieme agenti di raccolta dati, selezionare **Salva e Chiudi**, quindi fare clic su **fine**.  
   

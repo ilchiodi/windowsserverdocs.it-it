@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b15bb55741ed6cde2e1884896d58fb2d361cd014
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 094ad9e2de21e1f89c35c914a1b327727c2b1439
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192514"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360116"
 ---
 # <a name="ad-fs-2016-deployment-guide"></a>Guida alla distribuzione di AD FS 2016
 
@@ -22,11 +22,11 @@ ms.locfileid: "66192514"
 Guida alla distribuzione di ADFS è una guida completa per la distribuzione di ADFS.  In questa guida è costituita da quanto segue:
 
   
-* [Aggiornamento ad AD FS in Windows Server 2016](Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
+* [Aggiornamento a AD FS in Windows Server 2016](Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
 
 * [Guida alla distribuzione di Windows Server 2016 e 2012 R2](Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
 
 * [Guida alla distribuzione di Windows Server 2012](Windows-Server-2012-AD-FS-Deployment-Guide.md)
 
-* [Monitorare l'identità dell'infrastruttura e la sincronizzazione servizi locali nel cloud](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
+* [Monitora l'infrastruttura di identità locale e i servizi di sincronizzazione nel cloud](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
   

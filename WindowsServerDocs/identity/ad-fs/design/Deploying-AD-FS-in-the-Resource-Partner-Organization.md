@@ -7,22 +7,22 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: acdecd4afd9c55bdbd71cea9e01f3b3024870ced
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 55291293349ce77337c5b35585dd3ea8e0d8c9e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359175"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Distribuzione di AD FS nell'organizzazione partner risorse
 
-L'organizzazione partner risorse in Active Directory Federation Services \(ADFS\) rappresenta l'organizzazione cui server Web possono essere protetti da una risorsa\-server federativo lato. Il server federativo del partner risorse Usa i token di sicurezza generati dal partner account per fornire attestazioni ai server Web che si trovano nel partner risorse.  
+L'organizzazione partner risorse in Active Directory Federation Services \(AD FS @ no__t-1 rappresenta l'organizzazione i cui server Web possono essere protetti da una risorsa @ no__t-2side server federativo. Il server federativo nel partner risorse usa i token di sicurezza generati dal partner account per fornire attestazioni ai server Web che si trovano nel partner risorse.  
   
-Negli scenari in cui è necessario fornire l'accesso ai servizi federati o applicazioni a molti utenti diversi, ovvero quando alcuni utenti si trovano in organizzazioni diverse, è possibile configurare il server federativo di risorsa in modo da poter distribuire più partner account.  
+Negli scenari in cui è necessario fornire l'accesso alle applicazioni o ai servizi federati a molti utenti diversi, quando alcuni utenti risiedono in organizzazioni diverse, è possibile configurare il server federativo di risorsa in modo da poter distribuire più partner account.  
   
-Per altre informazioni su come installare e configurare un'organizzazione partner risorse, vedere [elenco di controllo: Configuring the Resource Partner Organization](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md).  
+Per ulteriori informazioni su come installare e configurare un'organizzazione partner risorse, vedere [Checklist: Configurazione dell'organizzazione partner risorse @ no__t-0.  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   

@@ -1,8 +1,8 @@
 ---
 title: wbadmin
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ce8109ef6a0885abd02ef1dee9f11d21b7d7e9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0fe9b999e788af1316ca0dbbf50b84e80cb08e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362468"
 ---
 # <a name="wbadmin"></a>wbadmin
 
@@ -34,21 +34,21 @@ Per configurare un backup pianificato, è necessario essere un membro del **ammi
 
 |Sottocomando|Descrizione|
 |----------|-----------|
-|[Abilita backup Wbadmin](wbadmin-enable-backup.md)|Configura e abilita il backup regolare.|
-|[disabilitare il backup Wbadmin](wbadmin-disable-backup.md)|Disabilita i backup giornalieri.|
-|[Comando Wbadmin start backup](wbadmin-start-backup.md)|Viene eseguito un backup unico. Se utilizzata senza parametri, Usa le impostazioni di pianificazione del backup giornaliero.|
-|[Processo di arresto Wbadmin](wbadmin-stop-job.md)|Arresta l'esecuzione del backup o l'operazione di ripristino.|
-|[Wbadmin get versioni](wbadmin-get-versions.md)|Elenca i dettagli di backup recuperabili dal computer locale o, se viene specificato un altro percorso, da un altro computer.|
-|[Wbadmin get elementi](wbadmin-get-items.md)|Elenca gli elementi inclusi in un backup.|
-|[Comando Wbadmin start recovery](wbadmin-start-recovery.md)|Esegue un ripristino di volumi, applicazioni, file o cartelle specificate.|
-|[Comando Wbadmin ottenere lo stato](wbadmin-get-status.md)|Mostra lo stato di esecuzione del backup o di operazione di ripristino.|
-|[Wbadmin get dischi](wbadmin-get-disks.md)|Vengono elencati i dischi attualmente online.|
-|[Comando Wbadmin start systemstaterecovery](wbadmin-start-systemstaterecovery.md)|Esegue un ripristino dello stato del sistema.|
-|[Comando Wbadmin start systemstatebackup](wbadmin-start-systemstatebackup.md)|Viene eseguito un backup dello stato del sistema.|
-|[comando Wbadmin delete systemstatebackup](wbadmin-delete-systemstatebackup.md)|Elimina uno o più backup dello stato del sistema.|
-|[Comando Wbadmin start sysrecovery](wbadmin-start-sysrecovery.md)|Esegue un ripristino del sistema completo (almeno tutti i volumi che contengono lo stato del sistema operativo). Il sottocomando è disponibile solo se si utilizza l'ambiente ripristino Windows.|
-|[Catalogo di ripristino Wbadmin](wbadmin-restore-catalog.md)|Consente di recuperare un catalogo di backup da un percorso di archiviazione specificato nel caso in cui il catalogo di backup nel computer locale è stato danneggiato.|
-|[Comando Wbadmin delete catalogo](wbadmin-delete-catalog.md)|Elimina il catalogo di backup del computer locale. Utilizzare questo sottocomando solo se il catalogo di backup nel computer in uso è danneggiato e non sono disponibili backup archiviato in un altro percorso che è possibile utilizzare per ripristinare il catalogo.|
+|[Wbadmin enable backup](wbadmin-enable-backup.md)|Configura e abilita il backup regolare.|
+|[Wbadmin disable backup](wbadmin-disable-backup.md)|Disabilita i backup giornalieri.|
+|[Wbadmin start backup](wbadmin-start-backup.md)|Esegue un backup unico. Se usato senza parametri, USA le impostazioni della pianificazione del backup giornaliero.|
+|[Wbadmin stop job](wbadmin-stop-job.md)|Arresta l'operazione di backup o ripristino attualmente in esecuzione.|
+|[Wbadmin get versions](wbadmin-get-versions.md)|Elenca i dettagli dei backup ripristinabili dal computer locale o, se viene specificato un altro percorso, da un altro computer.|
+|[Wbadmin get items](wbadmin-get-items.md)|Elenca gli elementi inclusi in un backup.|
+|[Wbadmin start recovery](wbadmin-start-recovery.md)|Esegue un ripristino dei volumi, delle applicazioni, dei file o delle cartelle specificate.|
+|[Wbadmin get status](wbadmin-get-status.md)|Mostra lo stato dell'operazione di backup o ripristino attualmente in esecuzione.|
+|[Wbadmin get disks](wbadmin-get-disks.md)|Elenca i dischi attualmente in linea.|
+|[Wbadmin start systemstaterecovery](wbadmin-start-systemstaterecovery.md)|Esegue un ripristino dello stato del sistema.|
+|[Wbadmin start systemstatebackup](wbadmin-start-systemstatebackup.md)|Esegue un backup dello stato del sistema.|
+|[Wbadmin delete systemstatebackup](wbadmin-delete-systemstatebackup.md)|Elimina uno o più backup dello stato del sistema.|
+|[Wbadmin start sysrecovery](wbadmin-start-sysrecovery.md)|Esegue un ripristino del sistema completo (almeno tutti i volumi che contengono lo stato del sistema operativo). Il sottocomando è disponibile solo se si utilizza l'ambiente ripristino Windows.|
+|[Wbadmin restore catalog](wbadmin-restore-catalog.md)|Recupera un catalogo di backup da una posizione di archiviazione specificata nel caso in cui il catalogo di backup nel computer locale sia danneggiato.|
+|[Wbadmin delete catalog](wbadmin-delete-catalog.md)|Elimina il catalogo di backup del computer locale. Utilizzare questo sottocomando solo se il catalogo di backup nel computer in uso è danneggiato e non sono disponibili backup archiviato in un altro percorso che è possibile utilizzare per ripristinare il catalogo.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 

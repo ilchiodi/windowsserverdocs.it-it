@@ -1,8 +1,8 @@
 ---
 title: Servizi per riferimento ai comandi di Network File System
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,27 +13,27 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9dcfd62f994d20d21cc9045a26f5fe313b0e338e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 247adb10411970129303c04b7d8790ad06e8c583
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861782"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384064"
 ---
 # <a name="services-for-network-file-system-command-reference"></a>Servizi per riferimento ai comandi di Network File System
 
 
 
-Servizi per Network File System (NFS) offre una soluzione che consente di trasferire file tra computer che eseguono Windows Server 2008 e sistemi operativi UNIX mediante il protocollo NFS di condivisione file.
+I servizi per NFS (Network File System) forniscono una soluzione di condivisione file che consente di trasferire file tra computer che eseguono sistemi operativi Windows Server 2008 e UNIX usando il protocollo NFS.
 
-Di seguito è riportato un elenco di strumenti della riga di comando NFS.
+Di seguito è riportato un elenco di strumenti da riga di comando NFS.
 
 |Comando|Descrizione|
 |-------|-----------|
 |[mapadmin](mapadmin.md)|Gestire Mapping per i servizi Microsoft per NFS di nome utente.|
-|[Mount](mount.md)|Condivisioni di rete di montare File System NFS (Network).|
+|[Montaggio](mount.md)|Montare le condivisioni di rete NFS (Network File System).|
 |[Nfsadmin](nfsadmin.md)|Gestire Server per NFS e Client per NFS.|
-|[Nfsshare](nfsshare.md)|Controllare le condivisioni di File System NFS (Network).|
+|[Nfsshare](nfsshare.md)|Controllare le condivisioni NFS (Network File System).|
 |[Nfsstat](nfsstat.md)|Visualizzare o reimpostare i conteggi delle chiamate effettuate a Server per NFS.|
 |[Rpcinfo](rpcinfo.md)|Elenco programmi nei computer remoti.|
 |[Showmount](showmount.md)|Visualizzare le directory montate.|

@@ -1,8 +1,8 @@
 ---
-title: Processo di arresto Wbadmin
-description: 'Argomento i comandi di Windows per * * *- '
+title: wbadmin Arresta processo
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a9e71fe2e4883c52c2418e21fc8764fd14e6c81
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 671ab48722970af214a040d8ca7fea807a525698
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362215"
 ---
-# <a name="wbadmin-stop-job"></a>Processo di arresto Wbadmin
+# <a name="wbadmin-stop-job"></a>wbadmin Arresta processo
 
 
 
@@ -43,5 +43,5 @@ wbadmin stop job
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1109965d3a0045f9ebfa080380b9d7303209fce8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4efcae02b96904c9f869a5ed9e14eba161892b74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358164"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Creare una regola per l'invio di un'attestazione di metodo di autenticazione
 
@@ -212,7 +212,7 @@ A seconda dei requisiti dell'organizzazione, utilizzare una delle seguenti proce
 
     -   **Regole di autorizzazione rilascio**  
 
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **inviare l'appartenenza al gruppo come attestazione** dall'elenco, quindi fare clic su **Avanti**.  
@@ -257,7 +257,7 @@ A seconda dei requisiti dell'organizzazione, utilizzare una delle seguenti proce
 
     -   **Regole di autorizzazione rilascio**  
 
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **trasformare un'attestazione in ingresso** dall'elenco, quindi fare clic su **Avanti**.  
@@ -294,7 +294,7 @@ A seconda dei requisiti dell'organizzazione, utilizzare una delle seguenti proce
 
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
 
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
 

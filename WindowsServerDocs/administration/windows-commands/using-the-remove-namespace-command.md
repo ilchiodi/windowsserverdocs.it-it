@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando remove-spazio dei nomi
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 115c0a90a60e18ee4b89758200773d1dfec2163f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4c087442c43fd885fe4554cb29f9b2788420e05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362787"
 ---
 # <a name="using-the-remove-namespace-command"></a>Utilizzando il comando remove-spazio dei nomi
 
@@ -32,9 +32,9 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/ Namespace:<Namespace name>|Specifica il nome dello spazio dei nomi. Non è il nome descrittivo e deve essere univoco.<br /><br />-   **Servizio ruolo Server di distribuzione**: La sintassi per il nome dello spazio dei nomi è /namespace:<ImageGroup>/<ImageName>/<Index>. Ad esempio:  **WDS:ImageGroup1/install.wim/1**<br />-   **Servizio ruolo Server di trasporto**: Questo valore deve corrispondere al nome specificato per lo spazio dei nomi quando è stato creato nel server.|
+|/Namespace: <Namespace name>|Specifica il nome dello spazio dei nomi. Non è il nome descrittivo e deve essere univoco.<br /><br />**servizio ruolo server di distribuzione**-   : La sintassi per il nome dello spazio dei nomi è/namespace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />**servizio ruolo server di trasporto**-   : Questo valore deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server.|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-|[/force]|Rimuove lo spazio dei nomi immediatamente e termina tutti i client. Si noti che, a meno che non si specifica **/Force**, i client esistenti possono completare il trasferimento, ma non sono in grado di aggiungere nuovi client.|
+|/Force|rimuove immediatamente lo spazio dei nomi e termina tutti i client. Si noti che, a meno che non si specifichi **/Force**, i client esistenti possono completare il trasferimento, ma non è possibile aggiungere nuovi client.|
 ## <a name="BKMK_examples"></a>Esempi
 Per arrestare uno spazio dei nomi (client corrente può completare il trasferimento, ma i nuovi client non sono in grado di creare un join), tipo:
 ```

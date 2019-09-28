@@ -1,7 +1,7 @@
 ---
 title: Una macchina virtuale in esecuzione Windows Vista e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: c35f08b2-e624-4811-a159-c1e5bb6d5281
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: b099fb72590decdd59d847e98364e5f6d005dd6a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a9ce14c31d2ea6e26b03d5c430a428474255b84
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366584"
 ---
 # <a name="a-virtual-machine-running-windows-vista-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Una macchina virtuale in esecuzione Windows Vista e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Uno o più macchine virtuali sono configurate per l'utilizzo della memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows Vista.*  
+*Una o più macchine virtuali sono configurate per l'utilizzo di memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows Vista.*  
   
 ### <a name="impact"></a>Impatto  
-*Il sistema operativo guest nelle macchine virtuali seguenti potrebbero non essere eseguiti o potrebbero essere eseguiti unreliably:*  
+*Il sistema operativo guest nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo affidabile:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
       
 ## <a name="resolution"></a>Risoluzione  
-*Utilizzare Gestione Hyper-V o Windows PowerShell per aumentare la memoria minima per almeno 256 MB, memoria di avvio di almeno 512 MB e memoria massima per almeno 1 GB.*  
+*Usare la console di gestione di Hyper-V o Windows PowerShell per aumentare la memoria minima per almeno 256 MB, memoria di avvio per almeno 512 MB e memoria massima per almeno 1 GB.*  
   
 #### <a name="increase-memory-using-hyper-v-manager"></a>Aumentare la memoria tramite Gestione di Hyper-V  
   
@@ -59,7 +59,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   
-1.  Aprire Windows PowerShell. (Dal desktop, fare clic su **avviare** e iniziare a digitare **Windows PowerShell**.)  
+1.  Aprire Windows PowerShell. (Dal desktop fare clic su **Start** e iniziare a digitare **Windows PowerShell**).  
   
 2.  Fare doppio clic su **Windows PowerShell** e fare clic su **Esegui come amministratore**.  
   

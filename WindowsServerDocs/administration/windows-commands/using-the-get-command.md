@@ -1,8 +1,8 @@
 ---
 title: Usando il comando
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b74a66ece9b79a6b8868fe6b1b25faf39eb108c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35fe9ebf036e82fce0f6b2ff67ddb654d8dad586
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363280"
 ---
 # <a name="using-the-get-command"></a>Usando il comando
 
@@ -28,23 +28,23 @@ Recupera le proprietà o attributi sull'oggetto specificato.
 ## <a name="subcommands"></a>Sottocomandi
 |Sottocomando|Descrizione|
 |-------|--------|
-|[Utilizzando il comando get-AllDevices](using-the-get-alldevices-command.md)|Visualizza informazioni su tutti i computer pre-installazione.|
-|[Utilizzando il comando get-AllImageGroups](using-the-get-allimagegroups-command.md)|Visualizza informazioni su tutti i gruppi di immagini.|
-|[Usando il comando get-AllImages](using-the-get-allimages-command.md)|Visualizza informazioni su tutte le immagini.|
-|[Utilizzando il comando get-AllMulticastTransmissions](using-the-get-allmulticasttransmissions-command.md)|Visualizza gli attributi di tutte le trasmissioni multicast.|
-|[Utilizzando il comando get-AllNamespaces](using-the-get-allnamespaces-command.md)|Visualizza gli attributi di tutti gli spazi dei nomi.|
-|[Usando il comando get-AllServers](using-the-get-allservers-command.md)|Visualizza informazioni su tutti i server di servizi di distribuzione Windows.|
-|[Utilizzando il comando get-AutoaddDevices](using-the-get-autoadddevices-command.md)|Visualizza i computer che sono in attesa di approvazione amministrativa in un server specificato.|
-|[Utilizzando il comando get-dispositivo](using-the-get-device-command.md)|Visualizza gli attributi di un computer in sospeso.|
-|[Utilizzando il comando get-immagine](using-the-get-image-command.md)|Visualizza gli attributi di un'immagine esistente.|
-|[Usando il comando get-ImageFile](using-the-get-imagefile-command.md)|Visualizza informazioni sulle immagini in un file con estensione wim specificato.|
-|[Utilizzando il comando get-ImageGroup](using-the-get-imagegroup-command.md)|Visualizza informazioni su un gruppo di immagini specificato.|
-|[Utilizzando il comando get-MulticastTransmission](using-the-get-multicasttransmission-command.md)|Visualizza gli attributi di una trasmissione multicast specificato.|
-|[Usando il comando get-Namespace](using-the-get-namespace-command.md)|Visualizza gli attributi di uno spazio dei nomi specificato.|
-|[Utilizzando il comando get-Server](using-the-get-server-command.md)|Visualizza informazioni su un server di servizi di distribuzione Windows specificato.|
-|[Utilizzando il comando get-TransportServer](using-the-get-transportserver-command.md)|Visualizza informazioni su un Server di trasporto specificato.|
-|[Usando il comando Get /InfFile](using-the-get-driverpackage-command.md)|Visualizza informazioni sui pacchetti driver in un server.|
-|[Usando il comando get-AllDriverGroups](using-the-get-alldrivergroups-command.md)|Visualizza informazioni su tutti i gruppi di driver sul server.|
-|[Utilizzando il comando get-DriverGroup](using-the-get-drivergroup-command.md)|Visualizza informazioni sui gruppi di driver in un server.|
-|[Usando il comando get-AllDriverPackages](using-the-get-alldriverpackages-command.md)|Visualizza informazioni su tutti i pacchetti di driver in un server che soddisfano i criteri di ricerca specificati.|
-|[Utilizzando il comando get-DriverPackageFile](using-the-get-driverpackagefile-command.md)|Visualizza informazioni su un pacchetto driver, inclusi i driver e file in che esso contenuti.|
+|[Utilizzando il comando Get-AllDevices](using-the-get-alldevices-command.md)|Visualizza informazioni su tutti i computer pre-installazione.|
+|[Utilizzando il comando Get-AllImageGroups](using-the-get-allimagegroups-command.md)|Visualizza informazioni su tutti i gruppi di immagini.|
+|[Utilizzando il comando Get-AllImages](using-the-get-allimages-command.md)|Visualizza informazioni su tutte le immagini.|
+|[Utilizzando il comando Get-AllMulticastTransmissions](using-the-get-allmulticasttransmissions-command.md)|Visualizza gli attributi di tutte le trasmissioni multicast.|
+|[Utilizzando il comando Get-AllNamespaces](using-the-get-allnamespaces-command.md)|Visualizza gli attributi di tutti gli spazi dei nomi.|
+|[Utilizzando il comando Get-AllServers](using-the-get-allservers-command.md)|Visualizza informazioni su tutti i server di servizi di distribuzione Windows.|
+|[Utilizzando il comando Get-AutoaddDevices](using-the-get-autoadddevices-command.md)|Visualizza i computer che sono in attesa di approvazione amministrativa in un server specificato.|
+|[Uso del comando Get-Device](using-the-get-device-command.md)|Visualizza gli attributi di un computer in sospeso.|
+|[Uso del comando Get-Image](using-the-get-image-command.md)|Visualizza gli attributi di un'immagine esistente.|
+|[Utilizzando il comando Get-ImageFile](using-the-get-imagefile-command.md)|Visualizza informazioni sulle immagini in un file con estensione wim specificato.|
+|[Utilizzando il comando Get-ImageGroup](using-the-get-imagegroup-command.md)|Visualizza informazioni su un gruppo di immagini specificato.|
+|[Utilizzando il comando Get-MulticastTransmission](using-the-get-multicasttransmission-command.md)|Visualizza gli attributi di una trasmissione multicast specificato.|
+|[Utilizzando il comando get-Namespace](using-the-get-namespace-command.md)|Visualizza gli attributi di uno spazio dei nomi specificato.|
+|[Utilizzando il comando Get-server](using-the-get-server-command.md)|Visualizza informazioni su un server di servizi di distribuzione Windows specificato.|
+|[Utilizzando il comando Get-TransportServer](using-the-get-transportserver-command.md)|Visualizza informazioni su un Server di trasporto specificato.|
+|[Uso del comando Get-DriverPacke](using-the-get-driverpackage-command.md)|Visualizza informazioni sui pacchetti driver in un server.|
+|[Utilizzando il comando Get-AllDriverGroups](using-the-get-alldrivergroups-command.md)|Visualizza informazioni su tutti i gruppi di driver sul server.|
+|[Utilizzando il comando Get-DriverGroup](using-the-get-drivergroup-command.md)|Visualizza informazioni sui gruppi di driver in un server.|
+|[Utilizzando il comando Get-AllDriverPackages](using-the-get-alldriverpackages-command.md)|Visualizza informazioni su tutti i pacchetti di driver in un server che soddisfano i criteri di ricerca specificati.|
+|[Utilizzando il comando Get-DriverPackageFile](using-the-get-driverpackagefile-command.md)|Visualizza informazioni su un pacchetto driver, inclusi i driver e file in che esso contenuti.|

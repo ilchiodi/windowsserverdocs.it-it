@@ -1,8 +1,8 @@
 ---
 title: Gestire desktop virtuali
-description: Informazioni su come gestire i desktop virtuali (VDI) in servizi MultiPoint
+description: Informazioni su come gestire i desktop virtuali (VDI) in MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7afc6d2a65cd5cd3b116db5d65fd97e4cc770690
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45bb3e98779bc27913c7e675a9c9db7e575d9d72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389593"
 ---
 # <a name="manage-virtual-desktops"></a>Gestire desktop virtuali
-Singolo computer VDI consente di configurare ognuno *locale* stazione MultiPoint Services per connettersi a un sistema operativo guest di Windows 10 Enterprise in esecuzione in una macchina virtuale Hyper-V (VM) nello stesso computer MultiPoint Services il stazione. È possibile personalizzare le stazioni di desktop virtuali con applicazioni che non possono essere installate su una versione di Windows Server.  
+Single computer VDI consente di configurare ogni stazione MultiPoint Services *locale* per connettersi a un sistema operativo guest Windows 10 Enterprise in esecuzione in una macchina virtuale Hyper-V (VM) nello stesso computer Servizi multipoint della stazione. È possibile personalizzare le stazioni di desktop virtuali con applicazioni che non possono essere installate su una versione di Windows Server.  
   
-## <a name="enable-the-virtual-desktop-feature"></a>Abilitare la funzionalità di desktop virtuale  
+## <a name="enable-the-virtual-desktop-feature"></a>Abilitare la funzionalità desktop virtuale  
   
 1.  Aprire Gestione MultiPoint, quindi fare clic sulla scheda **Desktop virtuali**.  
   
@@ -69,25 +69,25 @@ Dopo aver creato il modello di desktop virtuale, è possibile personalizzarlo co
 2. Scegliere il modello di desktop virtuale, quindi fare clic su **Customize virtual desktop template** (Personalizza modello di desktop virtuale).  
 Il modello si aprirà in una finestra separata in cui saranno disponibili altre istruzioni e i passaggi più importanti per personalizzare il modello virtuale. Leggere attentamente queste istruzioni.  
   
-## <a name="create-virtual-desktop-stations"></a>Creare le stazioni di desktop virtuali  
+## <a name="create-virtual-desktop-stations"></a>Creazione di stazioni desktop virtuali  
   
 1.  Aprire Gestione MultiPoint in modalità stazione, quindi fare clic sulla scheda **Desktop virtuali**.  
   
     > [!NOTE]  
     > Se il sistema MultiPoint Services non è in modalità stazione, è necessario riavviarlo per completare la procedura.  
   
-2.  Selezionare il modello di desktop virtuale a sinistra\-riquadro. Il modello è denominato <prefix –t>.  
+2.  Selezionare il modello di desktop virtuale nel riquadro di sinistra @ no__t-0hand. Il modello è denominato <prefix –t>.  
   
 3.  In Template Tasks (Attività modello) fare clic su **Create virtual desktop stations** (Crea stazioni di desktop virtuali), quindi selezionare **OK**.  
   
     La creazione della stazione di desktop virtuale richiede diversi minuti.  
   
     > [!NOTE]  
-    > Se uno o più stazioni locali è attualmente connessi a una sessione\-virtuale basato su desktop, è necessario scollegarsi da tali stazioni per consentirle di connettersi a una delle stazioni di desktop virtuali appena create.  
+    > Se una delle stazioni locali è attualmente connessa a una sessione @ no__t-0based Virtual Desktop, è necessario disconnettersi da tali stazioni per potersi connettere a una delle stazioni di desktop virtuali appena create.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Convalidare le stazioni desktop virtuali personalizzate appena create  
   
-È possibile convalidare le stazioni desktop virtuali personalizzate, accedere a uno o più stazioni di desktop virtuali usando un account amministratore locale o un account di dominio e quindi verificare che la nuova macchina virtuale\-utilizzano desktop virtuali basati su in modo corretto.  
+È possibile convalidare i desktop della stazione virtuale personalizzata accedendo a una o più stazioni di desktop virtuali usando un account amministratore locale o un account di dominio, quindi verificare che i desktop virtuali @ no__t-0based della nuova VM funzionino correttamente.  
   
 ## <a name="disable-virtual-desktops"></a>Disabilitare i desktop virtuali  
   

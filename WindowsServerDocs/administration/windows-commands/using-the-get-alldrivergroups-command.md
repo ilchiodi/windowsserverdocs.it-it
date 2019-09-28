@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-AllDriverGroups
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 236a2f798fb07ee6eafb9baf9314dbf46a984cdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bed6c784b2fafa30f2beb0394b64fe570ddd8ff7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363384"
 ---
 # <a name="using-the-get-alldrivergroups-command"></a>Utilizzando il comando get-AllDriverGroups
 
@@ -33,9 +33,9 @@ wdsutil /Get-AllDriverGroups [/Server:<Server name>] [/Show:{PackageMetaData | F
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
-|[/Show: {PackageMetaData &#124; filtri &#124; tutti i}]|Consente di visualizzare i metadati per tutti i pacchetti driver al gruppo specificato. **PackageMetaData** Visualizza informazioni su tutti i filtri per il gruppo di driver. **I filtri** consente di visualizzare i metadati per tutti i pacchetti driver e i filtri per il gruppo.|
+|[/Show: {PackageMetaData &#124; filters &#124; all}]|Consente di visualizzare i metadati per tutti i pacchetti driver del gruppo specificato. **PackageMetaData** Visualizza informazioni su tutti i filtri per il gruppo di driver. **Filtri** consente di visualizzare i metadati per tutti i pacchetti driver e i filtri per il gruppo.|
 ## <a name="BKMK_examples"></a>Esempi
-Per visualizzare informazioni su un file di driver, digitare:
+Per visualizzare le informazioni relative a un file di driver, digitare:
 ```
 wdsutil /Get-AllDriverGroups /Server:MyWdsServer /Show:All
 ```

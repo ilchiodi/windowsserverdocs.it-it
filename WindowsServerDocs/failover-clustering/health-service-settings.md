@@ -1,6 +1,6 @@
 ---
-title: Impostazioni del servizio integrità
-ms.prod: windows-server-threshold
+title: Impostazioni Servizio integrità
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,23 +8,23 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 569cf7ba30fd3f993394efd3735a56d116c067e0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b10d7c5432b10262e8df85d427f17f402d4f64a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361037"
 ---
-# <a name="health-service-settings"></a>Impostazioni del servizio integrità
-> Si applica a Windows Server 2016
+# <a name="health-service-settings"></a>Impostazioni Servizio integrità
+> Si applica a: Windows Server 2019, Windows Server 2016
 
-Il servizio integrità è una nuova funzionalità di Windows Server 2016 che consente di migliorare il monitoraggio quotidiano e l'esperienza operativa per i cluster che esegue spazi di archiviazione diretta.
+Il Servizio integrità è una nuova funzionalità di Windows Server 2016 che migliora l'esperienza di monitoraggio e operatività quotidiana per i cluster che eseguono Spazi di archiviazione diretta.
 
-Molti dei parametri che controllano il comportamento del servizio integrità vengono esposte come le impostazioni. È possibile modificare questi per ottimizzare l'aggressività di errori o azioni, attivare determinati comportamenti di attivazione/disattivazione e altro ancora.
+Molti dei parametri che governano il comportamento del Servizio integrità vengono esposti come impostazioni. È possibile modificarli per ottimizzare l'aggressività di errori o azioni, attivare/disattivare determinati comportamenti e altro ancora.
 
 Usare il cmdlet di PowerShell seguente per impostare o modificare le impostazioni.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name <SettingName> -Value <Value>  
@@ -38,9 +38,9 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 
 ### <a name="common-settings"></a>Impostazioni comuni
 
-Alcune impostazioni modificate più comunemente sono elencate di seguito, insieme ai rispettivi valori predefiniti.
+Di seguito sono elencate alcune impostazioni modificate di frequente, insieme ai relativi valori predefiniti.
 
-#### <a name="volume-capacity-threshold"></a>Soglia volume di capacità
+#### <a name="volume-capacity-threshold"></a>Soglia di capacità del volume
 
 ```
 "System.Storage.Volume.CapacityThreshold.Enabled"  = True
@@ -48,7 +48,7 @@ Alcune impostazioni modificate più comunemente sono elencate di seguito, insiem
 "System.Storage.Volume.CapacityThreshold.Critical" = 90
 ```
 
-#### <a name="pool-reserve-capacity-threshold"></a>Soglia della capacità di riserva per pool
+#### <a name="pool-reserve-capacity-threshold"></a>Soglia di capacità di riserva pool
 
 ```
 "System.Storage.StoragePool.CheckPoolReserveCapacity.Enabled" = True
@@ -65,7 +65,7 @@ Alcune impostazioni modificate più comunemente sono elencate di seguito, insiem
 "System.Storage.PhysicalDisk.Unresponsive.Reset.CountAllowed"              = 3
 ```
 
-#### <a name="supported-components-document"></a>Documento dei componenti supportati
+#### <a name="supported-components-document"></a>Documento componenti supportati
 
 Vedere la sezione precedente.
 
@@ -80,14 +80,14 @@ Vedere la sezione precedente.
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.RollOut.FailureTolerance"  = 3
 ```
 
-#### <a name="platform--quiescence"></a>Piattaforma / disattivato
+#### <a name="platform--quiescence"></a>Piattaforma/quiescenza
 
 ```
 "Platform.Quiescence.MinDelaySeconds" = 120 (i.e. 2 minutes)
 "Platform.Quiescence.MaxDelaySeconds" = 420 (i.e. 7 minutes)
 ```
 
-#### <a name="metrics"></a>Metriche
+#### <a name="metrics"></a>metrics
 
 ```
 "System.Reports.ReportingPeriodSeconds" = 1
@@ -101,5 +101,5 @@ Vedere la sezione precedente.
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Integrità dei servizi in Windows Server 2016](health-service-overview.md)
+- [Servizio integrità in Windows Server 2016](health-service-overview.md)
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

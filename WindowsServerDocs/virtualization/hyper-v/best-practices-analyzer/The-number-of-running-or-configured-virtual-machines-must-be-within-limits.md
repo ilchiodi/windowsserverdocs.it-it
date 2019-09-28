@@ -1,7 +1,7 @@
 ---
 title: Il numero di esecuzione o macchine virtuali configurate devono essere all'interno di limiti supportati
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 8a971a48b2d8199a6c279f1bd3f1715039fa6e0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364633"
 ---
 # <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Il numero di esecuzione o macchine virtuali configurate devono essere all'interno di limiti supportati
 
@@ -26,17 +26,17 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo visualizzato nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Numero di macchine virtuali sono in esecuzione o configurato superiore a quello supportato.*  
+*Più macchine virtuali sono in esecuzione o configurate rispetto a quelle supportate.*  
   
 ## <a name="impact"></a>Impatto  
-*Microsoft non supporta il numero corrente di macchine virtuali in esecuzione o configurato in questo server.*  
+*Microsoft non supporta il numero corrente di macchine virtuali in esecuzione o configurate in questo server.*  
   
 ## <a name="resolution"></a>Risoluzione  
 *Spostare una o più macchine virtuali in un altro server.*  
@@ -73,7 +73,7 @@ Dopo avere esportato le macchine virtuali, importare le macchine virtuali in alt
   
 3.  Nel **Importa macchina virtuale** finestra di dialogo specificare il percorso in cui è stato esportato la macchina virtuale. A meno che non si desidera reimportare la macchina virtuale, lascia invariate le impostazioni di importazione.  
   
-4.  Fare clic su **importazione**.  
+4.  Fare clic su **Importa**.  
   
 ### <a name="to-configure-constrained-delegation"></a>Per configurare la delega vincolata  
   
@@ -82,7 +82,7 @@ L'appartenenza di **gli amministratori di dominio** gruppo è necessario per com
 1.  In un computer con la funzionalità Strumenti di servizi di dominio di Active Directory installata, in **Strumenti di amministrazione**, aprire **Active Directory Users and Computers**, quindi passare all'account del computer per il computer che esegue Hyper-V.  
   
     > [!NOTE]  
-    > Se l'opzione **Utenti e computer di Active Directory** non è elencata, installare la funzione Strumenti per Servizi di dominio Active Directory. Per istruzioni, vedere [installazione degli strumenti di amministrazione Server remota per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=140463) (https://go.microsoft.com/fwlink/?LinkId=140463).  
+    > Se l'opzione **Utenti e computer di Active Directory** non è elencata, installare la funzione Strumenti per Servizi di dominio Active Directory. Per istruzioni, vedere [installazione di strumenti di amministrazione remota del server per servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=140463) (https://go.microsoft.com/fwlink/?LinkId=140463).  
   
 2.  Fare doppio clic su account computer per il computer che esegue Hyper-V e quindi fare clic su **proprietà**.  
   

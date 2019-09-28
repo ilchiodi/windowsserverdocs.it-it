@@ -2,7 +2,7 @@
 title: tsecimp
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85fea84ed9dcb0f85bfa80e56f0c2c04d2c8e85b
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: 1c596d6d24a611882c0ecf234c22c83a268ec53c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314306"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363928"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -37,7 +37,7 @@ tsecimp /d
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/f \<> nomefile|Richiesto. Specifica il nome del file XML che contiene le informazioni di assegnazione che si desidera importare.|
+|/f \<> nomefile|Obbligatorio. Specifica il nome del file XML che contiene le informazioni di assegnazione che si desidera importare.|
 |/v|Convalida la struttura del file XML senza importare le informazioni nel file Tsec. ini.|
 |/u|Verifica se ogni utente è un membro del dominio specificato nel file XML. Il computer in cui si utilizza questo parametro deve essere connesso alla rete. Questo parametro potrebbe rallentare significativamente le prestazioni se si elabora una grande quantità di informazioni sull'assegnazione dell'utente.|
 |/d|Visualizza un elenco di provider di telefonia installati. Per ogni provider di telefonia vengono elencati i dispositivi linea associati, nonché gli indirizzi e gli utenti associati a ogni dispositivo di linea.|
@@ -60,7 +60,7 @@ tsecimp /d
         L'elemento **User** potrebbe contenere un elemento line-of- **line** . Se non è presente un elemento di **linea** , vengono rimossi tutti i dispositivi linea per questo utente.
     -   Elemento **line** -of
 
-        L'elemento **line** -of contiene informazioni su ogni riga o dispositivo che potrebbe essere assegnato all'utente. Ogni  elemento Linet può contenere più di un elemento **line** .
+        L'elemento **line** -of contiene informazioni su ogni riga o dispositivo che potrebbe essere assegnato all'utente. Ogni elemento Linet può contenere più di un elemento **line** .
     -   Elemento **line**
 
         Ogni elemento **linea** specifica un dispositivo a linee. È necessario identificare ogni dispositivo a linee aggiungendo un elemento **Address** o un elemento **PermanentID** sotto l'elemento **line** .

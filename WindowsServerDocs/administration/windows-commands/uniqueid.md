@@ -1,8 +1,8 @@
 ---
-title: uniqueid
-description: 'Argomento i comandi di Windows per * * *- '
+title: UniqueId
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d237f4d6d3562e3787efe28ca98f9dc553d74898
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 64f097766daa4c87ec84f42dd53f49792a160bb9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440749"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363914"
 ---
-# <a name="uniqueid"></a>uniqueid
+# <a name="uniqueid"></a>UniqueId
 
 
 
@@ -39,8 +39,8 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 
 |  Parametro   |                                                                                             Descrizione                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id={\<dword> |                                                                                               <GUID>}                                                                                                |
-|    NOERR     | Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
+| ID = {\<dword > |                                                                                               <GUID>}                                                                                                |
+|    NOERR     | Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
 
 ## <a name="remarks"></a>Note
 

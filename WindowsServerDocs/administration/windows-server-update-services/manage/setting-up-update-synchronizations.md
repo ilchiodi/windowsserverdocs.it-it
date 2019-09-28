@@ -1,8 +1,8 @@
 ---
 title: Impostazione delle sincronizzazioni degli aggiornamenti
-description: Argomento di Windows Server Update Service (WSUS) - come impostare e configurare sincronizzazioni degli aggiornamenti
+description: Argomento Windows Server Update Service (WSUS)-come configurare e configurare le sincronizzazioni degli aggiornamenti
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fdfaaf1af2b74fe15530095700005a422b64986
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 4559016388f9b0d765c8e4d76f76fa7ef0a7f0f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361605"
 ---
 # <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni degli aggiornamenti
 
@@ -34,11 +34,11 @@ La prima volta che un server WSUS scarica aggiornamenti può richiedere molto te
 Il **Opzioni** pagina è il punto di accesso centrale nella Console di amministrazione di WSUS per la personalizzazione di come il server WSUS Sincronizza gli aggiornamenti. È possibile specificare gli aggiornamenti vengono sincronizzati automaticamente, in cui il server Ottiene gli aggiornamenti, le impostazioni di connessione e la pianificazione della sincronizzazione. È anche possibile utilizzare la configurazione guidata di **Opzioni** pagina per configurare o riconfigurare il server WSUS in qualsiasi momento.
 
 ### <a name="synchronizing-update-by-product-and-classification"></a>Aggiornamento per prodotto e classificazione di sincronizzazione
-Un server WSUS scarica gli aggiornamenti in base i prodotti o le famiglie di prodotti (ad esempio, Windows o Windows Server 2008, Datacenter edition) e le classificazioni (ad esempio, gli aggiornamenti critici o gli aggiornamenti della sicurezza) specificato. alla prima sincronizzazione, il server WSUS scarica tutti gli aggiornamenti disponibili per le categorie specificate. Durante le sincronizzazioni successive, il download server solo gli aggiornamenti più recenti di WSUS (o le modifiche per gli aggiornamenti già disponibili sul server WSUS) per le categorie specificate.
+Un server WSUS Scarica gli aggiornamenti basati sui prodotti o sulle famiglie di prodotti (ad esempio Windows o Windows Server 2008, Datacenter Edition) e sulle classificazioni (ad esempio aggiornamenti critici o aggiornamenti della sicurezza) specificati. alla prima sincronizzazione, il server WSUS Scarica tutti gli aggiornamenti disponibili nelle categorie specificate. Durante le sincronizzazioni successive, il download server solo gli aggiornamenti più recenti di WSUS (o le modifiche per gli aggiornamenti già disponibili sul server WSUS) per le categorie specificate.
 
-È possibile specificare aggiornamenti dei prodotti e classificazioni sul **Opzioni** pagina **prodotti e classificazioni**. I prodotti sono elencati in una gerarchia, raggruppata per famiglia di prodotti. Se si seleziona Windows, si selezionano automaticamente tutti i prodotti che rientrano in tale gerarchia di prodotto. Selezionando la casella di controllo padre selezionare tutti gli elementi, nonché tutte le versioni future. selezionando le caselle di controllo figlio non selezionerà le caselle di controllo padre. L'impostazione predefinita per i prodotti è tutti i prodotti Windows e l'impostazione predefinita per le classificazioni è fondamentale e gli aggiornamenti della sicurezza.
+È possibile specificare aggiornamenti dei prodotti e classificazioni sul **Opzioni** pagina **prodotti e classificazioni**. I prodotti sono elencati in una gerarchia, raggruppata per famiglia di prodotti. Se si seleziona Windows, si selezionano automaticamente tutti i prodotti che rientrano in tale gerarchia di prodotto. Selezionando la casella di controllo padre selezionare tutti gli elementi, nonché tutte le versioni future. selezionando le caselle di controllo figlio non si selezioneranno le caselle di controllo padre. L'impostazione predefinita per i prodotti è tutti i prodotti Windows e l'impostazione predefinita per le classificazioni è fondamentale e gli aggiornamenti della sicurezza.
 
-Se un server WSUS è in esecuzione in modalità di replica, non sarà in grado di eseguire questa attività. Per altre informazioni sulla modalità di replica, vedere [modalità di Replica WSUS in esecuzione](running-wsus-replica-mode.md), e [passaggio 1: Preparare la distribuzione WSUS](../plan/plan-your-wsus-deployment.md).
+Se un server WSUS è in esecuzione in modalità di replica, non sarà in grado di eseguire questa attività. Per ulteriori informazioni sulla modalità di replica, vedere [esecuzione della modalità di replica WSUS](running-wsus-replica-mode.md)e [Step 1: Preparare la distribuzione WSUS @ no__t-0.
 
 ##### <a name="to-specify-update-products-and-classifications-for-synchronization"></a>Per specificare aggiornamenti dei prodotti e le classificazioni per la sincronizzazione
 
@@ -53,13 +53,13 @@ Se un server WSUS è in esecuzione in modalità di replica, non sarà in grado d
 > [!NOTE]
 > È possibile rimuovere i prodotti o classificazioni nello stesso modo. Il server WSUS verrà interrotta la sincronizzazione di nuovi aggiornamenti per i prodotti che è stata deselezionata. Tuttavia, gli aggiornamenti che sono stati sincronizzati per tali prodotti prima è stata deselezionata li rimarranno sul proprio server WSUS e verranno indicati come disponibili.
 > 
-> Per rimuovere questi prodotti, rifiutare l'aggiornamento, come documentato nel [operazioni di aggiornamento](updates-operations.md)e quindi usare i [pulizia Server della procedura guidata](the-server-cleanup-wizard.md) per rimuoverli.
+> Per rimuovere questi prodotti, rifiutare l'aggiornamento, come documentato in [operazioni di aggiornamento](updates-operations.md), quindi utilizzare la [Pulitura guidata del server](the-server-cleanup-wizard.md) per rimuoverli.
 
 ### <a name="synchronizing-updates-by-language"></a>La sincronizzazione degli aggiornamenti dal linguaggio
 Il server WSUS scarica gli aggiornamenti in base alle lingue specificate. È possibile sincronizzare gli aggiornamenti in tutte le lingue in cui sono disponibili, oppure è possibile specificare un sottoinsieme di lingue. Se si dispone di una gerarchia di server WSUS, è necessario scaricare gli aggiornamenti in lingue diverse, assicurarsi di avere specificato tutte le lingue necessarie nel server upstream. In un server downstream è possibile specificare un sottoinsieme di lingue specificate nel server upstream.
 
 ### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>La sincronizzazione degli aggiornamenti dal catalogo di Microsoft Update
-Per informazioni dettagliate sulla sincronizzazione degli aggiornamenti dal sito Microsoft Update Catalog, vedere: [WSUS e il sito del catalogo](wsus-and-the-catalog-site.md).
+per informazioni dettagliate sulla sincronizzazione degli aggiornamenti dal sito Microsoft Update Catalogo, vedere: [WSUS e il sito del catalogo](wsus-and-the-catalog-site.md).
 
 ## <a name="configuring-proxy-server-settings"></a>Configurazione delle impostazioni Server Proxy
 È possibile configurare il server WSUS per utilizzare un server proxy durante la sincronizzazione con un server upstream o Microsoft Update. Questa impostazione verrà applicata solo quando il server WSUS in esecuzione le sincronizzazioni. Per impostazione predefinita, il server WSUS tenterà di connettersi direttamente al server upstream o a Microsoft Update.
@@ -73,9 +73,9 @@ Per informazioni dettagliate sulla sincronizzazione degli aggiornamenti dal sito
     > [!NOTE]
     > Configurare WSUS con lo stesso numero di porta che il server proxy è configurato per utilizzare.
 
-    -   Se si desidera connettersi al server proxy con le credenziali dell'utente specifico, selezionare la **usare le credenziali dell'utente per connettersi al server proxy** casella di controllo e quindi immettere il nome utente, dominio e password dell'utente nelle caselle corrispondenti .
+    -   Se si desidera connettersi al server proxy con credenziali utente specifiche, selezionare la casella di controllo **Usa credenziali utente per connettersi al server proxy** e quindi immettere il nome utente, il dominio e la password dell'utente nelle caselle corrispondenti.
 
-    -   Se si desidera abilitare l'autenticazione di base per l'utente si connette al server proxy, selezionare la **Consenti autenticazione di base (password inviata in testo non crittografato)** casella di controllo.
+    -   Se si desidera abilitare l'autenticazione di base per l'utente che si connette al server proxy, selezionare la casella **di controllo Consenti autenticazione di base (password inviata in testo non crittografato)** .
 
 3.  Fare clic su **OK**.
 
@@ -87,9 +87,9 @@ L'origine degli aggiornamenti è il percorso da cui il server WSUS Ottiene gli a
 
 Opzioni per personalizzare la modalità del server WSUS Sincronizza con origine degli aggiornamenti, tra cui:
 
--   È possibile specificare una porta personalizzata per la sincronizzazione. Per informazioni sulla configurazione delle porte, vedere [passaggio 3: Configurare WSUS](../deploy/2-configure-wsus.md) nella Guida alla distribuzione di WSUS.
+-   È possibile specificare una porta personalizzata per la sincronizzazione. Per informazioni sulla configurazione delle porte, vedere [Step 3: Configurare WSUS @ no__t-0 nella Guida alla distribuzione di WSUS.
 
--   È possibile utilizzare livelli SSL (Secure Socket) per la sincronizzazione protetta di informazioni relative all'aggiornamento tra server WSUS. Per ulteriori informazioni sull'utilizzo di SSL, vedere la sezione "3.5. Sicuro WSUS con Secure Sockets Layer Protocol"di [passaggio 3: Configurare WSUS](../deploy/2-configure-wsus.md) nella Guida alla distribuzione di WSUS.
+-   È possibile utilizzare livelli SSL (Secure Socket) per la sincronizzazione protetta di informazioni relative all'aggiornamento tra server WSUS. Per ulteriori informazioni sull'utilizzo di SSL, vedere la sezione "3.5. Proteggere WSUS con il protocollo Secure Sockets Layer "di [Step 3: Configurare WSUS @ no__t-0 nella Guida alla distribuzione di WSUS.
 
 ## <a name="synchronizing-manually-or-automatically"></a>La sincronizzazione manualmente o automaticamente
 È possibile sincronizzare manualmente il server WSUS o specificare un'ora per la sincronizzazione automatica.
@@ -108,7 +108,7 @@ Opzioni per personalizzare la modalità del server WSUS Sincronizza con origine 
 
 3.  Per **prima sincronizzazione**, selezionare l'ora in cui la sincronizzazione per ogni giorno di inizio.
 
-4.  per la **sincronizzazioni giornaliere**, selezionare il numero di sincronizzazioni da eseguire ogni giorno. Ad esempio, se si desidera partire un giorno alle 3.00 quattro sincronizzazioni, quindi sincronizzazioni verificherà alle 3:00, dalle 09:00, alle 15.00 e 9:00 ogni giorno. Si noti che un offset casuale ora verranno aggiunte al tempo di sincronizzazione pianificato per lasciare spazi le connessioni del server a Microsoft Update.
+4.  per le **sincronizzazioni al giorno**, selezionare il numero di sincronizzazioni che si desidera eseguire ogni giorno. Ad esempio, se si desidera partire un giorno alle 3.00 quattro sincronizzazioni, quindi sincronizzazioni verificherà alle 3:00, dalle 09:00, alle 15.00 e 9:00 ogni giorno. Si noti che un offset casuale ora verranno aggiunte al tempo di sincronizzazione pianificato per lasciare spazi le connessioni del server a Microsoft Update.
 
 5.  Fare clic su **OK**.
 
@@ -119,4 +119,4 @@ Opzioni per personalizzare la modalità del server WSUS Sincronizza con origine 
 2.  Nel **Panoramica** riquadro, in **lo stato di sincronizzazione**, fare clic su **Sincronizza**.
 
 > [!NOTE]
-> Viene avviata la sincronizzazione dal server downstream.
+> La sincronizzazione viene avviata dal server downstream.

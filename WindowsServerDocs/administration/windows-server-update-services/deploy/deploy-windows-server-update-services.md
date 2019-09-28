@@ -1,7 +1,7 @@
 ---
 title: Distribuire Windows Server Update Services
-description: Argomento di Windows Server Update Service (WSUS) - Panoramica del processo di distribuzione con collegamenti per i quattro passaggi per ottenere questo risultato
-ms.prod: windows-server-threshold
+description: 'Argomento Windows Server Update Service (WSUS): Panoramica del processo di distribuzione con i collegamenti ai quattro passaggi da eseguire'
+ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: get-started-article
@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51972ad352f6530c8ee2aa84aec57b62784da728
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3e6bcd5f90d1a7df2a35dda45b4bf8951940815
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361685"
 ---
 # <a name="deploy-windows-server-update-services"></a>Distribuire Windows Server Update Services
 
@@ -29,7 +29,7 @@ Questa guida fornisce informazioni di carattere generale per la pianificazione e
 
 -   [Pianificare la distribuzione di WSUS](../plan/plan-your-wsus-deployment.md)  
 
--   [Passaggio 1: Installare il ruolo Server WSUS](1-install-the-wsus-server-role.md)  
+-   [Passaggio 1: Installare il ruolo del server WSUS](1-install-the-wsus-server-role.md)  
 
 -   [Passaggio 2: Configurare WSUS](2-configure-wsus.md)  
 

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e91306ecd8ef08dd6af9173ead314a39dd5d2eff
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5a151e46e566d9f5459419771cbd476bb26c248d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357960"
 ---
 # <a name="home-realm-discovery-customization"></a>Personalizzazione di individuazione dell'area di autenticazione
 
@@ -30,7 +30,7 @@ Quando il client di ADFS richiede innanzitutto una risorsa, il server federativo
 
 
 ## <a name="configure-identity-provider-to-use-certain-email-suffixes"></a>Configurare il provider di identità per l'uso di determinati suffissi di posta elettronica  
-Un'organizzazione può creare una federazione con più provider di attestazioni. ADFS offre ora la in\-casella funzionalità per gli amministratori elencare i suffissi, ad esempio, @us.contoso.com, @eu.contoso.com, che viene supportato dal provider di attestazioni e abilitarla per suffisso\-individuazione basata su. Con questa configurazione, gli utenti finali possono digitare nel proprio account aziendale e AD FS seleziona automaticamente il provider di attestazioni corrispondente.  
+Un'organizzazione può creare una federazione con più provider di attestazioni. AD FS ora fornisce agli amministratori la funzionalità in @ no__t-0box per elencare i suffissi, ad esempio @us.contoso.com, @eu.contoso.com, supportati da un provider di attestazioni e abilitarlo per il suffisso @ no__t-3based Discovery. Con questa configurazione, gli utenti finali possono digitare nel proprio account aziendale e AD FS seleziona automaticamente il provider di attestazioni corrispondente.  
   
 Per configurare un provider di identità \(IDP\), ad esempio `fabrikam`, per utilizzare determinati suffissi di posta elettronica, utilizzare il cmdlet di Windows PowerShell e la sintassi seguente.  
   
@@ -38,7 +38,7 @@ Per configurare un provider di identità \(IDP\), ad esempio `fabrikam`, per uti
 `Set-AdfsClaimsProviderTrust -TargetName fabrikam -OrganizationalAccountSuffix @("fabrikam.com";"fabrikam2.com") ` 
  
 >[!NOTE]
-> La federazione tra due server AD FS, è possibile impostare proprietà PromptLoginFederation nell'attendibilità del provider di attestazioni a ForwardPromptAndHintsOverWsFederation.  Si tratta in modo che AD FS inoltrerà il login_hint e parametro dei messaggi di richiesta al provider di identità.  Questa operazione può essere eseguita tramite il cmdlet di PowerShell seguente:
+> Quando si esegue la Federazione tra due server AD FS, impostare la proprietà PromptLoginFederation nell'attendibilità del provider di attestazioni su ForwardPromptAndHintsOverWsFederation.  In modo che AD FS inoltrerà il login_hint e i all'IDP.  È possibile eseguire questa operazione eseguendo il cmdlet di PowerShell seguente:
 >
 >`Set-AdfsclaimsProviderTrust -PromptLoginFederation ForwardPromptAndHintsOverWsFederation`
 
@@ -64,4 +64,4 @@ Per ignorare HRD per la rete intranet, utilizzare la sintassi e i cmdlet Windows
 > Si noti che se è stato configurato un elenco di provider di identità per una relying party, anche se l'impostazione precedente sia stato abilitato e l'utente accede dalla rete intranet, ADFS viene comunque mostrata l'individuazione dell'area di autenticazione \(HRD\) pagina. Per escludere l'individuazione dell'area di autenticazione principale in questo caso, è necessario verificare che all'elenco di provider di identità per questa relying pary sia aggiunto anche "Active Directory".  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)  
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md)  

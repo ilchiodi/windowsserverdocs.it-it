@@ -1,8 +1,8 @@
 ---
-title: Comando Wbadmin start recovery
-description: 'Argomento i comandi di Windows per * * *- '
+title: wbadmin Avvia ripristino
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f24c9dfeb0ce87474e58d3bd2bce8b68e31cb63
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: edb287573dc76619502faf58018f48c464140629
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362355"
 ---
-# <a name="wbadmin-start-recovery"></a>Comando Wbadmin start recovery
+# <a name="wbadmin-start-recovery"></a>wbadmin Avvia ripristino
 
 
 
@@ -59,9 +59,9 @@ wbadmin start recovery
 |-machine|Specifica il nome del computer in cui si desidera ripristinare il processo di backup. Questo parametro è utile quando più computer sottoposte a backup nello stesso percorso. Deve essere utilizzato quando il **- backupTarget** parametro specificato.|
 |-recoveryTarget|Specifica il percorso da ripristinare. Questo parametro è utile se questo percorso è diverso da quella che è stato eseguito il backup. Può inoltre essere utilizzato per operazioni di ripristino di volumi, file o applicazioni. Se si desidera ripristinare un volume, è possibile specificare la lettera di unità del volume del volume alternativo. Se si desidera ripristinare un file o un'applicazione, è possibile specificare un percorso di ripristino alternativo.|
 |-recursive|Valido solo quando il ripristino dei file. Ripristina i file nelle cartelle e tutti i file subordinati nelle cartelle specificate. Per impostazione predefinita, vengono recuperati solo i file che si trovano direttamente nelle cartelle specificate.|
-|-sovrascrivere|Valido solo quando il ripristino dei file. Specifica l'azione da intraprendere quando esiste un file che viene recuperato già nello stesso percorso.</br>-   **Ignora** fa sì che Windows Server Backup ignorare il file esistente e continuare con il ripristino del file successivo.</br>-   **CreateCopy** fa sì che Windows Server Backup creare una copia del file esistente in modo che il file esistente non viene modificato.</br>-   **Sovrascrivere** fa sì che Windows Server Backup per sovrascrivere il file esistente con il file dal backup.|
-|-notRestoreAcl|Valido solo quando il ripristino dei file. Specifica da non ripristinare gli elenchi di controllo di accesso (ACL) della protezione dei file in fase di ripristino dal backup. Per impostazione predefinita, vengono ripristinati gli ACL di protezione (il valore predefinito è **true)**. Se questo parametro viene utilizzato, gli elenchi ACL per i file ripristinati verranno ereditate dalla posizione in cui vengono ripristinati i file.|
-|-skipBadClusterCheck|Valido solo durante il ripristino di volumi. Ignora il controllo dei dischi che si esegue il ripristino per informazioni sul cluster non valida. Se si ripristina un server alternativo o hardware, si consiglia di non utilizzare questo parametro. È possibile eseguire manualmente il comando **/b chkdsk** su tali dischi in qualsiasi momento per verificare la presenza di cluster danneggiati e aggiornare di conseguenza le informazioni sul file system.</br>Importante: Fino a quando non si esegue **chkdsk** come descritto, danneggiati segnalati nel sistema ripristinato potrebbero non essere accurati.|
+|-sovrascrivere|Valido solo quando il ripristino dei file. Specifica l'azione da intraprendere quando esiste un file che viene recuperato già nello stesso percorso.</br>-   **Ignora** causa Windows Server backup ignorare il file esistente e continuare con il ripristino del file successivo.</br>-   **CreateCopy** fa sì che Windows Server Backup crei una copia del file esistente in modo che il file esistente non venga modificato.</br>la**sovrascrittura** -    causa la sovrascrittura del file esistente con il file dal backup Windows Server backup.|
+|-notRestoreAcl|Valido solo quando il ripristino dei file. Specifica da non ripristinare gli elenchi di controllo di accesso (ACL) della protezione dei file in fase di ripristino dal backup. Per impostazione predefinita, vengono ripristinati gli ACL di protezione (il valore predefinito è **true)** . Se questo parametro viene utilizzato, gli elenchi ACL per i file ripristinati verranno ereditate dalla posizione in cui vengono ripristinati i file.|
+|-skipBadClusterCheck|Valido solo durante il ripristino di volumi. Ignora il controllo dei dischi che si esegue il ripristino per informazioni sul cluster non valida. Se si ripristina un server alternativo o hardware, si consiglia di non utilizzare questo parametro. È possibile eseguire manualmente il comando **/b chkdsk** su tali dischi in qualsiasi momento per verificare la presenza di cluster danneggiati e aggiornare di conseguenza le informazioni sul file system.</br>Importante: Fino a quando non si esegue **chkdsk** come descritto, i cluster danneggiati segnalati nel sistema ripristinato potrebbero non essere accurati.|
 |-noRollForward|Valido solo durante il ripristino di applicazioni. Consente di ripristino temporizzato nel precedente di un'applicazione se è selezionata la versione più recente dal backup. Per altre versioni dell'applicazione che non sono il ripristino temporizzato nel precedente più recente, viene eseguito come il valore predefinito.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
@@ -87,19 +87,19 @@ Per eseguire un ripristino del backup da 31 marzo 2013, eseguito alle 9:00, i d:
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:File -items:d:\folder -recursive
 ```
-Per eseguire un ripristino del backup da 31 marzo 2013, eseguito alle 9:00, del volume \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\, tipo:
+Per eseguire un ripristino del backup dal 31 marzo 2013, eseguito alle ore 9:00, del volume \\ @ no__t-1? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963} \, tipo:
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:Volume 
 -items:\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
 ```
-Per eseguire un ripristino del backup da 30 aprile 2013, eseguito alle 9:00, della cartella condivisa \\ \\servername\share da server01, tipo:
+Per eseguire un ripristino del backup dal 30 aprile 2013, eseguito alle ore 9:00, della cartella condivisa \\ @ no__t-1servername\share da Server01, digitare:
 ```
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Inizio WBFileRecovery](https://technet.microsoft.com/library/jj902457.aspx) cmdlet
 -   [Inizio WBHyperVRecovery](https://technet.microsoft.com/library/jj902463.aspx) cmdlet

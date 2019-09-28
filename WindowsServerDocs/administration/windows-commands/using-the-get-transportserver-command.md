@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-TransportServer
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08aa1273d09ba92de15e13f7bfcc8283ac2fedb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 282b69162cf3550c5bcba3282b60f15072c96ed6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817422"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363067"
 ---
 # <a name="using-the-get-transportserver-command"></a>Utilizzando il comando get-TransportServer
 
@@ -33,9 +33,9 @@ wdsutil [Options] /Get-TransportServer [/Server:<Server name>] /Show:{Config}
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-|/Show:{Config}|Restituisce le informazioni di configurazione relative al Server di trasporto specificato.|
+|/Show: {config}|Restituisce le informazioni di configurazione relative al server di trasporto specificato.|
 ## <a name="BKMK_examples"></a>Esempi
-Per visualizzare informazioni sul server, digitare:
+Per visualizzare le informazioni sul server, digitare:
 ```
 wdsutil /Get-TransportServer /Show:Config
 ```
@@ -44,9 +44,9 @@ Per visualizzare le informazioni di configurazione, digitare:
 wdsutil /Get-TransportServer /Server:MyWDSServer /Show:Config
 ```
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[utilizzando il comando disable-TransportServer](using-the-disable-transportserver-command.md)
-[utilizzando il comando enable-TransportServer](using-the-enable-transportserver-command.md) 
- [ Sottocomando: set-TransportServer](subcommand-set-transportserver.md)
-[sottocomando: start-TransportServer](subcommand-start-transportserver.md)
-[sottocomando: stop-TransportServer](subcommand-stop-transportserver.md)
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[usando il comando disable-TransportServer](using-the-disable-transportserver-command.md)
+[usando il comando Enable-TransportServer](using-the-enable-transportserver-command.md)
+ sottocomando[: Set-TransportServer](subcommand-set-transportserver.md)
+[sottocomando: Start-TransportServer](subcommand-start-transportserver.md)
+[sottocomando: Stop-TransportServer](subcommand-stop-transportserver.md)

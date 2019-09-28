@@ -1,8 +1,8 @@
 ---
 title: xcopy
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 6448c4c5940d286931f6d64ad51970bf577a28fd
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 885729f2bca100d7ac89a3463135d56f48c8b75a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811029"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361794"
 ---
 # <a name="xcopy"></a>xcopy
 
-Copia i file e directory, incluse le sottodirectory.
+Copia i file e le directory, incluse le sottodirectory.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 
@@ -36,138 +36,138 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<origine >|Obbligatorio. Specifica il percorso e i nomi dei file da copiare. Questo parametro deve includere un'unità o un percorso.|
-|[\<Destination>]|Specifica la destinazione dei file da copiare. Questo parametro può includere una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
-|/w|Visualizza un messaggio e attende una risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare la copia dei file**|
+|\<Source >|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
+|[\<Destination >]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|/w|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
 |/ p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
 |/c|Ignora gli errori.|
-|/v|Verifica ogni file durante la scrittura nel file di destinazione per assicurarsi che i file di destinazione siano identici ai file di origine.|
-|/q|Evita la visualizzazione delle **xcopy** messaggi.|
-|/f|Consente di visualizzare i nomi di file di origine e destinazione durante la copia.|
-|/l|Visualizza un elenco di file che si desidera copiare.|
-|/g|Crea decrittografata *destinazione* file quando la destinazione non supporta la crittografia.|
-|/d [: MM-gg-aaaa]|Copia origine file modificati a decorrere solo la data specificata. Se non si include un *MM-GG-AAAA* , valore **xcopy** copia tutti *origine* file più recenti rispetto a esistenti *destinazione* file. Questa opzione della riga di comando consente di aggiornare i file che sono stati modificati.|
-|/u|Copia i file dalla *origine* presenti nel *destinazione* solo.|
-|/i|Se *origine* è una directory o contiene caratteri jolly e *destinazione* non esiste, **xcopy** presuppone *destinazione* specifica un nome della directory e crea una nuova directory. Quindi **xcopy** copia tutti i file specificati nella nuova directory. Per impostazione predefinita **xcopy** chiede di specificare se *destinazione* è un file o una directory.|
-|/s|Copia directory e sottodirectory, a meno che non sono vuote. Se si omette **/s**, **xcopy** funziona all'interno di una singola directory.|
-|/e|Copia tutte le sottodirectory, anche se sono vuote. Uso **/e** con il **/s** e **/t** opzioni della riga di comando.|
-|/t|Copia la struttura delle sottodirectory (vale a dire, l'albero), non i file. Per copiare le directory vuote, è necessario includere il **/e** opzione della riga di comando.|
-|/k|Copia i file e li conserva l'attributo di sola lettura sul *destinazione* file se è presente nel *origine* file. Per impostazione predefinita **xcopy** rimuove l'attributo di sola lettura.|
+|/v|Verifica che ogni file venga scritto nel file di destinazione per assicurarsi che i file di destinazione siano identici a quelli dei file di origine.|
+|/q|Evita la visualizzazione dei messaggi **xcopy** .|
+|/f|Visualizza i nomi dei file di origine e di destinazione durante la copia.|
+|/l|Visualizza un elenco di file da copiare.|
+|/g|Crea file di *destinazione* decrittografati quando la destinazione non supporta la crittografia.|
+|/d [: MM-gg-aaaa]|Copia i file di origine modificati solo dopo la data specificata. Se non si include un valore *mm-gg-aaaa* , **xcopy** copia tutti i file di *origine* più recenti rispetto ai file di *destinazione* esistenti. Questa opzione della riga di comando consente di aggiornare i file che sono stati modificati.|
+|/u|Copia i file dall' *origine* esistente solo nella *destinazione* .|
+|/i|Se l' *origine* è una directory o contiene caratteri jolly e la *destinazione* non esiste, **xcopy** presuppone che la *destinazione* specifichi un nome di directory e crea una nuova directory. Quindi, **xcopy** copia tutti i file specificati nella nuova directory. Per impostazione predefinita, **tramite Xcopy** viene richiesto di specificare se la *destinazione* è un file o una directory.|
+|/s|Copia le directory e le sottodirectory, a meno che non siano vuote. Se si omette **/s**, **xcopy** funziona all'interno di un'unica directory.|
+|/e|Copia tutte le sottodirectory, anche se sono vuote. Usare **/e** con le opzioni della riga di comando **/s** e **/t** .|
+|/t|Copia solo la struttura della sottodirectory (ovvero l'albero), non i file. Per copiare directory vuote, è necessario includere l'opzione della riga di comando **/e** .|
+|/k|Copia i file e mantiene l'attributo di sola lettura nei file di *destinazione* , se presente nei file di *origine* . Per impostazione predefinita, **xcopy** rimuove l'attributo di sola lettura.|
 |/r|Copia i file di sola lettura.|
-|/h|Copia i file con nascosto e gli attributi di file di sistema. Per impostazione predefinita **xcopy** non copia nascosta o di file di sistema|
-|/a|Copia solo *origine* con loro archivia i file di set di attributi. **/a** non modifica l'attributo di file di archivio del file di origine. Per informazioni su come impostare l'attributo di file di archivio usando **attrib**, vedere [ulteriori riferimenti](#additional-references).|
-|/m|Le copie *origine* con loro archivia i file di set di attributi. A differenza **/a**, **/m** consente di disattivare gli attributi di file di archivio nei file specificati nell'origine. Per informazioni su come impostare l'attributo di file di archivio usando **attrib**, vedere [ulteriori riferimenti](#additional-references).|
-|/n|Crea copie usando il file brevi NTFS o i nomi di directory. **/n** è obbligatorio quando si copiano file o directory da un volume NTFS in un volume FAT o quando il file system FAT file convenzione di denominazione di sistema (vale a dire, il formato 8.3) è obbligatorio nel *destinazione* file system. Il *destinazione* può essere il sistema di file system FAT che NTFS.|
-|/o|Copia file della proprietà e le informazioni di accesso discrezionale controllo elenco (DACL).|
-|/x|Copia file informazioni elenco (SACL) di controllo di accesso di sistema e le impostazioni di controllo (implica **/o**).|
-|/exclude:FileName1[+[FileName2][+[FileName3]( \)]|Specifica un elenco di file. Specificare almeno un file. Ogni file contiene le stringhe di ricerca con ogni stringa in una riga separata nel file.</br>Quando una delle stringhe corrispondono a qualsiasi parte del percorso assoluto del file da copiare, tale file verrà esclusi dalla copia. Ad esempio, specificando la stringa **obj** escluderà tutti i file di sotto della directory **obj** o tutti i file con il **obj** estensione.|
-|/y|Evita la visualizzazione verrà richiesto di confermare che si desidera sovrascrivere un file di destinazione esistente.|
-|/-y|Viene chiesto di confermare che si desidera sovrascrivere un file di destinazione esistente.|
+|/h|Copia i file con gli attributi nascosti e di file di sistema. Per impostazione predefinita, **xcopy** non copia i file nascosti o di sistema|
+|/a|Copia solo i file di *origine* per i quali sono impostati gli attributi del file di archivio. **/a** non modifica l'attributo del file di archivio del file di origine. Per informazioni su come impostare l'attributo del file di archivio usando **attrib**, vedere [riferimenti aggiuntivi](#additional-references).|
+|/m|Copia i file di *origine* per i quali sono impostati gli attributi del file di archivio. Diversamente da **/a**, **/m** disattiva gli attributi del file di archivio nei file specificati nell'origine. Per informazioni su come impostare l'attributo del file di archivio usando **attrib**, vedere [riferimenti aggiuntivi](#additional-references).|
+|/n|Crea copie usando i nomi di file o di directory brevi NTFS. **/n** è obbligatorio quando si copiano file o directory da un volume NTFS a un volume FAT o quando è richiesta la convenzione di denominazione FAT file System (ovvero 8,3 caratteri) nel file System di *destinazione* . Il file system di *destinazione* può essere FAT o NTFS.|
+|/o|Copia la proprietà del file e le informazioni relative all'elenco di controllo di accesso discrezionale (DACL).|
+|/x|Copia le impostazioni di controllo del file e le informazioni dell'elenco di controllo di accesso di sistema (SACL) (implica **/o**).|
+|/exclude: FileName1 [+ [FileName2] [+ [FileName3] (\)]|Specifica un elenco di file. È necessario specificare almeno un file. Ogni file conterrà stringhe di ricerca con ogni stringa in una riga separata del file.</br>Quando una qualsiasi delle stringhe corrisponde a qualsiasi parte del percorso assoluto del file da copiare, il file verrà escluso dalla copia. Se ad esempio si specifica la stringa **obj** , tutti i file sotto la directory **obj** o tutti i file con estensione **obj** vengono esclusi.|
+|/y|Evita la richiesta di conferma della sovrascrittura di un file di destinazione esistente.|
+|/-y|Richiede di confermare che si desidera sovrascrivere un file di destinazione esistente.|
 |/z|Copia in una rete in modalità riavviabile.|
 |/ b|Copia il collegamento simbolico anziché i file. Questo parametro è stato introdotto in Windows Vista®.|
-|/j|Copia i file senza memorizzarlo nel buffer. Consigliato per i file molto grandi. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
+|/j|Copia i file senza memorizzare nel buffer. Consigliato per file di grandi dimensioni. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 - Utilizzando **/z**
 
-  Se si perde la connessione durante la fase di copia (ad esempio, se il server si interrompe la connessione), riprende quando viene ristabilita la connessione. **/z** inoltre visualizza la percentuale dell'operazione di copia completata per ogni file.
+  Se si perde la connessione durante la fase di copia, ad esempio se il server passa in modalità offline alla connessione, riprende dopo aver ristabilito la connessione. **/z** Visualizza inoltre la percentuale di operazione di copia completata per ogni file.
 
-- Usando **/y** nella variabile di ambiente COPYCMD.
+- Uso di **/y** nella variabile di ambiente COPYCMD.
 
-  È possibile usare **/y** nella variabile di ambiente COPYCMD. È possibile eseguire l'override di questo comando usando **/-y** nella riga di comando. Per impostazione predefinita, chiesto di sovrascrivere.
+  È possibile usare **/y** nella variabile di ambiente COPYCMD. È possibile eseguire l'override di questo comando usando **/-y** nella riga di comando. Per impostazione predefinita, viene richiesto di sovrascrivere.
 
-- Copia i file crittografati
+- Copia di file crittografati
 
-  Copiare i file crittografati in un volume che non supporta EFS genera un errore. Decrittografare i file prima di tutto o copiare i file in un volume che supporta il sistema EFS.
+  La copia di file crittografati in un volume che non supporta EFS genera un errore. Decrittografare i file prima o copiare i file in un volume che supporta EFS.
 
 - Aggiunta di file
 
-  Per aggiungere file, specificare un solo file di destinazione, ma più file di origine (vale a dire usando caratteri jolly o file1 + file2 + file3).
+  Per aggiungere file, specificare un singolo file per la destinazione, ma più file per l'origine, ovvero usando caratteri jolly o il formato file1 + file2 + file3.
 
-- Valore predefinito per *destinazione*
+- Valore predefinito per la *destinazione*
 
-  Se si omette *destinazione*, il **xcopy** comando Copia i file nella directory corrente.
+  Se si omette la *destinazione*, il comando **xcopy** copia i file nella directory corrente.
 
-- Che specifica se *destinazione* è un file o directory
+- Specifica se la *destinazione* è un file o una directory
 
-  Se *destinazione* non contiene una directory esistente e non termina con una barra rovesciata (\), viene visualizzato il messaggio seguente:
+  Se la *destinazione* non contiene una directory esistente e non termina con una barra rovesciata (\), viene visualizzato il messaggio seguente:
   
   ```
   Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
   ```  
   
-Se si desidera che i file da copiare in un file, premere F. Premere D se si desidera che i file da copiare in una directory.
+Premere F se si desidera che il file o i file vengano copiati in un file. Premere D se si desidera che il file o i file vengano copiati in una directory.
 
-  È possibile eliminare questo messaggio mediante il **/i** opzione della riga di comando, che fa sì che **xcopy** presupporre che la destinazione è una directory se l'origine è più di un file o una directory.
-- Usando il **xcopy** comando per impostare l'attributo archive per *destinazione* file
+  È possibile disattivare questo messaggio utilizzando l'opzione della riga di comando **/i** , che fa in modo che **xcopy** presupponga che la destinazione sia una directory se l'origine è più di un file o una directory.
+- Utilizzo del comando **xcopy** per impostare l'attributo Archive per i file di *destinazione*
 
-  Il **xcopy** comando Crea file con il set di attributi di archiviazione, se questo attributo è stato impostato nel file di origine. Per altre informazioni sugli attributi di file e **attrib**, vedere [ulteriori riferimenti](#additional-references).
+  Il comando **xcopy** crea file con l'attributo Archive impostato, indipendentemente dal fatto che l'attributo sia stato impostato nel file di origine. Per altre informazioni sugli attributi dei file e su **attrib**, vedere [riferimenti aggiuntivi](#additional-references).
 
-- Confronto tra **xcopy** e **dell'operazione**
+- Confronto tra **xcopy** e **diskcopy**
 
-  Se si dispone di un disco che contiene i file nelle sottodirectory e si desidera copiarlo in un disco che presenta un formato diverso, usare il **xcopy** comando anziché **verrà**. Poiché il **verrà** comando consente di copiare i dischi dalla traccia, il disco di origine e destinazione debba avere lo stesso formato. Il **xcopy** comando non presenta questo requisito. Uso **xcopy** a meno che non è necessaria una copia di immagine disco completa.
+  Se si dispone di un disco che contiene file nelle sottodirectory e si desidera copiarlo su un disco con un formato diverso, utilizzare il comando **xcopy** anziché **diskcopy**. Poiché il comando **diskcopy** copia i dischi in base alla traccia, i dischi di origine e di destinazione devono avere lo stesso formato. Il comando **xcopy** non presenta questo requisito. Utilizzare **xcopy** a meno che non sia necessaria una copia completa dell'immagine del disco.
 
 - Codici di uscita per **xcopy**
 
-  Per elaborare i codici di uscita restituiti da **xcopy**, utilizzare il **ErrorLevel** parametro il **se** riga di comando in un file batch. Per un esempio di un file batch che elabora i uscita utilizzando i codici **se**, vedere [ulteriori riferimenti](#additional-references). La tabella seguente elenca ogni codice di uscita e una descrizione.  
+  Per elaborare i codici di uscita restituiti da **xcopy**, usare il parametro **errorlevel** nella riga di comando **if** in un programma batch. Per un esempio di un programma batch che elabora i codici di uscita usando **if**, vedere [riferimenti aggiuntivi](#additional-references). Nella tabella seguente sono elencati i codici di uscita e una descrizione.  
 
   |Codice di uscita|Descrizione|
   |---------|-----------|
   |0|I file sono stati copiati senza errori.|
-  |1|Nessun file trovato da copiare.|
+  |1|Nessun file trovato per la copia.|
   |2|L'utente ha premuto CTRL + C per terminare **xcopy**.|
-  |4|Si è verificato un errore di inizializzazione. Non c'è sufficiente memoria o spazio su disco o immesso un nome di unità non valida o una sintassi non valida nella riga di comando.|
-  |5|Errore di scrittura sul disco.|
+  |4|Si è verificato un errore di inizializzazione. Memoria o spazio su disco insufficiente oppure è stato immesso un nome di unità non valido o una sintassi non valida nella riga di comando.|
+  |5|Si è verificato un errore di scrittura del disco.|
 
 ## <a name="examples"></a>Esempi
 
-**1.** Per copiare tutti i file e sottodirectory, inclusi eventuali sottodirectory vuota, da unità A unità B, digitare:
+**1.** Per copiare tutti i file e le sottodirectory (incluse eventuali sottodirectory vuote) dall'unità a all'unità B, digitare:
 
 ```
 xcopy a: b: /s /e 
 ```
 
-**2.** Per includere eventuali file nascosti o sistema nell'esempio precedente, aggiungere il<strong>/h</strong> opzione della riga di comando come indicato di seguito:
+**2.** Per includere tutti i file di sistema o nascosti nell'esempio precedente, aggiungere l'opzione della riga di comando<strong>/h</strong> come indicato di seguito:
 
 ```
 xcopy a: b: /s /e /h
 ```
 
-**3.** Per aggiornare i file nella directory \Reports. con i file nella directory \Rawdata che sono stati modificati dopo il 29 dicembre 1993, digitare:
+**3.** Per aggiornare i file nella directory \Rapporti con i file nella directory \Operaz che sono stati modificati a partire dal 29 dicembre 1993, digitare:
 
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
 
-**4.** Per aggiornare tutti i file esistenti in \Reports nell'esempio precedente, indipendentemente dalla data, digitare:
+**4.** Per aggiornare tutti i file presenti in \Rapporti nell'esempio precedente, indipendentemente dalla data, digitare:
 
 ```
 xcopy \rawdata \reports /u
 ```
 
-**5.** Per ottenere un elenco dei file da copiare dal comando precedente (vale a dire, senza copiare effettivamente i file), tipo:
+**5.** Per ottenere un elenco dei file da copiare con il comando precedente, ovvero senza copiare effettivamente i file, digitare:
 
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 ```
 
-Il file xcopy. out sono elencati tutti i file che deve essere copiato.
+Il file xcopy. out elenca tutti i file che devono essere copiati.
 
-**6.** Per copiare la directory \Customer e tutte le sottodirectory nella directory \\ \\Public\Address sulla rete unità h per mantenere l'attributo di sola lettura e richieste quando viene creato un nuovo file:, digitare:
+**6.** Per copiare la directory \Customer e tutte le sottodirectory nella directory \\ @ no__t-1Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in H:, digitare:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
 
-**7.** Per eseguire il comando precedente, assicurarsi che **xcopy** crea la directory \Address se non esiste e non visualizzare il messaggio visualizzato quando si crea una nuova directory, aggiungere il **/i** della riga di comando opzione come indicato di seguito:
+**7.** Per eseguire il comando precedente, assicurarsi che **xcopy** crei la directory \Indiriz se non esiste ed elimini il messaggio visualizzato quando si crea una nuova directory, aggiungere l'opzione della riga di comando **/i** come indicato di seguito:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
 ```
 
-**8.** È possibile creare un file batch per eseguire **xcopy** operazioni e l'utilizzo di batch **se** comando per elaborare il codice di uscita se si verifica un errore. Ad esempio, il programma batch seguente usa i parametri sostituibili per il **xcopy** i parametri di origine e di destinazione:
+**8.** È possibile creare un programma batch per eseguire operazioni **xcopy** e utilizzare il comando batch **if** per elaborare il codice di uscita se si verifica un errore. Ad esempio, il programma batch seguente usa parametri sostituibili per i parametri di origine e destinazione **xcopy** :
 
 ```
 @echo off
@@ -188,15 +188,15 @@ goto exit
 :exit 
 ```
 
-Per usare il programma batch precedente per copiare tutti i file nella directory C:\Prgmcode e nelle relative sottodirectory in unità B, digitare:
+Per usare il programma batch precedente per copiare tutti i file nella directory C:\Prgmcode e nelle relative sottodirectory nell'unità B, digitare:
 
 ```
 copyit c:\prgmcode b:
 ```
 
-Comando interprete sostituti **C:\Prgmcode** per *%1* e **b:** per *%2*, quindi Usa **xcopy**con il **/e** e **/s** opzioni della riga di comando. Se **xcopy** rileva un errore, il programma batch legge il codice di uscita e si sposta l'etichetta indicata nelle rispettive caselle **ERRORLEVEL IF** istruzione, quindi viene visualizzato il messaggio appropriato e di chiudere il file batch.
+L'interprete dei comandi sostituisce **C:\Prgmcode** per *% 1* e **B:** per *% 2*, quindi utilizza **xcopy** con le opzioni della riga di comando **/e** e **/s** . Se **xcopy** rileva un errore, il programma batch legge il codice di uscita e passa all'etichetta indicata nell'istruzione **if ERRORLEVEL** appropriata, quindi Visualizza il messaggio appropriato e termina dal programma batch.
 
-**9.** In questo esempio tutti i non vuota, le directory più file il cui nome corrisponde al modello specificato, con il simbolo di asterisco.
+**9.** Questo esempio Mostra tutte le directory non vuote, oltre ai file il cui nome corrisponde al modello specificato con il simbolo asterisco.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,14 +208,14 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Nell'esempio precedente, il valore di questo parametro di origine specifico **.\\ Sommario\*yml** copiare la stessa anche se 3 file relativi caratteri a due percorsi **.\\**  sono state rimosse. Tuttavia, vengono copiato alcun file se il carattere jolly asterisco è stata rimossa dal parametro di origine, rendendo appena **.\\ TOC.yml**.
+Nell'esempio precedente, questo particolare valore del parametro di origine **. @no__t -1toc\*.yml** copia gli stessi 3 file anche se i due caratteri **di percorso. \\** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **. @no__t -1toc. yml**.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Copia](copy.md)
+-   [Copy](copy.md)
 -   [Sposta](move.md)
 -   [Dir](dir.md)
 -   [Attrib](attrib.md)
--   [Diskcopy](diskcopy.md)
--   [If](if.md)
+-   [DISKCOPY](diskcopy.md)
+-   [Se](if.md)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

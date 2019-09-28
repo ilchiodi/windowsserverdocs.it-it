@@ -1,8 +1,8 @@
 ---
 title: tracert
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a97c7656e646a22892eee5caa13d0163d05293d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f08fd3276f3377fed06d7b9a2cc3399fa1071f39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385653"
 ---
 # <a name="tracert"></a>tracert
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Determina il percorso conduce a una destinazione mediante l'invio di messaggi di richiesta o ICMPv6 echo controllo messaggio protocollo ICMP (Internet) alla destinazione con aumenta in modo incrementale ora ai valori di campo Live (TTL). Il percorso visualizzato è l'elenco delle interfacce di router vicino/lato dei router nel percorso tra un host di origine e una destinazione. L'interfaccia quasi/lato è l'interfaccia del router che più si avvicina all'host di invio nel percorso. Se utilizzata senza parametri, tracert Visualizza la Guida.   
+Determina il percorso effettuato a una destinazione inviando i messaggi di richiesta echo Internet Control Message Protocol (ICMP) o ICMPv6 alla destinazione con valori di campo TTL (time to Live) che aumentano in modo incrementale. Il percorso visualizzato è l'elenco di interfacce router vicino/laterali dei router nel percorso tra un host di origine e una destinazione. L'interfaccia near/Side è l'interfaccia del router più vicina all'host di invio nel percorso. Utilizzato senza parametri, tracert Visualizza la guida.   
 
 ## <a name="syntax"></a>Sintassi  
 ```  
@@ -33,34 +33,34 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|/d|Impedisce **tracert** dal tentativo di risolvere gli indirizzi IP dei router intermedi nei rispettivi nomi. Questo comportamento può accelerare la visualizzazione delle **tracert** risultati.|  
-|/h \<MaximumHops >|Specifica il numero massimo di hop nel percorso di ricerca per la destinazione (destinazione). Il valore predefinito è 30 hop.|  
-|/j \<Hostlist>|Specifica che eseguono l'eco dei messaggi di richiesta usano l'opzione di instradamento nell'intestazione IP con il set di destinazioni intermediate specificato in *Hostlist*. Con il routing di origine separati, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. Il *Hostlist* è una serie di indirizzi IP (in notazione decimale puntata) separata da spazi. Usare questo parametro solo durante la traccia degli indirizzi IPv4.|  
-|/w \<timeout>|Specifica la quantità di tempo in millisecondi di attesa per il tempo ICMP superato o corrispondente a un messaggio di richiesta echo specificato per la ricezione di messaggio di risposta echo. Se non viene ricevuta entro il timeout, viene visualizzato un asterisco (*). Il timeout predefinito è 4000 (4 secondi).|  
-|/R|Specifica che l'intestazione dell'estensione Routing IPv6 da usare per inviare un messaggio di richiesta echo sull'host locale, utilizzando la destinazione come una destinazione intermedia e il test della route inversa.|  
-|/S \<Srcaddr>|Specifica l'indirizzo di origine per l'uso nell'eco dei messaggi di richiesta. Usare questo parametro solo durante la traccia degli indirizzi IPv6.|  
-|/4|Specifica che tracert.exe possono usare solo IPv4 per la traccia.|  
-|/6|Specifica che tracert.exe possono usare solo IPv6 per la traccia.|  
-|\<TargetName >|Specifica la destinazione identificata dal nome host o indirizzo IP.|  
+|/d|Impedisce a **tracert** di tentare di risolvere gli indirizzi IP dei router intermedi ai rispettivi nomi. In questo modo è possibile velocizzare la visualizzazione dei risultati di **tracert** .|  
+|/h \<MaximumHops >|Specifica il numero massimo di hop nel percorso in cui cercare la destinazione (destinazione). Il valore predefinito è 30 hop.|  
+|/j \<Hostlist >|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi. Utilizzare questo parametro solo quando si tracciano gli indirizzi IPv4.|  
+|/w \<timeout >|Specifica la quantità di tempo in millisecondi di attesa del superamento del tempo ICMP o del messaggio di risposta echo corrispondente a un determinato messaggio di richiesta echo da ricevere. Se non viene ricevuto entro il timeout, viene visualizzato un asterisco (*). Il timeout predefinito è 4000 (4 secondi).|  
+|/R|Specifica che l'intestazione dell'estensione di routing IPv6 deve essere utilizzata per inviare un messaggio di richiesta echo all'host locale, utilizzando la destinazione come destinazione intermedia e testando la route inversa.|  
+|/S \<Srcaddr >|Specifica l'indirizzo di origine da utilizzare nei messaggi di richiesta echo. Utilizzare questo parametro solo quando si tracciano indirizzi IPv6.|  
+|/4|Specifica che tracert. exe può utilizzare solo IPv4 per questa traccia.|  
+|/6|Specifica che tracert. exe può utilizzare solo IPv6 per questa traccia.|  
+|\<TargetName >|Specifica la destinazione, identificata in base all'indirizzo IP o al nome host.|  
 |/?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  
--   Questo strumento diagnostico determina il percorso conduce a una destinazione mediante l'invio di messaggi di richiesta con diversa ora ICMP echo ai valori del Live (TTL) per la destinazione. Ogni router lungo il tracciato deve diminuire la durata (TTL) in un pacchetto IP di almeno 1 prima di inoltrarlo. In effetti, la durata (TTL) è un contatore numero massimo di collegamenti. Quando il valore di un pacchetto raggiunge 0, il router deve restituire un messaggio ICMP tempo superato per il computer di origine. tracert determina il percorso inviando l'eco del primo messaggio di richiesta con una durata (TTL) di 1 e incrementando la durata (TTL) da 1 a ogni trasmissione successiva fino a quando la destinazione di risposta o il numero massimo di hop è stato raggiunto. Il numero massimo di hop è 30 per impostazione predefinita e può essere specificato usando il **/h** parametro. Il percorso viene determinato esaminando ICMP superato dei messaggi restituiti dai router intermedi e l'eco del messaggio di risposta restituito dalla destinazione. Tuttavia, alcuni router non restituiscono messaggi tempo scaduto per i pacchetti con valori di durata (TTL) scaduti e sono invisile al comando tracert. In questo caso, viene visualizzata una riga di asterischi (*) per tale hop.  
--   Per tracciare un percorso e fornire la latenza di rete e perdita di pacchetti per ogni router e il collegamento nel percorso, usare il **pathping** comando.  
+-   Questo strumento di diagnostica determina il percorso effettuato a una destinazione inviando i messaggi di richiesta echo ICMP con valori TTL (time to Live) diversi alla destinazione. Ogni router lungo il percorso è necessario per decrementare la durata (TTL) in un pacchetto IP di almeno 1 prima di procedere con l'invio. In realtà, la durata (TTL) è un contatore di collegamenti massimo. Quando la durata (TTL) di un pacchetto raggiunge 0, il router deve restituire al computer di origine un messaggio che supera il tempo ICMP. tracert determina il percorso inviando il primo messaggio di richiesta echo con un valore TTL 1 e incrementando la durata (TTL) di 1 a ogni trasmissione successiva finché la destinazione non risponde o viene raggiunto il numero massimo di hop. Il numero massimo di hop è 30 per impostazione predefinita e può essere specificato utilizzando il parametro **/h** . Il percorso è determinato esaminando il tempo ICMP che ha superato i messaggi restituiti dai router intermedi e il messaggio di risposta echo restituito dalla destinazione. Alcuni router, tuttavia, non restituiscono tempi superiori ai messaggi per i pacchetti con valori TTL scaduti e invisile al comando tracert. In questo caso, viene visualizzata una riga di asterischi (*) per tale hop.  
+-   Per tracciare un percorso e fornire la latenza di rete e la perdita di pacchetti per ogni router e collegamento nel percorso, usare il comando **PathPing** .  
 -   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.  
 
 ## <a name="BKMK_Examples"></a>Esempi  
-Per tracciare il percorso per l'host denominato azienda7. microsoft.com, digitare:  
+Per tracciare il percorso dell'host denominato corp7.microsoft.com, digitare:  
 ```  
 tracert corp7.microsoft.com  
 ```  
-Per tracciare il percorso per l'host denominato azienda7. microsoft.com e impedire la risoluzione di tutti gli indirizzi IP al relativo nome, digitare:  
+Per tracciare il percorso dell'host denominato corp7.microsoft.com e impedire la risoluzione di ogni indirizzo IP sul nome, digitare:  
 ```  
 tracert /d corp7.microsoft.com  
 ```  
-Per tracciare il percorso per l'host denominato azienda7. microsoft.com e usare il 10.12.0.1/10.29.3.1/10.1.44.1 route libero di origine, digitare:  
+Per tracciare il percorso dell'host denominato corp7.microsoft.com e usare il percorso di origine libero 10.12.0.1/10.29.3.1/10.1.44.1, digitare:  
 ```  
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

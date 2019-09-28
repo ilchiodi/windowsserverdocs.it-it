@@ -1,8 +1,8 @@
 ---
 title: Il comando Disable
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ee32827dc08c60003f06377fae0d81497477d8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52e1bdf48d682c06356cd2cc52cb8ca3f65a89f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363554"
 ---
 # <a name="using-the-disable-command"></a>Il comando Disable
 
@@ -28,5 +28,5 @@ Disabilita tutti i servizi per servizi di distribuzione Windows.
 ## <a name="subcommands"></a>Sottocomandi
 |Sottocomando|Descrizione|
 |-------|--------|
-|[Utilizzando il comando disable-Server](using-the-disable-server-command.md)|Disabilita tutti i servizi di servizi di distribuzione Windows in un server specifico (Server di distribuzione).|
-|[Usando il comando disable-TransportServer](using-the-disable-transportserver-command.md)|Disabilita tutti i servizi di servizi di distribuzione Windows in un Server di trasporto specificato.|
+|[Uso del comando Disable-server](using-the-disable-server-command.md)|Disabilita tutti i servizi di servizi di distribuzione Windows in un server specifico (Server di distribuzione).|
+|[Uso del comando Disable-TransportServer](using-the-disable-transportserver-command.md)|Disabilita tutti i servizi di servizi di distribuzione Windows in un Server di trasporto specificato.|

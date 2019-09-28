@@ -1,8 +1,8 @@
 ---
-title: ora
+title: time
 description: Informazioni su come impostare e visualizzare l'ora di sistema.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5c1f43be98a19c4b150c247cc7fd48d62edeb5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 484653ed65d5e5c16d74b2cb45b2c9da71aa62aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369946"
 ---
-# <a name="time"></a>ora
+# <a name="time"></a>time
 
 
 
@@ -38,7 +38,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<HH > [:\<MM > [:\<SS > [.\< NN >]]] [sto\|pm]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
+|\<HH > [: \<MM > [: \<SS > [. \<NN >]]] [AM @ no__t-16.00]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
 |/t|Visualizza l'ora corrente senza richiedere una nuova ora.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -69,4 +69,4 @@ Per mantenere l'ora corrente e tornare al prompt dei comandi, premere INVIO. Per
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

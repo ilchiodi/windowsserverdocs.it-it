@@ -1,7 +1,7 @@
 ---
 title: Supporto ISV recapito aggiornamenti Express
 description: Argomento Windows Server Update Service (WSUS)-come i fornitori di software indipendenti (ISV) possono configurare la distribuzione di aggiornamenti rapidi tramite WSUS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f5893d47219e9263ed7f35bee472848a47c6164
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a4880a1a66d9c722cfda9e194c4eff38c5058674
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868744"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361718"
 ---
 # <a name="express-update-delivery-isv-support"></a>Supporto ISV recapito aggiornamenti Express
 
@@ -95,7 +95,7 @@ La cache dei file ISV deve essere popolata con i file associati agli aggiornamen
 
 1. Utilizzare le [API WSUS](https://msdn.microsoft.com/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) per accedere al percorso e al nome file dell'aggiornamento per il servizio MU.
 
-    I metadati per ogni aggiornamento nel server WSUS contengono il percorso e il nome file dell'aggiornamento in Microsoft Update come indicato di seguito (Microsoft Update nome host in grassetto, seguito da percorso e **<http://download.windowsupdate.com>** nome file):/c/msdownload/update/software/UPDT/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
+    I metadati per ogni aggiornamento nel server WSUS contengono il percorso e il nome file dell'aggiornamento in Microsoft Update come indicato di seguito (Microsoft Update nome host in grassetto, seguito da percorso e nome file): **<http://download.windowsupdate.com>** /c/msdownload/update/software/UPDT/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
 
 2. Scaricare i file da Microsoft Update e archiviarli nella cache dei file ISV usando uno di questi due metodi: 
 

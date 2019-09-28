@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando remove /InfFile
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 217ff23b8724464670520d0b2d5b196df5a4af47
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 923a86805134c4162b36cdade98c2122b3cb7ccd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362815"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Utilizzando il comando remove /InfFile
 

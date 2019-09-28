@@ -1,7 +1,7 @@
 ---
 title: CentOS è supportato e Red Hat Enterprise Linux macchine virtuali in Hyper-V
 description: Elenca le versioni di Linux Integration Services per le distribuzioni CentOS e Red Hat Enterprise supportate
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: compute-hyper-v
 ms.tgt_pltfrm: na
@@ -10,12 +10,12 @@ ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: jopoulso
 ms.date: 06/13/2019
-ms.openlocfilehash: 80273bc0e99a3e70c8c783deae4a3ee42b5a11f0
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 19e22df7ed5e49cdf4047204f1b13b9c4f3450ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544724"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365546"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>CentOS è supportato e Red Hat Enterprise Linux macchine virtuali in Hyper-V
 
@@ -244,7 +244,7 @@ Questa serie è supportato a 32 bit PAE kernel disponibile. Non esiste alcun sup
 
    1. Creare un file **/etc/udev/rules.d/100-balloon.rules**. È possibile utilizzare qualsiasi altro nome per il file desiderato.
 
-   2. Aggiungere il contenuto seguente al file:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Aggiungere il contenuto seguente al file: `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Riavviare il sistema per consentire l'aggiunta a caldo.
 

@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando Aggiungi immagine
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,25 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0433e0775bd2088170ae17fcfe432cdaee0bf99d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0d671dd482710c486a6936cdbe3b1cc6b331866
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363744"
 ---
 # <a name="using-the-add-image-command"></a>Utilizzando il comando Aggiungi immagine
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di aggiungere immagini a un server di servizi di distribuzione Windows. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_examples).
+aggiunge immagini a un server di servizi di distribuzione Windows. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_examples).
 ## <a name="syntax"></a>Sintassi
-per le immagini d'avvio, usare la sintassi seguente:
+per le immagini di avvio, usare la sintassi seguente:
 ```
 wdsutil /add-ImagmediaFile:<wim file path> [/Server:<Server name>mediatype:Boot [/Skipverify] [/Name:<Image name>] [/Description:<Image description>] 
 [/Filename:<New wim file name>]
 ```
-per immagini di installazione, usare la sintassi seguente:
+per le immagini di installazione, usare la sintassi seguente:
 ```
 wdsutil /add-ImagmediaFile:<wim file path>
      [/Server:<Server name>]
@@ -52,10 +52,10 @@ mediaFile: < percorso del file con estensione wim >|Specifica il nome di file e 
 mediatype:{Boot&#124;Install}|Specifica il tipo di immagini da aggiungere.|
 |[/Skipverify]|Specifica che verifica integrità non verrà eseguita sul file di immagine di origine prima di aggiungere l'immagine.|
 |[/Name:<Name>]|Imposta il nome visualizzato dell'immagine.|
-|[/ Descrizione:<Description>]|Imposta la descrizione dell'immagine.|
+|/Description<Description>]|Imposta la descrizione dell'immagine.|
 |[/Filename:<Filename>]|Specifica il nuovo nome di file per il file con estensione wim. In questo modo è possibile modificare il nome del file del file con estensione wim quando si aggiunge l'immagine. Se viene specificato alcun nome di file, verrà utilizzato il nome del file di immagine di origine. In tutti i casi, i servizi di distribuzione Windows verifica per determinare se il nome del file è univoco nell'archivio di immagini di avvio del computer di destinazione.|
 |\mediaGroup:<Image group name>]|Specifica il nome del gruppo di immagini in cui le immagini devono essere aggiunti. Se è presente più di un gruppo di immagini nel server, è necessario specificare il gruppo di immagini. Se non si specifica alcun gruppo di immagini e un gruppo di immagini non esiste già, verrà creato un nuovo gruppo di immagini. In caso contrario, verrà utilizzato il gruppo di immagini esistente.|
-|[/ SingleImage:<Single image name>] [/name:<Name>] [/ Descrizione:<Description>]|Copia l'immagine singola specificata da un file con estensione wim e imposta il nome dell'immagine e descrizione.|
+|[/SingleImage: <Single image name>] [/Name: <Name>] /Description<Description>]|Copia l'immagine singola specificata da un file con estensione wim e imposta il nome dell'immagine e descrizione.|
 |[/UnattendFile:<Unattend file path>]|Specifica il percorso completo al file di installazione automatica da associare le immagini che vengono aggiunte. Se **/SingleImage** non è specificato, lo stesso file di installazione automatica verrà associato a tutte le immagini nel file con estensione wim.|
 ## <a name="BKMK_examples"></a>Esempi
 Per aggiungere un'immagine di avvio, digitare:
