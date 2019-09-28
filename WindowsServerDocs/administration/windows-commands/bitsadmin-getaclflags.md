@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getaclflags
-description: Argomento i comandi di Windows per **bitsadmin getaclflags** -recupera i contrassegni propagazioni dell'elenco di accesso controllo.
+description: "Argomento dei comandi di Windows per **BITSAdmin GETACLFLAGS** : recupera i flag di propagazione dell'elenco di controllo di accesso."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 185445a97168344f910abc0e644718296de2c712
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad98cd742161ae06be5cba7acde7b810eaf199d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381794"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
-Recupera i contrassegni propagazioni dell'elenco (ACL) di accesso controllo.
+Recupera i flag di propagazione dell'elenco di controllo di accesso (ACL).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,19 +38,19 @@ bitsadmin /GetAclFlags <Job>
 
 ## <a name="remarks"></a>Note
 
-Visualizza uno o più dei valori di flag seguenti:
--   O: Copiare informazioni sul proprietario con file.
--   G: Copiare le informazioni sui gruppi con file.
--   D: Copiare informazioni DACL con file.
--   S: Copiare informazioni SACL con file.
+Visualizza uno o più dei seguenti valori di flag:
+-   O Copiare le informazioni sul proprietario con il file.
+-   G: Copia le informazioni sul gruppo con il file.
+-   D: Copiare le informazioni DACL con file.
+-   S: Copiare le informazioni SACL con il file.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera i flag di propagazione elenco di controllo di accesso per il processo denominato *myDownloadJob*.
+Nell'esempio seguente vengono recuperati i flag di propagazione dell'elenco di controllo di accesso per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /getaclflags myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

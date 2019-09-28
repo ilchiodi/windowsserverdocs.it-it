@@ -2,18 +2,18 @@
 title: Creare un'attività di gestione dei file personalizzata
 description: Questo articolo descrive come creare un'attività di gestione di file personalizzata e attività personalizzate.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: dd52a94657fb73d28b3bc1552a058b7f3ca954ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 894c4e3c0b9fa0fde7b749e6effce531c3f999bb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403179"
 ---
 # <a name="create-a-custom-file-management-task"></a>Creare un'attività di gestione dei file personalizzata
 
@@ -34,12 +34,12 @@ La scadenza non è sempre un'azione ideale da eseguire sui file. Le attività di
 
     -   **Tipo**. Selezionare **Personalizza** nel menu a discesa.
     -   **Eseguibile**. Digitare o selezionare un comando da eseguire quando l'attività di gestione file elabora i file. Questo eseguibile deve essere impostato come scrivibile solo dagli amministratori e dal sistema. Se altri utenti hanno accesso in scrittura al file eseguibile, non verrà eseguito correttamente.
-    -   **Impostazioni per i comandi**. Per configurare gli argomenti passati al file eseguibile quando un processo di gestione file elabora i file, modificare la casella di testo **Argomenti**. Per inserire altre variabili nel testo, posizionare il cursore nella posizione della casella di testo in cui si desidera inserire la variabile, selezionare la variabile che si desidera inserire e quindi fare clic su **Inserisci variabile**. Il testo tra parentesi quadre inserisce informazioni sulle variabili che può ricevere l'eseguibile. Ad esempio, il \[percorso File di origine\] variabile inserisce il nome del file che deve essere elaborato dal file eseguibile. Facoltativamente, fare clic sul pulsante **Directory di lavoro** per specificare il percorso dell'eseguibile personalizzato.
+    -   **Impostazioni per i comandi**. Per configurare gli argomenti passati al file eseguibile quando un processo di gestione file elabora i file, modificare la casella di testo **Argomenti**. Per inserire altre variabili nel testo, posizionare il cursore nella posizione della casella di testo in cui si desidera inserire la variabile, selezionare la variabile che si desidera inserire e quindi fare clic su **Inserisci variabile**. Il testo tra parentesi quadre inserisce informazioni sulle variabili che può ricevere l'eseguibile. Ad esempio, il percorso del file \[Source @ no__t-1 variabile inserisce il nome del file che deve essere elaborato dall'eseguibile. Facoltativamente, fare clic sul pulsante **Directory di lavoro** per specificare il percorso dell'eseguibile personalizzato.
     -   **Sicurezza comando**. Configurare le impostazioni di sicurezza per il file eseguibile. Per impostazione predefinita, il comando viene eseguito come servizio locale, ovvero l'account più restrittivo disponibile.
 
 4.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione classificazioni](classification-management.md)
+-   [Gestione delle classificazioni](classification-management.md)
 -   [Attività di gestione file](file-management-tasks.md)

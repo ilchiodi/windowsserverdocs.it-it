@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 89b2bf8422fb1151a7e502b381f9842f77009277
-ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
+ms.openlocfilehash: 9c6c6e7d2c12b6b822989bba05370015f7cd1833
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70009123"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407818"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Creazione di un'applicazione a più livelli con l'uso di OAuth con AD FS 2016 o versione successiva
 
@@ -276,8 +276,8 @@ Continuare con il resto della procedura guidata stessa come quando è stato conf
 
 | Chiave                      | Value                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ida: pubblico             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio https://localhost:44321/                                                                                         |
-| ida: ClientID             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio<https://localhost:44321/> </br>**È molto importante che Ida: audience e Ida: ClientID corrispondano tra loro** |
+| ida: pubblico             | ID del ToDoListService come specificato AD FS durante la configurazione di ToDoListService WebAPI, ad esempio https://localhost:44321/                                                                                         |
+| ida: ClientID             | ID del ToDoListService come specificato AD FS durante la configurazione di ToDoListService WebAPI, ad esempio <https://localhost:44321/> </br>**È molto importante che Ida: audience e Ida: ClientID corrispondano tra loro** |
 | ida: ClientSecret         | Questo è il segreto che ADFS generate momento di configurare il client ToDoListService in ADFS                                                                                                                   |
 | Ida: AdfsMetadataEndpoint | Si tratta dell'URL dei metadati di AD FS, ad esempio https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
 | ida: OBOWebAPIBase        | Si tratta dell'indirizzo di base che verrà usato per chiamare l'API back-end, ad esempio https://localhost:44300                                                                                                                     |
@@ -494,10 +494,10 @@ Su operazione completata correttamente verrà visualizzato l'elemento è stato a
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 È inoltre possibile visualizzare le tracce dettagliate su Fiddler. Avviare Fiddler e abilitare la decrittografia HTTPS. Noterete che abbiamo effettuare due richieste all'endpoint /adfs/oautincludes.
-Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![ ad FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![ AD FS OBO @ no__t-2
 
-Nella seconda interazione con l'endpoint token si noterà che **requested_token_use** è impostato come **on_behalf_of** e si usa il token di accesso ottenuto per il servizio Web di livello intermedio https://localhost:44321/ , ad esempio come asserzione per ottenere token per conto dell'utente.
-![OBO AD FS](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
+Nella seconda interazione con l'endpoint token si noterà che **requested_token_use** è impostato come **on_behalf_of** e si usa il token di accesso ottenuto per il servizio Web di livello intermedio, ad esempio https://localhost:44321/ come asserzione per ottenere il token per conto dell'utente.
+![AD FS OBO @ NO__T-1
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Sviluppo di AD FS](../../ad-fs/AD-FS-Development.md)  

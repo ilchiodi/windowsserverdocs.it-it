@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ade2a8304288d102608c81a0c29155478e5a4b7b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8cd3e6d0073061710bd9ee76958891e036688472
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189429"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407601"
 ---
 # <a name="create-a-rule-to-send-claims-using-a-custom-rule"></a>Creare una regola per inviare attestazioni mediante una regola personalizzata
 
 
-Tramite il **inviare attestazioni mediante una regola personalizzata** modello in Active Directory Federation Services (ADFS), è possibile creare regole attestazioni personalizzate per la situazione in cui un modello di regola standard non soddisfa i requisiti del organizzazione. Regole attestazioni personalizzate vengono scritti nel linguaggio di regola attestazione e quindi deve essere copiate il **Custom rule** casella di testo prima di poter essere utilizzati in un set di regole. Per informazioni sulla creazione di sintassi per una regola avanzata, vedere [il ruolo del linguaggio di regola attestazione](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
+Utilizzando l' **invio di attestazioni utilizzando un modello di regola personalizzato** in Active Directory Federation Services (ad FS), è possibile creare regole attestazioni personalizzate per situazioni in cui un modello di regola standard non soddisfa i requisiti dell'organizzazione. Regole attestazioni personalizzate vengono scritti nel linguaggio di regola attestazione e quindi deve essere copiate il **Custom rule** casella di testo prima di poter essere utilizzati in un set di regole. Per informazioni sulla creazione di sintassi per una regola avanzata, vedere [il ruolo del linguaggio di regola attestazione](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione utilizzando lo snap di gestione di ADFS\-in.  
   
@@ -108,7 +108,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
     -   **Regole di autorizzazione rilascio**  
   
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
   
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **Send Claims Using a Custom Rule** dall'elenco, quindi fare clic su **Avanti**.  
@@ -128,7 +128,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

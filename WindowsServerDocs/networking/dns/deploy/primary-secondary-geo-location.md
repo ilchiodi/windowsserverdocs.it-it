@@ -1,27 +1,27 @@
 ---
 title: Usare i criteri DNS per la gestione del traffico basata sulla geolocalizzazione con distribuzioni primarie-secondarie
-description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
+description: Questo argomento fa parte della Guida allo scenario dei criteri DNS per Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cf66a306c7f023852cec93d6458e74a99c46c831
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 6a7836160fc7363ec3d7b2fb11e194db82970f9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406157"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Usare i criteri DNS per la gestione del traffico basata sulla geolocalizzazione con distribuzioni primarie-secondarie
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per informazioni su come creare criteri DNS per la gestione del traffico basato su posizione geografica durante la distribuzione DNS include i server DNS primari e secondari.  
 
-Lo scenario precedente, [usare i criteri DNS per la gestione del traffico basato su posizione geografica con i server primari](primary-geo-location.md), fornito istruzioni per configurare criteri DNS per la gestione del traffico basato su posizione geografica in un server DNS primario. Nell'infrastruttura di Internet, tuttavia, i server DNS sono ampiamente distribuiti in un modello primario, secondario, in cui la copia scrivibile di un'area di verrà archiviata nei server primario protette e selezionare e sola lettura della zona vengono conservate in più server secondari.   
+Nello scenario precedente, [usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con i server primari](primary-geo-location.md), fornite istruzioni per la configurazione dei criteri DNS per la gestione del traffico basata sulla posizione geografica in un server DNS primario. Nell'infrastruttura di Internet, tuttavia, i server DNS sono ampiamente distribuiti in un modello primario, secondario, in cui la copia scrivibile di un'area di verrà archiviata nei server primario protette e selezionare e sola lettura della zona vengono conservate in più server secondari.   
   
 Il server secondario utilizza i protocolli di trasferimento zona autorevole trasferimento (AXFR) e il trasferimento di zona incrementale (IXFR) per richiedere e ricevere gli aggiornamenti di zona che includono nuove modifiche apportate alle aree dei server DNS primari.   
   
@@ -37,7 +37,7 @@ Per garantire che i clienti woodgrove.com ottenere prestazioni ottimali dal rela
   
 Servizi Cloud di Contoso ha due Data Center, uno negli Stati Uniti e l'altro in Europa, in cui Contoso ospita il cibo ordinamento portale per woodgrove.com.  
   
-La distribuzione DNS Contoso include due server secondari: **SecondaryServer1**, con l'indirizzo IP 10.0.0.2; e **SecondaryServer2**, con l'indirizzo IP 10.0.0.3. Questi server secondari fungono da server dei nomi in due aree geografiche diverse, con SecondaryServer1 si trova in Europa e SecondaryServer2 si trova negli Stati Uniti
+La distribuzione DNS contoso include due server secondari: **SecondaryServer1**, con l'indirizzo IP 10.0.0.2; e **SecondaryServer2**, con l'indirizzo IP 10.0.0.3. Questi server secondari fungono da server dei nomi in due aree geografiche diverse, con SecondaryServer1 si trova in Europa e SecondaryServer2 si trova negli Stati Uniti
   
 È disponibile una copia di zona primaria scrivibile in **PrimaryServer** (indirizzo IP 10.0.0.1), in cui vengono apportate le modifiche alla zona. Con i trasferimenti di zona normale per i server secondari, i server secondari sono sempre aggiornati con eventuali nuove modifiche all'area nel PrimaryServer.
   
@@ -49,8 +49,8 @@ Nella figura seguente viene illustrato questo scenario.
 
 Quando si distribuisce gestione del traffico basato su posizione geografica in una distribuzione DNS primario, secondario, è importante comprendere come normale zona primaria secondaria prima di imparare i trasferimenti di zona ambito livello si verificano trasferimenti. Nelle sezioni seguenti vengono forniscono informazioni sulla zona e i trasferimenti di zona ambito livello.  
   
-- [Trasferimenti di zona in una distribuzione primario secondario DNS](#zone-transfers-in-a-dns-primary-secondary-deployment)  
-- [Ambito livello i trasferimenti di zona in una distribuzione primario secondario DNS](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
+- [Trasferimenti di zona in una distribuzione primaria-secondaria DNS](#zone-transfers-in-a-dns-primary-secondary-deployment)  
+- [Trasferimenti a livello di ambito di zona in una distribuzione primaria-secondaria DNS](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
   
 ### <a name="zone-transfers-in-a-dns-primary-secondary-deployment"></a>Trasferimenti di zona in una distribuzione di DNS primario, secondario
 
@@ -88,10 +88,10 @@ Prima di iniziare, assicurarsi di aver completato tutti i passaggi nell'argoment
 Per configurare criteri DNS per le risposte alle query primaria secondaria la posizione geografica in base, è necessario eseguire la procedura seguente.  
   
 - [Creare le zone secondarie](#create-the-secondary-zones)  
-- [Configurare le impostazioni di trasferimento di zona per la zona primaria](#configure-the-zone-transfer-settings-on-the-primary-zone)  
-- [Copia la subnet del Client DNS](#copy-the-dns-client-subnets)  
-- [Creare gli ambiti di zona nel Server secondario](#create-the-zone-scopes-on-the-secondary-server)  
-- [Configurare criteri DNS](#configure-dns-policy)  
+- [Configurare le impostazioni di trasferimento di zona nella zona primaria](#configure-the-zone-transfer-settings-on-the-primary-zone)  
+- [Copiare le subnet del client DNS](#copy-the-dns-client-subnets)  
+- [Creare gli ambiti di zona nel server secondario](#create-the-zone-scopes-on-the-secondary-server)  
+- [Configurare i criteri DNS](#configure-dns-policy)  
   
 Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.  
   
@@ -151,7 +151,7 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs
   
 ### <a name="create-the-zone-scopes-on-the-secondary-server"></a>Creare gli ambiti di zona nel Server secondario
 
-È necessario creare gli ambiti di zona sui server secondari. Nel sistema DNS, gli ambiti di zona anche avviare richiesta XFRs dal server primario. Con le eventuali modifiche apportate gli ambiti di zona nel server primario, viene inviata una notifica contenente le informazioni sull'ambito di zona per i server secondari. I server secondari possono aggiornare i relativi ambiti zona con modifiche incrementali.  
+È necessario creare gli ambiti di zona sui server secondari. In DNS, gli ambiti di zona iniziano anche a richiedere XFRs dal server primario. Con le eventuali modifiche apportate gli ambiti di zona nel server primario, viene inviata una notifica contenente le informazioni sull'ambito di zona per i server secondari. I server secondari possono aggiornare i relativi ambiti zona con modifiche incrementali.  
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare gli ambiti di zona sui server secondari.  
   

@@ -1,8 +1,8 @@
 ---
 title: getmaxdownloadtime Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin getmaxdownloadtime** -recupera il timeout del download in secondi.
+description: 'Argomento dei comandi di Windows per **BITSAdmin getmaxdownloadtime** : Recupera il timeout di download in secondi.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d067d6a0821d9af4784c02c6a332e8eddd2352c0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 39a19f86e97c1a525b5beb0c5f3b23dff349cb19
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381580"
 ---
 # <a name="bitsadmin-getmaxdownloadtime"></a>getmaxdownloadtime Bitsadmin
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Recupera il timeout del download in secondi.
+Recupera il timeout di download in secondi.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -43,7 +43,7 @@ bitsadmin /GetMaxDownloadtime <Job>
 -   N\/A
 
 ## <a name="BKMK_examples"></a>Esempi
-L'esempio seguente ottiene tempi di download massimo per il processo denominato *myDownloadJob* in pochi secondi.
+Nell'esempio seguente viene ottenuto il tempo massimo di download per il processo denominato *myDownloadJob* in secondi.
 
 ```
 C:\>bitsadmin /GetMaxDownloadtime myDownloadJob

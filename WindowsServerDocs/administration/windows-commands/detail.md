@@ -1,8 +1,8 @@
 ---
-title: Dettagli
-description: 'Argomento i comandi di Windows per * * *- '
+title: Dettaglio
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9970d6ca5e9ceb74384439049ebd981231d5144f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3d63993e3a5aabe44580553a15514808b28e2ea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378457"
 ---
-# <a name="detail"></a>Dettagli
+# <a name="detail"></a>Dettaglio
 
 
 
-Visualizza le informazioni sul disco selezionato, partizione, volume o disco rigido virtuale (VHD).
+Visualizza le informazioni relative al disco, alla partizione, al volume o al disco rigido virtuale (VHD) selezionato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,12 +39,12 @@ detail vdisk
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[disco dettaglio](detail-disk.md)|Visualizza le proprietà del disco selezionato e i volumi presenti sul disco.|
-|[partizione di dettaglio](detail-partition.md)|Visualizza le proprietà della partizione selezionata.|
-|[volume di dettaglio](detail-volume.md)|Visualizza i dischi in cui risiede il volume corrente.|
-|[dettaglio vdisk](detail-vdisk.md)|Visualizza le proprietà del disco rigido Virtuale selezionato.|
+|[Disco dettagli](detail-disk.md)|Visualizza le proprietà del disco selezionato e i volumi presenti sul disco.|
+|[Partizione dettagli](detail-partition.md)|Visualizza le proprietà della partizione selezionata.|
+|[Volume dettaglio](detail-volume.md)|Visualizza i dischi in cui risiede il volume corrente.|
+|[Dettagli vdisk](detail-vdisk.md)|Visualizza le proprietà del disco rigido Virtuale selezionato.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

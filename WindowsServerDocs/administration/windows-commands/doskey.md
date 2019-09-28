@@ -2,7 +2,7 @@
 title: doskey
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6179160b7195be6ddf32f9b77d5da0eed5df34d3
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544465"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377694"
 ---
 # <a name="doskey"></a>doskey
 
@@ -39,16 +39,16 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 |       Parametro        |                                                                                                                          Descrizione                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /REINSTALL       |                                                                                            Installa una nuova copia di Doskey.exe e cancella il buffer della cronologia dei comandi.                                                                                            |
-|   /LISTSIZE =\<dimensioni >    |                                                                                                Specifica il numero massimo di comandi nel buffer.                                                                                                 |
+|   /LISTSIZE = \<Size >    |                                                                                                Specifica il numero massimo di comandi nel buffer.                                                                                                 |
 |        /Macros         |                                        Visualizza un elenco di tutti **doskey** macro. È possibile utilizzare il simbolo di reindirizzamento ( **>** ) con **/macros** per reindirizzare l'elenco in un file. È possibile abbreviare **/macros** a **/m**.                                         |
 |      /Macros:all       |                                                                                                        Consente di visualizzare **doskey** macro per tutti i file eseguibili.                                                                                                         |
-|   /Macros:\<exename >   |                                                                                             Consente di visualizzare **doskey** macro per l'eseguibile specificato da *ExeName*.                                                                                              |
+|   /Macros: > \<ExeName   |                                                                                             Consente di visualizzare **doskey** macro per l'eseguibile specificato da *ExeName*.                                                                                              |
 |        /History        |                                    Visualizza tutti i comandi che vengono archiviati nella memoria. È possibile utilizzare il simbolo di reindirizzamento ( **>** ) con **/history** per reindirizzare l'elenco in un file. È possibile abbreviare **/history** come **/h**.                                    |
 | /Insert | Specifica che il nuovo testo digitato viene inserito nel testo precedente. |
 | /overstrike | Specifica che il nuovo testo sovrascrive il testo precedente. |
-|  /EXENAME =\<exename >   |                                                                                        Specifica il programma (vale a dire eseguibile) in cui il **doskey** macro viene eseguita.                                                                                         |
-| /MACROFILE =\<filename > |                                                                                              Specifica un file che contiene le macro che si desiderano installare.                                                                                               |
-| \<Macroname > = [\<testo >]  | Crea una macro che esegue i comandi specificati da *testo*. *Nomemacro* Specifica il nome da assegnare alla macro. *Testo* Specifica i comandi che si desidera registrare. Se *testo* viene lasciato vuoto, *nomemacro* vengono cancellati tutti i comandi assegnati. |
+|  /EXENAME = \<ExeName >   |                                                                                        Specifica il programma (vale a dire eseguibile) in cui il **doskey** macro viene eseguita.                                                                                         |
+| /MACROFILE = \<FileName > |                                                                                              Specifica un file che contiene le macro che si desiderano installare.                                                                                               |
+| \<MacroName > = [\<Text >]  | Crea una macro che esegue i comandi specificati da *testo*. *Nomemacro* Specifica il nome da assegnare alla macro. *Testo* Specifica i comandi che si desidera registrare. Se *testo* viene lasciato vuoto, *nomemacro* vengono cancellati tutti i comandi assegnati. |
 |           /?           |                                                                                                              Visualizza la guida al prompt dei comandi.                                                                                                              |
 
 ## <a name="remarks"></a>Note
@@ -121,16 +121,16 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |   $G o $g    |                                                                                   Reindirizza l'output. Utilizzare uno di questi caratteri speciali per inviare l'output a un dispositivo o un file anziché sullo schermo. Questo carattere corrisponde al simbolo di reindirizzamento dell'output ( **>** ).                                                                                    |
   | $G$ g $G o $g  |                                                         Aggiunge alla fine di un file di output. Utilizzare uno di questi caratteri doppi per Accoda output a un file esistente anziché sostituire i dati nel file. Questi caratteri doppi sono equivalenti per il simbolo di reindirizzamento append ( **>>** ).                                                         |
   |   $L o $l    |                                                                                  Reindirizza l'input. Utilizzare uno di questi caratteri speciali per leggere l'input da un dispositivo o un file anziché dalla tastiera. Questo carattere corrisponde al simbolo di reindirizzamento dell'input ( **<** ).                                                                                  |
-  |   $B o $b    |                                                                                                                                    Invia l'output (macro) a un comando. Questi caratteri speciali sono equivalenti all'uso della pipe (\*\*                                                                                                                                     |
+  |   $B o $b    |                                                                                                                                    Invia l'output (macro) a un comando. Questi caratteri speciali sono equivalenti all'uso della pipe (\* @ no__t-1                                                                                                                                     |
   |   $T o $t    |                                                            Consente di separare i comandi. Utilizzare uno di questi caratteri speciali per separare i comandi quando si creano macro o digitare i comandi di **doskey** riga di comando. Questi caratteri speciali sono equivalenti a utilizzare la e commerciale ( **&** ) nella riga di comando.                                                            |
   |      $$       |                                                                                                                                                              Specifica il carattere di segno di dollaro ( **$** ).                                                                                                                                                               |
   | $1 e $9 |             Rappresentano le informazioni della riga di comando per specificare quando si esegue la macro. I caratteri speciali **$1** tramite **$9** sono parametri batch che consentono di utilizzare dati diversi nella riga di comando ogni volta che si esegue la macro. Il **$1** carattere in un **doskey** comando è simile al **%1** carattere in un file batch.             |
-  |      $\*      | Rappresenta tutte le informazioni della riga di comando che si desidera specificare quando si digita il nome della macro. Il **$ carattere\\** **speciale è** un parametro sostituibile che è simile ai parametri del batch da $1 a $9, con una differenza importante: tutto ciò che si digita nella riga di comando dopo  \* il nome **$ della\\** macrovienesostituitodanellamacro.\* |
+  |      $\*      | Rappresenta tutte le informazioni della riga di comando che si desidera specificare quando si digita il nome della macro. Il carattere speciale **$ @ no__t-2**\* è un parametro sostituibile che è simile ai parametri del batch da **$1** a **$9**, con una differenza importante: tutti gli elementi digitati nella riga di comando dopo il nome della macro sono sostituito da **$ @ no__t-8**\* nella macro. |
 
 
 - Esecuzione di un **doskey** (macro)
 
-  Per eseguire una macro, digitare il nome della macro al prompt dei comandi, a partire dalla posizione del primo. Se la macro è stata definita **$ \\** con * o uno dei parametri del batch da **$1** a **$9**, usare uno spazio per separare i parametri. Non è possibile eseguire un **doskey** (macro) da un file batch.
+  Per eseguire una macro, digitare il nome della macro al prompt dei comandi, a partire dalla posizione del primo. Se la macro è stata definita con **$ @ no__t-2*** o uno dei parametri del batch da **$1** a **$9**, usare uno spazio per separare i parametri. Non è possibile eseguire un **doskey** (macro) da un file batch.
 - Creazione di una macro con lo stesso nome di un comando della famiglia Windows Server 2003
 
   Se si utilizza sempre un determinato comando con le opzioni della riga di comando specifiche, è possibile creare una macro che ha lo stesso nome del comando. Per specificare se si desidera eseguire il comando o la macro, attenersi alle seguenti indicazioni:  
@@ -161,7 +161,7 @@ Per definire una macro con più comandi, utilizzare **$t** per separare i comand
 ```
 doskey tx=cd temp$tdir/w $*
 ```
-Nell'esempio precedente, la macro TX cambia la directory corrente alla posizione temporanea e quindi visualizza un elenco in formato esteso di directory. È possibile **$ usare\\** * alla fine della macro per aggiungere altre opzioni della riga di comando a **dir** quando si esegue TX.
+Nell'esempio precedente, la macro TX cambia la directory corrente alla posizione temporanea e quindi visualizza un elenco in formato esteso di directory. È possibile utilizzare **$ @ no__t-2*** alla fine della macro per aggiungere altre opzioni della riga di comando a **dir** quando si esegue TX.
 
 La macro seguente utilizza un parametro di batch per un nuovo nome di directory:
 ```

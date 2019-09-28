@@ -1,8 +1,8 @@
 ---
 title: dir FTP
-description: Argomento i comandi di Windows per la directory ftp
+description: Argomento dei comandi di Windows per la directory FTP
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78ac8ac5e9fc4894f55401bb234aa98de981adf7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c47971c52135d79ce62f935bfed981f6eefcecaa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376438"
 ---
 # <a name="ftp-dir"></a>FTP: dir
 
@@ -35,13 +35,13 @@ dir [<remotedirectory>] [<LocalFile>]
 |[<remotedirectory>]|Specifica la directory per il quale si desidera visualizzare un elenco. Se non viene specificata alcuna directory, viene utilizzata la directory di lavoro corrente nel computer remoto.|  
 |[<LocalFile>]|Specifica un file locale in cui archiviare la visualizzazione della directory. Se non viene specificato un file locale, i risultati vengono visualizzati sullo schermo.|  
 ## <a name="BKMK_Examples"></a>Esempi  
-Visualizzare una visualizzazione per la directory **dir1** nel computer remoto.  
+Visualizza un elenco di directory per **dir1** nel computer remoto.  
 ```  
 dir dir1  
 ```  
-Salvare un elenco di directory corrente nel computer remoto nel file locale **Elendir. txt**.  
+Salvare un elenco della directory corrente nel computer remoto nel file locale **dirlist. txt**.  
 ```  
 dir . dirlist.txt  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

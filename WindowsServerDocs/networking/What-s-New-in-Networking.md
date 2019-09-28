@@ -1,18 +1,18 @@
 ---
 title: Novità di Reti
 description: In questo argomento fornisce informazioni generali sulle nuove funzionalità e tecnologie per la rete in Windows Server 2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: get-started-article
 ms.assetid: 08fb7563-d319-48a9-b181-ca0ca3032c18
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 43ce6290f6559be7cb078032b79519d1681506d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da2166d28edda5662797824d9b26ad930f51083c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406753"
 ---
 # <a name="whats-new-in-networking"></a>Novità di Reti
 
@@ -21,11 +21,11 @@ ms.locfileid: "59829192"
 Di seguito sono nuove o avanzate tecnologie di rete in Windows Server 2016.  
   UPD questo argomento contiene le sezioni seguenti.  
   
--   [Nuove funzionalità di rete e le tecnologie](#bkmk_features)  
+-   [Nuove funzionalità e tecnologie di rete](#bkmk_features)  
   
--   [Nuove funzionalità per altre tecnologie di rete](#bkmk_existing)  
+-   [Nuove funzionalità per tecnologie di rete aggiuntive](#bkmk_existing)  
   
-## <a name="bkmk_features"></a>Nuove funzionalità di rete e le tecnologie
+## <a name="bkmk_features"></a>Nuove funzionalità e tecnologie di rete
 
 Funzionalità di rete sono una parte fondamentale della piattaforma Software definito Datacenter (SDDC) e Windows Server 2016 fornisce tecnologie nuove e migliorate di reti SDN (Software Defined) che consentono di passare a una soluzione SDDC realizzata completamente per l'organizzazione.  
   
@@ -41,7 +41,7 @@ Di seguito sono le tecnologie di infrastruttura SDN nuove o migliorate.
   
 -   **Commutatore virtuale Hyper-V**. Il commutatore virtuale Hyper-V viene eseguito negli host Hyper-V e consente di creare cambio distribuita e il routing e un livello di imposizione dei criteri che è allineato e compatibile con Microsoft Azure. Per ulteriori informazioni, vedere [commutatore virtuale Hyper-V](../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
--   **Funzione virtualizzazione (NFV) di rete**. Nel software di oggi sempre più Data Center definito, le funzioni di rete che vengono eseguite da dispositivi hardware (ad esempio servizi di bilanciamento del carico, i firewall, router, commutatori e così via) sono distribuito come dispositivi virtuali. Questo "virtualizzazione delle funzioni di rete" è una progressione naturale di virtualizzazione di server e virtualizzazione di rete. Appliance virtuali sono rapidamente emergenti e creazione di un nuovo mercato. Continuano a generare interesse e ottenere l'espansione di entrambe le piattaforme di virtualizzazione e i servizi cloud. Le seguenti tecnologie NFV sono disponibili in Windows Server 2016.  
+-   **Funzione virtualizzazione (NFV) di rete**. Nel software di oggi sempre più Data Center definito, le funzioni di rete che vengono eseguite da dispositivi hardware (ad esempio servizi di bilanciamento del carico, i firewall, router, commutatori e così via) sono distribuito come dispositivi virtuali. Questo "virtualizzazione delle funzioni di rete" è una progressione naturale di virtualizzazione di server e virtualizzazione di rete. I dispositivi virtuali sono in rapida emergenza e creano un nuovo mercato. Continuano a generare interesse e ottenere l'espansione di entrambe le piattaforme di virtualizzazione e i servizi cloud. Le seguenti tecnologie NFV sono disponibili in Windows Server 2016.  
   
     -   **datacenter Firewall**. Questo firewall distribuito fornisce elenchi di controllo granulare di accesso (ACL), che consentono di applicare criteri del firewall a livello di interfaccia di macchina Virtuale o a livello di subnet.  
   
@@ -51,7 +51,7 @@ Di seguito sono le tecnologie di infrastruttura SDN nuove o migliorate.
   
         Per ulteriori informazioni, vedere  [What's New in Gateway RAS](sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) e [Gateway RAS per SDN](sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md).  
           
-    - **Bilanciamento del carico software (SLB) e NAT (NAT)**. 4 bilanciamento del carico di livello il Nord-Sud e Ovest orientale e migliora la velocità effettiva grazie al supporto Direct Server Return, con cui il traffico di rete restituito può ignorare il bilanciamento del carico multiplexer NAT.  
+    - **Bilanciamento del carico software (SLB) e NAT (NAT)** . 4 bilanciamento del carico di livello il Nord-Sud e Ovest orientale e migliora la velocità effettiva grazie al supporto Direct Server Return, con cui il traffico di rete restituito può ignorare il bilanciamento del carico multiplexer NAT.  
        Per ulteriori informazioni, vedere [il bilanciamento del carico Software & #40; SLB & #41; per SDN](sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
   
     Per ulteriori informazioni, vedere [virtualizzazione delle funzioni di rete](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
@@ -70,9 +70,9 @@ Nozioni fondamentali su scala di cloud seguenti sono ora disponibili.
   
 -   **Pacchetti diretti**.  Direct pacchetto fornisce un'infrastruttura di elaborazione di pacchetti a bassa latenza e velocità effettiva del traffico di rete ad alta.  
   
--   **Opzione incorporato Teaming (SET)**.        SET è una soluzione gruppo NIC è integrata nel commutatore virtuale Hyper-V. SET consente il raggruppamento di fino a otto schede NIC fisiche in un singolo gruppo SET, che migliora la disponibilità e fornisce il failover. In Windows Server 2016, è possibile creare team SET che sono limitati all'utilizzo di Server Message Block (SMB) e RDMA. Inoltre, è possibile utilizzare SET team per distribuire il traffico di rete per la virtualizzazione rete Hyper-V. Per ulteriori informazioni, vedere [Remote Direct Memory Access & #40; RDMA & #41; e passare al gruppo incorporato & #40; IMP & #41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+-   **Opzione incorporato Teaming (SET)** .        SET è una soluzione gruppo NIC è integrata nel commutatore virtuale Hyper-V. SET consente il raggruppamento di fino a otto schede NIC fisiche in un singolo gruppo SET, che migliora la disponibilità e fornisce il failover. In Windows Server 2016, è possibile creare team SET che sono limitati all'utilizzo di Server Message Block (SMB) e RDMA. Inoltre, è possibile utilizzare SET team per distribuire il traffico di rete per la virtualizzazione rete Hyper-V. Per ulteriori informazioni, vedere [Remote Direct Memory Access & #40; RDMA & #41; e passare al gruppo incorporato & #40; IMP & #41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-## <a name="bkmk_existing"></a>Nuove funzionalità per altre tecnologie di rete
+## <a name="bkmk_existing"></a>Nuove funzionalità per tecnologie di rete aggiuntive
 
 In questa sezione contiene informazioni sulle nuove funzionalità per le tecnologie familiari di rete.
   
@@ -91,7 +91,7 @@ Di seguito sono le tecnologie client DNS nuove o migliorate.
   
 -   **Associazione al servizio Client DNS**. In Windows 10, il servizio Client DNS offre supporto avanzato per i computer con più di un'interfaccia di rete.  
   
-Per altre informazioni, vedere [What ' s New in Client DNS in Windows Server 2016](dns/What-s-New-in-DNS-Client.md)  
+Per ulteriori informazioni, vedere Novità [del client DNS in Windows Server 2016](dns/What-s-New-in-DNS-Client.md)  
   
 ### <a name="bkmk_dnss"></a>Server DNS  
 Di seguito sono le tecnologie di server DNS nuove o migliorate.  
@@ -103,9 +103,9 @@ Di seguito sono le tecnologie di server DNS nuove o migliorate.
     > [!NOTE]   
     > DNS integrate in Active Directory non è supportato in Nano Server.  
   
--   **Velocità di risposta limitante (RRL)**.  È possibile abilitare la limitazione della velocità di risposta dei server DNS. In questo modo, evitare la possibilità di sistemi dannoso tramite i server DNS per avviare un attacco denial of service in un client DNS.  
+-   **Velocità di risposta limitante (RRL)** .  È possibile abilitare la limitazione della velocità di risposta dei server DNS. In questo modo, evitare la possibilità di sistemi dannoso tramite i server DNS per avviare un attacco denial of service in un client DNS.  
   
--   **L'autenticazione basata su DNS di entità denominate (DANE)**.   È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali autorità di certificazione (CA) dovrebbero un certificato da per il nome di dominio. Questo impedisce gli attacchi man-in-the-middle in cui qualcuno potrebbe danneggiare la cache DNS in modo che punti al proprio sito Web e fornire un certificato che è emesso da un'autorità di certificazione diversi.  
+-   **L'autenticazione basata su DNS di entità denominate (DANE)** .   È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali autorità di certificazione (CA) dovrebbero un certificato da per il nome di dominio. In questo modo si evitano gli attacchi man-in-the-Middle in cui un utente potrebbe danneggiare la cache DNS per puntare al proprio sito Web e fornire un certificato emesso da un'autorità di certificazione diversa.  
   
 -   **Supporto di record sconosciuto**.   
      È possibile aggiungere i record che non sono supportati in modo esplicito dal server DNS di Windows utilizzando la funzionalità di record sconosciuto.  
@@ -116,17 +116,17 @@ Di seguito sono le tecnologie di server DNS nuove o migliorate.
 -   **Migliorato supporto di Windows PowerShell**.   
       Nuovi cmdlet di Windows PowerShell sono disponibili per il Server DNS.  
   
-Per altre informazioni, vedere [What ' s New in Server DNS in Windows Server 2016](dns/What-s-New-in-DNS-Server.md)  
+Per ulteriori informazioni, vedere Novità [di server DNS in Windows server 2016](dns/What-s-New-in-DNS-Server.md)  
   
 ## <a name="bkmk_GRE"></a>Tunneling GRE  
 Gateway RAS supporta ora i tunnel Generic Routing Encapsulation (GRE) la disponibilità elevata per le connessioni da sito a sito e la ridondanza N + M di gateway. GRE è un protocollo di tunneling leggero in grado di incapsulare un'ampia gamma di protocolli a livello di rete all'interno di collegamenti point-to-point virtuali in un sistema Internetwork IP (Internet Protocol, protocollo Internet).  
   
-Per altre informazioni, vedere [Tunneling GRE in Windows Server 2016](../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
+Per ulteriori informazioni, vedere la pagina relativa [al tunneling GRE in Windows Server 2016](../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
 ## <a name="HNV"></a>Virtualizzazione rete Hyper-V  
 Introdotto in Windows Server 2012, Hyper-V rete Virtualizzazione consente la virtualizzazione di reti dei clienti su un'infrastruttura di rete fisica condivisa. Apportando modifiche minime necessari per l'infrastruttura di rete fisica, virtualizzazione RETE fornisce ai provider di servizi la flessibilità di distribuire e migrare i carichi di lavoro tenant ovunque in tre aree: il cloud di provider del servizio, il cloud privato o la cloud pubblica di Microsoft Azure.  
   
-Per altre informazioni, vedere [What ' s New in virtualizzazione rete Hyper-V in Windows Server 2016](sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md)  
+Per ulteriori informazioni, vedere Novità [di virtualizzazione rete Hyper-V in Windows Server 2016](sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) .  
   
 ## <a name="bkmk_ipam"></a>IPAM  
 Gestione indirizzi IP offre funzionalità amministrative e di monitoraggio altamente personalizzabili per l'indirizzo IP e l'infrastruttura DNS nella rete di un'organizzazione. Utilizzando Gestione indirizzi IP, è monitorare, controllare e gestire i server che eseguono Dynamic Host Configuration Protocol (DHCP) e del sistema DNS (Domain Name).  

@@ -7,25 +7,25 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c94f6ddd19e3178243545b0cc71f6f4c7bb4dbec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f46cad23e13edcef57bf00113e601069c02cfd4f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402460"
 ---
 # <a name="understanding-ad-ds-design"></a>Informazioni sulla progettazione di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Le organizzazioni possono usare Active Directory Domain Services (AD DS) in Windows Server per semplificare la gestione di utenti e risorse durante la creazione di infrastrutture scalabile, sicure e gestibile. È possibile usare Active Directory Domain Services per gestire l'infrastruttura di rete, tra cui filiale Microsoft Exchange Server e gli ambienti di più foreste.  
+Le organizzazioni possono usare Active Directory Domain Services (AD DS) in Windows Server per semplificare la gestione di utenti e risorse durante la creazione di infrastrutture scalabili, sicure e gestibili. È possibile utilizzare servizi di dominio Active Directory per gestire l'infrastruttura di rete, tra cui succursale, Microsoft Exchange Server e più ambienti di foreste.  
   
-Un progetto di distribuzione di Active Directory Domain Services prevede tre fasi: una fase di progettazione, una fase di distribuzione e una fase operativa. Durante la fase di progettazione, il team di progettazione crea una progettazione per la struttura logica di dominio Active Directory che meglio soddisfa le esigenze di ciascun reparto dell'organizzazione che userà il servizio directory. Dopo la progettazione è stata approvata, il team di distribuzione verifica la progettazione in un ambiente lab e quindi implementa la progettazione nell'ambiente di produzione. Poiché il test viene eseguito dal team di distribuzione e può influire sulla fase di progettazione, è un'attività provvisoria che si sovrappone a progettazione e distribuzione. Una volta completata la distribuzione, il team è responsabile della gestione del servizio directory.  
+Un progetto di distribuzione di servizi di dominio Active Directory prevede tre fasi: una fase di progettazione, una fase di distribuzione e una fase operativa. Durante la fase di progettazione, il team di progettazione crea una progettazione per la struttura logica di servizi di dominio Active Directory che meglio soddisfa le esigenze di ogni divisione nell'organizzazione che utilizzerà il servizio directory. Una volta approvata la progettazione, il team di distribuzione testa la progettazione in un ambiente lab e quindi implementa la progettazione nell'ambiente di produzione. Poiché il test viene eseguito dal team di distribuzione e potenzialmente influisca sulla fase di progettazione, si tratta di un'attività provvisoria che si sovrappone alla progettazione e alla distribuzione. Al termine della distribuzione, il team operativo è responsabile della gestione del servizio directory.  
   
-Anche se le strategie di progettazione e distribuzione di Windows Server AD DS che vengono presentate in questa guida si basano su lab complete e il test del programma pilota e corretta implementazione negli ambienti dei clienti, potrebbe essere necessario personalizzare la progettazione di Active Directory Domain Services e distribuzione in base alle esigenze specifici ambienti complessi.
+Anche se le strategie di progettazione e distribuzione di servizi di dominio Active Directory di Windows Server presentate in questa guida si basano su test completi di laboratorio e pilota e implementazioni efficaci negli ambienti dei clienti, potrebbe essere necessario personalizzare la progettazione di servizi di dominio Active Directory e distribuzione in modo più appropriato per ambienti specifici e complessi.
   
-- Per altre informazioni sulla distribuzione di Active Directory Domain Services in un ambiente di succursali, vedere la [Guida alla pianificazione di Controller di dominio di sola lettura (RODC) Branch Office](https://go.microsoft.com/fwlink/?LinkId=100207).  
-- Per altre informazioni sulla distribuzione di Active Directory Domain Services in un ambiente Exchange, vedere l'articolo [Exchange 2007 - pianificazione di Active Directory](https://go.microsoft.com/fwlink/?LinkId=88904).  
-- Per altre informazioni sulla distribuzione di Active Directory Domain Services in un ambiente a più foreste, vedere l'articolo [considerazioni relative alla foresta più in Windows 2000 e Windows Server 2003](https://go.microsoft.com/fwlink/?LinkId=88905).  
+- Per ulteriori informazioni sulla distribuzione di servizi di dominio Active Directory in un ambiente di succursale, vedere la [Guida alla pianificazione della succursale del controller di dominio di sola lettura (RODC)](https://go.microsoft.com/fwlink/?LinkId=100207).  
+- Per ulteriori informazioni sulla distribuzione di servizi di dominio Active Directory in un ambiente Exchange, vedere l'articolo [exchange 2007-Planning Active Directory](https://go.microsoft.com/fwlink/?LinkId=88904).  
+- Per ulteriori informazioni sulla distribuzione di servizi di dominio Active Directory in un ambiente a più foreste, vedere l'articolo [considerazioni su più foreste in windows 2000 e Windows Server 2003](https://go.microsoft.com/fwlink/?LinkId=88905).  

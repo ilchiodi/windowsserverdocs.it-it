@@ -1,8 +1,8 @@
 ---
 title: Logman start | arrestare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c6027c4c9a99e45bb1c2e95cdfd4a7687a5c43b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 395d325b31ee596e1394e7ed796a444f159d15fc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437687"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374414"
 ---
 # <a name="logman-start--stop"></a>Logman start | arrestare
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-avviare un agente di raccolta dati e impostare il momento di avvio su manuale o arrestare un agente di raccolta dati impostare e l'ora di fine su manuale.  
+avviare un agente di raccolta dati e impostare l'ora di inizio su manuale oppure arrestare un insieme agenti di raccolta dati e impostare l'ora di fine su manuale.  
 
 ## <a name="syntax"></a>Sintassi  
 ```  

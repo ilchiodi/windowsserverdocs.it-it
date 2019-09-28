@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg destinazione
-description: Argomento i comandi di Windows per la destinazione bdehdcfg - prepara una partizione per l'uso come un'unità di sistema da un ripristino di BitLocker e Windows.
+title: destinazione BdeHdCfg
+description: "Argomento dei comandi di Windows per la destinazione BdeHdCfg: prepara una partizione per l'uso come unità di sistema da BitLocker e ripristino di Windows."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8d180974f480b4c40532dab529ad49dcc33540d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2fb0a1daa257ef2c9f1cd77b88e5ef14f84a0dfa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382185"
 ---
-# <a name="bdehdcfg-target"></a>bdehdcfg: target
+# <a name="bdehdcfg-target"></a>BdeHdCfg: destinazione
 
 
 
-Prepara una partizione per l'uso come un'unità di sistema da BitLocker e il ripristino di Windows. Per impostazione predefinita, questa partizione viene creata senza una lettera di unità. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Prepara una partizione per l'utilizzo come unità di sistema da BitLocker e ripristino di Windows. Per impostazione predefinita, questa partizione viene creata senza una lettera di unità. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,17 +38,17 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}
 |---------|-----------|
 |default|Indica che lo strumento da riga di comando seguirà lo stesso processo della configurazione guidata BitLocker.|
 |unallocated|Crea la partizione di sistema dallo spazio non allocato disponibile sul disco.|
-|\<LetteraUnità > riduzione|Riduce l'unità specificata della quantità necessaria per creare una partizione di sistema attiva. Per utilizzare questo comando, sull'unità specificata deve essere presente almeno il 5% di spazio disponibile.|
-|\<LetteraUnità > merge|Utilizza l'unità specificata come partizione di sistema attiva. L'unità del sistema operativo non può essere utilizzata come destinazione per l'unione.|
+|\<DriveLetter > compattazione|Riduce l'unità specificata della quantità necessaria per creare una partizione di sistema attiva. Per utilizzare questo comando, sull'unità specificata deve essere presente almeno il 5% di spazio disponibile.|
+|\<DriveLetter > merge|Utilizza l'unità specificata come partizione di sistema attiva. L'unità del sistema operativo non può essere utilizzata come destinazione per l'unione.|
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Nell'esempio seguente viene illustrata con la **destinazione** comando per specificare un'unità esistente (P) che l'unità del sistema.
+Nell'esempio seguente viene illustrato l'utilizzo del comando **target** per designare un'unità esistente (P) come unità di sistema.
 ```
 bdehdcfg -target P: merge
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Bdehdcfg](bdehdcfg.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [BdeHdCfg](bdehdcfg.md)

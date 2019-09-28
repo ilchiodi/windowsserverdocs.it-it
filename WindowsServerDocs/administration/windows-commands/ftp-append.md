@@ -1,8 +1,8 @@
 ---
-title: aggiunta di FTP
-description: 'Aggiungi argomento i comandi di Windows per il servizio ftp '
+title: Aggiunta FTP
+description: 'Argomento comandi di Windows per aggiunta FTP '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9580d725120bb32a9b915d37cdbc173bfb17b859
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 52d16b878ff5fb165fd851b227dcc361c9da3a80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438838"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376640"
 ---
-# <a name="ftp-append"></a>FTP: append
+# <a name="ftp-append"></a>FTP: Accoda
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Aggiunge un file locale in un file nel computer remoto utilizzando il tipo di file corrente.   
+Accoda un file locale a un file nel computer remoto utilizzando l'impostazione del tipo di file corrente.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 append <LocalFile> [remoteFile]  
@@ -34,16 +34,16 @@ append <LocalFile> [remoteFile]
 |  Parametro   |                               Descrizione                                |
 |--------------|--------------------------------------------------------------------------|
 | <LocalFile>  |                     Specifica il file locale da aggiungere.                     |
-| [remoteFile] | Specifica il file nel computer remoto a cui <LocalFile> viene aggiunto. |
+| Fileremoto | Specifica il file nel computer remoto a cui <LocalFile> viene aggiunto. |
 
 ## <a name="remarks"></a>Note  
-Se *FileRemoto* viene omesso, il *FileLocale* nome viene usato al posto del nome file remoto.  
+Se *FileRemoto* viene omesso, al posto del nome del file remoto viene usato il nome *LocalFile* .  
 ## <a name="BKMK_Examples"></a>Esempi  
-aggiungere file1. txt file2 nel computer remoto.  
+aggiungere file1. txt a file2. txt nel computer remoto.  
 ```  
 append file1.txt file2.txt  
 ```  
-aggiungere il file1 locale in un file denominato file1. txt nel computer remoto.  
+aggiungere il file file1. txt locale a un file denominato file1. txt nel computer remoto.  
 ```  
 append file1.txt  
 ```  

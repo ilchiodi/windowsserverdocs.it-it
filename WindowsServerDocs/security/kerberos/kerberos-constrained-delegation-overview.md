@@ -2,7 +2,7 @@
 title: Kerberos Constrained Delegation Overview
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-kerberos
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 02677c8d9db4129ebbd7edd79027e0a6348372b5
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: e6e62effcb875c0e3a1cdd6c886f3d74923e1b94
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403413"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -36,7 +36,7 @@ In Windows Server 2012 R2 e Windows Server 2012, la possibilità di configurare 
 
 Per informazioni dettagliate sulla delega vincolata nella forma introdotta in Windows Server 2003, vedere la pagina relativa alla [transizione al protocollo Kerberos e la delega vincolata](https://technet.microsoft.com/library/cc739587(v=ws.10)).
 
-L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni specifiche per la delega vincolata.  L'estensione S4U2Proxy (Service for User to Proxy) consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end. Queste estensioni consentono la configurazione della delega vincolata nell'account del servizio back-end, che può trovarsi in un altro dominio. Per ulteriori informazioni su queste estensioni, vedere [ \[MS-SFU\]: estensioni del protocollo Kerberos: Specifica](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx) del protocollo per il servizio per utenti e la delega vincolata in MSDN Library.
+L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni specifiche per la delega vincolata.  L'estensione S4U2Proxy (Service for User to Proxy) consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end. Queste estensioni consentono la configurazione della delega vincolata nell'account del servizio back-end, che può trovarsi in un altro dominio. Per ulteriori informazioni su queste estensioni, vedere [ @ no__t-1 MS-SFU @ no__t-2: estensioni del protocollo Kerberos: Service per User e la specifica del protocollo di delega vincolata @ no__t-0 in MSDN Library.
 
 **Applicazioni pratiche**
 
@@ -58,7 +58,7 @@ Viene inoltre spostata la decisione di stabilire se un server deve considerare a
 
 Una modifica nel protocollo sottostante consente la delega vincolata tra domini. L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni per il protocollo S4U2Proxy (Service for user to proxy). Si tratta di un set di estensioni per il protocollo Kerberos che consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end.
 
-Per informazioni sull'implementazione relative a queste estensioni [, vedere \[MS\]-SFU: estensioni del protocollo Kerberos: Specifica](https://msdn.microsoft.com/library/cc246071(PROT.10).aspx) del protocollo per il servizio per utenti e la delega vincolata in MSDN.
+Per informazioni sull'implementazione relative a queste estensioni, vedere [ @ no__t-1 MS-SFU @ no__t-2: estensioni del protocollo Kerberos: Service for user and vincolated delega Protocol Specification @ no__t-0 in MSDN.
 
 Per altre informazioni sulla sequenza di messaggi di base per la delega Kerberos con un ticket di concessione ticket (TGT) inoltrato a confronto con le estensioni S4U (Service for User), vedere la sezione [1.3.3 della panoramica del protocollo](https://msdn.microsoft.com/library/cc246080(v=prot.10).aspx) nel documento [MS-SFU] sulle estensioni del protocollo Kerberos: specifica del protocollo per il servizio per utenti e la delega vincolata.
 

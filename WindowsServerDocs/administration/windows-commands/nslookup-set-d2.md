@@ -1,8 +1,8 @@
 ---
 title: nslookup set d2
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e1e2ecade2887ef38a1209b49577ea0c851ca8d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fce9512990a25f3db295cc9a67a4bc63a37d1060
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436837"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372971"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
@@ -36,9 +36,9 @@ set [no]d2
 
 | Parametro |                             Descrizione                              |
 |-----------|----------------------------------------------------------------------|
-| **nod2**  | Disattiva la modalità di debug approfondito. La sintassi di predefinita è **nod2**. |
-|  **d2**   |                 Attiva modalità di debug approfondito.                  |
-|   Guida {   |                                  ?}                                  |
+| **NOD2**  | Disattiva la modalità di debug completa. La sintassi predefinita è **NOD2**. |
+|  **D2**   |                 Attiva la modalità di debug completa.                  |
+|   {Guida   |                                  ?}                                  |
 
 #### <a name="additional-references"></a>Altri riferimenti
 

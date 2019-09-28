@@ -2,18 +2,18 @@
 title: Creare una quota automatica
 description: Questo articolo descrive come creare quote automatiche in base a un modello quota
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68967ff920f25c05affc206ed45bad9275e781b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394243"
 ---
 # <a name="create-an-auto-apply-quota"></a>Creare una quota automatica
 
@@ -35,12 +35,12 @@ Ad esempio, è possibile definire una quota automatica per le sottocartelle crea
 
 5.  In **Deriva proprietà dal modello quota seguente**, selezionare il modello quota che si desidera applicare dall'elenco a discesa. Si noti che vengono visualizzate le proprietà di ciascun modello in **Riepilogo proprietà quota**.
 
-6.  Fare clic su **Crea**.
+6.  Fare clic su **Create**(Crea).
 
 > [!Note]
 > È possibile verificare tutte le quote generate automaticamente selezionando il nodo **Quote** e quindi selezionando **Aggiorna**. Vengono elencate una singola quota per ogni sottocartella e il profilo della quota automatica nel volume o nella cartella padre.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Quota Management](quota-management.md)
--   [Modifica automaticamente le proprietà delle quote](edit-auto-apply-quota-properties.md)
+-   [Gestione delle quote](quota-management.md)
+-   [Modificare le proprietà delle quote automatiche](edit-auto-apply-quota-properties.md)

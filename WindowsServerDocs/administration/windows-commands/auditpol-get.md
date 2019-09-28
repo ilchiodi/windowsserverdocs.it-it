@@ -1,8 +1,8 @@
 ---
-title: get auditpol
-description: Argomento i comandi di Windows per **auditpol ottenere** -recupera il criterio di sistema, dei criteri per ogni utente, il controllo delle opzioni e oggetto descrittore di sicurezza di controllo.
+title: auditpol get
+description: "Argomento dei comandi di Windows per **auditpol get** : recupera i criteri di sistema, i criteri per utente, le opzioni di controllo e l'oggetto descrittore di sicurezza del controllo."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03ba59b19af42ab2d3fdd1dd52d976d381779640
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 296fc5afb540411d76b563faca42fc045b8df3b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435139"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382495"
 ---
-# <a name="auditpol-get"></a>get auditpol
+# <a name="auditpol-get"></a>auditpol get
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Recupera i criteri di sistema, dei criteri per ogni utente, il controllo delle opzioni e oggetto descrittore di sicurezza di controllo.
+Recupera i criteri di sistema, i criteri per utente, le opzioni di controllo e l'oggetto descrittore di sicurezza del controllo.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -40,54 +40,54 @@ auditpol /get
 
 |  Parametro   |                                                                                                                                         Descrizione                                                                                                                                          |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /User     | Consente di visualizzare l'entità di sicurezza per il quale viene eseguita una query il criterio di controllo per utente. Parametro /category o /subcategory deve essere specificato. L'utente può essere specificato come un ID di sicurezza (SID) o un nome. Se non viene specificato alcun account utente, viene eseguita una query il criterio di controllo di sistema. |
-|  /category   |                                                          Uno o più categorie di controllo specificate dall'identificatore univoco globale (GUID) o nome. Un asterisco (\*) può essere utilizzato per indicare che tutte le categorie di controllo devono sottoporre a query.                                                          |
-| /subcategory |                                                                                                                  Uno o più le sottocategorie di controllo specificate dal GUID o nome.                                                                                                                  |
-|     /SD      |                                                                                                        Recupera il descrittore di sicurezza usato per delegare l'accesso per i criteri di controllo.                                                                                                        |
+|    /User     | Consente di visualizzare l'entità di sicurezza per la quale vengono eseguite query sui criteri di controllo per utente. È necessario specificare il parametro/category o/Subcategory. L'utente può essere specificato come ID di sicurezza (SID) o nome. Se non viene specificato alcun account utente, viene eseguita una query sui criteri di controllo del sistema. |
+|  /Category   |                                                          Una o più categorie di controllo specificate da un identificatore univoco globale (GUID) o da un nome. È possibile utilizzare un asterisco (\*) per indicare che è necessario eseguire una query su tutte le categorie di controllo.                                                          |
+| /Subcategory |                                                                                                                  Una o più sottocategorie di controllo specificate in base al nome o al GUID.                                                                                                                  |
+|     /SD      |                                                                                                        Recupera il descrittore di sicurezza utilizzato per delegare l'accesso ai criteri di controllo.                                                                                                        |
 |   /opzione    |                                                                              Recupera i criteri esistenti per le opzioni CrashOnAuditFail, FullprivilegeAuditing, AuditBaseObjects o AuditBasedirectories.                                                                               |
-|      /r      |                                                                                                              Visualizza l'output in formato di report, valori delimitati da virgole (CSV).                                                                                                              |
+|      /r      |                                                                                                              Visualizza l'output in formato report, con valori delimitati da virgole (CSV).                                                                                                              |
 |      /?      |                                                                                                                             Visualizza la guida al prompt dei comandi.                                                                                                                             |
 
 ## <a name="remarks"></a>Note
-Tutte le categorie e sottocategorie possono essere specificate dal GUID o nome racchiuso tra virgolette. Gli utenti possono essere specificati dal nome o SID.
-per tutte le operazioni get per il criterio per ogni utente e criteri di sistema, è necessario disporre di autorizzazioni per tale oggetto impostato nel descrittore di sicurezza lettura. È anche possibile eseguire operazioni get che presenta il **gestione file registro di controllo e protezione** diritto utente (SeSecurityPrivilege). Tuttavia, questo diritto consente accesso aggiuntivo che non è necessario eseguire l'operazione get.
+Tutte le categorie e le sottocategorie possono essere specificate in base al nome o al GUID racchiuso tra virgolette. Gli utenti possono essere specificati in base al SID o al nome.
+per tutte le operazioni get per i criteri per utente e i criteri di sistema, è necessario disporre dell'autorizzazione di lettura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire le operazioni get possedendo il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione get.
 ## <a name="BKMK_examples"></a>Esempi
 ### <a name="examples-for-the-per-user-audit-policy"></a>Esempi per i criteri di controllo per utente
-Per recuperare i criteri di controllo per utente per l'account Guest e visualizzare l'output per il sistema di rilevamento dettagliate e le categorie di accesso agli oggetti, digitare:
+Per recuperare i criteri di controllo per utente per l'account Guest e visualizzare l'output per le categorie sistema, rilevamento dettagliato e accesso agli oggetti, digitare:
 ```
 auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:"System","detailed Tracking","Object Access"
 ```
 > [!NOTE]
-> Questo comando è utile in due scenari. Quando si monitora un account utente specifico per eventuali attività sospette, è possibile utilizzare il comando/get per recuperare i risultati in categorie specifiche usando criteri di inclusione per abilitare il controllo aggiuntivo. In alternativa, se le impostazioni di controllo in un account esegue l'accesso numerose ma gli eventi superflui, è possibile usare il comando/get per filtrare gli eventi estranei per l'account con i criteri di esclusione. Per un elenco di tutte le categorie, il comando auditpol /list /category.
-> Per recuperare i criteri di controllo per utente per una categoria e una particolare sottocategoria, che indica le impostazioni inclusivi ed esclusive per tale sottocategoria sotto la categoria di sistema per l'account Guest, digitare:
+> Questo comando è utile in due scenari. Quando si esegue il monitoraggio di un account utente specifico per attività sospette, è possibile usare il comando/Get per recuperare i risultati in categorie specifiche usando un criterio di inclusione per abilitare il controllo aggiuntivo. In alternativa, se le impostazioni di controllo per un account registrano numerosi eventi ma superflui, è possibile usare il comando/Get per filtrare gli eventi estranei per tale account con criteri di esclusione. Per un elenco di tutte le categorie, usare il comando auditpol/list/category.
+> Per recuperare i criteri di controllo per utente per una categoria e una sottocategoria specifica, che riporta le impostazioni incluse ed esclusive per la sottocategoria nella categoria sistema per l'account Guest, digitare:
 > ```
 > auditpol /get /user:guest /category:"System" /subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
-> Per visualizzare l'output in formato di report e includere il nome del computer, destinazione dei criteri, subcategory, subcategory, GUID, le impostazioni di inclusione e impostazioni di esclusione, digitare:
+> Per visualizzare l'output in formato report e includere il nome del computer, la destinazione dei criteri, la sottocategoria, il GUID della sottocategoria, le impostazioni di inclusione e le impostazioni di esclusione, digitare:
 > ```
 > auditpol /get /user:guest /category:detailed Tracking" /r
 > ```
-> ### <a name="examples-for-the-system-audit-policy"></a>Esempi per i criteri di controllo di sistema
-> Per recuperare i criteri per la categoria di sistema e le sottocategorie, che indica le impostazioni dei criteri di categoria e sottocategoria per i criteri di controllo di sistema, digitare:
+> ### <a name="examples-for-the-system-audit-policy"></a>Esempi per i criteri di controllo del sistema
+> Per recuperare i criteri per la categoria e le sottocategorie di sistema, che segnalano le impostazioni dei criteri di categoria e sottocategoria per i criteri di controllo del sistema, digitare:
 > ```
 > auditpol /get /category:"System" /subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
-> Per recuperare i criteri per la categoria di rilevamento dettagliata e le sottocategorie in formato di report e includere il nome del computer, destinazione dei criteri, subcategory, subcategory GUID, le impostazioni di inclusione e impostazioni di esclusione, il tipo:
+> Per recuperare i criteri per la categoria di rilevamento dettagliata e le sottocategorie in formato report e includere il nome del computer, la destinazione dei criteri, la sottocategoria, il GUID della sottocategoria, le impostazioni di inclusione e le impostazioni di esclusione, digitare:
 > ```
 > auditpol /get /category:"detailed Tracking" /r
 > ```
-> Per recuperare i criteri per due categorie con le categorie specificato come GUID, che segnala tutte le impostazioni dei criteri di controllo di tutte le sottocategorie in due categorie, tipo:
+> Per recuperare i criteri per due categorie con le categorie specificate come GUID, che segnala tutte le impostazioni dei criteri di controllo di tutte le sottocategorie in due categorie, digitare:
 > ```
 > auditpol /get /category:{69979849-797a-11d9-bed3-505054503030},{69997984a-797a-11d9-bed3-505054503030} subcategory:{0ccee921a-69ae-11d9-bed3-505054503030}
 > ```
 > ### <a name="examples-for-auditing-options"></a>Esempi per le opzioni di controllo
-> Per recuperare lo stato, abilitata o disabilitata, dell'opzione AuditBaseObjects, digitare:
+> Per recuperare lo stato abilitato o disabilitato dell'opzione AuditBaseObjects, digitare:
 > ```
 > auditpol /get /option:AuditBaseObjects
 > ```
 > [!NOTE]
-> Le opzioni disponibili sono AuditBaseObjects AuditBaseOperations e FullprivilegeAuditing.
-> Per recuperare lo stato abilitato, disabilitato o 2 dell'opzione CrashOnAuditFail, digitare:
+> Le opzioni disponibili sono AuditBaseObjects, AuditBaseOperations e FullprivilegeAuditing.
+> Per recuperare lo stato abilitato, disabled o 2 dell'opzione CrashOnAuditFail, digitare:
 > ```
 > auditpol /get /option:CrashOnAuditFail /r
 > ```

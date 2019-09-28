@@ -1,8 +1,8 @@
 ---
 title: Eliminazione di SC
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68af5f118b2cc9d7941abddccd2a1bc7fde4c6d0
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: ad64d0f7c772b8d29a191b5f3e690d74c8765717
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222929"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371284"
 ---
 # <a name="sc-delete"></a>Eliminazione di SC
 
@@ -38,8 +38,8 @@ sc [<ServerName>] delete [<ServiceName>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ServerName>|Specifica il nome del server remoto in cui si trova il servizio. Il nome deve rispettare il formato di Universal Naming Convention (UNC) (ad esempio, \\ \\myserver). Per eseguire SC.exe in locale, omettere questo parametro.|
-|\<ServiceName>|Specifica il nome del servizio restituito dal **getkeyname** operazione.|
+|\<ServerName >|Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato Universal Naming Convention (UNC), ad esempio \\ @ no__t-1myserver. Per eseguire SC. exe localmente, omettere questo parametro.|
+|\<ServiceName >|Specifica il nome del servizio restituito dal **getkeyname** operazione.|
 |?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note

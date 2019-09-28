@@ -2,7 +2,7 @@
 title: prompt
 description: Informazioni su come personalizzare il prompt dei comandi.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8371a67ba1b8dc7d5f02272c809f916aae3df584
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 2df80d3af6344644a68b1b2d01ba48fbf41f1581
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544558"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372023"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Modifica il prompt dei comandi cmd. exe. Se utilizzata senza parametri, la **richiesta** Reimposta il prompt dei comandi sull'impostazione predefinita, che corrisponde alla lettera di unità corrente e alla directory seguita dal simbolo di maggiore **>** di ().
+Modifica il prompt dei comandi cmd. exe. Se utilizzata senza parametri, la **richiesta** Reimposta il prompt dei comandi sull'impostazione predefinita, che corrisponde alla lettera di unità corrente e alla directory seguita dal simbolo di maggiore di ( **>** ).
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,7 +38,7 @@ prompt [<Text>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<> Di testo|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
+|\<Text >|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -58,7 +58,7 @@ Nella tabella seguente sono elencate le combinazioni di caratteri che è possibi
 |    $n     |                                Unità corrente                                |
 |    $g     |                            > (segno di maggiore di)                            |
 |    $l     |                             < (segno minore di)                              |
-|    $b     |                              \|(simbolo pipe)                               |
+|    $b     |                              \| (simbolo pipe)                               |
 |    $_     |                               ENTER-AVANZAMENTO RIGA                                |
 |    $e     |                         Codice di escape ANSI (codice 27)                          |
 |    $h     | BACKSPACE (per eliminare un carattere che è stato scritto nella riga di comando) |
@@ -71,7 +71,7 @@ Quando sono abilitate le estensioni dei comandi (impostazione predefinita), il c
 
 |Carattere|Descrizione|
 |---------|-----------|
-|$+|Zero o più caratteri segno più **+** (), a seconda della profondità dello stack di directory **push** (un carattere per ogni livello inserito).|
+|$+|Zero o più segni di addizione ( **+** ), a seconda della profondità dello stack di directory **push** (un carattere per ogni livello inserito).|
 |$m|Nome remoto associato alla lettera di unità corrente o alla stringa vuota se l'unità corrente non è un'unità di rete.|
 
 Se si include il carattere **$p** nel parametro di testo, il disco viene letto dopo aver immesso ogni comando (per determinare l'unità e il percorso correnti). Questa operazione può richiedere più tempo, soprattutto per le unità disco floppy.
@@ -87,7 +87,7 @@ Il prompt viene modificato nel modo seguente, in cui la data e l'ora sono corren
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Per impostare il prompt dei comandi per la visualizzazione come freccia`-->`(), digitare:
+Per impostare il prompt dei comandi per la visualizzazione come una freccia (`-->`), digitare:
 ```
 prompt --$g
 ```

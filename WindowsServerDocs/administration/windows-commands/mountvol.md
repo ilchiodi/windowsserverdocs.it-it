@@ -2,7 +2,7 @@
 title: mountvol
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 07c57f7ab9c41d6155e4a8d38322176aabf3868f
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 5a3de8e5744c50acff3fdad0c7cf1dabf14fb144
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373580"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -44,7 +44,7 @@ mountvol <Drive>: /s
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Unità >:]<Path>|Specifica la directory NTFS esistente in cui si trova il punto di montaggio.|
+|[\<Drive >:] <Path>|Specifica la directory NTFS esistente in cui si trova il punto di montaggio.|
 |\<VolumeName >|Specifica il nome del volume che rappresenta la destinazione del punto di montaggio. Il nome del volume usa la sintassi seguente, dove *GUID* è un identificatore univoco globale:</br>`\\\\?\Volume\{GUID}\`</br>Le parentesi quadre {} sono obbligatorie.|
 |/d|Rimuove il punto di montaggio del volume dalla cartella specificata.|
 |/l|Elenca il nome del volume montato per la cartella specificata.|
@@ -59,7 +59,7 @@ mountvol <Drive>: /s
 
 -   **Mountvol** consente di collegare volumi senza richiedere una lettera di unità.
 -   I volumi smontati con **/p** sono elencati nell'elenco volumi come "non montati fino a quando non viene creato un punto di montaggio del volume". Se il volume ha più di un punto di montaggio, utilizzare **/d** per rimuovere i punti di montaggio aggiuntivi prima di utilizzare **/p**. È possibile rendere il volume di base montabile di nuovo assegnando un punto di montaggio del volume.
--   Se è necessario espandere lo spazio del volume senza riformattare o sostituire un disco rigido, è possibile aggiungere un percorso di montaggio a un altro volume. Il vantaggio dell'utilizzo di un volume con diversi percorsi di montaggio è che è possibile accedere a tutti i volumi locali utilizzando una singola lettera di `C:`unità (ad esempio). Non è necessario ricordare quale volume corrisponde alla lettera di unità, sebbene sia ancora possibile montare volumi locali e assegnare loro lettere di unità.
+-   Se è necessario espandere lo spazio del volume senza riformattare o sostituire un disco rigido, è possibile aggiungere un percorso di montaggio a un altro volume. Il vantaggio dell'utilizzo di un volume con diversi percorsi di montaggio è che è possibile accedere a tutti i volumi locali utilizzando una singola lettera di unità (ad esempio `C:`). Non è necessario ricordare quale volume corrisponde alla lettera di unità, sebbene sia ancora possibile montare volumi locali e assegnare loro lettere di unità.
 
 ## <a name="BKMK_examples"></a>Esempi
 

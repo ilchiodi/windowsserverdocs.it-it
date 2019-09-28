@@ -1,7 +1,7 @@
 ---
 title: Configurare le connessioni VPN Always On dei client Windows 10
 description: In questo passaggio vengono fornite informazioni sulle opzioni e sullo schema di ProfileXML e vengono configurati i computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 05/29/2018
@@ -10,16 +10,16 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9621f9bdca0416965861112ba23c1c8dd731f67b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871344"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404284"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Passaggio 6. Configurare le connessioni VPN Always On client Windows 10
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Precedente** Passaggio 5. Configurare le impostazioni di firewall e DNS](vpn-deploy-dns-firewall.md)<br>
 - [**Prossimo** Passaggio 7. Opzionale Accesso condizionale per la connettività VPN con Azure AD](../../ad-ca-vpn-connectivity-windows10.md)
@@ -863,7 +863,7 @@ Per usare Intune per distribuire accesso remoto Windows 10 Always On i profili V
 >[!NOTE]
 >Intune USA ora i gruppi di Azure AD. Se Azure AD Connect sincronizzato il gruppo utenti VPN da locale a Azure AD e gli utenti sono assegnati al gruppo utenti VPN, è possibile procedere.
 
-Creare i criteri di configurazione del dispositivo VPN per configurare i computer client Windows 10 per tutti gli utenti aggiunti al gruppo. Poiché il modello di Intune fornisce parametri VPN, copiare solo \<il EapHostConfig \<>/EapHostConfig > parte del file VPN_ProfileXML.
+Creare i criteri di configurazione del dispositivo VPN per configurare i computer client Windows 10 per tutti gli utenti aggiunti al gruppo. Poiché il modello di Intune fornisce parametri VPN, copiare solo la parte \<EapHostConfig > \</EapHostConfig > del file VPN_ProfileXML.
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Creare i criteri di configurazione della VPN Always On
 
@@ -934,7 +934,7 @@ Per testare i criteri di configurazione, accedere a un computer client Windows 1
 
 La distribuzione di Always On VPN è stata eseguita.  Per altre funzionalità che è possibile configurare, vedere la tabella seguente:
 
-|Per...  |Vedere...  |
+|Se vuoi...  |Vedere...  |
 |---------|---------|
 |Configurare l'accesso condizionale per VPN    |[Passaggio 7. Opzionale Configurare l'accesso condizionale per la connettività](../../ad-ca-vpn-connectivity-windows10.md)VPN usando Azure ad: In questo passaggio è possibile ottimizzare il modo in cui gli utenti VPN autorizzati accedono alle risorse usando [l'accesso condizionale Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Con Azure AD l'accesso condizionale per la connettività di rete privata virtuale (VPN), è possibile proteggere le connessioni VPN. L'accesso condizionale è un motore di valutazione basato su criteri che ti consente di creare regole di accesso per qualsiasi applicazione connessa ad Azure Active Directory (Azure AD).         |
 |Altre informazioni sulle funzionalità VPN avanzate  |[Funzionalità VPN avanzate](always-on-vpn-adv-options.md#advanced-vpn-features): In questa pagina vengono fornite informazioni aggiuntive su come abilitare i filtri di traffico VPN, su come configurare le connessioni VPN automatiche tramite i trigger di app e su come configurare NPS per consentire solo le connessioni VPN dai client che usano i certificati rilasciati da Azure AD.        |
