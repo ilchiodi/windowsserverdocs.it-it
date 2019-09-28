@@ -1,61 +1,61 @@
 ---
 ms.assetid: e727a33d-133b-43c9-b6a4-7c00f9cb6000
-title: Esaminare i modelli di dominio
+title: Revisione dei modelli di dominio
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 23c1eb66eeecab8df63cbd7910a9398bc4e3c705
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00683b09aff5b3a3b097f7f8b423c51080b86d02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408682"
 ---
-# <a name="reviewing-the-domain-models"></a>Esaminare i modelli di dominio
+# <a name="reviewing-the-domain-models"></a>Revisione dei modelli di dominio
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-I fattori seguenti influiscono sul modello di progettazione di dominio selezionati:  
+I fattori seguenti influiscono sul modello di progettazione del dominio selezionato:  
   
-- Quantità di capacità disponibile nella rete in cui è disposti ad allocare in Active Directory Domain Services (AD DS). L'obiettivo consiste nel selezionare un modello che fornisce la replica efficiente delle informazioni con un impatto minimo sulla larghezza di banda di rete disponibile.  
+- Quantità di capacità disponibile sulla rete che si desidera allocare per Active Directory Domain Services (AD DS). L'obiettivo consiste nel selezionare un modello che fornisca una replica efficiente delle informazioni con un effetto minimo sulla larghezza di banda di rete disponibile.  
 
-- Numero di utenti nell'organizzazione. Se l'organizzazione include un numero elevato di utenti, la distribuzione di più di un dominio consente di partizionare i dati e offre un maggiore controllo sulla quantità di traffico di replica che verrà passati attraverso una connessione di rete specificato. Questo rende possibile per controllare dove i dati vengono replicati e ridurre il carico creato per il traffico di replica su collegamenti lenti nella rete.  
+- Numero di utenti dell'organizzazione. Se l'organizzazione include un numero elevato di utenti, la distribuzione di più di un dominio consente di partizionare i dati e offre un maggiore controllo sulla quantità di traffico di replica che passerà attraverso una connessione di rete specifica. In questo modo è possibile controllare la posizione in cui i dati vengono replicati e ridurre il carico creato dal traffico di replica sui collegamenti lenti nella rete.  
 
-La progettazione di dominio più semplice è un singolo dominio. In una progettazione con singolo dominio, tutte le informazioni vengono replicate a tutti i controller di dominio. Se necessario, tuttavia, è possibile distribuire altri domini regionali. Ciò può verificarsi se alcune parti dell'infrastruttura di rete connessi da collegamenti lenti e vuole che il proprietario della foresta essere certi che il traffico di replica non superi la capacità di cui è stata allocata da Active Directory Domain Services.  
+La progettazione del dominio più semplice è un singolo dominio. In una progettazione a singolo dominio, tutte le informazioni vengono replicate in tutti i controller di dominio. Se necessario, tuttavia, è possibile distribuire altri domini regionali. Questo problema può verificarsi se parti dell'infrastruttura di rete sono connesse da collegamenti lenti e il proprietario della foresta desidera assicurarsi che il traffico di replica non superi la capacità allocata ai servizi di dominio Active Directory.  
 
-È consigliabile per ridurre al minimo il numero di domini che si distribuisce la foresta. Ciò riduce la complessità della distribuzione globale e, di conseguenza, riduce il costo totale di proprietà. La tabella seguente elenca i costi amministrativi associati con l'aggiunta di domini regionali.  
+È consigliabile ridurre al minimo il numero di domini distribuiti nella foresta. In questo modo si riduce la complessità complessiva della distribuzione e, di conseguenza, viene ridotto il costo totale di proprietà. Nella tabella seguente sono elencati i costi amministrativi associati all'aggiunta di domini regionali.  
 
 |Costo|Implicazioni|  
 |--------|----------------|  
-|Gestione di più gruppi di amministratore del servizio|Ogni dominio ha un proprio gruppo di amministratori del servizio desidera essere gestiti in modo indipendente. L'appartenenza a questi gruppi di amministratore del servizio deve essere controllato attentamente.|  
-|Mantenimento della coerenza tra le impostazioni di criteri di gruppo che sono comuni a più domini|Impostazioni di criteri di gruppo che devono essere applicati a livello di foresta devono essere applicate singolarmente a ogni singolo dominio nella foresta.|  
-|Mantenere la coerenza tra il controllo di accesso e le impostazioni che sono comuni a più domini di controllo|Controllo degli accessi e le impostazioni che devono essere applicati nell'insieme di strutture di controllo deve essere applicate separatamente per ogni singolo dominio nella foresta.|  
-|Una maggiore probabilità di oggetti lo spostamento tra domini|Maggiore è il numero di domini, maggiore è la probabilità che gli utenti dovranno passare da un dominio a altro. Questo passaggio può potenzialmente influire sugli utenti finali.|  
+|Gestione di più gruppi di amministratori del servizio|Ogni dominio ha i propri gruppi di amministratori del servizio che devono essere gestiti in modo indipendente. L'appartenenza di questi gruppi di amministratori del servizio deve essere controllata attentamente.|  
+|Gestione della coerenza tra le impostazioni di Criteri di gruppo comuni a più domini|Criteri di gruppo le impostazioni che devono essere applicate a livello di foresta devono essere applicate separatamente a ogni singolo dominio della foresta.|  
+|Gestione della coerenza tra le impostazioni di controllo degli accessi e di controllo comuni a più domini|Le impostazioni di controllo degli accessi e di controllo che devono essere applicate nella foresta devono essere applicate separatamente a ogni singolo dominio della foresta.|  
+|Aumento della probabilità che gli oggetti si muovano tra domini|Maggiore è il numero di domini, maggiore sarà la probabilità che gli utenti debbano spostarsi da un dominio all'altro. Questo spostamento può influire potenzialmente sugli utenti finali.|  
 
 > [!NOTE]  
-> Granulari per le password di Windows Server e il blocco degli account possono incidere il modello di progettazione di dominio selezionato. Prima di questa versione di Windows Server 2008, è possibile applicare un solo account e password criterio di blocco, che viene specificato nel dominio criterio dominio predefinito, a tutti gli utenti nel dominio. Di conseguenza, se si vuole ottenere le impostazioni di blocco degli account per diversi set di utenti e password diversi, era necessario creare un filtro delle password o distribuire più domini. È ora possibile usare i criteri granulari per le password per specificare più criteri password e applicare criteri di blocco account e password diverse restrizioni a set diversi di utenti all'interno di un singolo dominio. Per altre informazioni sulla fine-grained password e il blocco degli account, vedere l'articolo [Guida dettagliata alla configurazione dei criteri di blocco degli Account e Password specifici per le](https://go.microsoft.com/fwlink/?LinkID=91477).  
+> I criteri granulari per le password e il blocco degli account di Windows Server possono anche avere un effetto sul modello di progettazione del dominio selezionato. Prima di questa versione di Windows Server 2008, era possibile applicare a tutti gli utenti del dominio solo un criterio di blocco di password e account, specificato nel criterio dominio predefinito dominio. Di conseguenza, se si desiderano impostazioni diverse per le password e il blocco degli account per set di utenti diversi, è necessario creare un filtro password o distribuire più domini. È ora possibile usare i criteri granulari per le password per specificare più criteri per le password e applicare restrizioni diverse per le password e criteri di blocco degli account a diversi insiemi di utenti all'interno di un singolo dominio. Per ulteriori informazioni sui criteri specifici per le password e il blocco degli account, vedere l'articolo [Guida dettagliata alla configurazione dei criteri specifici per le password e il blocco degli account](https://go.microsoft.com/fwlink/?LinkID=91477).  
 
-## <a name="single-domain-model"></a>Modello di dominio singolo
+## <a name="single-domain-model"></a>Modello a dominio singolo
 
-Un modello di dominio singolo è più semplice da amministrare e meno costoso da gestire. È costituito da una foresta che contiene un singolo dominio. Questo dominio è il dominio radice della foresta e contiene tutti gli account utente e gruppo nella foresta.  
+Un modello a dominio singolo è il più semplice da amministrare ed è il meno costoso da gestire. È costituito da una foresta che contiene un singolo dominio. Questo dominio è il dominio radice della foresta e contiene tutti gli account utente e di gruppo nella foresta.  
 
-Un modello di foresta dominio singolo riduce complessità amministrativa fornendo i vantaggi seguenti:  
+Un modello di foresta a dominio singolo riduce la complessità amministrativa offrendo i vantaggi seguenti:  
 
-- Qualsiasi controller di dominio possa autenticare qualsiasi utente nella foresta.  
+- Qualsiasi controller di dominio può autenticare qualsiasi utente nella foresta.  
 
-- Tutti i controller di dominio possono essere cataloghi globali, in modo che non è necessario pianificare il posizionamento di server di catalogo globale.  
+- Tutti i controller di dominio possono essere cataloghi globali, pertanto non è necessario pianificare il posizionamento del server di catalogo globale.  
   
-In una foresta a dominio singolo, tutti i dati di directory vengono replicati in tutte le aree geografiche che ospitano controller di dominio. Anche se questo modello è la più facile da gestire, crea anche il traffico di replica la maggior parte dei modelli di due dominio. Partizione della directory in più domini limita la replica degli oggetti per determinate aree geografiche, ma i risultati di ulteriori il carico amministrativo.  
+In una foresta a dominio singolo, tutti i dati della directory vengono replicati in tutte le posizioni geografiche che ospitano i controller di dominio. Sebbene questo modello sia il più semplice da gestire, crea anche il maggior traffico di replica dei due modelli di dominio. Il partizionamento della directory in più domini limita la replica di oggetti in aree geografiche specifiche, ma comporta un sovraccarico amministrativo.  
   
 ## <a name="regional-domain-model"></a>Modello di dominio regionale
 
-Tutti i dati dell'oggetto all'interno di un dominio viene replicato in tutti i controller di dominio nel dominio. Per questo motivo, se la foresta include un numero elevato di utenti distribuiti in località geografiche diverse connesse tramite una rete WAN (WAN), potrebbe essere necessario per la distribuzione di domini regionali per ridurre il traffico di replica sui collegamenti WAN. Domini regionali geografico possono essere organizzati in base alla connettività di rete WAN.  
+Tutti i dati dell'oggetto all'interno di un dominio vengono replicati in tutti i controller di dominio del dominio. Per questo motivo, se la foresta include un numero elevato di utenti distribuiti in diverse posizioni geografiche connesse da un Wide Area Network (WAN), potrebbe essere necessario distribuire i domini regionali per ridurre il traffico di replica sui collegamenti WAN. I domini regionali basati geograficamente possono essere organizzati in base alla connettività WAN di rete.  
   
-Il modello di dominio a livello di area consente di gestire un ambiente stabile nel tempo. Le aree consente di definire domini nel modello per gli elementi stabili, ad esempio i limiti intracontinentale di base. I domini in base ad altri fattori, ad esempio i gruppi all'interno dell'organizzazione, possono cambiare di frequente e potrebbe essere necessario ristrutturare l'ambiente.  
+Il modello di dominio regionale consente di mantenere un ambiente stabile nel tempo. Basare le aree usate per definire i domini nel modello su elementi stabili, ad esempio i limiti continentali. I domini basati su altri fattori, ad esempio i gruppi all'interno dell'organizzazione, possono essere modificati di frequente e potrebbe essere necessario ristrutturare l'ambiente.  
   
-Il modello di dominio internazionali è costituito da un dominio radice della foresta e uno o più domini regionali. Creazione di una progettazione di modelli di dominio regionale implica che identifica il dominio è il dominio radice della foresta e determinazione del numero di domini aggiuntivi che sono necessari per soddisfare i requisiti di replica. Se l'organizzazione include i gruppi che richiedono l'isolamento dei dati o l'isolamento dei servizi da altri gruppi dell'organizzazione, creare una foresta separata per questi gruppi. Domini non offrono dati isolamento o isolamento dei servizi.  
+Il modello di dominio regionale è costituito da un dominio radice della foresta e da uno o più domini regionali. La creazione di una progettazione di un modello di dominio regionale implica l'identificazione del dominio radice della foresta e la determinazione del numero di domini aggiuntivi necessari per soddisfare i requisiti di replica. Se l'organizzazione include gruppi che richiedono isolamento dei dati o isolamento dei servizi da altri gruppi nell'organizzazione, creare una foresta separata per questi gruppi. I domini non forniscono isolamento dei dati o isolamento dei servizi.  

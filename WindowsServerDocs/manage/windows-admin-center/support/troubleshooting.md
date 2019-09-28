@@ -6,25 +6,25 @@ ms.topic: article
 author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 4d108161dd4f6b57d4a86cbcaa5852aff53f0ac3
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: f4e772550aaba6fe9a4f78a6032eaabde4aeb0bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469519"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406866"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Risoluzione dei problemi di Windows Admin Center
 
-> Si applica a: Windows Admin Center, Windows Admin Center anteprima
+> Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 > [!Important]
 > Questa guida ti aiuterà a diagnosticare e risolvere i problemi che ti impediscono di utilizzare Windows Admin Center. Se si verifica un problema con uno strumento specifico, controlla se si tratta di un [problema noto.](http://aka.ms/wacknownissues)
 
-## <a name="installer-fails-with-message-the-module-microsoftpowershelllocalaccounts-could-not-be-loaded"></a>Programma di installazione ha esito negativo con messaggio: **_Non è stato possibile caricare il modulo 'Microsoft.PowerShell.LocalAccounts'._ **
+## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Errore del programma di installazione con messaggio: **_Non è stato possibile caricare il modulo ' Microsoft. PowerShell. le LocalAccounts '._**
 
-Questa situazione può verificarsi se il percorso del modulo di PowerShell predefinito è stato modificato o rimosso. Per risolvere il problema, assicurarsi che ```%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules``` è il **primo** elemento nella variabile di ambiente PSModulePath. È possibile ottenere questo risultato con la riga seguente di PowerShell:
+Questo problema può verificarsi se il percorso predefinito del modulo PowerShell è stato modificato o rimosso. Per risolvere il problema, assicurarsi che ```%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules``` sia il **primo** elemento della variabile di ambiente PSModulePath. È possibile ottenere questo risultato con la seguente riga di PowerShell:
 
 ```powershell
 [Environment]::SetEnvironmentVariable("PSModulePath","%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules;" + ([Environment]::GetEnvironmentVariable("PSModulePath","User")),"User")
@@ -34,7 +34,7 @@ Questa situazione può verificarsi se il percorso del modulo di PowerShell prede
 
 ### <a name="if-youve-installed-windows-admin-center-as-an-app-on-windows-10"></a>Se hai installato Windows Admin Center come **app in Windows 10**
 
-* Verifica che Windows Admin Center sia in esecuzione. Cercare l'icona di Windows Admin Center ![](../media/trayIcon.PNG) nella barra delle applicazioni oppure **Desktop di Windows Admin Center / SmeDesktop.exe** in Gestione attività. In alternativa, avvia **Windows Admin Center** dal menu Start.
+* Verifica che Windows Admin Center sia in esecuzione. Cercare l'icona dell'interfaccia di amministrazione di Windows ![](../media/trayIcon.PNG) nella barra delle applicazioni o nel **centro di amministrazione di Windows Desktop/SmeDesktop. exe** in Gestione attività. In alternativa, avvia **Windows Admin Center** dal menu Start.
 
 > [!NOTE] 
 > Dopo il riavvio, è necessario avviare Windows Admin Center dal menu Start.  
@@ -47,13 +47,13 @@ Questa situazione può verificarsi se il percorso del modulo di PowerShell prede
 
   * Prova ad aprire il browser in una sessione privata, se funziona è necessario pulire la cache.
 
-* Controllare recentemente è stato aggiornato Windows 10 a una nuova build o versione?
+* È stato eseguito di recente l'aggiornamento di Windows 10 a una nuova build o versione?
 
-  * Ciò che sia stata deselezionata le impostazioni di host attendibili. [Seguire queste istruzioni per aggiornare le impostazioni di host attendibili.](#configure-trustedhosts)
+  * È possibile che siano state cancellate le impostazioni degli host attendibili. [Seguire queste istruzioni per aggiornare le impostazioni degli host attendibili.](#configure-trustedhosts)
 
 ### <a name="if-youve-installed-windows-admin-center-as-a-gateway-on-windows-server"></a>Se hai installato Windows Admin Center come **gateway in Windows Server**
 
-* È stata l'aggiornamento da una versione precedente di Windows Admin Center? Verificare che la regola del firewall non è stata eliminata a causa dell'errore [questo problema noto](known-issues.md#upgrade). Usare il comando PowerShell seguente per determinare se la regola esiste. In caso contrario, seguire [queste istruzioni](known-issues.md#upgrade) per ricrearla.
+* È stato eseguito l'aggiornamento da una versione precedente dell'interfaccia di amministrazione di Windows? Verificare che la regola del firewall non sia stata eliminata a causa di [questo problema noto](known-issues.md#upgrade). Usare il comando di PowerShell seguente per determinare se la regola esiste. In caso contrario, seguire [queste istruzioni](known-issues.md#upgrade) per ricrearlo.
     
     ```powershell
     Get-NetFirewallRule -DisplayName "SmeInboundOpenException"
@@ -63,20 +63,20 @@ Questa situazione può verificarsi se il percorso del modulo di PowerShell prede
 
 * Assicurati di usare Microsoft Edge o Google Chrome come Web browser.
 
-* Nel server, aprire Gestione attività > servizi e verificare che **ServerManagementGateway / Windows Admin Center** è in esecuzione.
+* Nel server aprire Gestione attività > Servizi e verificare che l'interfaccia di **amministrazione di ServerManagementGateway/Windows** sia in esecuzione.
 ![](../media/Service-TaskMan.PNG)
 
-* Testare la connessione di rete al Gateway (sostituire \<valori > con le informazioni di distribuzione)
+* Testare la connessione di rete al gateway (sostituire \<values > con le informazioni della distribuzione)
 
     ```powershell
     Test-NetConnection -Port <port> -ComputerName <gateway> -InformationLevel Detailed
     ```
 
-### <a name="if-you-have-installed-windows-admin-center-in-an-azure-windows-server-vm"></a>Se è stato installato Windows Admin Center in una macchina virtuale Server di Windows Azure
+### <a name="if-you-have-installed-windows-admin-center-in-an-azure-windows-server-vm"></a>Se l'interfaccia di amministrazione di Windows è stata installata in una macchina virtuale Windows Server di Azure
 
 * [Controllare la versione di Windows](#check-the-windows-version)
 * Hai aggiunto una regola della porta in ingresso per HTTPS? 
-* [Altre informazioni sull'installazione di Windows Admin Center in una VM di Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/azure-integration#use-a-windows-admin-center-gateway-deployed-in-azure)
+* [Altre informazioni sull'installazione dell'interfaccia di amministrazione di Windows in una macchina virtuale di Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/azure-integration#use-a-windows-admin-center-gateway-deployed-in-azure)
 
 ### <a name="check-the-windows-version"></a>Verifica la versione di Windows
 
@@ -84,38 +84,38 @@ Questa situazione può verificarsi se il percorso del modulo di PowerShell prede
 
 * Se usi Windows 10 versione 1703 o meno recente, Windows Admin Center non è supportato nella versione di Microsoft Edge. Effettua l'aggiornamento a una versione recente di Windows 10 o utilizza Chrome.
 
-* Se si usa una versione di anteprima insider di Windows 10 o Server con una versione di build 17134 quella 17637, Windows presenta un bug che causava Windows Admin Center esito negativo. Usare una versione supportata corrente di Windows.
+* Se si usa una versione di anteprima di insider di Windows 10 o di un server con una versione di build compresa tra 17134 e 17637, Windows presenta un bug che ha causato l'errore dell'interfaccia di amministrazione di Windows. Usare una versione supportata corrente di Windows.
 
-### <a name="make-sure-the-windows-remote-management-winrm-service-is-running-on-both-the-gateway-machine-and-managed-node"></a>Assicurarsi che il servizio Gestione remota Windows (WinRM) è in esecuzione nel computer gateway sia nodo gestito
+### <a name="make-sure-the-windows-remote-management-winrm-service-is-running-on-both-the-gateway-machine-and-managed-node"></a>Verificare che il servizio Gestione remota Windows (WinRM) sia in esecuzione nel computer gateway e nel nodo gestito
 
-* Aprire la finestra di dialogo eseguire con tasto Windows + R
-* Tipo ```services.msc``` e premere INVIO
-* Nella finestra visualizzata, cercare la gestione remota Windows (WinRM), assicurarsi che sia in esecuzione e impostato per avviarsi automaticamente
+* Aprire la finestra di dialogo Esegui con WindowsKey + R
+* Digitare ```services.msc``` e premere INVIO
+* Nella finestra visualizzata cercare Gestione remota Windows (WinRM), verificare che sia in esecuzione e che sia impostata su avvio automatico
 
-### <a name="did-you-upgrade-your-server-from-2016-to-2019"></a>Sono stati si aggiorna il server da 2016 a 2019?
+### <a name="did-you-upgrade-your-server-from-2016-to-2019"></a>È stato eseguito l'aggiornamento del server da 2016 a 2019?
 
-* Ciò che sia stata deselezionata le impostazioni di host attendibili. [Seguire queste istruzioni per aggiornare le impostazioni di host attendibili.](#configure-trustedhosts) 
+* È possibile che siano state cancellate le impostazioni degli host attendibili. [Seguire queste istruzioni per aggiornare le impostazioni degli host attendibili.](#configure-trustedhosts) 
 
-## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Viene visualizzato il messaggio: "Impossibile connettersi in modo sicuro a questa pagina. È possibile che il sito Usa le impostazioni di sicurezza TLS obsolete o non sicure.
+## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Ricevo il messaggio: "Impossibile connettersi in modo sicuro a questa pagina. Questo potrebbe essere dovuto al fatto che il sito Usa impostazioni di sicurezza TLS obsolete o non sicure.
 
-Computer in uso è limitato per le connessioni HTTP/2. Windows Admin Center Usa l'autenticazione Windows integrata, che non è supportato in HTTP/2. Aggiungere i seguenti valori del Registro di sistema nel ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` tasto **il computer che esegue il browser** rimozione della restrizione HTTP/2:
+Il computer è limitato alle connessioni HTTP/2. L'interfaccia di amministrazione di Windows usa l'autenticazione integrata di Windows, che non è supportata in HTTP/2. Aggiungere i seguenti due valori del registro di sistema sotto il tasto ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` nel **computer che esegue il browser** per rimuovere la restrizione http/2:
 
 ```
 EnableHttp2Cleartext=dword:00000000
 EnableHttp2Tls=dword:00000000
 ```
 
-## <a name="im-having-trouble-with-the-remote-desktop-events-and-powershell-tools"></a>Si riscontrano problemi con gli strumenti Desktop remoto, eventi e PowerShell.
+## <a name="im-having-trouble-with-the-remote-desktop-events-and-powershell-tools"></a>Si verificano problemi con il Desktop remoto, gli eventi e gli strumenti di PowerShell.
 
-Queste tre strumenti richiedono il protocollo websocket, che in genere è bloccato da server proxy e firewall. Se si usa Google Chrome, è presente una [problema noto](known-issues.md#google-chrome) con WebSocket e l'autenticazione NTLM.
+Questi tre strumenti richiedono il protocollo WebSocket, che in genere è bloccato da firewall e server proxy. Se si usa Google Chrome, si verifica un [problema noto](known-issues.md#google-chrome) con i WebSocket e l'autenticazione NTLM.
 
 ## <a name="i-can-connect-to-some-servers-but-not-others"></a>Posso connettermi ad alcuni server, ma non ad altri
 
-* Accedere al computer del gateway in locale e tentare ```Enter-PSSession <machine name>``` in PowerShell, sostituendo \<nome computer > con il nome del computer di cui si sta tentando di gestire in Windows Admin Center. 
+* Accedere al computer gateway localmente e provare a ```Enter-PSSession <machine name>``` in PowerShell, sostituendo \<machine nome > con il nome del computer che si sta tentando di gestire nell'interfaccia di amministrazione di Windows. 
 
 * Se l'ambiente utilizza un gruppo di lavoro anziché un dominio, vedi [Utilizzo di Windows Admin Center in un gruppo di lavoro](#using-windows-admin-center-in-a-workgroup).
 
-* **Utilizzo di account di amministratore locale:** Se si usa un account utente locale che non è l'account amministratore predefinito, è necessario abilitare i criteri nel computer di destinazione eseguendo il comando seguente in PowerShell o un prompt dei comandi come amministratore nel computer di destinazione:
+* **Uso degli account amministratore locale:** Se si usa un account utente locale che non è l'account Administrator predefinito, sarà necessario abilitare il criterio nel computer di destinazione eseguendo il comando seguente in PowerShell o al prompt dei comandi come amministratore nel computer di destinazione:
 
     ```
     REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
@@ -186,9 +186,9 @@ Quando si installa Windows Admin Center, viene data la possibilità di consentir
     Set-Item WSMan:localhost\Client\TrustedHosts -Value '<paste values from text file>'
     ```
 
-## <a name="i-previously-had-windows-admin-center-installed-and-now-nothing-else-can-use-the-same-tcpip-port"></a>Avevo già Windows Admin Center installato e nient'altro possono ora usare la stessa porta TCP/IP
+## <a name="i-previously-had-windows-admin-center-installed-and-now-nothing-else-can-use-the-same-tcpip-port"></a>In precedenza ho installato l'interfaccia di amministrazione di Windows e ora non è possibile usare la stessa porta TCP/IP
 
-Eseguire manualmente i due comandi seguenti in un prompt dei comandi con privilegi elevati:
+Eseguire manualmente questi due comandi in un prompt dei comandi con privilegi elevati:
 
 ```cmd
 netsh http delete sslcert ipport=0.0.0.0:443
@@ -197,31 +197,31 @@ netsh http delete urlacl url=https://+:443/
 
 ## <a name="azure-features-dont-work-properly-in-edge"></a>Le funzionalità di Azure non funzionano correttamente in Microsoft Edge
 
-Edge ha [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) correlati alle aree di sicurezza che interessano l'accesso ad Azure in Windows Admin Center. Se si sono verificati problemi nell'uso di funzionalità di Azure quando si usa Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e a siti consentiti per le impostazioni di blocco popup in Edge nel browser sul lato client. 
+Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
 
 A tale scopo, effettuare le seguenti operazioni:
-1. Cercare **Opzioni Internet** in Windows il Menu Start
-2. Andare alla **sicurezza** scheda
-3. Sotto il **dei siti attendibili** opzione, fare clic sul **siti** pulsante e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.
-4. Andare alla **Privacy** scheda
-5. Sotto il **blocco popup** sezione, fare clic sui **impostazioni** pulsante e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.
+1. Cerca **Opzioni Internet** nel menu Start di Windows
+2. Passare alla scheda **sicurezza**
+3. Nell'opzione **siti attendibili** fare clic sul pulsante **siti** e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.
+4. Vai alla scheda **privacy**
+5. Nella sezione **blocco popup** fare clic sul pulsante **Settings (impostazioni** ) e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.
 
-## <a name="having-an-issue-with-an-azure-related-feature"></a>Verifica un problema con una funzionalità correlate ad Azure?
+## <a name="having-an-issue-with-an-azure-related-feature"></a>Problemi con una funzionalità correlata ad Azure?
 
-Inviare un'e-mail all'indirizzo wacFeedbackAzure@microsoft.com con le informazioni seguenti:
-* Informazioni sui problemi generali dal [domande elencate di seguito](#providing-feedback-on-issues).
-* Descrivere il problema e i passaggi eseguiti per riprodurre il problema. 
-* È stato in precedenza registrare il gateway in Azure usando lo script scaricabile di New-AadApp.ps1 e quindi eseguire l'aggiornamento alla versione 1807? Oppure è stata registrata il gateway in Azure usando l'interfaccia utente dal gateway Impostazioni > Azure?
-* È l'account Azure associato a più tenant di directory /?
-    * In caso affermativo: Quando si registra l'applicazione di Azure AD per Windows Admin Center, è stata la directory è usata la directory predefinita in Azure? 
-* L'account di Azure ha accesso a più sottoscrizioni?
-* La sottoscrizione che si usava ha collegata la fatturazione?
-* Sono stati si è connessi a più account Azure quando si è verificato il problema?
-* L'account di Azure richiede l'autenticazione a più fattori?
-* È il computer in cui che si sta tentando di gestire una macchina virtuale di Azure?
-* Windows Admin Center è installato in una macchina virtuale di Azure?
+Inviare un messaggio di posta elettronica a wacFeedbackAzure@microsoft.com con le informazioni seguenti:
+* Informazioni generali sul problema dalle [domande elencate di seguito](#providing-feedback-on-issues).
+* Descrivere il problema e i passaggi necessari per riprodurre il problema. 
+* In precedenza è stato registrato il gateway in Azure usando lo script scaricabile New-AadApp. ps1, quindi è stato eseguito l'aggiornamento alla versione 1807? Oppure è stato registrato il gateway in Azure usando l'interfaccia utente dalle impostazioni del gateway > Azure?
+* L'account di Azure è associato a più directory/tenant?
+    * In caso affermativo: Quando si registra l'applicazione Azure AD nell'interfaccia di amministrazione di Windows, è stata usata la directory predefinita in Azure? 
+* L'account Azure può accedere a più sottoscrizioni?
+* Per la sottoscrizione usata è stata applicata la fatturazione?
+* È stato effettuato l'accesso a più account Azure quando si è verificato il problema?
+* L'account Azure richiede la funzionalità di autenticazione a più fattori?
+* Il computer che si sta tentando di gestire una macchina virtuale di Azure?
+* L'interfaccia di amministrazione di Windows è installata in una macchina virtuale di Azure?
 
-## <a name="providing-feedback-on-issues"></a>Inviare commenti e suggerimenti su problemi
+## <a name="providing-feedback-on-issues"></a>Invio di commenti e suggerimenti sui problemi
 
 Vai al Visualizzatore eventi > Applicazioni e servizi > Microsoft-ServerManagementExperience e cerca eventuali errori o avvisi.
 
@@ -230,8 +230,8 @@ Segnala un bug al nostro [UserVoice](https://windowsserver.uservoice.com/forums/
 Includi eventuali errori o avvisi che sono presenti nel registro eventi, nonché le seguenti informazioni: 
 
 * Piattaforma di **installazione** di Windows Admin Center (Windows 10 o Windows Server):
-    * Se installato nel Server, qual è il Windows [versione](#check-the-windows-version) dei **computer in esecuzione il browser** per accedere a Windows Admin Center: 
-    * Si sta utilizzando il certificato autofirmato creato dal programma di installazione?
+    * Se installato nel server, qual è la [versione](#check-the-windows-version) di Windows del **computer che esegue il browser** per accedere all'interfaccia di amministrazione di Windows: 
+    * Si sta usando il certificato autofirmato creato dal programma di installazione?
     * Se stai utilizzando un tuo certificato, il nome dell'oggetto corrisponde al computer?
     * Se stai utilizzando un tuo certificato, questo specifica un nome dell'oggetto alternativo?
 * Hai installato usando l'impostazione predefinita della porta?

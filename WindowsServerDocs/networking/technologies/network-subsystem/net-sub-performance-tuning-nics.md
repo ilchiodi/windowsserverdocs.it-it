@@ -1,23 +1,23 @@
 ---
 title: Ottimizzazione delle prestazioni delle schede di rete
 description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a0d87f2e8c9b3ca7581d20009cd9c0e030241270
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e9c0ba73a1df874edc63001812d059a9e70f187f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871888"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405520"
 ---
 # <a name="performance-tuning-network-adapters"></a>Ottimizzazione delle prestazioni delle schede di rete
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per ottimizzare le prestazioni delle schede di rete installate nei computer che eseguono Windows Server 2016.
 

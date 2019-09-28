@@ -1,9 +1,9 @@
 ---
 title: Visualizzare i record di risorse DNS per una zona DNS
-description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
+description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 375feefc-949e-47c3-9e61-35b79e021966
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 44db34199257367e98279ccbcbc2d5041ee9884c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 6e4b5ecd87e4976c0c65403bd63180e1d659e40b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405639"
 ---
 # <a name="view-dns-resource-records-for-a-dns-zone"></a>Visualizzare i record di risorse DNS per una zona DNS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per visualizzare i record di risorse DNS per una zona DNS nella console del client di gestione indirizzi IP.  
   
@@ -51,7 +51,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
     ![Utilizzare i criteri per filtrare i record](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01d.jpg)  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestire le Zone DNS](DNS-Zone-Management.md)  
+[Gestione delle zone DNS](DNS-Zone-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 

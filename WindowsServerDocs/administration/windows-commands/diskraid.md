@@ -2,7 +2,7 @@
 title: diskraid
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2dfda058a7ca266adedbacf8860137c5d1782c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f72e91f856da3b24e7450381b293f4b365d914f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867076"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377805"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -55,7 +55,7 @@ Per visualizzare la sintassi del comando, fare clic su un comando:
 -   [initiator](#BKMK_15)
 -   [invalidatecache](#BKMK_16)
 -   [lbpolicy](#BKMK_18)
--   [list](#BKMK_19)
+-   [elenco](#BKMK_19)
 -   [login](#BKMK_20)
 -   [logout](#BKMK_21)
 -   [manutenzione](#BKMK_22)
@@ -66,7 +66,7 @@ Per visualizzare la sintassi del comando, fare clic su un comando:
 -   [Rienumera](#BKMK_27)
 -   [refresh](#BKMK_28)
 -   [rem](#BKMK_29)
--   [remove](#BKMK_30)
+-   [rimuovere](#BKMK_30)
 -   [replace](#BKMK_31)
 -   [reimpostazione](#BKMK_32)
 -   [Selezionare](#BKMK_33)
@@ -269,7 +269,7 @@ Imposta il segreto condiviso nella destinazione iSCSI attualmente selezionata ut
 
 Comunica il segreto CHAP di un iniziatore iSCSI alla destinazione iSCSI attualmente attiva in modo che la destinazione possa usare il segreto per autenticarsi all'initiator durante l'autenticazione CHAP reciproca.
 
-**secret**
+**segreto**
 
 Specifica il segreto da usare. Se vuota, il segreto verrà cancellato.
 
@@ -561,7 +561,7 @@ Per specificare le dimensioni usando altre unità, usare uno dei suffissi ricono
 
 **unità =**
 
-Specifica il \<> drive_number per le unità da usare durante la creazione di un lun. Se il parametro **size =** non è specificato, il LUN creato corrisponde alla dimensione massima consentita da tutte le unità specificate. I provider utilizzano le unità nell'ordine specificato, quando possibile.
+Specifica il > \<drive_number per le unità da usare durante la creazione di un LUN. Se il parametro **size =** non è specificato, il LUN creato corrisponde alla dimensione massima consentita da tutte le unità specificate. I provider utilizzano le unità nell'ordine specificato, quando possibile.
 
 **noerr**
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **unità =**
 
-Specifica il \<> drive_number per l'unità da sostituire.
+Specifica il > \<drive_number per l'unità da sostituire.
 
 #### <a name="remarks"></a>Note
 
@@ -986,51 +986,51 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 Specifica il tipo di oggetto da selezionare. Il \<tipo di > dell'oggetto può essere **provider**, **sottosistema**, **controller**, **unità**o **lun**.
 
-**HBAPORT** [\<n >]
+**HBAPORT** [\<N >]
 
 Imposta lo stato attivo sulla porta HBA locale specificata. Se non viene specificata alcuna porta HBA, il comando Visualizza la porta HBA attualmente selezionata (se presente). Se si specifica un indice di porta HBA non valido, non viene generata alcuna porta HBA in stato attivo. Se si seleziona una porta HBA, vengono deselezionati tutti i portali iniziatori e gli adapter initiator selezionati.
 
-**IADAPTER** [\<n >]
+**IADAPTER** [\<N >]
 
 Imposta lo stato attivo sull'adapter iniziatore iSCSI locale specificato. Se non viene specificato alcun Adapter Initiator, il comando Visualizza l'adapter initiator attualmente selezionato (se presente). Se si specifica un indice dell'adapter Initiator non valido, non viene restituito alcun Adapter initiator. Selezionando un adapter initiator vengono deselezionate le porte HBA e i portali dell'initiator selezionati.
 
-**IPORTAL** [\<n >]
+**IPORTAL** [\<N >]
 
 Imposta lo stato attivo sul portale dell'iniziatore iSCSI locale specificato all'interno dell'adapter iniziatore iSCSI selezionato. Se non viene specificato alcun portale Initiator, il comando Visualizza il portale initiator attualmente selezionato (se presente). Se si specifica un indice del portale Initiator non valido, non si ottiene alcun portale initiator selezionato.
 
-**provider** di [\<n >]
+**provider** [\<N >]
 
 Imposta lo stato attivo sul provider specificato. Se non viene specificato alcun provider, il comando Visualizza il provider attualmente selezionato (se presente). Se si specifica un indice del provider non valido, non viene restituito alcun provider attivo.
 
-**sottosistema** [\<n >]
+**sottosistema** [\<N >]
 
 Imposta lo stato attivo sul sottosistema specificato. Se non viene specificato alcun sottosistema, il comando Visualizza il sottosistema con lo stato attivo (se presente). Se si specifica un indice del sottosistema non valido, non viene restituito alcun sottosistema in stato attivo. La selezione di un sottosistema seleziona in modo implicito il provider associato.
 
-**controller** di [\<n >]
+**controller** [\<N >]
 
 Imposta lo stato attivo sul controller specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun controller, il comando Visualizza il controller attualmente selezionato (se presente). Se si specifica un indice del controller non valido, il controller non è attivo. Selezionando un controller, vengono deselezionate tutte le porte, le unità, i lun, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**porta** [\<n >]
+**porta** [\<N >]
 
 Imposta lo stato attivo sulla porta del controller specificata nel controller attualmente selezionato. Se non viene specificata alcuna porta, il comando Visualizza la porta attualmente selezionata (se presente). Se si specifica un indice di porta non valido, non viene selezionata alcuna porta.
 
-**unità** di [\<n >]
+**unità** [\<N >]
 
 Imposta lo stato attivo sull'unità specificata, o sull'asse fisico, all'interno del sottosistema attualmente selezionato. Se non viene specificata alcuna unità, il comando Visualizza l'unità attualmente selezionata (se presente). Se si specifica un indice di unità non valido, non viene generata alcuna unità messa a fuoco. Selezionando un'unità vengono deselezionati tutti i controller, le porte del controller, i lun, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**lun** [\<n >]
+**lun** [\<N >]
 
 Imposta lo stato attivo sul LUN specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun LUN, il comando Visualizza il LUN attualmente selezionato (se presente). Se si specifica un indice LUN non valido, non viene restituito alcun LUN selezionato. Selezionando un LUN vengono deselezionati tutti i controller, le porte del controller, le unità, i portali di destinazione, le destinazioni e i gruppi del portale di destinazione selezionati.
 
-**portale** [\<n >]
+**portale** [\<N >]
 
 Imposta lo stato attivo sul portale di destinazione iSCSI specificato all'interno del sottosistema attualmente selezionato. Se non viene specificato alcun portale di destinazione, il comando Visualizza il portale di destinazione attualmente selezionato (se presente). Se si specifica un indice del portale di destinazione non valido, non viene selezionato alcun portale di destinazione. Selezionando un portale di destinazione vengono deselezionati tutti i controller, le porte del controller, le unità, i lun, le destinazioni e i gruppi del portale di destinazione.
 
-**destinazione** [\<n >]
+**destinazione** [\<N >]
 
 Imposta lo stato attivo sulla destinazione iSCSI specificata nel sottosistema attualmente selezionato. Se non viene specificata alcuna destinazione, il comando Visualizza la destinazione attualmente selezionata (se presente). Se si specifica un indice di destinazione non valido, non viene selezionata alcuna destinazione. Selezionando una destinazione vengono deselezionati tutti i controller, le porte del controller, le unità, i lun, i portali di destinazione e i gruppi del portale di destinazione.
 
-**TPGROUP** [\<n >]
+**TPGROUP** [\<N >]
 
 Imposta lo stato attivo sul gruppo del portale di destinazione iSCSI specificato all'interno della destinazione iSCSI attualmente selezionata. Se non viene specificato alcun gruppo di portali di destinazione, il comando Visualizza il gruppo del portale di destinazione attualmente selezionato (se presente). Se si specifica un indice del gruppo di portali di destinazione non valido, non viene restituito alcun gruppo del portale di destinazione.
 

@@ -1,8 +1,8 @@
 ---
 title: msiexec
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59bea5f646bc04e529851f583ad7c4c7b16d44f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ea9fdb50aa6b142274b814a38c43d93bc635c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846292"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373423"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -28,4 +28,4 @@ ms.locfileid: "59846292"
 
 Fornisce i mezzi per installare, modificare ed eseguire operazioni su Windows Installer dalla riga di comando.
 
-Per la sintassi ed esempi di come usare questo comando, vedere [Msiexec](https://go.microsoft.com/fwlink/?LinkId=94329).
+Per la sintassi ed esempi sull'uso di questo comando, vedere [msiexec](https://go.microsoft.com/fwlink/?LinkId=94329).

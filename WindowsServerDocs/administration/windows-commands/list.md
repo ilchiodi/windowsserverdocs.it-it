@@ -1,8 +1,8 @@
 ---
 title: list
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aacc93e1c7a16a7327ddbd17515f19cf41a5b458
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91b42925fc822b10157bb488167d06fe82cfe1e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374705"
 ---
 # <a name="list"></a>list
 
@@ -41,7 +41,7 @@ list providers
 |Parametro|Descrizione|
 |---------|-----------|
 |writer|Elenca i writer. Vedere [elenco writer](list-writers.md) per la sintassi e parametri.|
-|ombreggiature|Elenca le copie shadow non persistente esistente e non permanenti. Vedere [elenco ombreggiature](list-shadows.md) per la sintassi e parametri.|
+|ombreggiature|Elenca le copie shadow persistenti ed esistenti non persistenti. Vedere [elenco ombreggiature](list-shadows.md) per la sintassi e parametri.|
 |provider|Elenchi attualmente registrati provider di copie shadow. Vedere [elenco provider](list-providers.md) per la sintassi e parametri.|
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -53,4 +53,4 @@ list shadows all
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

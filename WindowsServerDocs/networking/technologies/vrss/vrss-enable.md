@@ -1,7 +1,7 @@
 ---
-title: Abilitare vRSS su una scheda di rete virtuale
-description: In questo argomento descrive come abilitare vRSS in Windows Server usando Windows PowerShell o Gestione dispositivi.
-ms.prod: windows-server-threshold
+title: Abilitare vRSS in una scheda di rete virtuale
+description: In questo argomento viene illustrato come abilitare vRSS in Windows Server utilizzando Device Manager o Windows PowerShell.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: cb48315c-0204-4927-aa24-64f6789c2e20
@@ -10,63 +10,63 @@ ms.localizationpriority: medium
 ms.date: 09/05/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 19e8011fb98b84c20e8237792664551d2362d589
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f2886f01e4835cf2edb86fcae0a1fe77bc03d25
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405266"
 ---
-# <a name="enable-vrss-on-a-virtual-network-adapter"></a>Abilitare vRSS su una scheda di rete virtuale
+# <a name="enable-vrss-on-a-virtual-network-adapter"></a>Abilitare vRSS in una scheda di rete virtuale
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Virtual RSS \(vRSS\) richiede che coda macchine virtuali \(VMQ\) supportano dalla scheda fisica. Se tale funzionalità è disabilitata o non è possibile quindi Receive-side scaling virtuale è disabilitato. 
+RSS virtuale \(vRSS @ no__t-1 richiede Coda macchine virtuali supporto \(VMQ @ no__t-3 dalla scheda fisica. Se VMQ è disabilitato o non è supportato, Receive-Side Scaling virtuale è disabilitato. 
 
-Per altre informazioni, vedere [prevede l'uso di vRSS](vrss-plan.md).
+Per altre informazioni, vedere [pianificare l'uso di vRSS](vrss-plan.md).
 
 ## <a name="enable-vrss-on-a-vm"></a>Abilitare vRSS in una macchina virtuale
  
-Usare le procedure seguenti per abilitare vRSS tramite Windows PowerShell o gestione dei dispositivi.
+Usare le procedure seguenti per abilitare vRSS usando Windows PowerShell o Device Manager.
 
 -   Gestione dispositivi
 -   Windows PowerShell
   
 ### <a name="device-manager"></a>Gestione dispositivi
 
-È possibile utilizzare questa procedura per abilitare vRSS tramite Gestione dispositivi.
+È possibile usare questa procedura per abilitare vRSS usando Device Manager.
 
 >[!NOTE]
->Il primo passaggio in questa procedura è specifico per le macchine virtuali che eseguono Windows 10 o Windows Server 2016. Se la macchina virtuale è in esecuzione un sistema operativo diverso, è possibile aprire Gestione dispositivi prima apertura del Pannello di controllo, quindi individuando e aprendo Gestione dispositivi.
+>Il primo passaggio di questa procedura è specifico per le macchine virtuali che eseguono Windows 10 o Windows Server 2016. Se nella macchina virtuale è in esecuzione un sistema operativo diverso, è possibile aprire Device Manager aprendo prima il pannello di controllo e quindi individuando e aprendo Device Manager.
   
-1.  Sulla barra delle applicazioni di VM, in **digitare qui per cercare**, digitare **dispositivo**. 
+1.  Nella barra delle applicazioni della VM, digitare **qui per cercare**, digitare **Device**. 
 
-2.  Nei risultati della ricerca, fare clic su **Gestione dispositivi**.
+2.  Nei risultati della ricerca fare clic su **Device Manager**.
 
-3.  In Gestione dispositivi fare clic per espandere **schede di rete**. 
+3.  In Device Manager fare clic per espandere **schede di rete**. 
 
-4.  Fare doppio clic su scheda di rete si desidera configurare e quindi fare clic su **proprietà**.<p>La scheda di rete **proprietà** verrà visualizzata la finestra di dialogo.
+4.  Fare clic con il pulsante destro del mouse sulla scheda di rete che si desidera configurare, quindi scegliere **Proprietà**.<p>Verrà visualizzata la finestra di dialogo **Proprietà** scheda di rete.
 
-5.  Nella scheda di rete **delle proprietà**, fare clic sui **avanzate** scheda. 
+5.  In **Proprietà**scheda di rete fare clic sulla scheda **Avanzate** . 
 
-6.  Nelle **proprietà**, scorrere verso il basso e fare clic su **Receive-side scaling**. 
+6.  In **Proprietà**scorrere verso il basso e fare clic su **Receive-Side Scaling**. 
 
-7.  Assicurarsi che la selezione nella **valore** viene **abilitato**. 
+7.  Verificare che la selezione in **valore** sia **abilitata**. 
 
 8.  Fare clic su **OK**.
   
 > [!NOTE]
-> Nel **avanzate** scheda, alcune schede di rete vengono visualizzano il numero di code RSS supportati dall'adapter.
+> Nella scheda **Avanzate** alcune schede di rete visualizzano anche il numero di code RSS supportate dall'adapter.
 
 ---
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-Utilizzare la procedura seguente per abilitare vRSS tramite Windows PowerShell.
+Usare la procedura seguente per abilitare vRSS usando Windows PowerShell.
 
-1. Nella macchina virtuale, aprire **Windows PowerShell**.
+1. Nella macchina virtuale aprire **Windows PowerShell**.
 
-2. Digitare il comando seguente, assicurandosi di sostituire il *AdapterName* valore per il **-nome** parametro con il nome della scheda di rete che si desidera configurare e quindi premere INVIO. 
+2. Digitare il comando seguente, assicurandosi di sostituire il valore di *AdapterName* per il parametro **-Name** con il nome della scheda di rete che si desidera configurare, quindi premere INVIO. 
   
    ```PowerShell
    Enable-NetAdapterRSS -Name "AdapterName"
@@ -78,6 +78,6 @@ Utilizzare la procedura seguente per abilitare vRSS tramite Windows PowerShell.
    >Set-NetAdapterRSS -Name "AdapterName" -Enabled $True  
    >```
 
-Per altre informazioni, vedere [i comandi di Windows PowerShell per RSS e vRSS](vrss-wps.md).
+Per ulteriori informazioni, vedere [comandi di Windows PowerShell per RSS e vRSS](vrss-wps.md).
 
 ---

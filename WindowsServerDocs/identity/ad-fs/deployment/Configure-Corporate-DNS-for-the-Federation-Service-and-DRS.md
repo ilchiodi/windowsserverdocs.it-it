@@ -7,47 +7,47 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9f0b04f9dc050117fdefc630759c86d2b1bb1ecc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192324"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408441"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Configurare DNS aziendale per il servizio federativo e il servizio DRS
   
-## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Passaggio 6: Aggiunge un Host \(un'\) e un Alias \(CNAME\) Record di risorse al DNS aziendale per il servizio federativo e il servizio DRS  
-È necessario aggiungere i seguenti record di risorse al DNS aziendale \(DNS\) per il servizio federativo e Device Registration Service configurati nei passaggi precedenti.  
+## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Passaggio 6: Aggiungere un host \(A @ no__t-1 e alias \(CNAME @ no__t-3 record di risorse al DNS aziendale per il Servizio federativo e DRS  
+È necessario aggiungere i record di risorse seguenti a Corporate Domain Name System \(DNS @ no__t-1 per il servizio federativo e il servizio di registrazione dei dispositivi configurati nei passaggi precedenti.  
   
 |Voce|Type|Address|  
 |---------|--------|-----------|  
-|federation\_service\_name|Host \(A\)|Indirizzo IP del server AD FS o l'indirizzo IP del servizio di bilanciamento del carico configurato davanti la server farm AD FS|  
-|enterpriseregistration|Alias \(CNAME\)|federation\_server\_name.contoso.com|  
+|Federation @ no__t-0service @ no__t-1Name|Host \(A @ no__t-1|Indirizzo IP del server AD FS o indirizzo IP del servizio di bilanciamento del carico configurato davanti al AD FS server farm|  
+|enterpriseregistration|Alias \(CNAME @ no__t-1|Federazione @ no__t-0server\_name.contoso.com|  
   
-È possibile usare la procedura seguente per aggiungere un host \(un'\) e un alias \(CNAME\) i record di risorse al DNS aziendale per il server federativo e il servizio registrazione dispositivo.  
+È possibile utilizzare la procedura seguente per aggiungere un host \(A @ no__t-1 e alias \(CNAME @ no__t-3 record di risorse al DNS aziendale per il server federativo e il servizio registrazione dispositivo.  
   
-L'appartenenza al **gli amministratori**, o equivalente è il requisito minimo per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**o a un gruppo equivalente è il requisito minimo per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Per aggiungere un host \(un'\) e un alias \(CNAME\) record di risorse DNS per il server federativo  
+#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Per aggiungere un host \(A @ no__t-1 e alias \(CNAME @ no__t-3 record di risorse a DNS per il server federativo  
   
-1.  In è controller di dominio, in Server Manager nel **degli strumenti** dal menu fare clic su **DNS** per aprire lo snap-DNS\-in.  
+1.  Nel controller di dominio, in Server Manager, nel menu **strumenti** fare clic su **DNS** per aprire lo snap-in DNS @ no__t-2in.  
   
-2.  Nell'albero della console, espandere la **domain\_controller\_nome** nodo, espandere **zone di ricerca diretta**, a destra\-fare clic su **dominio\_name**, quindi fare clic su **nuovo Host \(A o AAAA\)** .  
+2.  Nell'albero della console espandere il nodo **Domain @ no__t-1Controller @ no__t-2name** , espandere **zone di ricerca diretta**, right @ no__t-4click **Domain @ no__t-6name**, quindi fare clic su **new host \(a o AAAA @ no__t-9**.  
   
-3.  Nel **nome** , digitare il nome da utilizzare per la farm AD FS.  
+3.  Nella casella **nome** Digitare il nome da utilizzare per la farm ad FS.  
   
 4.  Nella casella **Indirizzo IP**, digita l'indirizzo IP del tuo server federativo. Fare clic su **Aggiungi host**.  
   
-5.  A destra\-fare clic sul **domain\_name** nodo e quindi fare clic su **nuovo Alias \(CNAME\)** .  
+5.  Right @ no__t-0click il nodo **Domain @ no__t-2name** e quindi fare clic su **new alias \(CNAME @ no__t-5**.  
   
 6.  Nella finestra di dialogo **Nuovo record di risorse** digitare **enterpriseregistration** nella casella **Nome alias**.  
   
-7.  Il nome di dominio completo \(FQDN\) della finestra host di destinazione, digitare **federation\_servizio\_farm\_nome\_. nome dominio.com**e quindi Fare clic su **OK**.  
+7.  Nel nome di dominio completo \(FQDN @ no__t-1 della casella host di destinazione digitare **Federation @ no__t-3service @ no__t-4farm @ no__t-5name. Domain @ no__t-6name. com**, quindi fare clic su **OK**.  
   
     > [!IMPORTANT]  
-    > In una distribuzione reale, se la società ha più User Principal Name \(UPN\) suffissi, è necessario creare più record CNAME per ognuno dei suffissi UPN nel DNS.  
+    > In una distribuzione reale, se l'azienda ha più nomi dell'entità utente \(UPN @ no__t-1 suffissi, è necessario creare più record CNAME per ognuno di questi suffissi UPN in DNS.  
   
 ## <a name="see-also"></a>Vedere anche 
 

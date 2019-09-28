@@ -1,23 +1,23 @@
 ---
 title: Uso della pulizia del disco in Windows Server
 description: Informazioni su come usare le opzioni della riga di comando per configurare lo strumento di pulizia dei dischi (cleanmgr. exe) per pulire automaticamente determinati file.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 4bf32520dc6fa2be36d44fbd66a7efc885a8f5d7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402117"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Uso della pulizia del disco in Windows Server
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Lo strumento Pulitura disco cancella i file non necessari in un ambiente Windows Server. Questo strumento è disponibile per impostazione predefinita in Windows Server 2019 e Windows Server 2016, ma potrebbe essere necessario eseguire alcuni passaggi manuali per abilitarlo nelle versioni precedenti di Windows Server.
 

@@ -7,37 +7,37 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4e8f55428271771e612fd3b35c0e650c62d35ac8
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 77cf91126cc628fb7fefef3eca8e7189f3e9eb10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408024"
 ---
 # <a name="planning-federation-server-placement"></a>Pianificazione del posizionamento del server federativo
 
-Il componente più importante di un Active Directory Federation Services \(ADFS\) distribuzione è il server federativo. Pertanto, è importante pianificare la strategia di posizionamento di server federativo con attenzione, anche quando e dove distribuire i server federativi. Le informazioni negli argomenti seguenti consentono di determinare quando e dove creare una federazione di server o server farm federativa e se usare tale server federativo nell'account di partner di ruolo, il ruolo del partner risorse o entrambi:  
+Il componente più importante di una distribuzione Active Directory Federation Services \(AD FS @ no__t-1 è il server federativo. È pertanto importante pianificare con attenzione la strategia di posizionamento del server federativo, incluse le posizioni e i casi in cui distribuire i server federativi. Le informazioni negli argomenti seguenti consentono di determinare quando e dove creare un server federativo o un server farm di Federazione e se utilizzare tale server federativo nel ruolo partner account, nel ruolo di partner risorse o in entrambi i casi:  
   
 -   [Rivedere il ruolo del server federativo nel partner account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
 -   [Rivedere il ruolo del server federativo nel partner risorse](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
--   [Quando creare un Server federativo](When-to-Create-a-Federation-Server.md)  
+-   [Quando creare un server federativo](When-to-Create-a-Federation-Server.md)  
   
 -   [Dove posizionare un server federativo](Where-to-Place-a-Federation-Server.md)  
   
--   [Questa opzione per creare una Server Farm federativa](When-to-Create-a-Federation-Server-Farm.md)  
+-   [Quando creare una server farm federativa](When-to-Create-a-Federation-Server-Farm.md)  
   
 -   [Requisiti dei certificati per i server federativi](Certificate-Requirements-for-Federation-Servers.md)  
   
 -   [Requisiti per la risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md)  
   
 > [!NOTE]  
-> Anche se queste informazioni potrebbero consentire alla pianificazione per i server federativi della posizione, non spiega come determinare il numero corretto di server federativi e i requisiti hardware per ogni progettazione di AD FS.  
+> Sebbene queste informazioni possano essere utili per la pianificazione della selezione host per i server federativi, non viene illustrato come determinare il numero corretto di server federativi e i requisiti hardware per ogni progettazione AD FS.  
   
-Per esempi del modo in cui un server federativo può essere inserito in uno dei due AD FS primaria progettano gli scenari, vedere [Mapping degli obiettivi di distribuzione per una progettazione di AD FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
+Per esempi di come un server federativo può essere inserito in uno dei due scenari principali di progettazione di AD FS, vedere [mapping degli obiettivi di distribuzione a una progettazione di ad FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

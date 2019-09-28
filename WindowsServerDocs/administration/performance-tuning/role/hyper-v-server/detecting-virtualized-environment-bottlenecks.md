@@ -1,18 +1,18 @@
 ---
 title: Rilevamento di colli di bottiglia in un ambiente virtualizzato
 description: Come rilevare e risolvere potenziali colli di bottiglia delle prestazioni di Hyper-v
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53ec6159d177284773f17a05a37dd89184ef3c12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866603"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370116"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Rilevamento di colli di bottiglia in un ambiente virtualizzato
 
@@ -28,15 +28,15 @@ Di seguito sono riportati alcuni scenari comuni che possono causare colli di bot
 
 È possibile utilizzare i contatori delle prestazioni seguenti dall'host:
 
--   Utilizzo del processore logico- \\processore logico hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
+-   Utilizzo del processore logico-processore logico hypervisor \\Hyper-V (\*) \\% tempo di esecuzione totale
 
--   Utilizzo del processore virtuale- \\processore virtuale hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
+-   Utilizzo del processore virtuale-processore virtuale hypervisor \\Hyper-V (\*) \\% tempo di esecuzione totale
 
--   Utilizzo del processore virtuale radice- \\processore virtuale radice hypervisor Hyper-V (\*)\\% tempo di esecuzione totale
+-   Utilizzo del processore virtuale radice-\\Hyper-V processore virtuale radice hypervisor (\*) \\% tempo di esecuzione totale
 
-Se il contatore del **processore logico hypervisor Hyper-\_V (\\totale)% totale** è superiore al 90%, l'host è sovraccarico. È necessario aggiungere ulteriore potenza di elaborazione o spostare alcune macchine virtuali in un host diverso.
+Se il **processore logico hypervisor Hyper-V (\_Total) \\% Totale** del contatore di runtime è superiore al 90%, l'host è sovraccarico. È necessario aggiungere ulteriore potenza di elaborazione o spostare alcune macchine virtuali in un host diverso.
 
-Se il contatore **processore virtuale hypervisor Hyper-V (nome VM: VP x\\)% totale** è superiore al 90% per tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
+Se il **processore virtuale hypervisor Hyper-V (nome VM: VP x) \\% contatore runtime totale** è superiore al 90% per tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
 
 -   Verificare che l'host non sia sovraccarico
 
@@ -44,7 +44,7 @@ Se il contatore **processore virtuale hypervisor Hyper-V (nome VM: VP x\\)% tota
 
 -   Assegnare più processori virtuali alla macchina virtuale
 
-Se **processore virtuale hypervisor Hyper-V (nome VM: VP x)\\% totale contatore Runtime** è superiore al 90% per alcuni, ma non tutti i processori virtuali, è necessario eseguire le operazioni seguenti:
+Se il **processore virtuale hypervisor Hyper-V (nome VM: VP x) \\% contatore runtime totale** è superiore al 90% per alcuni, ma non per tutti, i processori virtuali, è necessario eseguire le operazioni seguenti:
 
 -   Se il carico di lavoro riceve un elevato utilizzo di rete, è necessario considerare l'uso di vRSS.
 
@@ -52,7 +52,7 @@ Se **processore virtuale hypervisor Hyper-V (nome VM: VP x)\\% totale contatore 
 
 -   Se il carico di lavoro è a elevato utilizzo di risorse di archiviazione, è necessario abilitare NUMA virtuale e aggiungere altri dischi virtuali.
 
-Se il contatore del **processore virtuale radice hypervisor Hyper-V (radice VP\\x)% totale** è superiore al 90% per alcuni, ma non tutti i processori virtuali e il processore **(x\\)% tempo di interrupt e processore (\\x)% tempo DPC** il contatore viene aggiunto approssimativamente al valore del contatore del **Runtime virtuale radice (radice VP x\\)% Total Runtime** , è necessario assicurarsi di abilitare VMQ nelle schede di rete.
+Se l' **Hyper-V Hypervisor Virtual Processor (radice VP x) \\% totale contatore Runtime** è superiore al 90% per alcuni, ma non tutti, i processori virtuali e il **processore (x) \\% tempo di interrupt e processore (x) \\% tempo DPC** contatore viene aggiunto approssimativamente al valore per il contatore radice **processore virtuale (radice VP x) \\% totale Runtime** , è necessario assicurarsi di abilitare VMQ nelle schede di rete.
 
 ## <a name="memory-bottlenecks"></a>Colli di bottiglia della memoria
 

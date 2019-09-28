@@ -6,29 +6,29 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 02311522ee229eeaf0b27ce8d39090a9529b99ae
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c6af319283de72963691ae3e91c3db5992bdec72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192197"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408407"
 ---
 # <a name="deploying-federation-server-proxies"></a>Distribuzione di proxy server federativi
 
-Per distribuire i proxy server federativo in Active Directory Federation Services \(ADFS\), completare le attività in [elenco di controllo: Configurazione di un Proxy Server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
+Per distribuire i proxy server federativi in Active Directory Federation Services \(AD FS @ no__t-1, completare tutte le attività in [Checklist: Configurazione di un proxy server federativo @ no__t-0.  
   
 > [!NOTE]  
-> Quando si usa questo elenco di controllo, è consigliabile leggere innanzitutto i riferimenti al proxy server federativo nella Guida alla pianificazione di [Guida alla progettazione di AD FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) prima di iniziare le procedure per la configurazione dei server. Seguire l'elenco di controllo fornisce una migliore comprensione del processo di progettazione e distribuzione per la federazione i proxy server federativi.  
+> Quando si utilizza questo elenco di controllo, prima di iniziare le procedure per la configurazione dei server, è consigliabile leggere prima di tutto i riferimenti alle linee guida per la pianificazione del proxy server federativo nella [Guida alla progettazione di ad FS in Windows server 2012](https://technet.microsoft.com/library/dd807036.aspx) . L'elenco di controllo seguente fornisce una migliore comprensione del processo di progettazione e distribuzione per i proxy server federativi.  
   
-## <a name="about-federation-server-proxies"></a>Sui server federativi  
-Server federativi sono computer che eseguono Windows Server® 2012 e ADFS software che sono state configurate manualmente per agire nel ruolo proxy. Puoi utilizzare i proxy server federativi nell'organizzazione per fornire servizi intermediari tra un client Internet e un server federativo protetto da un firewall nella rete aziendale.  
+## <a name="about-federation-server-proxies"></a>Informazioni sui proxy server federativi  
+I proxy server federativi sono computer che eseguono Windows Server® 2012 e AD FS software che sono stati configurati manualmente per agire nel ruolo Proxy. Puoi utilizzare i proxy server federativi nell'organizzazione per fornire servizi intermediari tra un client Internet e un server federativo protetto da un firewall nella rete aziendale.  
   
 > [!NOTE]  
-> Anche se il server federativo e il ruolo proxy server federativo non può essere installato nello stesso computer, un server federativo può eseguire funzioni di proxy server federativo. Per altre informazioni, vedere [When to Create a Federation Server](https://technet.microsoft.com/library/dd807101.aspx).  
+> Sebbene i ruoli server federativo e proxy server federativo non possano essere installati nello stesso computer, un server federativo può eseguire le funzioni proxy server federativo. Per altre informazioni, vedere [When to Create a Federation Server](https://technet.microsoft.com/library/dd807101.aspx).  
   
-L'atto di installare il software ADFS in un computer Windows Server® 2012 e configurarlo per servire nel ruolo proxy rende tale computer proxy server federativo.  
+Il fatto di installare il software AD FS in un computer Windows Server® 2012 e configurarlo in modo che funzioni nel ruolo Proxy rende il computer un proxy server federativo.  
   
 

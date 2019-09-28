@@ -6,36 +6,36 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: cf89972120f3f0effa3eb1cf0fee6d29dbc8ed4e
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 388414fff97705901bf52ee844b90508d62f8c83
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192478"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408457"
 ---
 # <a name="add-a-token-decrypting-certificate"></a>Aggiungere un certificato di decrittografia token
 
-I server federativi usano un token\-certificato di decrittografia quando un server di federazione relying party deve decrittografare i token emessi con un certificato meno recente dopo che un nuovo certificato viene impostato come certificato di decrittografia primario. Active Directory Federation Services \(ADFS\) Usa Secure Sockets Layer \(SSL\) certificato per Internet Information Services \(IIS\) come la decrittografia predefinita certificato.  
+I server federativi usano un certificato @ no__t-0decryption quando un relying party server federativo deve decrittografare i token emessi con un certificato meno recente dopo che un nuovo certificato viene impostato come certificato di decrittografia primario. Active Directory Federation Services \(AD FS @ no__t-1 USA il certificato Secure Sockets Layer \(SSL @ no__t-3 per Internet Information Services \(IIS @ no__t-5 come certificato di decrittografia predefinito.  
   
 > [!CAUTION]  
-> I certificati usati per il token\-la decrittografia sono fondamentali per la stabilità del servizio federativo. Poiché la perdita o non pianificato per la rimozione di tutti i certificati configurati per questo scopo può causare l'interruzione del servizio, è consigliabile eseguire backup tutti i certificati configurati per questo scopo.  
+> I certificati usati per il token @ no__t-0decrypting sono fondamentali per la stabilità del Servizio federativo. Poiché la perdita o la rimozione non pianificata di tutti i certificati configurati per questo scopo può causare l'interruzione del servizio, è necessario eseguire il backup di tutti i certificati configurati  
   
-È possibile usare la procedura seguente per aggiungere il token\-decrittografia di certificato per lo snap di gestione di AD FS\-in da un file che è stata esportata.  
+È possibile utilizzare la procedura seguente per aggiungere il certificato @ no__t-0decrypting del token allo snap-in di gestione AD FS @ no__t-1in da un file esportato.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.microsoft.com\/fwlink\/? LinkId\=83477\).   
+Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere \( [gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) di\/dominio http:\/\/go.Microsoft.com\/fwlink? LinkId\=83477\).   
   
-### <a name="to-add-a-token-decrypting-certificate"></a>Per aggiungere un token\-decrittografia di certificato  
+### <a name="to-add-a-token-decrypting-certificate"></a>Per aggiungere un token @ no__t-0decrypting certificate  
   
-1.  Nel **avviare** digitare**gestione di AD FS**, e quindi premere INVIO.  
+1.  Nella schermata **Start** Digitare**ad FS Management**, quindi premere INVIO.  
   
-2.  Nell'albero della console, fare doppio\-fare clic su **Service**, quindi fare clic su **certificati**.  
+2.  Nell'albero della console, Double @ no__t-0click **Service**, quindi fare clic su **Certificates**.  
   
-3.  Nel **azioni** riquadro, fare clic sul **Add Token\-certificato di decrittografia** collegamento.  
+3.  Nel riquadro **azioni** fare clic sul collegamento **Aggiungi token @ No__t-2Decrypting certificate** .  
   
-4.  Nel **cerca i file di certificato** finestra di dialogo passare al file del certificato che si desidera aggiungere, selezionare il file del certificato e quindi fare clic su **Open**.  
+4.  Nella finestra di dialogo **Cerca file di certificato** passare al file del certificato che si desidera aggiungere, selezionare il file del certificato e quindi fare clic su **Apri**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  

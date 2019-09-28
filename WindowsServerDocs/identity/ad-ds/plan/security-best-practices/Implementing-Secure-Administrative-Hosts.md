@@ -7,178 +7,178 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ed2ff7bfa0cc3b27506b1ca324e819860eef314c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56986f2ea9f49bdfc1194ae5342798793524e86c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890422"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408615"
 ---
 # <a name="implementing-secure-administrative-hosts"></a>Implementazione di host amministrativi protetti
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Host amministrativi protetti sono workstation o server che sono state configurate in modo specifico ai fini della creazione di piattaforme sicure da cui gli account con privilegi possono eseguire attività amministrative in Active Directory o nei controller di dominio i sistemi appartenenti a un dominio e le applicazioni in esecuzione in sistemi appartenenti a un dominio. In questo caso, "account con privilegi" fa riferimento non solo agli account che sono membri dei gruppi con più privilegi in Active Directory, ma per qualsiasi account che sono stati delegati diritti e autorizzazioni che consentono le attività amministrative da eseguire.  
+Gli host amministrativi protetti sono workstation o server configurati in modo specifico allo scopo di creare piattaforme sicure da cui gli account con privilegi possono eseguire attività amministrative in Active Directory o nei controller di dominio, sistemi aggiunti a un dominio e applicazioni in esecuzione su sistemi aggiunti a un dominio. In questo caso, "account con privilegi" si riferisce non solo agli account membri dei gruppi con privilegi più elevati in Active Directory, ma a tutti gli account a cui sono stati delegati diritti e autorizzazioni che consentono l'esecuzione di attività amministrative.  
   
-Questi account possono essere account dell'Help Desk che hanno la possibilità di reimpostare le password per la maggior parte degli utenti in un dominio, gli account usati per gestire zone e record DNS o gli account usati per la gestione della configurazione. Host amministrativi protetti sono dedicate alle funzionalità amministrative e non vengono eseguite applicazioni software come applicazioni di posta elettronica, browser web o software di produttività, ad esempio Microsoft Office.  
+Questi account possono essere account del supporto tecnico che possono reimpostare le password per la maggior parte degli utenti di un dominio, account utilizzati per amministrare i record DNS e le zone o gli account utilizzati per la gestione della configurazione. Gli host amministrativi protetti sono dedicati alle funzionalità amministrative e non eseguono software come applicazioni di posta elettronica, Web browser o software di produttività, ad esempio Microsoft Office.  
   
-Anche se gli account e gruppi "con più privilegi" di conseguenza devono essere il più rigoroso protetto, ciò non elimina la necessità di proteggere qualsiasi account e gruppi ai quali privilegi superiori a quelli di utente standard gli account sono state concesse.  
+Sebbene i gruppi e gli account "con privilegi più elevati" siano di conseguenza i più rigorosamente protetti, questo non elimina la necessità di proteggere gli account e i gruppi a cui sono stati concessi i privilegi superiori a quelli degli account utente standard.  
   
-Host amministrativi sicuro può essere una workstation dedicata che viene usata solo per attività amministrative, un server membro che esegue il ruolo del server Gateway Desktop remoto e IT gli utenti a cui connettersi per eseguire l'amministrazione di host di destinazione o un server che esegue il ruolo Hyper-V e fornisce una macchina virtuale univoca per ogni utente IT da utilizzare per le proprie attività amministrative. In molti ambienti, le combinazioni di tutti e tre gli approcci possono essere implementate.  
+Un host amministrativo sicuro può essere una workstation dedicata utilizzata solo per le attività amministrative, un server membro che esegue il ruolo del server Gateway Desktop remoto e a cui gli utenti si connettono per eseguire l'amministrazione degli host di destinazione o un server che esegue il ruolo Hyper-V e fornisce una macchina virtuale univoca per ogni utente IT da usare per le attività amministrative. In molti ambienti è possibile che vengano implementate combinazioni di tutti e tre gli approcci.  
   
-Implementazione host amministrativi protetti richiede pianificazione e configurazione che è coerente con le dimensioni dell'organizzazione, procedure amministrative, al desiderio di rischio e budget. Considerazioni e le opzioni per l'implementazione host amministrativi protetti sono incluse qui è possibile usare lo sviluppo di una strategia di amministrazione adatta alla propria organizzazione.  
+L'implementazione di host amministrativi protetti richiede la pianificazione e la configurazione coerenti con le dimensioni dell'organizzazione, le procedure amministrative, l'appetito per il rischio e il budget. Le considerazioni e le opzioni per l'implementazione di host amministrativi sicuri sono disponibili qui per l'utilizzo nello sviluppo di una strategia amministrativa appropriata per l'organizzazione.  
   
 ## <a name="principles-for-creating-secure-administrative-hosts"></a>Principi per la creazione di host amministrativi protetti  
-Per proteggere in modo efficace i sistemi dagli attacchi, alcuni principi generali devono prendere in considerazione:  
+Per proteggere efficacemente i sistemi dagli attacchi, è necessario tenere presenti alcuni principi generali:  
   
-1.  È non necessario amministrare mai un sistema attendibile (vale a dire, un server protetto, ad esempio un controller di dominio) da un host considerato meno attendibile (vale a dire, una workstation in cui non è protetto per lo stesso grado i sistemi gestiti).  
+1.  Non è mai consigliabile amministrare un sistema attendibile, ovvero un server protetto, ad esempio un controller di dominio, da un host meno attendibile, ovvero una workstation non protetta allo stesso livello dei sistemi gestiti.  
   
-2.  Non basarsi su un singolo fattore di autenticazione durante l'esecuzione di attività con privilegi. vale a dire, combinazioni di nome e una password utente non devono essere considerate accettabile autenticazione perché è rappresentato solo a fattore singolo (un elemento noto). È necessario considerare in cui le credenziali vengono generate e memorizzati nella cache o archiviate negli scenari di amministrazione.  
+2.  Quando si eseguono attività con privilegi, è consigliabile non basarsi su un singolo fattore di autenticazione. Ciò significa che le combinazioni di nome utente e password non devono essere considerate come autenticazione accettabile perché è rappresentato un solo fattore (un elemento noto). È necessario considerare dove le credenziali vengono generate e memorizzate nella cache o archiviate in scenari amministrativi.  
   
-3.  Sebbene la maggior parte degli attacchi nel panorama delle minacce correnti sfruttano hacking dannose e malware, non omettere la protezione fisica durante la progettazione e implementazione host amministrativi protetti.  
+3.  Sebbene la maggior parte degli attacchi nell'attuale panorama delle minacce sfrutti malware e attacchi di pirateria dannosa, non omettere la sicurezza fisica durante la progettazione e l'implementazione di host amministrativi protetti.  
   
-### <a name="account-configuration"></a>Configurazione dell'account  
-Anche se l'organizzazione non usa attualmente le smart card, è consigliabile implementare loro per gli account con privilegi e host amministrativi protetti. Host amministrativi deve essere configurato per richiedere l'accesso con smart card per tutti gli account modificando l'impostazione seguente in un oggetto Criteri di gruppo collegati alle unità organizzative contenenti host amministrativi:  
+### <a name="account-configuration"></a>Configurazione account  
+Anche se l'organizzazione attualmente non usa le smart card, è consigliabile implementarle per gli account con privilegi e gli host amministrativi protetti. Gli host amministrativi devono essere configurati in modo da richiedere l'accesso tramite smart card per tutti gli account modificando l'impostazione seguente in un oggetto Criteri di gruppo collegato alle unità organizzative contenenti gli host amministrativi:  
   
-**Accesso al computer Configurazione computer\Criteri\Impostazioni protezione\Criteri locali\Opzioni di protezione\Accesso: Richiedi smart card**  
+**Computer Computer\criteri\impostazioni protezione\Criteri locali\Opzioni Options\Interactive Access: Richiedi smart card @ no__t-0  
   
-Questa impostazione richiede tutti gli accessi interattivi da usare una smart card, indipendentemente dalla configurazione in un singolo account in Active Directory.  
+Questa impostazione richiede che tutti gli accessi interattivi usino una smart card, indipendentemente dalla configurazione di un singolo account in Active Directory.  
   
-È inoltre opportuno configurare host amministrativi protetti in modo da consentire gli accessi solo da account autorizzati, che può essere configurato in:  
+È inoltre necessario configurare gli host amministrativi protetti per consentire gli accessi solo da account autorizzati, che possono essere configurati in:  
   
-**Computer Configurazione computer\Criteri\Impostazioni sicurezza\Criteri locali\Opzioni sicurezza\Criteri Locali\assegnazione diritti utente**  
+**Computer Computer\criteri\impostazioni protezione\Criteri locali\Opzioni protezione\Criteri locali\Assegnazione Rights Assignment**  
   
-Ciò concede interattivo (e, laddove appropriato, Servizi Desktop remoto) diritti di accesso solo agli utenti autorizzati dell'host di amministrazione sicura.  
+Questo consente di concedere i diritti di accesso interattivi (e, ove appropriato, Servizi Desktop remoto) solo agli utenti autorizzati dell'host amministrativo protetto.  
   
 ### <a name="physical-security"></a>Sicurezza fisica  
-Per gli host amministrativi essere considerato attendibile, devono essere configurate e protette allo stesso livello come i sistemi che gestiscono. La maggior parte dei consigli forniti [proteggere i controller di dominio contro attacco](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md) sono inoltre applicabili agli host che vengono usate per amministrare i controller di dominio e il database di Active Directory Domain Services. Una delle problematiche di implementazione della protezione dei sistemi amministrativi nella maggior parte degli ambienti è che la sicurezza fisica può essere più difficile da implementare perché questi computer spesso si trovano in aree che non siano più protette come server ospitato in Data Center, ad esempio desktop degli utenti amministrativi.  
+Affinché gli host amministrativi siano considerati attendibili, devono essere configurati e protetti allo stesso grado dei sistemi gestiti. La maggior parte delle raccomandazioni fornite nella [protezione dei controller di dominio dagli attacchi](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md) è applicabile anche agli host utilizzati per amministrare i controller di dominio e il database di servizi di dominio Active Directory. Una delle difficoltà legate all'implementazione di sistemi amministrativi protetti nella maggior parte degli ambienti è che la sicurezza fisica può essere più difficile da implementare perché questi computer si trovano spesso in aree non sicure come i server ospitati nei data center, ad esempio desktop degli utenti amministratori.  
   
-Sicurezza fisica include il controllo di accesso fisico per host amministrativi. Nelle organizzazioni di piccole dimensioni, questo può significare che mantiene bloccata da una workstation amministrativa dedicata in cui viene mantenuto in un ufficio o un cassetto quando non è in uso. O può significare che quando è necessario eseguire l'amministrazione di Active Directory o i controller di dominio, si accede al controller di dominio direttamente.  
+La sicurezza fisica include il controllo dell'accesso fisico agli host amministrativi. In un'organizzazione di piccole dimensioni questo potrebbe significare che si mantiene una workstation amministrativa dedicata mantenuta bloccata in un ufficio o un cassetto della scrivania quando non è in uso. In alternativa, quando è necessario eseguire l'amministrazione di Active Directory o dei controller di dominio, è possibile accedere direttamente al controller di dominio.  
   
-Nelle organizzazioni di medie dimensioni, è possibile implementare sicuro amministrativi "jump server" che si trovano in un percorso protetto in un ufficio e vengono usate quando è necessaria la gestione di Active Directory oppure controller di dominio. È anche possibile implementare le workstation amministrative che vengono bloccate in percorsi sicuri quando non è in uso, con o senza jump server.  
+Nelle organizzazioni di medie dimensioni, è possibile prendere in considerazione l'implementazione di "Jump server" amministrativi protetti che si trovano in un percorso protetto in un ufficio e vengono usati quando è necessario gestire Active Directory o controller di dominio. È anche possibile implementare workstation amministrative bloccate in posizioni sicure quando non sono in uso, con o senza Jump server.  
   
-In organizzazioni di grandi dimensioni, è possibile distribuire ospitava datacenter jump server che forniscono un accesso rigidamente controllato a Active Directory. controller di dominio. e file, stampa o applicazione server. Implementazione di un'architettura jump server è più probabile che includano una combinazione di server e workstation sicure in ambienti di grandi dimensioni.  
+Nelle organizzazioni di grandi dimensioni, è possibile distribuire server di salto Data Center che forniscono accesso rigorosamente controllato a Active Directory; controller di dominio; e server di file, di stampa o di applicazioni. L'implementazione di un'architettura di Jump server è più probabile che includa una combinazione di workstation e server sicuri in ambienti di grandi dimensioni.  
   
-Indipendentemente dalle dimensioni dell'organizzazione e la progettazione di host amministrativi, è necessario proteggere i computer fisici da accessi non autorizzati o furto e deve utilizzare Crittografia unità BitLocker per crittografare e proteggere le unità negli host amministrativi . Implementando BitLocker negli host amministrativi, anche se un host viene prelevato o vengono rimossi i relativi dischi, è possibile assicurarsi che i dati nell'unità sono inaccessibili a utenti non autorizzati.  
+Indipendentemente dalle dimensioni dell'organizzazione e dalla progettazione degli host amministrativi, è consigliabile proteggere i computer fisici da accessi non autorizzati o furti e utilizzare Crittografia unità BitLocker per crittografare e proteggere le unità negli host amministrativi. . Implementando BitLocker negli host amministrativi, anche in caso di furto di un host o di rimozione dei relativi dischi, è possibile verificare che i dati dell'unità non siano accessibili agli utenti non autorizzati.  
   
-### <a name="operating-system-versions-and-configuration"></a>Configurazione e le versioni del sistema operativo  
-Tutti gli host amministrativi, se i server o workstation, deve essere eseguito il sistema operativo più recente in uso nell'organizzazione per i motivi descritti in precedenza in questo documento. Tramite l'esecuzione di sistemi operativi correnti, il personale amministrativo trae vantaggio dalla nuova funzionalità di sicurezza, supporto del fornitore completo e funzionalità aggiuntive introdotte nel sistema operativo. Inoltre, quando si valuta un nuovo sistema operativo, distribuendola host primo di amministrazione, è necessario acquisire familiarità con le nuove funzionalità, impostazioni e i meccanismi di gestione offre, che successivamente possono essere sfruttate nella pianificazione distribuzione più ampia del sistema operativo. Da allora, agli utenti più esperti nell'organizzazione sarà anche gli utenti che hanno familiarità con il nuovo sistema operativo e la migliore spinta per supportarla.  
+### <a name="operating-system-versions-and-configuration"></a>Configurazione e versioni del sistema operativo  
+Tutti gli host amministrativi, se server o workstation, devono eseguire il sistema operativo più recente in uso nell'organizzazione per i motivi descritti in precedenza in questo documento. Eseguendo i sistemi operativi correnti, il personale amministrativo trae vantaggio dalle nuove funzionalità di sicurezza, dal supporto completo del fornitore e dalla funzionalità aggiuntiva introdotta nel sistema operativo. Inoltre, quando si sta valutando un nuovo sistema operativo, distribuendo prima di tutto gli host amministrativi, sarà necessario acquisire familiarità con le nuove funzionalità, le impostazioni e i meccanismi di gestione offerti, che possono essere utilizzati in seguito nella pianificazione distribuzione più ampia del sistema operativo. A questo punto, gli utenti più sofisticati dell'organizzazione saranno anche gli utenti che hanno familiarità con il nuovo sistema operativo e con il migliore posizionamento per supportarla.  
   
 ### <a name="microsoft-security-configuration-wizard"></a>Configurazione guidata impostazioni di sicurezza Microsoft  
-Se si implementa jump server come parte della strategia di host amministrativi, utilizzare la configurazione guidata di sicurezza predefiniti per configurare le impostazioni del firewall per ridurre la superficie di attacco del server, del Registro di sistema, controllo e servizio. Quando le impostazioni di configurazione guidata di configurazione di sicurezza sono stati raccolti e configurate, le impostazioni possono essere convertite in un oggetto Criteri di gruppo che consente di applicare una configurazione di base coerente in tutti i server di salto. È possibile modificare ulteriormente l'oggetto Criteri di gruppo per implementare le impostazioni di sicurezza specifiche per jump server ed è possibile combinare tutte le impostazioni con le impostazioni di base aggiuntivi estratte da Microsoft Security Compliance Manager.  
+Se si implementano Jump server come parte della strategia host di amministrazione, è consigliabile utilizzare la configurazione guidata impostazioni di sicurezza predefinita per configurare le impostazioni di servizio, registro di sistema, controllo e firewall per ridurre la superficie di attacco del server. Quando le impostazioni di configurazione della configurazione guidata impostazioni di sicurezza sono state raccolte e configurate, le impostazioni possono essere convertite in un oggetto Criteri di gruppo usato per applicare una configurazione di base coerente in tutti i server Jump. È possibile modificare ulteriormente l'oggetto Criteri di gruppo per implementare impostazioni di sicurezza specifiche per Jump server e combinare tutte le impostazioni con impostazioni di base aggiuntive estratte da Microsoft Security Compliance Manager.  
   
 ### <a name="microsoft-security-compliance-manager"></a>Microsoft Security Compliance Manager  
-Il [Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx) è uno strumento disponibile gratuitamente che integra le configurazioni di sicurezza consigliati da Microsoft, in base alla configurazione di versione e il ruolo del sistema operativo e le raccoglie in un singolo strumento e l'interfaccia utente che può essere utilizzata per creare e configurare le impostazioni di sicurezza della linea di base per i controller di dominio. I modelli di Microsoft Security Compliance Manager possono essere combinati con le impostazioni di configurazione guidata sicurezza per produrre le linee di base di configurazione completa per jump server distribuiti e applicati da distribuire in corrispondenza le unità organizzative in cui jump server sono oggetti Criteri di gruppo che si trova in Active Directory.  
+[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx) è uno strumento disponibile gratuitamente che integra le configurazioni di sicurezza consigliate da Microsoft, in base alla versione del sistema operativo e alla configurazione del ruolo, e le raccoglie in un unico strumento e interfaccia utente che può consente di creare e configurare le impostazioni di sicurezza di base per i controller di dominio. È possibile combinare i modelli di Microsoft Security Compliance Manager con le impostazioni della configurazione guidata impostazioni di sicurezza per produrre linee di base di configurazione complete per i server Jump distribuiti e applicati da oggetti Criteri di gruppo distribuiti nelle unità organizzative in cui i server Jump sono si trova in Active Directory.  
   
 > [!NOTE]  
-> Al momento della stesura di questo articolo, Microsoft Security Compliance Manager non include impostazioni specifiche della jump server o altri host amministrativi protetti, ma è ancora utilizzabile Security Compliance Manager (SCM) per creare linee di base iniziale per l'amministrazione host. Per proteggere correttamente l'host, tuttavia, è consigliabile applicare le impostazioni di sicurezza aggiuntiva appropriate per server e workstation a sicurezza elevata.  
+> Al momento della stesura di questo documento, Microsoft Security Compliance Manager non include impostazioni specifiche per Jump server o altri host amministrativi protetti, ma è comunque possibile usare Security Compliance Manager (SCM) per creare le basi di riferimento iniziali per l'amministratore ospita. Per proteggere correttamente gli host, è tuttavia necessario applicare impostazioni di sicurezza aggiuntive appropriate per le workstation e i server altamente protetti.  
   
 ### <a name="applocker"></a>AppLocker  
-Host amministrativi e machinesshould virtuale da configurati con uno script, lo strumento e illustra come consentire applicazioni tramite AppLocker o un software di restrizione dell'applicazione di terze parti. Eventuali applicazioni amministrative o l'utilità non conformi per proteggere le impostazioni devono essere aggiornate o sostituite con gli strumenti che è conforme alle procedure amministrative e sviluppo sicuro. Quando gli strumenti di nuovo o aggiuntivo sono necessaria in un host amministrativo, utilità e applicazioni è consigliabile testare completamente e se gli strumenti sono adatto per la distribuzione negli host amministrativi, può essere aggiunto alla base dei sistemi.  
+Gli host amministrativi e i machinesshould virtuali sono configurati con script, strumenti e elenchi di elementi consentiti dell'applicazione tramite AppLocker o un software di restrizione delle applicazioni di terze parti Tutte le applicazioni amministrative o le utilità che non rispettano le impostazioni protette devono essere aggiornate o sostituite con gli strumenti conformi allo sviluppo e alle procedure amministrative sicure. Quando sono necessari strumenti nuovi o aggiuntivi in un host amministrativo, le applicazioni e le utilità devono essere testate accuratamente e se gli strumenti sono adatti per la distribuzione in host amministrativi, è possibile aggiungerli agli elenchi di elementi consentiti dei sistemi.  
   
-### <a name="rdp-restrictions"></a>Restrizioni di RDP  
-Anche se la configurazione specifica varia a seconda dell'architettura dei sistemi amministrativi, è necessario includere restrizioni in cui gli account e computer può essere usato per stabilire le connessioni Remote Desktop Protocol (RDP) per i sistemi gestiti, ad esempio l'uso di Gateway Desktop remoto (Gateway Desktop remoto) jump server per controllare l'accesso ai controller di dominio e altri sistemi gestiti dagli utenti autorizzati e i sistemi.  
+### <a name="rdp-restrictions"></a>Restrizioni RDP  
+Sebbene la configurazione specifica possa variare a seconda dell'architettura dei sistemi amministrativi, è necessario includere restrizioni sugli account e sui computer che possono essere utilizzati per stabilire connessioni di Remote Desktop Protocol (RDP) ai sistemi gestiti, come ad esempio l'uso di Desktop remoto Gateway Gateway Desktop remoto per controllare l'accesso ai controller di dominio e ad altri sistemi gestiti da utenti e sistemi autorizzati.  
   
-Dovrebbe consentire gli accessi interattivi dagli utenti autorizzati e devi rimuovere o persino bloccare altri tipi di accesso che non sono necessari per l'accesso al server.  
+È necessario consentire gli accessi interattivi da parte di utenti autorizzati e rimuovere o persino bloccare altri tipi di accesso non necessari per l'accesso al server.  
   
-### <a name="patch-and-configuration-management"></a>Gestione di patch e gestione della configurazione  
-Le organizzazioni più piccole possono basarsi sulle offerte, ad esempio Windows Update o [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) per gestire la distribuzione degli aggiornamenti nei sistemi Windows, mentre le organizzazioni più grandi possono implementare delle patch aziendali e software di Gestione configurazione, ad esempio System Center Configuration Manager. Indipendentemente dal fatto i meccanismi che consente di distribuire gli aggiornamenti al server generali e /della workstation, è opportuno considerare distribuzioni distinte per sistemi a protezione elevata, ad esempio i controller di dominio, le autorità di certificazione e host amministrativi. Memorizzando questi sistemi dall'infrastruttura di gestione generale, se gli account di software o servizio di gestione sono compromessi, la compromissione può essere esteso facilmente ai sistemi più sicuri dell'infrastruttura.  
+### <a name="patch-and-configuration-management"></a>Gestione delle patch e della configurazione  
+Le organizzazioni più piccole possono basarsi su offerte come Windows Update o [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) per gestire la distribuzione degli aggiornamenti nei sistemi Windows, mentre le organizzazioni più grandi possono implementare la gestione delle patch e della configurazione dell'organizzazione software come System Center Configuration Manager. Indipendentemente dai meccanismi usati per distribuire gli aggiornamenti al popolamento generale del server e della workstation, è consigliabile prendere in considerazione distribuzioni separate per sistemi a protezione elevata, ad esempio controller di dominio, autorità di certificazione e host amministrativi. Con la separazione di questi sistemi dall'infrastruttura di gestione generale, se il software di gestione o gli account del servizio sono compromessi, la compromissione non può essere facilmente estesa ai sistemi più sicuri nell'infrastruttura.  
   
-Anche se non è necessario implementare i processi di aggiornamento manuale per la protezione dei sistemi, è necessario configurare un'infrastruttura separata per l'aggiornamento di sistemi protetti. Anche in organizzazioni di dimensioni molto grandi, questa infrastruttura può in genere essere implementata tramite il server WSUS dedicato e oggetti Criteri di gruppo per i sistemi protetti.  
+Sebbene non sia necessario implementare processi di aggiornamento manuali per i sistemi protetti, è necessario configurare un'infrastruttura separata per l'aggiornamento dei sistemi protetti. Anche nelle organizzazioni di grandi dimensioni, questa infrastruttura può in genere essere implementata tramite server WSUS e oggetti Criteri di gruppo dedicati per i sistemi protetti.  
   
-### <a name="blocking-internet-access"></a>Blocca l'accesso a Internet  
-Host amministrativi deve essere consentito l'accesso a Internet, né dovrebbero esserlo saper esplorare intranet dell'organizzazione. Web browser e applicazioni simili devono essere consentite negli host amministrativi. È possibile bloccare l'accesso a Internet per host protetti tramite una combinazione di impostazioni del firewall perimetrale, configurazione WFAS e configurazione del proxy "black hole" su host protetti. È anche possibile usare nell'elenco elementi consentiti dell'applicazione per impedire l'utilizzo negli host amministrativi di web browser.  
+### <a name="blocking-internet-access"></a>Blocco dell'accesso a Internet  
+Gli host amministrativi non devono essere autorizzati ad accedere a Internet, né devono essere in grado di esplorare la rete Intranet di un'organizzazione. I browser Web e le applicazioni simili non devono essere consentiti negli host amministrativi. È possibile bloccare l'accesso a Internet per gli host protetti tramite una combinazione di impostazioni del firewall perimetrale, configurazione di WFAS e configurazione del proxy "Black Hole" negli host protetti. È inoltre possibile utilizzare l'elenco elementi consentiti dell'applicazione per impedire l'utilizzo di Web browser in host amministrativi.  
   
 ### <a name="virtualization"></a>Virtualizzazione  
-Dove possibile, prendere in considerazione l'implementazione di macchine virtuali come host amministrativi. Mediante la virtualizzazione, è possibile creare per ogni utente amministrativi sistemi archiviati e gestiti centralmente e che possono essere facilmente arrestate quando non è in uso, assicurando che le credenziali non restano attive nei sistemi amministrativi. È anche possibile richiedere che virtuale host amministrativi vengono reimpostati a uno snapshot iniziale dopo ogni uso, assicurando che le macchine virtuali rimangono intatte. Altre informazioni sulle opzioni per la virtualizzazione dell'host amministrativi viene fornite nella sezione seguente.  
+Laddove possibile, è consigliabile implementare macchine virtuali come host amministrativi. Con la virtualizzazione, è possibile creare sistemi amministrativi per singolo utente che vengono archiviati e gestiti a livello centrale e che possono essere facilmente arrestati quando non sono in uso, assicurando che le credenziali non rimangano attive nei sistemi amministrativi. È inoltre possibile richiedere che gli host amministrativi virtuali vengano reimpostati su uno snapshot iniziale dopo ogni uso, assicurando che le macchine virtuali rimangano inalterate. Ulteriori informazioni sulle opzioni per la virtualizzazione degli host amministrativi sono disponibili nella sezione seguente.  
   
-## <a name="sample-approaches-to-implementing-secure-administrative-hosts"></a>Gli approcci di esempio per l'implementazione sicura host amministrativi  
-Indipendentemente dalla modalità di progettazione e distribuzione dell'infrastruttura di host amministrativi, è necessario tenere presenti le linee guida fornite in "I principi per la creazione di host amministrativi Secure" più indietro in questo argomento. Ogni approccio descritto di seguito vengono fornite informazioni generali sul modo in cui è possibile separare "amministrativo" e i sistemi "productivity" usati dal personale IT. I sistemi di produttività sono computer che gli amministratori IT utilizzano per controllare l'indirizzo di posta elettronica, accedere a Internet e usare il software di produttività generali, ad esempio Microsoft Office. I sistemi amministrativi sono i computer protetti e dedicati per l'uso per l'amministrazione quotidiana di un ambiente IT.  
+## <a name="sample-approaches-to-implementing-secure-administrative-hosts"></a>Approcci di esempio per l'implementazione di host amministrativi protetti  
+Indipendentemente dalla modalità di progettazione e distribuzione dell'infrastruttura host amministrativa, è necessario tenere presenti le linee guida disponibili in "principi per la creazione di host amministrativi protetti" più indietro in questo argomento. Ognuno degli approcci descritti fornisce informazioni generali su come separare i sistemi "amministrativi" e "produttivi" usati dal personale IT. I sistemi di produttività sono computer che gli amministratori IT utilizzano per controllare la posta elettronica, esplorare Internet e utilizzare software di produttività generale, ad esempio Microsoft Office. I sistemi amministrativi sono computer finalizzati e dedicati per l'amministrazione quotidiana di un ambiente IT.  
   
-Il modo più semplice per implementare host amministrativi protetti è fornire il personale IT con workstation protette da cui è possibile eseguire attività amministrative. In un'implementazione solo workstation, ogni workstation amministrativa viene usato per avviare gli strumenti di gestione e le connessioni RDP a gestire server e altri elementi dell'infrastruttura. Workstation implementazioni con sola possono risultare efficaci in organizzazioni di piccole dimensioni, anche se infrastrutture più grandi e complesse possono trarre vantaggio da una progettazione distribuita per host amministrativi in cui dedicati server amministrativi e di utilizzo delle workstation, come descritto in "Implementazione Secure amministrativi workstation e Jump server" più avanti in questo argomento.  
+Il modo più semplice per implementare gli host amministrativi protetti consiste nel fornire al personale IT le workstation protette da cui possono eseguire attività amministrative. In un'implementazione di solo workstation, ogni workstation amministrativa viene utilizzata per avviare gli strumenti di gestione e le connessioni RDP per gestire i server e altre infrastrutture. Le implementazioni solo workstation possono essere efficaci nelle organizzazioni più piccole, sebbene le infrastrutture più grandi e più complesse possano trarre vantaggio da una progettazione distribuita per gli host amministrativi in cui vengono usati server amministrativi dedicati e workstation, come descritto in "implementazione di workstation e di Jump server protetti" più avanti in questo argomento.  
   
-### <a name="implementing-separate-physical-workstations"></a>Implementazione di workstation fisiche Separate  
-Uno che è possibile implementare host amministrativi consiste nell'inviare ogni utente IT due workstation. Una workstation viene usata con un account utente "normale" per eseguire le attività, ad esempio controllare la posta elettronica e tramite applicazioni di produttività, mentre la seconda workstation è dedicata esclusivamente alle funzioni amministrative.  
+### <a name="implementing-separate-physical-workstations"></a>Implementazione di workstation fisiche separate  
+Un modo per implementare gli host amministrativi consiste nell'emettere ogni utente IT due workstation. Una workstation viene utilizzata con un account utente "regolare" per eseguire attività quali il controllo della posta elettronica e l'utilizzo di applicazioni di produttività, mentre la seconda workstation è dedicata esclusivamente alle funzioni amministrative.  
   
-Per la workstation di produttività, è possibile assegnare il personale IT gli account utente normali invece di usare gli account con privilegi per accedere al computer non protetti. La workstation amministrativa deve essere configurata con una configurazione rigorosamente controllata e il personale IT deve usare un account diverso per accedere alla workstation amministrative.  
+Per la workstation di produttività, al personale IT possono essere assegnati account utente regolari anziché utilizzare account con privilegi per accedere a computer non protetti. La workstation amministrativa deve essere configurata con una configurazione rigorosamente controllata e il personale IT deve usare un account diverso per accedere alla workstation amministrativa.  
   
-Se è stato implementato le smart card, le workstation amministrative devono essere configurate per richiedere di accessi con smart card e personale IT deve assegnare account distinti destinati all'uso amministrativo, inoltre configurato per richiedere le smart card per l'accesso interattivo. L'host amministrativo deve essere protetti come descritto in precedenza, e solo determinati utenti IT devono essere consentiti di accedere localmente nella workstation amministrativa.  
+Se sono state implementate Smart Card, le workstation amministrative devono essere configurate in modo da richiedere gli accessi tramite smart card e il personale IT deve disporre di account distinti per l'uso amministrativo, configurato anche per richiedere smart card per l'accesso interattivo. L'host amministrativo deve essere finalizzato come descritto in precedenza e solo gli utenti IT designati dovrebbero essere autorizzati ad accedere localmente alla workstation amministrativa.  
   
 #### <a name="pros"></a>Vantaggi  
-Mediante l'implementazione di sistemi fisici separati, è possibile garantire che ogni computer sia configurato in modo appropriato per il proprio ruolo e che gli utenti IT non possono esporre involontariamente sistemi amministrativi a rischi.  
+Implementando sistemi fisici distinti, è possibile assicurarsi che ogni computer sia configurato in modo appropriato per il proprio ruolo e che gli utenti non possano inavvertitamente esporre i sistemi amministrativi a rischio.  
   
 #### <a name="cons"></a>Svantaggi  
   
--   Implementazione di computer fisici distinti aumenta i costi hardware.  
+-   L'implementazione di computer fisici distinti comporta un aumento dei costi hardware.  
   
 -   L'accesso a un computer fisico con le credenziali utilizzate per amministrare i sistemi remoti memorizza nella cache le credenziali in memoria.  
   
--   Se non vengono archiviate in modo sicuro le workstation amministrative, potrebbero essere vulnerabile agli attacchi tramite meccanismi, ad esempio keystroke logger hardware fisico o altri attacchi fisici.  
+-   Se le workstation amministrative non vengono archiviate in modo sicuro, potrebbero essere vulnerabili alla compromissione tramite meccanismi quali i logger di chiavi hardware fisico o altri attacchi fisici.  
   
-### <a name="implementing-a-secure-physical-workstation-with-a-virtualized-productivity-workstation"></a>Implementazione di una Workstation sicura fisica con una Workstation di produttività virtualizzati  
-Questo approccio, agli utenti IT viene fornita una workstation amministrativa protetta da cui si può eseguire funzioni amministrative quotidiane, usando strumenti di amministrazione remota Server (RSAT) o le connessioni RDP ai server nel proprio ambito di responsabilità. Quando gli utenti IT devono eseguire attività di produttività, possano connettersi tramite RDP a una workstation remota per la produttività in esecuzione come macchina virtuale. Usare credenziali separate per ogni workstation e i controlli, ad esempio le smart card devono essere implementati.  
-  
-#### <a name="pros"></a>Vantaggi  
-  
--   Workstation per la produttività e le workstation amministrative sono separate.  
-  
--   IL personale IT con workstation sicure per connettersi alla workstation per la produttività possono usare credenziali separate e smart card e credenziali con privilegi non vengono inserite nel computer meno sicuro.  
-  
-#### <a name="cons"></a>Svantaggi  
-  
--   Implementazione della soluzione richiede la progettazione e opzioni di virtualizzazione affidabile e attività di implementazione.  
-  
--   Se le workstation fisiche non vengono archiviate in modo sicuro, potrebbero essere vulnerabile agli attacchi fisici che compromettono l'hardware o sistema operativo e li rendono vulnerabili alle intercettazioni le comunicazioni.  
-  
-### <a name="implementing-a-single-secure-workstation-with-connections-to-separate-productivity-and-administrative-virtual-machines"></a>Implementazione di una sola Workstation sicure con le connessioni per separare "Productivity" e "Amministrativo" le macchine virtuali  
-Questo approccio, è possibile eseguire una sola workstation fisiche che è bloccato come descritto in precedenza, e in cui gli utenti IT non sono necessario l'accesso con privilegi di utenti IT. È possibile fornire le connessioni di Servizi Desktop remoto per macchine virtuali ospitate su server dedicati, fornendo il personale IT con una macchina virtuale che esegue l'indirizzo di posta elettronica e altre applicazioni di produttività e una seconda macchina virtuale configurata come l'utente host di amministrazione dedicato.  
-  
-È consigliabile richiedere smart card o altro accesso a più fattori per le macchine virtuali, usando account separati diverso dall'account usato per accedere al computer fisico. Dopo che un utente di IT accede a un computer fisico, usano la propria produttività smart card per la connessione al computer remoto per la produttività e un account separato e smart card per connettersi al proprio computer di amministrazione remota.  
+### <a name="implementing-a-secure-physical-workstation-with-a-virtualized-productivity-workstation"></a>Implementazione di una workstation fisica sicura con una workstation di produttività virtualizzata  
+Con questo approccio, agli utenti IT viene assegnata una workstation amministrativa protetta dalla quale è possibile eseguire funzioni amministrative quotidiane, utilizzando Strumenti di amministrazione remota del server (strumenti di amministrazione remota) o connessioni RDP ai server all'interno dell'ambito di responsabilità. Quando gli utenti devono eseguire attività di produttività, possono connettersi tramite RDP a una workstation di produttività remota in esecuzione come macchina virtuale. È necessario usare credenziali separate per ogni workstation e i controlli quali le smart card devono essere implementati.  
   
 #### <a name="pros"></a>Vantaggi  
   
--   Gli utenti IT possono usare una sola workstation fisica.  
+-   Le workstation amministrative e le workstation di produttività sono separate.  
   
--   Da che richiedono account separati per gli host virtuali e l'utilizzo di connessioni di Servizi Desktop remoto alle macchine virtuali, le credenziali degli utenti IT non vengono memorizzate nella cache nel computer locale.  
-  
--   È possibile proteggere l'host fisico per lo stesso livello di host amministrativi, riducendo la probabilità di compromettere il computer locale.  
-  
--   Nei casi in cui macchine virtuali per la produttività dell'utente un IT o amministrativi della relativa macchina virtuale possa essere stata compromessa, la macchina virtuale possono essere reimpostata facilmente a uno stato "valida".  
-  
--   Se il computer fisico è compromesso, Nessuna credenziale con privilegi verranno memorizzata nella cache e l'uso di smart card può impedire il danneggiamento delle credenziali da keystroke logger.  
+-   Il personale IT che usa workstation sicure per connettersi alle workstation di produttività può usare credenziali e smart card separate e le credenziali con privilegi non vengono depositate nel computer meno sicuro.  
   
 #### <a name="cons"></a>Svantaggi  
   
--   Implementazione della soluzione richiede la progettazione e opzioni di virtualizzazione affidabile e attività di implementazione.  
+-   Per implementare la soluzione sono necessari un lavoro di progettazione e implementazione e opzioni di virtualizzazione affidabili.  
   
--   Se le workstation fisiche non vengono archiviate in modo sicuro, potrebbero essere vulnerabile agli attacchi fisici che compromettono l'hardware o sistema operativo e li rendono vulnerabili alle intercettazioni le comunicazioni.  
+-   Se le workstation fisiche non vengono archiviate in modo sicuro, potrebbero essere vulnerabili ad attacchi fisici che compromettono l'hardware o il sistema operativo e li rendono suscettibili all'intercettazione delle comunicazioni.  
   
-### <a name="implementing-secure-administrative-workstations-and-jump-servers"></a>Implementazione di workstation amministrative protette e Jump server  
-Come alternativa alla sicurezza delle workstation amministrative o in combinazione con essi, è possibile implementare sicuro jump server, e gli utenti amministratori possono connettersi le jump server tramite RDP e smart card per eseguire attività amministrative.  
+### <a name="implementing-a-single-secure-workstation-with-connections-to-separate-productivity-and-administrative-virtual-machines"></a>Implementazione di una singola workstation protetta con connessioni a macchine virtuali "produttività" e "amministrative" separate  
+Con questo approccio, è possibile inviare agli utenti IT una singola workstation fisica bloccata come descritto in precedenza e in cui gli utenti IT non dispongono di accesso con privilegi. È possibile fornire connessioni Servizi Desktop remoto alle macchine virtuali ospitate su server dedicati, fornendo al personale IT una macchina virtuale che esegue la posta elettronica e altre applicazioni di produttività e una seconda macchina virtuale configurata come host amministrativo dedicato.  
   
-Jump server deve essere configurato per eseguire il ruolo Gateway Desktop remoto per consentire di implementare limitazioni per le connessioni al server di salto e ai server di destinazione che verranno gestiti da quest'ultimo. Se possibile, è necessario anche installare il ruolo Hyper-V e creare [desktop personali virtuali](https://technet.microsoft.com/library/dd759174.aspx) o altre macchine virtuali per utente per gli utenti amministrativi da utilizzare per le attività nella jump server.  
-  
-Assegnando gli utenti amministratori a macchine virtuali per utente nel jump server, è fornire la sicurezza fisica per le workstation amministrative e utenti con privilegi amministrativi possono reimpostare o arrestare le macchine virtuali quando non è in uso. Se si preferisce non installare il ruolo Hyper-V e il ruolo Gateway Desktop remoto nello stesso host amministrativi, è possibile installarli in computer separati.  
-  
-Laddove possibile, usare gli strumenti di amministrazione remota per gestire i server. La funzionalità Strumenti di amministrazione remota Server (RSAT) deve essere installata in macchine virtuali degli utenti (o il jump server se non si siano implementando le macchine virtuali per utente per l'amministrazione), mentre il personale amministrativo deve connettersi tramite RDP al loro macchine virtuali per eseguire attività amministrative.  
-  
-In casi quando un utente amministratore deve connettersi tramite RDP a un server di destinazione per gestirlo direttamente, Gateway Desktop remoto deve essere configurato per consentire la connessione a essere eseguita solo se l'utente appropriato e il computer vengono utilizzati per stabilire la connessione alla destinazione Server. L'esecuzione di amministrazione remota del server (o simile), ad esempio workstation di uso generale e i server membro che sono non jump server, strumenti nei sistemi che non sono designati sistemi di gestione, dovrebbero essere proibiti.  
+È necessario richiedere una smart card o un altro accesso a più fattori per le macchine virtuali, usando account separati diversi dall'account usato per accedere al computer fisico. Dopo che un utente IT ha eseguito l'accesso a un computer fisico, può usare la smart card per la produttività per connettersi al computer di produttività remoto e a un account separato e a una smart card per connettersi al computer amministrativo remoto.  
   
 #### <a name="pros"></a>Vantaggi  
   
--   Creazione jump server consente di eseguire il mapping di determinati server "zones" (raccolte di sistemi con requisiti di configurazione, connessione e sicurezza simili) nella rete e richiedere che l'amministrazione di ogni zona è ottenuto dal personale amministrativo la connessione da host amministrativi protetti a un server designato "zona".  
+-   Gli utenti IT possono usare una singola workstation fisica.  
   
--   Eseguendo il mapping jump server alle aree, è possibile implementare controlli granulari per le proprietà di connessione e i requisiti di configurazione e puoi identificare con facilità i tentativi di connessione dai sistemi non autorizzati.  
+-   Richiedendo account distinti per gli host virtuali e usando Servizi Desktop remoto connessioni alle macchine virtuali, le credenziali degli utenti IT non vengono memorizzate nella cache del computer locale.  
   
--   Mediante l'implementazione di macchine virtuali per ogni amministratore nel server di collegamento, si applicano arresto e la reimpostazione delle macchine virtuali in uno stato noto di pulizia al termine delle attività amministrative. Tramite l'applicazione (arresto o riavvio) delle macchine virtuali quando vengono completate le attività amministrative, le macchine virtuali non può essere attaccate da utenti malintenzionati, né di attacchi con furto di credenziali fattibile perché le credenziali memorizzate nella cache di memoria non vengono mantenute di là un riavvio.  
+-   L'host fisico può essere protetto allo stesso grado degli host amministrativi, riducendo la probabilità di compromissione del computer locale.  
+  
+-   Nei casi in cui è possibile che la macchina virtuale di produttività di un utente IT o la relativa macchina virtuale amministrativa sia stata compromessa, la macchina virtuale può essere facilmente reimpostata su uno stato noto.  
+  
+-   Se il computer fisico è compromesso, nessuna credenziale con privilegi verrà memorizzata nella cache e l'utilizzo delle smart card può impedire la compromissione delle credenziali da parte dei logger di tasti.  
   
 #### <a name="cons"></a>Svantaggi  
   
--   Server dedicati sono necessari per jump server, fisica o virtuale.  
+-   Per implementare la soluzione sono necessari un lavoro di progettazione e implementazione e opzioni di virtualizzazione affidabili.  
   
--   Implementazione designato jump server e workstation amministrative richiede un'attenta pianificazione e la configurazione che esegue il mapping a tutte le aree di sicurezza configurate nell'ambiente.  
+-   Se le workstation fisiche non vengono archiviate in modo sicuro, potrebbero essere vulnerabili ad attacchi fisici che compromettono l'hardware o il sistema operativo e li rendono suscettibili all'intercettazione delle comunicazioni.  
+  
+### <a name="implementing-secure-administrative-workstations-and-jump-servers"></a>Implementazione di workstation amministrative sicure e Jump server  
+In alternativa alle workstation amministrative sicure o in combinazione con esse, è possibile implementare server di salto sicuro e gli utenti amministratori possono connettersi ai server di salto utilizzando RDP e smart card per eseguire attività amministrative.  
+  
+È necessario configurare i server di salto per eseguire il ruolo Gateway Desktop remoto per consentire l'implementazione di restrizioni sulle connessioni al server di salto e ai server di destinazione che saranno gestiti da quest'operazione. Se possibile, è necessario installare anche il ruolo Hyper-V e creare [desktop virtuali personali](https://technet.microsoft.com/library/dd759174.aspx) o altre macchine virtuali per utente per gli utenti amministratori da usare per le attività nei server di salto.  
+  
+Fornendo le macchine virtuali per utente amministratore nel server Jump, viene fornita la sicurezza fisica per le workstation amministrative e gli utenti amministratori possono reimpostare o arrestare le macchine virtuali quando non sono in uso. Se si preferisce non installare il ruolo Hyper-V e il ruolo Gateway Desktop remoto nello stesso host amministrativo, è possibile installarli in computer distinti.  
+  
+Laddove possibile, è consigliabile utilizzare gli strumenti di amministrazione remota per gestire i server. La funzionalità Strumenti di amministrazione remota del server (strumenti di amministrazione remota del server) deve essere installata nelle macchine virtuali degli utenti (o nel server di salto se non si implementano macchine virtuali per utente per l'amministrazione) e il personale amministrativo deve connettersi tramite RDP ai rispettivi macchine virtuali per eseguire attività amministrative.  
+  
+Nei casi in cui un utente amministratore deve connettersi tramite RDP a un server di destinazione per gestirlo direttamente, Gateway Desktop remoto deve essere configurato in modo da consentire la connessione solo se l'utente e il computer appropriati vengono utilizzati per stabilire la connessione alla destinazione Server. L'esecuzione di strumenti di strumenti di amministrazione remota del server (o simili) dovrebbe non essere consentita nei sistemi che non sono sistemi di gestione designati, ad esempio le workstation con utilizzo generale e i server membri che non sono Jump server.  
+  
+#### <a name="pros"></a>Vantaggi  
+  
+-   La creazione di Jump Server consente di eseguire il mapping di server specifici a "zone" (raccolte di sistemi con requisiti di configurazione, connessione e sicurezza simili) nella rete e di richiedere che l'amministrazione di ogni zona venga realizzata dal personale amministrativo. connessione da host amministrativi protetti a un server "zona" designato.  
+  
+-   Eseguendo il mapping di Jump Servers alle zone, è possibile implementare controlli granulari per le proprietà di connessione e i requisiti di configurazione e identificare facilmente i tentativi di connessione da sistemi non autorizzati.  
+  
+-   Implementando le macchine virtuali per amministratore in Jump Servers, si applica l'arresto e la reimpostazione delle macchine virtuali a uno stato pulito noto quando vengono completate le attività amministrative. Applicando l'arresto (o il riavvio) delle macchine virtuali quando vengono completate le attività amministrative, le macchine virtuali non possono essere interessate da utenti malintenzionati, né da attacchi di furto delle credenziali, perché le credenziali memorizzate nella cache non vengono mantenute dopo un riavvio.  
+  
+#### <a name="cons"></a>Svantaggi  
+  
+-   I server dedicati sono necessari per i server Jump, sia fisici che virtuali.  
+  
+-   L'implementazione di server di salto e workstation amministrative designati richiede un'attenta pianificazione e una configurazione che esegue il mapping a tutte le aree di sicurezza configurate nell'ambiente.  
   
 
 

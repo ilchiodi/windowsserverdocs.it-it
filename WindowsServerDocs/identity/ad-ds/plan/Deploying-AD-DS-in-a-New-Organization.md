@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9f502addbd214abad12bb9a2d6ab3bef8882209d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ffcb9d403b8d83285099e4cb9449771f95c16a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408926"
 ---
 # <a name="deploying-ad-ds-in-a-new-organization"></a>Distribuzione di Active Directory Domain Services in una nuova organizzazione
 
@@ -26,7 +26,7 @@ Nella figura seguente vengono illustrati i passaggi per la distribuzione di Wind
   
 ![distribuzione in una nuova organizzazione](media/Deploying-AD-DS-in-a-New-Organization/daa38971-86f2-4033-9442-0cdff9ecc48f.gif)  
   
-Per un elenco di attività dettagliate che è possibile usare per pianificare e distribuire Active Directory Domain Services in una nuova organizzazione, vedere [elenco di controllo: Distribuzione di Active Directory in una nuova organizzazione](https://technet.microsoft.com/library/cc725897.aspx).  
+Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire servizi di dominio Active Directory in una nuova organizzazione, vedere [Checklist: Distribuzione di servizi di dominio Active Directory in una nuova organizzazione @ no__t-0.  
   
 
 

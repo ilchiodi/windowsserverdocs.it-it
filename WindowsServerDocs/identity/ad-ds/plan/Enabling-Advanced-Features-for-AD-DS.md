@@ -7,22 +7,22 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f03b6ca417f491d6638241c8ad4daadd25c76c77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 733bb56351c134446c9406b825619f3c26d6ff76
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402599"
 ---
 # <a name="enabling-advanced-features-for-ad-ds"></a>Abilitazione delle funzionalità avanzate di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Servizi di dominio Active Directory (AD DS) consente di introdurre funzionalità avanzate dell'ambiente generando i livelli di funzionalità dominio o foresta. Per usare le funzionalità avanzate di Active Directory Domain Services, è necessario identificare i sistemi operativi che eseguono i controller di dominio nell'ambiente in uso.   
+Active Directory Domain Services (AD DS) consente di introdurre funzionalità avanzate nel proprio ambiente aumentando i livelli di funzionalità del dominio o della foresta. Per utilizzare le funzionalità avanzate di servizi di dominio Active Directory, è necessario identificare i sistemi operativi in esecuzione sui controller di dominio nell'ambiente in uso.   
   
-È necessario anche determinare il migliore livello di funzionalità per l'organizzazione in base all'infrastruttura esistente e quindi aumentare il livello funzionale di dominio o foresta come appropriato. È possibile generare il livello di funzionalità quando tutti i controller di dominio nel dominio o foresta eseguono una versione appropriata di Windows. Sebbene l'aumento del livello funzionale rende possibile per abilitare nuove funzionalità, limita anche le versioni dei sistemi operativi Windows che è possibile eseguire nei controller di dominio nell'ambiente in uso.  
+È anche necessario determinare il livello di funzionalità migliore per l'organizzazione in base all'infrastruttura esistente e quindi aumentare il livello di funzionalità del dominio o della foresta nel modo appropriato. È possibile aumentare il livello di funzionalità quando tutti i controller di dominio nel dominio o nella foresta eseguono una versione appropriata di Windows. Sebbene la generazione del livello di funzionalità consenta di abilitare nuove funzionalità, limita anche le versioni dei sistemi operativi Windows che è possibile eseguire sui controller di dominio nell'ambiente in uso.  
         
   
 

@@ -1,6 +1,6 @@
 ---
 title: Set di cluster
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
@@ -8,16 +8,16 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Questo articolo descrive lo scenario dei set di cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 973725d56fcd3a276a2aad3c61820b454d613684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 52d686fa9797d84f56182b15c36a26440792ec13
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865017"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402919"
 ---
 # <a name="cluster-sets"></a>Set di cluster
 
-> Si applica a Windows Server 2019
+> Si applica a: Windows Server 2019
 
 Set di cluster è la nuova tecnologia per la scalabilità orizzontale del cloud nella versione di Windows Server 2019 che aumenta il numero di nodi del cluster in un singolo Cloud SDDC (software defined Data Center) per ordine di grandezza. Un set di cluster è un raggruppamento a regime di controllo libero di più cluster di failover: calcolo, archiviazione o iperconvergenza. Set di cluster la tecnologia consente la fluidità delle macchine virtuali tra i cluster di membri all'interno di un set di cluster e uno spazio dei nomi di archiviazione unificato nel set a supporto della fluidità delle macchine virtuali.
 

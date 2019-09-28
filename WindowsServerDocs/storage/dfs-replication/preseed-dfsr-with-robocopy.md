@@ -1,23 +1,23 @@
 ---
 title: Usare Robocopy per eseguire il Preseeding dei file per Replica DFS
 description: Come usare Robocopy. exe per eseguire il Preseeding dei file per Replica DFS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a0cad3c685c8609784c7096fe31d55294712c2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871985"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402124"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Usare Robocopy per eseguire il Preseeding dei file per Replica DFS
 
->Si applica a Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 In questo argomento viene illustrato come utilizzare lo strumento da riga di comando **Robocopy. exe**per eseguire il Preseeding dei file quando si configura la replica per la replica file System distribuito (DFS) (nota anche come DFSR o DFS-R) in Windows Server. Eseguendo il Preseeding dei file prima di configurare Replica DFS, aggiungere un nuovo partner di replica o sostituire un server è possibile velocizzare la sincronizzazione iniziale e abilitare la clonazione del database di Replica DFS in Windows Server 2012 R2. Il metodo Robocopy è uno dei diversi metodi di Preseeding; per una panoramica, vedere [passaggio 1: Preseeding dei file per replica DFS](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
 

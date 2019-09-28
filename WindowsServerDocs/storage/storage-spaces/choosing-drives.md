@@ -1,7 +1,7 @@
 ---
 ms.assetid: 1368bc83-9121-477a-af09-4ae73ac16789
 title: Scelta delle unità per Spazi di archiviazione diretta
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: eb19e7ecf89f02200d3393dc1a4a9e5cd85cf598
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: b02d26e8a2f2cd699d8e1eda95cf72fe71396a21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314989"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402893"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Scelta delle unità per Spazi di archiviazione diretta
 
->Si applica a Windows 2019, Windows Server 2016
+>Si applica a: Windows 2019, Windows Server 2016
 
 In questo argomento vengono fornite indicazioni su come scegliere le unità per [Spazi di archiviazione diretta](storage-spaces-direct-overview.md) per soddisfare i tuoi requisiti di capacità e prestazioni.
 

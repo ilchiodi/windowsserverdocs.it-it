@@ -1,8 +1,8 @@
 ---
 title: shift
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e72b4be1b265d682d489cf372cdfe5ef54bb444d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f74e0f1f9041a4a7b95d83772ea79376c82876de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371255"
 ---
 # <a name="shift"></a>shift
 
@@ -38,20 +38,20 @@ shift [/n <N>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/n \<N>|Specifica per iniziare lo spostamento di *N*esimo argomento, dove *N* è qualsiasi valore compreso tra 0 e 8. Richiede le estensioni dei comandi, sono abilitati per impostazione predefinita.|
+|/n \<N >|Specifica di iniziare a spostare in corrispondenza dell'argomento *n*, dove *n* è qualsiasi valore compreso tra 0 e 8. Sono necessarie le estensioni dei comandi, abilitate per impostazione predefinita.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-- Il **shift** comando Modifica i valori dei parametri di batch **%0** tramite **%9** mediante la copia di ogni parametro in quella precedente, ovvero il valore di **%1** viene copiato **%0**, il valore di **%2** viene copiato **%1**e così via. Ciò è utile per la scrittura di un file batch che esegue la stessa operazione su un qualsiasi numero di parametri.
-- Se sono abilitate le estensioni dei comandi, il **shift** comando supporta la **/n** opzione della riga di comando. Il **/n** opzione specifica per iniziare lo spostamento l'ennesimo argomento, dove **N** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **MAIUSC /2** comporterebbe un cambiamento **%3** al **%2**, **%4** a **%3**e così via e lasciare **%0** e **%1** interessate. Le estensioni comando sono abilitate per impostazione predefinita.
-- È possibile usare la **MAIUSC** comando per creare un file batch che può accettare parametri batch più di 10. Se si specificano più di 10 parametri nella riga di comando, quelli che vengono visualizzati dopo il decimo ( **%9**) saranno spostate uno alla volta nel **%9**.
-- Il **shift** comando non ha alcun effetto **% \\** * batch parametro.
-- Non è non con le versioni precedenti **MAIUSC** comando. Dopo aver implementato il **shift** comando, non sarà possibile recuperare il parametro batch ( **%0**) che esisteva prima il turno.
+- Il **comando shift** consente di modificare i valori dei parametri batch da **% 0** a **% 9** copiando ogni parametro in quello precedente. il valore di **% 1** viene copiato in **% 0**, il valore di **% 2** viene copiato in **% 1**e così via. Questa operazione è utile per la scrittura di un file batch che esegue la stessa operazione su un numero qualsiasi di parametri.
+- Se sono abilitate le estensioni dei comandi, il comando **Shift** supporta l'opzione della riga di comando **/n** . L'opzione **/n** specifica di iniziare lo spostamento in corrispondenza dell'ennesimo argomento, dove **n** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **Shift/2** sposterebbe **% 3** in **% 2**, **% 4** in **% 3**e così via e lascerebbe **% 0** e **% 1** non interessato. Le estensioni dei comandi sono abilitate per impostazione predefinita.
+- È possibile utilizzare il comando **Shift** per creare un file batch in grado di accettare più di 10 parametri batch. Se nella riga di comando si specificano più di 10 parametri, quelli visualizzati dopo il decimo ( **% 9**) verranno spostati uno alla volta in **% 9**.
+- Il comando **Shift** non ha alcun effetto sul parametro batch **% @ no__t-3***.
+- Nessun comando di **spostamento** all'indietro. Dopo aver implementato il comando **Shift** , non è possibile recuperare il parametro batch ( **% 0**) esistente prima del turno.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Le righe seguenti da un file batch di esempio denominato Miacopia illustrano come usare **MAIUSC** con qualsiasi numero di parametri di batch. In questo esempio Miacopia copia un elenco di file in una directory specifica. I parametri batch sono rappresentati dagli argomenti nome di file e directory.
+Le righe seguenti di un file batch di esempio denominato copy. bat illustrano come usare **Shift** con un numero qualsiasi di parametri batch. In questo esempio, copia. bat copia un elenco di file in una directory specifica. I parametri batch sono rappresentati dagli argomenti directory e nome file.
 ```
 @echo off 
 rem MYCOPY.BAT copies any number of files

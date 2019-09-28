@@ -1,77 +1,77 @@
 ---
-title: Considerazioni sull'utilizzo di memoria nell'ottimizzazione delle prestazioni di Active Directory Domain Services
-description: Utilizzo di memoria di processo Lsass.exe nei controller di dominio che eseguono Windows Server 2012 R2, 2016 e 2019.
-ms.prod: windows-server-threshold
+title: Considerazioni sull'utilizzo della memoria nell'ottimizzazione delle prestazioni di Active Directory
+description: Utilizzo della memoria da parte del processo Lsass. exe nei controller di dominio che eseguono Windows Server 2012 R2, 2016 e 2019.
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; lindakup
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: dd33124d7d480f3670fa2781f567eaaa28abbce6
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 55ac47d835874ddb8e160603f08cbafa985aad2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799783"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370294"
 ---
-# <a name="memory-usage-considerations-for-ad-ds-performance-tuning"></a>Considerazioni sull'utilizzo di memoria per ottimizzare le prestazioni di Active Directory Domain Services
+# <a name="memory-usage-considerations-for-ad-ds-performance-tuning"></a>Considerazioni sull'utilizzo della memoria per l'ottimizzazione delle prestazioni di Active Directory
 
-Questo articolo descrive alcuni concetti di base di Local Security Authority Subsystem Service (LSASS, noto anche come processo Lsass.exe), procedure consigliate per la configurazione di LSASS e le aspettative per l'utilizzo di memoria. Questo articolo deve essere usato come guida durante l'analisi dell'utilizzo di memoria e prestazioni LSASS nei controller di dominio (DC). Le informazioni contenute in questo articolo possono essere utile se hai domande su come ottimizzare e configurare i server e i controller di dominio per ottimizzare questo motore.  
+In questo articolo vengono descritte alcune nozioni di base del Local Security Authority Subsystem Service (LSASS, noto anche come processo Lsass. exe), le procedure consigliate per la configurazione di LSASS e le aspettative per l'utilizzo della memoria. Questo articolo deve essere usato come guida per l'analisi delle prestazioni e dell'utilizzo della memoria di LSASS nei controller di dominio. Le informazioni contenute in questo articolo possono essere utili in caso di domande su come ottimizzare e configurare i server e i controller di dominio per ottimizzare questo motore.  
 
-LSASS è responsabile della gestione dell'autenticazione di dominio di sicurezza locali authority (LSA) e la gestione di Active Directory. LSASS gestisce l'autenticazione per il client e il server e determina anche il modulo di Active Directory. LSASS è responsabile per i componenti seguenti:  
+LSASS è responsabile della gestione dell'autenticazione del dominio LSA (Local Security Authority) e della gestione Active Directory. LSASS gestisce l'autenticazione sia per il client che per il server e governa anche il motore di Active Directory. LSASS è responsabile dei componenti seguenti:  
 
 - Autorità di sicurezza locale
 - Servizio NetLogon
-- Servizio di gestione di account (SAM) di sicurezza
+- Servizio Gestione account di sicurezza (SAM)
 - Servizio Server LSA
 - Secure Sockets Layer (SSL)
-- Protocollo di autenticazione Kerberos v5
+- Protocollo di autenticazione Kerberos V5
 - Protocollo di autenticazione NTLM
-- Altri pacchetti di autenticazione che viene caricato in LSA
+- Altri pacchetti di autenticazione caricati in LSA
 
-I servizi di database di Active Directory (NTDSAI.dll) funzionano con Extensible Storage Engine (ESE, ESENT. dll).
+I servizi di database Active Directory (NTDSAI. dll) funzionano con Extensible Storage Engine (ESE, ESENT. dll).
 
-Ecco un grafico visuale LSASS di utilizzo della memoria in un controller di dominio:
+Di seguito è riportato un diagramma visivo dell'utilizzo della memoria LSASS in un controller di dominio:
 
-![Diagramma dei componenti che utilizzano memoria LSASS](media/domain-controller-lsass-memory-usage.png)  
+![Diagramma dei componenti che utilizzano la memoria LSASS](media/domain-controller-lsass-memory-usage.png)  
 
-Consente di aumentare la quantità di memoria utilizzata da LSASS su un controller di dominio in base sull'utilizzo di Active Directory. Quando viene eseguita una query dei dati, viene memorizzato nella cache in memoria. Di conseguenza, è normale che LSASS usando una quantità di memoria che è maggiore della dimensione del file di database di Active Directory (NTDS. dit).
+La quantità di memoria utilizzata da LSASS in un controller di dominio aumenta in base all'utilizzo Active Directory. Quando viene eseguita una query sui dati, questo viene memorizzato nella cache. Di conseguenza, è normale vedere LSASS con una quantità di memoria superiore alle dimensioni del file di database Active Directory (NTDS. dit).
 
-Come illustrato nel diagramma, utilizzo della memoria LSASS può essere suddivisi in più parti, tra cui la cache buffer del database ESE, l'archivio versione ESE e altri. Il resto di questo articolo fornisce informazioni approfondite ognuna di queste parti.
+Come illustrato nel diagramma, l'utilizzo della memoria LSASS può essere suddiviso in più parti, tra cui la cache del buffer del database ESE, l'archivio delle versioni ESE e altri. Nella parte restante di questo articolo vengono fornite informazioni dettagliate su ognuna di queste parti.
 
-## <a name="ese-database-buffer-cache"></a>Cache buffer del database ESE  
-L'utilizzo della memoria variabile più grande LSASS è la cache buffer del database ESE. Le dimensioni della cache possono variare da inferiori a 1 MB per le dimensioni dell'intero database. Poiché una cache più grande migliora le prestazioni, il motore di database di Active Directory (ESE) tenta di mantenere la cache di dimensioni corrispondenti. Anche se le dimensioni della cache variano con utilizzo elevato di memoria del computer, è la dimensione massima della cache del buffer di database ESE *solo* limitate dalla RAM fisica installata nel computer. Finché sono presenti altre richieste di memoria, la cache possa crescere le dimensioni del file di database Ntds. dit di Active Directory. Maggiore è il numero di database che può essere memorizzati nella cache, migliori le prestazioni del controller di dominio sarà.  
+## <a name="ese-database-buffer-cache"></a>Cache del buffer del database ESE  
+L'utilizzo più elevato della memoria variabile all'interno di LSASS è la cache del buffer del database ESE. La dimensione della cache può variare da meno di 1 MB alla dimensione dell'intero database. Poiché una cache di dimensioni maggiori migliora le prestazioni, il motore di database per Active Directory (ESENT) tenta di mantenendo la cache il più grande possibile. Mentre le dimensioni della cache variano in base al numero di richieste di memoria nel computer, le dimensioni massime della cache del buffer del database ESE sono limitate *solo* dalla RAM fisica installata nel computer. Fino a quando non si verificano altre richieste di memoria, la cache può raggiungere le dimensioni del file di database Active Directory NTDS. dit. Maggiore è il database che può essere memorizzato nella cache, migliori saranno le prestazioni del controller di dominio.  
   
 > [!NOTE]
-> A causa della modalità che la memorizzazione nella cache di funzionamento dell'algoritmo, in un sistema a 64 bit in cui le dimensioni del database sono inferiori alla memoria RAM disponibile, la cache del database di espansione del database supera le dimensioni del database del 30-40%.
+> A causa della modalità di funzionamento dell'algoritmo di memorizzazione nella cache del database, in un sistema a 64 bit in cui le dimensioni del database sono inferiori alla RAM disponibile, la cache del database può aumentare di dimensioni superiori a quelle del database da 30 a 40%.
 
-## <a name="ese-version-store"></a>Archivio versione ESE
+## <a name="ese-version-store"></a>Archivio versioni ESE
 
-Utilizzo di memoria variabile è l'archivio versione ESE (la parte rosso nel diagramma precedente). La quantità di memoria usata dipende se si dispone di versioni precedenti di Windows o Windows Server 2019.
+L'archivio delle versioni ESE presenta una variabile utilizzo di memoria (la parte rossa nel diagramma precedente). La quantità di memoria utilizzata varia a seconda che si disponga di Windows Server 2019 o di versioni precedenti di Windows.
 
-- Nelle versioni di Windows Server anticipa 2019 Server Windows, per impostazione predefinita che Lsass può usare fino a circa 400 MB di memoria (in base al numero di CPU) in un computer a 64 bit per la versione ESE archiviare. Per altre informazioni sull'uso di archivio delle versioni vedere il blog ASKDS post Ryan Ries: [La versione Store chiamato e sono tutte all'esterno di bucket](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/The-Version-Store-Called-and-They-8217-re-All-Out-of-Buckets/ba-p/400415).
+- Nelle versioni di Windows Server precedenti a Windows Server 2019, per impostazione predefinita LSASS può utilizzare fino a circa 400MB di memoria (a seconda del numero di CPU) in un computer a 64 bit per l'archivio delle versioni ESE. Per altre informazioni sull'uso dell'archivio versioni, vedere il post di Blog di nel seguente di Ryan Ries: [L'archivio versione ha chiamato e sono tutti bucket](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/The-Version-Store-Called-and-They-8217-re-All-Out-of-Buckets/ba-p/400415).
 
-- In Windows Server 2019, questo processo viene semplificato e quando prima all'avvio del servizio NTDS, le dimensioni dell'archivio versione ESE ora sono pari a 10% della RAM fisica, con un minimo di 400MB e un massimo di 4GB. Per ottime informazioni dettagliate su questo e la risoluzione dei problemi di versione store, vedere un altro grande blog da Ryan Ries: [Deep Dive: Store versione ESE di Active Directory viene modificato nel Server 2019](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/Deep-Dive-Active-Directory-ESE-Version-Store-Changes-in-Server/ba-p/400510).
+- In Windows Server 2019 questa operazione è semplificata e quando il servizio NTDS viene avviato per la prima volta, le dimensioni dell'archivio versioni ESE sono ora calcolate come 10% di RAM fisica, con un minimo di 400MB e un massimo di 4 GB. Per informazioni dettagliate su questa e sulla risoluzione dei problemi relativi all'archivio versioni, vedere un altro interessante Blog di Ryan Ries: [Approfondimento: Active Directory modifiche dell'archivio versioni ESE nel server 2019 @ no__t-0.
 
-## <a name="other-memory-use"></a>Altro utilizzo memoria
+## <a name="other-memory-use"></a>Altro uso della memoria
 
-Infine, è presente codice, gli stack, gli heap e varie strutture di dati di dimensione fissa (ad esempio, la cache dello schema). La quantità di memoria utilizzata da LSASS può variare, a seconda del carico nel computer. Man mano che aumenta il numero di thread in esecuzione, aumenta il numero di stack di memoria. In Media, LSASS utilizza 100 MB a 300 MB di memoria per questi componenti fissi. Quando si installa una maggiore quantità di RAM, LSASS può utilizzare più RAM e una minore quantità di memoria virtuale.
+Infine, vi sono codice, stack, heap e varie strutture di dati a dimensione fissa, ad esempio la cache dello schema. La quantità di memoria utilizzata da LSASS può variare a seconda del carico del computer. Con l'aumentare del numero di thread in esecuzione, viene eseguito il numero di stack di memoria. In media, LSASS USA da 100 MB a 300 MB di memoria per questi componenti fissi. Quando viene installata una quantità maggiore di RAM, LSASS può usare più RAM e meno memoria virtuale.
 
-**Limitare o ridurre al minimo il numero di programmi nel controller di dominio o aggiungere altra RAM dove appropriato**
+**Limitare o ridurre al minimo il numero di programmi sul controller di dominio o aggiungere ulteriore RAM laddove appropriato**
 
-Per ottenere prestazioni ottimali, LSASS richiede più RAM possibili in un controller di dominio specificato. LSASS cede RAM perché vengano richiesti altri processi. L'idea è ottimizzare le prestazioni di LSASS pur tenendo conto di altri processi che potrebbero essere eseguite in un computer. L'elenco dei programmi da prendere in considerazione include agenti di monitoraggio. Alcuni clienti hanno agenti separati per varie funzioni di server che può essere utilizzato una quantità notevole di risorse di memoria RAM. Alcuni possono eseguire molte query WMI, per cui si dispone di alcuni dettagli riportati di seguito.
+Per prestazioni ottimali, LSASS accetta il maggior quantità di RAM possibile in un determinato controller di dominio. LSASS cede tale RAM come richiesto da altri processi. L'idea è quella di ottimizzare le prestazioni di LSASS pur continuando a mantenere conto di altri processi che potrebbero essere eseguiti in un computer. L'elenco dei programmi da controllare include gli agenti di monitoraggio. Alcuni clienti dispongono di agenti distinti per varie funzioni server che possono utilizzare notevoli risorse di RAM. Alcuni possono eseguire molte query WMI, per le quali sono disponibili alcuni dettagli.
 
-Per questo motivo e per migliorare le prestazioni, è consigliabile limitare o ridurre al minimo il numero di programmi in un controller di dominio. Se non sono presenti richieste di memoria, tale memoria LSASS utilizza per memorizzare nella cache i database di Active Directory e quindi ottenere prestazioni ottimali.
+Per questo motivo e per migliorare le prestazioni, è consigliabile limitare o ridurre al minimo il numero di programmi in un controller di dominio. Se non sono presenti richieste di memoria, LSASS usa questa memoria per memorizzare nella cache il database Active Directory e quindi ottenere prestazioni ottimali.
 
-Quando si nota che un controller di dominio ha problemi di prestazioni, anche di cercare processi con un utilizzo notevole quantità di memoria. Questi potrebbero avere un problema che è necessario risolvere i problemi. Possono includere componenti di Microsoft. Assicurarsi che rimanere al passo con gli aggiornamenti di manutenzione recenti&mdash;Microsoft include le soluzioni per l'utilizzo eccessivo della memoria durante gli aggiornamenti di qualità, che può essere utile anche le prestazioni del controller di dominio.
+Quando si nota che un controller di dominio presenta problemi di prestazioni, osservare anche i processi con un utilizzo di memoria significativo. È possibile che si verifichi un problema di cui è necessario risolvere i problemi. Possono includere componenti Microsoft. Assicurarsi di rimanere aggiornati sugli aggiornamenti recenti del servizio @ no__t-0Microsoft include soluzioni per un utilizzo eccessivo della memoria nell'ambito degli aggiornamenti qualitativi, che possono anche aiutare le prestazioni del controller di dominio.
 
-Esistono strutture del sistema operativo predefiniti che possono usare RAM significativo a seconda del profilo di utilizzo:
+Sono disponibili funzionalità predefinite del sistema operativo che possono utilizzare RAM significativa a seconda del profilo di utilizzo:
 
-- **File server di**. I controller di dominio sono anche i file server per le condivisioni SYSVOL e Netlogon, criteri di gruppo e gli script di avvio o accesso e criteri di manutenzione.
-  Tuttavia, noteremo i clienti di usare controller di dominio per altro contenuto di file del servizio. File server SMB quindi consentirebbe l'utilizzo di RAM per tenere traccia dei client attivi, ma tutto il contenuto del file renderebbero la cache del file del sistema operativo la crescita e competere con la cache del database ESE di RAM.  
+- **File server**. I controller di dominio sono anche file server per le condivisioni SYSVOL e Netlogon, per la manutenzione di criteri di gruppo e script per i criteri e gli script di avvio/accesso.
+  Tuttavia, i clienti usano i controller di dominio per soddisfare altri contenuti di file. Il file server SMB utilizzerebbe quindi RAM per tenere traccia dei client attivi, ma in primo luogo il contenuto del file renderebbe più grande la cache dei file del sistema operativo e concorrerebbe alla cache del database ESE per la RAM.  
 
-- **Le query WMI**. Soluzioni di monitoraggio verificare spesso molte query WMI. Una singola query potrebbe essere conveniente per l'esecuzione. È spesso il volume di chiamate che comporta un sovraccarico, soprattutto quando le soluzioni di monitoraggio estrarre i nuovi eventi dai registri eventi diversi che gestisce Windows.  
+- **Query WMI**. Le soluzioni di monitoraggio spesso fanno molte query WMI. È possibile eseguire una singola query in modo economico. Spesso si tratta del volume di chiamate che comporta un sovraccarico, soprattutto quando le soluzioni di monitoraggio estraggono i nuovi eventi dai vari registri eventi gestiti da Windows.  
 
-  Il registro eventi che produce il maggior parte dei volume è in genere il registro eventi di sicurezza. E questo è anche nel registro eventi che gli amministratori della sicurezza da raccogliere, specialmente da controller di dominio.  
+  Il registro eventi che produce il maggior volume è in genere il registro eventi di protezione. Questo è anche il registro eventi che gli amministratori della sicurezza vogliono raccogliere, soprattutto dai controller di dominio.  
 
-  Il servizio WMI utilizza uno schema di allocazione della memoria dinamica che consente di ottimizzare le query. Pertanto, il servizio WMI potrebbe allocare una grande quantità di memoria, in competizione nuovamente con la cache del database ESE.  
+  Il servizio WMI utilizza uno schema di allocazione della memoria dinamica che ottimizza le query. Il servizio WMI, pertanto, può allocare una grande quantità di memoria, in competizione con la cache del database ESE.  

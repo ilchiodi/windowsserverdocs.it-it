@@ -1,7 +1,7 @@
 ---
 title: Funzionalità e tecnologie per solo software (SO, Software Only)
 description: Queste funzionalità vengono implementate come parte del sistema operativo e sono indipendenti dalle schede di interfaccia di rete sottostanti. A volte queste funzionalità richiedono l'ottimizzazione della scheda di interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità includono funzionalità Hyper-v, ad esempio la qualità del servizio di macchine virtuali (vmQoS), gli elenchi di controllo di accesso (ACL) e le funzionalità non Hyper-V come gruppo NIC.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: 27fbbcc5eedb1bc8ee37a85356542335c2eac77a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871926"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405695"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Funzionalità e tecnologie per solo software (SO, Software Only)
 Le funzionalità di solo software sono implementate come parte del sistema operativo e sono indipendenti dalle schede di interfaccia di rete sottostanti. A volte queste funzionalità richiedono l'ottimizzazione della scheda di interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità includono funzionalità Hyper-v, ad esempio la qualità del servizio di macchine virtuali (vmQoS), gli elenchi di controllo di accesso (ACL) e le funzionalità non Hyper-V come gruppo NIC.

@@ -1,6 +1,6 @@
 ---
 title: Replica di un cluster esteso tramite l'archiviazione condivisa
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: eldenc
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,23 +8,23 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: 3acfcfd13ee3f78bac59a96b6021e5489f4e39ac
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 654b4aea135c360f5fc5f59fdf85627fe8dd4cc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000756"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402966"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Replica di un cluster esteso tramite l'archiviazione condivisa
 
->Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 In questo esempio di valutazione i computer e la relativa archiviazione verranno configurati in un singolo cluster esteso, in cui due nodi condividono un unico set di archiviazione e due nodi condividono un altro set di archiviazione e la replica mantiene il mirroring di entrambi i gruppi di archiviazione nel cluster per consentire il failover immediato. Questi nodi e la relativa archiviazione devono trovarsi in siti fisici separati, anche se non è obbligatorio. Esistono due fasi distinte per la creazione di cluster Hyper-V e file server come scenari di esempio.  
 
 > [!IMPORTANT]  
 > In questa valutazione, i server in siti differenti devono essere in grado di comunicare con gli altri server tramite una rete, ma non dispongono di una connessione fisica all'archiviazione condivisa dell'altro sito. Questo scenario non si avvale di Spazi di archiviazione diretta.  
 
-## <a name="terms"></a>Termini  
+## <a name="terms"></a>Condizioni  
 Questa procedura dettagliata usa l'ambiente seguente come esempio:  
 
 -   Quattro server, denominati **SR-SRV01**, **SR-SRV02**, **SR-SRV03**, e **SR-SRV04** trasformati in un singolo cluster denominato **SR-SRVCLUS**.  
@@ -36,7 +36,7 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ![Immagine che illustra due nodi della sede di Redmond di cui viene eseguita la replica con due nodi dello stesso cluster della sede di Bellevue](./media/Stretch-Cluster-Replication-Using-Shared-Storage/Storage_SR_StretchClusterExample.png)  
 
-**FIGURA 1:  Replica di archiviazione in un cluster esteso**  
+**FIGURE 1:  Replica di archiviazione in un cluster esteso @ no__t-0  
 
 ## <a name="prerequisites"></a>Prerequisiti  
 -   Foresta di Active Directory Domain Services (non è necessario eseguire Windows Server 2016).  
@@ -220,7 +220,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 14. **(Facoltativo)** Configurare reti di cluster e Active Directory per accelerare il failover del sito DNS. È possibile usare le reti definite da software Hyper-V, VLAN estese, i dispositivi di astrazione rete, TTL DNS ridotti e altre tecniche comuni.
 
-    Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: Un post di Blog sull' [estensione dei cluster di failover e sull'uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e sul post di Blog relativo all'abilitazione delle [notifiche delle modifiche tra siti](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) .  
+    Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: Un post di Blog sull' [estensione dei cluster di failover e sull'uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e sul post di Blog relativo all' [Abilitazione delle notifiche delle modifiche tra siti](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) .  
 
 15. **(Facoltativo)** Configurare la resilienza della macchina virtuale in modo che i guest non vengano sospesi a lungo durante gli errori dei nodi. In questo modo eseguiranno il failover nella nuova archiviazione di origine di replica entro 10 secondi.  
 
@@ -287,7 +287,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 9. **(Facoltativo)** Configurare reti di cluster e Active Directory per accelerare il failover del sito DNS. È possibile usare le reti definite da software Hyper-V, VLAN estese, i dispositivi di astrazione rete, TTL DNS ridotti e altre tecniche comuni.  
 
-   Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: [Estensione di cluster di failover e uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e abilitazione delle [notifiche di modifica tra siti: come e perché](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
+   Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: [Estensione di cluster di failover e uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e [Abilitazione delle notifiche di modifica tra siti: come e perché](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
 
 10. **(Facoltativo)** Configurare la resilienza della macchina virtuale in modo che i guest non vengano sospesi a lungo durante gli errori dei nodi. In questo modo eseguiranno il failover nella nuova archiviazione di origine di replica entro 10 secondi.  
 

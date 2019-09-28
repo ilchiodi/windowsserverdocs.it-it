@@ -1,8 +1,8 @@
 ---
 title: pwlauncher
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ec9748056b296bb0c74250b36c762fb86fa90ad
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 4cf65643e0c5a4b28e06619a8156792b6e5456ea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564647"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371970"
 ---
 # <a name="pwlauncher"></a>pwlauncher
 
 
 
-Abilita o disabilita il Windows To Go Startup Options (pwlauncher). Il **pwlauncher** lo strumento da riga di comando consente di configurare il computer per l'avvio in un'area di lavoro Windows To Go automaticamente (supponendo che uno è presente), senza che sia necessario immettere il firmware o modificare le opzioni di avvio.
+Abilita o Disabilita le opzioni di avvio di Windows to go (pwlauncher). Lo strumento da riga di comando **pwlauncher** consente di configurare il computer per l'avvio automatico in un'area di lavoro Windows to go (presupponendo che ne sia presente uno), senza che sia necessario immettere il firmware o modificare le opzioni di avvio.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,17 +38,17 @@ Pwlauncher {/enable | /disable}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/Enable|Abilita le opzioni di avvio di Windows To Go in modo che il computer verrà automaticamente avviato da un dispositivo USB, quando è presente|
-|/Disable|Disabilita le opzioni di avvio di Windows To Go in modo che il computer non può essere avviato da un dispositivo USB a meno che non configurate manualmente nel firmware.|
+|/Enable|Abilita le opzioni di avvio di Windows to go in modo che il computer venga avviato automaticamente da un dispositivo USB quando presente|
+|/Disable|Disabilita le opzioni di avvio di Windows to go in modo che il computer non possa essere avviato da un dispositivo USB, a meno che non sia configurato manualmente nel firmware.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-Il principale ostacolo per un utente che desiderano utilizzare Windows To Go è ottenere i computer per l'avvio da USB. Questa operazione viene in genere eseguita immettendo il firmware e provare diverse opzioni di configurazione fino a quando il computer è configurato correttamente. Ciò non è un'impresa di semplice per la maggior parte degli utenti ed è estremamente rischiosa perché il firmware contiene opzioni che è possano eseguire il rendering di un sistema inutilizzabile se usato in modo errato. Per cercare di risolvere questo problema, Windows 8and nei sistemi operativi successivi includono una funzionalità denominata "Windows To Go Startup Options" che consente di configurare i propri computer per l'avvio da USB all'interno di Windows-senza dover immettere sempre il firmware, purché i firmware supporta l'avvio da USB. L'abilitazione di un sistema eseguire sempre l'avvio da USB prima di tutto ha implicazioni che è opportuno considerare. Ad esempio, un dispositivo USB che include il malware può essere avviato inavvertitamente per compromettere il sistema o potrebbe essere collegata più unità USB per provocare un conflitto di avvio. Per questo motivo, la configurazione predefinita è di Windows To Go Startup Options disabilitata per impostazione predefinita. Inoltre, sono necessari privilegi di amministratore per configurare Windows To Go Startup Options. Se si abilita le opzioni di avvio di Windows To Go utilizzando lo strumento da riga di comando pwlauncher o la **modifica Windows To Go Startup Options** app il computer tenterà di eseguire l'avvio da qualsiasi dispositivo USB che viene inserita nel computer prima che venga avviato.
+Il più grande ostacolo per un utente che desidera utilizzare Windows to go consiste nel far avviare il computer da USB. Questa operazione viene eseguita tradizionalmente immettendo il firmware e provando diverse opzioni di configurazione fino a quando il computer non è configurato correttamente. Non si tratta di un'impresa semplice per la maggior parte degli utenti ed è estremamente rischiosa perché il firmware contiene opzioni che possono rendere inutilizzabile un sistema se usato in modo non corretto. Per risolvere questo problema, Windows 8and sistemi operativi successivi include una funzionalità denominata "Windows to go Startup Options", che consente a un utente di configurare il computer per l'avvio da USB da Windows senza mai immettere il firmware, purché i relativi il firmware supporta l'avvio da USB. Per consentire a un sistema di eseguire sempre l'avvio da USB, è necessario prendere in considerazione le implicazioni. Ad esempio, un dispositivo USB che include malware potrebbe essere avviato inavvertitamente per compromettere il sistema oppure è possibile collegare più unità USB per provocare un conflitto di avvio. Per questo motivo, la configurazione predefinita include le opzioni di avvio di Windows to go disabilitate per impostazione predefinita. Inoltre, sono necessari i privilegi di amministratore per configurare le opzioni di avvio di Windows to go. Se si abilitano le opzioni di avvio di Windows to go usando lo strumento da riga di comando pwlauncher o l'app **Change Windows to go Startup Options** , il computer tenterà di eseguire l'avvio da qualsiasi dispositivo USB inserito nel computer prima di avviarlo.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-L'esempio seguente illustra come usare il **pwlauncher** comando per abilitare l'avvio da USB:
+Nell'esempio seguente viene illustrato come è possibile utilizzare il comando **pwlauncher** per abilitare l'avvio da USB:
 ```
 Pwlauncher /enable
 ```

@@ -7,42 +7,42 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c3efbb4081336ebfdfe9d3ab8a2b91412aa82dee
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: eedb0f2ae4b6f600eb578c5db857cc1d79bccbd1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191084"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407987"
 ---
 # <a name="planning-for-federation-server-proxy-capacity"></a>Pianificazione della capacità per i proxy server federativi
 
-Pianificazione della capacità per i server federativi aiuta a stimare:  
+La pianificazione della capacità per i proxy server federativi consente di stimare:  
   
--   I requisiti di hardware appropriato per ciascun proxy server federativo.  
+-   Requisiti hardware appropriati per ciascun proxy server federativo.  
   
--   Il numero di server federativi e proxy server federativi da posizionare in ogni organizzazione.  
+-   Il numero di server federativi e proxy server federativi da inserire in ogni organizzazione.  
   
-Server federativi reindirizzano i token di sicurezza da un server federativo protetti nella rete aziendale per gli utenti federati. Lo scopo della distribuzione di un proxy server federativo è consentire agli utenti esterni di connettersi a un server federativo. Esegue effettivamente non firmare i token o scrivere dati nel database di configurazione di AD FS. Di conseguenza, i requisiti hardware per il proxy server federativo sono in genere inferiori rispetto ai requisiti hardware per un server federativo.  
+I proxy server federativi reindirizzano i token di sicurezza da un server federativo protetto nella rete aziendale agli utenti federati. Lo scopo della distribuzione di un proxy server federativo è consentire agli utenti esterni di connettersi a un server federativo. Non firma effettivamente i token o scrive i dati nel database di configurazione AD FS. Pertanto, i requisiti hardware per il proxy server federativo sono in genere inferiori ai requisiti hardware per un server federativo.  
   
-Poiché ogni richiesta per un proxy server federativo comporta una richiesta a un server federativo o una server farm federativa, pianificazione della capacità per i server federativi e proxy server federativo deve essere eseguito in parallelo.  
+Poiché ogni richiesta a un proxy server federativo comporta una richiesta a un server federativo o a un server farm di federazione, la pianificazione della capacità per i server federativi e i proxy server federativi deve essere eseguita in parallelo.  
   
-Stimare il segno di picco\-aggiuntivi al secondo per il proxy server federativo è necessario comprendere i modelli di utilizzo degli utenti federati che verranno effettuato l'accesso tramite il proxy server federativo. In molte distribuzioni, gli utenti federati che eseguono l'accesso tramite il proxy server federativo si trovano su Internet. È possibile stimare il segno di picco\-aggiuntivi al secondo, esaminando i modelli di utilizzo di questi utenti per le applicazioni Web esistenti che verranno protetti da AD FS federati.  
+La stima del segno di picco @ no__t-0ins al secondo per il proxy server federativo richiede la comprensione dei modelli di utilizzo degli utenti federati che effettueranno l'accesso tramite il proxy server federativo. In molte distribuzioni gli utenti federati che eseguono l'accesso tramite il proxy server federativo si trovano su Internet. È possibile stimare il segno di picco @ no__t-0ins al secondo osservando i modelli di utilizzo di questi utenti federati sulle applicazioni Web esistenti che verranno protette da AD FS.  
   
 > [!NOTE]  
-> Per le distribuzioni di produzione, si consiglia un minimo di due proxy server federativo per ogni istanza di farm di server federativi distribuita.  
+> Per le distribuzioni di produzione, è consigliabile disporre di almeno due proxy server federativi per ogni istanza di Federazione server farm distribuita.  
   
-## <a name="estimate-the-number-of-federation-server-proxies-required-for-your-organization"></a>Stimare il numero di server federativi necessari per l'organizzazione  
-Prima che è possibile stimare il numero di computer proxy server federativo di AD FS necessari, è necessario innanzitutto determinare il numero totale di server federativi che si desidera distribuire nell'organizzazione. Per altre informazioni su come eseguire questa operazione, vedere [pianificazione della capacità del Server federativo](Planning-for-Federation-Server-Capacity.md).  
+## <a name="estimate-the-number-of-federation-server-proxies-required-for-your-organization"></a>Stimare il numero di proxy server federativi necessari per l'organizzazione  
+Prima di poter stimare il numero di AD FS computer proxy server federativi necessari, sarà prima di tutto necessario determinare il numero totale di server federativi da distribuire nell'organizzazione. Per ulteriori informazioni su come eseguire questa operazione, vedere [Planning for Federation Server Capacity](Planning-for-Federation-Server-Capacity.md).  
   
-Dopo avere scelto per il numero di server federativi, moltiplica questo numero di server per la percentuale di autenticazione federata in arrivo richiede che si prevede che verranno apportate da utenti esterni \(all'esterno della rete aziendale\). Il valore di questo calcolo riporta il numero stimato di server federativi che gestirà le richieste di autenticazione in ingresso per gli utenti esterni.  
+Una volta deciso il numero di server federativi, moltiplicare questo numero di server per la percentuale di richieste di autenticazione federata in ingresso che si prevede verranno effettuate dagli utenti esterni \(located all'esterno della rete aziendale @ no__t-1. Il valore di questo calcolo fornirà il numero stimato di proxy server federativi che gestiranno le richieste di autenticazione in ingresso per gli utenti esterni.  
   
-Ad esempio, se il numero di server federativi consigliato è 3 e si prevede che il numero totale di richieste di autenticazione che verranno apportate da utenti esterni saranno circa il 60% del numero totale di richieste di autenticazione federata, il equivale al calcolo 1.8 \(3 X.60\) che è possibile eseguire un arrotondamento fino a 2.  Pertanto, in questo caso, è necessario distribuire due macchine di proxy server federativo per adattarlo al carico di richieste di autenticazione utente esterno per i server tre federativi.  
+Se, ad esempio, il numero di server federativi consigliati è 3 e si prevede che il numero totale di richieste di autenticazione che verranno effettuate dagli utenti esterni sarà approssimativamente del 60% del numero totale di richieste di autenticazione federate, il calcolo sarebbe uguale a 1,8 \(3 X .60 @ no__t-1, che è possibile arrotondare per eccesso a 2.  Pertanto, in questo caso, è necessario distribuire due computer proxy server federativi per gestire il carico delle richieste di autenticazione utente esterno per i tre server federativi.  
   
-Nei test eseguiti dal team del prodotto AD FS, l'utilizzo globale della CPU in ogni server federativo è stato trovato per essere significativamente inferiore rispetto all'utilizzo della CPU che è stato osservato nei server federativi per farm stessa.  In un test, mentre un server federativo della CPU è stato che indica che è stato completamente saturo, è stata rilevata solo 20% dell'utilizzo della CPU per un proxy server federativo che fornisce servizi proxy per la stessa farm. Di conseguenza, i nostri test hanno rivelato che il carico sulla CPU di un proxy server federativo, che usa le specifiche hardware simile come descritto in precedenza in questa sezione, è stato in grado di gestire il carico di elaborazione per circa tre i server federativi.  
+Nei test eseguiti dal team del prodotto AD FS, l'utilizzo complessivo della CPU in ogni proxy server federativo risultava significativamente inferiore rispetto all'utilizzo della CPU osservato nei server federativi per la stessa farm.  In un unico test, mentre una CPU del server federativo indica che è stata completamente satura, la CPU per un proxy server federativo che fornisce servizi proxy per la stessa farm è stata osservata solo al 20% di utilizzo. Pertanto, i test hanno rivelato che il carico sulla CPU di un proxy server federativo, che utilizza specifiche hardware simili, come illustrato in precedenza in questa sezione, può ragionevolmente gestire il carico di elaborazione per circa tre server federativi.  
   
-Tuttavia, per scopi di tolleranza di errore, è consigliabile almeno due proxy server federativo per ogni server farm federativa che la distribuzione.  
+Tuttavia, per finalità di tolleranza di errore, è consigliabile disporre di almeno due proxy server federativi per ogni Federazione server farm distribuita.  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

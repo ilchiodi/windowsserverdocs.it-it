@@ -7,26 +7,26 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5725f4a7761d08a25ee8c67c0568977e3646397e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407943"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>Preparazione dei computer client nel partner account
 
-Il modo più semplice per un amministratore in un account organizzazione partner di preparare i computer client per l'accesso a Active Directory Federation Services \(ADFS\) applicazioni federate consiste nell'usare criteri di gruppo. Criteri di gruppo fornisce un modo pratico per effettuare il push di certificati specifici e delle impostazioni necessarie per la federazione a tutti i computer client che verranno usati per accedere alle applicazioni federate.  
+Il modo più semplice per un amministratore in un'organizzazione partner account di preparare i computer client per l'accesso alle applicazioni federate Active Directory Federation Services \(AD FS @ no__t-1 consiste nell'utilizzare Criteri di gruppo. Criteri di gruppo fornisce un modo pratico per effettuare il push di certificati specifici e delle impostazioni necessarie per la federazione a tutti i computer client che verranno usati per accedere alle applicazioni federate.  
   
-In modo che i computer client possano accedere facilmente alle applicazioni federate senza prompt relativi ai siti attendibili o richieste di certificato, è consigliabile preparare ogni computer client prima di distribuire su vasta scala AD FS nell'organizzazione. Si consideri l'uso dei Criteri di gruppo per eseguire automaticamente le operazioni seguenti:  
+In modo che i computer client possano accedere senza problemi alle applicazioni federate senza prompt dei certificati o da un sito attendibile, si consiglia di preparare prima ogni computer client prima di distribuire AD FS in modo estensivo nell'organizzazione. Si consideri l'uso dei Criteri di gruppo per eseguire automaticamente le operazioni seguenti:  
   
 -   Configurare Internet Explorer in ogni computer client per considerare attendibile il server federativo di account.  
   
     Per altre informazioni, vedere [Configurare i computer Client per considerare attendibile il Server federativo di Account](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
--   Installare il server federativo di account appropriato, un server federativo di risorsa e un server Web Secure Sockets Layer \(SSL\) certificati \(o equivalente, i certificati concatenati a una fonte attendibile\) in ogni computer client.  
+-   Installare il server federativo di account appropriato, il server federativo di risorsa e il server Web Secure Sockets Layer \(SSL @ no__t-1 Certificates \(OR certificati equivalenti concatenati a una radice attendibile @ no__t-3 in ogni computer client.  
   
     Per altre informazioni, vedere [distribuire i certificati ai computer Client mediante criteri di gruppo](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
   

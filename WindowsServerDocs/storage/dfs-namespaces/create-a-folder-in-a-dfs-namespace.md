@@ -2,18 +2,18 @@
 title: Creare una cartella in uno spazio dei nomi DFS
 description: Questo articolo descrive come creare una cartella in uno spazio dei nomi DFS
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 47bb13aa404cdf4fef86b7250425a92cc208ba9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7389b825afe5ccae3059f50ffdedac72ecd5ac9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856852"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402250"
 ---
 # <a name="create-a-folder-in-a-dfs-namespace"></a>Creare una cartella in uno spazio dei nomi DFS
 
@@ -40,7 +40,7 @@ Usa la procedura seguente per aggiungere una cartella in uno spazio dei nomi med
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Distribuzione di spazi dei nomi DFS](deploying-dfs-namespaces.md)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Distribuzione di Spazi dei nomi DFS](deploying-dfs-namespaces.md)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
 
 

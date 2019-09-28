@@ -7,64 +7,64 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8aef8b3d8f1e6dde4f960a3bee5a93964d07c72b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 51176101b471ec940e2b43a95e1a1a8d37b394f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191281"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408069"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Requisiti per la risoluzione dei nomi per i proxy server federativi
 
-Quando i computer client su Internet tentano di accedere a un'applicazione protetta da Active Directory Federation Services \(ADFS\), devono prima autenticarsi al server federativo. Nella maggior parte dei casi, il server federativo non è in genere accessibile direttamente da Internet. I computer client Internet, pertanto, devono essere reindirizzati al proxy server federativo invece. È possibile eseguire correttamente il reindirizzamento tramite l'aggiunta di Domain Name System appropriato \(DNS\) record per la zona DNS o zone con connessione Internet.  
+Quando i computer client in Internet tentano di accedere a un'applicazione protetta da Active Directory Federation Services \(AD FS @ no__t-1, devono prima eseguire l'autenticazione al server federativo. Nella maggior parte dei casi, il server federativo non è in genere accessibile direttamente da Internet. Pertanto, i computer client Internet devono essere reindirizzati al proxy server federativo. Per eseguire correttamente il reindirizzamento, è possibile aggiungere i record Domain Name System \(DNS @ no__t-1 appropriati alla zona o alle zone DNS che si trovano su Internet.  
   
-Il metodo che usa per reindirizzare i client Internet per il proxy server federativo è dipende da come si configura la zona DNS nella rete perimetrale o come si configura una zona DNS che controllano in Internet. I proxy server federativi devono essere usati in una rete perimetrale. Reindirizza le richieste client Internet ai server federativi correttamente solo quando DNS è stato configurato correttamente in tutti i Internet\-rivolto verso aree di cui si controllano. Pertanto, la configurazione di rete Internet\-rivolta zone, ovvero se si dispone di una zona DNS che serve solo la rete perimetrale o una zona DNS che serve sia la rete perimetrale e dai client Internet, è importante.  
+Il metodo usato per reindirizzare i client Internet al proxy server federativo dipende da come si configura la zona DNS nella rete perimetrale o come si configura una zona DNS controllata in Internet. I proxy server federativi devono essere usati in una rete perimetrale. Reindirizzano le richieste client Internet ai server federativi correttamente solo quando il DNS è stato configurato correttamente in tutte le zone Internet @ no__t-0facing controllate. Quindi, la configurazione delle zone Internet @ no__t-0facing, sia che si disponga di una zona DNS che serve solo la rete perimetrale o di una zona DNS che serve sia la rete perimetrale che i client Internet, è importante.  
   
-In questo argomento vengono descritti i passaggi che è possibile eseguire per configurare la risoluzione dei nomi quando si inserisce un proxy server federativo nella rete perimetrale. Per stabilire la procedura da seguire, determinare innanzitutto quale tra gli scenari DNS seguenti rispecchia meglio l'infrastruttura nella rete perimetrale dell'organizzazione. Quindi, seguire la procedura per lo scenario individuato.  
+In questo argomento vengono descritti i passaggi da eseguire per configurare la risoluzione dei nomi quando si inserisce un proxy server federativo nella rete perimetrale. Per stabilire la procedura da seguire, determinare innanzitutto quale tra gli scenari DNS seguenti rispecchia meglio l'infrastruttura nella rete perimetrale dell'organizzazione. Quindi, seguire la procedura per lo scenario individuato.  
   
 ## <a name="dns-zone-serving-only-the-perimeter-network"></a>Zona DNS che serve solo la rete perimetrale  
-In questo scenario l'organizzazione ha una o due zone DNS nella rete perimetrale e l'organizzazione non controlla le zone DNS in Internet. Risoluzione dei nomi corretta per un proxy server federativo nella zona DNS che serve solo lo scenario di rete perimetrale dipende dalle condizioni seguenti:  
+In questo scenario l'organizzazione ha una o due zone DNS nella rete perimetrale e l'organizzazione non controlla le zone DNS in Internet. La corretta risoluzione dei nomi per un proxy server federativo nella zona DNS che serve solo lo scenario della rete perimetrale dipende dalle condizioni seguenti:  
   
--   Il proxy server federativo deve avere un'impostazione nel file hosts per risolvere il nome di dominio completo \(FQDN\) dell'URL dell'endpoint del server federativo a un indirizzo IP di un server federativo o un cluster del server federativo.  
+-   Il proxy server federativo deve avere un'impostazione nel file hosts per risolvere il nome di dominio completo \(FQDN @ no__t-1 dell'URL dell'endpoint server federativo in un indirizzo IP di un server federativo o di un cluster di server federativo.  
   
--   DNS nella rete perimetrale del partner account deve essere configurato in modo che il nome di dominio completo dell'URL dell'endpoint del server federativo viene risolto nell'indirizzo IP del proxy server federativo.  
+-   Il DNS nella rete perimetrale del partner account deve essere configurato in modo che il nome di dominio completo dell'URL dell'endpoint server federativo venga risolto nell'indirizzo IP del proxy server federativo.  
   
-L'illustrazione seguente e i passaggi corrispondenti mostrano in che modo vengono soddisfatte queste condizioni in uno specifico esempio. In questa illustrazione, Bilanciamento carico di rete Microsoft \(NLB\) tecnologia fornisce un singolo, FQDN del cluster e un singolo indirizzo IP del cluster per una server farm federativa esistente.  
+L'illustrazione seguente e i passaggi corrispondenti mostrano in che modo vengono soddisfatte queste condizioni in uno specifico esempio. In questa illustrazione la tecnologia Microsoft Network Load Balancing \(NLB @ no__t-1 fornisce un singolo FQDN del cluster e un singolo indirizzo IP del cluster per una server farm federativa esistente.  
   
-![requisiti dei nomi](media/adfs2_deploy_single_fs.gif)  
+![requisiti del nome](media/adfs2_deploy_single_fs.gif)  
   
-Per altre informazioni sulla configurazione di un indirizzo IP del cluster o un cluster FQDN utilizzando bilanciamento carico di rete, vedere [specificando i parametri del Cluster](https://go.microsoft.com/fwlink/?LinkId=75282).  
+Per ulteriori informazioni sulla configurazione di un indirizzo IP del cluster o di un FQDN del cluster tramite NLB, vedere [specifica dei parametri del cluster](https://go.microsoft.com/fwlink/?LinkId=75282).  
   
 ### <a name="1-configure-the-hosts-file-on-the-federation-server-proxy"></a>1. Configurare il file Hosts nel proxy server federativo  
-DNS nella rete perimetrale è configurato per risolvere tutte le richieste per fs.fabrikam.com per il proxy server federativo di account, il proxy server federativo partner account ha una voce nel file hosts locale per risolvere fs.fabrikam.com nell'indirizzo IP del server federativo di account effettivi \(o nome DNS del cluster per la server farm federativa\) che è connesso alla rete aziendale. Questo rende possibile per il proxy server federativo di account risolvere il nome host fs.fabrikam.com con il server federativo di account non al suo interno, come avverrebbe se tentasse di cercare fs.fabrikam.com con DNS perimetrale, in modo che la federazione proxy server può comunicare con il server federativo.  
+Poiché il DNS nella rete perimetrale è configurato per risolvere tutte le richieste per fs.fabrikam.com al proxy server federativo di account, il proxy server federativo del partner account ha una voce nel file hosts locale per risolvere fs.fabrikam.com nell'indirizzo IP del server federativo di account effettivo @no__t il nome DNS del cluster 0or per la Federazione server farm @ no__t-1 connesso alla rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS perimetrale, in modo che la Federazione il proxy server può comunicare con il server federativo.  
   
 ### <a name="2-configure-perimeter-dns"></a>2. Configurare il DNS perimetrale  
-Essendo presente solo un singolo ADFS nome host che i computer client vengono indirizzati a, ovvero se sono in una rete intranet o su Internet, ovvero i computer client su Internet che utilizzano il server DNS perimetrale devono risolvere il FQDN per il server federativo di account \(fs.fabrikam.com\) all'indirizzo IP del proxy server federativo account nella rete perimetrale. In modo che è possibile inoltrare i client del proxy server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale contiene una zona DNS corp.fabrikam.com limitata con un singolo host \(oggetto\) record di risorse per fs \(fs.fabrikam.com\) e l'indirizzo IP del proxy server federativo account nella rete perimetrale.  
+Poiché è presente un solo AD FS nome host a cui vengono indirizzati i computer client, sia che si trovino in una Intranet o in Internet, i computer client in Internet che usano il server DNS perimetrale devono risolvere il nome di dominio completo per il server federativo account @no__t -0FS. fabrikam. com @ no__t-1 all'indirizzo IP del proxy server federativo di account nella rete perimetrale. In modo che possa inviare i client al proxy server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale contiene una zona DNS corp.fabrikam.com limitata con un singolo host \(A @ no__t-1 record di risorse per FS @no__t -2FS. fabrikam. com @ no__t-3 e l'indirizzo IP del proxy server federativo di account nella rete perimetrale.  
   
-Per altre informazioni su come modificare il file hosts di proxy server federativo e configurare il DNS nella rete perimetrale, vedere [configurare la risoluzione dei nomi per un Proxy Server federativo in una zona DNS che serve solo la rete perimetrale](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Only-the-Perimeter-Network.md).  
+Per ulteriori informazioni su come modificare il file hosts del proxy server federativo e configurare DNS nella rete perimetrale, vedere [configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve solo la rete perimetrale](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Only-the-Perimeter-Network.md).  
   
 ## <a name="dns-zone-serving-both-the-perimeter-network-and-internet-clients"></a>Zona DNS che serve sia la rete perimetrale che i client Internet  
-In questo scenario l'organizzazione controlla la zona DNS nella rete perimetrale e almeno una zona DNS in Internet. Risoluzione dei nomi corretta per un proxy server federativo in questo scenario dipende dalle condizioni seguenti:  
+In questo scenario l'organizzazione controlla la zona DNS nella rete perimetrale e almeno una zona DNS in Internet. La corretta risoluzione dei nomi per un proxy server federativo in questo scenario dipende dalle condizioni seguenti:  
   
--   DNS nella zona Internet del partner account deve essere configurato in modo che il nome FQDN del nome host del server di federazione viene risolto nell'indirizzo IP del proxy server federativo nella rete perimetrale.  
+-   Il DNS nella zona Internet del partner account deve essere configurato in modo che il nome di dominio completo del nome host del server federativo venga risolto nell'indirizzo IP del proxy server federativo nella rete perimetrale.  
   
--   DNS nella rete perimetrale del partner account deve essere configurato in modo che il nome FQDN del nome host del server di federazione viene risolto nell'indirizzo IP del server federativo nella rete aziendale.  
+-   Il DNS nella rete perimetrale del partner account deve essere configurato in modo che il nome di dominio completo del nome host del server federativo venga risolto nell'indirizzo IP del server federativo nella rete aziendale.  
   
 L'illustrazione seguente e i passaggi corrispondenti mostrano in che modo vengono soddisfatte queste condizioni in uno specifico esempio.  
   
-![requisiti dei nomi](media/adfs2_deploy_fsp_3DNS.gif)  
+![requisiti del nome](media/adfs2_deploy_fsp_3DNS.gif)  
   
 ### <a name="1-configure-perimeter-dns"></a>1. Configurare il DNS perimetrale  
-Per questo scenario, perché si presuppone che si configurerà la zona DNS Internet controllata per risolvere le richieste che vengono eseguite per uno specifico URL endpoint \(ossia, fs.fabrikam.com\) per il proxy server federativo di rete perimetrale, è necessario configurare la zona in DNS perimetrale per inoltrare queste richieste al server federativo nella rete aziendale.  
+Per questo scenario, poiché si presuppone che si configuri la zona DNS Internet controllata per la risoluzione delle richieste effettuate per un URL di endpoint specifico \(that è, FS. fabrikam. com @ no__t-1 al proxy server federativo nella rete perimetrale, è inoltre necessario configurare la zona nel DNS perimetrale per l'invio delle richieste al server federativo nella rete aziendale.  
   
-In modo che i client possono essere inoltrati al server federativo di account quando tentano di risolvere fs.fabrikam.com, DNS perimetrale è configurato con un singolo host \(un'\) record di risorse per fs \(fs.fabrikam.com\) e l'indirizzo IP del server federativo di account nella rete aziendale. Questo rende possibile per il proxy server federativo di account risolvere il nome host fs.fabrikam.com con il server federativo di account non al suo interno, come avverrebbe se tentasse di cercare fs.fabrikam.com con DNS Internet, in modo che il server federativo proxy può comunicare con il server federativo.  
+In modo che i client possano essere reindirizzati al server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale è configurato con un singolo host \(A @ no__t-1 record di risorse per FS @no__t -2FS. fabrikam. com @ no__t-3 e l'indirizzo IP del server federativo di account nella rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS Internet, in modo che il server federativo il proxy può comunicare con il server federativo.  
   
 ### <a name="2-configure-internet-dns"></a>2. Configurare DNS Internet  
-Per una corretta risoluzione dei nomi in questo scenario, tutte le richieste dei computer client in Internet a fs.fabrikam.com devono essere risolte dalla zona DNS Internet controllata dall'utente. Di conseguenza, è necessario configurare la zona DNS Internet per inoltrare le richieste client per fs.fabrikam.com all'indirizzo IP del proxy server federativo account nella rete perimetrale.  
+Per una corretta risoluzione dei nomi in questo scenario, tutte le richieste dei computer client in Internet a fs.fabrikam.com devono essere risolte dalla zona DNS Internet controllata dall'utente. Di conseguenza, è necessario configurare la zona DNS Internet in modo che inoltri le richieste client per fs.fabrikam.com all'indirizzo IP del proxy server federativo di account nella rete perimetrale.  
   
-Per altre informazioni su come modificare la rete perimetrale e le zone DNS Internet, vedere [configurare la risoluzione dei nomi per un Proxy Server federativo in un DNS zona che viene utilizzata sia la rete perimetrale e dai client Internet](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Both-the-Perimeter-Network-and-Internet-Clients.md).  
+Per altre informazioni su come modificare la rete perimetrale e le zone DNS Internet, vedere [configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve sia la rete perimetrale che i client Internet](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Both-the-Perimeter-Network-and-Internet-Clients.md).  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

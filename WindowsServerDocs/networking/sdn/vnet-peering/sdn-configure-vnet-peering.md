@@ -2,23 +2,23 @@
 title: Configura il peering della rete virtuale
 description: La configurazione del peering di rete virtuale comporta la creazione di due reti virtuali con peering.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 417585ffbe1e8374be1560073d5636659eaf4332
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4d35501b8d876f2a178a4744d495125dea8da6c7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869885"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405813"
 ---
 # <a name="configure-virtual-network-peering"></a>Configura il peering della rete virtuale
 
->Si applica a Windows Server
+>Si applica a: Windows Server
 
 In questa procedura viene usato Windows PowerShell per creare due reti virtuali, ognuna con una subnet. Configurare quindi il peering tra le due reti virtuali per consentire la connettività tra di essi.
 

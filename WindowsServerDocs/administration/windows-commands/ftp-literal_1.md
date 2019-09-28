@@ -1,8 +1,8 @@
 ---
-title: ftp literal_1
-description: 'Argomento i comandi di Windows per * * *- '
+title: literal_1 FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 693916507488a9a480315a8e9299baa93a223b8a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 393dea27e8567a72a5bd25c927282ade93e317c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438664"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376269"
 ---
-# <a name="ftp-literal1"></a>ftp: literal_1
+# <a name="ftp-literal_1"></a>FTP: literal_1
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 Invia testualmente gli argomenti per il server ftp remoto. Viene restituito un codice di risposta ftp singolo.   
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 Invia argomenti Verbatim al server FTP remoto. Viene restituito un singolo codice di risposta FTP.   
 
 ## <a name="syntax"></a>Sintassi  
 ```  
@@ -32,15 +32,15 @@ literal <Argument> [ ]
 
 | Parametro  |                    Descrizione                    |
 |------------|---------------------------------------------------|
-| <Argument> | Specifica l'argomento da inviare al server ftp. |
+| <Argument> | Specifica l'argomento da inviare al server FTP. |
 
 ## <a name="remarks"></a>Note  
 Il **letterale** è identico al comando il **offerta** comando.  
 ## <a name="BKMK_Examples"></a>Esempi  
-Invio di un **quit** comando al server ftp remoto.  
+Inviare un comando **Quit** al server FTP remoto.  
 ```  
 literal quit  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [ftp: quote](ftp-quote.md)  
+-   [FTP: virgolette](ftp-quote.md)  
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

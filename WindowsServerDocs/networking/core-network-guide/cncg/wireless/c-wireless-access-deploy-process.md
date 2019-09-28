@@ -1,69 +1,69 @@
 ---
 title: Processo di distribuzione dell'accesso wireless
-description: Questo argomento fa parte della Guida alla rete di Windows Server 2016 "Distribuisci con 802.1x basato su Password X Authenticated Wireless Access"
+description: Questo argomento fa parte della Guida alla rete di Windows Server 2016 "distribuire l'accesso wireless autenticato con 802.1 X basato su password"
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2555f238-926e-4b20-9bfb-9774831062da
 author: shortpatti
 ms.author: pashort
-ms.openlocfilehash: 6a286cf10e066043ee6f514bbf468bfb2b13f162
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 10c69e1aa6157c7f088f190c0283b33b630bc25f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879842"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406261"
 ---
 # <a name="wireless-access-deployment-process"></a>Processo di distribuzione dell'accesso wireless
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Il processo che si usa per distribuire accesso senza fili avviene in queste fasi:
+Il processo usato per distribuire l'accesso wireless si verifica in queste fasi:
 
-## <a name="stage-1--ap-deployment"></a>Fase 1: distribuzione di AP
+## <a name="stage-1--ap-deployment"></a>Fase 1: distribuzione AP
 
-Pianificare, distribuire e configurare i punti di accesso per la connettività client senza fili e per l'uso con criteri di rete. A seconda delle dipendenze delle preferenze e di rete, è possibile innanzitutto\-configurare le impostazioni nei punti di accesso wireless prima di eseguirne l'installazione in rete, oppure è possibile configurarle in modalità remota dopo l'installazione.
+Pianificare, distribuire e configurare i punti di accesso per la connettività dei client wireless e per l'uso con server dei criteri di rete. A seconda della preferenza e delle dipendenze di rete, è possibile pre @ no__t-0configure impostazioni sui punti di accesso wireless prima di installarli nella rete oppure è possibile configurarli in modalità remota dopo l'installazione.
 
-## <a name="stage-2--adds-group-configuration"></a>Nella fase 2: configurazione di Active Directory gruppo
+## <a name="stage-2--adds-group-configuration"></a>Fase 2: configurazione del gruppo di servizi di dominio Active Directory
 
-In Active Directory Domain Services, è necessario creare uno o più utenti wireless gruppi di sicurezza.
+In servizi di dominio Active Directory è necessario creare uno o più gruppi di sicurezza per gli utenti wireless.
 
-Successivamente, identificare gli utenti sono consentiti l'accesso wireless alla rete.
+Identificare quindi gli utenti a cui è consentito l'accesso wireless alla rete.
 
-Infine, aggiungere gli utenti ai gruppi di sicurezza utenti wireless appropriati che è stato creato.
+Infine, aggiungere gli utenti ai gruppi di sicurezza degli utenti wireless appropriati creati.
 
 >[!NOTE]
->Per impostazione predefinita, il **l'autorizzazione di accesso di rete** nelle proprietà di connessione a account utente è configurata con l'impostazione **controllare l'accesso tramite criteri di rete NPS**. A meno che non si hanno motivi specifici per modificare questa impostazione, è consigliabile mantenere il valore predefinito. In questo modo è possibile controllare l'accesso alla rete tramite i criteri di rete configurato in Criteri di rete.
+>Per impostazione predefinita, l'impostazione delle **autorizzazioni di accesso alla rete** nelle proprietà di connessione dell'account utente viene configurata con l'impostazione **Controlla accesso tramite criteri di rete NPS**. A meno che non esistano motivi specifici per modificare questa impostazione, è consigliabile mantenerne il valore predefinito. Ciò consente di controllare l'accesso alla rete tramite i criteri di rete configurati nel server dei criteri di rete.
 
-## <a name="stage-3--group-policy-configuration"></a>Fase 3: configurazione dei criteri di gruppo
+## <a name="stage-3--group-policy-configuration"></a>Fase 3: configurazione di Criteri di gruppo
 
-Configurare la rete senza fili \(IEEE 802.11\) estensione di criteri di criteri di gruppo usando Microsoft Management Console Editor Gestione criteri di gruppo \(MMC\).
+Configurare l'estensione dei criteri \(IEEE 802.11 @ no__t-1 per i criteri di Criteri di gruppo utilizzando Editor Gestione Criteri di gruppo Microsoft Management Console \(MMC @ no__t-3.
 
-Per configurare dominio\-computer membri usando le impostazioni di criteri di rete wireless, è necessario applicare criteri di gruppo. Quando un computer prima di tutto viene aggiunto al dominio, criteri di gruppo vengono applicati automaticamente. Se vengono apportate modifiche a criteri di gruppo, le nuove impostazioni vengono applicate automaticamente:
+Per configurare i computer Domain @ no__t-0member usando le impostazioni nei criteri di rete wireless, è necessario applicare Criteri di gruppo. Quando un computer viene aggiunto al dominio per la prima volta, Criteri di gruppo viene applicato automaticamente. Se vengono apportate modifiche ai Criteri di gruppo, le nuove impostazioni vengono applicate automaticamente:
 
-- Criteri di gruppo in pre\-determinati intervalli
+- Per Criteri di gruppo a intervalli pre @ no__t-0determined
 
-- Se un utente di dominio si disconnette e quindi nuovamente alla rete
+- Se un utente di dominio si disconnette e quindi torna alla rete
 
-- Il riavvio del computer client e l'accesso al dominio
+- Riavviando il computer client ed effettuando l'accesso al dominio
 
-È anche possibile imporre criteri di gruppo per aggiornare mentre si è connessi a un computer eseguendo il comando **gpupdate** al prompt dei comandi.
+È anche possibile forzare l'aggiornamento Criteri di gruppo durante l'accesso a un computer eseguendo il comando **gpupdate** al prompt dei comandi.
 
-## <a name="stage-4--nps-configuration"></a>Fase 4: configurazione dei criteri di rete
+## <a name="stage-4--nps-configuration"></a>Fase 4: configurazione di NPS
 
-Per aggiungere punti di accesso wireless come client RADIUS e per creare i criteri di rete che Criteri di rete viene utilizzato durante l'elaborazione delle richieste di connessione, usare una procedura guidata configurazione in Criteri di rete.
+Utilizzare una configurazione guidata in NPS per aggiungere punti di accesso wireless come client RADIUS e per creare i criteri di rete utilizzati da server dei criteri di rete per l'elaborazione delle richieste di connessione.
 
-Quando si usa la procedura guidata per creare i criteri di rete, specificare il protocollo PEAP come il tipo EAP e il gruppo di sicurezza utenti wireless che è stato creato nella seconda fase.
+Quando si utilizza la procedura guidata per creare i criteri di rete, specificare PEAP come tipo EAP e il gruppo di sicurezza utenti wireless creato nella seconda fase.
 
-## <a name="stage-5--deploy-wireless-clients"></a>Fase 5: distribuire i client wireless
+## <a name="stage-5--deploy-wireless-clients"></a>Fase 5: distribuire client wireless
 
 Usare i computer client per connettersi alla rete.
 
-Per i computer membro di dominio in grado di accedere alla rete LAN cablata, le impostazioni di configurazione senza fili vengono applicate automaticamente quando viene aggiornato criteri di gruppo.
+Per i computer membri del dominio che possono accedere alla LAN cablata, le impostazioni di configurazione wireless necessarie vengono applicate automaticamente quando Criteri di gruppo viene aggiornato.
 
-Se è stata abilitata l'impostazione nella rete senza fili \(IEEE 802.11\) i criteri per connettersi automaticamente quando il computer è all'interno di broadcast intervallo della rete wireless, wireless, dominio\-unita in join i computer verranno quindi tentano automaticamente di connettersi alla rete LAN wireless.
+Se è stata abilitata l'impostazione in rete wireless \(IEEE 802.11 @ no__t-1 criteri per la connessione automatica quando il computer si trova all'interno di un intervallo di trasmissione della rete wireless, i computer wireless, dominio @ no__t-2joined verranno automaticamente tentativo di connessione alla LAN wireless.
 
-Per connettersi alla rete wireless, gli utenti devono fornire solo le credenziali utente di dominio nome e una password quando richiesto da Windows.
+Per connettersi alla rete wireless, gli utenti devono fornire le credenziali di nome utente e password di dominio solo quando richiesto da Windows.
 
-Per pianificare la distribuzione di accesso wireless, vedere [pianificazione della distribuzione di accesso Wireless](d-wireless-access-planning.md).
+Per pianificare la distribuzione dell'accesso wireless, vedere [pianificazione della distribuzione dell'accesso wireless](d-wireless-access-planning.md).

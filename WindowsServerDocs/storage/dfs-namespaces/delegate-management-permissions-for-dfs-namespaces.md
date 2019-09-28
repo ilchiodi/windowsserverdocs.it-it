@@ -2,18 +2,18 @@
 title: Delegare le autorizzazioni di gestione per Spazi dei nomi DFS
 description: Questo articolo descrive come delegare le autorizzazioni di gestione per Spazi dei nomi DFS e indica i gruppi che possono eseguire attività di spazio dei nomi per impostazione predefinita
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7895432ca16dd13c6425d966f99104fc03db100d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bf23498c95d4b44d5c17aecd216921dc70819a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829492"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402218"
 ---
 # <a name="delegate-management-permissions-for-dfs-namespaces"></a>Delegare le autorizzazioni di gestione per Spazi dei nomi DFS
 
@@ -32,4 +32,4 @@ Nella tabella seguente vengono descritti i gruppi che possono eseguire attività
 
 <br />
 
-\*Delega delle autorizzazioni di gestione per gestire uno spazio dei nomi autonomo non concede all'utente la possibilità di visualizzare e gestire la sicurezza tramite il **delega** scheda a meno che l'utente sia un membro del gruppo Administrators locale sul server dello spazio dei nomi. Questo problema si verifica perché lo snap-in Gestione DFS non può recuperare gli elenchi di controllo di accesso discrezionali (DACL) per lo spazio dei nomi autonomo dal Registro di sistema. Per abilitare lo snap-in visualizzare informazioni sulla delega, è necessario seguire i passaggi in Microsoft<sup>®</sup> articolo della Knowledge Base: [KB314837: Come gestire l'accesso remoto al Registro di sistema](https://go.microsoft.com/fwlink?linkid=46803)
+le autorizzazioni di gestione \*Delegating per gestire uno spazio dei nomi autonomo non consentono all'utente di visualizzare e gestire la sicurezza tramite la scheda **delega** , a meno che l'utente non sia un membro del gruppo Administrators locale nel server dello spazio dei nomi. Questo problema si verifica perché lo snap-in Gestione DFS non può recuperare gli elenchi di controllo di accesso discrezionali (DACL) per lo spazio dei nomi autonomo dal Registro di sistema. Per consentire allo snap-in di visualizzare le informazioni di delega, è necessario attenersi alla procedura descritta nell'articolo della Microsoft<sup>®</sup> Knowledge Base: [KB314837: Come gestire l'accesso remoto al registro di sistema @ no__t-0

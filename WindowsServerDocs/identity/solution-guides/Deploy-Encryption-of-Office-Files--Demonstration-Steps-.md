@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05da1b7df2e3242c9b68bd7858c824f91e81a563
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407104"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Deploy Encryption of Office Files (Demonstration Steps)
 
@@ -30,7 +30,7 @@ In questo scenario si eseguirà la procedura seguente:
 |[Creare regole di classificazione](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|Creare le regole di classificazione seguenti: **Regola di classificazione HBI** e **Regola di classificazione PII**.|  
 |[Usare le attività di gestione file per proteggere automaticamente i documenti con AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Creare un'attività di gestione file che usa automaticamente AD RMS per proteggere i documenti che contengono informazioni personali (PII). Solo i membri del gruppo FinanceAdmin avranno accesso ai documenti classificati come High PII.|  
 |[Visualizzare i risultati](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_4)|Esaminare la classificazione dei documenti e osservare come cambia in base alla modifica del contenuto. Verificare inoltre la protezione applicata al documento tramite AD RMS.|  
-|[Verificare la protezione di AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Verificare che il documento sia protetto con AD RMS.|  
+|[Verificare la protezione AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Verificare che il documento sia protetto con AD RMS.|  
 |||  
   
 ## <a name="BKMK_1.1"></a>Passaggio 1: Abilitare le proprietà delle risorse  
@@ -51,7 +51,7 @@ In questo scenario si eseguirà la procedura seguente:
   
 7. Fare clic su **Aggiungi**, scorrere fino alla proprietà **Impatto** e selezionarla per aggiungerla all'elenco. Ripetere l'operazione per **Informazioni personali**. Fare clic su **OK** due volte per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -95,7 +95,7 @@ In questo passaggio verrà creata anche una regola **High PII** . Questa regola 
   
 14. Fare clic sulla scheda **Tipo valutazione** .  Fare clic su Rivaluta i valori di proprietà esistenti, su **Sovrascrivi**per sovrascrivere il valore esistente e quindi su **OK** per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -111,7 +111,7 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 1. Nella console di gestione di Hyper-V connettersi al server ID_AD_FILE1. Accedere al server usando Contoso\Administrator con la password <strong>pass@word1</strong>.  
   
-2. Sul desktop aprire la cartella denominata **Espressioni regolari**, quindi aprire il documento di testo denominato **RegEx-SSN**. Evidenziare e copiare la stringa di espressione regolare seguente: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** . Poiché questa stringa verrà usata più avanti in questo passaggio, tenerla negli Appunti.  
+2. Sul desktop aprire la cartella denominata **Espressioni regolari**, quindi aprire il documento di testo denominato **RegEx-SSN**. Evidenziare e copiare la stringa di espressione regolare seguente: **^ (?! 000) ([0-7] \d @ no__t-1 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-2 $** . Poiché questa stringa verrà usata più avanti in questo passaggio, tenerla negli Appunti.  
   
 3. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
   
@@ -130,14 +130,14 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
 10. In **Specificare un valore** selezionare **Alto** nell'elenco a discesa.  
   
 11. Fare clic su **Configura** in **Parametri**.   
-    Nel riquadro **Parametri di classificazione**selezionare **Stringa** nell'elenco **Tipo espressione**. Nel **espressione** incollare il testo dagli Appunti: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012 ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** , quindi fare clic su **OK**.  
+    Nel riquadro **Parametri di classificazione**selezionare **Stringa** nell'elenco **Tipo espressione**. Nella casella **espressione** incollare il testo dagli Appunti: **^ (?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-3 $** , quindi fare clic su **OK**.  
   
     > [!NOTE]  
     > Questa espressione consente di immettere codici fiscali non validi. In questo modo sarà possibile usare codici fiscali fittizi nella dimostrazione.  
   
 12. Fare clic sulla scheda **Tipo valutazione** .  Selezionare Rivaluta i valori di proprietà esistenti, fare clic su **Sovrascrivi**per sovrascrivere il valore esistente e quindi su **OK** per completare la procedura.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -174,7 +174,7 @@ Ora che avete creato le regole per classificare automaticamente i documenti in b
   
 9. Nella sezione **Esecuzione continua** selezionare **Esegui in modo continuo sui nuovi file**, quindi fare clic su **OK**. A questo punto dovrebbe essere presente un'attività di gestione file denominata High PII.  
   
-![Guide alle soluzioni](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -201,7 +201,7 @@ $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS pro
   
 5. Fare clic sulla scheda **Classificazione** e notare che alla proprietà **Informazioni personali** non è assegnato alcun valore. Fare clic su **Annulla**.  
   
-6. Passare a CLIENT1. Disconnettersi da qualsiasi utente che ha eseguito l'accesso e quindi accedere come Contoso\MReid con la password <strong>pass@word1</strong>.  
+6. Passare a CLIENT1. Disconnettere gli utenti che hanno eseguito l'accesso, quindi accedere come Contoso\MReid con la password <strong>pass@word1</strong>.  
   
 7. Sul desktop aprire la cartella condivisa **Finance Documents** .  
   

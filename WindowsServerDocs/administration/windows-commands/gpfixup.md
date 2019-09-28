@@ -1,8 +1,8 @@
 ---
 title: gpfixup
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: efb30e243d9c165fdcf13943225eb90d38235070
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e32427369f1664476c81a81353ae8869ec0c2ff3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438215"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375675"
 ---
 # <a name="gpfixup"></a>gpfixup
 
@@ -41,20 +41,20 @@ Gpfixup [/v]
 |       Parametro       |                                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                               |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          /v           |                                                                                                                                                      Consente di visualizzare messaggi di stato dettagliati.</br>Se si omette questo parametro, solo i messaggi di errore o un messaggio di riepilogo dello stato di **SUCCESSO** o **ERRORE** viene visualizzata.                                                                                                                                                       |
-| /olddns:\<OLDDNSNAME > |                                                                                                           Specifica il vecchio nome DNS del dominio rinominato come  *\<OLDDNSNAME >* quando l'operazione di ridenominazione del dominio modificato il nome DNS di un dominio. È possibile utilizzare questo parametro solo se si utilizza anche il **/newdns** parametro per specificare un nuovo nome di dominio DNS.                                                                                                            |
-| /newdns:\<NEWDNSNAME> |                                                                                                          Specifica il nuovo nome DNS del dominio rinominato come  *\<NEWDNSNAME >* quando l'operazione di ridenominazione del dominio modificato il nome DNS di un dominio. È possibile utilizzare questo parametro solo se si utilizza anche il **/olddns** parametro per specificare il nome di dominio DNS precedente.                                                                                                           |
-| /oldnb:\<OLDFLATNAME > |                                                                                                        Specifica il vecchio nome NetBIOS del dominio rinominato come  *\<OLDFLATNAME >* quando l'operazione di ridenominazione del dominio modificato il nome NetBIOS di un dominio. È possibile utilizzare questo parametro solo se si utilizza il **/newnb** parametro per specificare un nuovo nome NetBIOS del dominio.                                                                                                        |
-| /newnb:\<NEWFLATNAME> |                                                                                                       Specifica il nuovo nome NetBIOS del dominio rinominato come  *\<NEWFLATNAME >* quando l'operazione di ridenominazione del dominio modificato il nome NetBIOS di un dominio. È possibile utilizzare questo parametro solo se si utilizza il **/oldnb** parametro per specificare il nome NetBIOS del dominio precedente.                                                                                                       |
-|     /dc:\<DCNAME>     | Connettersi al controller di dominio denominato  *\<DCNAME >* (un nome DNS o un nome NetBIOS). *\<DCNAME >* deve ospitare una replica scrivibile della partizione di directory dominio come indicato da uno dei seguenti:</br>-Il nome DNS  *\<NEWDNSNAME >* usando **/newdns**</br>-Il nome NetBIOS  *\<NEWFLATNAME >* usando **/newnb**</br>Se questo parametro non viene utilizzato, connettersi a qualsiasi controller di dominio nel dominio rinominato indicato da  *\<NEWDNSNAME >* oppure  *\<NEWFLATNAME >* . |
+| /olddns: > \<OLDDNSNAME |                                                                                                           Specifica il nome DNS precedente del dominio rinominato come *\<OLDDNSNAME >* quando l'operazione di ridenominazione del dominio modifica il nome DNS di un dominio. È possibile utilizzare questo parametro solo se si utilizza anche il **/newdns** parametro per specificare un nuovo nome di dominio DNS.                                                                                                            |
+| /newdns: > \<NEWDNSNAME |                                                                                                          Specifica il nuovo nome DNS del dominio rinominato come *\<NEWDNSNAME >* quando l'operazione di ridenominazione del dominio modifica il nome DNS di un dominio. È possibile utilizzare questo parametro solo se si utilizza anche il **/olddns** parametro per specificare il nome di dominio DNS precedente.                                                                                                           |
+| /oldnb: > \<OLDFLATNAME |                                                                                                        Specifica il nome NetBIOS precedente del dominio rinominato come *\<OLDFLATNAME >* quando l'operazione di ridenominazione del dominio modifica il nome NetBIOS di un dominio. È possibile utilizzare questo parametro solo se si utilizza il **/newnb** parametro per specificare un nuovo nome NetBIOS del dominio.                                                                                                        |
+| /newnb: > \<NEWFLATNAME |                                                                                                       Specifica il nuovo nome NetBIOS del dominio rinominato come *\<NEWFLATNAME >* quando l'operazione di ridenominazione del dominio modifica il nome NetBIOS di un dominio. È possibile utilizzare questo parametro solo se si utilizza il **/oldnb** parametro per specificare il nome NetBIOS del dominio precedente.                                                                                                       |
+|     /DC: > \<DCNAME     | Connettersi al controller di dominio denominato *\<DCNAME >* , ovvero un nome DNS o un nome NetBIOS. *\<DCNAME >* deve ospitare una replica scrivibile della partizione di directory del dominio come indicato da uno dei seguenti elementi:</br>-Il nome DNS *\<NEWDNSNAME >* tramite **/newdns**</br>-Il nome NetBIOS *\<NEWFLATNAME >* tramite **/newnb**</br>Se questo parametro non viene utilizzato, connettersi a qualsiasi controller di dominio nel dominio rinominato indicato da *\<NEWDNSNAME >* o *\<NEWFLATNAME >* . |
 |        /sionly        |                                                                                                                           Esegue solo la correzione di criteri di gruppo che si riferisce all'installazione del software gestito (l'estensione Installazione Software basata su criteri di gruppo). Ignorare le azioni che consentono di risolvere i collegamenti di criteri di gruppo e i percorsi SYSVOL in oggetti Criteri di gruppo.                                                                                                                           |
-|   /user:\<USERNAME>   |                                                                                                                                   Questo comando viene eseguito nel contesto di sicurezza dell'utente  *\<USERNAME >* , dove  *\<USERNAME >* è nel formato dominio\utente.</br>Se si omette questo parametro, questo comando viene eseguito come utente connesso.                                                                                                                                    |
-|   /pwd:{\<PASSWORD>   |                                                                                                                                                                                                                                   \*}                                                                                                                                                                                                                                   |
+|   /User: \<USERNAME >   |                                                                                                                                   Esegue questo comando nel contesto di sicurezza dell'utente *\<USERNAME >* , in cui *\<USERNAME >* è nel formato dominio\utente.</br>Se si omette questo parametro, questo comando viene eseguito come utente connesso.                                                                                                                                    |
+|   /pwd: {\<PASSWORD >   |                                                                                                                                                                                                                                   \*}                                                                                                                                                                                                                                   |
 |          /?           |                                                                                                                                                                                                                  Visualizza la Guida al prompt dei comandi.                                                                                                                                                                                                                   |
 
 ## <a name="remarks"></a>Note
 
--   Il **gpfixup** comando è disponibile in Windows Server 2008 R2 e Windows Server 2008, tranne nelle installazioni Server Core.
--   Sebbene la Console Gestione criteri di gruppo (GPMC) viene distribuita con Windows Server 2008 R2 e Windows Server 2008, è necessario installare Gestione criteri di gruppo come funzionalità tramite Server Manager.
+-   Il comando **gpfixup** è disponibile in windows Server 2008 R2 e windows Server 2008, tranne che nelle installazioni dei componenti di base del server.
+-   Sebbene la Console Gestione Criteri di gruppo (GPMC) venga distribuita con Windows Server 2008 R2 e Windows Server 2008, è necessario installare Criteri di gruppo gestione come funzionalità tramite Server Manager.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -69,6 +69,6 @@ gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /dc:MyDcDnsName 2>&1 >gpfixup
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Amministrazione della ridenominazione del dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=198385)
--   [TechCenter di criteri di gruppo](https://go.microsoft.com/fwlink/?LinkID=145531)
+-   [Amministrazione della ridenominazione Dominio di Active Directory](https://go.microsoft.com/fwlink/?LinkId=198385)
+-   [Criteri di gruppo TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

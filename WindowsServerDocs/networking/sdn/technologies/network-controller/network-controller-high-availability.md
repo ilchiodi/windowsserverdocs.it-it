@@ -1,89 +1,89 @@
 ---
 title: Disponibilità elevata del controller di rete
-description: È possibile utilizzare questo argomento per informazioni sulla disponibilità elevata di Controller di rete per reti SDN (Software Defined) in Windows Server 2016.
+description: È possibile usare questo argomento per informazioni sulla disponibilità elevata del controller di rete per SDN (Software Defined Networking) in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 334b090d-bec4-4e67-8307-13831dbdd1d8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dbd3ae9f4c1f1fc3035fae9ace880046312df2f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11f392e99803f0e0ddd0f8b62c9dbca5827a831c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405933"
 ---
 # <a name="network-controller-high-availability"></a>Disponibilità elevata del controller di rete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni sui Controller di rete ad alta disponibilità e scalabilità configurazione per Software Defined Networking \(SDN\).
+È possibile utilizzare questo argomento per informazioni sulla configurazione della disponibilità elevata e della scalabilità del controller di rete per Software Defined Networking \(SDN @ no__t-1.
 
-Quando si distribuisce SDN nel tuo Data Center, è possibile usare Controller di rete per distribuire, monitorare e gestire molti elementi di rete, compresi i criteri di rete virtuali gateway RAS, servizi di bilanciamento del carico Software, per la comunicazione di tenant, in modo centralizzato Firewall del centro dati i criteri QoS \(QoS\) per SDN criteri, criteri di rete ibrida e altro ancora.
+Quando si distribuisce SDN nel Data Center, è possibile usare il controller di rete per distribuire, monitorare e gestire in modo centralizzato molti elementi di rete, inclusi i gateway RAS, i bilanciamento del carico software, i criteri di rete virtuale per la comunicazione tenant, il firewall del Data Center criteri, qualità del servizio \(QoS @ no__t-1 per i criteri SDN, i criteri di rete ibrida e altro ancora.
 
-Poiché i Controller di rete è l'elemento fondamentale della gestione di rete SDN, è fondamentale per le distribuzioni di Controller di rete fornire la disponibilità elevata e la capacità per l'utente a facilmente scalabilità verso l'alto o verso il basso i nodi di Controller di rete adatta alle esigenze dei Data Center.
+Poiché il controller di rete è l'elemento fondamentale della gestione SDN, è essenziale per le distribuzioni del controller di rete fornire disponibilità elevata e la possibilità di aumentare o ridurre facilmente i nodi del controller di rete con le esigenze del Data Center.
 
-Sebbene sia possibile distribuire Controller di rete come cluster singolo computer, per il failover e la disponibilità elevata è necessario distribuire Controller di rete in un cluster a più computer con un minimo di tre macchine.
-
->[!NOTE]
->È possibile distribuire Controller di rete su computer server o nelle macchine virtuali \(macchine virtuali\) che eseguono Windows Server 2016 Datacenter edition. Se si distribuiscono Controller di rete nelle macchine virtuali, le macchine virtuali devono essere in esecuzione negli host Hyper-V che eseguono anche Datacenter edition. Controller di rete non è disponibile in Windows Server 2016 Standard edition.
-
-## <a name="network-controller-as-a-service-fabric-application"></a>Controller di rete come un'applicazione di Service Fabric
-
-Per ottenere scalabilità e disponibilità elevata, Controller di rete si basa su Service Fabric. Service Fabric offre una piattaforma di sistemi distribuiti per realizzare scalabili, affidabili e facilmente gestibili le applicazioni.
-
-Come piattaforma di Service Fabric offre funzionalità che è necessario per la creazione di un sistema distribuito scalabile. Fornisce servizi di hosting su più istanze del sistema operativo, sincronizzazione delle informazioni di stato tra le istanze, designando come leader, rilevamento degli errori, bilanciamento del carico e altro ancora.
+Sebbene sia possibile distribuire il controller di rete come cluster a computer singolo, per la disponibilità elevata e il failover è necessario distribuire il controller di rete in un cluster con più computer con un minimo di tre computer.
 
 >[!NOTE]
->Per informazioni su Service Fabric in Azure, vedere [Panoramica di Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
+>È possibile distribuire il controller di rete nei computer server o nelle macchine virtuali \(VMs @ no__t-1 che eseguono Windows Server 2016 Datacenter Edition. Se si distribuisce il controller di rete nelle macchine virtuali, le macchine virtuali devono essere in esecuzione in host Hyper-V che eseguono anche Datacenter Edition. Il controller di rete non è disponibile in Windows Server 2016 Standard Edition.
 
-Quando si distribuisce Controller di rete su più computer, Controller di rete viene eseguito come un'unica applicazione di Service Fabric in un cluster di Service Fabric. È possibile formare un cluster di Service Fabric tramite la connessione di un set di istanze del sistema operativo.
+## <a name="network-controller-as-a-service-fabric-application"></a>Controller di rete come applicazione Service Fabric
 
-L'applicazione Controller di rete è costituita da più servizi di Service Fabric con stati. Ogni servizio è responsabile di una funzione di rete, ad esempio la gestione della rete fisica, la gestione della rete virtuale, la gestione del firewall o Gestione gateway. 
+Per ottenere la disponibilità elevata e la scalabilità, il controller di rete si basa su Service Fabric. Service Fabric offre una piattaforma di sistemi distribuiti per la creazione di applicazioni scalabili, affidabili e facilmente gestibili.
 
-Ogni servizio di Service Fabric è una replica primaria e due repliche secondarie. La replica primaria del servizio elabora le richieste, anche se le due repliche secondarie del servizio forniscono la disponibilità elevata in circostanze in cui la replica primaria è disabilitato o non disponibile per qualche motivo.
+Come piattaforma, Service Fabric fornisce la funzionalità necessaria per la creazione di un sistema distribuito scalabile. Fornisce il servizio che ospita su più istanze del sistema operativo, la sincronizzazione delle informazioni sullo stato tra le istanze, la scelta di un leader, il rilevamento degli errori, il bilanciamento del carico e altro ancora.
 
-La figura seguente illustra un cluster di Service Fabric Controller di rete con i cinque computer. Quattro servizi vengono distribuiti tra i cinque computer: Firewall del servizio, il servizio Gateway, Software Load Balancing \(SLB\) servizio e la rete virtuale \(Vnet\) servizio.  Ognuno dei quattro servizi include una replica di servizi primaria e due repliche secondarie del servizio.
+>[!NOTE]
+>Per informazioni sui Service Fabric in Azure, vedere [Panoramica di Service fabric di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
 
-![Cluster di Service Fabric di Controller di rete](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
+Quando si distribuisce il controller di rete in più computer, il controller di rete viene eseguito come singola applicazione Service Fabric in un cluster Service Fabric. È possibile creare un cluster Service Fabric connettendo un set di istanze del sistema operativo.
 
-## <a name="advantages-of-using-service-fabric"></a>Vantaggi dell'uso di Service Fabric
+L'applicazione controller di rete è costituita da più servizi di Service Fabric con stato. Ogni servizio è responsabile di una funzione di rete, ad esempio la gestione della rete fisica, la gestione della rete virtuale, la gestione del firewall o la gestione del gateway. 
 
-Di seguito sono illustrati i vantaggi principali per l'uso di Service Fabric per i cluster di Controller di rete.
+Ogni servizio Service Fabric ha una replica primaria e due repliche secondarie. La replica del servizio primaria elabora le richieste, mentre le due repliche del servizio secondarie forniscono una disponibilità elevata nei casi in cui la replica primaria è disabilitata o non disponibile per qualche motivo.
+
+Nella figura seguente viene illustrato un controller di rete Service Fabric cluster con cinque computer. Quattro servizi vengono distribuiti tra i cinque computer: Servizio firewall, servizio gateway, bilanciamento del carico software \(SLB @ no__t-1 Service e rete virtuale \(Vnet @ no__t-3 Service.  Ognuno dei quattro servizi include una replica del servizio primaria e due repliche del servizio secondarie.
+
+![Cluster Service Fabric del controller di rete](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
+
+## <a name="advantages-of-using-service-fabric"></a>Vantaggi dell'utilizzo di Service Fabric
+
+Di seguito sono riportati i principali vantaggi per l'utilizzo di Service Fabric per i cluster di controller di rete.
 
 ### <a name="high-availability-and-scalability"></a>Disponibilità elevata e scalabilità
 
-Perché il Controller di rete è alla base di una rete di Data Center, deve sia sia resiliente agli errori e deve essere sufficientemente scalabile per consentire le modifiche agile nelle reti di Data Center nel corso del tempo. Le funzionalità seguenti forniscono queste capacità: 
+Poiché il controller di rete è il nucleo di una rete di Data Center, deve essere resiliente agli errori ed essere sufficientemente scalabile per consentire modifiche agili nelle reti dei Data Center nel tempo. Le funzionalità seguenti forniscono queste capacità: 
 
-- **Failover rapido**. Service Fabric fornisce failover molto rapido. Più repliche dei servizi di secondario attivo sono sempre disponibili. Se un'istanza del sistema operativo non è più disponibile a causa di un errore hardware, una delle repliche secondarie immediatamente viene promosso alla replica primaria. 
-- **Agilità di scala**. È possibile facilmente e rapidamente scalabilità questi servizi affidabili da poche istanze fino a migliaia di istanze e quindi nuovamente verso il basso in alcuni casi, a seconda delle esigenze di risorse. 
+- **Failover veloce**. Service Fabric fornisce un failover estremamente veloce. Sono sempre disponibili più repliche del servizio secondario a caldo. Se un'istanza del sistema operativo non è più disponibile a causa di un errore hardware, una delle repliche secondarie viene immediatamente innalzata alla replica primaria. 
+- **Agilità della scalabilità**. È possibile ridimensionare facilmente e rapidamente questi servizi affidabili da poche istanze fino a migliaia di istanze e quindi eseguire il backup in alcune istanze, a seconda delle esigenze delle risorse. 
 
-### <a name="persistent-storage"></a>Archivio permanente
+### <a name="persistent-storage"></a>Archiviazione permanente
 
-L'applicazione Controller di rete presenta requisiti di archiviazione di grandi dimensioni per la configurazione e lo stato. L'applicazione deve inoltre essere utilizzabile tra interruzioni pianificate e non pianificate. A tale scopo, Service Fabric offre un Store chiave-valore \(KVS\) che è un archivio replicato, transazionale e persistente.
+Per la configurazione e lo stato dell'applicazione controller di rete sono previsti requisiti di archiviazione di grandi dimensioni. L'applicazione deve essere inoltre utilizzabile nelle interruzioni pianificate e non pianificate. A tale scopo, Service Fabric fornisce un archivio chiave-valore \(KVS @ no__t-1 che è un archivio replicato, transazionale e permanente.
 
 ### <a name="modularity"></a>Modularità
 
-Controller di rete è progettato con un'architettura modulare, con tutti i servizi di rete, ad esempio il servizio reti virtuali e firewall, compilato\-in come singoli servizi. 
+Il controller di rete è progettato con un'architettura modulare, con ognuno dei servizi di rete, ad esempio il servizio reti virtuali e il servizio firewall, compilato @ no__t-0cm come singoli servizi. 
 
 Questa architettura di applicazione offre i vantaggi seguenti.
 
-1. Controller di rete modularità consente lo sviluppo indipendente della ognuno dei servizi supportati, come deve evolversi. Ad esempio, il servizio di bilanciamento del carico Software può essere aggiornato senza influire su alcune di altri servizi o il normale funzionamento del Controller di rete.
-2. La modularità di Controller di rete consente l'aggiunta di nuovi servizi, come l'evoluzione della rete. Nuovi servizi possono essere aggiunti al Controller di rete senza conseguenze per i servizi esistenti.
+1. La modularità del controller di rete consente lo sviluppo indipendente di ogni servizio supportato, in base alle esigenze. Il servizio di bilanciamento del carico software, ad esempio, può essere aggiornato senza influire sugli altri servizi o sul normale funzionamento del controller di rete.
+2. La modularità del controller di rete consente l'aggiunta di nuovi servizi, man mano che la rete si evolve. I nuovi servizi possono essere aggiunti al controller di rete senza alcun effetto sui servizi esistenti.
 
 >[!NOTE]
->In Windows Server 2016, l'aggiunta di servizi di terze parti al Controller di rete non è supportato.
+>In Windows Server 2016 l'aggiunta di servizi di terze parti al controller di rete non è supportata.
 
-La modularità di Service Fabric Usa gli schemi del modello di servizio per massimizzare la facilità di sviluppo, distribuzione e manutenzione di un'applicazione.
+Service Fabric modularità utilizza gli schemi del modello di servizio per massimizzare la facilità di sviluppo, distribuzione e manutenzione di un'applicazione.
 
-## <a name="network-controller-deployment-options"></a>Opzioni di distribuzione di Controller di rete
+## <a name="network-controller-deployment-options"></a>Opzioni di distribuzione del controller di rete
 
-Distribuire Controller di rete con System Center Virtual Machine Manager \(VMM\), vedere [configurare un controller di rete SDN nell'infrastruttura di VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Per distribuire il controller di rete usando System Center Virtual Machine Manager \(VMM @ no__t-1, vedere [configurare un controller di rete Sdn nell'infrastruttura VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
-Per distribuire Controller di rete tramite script, vedere [distribuire un Software di rete dell'infrastruttura usando gli script definiti](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
+Per distribuire il controller di rete usando gli script, vedere [distribuire un'infrastruttura software defined Network usando gli script](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 
-Per distribuire Controller di rete tramite Windows PowerShell, vedere [distribuire Controller di rete tramite Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
+Per distribuire il controller di rete con Windows PowerShell, vedere [distribuire un controller di rete con Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
 
-Per altre informazioni sui Controller di rete, vedere [Controller di rete](Network-Controller.md).
+Per ulteriori informazioni sul controller di rete, vedere [controller di rete](Network-Controller.md).

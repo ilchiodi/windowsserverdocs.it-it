@@ -1,23 +1,23 @@
 ---
 title: Scenari di criteri QoS
 description: Questo argomento fornisce scenari di criteri di qualità del servizio (QoS), che illustrano come usare Criteri di gruppo per definire la priorità del traffico di rete di applicazioni e servizi specifici in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e0968157532c0b3bd926acbaff4291e27a71de31
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9ac5ab31db1b8c184fd179ecb3e6b87f7fffd2ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871870"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405232"
 ---
 # <a name="qos-policy-scenarios"></a>Scenari di criteri QoS
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per esaminare scenari ipotetici che dimostrano come, quando e perché utilizzare i criteri QoS.
 
@@ -79,10 +79,10 @@ Nella tabella seguente sono riepilogati i criteri QoS per questo scenario.
   
 |Nome criterio|Valore DSCP|Velocità di limitazione|Applicato alle unità organizzative|Descrizione|  
 |-----------------|----------------|-------------------|-----------------------------------|-----------------|
-|[Nessun criterio]|0|Nessuna|[Nessuna distribuzione]|Trattamento ottimale (impostazione predefinita) per il traffico non classificato.|  
-|Dati di backup|1|Nessuna|Tutti i client|Applica un valore DSCP con priorità bassa per questi dati in blocco.|  
-|LOB server|44|Nessuna|Unità organizzativa del computer per i server ERP|Applica il DSCP con priorità alta per il traffico del server ERP|  
-|LOB client|60|Nessuna|Gruppo di utenti Finance|Applica il DSCP con priorità alta per il traffico client ERP|  
+|[Nessun criterio]|0|Nessuno|[Nessuna distribuzione]|Trattamento ottimale (impostazione predefinita) per il traffico non classificato.|  
+|Dati di backup|1|Nessuno|Tutti i client|Applica un valore DSCP con priorità bassa per questi dati in blocco.|  
+|LOB server|44|Nessuno|Unità organizzativa del computer per i server ERP|Applica il DSCP con priorità alta per il traffico del server ERP|  
+|LOB client|60|Nessuno|Gruppo di utenti Finance|Applica il DSCP con priorità alta per il traffico client ERP|  
 
 >[!NOTE]
 >I valori DSCP sono rappresentati in formato decimale.

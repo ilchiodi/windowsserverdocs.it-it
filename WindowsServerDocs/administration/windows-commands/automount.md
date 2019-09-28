@@ -1,8 +1,8 @@
 ---
-title: automount
-description: 'Argomento i comandi di Windows per **montaggio automatico** : Abilita o disabilita la funzionalità di montaggio automatico.'
+title: montaggio automatico
+description: 'Argomento dei comandi di Windows per il **montaggio** automatico: Abilita o Disabilita la funzionalità di montaggio automatico.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 957f75173390ff628c8b52c645742d83216ebf56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcddad3713bc61101f03e4e60ea0497aac751761
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382285"
 ---
-# <a name="automount"></a>automount
+# <a name="automount"></a>montaggio automatico
 
 
 
-Abilita o disabilita la funzionalità di montaggio automatico. Se abilitata (impostazione predefinita), Windows viene ripetuta automaticamente il file system per un volume di base o dinamico nuovi quando viene aggiunto al sistema e quindi assegna una lettera di unità al volume.
+Abilita o Disabilita la funzionalità di montaggio automatico. Se abilitata (impostazione predefinita), Windows monta automaticamente il file system per un nuovo volume di base o dinamico quando viene aggiunto al sistema, quindi assegna una lettera di unità al volume.
 

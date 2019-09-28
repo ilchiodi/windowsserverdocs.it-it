@@ -1,8 +1,8 @@
 ---
 title: Elimina partizione
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b47338b74cf71a4754b7320d6b3842f342d324d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 46a214f26e7c21f6ae08eb16d95fd898bd949b0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436147"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378660"
 ---
 # <a name="delete-partition"></a>Elimina partizione
 
@@ -36,15 +36,15 @@ delete partition [noerr] [override]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|eseguire l'override|Consente a DiskPart eliminare tutte le partizioni, indipendentemente dal tipo. In genere, DiskPart consente solo di eliminare le partizioni di dati noti.|
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|eseguire l'override|Consente a DiskPart di eliminare qualsiasi partizione indipendentemente dal tipo. In genere, DiskPart consente di eliminare solo le partizioni di dati note.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
 > [!CAUTION]
-> L'eliminazione di una partizione su un disco dinamico, è possibile eliminare tutti i volumi dinamici sul disco, pertanto la distruzione di tutti i dati e del disco in uno stato danneggiato. Per eliminare un volume dinamico, usare sempre la **eliminare il volume** invece di comando. Le partizioni possono essere eliminate dal dischi dinamici, ma non deve essere create. Ad esempio, è possibile eliminare una partizione di tabella di partizione GUID (GPT) non riconosciuta in un disco GPT dinamico. Eliminazione di una partizione non determina lo spazio liberato diventi disponibile. Questo comando è pensato per consentirti di spazio reclame su un disco dinamico offline danneggiato in una situazione di emergenza in cui il **pulita** Impossibile utilizzare il comando Diskpart.
-> -   È possibile eliminare la partizione di sistema, la partizione di avvio o qualsiasi partizione che contiene le active arresto anomalo o un file di dump informazioni di paging.
-> -   Per eseguire questa operazione, è necessario selezionare una partizione. Usare la **Seleziona partizione** comando per selezionare una partizione e spostare lo stato attivo a esso.
+> L'eliminazione di una partizione in un disco dinamico consente di eliminare tutti i volumi dinamici sul disco, eliminando così tutti i dati e lasciando il disco in uno stato danneggiato. Per eliminare un volume dinamico, utilizzare sempre il comando **delete volume** . Le partizioni possono essere eliminate dai dischi dinamici, ma non devono essere create. È ad esempio possibile eliminare una partizione GPT (GUID Partition Table) non riconosciuta in un disco GPT dinamico. L'eliminazione di una partizione di questo tipo non comporta la disponibilità dello spazio libero risultante. Questo comando consente di liberare spazio su un disco dinamico offline danneggiato in una situazione di emergenza in cui non è possibile usare il comando **Pulisci** in Diskpart.
+> -   Non è possibile eliminare la partizione di sistema, la partizione di avvio o una partizione che contiene il file di paging attivo o le informazioni di dump di arresto anomalo.
+> -   Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
 
 ## <a name="BKMK_examples"></a>Esempi
 

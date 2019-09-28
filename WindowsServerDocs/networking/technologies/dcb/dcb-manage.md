@@ -1,23 +1,23 @@
 ---
 title: Gestire Data Center Bridging (DCB)
 description: Questo argomento fornisce istruzioni su come usare i comandi di Windows PowerShell per gestire Data Center Bridging in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fd6e8e5dd0bb4103011269473c3e1091739c775e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d635f96516040fcb30504f752c8194b0323c63f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869805"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405776"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gestire Data Center Bridging (DCB)
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento fornisce istruzioni su come usare i comandi di Windows PowerShell per configurare Data Center Bridging \(DCB\) in una scheda di rete\-compatibile con DCB installata in un computer che esegue Windows Server 2016 o Windows 10.
 
@@ -109,7 +109,7 @@ Per creare una classe di traffico, è possibile usare il comando **New-NetQosTra
     SMB  ETS   30   4Global
       
 
-Per impostazione predefinita, viene eseguito il mapping di tutti i valori 802.1 p a una classe di traffico predefinita, che presenta il 100% della larghezza di banda del collegamento fisico. Il comando **New-NetQosTrafficClass** crea una nuova classe di traffico a cui viene eseguito il mapping di tutti i pacchetti contrassegnati con il valore di priorità 4 802.1 p. L'algoritmo \(di selezione della\) trasmissione TSA è ETS e il 30% della larghezza di banda.
+Per impostazione predefinita, viene eseguito il mapping di tutti i valori 802.1 p a una classe di traffico predefinita, che presenta il 100% della larghezza di banda del collegamento fisico. Il comando **New-NetQosTrafficClass** crea una nuova classe di traffico a cui viene eseguito il mapping di tutti i pacchetti contrassegnati con il valore di priorità 4 802.1 p. L'algoritmo di selezione della trasmissione \(TSA @ no__t-1 è ETS e il 30% della larghezza di banda.
 
 È possibile creare fino a 7 nuove classi di traffico. Includendo la classe di traffico predefinita, nel sistema possono essere presenti al massimo 8 classi di traffico. Tuttavia, una scheda di rete con supporto per DCB potrebbe non supportare la maggior parte delle classi di traffico nell'hardware. Se si creano più classi di traffico rispetto a quelle che possono essere incluse in una scheda di rete e si Abilita DCB sulla scheda di rete, il driver miniport segnala un errore al sistema operativo. L'errore viene registrato nel registro eventi.
 

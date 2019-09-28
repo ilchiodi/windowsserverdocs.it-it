@@ -1,9 +1,9 @@
 ---
-title: PASSAGGIO 8 di uno Snapshot della configurazione di DirectAccess Cluster-Bilanciamento carico di rete
-description: 'Questo argomento fa parte della Guida al Lab di Test: dimostrare DirectAccess in un Cluster con bilanciamento carico di rete di Windows per Windows Server 2016'
+title: 'PASSAGGIO 8: eseguire lo snapshot del cluster DirectAccess-configurazione NLB'
+description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows per Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,19 +12,19 @@ ms.topic: article
 ms.assetid: 915ef7dd-169d-4d58-9174-438d8ffa3584
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 616bf6b84ff6199990c24b5c7a9419f2142086aa
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: af862a9342204bbdcbcad97d9b819de831c1fee1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281579"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404823"
 ---
-# <a name="step-8-snapshot-the-directaccess-cluster-nlb-configuration"></a>PASSAGGIO 8 di uno Snapshot della configurazione di DirectAccess Cluster-Bilanciamento carico di rete
+# <a name="step-8-snapshot-the-directaccess-cluster-nlb-configuration"></a>PASSAGGIO 8: eseguire lo snapshot del cluster DirectAccess-configurazione NLB
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo passaggio si completa il lab di test di DirectAccess. Per salvare la configurazione in modo da poter ritornare rapidamente per un lavoro DirectAccess con la configurazione cluster Bilanciamento carico di rete da cui è possibile testare altre guide di lab di test modulari di DirectAccess, le estensioni di guide di lab di test o per il proprio e sperimentazione, eseguire il seguenti:  
+Questa operazione completa l'ambiente di prova di DirectAccess. Per salvare questa configurazione in modo da poter tornare rapidamente a una configurazione del cluster DirectAccess con bilanciamento del carico di lavoro da cui è possibile testare altre guide ai Lab di test modulari DirectAccess, le estensioni della Guida al Lab di test o per la sperimentazione e l'apprendimento personalizzate, seguente  
   
 1.  In tutti i computer fisici o le macchine virtuali nel lab di test chiudere tutte le finestre e quindi eseguire un arresto normale.  
   
-2.  Se il lab è basato su macchine virtuali, salvare uno snapshot di ogni macchina virtuale e assegnare un nome del cluster di DirectAccess di snapshot e bilanciamento carico di rete. Se nel lab vengono usati computer fisici, creare immagini del disco per salvare la configurazione di lab di test di DirectAccess.  
+2.  Se il Lab è basato su macchine virtuali, salvare uno snapshot di ogni macchina virtuale e denominare il cluster DirectAccess snapshot e NLB. Se nel Lab vengono utilizzati computer fisici, creare immagini del disco per salvare la configurazione del Lab di test di DirectAccess.  

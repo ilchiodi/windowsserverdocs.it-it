@@ -1,9 +1,9 @@
 ---
 title: Distribuire più server di accesso remoto in una distribuzione multisito
-description: Questo argomento fa parte della Guida alla distribuzione di più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 607e3f5b2aa7e4c81e507a3d551d3d56e1f0b347
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: da23f3082e1d97f1bcfbee7365b863d29ba2d020
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282591"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404495"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Distribuire più server di accesso remoto in una distribuzione multisito
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
  Windows Server 2016 e Windows Server 2012 combina DirectAccess e servizio di accesso remoto (RAS) VPN in un unico ruolo Accesso remoto. Accesso remoto può essere distribuito in molti scenari aziendali. In questa panoramica fornisce un'introduzione allo scenario enterprise per la distribuzione di server di accesso remoto in una configurazione multisito.  
   
@@ -49,7 +49,7 @@ Prima di iniziare a distribuire questo scenario, esaminare l'elenco dei requisit
   
 -   È necessario distribuire un'infrastruttura a chiave pubblica (PKI).  
   
-    Per altre informazioni, vedi: [Mini-modulo della Guida al Lab di test: Base PKI per Windows Server 2012.](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
+    Per altre informazioni, vedi: Mini-modulo della Guida al Lab [Test: Infrastruttura a chiave pubblica di base per Windows Server 2012. ](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
   
 -   Rete aziendale deve essere abilitata a IPv6. Se si usa la tecnologia ISATAP, rimuoverla e usare la connettività IPv6 nativa.  
   
@@ -71,7 +71,7 @@ Una distribuzione multisito fornisce quanto segue:
   
 -   Facilità di gestione multisito consente agli amministratori allineare la distribuzione di accesso remoto a una distribuzione di siti di Active Directory, offre un'architettura semplificata. Impostazioni condivise possono essere impostate con facilità tra cluster o server del punto di ingresso. Impostazioni di accesso remoto possono essere gestite da uno qualsiasi dei server nella distribuzione o in modalità remota utilizzando strumenti di amministrazione remota Server (RSAT). Inoltre, l'intera distribuzione multisito può essere monitorata da un'unica console di gestione accesso remoto.  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
+## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e funzionalità in questo scenario.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

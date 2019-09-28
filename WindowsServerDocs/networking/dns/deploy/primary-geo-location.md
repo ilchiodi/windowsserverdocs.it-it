@@ -1,28 +1,28 @@
 ---
 title: Usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con server primari
-description: Questo argomento fa parte del DNS criteri Scenario Guide per Windows Server 2016
+description: Questo argomento fa parte della Guida allo scenario dei criteri DNS per Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 110014adf1e23be574f23efc01e8a4d69397e547
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c313b88e2502a99baf5962a1f2eb224d67a38dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406172"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>Usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con server primari
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per informazioni su come configurare i criteri di DNS per consentire ai server DNS primario rispondere alle query dei client DNS in base alla posizione geografica del client e la risorsa a cui il client sta tentando di connettersi, fornendo il client con l'indirizzo IP della risorsa più vicina.  
   
 >[!IMPORTANT]  
->Questo scenario viene illustrato come distribuire il criterio DNS per la gestione del traffico posizione geografica in base quando si utilizza server DNS primari solo. È inoltre possibile eseguire Gestione del traffico basato su posizione geografica quando si dispone di server DNS primario e secondario. Se si dispone di una distribuzione primario, secondario, completare i passaggi in questo argomento e quindi completare i passaggi che sono disponibili nell'argomento [usare i criteri DNS per la gestione del traffico basato su posizione geografica con distribuzioni primario secondario](primary-secondary-geo-location.md).
+>Questo scenario viene illustrato come distribuire il criterio DNS per la gestione del traffico posizione geografica in base quando si utilizza server DNS primari solo. È inoltre possibile eseguire Gestione del traffico basato su posizione geografica quando si dispone di server DNS primario e secondario. Se si dispone di una distribuzione primaria e secondaria, eseguire prima i passaggi descritti in questo argomento e quindi completare i passaggi indicati nell'argomento usare i [criteri DNS per la gestione del traffico basata sulla posizione geografica con distribuzioni primarie secondarie](primary-secondary-geo-location.md).
 
 Con nuovi criteri di DNS, è possibile creare un criterio DNS che consente al server DNS di rispondere a una query di client che richiede l'indirizzo IP di un server Web. Le istanze del server Web potrebbero trovarsi in diversi Data Center in posizioni fisiche diverse. DNS è possibile valutare i client e i percorsi dei server Web, quindi rispondere alla richiesta del client, fornendo il client con un server Web l'indirizzo IP per un server Web che si trova fisicamente più vicino al client.  
 
@@ -42,7 +42,7 @@ Con nuovi criteri di DNS, è possibile creare un criterio DNS che consente al se
 - **Nega**. Il server DNS risponde a query con una risposta di errore.          
 - **Consenti**. Il server DNS risponde con risposta gestito il traffico.          
   
-##  <a name="bkmk_example"></a>Posizione geografica basato su esempio Gestione traffico
+##  <a name="bkmk_example"></a>Esempio di gestione del traffico basata sulla posizione geografica
 
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS per ottenere il reindirizzamento del traffico in base al percorso fisico del client che esegue una query DNS.   
   
@@ -56,7 +56,7 @@ Nella figura seguente viene illustrato questo scenario.
   
 ![Posizione geografica in base esempio Gestione traffico](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
   
-##  <a name="bkmk_works"></a>Funziona come il nome DNS processo di risoluzione  
+##  <a name="bkmk_works"></a>Funzionamento del processo di risoluzione dei nomi DNS  
   
 Durante il processo di risoluzione del nome, l'utente tenta di connettersi a www.woodgrove.com. Ciò comporta una richiesta di risoluzione nomi DNS che viene inviata al server DNS configurati nelle proprietà di connessione di rete nel computer dell'utente. In genere, questo è il server DNS fornito dal provider del servizio locale che agisce come un resolver di memorizzazione nella cache e viene definito come il LDNS.   
   
@@ -69,13 +69,13 @@ In questo scenario, il server DNS autorevole vede in genere la richiesta di riso
 >[!NOTE]  
 >Criteri DNS utilizzano l'IP del mittente nel pacchetto che contiene la query DNS TCP/UDP. Se la query raggiunge il server primario attraverso più hop resolver/LDNS, i criteri prenderà in considerazione solo l'indirizzo IP del sistema di risoluzione ultimo da cui il server DNS riceve la query.  
   
-##  <a name="bkmk_config"></a>Come configurare criteri DNS per posizione geografica basato su Query risposte  
+##  <a name="bkmk_config"></a>Come configurare i criteri DNS per le risposte alle query basate sulla posizione geografica  
 Per configurare criteri DNS per le risposte alle query in base la posizione geografica, è necessario eseguire la procedura seguente.  
   
-1. [Creare la subnet del Client DNS](#bkmk_subnets)  
-2. [Creare gli ambiti di zona](#bkmk_scopes)  
-3. [Aggiungere i record per gli ambiti di zona](#bkmk_records)  
-4. [Creare i criteri](#bkmk_policies)  
+1. [Creare le subnet del client DNS](#bkmk_subnets)  
+2. [Creare gli ambiti della zona](#bkmk_scopes)  
+3. [Aggiungere record agli ambiti di zona](#bkmk_records)  
+4. [Creazione dei criteri](#bkmk_policies)  
   
 >[!NOTE]  
 >È necessario eseguire questi passaggi nel server DNS autorevole per la zona in cui che si desidera configurare. L'appartenenza a **DnsAdmins**, o equivalente, è necessario per eseguire le procedure seguenti.  
@@ -85,7 +85,7 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >[!IMPORTANT]  
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
   
-### <a name="bkmk_subnets"></a>Creare la subnet del Client DNS  
+### <a name="bkmk_subnets"></a>Creare le subnet del client DNS  
   
 Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP delle aree per cui si desidera reindirizzare il traffico. Ad esempio, se si desidera reindirizzare il traffico per Stati Uniti e in Europa, è necessario identificare la subnet o spazi di indirizzi IP di queste aree.  
   
@@ -106,7 +106,7 @@ Dopo aver configurata la subnet del client, è necessario partizionare la zona i
   
 Ad esempio, se si desidera reindirizzare il traffico per www.woodgrove.com il nome DNS, è necessario creare due ambiti diversi zona in zona woodgrove.com, uno per gli Stati Uniti e uno per l'Europa.  
   
-Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona che contiene un proprio set di record DNS. Lo stesso record possono essere presenti in più ambiti, con diversi indirizzi IP o gli stessi indirizzi IP.  
+Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona contenente il proprio set di record DNS. Lo stesso record può essere presente in più ambiti, con indirizzi IP diversi o con gli stessi indirizzi IP.  
   
 >[!NOTE]  
 >Per impostazione predefinita, un ambito di una zona esistente nelle zone DNS. Questo ambito di zona con lo stesso nome della zona e operazioni DNS legacy funzionano in questo ambito.   
@@ -120,7 +120,7 @@ Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere 
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_records"></a>Aggiungere i record per gli ambiti di zona  
+### <a name="bkmk_records"></a>Aggiungere record agli ambiti di zona  
 È ora necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.   
   
 Ad esempio, **USZoneScope** e **EuropeZoneScope**. In USZoneScope, è possibile aggiungere il record www.woodgrove.com con l'indirizzo IP 192.0.0.1, che si trova in un Data Center degli Stati Uniti; e in EuropeZoneScope è possibile aggiungere lo stesso record (www.woodgrove.com) con l'indirizzo IP 141.1.0.1 nel data center dell'Europa.   
@@ -145,7 +145,7 @@ Il **ZoneScope** parametro non viene incluso quando si aggiunge un record nell'a
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-### <a name="bkmk_policies"></a>Creare i criteri  
+### <a name="bkmk_policies"></a>Creazione dei criteri  
 Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e le partizioni, in modo che quando una query provenga da un'origine in una delle subnet dei client DNS, la risposta alla query verrà restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping tra l'ambito di orario predefinito.   
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare un criterio DNS che collega la subnet del Client DNS e gli ambiti di zona.   

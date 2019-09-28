@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 1/7/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: cfd9d31d388b9acb1a4a4fa40b3975b235a8634b
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.prod: windows-server
+ms.openlocfilehash: c6ab75a2375368d7c87d9dffd6175eb611508dd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546615"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406957"
 ---
 # <a name="pure-storage-extension"></a>Estensione di archiviazione pure
 
@@ -27,7 +27,7 @@ Quando pure ha iniziato a cercare il caso d'uso con "Project Honolulu", ha subit
 
 ![Estensione di archiviazione pure](../../media/extend-case-study-purestorage/purestorage-1.png)
 
-> <cite>"Abbiamo integrato un set di funzionalità che simula l'interfaccia Web di FlashArray per abilitare la gestione diretta dal centro di amministrazione di Windows. I nostri clienti e i nostri partner trarranno vantaggio da un unico riquadro di vetro rispetto alla necessità di lavorare con due diversi strumenti di gestione. Oltre ai vantaggi del singolo punto di gestione, i clienti saranno in grado di gestire in modo contestuale i server Windows connessi alla FlashArray ".</cite>
+> <cite> "è stato integrato un set di funzionalità che simula l'interfaccia Web di FlashArray per abilitare la gestione diretta dal centro di amministrazione di Windows. I nostri clienti e i nostri partner trarranno vantaggio da un unico riquadro di vetro rispetto alla necessità di lavorare con due diversi strumenti di gestione. Oltre ai vantaggi del singolo punto di gestione, i clienti saranno in grado di gestire in modo contestuale i server Windows connessi alla FlashArray ". </cite>
 >
 > --Barkz, Technical Director Microsoft Solutions & Integration, pure storage
 
@@ -39,7 +39,7 @@ Le funzionalità incluse nell'estensione della soluzione di archiviazione pura i
 - Gestire i volumi, inclusa la possibilità di creare ed eliminare i volumi. Una volta eliminato, il volume verrà inserito nel bucket degli elementi eliminati e sarà necessario sradicarlo dalla GUI principale di gestione di FlashArray.
 - Gestisci iniziatori: questa è una delle funzionalità più interessanti che forniscono il contesto ai singoli server gestiti dalla distribuzione del centro di amministrazione di Windows. È possibile visualizzare i dischi connessi (volumi) per i singoli server Windows, verificare se la funzionalità multipath-IO (MPIO) è installata/configurata e creare o montare nuovi volumi.
 
-È stato creato un [video](https://youtu.be/IFAeCAd6V2g) dimostrativo che Mostra tutte le funzionalità fornite dall'estensione della soluzione di archiviazione pura. 
+È stato creato un [video dimostrativo](https://youtu.be/IFAeCAd6V2g) che Mostra tutte le funzionalità fornite dall'estensione della soluzione di archiviazione pura. 
 
 Lo screenshot seguente illustra la visualizzazione dei dischi (volumi) connessi a un host Windows Server specifico. Oltre a visualizzare i dettagli relativi alla connettività, viene verificato se la configurazione multipath-IO è configurata.
 

@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f05104466c1cedcfbc8d94060ffa8fbfd9d18033
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6dc2cbb7ddff8725876f8dd4ec2760e828fd4e4c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402521"
 ---
 # <a name="reviewing-ou-design-concepts"></a>Revisione dei concetti di progettazione di unità organizzative
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Struttura dell'unità organizzativa (OU) per un dominio include quanto segue:  
+La struttura dell'unità organizzativa (OU) per un dominio include quanto segue:  
   
--   Un diagramma della gerarchia di unità Organizzativa  
+-   Diagramma della gerarchia di unità organizzative  
   
--   Un elenco di unità organizzative  
+-   Elenco di unità organizzative  
   
--   Per ogni unità Organizzativa:  
+-   Per ogni unità organizzativa:  
   
-    -   Lo scopo per l'unità Organizzativa  
+    -   Scopo dell'unità organizzativa  
   
-    -   Un elenco di utenti o gruppi che possono controllare l'unità Organizzativa o gli oggetti nell'unità Organizzativa  
+    -   Elenco di utenti o gruppi che hanno il controllo sull'unità organizzativa o sugli oggetti nell'unità organizzativa  
   
-    -   Il tipo di controllo che gli utenti e gruppi siano sugli oggetti nell'unità Organizzativa  
+    -   Il tipo di controllo che gli utenti e i gruppi hanno sugli oggetti nell'unità organizzativa  
   
-La gerarchia di unità Organizzativa non è necessario in modo da riflettere la gerarchia dei reparti dell'organizzazione o del gruppo. Le unità organizzative vengono create per uno scopo specifico, ad esempio la delega dell'amministrazione, l'applicazione dei criteri di gruppo, oppure limitare la visibilità degli oggetti.  
+Non è necessario che la gerarchia delle unità organizzative rifletta la gerarchia del reparto dell'organizzazione o del gruppo. Le unità organizzative vengono create per uno scopo specifico, ad esempio la delega dell'amministrazione, l'applicazione di Criteri di gruppo o per limitare la visibilità degli oggetti.  
   
-È possibile progettare la struttura dell'unità Organizzativa per delegare l'amministrazione a singoli utenti o gruppi all'interno dell'organizzazione che richiedono l'autonomia di gestire i propri dati e risorse. Le unità organizzative rappresentano limiti amministrativi e consentono di controllare l'ambito di autorità degli amministratori dei dati.  
+È possibile progettare la struttura dell'unità organizzativa per delegare l'amministrazione a singoli utenti o gruppi all'interno dell'organizzazione che richiedono l'autonomia per gestire le risorse e i dati. Le unità organizzative rappresentano i limiti amministrativi e consentono di controllare l'ambito dell'autorità degli amministratori dei dati.  
   
-Ad esempio, è possibile creare una OU denominata ResourceOU e usarlo per archiviare tutti gli account computer che appartengono al file e gestiti da un gruppo di server di stampa. Quindi, è possibile configurare sicurezza nell'unità Organizzativa in modo che solo gli amministratori dei dati nel gruppo di accedere all'unità Organizzativa. Ciò impedisce che gli amministratori dei dati di altri gruppi di manomettere i file e gli account di server di stampa.  
+Ad esempio, è possibile creare una OU denominata ResourceOU e usarla per archiviare tutti gli account computer che appartengono al file e ai server di stampa gestiti da un gruppo. Quindi, è possibile configurare la sicurezza nell'unità organizzativa in modo che solo gli amministratori di dati del gruppo abbiano accesso all'unità organizzativa. In questo modo si impedisce agli amministratori di dati di altri gruppi di manomettere gli account del server di file e di stampa.  
   
-È possibile perfezionare ulteriormente la struttura dell'unità Organizzativa tramite la creazione di sottoalberi di unità organizzative per scopi specifici, ad esempio l'applicazione dei criteri di gruppo o per limitare la visibilità degli oggetti protetti in modo che solo determinati utenti possono visualizzarli. Ad esempio, se è necessario applicare i criteri di gruppo a un gruppo selezionato di utenti o le risorse, è possibile aggiungere tali utenti o le risorse a un'unità Organizzativa e quindi applicare i criteri di gruppo all'unità Organizzativa. È anche possibile usare la gerarchia di unità Organizzative che consenta il proseguimento delega del controllo amministrativo.  
+È possibile affinare ulteriormente la struttura dell'unità organizzativa creando sottoalberi delle unità organizzative per scopi specifici, ad esempio l'applicazione di Criteri di gruppo o per limitare la visibilità degli oggetti protetti in modo che solo determinati utenti possano visualizzarli. Ad esempio, se è necessario applicare Criteri di gruppo a un gruppo selezionato di utenti o risorse, è possibile aggiungere tali utenti o risorse a un'unità organizzativa, quindi applicare Criteri di gruppo a tale unità organizzativa. È anche possibile usare la gerarchia delle unità organizzative per abilitare ulteriormente la delega del controllo amministrativo.  
   
-Sebbene non esista alcun limite tecnico al numero di livelli in una struttura di OU, per una migliore gestibilità è consigliabile limitare la struttura OU a una profondità di non più di 10 livelli. Non sussiste alcun limite tecnico al numero di unità organizzative in ogni livello. Si noti che Active Directory Domain Services (AD DS)-abilitata le applicazioni potrebbero esserci restrizioni al numero di caratteri usato nel nome distinto (vale a dire il Lightweight Directory Access Protocol (LDAP) percorso completo per l'oggetto nella directory) o scegliere il Profondità dell'unità Organizzativa all'interno della gerarchia.  
+Sebbene non esistano limiti tecnici al numero di livelli nella struttura dell'unità organizzativa, per gestibilità è consigliabile limitare la struttura dell'unità organizzativa a una profondità superiore a 10 livelli. Non esiste alcun limite tecnico per il numero di unità organizzative in ogni livello. Si noti che per le applicazioni abilitate per Active Directory Domain Services (AD DS) è possibile che siano presenti restrizioni sul numero di caratteri utilizzati nel nome distinto, ovvero il percorso LDAP (Full Lightweight Directory Access Protocol) dell'oggetto nella directory, oppure sul Profondità dell'unità organizzativa all'interno della gerarchia.  
   
-Struttura dell'unità Organizzativa in Active Directory Domain Services non è visibile agli utenti finali. Struttura dell'unità Organizzativa è uno strumento amministrativo per gli amministratori del servizio e per gli amministratori dei dati, ed è facile da modificare. Continuare a esaminare e aggiornare la progettazione di struttura dell'unità Organizzativa in modo da riflettere le modifiche in una struttura amministrativa e per supportare l'amministrazione basata su criteri.  
+La struttura dell'unità organizzativa in servizi di dominio Active Directory non deve essere visibile agli utenti finali. La struttura dell'unità organizzativa è uno strumento amministrativo per gli amministratori del servizio e per gli amministratori dei dati ed è facile da modificare. Continuare a rivedere e aggiornare la progettazione della struttura dell'unità organizzativa in modo da riflettere le modifiche apportate alla struttura amministrativa e supportare l'amministrazione basata su criteri.  
   
 
 

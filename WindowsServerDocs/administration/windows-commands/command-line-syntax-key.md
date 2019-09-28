@@ -1,8 +1,8 @@
 ---
 title: Indicazioni generali sulla sintassi della riga di comando
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 795397c43234e338029fc1e76aa11bf8080256cd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4f8d1e492ee14c3f94c1de00812edcf60c52991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826392"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379228"
 ---
 # <a name="command-line-syntax-key"></a>Indicazioni generali sulla sintassi della riga di comando
 
@@ -26,11 +26,11 @@ ms.locfileid: "59826392"
 
 Nella tabella seguente vengono descritti la notazione utilizzata per indicare la sintassi della riga di comando.
 
-|Notazione|Descrizione|
+|Notation|Descrizione|
 |--------|-----------|
-|Testo senza parentesi quadre o parentesi graffe|Elementi che come illustrato, è necessario digitare|
-|\<Testo all'interno di parentesi angolari >|Segnaposto per il quale è necessario specificare un valore|
-|[Testo all'interno delle parentesi quadre]|Elementi facoltativi|
-|{Testo tra parentesi graffe}|Set di elementi richiesti; Scegliere una|
-|Barra verticale (\|)|Separatore per gli elementi si escludono a vicenda; Scegliere una|
+|Testo senza parentesi quadre o parentesi graffe|Elementi che devono essere digitati come illustrato|
+|\<Testo racchiuso tra parentesi angolari >|Segnaposto per il quale è necessario fornire un valore|
+|[Testo racchiuso tra parentesi quadre]|Elementi facoltativi|
+|{Testo racchiuso tra parentesi graffe}|Set di elementi obbligatori; scegliere una|
+|Barra verticale (\|)|Separatore per gli elementi che si escludono a vicenda; scegliere una|
 |Puntini di sospensione (…)|Elementi che possono essere ripetuti|

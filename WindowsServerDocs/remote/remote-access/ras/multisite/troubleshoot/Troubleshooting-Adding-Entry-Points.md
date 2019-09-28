@@ -1,9 +1,9 @@
 ---
 title: Risoluzione dei problemi relativi all'aggiunta di punti di ingresso
-description: Questo argomento fa parte della Guida alla distribuzione di più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 51f49364aa4e7a6da6c51b1d8b7da7e37f842190
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 7e93c972dbbe2971796c12cdeea27474723a80ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404471"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Risoluzione dei problemi relativi all'aggiunta di punti di ingresso
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento vengono fornite informazioni sulla risoluzione dei problemi relativi al comando `Add-DAEntryPoint`. Per verificare che l'errore ricevuto sia correlato all'aggiunta di un punto di ingresso, controllare che nel registro eventi di Windows sia presente l'ID evento 10067.  
   
@@ -37,7 +37,7 @@ Quando si aggiunge un nuovo punto di ingresso a una distribuzione multisito è n
 Eseguire il comando specificando come parametro *RemoteAccessServer* il nome del server da aggiungere come punto di ingresso.  
   
 ## <a name="remote-access-is-not-configured"></a>Accesso remoto non configurato  
-**Errore ricevuto**. Accesso remoto non è configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
+**Errore ricevuto**. Accesso remoto non configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
   
 **Causa**  
   
@@ -50,7 +50,7 @@ Quando si aggiunge un nuovo punto di ingresso a una distribuzione multisito, è 
 Eseguire il comando specificando come parametro *ComputerName* il nome del server già configurato come parte della distribuzione multisito, oppure eseguirlo da un computer che fa già parte della distribuzione multisito.  
   
 ## <a name="multisite-not-enabled"></a>Distribuzione multisito non abilitata  
-**Errore ricevuto**. È necessario abilitare una distribuzione multisito prima di eseguire questa operazione. A tale scopo, utilizzare il cmdlet `Enable-DAMultiSite`.  
+**Errore ricevuto**. Prima di eseguire questa operazione, è necessario abilitare una distribuzione multisito. A tale scopo, utilizzare il cmdlet `Enable-DAMultiSite`.  
   
 **Causa**  
   
@@ -64,7 +64,7 @@ Abilitare la distribuzione multisito mediante il cmdlet `Enable-DaMultiSite`. Pe
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. IPv6 è distribuito nella rete interna, ma non è stato specificato un prefisso IPv6 client.  
+    **Errore ricevuto**. IPv6 viene distribuito nella rete interna, ma non è stato specificato un prefisso IPv6 client.  
   
     **Causa**  
   
@@ -78,7 +78,7 @@ Abilitare la distribuzione multisito mediante il cmdlet `Enable-DaMultiSite`. Pe
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Il prefisso IPv6 client è già in uso da un altro punto di ingresso. Specificare un valore alternativo.  
+    **Errore ricevuto**. Il prefisso IPv6 del client è già in uso da parte di un altro punto di ingresso. Specificare un valore alternativo.  
   
     **Causa**  
   
@@ -91,7 +91,7 @@ Abilitare la distribuzione multisito mediante il cmdlet `Enable-DaMultiSite`. Pe
     2.  Eseguire il cmdlet `Add-DAEntryPoint` e specificare il prefisso IP-HTTPS nel parametro *ClientIPv6Prefix*.  
   
 ## <a name="connectto-address"></a>Indirizzo ConnectTo  
-**Errore ricevuto**. L'indirizzo (< indirizzo_connect_to >) a cui si connettono i client DirectAccess nel server di accesso remoto è lo stesso indirizzo di rete percorso server. Specificare un valore alternativo.  
+**Errore ricevuto**. L'indirizzo (< connect_to_address >) a cui i client DirectAccess si connettono sul server RemoteAccess è uguale all'indirizzo del server dei percorsi di rete. Specificare un valore alternativo.  
   
 **Causa**  
   
@@ -102,11 +102,11 @@ L'indirizzo ConnectTo e quello del server dei percorsi di rete sono identici.
 L'indirizzo ConnectTo deve essere risolvibile su Internet per consentire ai computer client di connettersi su IP-HTTPS. L'indirizzo del server dei percorsi di rete deve essere risolvibile nella rete aziendale ma non su Internet. Assicurarsi che l'indirizzo del server dei percorsi di rete non sia uguale all'indirizzo ConnectTo. Selezionare indirizzi differenti e riprovare.  
   
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess o VPN già installati  
-**Errore ricevuto**. È stata rilevata un'installazione VPN nel server di < nome_server >. Specificare un server alternativo in cui non è installato Accesso remoto oppure rimuovere la configurazione VPN dal server.  
+**Errore ricevuto**. È stata rilevata un'installazione VPN nel server < nome_server >. Specificare un server alternativo in cui non è installato Accesso remoto oppure rimuovere la configurazione VPN dal server.  
   
 Oppure  
   
-Accesso remoto è già installato sul server < nome_server >. Specificare un server alternativo in cui non viene eseguito DirectAccess oppure rimuovere la configurazione DirectAccess esistente dal server.  
+Accesso remoto è già installato nel server < nome_server >. Specificare un server alternativo in cui non viene eseguito DirectAccess oppure rimuovere la configurazione DirectAccess esistente dal server.  
   
 **Causa**  
   
@@ -119,7 +119,7 @@ Per aggiungere un server a una distribuzione multisito è necessario installare 
 Eseguire il comando assicurandosi che nel server specificato nel parametro *RemoteAccessServer* non sia configurato DirectAccess o VPN.  
   
 ## <a name="ipsec-root-certificate"></a>Certificato radice IPsec  
-**Errore ricevuto**. Non può trovarsi il certificato radice IPsec configurato nel server < nome_server >.  
+**Errore ricevuto**. Impossibile trovare il certificato radice IPsec configurato nel server < nome_server >.  
   
 **Causa**  
   
@@ -139,19 +139,19 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
 -   **Problema 1**  
   
-    **Avviso ricevuto**. Il server di accesso remoto da aggiungere è configurato con gli indirizzi IPv4 e IPv6. Si tratta di una distribuzione solo IPv4, pertanto Accesso remoto ignorerà gli indirizzi IPv6.  
+    **Avviso ricevuto**. Il server di accesso remoto da aggiungere viene configurato con indirizzi sia IPv4 che IPv6. Si tratta di una distribuzione solo IPv4, pertanto Accesso remoto ignorerà gli indirizzi IPv6.  
   
     **Causa**  
   
-    Alla prima installazione di questa distribuzione la rete interna è stata rilevata come solo IPv4. In una distribuzione multisito si presuppone che diversi punti di ingresso si trovino in subnet diverse con caratteristiche differenti. Sebbene sia configurata come solo IPv4, la distribuzione può pertanto contenere un punto di ingresso situato in una subnet IPv6+IPv4. Tuttavia, anche se il punto di ingresso verrà aggiunto alla distribuzione, DirectAccess ignorerà gli indirizzi IPv6 configurati per l'interfaccia interna del nuovo punto di ingresso.  
+    Alla prima installazione di questa distribuzione la rete interna è stata rilevata come solo IPv4. In una distribuzione multisito si presuppone che diversi punti di ingresso si trovino in subnet diverse con caratteristiche differenti. Sebbene sia configurata come solo IPv4, la distribuzione può pertanto contenere un punto di ingresso situato in una subnet IPv6+IPv4. Tuttavia, sebbene il punto di ingresso venga aggiunto alla distribuzione, DirectAccess ignorerà gli indirizzi IPv6 configurati nell'interfaccia interna del nuovo punto di ingresso.  
   
     **Soluzione**  
   
-    Se l'intera rete interna è configurata con indirizzi IPv6 e IPv4, può essere opportuno optare per una distribuzione IPv6+IPv4, per poter usufruire dei vantaggi delle tecnologie IPv6. Vedere la sezione "Dedicata alla transizione da un solo IPv4 a una rete aziendale IPv6 + IPv4" in [passaggio 3: Pianificazione della distribuzione multisito](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
+    Se l'intera rete interna è configurata con indirizzi IPv6 e IPv4, può essere opportuno optare per una distribuzione IPv6+IPv4, per poter usufruire dei vantaggi delle tecnologie IPv6. Vedere la sezione relativa alla transizione da una rete aziendale IPv4 a una rete aziendale IPv6 + IPv4 in [Step 3: Pianificare la distribuzione multisito @ no__t-0.  
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Le schede di rete interne dei server Accesso remoto in questa distribuzione multisito vengono configurate con indirizzi IPv4. Anche il punto di ingresso da aggiungere deve essere configurato con un indirizzo IPv4 sulla scheda di rete interna.  
+    **Errore ricevuto**. Le schede di rete interne dei server accedere remoti in questa distribuzione multisito sono configurate con indirizzi IPv4. Anche il punto di ingresso da aggiungere deve essere configurato con un indirizzo IPv4 sulla scheda di rete interna.  
   
     **Causa**  
   
@@ -159,11 +159,11 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
     **Soluzione**  
   
-    Se l'intera rete è già configurata con indirizzi IPv6, è necessario passare a una distribuzione IPv6+IPv4 o solo IPv6. Vedere l'argomento "Pianificazione della transizione a IPv6 nelle distribuzioni di accesso remoto multisito".  
+    Se l'intera rete è già configurata con indirizzi IPv6, è necessario passare a una distribuzione IPv6+IPv4 o solo IPv6. Vedere la sezione relativa alla pianificazione della transizione a IPv6 durante la distribuzione di accesso remoto multisito.  
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Il punto di ingresso si trova in una rete IPv4, ma i punti di ingresso precedenti si trovano in una rete IPv6. Connettere il punto di ingresso alla rete IPv6 prima di aggiungerlo alla stessa distribuzione multisito.  
+    **Errore ricevuto**. Questo punto di ingresso si trova in una rete IPv4, ma i punti di ingresso precedenti si trovano in una rete IPv6. Connettere il punto di ingresso alla rete IPv6 prima di aggiungerlo alla stessa distribuzione multisito.  
   
     **Causa**  
   
@@ -181,7 +181,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
     Alla prima installazione di questa distribuzione la rete interna è stata rilevata come IPv6+IPv4. In questa modalità di distribuzione sono abilitati DNS64 e NAT64 per consentire ai computer client di accedere ai computer della rete interna configurati solo con indirizzi IPv4.  
   
-    Durante l'aggiunta del novo punto di ingresso, Accesso remoto da rilevato che l'interfaccia interna del nuovo computer presenta solo indirizzi IPv6. La configurazione di DNS64 e NAT64 richiede un indirizzo IPv4 per il routing dei pacchetti dal server di accesso remoto al computer solo IPv4. Poiché nel nuovo computer non è presente un indirizzo IPv4, NAT64 e DNS64 non saranno configurati nel server di accesso remoto. I computer client che accedono alla rete aziendale tramite DirectAccess utilizzando questo punto di ingresso non saranno i9n grado di accedere ai server solo IPv4 della rete interna. Per informazioni su come eseguire la transizione a una rete IPv6 + IPv4 o a una rete solo IPv6, vedere "Pianificazione della transizione a IPv6 quando si distribuisce accesso remoto multisito".  
+    Durante l'aggiunta del novo punto di ingresso, Accesso remoto da rilevato che l'interfaccia interna del nuovo computer presenta solo indirizzi IPv6. La configurazione di DNS64 e NAT64 richiede un indirizzo IPv4 per il routing dei pacchetti dal server di accesso remoto al computer solo IPv4. Poiché nel nuovo computer non è presente un indirizzo IPv4, NAT64 e DNS64 non saranno configurati nel server di accesso remoto. I computer client che accedono alla rete aziendale tramite DirectAccess utilizzando questo punto di ingresso non saranno i9n grado di accedere ai server solo IPv4 della rete interna. Per informazioni su come eseguire la transizione a una rete IPv6 + IPv4 o a una rete solo IPv6, vedere la sezione relativa alla pianificazione della transizione a IPv6 quando si distribuisce accesso remoto multisito.  
   
     **Soluzione**  
   
@@ -191,7 +191,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Il dominio specificato nel parametro ServerGpoName < oggetto_criteri_di_gruppo_server > non esiste. Specificare invece il dominio < nome_dominio >.  
+    **Errore ricevuto**. Il dominio specificato nel parametro ServerGpoName < server_GPO > non esiste. Specificare invece il dominio < > domain_name.  
   
     **Causa**  
   
@@ -203,7 +203,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Il server oggetto Criteri di gruppo deve trovarsi nel dominio del server Accesso remoto. Specificare il dominio < nome_dominio > nel parametro ServerGpoName.  
+    **Errore ricevuto**. L'oggetto Criteri di gruppo del server deve trovarsi nel dominio del server di accesso remoto. Specificare il dominio < > domain_name nel parametro ServerGpoName.  
   
     **Causa**  
   
@@ -214,7 +214,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
     L'oggetto Criteri di gruppo server deve trovarsi nello stesso dominio del server di accesso remoto. Utilizzare il nome di dominio del server per l'oggetto Criteri di gruppo server e riprovare.  
   
 ## <a name="split-brain-dns"></a>DNS "split brain"  
-**Avviso ricevuto**. La voce NRPT per il suffisso DNS < suffisso_dns > contiene il nome pubblico utilizzato dai computer client per connettersi al server di accesso remoto. Aggiungere il nome < indirizzo_connect_to > come esenzione nella tabella NRPT.  
+**Avviso ricevuto**. La voce della tabella dei criteri di risoluzione dei nomi del suffisso DNS < DNS_suffix > contiene il nome pubblico utilizzato dai computer client per la connessione al server di accesso remoto. Aggiungere il nome < connect_to_address > come esenzione nella tabella dei criteri di risoluzione dei nomi.  
   
 **Causa**  
   
@@ -235,12 +235,12 @@ Per esentare un indirizzo nelle regole NRPT:
 Se si aggiunge un suffisso del nome senza specificare un indirizzo del server, il suffisso viene trattato come un'esenzione NRPT.  
   
 ## <a name="saving-server-gpo-settings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo server  
-**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < nome_oggetto >.  
+**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < GPO_name >.  
   
-Per risolvere questo errore, vedere il salvataggio delle impostazioni di server oggetto Criteri di gruppo in [risoluzione dei problemi di abilitazione multisito](https://technet.microsoft.com/library/jj591658.aspx).  
+Per risolvere questo errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo del server in [risoluzione dei problemi abilitati multisito](https://technet.microsoft.com/library/jj591658.aspx)  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo  
-**Avviso ricevuto**. Impossibile applicare gli aggiornamenti di oggetto Criteri di gruppo su < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
+**Avviso ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
   
 **Causa**  
   

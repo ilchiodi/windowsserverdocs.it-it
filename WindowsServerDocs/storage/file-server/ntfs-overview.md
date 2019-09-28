@@ -1,23 +1,23 @@
 ---
 title: Panoramica di NTFS
 description: Una spiegazione della funzionalità NTFS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e43d0520f97f28af54f794daf7ad263bc9928fac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b98877d0a94ff8033b65bf74d0118e2a5f1ea092
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867353"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402081"
 ---
 # <a name="ntfs-overview"></a>Panoramica di NTFS
 
->Si applica a Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>Si applica a: Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 NTFS, il file system principale per le versioni recenti di Windows e Windows Server, offre un set completo di funzionalità, tra cui descrittori di sicurezza, crittografia, quote disco e metadati avanzati, e può essere usato con volumi condivisi cluster (CSV) per fornire continuamente volumi disponibili a cui è possibile accedere simultaneamente da più nodi di un cluster di failover.
 
@@ -91,7 +91,7 @@ Se lo spazio su un volume è limitato, NTFS fornisce i modi seguenti per lavorar
 - Aumentare le dimensioni di un volume NTFS aggiungendo spazio non allocato dallo stesso disco o da un disco diverso.
 - Montare un volume in qualsiasi cartella vuota in un volume NTFS locale se si esauriscono le lettere di unità oppure è necessario creare ulteriore spazio accessibile da una cartella esistente.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 
 - [Consigli sulle dimensioni del cluster per ReFS e NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Panoramica di Resilient file System (ReFS)](../refs/refs-overview.md)

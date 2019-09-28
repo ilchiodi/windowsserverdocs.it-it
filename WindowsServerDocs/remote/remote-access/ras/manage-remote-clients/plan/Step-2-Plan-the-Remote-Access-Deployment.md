@@ -1,9 +1,9 @@
 ---
 title: Passaggio 2 pianificare la distribuzione di accesso remoto
-description: Questo argomento fa parte della Guida di client DirectAccess di gestire in remoto in Windows Server 2016.
+description: Questo argomento fa parte della Guida relativa alla gestione remota dei client DirectAccess in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,81 +12,81 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 78303bbdd29819389944348a279fb4a52f1570fb
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 131520f567da6529e342229a0f6965d3223f928b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404581"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Passaggio 2 pianificare la distribuzione di accesso remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Dopo aver pianificato l'infrastruttura che si intende usare per configurare il server di accesso remoto singolo per la gestione remota dei client DirectAccess, si è pronti a pianificare le impostazioni che utilizzerà la configurazione guidata accesso remoto.  
+Dopo aver pianificato l'infrastruttura che si intende usare per configurare il singolo server di accesso remoto per la gestione remota dei client DirectAccess, è possibile pianificare le impostazioni che verranno usate dalla configurazione guidata accesso remoto.  
   
 > [!NOTE]  
-> Prima di continuare con queste attività, vedere [passaggio 1: Pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md).  
+> Prima di continuare con queste attività, vedere [Step 1: Pianificare l'infrastruttura di accesso remoto @ no__t-0.  
   
 |Attività|Descrizione|  
 |----|--------|  
 |[Pianificare una strategia di distribuzione client](#plan-a-client-deployment-strategy)|Stabilire quali computer gestiti saranno configurati come client DirectAccess.|  
-|[Pianificare una strategia di distribuzione di server di accesso remoto](#plan-a-remote-access-server-deployment-strategy)|Pianificare la modalità di distribuzione del server di Accesso remoto.|  
-|[Pianificare le configurazioni dei server dell'infrastruttura](#plan-the-infrastructure-servers-configurations)|Pianificare i server dell'infrastruttura nella distribuzione di accesso remoto, tra cui il server dei percorsi di rete DirectAccess, server DNS e server di Gestione DirectAccess.|  
+|[Pianificare una strategia di distribuzione del server di accesso remoto](#plan-a-remote-access-server-deployment-strategy)|Pianificare la modalità di distribuzione del server di Accesso remoto.|  
+|[Pianificare le configurazioni dei server di infrastruttura](#plan-the-infrastructure-servers-configurations)|Pianificare i server di infrastruttura nella distribuzione di accesso remoto, inclusi il server dei percorsi di rete DirectAccess, i server DNS e i server di Gestione DirectAccess.|  
   
 ## <a name="plan-a-client-deployment-strategy"></a>Pianificare una strategia di distribuzione client  
 Nel pianificare la distribuzione del client sarà necessario prendere tre decisioni:  
   
-1.  DirectAccess sarà disponibile ai computer portatili, o a tutti i computer in un gruppo di sicurezza specificato?  
+1.  DirectAccess sarà disponibile solo per i computer portatili o per tutti i computer in un gruppo di sicurezza specifico?  
   
-    Quando si configurano i client DirectAccess nella configurazione guidata Client DirectAccess, è possibile scegliere di consentire solo ai computer portatili nei gruppi di sicurezza specificato per la connessione al server tramite DirectAccess. Se si limita l'accesso ai computer portatili, Accesso remoto configura automaticamente un filtro WMI per assicurarsi che l'oggetto Criteri di gruppo del client DirectAccess venga applicato solo ai computer portatili nei gruppi di sicurezza specificati. L'amministratore di Accesso remoto richiederà le autorizzazioni per creare o modificare i filtri WMI dei criteri di gruppo per abilitare questa impostazione.  
+    Quando si configurano i client DirectAccess nell'installazione guidata client DirectAccess, è possibile scegliere di consentire solo ai computer portatili nei gruppi di sicurezza specificati di connettersi al server tramite DirectAccess. Se si limita l'accesso ai computer portatili, Accesso remoto configura automaticamente un filtro WMI per assicurarsi che l'oggetto Criteri di gruppo del client DirectAccess venga applicato solo ai computer portatili nei gruppi di sicurezza specificati. L'amministratore di Accesso remoto richiederà le autorizzazioni per creare o modificare i filtri WMI dei criteri di gruppo per abilitare questa impostazione.  
   
 2.  Quali gruppi di sicurezza conterranno i computer client DirectAccess?  
   
-    Le impostazioni di DirectAccess sono contenute nel client di DirectAccess oggetti Criteri di gruppo (GPO). L'oggetto Criteri di gruppo viene applicato ai computer che fanno parte dei gruppi di sicurezza specificati Configurazione guidata client DirectAccess. È possibile specificare i gruppi di sicurezza contenuti in qualsiasi dominio supportato.
+    Le impostazioni di DirectAccess sono contenute nell'oggetto Criteri di gruppo del client DirectAccess (GPO). L'oggetto Criteri di gruppo viene applicato ai computer che fanno parte dei gruppi di sicurezza specificati Configurazione guidata client DirectAccess. È possibile specificare i gruppi di sicurezza contenuti in qualsiasi dominio supportato.
   
-    Prima di configurare accesso remoto, è necessario creare i gruppi di sicurezza. Dopo aver completato la distribuzione di accesso remoto, è possibile aggiungere computer al gruppo di sicurezza. Tuttavia, se si aggiungono computer client che si trovano in un dominio diverso rispetto al gruppo di sicurezza, oggetto Criteri di gruppo client non essere applicato a tutti i client. Ad esempio, se è stato creato SG1 nel dominio A per i client DirectAccess e successivamente si aggiungono i client dal dominio B a questo gruppo, oggetto Criteri di gruppo client verranno ignorati per i client nel dominio B.  
+    Prima di configurare l'accesso remoto, è necessario creare i gruppi di sicurezza. È possibile aggiungere computer al gruppo di sicurezza dopo aver completato la distribuzione di accesso remoto. Tuttavia, se si aggiungono computer client che si trovano in un dominio diverso da quello del gruppo di sicurezza, l'oggetto Criteri di gruppo del client non verrà applicato a tali client. Ad esempio, se è stato creato SG1 nel dominio A per i client DirectAccess e in seguito si aggiungono client dal dominio B a questo gruppo, l'oggetto Criteri di gruppo del client non verrà applicato ai client nel dominio B.  
   
-    Per evitare questo problema, creare un nuovo gruppo di sicurezza di client per ogni dominio che contiene computer client. In alternativa, se non si desidera creare un nuovo gruppo di sicurezza, eseguire la **Add-DAClient** cmdlet di Windows PowerShell con il nome del nuovo oggetto Criteri di gruppo per il nuovo dominio.  
+    Per evitare questo problema, creare un nuovo gruppo di sicurezza client per ogni dominio che contiene i computer client. In alternativa, se non si vuole creare un nuovo gruppo di sicurezza, eseguire il cmdlet **Add-daclient** di Windows PowerShell con il nome del nuovo oggetto Criteri di gruppo per il nuovo dominio.  
   
-3.  Quali impostazioni vengono configurate per l'Assistente di connettività di rete di DirectAccess?  
+3.  Quali impostazioni vengono configurate per l'assistente connettività di rete DirectAccess?  
   
-    L'Assistente di connettività di rete di DirectAccess viene eseguito nei computer client e fornisce informazioni aggiuntive sulla connessione di DirectAccess agli utenti finali. Nella Configurazione guidata client DirectAccess, è possibile configurare quanto segue:  
+    L'assistente per la connettività di rete DirectAccess viene eseguito nei computer client e fornisce informazioni aggiuntive sulla connessione DirectAccess agli utenti finali. Nella Configurazione guidata client DirectAccess, è possibile configurare quanto segue:  
   
-    -   **Strumenti di verifica della connettività**  
+    -   **Sistemi di verifica della connettività**  
   
-        Viene creato probe Web predefinito che i client usano per convalidare la connettività alla rete interna. Il nome predefinito è `https://directaccess-WebProbeHost.<domain_name>`. Il nome deve essere registrato manualmente in DNS. È possibile creare altri strumenti di verifica della connettività che usano altri indirizzi web su HTTP oppure PING. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
+        Viene creato probe Web predefinito che i client usano per convalidare la connettività alla rete interna. Il nome predefinito è `https://directaccess-WebProbeHost.<domain_name>`. Il nome deve essere registrato manualmente in DNS. È possibile creare altri sistemi di verifica della connettività che usano altri indirizzi Web su HTTP o PING. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
   
-    -   **Consentire l'indirizzo di posta elettronica di supporto tecnico**  
+    -   **Indirizzo di posta elettronica del supporto tecnico**  
   
-        Se gli utenti finali riscontrare problemi di connettività DirectAccess, è possibile inviare un messaggio di posta elettronica che contiene le informazioni di diagnostica all'amministratore di accesso remoto, che è possibile risolvere il problema.  
+        Se gli utenti finali riscontrano problemi di connettività DirectAccess, possono inviare un messaggio di posta elettronica contenente informazioni diagnostiche all'amministratore di accesso remoto, che possono risolvere il problema.  
   
     -   **Nome della connessione DirectAccess**  
   
-        È possibile specificare un nome della connessione DirectAccess per consentire agli utenti finali di identificare la connessione DirectAccess nei loro computer.  
+        È possibile specificare un nome di connessione DirectAccess per consentire agli utenti finali di identificare la connessione DirectAccess nel computer.  
   
-    -   **Consentire ai client DirectAccess di utilizzare la risoluzione dei nomi locali**  
+    -   **Consenti ai client DirectAccess di usare la risoluzione dei nomi locali**  
   
-        I client richiedono un mezzo per la risoluzione dei nomi in locale. Se si consente ai client DirectAccess di usare la risoluzione dei nomi locali, gli utenti finali possono usare i server DNS locali per risolvere i nomi. Quando gli utenti finali scegliere di usare i server DNS locali per la risoluzione dei nomi, DirectAccess non invia le richieste di risoluzione di nomi con etichetta singola per il server DNS aziendale interno. Usa invece la risoluzione dei nomi locale (usando il Link-Local Multicast Name LLMNR (Resolution) e NetBios su protocolli TCP/IP).  
+        I client richiedono un mezzo per la risoluzione dei nomi localmente. Se si consente ai client DirectAccess di usare la risoluzione dei nomi locali, gli utenti finali possono usare i server DNS locali per risolvere i nomi. Quando gli utenti finali scelgono di usare i server DNS locali per la risoluzione dei nomi, DirectAccess non invia richieste di risoluzione per i nomi con etichetta singola al server DNS aziendale interno. USA invece la risoluzione dei nomi locali (usando i protocolli LLMNR (Link-Local Multicast Name Resolution) e NetBios su TCP/IP.  
   
-## <a name="plan-a-remote-access-server-deployment-strategy"></a>Pianificare una strategia di distribuzione di server di accesso remoto  
-Le decisioni che è necessario apportare quando si prevede di distribuire il server di accesso remoto includono:  
+## <a name="plan-a-remote-access-server-deployment-strategy"></a>Pianificare una strategia di distribuzione del server di accesso remoto  
+Le decisioni da prendere durante la pianificazione della distribuzione del server di accesso remoto includono:  
   
 -   **Topologia di rete**  
   
-    Esistono due topologie disponibili quando si distribuisce un server di accesso remoto:  
+    Quando si distribuisce un server di accesso remoto, sono disponibili due topologie:  
   
-    -   **Due schede**: Con due schede di rete, accesso remoto può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra connessa alla rete interna. O in alternativa, il server viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. In questa rete di una configurazione scheda è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
+    -   **Due schede**: Con due schede di rete, l'accesso remoto può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra connessa alla rete interna. In alternativa, il server viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. In questa configurazione, una scheda di rete è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
   
-    -   **Singola scheda di rete**: In questa configurazione accesso remoto server viene installato dietro un dispositivo periferico, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
+    -   **Singola scheda di rete**: In questa configurazione il server di accesso remoto viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
 
 -   **Schede di rete**  
   
-    La configurazione guidata Server di accesso remoto rileva automaticamente le schede di rete configurate nel server di accesso remoto. È necessario assicurarsi di aver selezionato le schede corrette.  
+    La configurazione guidata del server di accesso remoto rileva automaticamente le schede di rete configurate nel server di accesso remoto. È necessario assicurarsi di aver selezionato le schede corrette.  
   
 -   **Certificato IP-HTTPS**  
   
-    La Configurazione guidata del server di Accesso remoto rileva automaticamente un certificato idoneo alla connessione IP-HTTPS. Il nome soggetto del certificato selezionato deve corrispondere all'indirizzo ConnectTo. Se si utilizzano certificati autofirmati, è possibile scegliere di usare un certificato che viene creato automaticamente dal server di accesso remoto.  
+    La Configurazione guidata del server di Accesso remoto rileva automaticamente un certificato idoneo alla connessione IP-HTTPS. Il nome soggetto del certificato selezionato deve corrispondere all'indirizzo ConnectTo. Se si usano certificati autofirmati, è possibile scegliere di usare un certificato creato automaticamente dal server di accesso remoto.  
   
 -   **Prefissi IPv6**  
   
@@ -94,25 +94,25 @@ Le decisioni che è necessario apportare quando si prevede di distribuire il ser
   
 -   **Autenticazione**  
   
-    È possibile scegliere uno dei seguenti metodi per l'autenticazione dei client DirectAccess al server di accesso remoto:  
+    Per autenticare i client DirectAccess nel server di accesso remoto, è possibile scegliere uno dei metodi seguenti:  
   
-    -   **L'autenticazione utente**: È possibile abilitare l'autenticazione utente con le credenziali Active Directory o con un'autenticazione a due fattori.  
+    -   **Autenticazione utente**: È possibile abilitare l'autenticazione utente con le credenziali Active Directory o con un'autenticazione a due fattori.  
   
-    -   **L'autenticazione computer**: È possibile configurare l'autenticazione del computer per usare i certificati. O il server di accesso remoto può agire come proxy per l'autenticazione Kerberos senza necessità di certificati. 
+    -   **Autenticazione computer**: È possibile configurare l'autenticazione del computer per l'uso dei certificati. Oppure il server di accesso remoto può fungere da proxy per l'autenticazione Kerberos senza richiedere i certificati. 
   
-    -   **I client Windows 7** per impostazione predefinita, i computer client che eseguono Windows 7 non è possibile connettersi a una distribuzione di accesso remoto che esegue Windows Server 2012. Se si dispone di client che eseguono Windows 7 nell'organizzazione che richiedono l'accesso remoto alle risorse interne, è possibile consentire loro di connettersi. Qualsiasi computer client al quale si intende concedere l'accesso alle risorse interne deve essere membro di un gruppo di sicurezza specificato nella Configurazione guidata client DirectAccess.  
+    -   **Client Windows 7** Per impostazione predefinita, i computer client che eseguono Windows 7 non possono connettersi a una distribuzione di accesso remoto che esegue Windows Server 2012. Se si dispone di client che eseguono Windows 7 nell'organizzazione che richiedono l'accesso remoto alle risorse interne, è possibile consentirne la connessione. Qualsiasi computer client al quale si intende concedere l'accesso alle risorse interne deve essere membro di un gruppo di sicurezza specificato nella Configurazione guidata client DirectAccess.  
   
         > [!NOTE]  
-        > Consentendo ai client che eseguono Windows 7 per connettersi usando DirectAccess è necessario utilizzare l'autenticazione del certificato computer.  
+        > Per consentire ai client che eseguono Windows 7 di connettersi tramite DirectAccess, è necessario utilizzare l'autenticazione del certificato del computer.  
   
 -   **Configurazione VPN**  
   
-    Prima di configurare accesso remoto, decidere se si desidera fornire ai client remoti l'accesso VPN. È necessario fornire l'accesso VPN se si dispone di computer client all'interno dell'organizzazione che non supportano la connettività DirectAccess (ad esempio, non sono gestiti o eseguono un sistema operativo per cui DirectAccess non è supportata). La configurazione guidata Server di accesso remoto consente di configurare la modalità di assegnazione degli indirizzi IP (mediante il protocollo DHCP o da un pool di indirizzi statici) e la modalità di autenticazione client VPN (tramite Active Directory o un server RADIUS).  
+    Prima di configurare accesso remoto, decidere se si intende fornire l'accesso VPN ai client remoti. È necessario fornire l'accesso VPN se nell'organizzazione sono presenti computer client che non supportano la connettività DirectAccess (ad esempio, non sono gestiti o eseguono un sistema operativo per il quale DirectAccess non è supportato). L'installazione guidata del server di accesso remoto consente di configurare la modalità di assegnazione degli indirizzi IP (tramite DHCP o da un pool di indirizzi statici) e la modalità di autenticazione dei client VPN (tramite Active Directory o un server RADIUS).  
   
-## <a name="plan-the-infrastructure-servers-configurations"></a>Pianificare le configurazioni dei server dell'infrastruttura  
+## <a name="plan-the-infrastructure-servers-configurations"></a>Pianificare le configurazioni dei server di infrastruttura  
 Accesso remoto richiede tre tipi di server di infrastruttura:  
   
--   **Server dei percorsi di rete**  
+-   **Server del percorso di rete**  
   
 -   **Server DNS** 
   

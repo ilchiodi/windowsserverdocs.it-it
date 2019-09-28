@@ -1,19 +1,19 @@
 ---
 ms.assetid: 01c8cece-66ce-4a83-a81e-aa6cc98e51fc
 title: Impostazioni avanzate di Deduplicazione dati
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-deduplication
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1d0677cec134ddeb4c706d0f1231f2c26b39967e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447244"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403213"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Impostazioni avanzate di Deduplicazione dati
 
@@ -21,15 +21,15 @@ ms.locfileid: "66447244"
 
 In questo documento viene descritto come modificare le impostazioni di [deduplicazione](overview.md) avanzate. Per i [carichi di lavoro consigliati](install-enable.md#enable-dedup-candidate-workloads), le impostazioni predefinite dovrebbero essere sufficienti. Il motivo principale per cui si modificano queste impostazioni è migliorare le prestazioni della deduplicazione dei dati con altri tipi di carichi di lavoro.
 
-## <a id="modifying-job-schedules"></a>Modifica delle pianificazioni di processo di deduplicazione dati
+## <a id="modifying-job-schedules"></a>Modifica delle pianificazioni dei processi di deduplicazione dati
 Le [pianificazioni predefinite dei processi di deduplicazione dati](understand.md#job-info) sono progettate in modo da funzionare per i carichi di lavoro consigliati ed essere il meno possibile intrusive (escluso il processo *Ottimizzazione della priorità* che è abilitato per il [tipo di utilizzo **Backup**](understand.md#usage-type-backup)). Quando i carichi di lavoro richiedono la disponibilità di un gran numero di risorse, è possibile garantire che i processi vengano eseguiti solo durante le ore di inattività oppure ridurre o aumentare la quantità di risorse di sistema che un processo di deduplicazione dati è autorizzato a consumare.
 
-### <a id="modifying-job-schedules-change-schedule"></a>Modifica una pianificazione della deduplicazione dati
+### <a id="modifying-job-schedules-change-schedule"></a>Modifica della pianificazione della deduplicazione dei dati
 I processi di deduplicazione dati vengono pianificati dal servizio Utilità di pianificazione di Windows, che consente di visualizzarli e modificarli nel percorso Microsoft\Windows\Deduplication. La deduplicazione dei dati include diversi cmdlet che semplificano la pianificazione.
 * [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) Mostra i processi pianificati correnti.
-* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) Crea un nuovo processo pianificato.
+* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) crea un nuovo processo pianificato.
 * [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) modifica un processo pianificato esistente.
-* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) Rimuove un processo pianificato.
+* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) rimuove un processo pianificato.
 
 Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti i processi di deduplicazione dei dati è la necessità di assicurarsi che vengano eseguiti durante le ore non lavorative. Nell'esempio seguente viene illustrato in dettaglio come modificare la pianificazione della deduplicazione dei dati per uno scenario *sunny day*: un host Hyper-V iperconvergente non attivo nei fine settimana e dopo le 19:00 nei giorni lavorativi. Per modificare la pianificazione, eseguire i cmdlet di PowerShell indicati di seguito in un contesto Amministratore.
 
@@ -62,7 +62,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
     New-DedupSchedule -Name "WeeklyIntegrityScrubbing" -Type Scrubbing -DurationHours 23 -Memory 100 -Cores 100 -Priority High -Days @(0) -Start (Get-Date "2016-08-14 07:00:00")
     ```
 
-### <a id="modifying-job-schedules-available-settings"></a>Impostazioni disponibili a livello di processo
+### <a id="modifying-job-schedules-available-settings"></a>Impostazioni a livello di processo disponibili
 È possibile attivare o disattivare le impostazioni seguenti per i processi di deduplicazione dati nuovi o pianificati:
 
 <table>
@@ -123,7 +123,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>DurationHours</td>
             <td>Numero massimo di ore consentite per l'esecuzione di un processo</td>
             <td>Numeri interi positivi</td>
-            <td>Per evitare che un processo per l'esecuzione in un carico di lavoro&#39;s ore di inattività</td>
+            <td>Per impedire l'esecuzione di un processo in ore&#39;non di inattività del carico di lavoro</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>InputOutputThrottle</td>
             <td>Specifica la quantità di limitazione di input/output applicata al processo</td>
             <td>Numeri interi da 0 a 100 (indica una percentuale)</td>
-            <td>La limitazione assicura che don processi&#39;t interferire con altri processi dei / O intensivo.</td>
+            <td>La limitazione garantisce che i processi&#39;non interferiscano con altri processi a elevato utilizzo di I/O.</td>
         </tr>
         <tr>
             <td>Memoria</td>
@@ -162,10 +162,10 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Si vuole ripristinare manualmente i file che risiedono in sezioni danneggiate del disco.</td>
         </tr>
         <tr>
-            <td>Inizio</td>
+            <td>Start</td>
             <td>Specifica l'ora in cui un processo deve iniziare</td>
             <td><code>System.DateTime</code></td>
-            <td>Il <em>data</em> fa parte del <code>System.Datetime</code> fornito al <em>Start</em> è irrilevante (fino al momento&#39;s nel passato), ma il <em>ora</em> parte specifica quando deve iniziare il processo .</td>
+            <td>La parte relativa alla <em>Data</em> del <code>System.Datetime</code> fornito per l' <em>avvio</em> è irrilevante (purché&#39;sia nel passato), ma la parte relativa all' <em>ora</em> specifica quando avviare il processo.</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -176,8 +176,8 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
     </tbody>
 </table>
 
-## <a id="modifying-volume-settings"></a>Modifica delle impostazioni a livello di volume di deduplicazione dati
-### <a id="modifying-volume-settings-how-to-toggle"></a>Attivare e disattivare le impostazioni del volume
+## <a id="modifying-volume-settings"></a>Modifica delle impostazioni a livello di volume Deduplicazione dati
+### <a id="modifying-volume-settings-how-to-toggle"></a>Attivazione/disattivizzazione delle impostazioni del volume
 È possibile specificare impostazioni predefinite a livello di volume per la deduplicazione dei dati usando il [tipo di utilizzo](understand.md#usage-type) che si seleziona quando si abilita una deduplicazione per un volume. La deduplicazione dei dati include cmdlet che semplificano la modifica delle impostazioni a livello di volume:
 
 * [`Get-DedupVolume`](https://technet.microsoft.com/library/hh848448.aspx)
@@ -195,7 +195,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
     Set-DedupVolume -Volume C:\ClusterStorage\Volume1 -OptimizePartialFiles
     ```
 
-### <a id="modifying-volume-settings-available-settings"></a>Impostazioni disponibili a livello di volume
+### <a id="modifying-volume-settings-available-settings"></a>Impostazioni a livello di volume disponibili
 <table>
     <thead>
         <tr>
@@ -208,9 +208,9 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot è che le cosiddette &quot;hot&quot; blocchi di cui si fa spesso riferimento con più percorsi di accesso per migliorare i tempi di accesso.</td>
+            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot è che i blocchi &quot;hot @ no__t-1 a cui si fa riferimento spesso hanno più percorsi di accesso per migliorare i tempi di accesso.</td>
             <td>Numeri interi positivi</td>
-            <td>Il motivo principale per cui si modifica questo numero è incrementare la percentuale di riduzione per i volumi con elevata duplicazione. In generale, il valore predefinito (100) è l'impostazione consigliata e non si deve&#39;t necessario modificarlo.</td>
+            <td>Il motivo principale per cui si modifica questo numero è incrementare la percentuale di riduzione per i volumi con elevata duplicazione. In generale, il valore predefinito (100) rappresenta l'impostazione consigliata e non è&#39;necessario modificarlo.</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,7 +228,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
             <td>InputOutputScale</td>
             <td>Specifica il livello di parallelizzazione IO (code IO) per la deduplicazione dei dati da usare in un volume durante un processo di post-elaborazione</td>
             <td>Numeri interi positivi da 1 a 36</td>
-            <td>Il motivo principale per cui si modifica questo valore è ridurre l'impatto sulle prestazioni di un elevato carico di lavoro IO limitando il numero di code IO che la deduplicazione dei dati può usare in un volume. Si noti che la modifica di questa impostazione dal valore predefinito può causare la deduplicazione dei dati&#39;s esecuzione dei processi di post-elaborazione.</td>
+            <td>Il motivo principale per cui si modifica questo valore è ridurre l'impatto sulle prestazioni di un elevato carico di lavoro IO limitando il numero di code IO che la deduplicazione dei dati può usare in un volume. Si noti che la modifica di questa impostazione dall'impostazione predefinita può causare un&#39;rallentamento dei processi di post-elaborazione di deduplicazione dati.</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
@@ -258,7 +258,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
             <td>OptimizeInUseFiles</td>
             <td>Se abilitata, i file con handle verranno considerati conformi ai criteri per l'ottimizzazione.</td>
             <td>True/false</td>
-            <td>Abilitare questa impostazione se il carico di lavoro tiene aperti i file per lunghi periodi di tempo. Se questa impostazione non è abilitata, un file non verrà mai ottimizzato se il carico di lavoro ha un handle aperto, anche se è&#39;s solo occasionalmente l'accodamento dei dati alla fine.</td>
+            <td>Abilitare questa impostazione se il carico di lavoro tiene aperti i file per lunghi periodi di tempo. Se questa impostazione non è abilitata, un file non viene mai ottimizzato se il carico di lavoro dispone di un handle aperto,&#39;anche se solo occasionalmente i dati vengono aggiunti alla fine.</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -275,7 +275,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
     </tbody>
 </table>
 
-## <a id="modifying-dedup-system-settings"></a>Modifica delle impostazioni di deduplicazione dati a livello di sistema
+## <a id="modifying-dedup-system-settings"></a>Modifica delle impostazioni a livello di sistema per la deduplicazione dati
 La deduplicazione dei dati include impostazioni aggiuntive a livello di sistema che possono essere configurate dal [Registro di sistema](https://technet.microsoft.com/library/cc755256(v=ws.11).aspx). Queste impostazioni sono valide per tutti i processi e i volumi eseguiti nel sistema. Prestare particolare attenzione ogni volta che si modifica il Registro di sistema.
 
 Ad esempio, è possibile disattivare completamente Garbage Collection. Altre informazioni sui motivi per cui queste operazioni possono risultare utili per lo scenario sono reperibili nelle [Domande frequenti](#faq-why-disable-full-gc). Per modificare il Registro di sistema con PowerShell:
@@ -310,7 +310,7 @@ Ad esempio, è possibile disattivare completamente Garbage Collection. Altre inf
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Questa impostazione consente di configurare l'intervallo in cui i processi di Garbage Collection normali diventano <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">processi di Garbage Collection completi</a>. L'impostazione n significa ogni <sup>n</sup> processi si ha un processo di Garbage Collection completo. Nota che un Garbage Collection completo è sempre disabilitato (indipendentemente dal valore del Registro di sistema) per i volumi con il <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">il tipo di utilizzo Backup</a>. <code>Start-DedupJob -Type GarbageCollection -Full</code> può essere utilizzato se non si desidera completa di Garbage Collection in un volume di Backup.</td>
+            <td>Questa impostazione consente di configurare l'intervallo in cui i processi di Garbage Collection normali diventano <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">processi di Garbage Collection completi</a>. L'impostazione n significa ogni <sup>n</sup> processi si ha un processo di Garbage Collection completo. Nota che un Garbage Collection completo è sempre disabilitato (indipendentemente dal valore del Registro di sistema) per i volumi con il <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">il tipo di utilizzo Backup</a>. è possibile utilizzare <code>Start-DedupJob -Type GarbageCollection -Full</code> se si desidera eseguire un'operazione di Garbage Collection completa su un volume di backup.</td>
             <td>Numeri interi (-1 indica disabilitato)</td>
             <td>Vedere <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">questa domanda nelle Domande frequenti</a></td>
         </tr>
@@ -318,18 +318,18 @@ Ad esempio, è possibile disattivare completamente Garbage Collection. Altre inf
 </table>
 
 ## <a id="faq"></a>Domande frequenti
-<a id="faq-use-responsibly"></a>**Dopo aver modificato un'impostazione di deduplicazione dati, ora i processi sono lenti o non terminano e le prestazioni del carico di lavoro sono diminuito. Perché?**  
+<a id="faq-use-responsibly"></a>**I ha modificato un'impostazione di deduplicazione dati e ora i processi sono lenti o non sono finiti oppure le prestazioni del carico di lavoro sono diminuite. Perché?**  
 Queste impostazioni offrono un notevole controllo sul modo in cui viene eseguita la deduplicazione dei dati. Usarle in modo responsabile e [monitorare le prestazioni](run.md#monitoring-dedup).
 
-<a id="faq-running-dedup-jobs-manually"></a>**Voglio eseguire ora un processo di deduplicazione dati, ma non si desidera creare una nuova pianificazione, posso farlo?**  
+<a id="faq-running-dedup-jobs-manually"></a>**Si desidera eseguire un processo di deduplicazione dati in questo momento, ma non si desidera creare una nuova pianificazione. è possibile eseguire questa operazione?**  
 Sì, [tutti i processi possono essere eseguiti manualmente](run.md#running-dedup-jobs-manually).
 
-<a id="faq-full-v-regular-gc"></a>**Che cos'è la differenza tra Garbage Collection normali e completi?**  
+<a id="faq-full-v-regular-gc"></a>**Qual è la differenza tra Garbage Collection completa e normale?**  
 Esistono due tipi di processi di [Garbage Collection](understand.md#job-info-gc):
 
 - *Processo di Garbage Collection normale*: usa un algoritmo statistico per trovare grandi blocchi senza riferimenti che soddisfano determinati criteri (memoria e IOP ridotti). Un processo di Garbage Collection normale compatta un contenitore di archivio blocchi solo se una percentuale minima dei blocchi è priva di riferimento. Questo tipo di processo di Garbage Collection viene eseguito molto più velocemente e usa meno risorse rispetto a un processo di Garbage Collection completo. La pianificazione predefinita del processo di Garbage Collection normale è l'esecuzione una volta alla settimana.
 - *Processo di Garbage Collection completo*: è un processo molto più accurato per la ricerca di blocchi senza riferimento e la liberazione di più spazio su disco. Il processo di Garbage Collection completo compatta ogni contenitore anche se solo un singolo blocco nel contenitore non ha riferimenti. Il processo di Garbage Collection completo inoltre libera sul disco spazio che può essere stato usato se si è verificato un arresto anomalo del sistema o un guasto all'alimentazione durante un processo di ottimizzazione. I processi di Garbage Collection completi ripristinano al 100% lo spazio disponibile che può essere ripristinato in un volume deduplicato richiedendo più tempo e risorse di sistema rispetto a un processo di Garbage Collection normale. Il processo di Garbage Collection completo in genere trova e rilascia fino al 5% più di dati senza riferimenti rispetto a un processo di Garbage Collection normale. La pianificazione predefinita del processo di Garbage Collection completo viene eseguita ogni quarta volta che è pianificato un processo di Garbage Collection.
 
-<a id="faq-why-disable-full-gc"></a>**Motivo per cui vuole disattivare completamente Garbage Collection?**  
+<a id="faq-why-disable-full-gc"></a>**Perché si vuole disabilitare la Garbage Collection completa?**  
 - I processi di Garbage Collection possono influire negativamente sulle copie shadow della durata del volume e sulle dimensioni del backup incrementale. I carichi di lavoro ad alta varianza o con numero elevato di operazioni di I/O possono subire un calo delle prestazioni a causa dei processi di Garbage Collection completi.           
 - È possibile eseguire manualmente un processo di Garbage Collection completo da PowerShell per pulire le perdite se si è verificato un arresto anomalo del sistema.

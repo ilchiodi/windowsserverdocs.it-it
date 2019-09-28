@@ -1,19 +1,19 @@
 ---
 title: Gestire Windows Server
 description: Informazioni su strumenti, consigli e indicazioni per la gestione di Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 880f8da5bfb872fba6fe4886198d932c91f4bf86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370471"
 ---
 # <a name="manage-windows-server"></a>Gestire Windows Server
 
@@ -45,19 +45,19 @@ ms.locfileid: "66452822"
 </ul> 
 
 ## <a name="manage-windows-server-systems-and-environments"></a>Gestire gli ambienti e i sistemi Windows Server
-Gli strumenti usati per gestire le istanze di Windows Server dipendono, in gran parte, dai tipi di sistemi distribuiti (Windows Server con Esperienza desktop o Server Core), dall'uso di macchine virtuali o computer fisici e dalla posizione in cui si trovano i server. Utilizza le seguenti informazioni per eseguire attività di gestione di base su Windows Server.
+Gli strumenti usati per gestire le istanze di Windows Server dipendono, in gran parte, dai tipi di sistemi distribuiti (Windows Server con Esperienza desktop o Server Core), dall'uso di macchine virtuali o computer fisici e dalla posizione in cui si trovano i server. Usa le informazioni seguenti per eseguire attività di gestione di base su Windows Server.
 
-Utilizza la tabella seguente per determinare quali strumenti usare in contesti specifici.
+Usa la tabella seguente per determinare quali strumenti usare in contesti specifici.
 
 | Contesto   | Installare ed eseguire Windows Admin Center | Eseguire Server Manager su Windows Server | Eseguire Server Manager in Strumenti di amministrazione remota del server su Windows 10 |
 |--------|----------------------|--------------------------------------|------------------------------------------|
 | Davanti a un PC Windows 10 | x  |                                      | x                                        |
 | Davanti a un sistema Windows Server che esegue Esperienza desktop | x | X | x |
-| Davanti a un sistema Windows Server che esegue Server Core |X (installare su Windows 10, utilizzare per gestire Server Core) | | x |
+| Davanti a un sistema Windows Server che esegue Server Core |X (installare su Windows 10, usare per gestire Server Core) | | x |
 | Lontano dal sistema Windows Server |x | | x |
-| Lontano dal sistema Windows Server, ma CON Esperienza desktop |x | Utilizzare Servizi Desktop remoto per connettersi in remoto al server, quindi utilizzare Server Manager | x |
+| Lontano dal sistema Windows Server, ma CON Esperienza desktop |x | Usare Servizi Desktop remoto per connettersi in remoto al server e quindi usare Server Manager | x |
 
-Oltre agli strumenti indicati di seguito, puoi anche utilizzare [Servizi Desktop remoto](../remote/remote-desktop-services/welcome-to-rds.md) per accedere a server locali, remoti e virtuali. Puoi quindi utilizzare Server Manager per eseguire attività di gestione.
+Oltre agli strumenti indicati di seguito, puoi usare anche [Servizi Desktop remoto](../remote/remote-desktop-services/welcome-to-rds.md) per accedere a server locali, remoti e virtuali. Puoi quindi utilizzare Server Manager per eseguire attività di gestione.
 
 ### <a name="manage-on-premises-systems-remote-systems-and-systems-without-ui-with-windows-admin-center"></a>Gestire sistemi locali, sistemi remoti e sistemi senza interfaccia utente con Windows Admin Center
 [Windows Admin Center](../manage/windows-admin-center/overview.md) è un'applicazione di gestione basata su browser che consente l'amministrazione in locale di Windows Server senza dipendenze Azure o cloud. Windows Admin Center offre il controllo completo su tutti gli aspetti dell'infrastruttura server ed è particolarmente utile per la gestione delle reti private non connesse a Internet. Puoi installare Windows Admin Center in Windows 10, in un server gateway o direttamente nel sistema di Windows Server che vuoi gestire.
@@ -66,7 +66,7 @@ Oltre agli strumenti indicati di seguito, puoi anche utilizzare [Servizi Desktop
 >Windows Admin Center è il nome ufficiale del prodotto noto in precedenza come "Project Honolulu".
 
 ### <a name="manage-on-premises-systems-with-server-manager"></a>Gestire sistemi locali con Server Manager
-[Server Manager](server-manager/server-manager.md) è una console di gestione inclusa nell'installazione completa di Windows Server. (Non è disponibile per le installazioni che non dispongono dell'interfaccia utente, Server Core non include Server Manager). Utilizzare Server Manager per installare e rimuovere i ruoli del server, aggiungere e rimuovere i server remoti, avviare e arrestare i servizi e visualizzare i dati raccolti riguardo all'ambiente.
+[Server Manager](server-manager/server-manager.md) è una console di gestione inclusa nell'installazione completa di Windows Server. Non è disponibile per le installazioni che non prevedono l'interfaccia utente: Server Core non include Server Manager. Usa Server Manager per installare e rimuovere ruoli del server, aggiungere e rimuovere server remoti, avviare e arrestare servizi e visualizzare i dati raccolti relativi al tuo ambiente.
 
 ### <a name="manage-remote-systems-and-systems-without-ui-with-remote-server-administration-tools-rsat"></a>Gestire sistemi remoti e sistemi senza interfaccia utente con Strumenti di amministrazione remota del server
 Se l'ambiente include le installazioni di Server Core o server remoti (macchine virtuali o locali), puoi utilizzare [Strumenti di amministrazione remota del server](../remote/remote-server-administration-tools.md) per gestire tali sistemi. Strumenti di amministrazione remota del server include Server Manager, pertanto puoi utilizzarlo per gestire tutti i server.
@@ -84,16 +84,16 @@ Molte delle decisioni che prendi in qualità di amministratore dipendono dai dat
 
 Inizia con [Configurare i dati di diagnostica di Windows nell'organizzazione](/windows/configuration/configure-windows-diagnostic-data-in-your-organization) per informazioni sui dati diagnostici che possono essere raccolti da Windows 10 e Windows Server.
 
-### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Il programma di installazione e la raccolta di eventi di avvio](get-started-with-setup-and-boot-event-collection.md)
-Raccolta eventi di configurazione e avvio ti consente di designare un computer di "raccolta" in grado di raccogliere un'ampia gamma di eventi importanti che si verificano su altri computer quando vengono avviati o sottoposti al processo di configurazione. Quindi è possibile analizzare gli eventi raccolti con i cmdlet di Windows PowerShell, Message Analyzer, Wevtutil o il Visualizzatore eventi in un secondo momento. 
+### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Raccolta eventi installazione e avvio](get-started-with-setup-and-boot-event-collection.md)
+Raccolta eventi installazione e avvio consente di designare un computer di "raccolta" in grado di raccogliere un'ampia gamma di eventi importanti che si verificano su altri computer quando vengono avviati o sottoposti al processo di installazione. Quindi è possibile analizzare gli eventi raccolti con i cmdlet di Windows PowerShell, Message Analyzer, Wevtutil o il Visualizzatore eventi in un secondo momento. 
 
 ### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[Registrazione inventario software (SIL)](software-inventory-logging/get-started-with-software-inventory-logging.md)
 
 Registrazione inventario software in Windows Server è una funzionalità costituita da una semplice serie di cmdlet PowerShell che consentono agli amministratori di server di recuperare un elenco del software Microsoft installato nei server. Offre anche la capacità di raccogliere e inoltrare periodicamente per l'aggregazione questi dati attraverso la rete a un server Web di destinazione usando il protocollo HTTPS. Con i comandi di PowerShell viene eseguita anche la gestione della funzionalità, principalmente per la raccolta oraria dei dati e per l'inoltro.
 
-### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[Registrazione accessi utente (UAL)](user-access-logging/get-started-with-user-access-logging.md)
+### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[Registrazione accesso utenti](user-access-logging/get-started-with-user-access-logging.md)
 
-Registrazione accesso utenti aggrega gli eventi univoci relativi alle richieste dei dispositivi e degli utenti client registrati su un computer che esegue Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un database locale. Tali record vengono quindi resi disponibili (con una query eseguita da un amministratore del server) per consentire il recupero delle quantità e delle istanze in base al ruolo del server, all'utente, al dispositivo, al server locale e alla data. Inoltre, Registrazione accesso utenti consente agli sviluppatori di software non Microsoft di instrumentare gli eventi di Registrazione accesso utenti per l'aggregazione. 
+Registrazione accesso utenti aggrega gli eventi univoci relativi alle richieste dei dispositivi e degli utenti client registrati su un computer che esegue Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un database locale. Tali record vengono quindi resi disponibili (con una query eseguita da un amministratore del server) per consentire il recupero delle quantità e delle istanze in base al ruolo del server, all'utente, al dispositivo, al server locale e alla data. Registrazione accesso utenti consente anche agli sviluppatori non Microsoft di instrumentare gli eventi di Registrazione accesso utenti per l'aggregazione. 
 
 ## <a name="tune-your-windows-server-environment-for-performance"></a>Ottimizzare le prestazioni dell'ambiente Windows Server
 Utilizza le seguenti informazioni per ottimizzare le prestazioni dell'ambiente.
@@ -103,7 +103,7 @@ Esamina una serie di linee guida utili per ottimizzare le impostazioni del serve
 
 ### <a name="microsoft-server-performance-advisorserver-performance-advisormicrosoft-server-performance-advisormd"></a>[Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)
 
-Con Microsoft Server Performance Advisor (SPA), puoi raccogliere le metriche per diagnosticare i problemi di prestazioni nelle istanze di Windows Server in modo discreto, senza aggiungere agenti software né riconfigurare i server di produzione. SPA genera report di prestazioni completi e grafici di andamento storico con suggerimenti.
+Con Microsoft Server Performance Advisor (SPA), puoi raccogliere le metriche per diagnosticare i problemi di prestazioni nelle istanze di Windows Server in modo discreto, senza aggiungere agenti software né riconfigurare i server di produzione. Microsoft Server Performance Advisor genera report di prestazioni completi e grafici di andamento storico con suggerimenti.
 
 
 ## <a name="automate-windows-server-management"></a>Automatizzare la gestione di Windows Server
@@ -115,7 +115,7 @@ Windows PowerShell è una shell da riga di comando, nonché un linguaggio di scr
 
 ### <a name="windows-commandswindows-commandswindows-commandsmd"></a>[Comandi di Windows](windows-commands/windows-commands.md)
 
-Gli strumenti da riga di comando di Windows vengono utilizzati per eseguire attività amministrative in Windows. Puoi utilizzare la guida di riferimento ai comandi per acquisire familiarità con gli strumenti da riga di comando, ottenere informazioni sulla shell dei comandi e automatizzare le attività da riga di comando utilizzando file batch o strumenti di scripting.
+Gli strumenti da riga di comando di Windows vengono usati per eseguire attività amministrative in Windows. Puoi utilizzare la guida di riferimento ai comandi per acquisire familiarità con gli strumenti da riga di comando, ottenere informazioni sulla shell dei comandi e automatizzare le attività da riga di comando utilizzando file batch o strumenti di scripting.
 
 ## <a name="windows-server-insider-preview"></a>Anteprima Windows Server Insider
 ### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Informazioni dettagliate di sistema](../manage/system-insights/overview.md)

@@ -6,18 +6,18 @@ author: shortpatti
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: acc46dacdf1d8b11aaa45b3665e8d11ee75635cf
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1399ed6a50085baa37f06c09b8c3e18ca8bca98b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871843"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395711"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Ora esatta per Windows Server 2016
 
->Si applica a Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 o versione successiva
+>Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 o versione successiva
 
 Il servizio ora di Windows è un componente che utilizza un modello di plug-in per i provider di sincronizzazione dell'ora di client e server.  Sono disponibili due provider client predefiniti in Windows e sono disponibili plug-in di terze parti. Un provider USA [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) o [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) per sincronizzare l'ora di sistema locale con un server di riferimento compatibile con NTP e/o MS-NTP. L'altro provider per Hyper-V e sincronizza le macchine virtuali (VM) per l'host Hyper-V.  Quando esistono più provider, Windows sceglierà il provider migliore usando prima di tutto il livello di strato, seguito da ritardo radice, dispersione radice e offset ora finale.
 

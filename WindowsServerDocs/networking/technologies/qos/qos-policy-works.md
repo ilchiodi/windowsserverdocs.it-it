@@ -1,76 +1,76 @@
 ---
 title: Funzionamento dei criteri QoS
-description: In questo argomento viene fornita una panoramica dei criteri di qualità del servizio (QoS), che consentono di usare criteri di gruppo per definire le priorità della larghezza di banda di rete del traffico di specifiche applicazioni e servizi in Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Questo argomento fornisce una panoramica dei criteri di qualità del servizio (QoS), che consente di usare Criteri di gruppo per assegnare priorità alla larghezza di banda del traffico di rete di applicazioni e servizi specifici in Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 25097cb8-b9b1-41c9-b3c7-3610a032e0d8
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 272272c833bb38924f1daa5561037901f6ff4e25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4de9674e2d1700d342af380c79a611c3d5961cda
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405175"
 ---
 # <a name="how-qos-policy-works"></a>Funzionamento dei criteri QoS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Quando avvio ottenuto utente aggiornate o le impostazioni di criteri di gruppo Configurazione computer per QoS o, si verifica quanto segue.
+Quando si avvia o si ottiene una configurazione utente o computer aggiornata Criteri di gruppo impostazioni per QoS, si verifica il processo seguente.
 
-1. Il motore di criteri di gruppo consente di recuperare le impostazioni di criteri di gruppo Configurazione computer o utente da Active Directory.
+1. Il motore di Criteri di gruppo Recupera le impostazioni di configurazione dell'utente o del computer Criteri di gruppo da Active Directory.
 
-2. Il motore di criteri di gruppo indica l'estensione lato Client QoS che esistevano modifiche nei criteri di QoS.
+2. Il motore di Criteri di gruppo informa l'estensione lato client QoS che sono state apportate modifiche ai criteri QoS.
 
-3. L'estensione lato Client QoS invia una notifica degli eventi dei criteri QoS per il modulo di ispezione di QoS.
+3. L'estensione QoS lato client invia una notifica degli eventi dei criteri QoS al modulo di ispezione QoS.
 
-4. Il modulo di ispezione QoS recupera i criteri QoS di utente o computer e li archivia.
+4. Il modulo di ispezione QoS recupera i criteri QoS utente o computer e li archivia.
 
-Quando un nuovo endpoint a livello di trasporto \(TCP connessione o il traffico UDP\) viene creato, viene eseguita questa procedura.
+Quando viene creato un nuovo endpoint del livello di trasporto @no__t la connessione o il traffico UDP @ no__t-1, si verifica il processo seguente.
 
-1. Il componente di livello di trasporto dello stack TCP/IP informa il modulo di ispezione di QoS.
+1. Il componente livello trasporto dello stack TCP/IP informa il modulo di ispezione QoS.
 
-2. Il modulo di ispezione QoS confronta i parametri dell'endpoint del livello di trasporto per i criteri QoS archiviati.
+2. Il modulo di ispezione QoS Confronta i parametri dell'endpoint del livello di trasporto con i criteri QoS archiviati.
 
-3. Se viene trovata una corrispondenza, il modulo di ispezione QoS contatta Pacer. sys per creare un flusso, una struttura di data che contiene il valore di DSCP e il traffico di limitazione delle richieste delle impostazioni dei criteri QoS di corrispondenza. Se sono presenti più criteri di QoS che corrispondono ai parametri dell'endpoint del livello di trasporto, viene usato il criterio di QoS più specifico.
+3. Se viene trovata una corrispondenza, il modulo di ispezione QoS Contatta Pacer. sys per creare un flusso, una struttura di dati che contiene il valore DSCP e le impostazioni di limitazione del traffico del criterio QoS corrispondente. Se sono presenti più criteri QoS che corrispondono ai parametri dell'endpoint del livello di trasporto, vengono usati i criteri QoS più specifici.
 
-4. Pacer. sys archivia il flusso e restituisce un numero di flusso corrispondente per il flusso per il modulo di ispezione di QoS.
+4. Pacer. sys archivia il flusso e restituisce un numero di flusso corrispondente al flusso al modulo di ispezione QoS.
 
-5. Il modulo di ispezione QoS restituisce il numero di flusso a livello di trasporto.
+5. Il modulo di ispezione QoS restituisce il numero di flusso al livello trasporto.
 
-6. Il livello di trasporto archivia il numero di flusso con l'endpoint a livello di trasporto.
+6. Il livello di trasporto archivia il numero di flusso con l'endpoint del livello di trasporto.
 
-Quando un pacchetto corrispondente a un endpoint a livello di trasporto è contrassegnata con un numero di flusso viene inviata, viene eseguita questa procedura.
+Quando viene inviato un pacchetto corrispondente a un endpoint del livello di trasporto contrassegnato con un numero di flusso, si verifica il processo seguente.
 
-1. Internamente, il livello di trasporto contrassegna il pacchetto con il numero di flusso.
+1. Il livello di trasporto contrassegna internamente il pacchetto con il numero di flusso.
 
-2. Il livello di rete esegue una query Pacer. sys per il valore DSCP corrispondente al numero di flusso del pacchetto.
+2. Il livello di rete esegue una query su pacemaker. sys per il valore DSCP corrispondente al numero di flusso del pacchetto.
 
-3. Pacer. sys restituisce il valore di DSCP per il livello di rete.
+3. Pacer. sys restituisce il valore DSCP al livello di rete.
 
-4. Il livello di rete consente di ottenere il valore di DSCP specificato da Pacer campo TOS IPv4 o campo della classe di traffico IPv6 e, per i pacchetti IPv4, calcola il checksum di intestazione IPv4 finale.
+4. Il livello di rete modifica il campo IPv4 TOS o la classe di traffico IPv6 nel valore DSCP specificato da Pacer. sys e, per i pacchetti IPv4, calcola il checksum finale dell'intestazione IPv4.
 
-5. Il livello di rete inoltra il pacchetto a livello di Framing.
+5. Il livello di rete passa il pacchetto al livello di framing.
 
-6. Poiché il pacchetto è stato contrassegnato con un numero di flusso, il livello di Framing trasferisce il pacchetto al Pacer. sys mediante NDIS 6.x.
+6. Poiché il pacchetto è stato contrassegnato con un numero di flusso, il livello di framing passa il pacchetto a Pacer. sys tramite NDIS 6. x.
 
-7. Pacer. sys Usa il numero di flusso del pacchetto per determinare se il pacchetto deve essere limitato e in tal caso, consente di pianificare il pacchetto per l'invio.
+7. Pacer. sys usa il numero di flusso del pacchetto per determinare se il pacchetto deve essere limitato e, in tal caso, Pianifica il pacchetto per l'invio.
 
-8. Pacer. sys inoltra il pacchetto sia immediatamente \(se non viene rilevato traffico limitazione\) o come pianificato \(se il traffico è la limitazione delle richieste\) per NDIS 6.x per la trasmissione tramite la scheda di rete appropriata.
+8. Pacer. sys mette il pacchetto immediatamente \(If non è presente alcuna limitazione del traffico @ no__t-1 o pianificata \(SE è presente la limitazione del traffico da @ no__t-3 a NDIS 6. x per la trasmissione tramite la scheda di rete appropriata.
 
 Questi processi di QoS basata su criteri offrono i vantaggi seguenti.
 
-- Endpoint di livello per ogni trasporto, anziché ogni singolo pacchetto, viene eseguita l'ispezione del traffico per determinare se un criterio QoS viene applicato.
+- L'ispezione del traffico per determinare se si applica un criterio QoS viene eseguita per endpoint del livello di trasporto, anziché per pacchetto.
 
-- Non ha alcun impatto sulle prestazioni per il traffico che corrisponde a un criterio QoS.
+- Non vi è alcun effetto sulle prestazioni per il traffico che non corrisponde a un criterio QoS.
 
-- Le applicazioni non sono necessario modificarla per sfruttare i vantaggi del servizio differenziato DSCP o la limitazione del traffico.
+- Non è necessario modificare le applicazioni per sfruttare la limitazione del traffico o del servizio differenziato basato su DSCP.
 
-- I criteri QoS possono applicare al traffico protetto con IPsec.
+- I criteri QoS possono essere applicati al traffico protetto con IPsec.
 
-Per l'argomento successivo in questa Guida, vedere [architettura dei criteri QoS](qos-policy-architecture.md).
+Per l'argomento successivo di questa guida, vedere l'articolo relativo all' [architettura dei criteri QoS](qos-policy-architecture.md).
 
-Per il primo argomento in questa Guida, vedere [dei criteri di qualità del servizio (QoS)](qos-policy-top.md).
+Per il primo argomento di questa guida, vedere [criteri di qualità del servizio (QoS)](qos-policy-top.md).

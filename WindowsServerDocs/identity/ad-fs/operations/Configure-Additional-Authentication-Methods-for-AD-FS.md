@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/26/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adb587412d65506c35705c5eaa8dbea8c660d117
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: f78c60ccd65b4c9148d53d894c572a4402948806
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407680"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configurare metodi di autenticazione aggiuntivi per AD FS
 
@@ -23,7 +23,7 @@ Per abilitare l'autenticazione a più fattori (MFA), è necessario selezionare a
 > [!NOTE]
 > Se si seleziona l'autenticazione del certificato, assicurarsi che il provisioning dei certificati smart card sia stato eseguito in modo sicuro e che per tali certificati sia richiesto il PIN.
 
-Non tutti sanno che Microsoft Azure offre funzionalità simili nel cloud. Altre informazioni sulle [soluzioni di gestione delle identità di Microsoft Azure](http://aka.ms/m2w274).<br /><br />Creare una soluzione di gestione delle identità ibrida in Microsoft Azure:<br /> - [Informazioni su Azure Multifactor Authentication.](http://aka.ms/ey6o9r)<br /> - [Gestire le identità per gli ambienti ibridi a foresta singola con l'autenticazione cloud.](http://aka.ms/g1jat8)<br /> - [Gestisci i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni sensibili.](http://aka.ms/kt1bbm)
+Non tutti sanno che Microsoft Azure offre funzionalità simili nel cloud. Altre informazioni sulle [soluzioni di gestione delle identità di Microsoft Azure](http://aka.ms/m2w274).<br /><br />Creare una soluzione di gestione delle identità ibrida in Microsoft Azure:<br /> -  informazioni[sulle multi-factor authentication di Azure.](http://aka.ms/ey6o9r)<br /> - [gestire le identità per gli ambienti ibridi a foresta singola con l'autenticazione cloud.](http://aka.ms/g1jat8)<br /> - [gestire i rischi con multi-factor authentication aggiuntivi per le applicazioni riservate.](http://aka.ms/kt1bbm)
 
 ## <a name="microsoft-and-third-party-additional-authentication-methods"></a>Metodi di autenticazione aggiuntivi Microsoft e di terze parti
 È inoltre possibile configurare e abilitare metodi di autenticazione Microsoft e di terze parti in AD FS in Windows Server 2012 R2. Una volta installato e registrato con AD FS, è possibile applicare l'autenticazione a più fattori nell'ambito dei criteri di autenticazione globali o per relying party.
@@ -32,7 +32,7 @@ L'elenco seguente riporta in ordine alfabetico i provider Microsoft e di terze p
 
 |Provider|Offerta|Collegamento per maggiori informazioni|
 |-|-|-| 
-|aPersona|aPersona Adaptive Multifactor Authentication per Microsoft ADFS SSO|[Adapter ADFS aPersona ASM](https://www.apersona.com/adfs)|
+|aPersona|aPersona Adaptive Multi-Factor Authentication per Microsoft ADFS SSO|[Adapter ADFS aPersona ASM](https://www.apersona.com/adfs)|
 |Sicurezza Duo|Scheda Duo multi-factor authentication per AD FS|[Autenticazione Duo per AD FS](https://duo.com/docs/adfs)|
 |Futura|Suite di autenticazione futura per AD FS|[Autenticazione avanzata futura](https://futurae.com)|
 |Gemalto|Gemalto Identity & Security Services|[http://www.gemalto.com/identity](http://www.gemalto.com/identity)|
@@ -45,7 +45,7 @@ Mideye | Provider di autenticazione mideye per ADFS | [Mideye l'autenticazione a
 |Una sola identità| AD FS Defender|[Adattatore AD FS Defender](https://www.oneidentity.com/products/defender/)|
 |Identità ping|Scheda PingID multi-factor authentication per AD FS|[Scheda PingID multi-factor authentication per AD FS](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_PingIDforADFSSSO.html)|
 |RSA, The Security Division of EMC|RSA SecurID Authentication Agent for Microsoft Active Directory Federation Services|[RSA SecurID Authentication Agent per Microsoft Active Directory Federation Services](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)|
-|SafeNet, Inc.|SafeNet Authentication Service (SAS) Agent for AD FS|[Servizio di autenticazione SafeNet: AD FS Agent Configuration Guide](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)|
+|SafeNet, Inc.|SafeNet Authentication Service (SAS) Agent for AD FS|Servizio di autenticazione [SafeNet: AD FS Agent Configuration Guide](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)|
 |SecureMFA|Provider OTP SecureMFA| [Provider di autenticazione a più fattori di ADFS](https://www.securemfa.com/)|
 |Swisscom|Mobile ID Authentication Service and Signature Services|[Servizio di autenticazione ID mobile](http://swisscom.ch/mid)|
 |Symantec|Symantec Validation and ID Protection Service (VIP)|[Servizio di convalida e ID di protezione Symantec (VIP)](http://www.symantec.com/vip-authentication-service)|

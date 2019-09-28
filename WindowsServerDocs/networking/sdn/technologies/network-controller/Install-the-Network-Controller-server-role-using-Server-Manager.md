@@ -1,65 +1,65 @@
 ---
-title: Installare il ruolo di Server di Controller di rete con Server Manager
-description: Questo argomento fornisce istruzioni su come installare il ruolo del server Controller di rete con Server Manager in Windows Server 2016.
+title: Installare il ruolo del server del controller di rete utilizzando Server Manager
+description: In questo argomento vengono fornite istruzioni su come installare il ruolo del server del controller di rete utilizzando Server Manager in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 699e2ca5c4ec33099d0ad948523b6f587ad118e4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b656bbd823a10f1e36d1757bb53c4565d4e828c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859062"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405841"
 ---
-# <a name="install-the-network-controller-server-role-using-server-manager"></a>Installare il ruolo di Server di Controller di rete con Server Manager
+# <a name="install-the-network-controller-server-role-using-server-manager"></a>Installare il ruolo del server del controller di rete utilizzando Server Manager
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento fornisce istruzioni su come installare il ruolo del server Controller di rete con Server Manager.
+In questo argomento vengono fornite istruzioni su come installare il ruolo del server del controller di rete utilizzando Server Manager.
 
 >[!IMPORTANT]
->Non distribuire il ruolo del server Controller di rete in host fisici. Per distribuire Controller di rete, è necessario installare il ruolo del server Controller di rete in una macchina virtuale Hyper-V \(VM\) che viene installato in un host Hyper-V. Dopo aver installato il Controller di rete nelle macchine virtuali in tre diverse Hyper\-host V, è necessario abilitare il Hyper\-host V per Software Defined Networking \(SDN\) mediante l'aggiunta di host al Controller di rete usando il comando di Windows PowerShell **New-NetworkControllerServer**. In questo modo, si sta abilitando il bilanciamento del carico Software SDN alla funzione. Per altre informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V. Dopo aver installato il controller di rete nelle macchine virtuali in tre host Hyper @ no__t-0V diversi, è necessario abilitare gli host Hyper @ no__t-1V per Software Defined Networking \(SDN @ no__t-3 aggiungendo gli host al controller di rete usando Windows PowerShell comando **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
   
-Dopo aver installato il Controller di rete, è necessario utilizzare i comandi di Windows PowerShell per la configurazione di Controller di rete aggiuntiva. Per altre informazioni, vedere [distribuire Controller di rete tramite Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+Dopo aver installato il controller di rete, è necessario utilizzare i comandi di Windows PowerShell per la configurazione del controller di rete aggiuntivo. Per ulteriori informazioni, vedere [deploy Network controller using Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
-### <a name="to-install-network-controller"></a>Per installare Controller di rete  
+### <a name="to-install-network-controller"></a>Per installare il controller di rete  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
   
-2.  Nelle **Select Installation Type**, mantenere l'impostazione predefinita e fare clic su **successivo**.  
+2.  In **Selezione tipo di installazione**, Mantieni l'impostazione predefinita e fai clic su **Avanti**.  
   
-3.  Nelle **selezione Server di destinazione**, scegliere il server in cui si desidera installare Controller di rete e quindi fare clic su **successivo**.  
+3.  In **Selezione server di destinazione**scegliere il server in cui si desidera installare il controller di rete e quindi fare clic su **Avanti**.  
   
-4.  Nelle **Selezione ruoli Server**, nel **ruoli**, fare clic su **Controller di rete**.  
+4.  In **Selezione ruoli server**, in **ruoli**, fare clic su **controller di rete**.  
   
-    ![Ruolo server di Controller di rete](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
+    ![Ruolo del server del controller di rete](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
-5.  Il **aggiungere le funzionalità necessarie per il Controller di rete** verrà visualizzata la finestra di dialogo. Fare clic su **aggiungere funzionalità**.  
+5.  Verrà visualizzata la finestra di dialogo **Aggiungi le funzionalità necessarie per il controller di rete** . Fare clic su **Aggiungi funzionalità**.  
   
-    ![Aggiunta di funzionalità per il Controller di rete](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_06.jpg)  
+    ![Aggiungere funzionalità per il controller di rete](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_06.jpg)  
   
-6.  Nelle **Selezione ruoli Server**, fare clic su **successivo**.  
+6.  In **Selezione ruoli server**fare clic su **Avanti**.  
   
     ![Fare clic su Avanti](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
-7.  Nelle **Selezione funzionalità**, fare clic su **successivo**.  
+7.  In **Selezione funzionalità**fare clic su **Avanti**.  
   
-8.  Nelle **Controller di rete** fare clic su **successivo**.  
+8.  Nel **controller di rete** fare clic su **Avanti**.  
   
-9. Nelle **Conferma selezioni per l'installazione**, rivedere le scelte effettuate. Installazione del Controller di rete richiede il riavvio del computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **riavvia automaticamente il server di destinazione se necessario**. Il **Aggiunta guidata ruoli e funzionalità** verrà visualizzata la finestra di dialogo. Scegliere **Sì**.  
+9. In **Conferma selezioni**per l'installazione rivedere le scelte effettuate. Per l'installazione del controller di rete è necessario riavviare il computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **Riavvia automaticamente il server di destinazione, se necessario**. Verrà visualizzata la finestra di dialogo **Aggiunta guidata ruoli e funzionalità** . Scegliere **Sì**.  
   
     ![Aggiunta guidata ruoli e funzionalità](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   
 10. In **Conferma selezioni per l'installazione**, fare clic su **installare**.  
   
-11. Installa il ruolo del server Controller di rete nel server di destinazione e quindi il riavvio del server.  
+11. Il ruolo del server del controller di rete viene installato nel server di destinazione e quindi il server viene riavviato.  
   
-12. Dopo il riavvio del computer, accedere al computer e verificare l'installazione di Controller di rete per la visualizzazione dei Server di gestione.  
+12. Dopo il riavvio del computer, accedere al computer e verificare l'installazione del controller di rete visualizzando Server Manager.  
   
     ![Server Manager](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/nc_013.jpg)  
   

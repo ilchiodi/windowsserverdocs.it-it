@@ -1,9 +1,9 @@
 ---
 title: Clustering guest in una rete virtuale
-description: Le macchine virtuali connesse a una rete virtuale possono solo usare gli indirizzi IP che il Controller di rete è assegnato per comunicare sulla rete.  Le tecnologie di clustering che richiedono un indirizzo IP mobile, ad esempio Clustering di Failover Microsoft richiedono alcuni passaggi aggiuntivi per funzionare correttamente.
+description: Le macchine virtuali connesse a una rete virtuale possono usare solo gli indirizzi IP assegnati dal controller di rete per comunicare sulla rete.  Per il corretto funzionamento delle tecnologie di clustering che richiedono un indirizzo IP mobile, ad esempio il clustering di failover Microsoft, sono necessari alcuni passaggi aggiuntivi.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,29 +13,29 @@ ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: 97c20fd07d06b609686daf4d6308a9f248873036
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05704beeae27bd9de9ad0c5cf578581c650a976f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446347"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406036"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Clustering guest in una rete virtuale
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Le macchine virtuali connesse a una rete virtuale possono solo usare gli indirizzi IP che il Controller di rete è assegnato per comunicare sulla rete.  Le tecnologie di clustering che richiedono un indirizzo IP mobile, ad esempio Clustering di Failover Microsoft richiedono alcuni passaggi aggiuntivi per funzionare correttamente.
+Le macchine virtuali connesse a una rete virtuale possono usare solo gli indirizzi IP assegnati dal controller di rete per comunicare sulla rete.  Per il corretto funzionamento delle tecnologie di clustering che richiedono un indirizzo IP mobile, ad esempio il clustering di failover Microsoft, sono necessari alcuni passaggi aggiuntivi.
 
-Il metodo per rendere raggiungibili l'indirizzo IP mobile consiste nell'usare un servizio di bilanciamento del carico Software \(SLB\) IP virtuale \(VIP\).  Il servizio di bilanciamento del carico software deve essere configurato con un probe di integrità su una porta su tale indirizzo IP in modo da bilanciamento del carico software indirizza il traffico alla macchina che attualmente dispone di tale indirizzo IP.
+Il metodo per fare in modo che l'indirizzo IP mobile raggiungibile è usare un Load Balancer software \(SLB @ no__t-1 Virtual IP \(VIP @ no__t-3.  Il servizio di bilanciamento del carico software deve essere configurato con un probe di integrità su una porta sull'IP in modo che SLB indirizza il traffico al computer che attualmente ha tale indirizzo IP.
 
 
-## <a name="example-load-balancer-configuration"></a>Esempio: Configurazione del bilanciamento del carico
+## <a name="example-load-balancer-configuration"></a>Esempio: Configurazione del servizio di bilanciamento del carico
 
-Questo esempio si presuppone di avere già creato le macchine virtuali che diventeranno i nodi del cluster e li collegata a una rete virtuale.  Per indicazioni, vedere [creare una macchina virtuale e connettersi a una rete virtuale del Tenant o VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
+Questo esempio presuppone che siano già state create le VM che diventeranno nodi del cluster e che siano collegate a una rete virtuale.  Per informazioni aggiuntive, vedere [creare una macchina virtuale e connettersi a una rete virtuale del tenant o a una VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
 
-In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresentare l'indirizzo IP mobile del cluster e configurare un probe di integrità per monitorare la porta TCP 59999 per determinare quale nodo è quello attivo.
+In questo esempio viene creato un indirizzo IP virtuale (192.168.2.100) per rappresentare l'indirizzo IP mobile del cluster e viene configurato un probe di integrità per monitorare la porta TCP 59999 per determinare quale nodo è quello attivo.
 
-1. Selezionare l'indirizzo VIP.<p>Preparare assegnando un indirizzo IP VIP, che può essere qualsiasi indirizzo riservato o inutilizzato nella stessa subnet dei nodi del cluster.  L'indirizzo VIP deve corrispondere all'indirizzo mobile del cluster.
+1. Selezionare l'indirizzo VIP.<p>Preparare assegnando un indirizzo IP VIP, che può essere qualsiasi indirizzo inutilizzato o riservato nella stessa subnet dei nodi del cluster.  Il VIP deve corrispondere all'indirizzo mobile del cluster.
 
    ```PowerShell
    $VIP = "192.168.2.100"
@@ -44,13 +44,13 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $ResourceId = "MyNetwork_InternalVIP"
    ```
 
-2. Creare l'oggetto di proprietà di bilanciamento del carico.
+2. Creare l'oggetto proprietà del servizio di bilanciamento del carico.
 
    ```PowerShell
    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-3. Creare un front\-indirizzo IP finale.
+3. Creare un indirizzo IP front @ no__t-0end.
 
    ```PowerShell
    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
@@ -63,7 +63,7 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $FrontEnd.properties.privateIPAllocationMethod = "Static"
    ```
 
-4. Creare una copia di\-end pool contenga nodi del cluster.
+4. Creare un pool back @ no__t-0end per contenere i nodi del cluster.
 
    ```PowerShell
    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -73,10 +73,10 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $LoadBalancerProperties.backendAddressPools += $BackEnd
    ```
 
-5. Aggiungere un probe per rilevare l'indirizzo a virgola mobile è attualmente attivo in quale nodo del cluster. 
+5. Aggiungere un probe per individuare il nodo del cluster in cui l'indirizzo mobile è attualmente attivo. 
 
    >[!NOTE]
-   >La query di tipo probe sul indirizzo permanente della VM sulla porta definita di seguito.  La porta deve rispondere solo nel nodo attivo. 
+   >La query Probe sull'indirizzo permanente della macchina virtuale nella porta definita di seguito.  La porta deve rispondere solo sul nodo attivo. 
 
    ```PowerShell
    $LoadBalancerProperties.probes += $lbprobe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
@@ -90,7 +90,7 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $lbprobe.properties.NumberOfProbes = 11
    ```
 
-6. Aggiungere le regole per la porta TCP 1433 di bilanciamento del carico.<p>È possibile modificare il protocollo e porte in base alle esigenze.  È inoltre possibile ripetere questo passaggio più volte per porte aggiuntive e protcols su questo indirizzo VIP.  È importante che EnableFloatingIP è impostato su $true perché indica il bilanciamento del carico per inviare il pacchetto per il nodo con un indirizzo VIP nella posizione originale.
+6. Aggiungere le regole di bilanciamento del carico per la porta TCP 1433.<p>È possibile modificare il protocollo e la porta in base alle esigenze.  È anche possibile ripetere questo passaggio più volte per le porte aggiuntive e protcols in questo indirizzo VIP.  È importante che abilitazione sia impostato su $true perché questo indica al servizio di bilanciamento del carico di inviare il pacchetto al nodo con il VIP originale sul posto.
 
    ```PowerShell
    $LoadBalancerProperties.loadbalancingRules += $lbrule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
@@ -106,13 +106,13 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $lbrule.properties.Probe = $lbprobe
    ```
 
-7. Creare il servizio di bilanciamento del carico in Controller di rete.
+7. Creare il servizio di bilanciamento del carico nel controller di rete.
 
    ```PowerShell
    $lb = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $ResourceId -Properties $LoadBalancerProperties -Force
    ```
 
-8. Aggiungere i nodi del cluster per il pool back-end.<p>È possibile aggiungere tutti i nodi nel pool è necessario per il cluster.
+8. Aggiungere i nodi del cluster al pool back-end.<p>È possibile aggiungere al pool tutti i nodi necessari per il cluster.
 
    ```PowerShell
    # Cluster Node 1
@@ -128,13 +128,13 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
    ```
 
-   Dopo aver creato il servizio di bilanciamento del carico e aggiunte le interfacce di rete al pool back-end, si è pronti per configurare il cluster.  
+   Dopo aver creato il servizio di bilanciamento del carico e aggiunto le interfacce di rete al pool back-end, si è pronti per configurare il cluster.  
 
-9. (Facoltativo) Se si usa un Cluster di Failover Microsoft, continuare con l'esempio successivo. 
+9. Opzionale Se si usa un cluster di failover Microsoft, continuare con l'esempio successivo. 
 
-## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Esempio 2: Configurazione di un cluster di failover di Microsoft
+## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Esempio 2 Configurazione di un cluster di failover Microsoft
 
-È possibile utilizzare la procedura seguente per configurare un cluster di failover.
+Per configurare un cluster di failover, è possibile utilizzare i passaggi seguenti.
 
 1. Installare e configurare le proprietà per un cluster di failover.
 
@@ -163,7 +163,7 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    Stop-ClusterResource "Cluster Name" 
    ```
 
-4. Impostare il cluster porta IP e un probe.<p>L'indirizzo IP deve corrispondere all'indirizzo ip front-end usato nell'esempio precedente, e la porta probe deve corrispondere alla porta di probe dell'esempio precedente.
+4. Impostare l'IP del cluster e la porta Probe.<p>L'indirizzo IP deve corrispondere all'indirizzo IP front-end usato nell'esempio precedente e la porta Probe deve corrispondere alla porta Probe nell'esempio precedente.
 
    ```PowerShell
    Get-ClusterResource "Cluster IP Address" | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
@@ -182,6 +182,6 @@ In questo esempio si crea un indirizzo IP virtuale (192.168.2.100) per rappresen
    Add-ClusterNode $nodes[1]
    ```
 
-_**Il cluster è attivo.** _ Viene indirizzato il traffico verso l'indirizzo VIP sulla porta specificata in corrispondenza del nodo attivo.
+_**Il cluster è attivo.**_ Il traffico verso l'indirizzo VIP sulla porta specificata viene indirizzato al nodo attivo.
 
 ---

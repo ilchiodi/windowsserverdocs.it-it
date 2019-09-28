@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 19e73e43a863ec60fbc9da09b24173220bb331ed
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 60072037aea4ecd81376e1334f3a89b7bb2ff851
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408089"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Server farm federativa che usa Database interno di Windows e proxy
 
-Questa topologia di distribuzione di Active Directory Federation Services \(ADFS\) è identica alla server farm federativa con Database interno di Windows \(WID\) topologia, ma aggiunge i proxy server federativi alla rete perimetrale per supportare gli utenti esterni. I proxy server federativi reindirizzano le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa.  
+Questa topologia di distribuzione per Active Directory Federation Services \(AD FS @ no__t-1 è identica alla server farm federativa con la topologia di database interno di Windows \(WID @ no__t-3, ma aggiunge i proxy server federativi alla rete perimetrale a supportare utenti esterni. I proxy server federativi reindirizzano le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa.  
   
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione  
 Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi e limitazioni di cui è associate a questa topologia di distribuzione.  

@@ -1,7 +1,7 @@
 ---
 title: Materiale di riferimento per la protezione dell'accesso con privilegi
-description: Controlli di sicurezza operativa per i domini di Active Directory di Windows Server
-ms.prod: windows-server-threshold
+description: Controlli di sicurezza operativi per i domini di Windows Server Active Directory
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 22ee9a77-4872-4c54-82d9-98fc73a378c0
 ms.date: 02/14/2019
@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: bcc06a3ccc4e95fa43a7f8f0ef7d110fd427f5a0
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501647"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407225"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modello a livelli dell'amministrazione di Active Directory
 
@@ -111,7 +111,7 @@ L'origine del software deve essere convalidata in uno dei modi seguenti:
 - Il software viene ottenuto da Internet e convalidato con hash di file forniti dal produttore.
 - Il software viene ottenuto da Internet e convalidato scaricando e confrontando due copie separate:
    - Download in due host senza alcuna relazione di sicurezza (non nello stesso dominio e non gestiti dagli stessi strumenti), preferibilmente da connessioni Internet separate.
-   - Confrontare i file scaricati mediante un'utilità come certutil:  `certutil -hashfile <filename>`
+   - Confrontare i file scaricati usando un'utilità come certutil: `certutil -hashfile <filename>`
 
 Se possibile, tutti i software dell'applicazione, ad esempio gli strumenti e i programmi di installazione, devono avere la firma digitale ed essere verificati mediante Windows Authenticode con lo strumento [Windows Sysinternal](https://www.microsoft.com/sysinternals), *sigcheck.exe*, con la verifica delle revoche. Potrebbero essere necessari alcuni software in cui il fornitore potrebbe non fornire questo tipo di firma digitale.
 
@@ -189,7 +189,7 @@ Ogni standard in questo documento è influenzato dalla criticità di soddisfare 
 
 ![Diagramma che illustra lo standard per determinati livelli](../media/securing-privileged-access-reference-material/PAW_RM_Fig12.JPG)
 
-Tutte le eccezioni per gli elementi obbligatori (contrassegnati con un triangolo arancione in questo documento o un ottagono rosso) sono considerate temporanee e devono essere approvate dal CAB. Le linee guida includono:
+Tutte le eccezioni per gli elementi obbligatori (contrassegnati con l'ottagono rosso o un triangolo arancione in questo documento) sono considerate temporanee e devono essere approvate dal CAB. Le linee guida includono:
 
 - La richiesta iniziale implica l'accettazione del rischio e della giustificazione firmata dal supervisore immediato del personale e scade dopo sei mesi.
 - I rinnovi richiedono l'accettazione del rischio e della giustificazione firmata da un direttore della business unit e scadono dopo sei mesi.
@@ -379,7 +379,7 @@ L'Help Desk e le organizzazioni di supporto degli utenti offrono assistenza agli
 
 ###### <a name="no-browsing-the-public-internet-with-admin-accounts-or-from-admin-workstations"></a>Nessuna ricerca sulle reti Internet pubbliche con gli account amministrativi o dalla workstation amministrativa
 
-Il personale amministrativo non può navigare nelle reti Internet aperte mentre è connesso con un account amministrativo o a una workstation amministrativa. Le uniche eccezioni autorizzate sono l'utilizzo di un web browser per amministrare un servizio basato sul cloud.
+Il personale amministrativo non può navigare nelle reti Internet aperte mentre è connesso con un account amministrativo o a una workstation amministrativa. Le uniche eccezioni autorizzate sono l'uso di un Web browser per amministrare un servizio basato su cloud.
 
 ###### <a name="no-accessing-email-with-admin-accounts-or-from-admin-workstations"></a>Nessun accesso alla posta elettronica con account amministrativi o da workstation amministrative
 
@@ -442,7 +442,7 @@ Per l'uso di account di accesso di emergenza:
     - Attività a livello di foresta che richiedono privilegi amministrativi aziendali
 
       > [!NOTE]
-      > Gestione della topologia, compresa la gestione di siti e subnet di Active Directory viene delegata a limitare l'utilizzo di questi privilegi.
+      > La gestione della topologia, tra cui Active Directory gestione di siti e subnet, viene delegata per limitare l'uso di questi privilegi.
 
 - L'uso di uno di questi account è soggetto a un autorizzazione scritta dal responsabile del gruppo di sicurezza
 - La procedura nel foglio di rilevamento per ogni account di accesso di emergenza richiede che la password venga modificata a ogni uso. Un membro del team di sicurezza deve convalidare l'avvenuta modifica.
@@ -481,7 +481,7 @@ Durante la progettazione di una foresta amministrativa è necessario tenere in c
    - Un'avvertenza all'uso di questo gruppo per concedere diritti è che non si potrà avere accesso amministrativo ai nuovi oggetti Criteri di gruppo per impostazione predefinita. Tuttavia, seguendo la procedura descritta in [questo articolo della knowledge base](https://support.microsoft.com/kb/321476) è possibile modificare le autorizzazioni predefinite dello schema.
    - Gli account nella foresta amministrativa utilizzati per amministrare l'ambiente di produzione non devono avere privilegi amministrativi per la foresta amministrativa, i domini o le workstation in essa contenuti.
    - I privilegi amministrativi sulla foresta amministrativa devono essere controllati attentamente da un processo offline per ridurre la possibilità che un utente o dipendente malintenzionato cancelli i registri di controllo. Ciò consente di garantire che il personale con gli account amministrativi di produzione non possano ridurre le restrizioni per i loro account e aumentare i rischi per l'organizzazione.
-   - La foresta amministrativa deve seguire le configurazioni di sicurezza conformità della linea di base (SCB) di Microsoft per il dominio, tra cui configurazioni complesse per i protocolli di autenticazione.
+   - La foresta amministrativa deve seguire le configurazioni di Microsoft Security Compliance Baseline (SCB) per il dominio, incluse le configurazioni complesse per i protocolli di autenticazione.
    - Tutti gli host della foresta amministrativa devono essere aggiornati automaticamente con gli aggiornamenti della sicurezza. Anche se ciò può comportare il rischio di interrompere le operazioni di manutenzione del controller di dominio, fornisce una mitigazione significativa dei rischi di sicurezza delle vulnerabilità senza patch.
 
       > [!NOTE]
@@ -499,7 +499,7 @@ Durante la progettazione di una foresta amministrativa è necessario tenere in c
    - Gli Standard di sicurezza devono essere usati come configurazioni di avvio.
 
       > [!NOTE]
-      > I clienti possono usare Microsoft Security Compliance Toolkit (SCT) per configurare le basi di riferimento negli host amministrativi.
+      > I clienti possono utilizzare Microsoft Security Compliance Toolkit (SCT) per configurare le basi di riferimento negli host amministrativi.
 
    - Avvio protetto per impedire agli utenti malintenzionati o ai malware di caricare un codice non firmato nel processo di avvio.
 
@@ -539,7 +539,7 @@ Per altre informazioni sui servizi Microsoft per la progettazione e la distribuz
 
 ## <a name="tier-0-equivalency"></a>Equivalenza di livello 0
 
-La maggior parte delle organizzazioni di controlla l'appartenenza ai gruppi di Active Directory di livello 0 come Administrators, Domain Admins ed Enterprise Admins.  Molte organizzazioni trascurano il rischio di altri gruppi con privilegi equivalenti in un ambiente tipico di Active Directory. Questi gruppi offrono un percorso di riassegnazione relativamente facile per un utente malintenzionato gli stessi privilegi di livello 0 espliciti usando vari metodi diversi di attacchi.
+La maggior parte delle organizzazioni di controlla l'appartenenza ai gruppi di Active Directory di livello 0 come Administrators, Domain Admins ed Enterprise Admins.  Molte organizzazioni trascurano il rischio di altri gruppi con privilegi equivalenti in un ambiente tipico di Active Directory. Questi gruppi offrono un percorso di escalation relativamente semplice per un utente malintenzionato per gli stessi privilegi di livello 0 espliciti usando diversi metodi di attacco diversi.
 
 Ad esempio, un operatore di server può accedere a un supporto di backup di un controller di dominio ed estrarre tutte le credenziali dai file del supporto, per poi usarle per riassegnare i privilegi.
 
@@ -558,7 +558,7 @@ Le organizzazioni devono controllare e monitorare l'appartenenza a tutti i grupp
 - Proprietari autori criteri di gruppo
 - Operazioni di crittografia
 - Utenti DCOM
-- Altri gruppi delegati - gruppi personalizzati che possono essere creati dall'organizzazione per gestire le operazioni di directory che possono avere anche accesso valido di livello 0.
+- Altri gruppi delegati: gruppi personalizzati che possono essere creati dall'organizzazione per gestire le operazioni di directory che possono avere anche un accesso di livello 0 effettivo.
 
 ## <a name="administrative-tools-and-logon-types"></a>Strumenti di amministrazione e tipi di accesso
 
@@ -577,15 +577,15 @@ Questa tabella include istruzioni per gli strumenti di amministrazione e i metod
 |Desktop remoto (errore: tipo di accesso negato)|RemoteInteractive|-|Per impostazione predefinita, se si verifica un errore durante l'accesso RDP le credenziali vengono archiviate solo brevemente. Ciò potrebbe non valere se il computer viene compromesso.|
 |Net use * \\\SERVER|Rete|-||
 |Net use * \\\SERVER /u:utente|Rete|-||
-|Snap-in MMC al computer remoto|Rete|-|Esempio: Gestione di dispositivi di gestione, il Visualizzatore eventi, computer, servizi|
-|PowerShell WinRM|Rete|-|Esempio: Server Enter-PSSession|
+|Snap-in MMC al computer remoto|Rete|-|Esempio: Gestione computer, Visualizzatore eventi, Device Manager, servizi|
+|PowerShell WinRM|Rete|-|Esempio: Immettere-server PSSession|
 |PowerShell WinRM con CredSSP|NetworkClearText|v|Server New-PSSession<br />-Credssp di autenticazione<br />-Credenziale Credential|
-|PsExec senza credenziali esplicite|Rete|-|Esempio: PsExec \\\server cmd|
+|PsExec senza credenziali esplicite|Rete|-|Esempio: PsExec \\ \ server cmd|
 |PsExec con credenziali esplicite|Rete + interattivo|v|PsExec \\\server -u utente -p pwd cmd<br />Crea più sessioni di accesso.|
 |Registro di sistema remoto|Rete|-||
 |Gateway Desktop remoto|Rete|-|Autenticazione a Gateway Desktop remoto.|
 |Attività pianificata|Batch|v|La password verrà salvata anche come segreto LSA sul disco.|
-|Eseguire gli strumenti come un servizio|Servizio|v|La password verrà salvata anche come segreto LSA sul disco.|
+|Eseguire gli strumenti come un servizio|Service|v|La password verrà salvata anche come segreto LSA sul disco.|
 |Scanner delle vulnerabilità|Rete|-|Per impostazione predefinita la maggior parte degli scanner usa gli accessi alla rete, anche se alcuni fornitori possono implementare gli accessi non alla rete e introdurre ulteriori rischi di furto delle credenziali.|
 
 Per l'autenticazione Web, usare il riferimento dalla tabella riportata di seguito:
@@ -617,7 +617,7 @@ In computer basati su Windows, tutte le autenticazioni vengono elaborate come un
 |Interattivo (anche noto come accesso locale)|2|Password, smart card,<br />altro|Yes|Accesso alla console;<br />RUNAS;<br />Soluzioni di controllo remoto dell'hardware (ad esempio KVM di rete o accesso remoto/scheda Lights-Out nel server)<br />Autenticazione di base di IIS (prima di IIS 6.0)|
 |Rete|3|Password,<br />hash NT,<br />ticket Kerberos|No (eccetto se è abilitata la delega, quindi il ticket Kerberos è presente)|NET USE;<br />Chiamate RPC;<br />Registro di sistema remoto;<br />Autenticazione integrata di Windows di IIS;<br />Autenticazione di Windows SQL;|
 |Batch|4|Password (in genere archiviata come segreto LSA)|Yes|Attività pianificate|
-|Servizio|5|Password (in genere archiviata come segreto LSA)|Yes|Servizi Windows|
+|Service|5|Password (in genere archiviata come segreto LSA)|Yes|Servizi Windows|
 |NetworkClearText|8|Password|Yes|Autenticazione di base di IIS (IIS 6.0 e versioni successive);<br />Windows PowerShell con CredSSP|
 |NewCredentials|9|Password|Yes|RUNAS/NETWORK|
 |RemoteInteractive|10|Password, smart card,<br />altro|Yes|Desktop remoto (precedentemente noto come "Servizi Terminal")|
@@ -625,7 +625,7 @@ In computer basati su Windows, tutte le autenticazioni vengono elaborate come un
 Definizioni delle colonne:
 
 - **Tipo di accesso** è il tipo di accesso richiesto.
-- **#** è l'identificatore numerico per il tipo di accesso che viene segnalato negli eventi di controllo nel registro eventi di sicurezza.
+- **#** è l'identificatore numerico per il tipo di accesso riportato negli eventi di controllo nel registro eventi di protezione.
 - **Autenticatori accettati** indica quali tipi di autenticatori sono in grado di avviare un accesso di questo tipo.
 - **Credenziali riusabili** in una sessione LSA indica se il tipo di accesso risulta nella sessione LSA che contiene le credenziali, ad esempio le password in non crittografate, gli hash NT o i ticket Kerberos che potrebbero essere usati per eseguire l'autenticazione ad altre risorse di rete.
 - In **Esempi** vengono elencati scenari comuni in cui viene usato il tipo di accesso.

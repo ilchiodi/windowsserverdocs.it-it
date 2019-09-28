@@ -1,8 +1,8 @@
 ---
 title: lodctr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b67c11b24013adb911309ab2ea9bdbfdfc3408da
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 96a2818110b766071eb83822abd34d8c0d00132d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437889"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374565"
 ---
 # <a name="lodctr"></a>lodctr
 
@@ -34,10 +34,10 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 |    Parametro     |                                                                                                                                         Descrizione                                                                                                                                          |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    <filename>    |                                                                                          Registra le impostazioni del nome del contatore delle prestazioni e la descrizione fornita nel file di inizializzazione nome file.                                                                                          |
-|  /s:<filename>   |                                                                                                       Prestazioni consente di salvare le impostazioni del Registro di sistema del contatore e testo esplicativo per file <filename>.                                                                                                       |
+|  /s: <filename>   |                                                                                                       Prestazioni consente di salvare le impostazioni del Registro di sistema del contatore e testo esplicativo per file <filename>.                                                                                                       |
 |        /r        |                                Ripristina le impostazioni del Registro di sistema dei contatori e il testo esplicativo dai file memorizzati nella cache delle prestazioni correlati nel Registro di sistema e le impostazioni del Registro di sistema corrente.<br /><br />Questa opzione è disponibile solo nel sistema operativo Windows Server 2003.                                |
-|  /r:<filename>   | Ripristini prestazioni del contatore delle impostazioni del Registro di sistema e il testo esplicativo dal file <filename>. **Avviso:** se si usano i **lodctr /r** comando, si sovrascriverà tutte le impostazioni del Registro di sistema del contatore delle prestazioni e la descrizione sostituirli con la configurazione definita nel file specificato. |
-| /t:<servicename> |                                                                                                                       Indica il servizio <servicename> è attendibile.                                                                                                                       |
+|  /r: <filename>   | Ripristini prestazioni del contatore delle impostazioni del Registro di sistema e il testo esplicativo dal file <filename>. **Avviso:** se si usa il comando **lodctr/r** , si sovrascriveranno tutte le impostazioni del registro di sistema del contatore delle prestazioni e il testo esplicativo, sostituendolo con la configurazione definita nel file specificato. |
+| /t: <servicename> |                                                                                                                       Indica il servizio <servicename> è attendibile.                                                                                                                       |
 |        /?        |                                                                                                                             Visualizza la guida al prompt dei comandi.                                                                                                                             |
 
 ## <a name="remarks"></a>Note

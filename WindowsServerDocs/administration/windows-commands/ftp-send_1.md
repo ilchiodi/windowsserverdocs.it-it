@@ -1,8 +1,8 @@
 ---
-title: ftp send_1
-description: 'Argomento i comandi di Windows per * * *- '
+title: Send_1 FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 39423aff3c64f41c4fc0f8998484e6dcc38f822e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bd9f658b4fbfa5f6c9fa9a58fb0c524ad53627bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438446"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376005"
 ---
-# <a name="ftp-send1"></a>ftp: send_1
+# <a name="ftp-send_1"></a>FTP: Send_1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Copia un file locale nel computer remoto usando il tipo di trasferimento di file corrente.   
+Copia un file locale nel computer remoto utilizzando il tipo di trasferimento di file corrente.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 send <LocalFile> [<remoteFile>]  
@@ -37,14 +37,14 @@ send <LocalFile> [<remoteFile>]
 | <remoteFile> | Specifica il nome da utilizzare nel computer remoto. |
 
 ## <a name="remarks"></a>Note  
-- Il **inviare** è identico al comando il **put** comando.  
-- Se *FileRemoto* non viene specificato, il file viene assegnato il *FileLocale* nome.  
+- Il comando **Send** è identico al comando **put** .  
+- Se *FileRemoto* non è specificato, al file viene assegnato il nome *LocalFile* .  
   ## <a name="BKMK_Examples"></a>Esempi  
-  copiare il file locale **test. txt** e denominarlo **test1.txt** nel computer remoto.  
+  Copiare il file **test. txt** locale e denominarlo **test1. txt** nel computer remoto.  
   ```  
   send test.txt test1.txt  
   ```  
-  copiare il file locale **program.exe** al computer remoto.  
+  Copiare il file locale **Program. exe** nel computer remoto.  
   ```  
   send program.exe  
   ```  

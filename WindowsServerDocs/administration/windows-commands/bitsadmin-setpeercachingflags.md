@@ -1,8 +1,8 @@
 ---
 title: setpeercachingflags Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin setpeercachingflags** -imposta i flag che determinano se i file del processo possono essere memorizzato nella cache e forniti a colleghi e se il processo può scaricare contenuto da peer.
+description: Argomento dei comandi di Windows per **BITSAdmin setpeercachingflags** -imposta i flag che determinano se i file del processo possono essere memorizzati nella cache e serviti ai peer e se il processo può scaricare il contenuto dai peer.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d50a6ccd83a6251808ca3d66437e52f641c60a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 147f28268f1b4dd6dfb40cff85f073feabbc35a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380456"
 ---
 # <a name="bitsadmin-setpeercachingflags"></a>setpeercachingflags Bitsadmin
 
@@ -37,7 +37,7 @@ bitsadmin /SetPeerCachingFlags <Job> <value>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Value|Il valore è un intero senza segno con l'interpretazione seguente per i bit nella rappresentazione binaria.</br>1 - il processo può scaricare contenuto da peer.</br>2 - i file del processo possono essere memorizzato nella cache e forniti a colleghi.|
+|Value|Il valore è un intero senza segno con l'interpretazione seguente per i bit nella rappresentazione binaria.</br>1-il processo può scaricare il contenuto dai peer.</br>2-i file del processo possono essere memorizzati nella cache e serviti ai peer.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -48,4 +48,4 @@ C:\>bitsadmin / SetPeerCachingFlags myJob 1
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

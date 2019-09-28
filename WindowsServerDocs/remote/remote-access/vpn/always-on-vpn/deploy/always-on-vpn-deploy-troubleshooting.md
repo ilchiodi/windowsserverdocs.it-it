@@ -1,7 +1,7 @@
 ---
 title: Risolvere i problemi di VPN Always On
 description: Questo argomento fornisce istruzioni per la verifica e la risoluzione dei problemi relativi alla distribuzione Always On VPN in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 649fbc16e3dfef2ed1061d0ba6a5c22a8712b186
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871355"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404377"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Risolvere i problemi di VPN Always On 
 
@@ -118,7 +118,7 @@ Cerca gli eventi dall'origine RasClient. Tutti i messaggi di errore restituiscon
 
 ## <a name="nps-logs"></a>Log NPS
 
-NPS crea e archivia i log di contabilità NPS. Per impostazione predefinita, questi file vengono archiviati in%\\SystemRoot\\% system32\\ LogFiles in un file denominato in*xxxx*. txt, dove *xxxx* è la data di creazione del file.
+NPS crea e archivia i log di contabilità NPS. Per impostazione predefinita, questi file vengono archiviati in% SYSTEMROOT% \\System32 @ no__t-1Logfiles @ no__t-2 in un file denominato IN*xxxx*. txt, dove *xxxx* è la data di creazione del file.
 
 Per impostazione predefinita, questi log sono in formato con valori delimitati da virgole, ma non includono una riga di intestazione. La riga di intestazione è:
 

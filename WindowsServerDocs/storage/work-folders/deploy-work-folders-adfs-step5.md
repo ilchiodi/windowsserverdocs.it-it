@@ -1,6 +1,6 @@
 ---
 title: "Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 5, configurare i client"
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,28 +8,28 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f0a50913cbcf7773f792df4ce119b83d796a7155
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447793"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402774"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurazione client
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Passaggio 5, configurazione dei client
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive il quinto passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 1, configurare AD FS @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
   
 Utilizzare le procedure seguenti per configurare i client Windows aggiunti al dominio e non appartenenti a un dominio. È possibile utilizzare questi client per verificare se i file si sincronizzano correttamente tra Cartelle di lavoro dei client.  
   
@@ -79,7 +79,7 @@ Per configurare cartelle di lavoro sul computer client, procedere come segue:
   
 2. Fare clic su **Installa Cartelle di lavoro**.  
   
-3. Nel **immettere l'indirizzo di posta elettronica ufficio** pagina, immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio test, https:\//workfolders.contoso.com) e quindi fare clic su  **Avanti**.  
+3. Nella pagina **immettere l'indirizzo di posta elettronica dell'ufficio** immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio di test, https: \//cartellelavoro. contoso. com), quindi fare clic su **Avanti**.  
   
 4. Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
   
@@ -111,11 +111,11 @@ Il file host nel client non appartenente a un dominio deve essere aggiornato per
   
 Nell'esempio di test, usare questi valori:  
   
--  **10.0.0.10 workfolders.contoso.com**  
+-  **workfolders.contoso.com 10.0.0.10**  
   
--  **10.0.0.10 blueadfs.contoso.com**  
+-  **blueadfs.contoso.com 10.0.0.10**  
   
--  **10.0.0.10 enterpriseregistration.contoso.com**  
+-  **enterpriseregistration.contoso.com 10.0.0.10**  
   
 ### <a name="configure-work-folders-on-the-client"></a>Configurazione di Cartelle di lavoro nel client  
 Configurare Cartelle di lavoro sul computer non appartenente a un dominio mediante la stessa procedura utilizzata per il computer aggiunto al dominio.  

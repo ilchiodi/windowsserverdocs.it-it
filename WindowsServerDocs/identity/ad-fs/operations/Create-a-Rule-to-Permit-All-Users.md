@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: abb00e14dd0b3ce7b06efba816fbd7452e7bf0f1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1356218c5f9f47073f007286e8acfdf4c3608b73
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189411"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407624"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Creare una regola per consentire tutti gli utenti
 
-In Windows Server 2016, è possibile utilizzare un **criteri di controllo di accesso** per creare una regola che consentirà tutti gli utenti di accedere a una relying party.  In Windows Server 2012 R2, utilizzando il **consentire tutti gli utenti** modello di regola in Active Directory Federation Services \(ADFS\), è possibile creare una regola di autorizzazione che consentirà tutti gli utenti di accedere alla relying l'entità. 
+In Windows Server 2016, è possibile utilizzare un **criteri di controllo di accesso** per creare una regola che consentirà tutti gli utenti di accedere a una relying party.  In Windows Server 2012 R2, usando il modello di regola **Consenti tutti gli utenti** in Active Directory Federation Services \(AD FS @ no__t-2, è possibile creare una regola di autorizzazione che consentirà a tutti gli utenti di accedere al relying party. 
 
 È possibile utilizzare regole di autorizzazione aggiuntive per limitare ulteriormente l'accesso. Agli utenti che hanno ricevuto l'autorizzazione di accesso alla relying parti da parte del Servizio federativo potrebbe comunque essere negato l'accesso dalla stessa relying party.  
   
@@ -61,7 +61,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
  
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
   
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

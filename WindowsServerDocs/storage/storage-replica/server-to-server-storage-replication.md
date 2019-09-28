@@ -1,7 +1,7 @@
 ---
 title: Replica archiviazione da server a server
 description: Come configurare e usare la replica di archiviazione per la replica da server a server in Windows Server, inclusi l'interfaccia di amministrazione di Windows e PowerShell.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -9,16 +9,16 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a21000e857d702846703deb4f55380e1a998f6d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865284"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402954"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Replica archiviazione da server a server con replica archiviazione
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 È possibile usare Replica di archiviazione per configurare due server per la sincronizzazione dei dati, in modo che ciascuno disponga di una copia identica dello stesso volume. Questo argomento offre informazioni generali sulla replica di archiviazione da server a server, oltre a indicazioni per la configurazione e la gestione dell'ambiente.
 
@@ -58,7 +58,7 @@ Per usare la replica di archiviazione e il centro di amministrazione di Windows,
 > [!NOTE]
 > A questo punto non è possibile usare l'interfaccia di amministrazione di Windows in un server per gestire la replica di archiviazione.
 
-## <a name="terms"></a>Termini  
+## <a name="terms"></a>Condizioni  
 Questa procedura dettagliata usa l'ambiente seguente come esempio:  
 
 -   Due server, denominati **SR-SRV05** e **SR SRV06**.  
@@ -438,7 +438,7 @@ Il processo è così suddiviso a un livello elevato:
 1. [Aggiungere un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Al momento della creazione, selezionare l'ID sottoscrizione associato al ExpressRoute creato e selezionare il gruppo di risorse appena creato.
 <br><br>Aggiungere le regole di sicurezza in ingresso e in uscita necessarie al gruppo di sicurezza di rete. Ad esempio, potrebbe essere necessario consentire l'accesso Desktop remoto alla macchina virtuale.
 1. [Creare una macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) con le impostazioni seguenti (mostrate nella figura 5):
-    - **Indirizzo IP pubblico**: Nessuna
+    - **Indirizzo IP pubblico**: Nessuno
     - **Rete virtuale**: Selezionare la rete virtuale di cui si è preso nota dal gruppo di risorse aggiunto con ExpressRoute.
     - **Gruppo di sicurezza di rete (firewall)** : Selezionare il gruppo di sicurezza di rete creato in precedenza.
     ![Creare una macchina virtuale con le impostazioni](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)

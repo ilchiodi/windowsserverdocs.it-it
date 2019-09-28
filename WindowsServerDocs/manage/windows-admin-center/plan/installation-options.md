@@ -6,14 +6,14 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 36c9dfcb38ef417df56206cdb18633cc877183c4
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 144c57bba621ee1b94a66914f8d9b6c0292f8b03
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406875"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Che tipo di installazione è adatto alle tue esigenze?
 
@@ -41,8 +41,8 @@ Questo argomento descrive le diverse opzioni di installazione per l'interfaccia 
 
 Per gestire l'interfaccia di amministrazione di Windows:
 
-- **Nello scenario client locale:** Avviare il gateway dell'interfaccia di amministrazione di Windows dal menu Start e connettersi a esso da un Web browser client accedendo `https://localhost:6516`a.
-- **In altri scenari:** Connettersi al gateway dell'interfaccia di amministrazione di Windows in un computer diverso da un browser client tramite il relativo URL, ad esempio`https://servername.contoso.com`
+- **Nello scenario client locale:** Avviare il gateway dell'interfaccia di amministrazione di Windows dal menu Start e connettersi da un Web browser client accedendo a `https://localhost:6516`.
+- **In altri scenari:** Connettersi al gateway dell'interfaccia di amministrazione di Windows in un computer diverso da un browser client tramite il relativo URL, ad esempio `https://servername.contoso.com`
 
 > [!WARNING]
 > L'installazione dell'interfaccia di amministrazione di Windows in un controller di dominio non è supportata. [Altre informazioni sulle procedure consigliate per la sicurezza del controller di dominio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
@@ -55,7 +55,7 @@ Microsoft Edge e Google Chrome sono testati e supportati in Windows 10. Altri We
 
 È possibile **gestire** i sistemi operativi Windows seguenti usando l'interfaccia di amministrazione di Windows:
 
-| Version | Gestisci *nodo* tramite *Server Manager* | Gestire il *cluster* tramite *Gestione cluster di failover* | Gestire *HCI* tramite *Gestione cluster HCI* |
+| Versione | Gestisci *nodo* tramite *Server Manager* | Gestire il *cluster* tramite *Gestione cluster di failover* | Gestire *HCI* tramite *Gestione cluster HCI* |
 | ------------------------- |--------------- | ----- | ------------------------ |
 | Windows 10, versione 1709 o successiva | Sì (tramite Gestione computer) | N/D | N/D |
 | Canale semestrale Windows Server | Yes | Yes | N/D |

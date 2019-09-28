@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDCs
-description: 'Argomento i comandi di Windows per * * *- '
+title: TestDCs Dfsdiag
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 62956ae65d2311939ac0db6a4b86950f21dba407
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a193e68b6f015b1535a98e20b52deb2a4a14034c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378445"
 ---
-# <a name="dfsdiag-testdcs"></a>Dfsdiag TestDCs
+# <a name="dfsdiag-testdcs"></a>TestDCs Dfsdiag
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Controlla la configurazione dei controller di dominio eseguendo i test seguenti su ogni controller di dominio nel dominio specificato:  
   
--   verifica che il File System distribuito \(DFS\) Namespace servizio è in esecuzione e che il tipo di avvio sia impostato su automatico.  
+-   Verifica che il servizio dello spazio dei nomi file system distribuito \(DFS @ no__t-1 sia in esecuzione e che il tipo di avvio sia impostato su automatico.  
   
--   Cerca il supporto del sito\-stimata dei riferimenti NETLOGON e SYSvol.  
+-   Verifica il supporto dei riferimenti di Site @ no__t-0costed per NETLOGON e SYSvol.  
   
--   verifica la coerenza dell'associazione del sito per il nome host e indirizzo IP.  
+-   Verifica la coerenza dell'associazione del sito in base al nome host e all'indirizzo IP.  
   
   
   
@@ -44,10 +44,10 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|\/Dominio:<Domain name>|Dominio a cui si desidera verificare.|  
+|\/Domain: <Domain name>|Dominio a cui si desidera verificare.|  
   
 ## <a name="remarks"></a>Note  
-\/Dominio è un parametro facoltativo. Il valore predefinito è il dominio locale appartenente a host locale.  
+\/Domain è un parametro facoltativo. Il valore predefinito è il dominio locale appartenente a host locale.  
   
 ## <a name="BKMK_Examples"></a>Esempi  
 Per verificare la configurazione dei controller di dominio nel dominio Contoso.com, digitare:  
@@ -58,8 +58,8 @@ dfsdiag /TestDCs /Domain:Contoso.com
   
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
   
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 

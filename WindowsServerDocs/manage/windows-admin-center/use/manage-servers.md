@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 03/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 72524fcc71f722daeb8238bc3cffc6d38a611098
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.prod: windows-server
+ms.openlocfilehash: c7f436ea9b2baa00294ccef52a5d7a27c7247e4a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406782"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con l'interfaccia di amministrazione di Windows
 
@@ -41,7 +41,7 @@ Per aggiungere un server all'interfaccia di amministrazione di Windows:
 Il server verrà aggiunto all'elenco di connessioni nella pagina panoramica. Fare clic su di esso per connettersi al server.
 
 > [!NOTE]
-> È anche possibile aggiungere [cluster di failover](manage-failover-clusters.md) o [cluster](manage-hyper-converged.md) iperconvergenti come una connessione separata nell'interfaccia di amministrazione di Windows.
+> È anche possibile aggiungere [cluster di failover](manage-failover-clusters.md) o [cluster iperconvergenti](manage-hyper-converged.md) come una connessione separata nell'interfaccia di amministrazione di Windows.
 
 ## <a name="tools"></a>Strumenti
 
@@ -62,7 +62,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 | [Firewall](#firewall) | Visualizzare e modificare le regole del firewall |
 | [App installate](#installed-apps) | Visualizzare e rimuovere le app installate |
 | [Utenti e gruppi locali](#local-users-and-groups) | Visualizzare e modificare gruppi e utenti locali |
-| [Network](#network) | Visualizzare e modificare i dispositivi di rete |
+| [Rete](#network) | Visualizzare e modificare i dispositivi di rete |
 | [PowerShell](#powershell) | Interagire con il server tramite PowerShell |
 | [Processi](#processes) | Visualizzare e modificare i processi in esecuzione |
 | [Del registro](#registry) | Visualizzare e modificare le voci del registro di sistema |

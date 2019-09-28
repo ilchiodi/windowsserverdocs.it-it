@@ -2,7 +2,7 @@
 title: Tecnologie SDN
 description: Negli argomenti di questa sezione vengono fornite informazioni generali e tecniche sulle tecnologie Software Defined Networking incluse in Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: article
@@ -10,16 +10,16 @@ ms.assetid: b491089c-5bcb-49d4-95b1-915b7ce69f88
 ms.author: pashort
 author: shortpatti
 ms.date: 02/14/2019
-ms.openlocfilehash: 040568dd696c4dee665de415d23ce9a7cdc8a711
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b71b17760ec11d7d2ea6a3bfeb118899be9504e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405955"
 ---
 # <a name="sdn-technologies"></a>Tecnologie SDN
 
->Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 Negli argomenti di questa sezione vengono fornite informazioni generali e tecniche sulle tecnologie Software Defined Networking incluse in Windows Server 2016.  
 

@@ -1,40 +1,40 @@
 ---
 ms.assetid: 10d6723e-c857-43da-9d2d-acb5641d3da8
-title: Aggiungere un Computer a un dominio
+title: Aggiungere un computer a un dominio
 description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 02df9659ee3a1121c0cee3f7c5fa21b91c36b87c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9f6d657397cb07d081a229135e3e6c97c7191164
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192048"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408342"
 ---
-# <a name="join-a-computer-to-a-domain"></a>Aggiungere un Computer a un dominio
+# <a name="join-a-computer-to-a-domain"></a>Aggiungere un computer a un dominio
 
-Per Active Directory Federation Services \(ADFS\) a funzionare, ogni computer che funziona come un server federativo deve essere aggiunto a un dominio. server federativi possono essere aggiunti a un dominio, ma questo non è un requisito.  
+Per il funzionamento di Active Directory Federation Services \(AD FS @ no__t-1, ogni computer che funge da server federativo deve essere aggiunto a un dominio. i proxy server federativi possono essere aggiunti a un dominio, ma questo non è un requisito.  
   
-Non è necessario aggiungere un server Web a un dominio, se il server Web ospita attestazioni\-solo applicazioni con riconoscimento.  
+Non è necessario aggiungere un server Web a un dominio se nel server Web sono ospitate solo le applicazioni Claims @ no__t-0aware.  
   
 Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-join-a-computer-to-a-domain"></a>Per aggiungere un computer a un dominio  
   
-1.  Nel **avviare** digitare **Pannello di controllo**, quindi premere INVIO.  
+1.  Nella schermata **Start** digitare Pannello di **controllo**e quindi premere INVIO.  
   
-2.  Passare a **sistema e sicurezza**, quindi fare clic su **sistema**.  
+2.  Passare a **sistema e sicurezza**e quindi fare clic su **sistema**.  
   
 3.  In **Impostazioni relative a nome computer, dominio e gruppo di lavoro**fare clic su **Cambia impostazioni**.  
   
 4.  Nella scheda **Nome computer** , fare clic su **Modifica**.  
   
-5.  Sotto **appartenente**, fare clic su **Domain**, digitare il nome del dominio da questo computer per aggiungere e quindi fare clic su **OK**.  
+5.  In **membro di**fare clic su **dominio**, digitare il nome del dominio a cui si desidera aggiungere il computer e quindi fare clic su **OK**.  
   
 6.  Fare clic su **OK**, quindi riavviare il computer.  
   

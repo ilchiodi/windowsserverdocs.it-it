@@ -1,6 +1,6 @@
 ---
 title: Disconnessione di un server Spazi di archiviazione diretti a scopo di manutenzione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/08/2018
 Keywords: Spazi di archiviazione diretti, S2D, manutenzione
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871222"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402828"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Disconnessione di un server Spazi di archiviazione diretti a scopo di manutenzione
 
@@ -97,7 +97,7 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-Incompleto o danneggiato lo stato operativo è normale quando i nodi sono in fase di arresto o avvio/arresto del cluster del servizio in un nodo e non costituiscono un problema. Tutti i volumi restano online e accessibili.
+Lo stato operativo incompleto o danneggiato è normale quando i nodi sono in fase di arresto o di avvio/arresto del servizio cluster in un nodo e non devono causare problemi. Tutti i volumi restano online e accessibili.
 
 ## <a name="resuming-the-server"></a>Ripresa del server
 
@@ -121,7 +121,7 @@ Per eseguire questa operazione in Gestione cluster di failover, passare a **Nodi
 
 ## <a name="waiting-for-storage-to-resync"></a>In attesa della risincronizzazione dell'archiviazione
 
-Quando viene ripristinato il server, è necessario risincronizzare l'eventuali nuove operazioni di scrittura che si sono verificati mentre era disponibile. Questo avviene automaticamente. Utilizzando il rilevamento delle modifiche intelligente, non è necessario analizzare o sincronizzare *tutti* i dati, ma solo le modifiche. Questo processo è limitato a ridurre l'impatto sui carichi di lavoro di produzione. A seconda di quanto tempo il server è stato in pausa e della quantità di nuovi dati scritti, potrebbero essere necessari molti minuti per il completamento.
+Quando il server riprende, le nuove scritture che si sono verificate durante il periodo di non disponibilità devono essere risincronizzate. Questo avviene automaticamente. Utilizzando il rilevamento delle modifiche intelligente, non è necessario analizzare o sincronizzare *tutti* i dati, ma solo le modifiche. Questo processo è limitato a ridurre l'impatto sui carichi di lavoro di produzione. A seconda di quanto tempo il server è stato in pausa e della quantità di nuovi dati scritti, potrebbero essere necessari molti minuti per il completamento.
 
 È necessario attendere il completamento della risincronizzazione prima di disconnettere tutti gli altri server del cluster.
 
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 È il momento di sospendere e riavviare gli altri server nel cluster.
 
-## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Come aggiornare offline i nodi spazi di archiviazione diretta
-Usare la procedura seguente per percorso del sistema spazi di archiviazione diretta rapidamente. Questa operazione implica la pianificazione di una finestra di manutenzione e disassemblare il sistema per l'applicazione di patch. Se si verifica un aggiornamento della sicurezza critici che è necessario applicata rapidamente o forse è necessario assicurarsi che l'applicazione di patch viene completata nella finestra di manutenzione, questo metodo può essere automaticamente. Questo processo non è disponibile a del cluster di spazi di archiviazione diretta, patch e porta attaccarli tutti nuovamente. Il compromesso è il tempo di inattività per le risorse di hosting.
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Come aggiornare i nodi Spazi di archiviazione diretta offline
+Usare la procedura seguente per eseguire rapidamente il percorso del sistema di Spazi di archiviazione diretta. Comporta la pianificazione di una finestra di manutenzione e l'esecuzione del sistema per l'applicazione di patch. Se è necessario applicare rapidamente un aggiornamento critico alla sicurezza o se è necessario assicurarsi che l'applicazione di patch venga completata nella finestra di manutenzione, questo metodo può essere corretto. Questo processo arresta il cluster di Spazi di archiviazione diretta, lo patch e lo riporta nuovamente. Il compromesso è un tempo di inattività per le risorse ospitate.
 
 1. Pianificare la finestra di manutenzione.
 2. Portare offline i dischi virtuali.
-3. Arrestare il cluster per portare offline il pool di archiviazione. Eseguire la **Stop-Cluster** cmdlet oppure usare Gestione Cluster di Failover per arrestare il cluster.
-4. Impostare il servizio cluster **disabilitato** in Services. msc in ogni nodo. Ciò impedisce l'avvio mentre viene corretto, il servizio cluster.
-5. Applicare l'aggiornamento cumulativo di Windows Server e gli aggiornamenti dello Stack di manutenzione che richieste a tutti i nodi. (È possibile aggiornare tutti i nodi nello stesso momento, senza dover attendere perché il cluster non è attivo).  
-6. Riavviare i nodi e verificare che tutto sembra corretto.
-7. Impostare il servizio cluster nuovamente al **automatica** in ogni nodo.
-8. Avviare il cluster. Eseguire la **Start-Cluster** cmdlet oppure usare Gestione Cluster di Failover. 
+3. Arrestare il cluster per portare offline il pool di archiviazione. Eseguire il cmdlet **Stop-cluster** oppure usare Gestione cluster di failover per arrestare il cluster.
+4. Impostare il servizio cluster su **disabilitato** in Services. msc in ogni nodo. In questo modo si impedisce l'avvio del servizio cluster durante la correzione.
+5. Applicare l'aggiornamento cumulativo di Windows Server ed eventuali aggiornamenti dello stack di manutenzione richiesti a tutti i nodi. (È possibile aggiornare tutti i nodi contemporaneamente, non è necessario attendere che il cluster sia inattivo).  
+6. Riavviare i nodi e verificare che tutti gli elementi siano soddisfacenti.
+7. Impostare di nuovo il servizio cluster su **automatico** in ogni nodo.
+8. Avviare il cluster. Eseguire il cmdlet **Start-cluster** oppure usare Gestione cluster di failover. 
 
-   Attendere qualche minuto.  Assicurarsi che il pool di archiviazione sia integro.
-9. Portare online i dischi virtuali.
-10. Monitorare lo stato dei dischi virtuali eseguendo il **Get-Volume** e **Get-VirtualDisk** cmdlet.
+   Concedici pochi minuti.  Verificare che il pool di archiviazione sia integro.
+9. Riportare online i dischi virtuali.
+10. Monitorare lo stato dei dischi virtuali eseguendo i cmdlet **Get-volume** e **Get-VirtualDisk** .
 
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
+- [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
 - [Aggiornamento compatibile con cluster](https://technet.microsoft.com/library/hh831694.aspx)

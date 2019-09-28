@@ -1,7 +1,7 @@
 ---
 title: Configurare l'infrastruttura server
 description: In questo passaggio si installano e configurano i componenti lato server necessari per supportare la VPN. I componenti lato server includono la configurazione dell'infrastruttura a chiave pubblica per distribuire i certificati utilizzati dagli utenti, dal server VPN e dal server dei criteri di rete.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,16 +10,16 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871300"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404292"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Passaggio 2. Configurare l'infrastruttura server
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Precedente** Passaggio 1. Pianificare la distribuzione di VPN Always On](always-on-vpn-deploy-planning.md)
 - [**Prossimo** Passaggio 3. Configurare il server di accesso remoto per VPN Always On](vpn-deploy-ras.md)
@@ -116,7 +116,7 @@ Poiché il server RRAS non è aggiunto a un dominio, non è possibile usare la r
 
     - **Scopi desiderati:** Autenticazione server, intermedio IKE sicurezza IP 
 
-    - **Modello di certificato:** [_Cliente_] Server VPN
+    - **Modello di certificato:** server VPN [_cliente_]
 
 #### <a name="example-vpngatewayinf-script"></a>Esempio: Script VPNGateway. inf
 

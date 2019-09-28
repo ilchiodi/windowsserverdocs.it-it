@@ -1,8 +1,8 @@
 ---
 title: per
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8764887794857ae56b7c1a3bda656ece18c117f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: db0bf54e35e4226cb020b040d5fc36ddd88dc02b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439217"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377117"
 ---
 # <a name="for"></a>per
 
@@ -38,27 +38,27 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|{%%\|%}\<Variable>|Obbligatorio. Rappresenta un parametro sostituibile. Utilizzare un simbolo di percentuale singolo ( **%** ) per svolgere il **per** comando al prompt dei comandi. Utilizzare i segni di percentuale ( **%%** ) per eseguire il **per** comando all'interno di un file batch. Le variabili sono tra maiuscole e minuscole e devono essere rappresentati con un valore alfabetico, ad esempio **%a**, **%b**, o **%c**.|
-|(\<Set>)|Obbligatorio. Specifica uno o più file, directory, o stringhe di testo o un intervallo di valori su cui eseguire il comando. Le parentesi sono obbligatorie.|
-|\<Comando >|Obbligatorio. Specifica il comando che si desidera eseguire orizzontale su ogni file, directory o stringa di testo o sull'intervallo di valori inclusi nel *impostare*.|
-|\<CommandLineOptions>|Specifica le opzioni della riga di comando che si desidera utilizzare con il comando specificato.|
+|{%% \|%} \<Variable >|Obbligatorio. Rappresenta un parametro sostituibile. Usare un solo segno di percentuale ( **%** ) per eseguire il comando **for** al prompt dei comandi. Utilizzare i segni di percentuale ( **%%** ) per eseguire il **per** comando all'interno di un file batch. Le variabili sono tra maiuscole e minuscole e devono essere rappresentati con un valore alfabetico, ad esempio **%a**, **%b**, o **%c**.|
+|(\<Set >)|Obbligatorio. Specifica uno o più file, directory, o stringhe di testo o un intervallo di valori su cui eseguire il comando. Le parentesi sono obbligatorie.|
+|\<Command >|Obbligatorio. Specifica il comando che si desidera eseguire orizzontale su ogni file, directory o stringa di testo o sull'intervallo di valori inclusi nel *impostare*.|
+|\<CommandLineOptions >|Specifica le opzioni della riga di comando che si desidera utilizzare con il comando specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-- Usando **per**
+- Utilizzo **di per**
 
-  È possibile usare la **per** comando all'interno di un file batch o direttamente dal prompt dei comandi.
-- Utilizzo di parametri di batch
+  È possibile usare il comando **for** in un file batch o direttamente dal prompt dei comandi.
+- Uso dei parametri batch
 
-  Gli attributi seguenti si applicano per la **per** comando:  
+  Gli attributi seguenti si applicano al comando **for** :  
   - Il **per** comando sostituisce **%** <em>variabile</em> o **%%** <em>variabile</em> con ogni stringa di testo nel set specificato fino a quando il comando specificato elabora tutti i file.
   - I nomi delle variabili sono tra maiuscole e minuscole, globale e non superiore a 52 possono essere attive contemporaneamente.
   - Per evitare confusione con i parametri batch **0** tramite **%9**, è possibile utilizzare qualsiasi carattere per *variabile* tranne i numeri da 0 a 9. Per semplici file batch, un singolo carattere, ad esempio **;** funzionerà.
   - È possibile utilizzare più valori per *variabile* nei file batch complessi per distinguere le diverse variabili sostituibili.
-- Specifica un gruppo di file
+- Specifica di un gruppo di file
 
-  Il *impostare* parametri possono rappresentare un singolo gruppo di file o gruppi diversi di file. È possibile usare caratteri jolly ( **&#42;** e **?** ) per specificare un file di set. Di seguito sono insiemi di file valido.  
+  Il parametro *set* può rappresentare un singolo gruppo di file o diversi gruppi di file. È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per specificare un set di file. Di seguito sono insiemi di file valido.  
   ```
   (*.doc) 
   (*.doc *.txt *.me)
@@ -66,15 +66,15 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
   (ar??1991.* ap??1991.*)
   ```  
   Quando si utilizza il **per** comando, il primo valore in *impostare* sostituisce **%** <em>variabile</em> o **%%** <em>variabile</em>, e quindi il comando specificato elabora questo valore. Il processo continua finché tutti i file (o gruppi di file) che corrispondono al *impostare* valore vengono elaborati.
-- Usando il **nelle** e **si** parole chiave
+- Uso delle parole chiave **in** e **do**
 
-  **Nelle** e **effettuare** non sono parametri, ma è necessario utilizzarli con **per**. Se si omette una di queste parole chiave, viene visualizzato un messaggio di errore.
-- Utilizzo di moduli aggiuntivi di **per**
+  **In** e **do** non sono parametri, ma è necessario utilizzarli con **per**. Se si omette una di queste parole chiave, viene visualizzato un messaggio di errore.
+- Uso di forme aggiuntive di **per**
 
-  Se sono state abilitate le estensioni dei comandi (che è l'impostazione predefinita), le seguenti ulteriori forme di **per** sono supportate:  
-  - Solo le directory
+  Se sono abilitate le estensioni dei comandi (impostazione predefinita), sono supportate le seguenti forme aggiuntive di **per** :  
+  - Solo directory
 
-    Se *impostata* contiene caratteri jolly ( **&#42;** oppure **?** ), specificato *comando* esegue per ogni directory (invece di un set file in una directory specificata) che corrisponde a *impostare*.
+    Se *set* contiene caratteri jolly ( **&#42;** o **?** ), il *comando* specificato viene eseguito per ogni directory (invece di un set di file in una directory specificata) che corrisponde a *set*.
 
     La sintassi è:  
     ```
@@ -82,23 +82,23 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     ```  
   - Ricorsivo
 
-    Analizza l'albero di directory che ha origine nel *Drive*:*Path* ed esegue il **per** istruzione in ogni directory dell'albero. Se viene specificata alcuna directory dopo **/r**, la directory corrente viene utilizzata come directory radice. Se *impostare* è costituito solo da un punto (.), enumera solo la struttura di directory.
+    Consente di esaminare l'albero di directory radice in *unità*:*percorso* ed eseguire l'istruzione **for** in ogni directory dell'albero. Se viene specificata alcuna directory dopo **/r**, la directory corrente viene utilizzata come directory radice. Se *impostare* è costituito solo da un punto (.), enumera solo la struttura di directory.
 
     La sintassi è:  
     ```
     for /r [[<Drive>:]<Path>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     ```  
-  - L'iterazione di un intervallo di valori
+  - Iterazione di un intervallo di valori
 
-    Usare una variabile iterativa per impostare il valore iniziale (*avviare*&) e quindi procedere con un determinato intervallo di valori fino a quando il valore supera il valore di fine impostato (*End*&). **/l** eseguirà l'iterazione confrontando *avviare*# con *Fine*#. Se *avviare*# è minore di *End*# eseguirà il comando. Quando la variabile iterativa supera *End*#, la shell dei comandi di uscire dal ciclo. È inoltre possibile utilizzare un valore negativo *passaggio*# per scorrere un intervallo di valori decrescenti. Ad esempio, (1,1,5) genera la sequenza 1 2 3 4 5 e (5,-1,1) genera la sequenza 1 2 3 4 di 5.
+    Usare una variabile iterativa per impostare il valore iniziale (*Start*#), quindi eseguire un'istruzione alla volta in un intervallo di valori impostato fino a quando il valore non supera il valore finale impostato (*fine*#). **/l** eseguirà l'iterazione confrontando *avviare*# con *Fine*#. Se *avviare*# è minore di *End*# eseguirà il comando. Quando la variabile iterativa supera *End*#, la shell dei comandi di uscire dal ciclo. È inoltre possibile utilizzare un valore negativo *passaggio*# per scorrere un intervallo di valori decrescenti. Ad esempio, (1,1,5) genera la sequenza 1 2 3 4 5 e (5,-1,1) genera la sequenza 1 2 3 4 di 5.
 
     La sintassi è:  
     ```
     for /l {%%|%}<Variable> in (<Start#>,<Step#>,<End#>) do <Command> [<CommandLineOptions>]
     ```  
-  - L'iterazione e l'analisi del file
+  - Iterazione e analisi dei file
 
-    Usare analisi dei file per l'output del comando processo, stringhe e contenuto del file.  Utilizzare le variabili iterative per definire il contenuto o le stringhe che si desidera esaminare e utilizzare i vari *ParolechiaveAnalisi* le opzioni per modificare ulteriormente l'analisi.  Utilizzare il *ParolechiaveAnalisi* il token di opzione per specificare quali token devono essere passati come variabili iterative. Si noti che quando viene utilizzata senza l'opzione token **/f** esaminerà solo il primo token.
+    Usare l'analisi dei file per elaborare l'output del comando, le stringhe e il contenuto del file.  Utilizzare le variabili iterative per definire il contenuto o le stringhe che si desidera esaminare e utilizzare i vari *ParolechiaveAnalisi* le opzioni per modificare ulteriormente l'analisi.  Utilizzare il *ParolechiaveAnalisi* il token di opzione per specificare quali token devono essere passati come variabili iterative. Si noti che quando viene utilizzata senza l'opzione token **/f** esaminerà solo il primo token.
 
     L'analisi del file è costituito da leggere l'output, stringa o il contenuto del file, quindi suddividerlo in singole righe di testo e l'analisi di ogni riga in zero o più token. Il **per** ciclo viene quindi chiamato con il valore della variabile iterativo impostato sul token. Per impostazione predefinita, **/f** passa il primo spazio separato token da ogni riga di ogni file. Le righe vuote vengono ignorate.
 
@@ -120,16 +120,16 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |      Parola chiave      |                                                                                                                                                                                                          Descrizione                                                                                                                                                                                                          |
     |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |     eol=\<c>      |                                                                                                                                                                                   Specifica un carattere di fine riga (un solo carattere).                                                                                                                                                                                    |
-    |     skip=\<N>     |                                                                                                                                                                              Specifica il numero di righe da ignorare all'inizio del file.                                                                                                                                                                              |
-    |   delims=\<xxx>   |                                                                                                                                                                     Specifica un set di delimitatori. Sostituisce il set di delimitatori predefinito di spazio e tabulazione.                                                                                                                                                                      |
-    | token =\<X, Y,. M, N > | Specifica i token da ogni riga deve essere passato il **per** ciclo per ogni iterazione. Di conseguenza, i nomi delle variabili aggiuntive vengono allocati. *M*–*N* Specifica un intervallo tra il *M*th tramite il *N*token. Se l'ultimo carattere la **token =** stringa è un asterisco ( **&#42;** ), un'altra variabile viene allocata e riceve il testo rimanente sulla riga dopo l'ultimo token che viene analizzato. |
-    |     usebackq      |                                                                                             Specifica per: esecuzione di una stringa racchiusa tra virgolette back un comando, usare una stringa tra virgolette come stringa letterale o, per nomi file lunghi che contengono spazi, consentire nomi di file in  *\<impostare\>* , a ogni essere racchiuso tra parentesi virgolette doppie.                                                                                              |
+    |     EOL = \<C >      |                                                                                                                                                                                   Specifica un carattere di fine riga (un solo carattere).                                                                                                                                                                                    |
+    |     Skip = \<N >     |                                                                                                                                                                              Specifica il numero di righe da ignorare all'inizio del file.                                                                                                                                                                              |
+    |   delims = \<xxx >   |                                                                                                                                                                     Specifica un set di delimitatori. Sostituisce il set di delimitatori predefinito di spazio e tabulazione.                                                                                                                                                                      |
+    | token = \<X, Y, M-N > | Specifica i token da ogni riga deve essere passato il **per** ciclo per ogni iterazione. Di conseguenza, i nomi delle variabili aggiuntive vengono allocati. *M*–*N* Specifica un intervallo tra il *M*th tramite il *N*token. Se l'ultimo carattere nella stringa **Tokens =** è un asterisco ( **&#42;** ), viene allocata una variabile aggiuntiva che riceve il testo rimanente nella riga dopo l'ultimo token analizzato. |
+    |     usebackq      |                                                                                             Specifica: eseguire una stringa tra virgolette indietro come comando, utilizzare una stringa con virgolette singole come stringa letterale oppure, per i nomi di file lunghi che contengono spazi, consentire a ogni nome file in *\<set @ no__t-2*di essere racchiusi tra virgolette doppie.                                                                                              |
 
 
-  - Sostituzione delle variabili
+  - Sostituzione di variabili
 
-    Nella tabella seguente sono elencati sintattici facoltativi (per qualsiasi variabile **ho**).  
+    La tabella seguente elenca la sintassi facoltativa (per qualsiasi variabile **i**).  
 
     |Variabile con modificatore|Descrizione|
     |----------------------|-----------|
@@ -160,10 +160,10 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     Tramite i nomi delle variabili lettere maiuscole, ad esempio **%i**, è possibile rendere il codice più leggibile ed evitare confusione con i modificatori, che non distinguono tra maiuscole e minuscole.
 - Analisi di una stringa
 
-  È possibile usare la **per /f** logica in una stringa di analisi eseguendo il wrapping *\<LiteralString\>* nelle: virgolette doppie (*senza* " usebackq") o virgolette (*con* "usebackq"), ad esempio, ("MyString") o ('MyString'). *\<LiteralString\>*  viene considerato come una singola riga di input da un file. Durante l'analisi *\<LiteralString\>* in virgolette doppie, simboli di comando (ad esempio **\\ \& \| \> \< \^** ) vengono trattati come caratteri normali.
-- Output di analisi
+  È possibile usare la logica di analisi **per/f** su una stringa immediata eseguendo il wrapping di *\<LiteralString @ no__t-3* in: virgolette doppie (*senza* "usebackq") o tra virgolette singole (*con* "usebackq"), ad esempio ("stringa") o (' Stringa "). *\<LiteralString @ no__t-2* viene considerato come una singola riga di input da un file. Quando si analizza *\<LiteralString @ no__t-2* tra virgolette doppie, i simboli dei comandi, ad esempio **\\ \& \| \> \< \^** , vengono considerati caratteri ordinari.
+- Analisi dell'output
 
-  È possibile usare la **per /f** comando per analizzare l'output di un comando inserendo un racchiusi tra virgolette back *\<comando\>* racchiusi tra parentesi. Viene considerato come una riga di comando, che viene passata a un elemento figlio Cmd.exe. L'output viene acquisito in memoria e analizzato come se si tratta di un file.
+  È possibile usare il comando **per/f** per analizzare l'output di un comando inserendo un oggetto racchiuso tra virgolette *\<command @ no__t-3* tra parentesi. Viene considerato come una riga di comando, che viene passata a un elemento figlio Cmd.exe. L'output viene acquisito in memoria e analizzato come se si tratta di un file.
 
 ## <a name="BKMK_examples"></a>Esempi
 

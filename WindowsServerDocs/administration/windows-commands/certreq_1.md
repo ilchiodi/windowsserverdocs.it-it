@@ -2,7 +2,7 @@
 title: certreq
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19b4750b627a86a724b2a0f58ed7f9bde5ea1613
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3098cb12379493a82c77412b2328f5312afb2c0c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379681"
 ---
 # <a name="certreq"></a>certreq
 
@@ -166,7 +166,7 @@ Questa sezione è obbligatoria per un file INF che funge da modello per una nuov
 |Protezione di dati|Specifica un valore che indica il modo in cui una chiave privata viene protetta prima dell'utilizzo.|XCN_NCRYPT_UI_NO_PROTCTION_FLAG--0</br>XCN_NCRYPT_UI_PROTECT_KEY_FLAG--1</br>XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG--2|Protezione da pagina = NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG|
 |SuppressDefaults|Specifica un valore booleano che indica se le estensioni e gli attributi predefiniti sono inclusi nella richiesta. Le impostazioni predefinite sono rappresentate dai rispettivi identificatori di oggetto (OID).|true, false|SuppressDefaults = true|
 |FriendlyName|Nome descrittivo per il nuovo certificato.|Testo|FriendlyName = "server1"|
-|ValidityPeriodUnits</br>Nota: Viene utilizzato solo quando il tipo di richiesta = cert.|Specifica un numero di unità da usare con ValidityPeriod.|Numeric|ValidityPeriodUnits = 3|
+|ValidityPeriodUnits</br>Nota: Viene utilizzato solo quando il tipo di richiesta = cert.|Specifica un numero di unità da usare con ValidityPeriod.|Numerico|ValidityPeriodUnits = 3|
 |ValidityPeriod</br>Nota: Viene utilizzato solo quando il tipo di richiesta = cert.|VValidityPeriod deve essere un periodo di tempo plurale in inglese (Stati Uniti).|Years, months, weeks, Days, hours, minutes, seconds|ValidityPeriod = anni|
 
 Torna al [contenuto](#BKMK_Contents)

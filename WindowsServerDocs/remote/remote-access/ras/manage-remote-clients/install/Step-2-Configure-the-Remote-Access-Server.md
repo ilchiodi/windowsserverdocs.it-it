@@ -1,9 +1,9 @@
 ---
 title: Passaggio 2 configurare il Server di accesso remoto
-description: Questo argomento fa parte della Guida di client DirectAccess di gestire in remoto in Windows Server 2016.
+description: Questo argomento fa parte della Guida relativa alla gestione remota dei client DirectAccess in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f60373a24663c73c537e747d5993e60fa2a38972
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: b4e3c2f4a27652e7b28b826981d192d6a4c6c107
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404554"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Passaggio 2 configurare il Server di accesso remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento viene descritto come configurare le impostazioni client e server necessari per la gestione remota dei client DirectAccess. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [passaggio 2 pianificare la distribuzione di accesso remoto](../plan/Step-2-Plan-the-Remote-Access-Deployment.md).  
   
@@ -38,7 +38,7 @@ In questo argomento viene descritto come configurare le impostazioni client e se
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installare il ruolo Accesso remoto  
+## <a name="BKMK_Role"></a>Installare il ruolo accesso remoto  
 È necessario installare il ruolo Accesso remoto in un server nell'organizzazione che fungerà da server di accesso remoto.  
   
 #### <a name="to-install-the-remote-access-role"></a>Per installare il ruolo Accesso remoto  
@@ -61,7 +61,7 @@ In questo argomento viene descritto come configurare le impostazioni client e se
   
 8.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -83,7 +83,7 @@ Sono disponibili tre opzioni che è possibile utilizzare per distribuire accesso
   
 #### <a name="to-configure-the-deployment-type"></a>Per configurare il tipo di distribuzione  
   
-1.  Nel server di Accesso remoto, aprire la Console di gestione Accesso remoto: Nel **avviare** dello schermo, tipo, tipo **Console Gestione accesso remoto**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di Accesso remoto, aprire la Console di gestione Accesso remoto: Nella schermata **Start** Digitare, digitare **Remote Access Management Console**e quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Nella Console di gestione accesso remoto, nel riquadro centrale, fare clic su **eseguire Configurazione guidata accesso remoto**.  
   
@@ -154,7 +154,7 @@ Per distribuire accesso remoto, è necessario configurare il server che fungerà
   
 7.  Scegliere **Fine**.  
   
-## <a name="BKMK_Infra"></a>Configurare i server dell'infrastruttura  
+## <a name="BKMK_Infra"></a>Configurare i server di infrastruttura  
 Per configurare i server dell'infrastruttura in una distribuzione di accesso remoto, è necessario configurare quanto segue:  
   
 -   Server dei percorsi di rete  
@@ -184,10 +184,10 @@ Per configurare i server dell'infrastruttura in una distribuzione di accesso rem
 ## <a name="BKMK_App"></a>Configurare i server applicazioni  
 In una distribuzione completa di accesso remoto, la configurazione server applicazioni è un'attività facoltativa. In questo scenario per la gestione remota dei client DirectAccess, server applicazioni non vengono utilizzati e questo passaggio è grigio per indicare che non è attivo. Fare clic su **Fine** per applicare la configurazione.  
   
-## <a name="BKMK_GPO"></a>Configurazione alternativa e riepilogo oggetti Criteri di gruppo  
+## <a name="BKMK_GPO"></a>Riepilogo della configurazione e oggetti Criteri di gruppo alternativi  
 Al termine, la configurazione di accesso remoto di **revisione di accesso remoto** viene visualizzato. È possibile controllare tutte le impostazioni selezionate in precedenza, incluse:  
   
--   **Impostazioni oggetto Criteri di gruppo**  
+-   **Impostazioni GPO**  
   
     Sono elencati il nome oggetto Criteri di gruppo di server DirectAccess e il nome oggetto Criteri di gruppo Client. È possibile fare clic il **Modifica** collegamento accanto al **Impostazioni oggetto Criteri di gruppo** sull'intestazione per modificare le impostazioni di GPO.  
   

@@ -1,7 +1,7 @@
 ---
 title: Rimozione di server in Spazi di archiviazione diretta
 ms.assetid: 9d8499a7-1307-473d-9f00-8a051164fad2
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: cosmosdarwin
 description: Come rimuovere i server da un cluster di Spazi di archiviazione diretta in Windows Server.
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fcb67b3c5fbcff0ca2a48ee9a1d2e109af3e9a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890782"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402802"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Rimozione di server in Spazi di archiviazione diretta
 
@@ -58,7 +58,7 @@ Per il ridimensionamento permanente (rimozione di un server *e* delle relative u
 
 #### <a name="enough-capacity"></a>Capacità sufficiente
 
-In primo luogo, è necessario sufficiente capacità di archiviazione in server rimanenti per contenere tutti i volumi.
+Prima di tutto, è necessario disporre di una capacità di archiviazione sufficiente nei server rimanenti per supportare tutti i volumi.
 
 Ad esempio, se disponi di quattro server, ognuno con 10 unità da 1 TB, hai 40 TB di capacità di archiviazione fisica totale. Dopo la rimozione di un server e tutte le relative unità, disporrai di 30 TB di capacità rimasta. Se i footprint dei volumi ammontano a più di 30 TB nel complesso, non potranno essere contenuti nei server rimanenti, quindi il cmdlet restituirà un errore e non sposterà alcun dato.
 
@@ -81,4 +81,4 @@ Questa tabella mostra il numero minimo di domini di errore necessari per ogni ti
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Panoramica di spazi diretti di archiviazione](storage-spaces-direct-overview.md)
+- [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)

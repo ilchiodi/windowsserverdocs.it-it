@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 06/05/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 43a42c211557a41400fada17baaab6a0d5ab822a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866097"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407756"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Criteri di controllo degli accessi in Windows Server 2012 R2 e Windows Server 2012 AD FS
 
@@ -25,7 +25,7 @@ I criteri descritti in questo articolo fanno uso di due tipi di attestazioni
 
 2.  Attestazioni AD FS crea in base alle informazioni trasmesse al AD FS dal client come intestazioni HTTP  
 
->**Importante**: I criteri come descritto di seguito bloccano l'aggiunta a un dominio di Windows 10 e gli scenari di accesso che richiedono l'accesso ai seguenti endpoint aggiuntivi
+>**Important**: I criteri come descritto di seguito bloccano l'aggiunta a un dominio di Windows 10 e gli scenari di accesso che richiedono l'accesso ai seguenti endpoint aggiuntivi
 
 AD FS endpoint necessari per l'aggiunta a un dominio e l'accesso a Windows 10
 - [nome servizio federativo]/ADFS/Services/Trust/2005/windowstransport
@@ -259,7 +259,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
   Un esempio per trovare una corrispondenza con due soli indirizzi, ad esempio 192.168.1.1 o 10.0.0.1, sarebbe: \b192\\. 168\\1\\1 \ b&#124;\b10\\\\\\. 0.0.1 \ b  
 
-  In questo modo si ottiene la tecnica con cui è possibile immettere un numero qualsiasi di indirizzi. Se è necessario consentire un intervallo di indirizzi, ad esempio 192.168.1.1 – 192.168.1.25, la corrispondenza deve essere eseguita carattere per carattere: \b192\\. 168\\1\\. [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b  
+  In questo modo si ottiene la tecnica con cui è possibile immettere un numero qualsiasi di indirizzi. Se è necessario consentire un intervallo di indirizzi, ad esempio 192.168.1.1-192.168.1.25, la corrispondenza deve essere eseguita carattere per carattere: \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
 
   Tenere presente quanto segue:  
 
@@ -279,9 +279,9 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 - Si noti che le parentesi devono essere posizionate correttamente, in modo che non venga avviata la corrispondenza di altre parti di indirizzi IP.  
 
-- Con la corrispondenza del blocco 192, è possibile scrivere un'espressione simile per il blocco 10: \b10\\. 0\\. 0\\. [1-9] &#124;1 [0-4]) \b  
+- Con la corrispondenza del blocco 192, è possibile scrivere un'espressione simile per il blocco 10: \b10 @ no__t-0,0 @ no__t-1.0 @ no__t-2. ([1-9]&#124;1 [0-4]) \b  
 
-- E inserendoli insieme, l'espressione seguente deve corrispondere a tutti gli indirizzi per "192.168.1.1 ~ 25" e "10.0.0.1 ~ 14":\\\b192.\\168\\1. ( [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\. 0\\. 0\\. ( [1-9] &#124;1 [0-4]) \b  
+- E inserendoli insieme, l'espressione seguente deve corrispondere a tutti gli indirizzi per "192.168.1.1 ~ 25" e "10.0.0.1 ~ 14": \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10 @ no__t-6.0 @ no__t-7.0 @ no__t-8. ([1-9]&#124;1 [0-4]) \b  
 
 ### <a name="testing-the-expression"></a>Test dell'espressione  
  Le espressioni Regex possono diventare piuttosto complesse, quindi è consigliabile usare uno strumento di verifica Regex. Se si esegue una ricerca in Internet per "generatore di espressioni Regex online", sono disponibili diverse utilità online utili che consentono di provare le espressioni sui dati di esempio.  

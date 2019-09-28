@@ -2,7 +2,7 @@
 title: klist
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a8f574b65ec8c123379e1b02ee1571cc9f21fa1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4b35069faa835b59f2655262f640ddb18068702f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867063"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375314"
 ---
 # <a name="klist"></a>klist
 
@@ -43,7 +43,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |eliminazione|Consente di eliminare tutti i ticket di sessione di accesso specificato.|
 |sessioni|Visualizza un elenco di sessioni di accesso del computer.|
 |kcd_cache|Visualizza il Kerberos vincolata informazioni sulla cache di delega.|
-|get|Consente di richiedere un ticket al computer di destinazione specificato dal nome dell'entità servizio (SPN).|
+|ottieni|Consente di richiedere un ticket al computer di destinazione specificato dal nome dell'entità servizio (SPN).|
 |add_bind|Consente di specificare un controller di dominio preferito per l'autenticazione Kerberos.|
 |query_bind|Visualizza un elenco di controller di dominio preferiti memorizzati nella cache per ogni dominio che abbia contattato Kerberos.|
 |purge_bind|Rimuove la cache preferita controller di dominio per i domini specificati.|

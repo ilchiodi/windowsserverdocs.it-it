@@ -1,54 +1,54 @@
 ---
-title: Opzioni di selezione Subnet DHCP
-description: In questo argomento vengono fornite informazioni sulle opzioni di selezione subnet DHCP per Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
+title: Opzioni di selezione subnet DHCP
+description: In questo argomento vengono fornite informazioni sulle opzioni di selezione della subnet DHCP per Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: ca19e7d1-e445-48fc-8cf5-e4c45f561607
 ms.author: pashort
 author: shortpatti
 ms.date: 08/17/2018
-ms.openlocfilehash: 034ca48ef13a6bdac63ca99ac753fc9826460922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4718204fad49b23c84cc73b67164f34a803ddd86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405756"
 ---
-# <a name="dhcp-subnet-selection-options"></a>Opzioni di selezione Subnet DHCP
+# <a name="dhcp-subnet-selection-options"></a>Opzioni di selezione subnet DHCP
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni sulle nuove opzioni di selezione subnet DHCP.
+È possibile utilizzare questo argomento per informazioni sulle nuove opzioni di selezione della subnet DHCP.
 
-DHCP ora supporta l'opzione 82 \(Sub-opzione 5\). È possibile usare queste opzioni per consentire i client proxy DHCP e gli agenti di inoltro richiedere un indirizzo IP per una subnet specifica e da un intervallo di indirizzi IP specifico e un ambito.  Per altre informazioni, vedere **opzione 82 Sub opzione 5**: [Opzioni secondarie RFC 3527 collegamento selezione per l'opzione di informazioni dell'agente di inoltro per DHCPv4](https://tools.ietf.org/html/rfc3527).
+DHCP supporta ora l'opzione 82 \(Sub-Option 5 @ no__t-1. È possibile utilizzare queste opzioni per consentire ai client proxy DHCP e agli agenti di inoltro di richiedere un indirizzo IP per una subnet specifica e da un intervallo di indirizzi IP e un ambito specifici.  Per ulteriori informazioni, vedere l' **opzione 82 sub option 5**: [RFC 3527 link Selection sub-option for the Relay Agent Information option for estensione DHCPv4](https://tools.ietf.org/html/rfc3527).
 
-Se si usa un agente di inoltro DHCP configurato con l'opzione DHCP 82, Sub-opzione 5, l'agente di inoltro può richiedere un lease di indirizzi IP per i client DHCP da un intervallo di indirizzi IP specifico.
+Se si usa un agente di inoltro DHCP configurato con l'opzione DHCP 82, l'opzione secondaria 5, l'agente di inoltro può richiedere un lease di indirizzi IP per i client DHCP da un intervallo di indirizzi IP specifico.
 
 
-## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Opzione 82 Sub opzione 5: Opzione di collegamento selezione secondaria
+## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Opzione 82 sub 5: Opzione di selezione collegamento
 
-L'opzione secondaria di selezione di collegamento dell'agente di inoltro consente a un agente di inoltro DHCP specificare una subnet IP da cui il server DHCP deve assegnare indirizzi IP e le opzioni.
+L'opzione secondaria selezione collegamento agente di inoltro consente a un agente di inoltro DHCP di specificare una subnet IP da cui il server DHCP deve assegnare gli indirizzi IP e le opzioni.
 
-In genere, gli agenti di inoltro DHCP si basano sull'indirizzo IP Gateway \(GIADDR\) campo per comunicare con i server DHCP. Tuttavia, GIADDR è limitato dalle due funzioni operative:
+In genere, gli agenti di inoltro DHCP si basano sul campo indirizzo IP del gateway \(GIADDR @ no__t-1 per comunicare con i server DHCP. Tuttavia, GIADDR è limitato dalle due funzioni operative:
 
-1. In modo da informare il server DHCP nella subnet su cui risiede il client DHCP che richiede il lease di indirizzi IP.
-2. Per informare il server DHCP dell'indirizzo IP da usare per comunicare con l'agente di inoltro.
+1. Per informare il server DHCP sulla subnet su cui risiede il client DHCP che richiede il lease di indirizzi IP.
+2. Per informare il server DHCP dell'indirizzo IP da utilizzare per comunicare con l'agente di inoltro.
 
-In alcuni casi, l'indirizzo IP utilizzato dall'agente di inoltro per comunicare con il server DHCP potrebbe essere diverso rispetto all'intervallo di indirizzi IP da cui deve essere allocato l'indirizzo IP client DHCP. 
+In alcuni casi, l'indirizzo IP usato dall'agente di inoltro per comunicare con il server DHCP potrebbe essere diverso dall'intervallo di indirizzi IP da cui deve essere allocato l'indirizzo IP del client DHCP. 
 
-L'opzione di collegamento selezione secondaria dell'opzione 82 è utile in questo caso, consentendo all'agente di inoltro in modo esplicito la subnet da cui vuole che l'indirizzo IP allocato sotto forma di opzione DHCP v4 82 opzione secondaria di 5.
+L'opzione di selezione dei collegamenti dell'opzione 82 è utile in questa situazione, consentendo all'agente di inoltro di dichiarare in modo esplicito la subnet da cui si desidera che l'indirizzo IP venga allocato sotto forma di opzione DHCP V4 82 sub option 5.
 
 > [!NOTE]
 >
-> Tutti inoltro agente gli indirizzi IP (GIADDR) devono far parte di un intervallo di indirizzi IP di ambito DHCP attivo. Qualsiasi GIADDR di fuori di intervalli di indirizzi IP di ambito DHCP viene considerato un inoltro rogue e Server DHCP di Windows non lo riconoscerà le richieste client DHCP da tali agenti di inoltro.
+> Tutti gli indirizzi IP dell'agente di inoltro (GIADDR) devono far parte di un intervallo di indirizzi IP di ambito DHCP attivo. Qualsiasi GIADDR al di fuori degli intervalli di indirizzi IP di ambito DHCP è considerato un inoltro non autorizzato e il server DHCP Windows non rileverà le richieste del client DHCP da tali agenti di inoltro.
 >
-> Un ambito speciale può essere creato per gli agenti di inoltro "autorizza". Creare un ambito con la GIADDR (o più se il GIADDR sono sequenziali gli indirizzi IP), escludere gli indirizzi GIADDR dalla distribuzione e quindi attivare l'ambito. Questo autorizza gli agenti di inoltro impedendo che gli indirizzi GIADDR assegnato.
+> È possibile creare un ambito speciale per "autorizzare" gli agenti di inoltro. Creare un ambito con GIADDR (o multiple se gli GIADDR sono indirizzi IP sequenziali), escludere gli indirizzi GIADDR dalla distribuzione e quindi attivare l'ambito. Gli agenti di inoltro saranno autorizzati a impedire l'assegnazione degli indirizzi GIADDR.
 
 
-### <a name="use-case-scenario"></a>Scenari dei casi d'uso
+### <a name="use-case-scenario"></a>Scenario caso d'uso
 
-In questo scenario, rete di un'organizzazione include un server DHCP sia un punto di accesso Wireless \(Asia Pacifico\) per gli utenti guest. Indirizzi IP client gli utenti guest assegnati dal server DHCP dell'organizzazione, tuttavia, a causa di restrizioni dei criteri firewall, il server DHCP non può accedere la rete wireless guest o i computer client wireless con broadcase messaggi.
+In questo scenario, in una rete dell'organizzazione sono inclusi sia un server DHCP sia un punto di accesso wireless \(AP @ no__t-1 per gli utenti guest. Gli indirizzi IP dei client guest vengono assegnati dal server DHCP dell'organizzazione. Tuttavia, a causa delle restrizioni dei criteri del firewall, il server DHCP non può accedere alla rete wireless guest o ai client wireless con messaggi broadcase.
 
-Per risolvere questa limitazione, il punto di accesso è configurato con 5 collegamento selezione Sub opzione per specificare la subnet da cui vuole che l'indirizzo IP allocato per i guest client, mentre il GIADDR anche specificando l'indirizzo IP dell'interfaccia interno che fa sì che la rete aziendale.
+Per risolvere questa restrizione, il punto di accesso viene configurato con l'opzione di selezione del collegamento Sub 5 per specificare la subnet da cui si desidera che l'indirizzo IP sia allocato per i client Guest, mentre in GIADDR specifica anche l'indirizzo IP dell'interfaccia interna che conduce al rete aziendale.

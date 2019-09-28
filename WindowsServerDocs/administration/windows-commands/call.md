@@ -1,8 +1,8 @@
 ---
-title: chiama
+title: chiamare
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: e4331870f31309646974f5839d5aa70e534351e5
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590425"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379723"
 ---
-# <a name="call"></a>chiama
+# <a name="call"></a>chiamare
 
 
 
@@ -41,17 +41,17 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Parametro           |                                                                         Descrizione                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Unità >:] [\<percorso >]<FileName> | Specifica il percorso e il nome del programma batch che si desidera chiamare. Il parametro *filename* è obbligatorio e deve avere un'estensione. bat o. cmd. |
-|      \<> BatchParameters       |                                            Specifica le informazioni della riga di comando richieste dal programma batch.                                             |
-|           :\<Etichetta >           |                                            Specifica l'etichetta a cui si desidera passare un controllo del programma batch.                                             |
-|         \<Argomenti >          |                     Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, a partire da *: Label.*                     |
+| [\<Drive >:] [\<Path >] <FileName> | Specifica il percorso e il nome del programma batch che si desidera chiamare. Il parametro *filename* è obbligatorio e deve avere un'estensione. bat o. cmd. |
+|      \<BatchParameters >       |                                            Specifica le informazioni della riga di comando richieste dal programma batch.                                             |
+|           : \<Label >           |                                            Specifica l'etichetta a cui si desidera passare un controllo del programma batch.                                             |
+|         \<Arguments >          |                     Specifica le informazioni della riga di comando da passare alla nuova istanza del programma batch, a partire da *: Label.*                     |
 |              /?               |                                                             Visualizza la guida al prompt dei comandi.                                                             |
 
 ## <a name="batch-parameters"></a>Parametri batch
 
 I riferimenti all'argomento dello script batch ( **% 0**, **% 1**,...) sono elencati nelle tabelle seguenti.
 
-**%\*** in uno script batch si riferisce a tutti gli argomenti (ad esempio, **% 1**, **% 2**, **% 3**...)
+**% @ no__t-2** in uno script batch fa riferimento a tutti gli argomenti (ad esempio, **% 1**, **% 2**, **% 3**...)
 
 È possibile utilizzare le seguenti sintassi facoltative come sostituzioni per i parametri batch ( **% n**):
 
@@ -78,7 +78,7 @@ La tabella seguente illustra come è possibile combinare i modificatori con i pa
 |% ~ dp $ PATH: 1|Esegue la ricerca nelle directory elencate nella variabile di ambiente PATH per **% 1**, quindi si espande alla lettera di unità e al percorso della prima directory trovata.|
 |% ~ ftza1|Espande **% 1** per visualizzare un output simile al comando **dir** .|
 
-Negli esempi precedenti, **% 1** e Path possono essere sostituiti da altri valori validi. La <strong>%~</strong> sintassi viene terminata con un numero di argomento valido. I <strong>%~</strong> modificatori non possono essere usati **% \\ \*** con.
+Negli esempi precedenti, **% 1** e Path possono essere sostituiti da altri valori validi. La sintassi <strong>%~</strong> viene terminata con un numero di argomento valido. Non è possibile usare i modificatori <strong>%~</strong> con **% @ no__t-4 @ no__t-5**.
 
 ## <a name="remarks"></a>Note
 
@@ -90,7 +90,7 @@ Negli esempi precedenti, **% 1** e Path possono essere sostituiti da altri valor
     Utilizzando **Call** con il parametro *Label* , viene creato un nuovo contesto del file batch e viene passato il controllo all'istruzione dopo l'etichetta specificata. La prima volta che viene rilevata la fine del file batch (ovvero dopo il passaggio all'etichetta), il controllo torna all'istruzione successiva all'istruzione **Call** . La seconda volta che viene rilevata la fine del file batch, lo script batch viene terminato.
 -   Uso di pipe e simboli di Reindirizzamento
 
-    **|** Non usare pipe () e simboli di reindirizzamento ( **<** o **>** ) con **Call**.
+    Non usare pipe ( **|** ) e i simboli di reindirizzamento ( **<** o **>** ) con **Call**.
 -   Esecuzione di una chiamata ricorsiva
 
     È possibile creare un programma batch che chiama se stesso. Tuttavia, è necessario fornire una condizione di uscita. In caso contrario, i programmi batch padre e figlio possono eseguire un ciclo infinito.

@@ -1,8 +1,8 @@
 ---
 title: makecab
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b120cf990abe2024fd6c96ca2f1ef11fa2350ae
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0231b6f1ddd3e81caa7544587f764e2308015b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437536"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374151"
 ---
 # <a name="makecab"></a>makecab
 
@@ -43,7 +43,7 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 |          /?          |                                                           Visualizza la guida al prompt dei comandi.                                                            |
 
 ## <a name="remarks"></a>Note
--   Fare riferimento a [formato Microsoft Cabinet](https://go.microsoft.com/fwlink/?LinkId=226852) su MSDN per informazioni su directive_file.
+-   Per informazioni su directive_file, vedere la pagina relativa al [formato Microsoft Cabinet](https://go.microsoft.com/fwlink/?LinkId=226852) in MSDN.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

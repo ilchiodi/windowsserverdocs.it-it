@@ -2,7 +2,7 @@
 ms.assetid: 0b3587b2-219f-43d8-88b4-1254eaa8b910
 title: Proxy applicazione Web in Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: ''
 ms.suite: na
@@ -10,18 +10,18 @@ ms.technology: web-app-proxy
 ms.tgt_pltfrm: na
 ms.topic: article
 author: kgremban
-ms.openlocfilehash: 760b0fa11d8d0b77c2a44a8696d199bc378da947
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bfa57a18ee74e1e54f6e7c1ed85d4bfbccb8937b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404243"
 ---
 # <a name="web-application-proxy-in-windows-server"></a>Proxy applicazione Web in Windows Server
 
->Si applica a: Windows Server&reg; 2016
+>Si applica a: Windows Server @ no__t-0 2016
 
-**Questo contenuto è rilevante per la versione locale del Proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere la [contenuto di Azure AD Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+il contenuto **Stanziamento è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy dell'applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 In questa sezione vengono descritte le nuove e modificate nel Proxy applicazione Web per Windows Server 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelli più probabilmente avranno il massimo impatto mentre si lavora con l'anteprima.  
   

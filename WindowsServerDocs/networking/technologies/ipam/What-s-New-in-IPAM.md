@@ -1,9 +1,9 @@
 ---
 title: Novità di Gestione indirizzi IP
-description: Questo argomento descrive le funzionalità di gestione indirizzi IP (IPAM) nuove o modificate in Windows Server 2016.
+description: Questo argomento descrive le funzionalità di gestione indirizzi IP nuove o modificate in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,101 +12,101 @@ ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 64de9327dedadbe421e4cceb71496de3609be398
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fc19a58482df5dfbfb4ea324f317bbe1b27bf834
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283817"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405599"
 ---
 # <a name="whats-new-in-ipam"></a>Novità di Gestione indirizzi IP
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento descrive le funzionalità di gestione indirizzi IP (IPAM) nuove o modificate in Windows Server 2016.  
+Questo argomento descrive le funzionalità di gestione indirizzi IP nuove o modificate in Windows Server 2016.  
   
-Gestione indirizzi IP offre funzionalità amministrative e di monitoraggio altamente personalizzabili per l'infrastruttura DNS e indirizzo IP in una rete aziendale o Provider del servizio Cloud (CSP). È possibile monitorare, controllare e gestire server che eseguono Dynamic Host Configuration Protocol (DHCP) e del sistema DNS (Domain Name) tramite Gestione indirizzi IP.  
+Gestione indirizzi IP offre funzionalità amministrative e di monitoraggio altamente personalizzabili per l'indirizzo IP e l'infrastruttura DNS in una rete aziendale o del provider di servizi cloud (CSP). È possibile monitorare, controllare e gestire i server che eseguono Dynamic Host Configuration Protocol (DHCP) e Domain Name System (DNS) usando Gestione indirizzi IP.  
   
-## <a name="BKMK_IPAM2012R2"></a>Aggiornamenti nel Server di gestione indirizzi IP  
-Di seguito sono le funzionalità nuove e migliorate per gestione indirizzi IP in Windows Server 2016.  
+## <a name="BKMK_IPAM2012R2"></a>Aggiornamenti nel server di gestione indirizzi IP  
+Di seguito sono riportate le funzionalità nuove e migliorate per gestione indirizzi IP in Windows Server 2016.  
   
 |Caratteristica/funzionalità|Novità o miglioramento|Descrizione|  
 |--------------------------|-------------------|---------------|  
-|[Gestione migliorata degli indirizzi IP](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EIP)|Miglioramento|Le funzionalità di gestione indirizzi IP sono migliorate per scenari quali la gestione delle subnet /32 IPv4 e IPv6 /128 e ricerca gratuita subnet di indirizzi IP e gli intervalli in un blocco di indirizzi IP.|  
+|[Gestione degli indirizzi IP avanzata](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EIP)|Miglioramento|Le funzionalità di gestione indirizzi IP sono migliorate per scenari quali la gestione delle subnet /32 IPv4 e IPv6 /128 e ricerca gratuita subnet di indirizzi IP e gli intervalli in un blocco di indirizzi IP.|  
 |[Gestione avanzata dei servizi DNS](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#EDNS)|Nuova|Gestione indirizzi IP supporta i record di risorse DNS, server d'inoltro condizionale e gestione delle zone DNS per i server DNS integrate in Active Directory e backup di file aggiunti al dominio.|  
-|[Integrated DNS, DHCP e indirizzi IP management (DDI)](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#DDI)|Miglioramento|Diverse nuove esperienze e gestione del ciclo di vita integrata sono abilitate le operazioni, ad esempio per visualizzare tutti i record di risorse DNS che si riferiscono a un indirizzo IP, automatizzati inventario degli indirizzi IP in base ai record di risorse e gestione del ciclo di vita degli indirizzi IP per le operazioni sia DNS e DHCP.|  
-|[Supporto per più foreste Active Directory](#bkmk_ad)|Nuova|È possibile utilizzare Gestione indirizzi IP per gestire i server DNS e DHCP di più foreste Active Directory quando esiste una relazione di trust bidirezionale tra la foresta in cui è installato Gestione indirizzi IP e ogni insieme di strutture remoti.|  
-|[Eliminare i dati di utilizzo](#bkmk_purge)|Nuova|È ora possibile ridurre le dimensioni del database di gestione indirizzi IP eliminando i dati di utilizzo di indirizzi IP che superano una data specificata.|  
-|[Supporto di Windows PowerShell per Role Based Access Control](#bkmk_ps)|Nuova|È possibile utilizzare Windows PowerShell per impostare gli ambiti di accesso per gli oggetti di gestione indirizzi IP.|  
+|[Gestione integrata di DNS, DHCP e indirizzi IP (DDI)](../../technologies/ipam/../../technologies/ipam/../../technologies/ipam/What-s-New-in-IPAM.md#DDI)|Miglioramento|Diverse nuove esperienze e gestione del ciclo di vita integrata sono abilitate le operazioni, ad esempio per visualizzare tutti i record di risorse DNS che si riferiscono a un indirizzo IP, automatizzati inventario degli indirizzi IP in base ai record di risorse e gestione del ciclo di vita degli indirizzi IP per le operazioni sia DNS e DHCP.|  
+|[Supporto per più insiemi di strutture Active Directory](#bkmk_ad)|Nuova|È possibile utilizzare Gestione indirizzi IP per gestire i server DNS e DHCP di più foreste Active Directory quando esiste una relazione di trust bidirezionale tra la foresta in cui è installato Gestione indirizzi IP e ogni insieme di strutture remoti.|  
+|[Elimina dati di utilizzo](#bkmk_purge)|Nuova|È ora possibile ridurre le dimensioni del database di gestione indirizzi IP eliminando i dati di utilizzo degli indirizzi IP più vecchi di una data specificata.|  
+|[Supporto di Windows PowerShell per il controllo degli accessi in base al ruolo](#bkmk_ps)|Nuova|È possibile utilizzare Windows PowerShell per impostare gli ambiti di accesso per gli oggetti di gestione indirizzi IP.|  
   
-### <a name="EIP"></a>Gestione migliorata degli indirizzi IP  
-Le seguenti funzionalità migliorare le funzionalità di gestione di indirizzi di gestione indirizzi IP.  
+### <a name="EIP"></a>Gestione degli indirizzi IP avanzata  
+Le funzionalità seguenti migliorano le funzionalità di gestione degli indirizzi di gestione indirizzi IP.  
 >[!NOTE]
->Per i riferimenti ai comandi di gestione indirizzi IP Windows PowerShell, vedere [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
+>Per informazioni di riferimento sui comandi di Windows PowerShell per [Gestione indirizzi IP, vedere cmdlet del server Gestione indirizzi IP in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
   
-#### <a name="support-for-31-32-and-128-subnets"></a>Supporto per /31 /32 e /128 subnet  
-Gestione indirizzi IP in Windows Server 2016 ora supporta /31 /32 e /128 subnet. Ad esempio, un' due indirizzo subnet (/ 31 IPv4) potrebbero essere necessari per un collegamento da punto a punto tra switch. Inoltre, alcune opzioni potrebbero richiedere indirizzi di loopback single (/ 32 per IPv4, / 128 per IPv6).  
+#### <a name="support-for-31-32-and-128-subnets"></a>Supporto per le subnet/31,/32 e/128  
+Gestione indirizzi IP in Windows Server 2016 supporta ora le subnet/31,/32 e/128. Ad esempio, è possibile che sia necessaria una subnet con due indirizzi (/31 IPv4) per un collegamento Point-to-Point tra le opzioni. Inoltre, alcune opzioni possono richiedere indirizzi di loopback singoli (/32 per IPv4,/128 per IPv6).  
   
-#### <a name="find-free-subnets-with-find-ipamfreesubnet"></a>**Ricerca gratuita subnet con Find-IpamFreeSubnet**  
+#### <a name="find-free-subnets-with-find-ipamfreesubnet"></a>**Trova le subnet gratuite con find-IpamFreeSubnet**  
   
-Questo comando restituisce le subnet che sono disponibili per l'allocazione, dato un blocco IP, la lunghezza del prefisso e numero di subnet richiesta.   
+Questo comando restituisce le subnet disponibili per l'allocazione, dati un blocco IP, la lunghezza del prefisso e il numero di subnet richieste.   
   
-Se il numero di subnet disponibili è minore del numero di subnet richiesto, le subnet disponibili vengono restituite con un avviso che indica che il numero disponibile è inferiore al numero richiesto.  
+Se il numero di subnet disponibili è inferiore al numero di subnet richieste, le subnet disponibili vengono restituite con un avviso che indica che il numero disponibile è inferiore al numero richiesto.  
   
 >[!NOTE]
->Questa funzione non alloca effettivamente le subnet, ma indica solo la loro disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe per il **Add-IpamSubnet** comando per creare la subnet.  
+>Questa funzione non alloca effettivamente le subnet, ma ne segnala solo la disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe al comando **Add-IpamSubnet** per creare la subnet.  
   
-Per altre informazioni, vedere [Find-IpamFreeSubnet](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeSubnet).  
+Per ulteriori informazioni, vedere [Find-IpamFreeSubnet](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeSubnet).  
   
-#### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**Trovare gli intervalli di indirizzi gratuito con Find-IpamFreeRange**  
+#### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**Trovare gli intervalli di indirizzi gratuiti con find-IpamFreeRange**  
   
-Questo nuovo comando restituisce disponibili intervalli di indirizzi IP assegnato una subnet IP, il numero di indirizzi necessari nell'intervallo e il numero di intervalli richiesto.   
+Questo nuovo comando restituisce gli intervalli di indirizzi IP disponibili, data una subnet IP, il numero di indirizzi necessari nell'intervallo e il numero di intervalli richiesti.   
   
-Il comando Cerca una serie continua di indirizzi IP non allocati che corrisponde al numero di indirizzi richiesti. Il processo viene ripetuto fino a quando non viene trovato il numero richiesto di intervalli o fino a quando non sono presenti più disponibile alcun gli intervalli di indirizzi disponibili.  
+Il comando Cerca una serie continua di indirizzi IP non allocati che corrispondono al numero di indirizzi richiesti. Il processo viene ripetuto fino a quando non viene trovato il numero richiesto di intervalli o fino a quando non sono disponibili altri intervalli di indirizzi disponibili.  
   
 > [!NOTE]
-> Questa funzione non vengono allocati gli intervalli in realtà, fornisce solo la loro disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe per la **Add-IpamRange** comando per creare l'intervallo.  
+> Questa funzione non alloca effettivamente gli intervalli, ma ne segnala solo la disponibilità. Tuttavia, l'output del cmdlet può essere inviato tramite pipe al comando **Add-IpamRange** per creare l'intervallo.  
   
-Per altre informazioni, vedere [Find-IpamFreeRange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
+Per ulteriori informazioni, vedere [Find-IpamFreeRange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
   
 ### <a name="EDNS"></a>Gestione avanzata dei servizi DNS  
-Gestione indirizzi IP in Windows Server 2016 supporta ora l'individuazione dei server DNS basato su file, aggiunto al dominio in una foresta di Active Directory in cui è in esecuzione Gestione indirizzi IP.  
+Gestione indirizzi IP in Windows Server 2016 supporta ora l'individuazione di server DNS basati su file e aggiunti a un dominio in una foresta Active Directory in cui è in esecuzione Gestione indirizzi IP.  
   
-Inoltre, sono state aggiunte le funzioni DNS seguenti:  
+Sono state inoltre aggiunte le funzioni DNS seguenti:  
   
--   Risorse e le zone DNS record raccolta (diverse da quelle relative a DNSSEC) dal server DNS che eseguono Windows Server 2008 o versione successiva.  
+-   Zone DNS e raccolta di record di risorse (diverse da quelle relative a DNSSEC) dai server DNS che eseguono Windows Server 2008 o versioni successive.  
   
--   Configurare (creare, modificare ed eliminare) le proprietà e operazioni su tutti i tipi di record di risorse (diverse da quelle relative a DNSSEC).  
+-   Configurare (creare, modificare ed eliminare) proprietà e operazioni su tutti i tipi di record di risorse (ad eccezione di quelli relativi a DNSSEC).  
   
--   Configurare (creare, modificare ed eliminare) le proprietà e operazioni su tutti i tipi di zone DNS, tra cui primario secondario e zone di Stub).  
+-   Configurare (creare, modificare, eliminare) proprietà e operazioni su tutti i tipi di zone DNS, incluse le zone secondarie primarie e stub.  
   
--   Attivare attività nel sito secondario e le zone di stub, indipendentemente dal fatto che se vengano inoltrare o zone di ricerca inversa. Ad esempio, le attività, ad esempio **Trasferisci dal Master** oppure **trasferimento nuova copia della zona dal server Master**.  
+-   Attività attivate in zone secondarie e Stub, indipendentemente dal fatto che siano zone di ricerca diretta o inversa. Ad esempio, attività come il **trasferimento da Master** o il **trasferimento di una nuova copia della zona dal master**.  
   
--   Controllo di accesso basato sui ruoli per la configurazione DNS supportata (record DNS e zone DNS).  
+-   Controllo degli accessi in base al ruolo per la configurazione DNS supportata (record DNS e zone DNS).  
   
--   Raccolta di server d'inoltro condizionali e configuration (creazione, eliminazione, modifica).  
+-   Raccolta e configurazione di server d'inoltri condizionali (create, DELETE, Edit).  
   
-### <a name="DDI"></a>Integrated DNS, DHCP e indirizzi IP management (DDI)  
-Quando si visualizza un indirizzo IP in inventario degli indirizzi IP, è possibile scegliere in visualizzazione dettagli per visualizzare tutti i record risorsa DNS associati all'indirizzo IP.  
+### <a name="DDI"></a>Gestione integrata di DNS, DHCP e indirizzi IP (DDI)  
+Quando si visualizza un indirizzo IP nell'inventario degli indirizzi IP, è possibile scegliere la visualizzazione dettagli per visualizzare tutti i record di risorse DNS associati all'indirizzo IP.  
   
-Come parte della raccolta di record risorse DNS, gestione indirizzi IP raccoglie i record PTR per le zone di ricerca inversa DNS. Per tutte le zone di ricerca inversa che vengono eseguito il mapping a qualsiasi intervallo di indirizzi IP, gestione indirizzi IP vengono creati i record di indirizzo IP per tutti i record PTR che appartengono a tale area nell'intervallo di indirizzi IP mappato corrispondente. Se esiste già l'indirizzo IP, il record PTR è semplicemente associato a quell'indirizzo IP. Gli indirizzi IP non vengono creati automaticamente se la zona di ricerca inversa non è mappata a qualsiasi intervallo di indirizzi IP.  
+Come parte della raccolta di record di risorse DNS, gestione indirizzi IP raccoglie i record PTR per le zone di ricerca inversa DNS. Per tutte le zone di ricerca inversa di cui è stato eseguito il mapping a qualsiasi intervallo di indirizzi IP, gestione indirizzi IP crea i record degli indirizzi IP per tutti i record PTR appartenenti a tale zona nell'intervallo di indirizzi IP mappato corrispondente. Se l'indirizzo IP esiste già, il record PTR viene semplicemente associato a tale indirizzo IP. Gli indirizzi IP non vengono creati automaticamente se la zona di ricerca inversa non è mappata ad alcun intervallo di indirizzi IP.  
   
-Quando viene creato un record PTR nella zona di ricerca inversa tramite Gestione indirizzi IP, l'inventario degli indirizzi IP viene aggiornato allo stesso modo, come descritto in precedenza. Durante la raccolta successiva, poiché l'indirizzo IP sarà già presente nel sistema, il record PTR verrà semplicemente associato con quell'indirizzo IP.  
+Quando un record PTR viene creato in una zona di ricerca inversa tramite Gestione indirizzi IP, l'inventario degli indirizzi IP viene aggiornato nello stesso modo descritto in precedenza. Durante la successiva raccolta, poiché l'indirizzo IP è già presente nel sistema, il record PTR verrà semplicemente mappato a tale indirizzo IP.  
   
-### <a name="bkmk_ad"></a>Supporto per più foreste Active Directory  
-In Windows Server 2012 R2, gestione indirizzi IP è stato in grado di individuare e gestire server DNS e DHCP che appartengono alla stessa foresta Active Directory come server di gestione indirizzi IP. A questo punto è possibile gestire i server DNS e DHCP che appartengono a un'altra foresta Active Directory quando ha una relazione di trust bidirezionale con la foresta in cui è installato il server di gestione indirizzi IP. È possibile passare al **configurare l'individuazione Server** dialogo casella e aggiungere i domini da un altro attendibile le foreste che si desidera gestire. Dopo aver individuati i server, l'esperienza di gestione è identico a quello di server che appartengono alla stessa foresta in cui è installato Gestione indirizzi IP.  
+### <a name="bkmk_ad"></a>Supporto per più insiemi di strutture Active Directory  
+In Windows Server 2012 R2, gestione indirizzi IP è stato in grado di individuare e gestire i server DNS e DHCP appartenenti alla stessa foresta di Active Directory del server di gestione indirizzi IP. È ora possibile gestire i server DNS e DHCP appartenenti a una foresta di Active Directory diversa quando dispone di una relazione di trust bidirezionale con la foresta in cui è installato il server di gestione indirizzi IP. È possibile passare alla finestra di dialogo **Configura individuazione server** e aggiungere i domini dalle altre foreste attendibili che si desidera gestire. Una volta individuati i server, l'esperienza di gestione è identica a quella dei server che appartengono alla stessa foresta in cui è installato Gestione indirizzi IP.  
   
-Per altre informazioni, vedere [gestire le risorse in più foreste di Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
+Per altre informazioni, vedere [gestire le risorse in più foreste Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
   
-### <a name="bkmk_purge"></a>Eliminare i dati di utilizzo  
-Ripulire i dati di utilizzo consente di ridurre le dimensioni del database di gestione indirizzi IP, eliminando i vecchi dati di utilizzo degli indirizzi IP. Per eseguire l'eliminazione dei dati, si specifica una data e gestione indirizzi IP consente di eliminare tutte le voci di database che risalgono a più o uguale alla data è fornire.   
+### <a name="bkmk_purge"></a>Elimina dati di utilizzo  
+Elimina dati di utilizzo consente di ridurre le dimensioni del database di gestione indirizzi IP eliminando i dati di utilizzo degli indirizzi IP precedenti. Per eseguire l'eliminazione dei dati, è necessario specificare una data e gestione indirizzi IP elimina tutte le voci di database precedenti o uguali alla data specificata.   
   
 Per altre informazioni, vedere [ripulire i dati di utilizzo](../../technologies/ipam/Purge-Utilization-Data.md).  
   
-### <a name="bkmk_ps"></a>Supporto di Windows PowerShell per Role Based Access Control  
-È ora possibile usare Windows PowerShell per configurare Role Based Access Control. È possibile usare i comandi di Windows PowerShell per recuperare oggetti DNS e DHCP in Gestione indirizzi IP e modificare i relativi ambiti di accesso. Per questo motivo, è possibile scrivere gli script di Windows PowerShell per assegnare gli ambiti di accesso agli oggetti seguenti.  
+### <a name="bkmk_ps"></a>Supporto di Windows PowerShell per il controllo degli accessi in base al ruolo  
+È ora possibile usare Windows PowerShell per configurare il controllo degli accessi in base al ruolo. È possibile usare i comandi di Windows PowerShell per recuperare gli oggetti DNS e DHCP in gestione indirizzi IP e modificare gli ambiti di accesso. Per questo motivo, è possibile scrivere script di Windows PowerShell per assegnare gli ambiti di accesso agli oggetti seguenti.  
   
--   Spazio di indirizzi IP  
+-   Spazio degli indirizzi IP  
   
 -   Blocco di indirizzi IP  
   
@@ -118,9 +118,9 @@ Per altre informazioni, vedere [ripulire i dati di utilizzo](../../technologies/
   
 -   Zone DNS  
   
--   Server d'inoltro condizionali DNS  
+-   Server d'inoltri condizionali DNS  
   
--   Record risorsa DNS  
+-   Record di risorse DNS  
   
 -   Server DHCP  
   
@@ -128,5 +128,5 @@ Per altre informazioni, vedere [ripulire i dati di utilizzo](../../technologies/
   
 -   Ambiti DHCP  
   
-Per altre informazioni, vedere [gestire Role Based Access Control con Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) e [cmdlet di Server di gestione indirizzi IP (IPAM) in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
+Per altre informazioni, vedere [gestire il controllo degli accessi in base al ruolo con](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) i [cmdlet Server di gestione indirizzi IP e Windows PowerShell in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
 

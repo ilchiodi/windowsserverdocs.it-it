@@ -7,28 +7,28 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4fa9a1fa8d2a463fe5f361a5a27ee2b9e3edc0f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c9a9b25aa56948e3116ebfef67a6af73917b76c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402474"
 ---
 # <a name="setting-site-link-properties"></a>Impostazione delle proprietà di collegamento di sito
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In base alle proprietà degli oggetti di connessione viene eseguita la replica tra siti. Quando il controllo di coerenza informazioni (KCC) crea gli oggetti di connessione, la pianificazione della replica deriva dalle proprietà degli oggetti collegamento sito. Ogni oggetto collegamento di sito rappresenta la connessione di rete WAN WAN tra due o più siti.  
+La replica tra siti viene eseguita in base alle proprietà degli oggetti connessione. Quando il controllo di coerenza informazioni (KCC) crea oggetti connessione, deriva la pianificazione della replica dalle proprietà degli oggetti collegamento di sito. Ogni oggetto collegamento di sito rappresenta la connessione Wide Area Network (WAN) tra due o più siti.  
   
-L'impostazione di proprietà dell'oggetto collegamento sito include i passaggi seguenti:  
+L'impostazione delle proprietà dell'oggetto collegamento di sito include i passaggi seguenti:  
   
--   Determinare il costo associato a tale percorso di replica. KCC Usa i costi per determinare la route meno costosa per la replica tra due siti che eseguono la replica stessa partizione di directory.  
+-   Determinazione del costo associato al percorso di replica. Il KCC utilizza il costo per determinare la route meno costosa per la replica tra due siti che replicano la stessa partizione di directory.  
   
--   Definizione della pianificazione che definisce i tempi in cui la replica tra siti possono verificarsi.  
+-   Determinazione della pianificazione che definisce le ore durante le quali può essere eseguita la replica tra siti.  
   
--   Determinare l'intervallo di replica che definisce con quale frequenza debba eseguire la replica durante i tempi di quando è consentita la replica, come definito nella pianificazione.  
+-   Determinare l'intervallo di replica che definisce la frequenza con cui la replica deve essere eseguita durante i periodi in cui è consentita la replica, come definito nella pianificazione.  
   
 ## <a name="in-this-guide"></a>Contenuto della guida  
   

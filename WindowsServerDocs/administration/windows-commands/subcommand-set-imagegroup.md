@@ -1,8 +1,8 @@
 ---
-title: Il sottocomando set-ImageGroup
-description: 'Argomento i comandi di Windows per * * *- '
+title: Sottocomando set-ImageGroup
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0c7ba47148ba6f8295ab720dd0118759ac9346c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 10023e493ae4db51783b7401c12bc1605145b86c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370795"
 ---
 # <a name="subcommand-set-imagegroup"></a>Sottocomando: set-ImageGroup
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-modificare gli attributi di un gruppo di immagini.
+modifica gli attributi di un gruppo di immagini.
 ## <a name="syntax"></a>Sintassi
 ```
 wdsutil [Options] /Set-ImageGroumediaGroup:<Image group name> [/Server:<Server name>] [/Name:<New image group name>] [/Security:<SDDL>]
@@ -32,7 +32,7 @@ wdsutil [Options] /Set-ImageGroumediaGroup:<Image group name> [/Server:<Server n
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-mediaGroup:<Image group name>|Specifica il nome del gruppo di immagini.|
+mediaGroup: <Image group name>|Specifica il nome del gruppo di immagini.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se non specificato, verrà utilizzato il server locale.|
 |[/Name:<New image group name>]|Specifica il nuovo nome del gruppo di immagini.|
 |[/ Sicurezza:<SDDL>]|Specifica il nuovo descrittore di protezione del gruppo di immagini, nel formato di sicurezza descriptor definition language (SDDL).|

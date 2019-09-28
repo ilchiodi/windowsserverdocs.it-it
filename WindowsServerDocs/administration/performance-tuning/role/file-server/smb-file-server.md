@@ -1,97 +1,97 @@
 ---
-title: Ottimizzazione delle prestazioni per File server SMB
-description: Ottimizzazione delle prestazioni per File server SMB
-ms.prod: windows-server-threshold
+title: Ottimizzazione delle prestazioni per i file server SMB
+description: Ottimizzazione delle prestazioni per i file server SMB
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 87ad8058f7353c938087b1211e0f17820f0bd2ae
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5383d16ac4c98651aa6afe996dbad88a6d60ee7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370229"
 ---
-# <a name="performance-tuning-for-smb-file-servers"></a>Ottimizzazione delle prestazioni per file server SMB
+# <a name="performance-tuning-for-smb-file-servers"></a>Ottimizzazione delle prestazioni per i file server SMB
 
-## <a name="smb-configuration-considerations"></a>Considerazioni sulla configurazione di SMB
-Non abilitare tutti i servizi o funzionalità che non richiedono il file server e client. Questi possono includere la firma SMB, la memorizzazione nella cache lato client, mini-filtri del file system, servizio di ricerca, le attività pianificate, crittografia NTFS, la compressione NTFS, IPSEC, i filtri del firewall, Teredo e SMB encryption.
+## <a name="smb-configuration-considerations"></a>Considerazioni sulla configurazione SMB
+Non abilitare servizi o funzionalità non necessari per i file server e i client. Questi possono includere la firma SMB, la memorizzazione nella cache sul lato client, il file system mini-filtri, il servizio di ricerca, le attività pianificate, la crittografia NTFS, la compressione NTFS, IPSEC, i filtri firewall, Teredo e la crittografia SMB.
 
-Assicurarsi che il BIOS e le modalità di gestione dell'alimentazione del sistema operativo siano impostate in base alle esigenze, che potrebbe includere modalità a prestazioni elevate o alterato C-State. Assicurarsi che l'archiviazione di più resiliente, più veloce e più recente e driver di dispositivo di rete siano installati.
+Verificare che le modalità di risparmio energia del BIOS e del sistema operativo siano impostate in base alle esigenze, che potrebbero includere la modalità a prestazioni elevate o lo stato C modificato. Verificare che siano installati i driver di dispositivo di archiviazione e di rete più recenti, più resilienti e più veloci.
 
-La copia dei file è un'operazione più comune eseguita in un file server. Windows Server dispone di diverse utilità della copia di file predefiniti che è possibile eseguire utilizzando un prompt dei comandi. Robocopy è consigliato. Introdotta in Windows Server 2008 R2, il **/mt** opzione di Robocopy può migliorare significativamente velocità sui trasferimenti di file remota usando più thread durante la copia di più file di piccole dimensioni. È anche consigliabile usare la **/log** opzione per ridurre l'output della console mediante il reindirizzamento dei log a un dispositivo NUL o in un file. Quando si usa Xcopy, è consigliabile aggiungere il **/q** e **/k** opzioni per i parametri esistenti. La prima opzione riduce sovraccarico della CPU, riducendo l'output della console e quest'ultimo consente di ridurre il traffico di rete.
+La copia di file è un'operazione comune eseguita in un file server. Windows Server include diverse utilità di copia di file predefinite che è possibile eseguire tramite un prompt dei comandi. Robocopy è consigliato. Introdotta in Windows Server 2008 R2, l'opzione **/mt** di Robocopy può migliorare significativamente la velocità dei trasferimenti di file remoti usando più thread durante la copia di più file di piccole dimensioni. Si consiglia anche di usare l'opzione **/log** per ridurre l'output della console reindirizzando i log a un dispositivo NUL o a un file. Quando si utilizza xcopy, è consigliabile aggiungere le opzioni **/q** e **/k** ai parametri esistenti. L'opzione precedente riduce il sovraccarico della CPU riducendo l'output della console e il secondo riduce il traffico di rete.
 
 ## <a name="smb-performance-tuning"></a>Ottimizzazione delle prestazioni SMB
 
 
-Prestazioni dei file server e se disponibili dipendono sul protocollo SMB viene negoziato tra ciascun client e il server e le funzionalità server di file distribuito. La versione più recente di protocollo attualmente disponibile è SMB 3.1.1 in Windows Server 2016 e Windows 10. È possibile controllare quale versione di SMB è in uso nella rete tramite Windows PowerShell **Get-SMBConnection** nei client e **Get-SMBSession | FL** nei server.
+Le prestazioni del file server e le ottimizzazioni disponibili dipendono dal protocollo SMB negoziato tra ogni client e server e nelle funzionalità file server distribuite. La versione del protocollo più elevata attualmente disponibile è SMB 3.1.1 in Windows Server 2016 e Windows 10. È possibile verificare quale versione di SMB è in uso nella rete usando Windows PowerShell **Get-SMBConnection** nei client e **Get-SMBSession | FL** nei server.
 
-### <a name="smb-30-protocol-family"></a>SMB 3.0 protocol family
+### <a name="smb-30-protocol-family"></a>Famiglia di protocolli SMB 3,0
 
-SMB 3.0 è stato introdotto in Windows Server 2012 e ulteriormente migliorato in Windows Server 2012 R2 (3.02 SMB) e Windows Server 2016 (SMB 3.1.1). Questa versione ha introdotto le tecnologie che possono migliorare significativamente le prestazioni e disponibilità del file server. Per altre informazioni, vedi [SMB in Windows Server 2012 e 2012 R2 2012](https://aka.ms/smb3plus) e [cosa sono le novità di SMB 3.1.1](https://aka.ms/smb311).
+SMB 3,0 è stato introdotto in Windows Server 2012 e ulteriormente migliorato in Windows Server 2012 R2 (SMB 3,02) e Windows Server 2016 (SMB 3.1.1). In questa versione sono state introdotte tecnologie che possono migliorare significativamente le prestazioni e la disponibilità del file server. Per altre informazioni, vedere [SMB in Windows Server 2012 e 2012 R2 2012](https://aka.ms/smb3plus) e novità [di SMB 3.1.1](https://aka.ms/smb311).
 
 
 
 ### <a name="smb-direct"></a>SMB diretto
 
-SMB diretto ha introdotto la possibilità di usare le interfacce di rete RDMA per una velocità effettiva elevata con bassa latenza e un sottoutilizzo della CPU.
+SMB diretto ha introdotto la possibilità di usare le interfacce di rete RDMA per una velocità effettiva elevata con bassa latenza e bassa quantità di utilizzo della CPU.
 
-Ogni volta che il protocollo SMB rileva una rete con supporto per RDMA, automaticamente tenta di usare la funzionalità RDMA. Tuttavia, se per qualsiasi motivo il client SMB non riesce a connettersi usando il percorso RDMA, è sufficiente continuerà a usare invece le connessioni TCP/IP. Devono anche implementare uno stack TCP/IP tutte le interfacce RDMA e compatibile con SMB diretto e SMB multicanale è tenere in considerazione.
+Ogni volta che SMB rileva una rete con supporto per RDMA, tenta automaticamente di usare la funzionalità RDMA. Tuttavia, se per qualsiasi motivo il client SMB non riesce a connettersi utilizzando il percorso RDMA, continuerà a utilizzare le connessioni TCP/IP. Tutte le interfacce RDMA compatibili con SMB diretto sono necessarie per implementare anche uno stack TCP/IP e SMB multicanale ne è a conoscenza.
 
-SMB diretto non è necessaria alcuna configurazione di SMB, ma ' s sempre consigliato per gli utenti che desiderano una latenza più bassa e più basso utilizzo della CPU.
+SMB diretto non è necessario in nessuna configurazione SMB, ma è sempre consigliato per chi desidera una latenza più bassa e un utilizzo inferiore della CPU.
 
-Per altre informazioni su SMB diretto, vedere [migliorare le prestazioni di un File Server con SMB diretto](https://aka.ms/smbdirect).
+Per ulteriori informazioni su SMB diretto, vedere [migliorare le prestazioni di un file server con SMB diretto](https://aka.ms/smbdirect).
 
 ### <a name="smb-multichannel"></a>SMB multicanale
 
-SMB multicanale consente ai file server da utilizzare contemporaneamente più connessioni di rete e offre un aumento della produttività.
+SMB multicanale consente ai file server di utilizzare più connessioni di rete contemporaneamente e offre una maggiore velocità effettiva.
 
-Per altre informazioni su SMB multicanale, vedere [Deploy SMB multicanale](https://aka.ms/smbmulti).
+Per ulteriori informazioni su SMB multicanale, vedere la pagina relativa alla [distribuzione di SMB multicanale](https://aka.ms/smbmulti).
 
 ### <a name="smb-scale-out"></a>Scalabilità orizzontale SMB
 
-Scalabilità orizzontale SMB consente di SMB 3.0 in una configurazione di cluster per mostrare una condivisione in tutti i nodi di un cluster. Questa configurazione attivo/attivo rende possibile a scalabilità file server cluster ulteriormente, senza una configurazione complessa con più volumi, condivisioni e le risorse del cluster. La larghezza di banda massima è la larghezza di banda totale di tutti i nodi di cluster di file server. Larghezza di banda totale non è più limitata dalla larghezza di banda di un singolo nodo del cluster, ma piuttosto varia in base alla funzionalità del sistema di archiviazione sottostante. È possibile aumentare la larghezza di banda totale mediante l'aggiunta di nodi.
+La scalabilità orizzontale SMB consente a SMB 3,0 in una configurazione cluster di visualizzare una condivisione in tutti i nodi di un cluster. Questa configurazione attiva/attiva consente di ridimensionare ulteriormente file server cluster, senza una configurazione complessa con più volumi, condivisioni e risorse cluster. La larghezza di banda massima della condivisione corrisponde alla larghezza di banda totale di tutti i nodi del cluster file server. La larghezza di banda totale non è più limitata dalla larghezza di banda di un singolo nodo del cluster, bensì dipende dalla capacità del sistema di archiviazione di supporto. È possibile aumentare la larghezza di banda totale mediante l'aggiunta di nodi.
 
-Per altre informazioni sulla scalabilità orizzontale SMB, vedere [Scale-Out File Server per Cenni preliminari sui dati dell'applicazione](https://technet.microsoft.com/library/hh831349.aspx) e il post di blog [per la scalabilità orizzontale o non per la scalabilità orizzontale, che è la domanda](http://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
+Per altre informazioni sulla scalabilità orizzontale SMB, vedere la [Panoramica di file server di scalabilità orizzontale per i dati delle applicazioni](https://technet.microsoft.com/library/hh831349.aspx) e il post di Blog per la scalabilità orizzontale o la scalabilità orizzontale [, ovvero la domanda](http://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
 
-### <a name="performance-counters-for-smb-30"></a>Contatori delle prestazioni per SMB 3.0
+### <a name="performance-counters-for-smb-30"></a>Contatori delle prestazioni per SMB 3,0
 
-Sono stati introdotti i seguenti contatori delle prestazioni SMB in Windows Server 2012 e sono considerati un set di contatori di base quando si monitora l'utilizzo delle risorse di SMB 2 e versioni successive. Registrare i contatori delle prestazioni in un'unità locale log contatore delle prestazioni (blg) non elaborati. È meno costoso raccogliere tutte le istanze tramite il carattere jolly (\*), quindi estrarre particolari istanze durante la post-elaborazione utilizzando Relog.exe.
+I contatori delle prestazioni SMB seguenti sono stati introdotti in Windows Server 2012 e sono considerati un set di contatori di base quando si monitora l'utilizzo delle risorse di SMB 2 e versioni successive. Registrare i contatori delle prestazioni in un log del contatore delle prestazioni locale, non elaborato. È meno costosa raccogliere tutte le istanze usando il carattere jolly (\*), quindi estrarre determinate istanze durante la post-elaborazione usando relog. exe.
 
--   **Condivisioni Client SMB**
+-   **Condivisioni client SMB**
 
-    Questi contatori visualizzano informazioni sulle condivisioni file nel server di cui si accede da un client che utilizza SMB 2.0 o versioni successive.
+    Questi contatori visualizzano informazioni sulle condivisioni file nel server a cui si accede da un client che usa SMB 2,0 o versioni successive.
 
-    Se è ' re che hanno familiarità con i contatori del disco regolari in Windows, si noterà una somiglianza con determinati. Che ' s non accidentalmente. I contatori delle prestazioni condivisioni client SMB sono stati progettati in modo che corrisponda esattamente i contatori del disco. In questo modo sarà possibile riusare facilmente qualsiasi materiale sussidiario sull'ottimizzazione delle prestazioni disco dell'applicazione attualmente necessario. Per altre informazioni sui mapping dei contatori, vedere [al blog di contatori delle prestazioni client condivisione](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+    Se si ha familiarità con i contatori dei dischi normali in Windows, è possibile notare una certa somiglianza. Questo non è per errore. I contatori delle prestazioni delle condivisioni client SMB sono stati progettati per corrispondere esattamente ai contatori dei dischi. In questo modo è possibile riutilizzare facilmente le linee guida per l'ottimizzazione delle prestazioni del disco dell'applicazione attualmente disponibili. Per ulteriori informazioni sul mapping dei contatori, vedere il Blog relativo ai [contatori delle prestazioni del client per condivisione](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
 
--   **Condivisioni Server SMB**
+-   **Condivisioni server SMB**
 
-    Questi contatori visualizzano informazioni sul SMB 2.0 o versioni successive le condivisioni file nel server.
+    Questi contatori visualizzano informazioni sulle condivisioni file SMB 2,0 o versioni successive nel server.
 
--   **Sessioni Server SMB**
+-   **Sessioni del server SMB**
 
-    Questi contatori visualizzano informazioni sulle sessioni del server SMB che usano SMB 2.0 o versione successiva.
+    Questi contatori visualizzano informazioni sulle sessioni del server SMB che usano SMB 2,0 o versione successiva.
 
-    Attivare i contatori sul lato server (condivisioni del server o le sessioni server) potrebbe avere impatto significativo sulle prestazioni per carichi di lavoro dei / o elevati.
+    L'attivazione dei contatori sul lato server (condivisioni server o sessioni server) potrebbe avere un impatto significativo sulle prestazioni per carichi di lavoro di i/o elevati.
 
--   **Filtro della chiave di ripristino**
+-   **Riprendi filtro chiavi**
 
-    Questi contatori visualizzano informazioni sul filtro di chiave Resume.
+    Questi contatori visualizzano informazioni sul filtro della chiave di ripresa.
 
--   **Connessione di SMB diretta**
+-   **Connessione SMB diretto**
 
-    Questi contatori valutare diversi aspetti dell'attività di connessione. Un computer può avere più connessioni SMB diretto. I contatori di SMB diretto connessione rappresentano ogni connessione come una coppia di indirizzi IP e porte, dove il primo indirizzo IP e la porta rappresentano endpoint locale della connessione, mentre il secondo indirizzo IP e la porta rappresentano endpoint remoto della connessione.
+    Questi contatori misurano diversi aspetti dell'attività di connessione. Un computer può avere più connessioni dirette SMB. I contatori di connessioni SMB dirette rappresentano ogni connessione come coppia di indirizzi IP e porte, dove il primo indirizzo IP e la porta rappresentano l'endpoint locale della connessione e il secondo indirizzo IP e la porta rappresentano l'endpoint remoto della connessione.
 
--   **Disco fisico, SMB, le relazioni di contatori delle prestazioni FS CSV**
+-   **Relazioni dei contatori delle prestazioni di disco fisico, SMB, CSV**
 
-    Per altre informazioni sulla correlazione dei contatori (file system di) disco fisico, SMB e FS CSV, vedere il blog seguente post: [I contatori delle prestazioni di Volume condiviso cluster](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Per ulteriori informazioni sul modo in cui sono correlati i contatori del disco fisico, SMB e CSV FS (file system), vedere il post di Blog seguente: [Contatori delle prestazioni volume condiviso cluster](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
-## <a name="tuning-parameters-for-smb-file-servers"></a>Parametri di regolazione per i file server SMB
+## <a name="tuning-parameters-for-smb-file-servers"></a>Parametri di ottimizzazione per i file server SMB
 
 
-Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenzare le prestazioni di file server SMB:
+Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono influire sulle prestazioni dei file server SMB:
 
 - **Smb2CreditsMin** e **Smb2CreditsMax**
 
@@ -103,12 +103,12 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMax
   ```
 
-  I valori predefiniti sono 512 e 8192. Questi parametri consentono al server limitare la concorrenza di operazione client in modo dinamico all'interno dei limiti specificati. Alcuni client potrebbero ottenere un aumento della produttività con limiti più elevati della concorrenza, ad esempio, la copia dei file sui collegamenti a banda larga, con latenza elevata.
+  Le impostazioni predefinite sono rispettivamente 512 e 8192. Questi parametri consentono al server di limitare dinamicamente la concorrenza delle operazioni client entro i limiti specificati. Alcuni client potrebbero ottenere una maggiore velocità effettiva con limiti di concorrenza più elevati, ad esempio la copia di file su collegamenti a larghezza di banda elevata e a latenza elevata.
     
   > [!TIP]
-  > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesse al client consentono di variare in modo dinamico tra Smb2CreditsMin e Smb2CreditsMax basato su un algoritmo che ha tentato di determinare il numero ottimale di crediti per concedere basata sulla latenza di rete e utilizzo di credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato per concedere in modo incondizionato crediti su richiesta fino al numero massimo configurato di crediti. Come parte di questa modifica, è stata rimossa la limitazione delle richieste meccanismo che consente di ridurre le dimensioni della finestra di ogni connessione carta di credito quando il server è eccessivo della memoria, la carta di credito. Evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando il server è così ridotto in memoria (< pochi MB) da poter essere inutile. Poiché il server non è più compatta credito windows l'impostazione Smb2CreditsMin non è più necessario e ora viene ignorato.
+  > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesso al client variava dinamicamente tra Smb2CreditsMin e Smb2CreditsMax in base a un algoritmo che tentava di determinare il numero ottimale di crediti da concedere in base alla latenza di rete e utilizzo del credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato in modo da concedere crediti in modo non condizionale su richiesta fino al numero massimo di crediti configurato. Come parte di questa modifica, il meccanismo di limitazione del credito, che riduce le dimensioni della finestra di credito di ogni connessione quando il server è sotto pressione di memoria, è stato rimosso. L'evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando la memoria del server è insufficiente (< pochi MB) per essere inutile. Poiché il server non compatta più le finestre di credito, l'impostazione Smb2CreditsMin non è più necessaria e viene ora ignorata.
   > 
-  > È possibile monitorare le condivisioni Client SMB\\credito si blocca/sec per vedere se sono presenti problemi con i crediti.
+  > È possibile monitorare le condivisioni client SMB @ no__t-0Credit Stalls/sec per verificare se sono presenti problemi con i crediti.
 
 - **AdditionalCriticalWorkerThreads**
 
@@ -116,10 +116,10 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
     HKLM\System\CurrentControlSet\Control\Session Manager\Executive\AdditionalCriticalWorkerThreads
     ```
 
-    Il valore predefinito è 0, il che significa che non vengono aggiunti alcun thread di lavoro aggiuntivi kernel critico. Questo valore influisce sul numero di thread che usa la cache del file system per le richieste di lettura anticipata e write-behind. Generazione di questo valore può consentire più in coda i/o del sottosistema di archiviazione e può migliorare le prestazioni dei / o, in particolare su sistemi con molti processori logici e hardware di archiviazione efficace.
+    Il valore predefinito è 0, che indica che non sono stati aggiunti thread di lavoro critici del kernel aggiuntivi. Questo valore influiscono sul numero di thread utilizzati dalla cache file system per le richieste read-ahead e write-behind. L'aumento di questo valore può consentire un maggior numero di I/O in coda nel sottosistema di archiviazione e può migliorare le prestazioni di I/O, in particolare nei sistemi con molti processori logici e hardware di archiviazione potente.
 
     >[!TIP]
-    > Il valore potrebbe essere necessario aumentare se la quantità di gestione della cache dirty dei dati (contatore delle prestazioni della Cache\\pagine Dirty) sta crescendo a utilizzano una grande parte (oltre 25 ~ %) di memoria o se il sistema esegue un numero elevato di sincrono i/o di lettura.
+    > Potrebbe essere necessario aumentare il valore se la quantità di dati dirty di gestione cache (pagine della cache del contatore delle prestazioni @ no__t-0Dirty) sta crescendo per utilizzare una parte grande (oltre il 25%) di memoria o se il sistema sta eseguendo una grande quantità di I/o di lettura sincrona.
 
 - **MaxThreadsPerQueue**
 
@@ -127,10 +127,10 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
   ```
 
-  Il valore predefinito è 20. Se si aumenta questo valore aumenta il numero di thread che il file server può usare per soddisfare le richieste simultanee. Quando è necessario eseguire la manutenzione di un numero elevato di connessioni attive e le risorse hardware, ad esempio larghezza di banda di archiviazione, sono sufficienti, aumentare il valore può migliorare la scalabilità dei server, prestazioni e tempi di risposta.
+  Il valore predefinito è 20. Se si aumenta questo valore, viene generato il numero di thread che possono essere utilizzati dal file server per soddisfare le richieste simultanee. Quando è necessario servire un numero elevato di connessioni attive e le risorse hardware, ad esempio la larghezza di banda di archiviazione, sono sufficienti, l'aumento del valore può migliorare la scalabilità, le prestazioni e i tempi di risposta del server.
 
   >[!TIP]
-  > Indica che il valore potrebbe essere necessario aumentare è se le code di lavoro SMB2 stanno crescendo molto grandi (contatore delle prestazioni ' code di lavoro del Server\\lunghezza della coda\\SMB2 non bloccante \*' è costantemente superiore a circa 100).
+  > Un'indicazione che può essere necessario aumentare il valore è se le code di lavoro di SMB2 stanno crescendo molto grande (il contatore delle prestazioni ' code di lavoro del server @ no__t-0Queue length @ no__t-1SMB2 NonBlocking \*' è costantemente superiore a ~ 100).
 
   >[!Note]
   >In Windows 10 e Windows Server 2016, MaxThreadsPerQueue non è disponibile. Il numero di thread per un pool di thread sarà "20 * il numero di processori in un nodo NUMA".
@@ -142,18 +142,18 @@ Il seguente REG\_le impostazioni del Registro di sistema DWORD possono influenza
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
   ```
 
-  Il valore predefinito è 512. Questo parametro limita il numero di asincrona SMB comandi simultanei consentiti in una singola connessione. Alcuni casi (ad esempio quando è presente un server front-end con un server IIS di back-end) richiedono una grande quantità di concorrenza (per le richieste di notifica delle modifiche in particolare file). Il valore di questa voce può essere aumentato per supportare questi casi.
+  Il valore predefinito è 512. Questo parametro limita il numero di comandi SMB simultanei consentiti in una singola connessione. In alcuni casi, ad esempio quando è presente un server front-end con un server IIS back-end, è richiesta una grande quantità di concorrenza (per le richieste di notifica delle modifiche dei file, in particolare). Per supportare questi casi, è possibile aumentare il valore di questa voce.
 
-### <a name="smb-server-tuning-example"></a>Esempio di ottimizzazione server SMB
+### <a name="smb-server-tuning-example"></a>Esempio di ottimizzazione del server SMB
 
-Le impostazioni seguenti possono ottimizzare un computer per le prestazioni del server di file in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
+Le impostazioni seguenti consentono di ottimizzare un computer per file server le prestazioni in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
-| Parametro                       | Value | Impostazione predefinita |
+| Parametro                       | Value | Predefinito |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |
 
 
-### <a name="smb-client-performance-monitor-counters"></a>Contatori di monitoraggio delle prestazioni client SMB
+### <a name="smb-client-performance-monitor-counters"></a>Contatori di performance monitor client SMB
 
-Per altre informazioni sui contatori client SMB, vedere [suggerimento di Windows Server 2012 File Server: Nuovi contatori delle prestazioni per condivisione SMB client forniscono informazioni dettagliate ideale](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+Per ulteriori informazioni sui contatori client SMB, vedere la pagina relativa al suggerimento del file server [Windows Server 2012: I nuovi contatori delle prestazioni del client SMB per condivisione forniscono informazioni dettagliate su no__t-0.

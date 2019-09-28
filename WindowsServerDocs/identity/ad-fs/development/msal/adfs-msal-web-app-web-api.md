@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 03328ff8c94d96fcf34dcef29ac1a1daefc9d14a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 870dbb4303d216f05bc372610f3121ff08fc8c25
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867485"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407846"
 ---
 # <a name="scenario-web-app-server-app-calling-web-api"></a>Scenario: App Web (app Server) che chiama l'API Web 
 >Si applica a: AD FS 2019 e versioni successive 
@@ -59,7 +59,7 @@ Questa sezione illustra come registrare l'app Web come un client e un'API Web ri
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp4.png)
   
-  5. Nella schermata Configura API Web immettere l' **identificatore:** https://webapi. Fare clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento per **Ida: GraphResourceId** nel file **Web. config** delle applicazioni. 
+  5. Nella schermata Configura API Web immettere l' **identificatore:** https://webapi. Fai clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento per **Ida: GraphResourceId** nel file **Web. config** delle applicazioni. 
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp5.png)
   

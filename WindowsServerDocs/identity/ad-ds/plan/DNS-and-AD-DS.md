@@ -7,31 +7,31 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f6d75a78119d76a0f8380967292b1d0abc720597
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82c96ac3f146510c5590aabea75a60ca0f5f90cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402687"
 ---
 # <a name="dns-and-ad-ds"></a>DNS e Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Servizi di dominio Active Directory (AD DS) Usa servizi di risoluzione dei nomi di sistema DNS (Domain Name) per rendere possibili per i client individuare i controller di dominio e per i controller di dominio che ospitano il servizio directory per comunicare tra loro.  
+Active Directory Domain Services (AD DS) utilizza i servizi di risoluzione dei nomi Domain Name System (DNS) per consentire ai client di individuare i controller di dominio e i controller di dominio che ospitano il servizio directory per comunicare tra loro.  
   
-Active Directory Domain Services consente una facile integrazione dello spazio dei nomi Active Directory in uno spazio dei nomi DNS. Le funzionalità, ad esempio le zone DNS integrate in Active Directory semplificano la distribuzione DNS, eliminando la necessità di configurare le zone secondarie e quindi configurare i trasferimenti di zona.  
+Servizi di dominio Active Directory consente un'integrazione semplificata dello spazio dei nomi Active Directory in uno spazio dei nomi DNS esistente. Le funzionalità come le zone DNS integrate Active Directory rendono più semplice la distribuzione di DNS eliminando la necessità di configurare le zone secondarie e quindi di configurare i trasferimenti di zona.  
   
-Per informazioni sul DNS supporta Active Directory Domain Services, vedere la sezione [supporto DNS per Active Directory Technical Reference](https://go.microsoft.com/fwlink/?LinkID=48147).  
+Per informazioni sul supporto di servizi di dominio Active Directory in DNS, vedere la sezione [supporto DNS per Active Directory riferimento tecnico](https://go.microsoft.com/fwlink/?LinkID=48147).  
   
 > [!NOTE]  
-> Se si implementa uno spazio dei nomi non contiguo in cui il nome di dominio Active Directory Domain Services è diverso dal suffisso DNS primario che i client usano, integrazione di Active Directory Domain Services con il servizio DNS è più complessa. Per altre informazioni, vedere [Namespace non contigue](../../ad-ds/plan/../../ad-ds/plan/Disjoint-Namespace.md).  
+> Se si implementa uno spazio dei nomi non contiguo in cui il nome di dominio di servizi di dominio Active Directory differisce dal suffisso DNS primario utilizzato dai client, l'integrazione di servizi di dominio Active Directory con DNS è più complessa. Per ulteriori informazioni, vedere [spazio dei nomi non contiguo](../../ad-ds/plan/../../ad-ds/plan/Disjoint-Namespace.md).  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
-- [Individuazione dei Controller di dominio](../../ad-ds/plan/Domain-Controller-Location.md)  
-- [Attiva le zone DNS integrate in Directory](../../ad-ds/plan/Active-Directory-Integrated-DNS-Zones.md)  
-- [Denominazione di computer](../../ad-ds/plan/Computer-Naming.md)  
-- [Namespace non contiguo](../../ad-ds/plan/../../ad-ds/plan/Disjoint-Namespace.md)  
+- [Posizione del controller di dominio](../../ad-ds/plan/Domain-Controller-Location.md)  
+- [Zone DNS integrate in Active Directory](../../ad-ds/plan/Active-Directory-Integrated-DNS-Zones.md)  
+- [Denominazione dei computer](../../ad-ds/plan/Computer-Naming.md)  
+- [Spazio dei nomi indipendente](../../ad-ds/plan/../../ad-ds/plan/Disjoint-Namespace.md)  

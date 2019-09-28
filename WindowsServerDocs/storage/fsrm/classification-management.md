@@ -1,19 +1,19 @@
 ---
 title: Gestione delle classificazioni
-description: Questo articolo descrive come definire le categorie in base alle proprietà di classificazione file
+description: Questo articolo descrive come categorizzare i file in base alle proprietà di classificazione
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d7ea1f6f5d99ef1b55e919af3b8ebe391486ed50
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: f87614d5884d25c4e462cdccd8de72a7980368ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402002"
 ---
 # <a name="classification-management"></a>Gestione delle classificazioni
 

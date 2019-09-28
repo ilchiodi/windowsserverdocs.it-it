@@ -1,8 +1,8 @@
 ---
-title: secedit:import
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'secedit: importazione'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 305b915a0d7e8ab152b072ff131854f56b9b0386
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb90096c3483b44cc1285fa3531f47b2bf5c6d2f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384229"
 ---
-# <a name="seceditimport"></a>secedit:import
+# <a name="seceditimport"></a>secedit: importazione
 
 
 
@@ -48,7 +48,7 @@ Secedit /import /db <database file name> /cfg <configuration file name> [/overwr
 
 Prima di importare un file. inf in un altro computer, eseguire il /generaterollback secedit comando sul database in cui verrà eseguita l'importazione e secedit /validate nel file di importazione per verificarne l'integrità.
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*NomeDatabase</em>. viene usato log).
+Se il percorso del file di log non viene specificato, viene usato il file di logpredefinito, ovvero systemroot\*\Documents and Settings AccountUtente<em>\My Documents\Security\Logs\*DatabaseName</em>. log.
 
 In Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 

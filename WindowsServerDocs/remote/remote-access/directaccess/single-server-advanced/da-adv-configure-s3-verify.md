@@ -1,9 +1,9 @@
 ---
-title: Passaggio 3 verificare la distribuzione di DirectAccess avanzato
-description: Questo argomento fa parte della Guida di distribuire un DirectAccess Server singolo con Advanced le impostazioni per Windows Server 2016
+title: Passaggio 3 verificare la distribuzione avanzata di DirectAccess
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo con impostazioni avanzate per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: ae8bbff0-c981-4bc6-8df1-861621d0627f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 386d10dda9f61724a012801840e6471e48c0905a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 51ce3fa1a72420f7272141bb5361b20360b7000c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283546"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404902"
 ---
-# <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Passaggio 3 verificare la distribuzione di DirectAccess avanzato
+# <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Passaggio 3 verificare la distribuzione avanzata di DirectAccess
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento viene descritto come verificare di aver configurato correttamente la distribuzione di DirectAccess.  
+In questo argomento viene descritto come verificare di avere configurato correttamente la distribuzione di DirectAccess.  
   
 ### <a name="to-verify-access-to-internal-resources-through-directaccess"></a>Per verificare l'accesso alle risorse interne con DirectAccess  
   
 1.  Connettere un computer client DirectAccess alla rete aziendale e ottenere l'oggetto Criteri di gruppo.  
   
-2.  Scegliere il **connessioni di rete** sull'icona nell'area di notifica per accedere a Gestione supporti DirectAccess.  
+2.  Fare clic sull'icona **connessioni di rete** nell'area di notifica per accedere a gestione supporti DirectAccess.  
   
-3.  Fare clic su **connessione DirectAccess**, si noterà che lo stato sia **connesso in locale**.  
+3.  Fare clic su **connessione DirectAccess**. si noterà che lo stato è **connesso localmente**.  
   
 4.  Connettere il computer client alla rete esterna e tentare di accedere alle risorse interne.  
   
@@ -39,7 +39,7 @@ In questo argomento viene descritto come verificare di aver configurato corretta
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 2: Configurazione dei server DirectAccess](Step-2-Configuring-DirectAccess-Servers.md)  
+-   [Passaggio 2: Configurazione di server DirectAccess @ no__t-0  
   
 
 

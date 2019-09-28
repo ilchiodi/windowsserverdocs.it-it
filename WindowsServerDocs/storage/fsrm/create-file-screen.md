@@ -2,18 +2,18 @@
 title: Creare uno screening dei file
 description: Questo articolo descrive come creare uno screening dei file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e049162e7aff449774928d6a1d25cc1116f9aee9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403154"
 ---
 # <a name="create-a-file-screen"></a>Creare uno screening dei file
 
@@ -29,7 +29,7 @@ Quando si crea un nuovo screening dei file, è possibile salvare un modello di s
 
 3.  In **Percorso screening dei file**, digitare il nome della o accedere alla cartella padre alla quale verrà applicato lo screening dei file. Lo screening dei file verrà applicato alla cartella selezionata e tutte le relative sottocartelle.
 
-4.  In **Scegliere la modalità di configurazione delle proprietà per lo screening dei file.**, fare clic su **Definisci proprietà personalizzate per lo screening dei file**, quindi fare clic su **Proprietà personalizzate**. Verrà visualizzata la finestra di dialogo **Proprietà screening dei file**.
+4.  In **Scegliere la modalità di configurazione delle proprietà per lo screening dei file.** , fare clic su **Definisci proprietà personalizzate per lo screening dei file**, quindi fare clic su **Proprietà personalizzate**. Verrà visualizzata la finestra di dialogo **Proprietà screening dei file**.
 
 5.  Se si desidera copiare le proprietà di un modello esistente da utilizzare come base per lo screening dei file, selezionare un modello nell'elenco a discesa **Copia proprietà dal modello**. Quindi, fare clic su **Copia**.
 
@@ -39,7 +39,7 @@ Quando si crea un nuovo screening dei file, è possibile salvare un modello di s
 
 7.  In **Gruppi di file**, selezionare ogni gruppo di file che si desidera includere nello screening dei file. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
 
-    Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Create**.
+    Se si desidera visualizzare i tipi di file inclusi ed esclusi da un gruppo di file, fare clic sull'etichetta del gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Crea**.
 
 8.  Inoltre, è possibile configurare **Gestione risorse file server** per generare una o più notifiche impostando le opzioni seguenti nelle schede **Messaggio posta elettronica**, **Registro eventi**, **Comando** e **Report**. Per ulteriori informazioni sulle opzioni di notifica dello screening dei file, vedere [Creare un modello di screening dei file](create-file-screen-template.md).
 
@@ -56,9 +56,9 @@ Quando si crea un nuovo screening dei file, è possibile salvare un modello di s
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione di screening dei file](file-screening-management.md)
--   [Definire gruppi di File per Screening](define-file-groups-for-screening.md)
--   [Creare un modello di schermata del File](create-file-screen-template.md)
--   [Modifica proprietà modello di schermata](edit-file-screen-template-properties.md)
+-   [Gestione screening dei file](file-screening-management.md)
+-   [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)
+-   [Creare un modello di screening dei file](create-file-screen-template.md)
+-   [Modificare le proprietà dei modelli per lo screening dei file](edit-file-screen-template-properties.md)
 
 
