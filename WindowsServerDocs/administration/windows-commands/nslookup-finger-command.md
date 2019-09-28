@@ -1,8 +1,8 @@
 ---
 title: nslookup finger Command
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4067c16a7d338c5853a6179af17cf4e3e996e6a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373126"
 ---
 # <a name="nslookup-finger-command"></a>nslookup finger Command
 
@@ -36,9 +36,9 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 |  Parametro  |                                                                               Descrizione                                                                               |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Nome utente > |                                                               Specifica il nome dell'utente da cercare.                                                                |
-| \<FileName> | Specifica un nome di file in cui salvare l'output. È possibile usare il simbolo di maggiore (>) e double maggiore di (>>) per reindirizzare l'output nel modo usuale. |
-|    Guida {    |                                                                                   ?}                                                                                    |
+| \<UserName > |                                                               Specifica il nome dell'utente da ricercare.                                                                |
+| \<> FileName | Specifica un nome file in cui salvare l'output. Per reindirizzare l'output nel modo consueto, è possibile utilizzare i caratteri maggiore di (>) e doppio maggiore di (> >). |
+|    {Guida    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>Altri riferimenti
 

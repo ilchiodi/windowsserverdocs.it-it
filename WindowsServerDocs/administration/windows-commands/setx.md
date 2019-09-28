@@ -1,8 +1,8 @@
 ---
 title: setx
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b2caceed6962bef22e7d546fa3b4469c9682b39
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c206f36e2d0bc947329124b08fb797091e838bcd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384027"
 ---
 # <a name="setx"></a>setx
 
 
 
-Crea o modifica le variabili di ambiente nell'ambiente di sistema, di utente o senza la necessità di script o programmazione. Il **Setx** comando anche recupera i valori delle chiavi del Registro di sistema e li scrive nei file di testo.
+Crea o modifica le variabili di ambiente nell'ambiente utente o di sistema, senza richiedere la programmazione o lo scripting. Il comando **Setx** recupera anche i valori delle chiavi del registro di sistema e li scrive in file di testo.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -40,91 +40,91 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 |         Parametro          |                                                                                                                                              Descrizione                                                                                                                                              |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<computer >       |                                                                                  Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il nome del computer locale.                                                                                  |
-| /u [\<Domain>\]<User name> |                                                                                           Esegue lo script con le credenziali dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.                                                                                            |
-|      /p [\<Password>]      |                                                                                                         Specifica la password dell'account utente specificato nella **/u** parametro.                                                                                                         |
-|        \<Variable>         |                                                                                                                 Specifica il nome della variabile di ambiente che si desidera impostare.                                                                                                                  |
-|          \<valore >          |                                                                                                                Specifica il valore a cui si desidera impostare la variabile di ambiente.                                                                                                                 |
-|         /k \<Path>         | Specifica che la variabile è impostata in base alle informazioni da una chiave del Registro di sistema. Il p*ercorso dei* Usa la sintassi seguente:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Ad esempio, è possibile specificare il percorso seguente:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
-|      /f \<nome file >       |                                                                                                                               Specifica il file che si desidera utilizzare.                                                                                                                                |
-|        /a \<X>,<Y>         |                                                                                                                    Specifica le coordinate assolute e l'offset come parametri di ricerca.                                                                                                                    |
-|   /r \<X>,<Y> "<String>"   |                                                                                                            Specifica le coordinate relative e l'offset dal **stringa** come i parametri di ricerca.                                                                                                            |
-|             /m             |                                                                                                Specifica di impostare la variabile di ambiente di sistema. L'impostazione predefinita è l'ambiente locale.                                                                                                 |
-|             /x             |                                                                                                       Consente di visualizzare file coordinate, ignorando il **/a**, **/r**, e **/d** opzioni della riga di comando.                                                                                                        |
-|      /d \<Delimiters>      |                    Specifica i delimitatori, ad esempio " **,** "o" **\\** " da usare oltre i quattro delimitatori predefiniti, ovvero lo spazio, scheda, invio e avanzamento riga. Delimitatori validi includono qualsiasi carattere ASCII. Il numero massimo di delimitatori è 15, inclusi i delimitatori predefiniti.                    |
+|       /s \<Computer >       |                                                                                  Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il nome del computer locale.                                                                                  |
+| /u [\<Domain > \] @ no__t-2 |                                                                                           Esegue lo script con le credenziali dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.                                                                                            |
+|      /p [\<Password >]      |                                                                                                         Specifica la password dell'account utente specificato nella **/u** parametro.                                                                                                         |
+|        \<Variable >         |                                                                                                                 Specifica il nome della variabile di ambiente che si desidera impostare.                                                                                                                  |
+|          \<Value >          |                                                                                                                Specifica il valore in cui si desidera impostare la variabile di ambiente.                                                                                                                 |
+|         /k \<Path >         | Specifica che la variabile viene impostata in base alle informazioni provenienti da una chiave del registro di sistema. Il p*ATH* usa la sintassi seguente:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Ad esempio, è possibile specificare il percorso seguente:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      /f nome \<File >       |                                                                                                                               Specifica il file che si desidera utilizzare.                                                                                                                                |
+|        /a \<X >, <Y>         |                                                                                                                    Specifica le coordinate assolute e l'offset come parametri di ricerca.                                                                                                                    |
+|   /r \<X >, <Y> "<String>"   |                                                                                                            Specifica le coordinate relative e l'offset dalla **stringa** come parametri di ricerca.                                                                                                            |
+|             /m             |                                                                                                Specifica di impostare la variabile nell'ambiente di sistema. L'impostazione predefinita è l'ambiente locale.                                                                                                 |
+|             /x             |                                                                                                       Visualizza le coordinate del file, ignorando le opzioni della riga di comando **/a**, **/r**e **/d** .                                                                                                        |
+|      /d \<Delimiters >      |                    Specifica i delimitatori, ad esempio "," o " **\\** " **,** da usare in aggiunta ai quattro delimitatori predefiniti, ovvero spazio, tabulazione, invio e avanzamento riga. I delimitatori validi includono qualsiasi carattere ASCII. Il numero massimo di delimitatori è 15, inclusi i delimitatori predefiniti.                    |
 |             /?             |                                                                                                                                 Visualizza la guida al prompt dei comandi.                                                                                                                                  |
 
 ## <a name="remarks"></a>Note
 
--   Il **Setx** comando è simile all'utilità UNIX SETENV.
--   **Setx** consente solo dalla riga di comando o a livello di codice direttamente e in modo permanente impostare system i valori di ambiente. Variabili di ambiente di sistema sono configurate manualmente tramite **Pannello di controllo** o tramite un editor del Registro di sistema. Il **impostare** comando, che è interno all'interprete dei comandi (Cmd.exe), imposta le variabili di ambiente utente per la finestra della console corrente solo.
--   È possibile usare la **setx** comando per impostare i valori per utente e di sistema, variabili di ambiente da una delle tre origini (modalità): Modalità a riga di comando, la modalità del Registro di sistema o File modalità.
--   **Setx** scrive le variabili di ambiente nel Registro di sistema master. Le variabili impostate con **setx** le variabili sono disponibili comandi future solo in windows, non nella finestra di comando corrente.
--   **HKEY_CURRENT_USER** e **HKEY_LOCAL_MACHINE** sono gli unici hive supportati. REG_DWORD, REG_EXPAND_SZ, REG_SZ, REG_MULTI_SZ sono validi **RegKey** i tipi di dati.
--   Quando è possibile accedere a **REG_MULTI_SZ** valori nel Registro di sistema, solo il primo elemento viene estratto e usato.
--   Non è possibile usare la **setx** comando per rimuovere i valori che sono stati aggiunti per gli ambienti locali o di sistema. È possibile usare **impostare** con un nome di variabile e nessun valore per rimuovere un valore corrispondente da ambiente locale.
--   I valori del Registro di sistema REG_DWORD vengono estratti e utilizzati in modalità esadecimale.
--   Modalità file supporta l'analisi del ritorno a capo e avanzamento riga solo i file di testo (CRLF).
+-   Il comando **Setx** è simile all'utilità setenv di UNIX.
+-   **Setx** fornisce l'unica riga di comando o a livello di codice per impostare direttamente e in modo permanente i valori dell'ambiente di sistema. Le variabili di ambiente di sistema sono configurabili manualmente tramite il **Pannello di controllo** o un editor del registro di sistema. Il comando **set** , che è interno all'interprete dei comandi (cmd. exe), imposta le variabili di ambiente utente solo per la finestra della console corrente.
+-   È possibile usare il comando **Setx** per impostare i valori per le variabili di ambiente utente e di sistema da una delle tre origini (modalità): Modalità della riga di comando, modalità del registro di sistema o modalità file.
+-   **Setx** scrive variabili nell'ambiente master nel registro di sistema. Le variabili impostate con le variabili **Setx** sono disponibili solo nelle finestre di comando future, non nella finestra di comando corrente.
+-   **HKEY_CURRENT_USER** e **HKEY_LOCAL_MACHINE** sono gli unici hive supportati. REG_DWORD, REG_EXPAND_SZ, REG_SZ e REG_MULTI_SZ sono tipi di dati **chiave** validi.
+-   Quando si ottiene l'accesso ai valori di **REG_MULTI_SZ** nel registro di sistema, viene estratto e utilizzato solo il primo elemento.
+-   Non è possibile usare il comando **Setx** per rimuovere i valori che sono stati aggiunti agli ambienti locali o di sistema. È possibile utilizzare **set** con un nome di variabile e nessun valore per rimuovere un valore corrispondente dall'ambiente locale.
+-   I valori del registro di sistema REG_DWORD vengono estratti e utilizzati in modalità esadecimale.
+-   La modalità file supporta solo l'analisi dei file di testo con ritorno a capo e avanzamento riga (CRLF).
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per impostare la variabile di ambiente computer nell'ambiente locale al valore Brand1, digitare:
+Per impostare la variabile di ambiente del computer nell'ambiente locale sul valore Brand1, digitare:
 ```
 setx MACHINE Brand1
 ```
-Per impostare la variabile di ambiente computer nell'ambiente di sistema per il valore Brand1 Computer, digitare:
+Per impostare la variabile di ambiente del computer nell'ambiente di sistema sul valore Brand1 Computer, digitare:
 ```
 setx MACHINE "Brand1 Computer" /m
 ```
-Per impostare la variabile di ambiente MYPATH nell'ambiente locale da usare il percorso di ricerca definito nella variabile di ambiente PATH, digitare:
+Per impostare la variabile di ambiente Path nell'ambiente locale in modo da usare il percorso di ricerca definito nella variabile di ambiente PATH, digitare:
 ```
 setx MYPATH %PATH%
 ```
-Per impostare la variabile di ambiente MYPATH nell'ambiente locale da utilizzare il percorso di ricerca definito nella variabile di ambiente PATH dopo aver sostituito **~** con **%** , tipo:
+Per impostare la variabile di ambiente Path nell'ambiente locale in modo da usare il percorso di ricerca definito nella variabile di ambiente PATH dopo aver sostituito **~** con **%** , digitare:
 ```
 setx MYPATH ~PATH~ 
 ```
-Per impostare la variabile di ambiente computer nell'ambiente locale a Brand1 in un computer remoto denominato Computer1, digitare:
+Per impostare la variabile di ambiente del computer nell'ambiente locale su BRAND1 in un computer remoto denominato Computer1, digitare:
 ```
 setx /s computer1 /u maindom\hiropln /p p@ssW23 MACHINE Brand1
 ```
-Per impostare la variabile di ambiente MYPATH nell'ambiente locale da usare il percorso di ricerca definito nella variabile di ambiente PATH in un computer remoto denominato Computer1, digitare:
+Per impostare la variabile di ambiente PATH nell'ambiente locale in modo da utilizzare il percorso di ricerca definito nella variabile di ambiente PATH in un computer remoto denominato Computer1, digitare:
 ```
 setx /s computer1 /u maindom\hiropln /p p@ssW23 MYPATH %PATH%
 ```
-Per impostare la variabile di ambiente TZONE nell'ambiente locale per il valore trovato nel **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName** tipo di chiave, del Registro di sistema:
+Per impostare la variabile di ambiente TZONE nell'ambiente locale sul valore trovato nella chiave del registro di sistema **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName** , digitare:
 ```
 setx TZONE /k HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName 
 ```
-Per impostare la variabile di ambiente TZONE nell'ambiente locale di un computer remoto denominato Computer1 per il valore trovato nel **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName** Registro di sistema tipo di chiave:
+Per impostare la variabile di ambiente TZONE nell'ambiente locale di un computer remoto denominato Computer1 sul valore trovato nella chiave del registro di sistema **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName** , digitare:
 ```
 setx /s computer1 /u maindom\hiropln /p p@ssW23 TZONE /k HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName 
 ```
-Per impostare la variabile di ambiente di compilazione nell'ambiente di sistema per il valore trovato nel **HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber** tipo di chiave, del Registro di sistema:
+Per impostare la variabile di ambiente di compilazione nell'ambiente di sistema sul valore trovato nella chiave del registro di sistema **HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber** , digitare:
 ```
 setx BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber" /m
 ```
-Per impostare la variabile di ambiente di compilazione nell'ambiente di sistema di un computer remoto denominato Computer1 per il valore trovato nel **HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber** chiave del Registro di sistema digitare:
+Per impostare la variabile di ambiente di compilazione nell'ambiente di sistema di un computer remoto denominato Computer1 sul valore trovato nella chiave del registro di sistema **HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber** , digitare:
 ```
 setx /s computer1 /u maindom\hiropln /p p@ssW23  BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\CurrentBuildNumber" /m
 ```
-Per visualizzare il contenuto di un file denominato ipconfig. out, insieme a coordinate corrispondente del contenuto, digitare:
+Per visualizzare il contenuto di un file denominato ipconfig. out, insieme alle coordinate corrispondenti del contenuto, digitare:
 ```
 setx /f ipconfig.out /x
 ```
-Per impostare la variabile di ambiente IPADDR nell'ambiente locale per il valore della coordinata 5,11 trovato nel file ipconfig. out, digitare:
+Per impostare la variabile di ambiente IPADDR nell'ambiente locale sul valore trovato in corrispondenza della coordinata 5, 11 nel file ipconfig. out, digitare:
 ```
 setx IPADDR /f ipconfig.out /a 5,11
 ```
-Per impostare la variabile di ambiente ottetto 1 nell'ambiente locale per il valore della coordinata 5,3 trovato nel file ipconfig. out con delimitatori **"#$\*."** , tipo:
+Per impostare la variabile di ambiente OCTET1 nell'ambiente locale sul valore trovato nella coordinata 5, 3 nel file ipconfig. out con Delimiters **"# $ \*."** , digitare:
 ```
 setx OCTET1 /f ipconfig.out /a 5,3 /d "#$*." 
 ```
-Per impostare la variabile di ambiente IPGATEWAY nell'ambiente locale per il valore trovato nel file ipconfig. Out della coordinata 0,7 per quanto riguarda la coordinata della "Gateway", digitare:
+Per impostare la variabile di ambiente IPGATEWAY nell'ambiente locale sul valore trovato nella coordinata 0, 7 rispetto alla coordinata di "gateway" nel file ipconfig. out, digitare:
 ```
 setx IPGATEWAY /f ipconfig.out /r 0,7 Gateway 
 ```
-Per visualizzare il contenuto di un file denominato ipconfig. out, ovvero con coordinate corrispondenti del contenuto, ovvero in un computer denominato Computer1, digitare:
+Per visualizzare il contenuto di un file denominato ipconfig. out, insieme alle coordinate corrispondenti del contenuto, in un computer denominato Computer1, digitare:
 ```
 setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x 
 ```

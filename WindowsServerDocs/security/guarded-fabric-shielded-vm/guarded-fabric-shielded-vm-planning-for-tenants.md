@@ -1,22 +1,22 @@
 ---
 title: Infrastruttura sorvegliata e guida alla pianificazione delle VM schermate per i provider di hosting
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: d361dfee0cbb06c4b7908b80145c09327dac3956
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c439a53abea07041e69e50d5d5148dae95243265
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870434"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386434"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Guida alla pianificazione dell'infrastruttura sorvegliata e della VM schermata per i tenant
 
->Si applica a Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
 Questo argomento è incentrato sui proprietari di VM che vogliono proteggere le macchine virtuali (VM) per finalità di conformità e sicurezza. Indipendentemente dal fatto che le macchine virtuali vengano eseguite nell'infrastruttura sorvegliata di un provider di hosting o in un'infrastruttura sorvegliata privata, i proprietari delle macchine virtuali devono controllare il livello di sicurezza delle macchine virtuali schermate, che include la possibilità di decrittografarle, se necessario.
 

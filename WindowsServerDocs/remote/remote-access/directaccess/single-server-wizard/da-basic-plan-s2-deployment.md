@@ -1,9 +1,9 @@
 ---
-title: Passaggio 2 pianificare la distribuzione di DirectAccess di base
-description: Questo argomento fa parte della Guida di distribuire un Server DirectAccess singolo con l'introduzione avvio procedura guidata per Windows Server 2016
+title: Passaggio 2 pianificare la distribuzione di base di DirectAccess
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo usando la procedura guidata di Introduzione per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,22 +12,22 @@ ms.topic: article
 ms.assetid: 7ddcb162-dd92-406c-acab-d3de7239c644
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c82d5e48f26d9defceb3b7583e06eeedbc71a082
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3009b6002d9d4cd116795c46305ff02fda02ef63
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281666"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388489"
 ---
-# <a name="step-2-plan-the-basic-directaccess-deployment"></a>Passaggio 2 pianificare la distribuzione di DirectAccess di base
+# <a name="step-2-plan-the-basic-directaccess-deployment"></a>Passaggio 2 pianificare la distribuzione di base di DirectAccess
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Dopo aver pianificato l'infrastruttura DirectAccess, il passaggio successivo della distribuzione di DirectAccess in un server singolo con impostazioni di base consiste nel pianificare le impostazioni per la procedura guidata introduttiva.  
+Dopo aver pianificato l'infrastruttura DirectAccess, il passaggio successivo per la distribuzione di DirectAccess in un singolo server con le impostazioni di base consiste nel pianificare le impostazioni per la procedura guidata Introduzione.  
   
 |Attività|Descrizione|  
 |----|--------|  
-|Pianificazione della distribuzione del client|Per impostazione predefinita, le attività iniziali guidate consente di distribuire DirectAccess a tutti i computer portatili e notebook nel dominio applicando un filtro WMI a oggetto Criteri di gruppo di impostazioni client|  
+|Pianificazione della distribuzione del client|Per impostazione predefinita, la procedura guidata Introduzione distribuisce DirectAccess in tutti i computer portatili e notebook del dominio applicando un filtro WMI all'oggetto Criteri di gruppo delle impostazioni client|  
 |Pianificazione della distribuzione del server DirectAccess|Pianificare la modalità di distribuzione del server DirectAccess.|  
   
 ## <a name="bkmk_2_1_client"></a>Pianificazione della distribuzione client  
@@ -35,30 +35,30 @@ Nel pianificare la distribuzione del client sarà necessario prendere due decisi
   
 1.  DirectAccess sarà disponibile solo ai computer portatili o a qualsiasi computer?  
   
-    Quando si configurano i client DirectAccess in attività iniziali guidate, è possibile scegliere di consentire solo ai computer portatili nei gruppi di sicurezza specificati di connettersi usando DirectAccess. Se si limita l'accesso ai computer portatili, DirectAccess configura automaticamente un filtro WMI per assicurarsi che il client DirectAccess che viene applicato solo ai computer portatili nei gruppi di sicurezza specificati. L'amministratore di DirectAccess richiede le autorizzazioni per creare o modificare i filtri WMI di criteri di gruppo per abilitare questa impostazione.  
+    Quando si configurano i client DirectAccess nella procedura guidata Introduzione, è possibile scegliere di consentire solo ai computer portatili nei gruppi di sicurezza specificati di connettersi tramite DirectAccess. Se si limita l'accesso ai computer portatili, DirectAccess configura automaticamente un filtro WMI per assicurarsi che l'oggetto Criteri di gruppo del client DirectAccess venga applicato solo ai computer portatili nei gruppi di sicurezza specificati. L'amministratore DirectAccess richiede le autorizzazioni per creare o modificare i filtri WMI di criteri di gruppo per abilitare questa impostazione.  
   
 2.  Quali gruppi di sicurezza conterranno i computer client DirectAccess?  
   
-    Le impostazioni di DirectAccess sono contenute nell'oggetto Criteri di gruppo del client DirectAccess. Oggetto Criteri di gruppo viene applicato ai computer che fanno parte dei gruppi di sicurezza che specificano nella procedura guidata introduttiva. È possibile specificare i gruppi di sicurezza contenuti in qualsiasi dominio supportato. Prima di configurare DirectAccess, i gruppi di sicurezza devono essere creati. È possibile aggiungere computer al gruppo di sicurezza dopo aver completato la distribuzione di DirectAccess, ma si noti che, se si aggiungono computer client che si trovano in un dominio diverso per il gruppo di sicurezza, l'oggetto Criteri di gruppo client verranno non applicato a questi client. Ad esempio, se è stato creato SG1 nel dominio A per i client DirectAccess e in seguito si aggiungono i client dal dominio B a questo gruppo, l'oggetto Criteri di gruppo del client non verrà applicato ai client nel dominio B. Per evitare questo problema, creare un nuovo gruppo di sicurezza del client per ciascun dominio che contiene computer client. In alternativa, se non si vuole creare un nuovo gruppo di sicurezza, eseguire il cmdlet Add-DAClient con il nome del nuovo oggetto Criteri di gruppo per il nuovo dominio.  
+    Le impostazioni di DirectAccess sono contenute nell'oggetto Criteri di gruppo del client DirectAccess. L'oggetto Criteri di gruppo viene applicato ai computer che fanno parte dei gruppi di sicurezza specificati nella procedura guidata Introduzione. È possibile specificare i gruppi di sicurezza contenuti in qualsiasi dominio supportato. Prima di configurare DirectAccess, è necessario creare i gruppi di sicurezza. È possibile aggiungere computer al gruppo di sicurezza dopo aver completato la distribuzione di DirectAccess. si noti tuttavia che se si aggiungono computer client che si trovano in un dominio diverso al gruppo di sicurezza, l'oggetto Criteri di gruppo del client non verrà applicato a questi client. Ad esempio, se è stato creato SG1 nel dominio A per i client DirectAccess e in seguito si aggiungono i client dal dominio B a questo gruppo, l'oggetto Criteri di gruppo del client non verrà applicato ai client nel dominio B. Per evitare questo problema, creare un nuovo gruppo di sicurezza del client per ciascun dominio che contiene computer client. In alternativa, se non si vuole creare un nuovo gruppo di sicurezza, eseguire il cmdlet Add-DAClient con il nome del nuovo oggetto Criteri di gruppo per il nuovo dominio.  
   
 ## <a name="bkmk_2_2_server"></a>Pianificazione della distribuzione del server DirectAccess  
-Esistono una serie di decisioni da prendere durante la pianificazione per la distribuzione del server DirectAccess:  
+Quando si pianifica la distribuzione del server DirectAccess, è necessario prendere alcune decisioni:  
   
--   **Topologia di rete** -esistono due topologie disponibili quando si distribuisce un server DirectAccess:  
+-   **Topologia di rete** : sono disponibili due topologie quando si distribuisce un server DirectAccess:  
   
-    -   **Due schede** -con due schede di rete, DirectAccess può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra è connessa alla rete interna. In alternativa, il server viene installato dietro un dispositivo periferico, come un firewall o un router. In questa configurazione, una scheda di rete è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
+    -   **Due schede** : con due schede di rete, DirectAccess può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra è connessa alla rete interna. In alternativa, il server viene installato dietro un dispositivo periferico, come un firewall o un router. In questa configurazione, una scheda di rete è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
   
-    -   **Singola scheda di rete** -In questa configurazione DirectAccess server viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
+    -   **Singola scheda di rete** : in questa configurazione il server DirectAccess viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
   
--   **Schede di rete** -procedura guidata DirectAccess rileva automaticamente le schede di rete configurate nel server DirectAccess. È possibile assicurarsi che le schede corrette vengano selezionate dai **revisione** pagina.  
+-   **Schede di rete** : la procedura guidata DirectAccess rileva automaticamente le schede di rete configurate nel server DirectAccess. È possibile assicurarsi che nella pagina **Revisione** siano selezionate le schede corrette.  
   
--   **Certificato IP-HTTPS** -perché è presente alcuna infrastruttura a chiave pubblica richiesto in questa distribuzione, la procedura guidata esegue automaticamente il provisioning di certificati autofirmati per IP-HTTPS e il Server dei percorsi rete (se non sono presenti certificati) e abilita automaticamente Proxy Kerberos. La procedura guidata consente anche di NAT64 e DNS64 per la conversione di protocollo nell'ambiente solo IPv4. Dopo che la procedura guidata ha applicato la configurazione, fare clic su **Chiudi**.  
+-   **Certificato IP-HTTPS** : poiché non è richiesta alcuna infrastruttura PKI in questa distribuzione, la procedura guidata effettua automaticamente il provisioning dei certificati autofirmati per IP-HTTPS e il server dei percorsi di rete (se non sono presenti certificati) e Abilita automaticamente Kerberos proxy. La procedura guidata Abilita inoltre NAT64 e DNS64 per la conversione del protocollo nell'ambiente solo IPv4. Dopo che la procedura guidata ha applicato la configurazione, fare clic su **Chiudi**.  
   
--   **I client Windows 7** -non è possibile abilitare il supporto per i client Windows 7 da attività iniziali guidate. È possibile abilitarla dalla configurazione guidata avanzata. Per altre informazioni, vedere [distribuire un DirectAccess Server singolo con impostazioni avanzate](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
+-   **Client Windows 7** : non è possibile abilitare il supporto per i client Windows 7 dalla procedura guidata introduzione. Questa operazione può essere abilitata dall'installazione guidata avanzata. Per altri dettagli, vedere [distribuire un server DirectAccess singolo con impostazioni avanzate](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
   
--   **Configurazione VPN** -prima di configurare DirectAccess, decidere se si desidera fornire ai client remoti l'accesso VPN. È necessario fornire l'accesso VPN se si dispone di computer client all'interno dell'organizzazione che non supportano la connettività DirectAccess (in quanto non sono gestiti o eseguono un sistema operativo per cui DirectAccess non è supportata). Attività iniziali guidate Configura Assegnazione indirizzo IP VPN Usa DHCP e configura i client VPN per essere autenticato usando Active Directory.  
+-   **Configurazione VPN** : prima di configurare DirectAccess, decidere se si intende fornire l'accesso VPN ai client remoti. È necessario fornire l'accesso VPN se nell'organizzazione sono presenti computer client che non supportano la connettività DirectAccess, perché non sono gestiti o eseguono un sistema operativo per il quale DirectAccess non è supportato. La procedura guidata Introduzione configura l'assegnazione di indirizzi IP VPN tramite DHCP e configura i client VPN per l'autenticazione tramite Active Directory.  
   
--   **Forzare il Tunneling** -se si prevede di usare il Tunneling forzato, o si pensa di aggiungerlo in futuro, è necessario utilizzare [distribuire un DirectAccess Server singolo con impostazioni avanzate](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) per distribuire una configurazione a due tunnel. A causa di considerazioni sulla sicurezza, il Tunneling forzato in una configurazione del tunnel singolo non è supportato.  
+-   **Tunneling forzato** : se si prevede di usare il tunneling forzato o se è possibile aggiungerlo in futuro, è consigliabile usare [Distribuisci un server DirectAccess singolo con impostazioni avanzate](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) per distribuire una configurazione a due tunnel. Per motivi di sicurezza, il tunneling forzato in una configurazione con un solo tunnel non è supportato.  
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   

@@ -2,7 +2,7 @@
 title: Opzioni di visualizzazione per anteprime di sessione in Dashboard MultiPoint
 description: Informazioni su come personalizzare le opzioni di visualizzazione per MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: a11f2f2bbafe4d21e1cd5d56d66a97e08cf35b11
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9b6fa08a6f3215140a528dab0fb55bac23c60ccc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394804"
 ---
 # <a name="view-options-for-session-thumbnails-in-multipoint-dashboard"></a>Opzioni di visualizzazione per anteprime di sessione in Dashboard MultiPoint
 Un metodo semplice per monitorare le attività degli utenti sui singoli desktop consiste nella visualizzazione di immagini di anteprima di ogni desktop attivo sul sistema MultiPoint Services. Per impostazione predefinita, le immagini dei desktop vengono visualizzate nel Dashboard MultiPoint sul **Home** scheda.  

@@ -2,7 +2,7 @@
 title: Account utente di MultiPoint Services
 description: Informazioni sugli account utente in MultiPoint Services, in particolare il tipo da usare per diversi scenari
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 67aa84244aa9ebfcd8375bd82f9d6ae431fc5eac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff81af2a0aa8da7f801ec14c27dc00c9bae6e8aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871419"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388964"
 ---
 # <a name="example-scenarios-multipoint-services-user-accounts"></a>Scenari esemplificativi: Account utente di MultiPoint Services
 Cosa è necessario eseguire per implementare lo scenario di account utente che si è scelto per l'ambiente di servizi MultiPoint? Nelle tabelle seguenti descrivono le singole attività da eseguire per configurare gli account utente e preparare le stazioni per gli account utente condiviso o individuale in un computer autonomo MultiPoint o nei server in rete in un gruppo di lavoro o un dominio Active Directory. Scegliere lo scenario che si applica all'ambiente. Seguire i collegamenti della tabella per completare ogni attività di configurazione necessarie.  

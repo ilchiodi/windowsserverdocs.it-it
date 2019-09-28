@@ -1,8 +1,8 @@
 ---
 title: qprocess
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a50cb5eae3a0fa329fff1f39870722c323507000
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3111d4e980395c1a7c971af715017d455e1a29c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384923"
 ---
 # <a name="qprocess"></a>qprocess
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto (Host sessione Desktop remoto).
+Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto (host sessione Desktop remoto).
 
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [novità in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 
 ## <a name="remarks"></a>Note
-Questo comando è analogo a come le **eseguire una query processo** comando.
+Questo comando è identico a quello del comando **query process** .
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[query processo](query-process.md)
-[chiave di sintassi della riga di comando](command-line-syntax-key.md)
-[Remote Desktop Services &#40;servizi Terminal&#41; riferimenti ai comandi](remote-desktop-services-terminal-services-command-reference.md)
+[query process](query-process.md)
+[sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

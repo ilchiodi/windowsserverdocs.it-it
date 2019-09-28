@@ -1,39 +1,39 @@
 ---
-title: Prestazioni dei / o rete di Hyper-V
-description: Considerazioni sulle prestazioni dei / o in Hyper-V ottimizzazione delle prestazioni di rete
-ms.prod: windows-server-threshold
+title: Prestazioni I/O rete Hyper-V
+description: Considerazioni sulle prestazioni di i/o di rete nell'ottimizzazione delle prestazioni di Hyper-V
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f576963a93c8c0b9d6c05f406cc3331c407ceb9
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: e8f4261c11a63786c2d170105fb0fa65dc6966a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811513"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385117"
 ---
-# <a name="hyper-v-network-io-performance"></a>Prestazioni dei / o rete di Hyper-V
+# <a name="hyper-v-network-io-performance"></a>Prestazioni I/O rete Hyper-V
 
-Server 2016 contiene numerosi miglioramenti e nuove funzionalità per ottimizzare le prestazioni di rete in Hyper-V.  Documentazione su come ottimizzare le prestazioni di rete verrà inclusi in una versione futura di questo articolo.
+Il server 2016 contiene diversi miglioramenti e nuove funzionalità per ottimizzare le prestazioni di rete in Hyper-V.  La documentazione su come ottimizzare le prestazioni di rete verrà inclusa in una versione futura di questo articolo.
 
 ## <a name="live-migration"></a>Migrazione in tempo reale
 
-Migrazione in tempo reale consente di spostare in modo trasparente macchine virtuali in esecuzione da un nodo di un cluster di failover a un altro nodo nello stesso cluster senza una connessione di rete eliminato o inattività.
+Live Migration consente di spostare in modo trasparente le macchine virtuali in esecuzione da un nodo di un cluster di failover a un altro nodo nello stesso cluster senza una connessione di rete eliminata o un tempo di inattività percepito.
 
 > [!NOTE]
-> Clustering di failover richiede l'archiviazione condivisa per i nodi del cluster.
+> Il clustering di failover richiede l'archiviazione condivisa per i nodi del cluster.
 
-Il processo di spostamento di una macchina virtuale in esecuzione può essere suddivisa in due fasi principali. La prima fase copia la memoria della macchina virtuale dall'host corrente per il nuovo host. La seconda fase trasferisce lo stato della macchina virtuale dall'host corrente per il nuovo host. La durata di entrambe le fasi notevolmente è determinato dalla velocità con cui i dati possono essere trasferiti dall'host corrente per il nuovo host.
+Il processo di trasferimento di una macchina virtuale in esecuzione può essere suddiviso in due fasi principali. La prima fase copia la memoria della macchina virtuale dall'host corrente al nuovo host. La seconda fase trasferisce lo stato della macchina virtuale dall'host corrente al nuovo host. La durata di entrambe le fasi è molto determinata dalla velocità con cui i dati possono essere trasferiti dall'host corrente al nuovo host.
 
-Fornisce una rete dedicata per la migrazione in tempo reale il traffico consente di ridurre al minimo il tempo necessario per completare una migrazione in tempo reale e garantisce i tempi di migrazione coerente.
+La fornitura di una rete dedicata per il traffico Live Migration aiuta a ridurre al minimo il tempo necessario per completare una migrazione in tempo reale e garantisce tempi di migrazione coerenti.
 
-![esempio di configurazione di live migration hyper-v](../../media/perftune-guide-live-migration.png)
+![esempio di configurazione della migrazione in tempo reale di Hyper-v](../../media/perftune-guide-live-migration.png)
 
-Inoltre, l'aumento del numero di trasmissione e i buffer di ricezione in ogni rete adapter coinvolti nel processo di migrazione può migliorare le prestazioni della migrazione.
+Inoltre, aumentando il numero di buffer di invio e di ricezione in ogni scheda di rete interessata nella migrazione, è possibile migliorare le prestazioni di migrazione.
 
-Windows Server 2012 R2 introdotta un'opzione per velocizzare la migrazione in tempo reale mediante la compressione della memoria prima di trasferire in rete oppure utilizzare Direct accesso memoria remota (RDMA), se l'hardware supporta questa funzionalità.
+In Windows Server 2012 R2 è stata introdotta un'opzione per velocizzare Live Migration comprimendo la memoria prima del trasferimento in rete o utilizzando l'accesso diretto a memoria remota (RDMA), se l'hardware lo supporta.
 
 ## <a name="see-also"></a>Vedere anche
 

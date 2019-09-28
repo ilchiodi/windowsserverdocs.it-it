@@ -1,9 +1,9 @@
 ---
 title: Generare un report di utilizzo per i client remoti usando i dati cronologici
-description: Questo argomento fa parte della Guida di monitoraggio di accesso remoto e l'Accounting in Windows Server 2016.
+description: Questo argomento fa parte della Guida per il monitoraggio e l'accounting di accesso remoto in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cfbac18f64123f97c54b29c1aeef7364af55e49a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: bae50345e8a6fd4018857e2a754d0274ce02855d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281125"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367248"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Generare un report di utilizzo per i client remoti usando i dati cronologici
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 **Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
   
@@ -59,7 +59,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
 >   
 > Accounting di accesso remoto si basa sul concetto di **sessioni**. A differenza di un **connessione**,  **sessione** è identificata da una combinazione di nome utente e all'indirizzo IP del client remoto. Ad esempio, se un tunnel del computer è costituito dal client remoto, denominato Client1, una sessione verrà creata e archiviata nel database di accounting. Quando si passa a un utente denominato User1 si connette da tale client dopo un certo tempo, ma il tunnel del computer è ancora attivo, la sessione viene registrata come una sessione separata. La distinzione di sessioni consiste nel mantenere la distinzione tra tunnel del computer e utente tunnel.  
   
-![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

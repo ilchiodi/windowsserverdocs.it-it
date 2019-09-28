@@ -1,9 +1,9 @@
 ---
-title: Pianificazione foglio di lavoro per la migrazione di servizi MultiPoint
-description: Fornisce i fogli di lavoro di pianificazione per eseguire la migrazione ai servizi MultiPoint in Windows Server 2016
+title: Foglio di foglio di pianificazione per la migrazione di MultiPoint Services
+description: Fornisce fogli di programmazione per facilitare la migrazione a MultiPoint Services in Windows Server 2016
 ms.custom: na
 ms.date: 07/29/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,36 +13,36 @@ ms.assetid: 864405bb-47ed-4c83-97a2-8df4c6e6f96b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: a9d9b62bced9be90c658b79338c6f4ef07710fc3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3d2ecca4062d28d210196d9191e08710eb731c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394634"
 ---
-# <a name="planning-worksheet-for-multipoint-services-migration"></a>Pianificazione foglio di lavoro per la migrazione di servizi MultiPoint
+# <a name="planning-worksheet-for-multipoint-services-migration"></a>Foglio di foglio di pianificazione per la migrazione di MultiPoint Services
 
 >Si applica a: Windows Server 2016
 
-Utilizzare elenchi e le tabelle seguenti per raccogliere le impostazioni che necessarie durante la migrazione di servizi MultiPoint.
+Usare le tabelle e gli elenchi seguenti per raccogliere le impostazioni necessarie durante la migrazione di MultiPoint Services.
 
 ## <a name="source-server-settings"></a>Impostazioni del server di origine
 
-È possibile trovare le impostazioni del server sul **Home** scheda selezionare Gestione MultiPoint. Inserire un segno di spunta accanto a ciascuna impostazione in uso nel server di origine.
+È possibile trovare le impostazioni del server nella scheda **Home** in Gestione MultiPoint. Inserire un segno di spunta accanto a ogni impostazione in uso nel server di origine.
 
-- Consentire a un account avere più sessioni.
-- Consentire al computer di gestione remota.
-- Consenti il monitoraggio dei desktop del computer.
+- Consentire a un account di avere più sessioni.
+- Consenti la gestione remota del computer.
+- Consente il monitoraggio dei desktop di questo computer.
 - Avviare sempre in modalità console.
-- Non visualizzare la notifica sulla privacy al primo accesso dell'utente.
+- Non visualizzare notifiche sulla privacy al primo accesso dell'utente.
 - Assegnare un indirizzo IP univoco a ogni stazione.
-- Consenti messaggistica immediata tra Dashboard MultiPoint e le sessioni utente in questo computer.
-- Consenti orchestrazione di amministratore e le sessioni utente Dashboard MultiPoint.
-- Consenti le stazioni da utilizzare per il rendering hardware GPU.
+- Consente la messaggistica immediata tra il Dashboard MultiPoint e le sessioni utente nel computer.
+- Consenti orchestrazione di sessioni utente del dashboard di amministratore e MultiPoint.
+- Consentire alle stazioni di utilizzare il rendering hardware della GPU.
 
-## <a name="managed-servers-and-computers"></a>I computer e i server gestiti
+## <a name="managed-servers-and-computers"></a>Server e computer gestiti
 
-Registrare i nomi dei server gestiti e computer. È possibile trovare queste informazioni nel **Home** scheda selezionare Gestione MultiPoint.
+Registrare i nomi dei server e dei computer gestiti. È possibile trovare queste informazioni nella scheda **Home** di gestione MultiPoint.
 
 | Computer | Il nome del computer |
 |----------|---------------|
@@ -60,9 +60,9 @@ Registrare i nomi dei server gestiti e computer. È possibile trovare queste inf
 
 ## <a name="stations"></a>Stazioni
 
-Registrare le stazioni locali e le relative impostazioni. È possibile trovare queste informazioni nel **stazioni** scheda selezionare Gestione MultiPoint.
+Registrare le stazioni locali e le relative impostazioni. Queste informazioni sono reperibili nella scheda **stazioni** di gestione MultiPoint.
 
-| #  | Nome stazione | Account utente l'accesso automatico | Orientamento dello schermo |
+| #  | Nome stazione | Account utente di accesso automatico | Orientamento dello schermo |
 |----|--------------|-------------------------|---------------------|
 | 1  |              |                         |                     |
 | 2  |              |                         |                     |
@@ -75,9 +75,9 @@ Registrare le stazioni locali e le relative impostazioni. È possibile trovare q
 | 9  |              |                         |                     |
 | 10 |              |                         |                     |
 
-## <a name="administrators-and-multipoint-dashboard-users"></a>Gli amministratori e utenti di Dashboard MultiPoint
+## <a name="administrators-and-multipoint-dashboard-users"></a>Utenti amministratori e Dashboard MultiPoint
 
-Copiare i nomi utente per gli amministratori e utenti di Dashboard MultiPoint. È possibile trovare queste informazioni nel **utenti** scheda selezionare Gestione MultiPoint.
+Copiare i nomi utente per gli utenti amministratori e MultiPoint dashboard. È possibile trovare queste informazioni nella scheda **utenti** in Gestione MultiPoint.
 
 Administrators:
 
@@ -96,9 +96,9 @@ Utenti del dashboard:
 - nome utente:
 - nome utente:
 
-## <a name="vdi-template-and-virtual-desktops"></a>Modello di un'infrastruttura VDI e desktop virtuali
+## <a name="vdi-template-and-virtual-desktops"></a>Modello VDI e desktop virtuali
 
-Registrare le informazioni sul modello di un'infrastruttura VDI e i nomi dei desktop virtuali nella distribuzione di MultiPoint Services. È possibile trovare queste informazioni nel **desktop virtuali** scheda selezionare Gestione MultiPoint.
+Registrare le informazioni sul modello VDI e i nomi dei desktop virtuali nella distribuzione di MultiPoint Services. È possibile trovare queste informazioni nella scheda **desktop virtuali** in Gestione MultiPoint.
 
 **Percorso del modello VDI**: 
 

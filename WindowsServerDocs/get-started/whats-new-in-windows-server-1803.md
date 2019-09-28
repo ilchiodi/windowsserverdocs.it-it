@@ -1,19 +1,19 @@
 ---
 title: Novità di Windows Server, versione 1803
 description: Quali sono le nuove funzionalità di calcolo, identità, gestione, automazione, rete, sicurezza e archiviazione.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: a489d3f8958304d685116186f5db9e1c854114bf
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 211a0e2b49e9f15682a251f96dc338d124e2f998
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65976537"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391376"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Novità di Windows Server versione 1803
 
