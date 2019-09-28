@@ -1,40 +1,40 @@
 ---
-title: Considerazioni sulla macchina virtuale Linux
+title: Considerazioni sulle macchine virtuali Linux
 description: Macchina virtuale Linux e BSD
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: cc6aab7825754579269eb05e591ca2a3cf5a561b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5668629e7eded214525561d30fec496a4e91b8dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385074"
 ---
-# <a name="linux-virtual-machine-considerations"></a>Considerazioni sulla macchina virtuale Linux
+# <a name="linux-virtual-machine-considerations"></a>Considerazioni sulle macchine virtuali Linux
 
-BSD macchine virtuali Linux e usano considerazioni aggiuntive rispetto alle macchine virtuali Windows in Hyper-V.
+Le macchine virtuali Linux e BSD presentano considerazioni aggiuntive rispetto alle macchine virtuali Windows in Hyper-V.
 
-La prima considerazione è determinare se sono presenti i servizi di integrazione o se la macchina virtuale è in esecuzione solo su hardware emulato con alcuna illuminazione. È disponibile in una tabella delle versioni di Linux e BSD dotati di Integration Services predefiniti o scaricabili [macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows). Queste pagine hanno griglie delle funzionalità di Hyper-V disponibili per le versioni di distribuzione di Linux e note di tali funzionalità eventualmente disponibili.
+La prima considerazione è se sono presenti Integration Services o se la macchina virtuale è in esecuzione semplicemente su hardware emulato senza illuminazione. Una tabella di versioni di Linux e BSD con Integration Services incorporato o scaricabile è disponibile nelle [macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows). In queste pagine sono disponibili griglie di funzionalità Hyper-V disponibili per le versioni di distribuzione Linux e note su tali funzionalità, ove applicabile.
 
-Anche quando l'utente guest è in esecuzione Integration Services, può essere configurato con l'hardware legacy che non mostrano le prestazioni migliori. Ad esempio, configurare e usare una scheda ethernet virtuale per il guest invece di usare una scheda di rete legacy. Con Windows Server 2016, advanced networking, ad esempio SR-IOV sono anche disponibili.
+Anche quando il Guest esegue Integration Services, può essere configurato con hardware legacy che non presenta le prestazioni migliori. Ad esempio, configurare e usare una scheda Ethernet virtuale per il Guest invece di usare una scheda di rete legacy. Con Windows Server 2016, sono disponibili anche reti avanzate come SR-IOV.
 
-## <a name="linux-network-performance"></a>Prestazioni di rete Linux
+## <a name="linux-network-performance"></a>Prestazioni della rete Linux
 
-Linux per impostazione predefinita consente l'accelerazione hardware e gli offload per impostazione predefinita. Se vRSS è abilitata nelle proprietà di un'interfaccia di rete nell'host e guest Linux ha la possibilità di usare vRSS verrà abilitata la funzionalità. In Powershell è possibile modificare questo stesso parametro con il `EnableNetAdapterRSS` comando.
+Per impostazione predefinita, Linux Abilita l'accelerazione hardware e gli offload. Se vRSS è abilitata nelle proprietà di una scheda di interfaccia di rete nell'host e il Guest Linux è in grado di usare vRSS, la funzionalità verrà abilitata. In PowerShell questo stesso parametro può essere modificato con il comando `EnableNetAdapterRSS`.
 
-Analogamente, la funzionalità VMMQ (RSS commutatore virtuale) può essere abilitata nella scheda di rete fisica utilizzata dal guest **delle proprietà** > **Configura...**   >  **Avanzate** scheda > impostare **RSS commutatore virtuale** al **abilitato** o abilitare VMMQ in Powershell usando quanto segue:
+Analogamente, è possibile abilitare la funzionalità VMMQ (switch virtuale RSS) nella scheda di interfaccia di rete fisica utilizzata dalle **Proprietà**Guest  > **configure...** scheda**avanzate**  >  > impostare **RSS del Commuter virtuale** su **abilitato** o abilitare VMMQ in PowerShell usando quanto segue:
 
 ```PowerShell
  Set-VMNetworkAdapter -VMName **$VMName** -VmmqEnabled $True
  ```
 
-Nel sistema guest un'ottimizzazione aggiuntiva TCP può essere eseguita mediante l'aumento dei limiti. Per ottenere prestazioni ottimali del carico di lavoro di distribuzione su più CPU e con carichi di lavoro avanzati genera la massima velocità effettiva, come carichi di lavoro virtualizzati avrà una latenza maggiore rispetto a "computer bare metal" quelle.
+Nell'ottimizzazione TCP aggiuntiva Guest può essere eseguita aumentando i limiti. Per ottenere prestazioni ottimali per la distribuzione del carico di lavoro su più CPU e con carichi di lavoro profondi, la velocità effettiva è ottimale, in quanto i carichi di lavoro virtualizzati avranno una latenza superiore rispetto a quella "bare metal"
 
-Alcuni parametri di regolazione di esempio che sono state utili per i benchmark di rete includono:
+Alcuni esempi di parametri di ottimizzazione utili nei benchmark di rete includono:
 
 ```PowerShell
 net.core.netdev_max_backlog = 30000
@@ -49,28 +49,28 @@ net.ipv4.ip_local_port_range = 10240 65535
 net.ipv4.tcp_abort_on_overflow = 1
 ```
 
-È uno strumento utile per rete microbenchmarks ntttcp, che è disponibile per Linux e Windows. La versione di Linux è open source e disponibile dal [ntttcp-for-linux in github.com](https://github.com/Microsoft/ntttcp-for-linux). La versione di Windows è reperibile nella [area download](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Durante l'ottimizzazione di carichi di lavoro è consigliabile usare tutti i flussi in base alle esigenze per ottenere la massima velocità effettiva. Usando ntttcp al traffico di modello, il `-P` parametro imposta il numero di connessioni parallele utilizzate.
+Uno strumento utile per i microbenchmark di rete è NTTTCP, disponibile sia in Linux che in Windows. La versione di Linux è open source e disponibile da [NTTTCP-for-Linux in GitHub.com](https://github.com/Microsoft/ntttcp-for-linux). È possibile trovare la versione di Windows nell' [area download](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Quando si ottimizzano i carichi di lavoro, è preferibile usare il numero di flussi necessari per ottenere la migliore velocità effettiva. Usando NTTTCP per modellare il traffico, il parametro `-P` imposta il numero di connessioni parallele usate.
 
-## <a name="linux-storage-performance"></a>Prestazioni di archiviazione di Linux
+## <a name="linux-storage-performance"></a>Prestazioni di archiviazione Linux
 
-Alcune procedure consigliate, analogo al seguente sono elencati nella [procedure consigliate per Linux in esecuzione in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v). Il kernel Linux include diverse utilità di pianificazione dei / o per riordinare le richieste con algoritmi diversi. NOOP è una coda first in, First Out che passa la decisione pianificazione deve risultare dall'hypervisor. È consigliabile usare NOOP come utilità di pianificazione durante l'esecuzione di macchina virtuale Linux in Hyper-V. Per modificare l'utilità di pianificazione per un dispositivo specifico, nella configurazione del caricatore di avvio (/ etc/grub.conf, ad esempio), aggiungere `elevator=noop` ai parametri del kernel e quindi riavviare.
+Alcune procedure consigliate, come quelle riportate di seguito, sono elencate in procedure consigliate [per l'esecuzione di Linux in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v). Il kernel Linux ha diverse utilità di pianificazione di I/O per riordinare le richieste con algoritmi diversi. NOOP è una coda First-in First-out che passa la decisione di pianificazione che deve essere eseguita dall'hypervisor. Si consiglia di usare NOOP come utilità di pianificazione durante l'esecuzione di una macchina virtuale Linux in Hyper-V. Per modificare l'utilità di pianificazione per un dispositivo specifico, nella configurazione del caricatore di avvio (ad esempio,/etc/grub.conf) aggiungere `elevator=noop` ai parametri del kernel e quindi riavviare.
 
-Analogamente alla rete, le prestazioni del guest Linux con l'archiviazione dei benefici riservato il massimo vantaggio da più code con sufficiente dettaglio mantenga l'host occupato. Le prestazioni di archiviazione Microbenchmarking probabilmente sono meglio con lo strumento di benchmark fio con il motore libaio.
+Analogamente alla rete, le prestazioni Guest Linux con archiviazione hanno un vantaggio maggiore rispetto a più code con una profondità sufficiente a occupare l'host. Il microbenchmarking delle prestazioni di archiviazione è probabilmente migliore con lo strumento di benchmark fio con il motore Libaio.
 
 ## <a name="see-also"></a>Vedere anche
 
 -   [Terminologia di Hyper-V](terminology.md)
 
--   [Architettura di Hyper-V](architecture.md)
+-   [Architettura Hyper-V](architecture.md)
 
--   [Configurazione del server Hyper-V](configuration.md)
+-   [Configurazione dei server Hyper-V](configuration.md)
 
 -   [Prestazioni del processore di Hyper-V](processor-performance.md)
 
 -   [Prestazioni della memoria di Hyper-V](memory-performance.md)
 
--   [Archiviazione di Hyper-V delle prestazioni dei / o](storage-io-performance.md)
+-   [Prestazioni di I/O dell'archiviazione di Hyper-V](storage-io-performance.md)
 
--   [Rete Hyper-V delle prestazioni dei / o](network-io-performance.md)
+-   [Prestazioni di I/O della rete di Hyper-V](network-io-performance.md)
 
 -   [Rilevamento dei colli di bottiglia in un ambiente virtualizzato](detecting-virtualized-environment-bottlenecks.md)

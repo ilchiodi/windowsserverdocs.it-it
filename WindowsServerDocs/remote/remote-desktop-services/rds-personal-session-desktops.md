@@ -2,7 +2,7 @@
 title: Usare desktop sessione personali con Servizi Desktop remoto
 description: Informazioni su come condividere tramite Servizi Desktop remoto desktop personalizzati assegnati.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/16/2016
 manager: dongill
-ms.openlocfilehash: 723e68bad79e7723aaa0690c312e20ccf47c47b0
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 7429cd9cb87db310a716136c171de47cfe0892f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743509"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387356"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Usare desktop sessione personali con Servizi Desktop remoto
 

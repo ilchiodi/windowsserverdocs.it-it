@@ -1,8 +1,8 @@
 ---
-title: Reg import
-description: 'Argomento i comandi di Windows per * * *- '
+title: importazione reg
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d1dd1b61848671b528c62fd22fe656e14fda7b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e1c7920a64469717c30cfcddda7b8002db5ba10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861842"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384727"
 ---
-# <a name="reg-import"></a>Reg import
+# <a name="reg-import"></a>importazione reg
 
 
 
@@ -38,7 +38,7 @@ Reg import FileName
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<FileName>|Specifica il nome e percorso del file di contenuto deve essere copiato nel Registro di sistema del computer locale. Questo file deve essere creato in anticipo tramite **reg export**.|
+|\<> FileName|Specifica il nome e percorso del file di contenuto deve essere copiato nel Registro di sistema del computer locale. Questo file deve essere creato in anticipo tramite **reg export**.|
 |/?|Visualizza la Guida per **reg import** al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -48,7 +48,7 @@ Nella tabella seguente sono elencati i valori restituiti per il **reg import** o
 |Value|Descrizione|
 |-----|-----------|
 |0|Riuscito|
-|1|Operazione non riuscita|
+|1|Errore|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -59,4 +59,4 @@ reg import AppBkUp.reg
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

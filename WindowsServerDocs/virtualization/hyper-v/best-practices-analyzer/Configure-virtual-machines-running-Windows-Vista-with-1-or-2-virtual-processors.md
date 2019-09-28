@@ -1,7 +1,7 @@
 ---
 title: Configurare le macchine virtuali in esecuzione Windows Vista con 1 o 2 processori virtuali
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: e562bce3-fd68-42c9-821c-12022ae4746c
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fae7d5e437fd83b9c00afcceaaf0eb7e8a7b909b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0fd83122ce148cfa97147a352ebef4f7cc443cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364926"
 ---
 # <a name="configure-virtual-machines-running-windows-vista-with-1-or-2-virtual-processors"></a>Configurare le macchine virtuali in esecuzione Windows Vista con 1 o 2 processori virtuali
 
@@ -26,21 +26,21 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Configurazione|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Configurazione|  
 |**Categoria**|Errore|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
   
-*Una macchina virtuale che esegue Windows Vista è configurata con più di 2 processori virtuali.*  
+*Una macchina virtuale che esegue Windows Vista è configurata con più di due processori virtuali.*  
   
 ## <a name="impact"></a>Impatto  
   
 *Microsoft non supporta la configurazione delle macchine virtuali seguenti:*  
   
-\<elenco di nomi delle macchine virtuali >  
+@no__t 0list di nomi di macchina virtuale >  
   
 ## <a name="resolution"></a>Risoluzione  
   
@@ -50,7 +50,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
   
-2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare. Lo stato della macchina virtuale dovrebbe essere elencato come **disattivata**. In caso contrario, fare clic sulla macchina virtuale e quindi fare clic su **Spegni**.  
+2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare. Lo stato della macchina virtuale deve essere indicato come **disattivato**. In caso contrario, fare clic con il pulsante destro del mouse sulla macchina virtuale e quindi scegliere **Arresta**.  
   
 3.  Nel riquadro **Azioni** sotto il nome della macchina virtuale fare clic su **Impostazioni**.  
   

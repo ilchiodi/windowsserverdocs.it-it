@@ -1,203 +1,203 @@
 ---
-title: Host sessione Desktop remoto l'ottimizzazione delle prestazioni
-description: Ottimizzazione delle prestazioni le linee guida per host sessione Desktop remoto
-ms.prod: windows-server-threshold
+title: Ottimizzazione delle prestazioni Desktop remoto host della sessione
+description: Linee guida per l'ottimizzazione delle prestazioni per Desktop remoto host sessione
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811416"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385025"
 ---
-# <a name="performance-tuning-remote-desktop-session-hosts"></a>Host sessione Desktop remoto l'ottimizzazione delle prestazioni
+# <a name="performance-tuning-remote-desktop-session-hosts"></a>Ottimizzazione delle prestazioni Desktop remoto host della sessione
 
 
-In questo argomento viene illustrato come selezionare l'hardware Host sessione Desktop remoto (Host sessione Desktop remoto), ottimizzare l'host e l'ottimizzazione delle applicazioni.
+In questo argomento viene illustrato come selezionare host sessione Desktop remoto hardware (host sessione Desktop remoto), ottimizzare l'host e ottimizzare le applicazioni.
 
-**In questo argomento:**
+**Contenuto dell'argomento:**
 
--   [Selezionare l'hardware corretto per le prestazioni](#selecting-the-proper-hardware-for-performance)
+-   [Selezione dell'hardware appropriato per le prestazioni](#selecting-the-proper-hardware-for-performance)
 
--   [Ottimizzazione delle applicazioni per Host sessione Desktop remoto](#tuning-applications-for-remote-desktop-session-host)
+-   [Ottimizzazione delle applicazioni per host sessione Desktop remoto](#tuning-applications-for-remote-desktop-session-host)
 
--   [Parametri di regolazione Host sessione Desktop remoto](#remote-desktop-session-host-tuning-parameters)
+-   [Parametri di ottimizzazione host sessione Desktop remoto](#remote-desktop-session-host-tuning-parameters)
 
 ## <a name="selecting-the-proper-hardware-for-performance"></a>Selezione dell'hardware appropriato per le prestazioni
 
 
-Per una distribuzione di server Host sessione Desktop remoto, la scelta dell'hardware è disciplinata dal set di applicazioni e come utenti le usano. I fattori chiave che influisce sul numero di utenti e la loro esperienza sono CPU, memoria, disco e grafica. In questa sezione contiene le ulteriori linee guida specifiche per i server Host sessione Desktop remoto e viene per lo più correlata all'ambiente con più utenti del server Host sessione Desktop remoto.
+Per la distribuzione di un server Host sessione Desktop remoto, la scelta dell'hardware è regolata dal set di applicazioni e dal modo in cui vengono utilizzate dagli utenti. I fattori chiave che influiscono sul numero di utenti e la loro esperienza sono CPU, memoria, disco e grafica. In questa sezione sono contenute linee guida aggiuntive specifiche per i server Host sessione Desktop remoto e sono correlate principalmente all'ambiente multiutente dei server Host sessione Desktop remoto.
 
 ### <a name="cpu-configuration"></a>Configurazione CPU
 
-Configurazione della CPU è concettualmente determinata moltiplicando la CPU necessaria per supportare una sessione per il numero di sessioni che il sistema deve supportare, pur mantenendo una zona buffer per gestire picchi temporanei. Più processori logici consente di ridurre le situazioni anomale CPU congestione, che sono in genere causate da alcuni thread iperattivo contenuti in un numero simile di processori logici.
+La configurazione della CPU è determinata dal punto di vista concettuale moltiplicando la CPU necessaria per supportare una sessione per il numero di sessioni supportate dal sistema, mantenendo al tempo stesso una zona buffer per gestire i picchi temporanei. Più processori logici possono contribuire a ridurre le situazioni anomale di congestione della CPU, che in genere sono causate da pochi thread iperattivi contenuti in un numero simile di processori logici.
 
-Di conseguenza, i processori logici in un sistema, minore il margine di cuscinetto che deve essere compilato per la stima dell'utilizzo della CPU, che comporta più grande percentuale di carico attive per ogni CPU. Un fattore importante da ricordare è che raddoppiando il numero di CPU non non raddoppiare la capacità della CPU.
+Quindi, più processori logici in un sistema, minore è il margine del cuscino che deve essere incorporato nella stima di utilizzo della CPU, che comporta una percentuale maggiore di carico attivo per CPU. Un fattore importante da ricordare è che raddoppiare il numero di CPU non raddoppia la capacità della CPU.
 
 ### <a name="memory-configuration"></a>Configurazione della memoria
 
-Configurazione della memoria è dipendente da applicazioni che gli utenti utilizzino; Tuttavia, la quantità di memoria necessaria può essere stimata utilizzando la formula seguente: TotalMem = OSMem + SessionMem \* NS
+La configurazione della memoria dipende dalle applicazioni utilizzate dagli utenti; Tuttavia, la quantità di memoria necessaria può essere stimata utilizzando la formula seguente: TotalMem = OSMem + SessionMem \* NS
 
-OSMem è quanta memoria che del sistema operativo necessaria per l'esecuzione (ad esempio le immagini binarie del sistema, le strutture di dati e così via), SessionMem è quanto richiedono i processi di memoria in esecuzione in una sessione e NS è il numero di sessioni attive. La quantità di memoria necessaria per una sessione è principalmente determinata dal riferimento di memoria privata impostati per le applicazioni e i processi di sistema che sono in esecuzione all'interno della sessione. Le pagine condivise di codice o dati hanno un impatto minimo perché è presente nel sistema di sola copia.
+OSMem è la quantità di memoria necessaria per l'esecuzione del sistema operativo (ad esempio immagini binarie di sistema, strutture di dati e così via), SessionMem è la quantità di processi di memoria in esecuzione in una sessione e NS è il numero di sessioni attive di destinazione. La quantità di memoria necessaria per una sessione è determinata principalmente dal set di riferimenti alla memoria privata per le applicazioni e i processi di sistema in esecuzione all'interno della sessione. Il codice condiviso o le pagine di dati hanno un effetto ridotto perché nel sistema è presente una sola copia.
 
-Un'osservazione interessa (presupponendo che il sistema che esegue il backup del file di paging del disco rimane invariato) è che maggiore è il numero di sessioni attive simultanee del sistema prevede di supportare, maggiori saranno le dimensioni dell'allocazione della memoria per ogni sessione deve essere. Se la quantità di memoria allocata per ogni sessione non viene aumentata, il numero di errori di pagina che le sessioni attive genera aumenta con il numero di sessioni. Questi errori alla fine sovraccaricare il sottosistema dei / o. Se si aumenta la quantità di memoria allocata per ogni sessione, riduce la probabilità di dover sostenere errori di pagina, che consente di ridurre il tasso complessivo di errori di pagina.
+Una osservazione interessante (presupponendo che il sistema di dischi che sta eseguendo il backup del file di paging non cambi) è che il numero di sessioni attive simultanee che il sistema prevede di supportare è maggiore di quello che l'allocazione di memoria per sessione deve essere. Se la quantità di memoria allocata per sessione non è aumentata, il numero di errori di pagina generati dalle sessioni attive aumenta con il numero di sessioni. Questi errori sovraccaricano infine il sottosistema di I/O. Aumentando la quantità di memoria allocata per sessione, la probabilità che si verificano errori di pagina diminuisce, consentendo di ridurre la frequenza complessiva degli errori di pagina.
 
 ### <a name="disk-configuration"></a>Configurazione del disco
 
-L'archiviazione è uno degli aspetti più sottovalutati quando si configurano i server Host sessione Desktop remoto e può essere la limitazione più comune in sistemi distribuiti nel campo.
+L'archiviazione è uno degli aspetti più trascurati quando si configurano i server Host sessione Desktop remoto e può essere la limitazione più comune nei sistemi distribuiti nel campo.
 
-L'attività del disco che viene generato in un server Host sessione Desktop remoto tipico influisce sulle aree seguenti:
+L'attività del disco generata in un tipico server Host sessione Desktop remoto influiscono sulle aree seguenti:
 
 -   File di sistema e file binari dell'applicazione
 
 -   File di paging
 
--   Profili utente mobili e dati utente
+-   Profili utente e dati utente
 
-In teoria, queste aree devono eseguire il backup per i dispositivi di archiviazione distinti. Usando le configurazioni RAID con striping o altri tipi di spazio di archiviazione ad alte prestazioni migliora le prestazioni. È consigliabile usare gli adattatori di archiviazione con la cache in scrittura a batteria. Controller con la memorizzazione nella cache di scrittura disco offrire supporto migliorato per le operazioni di scrittura sincrona. Poiché tutti gli utenti hanno un hive separato, operazioni di scrittura sincrona sono notevolmente più comune in un server Host sessione Desktop remoto. Gli hive del Registro di sistema periodicamente vengono salvati su disco mediante operazioni di scrittura sincrona. Per abilitare queste ottimizzazioni, dalla console di Gestione disco, aprire il **delle proprietà** per il disco di destinazione e, nella finestra di dialogo il **criteri** scheda, seleziona il **Abilita memorizzazione nella cache di scrittura il disco** e **disattivare lo svuotamento buffer di cache di scrittura di Windows** sulle caselle di controllo del dispositivo.
+Idealmente, è consigliabile eseguire il backup di queste aree da dispositivi di archiviazione distinti. L'uso di configurazioni RAID con striping o altri tipi di archiviazione a prestazioni elevate migliora ulteriormente le prestazioni. Si consiglia vivamente di usare gli adattatori di archiviazione con memorizzazione nella cache di scrittura con supporto di batteria. I controller con memorizzazione nella cache di scrittura su disco offrono un supporto migliorato per le operazioni di scrittura sincrona. Poiché tutti gli utenti dispongono di un hive separato, le operazioni di scrittura sincrona sono molto più comuni in un server Host sessione Desktop remoto. Gli hive del registro di sistema vengono salvati periodicamente su disco mediante operazioni di scrittura sincrona. Per abilitare queste ottimizzazioni, dalla console Gestione disco aprire la finestra di dialogo **Proprietà** per il disco di destinazione e, nella scheda **criteri** , selezionare la casella di controllo **Abilita Caching scrittura sul disco** e **Disattiva buffer di scrittura cache di Windows. Scaricamento** sulle caselle di controllo del dispositivo.
 
 ### <a name="network-configuration"></a>Configurazione di rete
 
-Uso della rete per un server Host sessione Desktop remoto include due categorie principali:
+L'utilizzo della rete per un server Host sessione Desktop remoto include due categorie principali:
 
--   Utilizzo del traffico connessione Host sessione Desktop remoto dipende quasi esclusivamente per i modelli di disegni che si verificano dalle applicazioni in esecuzione all'interno di sessioni e il traffico dei / o reindirizzato dispositivi.
+-   L'utilizzo del traffico di connessione host sessione Desktop remoto è determinato quasi esclusivamente dai modelli di disegno presentati dalle applicazioni in esecuzione nelle sessioni e dal traffico di I/O dei dispositivi reindirizzati.
 
-    Ad esempio, le applicazioni che gestiscono l'elaborazione del testo e i dati di input utilizzano larghezza di banda di 10 e 100 kilobit per secondo, mentre la riproduzione di video e migliorare la grafica causano aumenti significativi nell'utilizzo della larghezza di banda.
+    Ad esempio, le applicazioni che gestiscono l'elaborazione del testo e l'input di dati utilizzano la larghezza di banda di circa 10 a 100 kilobit al secondo, mentre la riproduzione grafica e video avanzata provoca un notevole aumento dell'utilizzo della larghezza di banda
 
--   Connessioni back-end, ad esempio i profili, applicazione l'accesso a condivisioni file, i server di database, server di posta elettronica e i server HTTP.
+-   Connessioni back-end come profili mobili, accesso alle applicazioni per condivisioni file, server di database, server di posta elettronica e server HTTP.
 
-    Il volume e il profilo di traffico di rete è specifico per ogni distribuzione.
+    Il volume e il profilo del traffico di rete sono specifici per ogni distribuzione.
 
-## <a name="tuning-applications-for-remote-desktop-session-host"></a>Ottimizzazione delle applicazioni per Host sessione Desktop remoto
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>Ottimizzazione delle applicazioni per host sessione Desktop remoto
 
 
-La maggior parte dell'utilizzo della CPU in un server Host sessione Desktop remoto è basato sulle app. Le app desktop sono in genere ottimizzate verso la velocità di risposta con l'obiettivo di ridurre al minimo il tempo impiegato da un'applicazione di rispondere a una richiesta dell'utente. Tuttavia in un ambiente server, è ugualmente importante per ridurre al minimo la quantità totale di utilizzo della CPU necessario per completare un'azione per evitare di influire negativamente sulle altre sessioni.
+La maggior parte dell'utilizzo della CPU in un server Host sessione Desktop remoto è determinata dalle app. Le applicazioni desktop sono in genere ottimizzate per la velocità di risposta, con l'obiettivo di ridurre al minimo il tempo impiegato da un'applicazione per rispondere a una richiesta dell'utente. Tuttavia, in un ambiente server, è ugualmente importante ridurre al minimo la quantità totale di utilizzo della CPU necessaria per completare un'azione, in modo da evitare effetti negativi sulle altre sessioni.
 
-Quando si configurano le app che devono essere utilizzati in un server Host sessione Desktop remoto, prendere in considerazione i suggerimenti seguenti:
+Quando si configurano le app da usare in un server Host sessione Desktop remoto, considerare i suggerimenti seguenti:
 
--   Ridurre al minimo l'elaborazione di cicli inattivi in background
+-   Ridurre al minimo l'elaborazione del ciclo di inattività in background
 
-    Esempi tipici sono la disabilitazione di controllo in background grammaticale e ortografico, l'indicizzazione per la ricerca dei dati e lo salva in background.
+    Esempi tipici sono la disabilitazione della grammatica e del controllo ortografico in background, l'indicizzazione dei dati per la ricerca e i salvataggi in background.
 
--   Ridurre al minimo la frequenza con cui un'app esegue un aggiornamento o controllo dello stato di.
+-   Ridurre al minimo la frequenza con cui un'app esegue un controllo o un aggiornamento dello stato.
 
-    Disabilitare tali comportamenti o aumentando l'intervallo tra iterazioni di polling e timer di attivazione in modo significativo vantaggio dell'utilizzo della CPU perché l'effetto di queste attività è rapidamente amplificata per numero di sessioni attive. Esempi tipici sono icone di stato di connessione e gli aggiornamenti di stato della barra informazioni.
+    La disabilitazione di tali comportamenti o l'aumento dell'intervallo tra le iterazioni di polling e la generazione di timer comporta un notevole vantaggio nell'utilizzo della CPU, perché l'effetto di tali attività viene rapidamente amplificato per molte sessioni attive. Esempi tipici sono le icone di stato della connessione e gli aggiornamenti delle informazioni sulla barra di stato.
 
--   Ridurre al minimo la contesa di risorse tra le app, riducendo la frequenza di sincronizzazione.
+-   Ridurre la contesa delle risorse tra le app riducendo la frequenza di sincronizzazione.
 
-    Esempi di tali risorse includono le chiavi del Registro di sistema e file di configurazione. Esempi di funzionalità e i componenti dell'applicazione sono l'indicatore di stato (ad esempio le notifiche di shell), l'indicizzazione in background o il monitoraggio delle modifiche e la sincronizzazione offline.
+    Esempi di tali risorse includono chiavi del registro di sistema e file di configurazione. Esempi di componenti e funzionalità dell'applicazione sono gli indicatori di stato (ad esempio le notifiche della Shell), l'indicizzazione in background o il monitoraggio delle modifiche e la sincronizzazione offline.
 
--   Disabilitare i processi non necessari che sono registrati per iniziare con accesso dell'utente o un avvio della sessione.
+-   Disabilitare i processi non necessari registrati per iniziare con l'accesso dell'utente o un avvio della sessione.
 
-    Questi processi possono contribuire in modo significativo al costo di utilizzo della CPU quando si crea una nuova sessione utente, in genere è un processo intensivo della CPU, e può essere molto costoso in scenari di mattina. Utilizzare MsConfig.exe o MsInfo32.exe per ottenere un elenco dei processi vengono avviati all'accesso dell'utente. Per altre informazioni, è possibile usare [Autoruns per Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx).
+    Questi processi possono contribuire significativamente al costo di utilizzo della CPU quando si crea una nuova sessione utente, che in genere è un processo a elevato utilizzo di CPU e che può essere molto costosa negli scenari di mattina. Usare MsConfig. exe o MsInfo32. exe per ottenere un elenco di processi avviati all'accesso dell'utente. Per informazioni più dettagliate, è possibile usare [Autoruns per Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx).
 
-Per il consumo di memoria, è necessario considerare quanto segue:
+Per l'utilizzo della memoria, è necessario considerare quanto segue:
 
--   Verificare che non vengono riallocate DLL caricate da un'app.
+-   Verificare che le DLL caricate da un'app non vengano rilocate.
 
-    -   Rilocate DLL può essere verificata selezionando Visualizza processo DLL, come illustrato nella figura seguente, usando [Process Explorer](https://technet.microsoft.com/sysinternals/bb896653.aspx).
+    -   È possibile verificare le dll rilocate selezionando elabora visualizzazione DLL, come illustrato nella figura seguente, usando [Esplora processi](https://technet.microsoft.com/sysinternals/bb896653.aspx).
 
-    -   Qui possiamo vedere che y è stato riposizionato perché x.dll già occupato relativo indirizzo di base predefinita e non è stato abilitato ASLR
+    -   Qui è possibile notare che la funzionalità y. dll è stata rilocata perché x. dll ha già occupato l'indirizzo di base predefinito e ASLR non è stato abilitato
 
-        ![DLL rilocate](../../media/perftune-guide-relocated-dlls.png)
+        ![dll rilocate](../../media/perftune-guide-relocated-dlls.png)
 
-        Se le DLL vengono rilocate, non è possibile condividere codice tra le sessioni, aumentando notevolmente il footprint di una sessione. Questo è uno dei più comuni problemi di prestazioni correlati alla memoria in un server Host sessione Desktop remoto.
+        Se le dll vengono rilocate, è Impossibile condividere il proprio codice tra le sessioni, che aumenta significativamente il footprint di una sessione. Questo è uno dei problemi di prestazioni più comuni relativi alla memoria in un server Host sessione Desktop remoto.
 
--   Per applicazioni di common language runtime (CLR), usare il generatore di immagini Native (Ngen.exe) per aumentare la condivisione delle pagine e ridurre l'overhead della CPU.
+-   Per le applicazioni Common Language Runtime (CLR), usare il generatore di immagini native (Ngen. exe) per aumentare la condivisione della pagina e ridurre il sovraccarico della CPU.
 
-    Quando possibile, applica tecniche simili ad altri motori di esecuzione analoghi.
+    Quando possibile, applicare tecniche simili ad altri motori di esecuzione simili.
 
-## <a name="remote-desktop-session-host-tuning-parameters"></a>Parametri di regolazione Host sessione Desktop remoto
+## <a name="remote-desktop-session-host-tuning-parameters"></a>Parametri di ottimizzazione host sessione Desktop remoto
 
 
 ### <a name="page-file"></a>File di paging
 
-Insufficienti del file di paging può causare i errori di allocazione di memoria nelle App o componenti del sistema. È possibile utilizzare il contatore delle prestazioni memoria-a byte vincolati a monitorare la quantità memoria virtuale riservata nel sistema.
+Dimensioni del file di paging insufficienti possono causare errori di allocazione della memoria nelle app o nei componenti di sistema. Per monitorare la quantità di memoria virtuale di cui è stato eseguito il commit nel sistema, è possibile utilizzare il contatore delle prestazioni byte da memoria a commit.
 
 ### <a name="antivirus"></a>Antivirus
 
-Installazione del software antivirus in un server Host sessione Desktop remoto notevolmente influisce sulle prestazioni generali del sistema, in particolare l'utilizzo della CPU. È consigliabile che nell'elenco di monitoraggio attivo è escludere tutte le cartelle che contengono i file temporanei, in particolare quelli che servizi e altri componenti di sistema generano.
+L'installazione del software antivirus in un server Host sessione Desktop remoto influisce significativamente sulle prestazioni complessive del sistema, soprattutto sull'utilizzo della CPU. Si consiglia vivamente di escludere dall'elenco Active Monitoring tutte le cartelle che contengono i file temporanei, in particolare quelle che i servizi e altri componenti di sistema generano.
 
 ### <a name="task-scheduler"></a>Utilità di pianificazione
 
-Utilità di pianificazione consente di esaminare l'elenco di attività pianificate per diversi eventi. Per un server Host sessione Desktop remoto, è utile per lo stato attivo in modo specifico per le attività che sono configurati per eseguire su inattivo, all'accesso dell'utente o sessione connettersi e disconnettersi. A causa di informazioni specifiche della distribuzione, molte di queste attività potrebbe non essere necessari.
+Utilità di pianificazione consente di esaminare l'elenco delle attività pianificate per eventi diversi. Per un server Host sessione Desktop remoto, è utile concentrarsi specificamente sulle attività configurate per l'esecuzione in modalità di inattività, all'accesso dell'utente o alla connessione e disconnessione della sessione. A causa delle specifiche della distribuzione, molte di queste attività potrebbero non essere necessarie.
 
 ### <a name="desktop-notification-icons"></a>Icone di notifica sul desktop
 
-Icone di notifica sul desktop possono avere meccanismi di aggiornamento piuttosto dispendiosa. È consigliabile disabilitare le notifiche tramite la rimozione del componente che vengono registrati dall'elenco di avvio o modificando la configurazione nelle applicazioni e componenti di sistema per disabilitarli. È possibile usare **personalizzare le notifiche di icone** per esaminare l'elenco delle notifiche disponibili nel server.
+Le icone di notifica sul desktop possono avere meccanismi di aggiornamento piuttosto costosi. È necessario disabilitare le notifiche rimuovendo il componente che li registra dall'elenco di avvio o modificando la configurazione nelle app e nei componenti di sistema per disabilitarli. È possibile usare le **Icone di personalizzazione delle notifiche** per esaminare l'elenco di notifiche disponibili sul server.
 
-### <a name="remotefx-data-compression"></a>Compressione dei dati di RemoteFX
+### <a name="remotefx-data-compression"></a>Compressione dei dati RemoteFX
 
-La compressione di Microsoft RemoteFX può essere configurata tramite criteri di gruppo nello **configurazione Computer &gt; modelli amministrativi &gt; i componenti di Windows &gt; Remote Desktop Services &gt; remoto Host sessione desktop &gt; Remote Environment di sessione &gt; configurare la compressione per i dati di RemoteFX**. Sono possibili tre valori:
+Microsoft RemoteFX la compressione può essere configurata utilizzando Criteri di gruppo in **Configurazione Computer &gt; Modelli amministrativi &gt; componenti Windows &gt; Servizi Desktop remoto &gt; Host sessione Desktop remoto &gt; remoto Ambiente sessione &gt; configurare la compressione per i dati RemoteFX**. Sono possibili tre valori:
 
--   **Ottimizzato per usare meno memoria** consuma la quantità minima di memoria per ogni sessione, ma è rapporto di compressione più basso e pertanto il consumo di larghezza di banda più elevato.
+-   **Ottimizzato per l'utilizzo di meno memoria** Utilizza la quantità minima di memoria per sessione, ma presenta il rapporto di compressione più basso e pertanto il consumo di larghezza di banda più elevato.
 
--   **Consente di bilanciare la larghezza di banda di rete e memoria** ridotto il consumo di larghezza di banda aumentando leggermente il consumo di memoria (circa 200 KB per ogni sessione).
+-   **Bilancia la memoria e la larghezza di banda della rete** Riduzione dell'utilizzo della larghezza di banda, aumentando il consumo di memoria (circa 200 KB per sessione).
 
--   **Con ottimizzazione per la minore larghezza di banda di rete usare** riduce ulteriormente l'utilizzo della larghezza di banda di rete a un costo di circa 2 MB per ogni sessione. Se si desidera usare questa impostazione, occorre valutare il numero massimo di sessioni e di test per tale livello con questa impostazione prima di inserire il server nell'ambiente di produzione.
+-   **Ottimizzato per l'utilizzo della larghezza di banda di rete inferiore** Consente inoltre di ridurre l'utilizzo della larghezza di banda di rete a un costo di circa 2 MB per sessione. Se si vuole usare questa impostazione, è necessario valutare il numero massimo di sessioni ed eseguire il test a tale livello con questa impostazione prima di collocare il server in produzione.
 
-È anche possibile scegliere di non usare un algoritmo di compressione di RemoteFX. Scelta di non usare un algoritmo di compressione RemoteFX userà più larghezza di banda di rete ed è consigliabile solo se si usa un dispositivo hardware che è progettato per ottimizzare il traffico di rete. Anche se si sceglie di non utilizzare un algoritmo di compressione RemoteFX, alcuni dati di grafica verranno compresso.
+È anche possibile scegliere di non usare un algoritmo di compressione RemoteFX. La scelta di non utilizzare un algoritmo di compressione RemoteFX utilizzerà una maggiore larghezza di banda di rete ed è consigliabile solo se si utilizza un dispositivo hardware progettato per ottimizzare il traffico di rete. Anche se si sceglie di non usare un algoritmo di compressione RemoteFX, alcuni dati grafici verranno compressi.
 
 ### <a name="device-redirection"></a>Reindirizzamento del dispositivo
 
-Il reindirizzamento del dispositivo può essere configurato tramite criteri di gruppo nello **configurazione Computer &gt; modelli amministrativi &gt; i componenti di Windows &gt; Remote Desktop Services &gt; Desktop remoto Host sessione &gt; dispositivo e il reindirizzamento della risorsa** oppure usando la **insieme di sessioni** finestra di dialogo in Server Manager.
+Il reindirizzamento del dispositivo può essere configurato usando Criteri di gruppo in **Configurazione Computer &gt; modelli amministrativi Componenti di Windows &gt; &gt; Servizi Desktop remoto &gt; Host sessione Desktop remoto &gt; dispositivo e risorsa Reindirizzamento** o utilizzando la casella proprietà **raccolta sessioni** in Server Manager.
 
-In genere, il reindirizzamento della periferica aumenta quanto più l'uso di connessioni server Host sessione Desktop remoto della larghezza di banda di rete perché i dati vengono scambiati tra i dispositivi nei computer client e i processi in esecuzione nella sessione del server. L'entità dell'aumento è una funzione della frequenza delle operazioni eseguite dalle applicazioni in esecuzione nel server per i dispositivi reindirizzati.
+In genere, il reindirizzamento dei dispositivi aumenta la quantità di connessioni del server Host sessione Desktop remoto della larghezza di banda usata perché i dati vengono scambiati tra i dispositivi nei computer client e i processi in esecuzione nella sessione del server. L'entità dell'aumento è una funzione della frequenza delle operazioni eseguite dalle applicazioni in esecuzione nel server sui dispositivi reindirizzati.
 
-Il reindirizzamento della stampante e pronta per il reindirizzamento della periferica aumenta anche l'utilizzo di CPU al momento dell'accesso. È possibile reindirizzare le stampanti in due modi:
+Il reindirizzamento della stampante e il reindirizzamento dei dispositivi Plug and Play aumentano anche l'utilizzo della CPU all'accesso. È possibile reindirizzare le stampanti in due modi:
 
--   Corrispondenza basato sul driver il reindirizzamento della stampante quando un driver della stampante deve essere installato nel server. Nelle versioni precedenti di Windows Server viene utilizzato questo metodo.
+-   Corrispondenza del reindirizzamento basato su driver della stampante quando è necessario installare un driver per la stampante nel server. Questo metodo è stato utilizzato nelle versioni precedenti di Windows Server.
 
--   Introdotta in Windows Server 2008, il reindirizzamento di driver della stampante Easy Print Usa un driver della stampante comune per tutte le stampanti.
+-   Introdotta in Windows Server 2008, il reindirizzamento dei driver della stampante Easy Print utilizza un driver della stampante comune per tutte le stampanti.
 
-Il metodo Easy Print è consigliabile perché causa minore utilizzo della CPU per l'installazione delle stampanti al momento della connessione. Il metodo di driver corrispondenti provoca un aumento dell'utilizzo della CPU perché richiede il servizio spooler di caricare i driver diversi. Per informazioni sull'utilizzo della larghezza di banda, Easy Print fa sì che utilizzo della larghezza di banda di rete leggermente maggiore, ma non abbastanza significativa da compensare gli altri vantaggi di prestazioni, gestibilità e affidabilità.
+È consigliabile usare il metodo Easy Print perché causa un minor utilizzo della CPU per l'installazione della stampante al momento della connessione. Il metodo driver corrispondente causa un maggiore utilizzo della CPU, perché richiede il caricamento di driver diversi da parte del servizio spooler. Per l'utilizzo della larghezza di banda, la stampa semplice causa un aumento dell'utilizzo della larghezza di banda di rete, ma non abbastanza significativo per compensare i vantaggi di prestazioni, gestibilità e affidabilità.
 
-Il reindirizzamento audio fa sì che un flusso del traffico di rete. Il reindirizzamento audio consente inoltre agli utenti di eseguire App multimediale in genere con utilizzo elevato di CPU.
+Il reindirizzamento audio causa un flusso costante di traffico di rete. Il reindirizzamento audio consente inoltre agli utenti di eseguire app multimediali che in genere hanno un utilizzo elevato della CPU.
 
-### <a name="client-experience-settings"></a>Impostazioni di esperienza client
+### <a name="client-experience-settings"></a>Impostazioni esperienza client
 
-Per impostazione predefinita, la connessione di Desktop remoto (RDC) sceglie automaticamente il diritto esperienza impostazione in base all'idoneità della connessione di rete tra i computer client e server. È consigliabile che la configurazione di RDC rimangono nella **rileva automaticamente la qualità della connessione**.
+Per impostazione predefinita, Connessione Desktop remoto (RDC) sceglie automaticamente l'impostazione dell'esperienza corretta in base all'idoneità della connessione di rete tra il server e i computer client. È consigliabile che la configurazione RDC rimanga in modo da **rilevare automaticamente la qualità della connessione**.
 
-Per gli utenti esperti, la tecnologia RDC consente di controllare una gamma di impostazioni che influenzano le prestazioni della larghezza di banda di rete per la connessione di Servizi Desktop remoto. Le impostazioni seguenti è possibile accedere usando il **esperienza** scheda Connessione Desktop remoto o come impostazioni nel file RDP.
+Per gli utenti avanzati, RDC fornisce il controllo su una gamma di impostazioni che influenzano le prestazioni della larghezza di banda di rete per la connessione Servizi Desktop remoto. È possibile accedere alle impostazioni seguenti utilizzando la scheda **esperienza** in connessione Desktop remoto o come impostazioni nel file RDP.
 
-Quando ci si connette a qualsiasi computer, si applicano le impostazioni seguenti:
+Quando ci si connette a qualsiasi computer, vengono applicate le impostazioni seguenti:
 
--   **Disable wallpaper=i:<0** (disabilita lo sfondo: i:0#.w|Contoso) non viene visualizzato lo sfondo del desktop per le connessioni reindirizzate. Questa impostazione può ridurre notevolmente utilizzo della larghezza di banda se lo sfondo del desktop è costituito da un'immagine o un altro contenuto con i notevoli costi correlati per il disegno.
+-   **Disabilita sfondo** (Disabilita sfondo: i: 0) non Mostra lo sfondo del desktop sulle connessioni reindirizzate. Questa impostazione può ridurre significativamente l'utilizzo della larghezza di banda se lo sfondo del desktop è costituito da un'immagine o da altri contenuti con costi significativi per il disegno.
 
--   **Cache bitmap** (Bitmapcachepersistenable:i:1) quando questa impostazione è abilitata, viene creata una cache lato client della bitmap a cui viene eseguito il rendering della sessione. Fornisce un miglioramento significativo sull'utilizzo della larghezza di banda e deve sempre essere abilitato (a meno che non esistono altre considerazioni sulla sicurezza).
+-   **Cache bitmap** (bitmapcachepersistenable: i: 1) quando questa impostazione è abilitata, viene creata una cache sul lato client delle bitmap di cui viene eseguito il rendering nella sessione. Fornisce un miglioramento significativo sull'utilizzo della larghezza di banda ed è sempre necessario abilitarlo (a meno che non siano presenti altre considerazioni sulla sicurezza).
 
--   **Visualizzare il contenuto di windows durante il trascinamento** (disabilitare la finestra completo. trascinare: allowfontsmoothing:i:1) quando questa impostazione è disabilitata, riduce la larghezza di banda visualizzando solo il frame della finestra anziché tutto il contenuto quando la finestra viene trascinata.
+-   **Mostra contenuto delle finestre durante il trascinamento** (disabilitazione del trascinamento della finestra completa: i: 1) quando questa impostazione è disabilitata, riduce la larghezza di banda visualizzando solo la cornice della finestra anziché tutto il contenuto quando la finestra viene trascinata.
 
--   **Animazione menu e finestre** (Disable menu anims:i:1 e Disable cursor impostazione: allowfontsmoothing:i:1): Quando queste impostazioni sono disabilitate, riduce la larghezza di banda disabilitando l'animazione dei menu (ad esempio, dissolvenza) e i cursori.
+-   **Animazione di menu e finestre** (Disattiva menu Animas: i: 1 e Disabilita impostazione cursore: i: 1): Quando queste impostazioni sono disabilitate, riduce la larghezza di banda disabilitando l'animazione nei menu (ad esempio, dissolvenza) e i cursori.
 
--   **Caratteri smussati** (Allow font smoothing=i:<0: i:0#.w|Contoso) supporto per il rendering dei caratteri ClearType controlli. Quando ci si connette ai computer che eseguono Windows 8 o Windows Server 2012 e versioni successive, abilitazione o disabilitazione di questa impostazione non ha un impatto significativo sull'utilizzo della larghezza di banda. Tuttavia, per i computer che eseguono versioni precedenti a Windows 7 e Windows 2008 R2, si abilita questa impostazione influisce sul consumo di larghezza di banda di rete in modo significativo.
+-   **Smussatura dei caratteri** (Consenti smussatura dei caratteri: i: 0) controlla il supporto per il rendering del tipo di carattere ClearType. Quando ci si connette a computer che eseguono Windows 8 o Windows Server 2012 e versioni successive, l'abilitazione o la disabilitazione di questa impostazione non ha un impatto significativo sull'utilizzo della larghezza di banda. Tuttavia, per i computer che eseguono versioni precedenti a Windows 7 e Windows 2008 R2, l'abilitazione di questa impostazione influiscono significativamente sull'utilizzo della larghezza di banda di rete.
 
-Le impostazioni seguenti si applicano solo quando ci si connette ai computer che eseguono Windows 7 e versioni precedenti del sistema operativo:
+Le impostazioni seguenti si applicano solo quando ci si connette a computer che eseguono Windows 7 e versioni precedenti del sistema operativo:
 
--   **Composizione del desktop** questa impostazione è supportata solo per una sessione remota per un computer che esegue Windows 7 o Windows Server 2008 R2.
+-   **Composizione del desktop** Questa impostazione è supportata solo per una sessione remota in un computer che esegue Windows 7 o Windows Server 2008 R2.
 
--   **Stili visivi** (disabilitare i temi: allowfontsmoothing:i:1) quando questa impostazione è disabilitata, riduce la larghezza di banda mediante la semplificazione disegni tema che utilizzano il tema Classic.
+-   **Stili di visualizzazione** (Disabilita i temi: i: 1) quando questa impostazione è disabilitata, riduce la larghezza di banda semplificando i disegni di tema che usano il tema classico.
 
-Tramite il **esperienza** scheda all'interno di connessione Desktop remoto, è possibile scegliere la velocità della connessione per influenzare le prestazioni della larghezza di banda di rete. Di seguito sono elencate le opzioni disponibili configurare la velocità della connessione:
+Utilizzando la scheda **esperienza** in connessione Desktop remoto, è possibile scegliere la velocità di connessione per influenzare le prestazioni della larghezza di banda di rete. Di seguito sono elencate le opzioni disponibili per configurare la velocità di connessione:
 
--   **Rilevare automaticamente la qualità della connessione** (tipo di connessione: i:7) quando questa impostazione è abilitata, connessione Desktop remoto sceglie automaticamente impostazioni che determineranno l'esperienza utente ottimale in base la qualità della connessione. (Questa configurazione è consigliata quando ci si connette ai computer che eseguono Windows 8 o Windows Server 2012 e versioni successive).
+-   **Rileva automaticamente la qualità della connessione** (tipo di connessione: i: 7) quando questa impostazione è abilitata, connessione Desktop remoto sceglie automaticamente le impostazioni che comporteranno un'esperienza utente ottimale basata sulla qualità della connessione. Questa configurazione è consigliata quando ci si connette a computer che eseguono Windows 8 o Windows Server 2012 e versioni successive.
 
--   **Modem (56 Kbps)** (tipo di connessione: allowfontsmoothing:i:1) questa impostazione abilita la memorizzazione nella cache di bitmap permanente.
+-   **Modem (56 Kbps)** (tipo di connessione: i: 1) questa impostazione Abilita la memorizzazione nella cache persistente delle bitmap.
 
--   **Bassa velocità a banda larga (256 Kbps - 2 Mbps)** (tipo di connessione: i:2) questa impostazione abilita gli stili di memorizzazione nella cache e visual bitmap permanente.
+-   **Banda larga a bassa velocità (256 Kbps-2 Mbps)** (tipo di connessione: i: 2) questa impostazione Abilita la memorizzazione nella cache persistente e gli stili di visualizzazione.
 
--   **Rete cellulare o Satellite (2 Mbps - 16 Mbps con una latenza elevata)** (tipo di connessione: i:3) questa impostazione consente di composizione del desktop, la memorizzazione nella cache persistente bitmap, gli stili di visualizzazione e sfondo del desktop.
+-   **Cellulare/satellite (2Mbps-16 Mbps con latenza elevata)** (tipo di connessione: i: 3) questa impostazione consente la composizione del desktop, la memorizzazione nella cache permanente della bitmap, gli stili di visualizzazione e lo sfondo del desktop.
 
--   **Connessione a banda larga ad alta velocità (2 Mbps-10 Mbps)** (tipo di connessione: i:4) questa impostazione consente la composizione del desktop, visualizzare il contenuto di windows durante il trascinamento, animazione menu e finestre, la memorizzazione nella cache persistente bitmap, gli stili di visualizzazione e sfondo del desktop.
+-   **Banda larga ad alta velocità (2 Mbps-10 Mbps)** (tipo di connessione: i: 4) questa impostazione consente la composizione del desktop, Mostra il contenuto delle finestre durante il trascinamento, l'animazione di menu e finestre, la memorizzazione nella cache persistente della bitmap, gli stili di visualizzazione e lo sfondo del desktop.
 
--   **WAN (10 Mbps o superiore con una latenza elevata)** (tipo di connessione: i:5) questa impostazione consente la composizione del desktop, visualizzare il contenuto di windows durante il trascinamento, animazione menu e finestre, la memorizzazione nella cache persistente bitmap, gli stili di visualizzazione e sfondo del desktop.
+-   **WAN (10 Mbps o superiore con latenza elevata)** (tipo di connessione: i: 5) questa impostazione consente la composizione del desktop, Mostra il contenuto delle finestre durante il trascinamento, l'animazione di menu e finestre, la memorizzazione nella cache permanente della bitmap, gli stili visivi e lo sfondo del desktop.
 
--   **LAN (10 Mbps o superiore)** (tipo di connessione: i:6) questa impostazione consente la composizione del desktop, visualizzare il contenuto di windows durante il trascinamento, animazione menu e finestre, la memorizzazione nella cache persistente bitmap, temi e sfondo del desktop.
+-   **LAN (10 Mbps o superiore)** (tipo di connessione: i: 6) questa impostazione consente la composizione del desktop, Mostra il contenuto delle finestre durante il trascinamento, l'animazione di menu e finestre, la memorizzazione nella cache permanente della bitmap, i temi e lo sfondo del desktop.
 
 ### <a name="desktop-size"></a>Dimensioni del desktop
 
-Dimensioni del desktop per sessioni remote possono essere controllate utilizzando la scheda di visualizzazione in connessione Desktop remoto oppure usando il file di configurazione di RDP (desktopwidth:i:1152 e desktopheight:i:864). Maggiore è la dimensione del desktop, maggiore di memoria e larghezza di banda consumo associata a tale sessione. Le dimensioni correnti di desktop massima sono 4096 x 2048.
+Le dimensioni del desktop per le sessioni remote possono essere controllate tramite la scheda Visualizza in Connessione Desktop remoto o tramite il file di configurazione RDP (desktopwidth: i: 1152 e desktopheight: i: 864). Maggiori sono le dimensioni del desktop, maggiore è il consumo di memoria e larghezza di banda associato a tale sessione. Le dimensioni massime del desktop correnti sono 4096 x 2048.

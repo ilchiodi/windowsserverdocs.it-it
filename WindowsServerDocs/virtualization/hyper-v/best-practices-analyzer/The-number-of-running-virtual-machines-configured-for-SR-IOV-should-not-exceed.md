@@ -1,7 +1,7 @@
 ---
 title: Il numero di macchine virtuali configurate per SR-IOV non deve superare il numero di funzioni virtuali disponibile per le macchine virtuali
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 8bd4af5e-9e7d-4710-8950-39435a8bb373
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e63df9283927437f9cfc62c052d83b07fe599b34
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0887035c84ebc4b7d93163533387f2f8ab20fb87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364609"
 ---
 # <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>Il numero di macchine virtuali configurate per SR-IOV non deve superare il numero di funzioni virtuali disponibile per le macchine virtuali
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Sono non disponibili funzioni virtuali sufficiente per il numero di macchine virtuali configurate per single-root i/o virtualization (SR-IOV).*  
+*Non sono disponibili funzioni virtuali sufficienti per il numero di macchine virtuali in esecuzione configurate per Single-Root I/O Virtualization (SR-IOV).*  
   
 ## <a name="impact"></a>Impatto  
-*Prestazioni di rete potrebbero non essere ottimale nelle macchine virtuali seguenti:*  
+*Le prestazioni di rete potrebbero non essere ottimali nelle macchine virtuali seguenti:*  
    
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*È consigliabile disabilitare SR-IOV in uno o più macchine virtuali che non necessitano di una funzione virtuale SR-IOV.*  
+*Provare a disabilitare SR-IOV in una o più macchine virtuali che non richiedono una funzione virtuale SR-IOV.*  
   
 
 

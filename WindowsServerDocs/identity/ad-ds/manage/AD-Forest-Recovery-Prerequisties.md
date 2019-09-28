@@ -1,64 +1,64 @@
 ---
-title: Prerequisiti per la pianificazione di ripristino della foresta Active Directory
+title: Prerequisiti per la pianificazione del ripristino della foresta Active Directory
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: c49b40b2-598d-49aa-85b4-766bce960e0d
 ms.technology: identity-adds
-ms.openlocfilehash: c8945dd5ccccb27826dd96413b56a070a7452789
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 12c34afc497131bfe6abdc78c636e6d3b784877e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390374"
 ---
-# <a name="active-directory-forest-recovery-prerequisites"></a>Prerequisiti di ripristino di foreste Active Directory
+# <a name="active-directory-forest-recovery-prerequisites"></a>Prerequisiti per il ripristino della foresta Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 e 2012 R2, Windows Server 2008 e 2008 R2
 
 Il documento seguente illustra i prerequisiti che è necessario conoscere prima di definire un piano di ripristino della foresta o tentare un ripristino.
 
-## <a name="assumptions-for-using-this-guide"></a>Presupposti per l'uso di questa Guida
+## <a name="assumptions-for-using-this-guide"></a>Presupposti per l'uso di questa guida
 
-1. Chi ha familiarità con un professionista del supporto Microsoft e:
-   - Determinare la causa dell'errore a livello di foresta. Questa Guida non una causa dell'errore suggeriresti tutte le procedure per impedire che un errore.
-   - Valutare eventuali possibili soluzioni.  
-   - Conclusione, in accordo con supporto tecnico Microsoft, che il ripristino dell'intera foresta al relativo stato prima che si è verificato l'errore è il modo migliore per correggere l'errore. In molti casi, ripristino della foresta deve essere l'ultima opzione.
+1. Si è lavorato con una supporto tecnico Microsoft Professional e:
+   - Determinare la cause dell'errore a livello di foresta. In questa guida non viene suggerita la presenza di un errore o una procedura consigliata per evitare l'errore.
+   - Sono state valutate le possibili soluzioni.  
+   - Conclusa, in consultazione con supporto tecnico Microsoft, che il ripristino dell'intera foresta allo stato precedente all'errore è il modo migliore per risolvere il problema. In molti casi, il ripristino della foresta deve essere l'ultima opzione.
 
-2. Che siano state seguite le procedure consigliate Microsoft per l'utilizzo integrato di Active Directory del sistema DNS (Domain Name). In particolare, deve essere presente una zona di DNS integrate in Active Directory per ogni dominio di Active Directory. 
-   - Se ciò non avviene, è possibile usare ancora i principi di base di questa guida per eseguire il ripristino dell'insieme di strutture. Tuttavia, è necessario adottare misure specifiche per il ripristino DNS in ambiente di base. Per altre informazioni sull'uso di DNS integrate in Active Directory, vedere [creazione di un progetto di infrastruttura DNS](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
+2. È stata seguita la procedura consigliata Microsoft per l'uso di Active Directory-Integrated Domain Name System (DNS). In particolare, deve essere presente una zona DNS integrata Active Directory per ogni dominio di Active Directory. 
+   - In caso contrario, è comunque possibile utilizzare i principi di base di questa guida per eseguire il ripristino della foresta. Tuttavia, sarà necessario adottare misure specifiche per il ripristino DNS in base al proprio ambiente. Per altre informazioni sull'uso di Active Directory DNS integrato, vedere [creazione di un progetto di infrastruttura DNS](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
 
-3. Sebbene questa guida è da intendersi come una guida generica per il ripristino dell'insieme di strutture, non tutte le possibili gli scenari. Ad esempio, a partire da Windows Server 2008, è presente una versione di Server Core, ovvero una versione completa di Windows Server ma senza un'interfaccia utente grafica completa. Sebbene sia certamente possibile ripristinare una foresta costituito semplicemente i controller di dominio che eseguono Server Core, questa Guida non ha nessuna istruzioni dettagliate. Tuttavia, le linee guida illustrate di seguito in base sarà in grado di progettare le azioni della riga di comando manualmente.  
+3. Sebbene questa guida sia destinata a una guida generica per il ripristino della foresta, non tutti gli scenari possibili sono trattati. Ad esempio, a partire da Windows Server 2008, esiste una versione Server Core, ovvero una versione completa di Windows Server, ma senza un'interfaccia utente grafica completa. Sebbene sia certamente possibile ripristinare una foresta costituita da solo controller di dominio che eseguono Server Core, in questa guida non sono disponibili istruzioni dettagliate. Tuttavia, in base alle linee guida illustrate in questo articolo, sarà possibile progettare le azioni da riga di comando necessarie.  
 
 > ![!NOTE]
-> Sebbene gli obiettivi di questa Guida al ripristino della foresta e mantenere o ripristinare la funzionalità DNS completa, il ripristino può comportare una configurazione DNS che è stata modificata dalla configurazione prima dell'errore. Dopo avere recuperato l'insieme di strutture, è possibile ripristinare la configurazione DNS originale. I consigli riportati in questa guida viene descritto come configurare i server DNS per eseguire la risoluzione dei nomi delle altre parti dello spazio dei nomi aziendali in cui sono presenti le zone DNS che non sono archiviate in Active Directory Domain Services.  
+> Sebbene gli obiettivi di questa guida siano il ripristino della foresta e la gestione o il ripristino della funzionalità DNS completa, il ripristino può comportare una configurazione DNS modificata rispetto alla configurazione prima dell'errore. Dopo il ripristino della foresta, è possibile ripristinare la configurazione DNS originale. I consigli riportati in questa guida non descrivono come configurare i server DNS per eseguire la risoluzione dei nomi di altre parti dello spazio dei nomi aziendale in cui sono presenti zone DNS che non sono archiviate in servizi di dominio Active Directory.  
 
-## <a name="concepts-for-using-this-guide"></a>Concetti per l'uso di questa Guida
+## <a name="concepts-for-using-this-guide"></a>Concetti relativi all'uso di questa guida
 
-Prima di iniziare la pianificazione del ripristino di una foresta di Active Directory, è necessario avere familiarità con gli elementi seguenti:  
+Prima di iniziare a pianificare il ripristino di una foresta di Active Directory, è necessario avere familiarità con quanto segue:  
   
 - Concetti fondamentali di Active Directory  
-- L'importanza dei ruoli di master operazioni (noto anche come FSMO flexible single master operations). Questi ruoli includono quanto segue:  
+- Importanza dei ruoli di master operazioni, noti anche come FSMO (Flexible Single Master Operation). Questi ruoli includono i seguenti:  
    - Master schema
-   - Master denominazione domini
-   - Master ID relativo (RID)
-   - Master di emulatore dominio primario (PDC) controller
+   - Master per la denominazione dei domini
+   - Master di ID relativo (RID)
+   - Master emulatore controller di dominio primario (PDC)
    - Master infrastrutture
 
-Inoltre, si deve avere eseguito il backup e ripristinare Active Directory e SYSVOL in un ambiente lab a intervalli regolari. Per altre informazioni, vedere [backup dei dati dello stato del sistema](AD-Forest-Recovery-Procedures.md) e [esegue un ripristino non autorevole di servizi di dominio Active Directory](AD-Forest-Recovery-Procedures.md).
+Inoltre, è necessario aver eseguito il backup e il ripristino di servizi di dominio Active Directory e SYSVOL in un ambiente lab a intervalli regolari. Per ulteriori informazioni, vedere [backup dei dati sullo stato del sistema](AD-Forest-Recovery-Procedures.md) ed [esecuzione di un ripristino non autorevole di Active Directory Domain Services](AD-Forest-Recovery-Procedures.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristino della foresta Active Directory - prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
-- [Ripristino della foresta Active Directory - concepire un piano di ripristino personalizzata-foresta](AD-Forest-Recovery-Devising-a-Plan.md)  
-- [Ripristino della foresta Active Directory - identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
-- [Ripristino della foresta Active Directory - determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
-- [Ripristino della foresta Active Directory - eseguire il ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md)  
-- [Ripristino della foresta Active Directory - domande frequenti](AD-Forest-Recovery-FAQ.md)  
-- [Ripristino della foresta Active Directory - il ripristino di un singolo dominio all'interno di un Multidomain foresta](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
-- [Ripristino della foresta Active Directory - ripristino della foresta con controller di dominio di Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  
+- [Ripristino della foresta di Active Directory - Prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
+- [Ripristino della foresta di Active Directory-definizione di un piano di ripristino della foresta personalizzato](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [Ripristino della foresta di Active Directory-identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
+- [Ripristino della foresta di Active Directory-determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
+- [Ripristino della foresta di Active Directory-esecuzione del ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md)  
+- [Ripristino della foresta di Active Directory-Domande frequenti](AD-Forest-Recovery-FAQ.md)  
+- [Ripristino della foresta di Active Directory-ripristino di un singolo dominio in una foresta con più domini](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
+- [Ripristino della foresta di Active Directory-ripristino della foresta con i controller di dominio Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  

@@ -1,8 +1,8 @@
 ---
 title: shadow
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 125b2971d5d4783ea0b974c45b988cbd1c58a2bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb2fad4b0a553e736755f2dc56e5d88297a1fef5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383963"
 ---
 # <a name="shadow"></a>shadow
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di controllare in remoto una sessione attiva di un altro utente in un server Host sessione Desktop remoto (Host sessione rd).
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+Consente di controllare in modalità remota una sessione attiva di un altro utente in un server di host sessione Desktop remoto (host sessione Desktop remoto).
+Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -35,31 +35,30 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|\<SessionName >|Specifica il nome della sessione che si vuole controllare in remoto.|
-|\<SessionID >|Specifica l'ID della sessione che si vuole controllare in remoto. Uso **query utente** per visualizzare l'elenco di sessioni e i relativi ID di sessione.|
-|/server:\<ServerName>|Specifica il server Host sessione Desktop remoto che contiene la sessione che si desidera controllare in remoto. Per impostazione predefinita, viene utilizzato il server di desktop remoto Host4 sessione corrente.|
-|/v|Consente di visualizzare informazioni sulle azioni eseguibili in esecuzione.|
+|\<SessionName >|Specifica il nome della sessione che si desidera controllare in remoto.|
+|\<SessionID >|Specifica l'ID della sessione che si desidera controllare in remoto. Usare **query user** per visualizzare l'elenco delle sessioni e i relativi ID di sessione.|
+|/Server: \<ServerName >|Specifica il server Host sessione Desktop remoto contenente la sessione che si desidera controllare in remoto. Per impostazione predefinita, viene usato il server Host4 sessione Desktop remoto corrente.|
+|/v|Visualizza le informazioni sulle azioni eseguite.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
--   È possibile visualizzare o controllare attivamente la sessione. Se si sceglie di controllare attivamente una sessione utente, sarà in grado di input da tastiera e mouse azioni per la sessione.
--   È possibile controllare sempre in modalità remota le proprie sessioni (tranne la sessione corrente), ma è necessario disporre dell'autorizzazione controllo completo o l'autorizzazione di accesso speciali controllo remoto per il controllo remoto di un'altra sessione.
--   È anche possibile avviare il controllo remoto tramite Gestione Servizi Desktop remoto.
--   Prima di iniziare il monitoraggio, il server avvisa l'utente che la sessione sta per essere controllato da remoto, a meno che questo avviso è disabilitato. La sessione potrebbe sembrare bloccata per pochi secondi mentre si attende una risposta da parte dell'utente. Per configurare il controllo remoto per utenti e sessioni, utilizzare lo strumento di configurazione di Servizi Desktop remoto o le estensioni di Servizi Desktop remoto per gli utenti locali e i gruppi e active directory gli utenti e computer.
--   La sessione deve essere in grado di supportare la risoluzione video usata durante la sessione che sta controllando in modalità remota o l'operazione ha esito negativo.
--   La sessione della console può non controllare in remoto un'altra sessione né può essere controllato in modalità remota da un'altra sessione.
--   Quando si desidera terminare il controllo remoto (shadowing), premere CTRL + * (tramite \* solo del tastierino numerico).
+-   È possibile visualizzare o controllare attivamente la sessione. Se si sceglie di controllare attivamente la sessione di un utente, sarà possibile immettere le azioni della tastiera e del mouse per la sessione.
+-   È sempre possibile controllare in remoto le proprie sessioni, ad eccezione della sessione corrente, ma è necessario disporre dell'autorizzazione controllo completo o del controllo remoto per l'accesso in remoto a un'altra sessione.
+-   È anche possibile avviare il controllo remoto tramite Servizi Desktop remoto Manager.
+-   Prima dell'avvio del monitoraggio, il server avvisa l'utente che la sessione sta per essere controllata in remoto, a meno che questo avviso non sia disabilitato. La sessione potrebbe sembrare bloccata per alcuni secondi durante l'attesa di una risposta da parte dell'utente. Per configurare il controllo remoto per utenti e sessioni, usare lo strumento di configurazione Servizi Desktop remoto o le estensioni Servizi Desktop remoto per utenti e gruppi locali e utenti e computer di Active Directory.
+-   La sessione deve essere in grado di supportare la risoluzione video utilizzata nella sessione controllata in remoto oppure l'operazione non riesce.
+-   La sessione della console non può controllare in modalità remota un'altra sessione né può essere controllata in remoto da un'altra sessione.
+-   Quando si desidera terminare il controllo remoto (ombreggiatura), premere CTRL + \* (utilizzando \* solo dal tastierino numerico).
 
 ## <a name="BKMK_examples"></a>Esempi
--   Alla sessione shadow 93, digitare:
+-   Per eseguire l'ombreggiatura della sessione 93, digitare:
     ```
     shadow 93
     ```
--   Per lo shadowing della sessione ACCTG01, digitare:
+-   Per nascondere la sessione ACCTG01, digitare:
     ```
     shadow ACCTG01
     ```
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)
+[Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

@@ -1,8 +1,8 @@
 ---
-title: Secedit:generaterollback
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'secedit: generaterollback'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa655d80c2698430827ad814c2b476e526529323
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3ce4bd83e6eda24c10f65bd9d450a204906ff7fd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384216"
 ---
-# <a name="seceditgeneraterollback"></a>Secedit:generaterollback
+# <a name="seceditgeneraterollback"></a>secedit: generaterollback
 
 
 
@@ -44,11 +44,11 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 ## <a name="remarks"></a>Note
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Users \*UserAccount<em>\My Documents\Security\Logs\*NomeDatabase</em>. log) viene usato.
+Se il percorso del file di log non viene specificato, viene utilizzato il file di logpredefinito, \*ovvero systemroot \Users AccountUtente<em>\My Documents\Security\Logs\*DatabaseName</em>. log.
 
 A partire da Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 
-L'esecuzione ha esito positivo di questo comando indicherà "l'attività è stata completata." e i registri solo le mancate corrispondenze tra il modello di sicurezza indicati e configurazione dei criteri di sicurezza. Vengono elencate tali mancate corrispondenze nel scesrv.log.
+La corretta esecuzione di questo comando verrà "l'attività è stata completata correttamente". e i registri solo le mancate corrispondenze tra il modello di sicurezza indicati e configurazione dei criteri di sicurezza. Vengono elencate tali mancate corrispondenze nel scesrv.log.
 
 Se viene specificato un modello di ripristino esistenti, questo comando viene sovrascritto. Con questo comando, è possibile creare un nuovo modello di rollback. Parametri aggiuntivi non necessari per una delle due condizioni.
 

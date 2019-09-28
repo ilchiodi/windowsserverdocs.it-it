@@ -2,7 +2,7 @@
 title: Guida introduttiva alla funzionalità Account del servizio gestiti del gruppo
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-gmsa
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3d07f137aa40b26b4f4fd69c050415b82608ed7e
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 8086ce329c532e07363fd22fe424a9a1dda04250
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386891"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Guida introduttiva alla funzionalità Account del servizio gestiti del gruppo
 
@@ -59,10 +59,10 @@ I servizi consentono di scegliere tra le entità seguenti, ognuna delle quali pr
 |Entità|`Scope`|Servizi supportati|Gestione delle password|
 |-------|-----|-----------|------------|
 |Account computer del sistema Windows|Domain|Limitato a un server aggiunto al dominio|Gestite dal computer|
-|Account computer senza sistema Windows|Domain|Qualsiasi server aggiunto al dominio|Nessuna|
+|Account computer senza sistema Windows|Domain|Qualsiasi server aggiunto al dominio|Nessuno|
 |Account virtuale|Locale|Limitato a un server|Gestite dal computer|
 |Account del servizio gestito (autonomo) Windows 7|Domain|Limitato a un server aggiunto al dominio|Gestite dal computer|
-|Account utente|Domain|Qualsiasi server aggiunto al dominio|Nessuna|
+|Account utente|Domain|Qualsiasi server aggiunto al dominio|Nessuno|
 |Account del servizio gestito del gruppo|Domain|Qualsiasi server aggiunto al dominio di Windows Server 2012|Gestite dal controller di dominio e recuperate dall'host|
 
 Non è possibile condividere tra più sistemi un account computer Windows o un account del servizio gestito autonomo (sMSA) Windows 7 o account virtuali. Se si configura un account per i servizi da condividere in server farm, è necessario scegliere un account utente o un account computer diverso da quello del sistema Windows. In entrambi i casi, questi account non dispongono della funzionalità di gestione delle password come singolo punto di controllo. Si crea quindi un problema perché ogni organizzazione deve elaborare una soluzione costosa per aggiornare le chiavi del servizio in Active Directory e distribuirle a tutte le istanze di tali servizi.
@@ -153,11 +153,11 @@ Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai grupp
 
 2.  Al prompt dei comandi di Windows PowerShell, digitare i comandi seguenti e quindi premere INVIO. (Il modulo Active Directory verrà caricato automaticamente.)
 
-    **New-ADServiceAccount [-name] <string> -dNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-sAMAccountName <string> -ServicePrincipalNames < stringa [] >**
+    **New-ADServiceAccount [-name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-SamAccountName <string>-ServicePrincipalNames < stringa [] >**
 
-    |Parametro|String|Esempio|
+    |Parametro|Stringa|Esempio|
     |-------|-----|------|
-    |Name|Nome dell'account|ITFarm1|
+    |Nome|Nome dell'account|ITFarm1|
     |DNSHostName|Nome host DNS del servizio|ITFarm1.contoso.com|
     |KerberosEncryptionType|Qualsiasi tipo di crittografia supportata dai server host|RC4, AES128, AES256|
     |ManagedPasswordIntervalInDays|Intervallo di modifica della password espresso in giorni (se non è indicato, l'intervallo predefinito è di 30 giorni)|90|
@@ -185,11 +185,11 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **New-ADServiceAccount [-name] <string> -RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
+    **New-ADServiceAccount [-name] <string>-RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
 
-    |Parametro|String|Esempio|
+    |Parametro|Stringa|Esempio|
     |-------|-----|------|
-    |Name|Nome dell'account|ITFarm1|
+    |Nome|Nome dell'account|ITFarm1|
     |ManagedPasswordIntervalInDays|Intervallo di modifica della password espresso in giorni (se non è indicato, l'intervallo predefinito è di 30 giorni)|75|
     |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|ITFarmHosts|
 
@@ -247,15 +247,15 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Get-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **Get-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Parametro|String|Esempio|
+|Parametro|Stringa|Esempio|
 |-------|-----|------|
-|Name|Nome dell'account|ITFarm1|
+|Nome|Nome dell'account|ITFarm1|
 |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|Host1, Host2, Host3|
 
 **Esempio**
@@ -307,15 +307,15 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Get-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **Get-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Parametro|String|Esempio|
+|Parametro|Stringa|Esempio|
 |-------|-----|------|
-|NOME|Nome dell'account|ITFarm1|
+|Nome|Nome dell'account|ITFarm1|
 |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|Host1, Host3|
 
 **Esempio**

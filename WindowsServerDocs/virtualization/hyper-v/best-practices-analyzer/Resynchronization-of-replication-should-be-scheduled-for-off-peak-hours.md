@@ -1,7 +1,7 @@
 ---
 title: La risincronizzazione della replica deve essere pianificata per le ore
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 093a7bb7-8e0a-486b-b42b-04edd8809710
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2d6c18b7e37c5d17f56f41c7ff03ed8796457de0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 379f8c8cd6744fe5db176efb55a84f231ce45857
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393506"
 ---
 # <a name="resynchronization-of-replication-should-be-scheduled-for-off-peak-hours"></a>La risincronizzazione della replica deve essere pianificata per le ore
 
@@ -26,8 +26,8 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Operazioni|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *La risincronizzazione della replica per le macchine virtuali primarie non è pianificata per le ore non di punta.*  
   
 ## <a name="impact"></a>Impatto  
-*È più lungo una macchina virtuale è in uno stato che richiedono la risincronizzazione, più è lunga i file di log di replica aumentano e verificano le modifiche non replicate più nelle macchine virtuali primarie. Questo influisce sulle macchine virtuali seguenti:*  
+*The più a lungo una macchina virtuale si trova in uno stato che richiede la risincronizzazione, più a lungo i file di log di replica aumentano e le modifiche non replicate si verificano nelle macchine virtuali primarie. Ciò influisca sulle macchine virtuali seguenti:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Per modificare le impostazioni di replica per la macchina virtuale per eseguire la risincronizzazione automaticamente durante gli orari, utilizzare Gestione Hyper-V.*  
+*Utilizzare la console di gestione di Hyper-V per modificare le impostazioni di replica per la macchina virtuale in modo da eseguire automaticamente la risincronizzazione durante gli orari di minore utilizzo.*  
   
 
 

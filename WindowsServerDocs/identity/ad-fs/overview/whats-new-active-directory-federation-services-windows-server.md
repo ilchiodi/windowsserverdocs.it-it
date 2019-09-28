@@ -7,14 +7,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 04/23/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2a5de194f5870652920ec6a3d451d18840ba7b2a
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 6294c7b6ead0a9fa338f8b2cc8134b750f7e3e8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980342"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385554"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Novità di Active Directory Federation Services
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere [personalizzare le intestazioni di risposta di si
 
 ### <a name="authenticationpolicy-capabilities"></a>Funzionalità di autenticazione/criteri
 Le funzionalità di autenticazione e criteri seguenti sono disponibili AD FS 2019:
-- **Specificare il metodo di autenticazione per** l'autenticazione aggiuntiva per RP: i clienti possono ora usare le regole attestazioni per decidere quale provider di autenticazione aggiuntivo richiamare per il provider di autenticazione aggiuntivo. Questa operazione è utile per 2 casi d'uso
+- **Specificare il metodo di autenticazione per l'autenticazione aggiuntiva per RP** : i clienti possono ora usare le regole attestazioni per decidere quale provider di autenticazione aggiuntivo richiamare per il provider di autenticazione aggiuntivo. Questa operazione è utile per 2 casi d'uso
     - I clienti stanno passando da un provider di autenticazione aggiuntivo a un altro. In questo modo, durante l'onboarding degli utenti a un provider di autenticazione più recente, è possibile usare i gruppi per controllare quale provider di autenticazione aggiuntivo viene chiamato.
     - I clienti hanno bisogno di un provider di autenticazione aggiuntivo specifico (ad esempio, un certificato) per alcune applicazioni. 
 - Limitare l'autenticazione del **dispositivo basata su TLS solo alle applicazioni che lo richiedono** . i clienti possono ora limitare le autenticazioni dei dispositivi basate su TLS client solo alle applicazioni che eseguono l'accesso condizionale basato su dispositivo. In questo modo si evitano richieste indesiderate per l'autenticazione del dispositivo (o errori se l'applicazione client non è in grado di gestire) per le applicazioni che non richiedono l'autenticazione del dispositivo basata su TLS.
@@ -52,7 +52,7 @@ Le funzionalità di autenticazione e criteri seguenti sono disponibili AD FS 201
 In AD FS 2019 sono stati apportati i miglioramenti seguenti per l'accesso SSO:
 
 - [Impaginato UX con tema centrato](../operations/AD-FS-paginated-sign-in.md) -ADFS ora è stato spostato in un flusso di UX impaginato che consente ad ADFS di convalidare e fornire un'esperienza di accesso più uniforme. ADFS ora usa un'interfaccia utente centrata, anziché il lato destro dello schermo. Per allinearsi a questa esperienza, potrebbe essere necessario un logo e immagini di sfondo più recenti. Questo rispecchia anche le funzionalità offerte in Azure AD.
-- **Correzione di bug: Stato SSO persistente per i dispositivi WIN10 quando** si esegue l'autenticazione PRT questo risolve un problema per cui lo stato dell'autenticazione a più fattori non è persistente quando si usa l'autenticazione PRT per i dispositivi Windows 10. Il risultato del problema era che gli utenti finali ricevevano spesso la richiesta di credenziali di secondo fattore (multi-factor Credential). La correzione rende anche l'esperienza coerente quando l'autenticazione del dispositivo viene eseguita correttamente tramite il meccanismo TLS del client e via PRT. 
+- correzione di @no__t 0Bug: Stato SSO persistente per i dispositivi WIN10 quando si esegue l'autenticazione PRT @ no__t-0, questo risolve un problema per cui lo stato dell'autenticazione a più fattori non è persistente quando si usa l'autenticazione PRT per i dispositivi Windows 10. Il risultato del problema era che gli utenti finali ricevevano spesso la richiesta di credenziali di secondo fattore (multi-factor Credential). La correzione rende anche l'esperienza coerente quando l'autenticazione del dispositivo viene eseguita correttamente tramite il meccanismo TLS del client e via PRT. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Supporto per la creazione di applicazioni line-of-business moderne
@@ -62,7 +62,7 @@ Il seguente supporto per la compilazione di app LOB moderne è stato aggiunto a 
  - La **rimozione del parametro ' Resource '** -ad FS ha rimosso la necessità di specificare un parametro di risorsa che sia in linea con le specifiche OAuth correnti. I client possono ora specificare l'identificatore del trust della relying party come parametro di ambito, oltre alle autorizzazioni richieste. 
  - **Intestazioni di CORS nelle risposte ad FS** : i clienti possono ora compilare applicazioni a pagina singola che consentono alle librerie js lato client di convalidare la firma del token ID eseguendo una query per le chiavi di firma dal documento di individuazione OIDC ad FS. 
  - **Supporto di PKCE** : ad FS aggiunge il supporto di PKCE per fornire un flusso del codice di autenticazione protetto in OAuth. In questo modo viene aggiunto un ulteriore livello di sicurezza a questo flusso per impedire il hijack del codice e la riproduzione da un client diverso. 
- - **Correzione di bug: Inviare l'attestazione** X5T e Kid. si tratta di una correzione di bug secondaria. AD FS ora invia anche l'attestazione "Kid" per indicare l'hint ID chiave per la verifica della firma. In precedenza AD FS stata inviata solo come attestazione "X5T".
+ - correzione di @no__t 0Bug: Send X5T and Kid Claim @ no__t-0-si tratta di una correzione di bug secondaria. AD FS ora invia anche l'attestazione "Kid" per indicare l'hint ID chiave per la verifica della firma. In precedenza AD FS stata inviata solo come attestazione "X5T".
 
 ### <a name="supportability-improvements"></a>Miglioramenti al supporto tecnico
 I seguenti miglioramenti al supporto tecnico non fanno parte di AD FS 2019:
@@ -76,18 +76,18 @@ Gli aggiornamenti della distribuzione seguenti sono ora inclusi nel AD FS 2019:
 
 ### <a name="saml-updates"></a>Aggiornamenti SAML
 L'aggiornamento SAML seguente è AD FS 2019:
-- **Correzione di bug: Correggere i bug nella federazione** aggregata. sono state apportate numerose correzioni di bug sul supporto di Federazione aggregato (ad esempio, insolito). Sono state apportate le correzioni seguenti: 
+- correzione di @no__t 0Bug: Correzione dei bug nella Federazione aggregata @ no__t-0-sono state apportate numerose correzioni di bug per il supporto di Federazione aggregato (ad esempio, non comune). Sono state apportate le correzioni seguenti: 
   - Miglioramento della scalabilità per entità di grandi dimensioni nel documento di metadati della Federazione aggregato. In precedenza, questa operazione avrebbe esito negativo con l'errore "ADMIN0017". 
   - Eseguire una query usando il parametro ' ScopeGroupID ' tramite il cmdlet Get-AdfsRelyingPartyTrustsGroup PSH. 
   - Gestione delle condizioni di errore circa entityID duplicati
 
 
 ### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Specifica della risorsa di tipo Azure AD nel parametro di ambito 
-In precedenza, AD FS necessario che la risorsa e l'ambito desiderati siano in un parametro separato in qualsiasi richiesta di autenticazione. Ad esempio, una tipica richiesta OAuth avrà un aspetto simile al seguente: 7 **https:&#47;&#47;FS.contoso.com/ADFS/OAuth2/Authorize?</br> response_type = code & client_id = claimsxrayclient & Resource = urn: Microsoft:</br>ADFS: claimsxray & scope = OAuth & redirect_uri = https:&#47;&#47;adfshelp.Microsoft.com/</br> claimsxray/ TokenResponse & prompt = login**
+In precedenza, AD FS necessario che la risorsa e l'ambito desiderati siano in un parametro separato in qualsiasi richiesta di autenticazione. Ad esempio, una tipica richiesta OAuth avrà un aspetto simile al seguente: 7 **https:&#47;&#47;FS.contoso.com/ADFS/OAuth2/Authorize? </br>response_type = code & client_id = claimsxrayclient & Resource = urn: Microsoft: </br>adfs: claimsxray & scope = OAuth & redirect_uri = https:&#47; &#47; adfshelp.microsoft.com/</br> ClaimsXray/TokenResponse & prompt = login**
  
 Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Questo è coerente con il modo in cui è possibile eseguire l'autenticazione anche per Azure AD. 
 
-Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Esempio:  
+Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
 
 **< creare una richiesta di esempio valida >**
 > [!NOTE]
@@ -110,11 +110,11 @@ D. Il AD FS trasforma "code_verifier" e lo confronta con "t (code_verifier)" da 
 
 #### <a name="faq"></a>Domande frequenti 
 **D.** È possibile passare il valore della risorsa come parte del valore dell'ambito, ad esempio il modo in cui le richieste vengono eseguite su Azure AD? 
-</br>**R.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Esempio:  
+</br>**UN.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
 **< creare una richiesta di esempio valida >**
 
 **D.** AD FS supporta l'estensione PKCE?
-</br>**R.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
+</br>**UN.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Novità di Active Directory Federation Services per Windows Server 2016   
 Se si sta cercando informazioni sulle versioni precedenti di ADFS, vedere gli articoli seguenti:  

@@ -1,8 +1,8 @@
 ---
-title: Reg export
-description: 'Argomento i comandi di Windows per * * *- '
+title: esportazione reg
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7aeddb4b069b1baf5b8f7aaea2730a2b25bdad7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fb3a779ffe5a4e7d513ca9a3afed8ee90901688
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384755"
 ---
-# <a name="reg-export"></a>Reg export
+# <a name="reg-export"></a>esportazione reg
 
 
 
@@ -38,8 +38,8 @@ Reg export KeyName FileName [/y]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Nome chiave >|Specifica il percorso completo della sottochiave. L'operazione di esportazione funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi principali valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
-|\<FileName>|Specifica il nome e percorso del file deve essere creato durante l'operazione. Il file deve avere estensione reg.|
+|\<KeyName >|Specifica il percorso completo della sottochiave. L'operazione di esportazione funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi radice valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
+|\<> FileName|Specifica il nome e percorso del file deve essere creato durante l'operazione. Il file deve avere estensione reg.|
 |/y|Sovrascrive tutti i file esistenti con il nome *FileName* senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg export** al prompt dei comandi.|
 
@@ -50,7 +50,7 @@ Nella tabella seguente sono elencati i valori restituiti per il **reg export** o
 |Value|Descrizione|
 |-----|-----------|
 |0|Riuscito|
-|1|Operazione non riuscita|
+|1|Errore|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -61,4 +61,4 @@ reg export HKLM\Software\MyCo\MyApp AppBkUp.reg
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
