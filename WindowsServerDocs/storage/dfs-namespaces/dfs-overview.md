@@ -1,6 +1,6 @@
 ---
 title: Informazioni generali su Spazi dei nomi DFS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: daveba
 ms.technology: storage
@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Questo articolo descrive Spazi dei nomi DFS, ovvero un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente.
-ms.openlocfilehash: 8507961749bee6d01541029e33c8095470792b8a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 33fe25d2298d210ee37f9193a50fa77ed39bd2b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870225"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402227"
 ---
 # <a name="dfs-namespaces-overview"></a>Informazioni generali su Spazi dei nomi DFS
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server (canale semestrale)
 
 Spazi dei nomi DFS è un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente. In questo modo gli utenti hanno a disposizione una vista virtuale di cartelle condivise in cui file situati in più server sono accessibili da un unico percorso, come illustrato nella figura riportata di seguito:
 
@@ -89,7 +89,7 @@ Aprire una sessione di Windows PowerShell con diritti utente elevati, quindi dig
 Install-WindowsFeature <name>
 ```
 
-| Servizio ruolo o funzionalità | Name |
+| Servizio ruolo o funzionalità | Nome |
 | ----------------------- | ---- |
 | Spazi dei nomi DFS          | `FS-DFS-Namespace` |
 | Strumenti di gestione DFS    | `RSAT-DFS-Mgmt-Con` |
@@ -128,4 +128,4 @@ Per altre informazioni correlate, vedere le risorse seguenti.
 | **Risorse della community** | [Forum TechNet di servizi file e archiviazione](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
 | **Protocolli**        | [Protocolli di servizi file in Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) Deprecato |
 | **Tecnologie correlate** | [Clustering di failover](../../failover-clustering/failover-clustering-overview.md)|
-| **Supporto** | [Supporto di Windows IT Pro](https://www.microsoft.com/itpro/windows/support)|
+| **Supporto tecnico** | [Supporto di Windows IT Pro](https://www.microsoft.com/itpro/windows/support)|

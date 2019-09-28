@@ -1,8 +1,8 @@
 ---
-title: aggiungere alias
-description: Argomento i comandi di Windows per **aggiungere alias** -aggiunge gli alias per l'ambiente di alias.
+title: Aggiungi alias
+description: "Argomento comandi di Windows per **Aggiungi alias** : aggiunge alias all'ambiente alias."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50de932ea0153546816face61f0852a08707ea85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2834376e497f54eadf1d9077e74f9c398202c5a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862222"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382822"
 ---
-# <a name="add-alias"></a>aggiungere alias
+# <a name="add-alias"></a>Aggiungi alias
 
 
 
@@ -38,8 +38,8 @@ add alias <AliasName> <AliasValue>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<AliasName>|Specifica il nome dell'alias.|
-|\<AliasValue>|Specifica il valore dell'alias.|
+|\<AliasName >|Specifica il nome dell'alias.|
+|\<AliasValue >|Specifica il valore dell'alias.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -52,7 +52,7 @@ Per elencare tutte le ombreggiature, inclusi i relativi alias, digitare:
 ```
 list shadows all
 ```
-L'estratto seguente contiene una copia shadow in cui è stato assegnato l'alias predefinito, VSS_SHADOW_x:
+L'estratto seguente mostra una copia shadow a cui è stato assegnato l'alias predefinito, VSS_SHADOW_x:
 ```
 * Shadow Copy ID = {ff47165a-1946-4a0c-b7f4-80f46a309278}
 %VSS_SHADOW_1%
@@ -68,4 +68,4 @@ add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

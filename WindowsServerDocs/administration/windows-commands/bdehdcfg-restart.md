@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg riavvio
-description: Argomento i comandi di Windows per bdehdcfg restart - indica bdehdcfg che il computer deve essere riavviato dopo la preparazione dell'unità.
+title: riavvio BdeHdCfg
+description: "Argomento dei comandi di Windows per il riavvio di BdeHdCfg: indica a BdeHdCfg che il computer deve essere riavviato dopo la conclusione della preparazione dell'unità."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f361db8fdf33bd414556575de75241f7dbd9327
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c4e48b051f567c98ea679feaa22f995982a899
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382206"
 ---
-# <a name="bdehdcfg-restart"></a>bdehdcfg: restart
+# <a name="bdehdcfg-restart"></a>BdeHdCfg: riavvio
 
 
 
-Informa lo strumento da riga di comando Bdehdcfg che il computer deve essere riavviato dopo la preparazione dell'unità. Per un esempio di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Informa lo strumento da riga di comando BdeHdCfg che il computer deve essere riavviato dopo la conclusione della preparazione dell'unità. Per un esempio di come è possibile usare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,16 +38,16 @@ Questo comando non accetta parametri aggiuntivi.
 
 ## <a name="remarks"></a>Note
 
-Se altri utenti sono connessi al computer e il **quiet** comando non è specificato, verrà visualizzato un prompt dei comandi per verificare che il computer deve essere riavviato.
+Se altri utenti sono connessi al computer e non si specifica il comando **quiet** , verrà visualizzato un messaggio di richiesta per confermare che il computer deve essere riavviato.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Nell'esempio seguente viene illustrato l'utilizzo di **riavviare** comando.
+Nell'esempio seguente viene illustrato l'utilizzo del comando **Restart** .
 ```
 bdehdcfg -target default -restart
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Bdehdcfg](bdehdcfg.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [BdeHdCfg](bdehdcfg.md)

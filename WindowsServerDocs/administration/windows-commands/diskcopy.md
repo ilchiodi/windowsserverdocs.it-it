@@ -1,8 +1,8 @@
 ---
 title: diskcopy
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439577"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377822"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 
 
-Copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o nell'unità di destinazione. Se utilizzata senza parametri, **verrà** usi l'unità corrente per il disco di origine e il disco di destinazione.
+Copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione. Se utilizzata senza parametri, **diskcopy** utilizza l'unità corrente per il disco di origine e il disco di destinazione.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -41,8 +41,8 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive1>|Specifica l'unità che contiene il disco di origine.|
-|\<Drive2>|Specifica l'unità che contiene il disco di destinazione.|
+|\<Drive1 >|Specifica l'unità che contiene il disco di origine.|
+|\<Drive2 >|Specifica l'unità che contiene il disco di destinazione.|
 |/v|Verifica che le informazioni vengano copiate correttamente. Questa opzione rallenta il processo di copia.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -50,46 +50,46 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 -   Uso di dischi
 
-    **Verrà** funziona solo con un disco rimovibile, ad esempio dischi floppy, che deve essere dello stesso tipo. Non è possibile usare **verrà** con un disco rigido. Se si specifica un'unità disco rigido per *unità1* oppure *unità2*, **verrà** Visualizza il messaggio di errore seguente:  
+    **Diskcopy** funziona solo con dischi rimovibili, ad esempio dischi floppy, che devono essere dello stesso tipo. Non è possibile usare **diskcopy** con un disco rigido. Se si specifica un'unità disco rigido per *unità1* o *Unità2*, in **diskcopy** viene visualizzato il messaggio di errore seguente:  
     ```
     Invalid drive specification
     Specified drive does not exist or is nonremovable
     ```  
-    Il **verrà** comando richiede di inserire l'origine e destinazione di dischi e attende che è possibile premere un tasto sulla tastiera prima di continuare.
+    Il comando **diskcopy** richiede di inserire i dischi di origine e di destinazione e attende che venga premuto un tasto sulla tastiera prima di continuare.
 
-    Al termine della copia del disco, **verrà** viene visualizzato il messaggio seguente:  
+    Dopo la copia del disco, **diskcopy** Visualizza il messaggio seguente:  
     ```
     Copy another diskette (Y/N)?
     ```  
-    Se si preme Y **verrà** chiede all'utente di inserire i dischi di origine e destinazione per l'operazione di copia successiva. Per arrestare il **verrà** elaborare, premere **N**.
+    Se si preme Y, **diskcopy** richiede di inserire i dischi di origine e di destinazione per la successiva operazione di copia. Per arrestare il processo **diskcopy** , premere **N**.
 
-    Se si desidera copiare su un disco floppy formattato in *unità2*, **verrà** formatta il disco con lo stesso numero di lati e settori per traccia presenti sul disco nel *unità1*. **Verrà** mentre formatta il disco e copia i file visualizzato il messaggio seguente:  
+    Se si esegue la copia in un disco floppy non formattato in *Unità2*, **diskcopy** formatta il disco con lo stesso numero di lati e settori per ogni traccia del disco in *unità1*. **Diskcopy** Visualizza il messaggio seguente mentre formatta il disco e copia i file:  
     ```
     Formatting while copying
     ```  
--   Numeri di serie disco
+-   Numeri di serie del disco
 
-    Se il disco di origine ha un numero di serie volume, **verrà** crea un nuovo numero di serie volume per il disco di destinazione e visualizza il numero, una volta completata l'operazione di copia.
--   Omettendo i parametri di unità
+    Se il disco di origine ha un numero di serie del volume, **diskcopy** crea un nuovo numero di serie del volume per il disco di destinazione e visualizza il numero al termine dell'operazione di copia.
+-   Omissione di parametri di unità
 
-    Se si omette il *unità2* parametro **verrà** Usa l'unità corrente come unità di destinazione. Se si omettono entrambi i parametri, unità **verrà** usi l'unità corrente per entrambi. Se l'unità corrente è identico *unità1*, **verrà** chiederà di scambiare dischi in base alle esigenze.
--   Usando un'unità per la copia
+    Se si omette il parametro *Unità2* , **diskcopy** usa l'unità corrente come unità di destinazione. Se si omettono entrambi i parametri di unità, **diskcopy** usa l'unità corrente per entrambi. Se l'unità corrente è uguale a *unità1*, **diskcopy** richiede di scambiare dischi secondo necessità.
+-   Uso di un'unità per la copia
 
-    Eseguire **verrà** da un'unità diversa dall'unità disco floppy, ad esempio C unità. Se un disco floppy *unità1* e un disco floppy *unità2* sono uguali, **verrà** viene richiesto di cambiare i dischi. Se i dischi contengono più informazioni rispetto a può contenere la memoria disponibile, **verrà** non è possibile leggere tutte le informazioni in una sola volta. **Verrà** legge dal disco di origine, scrive sul disco di destinazione e viene richiesto di inserire di nuovo il disco di origine. Questo processo continua fino a quando non è stato copiato l'intero disco.
--   Come evitare la frammentazione del disco
+    Eseguire **diskcopy** da un'unità diversa dall'unità disco floppy, ad esempio l'unità C. Se *unità1* e *Unità2* del disco floppy sono uguali, **diskcopy** richiede di cambiare i dischi. Se i dischi contengono più informazioni rispetto alla memoria disponibile, **diskcopy** non è in grado di leggere tutte le informazioni in una sola volta. **Diskcopy** legge dal disco di origine, scrive nel disco di destinazione e richiede di inserire nuovamente il disco di origine. Questo processo continua fino a quando non viene copiato l'intero disco.
+-   Evitare la frammentazione del disco
 
-    La frammentazione è la presenza di aree di piccole dimensioni di spazio su disco inutilizzato tra i file esistenti in un disco. Un disco di origine frammentato può rallentare il processo di individuazione, la lettura o scrittura di file.
+    La frammentazione è la presenza di piccole aree di spazio inutilizzato su disco tra i file esistenti su un disco. Un disco di origine frammentato può rallentare il processo di ricerca, lettura o scrittura di file.
 
-    In quanto **verrà** rende una copia esatta del disco di origine sul disco di destinazione, qualsiasi frammentazione del disco di origine verrà trasferita sul disco di destinazione. Per evitare il trasferimento di frammentazione da un disco a un altro, usare **copia** oppure **xcopy** copiare il disco. In quanto **copia** e **xcopy** copia i file in sequenza, il nuovo disco non è frammentato.
+    Poiché **diskcopy** esegue una copia esatta del disco di origine nel disco di destinazione, qualsiasi frammentazione sul disco di origine viene trasferita nel disco di destinazione. Per evitare di trasferire la frammentazione da un disco a un altro, usare **Copy** o **xcopy** per copiare il disco. Poiché **copia** e **xcopy** copiano i file in modo sequenziale, il nuovo disco non è frammentato.
 
 > [!NOTE]
-> Non è possibile usare **xcopy** possa copiare un disco di avvio.
-> -   La comprensione **verrà** codici di uscita
+> Non è possibile utilizzare **xcopy** per copiare un disco di avvio.
+> -   Informazioni sui codici di uscita di **diskcopy**
 
     The following table explains each exit code.  
     |Codice di uscita|Descrizione|
     |---------|-----------|
-    |0|Operazione di copia è stata completata|
+    |0|Operazione di copia completata|
     |1|Si è verificato un errore di lettura/scrittura non irreversibile|
     |3|Si è verificato un errore hardware irreversibile|
     |4|Si è verificato un errore di inizializzazione|
@@ -98,13 +98,13 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per copiare il disco nell'unità B. il disco nell'unità, digitare:
+Per copiare il disco nell'unità B sul disco nell'unità A, digitare:
 ```
 diskcopy b: a:
 ```
-Per usare un'unità disco floppy per copiare un disco floppy a altra, passare all'unità C e quindi digitare:
+Per utilizzare l'unità disco floppy a per copiare un disco floppy in un altro, passare prima all'unità C e quindi digitare:
 
-r: r: dell'operazione
+DISKCOPY a:
 
 #### <a name="additional-references"></a>Altri riferimenti
 

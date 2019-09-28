@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Argomento i comandi di Windows per * * *-bitsadmin setnotifycmdlineSets la riga di comando che verrà eseguito quando il processo viene completato il trasferimento dei dati o quando un processo entra in uno stato.
+description: Windows Commands Topic for * * * *-Bitsadmin setnotifycmdlineSets comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1cea4e99cbaaf3881c6f436bdb932090ad6b006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a307fe552e7d8ec5852de953a3a439cb02246ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380485"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
-Imposta la riga di comando che verrà eseguito quando il processo viene completato il trasferimento dei dati o quando un processo entra in uno stato.
+Imposta il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
 
-**BITS 1.2 e versioni precedenti**: Non supportato.
+**BITS 1,2 e versioni precedenti**: Non supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -59,4 +59,4 @@ C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe "not
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

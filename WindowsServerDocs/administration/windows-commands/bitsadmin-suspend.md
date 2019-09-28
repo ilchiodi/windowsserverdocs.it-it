@@ -1,8 +1,8 @@
 ---
 title: bitsadmin suspend
-description: Argomento i comandi di Windows per **bitsadmin sospendere** -sospende il processo specificato.
+description: 'Argomento dei comandi di Windows per **BITSAdmin Suspend** : sospende il processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87e1bbd1b068d68fb60655043735c6c1aeb07707
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a3a484df2b50cdc8893512020b835f913793d2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380375"
 ---
 # <a name="bitsadmin-suspend"></a>bitsadmin suspend
 
@@ -40,11 +40,11 @@ bitsadmin /Suspend <Job>
 
 ## <a name="remarks"></a>Note
 
-Per riavviare il processo, usare il [Riprendi bitsadmin](bitsadmin-resume.md) passare.
+Per riavviare il processo, usare l'opzione [BITSAdmin Resume](bitsadmin-resume.md) .
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente sospende il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene sospeso il processo denominato *myDownloadJob*.
 
 ```
 C:\>bitsadmin /Suspend myDownloadJob
@@ -52,4 +52,4 @@ C:\>bitsadmin /Suspend myDownloadJob
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

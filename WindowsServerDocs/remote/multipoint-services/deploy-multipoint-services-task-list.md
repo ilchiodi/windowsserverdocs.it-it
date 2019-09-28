@@ -3,7 +3,7 @@ title: Attività per la distribuzione di servizi MultiPoint
 description: Elenca tutte le attività necessarie per la distribuzione di MultiPoint Services, oltre a collegamenti alle istruzioni
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: e08c5784-5b3e-4028-86c1-96deaee41f09
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9f0b69da06fb783ac7cccc2dc5bc7337dae59d66
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9d50cfc3ed48f77281af400e9e80fb8b4895bac5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394762"
 ---
 # <a name="task-lists-multipoint-services"></a>Elenchi attività: MultiPoint Services
 Usare gli elenchi di attività in questo argomento per facilitare la distribuzione del sistema MultiPoint Services e tenere traccia delle attività completate. Non tutte le attività si applicano a tutti gli ambienti. Alcune attività, ad esempio, vengono eseguite solo se si distribuisce un server MultiPoint in un dominio Active Directory. Altri, ad esempio la creazione di stazioni a schermo diviso o la distribuzione di desktop virtuali per le stazioni, sono facoltativi. Per le procedure che illustrano come eseguire queste attività, vedere [Deploying multipoint Services](deploying-multipoint-services.md).  

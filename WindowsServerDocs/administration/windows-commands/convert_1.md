@@ -1,8 +1,8 @@
 ---
 title: convert
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a77e1fca9605c7e5cc4ff059db08ffbfcc81f81
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d78f7adbc26acf9787ad39019e1450542a6acda2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379035"
 ---
 # <a name="convert"></a>convert
 
 
 
-Converte un disco dal tipo di un disco a un altro.
+Converte un disco da un tipo di disco a un altro.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,12 +39,12 @@ convert mbr
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[convertire base](convert-basic.md)|Converte un disco dinamico vuoto in un disco di base.|
-|[Convertire dinamica](convert-dynamic.md)|Converte un disco di base in un disco dinamico.|
-|[convertire gpt](convert-gpt.md)|Converte un disco di base vuoto con lo stile di partizione avvio principale (MBR) record in un disco di base con lo stile di partizione GUID partizione GPT (tabella).|
-|[Convertire mbr](convert-mbr.md)|Converte un disco di base vuoto con lo stile di partizione della tabella di partizione GUID (GPT) in un disco di base con lo stile di partizione avvio principale (MBR) record.|
+|[Converti Basic](convert-basic.md)|Converte un disco dinamico vuoto in un disco di base.|
+|[Converti dinamica](convert-dynamic.md)|Converte un disco di base in un disco dinamico.|
+|[Converti GPT](convert-gpt.md)|Converte un disco di base vuoto con lo stile di partizione MBR (master boot record) in un disco di base con lo stile di partizione GPT (tabella di partizione GUID).|
+|[Converti MBR](convert-mbr.md)|Converte un disco di base vuoto con lo stile di partizione GPT (tabella di partizione GUID) in un disco di base con lo stile di partizione MBR (master boot record).|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

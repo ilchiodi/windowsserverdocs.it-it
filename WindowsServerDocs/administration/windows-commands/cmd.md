@@ -1,8 +1,8 @@
 ---
 title: Cmd
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 581e9a3bad8323c79839a4487b7da045e9cfec21
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 032fbea2039faa09753ac0c2b51e4b62004d36ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811240"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379335"
 ---
 # <a name="cmd"></a>Cmd
 
@@ -36,22 +36,22 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 |---------|-----------|
 |/c|Esegue il comando specificato da *stringa* e quindi si arresta.|
 |/k|Esegue il comando specificato da *stringa* e continua.|
-|/s|Modifica il trattamento delle *stringa* dopo **/c** oppure **/k**.|
+|/s|Modifica il trattamento della *stringa* dopo **/c** o **/k**.|
 |/q|Disattiva l'eco.|
 |/d|Disattiva l'esecuzione dei comandi di esecuzione automatica.|
 |/a|Formatta l'output del comando interno a una pipe o un file come American National Standards Institute (ANSI).|
 |/u|Formatta l'output del comando interno a una pipe o un file come Unicode.|
-|/t:{\<B\>\<F\>\|\<F\>}|Imposta lo sfondo (*B*) e di primo piano (*F*) i colori.|
+|/t: {\<B @ no__t-1 @ no__t-2F @ no__t-3 @ no__t-4 @ no__t-5F @ no__t-6}|Imposta lo sfondo (*B*) e di primo piano (*F*) i colori.|
 |/e: in|Attiva le estensioni del comando.|
 |/e: off|Disabilita le estensioni ai comandi.|
 |/f: in|Consente il completamento del nome file e directory.|
 |/f: off|Disabilita il completamento del nome file e directory.|
 |/v: in|Consente di ritardare l'espansione della variabile di ambiente.|
 |/v: off|Disabilita ritardata espansione della variabile di ambiente.|
-|\<String>|Specifica il comando che si desidera eseguire.|
+|\<String >|Specifica il comando che si desidera eseguire.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per \<B\> e \<F\>
+Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per \<B @ no__t-1 e \<F @ no__t-3
 
 |Value|Colore|
 |-----|-----|
@@ -59,7 +59,7 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 |1|Blu|
 |2|Verde|
 |3|Aqua|
-|4|Rossa|
+|4|Rosso|
 |5|Viola|
 |6|Giallo|
 |7|Bianco|
@@ -76,15 +76,15 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
 -   Uso di più comandi
 
-    Per utilizzare più comandi per \<String >, è necessario separarli con il separatore di comandi **&&** e racchiuderle tra virgolette. Ad esempio:
+    Per usare più comandi per \<String >, separarli dal separatore di comandi **&&** e racchiuderli tra virgolette. Esempio:
 
     ```
     "<Command>&&<Command>&&<Command>"
     ``` 
  
--   L'elaborazione tra virgolette
+-   Elaborazione virgolette
 
-    Se si specifica **/c** o **/k**, **cmd** elabora la parte restante di *stringa,* e racchiusi tra virgolette vengono mantenute solo se tutti i valori sono i seguenti le condizioni sono soddisfatte:  
+    Se si specifica **/c** o **/k**, **cmd** elabora il resto della *stringa* e le virgolette vengono mantenute solo se vengono soddisfatte tutte le condizioni seguenti:  
     -   Non si utilizza **/s**.
     -   Utilizzare un unico set di virgolette.
     -   Non utilizzare caratteri speciali all'interno delle virgolette (ad esempio: & () < > @ ^ |).
@@ -92,28 +92,28 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     -   Il *stringa* racchiuso tra virgolette è il nome di un file eseguibile.
 
     Se non sono soddisfatte le condizioni precedenti, *stringa* viene elaborata esaminando il primo carattere per verificare se si tratta di un segno di virgolette di apertura. Se il primo carattere è un segno di virgolette di apertura, si è rimosso insieme virgolette di chiusura. Qualsiasi testo che segue le virgolette di chiusura viene mantenuto.
--   Sottochiavi del Registro di sistema in esecuzione
+-   Esecuzione di sottochiavi del registro di sistema
 
-    Se non si specifica **/d** nelle *stringa*, Cmd.exe cerca le sottochiavi del Registro di sistema seguenti:
+    Se non si specifica **/d** nella *stringa*, cmd. exe cercherà le sottochiavi del registro di sistema seguenti:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun\REG_SZ**
 
-    **Processor\autorun\reg_expand_sz HKEY_CURRENT_USER\Software\Microsoft\Command**
+    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun\REG_EXPAND_SZ**
 
-    Se una o entrambe le sottochiavi del Registro di sistema sono presenti, vengono eseguiti prima delle altre variabili.
+    Se sono presenti una o entrambe le sottochiavi del registro di sistema, vengono eseguite prima di tutte le altre variabili.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
--   Abilitazione e disabilitazione delle estensioni di comando
+-   Abilitazione e disabilitazione delle estensioni del comando
 
-    Le estensioni comando sono abilitate per impostazione predefinita in Windows XP. È possibile disabilitarli per un determinato processo utilizzando **/e: off**. È possibile abilitare o disabilitare le estensioni per tutti i **cmd** le opzioni della riga di comando in una sessione utente o computer impostando gli elementi seguenti **REG_DWORD** valori:
+    Le estensioni dei comandi sono abilitate per impostazione predefinita in Windows XP. È possibile disabilitarli per un determinato processo utilizzando **/e: off**. È possibile abilitare o disabilitare le estensioni per tutte le opzioni della riga di comando **cmd** in un computer o una sessione utente impostando i valori **REG_DWORD** seguenti:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
 
-    **Processor\EnableExtensions\REG_DWORD HKEY_CURRENT_USER\Software\Microsoft\Command**
+    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
 
-    Impostare il **REG_DWORD** valore a una delle due **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel Registro di sistema usando Regedit.exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
+    Impostare il valore **REG_DWORD** su **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel registro di sistema utilizzando Regedit. exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
@@ -138,29 +138,29 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     -  **shift**
     -  **start** (also includes changes to external command processes)
 
--   Abilitazione di espansione della variabile di ambiente ritardata
+-   Abilitazione dell'espansione delle variabili di ambiente ritardata
 
-    Se si abilita espansione della variabile di ambiente ritardata, è possibile utilizzare il carattere punto esclamativo per sostituire il valore di una variabile di ambiente in fase di esecuzione.
--   Abilitazione di completamento del nome file e directory
+    Se si Abilita l'espansione della variabile di ambiente ritardata, è possibile usare il carattere punto esclamativo per sostituire il valore di una variabile di ambiente in fase di esecuzione.
+-   Abilitazione del completamento del nome file e directory
 
-    Il completamento del nome file e directory non è abilitato per impostazione predefinita. È possibile abilitare o disabilitare il completamento del nome file per un particolare processo della **cmd** comando **/f**{**su**|**off**}. È possibile abilitare o disabilitare il completamento del nome file e directory per tutti i processi dei **cmd** comando in un computer o per una sessione di accesso utente impostando gli elementi seguenti **REG_DWORD** valori:
+    Il completamento del nome file e directory non è abilitato per impostazione predefinita. È possibile abilitare o disabilitare il completamento del nome file per un particolare processo della **cmd** comando **/f**{**su**|**off**}. È possibile abilitare o disabilitare il completamento del nome file e directory per tutti i processi del comando **cmd** in un computer o per una sessione di accesso utente impostando i valori **REG_DWORD** seguenti:
 
-    **Processor\CompletionChar\REG_DWORD HKEY_LOCAL_MACHINE\Software\Microsoft\Command**
+    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
-    **Processor\PathCompletionChar\REG_DWORD HKEY_LOCAL_MACHINE\Software\Microsoft\Command**
+    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
 
-    **Processor\autorun\reg_expand_sz Processor\CompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
-    **Processor\autorun\reg_expand_sz Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
 
-    Per impostare il **REG_DWORD** valore, eseguire Regedit.exe e utilizzare il valore esadecimale del carattere di controllo per una determinata funzione (ad esempio **0 × 9** scheda e **0 × 08** è BACKSPACE). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
+    Per impostare il valore **REG_DWORD** , eseguire regedit. exe e usare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 × 9** è Tab e **0 × 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
 Se si abilita il completamento del nome file e directory tramite **/f: su**, utilizzare CTRL + D per il completamento del nome di directory e CTRL + F per il completamento del nome file. Per disabilitare un carattere di completamento specifico nel Registro di sistema, utilizzare il valore degli spazi vuoti [**0 × 20**] perché non è un carattere di controllo valido.
 
-Quando si preme CTRL + D o CTRL + F, **cmd** Elabora il completamento del nome file e directory. Queste funzioni di combinazione di tasti aggiungono un carattere jolly per *stringa* (se non è presente), compilare un elenco di percorsi corrispondenti e quindi visualizzare il primo percorso corrispondente. Se nessuno dei percorsi corrispondono, la funzione di completamento di nome file e directory emette un segnale acustico e non modifica la visualizzazione. Per spostarsi nell'elenco di percorsi corrispondenti, premere ripetutamente CTRL + D o CTRL + F. Per spostarsi all'indietro nell'elenco, premere il tasto MAIUSC e CTRL + D o CTRL + F contemporaneamente. Per eliminare l'elenco di percorsi corrispondenti salvato e generare un nuovo elenco, modificare *stringa* e premere CTRL + D o CTRL + F. Se si passa da CTRL + D e CTRL + F, viene eliminato l'elenco di percorsi corrispondenti salvato e viene generato un nuovo elenco. L'unica differenza tra le combinazioni di tasti CTRL + D e CTRL + F è che CTRL + D corrisponde solo i nomi di directory e CTRL + F corrisponde a nomi di file e di directory. Se si usa il completamento del nome file e directory in uno dei comandi directory incorporata (vale a dire **CD**, **MD**, o **desktop remoto**), si presuppone che il completamento di directory.
+Quando si preme CTRL + D o CTRL + F, **cmd** Elabora il completamento del nome file e directory. Queste funzioni di combinazione di tasti aggiungono un carattere jolly per *stringa* (se non è presente), compilare un elenco di percorsi corrispondenti e quindi visualizzare il primo percorso corrispondente. Se nessuno dei percorsi corrispondono, la funzione di completamento di nome file e directory emette un segnale acustico e non modifica la visualizzazione. Per spostarsi nell'elenco di percorsi corrispondenti, premere ripetutamente CTRL + D o CTRL + F. Per spostarsi all'indietro nell'elenco, premere il tasto MAIUSC e CTRL + D o CTRL + F contemporaneamente. Per eliminare l'elenco di percorsi corrispondenti salvato e generare un nuovo elenco, modificare *stringa* e premere CTRL + D o CTRL + F. Se si passa da CTRL + D e CTRL + F, viene eliminato l'elenco di percorsi corrispondenti salvato e viene generato un nuovo elenco. L'unica differenza tra le combinazioni di tasti CTRL + D e CTRL + F è che CTRL + D corrisponde solo i nomi di directory e CTRL + F corrisponde a nomi di file e di directory. Se si utilizza il completamento del nome file e directory in qualsiasi comando di directory incorporato (ovvero **CD**, **MD**o **Rd**), si presuppone il completamento della directory.
 
 Il completamento del nome file e directory elabora correttamente i nomi di file che contengono spazi o caratteri speciali, se si inserisce il percorso corrispondente tra virgolette.
 

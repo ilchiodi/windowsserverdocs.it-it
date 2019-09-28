@@ -2,7 +2,7 @@
 title: Consentire a un account di avere più sessioni
 description: Consentire a un utente di accedere a più sistemi nello stesso momento.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,21 +13,21 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 69a8bc9080e13c3062bc287300620e24457265ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbc3f3b5a01f86cd1376cd4ecca59fd2951559e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395610"
 ---
 # <a name="allow-one-account-to-have-multiple-sessions"></a>Consentire a un account di avere più sessioni
-Per abilitare un gruppo di utenti utilizzano un account condiviso in più stazioni allo stesso tempo, configurare il server MultiPoint per consentire a un account accedere a più stazioni contemporaneamente. Per impostazione predefinita, se un utente accede a una stazione secondo con un account utente condiviso, l'account utente viene disconnesso prima stazione.  
+Per consentire a un gruppo di utenti di usare contemporaneamente un account condiviso su più stazioni, configurare il server MultiPoint per consentire l'accesso di un account a più stazioni simultaneamente. Per impostazione predefinita, se un utente accede a una seconda stazione con un account utente condiviso, l'account utente viene disconnesso dalla prima stazione.  
   
-1.  Dal **avviare** schermata, aprire **MultiPoint Manager**.  
+1.  Dalla schermata **Start** aprire **Gestione MultiPoint**.  
   
-2.  Scegliere il **Home** scheda.  
+2.  Fare clic sulla scheda **Home** .  
   
-3.  Nel **Computer** colonna, fare clic sul nome del computer MultiPoint Server e quindi, nel riquadro di destra, fare clic su **modifica le impostazioni del server**.  
+3.  Nella colonna **computer** fare clic sul nome del computer Server MultiPoint, quindi nel riquadro destro fare clic su **Modifica impostazioni server**.  
   
-4.  Selezionare il **consentire a un account avere più sessioni** casella di controllo e quindi fare clic su **OK**.  
+4.  Selezionare la casella **di controllo Consenti a un account di avere più sessioni** e quindi fare clic su **OK**.  
   

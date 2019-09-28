@@ -5,17 +5,17 @@ author: MicrosoftGuyJFlo
 ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 287d7ef0b8645d8e808b8b8d9f195d05ffed1cc0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 19e8eef008d3818c413808ab1f085a7cc247ec36
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369503"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualizzazione di controller di dominio con Hyper-V
 
-> Si applica a Windows Server 2016
+> Si applica a: Windows Server 2016
 
 Questo argomento verrà aggiornato in modo da rendere le linee guida applicabili a Windows Server 2016. Windows Server 2012 introduce molti miglioramenti per i controller di dominio virtualizzati, incluse le misure di sicurezza per impedire il rollback degli USN nei controller di dominio virtuali e la possibilità di clonare i controller di dominio virtuali. Per ulteriori informazioni su questi miglioramenti, vedere [Introduzione alla virtualizzazione di Active Directory Domain Services (ad DS) (livello 100)](../../introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100.md).
 
@@ -64,9 +64,9 @@ Per ulteriori informazioni sulla protezione dei controller di dominio, vedere [l
 
 Grazie all'utilizzo delle macchine virtuali è possibile disporre di diversi tipi di configurazione per i controller di dominio. È necessario considerare con molta attenzione in che modo le macchine virtuali influiscano sui limiti e sui trust della propria topologia Active Directory. Nella tabella che segue vengono descritte le configurazioni possibili per un controller di dominio e un host (server Hyper-V) Active Directory e i relativi computer guest (macchine virtuali eseguite sul server Hyper-V).
 
-|Machine|Configurazione 1|Configuration 2|
+|Computer|Configurazione 1|Configuration 2|
 |-------|---------------|---------------|
-|Host|Computer membro o del gruppo di lavoro|Computer membro o del gruppo di lavoro|
+|Hyper-V|Computer membro o del gruppo di lavoro|Computer membro o del gruppo di lavoro|
 |Guest|Controller di dominio|Computer membro o del gruppo di lavoro|
 
 ![](media/virtualized-domain-controller-architecture/Dd363553.f44706fd-317e-4f0b-9578-4243f4db225f(WS.10).gif)
@@ -104,7 +104,7 @@ I test LDAP (Lightweight Directory Access Protocol) sono stati eseguiti su un co
 <thead>
 <tr class="header">
 <th>Misura</th>
-<th>Test</th>
+<th>Testa</th>
 <th>Fisico</th>
 <th>Virtuale</th>
 <th>Delta</th>

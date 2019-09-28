@@ -1,7 +1,7 @@
 ---
-title: Le voci di autorizzazione devono avere nomi di gruppo di trust distinti per i server primari con le macchine virtuali che non fanno parte dello stesso gruppo di trust
+title: Le voci di autorizzazione devono avere nomi di gruppi di attendibilità distinti per i server primari con macchine virtuali che non fanno parte dello stesso gruppo di trust
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 8827a3a7-9f3c-4f51-826a-8e2ec43e01df
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e5c5b1a6bf8ef0bbceb5dde6b28cd951f399fc5e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab71e0e6562b73d81b871914fd0e9e76570c518e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366544"
 ---
-# <a name="authorization-entries-should-have-distinct-trust-group-names-for-primary-servers-with-virtual-machines-that-are-not-part-of-the-same-trust-group"></a>Le voci di autorizzazione devono avere nomi di gruppo di trust distinti per i server primari con le macchine virtuali che non fanno parte dello stesso gruppo di trust
+# <a name="authorization-entries-should-have-distinct-trust-group-names-for-primary-servers-with-virtual-machines-that-are-not-part-of-the-same-trust-group"></a>Le voci di autorizzazione devono avere nomi di gruppi di attendibilità distinti per i server primari con macchine virtuali che non fanno parte dello stesso gruppo di trust
 
 >Si applica a: Windows Server 2016
 
@@ -26,20 +26,20 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>**Problema**  
-*Il server accetterà le richieste di replica per la macchina virtuale di replica da qualsiasi server nell'elenco di autorizzazioni associate con lo stesso tag di replica della macchina virtuale.*  
+*Il server accetterà le richieste di replica per la macchina virtuale di replica da qualsiasi server nell'elenco di autorizzazioni associato allo stesso tag di replica della macchina virtuale.*  
   
-## <a name="impact"></a>**Impact**  
-*Potrebbero esserci problemi di sicurezza con una macchina virtuale accetta la replica da server primari che appartengono alle voci di autorizzazione diversi e privacy. Questo influisce sulle seguenti voci di autorizzazione: \<elenco di voci di autorizzazione >*  
+## <a name="impact"></a>**Impatto**  
+*There potrebbe essere un problema di privacy e sicurezza con una macchina virtuale che accetta la replica dai server primari appartenenti a diverse voci di autorizzazione. Ciò influisca sulle seguenti voci di autorizzazione: \<list delle voci di autorizzazione >*  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Usare tag diversi nelle voci di autorizzazione per i server primari con le macchine virtuali che non fanno parte dello stesso gruppo di sicurezza. Modificare le impostazioni di Hyper-V per configurare i tag di replica.*  
+@no__t 0Use tag diversi nelle voci di autorizzazione per i server primari con macchine virtuali che non fanno parte dello stesso gruppo di sicurezza. Modificare le impostazioni di Hyper-V per configurare i tag di replica. *  
   
 
 

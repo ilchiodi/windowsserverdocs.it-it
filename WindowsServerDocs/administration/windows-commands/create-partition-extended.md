@@ -1,8 +1,8 @@
 ---
-title: creare una partizione estesa
-description: 'Argomento i comandi di Windows per * * *- '
+title: Crea partizione estesa
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a1cca93a064cfb6e5c18f4a472ea837b922d07b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21620da46be0e1375f320172e7ccfe2edc338114
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434188"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378909"
 ---
-# <a name="create-partition-extended"></a>creare una partizione estesa
+# <a name="create-partition-extended"></a>Crea partizione estesa
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -38,10 +38,10 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  Parametro  |                                                                                                                             Descrizione                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  size\=<n>  |                                                  Specifica la dimensione della partizione in megabyte \(MB\). Se si specifica alcuna dimensione, la partizione continua fino a quando non sia non è più disponibile spazio libero nella partizione estesa.                                                  |
+|  dimensioni @ no__t-0 @ no__t-1  |                                                  Specifica la dimensione della partizione in megabyte \(MB\). Se si specifica alcuna dimensione, la partizione continua fino a quando non sia non è più disponibile spazio libero nella partizione estesa.                                                  |
 | offset\=<n> |                     Specifica l'offset in kilobyte \(KB\), in cui viene creata la partizione. Se l'offset non è specificato, la partizione inizierà all'inizio dello spazio libero sul disco sia sufficiente per contenere la nuova partizione.                      |
-| align\=<n>  | Consente di allineare tutti gli extent di partizione per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. <n> è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
-|    NOERR    |                                 Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                 |
+| align @ no__t-0 @ no__t-1  | Consente di allineare tutti gli extent di partizione per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. <n> indica il numero di kilobyte \( KB @ no__t-2 dall'inizio del disco al limite di allineamento più vicino. |
+|    NOERR    |                                 Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                 |
   
 ## <a name="remarks"></a>Note  
   

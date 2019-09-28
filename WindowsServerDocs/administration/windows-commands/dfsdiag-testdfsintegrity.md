@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDFSIntegrity
-description: 'Argomento i comandi di Windows per * * *- '
+title: TestDFSIntegrity Dfsdiag
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a79e034f7c60be89266eb29dcd69e8f73b2aafe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7f344e2d1fecc542efc39688f20165fd3e39a04a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837092"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378432"
 ---
-# <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag TestDFSIntegrity
+# <a name="dfsdiag-testdfsintegrity"></a>TestDFSIntegrity Dfsdiag
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -44,9 +44,9 @@ dfsdiag /TestDFSIntegrity /DFSRoot:<DFS root path> [/Recurse] [/Full]
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|\/DFSRoot:<DFS root path>|Lo spazio dei nomi DFS per la diagnosi.|  
+|\/DFSRoot: <DFS root path>|Lo spazio dei nomi DFS per la diagnosi.|  
 |\/Recurse|Esegue il test incluso che lo spazio dei nomi interlinks.|  
-|\/completo|verifica la coerenza della condivisione e configurazione lato client e gli ACL NTFS in tutte le destinazioni cartella. Verifica inoltre che la proprietà online è impostata.|  
+|\/Full|Verifica la coerenza degli ACL di condivisione e NTFS e della configurazione lato client in tutte le destinazioni di cartella. Verifica inoltre che la proprietà online sia impostata.|  
   
 ## <a name="BKMK_Examples"></a>Esempi  
 Per TBD, digitare:  
@@ -57,8 +57,8 @@ dfsdiag /TestDFSIntegrity /DFSRoot:\\Contoso.com\MyNamespace /Recurse /Full
   
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
   
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 

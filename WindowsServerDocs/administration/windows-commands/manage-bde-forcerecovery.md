@@ -1,8 +1,8 @@
 ---
-title: gestire-bde forcerecovery
-description: 'Argomento i comandi di Windows per * * *- '
+title: Manage-bde forcerecovery
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bf7a913c9c496aebded349731ef965a53c98ac7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a17d6f276e2ee1ddde82a207a7097928720a3ed8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858642"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374085"
 ---
-# <a name="manage-bde-forcerecovery"></a>manage-bde: forcerecovery
+# <a name="manage-bde-forcerecovery"></a>Manage-bde: forcerecovery
 
 
 
@@ -36,11 +36,11 @@ manage-bde –forcerecovery <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive>|Rappresenta una lettera di unità seguita da due punti.|
+|\<Drive >|Rappresenta una lettera di unità seguita da due punti.|
 |-computername|Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
 |\<Nome >|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?|Consente di visualizzare breve guida al prompt dei comandi.|
-|-help o -h|Visualizza la Guida completa al prompt dei comandi.|
+|-? o /?|Visualizza una breve guida al prompt dei comandi.|
+|-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -51,5 +51,5 @@ manage-bde –forcerecovery C:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Gestire-bde](manage-bde.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

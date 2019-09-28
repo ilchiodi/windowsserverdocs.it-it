@@ -1,23 +1,23 @@
 ---
 ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
 title: Risoluzione dei problemi degli aggiornamenti del firmware delle unità
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: toklima
 ms.manager: masriniv
 ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 8283b87e9505b1d3f47ddc823016fbcc7c0c29e6
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9c9c1083def53e09b063a0ca9879e4d4527e98c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867051"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365891"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 
->Si applica a Windows 10, Windows Server (canale semestrale),
+>Si applica a: Windows 10, Windows Server (canale semestrale),
 
 Windows 10, versione 1703 e successive e Windows Server (Canale semestrale) includono la possibilità di aggiornare il firmware delle unità disco rigido e delle unità SSD che sono state certificate con Firmware Upgradeable AQ (Additional Qualifier) tramite PowerShell.
 

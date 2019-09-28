@@ -1,8 +1,8 @@
 ---
 title: diskcomp
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ccd1a347f9ac51fc98c963dedb1c0ab3fcd27d41
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439593"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377873"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 
 
-Confronta il contenuto di due dischi floppy. Se utilizzata senza parametri, **verrà** Usa l'unità corrente per il confronto di entrambi i dischi. Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+Confronta il contenuto di due dischi floppy. Se usato senza parametri, **verrà** usa l'unità corrente per confrontare entrambi i dischi. Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,86 +36,86 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive1>|Specifica l'unità contenente uno dei dischi floppy.|
-|\<Drive2>|Specifica l'unità che contiene l'altro disco floppy.|
+|\<Drive1 >|Specifica l'unità contenente uno dei dischi floppy.|
+|\<Drive2 >|Specifica l'unità contenente l'altro disco floppy.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 - Uso di dischi
 
-  Il **verrà** comando funziona solo con i dischi floppy. Non è possibile usare **verrà** con un disco rigido. Se si specifica un'unità disco rigido per *unità1* oppure *unità2*, **verrà** Visualizza il messaggio di errore seguente:  
+  Il comando **verrà** funziona solo con dischi floppy. Non è possibile usare **verrà** con un disco rigido. Se si specifica un'unità disco rigido per *unità1* o *Unità2*, in **verrà** viene visualizzato il messaggio di errore seguente:  
   ```
   Invalid drive specification
   Specified drive does not exist
   or is nonremovable
   ```  
-- Confronto tra dischi
+- Confronto di dischi
 
-  Se tutte le tracce in due dischi di cui eseguire il confronto sono uguali **verrà** viene visualizzato il messaggio seguente:  
+  Se tutte le tracce sui due dischi confrontati sono uguali, **verrà** Visualizza il messaggio seguente:  
   ```
   Compare OK
   ```  
-  Se le tracce non sono uguali **verrà** viene visualizzato un messaggio simile al seguente:  
+  Se le tracce non sono uguali, **verrà** Visualizza un messaggio simile al seguente:  
   ```
   Compare error on
   side 1, track 2
   ```  
-  Quando **verrà** viene completato il confronto, viene visualizzato il messaggio seguente:  
+  Quando **verrà** completa il confronto, viene visualizzato il messaggio seguente:  
   ```
   Compare another diskette (Y/N)?
   ```  
-  Se si preme Y **verrà** richiede di inserire il disco per il successivo confronto. Se si preme N **verrà** interrompe il confronto.
+  Se si preme Y, **verrà** richiede di inserire il disco per il confronto successivo. Se si preme N, **verrà** interrompe il confronto.
 
-  Quando **verrà** rende il confronto, ignora il numero di volume del disco.
-- Omettendo i parametri di unità
+  Quando **verrà** esegue il confronto, ignora il numero di volume di un disco.
+- Omissione di parametri di unità
 
-  Se si omette il *unità2* parametro **verrà** usi l'unità corrente per *unità2*. Se si omettono entrambi i parametri, unità **verrà** usi l'unità corrente per entrambi. Se l'unità corrente è identico *unità1*, **verrà** chiederà di scambiare dischi in base alle esigenze.
-- Usando un'unità
+  Se si omette il parametro *Unità2* , **verrà** usa l'unità corrente per *Unità2*. Se si omettono entrambi i parametri di unità, **verrà** usa l'unità corrente per entrambi. Se l'unità corrente è uguale a *unità1*, **verrà** richiede di scambiare dischi secondo necessità.
+- Uso di un'unità
 
-  Se si specifica la stessa unità disco floppy per *unità1* e *unità2*, **verrà** vengono quindi confrontati utilizzando una sola unità e viene richiesto di inserire i dischi in base alle esigenze. Potrebbe essere necessario cambiare i dischi più volte, a seconda della capacità dei dischi e la quantità di memoria disponibile.
+  Se si specifica la stessa unità disco floppy per *unità1* e *Unità2*, **verrà** le confronta usando un'unità e richiede di inserire i dischi in base alle esigenze. Potrebbe essere necessario scambiare i dischi più di una volta, a seconda della capacità dei dischi e della quantità di memoria disponibile.
 - Confronto tra diversi tipi di dischi
 
-  **Verrà** non è possibile confrontare un disco con un disco di fronte-retro, né un disco con un disco doppia densità ad alta densità su un solo lato. Se il disco nel *unità1* non è dello stesso tipo del disco nelle *unità2*, **verrà** viene visualizzato il messaggio seguente:  
+  **Verrà** non è in grado di confrontare un disco su un solo lato con un disco a doppio lato, né un disco ad alta densità con un disco a densità doppia. Se il disco in *unità1* non è dello stesso tipo del disco in *Unità2*, **verrà** Visualizza il messaggio seguente:  
   ```
   Drive types or diskette types not compatible
   ```  
-- Usando **verrà** con unità di rete e reindirizzata
+- Uso di **verrà** con reti e unità reindirizzate
 
-  **Verrà** non funziona in un'unità di rete o su un disco creato per il **subst** comando. Se si prova a usare **verrà** con un'unità della ognuno di questi tipi **verrà** Visualizza il messaggio di errore seguente:  
+  **Verrà** non funziona in un'unità di rete o in un'unità creata dal comando **SUBST** . Se si tenta di utilizzare **verrà** con un'unità di uno di questi tipi, **verrà** Visualizza il messaggio di errore seguente:  
   ```
   Invalid drive specification
   ```  
 - Confronto di un disco originale con una copia
 
-  Quando si usa **verrà** con un disco creato usando **copia**, **verrà** potrebbe essere visualizzato un messaggio simile al seguente:  
+  Quando si usa **verrà** con un disco creato usando **Copy**, **verrà** potrebbe visualizzare un messaggio simile al seguente:  
   ```
   Compare error on 
   side 0, track 0
   ```  
-  Questo tipo di errore può verificarsi anche se i file nei dischi sono identici. Sebbene **copia** Duplica informazioni, non necessariamente posizionarlo nella stessa posizione sul disco di destinazione.
-- La comprensione **verrà** codici di uscita
+  Questo tipo di errore può verificarsi anche se i file sui dischi sono identici. Sebbene **copia** le informazioni duplicate, non lo inserisce necessariamente nello stesso percorso nel disco di destinazione.
+- Informazioni sui codici di uscita di **verrà**
 
-  Nella tabella seguente viene illustrato ogni codice di uscita.  
+  La tabella seguente illustra ogni codice di uscita.  
 
   |Codice di uscita|Descrizione|
   |---------|-----------|
   |0|I dischi sono uguali|
-  |1|Sono state rilevate differenze|
+  |1|Sono state trovate differenze|
   |3|Si è verificato un errore hardware|
   |4|Si è verificato un errore di inizializzazione|
 
-  Per elaborare i codici di uscita restituiti da **verrà**, è possibile usare la variabile di ambiente ERRORLEVEL sulle **se** riga di comando in un file batch.
+  Per elaborare i codici di uscita restituiti da **verrà**, è possibile usare la variabile di ambiente ERRORLEVEL nella riga di comando **if** in un programma batch.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Se il computer dispone di un'unica unità disco floppy (ad esempio, l'unità A) e si desidera confrontare due dischi, digitare:
+Se il computer dispone di una sola unità disco floppy, ad esempio l'unità A, e si desidera confrontare due dischi, digitare:
 ```
 diskcomp a: a:
 ```
-**Verrà** chiede all'utente di inserire ogni disco, in base alle esigenze.
+**Verrà** richiede di inserire ogni disco, in base alle esigenze.
 
-Nell'esempio seguente illustra come elaborare una **verrà** uscire dal codice in un file batch che utilizza la variabile di ambiente ERRORLEVEL sulle **se** della riga di comando:
+Nell'esempio seguente viene illustrato come elaborare un codice di uscita **verrà** in un programma batch che utilizza la variabile di ambiente ERRORLEVEL nella riga di comando **if** :
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 

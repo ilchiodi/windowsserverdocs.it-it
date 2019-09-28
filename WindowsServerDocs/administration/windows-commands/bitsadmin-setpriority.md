@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setpriority
-description: Argomento i comandi di Windows per **bitsadmin setpriority** -imposta la priorità del processo specificato.
+description: 'Windows Commands Topic for **BITSAdmin sepriority** : imposta la priorità del processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 072f22ae8c928d427104062b8cbf0f8f42ac4416
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 60564350928f917ca1861684e042304d5d380426
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882212"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380445"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
 
@@ -48,4 +48,4 @@ C:\>bitsadmin /SetPriority myDownloadJob NORMAL
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

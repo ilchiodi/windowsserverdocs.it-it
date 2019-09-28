@@ -1,7 +1,7 @@
 ---
 ms.assetid: f2eefaaf-2817-4ac7-abac-d2b65fa971dc
 title: Fsutil transazione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c225c99919a2558559b1ec7a47b61d716e199a73
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 286660baad699e21abe751a9cb956b1ac7613e80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376862"
 ---
 # <a name="fsutil-transaction"></a>Fsutil transazione
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
-Gestisce le transazioni di NTFS.
+Gestisce le transazioni NTFS.
 
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples) .
+Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples) .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,20 +37,20 @@ fsutil transaction [rollback] <GUID>
 
 | Parametro  |                                                                                                                                                     Descrizione                                                                                                                                                     |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   Eseguire il commit   |                                                                                                                      Contrassegna la fine di una transazione specificata ha esito positivo implicita o esplicita.                                                                                                                      |
+|   Commit   |                                                                                                                      Contrassegna la fine di una transazione specificata implicita o esplicita riuscita.                                                                                                                      |
 |   <GUID>   |                                                                                                                               Specifica il valore GUID che rappresenta una transazione.                                                                                                                               |
-|  fileinfo  |                                                                                                                              Visualizza le informazioni sulle transazioni per il file specificato.                                                                                                                               |
-| <Filename> |                                                                                                                                         Specifica il percorso completo e nome file.                                                                                                                                          |
-|    list    |                                                                                                                                 Visualizza un elenco di transazioni in corso.                                                                                                                                  |
-|   query    | Visualizza le informazioni per la transazione specificata.<br /><br />-Se **fsutil transazione di eseguire query sui file** viene specificato, le informazioni del file verranno visualizzate solo per la transazione specificata.<br />-Se **fsutil transazione query tutti** viene specificato, verranno visualizzate tutte le informazioni per la transazione. |
-|  Eseguire il rollback  |                                                                                                                                Esegue il rollback di una transazione specifica all'inizio.                                                                                                                                 |
+|  FileInfo  |                                                                                                                              Visualizza le informazioni sulle transazioni per il file specificato.                                                                                                                               |
+| <Filename> |                                                                                                                                         Specifica il percorso completo e il nome file.                                                                                                                                          |
+|    list    |                                                                                                                                 Visualizza un elenco di transazioni attualmente in esecuzione.                                                                                                                                  |
+|   query    | Visualizza le informazioni per la transazione specificata.<br /><br />-Se viene specificato il **file fsutil transaction query** , le informazioni sul file verranno visualizzate solo per la transazione specificata.<br />-Se si specifica **fsutil transaction query All** , verranno visualizzate tutte le informazioni per la transazione. |
+|  Rollback  |                                                                                                                                Esegue il rollback di una transazione specificata fino all'inizio.                                                                                                                                 |
 
 ### <a name="remarks"></a>Note
 
 -   Transactional NTFS è stato introdotto in Windows Server 2008.
 
 ### <a name="BKMK_examples"></a>Esempi
-Per visualizzare le informazioni sulle transazioni per c:\test.txt. file, digitare:
+Per visualizzare le informazioni sulle transazioni per il file c:\test.txt, digitare:
 
 ```
 fsutil transaction fileinfo c:\test.txt  
@@ -61,6 +61,6 @@ fsutil transaction fileinfo c:\test.txt
 
 [Fsutil](Fsutil.md)
 
-[Transactional NTFS](https://go.microsoft.com/fwlink/?LinkID=165402)
+[NTFS transazionale](https://go.microsoft.com/fwlink/?LinkID=165402)
 
 

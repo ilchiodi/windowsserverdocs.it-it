@@ -1,9 +1,9 @@
 ---
 title: Pianificare una distribuzione a più foreste
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto in un ambiente con più foreste in Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire accesso remoto in un ambiente a più foreste in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2f14fdb2fd3ab6f0a89c8d8c1a8853041dcba94
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281005"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404521"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Pianificare una distribuzione a più foreste
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo documento vengono descritti i passaggi di pianificazione necessari per la configurazione di Accesso remoto in una distribuzione a più foreste.  
   
@@ -38,19 +38,19 @@ Quando viene configurato, Accesso remoto aggiorna e a volte crea oggetti Criteri
   
 L'amministratore di Accesso remoto deve, inoltre, essere un amministratore locale in tutti i server di Accesso remoto inclusi quelli della nuova foresta aggiunti come punti di ingresso alla distribuzione di Accesso remoto originale.  
   
-## <a name="ClientSG"></a>Pianificare gruppi di sicurezza client  
+## <a name="ClientSG"></a>Pianificare i gruppi di sicurezza client  
 Nella nuova foresta è necessario configurare almeno un gruppo di sicurezza per i computer client DirectAccess in essa contenuti, in quanto un gruppo di sicurezza non può contenere account da foreste diverse.  
   
 > [!NOTE]  
-> -   DirectAccess richiede almeno Windows 10&reg; o Windows&reg; gruppo di sicurezza client 8 per ogni foresta. Tuttavia, è consigliabile avere un Windows 10 o gruppo di sicurezza di client Windows 8 per ogni dominio che contiene il client di Windows 10 o Windows 8.  
-> -   Quando è abilitata la distribuzione multisito, DirectAccess richiede almeno Windows 7&reg; gruppo di sicurezza di client per foresta per ogni punto di ingresso DirectAccess in cui 7 Windows sono supportati nei computer client. Tuttavia, è consigliabile avere un gruppo di sicurezza di Windows 7 client separato per ogni punto di ingresso per ogni dominio che contiene computer client Windows 7.  
+> -   DirectAccess richiede almeno un gruppo di sicurezza client Windows 10 @ no__t-0 o Windows @ no__t-1 8 per ogni foresta. Tuttavia, è consigliabile disporre di un gruppo di sicurezza client Windows 10 o Windows 8 per ogni dominio che contiene client Windows 10 o Windows 8.  
+> -   Quando è abilitata la funzionalità multisito, DirectAccess richiede almeno un gruppo di sicurezza client Windows 7 @ no__t-0 per ogni foresta per ogni punto di ingresso DirectAccess in cui sono supportati i computer client Windows 7. Tuttavia, è consigliabile disporre di un gruppo di sicurezza client Windows 7 separato per ogni punto di ingresso per ogni dominio che contiene i client Windows 7.  
 >   
 > Per applicare DirectAccess in computer client di altri domini, è necessario creare oggetti Criteri di gruppo in tali domini. L'aggiunta di gruppi di sicurezza attiva la scrittura di nuovi oggetti Criteri di gruppo client per i nuovi domini; pertanto, se all'elenco dei gruppi di sicurezza client di DirectAccess si aggiunge un nuovo gruppo di sicurezza da un nuovo dominio, nel nuovo dominio viene creato automaticamente un oggetto Criteri di gruppo, e i computer client in esso contenuti acquisiscono le impostazioni di DirectAccess tramite l'oggetto Criteri di gruppo client.  
 >   
 > Se si aggiunge il client da un nuovo dominio a un gruppo di sicurezza esistente già configurato come gruppo di sicurezza dei client DirectAccess, l'oggetto Criteri di gruppo client non verrà creato automaticamente da DirectAccess nel nuovo dominio. Il client del nuovo dominio non riceverà le impostazioni di DirectAccess e non sarà in grado di effettuare la connessione tramite DirectAccess.  
   
 ## <a name="plan-certification-authorities"></a>Pianificare le autorità di certificazione  
-Se per la distribuzione di DirectAccess è configurato l'utilizzo dell'autenticazione OTP (One-Time Password), ogni foresta contiene gli stessi modelli di certificato di firma con valori OID differenti. A causa di ciò, non sarà possibile configurare le foreste come un singola unità di configurazione. Per risolvere questo problema e configurare l'autenticazione OTP in un ambiente con più foreste, vedere la sezione "Configurare OTP in una distribuzione a più foreste" nell'argomento [configurare una distribuzione a più foreste](Configure-a-Multi-Forest-Deployment.md).  
+Se per la distribuzione di DirectAccess è configurato l'utilizzo dell'autenticazione OTP (One-Time Password), ogni foresta contiene gli stessi modelli di certificato di firma con valori OID differenti. A causa di ciò, non sarà possibile configurare le foreste come un singola unità di configurazione. Per risolvere questo problema e configurare OTP in un ambiente a più foreste, vedere la sezione "configurare OTP in una distribuzione a più foreste" nell'argomento [configurare una distribuzione](Configure-a-Multi-Forest-Deployment.md)a più foreste.  
   
 Quando si utilizza l'autenticazione con certificato computer IPsec, tutti i computer client e server devono disporre di un certificato rilasciato dalla stessa autorità di certificazione radice o intermedia, a prescindere dalla foresta a cui appartengono.  
   

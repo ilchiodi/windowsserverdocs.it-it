@@ -1,8 +1,8 @@
 ---
 title: dir
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37fdcd1f60281eedc4faa9a14e18410b1215b685
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: b073b0557cd011f6742a8a8e532165f53b0a6974
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811205"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377885"
 ---
 # <a name="dir"></a>dir
 
@@ -38,33 +38,33 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive>:][<Path>]|Specifica l'unità e directory per il quale si desidera visualizzare un elenco.|
-|[\<FileName>]|Specifica un file specifico o un gruppo di file per il quale si desidera visualizzare un elenco.|
+|[\<Drive >:] [<Path>]|Specifica l'unità e directory per il quale si desidera visualizzare un elenco.|
+|[\<FileName >]|Specifica un file specifico o un gruppo di file per il quale si desidera visualizzare un elenco.|
 |/ p|Visualizza una schermata dell'elenco alla volta. Per visualizzare la schermata successiva, premere un tasto sulla tastiera.|
 |/q|Visualizza informazioni sulla proprietà di file.|
 |/w|Visualizza l'elenco in formato esteso, con un massimo di cinque nomi di file o i nomi di directory in ogni riga.|
 |/d|Visualizza l'elenco nello stesso formato **/w**, ma i file vengono ordinati per colonna.|
-|/a-[[::]\<attributi >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Questo prefisso equivale a "No"|
-|/ o [[::]\<SortOrder >]|Ordina l'output in base a *SortOrder*, che può essere qualsiasi combinazione dei valori seguenti:</br>**n** in base al nome (in ordine alfabetico)</br>**e** dall'estensione (in ordine alfabetico)</br>**g** prima alla directory di gruppo</br>**s** per dimensioni (il primo più piccolo)</br>**d** da data/ora (più recente)</br>**-** Prefisso per invertire l'ordine</br>Nota: Uso di un carattere due punti è facoltativo. Più valori vengono elaborati nell'ordine in cui sono elencate. Non separare più valori con uno spazio.</br>Se *SortOrder* non è specificato, **/o dir** Elenca le directory in ordine alfabetico, seguito dai file, che devono essere disposti in ordine alfabetico.|
-|/t[[:]\<TimeField>]|Specifica il campo ora per visualizzare o utilizzare per l'ordinamento. Nell'elenco seguente sono descritti i valori è possibile utilizzare per *ora*:</br>**c** creazione</br>**un** ultimo accesso</br>**w** ultima scrittura|
+|/a [[:] \<Attributes >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Il prefisso significa "not"|
+|/o [[:] \<SortOrder >]|Ordina l'output in base a *SortOrder*, che può essere qualsiasi combinazione dei valori seguenti:</br>**n** in base al nome (in ordine alfabetico)</br>**e** dall'estensione (in ordine alfabetico)</br>**g** prima alla directory di gruppo</br>**s** per dimensioni (il primo più piccolo)</br>**d** da data/ora (più recente)</br>**-** Prefisso per l'ordine inverso</br>Nota: L'utilizzo di due punti è facoltativo. Più valori vengono elaborati nell'ordine in cui sono elencate. Non separare più valori con uno spazio.</br>Se *SortOrder* non è specificato, **/o dir** Elenca le directory in ordine alfabetico, seguito dai file, che devono essere disposti in ordine alfabetico.|
+|/t [[:] \<TimeField >]|Specifica il campo ora per visualizzare o utilizzare per l'ordinamento. Nell'elenco seguente sono descritti i valori è possibile utilizzare per *ora*:</br>**c** creazione</br>**un** ultimo accesso</br>**w** ultima scrittura|
 |/s|Elenca tutte le occorrenze del nome del file specificato in una directory specificata e tutte le sottodirectory.|
 |/ b|Visualizza un elenco di directory e file, con nessuna informazione aggiuntiva bare. **/ b** sostituzioni **/w**.|
 |/l|Visualizza i nomi di directory e dei file in minuscolo.|
 |/n|Visualizza in formato lungo con nomi di file all'estrema destra della schermata.|
 |/x|Visualizza i nomi brevi generati per i nomi di file non 8dot3. Il display è uguale a quella del **/n**, ma il nome breve viene inserito prima il nome lungo.|
-|/c|Visualizza il separatore delle migliaia nelle dimensioni dei file. Questo è il comportamento predefinito. Utilizzare **/c** per nascondere i separatori.|
+|/c|Visualizza il separatore delle migliaia nelle dimensioni dei file. Comportamento predefinito. Utilizzare **/c** per nascondere i separatori.|
 |/4|Visualizzazione degli anni nel formato a quattro cifre.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 - L'utilizzo di più *FileName* parametri, separare ogni nome di file con uno spazio, virgola o punto e virgola.
-- È possibile usare caratteri jolly ( **&#42;** oppure **?** ), per rappresentare uno o più caratteri di un nome file e per visualizzare un subset di file o sottodirectory.
+- È possibile utilizzare caratteri jolly ( **&#42;** o **?** ) per rappresentare uno o più caratteri di un nome file e per visualizzare un subset di file o sottodirectory.
 
-  **Asterisco (\*):** Usare l'asterisco come sostituto di qualsiasi stringa di caratteri, ad esempio:  
+  **Asterisco (\*):** Utilizzare l'asterisco come sostituto di qualsiasi stringa di caratteri, ad esempio:  
   - **dir \*. txt** Elenca tutti i file nella directory corrente con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1, .txt_old.
   - **dir leggere\*. txt** Elenca tutti i file nella directory corrente che iniziano con "lettura" e con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1 o .txt_old.
-  - **dir leggere\*.\\** * Elenca tutti i file nella directory corrente che iniziano con "lettura" con qualsiasi estensione.
+  - **dir Read @ no__t-1. \\** * elenca tutti i file nella directory corrente che iniziano con "Read" con qualsiasi estensione.
 
   Il carattere jolly asterisco sempre utilizzato mapping nomi file brevi, si potrebbero ottenere risultati imprevisti. Ad esempio, la directory seguente contiene due file (t.txt2 e t97.txt): 
  
@@ -81,18 +81,18 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   11/30/2004  01:16 PM 0 t97.txt
   ```  
 
-  Si potrebbe pensare che premendo **dir t97\\** * restituirebbe t97.txt il file. Tuttavia, digitando **dir t97\\** * restituisce entrambi i file, perché il carattere jolly asterisco corrisponde a t.txt2 il file di t97.txt utilizzando la mappa di nome breve T97B4~1.TXT. Analogamente, digitando **del t97\\** * eliminerebbe entrambi i file.
+  Ci si potrebbe aspettare che digitando **dir t97 @ no__t-1*** venga restituito il file t97. txt. Tuttavia, digitando **dir t97 @ no__t-1*** vengono restituiti entrambi i file, perché il carattere jolly asterisco corrisponde al file t. txt2 a T97. txt usando la mappa nome breve T97B4 ~ 1. txt. Analogamente, digitando **del t97 @ no__t-1*** verranno eliminati entrambi i file.
 
   **Punto interrogativo (?):** Usare il punto interrogativo come sostituto di un singolo carattere in un nome. Ad esempio, se si digita **dir leggere???. txt** elencati tutti i file nella directory corrente con l'estensione. txt che iniziano con "lettura" e sono seguiti da un massimo di tre caratteri. Sono inclusi Read.txt, Read1.txt, Read12.txt, Read123.txt e Readme1.txt, ma non Readme12.txt.
-- Specifica gli attributi di visualizzazione di file
+- Specifica degli attributi di visualizzazione del file
 
-  Se si usa **/a** con più di un valore in *attributi*, **dir** vengono visualizzati i nomi di solo i file con tutti gli attributi specificati. Ad esempio, se si utilizza **/a** con **r** e **-h** come attributi (utilizzando **/a: r-h** o **/ar-h verranno**), **dir** verrà visualizzato solo i nomi dei file di sola lettura che non sono nascosti.
-- Specifica di ordinamento di nome file
+  Se si utilizza **/a** con più di un valore negli *attributi*, **dir** Visualizza i nomi dei soli file con tutti gli attributi specificati. Ad esempio, se si utilizza **/a** con **r** e **-h** come attributi (utilizzando **/a: r-h** o **/ar-h verranno**), **dir** verrà visualizzato solo i nomi dei file di sola lettura che non sono nascosti.
+- Impostazione dell'ordinamento del nome file
 
-  Se si specifica più di uno *SortOrder* , valore **dir** Ordina i nomi dei file per il primo criterio, quindi il secondo criterio e così via. Ad esempio, se si utilizza **/o** con il **e** e **-s** i valori del parametro *SortOrder* (utilizzando **/o: e-s** o **/oe-s**), **dir** Ordina i nomi di directory e file per estensione, con il primo più grande e viene visualizzato il risultato finale. In ordine alfabetico per estensione determina i nomi di file con estensioni non vengono visualizzati per primi, quindi i nomi di directory e i nomi di file con estensioni.
-- Usando pipe e i simboli di reindirizzamento
+  Se si specifica più di un valore *SortOrder* , **dir** Ordina i nomi di file in base al primo criterio, quindi in base al secondo criterio e così via. Ad esempio, se si utilizza **/o** con il **e** e **-s** i valori del parametro *SortOrder* (utilizzando **/o: e-s** o **/oe-s**), **dir** Ordina i nomi di directory e file per estensione, con il primo più grande e viene visualizzato il risultato finale. In ordine alfabetico per estensione determina i nomi di file con estensioni non vengono visualizzati per primi, quindi i nomi di directory e i nomi di file con estensioni.
+- Uso di simboli di reindirizzamento e pipe
 
-  Quando si usa il simbolo di reindirizzamento ( **>** ) per inviare **dir** output a un file o una barra verticale ( **|** ) per inviare **dir**di output a un altro comando, usare **/b** e **/b** per elencare solo i nomi dei file. È possibile utilizzare *FileName* con **/b** e **/s** per specificare che **dir** ricerca nella directory corrente e nelle relative sottodirectory per tutti i file che corrispondono a *FileName*. **Dir** Elenca solo la lettera di unità, nome della directory, nome file ed estensione (un percorso per riga), per ogni file denominarlo trova. Prima di utilizzare una pipe per inviare **dir** output a un altro comando, è necessario impostare posizione TEMPORANEA di variabile di ambiente nel file Autoexec.
+  Quando si usa il simbolo di reindirizzamento ( **>** ) per inviare l'output **dir** a un file o una pipe ( **|** ) per inviare l'output **dir** a un altro comando, usare **/a:-d** e **/b** per elencare solo i nomi file. È possibile utilizzare *FileName* con **/b** e **/s** per specificare che **dir** ricerca nella directory corrente e nelle relative sottodirectory per tutti i file che corrispondono a *FileName*. **Dir** Elenca solo la lettera di unità, nome della directory, nome file ed estensione (un percorso per riga), per ogni file denominarlo trova. Prima di utilizzare una pipe per inviare **dir** output a un altro comando, è necessario impostare posizione TEMPORANEA di variabile di ambiente nel file Autoexec.
 - Il **dir** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
 ## <a name="examples"></a>Esempi
@@ -129,7 +129,7 @@ Se non esiste Dir. doc, **dir** Crea, a meno che la directory di record non esis
 
 `File creation error`
 
-Per visualizzare un elenco di tutti i nomi dei file con estensione txt in tutte le directory sull'unità C, digitare:
+Per visualizzare un elenco di tutti i nomi di file con estensione txt in tutte le directory sull'unità C, digitare:
 
 ```
 dir c:\*.txt /w/o/s/p

@@ -1,8 +1,8 @@
 ---
 title: importare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ddef3958bc431519e3cb89b658a58d1f4dba6938
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50a095c323806dd523994c36c5b427d4ecedf8ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375500"
 ---
 # <a name="import"></a>importare
 
 
 
-Importa una copia shadow trasportabili da un file dei metadati caricati nel sistema.
+importa una copia shadow trasportabile da un file di metadati caricato nel sistema.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -36,12 +36,12 @@ import
 
 ## <a name="remarks"></a>Note
 
--   Le copie shadow trasportabili non vengono archiviate immediatamente nel sistema. I relativi dettagli vengono archiviati in un file XML di documento i componenti di Backup, che DiskShadow automaticamente le richieste e lo salva in un file di metadati con estensione cab nella directory di lavoro. È possibile modificare il percorso e il nome di questo file usando il **impostare i metadati** comando.
--   Prima di poter usare **importare**, è necessario caricare un file di metadati DiskShadow usando la **caricare i metadati** comando.
+-   Le copie shadow trasportabili non vengono archiviate immediatamente nel sistema. I relativi dettagli vengono archiviati in un file XML del documento dei componenti di backup, che DiskShadow richiede e salva automaticamente in un file di metadati CAB nella directory di lavoro. È possibile modificare il percorso e il nome del file usando il comando **set Metadata** .
+-   Prima di poter usare **Import**, è necessario caricare un file di metadati DiskShadow usando il comando **Load Metadata** .
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Di seguito è riportato uno script DiskShadow di esempio che illustra l'uso del **importare** comando:
+Di seguito è riportato uno script DiskShadow di esempio che illustra l'uso del comando **Import** :
 ```
 #Sample DiskShadow script demonstrating IMPORT
 SET CONTEXT PERSISTENT
@@ -61,4 +61,4 @@ IMPORT
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

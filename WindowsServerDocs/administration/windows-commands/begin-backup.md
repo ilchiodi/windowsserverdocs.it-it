@@ -1,8 +1,8 @@
 ---
-title: Avviare il backup
-description: Argomento i comandi di Windows per **Begin backup** -avvia una sessione di backup completo.
+title: Avvia backup
+description: 'Windows Commands Topic for **Begin backup** : avvia una sessione di backup completo.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ad732bb47c15a41e03a73d17199c3201a346175
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2675914b9b2886b9e818af55fcfb7a75e1616fc9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824952"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382174"
 ---
-# <a name="begin-backup"></a>Avviare il backup
+# <a name="begin-backup"></a>Avvia backup
 
 
 
-Avvia una sessione di backup completo.
+avvia una sessione di backup completo.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,8 +34,8 @@ begin backup
 
 ## <a name="remarks"></a>Note
 
--   Questo comando sostituisce l'impostazione di backup di copia predefinito.
+-   Questo comando sostituisce l'impostazione predefinita di backup di copia.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,7 +1,7 @@
 ---
-title: Evitare di installare RemoteFX in un computer in cui è configurato come controller di dominio Active Directory
+title: Evitare di installare RemoteFX in un computer configurato come controller di dominio Active Directory
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: da58694e-91f6-45d8-a599-18966db165f4
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 9e1c642e3f36b5fe25f34bb417a83b8510adcc02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 67fd8e2568691b7e9be4b46e30b64bf44558d6d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832562"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366475"
 ---
-# <a name="avoid-installing-remotefx-on-a-computer-that-is-configured-as-an-active-directory-domain-controller"></a>Evitare di installare RemoteFX in un computer in cui è configurato come controller di dominio Active Directory
+# <a name="avoid-installing-remotefx-on-a-computer-that-is-configured-as-an-active-directory-domain-controller"></a>Evitare di installare RemoteFX in un computer configurato come controller di dominio Active Directory
 
 >Si applica a: Windows Server 2016
 
@@ -26,8 +26,8 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -35,11 +35,11 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="issue"></a>**Problema**  
 *RemoteFX è installato in un controller di dominio.*  
   
-## <a name="impact"></a>**Impact**  
-*I computer virtuali configurati per RemoteFX non sono utilizzabile in tali computer.*  
+## <a name="impact"></a>**Impatto**  
+*I computer virtuali configurati per RemoteFX non possono essere usati in questi computer.*  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Decidere se si desidera che questo server per essere configurate con RemoteFX Hyper-V o come un Controller di dominio Active Directory e quindi riconfigurare il server in base alle esigenze.*  
+*Decidere se si desidera che il server sia configurato con RemoteFX per Hyper-V o come controller di Dominio di Active Directory, quindi riconfigurare il server in caso di necessità.*  
   
 
 

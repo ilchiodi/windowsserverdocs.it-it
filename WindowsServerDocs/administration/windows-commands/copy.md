@@ -1,8 +1,8 @@
 ---
 title: copy
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d593fbdbffd2a5ee4e4dfb4a817ad4708162160a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 102fd6b59516b04b8986ee47b52f521be73f04de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379037"
 ---
 # <a name="copy"></a>copy
 
@@ -41,13 +41,13 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
 |/d|Consente i file crittografati vengono copiati per essere salvato come file decrittografati nella destinazione.|
 |/v|Verifica che i nuovi file vengono copiati correttamente.|
 |/n|Utilizza un nome di file brevi, se disponibile, quando si copia un file con un nome più di otto caratteri, o con un'estensione di file più di tre caratteri.|
-|/y|Evita la visualizzazione verrà richiesto di confermare che si desidera sovrascrivere un file di destinazione esistente.|
+|/y|Evita la richiesta di conferma della sovrascrittura di un file di destinazione esistente.|
 |/-y|Viene richiesto di confermare che si desidera sovrascrivere un file di destinazione esistente.|
 |/z|Copia i file in rete in modalità riavviabile.|
 |/a|Indica un file di testo ASCII.|
 |/ b|Indica un file binario.|
-|\<origine >|Obbligatorio. Specifica il percorso da cui si desidera copiare un file o un set di file. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
-|\<Destinazione >|Obbligatorio. Specifica il percorso in cui si desidera copiare un file o un set di file. *Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|\<Source >|Obbligatorio. Specifica il percorso da cui si desidera copiare un file o un set di file. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|\<Destination >|Obbligatorio. Specifica il percorso in cui si desidera copiare un file o un set di file. *Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -155,4 +155,4 @@ copy *.txt + *.ref Combined.doc
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

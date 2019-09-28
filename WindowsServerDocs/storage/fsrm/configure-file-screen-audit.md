@@ -2,18 +2,18 @@
 title: Configurare il rapporto screening dei file
 description: Questo articolo descrive come configurare lo screening dei file per generare il rapporto screening dei file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 89592a9e1f61374d2d909678a91dc4a06e0b1972
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9444e158a935f4e931aa7a5d634d970c5acc88e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394574"
 ---
 # <a name="configure-file-screen-audit"></a>Configurare il rapporto screening dei file
 
@@ -34,5 +34,5 @@ Utilizzando Gestione risorse file server, è possibile registrare l'attività di
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
--   [Gestione rapporti archiviazione](storage-reports-management.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti di archiviazione](storage-reports-management.md)

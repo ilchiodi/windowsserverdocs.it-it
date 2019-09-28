@@ -1,6 +1,6 @@
 ---
 title: Requisiti hardware di Spazi di archiviazione diretta
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: Requisiti hardware minimi per i test di Spazi di archiviazione diretta.
 ms.author: eldenc
 ms.manager: eldenc
@@ -9,16 +9,16 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 63a7152ec6abb318a096ac321ae7ccfaaef4d199
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546377"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402933"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
-> Si applica a Windows Server 2019, Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 In questo argomento vengono descritti i requisiti hardware minimi per Spazi di archiviazione diretta.
 
@@ -33,7 +33,7 @@ I sistemi, i componenti, i dispositivi e i driver devono essere **certificati Wi
 
 ![screenshot del catalogo di Windows Server che mostra il AQs SDDC](media/hardware-requirements/sddc-aqs.png)
 
-Il cluster completamente configurato (server, rete e archiviazione) deve superare tutti i [test di convalida del cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) per la procedura guidata in Gestione cluster di failover `Test-Cluster` o con il [cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell.
+Il cluster completamente configurato (server, rete e archiviazione) deve superare tutti i [test di convalida del cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) per la procedura guidata in Gestione cluster di failover o con il [cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) `Test-Cluster` in PowerShell.
 
 Inoltre, si applicano i requisiti seguenti:
 

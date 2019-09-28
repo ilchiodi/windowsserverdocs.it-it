@@ -1,22 +1,22 @@
 ---
 title: Ruoli, servizi ruolo e funzionalità inclusi in Windows Server-Server Core
 description: Quali ruoli e funzionalità sono inclusi nell'opzione di installazione dei componenti di base del server di Windows Server?
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 2f6aed56083bd606ae2ec06b72152ef4a0461420
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7b5d5d5ad38b1b03e409c26485860f43799f1322
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476505"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383327"
 ---
 # <a name="roles-role-services-and-features-included-in-windows-server---server-core"></a>Ruoli, servizi ruolo e funzionalità inclusi in Windows Server-Server Core
 
-> Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 Si tratta in genere di [ciò che *non* si trova in Server Core](server-core-removed-roles.md) . ora si proverà a usare un approccio diverso e si dirà cosa è *incluso* e se *per impostazione predefinita viene installato*un elemento. I ruoli, i servizi ruolo e le funzionalità seguenti sono disponibili *nell'* opzione di installazione dei componenti di base del server di Windows Server. Usare queste informazioni per determinare se l'opzione dei componenti di base del server funziona per l'ambiente. Poiché si tratta di un elenco di grandi dimensioni, provare a cercare il ruolo o la funzionalità specifica a cui si è interessati. se la ricerca non restituisce ciò che si sta cercando, non è inclusa in Server Core.
 
@@ -27,7 +27,7 @@ Tenere presente che è [sempre possibile esaminare](server-core-removed-roles.md
 ## <a name="roles-included-in-server-core"></a>Ruoli inclusi in Server Core
 L'opzione di installazione dei componenti di base del server include i ruoli del server seguenti.
 
-| Role                                            | NOME                           | Installato per impostazione predefinita? |
+| Role                                            | Nome                           | Installato per impostazione predefinita? |
 |-------------------------------------------------|--------------------------------|-----------------------|
 | Servizi certificati Active Directory           | Certificato AD                 | N                     |
 | Servizi di dominio di Active Directory                | Servizi di dominio Active Directory             | N                     |
@@ -51,7 +51,7 @@ L'opzione di installazione dei componenti di base del server include i ruoli del
 ## <a name="role-services-included-in-server-core"></a>Servizi ruolo inclusi in Server Core
 L'opzione di installazione dei componenti di base del server include i servizi ruolo seguenti.
 
-| Role                                  | Servizio ruolo                                                   | NOME                    | Installato per impostazione predefinita? |
+| Role                                  | Servizio ruolo                                                   | Nome                    | Installato per impostazione predefinita? |
 |---------------------------------------|----------------------------------------------------------------|-------------------------|-----------------------|
 | Servizi certificati Active Directory | Autorità di certificazione                                        | ADC-CERT-Authority     | N                     |
 |                                       | Servizio Web di informazioni sulle registrazioni di certificati                      | ADC-registra-Web-pol     | N                     |
@@ -100,7 +100,7 @@ L'opzione di installazione dei componenti di base del server include i servizi r
 |                                       | Prestazioni                                                    | Prestazioni Web         | N                     |
 |                                       | Compressione contenuto statico                                     | Web-Stat-Compression    | N                     |
 |                                       | Compressione contenuto dinamico                                    | Web-Dyn-Compression     | N                     |
-|                                       | Sicurezza                                                       | Sicurezza Web            | N                     |
+|                                       | Security                                                       | Sicurezza Web            | N                     |
 |                                       | Request Filtering                                              | Filtro Web           | N                     |
 |                                       | Autenticazione di base                                           | Web-Basic-Auth          | N                     |
 |                                       | Supporto certificato SSL centralizzato                            | CertProvider Web        | N                     |
@@ -139,14 +139,14 @@ L'opzione di installazione dei componenti di base del server include i servizi r
 ## <a name="features-included-in-server-core"></a>Funzionalità incluse in Server Core
 L'opzione di installazione dei componenti di base del server include le funzionalità seguenti.
 
-| Funzionalità                                                | NOME                               | Installato per impostazione predefinita? |
+| Funzionalità                                                | Nome                               | Installato per impostazione predefinita? |
 |--------------------------------------------------------|------------------------------------|-----------------------|
 | Funzionalità di .NET Framework 3,5                            | NET-Framework-funzionalità             | N                     |
 | .NET Framework 3,5 (include .NET 2,0 e 3,0)       | NET-Framework-Core                 | rimosso             |
 | Attivazione HTTP                                        | NET-HTTP-Activation                | N                     |
 | Attivazione non HTTP                                    | NET-non-HTTP-Activ                 | N                     |
 | Funzionalità di .NET Framework 4,6                            | NET-Framework-45-funzionalità          | Y                     |
-| .NET Framework 4.6                                     | NET-Framework-45-Core              | Y                     |
+| .NET framework 4.6                                     | NET-Framework-45-Core              | Y                     |
 | ASP.NET 4,6                                            | NET-Framework-45-ASPNET            | N                     |
 | Servizi WCF                                           | NET-WCF-Services45                 | Y                     |
 | Attivazione HTTP                                        | NET-WCF-HTTP-Activation45          | N                     |
