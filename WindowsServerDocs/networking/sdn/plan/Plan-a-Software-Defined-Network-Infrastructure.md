@@ -3,7 +3,7 @@ title: Pianificare un'infrastruttura Software Defined Network
 description: Questo argomento fornisce informazioni su come pianificare la distribuzione dell'infrastruttura SDN (software defined Network).
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: virtual-network
 ms.suite: na
@@ -14,16 +14,16 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: pashort
 author: shortpatti
 ms.date: 08/10/2018
-ms.openlocfilehash: e2c125867b461cee9f694849db5c8f61be91211d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ed2dc8861366b929de346d5bd5b3d40998cc8dd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869937"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355792"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Pianificare un'infrastruttura Software Defined Network
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Informazioni sulla pianificazione della distribuzione per un'infrastruttura di rete definita dal software, inclusi i prerequisiti hardware e software. 
 
@@ -96,9 +96,9 @@ Modificare i prefissi di subnet IP di esempio e gli ID VLAN per l'ambiente in us
 |    Management    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1-router 10.184.108.4-controller di rete 10.184.108.10-Compute host 110.184.108.11-Compute host 210.184.108. X-Compute host X |
 |   Provider HNV   |  10.10.56.0  |    23    |          11          |  10.10.56.1  |                                                    10.10.56.1-router 10.10.56.2-SLB/MUX1                                                     |
 |     Transito      |  rete 10.10.10.0  |    24    |          10          |  10.10.10.1  |                                                               10.10.10.1-router                                                               |
-|    Indirizzo VIP pubblico    |  41.40.40.0  |    27    |          ND          |  41.40.40.1  |                                    41.40.40.1-router 41.40.40.2-SLB/MUX VIP 41.40.40.3-IPSec S2S VPN VIP                                    |
-|   VIP privato    |  20.20.20.0  |    27    |          ND          |  20.20.20.1  |                                                        20.20.20.1-default GW (router)                                                         |
-|     VIP GRE      |  31.30.30.0  |    24    |          ND          |  31.30.30.1  |                                                             31.30.30.1-valore predefinito: GW                                                             |
+|    Indirizzo VIP pubblico    |  41.40.40.0  |    27    |          N/D          |  41.40.40.1  |                                    41.40.40.1-router 41.40.40.2-SLB/MUX VIP 41.40.40.3-IPSec S2S VPN VIP                                    |
+|   VIP privato    |  20.20.20.0  |    27    |          N/D          |  20.20.20.1  |                                                        20.20.20.1-default GW (router)                                                         |
+|     VIP GRE      |  31.30.30.0  |    24    |          N/D          |  31.30.30.1  |                                                             31.30.30.1-valore predefinito: GW                                                             |
 
 ---
 
@@ -236,7 +236,7 @@ Per tutti gli host Hyper-V deve essere installato Windows Server 2016, Hyper-V a
 **Requisiti di calcolo host**  
 Nella tabella seguente vengono indicati i requisiti hardware e software minimi per i quattro host fisici utilizzati nella distribuzione di esempio.  
 
-Host|Requisiti hardware|Requisiti software|  
+Hyper-V|Requisiti hardware|Requisiti software|  
 --------|-------------------------|-------------------------  
 |Host Hyper-v fisico|CPU 4 Core 2,66 GHz<br /><br />32 GB di RAM<br /><br />300 GB di spazio su disco<br /><br />scheda di rete fisica 1 GB/s (o superiore)|DEL SISTEMA OPERATIVO Windows Server 2016<br /><br />Ruolo Hyper-V installato|  
 

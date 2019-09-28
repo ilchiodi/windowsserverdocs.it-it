@@ -1,23 +1,23 @@
 ---
 title: Distribuzione dei profili utente mobili
 TOCTitle: Deploying Roaming User Profiles
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7a89ce8d72cf4f060e83b3653b3b2d93eed5cfd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867286"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402036"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Distribuzione dei profili utente mobili
 
->Si applica a Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+>Si applica a: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Questo argomento descrive come usare Windows Server per distribuire i [profili utente mobili](folder-redirection-rup-overview.md) ai computer client Windows. I profili utente mobili reindirizzano i profili utente a una condivisione file in modo che gli utenti ricevano le stesse impostazioni del sistema operativo e dell'applicazione in più computer.
 
@@ -238,7 +238,7 @@ Per specificare un layout iniziale, eseguire le operazioni seguenti:
 | Nome del valore   | **SpecialRoamingOverrideAllowed** |
 | Tipo di valore   | **REG_DWORD**               |
 | Dati valore   | **1** (o **0** per disabilitare) |
-| Base         | **Decimal**                 |
+| Base         | **Decimale**                 |
 
 5. Opzionale Abilita le ottimizzazioni di accesso per la prima volta per rendere più veloce l'accesso per gli utenti. A tale scopo, vedere [applicare i criteri per migliorare l'ora di accesso](https://docs.microsoft.com/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time).
 6. Opzionale Ridurre ulteriormente i tempi di accesso rimuovendo le app non necessarie dall'immagine di base di Windows 10 utilizzata per distribuire i PC client. Windows Server 2019 e Windows Server 2016 non dispongono di app pre-provisioning, quindi è possibile ignorare questo passaggio sulle immagini server.

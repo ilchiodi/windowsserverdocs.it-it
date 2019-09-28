@@ -2,22 +2,22 @@
 title: Creare l'unità organizzativa dei file server BranchCache
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 2cda192f-6b45-4e6c-88d9-70ca179ddb94
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b7b26ec5808f5b11141e81dc5e738c83c94ef6b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f058dbec42997f22106666b014508191a8861694
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406487"
 ---
 # <a name="create-the-branchcache-file-servers-organizational-unit"></a>Creare l'unità organizzativa dei file server BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per creare un'unità organizzativa (OU) in Servizi di dominio Active Directory per file server con BranchCache.  
   

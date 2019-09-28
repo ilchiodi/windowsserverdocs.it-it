@@ -1,84 +1,84 @@
 ---
-title: Tuning IIS 10.0
-description: Per i server web IIS 10.0 in Windows Server 16 recommmendations l'ottimizzazione delle prestazioni
-ms.prod: windows-server-threshold
+title: Ottimizzazione di IIS 10,0
+description: Ottimizzazione delle prestazioni raccomandazioni per i server Web IIS 10,0 in Windows Server 16
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 16ea5c857d99e8a69f528e81178911236341dbb8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9563a3f3628851a0cf7b3cb79990db8c2141faa4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869852"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384953"
 ---
-# <a name="tuning-iis-100"></a>Tuning IIS 10.0
+# <a name="tuning-iis-100"></a>Ottimizzazione di IIS 10,0
 
-Internet Information Services (IIS) 10.0 è incluso in Windows Server 2016. Usa un modello di processo simile a quella di IIS 7.0 e IIS 8.5. Un driver web in modalità kernel (http. sys) riceve e instrada le richieste HTTP e soddisfa le richieste dalla propria cache della risposta. Registrare i processi di lavoro per spazi secondari URL e HTTP. sys instrada la richiesta per il processo appropriato (o set di processi per i pool di applicazioni).
+Internet Information Services (IIS) 10,0 è incluso in Windows Server 2016. Usa un modello di processo simile a quello di IIS 8,5 e IIS 7,0. Un driver Web in modalità kernel (http. sys) riceve e instrada le richieste HTTP e soddisfa le richieste dalla relativa cache di risposta. I processi di lavoro si registrano per gli spazi sottospazi URL e http. sys instrada la richiesta al processo appropriato (o a un set di processi per i pool di applicazioni).
 
-Http. sys è responsabile della gestione connessione e la gestione della richiesta. La richiesta può essere servita dalla cache HTTP. sys o passata a un processo di lavoro per la gestione aggiuntiva. Più processi di lavoro possono essere configurati, che offre isolamento a costi ridotti. Per altre informazioni su come richiedere funzionamento della gestione, vedere la figura seguente:
+HTTP. sys è responsabile della gestione delle connessioni e della gestione delle richieste. La richiesta può essere servita dalla cache HTTP. sys o passata a un processo di lavoro per una gestione aggiuntiva. È possibile configurare più processi di lavoro, che forniscono isolamento a costi ridotti. Per ulteriori informazioni sul funzionamento della gestione delle richieste, vedere la figura seguente:
 
-![richiesta di gestione in iis 10.0](../../media/perftune-guide-iis-request-handling.png)
+![gestione delle richieste in IIS 10,0](../../media/perftune-guide-iis-request-handling.png)
 
-Http. sys include una cache di risposta. Quando una richiesta corrisponde a una voce nella cache delle risposte, la risposta della cache HTTP. sys invia direttamente dalla modalità kernel. Alcune piattaforme di applicazioni web, ad esempio ASP.NET, forniscono meccanismi per attivare il contenuto dinamico da memorizzare nella cache nella cache in modalità kernel. Il gestore di file statici in IIS 10.0 memorizza automaticamente il file richiesti di frequente in HTTP. sys.
+HTTP. sys include una cache di risposta. Quando una richiesta corrisponde a una voce nella cache di risposta, HTTP. sys invia la risposta della cache direttamente dalla modalità kernel. Alcune piattaforme di applicazioni Web, ad esempio ASP.NET, forniscono meccanismi per consentire la memorizzazione nella cache in modalità kernel di qualsiasi contenuto dinamico. Il gestore di file statici in IIS 10,0 memorizza automaticamente nella cache i file richiesti di frequente in http. sys.
 
-Poiché un server web ha i componenti in modalità kernel e modalità utente, entrambi i componenti devono essere ottimizzati per prestazioni ottimali. Pertanto, l'ottimizzazione di IIS 10.0 per un carico di lavoro specifico include la configurazione di quanto segue:
+Poiché in un server Web sono disponibili componenti in modalità kernel e modalità utente, entrambi i componenti devono essere ottimizzati per ottenere prestazioni ottimali. Per questo motivo, l'ottimizzazione di IIS 10,0 per un carico di lavoro specifico include la configurazione dei seguenti elementi:
 
--   Http. sys e la cache associata in modalità kernel
+-   HTTP. sys e la cache in modalità kernel associata
 
--   Processi di lavoro e in modalità utente IIS, che include la configurazione di pool di applicazioni
+-   Processi di lavoro e IIS in modalità utente, inclusa la configurazione del pool di applicazioni
 
--   Alcuni parametri di ottimizzazione che influiscono sulle prestazioni
+-   Determinati parametri di ottimizzazione che influiscono sulle prestazioni
 
-Le sezioni seguenti illustrano come configurare gli aspetti in modalità kernel e modalità utente di IIS 10.0.
+Nelle sezioni seguenti viene illustrato come configurare gli aspetti in modalità kernel e in modalità utente di IIS 10,0.
 
 ## <a name="kernel-mode-settings"></a>Impostazioni della modalità kernel
 
-Impostazioni relative alle prestazioni di HTTP. sys rientrano in due ampie categorie: memorizza nella cache e la gestione connessione e alla richiesta. Tutte le impostazioni del Registro di sistema vengono archiviate con la voce del Registro di sistema seguente:
+Le impostazioni HTTP. sys correlate alle prestazioni rientrano in due ampie categorie: gestione della cache e connessione e gestione delle richieste. Tutte le impostazioni del registro di sistema vengono archiviate nella seguente voce del registro di sistema:
 
 ``` syntax
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters
 ```
 
-**Nota**   se è già in esecuzione il servizio HTTP, è necessario riavviarlo rendere effettive le modifiche.
+**Nota**  se il servizio HTTP è già in esecuzione, è necessario riavviarlo per rendere effettive le modifiche.
 
 Â 
 
 ## <a name="cache-management-settings"></a>Impostazioni di gestione della cache
 
-Uno dei vantaggi che offre di HTTP. sys è una cache in modalità kernel. Se la risposta è nella cache in modalità kernel, è possibile soddisfare una richiesta HTTP interamente dalla modalità kernel, che consente di ridurre notevolmente il costo della CPU di gestisce la richiesta. Tuttavia, la cache in modalità kernel di IIS 10.0 è basata sulla memoria fisica e il costo di una voce è che occupa la memoria.
+Un vantaggio fornito da HTTP. sys è una cache in modalità kernel. Se la risposta è nella cache in modalità kernel, è possibile soddisfare una richiesta HTTP interamente dalla modalità kernel, che riduce significativamente il costo della CPU per la gestione della richiesta. Tuttavia, la cache in modalità kernel di IIS 10,0 è basata sulla memoria fisica e il costo di una voce è la memoria occupata.
 
-Una voce nella cache è utile solo quando viene usato. Tuttavia, la voce Usa sempre la memoria fisica, che viene viene usata la voce o meno. È necessario valutare l'utilità di un elemento nella cache (il risparmio garantito da essere in grado di servirla dalla cache) e relativo costo (la memoria fisica occupata) in base alla durata della voce da prendere in considerazione il carico di lavoro e le risorse disponibili (CPU e memoria fisica) requisiti. Http. sys prova a mantenere solo elementi attivamente a cui si accede, utili nella cache, ma è possono aumentare le prestazioni del server web, ottimizzando la cache HTTP. sys per determinati carichi di lavoro.
+Una voce nella cache è utile solo quando viene usata. Tuttavia, la voce utilizza sempre la memoria fisica, indipendentemente dal fatto che la voce venga utilizzata o meno. È necessario valutare l'utilità di un elemento nella cache (il risparmio per poterlo servire dalla cache) e il relativo costo (la memoria fisica occupata) per tutta la durata della voce considerando le risorse disponibili (CPU e memoria fisica) e il carico di lavoro requisiti. HTTP. sys tenta di gestire solo gli elementi utili e attivamente accessibili nella cache, ma è possibile aumentare le prestazioni del server Web ottimizzando la cache HTTP. sys per carichi di lavoro specifici.
 
-Di seguito sono alcune impostazioni utili per la cache in modalità kernel HTTP. sys:
+Di seguito sono riportate alcune impostazioni utili per la cache in modalità kernel HTTP. sys:
 
--   **UriEnableCache** il valore predefinito: 1
+-   **UriEnableCache** Valore predefinito: 1
 
-    Un valore diverso da zero consente la risposta in modalità kernel e la memorizzazione nella cache di frammenti. Per la maggior parte dei carichi di lavoro, la cache deve rimanere abilitata. È consigliabile disabilitare la cache, se si prevede che una risposta molto bassa e un frammento di memorizzazione nella cache.
+    Un valore diverso da zero Abilita la risposta in modalità kernel e la memorizzazione nella cache dei frammenti. Per la maggior parte dei carichi di lavoro, la cache deve rimanere abilitata. Provare a disabilitare la cache se si prevede una risposta molto bassa e la memorizzazione nella cache dei frammenti.
 
--   **UriMaxCacheMegabyteCount** il valore predefinito: 0
+-   **UriMaxCacheMegabyteCount** Valore predefinito: 0
 
-    Un valore diverso da zero che specifica la memoria massima disponibile per la cache in modalità kernel. Il valore predefinito, 0, consente al sistema di regolare automaticamente la quantità di memoria è disponibile nella cache.
+    Valore diverso da zero che specifica la memoria massima disponibile per la cache in modalità kernel. Il valore predefinito, 0, consente al sistema di regolare automaticamente la quantità di memoria disponibile per la cache.
 
-    **Nota** specificando la dimensione imposta solo il valore massimo e il sistema potrebbe non consentire la cache di raggiungere la dimensione massima di set.
+    **Nota** Specificando le dimensioni viene impostato solo il valore massimo e il sistema potrebbe non consentire la crescita della cache fino alla dimensione massima configurata.
 
     Â 
 
--   **UriMaxUriBytes** il valore predefinito: 262.144 byte (256 KB)
+-   **UriMaxUriBytes** Valore predefinito: 262144 byte (256 KB)
 
-    Le dimensioni massime di una voce nella cache in modalità kernel. Non vengono memorizzate nella cache le risposte o frammenti più grandi rispetto a questo. Se si dispone di sufficiente memoria, prendere in considerazione l'aumento del limite. Se la memoria è limitata e out piccoli riempiono le voci di grandi dimensioni, potrebbe essere utile per ridurre il limite.
+    Dimensione massima di una voce nella cache in modalità kernel. Le risposte o i frammenti più grandi di questo non vengono memorizzati nella cache. Se si dispone di memoria sufficiente, provare ad aumentare il limite. Se la memoria è limitata e le voci di grandi dimensioni sono più piccole, potrebbe essere utile ridurre il limite.
 
--   **UriScavengerPeriod** il valore predefinito: 120 secondi
+-   **UriScavengerPeriod** Valore predefinito: 120 secondi
 
-    La cache HTTP. sys è analizzata periodicamente da un analizzatore e vengono rimosse le voci non sono accessibili tra le analisi analizzatore. Impostazione del periodo di Analizzatore su un valore elevato riduce il numero di scansioni di analizzatore. Tuttavia, l'utilizzo della memoria cache potrebbe migliorare in quanto le voci meno recenti e meno di frequente possono rimanere nella cache. Impostazione del periodo troppo bassa fa in modo che le analisi analizzatore più frequenti e può comportare un numero eccessivo di scaricamenti e memorizzare nella cache della varianza.
+    La cache HTTP. sys viene periodicamente sottoposta a scansione da un Scavenger e le voci a cui non si accede tra le analisi dello scavenger vengono rimosse. Impostando il periodo del Scavenger su un valore elevato, viene ridotto il numero di analisi dello scavenger. Tuttavia, l'utilizzo della memoria cache può aumentare perché le voci meno recenti, a cui si accede meno di frequente, possono rimanere nella cache. L'impostazione del periodo troppo basso comporta l'analisi più frequente del Scavenger e può comportare troppi Scaricamenti e varianza della cache.
 
-## <a name="request-and-connection-management-settings"></a>Impostazioni di gestione connessione e di richiesta
+## <a name="request-and-connection-management-settings"></a>Impostazioni di gestione delle richieste e delle connessioni
 
-In Windows Server 2016, HTTP. sys gestisce automaticamente le connessioni. Le impostazioni del Registro di sistema seguenti non sono più usate:
+In Windows Server 2016, HTTP. sys gestisce automaticamente le connessioni. Le seguenti impostazioni del registro di sistema non vengono più utilizzate:
 
--   **maxConnections**
+-   **MaxConnections**
 
     ``` syntax
     HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters\MaxConnections
@@ -115,159 +115,159 @@ In Windows Server 2016, HTTP. sys gestisce automaticamente le connessioni. Le im
     ```
 
 
-## <a name="user-mode-settings"></a>Impostazioni utente-modalità
+## <a name="user-mode-settings"></a>Impostazioni della modalità utente
 
-Le impostazioni in questa sezione interessano il comportamento di processi di lavoro IISÂ 10.0. La maggior parte di queste impostazioni sono disponibili nel file di configurazione XML seguente:
+Le impostazioni in questa sezione influiscono sul comportamento del processo di lavoro IISÂ 10,0. La maggior parte di queste impostazioni si trova nel file di configurazione XML seguente:
 
-%SystemRoot%\\system32\\inetsrv\\config\\applicationHost.config
+% SystemRoot% \\system32 @ no__t-1inetsrv @ no__t-2config @ no__t-3applicationHost. config
 
-Usare Appcmd.exe, la Console di gestione di IIS 10.0, WebAdministration o i cmdlet di PowerShell di amministrazione IIS per modificarli. La maggior parte delle impostazioni vengono rilevate automaticamente e non richiedono un riavvio del server applicazioni web o i processi di lavoro di IIS 10.0. Per altre informazioni sul file ApplicationHost. config, vedere [Introduzione a file ApplicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
+Utilizzare Appcmd. exe, la console di gestione IIS 10,0, i cmdlet di PowerShell per WebAdministration o IISAdministration per modificarli. La maggior parte delle impostazioni viene rilevata automaticamente e non richiede il riavvio dei processi di lavoro IIS 10,0 o del server applicazioni Web. Per ulteriori informazioni sul file applicationHost. config, vedere [Introduzione a ApplicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
 
 
-## <a name="ideal-cpu-setting-for-numa-hardware"></a>Impostazione della CPU ideali per l'hardware NUMA
+## <a name="ideal-cpu-setting-for-numa-hardware"></a>Impostazione della CPU ideale per hardware NUMA
 
-A partire dal 2016 Windows, IIS 10.0 supporta l'assegnazione automatica del ideale della CPU per il pool di thread migliorare le prestazioni e scalabilità in componenti hardware NUMA. Questa funzionalità è abilitata per impostazione predefinita e può essere configurata tramite la chiave del Registro di sistema seguente:
+A partire da Windows 2016, IIS 10,0 supporta l'assegnazione automatica della CPU ideale per i thread del pool di thread per migliorare le prestazioni e la scalabilità nell'hardware NUMA. Questa funzionalità è abilitata per impostazione predefinita e può essere configurata tramite la chiave del registro di sistema seguente:
 
 ``` syntax
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\InetInfo\Parameters\ThreadPoolUseIdealCpu
 ```
 
-Con questa funzionalità è abilitata, il gestore di thread IIS rende sforzo per distribuire uniformemente i thread del pool IIS per tutte le CPU in tutti i nodi NUMA in base i carichi correnti. In generale, è consigliabile mantenere questa impostazione non modificato per l'hardware NUMA predefinita.
+Se questa funzionalità è abilitata, gestione thread IIS consente di distribuire uniformemente i thread del pool di thread IIS tra tutte le CPU in tutti i nodi NUMA in base ai carichi correnti. In generale, è consigliabile lasciare invariata l'impostazione predefinita per l'hardware NUMA.
 
-**Nota**   è diverso dal ruolo di lavoro processo assegnazione impostazioni dei nodi NUMA (numaNodeAssignment e numaNodeAffinityMode) introdotto in l'impostazione della CPU ideale [le impostazioni della CPU per un Pool di applicazioni](https://www.iis.net/configreference/system.applicationhost/applicationpools/add/cpu). Impostazione della CPU ideale influisce sul modo in cui IIS consente di distribuire pool di thread, mentre le impostazioni di assegnazione nodo NUMA processo di lavoro determinano su quale nodo NUMA viene avviato un processo di lavoro.
+**Nota**  l'impostazione della CPU ideale è diversa dalle impostazioni di assegnazione del nodo NUMA del processo di lavoro (NumaNodeAssignment e numaNodeAffinityMode) introdotte in [Impostazioni CPU per un pool di applicazioni](https://www.iis.net/configreference/system.applicationhost/applicationpools/add/cpu). L'impostazione della CPU ideale influiscono sul modo in cui IIS distribuisce i thread del pool di thread, mentre le impostazioni di assegnazione del nodo NUMA del processo di lavoro determinano il nodo NUMA avviato da un processo di lavoro.
 
-## <a name="user-mode-cache-behavior-settings"></a>Impostazioni di comportamento della cache in modalità utente
+## <a name="user-mode-cache-behavior-settings"></a>Impostazioni del comportamento della cache in modalità utente
 
-In questa sezione descrive le impostazioni che influiscono sul comportamento di memorizzazione nella cache in IISÂ 10.0. La cache in modalità utente viene implementata come un modulo che ascolta gli eventi di memorizzazione nella cache globali che vengono generati dalla pipeline integrata. Per disabilitare completamente la cache utente-modalità, rimuovere il modulo FileCacheModule (cachfile.dll) dall'elenco dei moduli installati nella sezione di configurazione system.webServer/globalModules in applicationHost. config.
+Questa sezione descrive le impostazioni che influiscono sul comportamento di memorizzazione nella cache in IISÂ 10,0. La cache in modalità utente viene implementata come un modulo che rimane in ascolto degli eventi di memorizzazione nella cache globale generati dalla pipeline integrata. Per disabilitare completamente la cache in modalità utente, rimuovere il modulo FileCacheModule (cachfile. dll) dall'elenco dei moduli installati nella sezione di configurazione System. webserver/globalModules in applicationHost. config.
 
-**system.webServer/caching**
+**System. webserver/Caching**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|Enabled|Disabilita la cache IIS in modalità utente quando impostata su **False**. Quando la cache raggiunge velocità è molto ridotto, che è possibile disabilitare la cache completamente per evitare il sovraccarico associato con il percorso del codice della cache. Disabilitare la cache in modalità utente non disabilita la cache in modalità kernel.|True|
-|enableKernelCache|Disabilita la cache in modalità kernel quando impostata su **False**.|True|
-|maxCacheSize|Limita la dimensione della cache in modalità utente IIS per le dimensioni specificate in megabyte. IIS viene modificata l'impostazione predefinita in base alla memoria disponibile. Scegliere i file rispetto alla quantità di RAM o lo spazio degli indirizzi di processo IIS accedere al valore con attenzione in base alla dimensione del set di frequente.|0|
-|maxResponseSize|Memorizza nella cache i file fino alle dimensioni specificate. Il valore effettivo dipende dal numero e dimensione dei file più grande del set di dati rispetto alla memoria RAM disponibile. Memorizzazione nella cache di grandi dimensioni, possono ridurre i file richiesti di frequente utilizzo della CPU, l'accesso al disco e latenze associate.|262144|
+|Enabled|Disabilita la cache IIS in modalità utente quando è impostata su **false**. Quando la percentuale di riscontri nella cache è molto ridotta, è possibile disabilitare completamente la cache per evitare il sovraccarico associato al percorso del codice della cache. La disabilitazione della cache in modalità utente non comporta la disabilitazione della cache in modalità kernel.|True|
+|enableKernelCache|Disabilita la cache in modalità kernel quando è impostata su **false**.|True|
+|maxCacheSize|Limita le dimensioni della cache in modalità utente di IIS alla dimensione specificata in megabyte. IIS regola il valore predefinito in base alla memoria disponibile. Scegliere con attenzione il valore in base alle dimensioni del set di file a cui si accede di frequente rispetto alla quantità di RAM o allo spazio degli indirizzi del processo IIS.|0|
+|maxResponseSize|Memorizza nella cache i file fino alla dimensione specificata. Il valore effettivo dipende dal numero e dalle dimensioni dei file più grandi nel set di dati rispetto alla RAM disponibile. La memorizzazione nella cache di file di grandi dimensioni e spesso richiesti può ridurre l'utilizzo della CPU, l'accesso al disco e le latenze associate|262144|
 
-## <a name="compression-behavior-settings"></a>Impostazioni di comportamento di compressione
+## <a name="compression-behavior-settings"></a>Impostazioni del comportamento di compressione
 
-Per impostazione predefinita, IIS a partire da 7.0 comprime contenuto statico. Inoltre, la compressione di contenuto dinamico è abilitata per impostazione predefinita quando viene installato il DynamicCompressionModule. La compressione riduce l'utilizzo della larghezza di banda ma aumenta l'utilizzo della CPU. Contenuto compresso è memorizzato nella cache in modalità kernel, se possibile. A partire da 8.5, IIS consente la compressione di essere controllata in modo indipendente per il contenuto statico e dinamico. Contenuti statici in genere fa riferimento al contenuto che non cambia, ad esempio i file GIF o HTM. Contenuto dinamico viene in genere generato dal codice nel server, vale a dire, le pagine ASP.NET o gli script. È possibile personalizzare la classificazione di qualsiasi particolare estensione come statico o dinamico.
+IIS a partire da 7,0 comprime il contenuto statico per impostazione predefinita. Inoltre, la compressione del contenuto dinamico è abilitata per impostazione predefinita quando viene installato DynamicCompressionModule. La compressione riduce l'utilizzo della larghezza di banda ma aumenta l'utilizzo della CPU. Se possibile, il contenuto compresso viene memorizzato nella cache in modalità kernel. A partire da 8,5, IIS consente di controllare la compressione in modo indipendente per il contenuto statico e dinamico. Il contenuto statico si riferisce in genere al contenuto che non cambia, ad esempio i file GIF o HTM. Il contenuto dinamico viene in genere generato da script o codice sul server, ovvero pagine ASP.NET. È possibile personalizzare la classificazione di una determinata estensione come statica o dinamica.
 
-Per disabilitare completamente la compressione, rimuovere StaticCompressionModule e DynamicCompressionModule dall'elenco dei moduli nella sezione system.webServer/globalModules in applicationHost. config.
+Per disabilitare completamente la compressione, rimuovere StaticCompressionModule e DynamicCompressionModule dall'elenco dei moduli nella sezione System. webserver/globalModules in applicationHost. config.
 
-**system.webServer/httpCompression**
+**System. webserver/httpCompression**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Abilita o disabilita la compressione se la percentuale di utilizzo della CPU corrente va di sopra o sotto di limiti specificati.<br><br>A partire da IIS 7.0, la compressione verrà disabilitata automaticamente se aumenta nello stato stazionario CPU di sopra della soglia di disabilitazione. La compressione è abilitata se della CPU scende sotto la soglia di attivazione.|50, 100, 50 e 90 rispettivamente|
-|Directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzato nella cache. Prendere in considerazione lo spostamento della directory disattivato l'unità del sistema se si accede di frequente.|%SystemDrive%\inetpub\temp\IIS temporary Compressed Files|
-|doDiskSpaceLimiting|Specifica se esiste un limite di spazio su disco possono occupare tutti i file compressi. File compressi vengono archiviati nella directory di compressione specificato per il **directory** attributo.|True|
-|maxDiskSpaceUsage|Specifica il numero di byte di spazio su disco che i file compressi possono occupare nella directory di compressione.<br><br>Questa impostazione potrebbe essere necessario aumentare se la dimensione totale di tutto il contenuto compresso è troppo grande.|100 MB|
+|staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Abilita o Disabilita la compressione se l'utilizzo della CPU percentuale corrente supera o scende al di sotto dei limiti specificati.<br><br>A partire da IIS 7,0, la compressione viene disabilitata automaticamente se la CPU a stato costante aumenta al di sopra della soglia di disabilitazione. La compressione è abilitata se la CPU scende al di sotto della soglia di abilitazione.|50, 100, 50 e 90 rispettivamente|
+|Directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzate nella cache. Se si accede di frequente, provare a trasferire questa directory dall'unità di sistema.|%SystemDrive%\inetpub\temp\IIS file compressi temporanei|
+|doDiskSpaceLimiting|Specifica se esiste un limite per la quantità di spazio su disco che tutti i file compressi possono occupare. I file compressi vengono archiviati nella directory di compressione specificata dall'attributo di **directory** .|True|
+|maxDiskSpaceUsage|Specifica il numero di byte di spazio su disco che i file compressi possono occupare nella directory di compressione.<br><br>Questa impostazione potrebbe dover essere aumentata se la dimensione totale di tutto il contenuto compresso è troppo grande.|100 MB|
 
-**system.webServer/urlCompression**
+**System. webserver/urlCompression**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
 |doStaticCompression|Specifica se il contenuto statico è compresso.|True|
 |doDynamicCompression|Specifica se il contenuto dinamico è compresso.|True|
 
-**Nota** per i server che esegue IIS 10.0 con basso utilizzo medio della CPU, prendere in considerazione l'abilitazione della compressione di contenuto dinamico, in particolare se le risposte sono di grandi dimensioni. Questa operazione deve innanzitutto essere eseguita in un ambiente di testing per valutare l'effetto dell'uso della CPU dalla linea di base.
+**Nota** Per i server che eseguono IIS 10,0 con un utilizzo medio della CPU ridotto, è consigliabile abilitare la compressione per il contenuto dinamico, soprattutto se le risposte sono di grandi dimensioni. Questa operazione deve essere eseguita prima in un ambiente di testing per valutare l'effetto sull'utilizzo della CPU dalla linea di base.
 
 
-### <a name="tuning-the-default-document-list"></a>Elenco di documenti predefiniti di ottimizzazione
+### <a name="tuning-the-default-document-list"></a>Ottimizzazione dell'elenco dei documenti predefiniti
 
-Il modulo di documento predefinita gestisce le richieste HTTP per la radice di una directory e li converte in richieste per un file specifico, ad esempio index. htm o default. htm. In Media, aroundÂ 25 percento di tutte le richieste Internet passano attraverso il percorso di documento predefinito. Il valore varia in modo significativo per i singoli siti. Quando una richiesta HTTP non specifica un nome di file, il modulo di documento predefinita cerca nell'elenco dei documenti predefiniti consentiti per ogni nome del file System. Ciò può influire negativamente sulle prestazioni, soprattutto se raggiunge il contenuto è necessario apportare una rete round trip o toccare un disco.
+Il modulo documento predefinito gestisce le richieste HTTP per la radice di una directory e le converte in richieste per un file specifico, ad esempio default. htm o index. htm. In media, aroundÂ il 25% di tutte le richieste in Internet passa attraverso il percorso del documento predefinito. Questo problema varia significativamente per i singoli siti. Quando una richiesta HTTP non specifica un nome di file, il modulo del documento predefinito Cerca nell'elenco dei documenti predefiniti consentiti per ogni nome nella file system. Ciò può influire negativamente sulle prestazioni, soprattutto se il raggiungimento del contenuto richiede la round trip di rete o il tocco di un disco.
 
-È possibile evitare il sovraccarico disattivando selettivamente documenti predefiniti e riducendo o ordinare l'elenco dei documenti. Per i siti Web che usano un documento predefinito, è necessario ridurre l'elenco per solo i tipi di documento predefiniti che vengono usati. Inoltre, ordinare l'elenco in modo che inizia con più di frequente nome file del documento predefinito a cui si accede.
+È possibile evitare il sovraccarico selezionando in modo selettivo i documenti predefiniti e riducendo o ordinando l'elenco di documenti. Per i siti Web che utilizzano un documento predefinito, è consigliabile ridurre l'elenco solo ai tipi di documento predefiniti utilizzati. Inoltre, ordinare l'elenco in modo che inizi con il nome del file di documento predefinito a cui si accede più di frequente.
 
-È possibile impostare in modo selettivo il comportamento di documento predefinito sugli URL specifico tramite la personalizzazione della configurazione all'interno di un tag di posizione nel file ApplicationHost. config o inserendo un file Web. config direttamente nella directory del contenuto. Ciò consente un approccio ibrido, che abilita documenti predefiniti in cui sono gli unici necessari e imposta l'elenco per il file corretto assegnare un nome per ogni URL.
+È possibile impostare selettivamente il comportamento predefinito del documento su URL specifici personalizzando la configurazione all'interno di un tag location in applicationHost. config oppure inserendo un file Web. config direttamente nella directory del contenuto. Questo consente un approccio ibrido, che Abilita i documenti predefiniti solo quando sono necessari e imposta l'elenco sul nome file corretto per ogni URL.
 
-Per disabilitare completamente il documento predefinito, rimuovere DefaultDocumentModule dall'elenco dei moduli nella sezione system.webServer/globalModules in applicationHost. config.
+Per disabilitare completamente i documenti predefiniti, rimuovere DefaultDocumentModule dall'elenco dei moduli nella sezione System. webserver/globalModules in applicationHost. config.
 
-**system.webServer/defaultDocument**
+**System. webserver/defaultDocument**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
 |enabled|Specifica che i documenti predefiniti sono abilitati.|True|
-|&lt;file&gt; elemento|Specifica i nomi di file che sono configurati come documenti predefiniti.|L'elenco predefinito è default. htm, default. ASP, index. htm, index. HTML, IISSTART. htm e default. aspx.|
+|elemento &lt;files @ no__t-1|Specifica i nomi di file che sono configurati come documenti predefiniti.|L'elenco predefinito è default. htm, default. asp, index. htm, index. html, Iisstart. htm e default. aspx.|
 
 ## <a name="central-binary-logging"></a>Registrazione binaria centrale
 
-Quando la sessione del server include numerosi gruppi di URL sotto di esso, il processo di creazione di centinaia di file di log formattato per singoli gruppi di URL e la scrittura dei dati di log in un disco può consumare rapidamente utili risorse di CPU e memoria, creando così le prestazioni e problemi di scalabilità. Registrazione centralizzata binaria riduce al minimo la quantità di risorse di sistema utilizzate per la registrazione, mentre allo stesso tempo che fornisce dati di log dettagliati per le organizzazioni che lo richiedono. Analisi dei log in formato binario richiede l'utilizzo di uno strumento di post-elaborazione.
+Quando la sessione del server include numerosi gruppi di URL, il processo di creazione di centinaia di file di log formattati per i singoli gruppi di URL e la scrittura dei dati di log su un disco può utilizzare rapidamente risorse di CPU e memoria, creando in tal modo prestazioni e problemi di scalabilità. La registrazione binaria centralizzata riduce al minimo la quantità di risorse di sistema utilizzate per la registrazione, fornendo allo stesso tempo dati di log dettagliati per le organizzazioni che lo richiedono. Per l'analisi dei log in formato binario è necessario uno strumento di post-elaborazione.
 
-È possibile abilitare la registrazione binaria centrale impostando l'attributo centralLogFileMode a CentralBinary e impostare il **abilitate** dell'attributo **True**. Provare a spostare la posizione del file di log centrale dalla partizione di sistema e in un'unità di registrazione dedicata per evitare conflitti tra le attività di sistema e le attività di registrazione.
+È possibile abilitare la registrazione binaria centrale impostando l'attributo centralLogFileMode su CentralBinary e impostando l'attributo **Enabled** su **true**. Provare a trasferire il percorso del file di log centrale dalla partizione di sistema e su un'unità di registrazione dedicata per evitare conflitti tra le attività del sistema e le attività di registrazione.
 
-**system.applicationHost/log**
+**System. applicationHost/log**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|centralLogFileMode|Specifica la modalità di registrazione per un server. Modificare questo valore CentralBinary per abilitare la registrazione binaria centrale.|Sito|
+|centralLogFileMode|Specifica la modalità di registrazione per un server. Modificare questo valore in CentralBinary per abilitare la registrazione binaria centrale.|Sito|
 
-**system.applicationHost/log/centralBinaryLogFile**
+**System. applicationHost/log/centralBinaryLogFile**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
 |enabled|Specifica se è abilitata la registrazione binaria centrale.|False|
-|Directory|Specifica la directory in cui vengono scritte voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
+|Directory|Specifica la directory in cui vengono scritte le voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
-## <a name="application-and-site-tunings"></a>Se applicazione e il sito
+## <a name="application-and-site-tunings"></a>Ottimizzazione di applicazioni e siti
 
-Le impostazioni seguenti si riferiscono ai se pool e il sito dell'applicazione.
+Le impostazioni seguenti sono correlate al pool di applicazioni e alle ottimizzazioni del sito.
 
-**system.applicationHost/applicationPools/applicationPoolDefaults**
+**System. applicationHost/applicationPools/applicationPoolDefaults**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|queueLength|Indica a http. sys quante richieste vengono accodate per un pool di applicazioni prima che le richieste successive vengono rifiutate. Quando viene superato il valore di questa proprietà, IIS rifiuta le richieste successive con un errore 503.<br><br>È possibile aumentare questo per le applicazioni che comunicano con gli archivi dati di back-end con latenza elevata, se si osservano 503 errori.|1000|
-|enable32BitAppOnWin64|Se è True, consente a un'applicazione a 32 bit per l'esecuzione in un computer che ha un processore a 64 bit.<br><br>Provare ad abilitare la modalità a 32 bit se il consumo di memoria rappresenta un problema. Poiché sono più piccole dimensioni (istruzione) e dimensioni del puntatore, applicazioni a 32 bit usano meno memoria rispetto alle applicazioni a 64 bit. Lo svantaggio di esecuzione di applicazioni a 32 bit in un computer a 64 bit è che lo spazio di indirizzi in modalità utente è limitato a 4 GB.|False|
+|queueLength|Indica a HTTP. sys il numero di richieste accodate per un pool di applicazioni prima che le richieste future vengano rifiutate. Quando viene superato il valore per questa proprietà, IIS rifiuta le richieste successive con un errore 503.<br><br>Si consiglia di aumentare questo aspetto per le applicazioni che comunicano con gli archivi dati back-end a latenza elevata se vengono osservati 503 errori.|1000|
+|enable32BitAppOnWin64|Se impostato su true, consente l'esecuzione di un'applicazione a 32 bit in un computer che dispone di un processore a 64 bit.<br><br>Se l'utilizzo della memoria rappresenta un problema, provare ad abilitare la modalità a 32 bit. Poiché le dimensioni del puntatore e le dimensioni dell'istruzione sono inferiori, le applicazioni a 32 bit utilizzano meno memoria rispetto alle applicazioni a 64 bit. Lo svantaggio dell'esecuzione di applicazioni a 32 bit in un computer a 64 bit è che lo spazio degli indirizzi in modalità utente è limitato a 4 GB.|False|
 
-**system.applicationHost/sites/VirtualDirectoryDefault**
+**System. applicationHost/sites/VirtualDirectoryDefault**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|allowSubDirConfig|Specifica se IIS è simile per i file Web. config nella directory contenuto inferiore rispetto all'oggetto corrente a livello (True) o non cerca i file Web. config nella directory contenuto inferiore a quello corrente (False). Per imporre una limitazione di semplice, che consente di configurare solo nella directory virtuali, 10.0 IISÂ può sapere che, a meno che  **/ &lt;nome&gt;htm** è una directory virtuale, non dovrebbe essere un file di configurazione. Ignorare le operazioni aggiuntive del file può migliorare significativamente le prestazioni dei siti Web che dispone di un set di dimensioni molto grande di contenuto statico a cui si accede in modo casuale.|True|
+|allowSubDirConfig|Specifica se IIS cerca i file Web. config nelle directory del contenuto inferiori al livello corrente (true) o non cerca i file Web. config nelle directory del contenuto inferiori al livello corrente (false). Imponendo una limitazione semplice, che consente la configurazione solo nelle directory virtuali, IISÂ 10,0 sa che, a meno che **/ @ no__t-2name&gt;.htm** sia una directory virtuale, non dovrebbe cercare un file di configurazione. Ignorare le operazioni aggiuntive sui file può migliorare significativamente le prestazioni dei siti Web con un set molto ampio di contenuto statico a cui si accede in modo casuale.|True|
 
-## <a name="managing-iis-100-modules"></a>Gestione dei moduli di IIS 10.0
+## <a name="managing-iis-100-modules"></a>Gestione dei moduli di IIS 10,0
 
-IIS 10.0 è stata suddivisa in più, i moduli utente estendibile per supportare una struttura modulare. Questa fattorizzazione è a basso costo. Per ogni modulo pipeline integrata deve chiamare il modulo per tutti gli eventi rilevanti per il modulo. Ciò accade indipendentemente dal fatto che il modulo deve eseguire una lavoro. È possibile risparmiare sui cicli della CPU e memoria tramite la rimozione di tutti i moduli che non sono rilevanti per un particolare sito Web.
+IIS 10,0 è stato sottoposto a factoring in più moduli estendibili dall'utente per supportare una struttura modulare. Questa factoring ha un costo ridotto. Per ogni modulo la pipeline integrata deve chiamare il modulo per ogni evento pertinente per il modulo. Ciò avviene indipendentemente dal fatto che il modulo debba eseguire alcuna operazione. È possibile conservare i cicli della CPU e la memoria rimuovendo tutti i moduli che non sono rilevanti per un particolare sito Web.
 
-Un server web che è ottimizzato per semplici file statici può includere solo i moduli di cinque seguenti: UriCacheModule HttpCacheModule, StaticFileModule, AnonymousAuthenticationModule e HttpLoggingModule.
+Un server Web ottimizzato per file statici semplici potrebbe includere solo i cinque moduli seguenti: UriCacheModule, HttpCacheModule, StaticFileModule, AnonymousAuthenticationModule e HttpLoggingModule.
 
-Per rimuovere i moduli da applicationHost. config, rimuovere tutti i riferimenti al modulo dalle sezioni system.webServer/handlers e WebServer/Modules oltre a rimuovere la dichiarazione di modulo in system.webServer/globalModules.
+Per rimuovere i moduli da applicationHost. config, rimuovere tutti i riferimenti al modulo dalle sezioni System. webServer/handlers e System. webserver/Modules, oltre a rimuovere la dichiarazione del modulo in System. webserver/globalModules.
 
 ## <a name="classic-asp-settings"></a>Impostazioni ASP classiche
 
-Il costo principale di elaborazione di una richiesta ASP classica include l'inizializzazione di un motore di script, la compilazione di script ASP richiesto in un modello ASP e l'esecuzione del modello sul motore di script. Mentre il costo di esecuzione del modello varia a seconda della complessità dello script ASP richiesto, modulo ASP classico IIS può memorizzare nella cache i motori di script nei modelli in memoria e della cache in memoria e disco (solo se causa l'overflow cache dei modelli in memoria) per migliorare le prestazioni in Scenari basate sulla CPU.
+Il costo principale dell'elaborazione di una richiesta ASP classica prevede l'inizializzazione di un motore di script, la compilazione dello script ASP richiesto in un modello ASP e l'esecuzione del modello nel motore di script. Sebbene il costo di esecuzione del modello dipenda dalla complessità dello script ASP richiesto, il modulo ASP classico di IIS può memorizzare nella cache i motori di script in memoria e i modelli di cache sia nella memoria che nel disco (solo se si verifica un overflow della cache dei modelli in memoria) per migliorare le prestazioni in Scenari associati alla CPU.
 
-Le impostazioni seguenti vengono usate per configurare la cache dei modelli ASP classica e cache del motore di script e non influiscono le impostazioni di ASP.NET.
+Le impostazioni seguenti vengono usate per configurare la cache del modello ASP classico e la cache del motore di script e non influiscono sulle impostazioni di ASP.NET.
 
-**system.webServer/asp/cache**
+**System. webserver/ASP/cache**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|diskTemplateCacheDirectory|Il nome della directory utilizzata da ASP per archiviare i modelli compilati quando la cache in memoria causa un overflow.<br><br>Consiglio: Impostato su una directory che non è ampiamente usato, ad esempio, un'unità che non viene condivisa con il sistema operativo, log IIS, o altro contenuto si accede frequentemente.|%SystemDrive%\inetpub\temp\ASP compilati i modelli|
-|maxDiskTemplateCacheFiles|Specifica il numero massimo di modelli ASP compilati che possono essere memorizzati nella cache su disco.<br><br>Consiglio: Impostare il valore massimo di 0x7FFFFFFF.|2000|
-|scriptFileCacheSize|Questo attributo specifica il numero massimo di modelli ASP compilati che possono essere memorizzati nella cache in memoria.<br><br>Consiglio: Impostata su almeno al numero come numero di script ASP più richieste servite da un pool di applicazioni. Se possibile, impostare il numero di modelli ASP consentiti dai limiti di memoria.|500|
-|scriptEngineCacheMax|Specifica il numero massimo di motori di script che verranno mantenuti nella memoria cache.<br><br>Consiglio: Impostata su almeno al numero come numero di script ASP più richieste servite da un pool di applicazioni. Se possibile, impostare su tutti i motori di script in base al limite di memoria disponibile.|250|
+|diskTemplateCacheDirectory|Nome della directory utilizzata da ASP per archiviare i modelli compilati quando si verifica un overflow della cache in memoria.<br><br>Consiglio: Impostare su una directory che non viene utilizzata molto spesso, ad esempio un'unità che non è condivisa con il sistema operativo, il registro IIS o altri contenuti con accesso frequente.|Modelli compilati%SystemDrive%\inetpub\temp\ASP|
+|maxDiskTemplateCacheFiles|Specifica il numero massimo di modelli ASP compilati che possono essere memorizzati nella cache su disco.<br><br>Consiglio: Impostare sul valore massimo di 0x7FFFFFFF.|2000|
+|scriptFileCacheSize|Questo attributo specifica il numero massimo di modelli ASP compilati che possono essere memorizzati nella cache in memoria.<br><br>Consiglio: Impostare almeno il numero di script ASP richiesti di frequente serviti da un pool di applicazioni. Se possibile, impostare su tutti i modelli ASP dei limiti di memoria consentiti.|500|
+|scriptEngineCacheMax|Specifica il numero massimo di motori di script che manterranno memorizzati nella cache.<br><br>Consiglio: Impostare almeno il numero di script ASP richiesti di frequente serviti da un pool di applicazioni. Se possibile, impostare il numero di motori di script consentiti dal limite di memoria.|250|
 
-**system.webServer/asp/limits**
+**System. webserver/ASP/limits**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|processorThreadMax|Specifica il numero massimo di thread di lavoro per processore che possono creare ASP. Aumenta se l'impostazione corrente è sufficiente per gestire il carico, che può causare correggerà sull'utilizzo delle risorse di CPU o causare errori quando gestisce le richieste.|25|
+|processorThreadMax|Specifica il numero massimo di thread di lavoro per processore che possono essere creati da ASP. Aumentare se l'impostazione corrente non è sufficiente per gestire il carico, che può causare errori quando vengono gestite richieste o causare un utilizzo insufficiente delle risorse della CPU.|25|
 
-**system.webServer/asp/comPlus**
+**System. webserver/ASP/ComPlus**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|executeInMta|Impostare su **True** se vengono rilevati errori o gli errori mentre IIS è contenuto ASP. Ciò può verificarsi, ad esempio, quando si ospitano più siti isolati in cui ogni sito viene eseguito con un proprio processo di lavoro. In genere, gli errori vengono segnalati da COM+ nel Visualizzatore eventi. Questa impostazione consente al modello di apartment a thread multipli in ASP.|False|
+|executeInMta|Impostare su **true** se vengono rilevati errori o errori quando IIS sta servendo il contenuto ASP. Questa situazione può verificarsi, ad esempio, quando si ospitano più siti isolati in cui ogni sito viene eseguito con il proprio processo di lavoro. Gli errori vengono in genere segnalati da COM+ nell'Visualizzatore eventi. Questa impostazione Abilita il modello di Apartment a thread multipli in ASP.|False|
 
 
-## <a name="aspnet-concurrency-setting"></a>Impostazione di concorrenza di ASP.NET
+## <a name="aspnet-concurrency-setting"></a>Impostazione della concorrenza ASP.NET
 
-### <a name="aspnet-35"></a>ASP.NET 3.5
-Per impostazione predefinita, ASP.NET limita la concorrenza di richiesta per ridurre il consumo di memoria nello stato stazionario sul server. Le applicazioni di concorrenza elevata potrebbe essere necessario modificare alcune impostazioni per migliorare le prestazioni complessive. È possibile modificare questa impostazione nel file ASPNET config:
+### <a name="aspnet-35"></a>ASP.NET 3,5
+Per impostazione predefinita, ASP.NET limita la concorrenza delle richieste per ridurre l'utilizzo della memoria dello stato stabile nel server. Le applicazioni con concorrenza elevata potrebbero dover modificare alcune impostazioni per migliorare le prestazioni complessive. È possibile modificare questa impostazione nel file Aspnet. config:
 
 ``` syntax
 <system.web>
@@ -275,14 +275,14 @@ Per impostazione predefinita, ASP.NET limita la concorrenza di richiesta per rid
 </system.web>
 ```
 
-La seguente impostazione è utile per usare tutte le risorse in un sistema:
+L'impostazione seguente è utile per usare completamente le risorse in un sistema:
 
--   **maxConcurrentRequestPerCpu** il valore predefinito: 5000
+-   **maxConcurrentRequestPerCpu** Valore predefinito: 5000
 
-    Questa impostazione limita il numero massimo di richieste ASP.NET in esecuzione contemporanea su un sistema. Il valore predefinito è conservativo per ridurre il consumo di memoria delle applicazioni ASP.NET. Provare ad aumentare questo limite sui sistemi che eseguono le applicazioni che eseguono operazioni dei / o sincrone, lungo. In caso contrario, gli utenti possono riscontrare una latenza elevata a causa di errori di accodamento o la richiesta a causa del superamento dei limiti della coda in un carico elevato quando si usa l'impostazione predefinita.
+    Questa impostazione limita il numero massimo di richieste ASP.NET eseguite simultaneamente in un sistema. Il valore predefinito è conservativo per ridurre l'utilizzo di memoria da parte delle applicazioni ASP.NET. Si consiglia di aumentare questo limite nei sistemi che eseguono applicazioni che eseguono operazioni di I/O lunghe e sincrone. In caso contrario, gli utenti possono riscontrare una latenza elevata a causa di errori di accodamento o di richiesta dovuti al superamento dei limiti della coda in un carico elevato quando viene usata l'impostazione predefinita.
 
-### <a name="aspnet-46"></a>ASP.NET 4.6
-Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4.7 include inoltre impostazioni per migliorare le prestazioni nelle applicazioni di cui fa particolare affidamento operazione asincrona. L'impostazione può essere modificata nel file ASPNET config.
+### <a name="aspnet-46"></a>ASP.NET 4,6
+Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4,7 fornisce anche impostazioni per migliorare le prestazioni delle applicazioni che si basano molto sull'operazione asincrona. È possibile modificare l'impostazione nel file Aspnet. config.
 
 ``` syntax
 <system.web>
@@ -290,118 +290,118 @@ Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4.7 include inoltre i
 </system.web>
 ```
 
--   **percentCpuLimit** il valore predefinito: 90 richiesta asincrona ha alcuni problemi di scalabilità quando viene inserito un carico di grandi dimensioni (oltre le funzionalità hardware) in tale scenario. Il problema è dovuto alla natura dell'allocazione in scenari asincroni. In queste condizioni, allocazione verrà eseguito quando viene avviato l'operazione asincrona, e che verranno usato quando viene completato. Da quel momento, s sensazione molto possibili gli oggetti sono stati spostati dal GC generazione 1 o 2. In questo caso, aumenta il carico mostrerà aumento su richiesta al secondo (rps) fino a un punto. Una volta che viene passato a quel punto, il tempo impiegato in Garbage Collection inizierà a diventare un problema e le richieste al secondo inizieranno a dip, avere un effetto negativo di ridimensionamento. Per risolvere il problema, quando l'utilizzo della cpu supera percentCpuLimit impostazione, le richieste verranno inviate alla coda nativa di ASP.NET.
--   **percentCpuLimitMinActiveRequestPerCpu** Default value: Limitazione CPU 100 (percentCpuLimit impostazione) non si basa sul numero di richieste, ma sul costo richiesto sono. Di conseguenza, potrebbero esserci alcune richieste intensivo della CPU può causare un backup, la coda nativa con alcun modo su un valore vuoto, a parte le richieste in ingresso. Per risolvere questo problme, percentCpuLimitMinActiveRequestPerCpu è utilizzabile per garantire che un numero minimo di richieste viene eseguito prima di limitazione delle richieste viene attivata.
+-   **percentCpuLimit** Valore predefinito: 90 la richiesta asincrona presenta alcuni problemi di scalabilità quando un carico elevato (oltre le funzionalità hardware) viene inserito in questo scenario. Il problema è dovuto alla natura dell'allocazione negli scenari asincroni. In queste condizioni, l'allocazione viene eseguita all'avvio dell'operazione asincrona e viene utilizzata quando viene completata. A questo punto, Itâs molto possibile che gli oggetti siano stati spostati in generazione 1 o 2 da GC. In tal caso, l'aumento del carico indicherà un aumento del numero di richieste al secondo (RPS) fino a un punto. Una volta passato questo punto, il tempo trascorso in GC inizierà a diventare un problema e il RPS inizierà a ridursi, con un effetto di scalabilità negativo. Per risolvere il problema, quando l'utilizzo della CPU supera l'impostazione di percentCpuLimit, le richieste verranno inviate alla coda nativa di ASP.NET.
+-   **percentCpuLimitMinActiveRequestPerCpu** Valore predefinito: 100 la limitazione della CPU (impostazione percentCpuLimit) non è basata sul numero di richieste ma sul costo. Di conseguenza, potrebbero essere presenti solo alcune richieste che richiedono un elevato utilizzo di CPU, causando un backup nella coda nativa senza alcun modo per svuotarlo dalle richieste in ingresso. Per risolvere questo problme, è possibile usare percentCpuLimitMinActiveRequestPerCpu per assicurarsi che venga servito un numero minimo di richieste prima di avviare la limitazione delle richieste.
 
-## <a name="worker-process-and-recycling-options"></a>Processo di lavoro e il riciclo di opzioni
+## <a name="worker-process-and-recycling-options"></a>Opzioni per il processo di lavoro e il riciclo
 
-È possibile configurare le opzioni per il riciclo dei processi di lavoro IIS e fornire soluzioni pratiche a situazioni acute o eventi senza richiedere intervento o la reimpostazione di un servizio o un computer. Tali situazioni e gli eventi includono le perdite di memoria, aumentare il carico di memoria o i processi di lavoro inattivo o non risponde. In condizioni normali, il riciclo di opzioni potrebbe non essere necessario e riciclo può essere disattivato o il sistema può essere configurato per riciclare molto raramente.
+È possibile configurare le opzioni per il riciclo dei processi di lavoro IIS e fornire soluzioni pratiche a situazioni o eventi acuti senza richiedere interventi o reimpostare un servizio o un computer. Tali situazioni ed eventi includono perdite di memoria, aumento del carico di memoria o processi di lavoro non rispondenti o inattivi. In condizioni normali, le opzioni di riciclo potrebbero non essere necessarie e il riciclo può essere disattivato o il sistema può essere configurato per il riciclo molto raramente.
 
-È possibile abilitare il riciclo dei processi per una particolare applicazione mediante l'aggiunta di attributi per il **riciclo/periodicRestart** elemento. L'evento di riciclo può essere attivato da eventi diversi tra cui utilizzo della memoria, un numero fisso di richieste e un periodo di tempo fisso. Quando un processo di lavoro viene riciclato, le richieste in coda e in esecuzione vengono svuotate e contemporaneamente viene avviato un nuovo processo per soddisfare nuove richieste. Il **riciclo/periodicRestart** elemento è per ogni applicazione, vale a dire che ogni attributo nella tabella seguente viene partizionata in base all'applicazione.
+È possibile abilitare il riciclo dei processi per un'applicazione specifica aggiungendo attributi all'elemento **Recycling/PeriodicRestart** . L'evento di riciclo può essere attivato da diversi eventi, tra cui l'utilizzo della memoria, un numero fisso di richieste e un periodo di tempo fisso. Quando un processo di lavoro viene riciclato, le richieste in coda e in esecuzione vengono svuotate e viene avviato contemporaneamente un nuovo processo per soddisfare le nuove richieste. L'elemento **Recycling/PeriodicRestart** è per applicazione, il che significa che ogni attributo della tabella seguente viene partizionato per ogni singola applicazione.
 
-**system.applicationHost/applicationPools/ApplicationPoolDefaults/recycling/periodicRestart**
+**System. applicationHost/applicationPools/ApplicationPoolDefaults/Recycling/periodicRestart**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Predefinito|
 |--- |--- |--- |
-|memoria|Attivare se il consumo di memoria virtuale supera il limite specificato nel kilobyte il riciclo dei processi. Si tratta di un'impostazione utile per i computer a 32 bit che presentano una piccola, spazio degli indirizzi di 2 GB. Consente di evitare le richieste non riuscite a causa di errori di memoria insufficiente.|0|
-|privateMemory|Se le allocazioni di memoria privata superano il limite specificato in kilobyte, abilitare il riciclo dei processi.|0|
-|requests|Abilitare il riciclo dei processi dopo un certo numero di richieste.|0|
-|ora|Abilitare il riciclo dei processi dopo un periodo di tempo specificato.|29:00:00|
+|memoria|Abilitare il riciclo dei processi se il consumo di memoria virtuale supera il limite specificato, espressa in kilobyte. Si tratta di un'impostazione utile per computer a 32 bit con uno spazio di indirizzi piccolo e 2 GB. Questo consente di evitare richieste non riuscite a causa di errori di memoria insufficiente.|0|
+|privateMemory|Abilitare il riciclo del processo se le allocazioni di memoria privata superano il limite specificato, espressa in kilobyte.|0|
+|richieste|Abilitare il riciclo del processo dopo un determinato numero di richieste.|0|
+|time|Abilitare il riciclo del processo dopo un periodo di tempo specificato.|29:00:00|
 
 
-## <a name="dynamic-worker-process-page-out-tuning"></a>Ottimizzazione dinamica dei processi di paging
+## <a name="dynamic-worker-process-page-out-tuning"></a>Ottimizzazione della pagina di elaborazione dinamica del processo di lavoro
 
-A partire da Windows Server 2012 R2, IIS offre l'opzione di configurazione di processo di lavoro per sospendere una volta divenuti inattivi per un periodo di tempo (oltre all'opzione di terminazione, che è stato introdotto con IIS 7).
+A partire da Windows Server 2012 R2, IIS offre la possibilità di configurare un processo di lavoro da sospendere dopo che è rimasto inattivo per un periodo di tempo (oltre all'opzione di terminazione, esistente da IIS 7).
 
-Lo scopo principale del processo di lavoro inattivi pagina istanze e funzionalità di terminazione del processo di lavoro inattivo è per conservare l'utilizzo della memoria nel server, poiché un sito può utilizzare una grande quantità di memoria, anche se appena si trova, in attesa. A seconda della tecnologia usata nel sito (Visual Studio ASP.NET di Visual Studio contenuto statico altri framework), la memoria utilizzata può essere in qualsiasi punto da circa 10 MB a centinaia di MB e questo significa che se il server è configurato con molti siti, capire le impostazioni più efficace per i siti possono migliorare notevolmente le prestazioni dei siti attivi e sospesi.
+Lo scopo principale del processo di lavoro inattivo per le funzionalità di terminazione del processo di lavoro e di interruzione del processo di lavoro è quello di preservare l'utilizzo della memoria nel server, poiché un sito può utilizzare una grande quantità di memoria anche se è semplicemente in attesa. A seconda della tecnologia usata nel sito (contenuto statico rispetto a ASP.NET e altri Framework), la memoria usata può essere da circa 10 MB a centinaia di MB e ciò significa che se il server è configurato con molti siti, è necessario capire le impostazioni più valide per i siti è possibile migliorare notevolmente le prestazioni dei siti attivi e sospesi.
 
-Prima di analizzare le specifiche, è necessario tenere presente che se non sono presenti vincoli di memoria, probabilmente è meglio impostare semplicemente i siti di sospensione o terminazione mai. Dopo tutto, s thereâ scarso valore in un ruolo di lavoro di terminazione processo se è l'unico esistente per la macchina.
+Prima di esaminare le specifiche, è necessario tenere presente che, se non sono presenti vincoli di memoria, è consigliabile semplicemente impostare i siti in modo che non vengano mai sospesi o terminati. Dopo tutto, thereâs un valore minimo durante la terminazione di un processo di lavoro se è l'unico nel computer.
 
-**Nota**   nel caso in cui il sito esegue codice instabile, ad esempio di codice con una perdita di memoria, o instabile in caso contrario, l'impostazione del sito per terminare in inattiva può essere un'alternativa rapide e la correzione del bug del codice. Si tratta di un elemento che verrebbe e invita, ma in un masticare, potrebbe essere preferibile usare questa funzionalità come meccanismo di pulizia mentre una soluzione definitiva è previsto il.\]
+**Nota**  nel caso in cui il sito esegua codice instabile, ad esempio il codice con una perdita di memoria o in altro modo instabile, l'impostazione del sito su termina in caso di inattività può essere un'alternativa rapida e sporca per correggere il bug del codice. Questo non è un elemento da consigliare, ma in un crunch può essere preferibile usare questa funzionalità come meccanismo di pulizia, mentre una soluzione più permanente si trova nel lavoro. \]
 
 Â 
 
-Un altro fattore da considerare è che se il sito utilizza una grande quantità di memoria, quindi lo stesso processo di sospensione accetta un numero a pagamento, perché il computer deve scrivere i dati usati dal processo di lavoro su disco. Se il processo di lavoro utilizza una grande quantità di memoria, quindi la sospensione, potrebbe essere più costosa rispetto al costo di dover attendere che venga avviato il backup.
+Un altro fattore da considerare è che se il sito usa una grande quantità di memoria, il processo di sospensione stesso riceve un pedaggio, perché il computer deve scrivere i dati usati dal processo di lavoro su disco. Se il processo di lavoro usa un blocco di memoria di grandi dimensioni, la sospensione potrebbe essere più costosa del costo di dover attendere l'avvio del backup.
 
-Per rendere il meglio della funzionalità di sospensione di processo di lavoro, è necessario rivedere i siti in ciascun pool di applicazioni e decidere quale deve essere sospeso, che deve essere interrotto e che deve essere attiva per un periodo illimitato. Per ogni sito e ogni azione, è necessario determinare il periodo di timeout ideale.
+Per sfruttare al meglio la funzionalità di sospensione del processo di lavoro, è necessario esaminare i siti in ogni pool di applicazioni e decidere quale deve essere sospeso, che deve essere terminato e che deve essere attivo per un periodo illimitato. Per ogni azione e ogni sito, è necessario determinare il periodo di timeout ideale.
 
-In teoria, i siti che si desidera configurare per la sospensione o terminazione sono quelli che dispongono di visitatori ogni giorno, ma non sono sufficienti a giustificare mantenendola active continuamente. Si tratta in genere siti con circa 20 visitatori univoci di un giorno o meno. È possibile analizzare i modelli di traffico usando i file di log del sito e calcolare il Media traffico giornaliero.
+Idealmente, i siti che verranno configurati per la sospensione o la terminazione sono quelli che hanno visitatori ogni giorno, ma non sono sufficienti per garantirne l'attivazione continua. Si tratta in genere di siti con circa 20 visitatori univoci al giorno o meno. È possibile analizzare i modelli di traffico usando i file di log del sito e calcolare il traffico giornaliero medio.
 
-Tenere presente che dopo un determinato utente si connette al sito, verrà in genere rimangono su di esso per almeno un po' di tempo, effettua richieste aggiuntive e quindi è sufficiente il conteggio giornaliero delle richieste potrebbe non riflettere i modelli di traffico reale. Per ottenere la lettura di un più accurata, è anche possibile usare uno strumento, ad esempio Microsoft Excel, per la quale calcolare il tempo medio tra le richieste. Ad esempio: 
+Tenere presente che, una volta che un utente specifico si connette al sito, in genere rimane invariato per almeno un periodo di tempo, effettuando richieste aggiuntive e quindi il conteggio delle richieste giornaliere potrebbe non riflettere accuratamente i modelli di traffico reali. Per ottenere una lettura più accurata, è anche possibile usare uno strumento, ad esempio Microsoft Excel, per calcolare il tempo medio tra le richieste. Esempio:
 
-||URL della richiesta|Medio richiesta|Delta|
+||URL della richiesta|Tempo richiesta|Delta|
 |--- |--- |--- |--- |
 |1|/SourceSilverLight/Geosource.web/grosource.html|10:01||
 |2|/SourceSilverLight/Geosource.web/sliverlight.js|10:10|0:09|
 |3|/SourceSilverLight/Geosource.web/clientbin/geo/1.aspx|10:11|0:01|
 |4|/lClientAccessPolicy.xml|10:12|0:01|
-|5|/ SourceSilverLight/GeosourcewebService/Service.asmx|10:23|0:11|
-|6|/ SourceSilverLight/Geosource.web/GeoSearchServer...¦.|11:50|1:27|
-|7|/rest/Services/CachedServices/Silverlight_load_la...¦|12:50|1:00|
-|8|/rest/Services/CachedServices/Silverlight_basemap...¦.|12:51|0:01|
-|9|/ rest/Services/DynamicService/Silverlight_basemap... ¦.|12:59|0:08|
+|5|/SourceSilverLight/GeosourcewebService/Service. asmx|10:23|0:11|
+|6|/SourceSilverLight/geosource. Web/GeoSearchServer... ¦.|11:50|1:27|
+|7|/rest/Services/CachedServices/Silverlight_load_la... ¦|12:50|1:00|
+|8|/rest/Services/CachedServices/Silverlight_basemap... ¦.|12:51|0:01|
+|9|/rest/Services/DynamicService/Silverlight_basemap... ¦.|12:59|0:08|
 |10|/rest/Services/CachedServices/Ortho_2004_cache.as...|13:40|0:41|
 |11|/rest/Services/CachedServices/Ortho_2005_cache.js|13:40|0:00|
 |12|/rest/Services/CachedServices/OrthoBaseEngine.aspx|13:41|0:01|
 
-La parte difficile, tuttavia, è scoprire quale impostazione da applicare per comprendere. In questo caso, il sito recupera una serie di richieste dagli utenti e la precedente tabella mostra che si è verificato un totale di sessioni univoche 4 in un periodo di 4 ore. Con le impostazioni predefinite per la sospensione di processo di lavoro del pool di applicazioni, il sito verrà terminato dopo il timeout predefinito di 20 minuti, il che significa ciascuno di questi utenti potrebbe verificarsi il ciclo di spin-up del sito. Questo rende un candidato ideale per la sospensione di processo di lavoro, perché per la maggior parte dei casi, il sito è inattivo, quindi la sospensione, verrebbe conservare le risorse e consentire agli utenti di raggiungere il sito quasi istantaneamente.
+Tuttavia, la parte più difficile è determinare l'impostazione da applicare per avere senso. In questo caso, il sito riceve una serie di richieste da parte degli utenti e la tabella precedente mostra che un totale di 4 sessioni univoche si sono verificate in un periodo di 4 ore. Con le impostazioni predefinite per la sospensione del processo di lavoro del pool di applicazioni, il sito verrebbe terminato dopo il timeout predefinito di 20 minuti, il che significa che ognuno di questi utenti avrebbe riscontrato il ciclo di rotazione del sito. Questo lo rende un candidato ideale per la sospensione del processo di lavoro, perché per la maggior parte del tempo il sito è inattivo e pertanto sospendere le risorse e consentire agli utenti di raggiungere il sito quasi immediatamente.
 
-Una nota finale e molto importante proposito è che le prestazioni del disco sono fondamentale per questa funzionalità. Poiché il processo di riattivazione e sospensione implicano la scrittura e lettura di grandi quantità di dati sul disco rigido, è consigliabile usare un disco veloci per questo oggetto. Le unità a stato solido (SSD) sono ideale e altamente consigliata per questo e assicurarsi che il file di paging di Windows è archiviato al suo interno (se il sistema operativo stesso non è installato sull'unità SSD, configurare il sistema operativo per spostare il file di paging).
+Una nota finale e molto importante è che le prestazioni del disco sono fondamentali per questa funzionalità. Poiché la sospensione e il processo di riattivazione comportano la scrittura e la lettura di grandi quantità di dati sul disco rigido, è consigliabile usare un disco veloce per questo. Le unità SSD (Solid State Drive) sono ideali ed è consigliabile assicurarsi che il file di paging di Windows sia archiviato (se il sistema operativo non è installato nell'unità SSD, configurare il sistema operativo per spostarvi il file di paging).
 
-Se si usa un'unità SSD o No, è inoltre consigliabile risolvere le dimensioni del file della pagina per supportare la scrittura dei dati di pagina in uscita ad esso senza alcun ridimensionamento file. Ridimensionamento di file di paging potrebbe verificarsi quando il sistema operativo deve archiviare dati nel file della pagina, poiché per impostazione predefinita, Windows è configurato per la regolazione automatica delle dimensioni in base necessario. Impostando le dimensioni di uno predefinito, è possibile evitare il ridimensionamento e migliorare notevolmente le prestazioni.
+Indipendentemente dal fatto che si usi o meno un'unità SSD, è consigliabile anche correggere le dimensioni del file di paging in modo da adattarle alla scrittura dei dati di paging senza il ridimensionamento dei file. Il ridimensionamento del file di paging potrebbe verificarsi quando il sistema operativo deve archiviare i dati nel file di paging perché, per impostazione predefinita, Windows è configurato per regolarne automaticamente le dimensioni in base alle esigenze. Impostando le dimensioni su uno fisso, è possibile impedire il ridimensionamento e migliorare notevolmente le prestazioni.
 
-Per configurare un file di paging pre-fisso, è necessario calcolare le dimensioni ideali, che dipende da quanti siti è possibile sospendere e quantità di memoria utilizzate. Se la media è di 200 MB per un processo di lavoro attivo e si dispone di 500 siti nei server che sarà possibile sospendere, quindi il file di paging deve essere almeno (200 \* 500) MB rispetto alla dimensione base del file di paging (quindi, di base + 100 GB in questo esempio).
+Per configurare una dimensione del file di paging prefissa, è necessario calcolare le dimensioni ideali, che dipendono dal numero di siti che verranno sospesi e dalla quantità di memoria utilizzata. Se la media è di 200 MB per un processo di lavoro attivo e si dispone di 500 siti sui server che verranno sospesi, il file di paging deve essere almeno (200 \* 500) MB sulle dimensioni di base del file di paging, quindi in base + 100 GB nell'esempio.
 
-**Nota** quando i siti vengono sospese, vengono utilizzati circa 6 MB ciascuno, pertanto in questo caso, utilizzo della memoria se vengono sospesi tutti i siti sarebbe circa 3 GB. In realtà, però, troverai re mai passare in modo che vengano sospesi nello stesso momento.
+**Nota** Quando i siti vengono sospesi, utilizzeranno circa 6 MB ciascuno, quindi, in questo caso, l'utilizzo della memoria se tutti i siti sono sospesi sono circa 3 GB. In realtà, tuttavia, youâre probabilmente non verranno mai sospesi tutti nello stesso momento.
 
  
-## <a name="transport-layer-security-tuning-parameters"></a>Transport Layer Security regolazione dei parametri
+## <a name="transport-layer-security-tuning-parameters"></a>Parametri di ottimizzazione Transport Layer Security
 
-L'uso di Transport Layer Security (TLS) impone aggiuntivi della CPU. Il componente più costoso di TLS è il costo della creazione di una definizione di sessione dal momento che implica un handshake completo. La riconnessione, la crittografia e decrittografia anche aggiungere al costo. Per migliorare le prestazioni TLS, eseguire le operazioni seguenti:
+L'uso di Transport Layer Security (TLS) impone un costo aggiuntivo della CPU. Il componente più costoso di TLS è il costo di stabilire uno stabilimento di sessione perché comporta un handshake completo. Anche la riconnessione, la crittografia e la decrittografia si aggiungono al costo. Per migliorare le prestazioni di TLS, eseguire le operazioni seguenti:
 
--   Abilitare i keep-alive HTTP per le sessioni TLS. Ciò consente di eliminare i costi di stabilire una sessione.
+-   Abilitare keep-alive HTTP per le sessioni TLS. In questo modo si eliminano i costi di creazione della sessione.
 
--   Riutilizzare le sessioni quando appropriato, in particolare con il traffico non-keep-alive.
+-   Riutilizzare le sessioni quando appropriato, soprattutto con il traffico non Keep-Alive.
 
--   In modo selettivo Applica crittografia solo alle pagine o parti del sito che serve, anziché all'intero sito.
+-   Applicare selettivamente la crittografia solo a pagine o parti del sito che lo richiedono, anziché all'intero sito.
 
 **Nota**
--   Chiavi di dimensioni maggiori garantiscono una maggiore sicurezza, ma usano anche più tempo della CPU.
+-   Le chiavi più grandi offrono maggiore sicurezza, ma usano anche più tempo della CPU.
 
--   Tutti i componenti potrebbe essere necessario non crittografati. Combinazione plain HTTP e HTTPS, tuttavia, potrebbe causare una finestra popup di avviso che non tutto il contenuto della pagina sia sicuro.
+-   È possibile che non sia necessario crittografare tutti i componenti. Tuttavia, la combinazione di HTTP normale e HTTPS può comportare un avviso popup che non tutto il contenuto della pagina è protetto.
 
  
-## <a name="internet-server-application-programming-interface-isapi"></a>Internet Server Application Programming Interface (ISAPI)
+## <a name="internet-server-application-programming-interface-isapi"></a>ISAPI (Internet Server Application Programming Interface)
 
-Nessun parametro di ottimizzazione speciale è necessari per le applicazioni ISAPI. Se si scrive un'estensione ISAPI privata, assicurarsi che viene scritto per le prestazioni e utilizzo delle risorse.
+Non sono necessari parametri di ottimizzazione speciali per le applicazioni ISAPI. Se si scrive un'estensione ISAPI privata, assicurarsi che sia scritta per le prestazioni e l'uso delle risorse.
 
-## <a name="managed-code-tuning-guidelines"></a>Linee guida sull'ottimizzazione di codice gestito
+## <a name="managed-code-tuning-guidelines"></a>Linee guida per l'ottimizzazione del codice gestito
 
-Il modello di pipeline integrata in IIS 10.0 consente un elevato livello di flessibilità ed estensibilità. Moduli personalizzati implementati in codice nativo o gestito possono essere inseriti nella pipeline, o possono sostituire i moduli esistenti. Sebbene questo modello di estendibilità offre praticità e semplicità, è necessario prestare attenzione prima di inserire nuovi moduli gestiti che si collegano in eventi globali. Aggiunta di che un modulo gestito di globale significa che tutte le richieste, incluse le richieste di file statici, devono accedere a codice gestito. Moduli personalizzati sono soggetti a eventi, ad esempio operazioni di garbage collection. Inoltre, i moduli personalizzati aggiungere significativa della CPU a causa di marshalling dei dati tra codice gestito e nativo. Se possibile, è necessario impostare precondizione su managedHandler per il modulo gestito.
+Il modello di pipeline integrato in IIS 10,0 offre un elevato livello di flessibilità ed estensibilità. I moduli personalizzati implementati in codice nativo o gestito possono essere inseriti nella pipeline oppure possono sostituire i moduli esistenti. Sebbene questo modello di estendibilità offra praticità e semplicità, è necessario prestare attenzione prima di inserire nuovi moduli gestiti che consentono di associare eventi globali. L'aggiunta di un modulo gestito globale significa che tutte le richieste, incluse le richieste di file statiche, devono toccare il codice gestito. I moduli personalizzati sono soggetti ad eventi come Garbage Collection. Inoltre, i moduli personalizzati aggiungono un notevole costo della CPU a causa del marshalling dei dati tra il codice nativo e quello gestito. Se possibile, è necessario impostare la precondizione su managedHandler per il modulo gestito.
 
-Per ottenere migliorate prestazioni di avvio a freddo, assicurarsi di che aver precompliato la funzionalità di inizializzazione dell'applicazione di IIS sito web oppure usare ASP.NET per il riscaldamento all'applicazione.
+Per migliorare le prestazioni di avvio a freddo, assicurarsi di precompilare il sito Web ASP.NET o sfruttare la funzionalità di inizializzazione dell'applicazione IIS per scaldare l'applicazione.
 
-Se lo stato della sessione non è necessaria, assicurarsi che si disattivarla per ogni pagina.
+Se lo stato della sessione non è necessario, assicurarsi di disattivarlo per ogni pagina.
 
-Se sono presenti operazioni associate ai / o molti, provare a usare la versione asincrona di API rilevanti che offrono una maggiore scalabilità.
+Se sono presenti molte operazioni di I/O, provare a usare la versione asincrona delle API pertinenti che offre una maggiore scalabilità.
 
-Anche le Cache di Output in modo corretto verrà anche migliorare le prestazioni del sito web.
+Inoltre, l'utilizzo corretto della cache di output aumenterà anche le prestazioni del sito Web.
 
-Quando si eseguono più host che contengono script ASP.NET in modalità isolata (un pool di applicazioni per ogni sito), monitorare l'utilizzo della memoria. Assicurarsi che il server disponga di sufficiente RAM per il numero previsto di in esecuzione simultanea di pool di applicazioni. È consigliabile usare più domini dell'applicazione invece di più processi isolati.
+Quando si eseguono più host che contengono script ASP.NET in modalità isolata (un pool di applicazioni per sito), monitorare l'utilizzo della memoria. Verificare che il server disponga di RAM sufficiente per il numero previsto di pool di applicazioni in esecuzione simultanea. Si consiglia di usare più domini applicazione anziché più processi isolati.
 
 
-## <a name="other-issues-that-affect-iis-performance"></a>Altri problemi che influiscono sui IIS prestazioni
+## <a name="other-issues-that-affect-iis-performance"></a>Altri problemi che influiscono sulle prestazioni di IIS
 
 I problemi seguenti possono influire sulle prestazioni di IIS:
 
--   Installazione dei filtri che non sono compatibili con cache
+-   Installazione di filtri che non sono compatibili con la cache
 
-    L'installazione di un filtro che non supporta le HTTP-cache fa in modo che IIS disabilitare completamente la memorizzazione nella cache, determinando una riduzione delle prestazioni. Filtri ISAPI che sono stati scritti prima IISÂ 6.0 possono causare il problema.
+    L'installazione di un filtro che non è compatibile con la cache HTTP comporta la disabilitazione completa della memorizzazione nella cache, con conseguente riduzione delle prestazioni. I filtri ISAPI scritti prima di IISÂ 6,0 possono causare questo comportamento.
 
--   Common Gateway Interface (CGI) richieste
+-   Richieste di Common Gateway Interface (CGI)
 
-    Per motivi di prestazioni, l'uso di applicazioni CGI per rispondere alle richieste non è consigliata con IIS. Creazione ed eliminazione dei processi CGI frequente comporta un sovraccarico significativo. Alternative migliori includono l'uso di FastCGI, script di applicazione ISAPI e ASP o ASP.NET. L'isolamento è disponibile per ognuna di queste opzioni.
+    Per motivi di prestazioni, non è consigliabile usare le applicazioni CGI per gestire le richieste con IIS. Spesso la creazione e l'eliminazione di processi CGI comporta un sovraccarico significativo. Alternative migliori includono l'uso di FastCGI, script dell'applicazione ISAPI e script ASP o ASP.NET. Per ognuna di queste opzioni è disponibile l'isolamento.
 
 # <a name="see-also"></a>Vedere anche
-- [Web ottimizzazione delle prestazioni Server](index.md) 
-- [HTTP 1.1/2 ottimizzazione](http-performance.md)
+- [Ottimizzazione delle prestazioni del server Web](index.md) 
+- [Ottimizzazione di HTTP 1.1/2](http-performance.md)

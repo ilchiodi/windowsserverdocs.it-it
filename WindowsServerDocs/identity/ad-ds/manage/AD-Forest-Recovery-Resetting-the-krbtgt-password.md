@@ -1,45 +1,45 @@
 ---
-title: Ripristino della foresta Active Directory - la reimpostazione della password krbtgt
+title: Ripristino della foresta di Active Directory-reimpostazione della password KRBTGT
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 3bd6c1d0-d316-4b03-b7b4-557d4537635c
 ms.technology: identity-adds
-ms.openlocfilehash: 1ac0dcb9da1d10a417c128cb8498a5d8362d9a9f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14dd09c6177d473547a67e1d79e9714f0a7a29b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883742"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390298"
 ---
-# <a name="ad-forest-recovery---resetting-the-krbtgt-password"></a>Ripristino della foresta Active Directory - la reimpostazione della password krbtgt
+# <a name="ad-forest-recovery---resetting-the-krbtgt-password"></a>Ripristino della foresta di Active Directory-reimpostazione della password KRBTGT
 
 >Si applica a: Windows Server 2016, Windows Server 2012 e 2012 R2, Windows Server 2008 e 2008 R2
 
-Utilizzare la procedura seguente per reimpostare la password krbtgt per il dominio. La procedura seguente si applica i controller di dominio scrivibile, ma i controller di dominio non di sola lettura (RODC).
+Utilizzare la seguente procedura per reimpostare la password di KRBTGT per il dominio. Nella procedura seguente vengono applicati i controller di dominio scrivibili, ma non i controller di dominio di sola lettura (RODC).
   
 > [!IMPORTANT]
-> Se si prevede di ripristinare i RODC online durante il ripristino della foresta, non eliminare gli account krbtgt per il controller. L'account krbtgt per un RODC è racchiuso tra il formato krbtgt_*numero*.
+> Se si prevede di ripristinare RODC online durante il ripristino della foresta, non eliminare gli account krbtgt per RODC. L'account krbtgt per un RODC è elencato nel formato krbtgt_*numero*.
 >
-> Se si usa un filtro password personalizzato (ad esempio file Passfilt. dll) in un controller di dominio, si potrebbe ricevere un errore quando si prova a reimpostare la password krbtgt. Per altre informazioni, tra cui risolvere il problema, vedere il della Microsoft Knowledge Base [articolo 2549833](https://support.microsoft.com/kb/2549833) (https://support.microsoft.com/kb/2549833).
+> Se si usa un filtro personalizzato per la password, ad esempio file Passfilt. dll, in un controller di dominio, è possibile che venga visualizzato un errore quando si tenta di reimpostare la password di krbtgt. Per ulteriori informazioni, inclusa una soluzione alternativa, vedere l' [articolo 2549833](https://support.microsoft.com/kb/2549833) della Microsoft Knowledge Base (https://support.microsoft.com/kb/2549833).
   
-## <a name="to-reset-the-krbtgt-password"></a>Per reimpostare la password krbtgt  
+## <a name="to-reset-the-krbtgt-password"></a>Per reimpostare la password di KRBTGT  
   
-1. Fare clic su **avviare**, scegliere **Pannello di controllo**, scegliere **strumenti di amministrazione**, quindi fare clic su **Active Directory Users and Computers**.
+1. Fare clic sul pulsante **Start**, scegliere **Pannello di controllo**, **strumenti di amministrazione**, quindi fare clic su **Active Directory utenti e computer**.
 2. Fare clic su **Visualizza**, quindi su **Funzionalità avanzate**.
-3. Nell'albero della console, fare doppio clic sul contenitore di dominio e quindi fare clic su **utenti**.
-4. Nel riquadro dei dettagli, fare doppio clic il **krbtgt** account utente e quindi fare clic su **Reimposta Password**.
-   ![La reimpostazione della Password](media/AD-Forest-Recovery-Resetting-the-krbtgt-password/resetpass1.png)
-5. Nella **nuova password**, digitare una nuova password, confermare la password nelle **Conferma password**, quindi fare clic su **OK**. La password specificata non è significativa perché il sistema genererà una password complessa automaticamente indipendente della password specificato.
+3. Nell'albero della console fare doppio clic sul contenitore di dominio, quindi fare clic su **utenti**.
+4. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sull'account utente **krbtgt** , quindi scegliere **Reimposta password**.
+   ![Reset password @ no__t-1
+5. In **nuova password**Digitare una nuova password, digitare nuovamente la password in **Conferma password**e quindi fare clic su **OK**. La password specificata non è significativa perché il sistema genererà automaticamente una password complessa indipendentemente dalla password specificata.
   
 > [!NOTE]
-> È consigliabile eseguire questa operazione due volte. La cronologia delle password dell'account krbtgt è due, ovvero che include le due password più recente. Per la reimpostazione della password due volte si cancellare in modo efficace le password precedente dalla cronologia, in modo che non è possibile un altro controller di dominio eseguirà la replica con il controller di dominio con una password vecchia.
+> Questa operazione deve essere eseguita due volte. La cronologia delle password dell'account KRBTGT è due, ovvero include le due password più recenti. Reimpostando la password due volte è possibile cancellare efficacemente le password obsolete dalla cronologia, quindi non esiste alcun modo in cui un altro controller di dominio verrà replicato con il controller di dominio utilizzando una vecchia password.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida al ripristino della foresta AD](AD-Forest-Recovery-Guide.md)
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md) 
+- [Guida al ripristino della foresta di Active Directory](AD-Forest-Recovery-Guide.md)
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md) 

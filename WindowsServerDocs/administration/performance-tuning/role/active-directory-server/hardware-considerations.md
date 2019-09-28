@@ -1,18 +1,18 @@
 ---
 title: Considerazioni sull'hardware nell'ottimizzazione delle prestazioni di Active Directory
 description: Considerazioni sull'hardware nell'ottimizzazione delle prestazioni di Active Directory
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d1e6c2744cfe0d16b034e6511144bef92a46b2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355095"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Considerazioni sull'hardware in aggiunta dell'ottimizzazione delle prestazioni 
 
@@ -61,7 +61,7 @@ I processori che non dispongono di un numero sufficiente di cicli disponibili po
 
 -   Aggiungere hardware, ottimizzare il carico, indirizzare i client altrove o rimuovere il carico dall'ambiente per ridurre il carico della CPU.
 
--   Usare il contatore delle prestazioni\_informazioni processore\\(totale)% &lt; utilizzo processore 60%.
+-   Utilizzare le informazioni sul processore (\_Total) \\% utilizzo processore &lt; 60% contatore delle prestazioni.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Evitare l'overload della scheda di rete
 

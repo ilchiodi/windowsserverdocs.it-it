@@ -1,8 +1,8 @@
 ---
-title: disco dettaglio
-description: 'Argomento i comandi di Windows per * * *- '
+title: disco dettagli
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c7a5063edf3cb2e190e8aec957e1b571c1f15bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ff78a3f9e27cde35a7e19bdf1565c515a127261b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378580"
 ---
-# <a name="detail-disk"></a>disco dettaglio
+# <a name="detail-disk"></a>disco dettagli
 
 
 
@@ -35,7 +35,7 @@ detail disk
 ## <a name="remarks"></a>Note
 
 -   Per eseguire questa operazione, è necessario selezionare un disco. Utilizzare il **disco selezionare** comando per selezionare un disco e spostare lo stato attivo a esso.
--   Se il disco selezionato è un disco rigido virtuale (VHD), **disco dettaglio** segnala il tipo di bus del disco come virtuale.
+-   Se il disco selezionato è un disco rigido virtuale (VHD), il **disco dei dettagli** segnala il tipo di bus del disco come virtuale.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -46,5 +46,5 @@ detail disk
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

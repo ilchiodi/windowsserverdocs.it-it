@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-MulticastTransmission
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdbb9283285bcf56cd83c18ea076e3d36a51b966
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 54c503abda871d1f2a4fd8a30d7f12317eee6a48
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392130"
 ---
 # <a name="using-the-get-multicasttransmission-command"></a>Utilizzando il comando get-MulticastTransmission
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza le informazioni relative alla trasmissione multicast per un'immagine specificata.
+Visualizza le informazioni sulla trasmissione multicast per un'immagine specificata.
 ## <a name="syntax"></a>Sintassi
 **Windows Server 2008**
 ```
@@ -52,20 +52,20 @@ wdsutil [Options] /Get-MulticastTransmissiomedia:<Image name>
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-media:<Image name>|Visualizza la trasmissione multicast che è associata a questa immagine.|
+supporto: <Image name>|Visualizza la trasmissione multicast associata a questa immagine.|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-MediaType:Install|Specifica il tipo di immagine. Si noti che questa opzione deve essere impostata su **installare**.|
-|\mediaGroup:<Image group name>]|Specifica il gruppo di immagini che contiene l'immagine. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, viene utilizzato il gruppo di immagini. Se è presente più di un gruppo di immagini nel server, è necessario utilizzare questa opzione per specificare un gruppo di immagini.|
-|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine di avvio che è associata la trasmissione. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
+MediaType: installazione|Specifica il tipo di immagine. Si noti che questa opzione deve essere impostata su **Installa**.|
+|\mediaGroup:<Image group name>]|Specifica il gruppo di immagini che contiene l'immagine. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, viene utilizzato il gruppo di immagini. Se nel server è presente più di un gruppo di immagini, è necessario utilizzare questa opzione per specificare un gruppo di immagini.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine di avvio associata alla trasmissione. Poiché è possibile avere lo stesso nome di immagine per le immagini di avvio in architetture diverse, è necessario specificare l'architettura per garantire che venga utilizzata l'immagine corretta.|
 |[/Filename:<File name>]|Specifica il file che contiene l'immagine. Se l'immagine non può essere identificata in modo univoco dal nome, è necessario utilizzare questa opzione per specificare il nome del file.|
-|[/ Show: client]<br /><br />oppure<br /><br />[/ Dettagli: client]|Consente di visualizzare informazioni sui computer client connessi alla trasmissione multicast.|
+|[/ Show: client]<br /><br />oppure<br /><br />[/Details: client]|Visualizza informazioni sui computer client connessi alla trasmissione multicast.|
 ## <a name="BKMK_examples"></a>Esempi
-**Windows Server 2008** per visualizzare informazioni relative alla trasmissione di un'immagine denominata Vista con Office, digitare uno dei seguenti:
+**Windows Server 2008** Per visualizzare le informazioni sulla trasmissione per un'immagine denominata vista con Office, digitare uno dei seguenti:
 ```
 wdsutil /Get-MulticastTransmissiomedia:"Vista with Officemediatype:Install
 wdsutil /Get-MulticastTransmission /Server:MyWDSServemedia:"Vista with Officemediatype:InstalmediaGroup:ImageGroup1 /Filename:install.wim /Show:Clients
 ```
-**Windows Server 2008 R2** per visualizzare informazioni relative alla trasmissione di un'immagine denominata Vista con Office, digitare uno dei seguenti:
+**Windows Server 2008 R2** Per visualizzare le informazioni sulla trasmissione per un'immagine denominata vista con Office, digitare uno dei seguenti:
 ```
 wdsutil /Get-MulticastTransmissiomedia:"Vista with Office"
  /Imagetype:Install
@@ -77,8 +77,8 @@ wdsutil /Get-MulticastTransmission /Server:MyWDSServemedia:"Vista with Officemed
 wdsutil /Get-MulticastTransmission /Server:MyWDSServemedia:"X64 Boot Imagemediatype:Boot /Architecture:x64 /Filename:boot.wim /details:Clients
 ```
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[utilizzando il comando get-AllMulticastTransmissions](using-the-get-allmulticasttransmissions-command.md)
-[utilizzando il comando /New-multicasttransmission](using-the-new-multicasttransmission-command.md) 
- [Utilizzando il comando remove-MulticastTransmission](using-the-remove-multicasttransmission-command.md)
-[sottocomando: inizio MulticastTransmission](subcommand-start-multicasttransmission.md)
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[usando il comando get-AllMulticastTransmissions](using-the-get-allmulticasttransmissions-command.md)
+ usando il comando[New-MulticastTransmission](using-the-new-multicasttransmission-command.md)
+[usando il comando Remove-MulticastTransmission](using-the-remove-multicasttransmission-command.md)
+[ Sottocomando: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)

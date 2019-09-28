@@ -6,20 +6,20 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: de4627f2e03e6432f4e678cd9ca932819cb483d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828525"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408436"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve solo la rete perimetrale
 
 
-In modo che la risoluzione dei nomi può funzionare correttamente per un server federativo in una Active Directory Federation Services \(ADFS\) scenario in cui uno o più Domain Name System \(DNS\) zone servono solo al perimetro di rete, le seguenti attività devono essere completate:  
+In modo che la risoluzione dei nomi possa funzionare correttamente per un server federativo in uno scenario Active Directory Federation Services \(AD FS @ no__t-1 in cui una o più Domain Name System \(DNS @ no__t-3 zone servono solo la rete perimetrale, quanto segue le attività devono essere completate:  
   
 -   File degli host proxy server federativo deve essere aggiornato per aggiungere l'indirizzo IP di un server federativo.  
   
@@ -49,7 +49,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 In modo che i client su Internet possono accedere un server federativo tramite un proxy server federativo appena distribuito, è innanzitutto necessario creare un host \(A\) record di risorse DNS perimetrale. Questo record di risorse consente di risolvere il nome host del server federativo di account \(ad esempio, fs.fabrikam.com\) all'indirizzo IP del proxy server federativo account \(ad esempio, 131.107.27.68\) nella rete perimetrale.  
   
 > [!NOTE]  
-> Si presuppone che si usa un server DNS, in esecuzione Windows 2000 Server, Windows Server 2003 o Windows Server 2008 con il servizio Server DNS, per controllare la zona DNS perimetrale.  
+> Si presuppone che si stia usando un server DNS, che esegue Windows 2000 Server, Windows Server 2003 o Windows Server 2008 con il servizio server DNS, per controllare la zona DNS perimetrale.  
   
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   

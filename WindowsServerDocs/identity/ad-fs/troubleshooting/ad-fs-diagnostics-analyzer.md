@@ -7,18 +7,18 @@ manager: mtillman
 ms.reviewer: anandyadavMSFT
 ms.date: 03/29/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6b6b7563aaa1f3c7d706cfdd172faf18417623e5
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 5d56a84680467359b68ae1ab115801d82a34c822
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546608"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407238"
 ---
 # <a name="ad-fs-help-diagnostics-analyzer"></a>Analizzatore diagnostico della Guida di AD FS
 
-AD FS dispone di numerose impostazioni che supportano la vasta gamma di funzionalità fornite per l'autenticazione e lo sviluppo di applicazioni. Durante la risoluzione dei problemi, è consigliabile assicurarsi che tutte le impostazioni di AD FS siano configurate correttamente. Una verifica manuale di queste impostazioni può talvolta richiedere molto tempo. AD FS Help Diagnostics Analyzer può essere utile per eseguire i controlli di base usando il modulo ADFSToolbox di PowerShell. Dopo aver eseguito i controlli, AD FS la guida fornisce l'analizzatore di [diagnostica](https://aka.ms/adfsdiagnosticsanalyzer) che consente di visualizzare facilmente i risultati e di offrire procedure correttive.
+AD FS dispone di numerose impostazioni che supportano la vasta gamma di funzionalità fornite per l'autenticazione e lo sviluppo di applicazioni. Durante la risoluzione dei problemi, è consigliabile assicurarsi che tutte le impostazioni di AD FS siano configurate correttamente. Una verifica manuale di queste impostazioni può talvolta richiedere molto tempo. AD FS Help Diagnostics Analyzer può essere utile per eseguire i controlli di base usando il modulo ADFSToolbox di PowerShell. Dopo aver eseguito i controlli, AD FS la guida fornisce l' [analizzatore di diagnostica](https://aka.ms/adfsdiagnosticsanalyzer) che consente di visualizzare facilmente i risultati e di offrire procedure correttive.
 
 L'operazione completa richiede tre semplici passaggi:
 
@@ -26,7 +26,7 @@ L'operazione completa richiede tre semplici passaggi:
 2. Eseguire la diagnostica e caricare il file nella Guida AD FS
 3. Visualizza analisi diagnostica e risolvi eventuali problemi
 
-Passare a [ad FS Help Diagnostics Analyzer https://aka.ms/adfsdiagnosticsanalyzer) (](https://aka.ms/adfsdiagnosticsanalyzer) per avviare la risoluzione dei problemi.
+Passare a [ad FS Help Diagnostics Analyzer (https://aka.ms/adfsdiagnosticsanalyzer)](https://aka.ms/adfsdiagnosticsanalyzer) per avviare la risoluzione dei problemi.
 
 ![Strumento AD FS Diagnostics Analyzer nella Guida di AD FS](media/ad-fs-diagonostics-analyzer/home.png)
 
@@ -58,7 +58,7 @@ Il modulo ADFSToolbox deve essere copiato manualmente nei server AD FS o WAP. Se
     ```powershell
     Install-Module -Name ADFSToolbox -Force
     ```
-3. Copiare la cartella ADFSToolbox che `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` si trova nel computer locale nello stesso percorso nel computer ad FS o WAP.
+3. Copiare la cartella ADFSToolbox che si trova `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` nel computer locale nello stesso percorso del computer AD FS o WAP.
 
 4. Avviare una finestra di PowerShell con privilegi elevati nel computer AD FS ed eseguire il cmdlet seguente per importare il modulo.
 
@@ -82,11 +82,11 @@ In un server 2016 o versione successiva AD FS Farm, il comando leggerà l'elenco
     Export-AdfsDiagnosticsFile -ServerNames @("adfs1.contoso.com", "adfs2.contoso.com")
 ```
 
-Il risultato è un file JSON creato nella stessa directory in cui è stato eseguito il comando. Il nome del file è AdfsDiagnosticsFile-\<timestamp.\> Un nome file di esempio è AdfsDiagnosticsFile-07312019-184201. JSON.
+Il risultato è un file JSON creato nella stessa directory in cui è stato eseguito il comando. Il nome del file è AdfsDiagnosticsFile-\<timestamp @ no__t-1. Un nome file di esempio è AdfsDiagnosticsFile-07312019-184201. JSON.
 
 ## <a name="step-3-upload-the-diagnostics-file"></a>Passaggio 3: Caricare il file di diagnostica
 
-Nel passaggio 3 [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) in usare il browser file per selezionare il file di risultati da caricare.
+Nel passaggio 3 in [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) usare il browser file per selezionare il file di risultati da caricare.
 
 Per completare il caricamento, fare clic su **carica** .
 
@@ -104,7 +104,7 @@ Sono disponibili cinque sezioni dei risultati del test:
 4. Non eseguito: Questa sezione contiene l'elenco dei test che non è stato possibile eseguire a causa di informazioni mancanti.
 5. Non applicabile: Questa sezione contiene l'elenco dei test non eseguiti perché non sono applicabili per il server specifico in cui è stato eseguito il comando.
 
-![Strumento Analizzatore ad FS Diagnostics: elenco](media/ad-fs-diagonostics-analyzer/step3a_v3.png) dei risultati del test. ogni risultato del test viene visualizzato con i dettagli che descrivono il test e la risoluzione dei passaggi:
+@no__t-strumento Analizzatore diagnostica FS di 0AD-elenco risultati test @ no__t-1 ogni risultato del test viene visualizzato con i dettagli che descrivono il test e la risoluzione dei passaggi:
 
 1. Nome test: Nome del test eseguito
 2. Descrizione: Descrizione del test.

@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 588d717b8f03987b86af7dc0576d537ebd88c4ba
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff76a6dffd66296a02cffcbd79bc6dfadc91c14a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407799"
 ---
 # <a name="scenario-native-app-calling-web-api"></a>Scenario: App nativa che chiama l'API Web 
 >Si applica a: AD FS 2019 e versioni successive 
@@ -49,11 +49,11 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
   
       ![Reg app](media/adfs-msal-native-app-web-api/native2.png)  
 
-  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:** https://ToDoListClient. Fare clic su **Aggiungi**. Fare clic su **Avanti**.  
+  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:** https://ToDoListClient. Fai clic su **Aggiungi**. Fare clic su **Avanti**.  
  
      ![Reg app](media/adfs-msal-native-app-web-api/native3.png) 
 
-  4. Nella schermata Configura API Web immettere l' **identificatore:** https://localhost:44321/. Fare clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento nel file **app. config** e **Web.** config dell'applicazione.
+  4. Nella schermata Configura API Web immettere l' **identificatore:** https://localhost:44321/. Fai clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento nel file **app. config** e **Web.** config dell'applicazione.
  
      ![Reg app](media/adfs-msal-native-app-web-api/native4.png)   
   

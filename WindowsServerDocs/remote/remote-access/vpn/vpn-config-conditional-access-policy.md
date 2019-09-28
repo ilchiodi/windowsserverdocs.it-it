@@ -1,8 +1,8 @@
 ---
 title: Configurare i criteri di accesso condizionale
-description: Dopo aver creato un certificato radice, connettività' VPN' attiva la creazione dell'applicazione cloud 'Server VPN' nel tenant del cliente.
+description: Dopo la creazione di un certificato radice, la "connettività VPN" attiva la creazione dell'applicazione cloud "server VPN" nel tenant del cliente.
 services: active-directory
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 documentationcenter: ''
 ms.assetid: ''
@@ -15,83 +15,83 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 466e76d01ca99a1e1ed72fa955ccd287ae63c5df
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 22983c085f2b9d9e7e16810e25c6fa50111f9fa6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749495"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404350"
 ---
 # <a name="step-73-configure-the-conditional-access-policy"></a>Passaggio 7.3. Configurare i criteri di accesso condizionale
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente:** Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
-- [**prossimo:** Passaggio 7.4. Distribuire i certificati radice di accesso condizionale ai servizi locali Active Directory](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
+- [**Precedente** Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Prossimo** Passaggio 7.4. Distribuire i certificati radice di accesso condizionale in AD locale @ no__t-0
 
-In questo passaggio si configura il criterio di accesso condizionale per la connettività VPN. Quando viene creato il primo certificato radice nel pannello 'Connettività VPN', viene creato automaticamente un'applicazione cloud 'Server VPN' nel tenant.
+In questo passaggio si configureranno i criteri di accesso condizionale per la connettività VPN. Quando viene creato il primo certificato radice nel pannello "connettività VPN", viene creata automaticamente un'applicazione cloud "server VPN" nel tenant.
 
-Creare un criterio di accesso condizionale assegnato al gruppo di utenti VPN e l'ambito di **app Cloud** al **Server VPN**:
+Creare un criterio di accesso condizionale assegnato al gruppo utenti VPN e definire l'ambito dell' **app Cloud** nel **server VPN**:
 
 - **Utenti**: Utenti VPN
-- **App cloud**: Server VPN
-- **Grant (controllo degli accessi)** : "Require multi-factor authentication". Se lo si desidera, è possono utilizzare altri controlli.
+- **App Cloud**: Server VPN
+- **Grant (controllo di accesso)** : "Richiedi autenticazione a più fattori". Se lo si desidera, è possibile utilizzare altri controlli.
 
-**Procedura:** Questo passaggio riguarda la creazione dei criteri di accesso condizionale di base.  Se si desidera, è possono utilizzare controlli e le condizioni aggiuntive.
+**Procedura** Questo passaggio illustra la creazione dei criteri di accesso condizionale di base.  Se lo si desidera, è possibile utilizzare condizioni e controlli aggiuntivi.
 
 
-1. Nel **accesso condizionale** pagina, nella barra degli strumenti in alto, selezionare **Add**.
+1. Nella pagina **accesso condizionale** fare clic su **Aggiungi**nella barra degli strumenti in alto.
 
-    ![Selezionare Aggiungi nella pagina di accesso condizionale](../../media/Always-On-Vpn/07.png)
+    ![Selezionare Aggiungi nella pagina accesso condizionale](../../media/Always-On-Vpn/07.png)
 
-2. Nel **New** nella pagina il **nome** immettere un nome per il criterio. Ad esempio, immettere **criteri VPN**.
+2. Nella casella **nome** della **nuova** pagina immettere un nome per il criterio. Ad esempio, immettere **criteri VPN**.
 
-    ![Aggiungi nome criterio nella pagina di accesso condizionale](../../media/Always-On-Vpn/08.png)
+    ![Aggiungere il nome per i criteri nella pagina accesso condizionale](../../media/Always-On-Vpn/08.png)
 
-3. Nel **assegnazione** sezione, selezionare **utenti e gruppi**.
+3. Nella sezione **assegnazione** selezionare **utenti e gruppi**.
 
-    ![Selezionare utenti e gruppi](../../media/Always-On-Vpn/09.png)
+    ![Seleziona utenti e gruppi](../../media/Always-On-Vpn/09.png)
 
-4. Nel **utenti e gruppi** seguire i passaggi seguenti:
+4. Nella pagina **utenti e gruppi** seguire questa procedura:
 
-    ![Utente di test selezionare](../../media/Always-On-Vpn/10.png)
+    ![Seleziona utente test](../../media/Always-On-Vpn/10.png)
 
     a. Selezionare **Seleziona utenti e gruppi**.
 
-    b. Selezionare **seleziona**.
+    b. Selezionare **Seleziona**.
 
-    c. Nel **seleziona** pagina, selezionare il **gli utenti VPN** gruppo e quindi selezionare **selezionare**.
+    c. Nella pagina **Seleziona** selezionare il gruppo **utenti VPN** e quindi selezionare **Seleziona**.
 
-    d. Nel **utenti e gruppi** pagina, selezionare **eseguita**.
+    d. Nella pagina **utenti e gruppi** selezionare **fine**.
 
-5. Nel **New** seguire i passaggi seguenti:
+5. Nella **nuova** pagina, seguire questa procedura:
 
-    ![Selezionare le app cloud](../../media/Always-On-Vpn/11.png)
+    ![Selezionare le app Cloud](../../media/Always-On-Vpn/11.png)
 
-    a. Nel **assegnazioni** sezione, selezionare **le app Cloud**.
+    a. Nella sezione **assegnazioni** selezionare **app Cloud**.
 
-    b. Nel **le app Cloud** pagina, selezionare **selezionare le app**.
+    b. Nella pagina **app Cloud** selezionare **Seleziona app**.
 
-    d. Selezionare **Server VPN**.
+    d. Selezionare **server VPN**.
 
-6.  Nel **New** pagina, aprire il **Grant** nella pagina il **controlli** selezionare **Grant**.
+6.  Nella pagina **nuovo** , per aprire la pagina **Concedi** , nella sezione **controlli** selezionare **Concedi**.
 
-    ![Autorizzazione SELECT](../../media/Always-On-Vpn/13.png)
+    ![Selezionare Concedi](../../media/Always-On-Vpn/13.png)
 
-7.  Nel **Concedi** seguire i passaggi seguenti:
+7.  Nella pagina **Concedi** seguire questa procedura:
 
     ![Selezionare Richiedi autenticazione a più fattori](../../media/Always-On-Vpn/14.png)
 
-    a. Selezionare **richiedono l'autenticazione a più fattori**.
+    a. Selezionare **Richiedi autenticazione a più fattori**.
 
-    b. Selezionare **seleziona**.
+    b. Selezionare **Seleziona**.
 
-8.  Nel **New** nella pagina **Abilita criteri**, selezionare **su**.
+8.  Nella pagina **nuovo** , in **Abilita criterio**, selezionare **on**.
 
-    ![Abilitare i criteri](../../media/Always-On-Vpn/15.png)
+    ![Abilita criteri](../../media/Always-On-Vpn/15.png)
 
-9.  Nel **New** pagina, selezionare **crea**.
+9.  Nella pagina **nuovo** selezionare **Crea**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Passaggio 7.4. Distribuire i certificati radice di accesso condizionale ai servizi locali AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): In questo passaggio si distribuisce il certificato radice di accesso condizionale come certificato radice attendibile per l'autenticazione VPN per on-premises AD.
+[Passaggio 7.4. Distribuire i certificati radice di accesso condizionale in AD locale @ no__t-0: In questo passaggio si distribuisce il certificato radice di accesso condizionale come certificato radice attendibile per l'autenticazione VPN in Active Directory locale.

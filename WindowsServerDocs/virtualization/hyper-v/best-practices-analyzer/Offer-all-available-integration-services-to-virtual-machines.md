@@ -1,7 +1,7 @@
 ---
 title: Offrire i servizi di integrazione disponibile in tutte le macchine virtuali
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 2c4b2043-ad81-495e-aa7a-467f813bb3d2
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: c2b5137594f78980f87f6520ae4b4af8203aef32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ec2dc73cea8b8356d832bf9fdb960985df2df6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883782"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393597"
 ---
 # <a name="offer-all-available-integration-services-to-virtual-machines"></a>Offrire i servizi di integrazione disponibile in tutte le macchine virtuali
 
@@ -26,8 +26,8 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -40,11 +40,11 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 *Alcune funzionalità non saranno disponibili per le macchine virtuali seguenti:*  
   
-\<elenco di nomi delle macchine virtuali >  
+@no__t 0list di nomi di macchina virtuale >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Se questa condizione è voluta, non è necessaria alcuna azione ulteriore. In caso contrario, prendere in considerazione tutti i servizi di integrazione nelle impostazioni di tali macchine virtuali.*  
+*If questo comportamento è intenzionale, non è necessaria alcuna azione ulteriore. In caso contrario, è consigliabile offrire tutti i servizi di integrazione nelle impostazioni di queste macchine virtuali.*  
   
 La disponibilità di alcuni servizi di integrazione può essere gestita tramite impostazioni della macchina virtuale.   
   

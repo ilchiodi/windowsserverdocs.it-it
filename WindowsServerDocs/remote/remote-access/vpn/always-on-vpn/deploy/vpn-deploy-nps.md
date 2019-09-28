@@ -1,7 +1,7 @@
 ---
 title: Installare e configurare il Server dei criteri di rete
 description: L'elaborazione del server dei criteri di rete per le richieste di connessione inviate dal server VPN verifica che l'utente disponga dell'autorizzazione per la connessione, dell'identità dell'utente e registra gli aspetti della richiesta di connessione scelti durante la configurazione dell'accounting RADIUS nel server dei criteri di rete.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -9,16 +9,16 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 553f3327e6252d2b03744b2e0fc88f340701f3a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871329"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404258"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Passaggio 4. Installare e configurare il server dei criteri di rete
 
-> Si applica a Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+> Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Prossimo** Passaggio 3. Configurare il server di accesso remoto per VPN Always On](vpn-deploy-ras.md)
 - [**Prossimo** Passaggio 5. Configurare le impostazioni di firewall e DNS](vpn-deploy-dns-firewall.md)

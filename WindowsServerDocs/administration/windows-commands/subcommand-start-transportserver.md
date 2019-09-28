@@ -1,8 +1,8 @@
 ---
-title: Il sottocomando start-TransportServer
-description: 'Argomento i comandi di Windows per * * *- '
+title: Sottocomando Start-TransportServer
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fdfea020019a45eceac0142160f9d5d4d97b989
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1bdf80aa9c255e12e1e4821467d556eb67f8691
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848632"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370728"
 ---
 # <a name="subcommand-start-transportserver"></a>Sottocomando: start-TransportServer
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Avvia tutti i servizi per un Server di trasporto.
+Avvia tutti i servizi per un server di trasporto.
 ## <a name="syntax"></a>Sintassi
 ```
 wdsutil [Options] /start-TransportServer [/Server:<Server name>]

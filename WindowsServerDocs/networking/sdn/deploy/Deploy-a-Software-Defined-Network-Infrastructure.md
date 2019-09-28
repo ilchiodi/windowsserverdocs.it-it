@@ -1,7 +1,7 @@
 ---
 title: Distribuire un'infrastruttura Software Defined Network
 description: Questo argomento fornisce collegamenti ad argomenti su come distribuire un'infrastruttura SDN (software defined Network) Microsoft usando gli script in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
@@ -9,16 +9,16 @@ ms.assetid: 6c665c88-df28-4150-81d4-a47e9fa5255c
 ms.author: daveba
 ms.date: 08/23/2018
 author: daveba
-ms.openlocfilehash: 098b061acbb222d2038486f58081812a3ec67cfb
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 6450419e03b07c4350edbf58a8c3ab8e48cbac7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980289"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406136"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure"></a>Distribuire un'infrastruttura software defined Network
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Distribuire l'infrastruttura SDN (Software Defined Networking) di Microsoft.   
   

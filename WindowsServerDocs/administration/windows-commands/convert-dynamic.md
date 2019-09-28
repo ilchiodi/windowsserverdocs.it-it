@@ -1,8 +1,8 @@
 ---
-title: Convertire dinamica
-description: 'Argomento i comandi di Windows per * * *- '
+title: Converti dinamica
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353c1e4558ab2b0c948ec78c0cd87b579c738ec8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15c15d14aeb440c5d7862f0a304f223988f52bbe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841612"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379103"
 ---
-# <a name="convert-dynamic"></a>Convertire dinamica
+# <a name="convert-dynamic"></a>Converti dinamica
 
 
 
@@ -38,12 +38,12 @@ convert dynamic [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
--   Tutte le partizioni esistenti nel disco di base più volumi semplici.
--   Per eseguire questa operazione, è necessario selezionare un disco di base. Usare la **disco selezionare** comando per selezionare un disco di base e spostare lo stato attivo a esso.
+-   Tutte le partizioni esistenti sul disco di base diventano volumi semplici.
+-   Per eseguire questa operazione, è necessario selezionare un disco di base. Usare il comando **Seleziona disco** per selezionare un disco di base e spostare lo stato attivo a esso.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -54,5 +54,5 @@ convert dynamic
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

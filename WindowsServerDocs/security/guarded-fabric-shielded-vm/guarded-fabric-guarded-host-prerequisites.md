@@ -1,64 +1,64 @@
 ---
-title: Prerequisiti per l'host sorvegliato
+title: Prerequisiti host sorvegliati
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9273eef906130b11b98148cf1e84f7e18812b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402375"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Prerequisiti per gli host sorvegliati
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-Esaminare i prerequisiti di host per la modalità di attestazione scelta, quindi scegliere il passaggio successivo per aggiungere gli host sorvegliati.
+Esaminare i prerequisiti host per la modalità di attestazione scelta, quindi fare clic sul passaggio successivo per aggiungere gli host sorvegliati.
 
 ## <a name="tpm-trusted-attestation"></a>Attestazione TPM
 
-Gli host sorvegliati usando la modalità TPM devono soddisfare i prerequisiti seguenti:
+Gli host sorvegliati che usano la modalità TPM devono soddisfare i seguenti prerequisiti:
 
--   **Hardware**: Un host è obbligatorio per la distribuzione iniziale. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, è necessario disporre di almeno due host.
+-   **Hardware**: Per la distribuzione iniziale è necessario un host. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, è necessario disporre di almeno due host.
 
     Gli host devono avere:
     
-    - IOMMU e Second Level Address Translation (SLAT)
+    - IOMMU e Second Level Address Translation (stecca)
     - TPM 2.0
-    - Con hardware UEFI 2.3.1 o versione successiva
-    - Configurato per l'avvio UEFI (non BIOS o modalità "legacy")
+    - UEFI 2.3.1 o versione successiva
+    - Configurato per l'avvio tramite UEFI (non BIOS o modalità "Legacy")
     - Avvio protetto abilitato
         
--   **Sistema operativo**: Windows Server 2016 Datacenter edition o versioni successive
+-   **Sistema operativo**: Windows Server 2016 Datacenter Edition o versione successiva
 
     > [!IMPORTANT]
-    > Assicurarsi di installare il [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).  
+    > Assicurarsi di installare l' [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).  
 
--   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza Host. Il supporto Hyper-V per sorveglianza Host funzionalità è disponibile solo nelle edizioni Datacenter di Windows Server. 
+-   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host. La funzionalità di supporto per sorveglianza host per Hyper-V è disponibile solo nelle edizioni Datacenter di Windows Server. 
 
 > [!WARNING]
-> La funzionalità di supporto Hyper-V per sorveglianza Host abilita la protezione basata sulla virtualizzazione di integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È fortemente consigliabile testare questa configurazione nell'ambiente lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per altre informazioni, vedere [hardware compatibile con protezione basata su Windows Server Virtualization di integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
+> La funzionalità di supporto per sorveglianza host di Hyper-V consente la protezione basata sulla virtualizzazione dell'integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È consigliabile testare questa configurazione nel Lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per ulteriori informazioni, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows Server per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Passaggio successivo:** 
 > [!div class="nextstepaction"]
-> [Acquisire informazioni sul TPM](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [Acquisisci informazioni TPM](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
 ## <a name="host-key-attestation"></a>Attestazione chiave host
 
-Gli host sorvegliati usando l'attestazione chiave host devono soddisfare i prerequisiti seguenti:
+Gli host sorvegliati che usano l'attestazione chiave host devono soddisfare i seguenti prerequisiti:
 
-- **Hardware**: Qualsiasi server in grado di eseguire l'inizio di Hyper-V con Windows Server 2019
+- **Hardware**: Qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2019
 - **Sistema operativo**: Windows Server 2019 Datacenter Edition
-- **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza Host 
+- **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host 
 
-L'host può essere unita a un dominio o un gruppo di lavoro. 
+L'host può essere aggiunto a un dominio o a un gruppo di lavoro. 
 
-Per l'attestazione chiave host, HGS deve essere in esecuzione Windows Server 2019 e funziona con l'attestazione v2. Per altre informazioni, vedere [prerequisiti HGS](guarded-fabric-prepare-for-hgs.md#prerequisites). 
+Per l'attestazione della chiave host, HGS deve eseguire Windows Server 2019 e funzionare con l'attestazione V2. Per ulteriori informazioni, vedere [prerequisiti di HGS](guarded-fabric-prepare-for-hgs.md#prerequisites). 
 
 **Passaggio successivo:** 
 > [!div class="nextstepaction"]
@@ -67,22 +67,22 @@ Per l'attestazione chiave host, HGS deve essere in esecuzione Windows Server 201
 ## <a name="admin-trusted-attestation"></a>Attestazione amministratore
 
 >[!IMPORTANT]
->Attestazione amministratore (modalità AD) è deprecato a partire da Windows Server 2019. Per gli ambienti in cui l'attestazione TPM non è possibile, configurare [ospitare l'attestazione chiave](#host-key-attestation). Attestazione chiave host fornisce una garanzia analoga alla modalità di Active Directory ed è più semplice da configurare. 
+>L'attestazione amministratore (modalità AD) è deprecata a partire da Windows Server 2019. Per gli ambienti in cui non è possibile attestazione TPM, configurare l' [attestazione chiave host](#host-key-attestation). L'attestazione chiave host offre una garanzia simile alla modalità AD ed è più semplice da configurare. 
 
-Host Hyper-V devono soddisfare i prerequisiti seguenti per la modalità di AD:
+Gli host Hyper-V devono soddisfare i seguenti prerequisiti per la modalità AD:
 
--   **Hardware**: Qualsiasi server in grado di eseguire l'inizio di Hyper-V con Windows Server 2016. Un host è obbligatorio per la distribuzione iniziale. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, sono necessari almeno due host.
+-   **Hardware**: Qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2016. Per la distribuzione iniziale è necessario un host. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, sono necessari almeno due host.
 
--   **Sistema operativo**: Windows Server 2016 Datacenter edition
+-   **Sistema operativo**: Windows Server 2016 Datacenter Edition
 
     > [!IMPORTANT]
-    > Installare il [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+    > Installare l' [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
--   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità supporto Hyper-V per sorveglianza Host, che è disponibile solo in Windows Server 2016 Datacenter edition. 
+-   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host, disponibile solo in Windows Server 2016 Datacenter Edition. 
 
 > [!WARNING]
-> La funzionalità di supporto Hyper-V per sorveglianza Host abilita la protezione basata sulla virtualizzazione di integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È fortemente consigliabile testare questa configurazione nell'ambiente lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per altre informazioni, vedere [componenti hardware compatibili con protezione basata sulla virtualizzazione di Windows Server 2016 di integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
+> La funzionalità di supporto per sorveglianza host di Hyper-V consente la protezione basata sulla virtualizzazione dell'integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È consigliabile testare questa configurazione nel Lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per ulteriori informazioni, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows Server 2016 per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Passaggio successivo:** 
 > [!div class="nextstepaction"]
-> [Posizionare gli host sorvegliati in un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [Inserire host sorvegliati in un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)

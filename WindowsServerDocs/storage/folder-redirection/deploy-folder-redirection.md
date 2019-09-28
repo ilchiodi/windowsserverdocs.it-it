@@ -1,23 +1,23 @@
 ---
 title: Distribuire il reindirizzamento cartelle con File offline
 description: Come usare Windows Server per distribuire il reindirizzamento delle cartelle con File offline ai computer client Windows.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 90b3e3d0b5030f8c0140e54c8b0bf55317437427
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 21172d9d3e6d91af691986bfd84b0e32049f3b88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401963"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Distribuire il reindirizzamento cartelle con File offline
 
->Si applica a Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (canale semestrale)
+>Si applica a: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (canale semestrale)
 
 Questo argomento descrive come usare Windows Server per distribuire il reindirizzamento delle cartelle con File offline ai computer client Windows.
 

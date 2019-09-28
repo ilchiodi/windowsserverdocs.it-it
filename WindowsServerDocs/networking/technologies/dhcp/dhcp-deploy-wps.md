@@ -1,25 +1,25 @@
 ---
 title: Distribuire DHCP mediante Windows PowerShell
 description: È possibile utilizzare questo argomento per distribuire un server DHCP Windows Server 2016 Internet Protocol (IP) versione 4 che fornisce gli indirizzi IP automatici e le opzioni DHCP ai client DHCP IPv4 connessi a una o più subnet nella rete.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c02de23f285106ebee7fd6c78e4cf012437d616e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 66e5845bdc8f473929bfd97a3999be82cd7730c8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405769"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Distribuire DHCP mediante Windows PowerShell
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questa guida vengono fornite istruzioni su come utilizzare Windows PowerShell per distribuire un protocollo IP (Internet Protocol) versione \(4\) Dynamic Host Configuration Protocol server DHCP che assegna automaticamente gli indirizzi IP e le opzioni DHCP a DHCP IPv4 client connessi a una o più subnet nella rete.
+In questa guida vengono fornite istruzioni su come utilizzare Windows PowerShell per distribuire un protocollo IP (Internet Protocol) versione 4 Dynamic Host Configuration Protocol \(DHCP @ no__t-1 server che assegna automaticamente gli indirizzi IP e le opzioni DHCP ai client DHCP IPv4 che sono connessione a una o più subnet nella rete.
 
 >[!NOTE]
 >Per scaricare questo documento in formato Word dalla raccolta TechNet, vedere [distribuire DHCP con Windows PowerShell in Windows Server 2016](https://gallery.technet.microsoft.com/Deploy-DHCP-Using-Windows-246dd293).
@@ -63,7 +63,7 @@ Per le reti basate su TCP/IP, DHCP riduce la complessità e la quantità di lavo
 
 Per impostazione predefinita, tutte le versioni dei sistemi operativi Windows Server e client Windows hanno impostazioni TCP/IP per le connessioni di rete IP versione 4 configurate per ottenere automaticamente un indirizzo IP e altre informazioni, denominate opzioni DHCP, da un server DHCP. Per questo motivo, non è necessario configurare manualmente le impostazioni TCP/IP, a meno che il computer non sia un computer server o un altro dispositivo che richiede un indirizzo IP statico configurato manualmente. 
 
-Si consiglia, ad esempio, di configurare manualmente l'indirizzo IP del server DHCP e gli indirizzi IP dei server DNS e dei controller di dominio che eseguono Active Directory Domain Services \(servizi di dominio Active Directory.\)
+Si consiglia, ad esempio, di configurare manualmente l'indirizzo IP del server DHCP e gli indirizzi IP dei server DNS e dei controller di dominio che eseguono Active Directory Domain Services \(AD DS @ no__t-1.
 
 TCP/IP in Windows Server 2016 è il seguente:
 
@@ -217,7 +217,7 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 >[!NOTE]
 >Se non si desidera distribuire DHCP in un Lab di test, è possibile passare alla sezione [distribuire DHCP](#bkmk_deploy).
 
-I requisiti per il Lab variano a seconda del fatto che si utilizzino macchine \(\)virtuali o server fisici, nonché se si utilizza un dominio Active Directory o si distribuisce un server DHCP autonomo.
+I requisiti per il Lab variano a seconda del fatto che si utilizzino server fisici o macchine virtuali \(VMs @ no__t-1 e se si utilizza un dominio Active Directory o si distribuisce un server DHCP autonomo.
 
 È possibile usare le informazioni seguenti per determinare le risorse minime necessarie per testare la distribuzione DHCP con questa guida.
 
@@ -225,7 +225,7 @@ I requisiti per il Lab variano a seconda del fatto che si utilizzino macchine \(
 
 Per distribuire DHCP in un Lab di test con macchine virtuali, sono necessarie le risorse seguenti.
 
-Per la distribuzione del dominio o la distribuzione autonoma, è necessario un server configurato come host\-Hyper-V.
+Per la distribuzione del dominio o la distribuzione autonoma, è necessario un server configurato come host Hyper @ no__t-0V.
 
 **Distribuzione del dominio**
 
@@ -233,7 +233,7 @@ Questa distribuzione richiede un solo server fisico, un commutire virtuale, due 
 
 Nel server fisico, nella console di gestione di Hyper-V, creare gli elementi seguenti.
 
-1. Uno switch virtuale **interno** . Non creare un commutire virtuale **esterno** , perché se l'\-host Hyper-V si trova in una subnet che include un server DHCP, le VM di test riceveranno un indirizzo IP dal server DHCP. Inoltre, il server DHCP di test distribuito potrebbe assegnare indirizzi IP ad altri computer nella subnet in cui è installato l'host\-Hyper-V.
+1. Uno switch virtuale **interno** . Non creare un Commuter virtuale **esterno** , perché se l'host Hyper @ No__t-1V si trova in una subnet che include un server DHCP, le VM di test riceveranno un indirizzo IP dal server DHCP. Inoltre, il server DHCP di test distribuito potrebbe assegnare indirizzi IP ad altri computer nella subnet in cui è installato l'host Hyper @ no__t-0V.
 1. Una macchina virtuale che esegue Windows Server 2016 è configurata come controller di dominio con Active Directory Domain Services connessa al commutivo virtuale interno creato. Per corrispondere a questa guida, il server deve disporre di un indirizzo IP configurato in modo statico 10.0.0.2. Per informazioni sulla distribuzione di servizi di dominio Active Directory, vedere la sezione **Deploying DC1** nella [Guida alla rete core](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide#BKMK_deployADDNS01)di Windows Server 2016.
 1. Una macchina virtuale che esegue Windows Server 2016 che verrà configurata come server DHCP usando questa guida e connessa al commutivo virtuale interno creato. 
 1. Una macchina virtuale che esegue un sistema operativo client Windows connessa al commessore virtuale interno creato e che verrà usato per verificare che il server DHCP stia allocando in modo dinamico gli indirizzi IP e le opzioni DHCP ai client DHCP.
@@ -244,7 +244,7 @@ Questa distribuzione richiede un solo server fisico, un commutire virtuale, un s
 
 Nel server fisico, nella console di gestione di Hyper-V, creare gli elementi seguenti.
 
-1. Uno switch virtuale **interno** . Non creare un commutire virtuale **esterno** , perché se l'\-host Hyper-V si trova in una subnet che include un server DHCP, le VM di test riceveranno un indirizzo IP dal server DHCP. Inoltre, il server DHCP di test distribuito potrebbe assegnare indirizzi IP ad altri computer nella subnet in cui è installato l'host\-Hyper-V.
+1. Uno switch virtuale **interno** . Non creare un Commuter virtuale **esterno** , perché se l'host Hyper @ No__t-1V si trova in una subnet che include un server DHCP, le VM di test riceveranno un indirizzo IP dal server DHCP. Inoltre, il server DHCP di test distribuito potrebbe assegnare indirizzi IP ad altri computer nella subnet in cui è installato l'host Hyper @ no__t-0V.
 2. Una macchina virtuale che esegue Windows Server 2016 che verrà configurata come server DHCP usando questa guida e connessa al commutivo virtuale interno creato.
 3. Una macchina virtuale che esegue un sistema operativo client Windows connessa al commessore virtuale interno creato e che verrà usato per verificare che il server DHCP stia allocando in modo dinamico gli indirizzi IP e le opzioni DHCP ai client DHCP.
 
@@ -292,7 +292,7 @@ Prima di eseguire i comandi, ad esempio, è necessario sostituire i valori di es
 
 ### <a name="where-to-install-dhcp---on-a-physical-computer-or-a-vm"></a>Dove installare DHCP in un computer fisico o in una macchina virtuale?
 
-È possibile installare il ruolo server DHCP in un computer fisico o in una macchina \(virtuale VM\) installata in un host Hyper\--V. Se si installa DHCP in una macchina virtuale e si desidera che il server DHCP fornisca le assegnazioni degli indirizzi IP ai computer nella rete fisica a cui è connesso l'host Hyper-V, è necessario connettere la scheda di rete virtuale della macchina virtuale a un Commuter virtuale Hyper-V **esterno /C0.**
+È possibile installare il ruolo server DHCP in un computer fisico o in una macchina virtuale \(VM @ no__t-1 installato in un host Hyper @ no__t-2V. Se si installa DHCP in una macchina virtuale e si desidera che il server DHCP fornisca le assegnazioni degli indirizzi IP ai computer nella rete fisica a cui è connesso l'host Hyper-V, è necessario connettere la scheda di rete virtuale della macchina virtuale a un Commuter virtuale Hyper-V **esterno /C0.**
 
 Per ulteriori informazioni, vedere la sezione **creare un Commutire virtuale con la console di gestione di Hyper-V** nell'argomento [creare una rete virtuale](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network).
 
@@ -338,7 +338,7 @@ Per ulteriori informazioni su questi comandi, vedere gli argomenti seguenti.
 - [Rinomina-computer](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.management/rename-computer)
 - [Restart-Computer](https://msdn.microsoft.com/powershell/reference/4.0/microsoft.powershell.management/restart-computer)
 
-### <a name="join-the-computer-to-the-domain-optional"></a>Aggiungere il computer al dominio \(facoltativo\)
+### <a name="join-the-computer-to-the-domain-optional"></a>Aggiungere il computer al dominio \(Optional @ no__t-1
 
 Se si installa il server DHCP in un ambiente di dominio Active Directory, è necessario aggiungere il computer al dominio. Aprire Windows PowerShell con privilegi di amministratore, quindi eseguire il comando seguente dopo aver sostituito il nome NetBios del dominio **Corp** con un valore appropriato per l'ambiente in uso.
 
@@ -370,7 +370,7 @@ Per ulteriori informazioni su questo comando, vedere l'argomento seguente.
 
 ### <a name="create-dhcp-security-groups"></a>Creazione di gruppi di sicurezza DHCP
 
-Per creare gruppi di sicurezza, è necessario eseguire un comando \(Netsh\) della shell di rete in Windows PowerShell, quindi riavviare il servizio DHCP in modo che i nuovi gruppi diventino attivi.
+Per creare gruppi di sicurezza, è necessario eseguire un comando Network Shell \(netsh @ no__t-1 in Windows PowerShell, quindi riavviare il servizio DHCP in modo che i nuovi gruppi diventino attivi.
 
 Quando si esegue il comando netsh seguente sul server DHCP, i gruppi di sicurezza DHCP **Administrators** e **DHCP Users** vengono creati in **utenti e gruppi locali** nel server DHCP.
 
@@ -389,7 +389,7 @@ Per ulteriori informazioni su questi comandi, vedere gli argomenti seguenti.
 - [Shell di rete (Netsh)](../netsh/netsh.md)
 - [Restart-Service](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.management/restart-service)
 
-### <a name="authorize-the-dhcp-server-in-active-directory-optional"></a>Autorizzare il server DHCP in \(Active Directory facoltativo\)
+### <a name="authorize-the-dhcp-server-in-active-directory-optional"></a>Autorizzare il server DHCP in Active Directory \(Optional @ no__t-1
 
 Se si installa DHCP in un ambiente di dominio, è necessario eseguire la procedura seguente per autorizzare il server DHCP a operare nel dominio.
 
@@ -424,11 +424,11 @@ Per ulteriori informazioni su questi comandi, vedere gli argomenti seguenti.
 - [Add-DhcpServerInDC](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/add-dhcpserverindc)
 - [Get-DhcpServerInDC](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/get-dhcpserverindc)
 
-### <a name="notify-server-manager-that-post-install-dhcp-configuration-is-complete-optional"></a>Notifica Server Manager che la\-configurazione DHCP post-installazione \(è stata completata facoltativamente\)
+### <a name="notify-server-manager-that-post-install-dhcp-configuration-is-complete-optional"></a>Notifica Server Manager che la configurazione DHCP post @ no__t-0install è stata completata \(Optional @ no__t-2
 
-Dopo aver completato le attività\-post-installazione, ad esempio la creazione di gruppi di sicurezza e l'autorizzazione del server DHCP in Active Directory, Server Manager possibile che venga visualizzato un avviso nell'interfaccia utente\- che informa il post per completare la procedura di installazione, è necessario utilizzare la configurazione guidata post-installazione DHCP.
+Dopo aver completato le attività post @ no__t-0installation, ad esempio la creazione di gruppi di sicurezza e l'autorizzazione del server DHCP in Active Directory, Server Manager possibile che venga visualizzato un avviso nell'interfaccia utente che informa che i passaggi post @ no__t-1installation devono essere completata utilizzando la configurazione guidata post-installazione DHCP.
 
-È possibile impedire\-che venga visualizzato un messaggio non necessario e non accurato in Server Manager configurando la seguente chiave del registro di sistema utilizzando questo comando di Windows PowerShell.
+È possibile impedire che venga visualizzato il messaggio @ no__t-0unnecessary e un messaggio non accurato in Server Manager configurando la chiave del registro di sistema seguente utilizzando questo comando di Windows PowerShell.
 
 ```
 Set-ItemProperty –Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 –Name ConfigurationState –Value 2
@@ -438,7 +438,7 @@ Per ulteriori informazioni su questo comando, vedere l'argomento seguente.
 
 - [Set-ItemProperty](https://msdn.microsoft.com/powershell/reference/4.0/microsoft.powershell.management/set-itemproperty?f=255&MSPPError=-2147217396)
 
-### <a name="set-server-level-dns-dynamic-update-configuration-settings-optional"></a>Impostare le impostazioni \(di configurazione dell'aggiornamento dinamico DNS a livello di server facoltativo\)
+### <a name="set-server-level-dns-dynamic-update-configuration-settings-optional"></a>Impostare le impostazioni di configurazione degli aggiornamenti dinamici DNS a livello di server \(Optional @ no__t-1
 
 Se si desidera che il server DHCP esegua aggiornamenti dinamici DNS per i computer client DHCP, è possibile eseguire il comando seguente per configurare questa impostazione. Si tratta di un'impostazione a livello di server, non di un livello di ambito, che influirà su tutti gli ambiti configurati nel server. Questo comando di esempio configura anche il server DHCP per eliminare i record di risorse DNS per i client quando il client scade almeno.
 
@@ -475,9 +475,9 @@ Per ulteriori informazioni su questi comandi, vedere gli argomenti seguenti.
 - [Add-DhcpServerv4ExclusionRange](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/add-dhcpserverv4exclusionrange)
 - [Set-DhcpServerv4OptionValue](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/set-dhcpserverv4optionvalue)
 
-### <a name="configure-the-corpnet2-scope-optional"></a>Configurare l'ambito \(Corpnet2 facoltativo\)
+### <a name="configure-the-corpnet2-scope-optional"></a>Configurare l'ambito Corpnet2 \(Optional @ no__t-1
 
-Se è presente una seconda subnet connessa alla prima subnet con un router in cui è abilitato l'invio DHCP, è possibile usare i comandi seguenti per aggiungere un secondo ambito, denominato Corpnet2, per questo esempio. Questo esempio configura anche un intervallo di esclusione e l'indirizzo IP per il gateway \(predefinito, ovvero l'indirizzo IP del router nella subnet\) della subnet Corpnet2.
+Se è presente una seconda subnet connessa alla prima subnet con un router in cui è abilitato l'invio DHCP, è possibile usare i comandi seguenti per aggiungere un secondo ambito, denominato Corpnet2, per questo esempio. Questo esempio configura anche un intervallo di esclusione e l'indirizzo IP per il gateway predefinito @no__t indirizzo IP del router 0The nella subnet @ no__t-1 della subnet Corpnet2.
 
 ```
 Add-DhcpServerv4Scope -name "Corpnet2" -StartRange 10.0.1.1 -EndRange 10.0.1.254 -SubnetMask 255.255.255.0 -State Active
@@ -499,7 +499,7 @@ Se il client non riceve un indirizzo IP dal server DHCP, seguire questa procedur
 1. Verificare che il cavo Ethernet sia collegato al computer e al Commuter, all'hub o al router Ethernet.
 2. Se il computer client è stato collegato a un segmento di rete separato dal server DHCP da un router, verificare che il router sia configurato per l'invio dei messaggi DHCP.
 3. Verificare che il server DHCP sia autorizzato in Active Directory eseguendo il comando seguente per recuperare l'elenco dei server DHCP autorizzati da Active Directory. [Get-DhcpServerInDC](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/get-dhcpserverindc).
-4. \(Verificare che gli ambiti siano attivati aprendo la console DHCP Server Manager, **strumenti**, **DHCP**\), espandendo l'albero del server per esaminare gli ambiti, quindi fare clic con il pulsante destro\-del mouse su ogni ambito. Se il menu risultante include la selezione **attiva**, fare clic su **attiva**. \(Se l'ambito è già attivato, la selezione del menu viene disattivata.\)
+4. Verificare che gli ambiti siano attivati aprendo la console DHCP \(Server Manager, **strumenti**, **DHCP**\), espandendo l'albero del server per esaminare gli ambiti, quindi a destra @ no__t-4clicking ogni ambito. Se il menu risultante include la selezione **attiva**, fare clic su **attiva**. \(If l'ambito è già attivato, la selezione del menu viene **disattivata**. \)
 
 ## <a name="bkmk_dhcpwps"></a>Comandi di Windows PowerShell per DHCP
 

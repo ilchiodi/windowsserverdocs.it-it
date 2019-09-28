@@ -1,8 +1,8 @@
 ---
-title: color
-description: 'Argomento i comandi di Windows per * * *- '
+title: colore
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e1ee9b7c1ade184cf17b867b7fce10ab8885f0f
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: ed792e4626897945e688f1c54767d7680ade6d99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64771886"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379243"
 ---
-# <a name="color"></a>color
+# <a name="color"></a>colore
 
 
 
@@ -38,8 +38,8 @@ color [[<B>]<F>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<B>|Specifica il colore di sfondo.|
-|\<F>|Specifica il colore di primo piano.|
+|\<B >|Specifica il colore di sfondo.|
+|\<F >|Specifica il colore di primo piano.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -52,7 +52,7 @@ color [[<B>]<F>]
 |1|Blu|
 |2|Verde|
 |3|Aqua|
-|4|Rossa|
+|4|Rosso|
 |5|Viola|
 |6|Giallo|
 |7|Bianco|

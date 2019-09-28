@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getcreationtime
-description: Argomento i comandi di Windows per **bitsadmin getcreationtime** -recupera l'ora di creazione per il processo specificato.
+description: "Windows Commands Topic for **BITSAdmin GetCreationTime** : Recupera l'ora di creazione per il processo specificato."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8cc0f02933c6a890ae8bf40361d859ad508b319
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2ea92133c90e20e37e5d281116e91bf1f109e83f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381695"
 ---
 # <a name="bitsadmin-getcreationtime"></a>bitsadmin getcreationtime
 
@@ -40,11 +40,11 @@ bitsadmin /GetCreationTime <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera l'ora di creazione per il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperata l'ora di creazione per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetCreationTime myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

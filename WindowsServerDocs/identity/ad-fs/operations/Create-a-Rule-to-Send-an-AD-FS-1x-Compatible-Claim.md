@@ -7,43 +7,43 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: d4e3a59ff9154a948143cef32103cae9f1f2d235
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407591"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Creare una regola per l'invio di un'attestazione compatibile di AD FS 1. x
 
-In situazioni in cui si utilizza Active Directory Federation Services \(ADFS\) alle attestazioni, problema che verranno ricevute dal server federativo ADFS 1.0 \(Windows Server 2003 R2\) o AD FS 1.1 \(Windows Server 2008 o Windows Server 2008 R2\), è necessario eseguire le operazioni seguenti:  
+In situazioni in cui si usa Active Directory Federation Services \(AD FS @ no__t-1 per rilasciare attestazioni che verranno ricevute dai server federativi che eseguono AD FS 1,0 \(Windows Server 2003 R2 @ no__t-3 o AD FS 1,1 \(Windows Server 2008 o Windows Server 2008 R2 @ no__t-5, è necessario eseguire le operazioni seguenti:  
   
 -   Creare una regola che invierà un tipo di attestazione ID nome con un formato di UPN, posta elettronica o nome comune.  
   
 -   Tutte le altre controversie inviati devono essere uno dei seguenti tipi di attestazione:  
   
-    -   AD FS 1. *x* indirizzo di posta elettronica  
+    -   AD FS 1. Indirizzo di posta elettronica *x*  
   
-    -   AD FS 1. *x* UPN  
+    -   AD FS 1. UPN *x*  
   
     -   Nome comune  
   
-    -   Raggruppa  
+    -   Group  
   
     -   Qualsiasi altro tipo di attestazione che inizia con https://schemas.xmlsoap.org/claims/, ad esempio https://schemas.xmlsoap.org/claims/EmployeeID  
   
-A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti per creare un'istanza di ADFS 1. *x* attestazione NameID compatibile:  
+A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure riportate di seguito per creare un AD FS 1. attestazione NameID compatibile con *x* :  
   
 -   Creazione di questa regola problema ADFS 1. x ID Nome attestazione utilizzando il **Pass-Through o filtro di un modello di regola attestazione in ingresso**  
   
--   Creazione di questa regola problema ADFS 1. x ID Nome attestazione utilizzando il **Trasforma un modello di regola attestazione in ingresso**. È possibile usare questo modello di regola in situazioni in cui si desidera modificare il tipo di attestazione esistente in un nuovo tipo di attestazione che funzionerà con AD FS 1.  *x* attestazioni.  
+-   Creazione di questa regola problema ADFS 1. x ID Nome attestazione utilizzando il **Trasforma un modello di regola attestazione in ingresso**. È possibile utilizzare questo modello di regola in situazioni in cui si desidera modificare il tipo di attestazione esistente in un nuovo tipo di attestazione che funzionerà con AD FS 1. attestazioni  *x* .  
   
 > [!NOTE]  
-> Per questa regola a funzionare come previsto, assicurarsi che il trust della relying party o trust del provider di attestazioni in cui si sta creando questa regola è stato configurato per usare la **profilo ADFS 1.0 e 1.1**. 
+> Affinché questa regola funzioni come previsto, assicurarsi che l'attendibilità del relying party o del provider di attestazioni in cui si sta creando questa regola sia stata configurata in modo da utilizzare il **profilo AD FS 1,0 e 1,1**. 
 
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per il rilascio di ADFS 1. *x* ID Nome attestazione utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in un Trust della Relying Party in Windows Server 2016 
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per emettere un AD FS 1. *x* ID Nome attestazione utilizzando il pass-through o filtro di un'attestazione in ingresso modello di regola in un trust della relying party in Windows Server 2016 
 
 1.  In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
@@ -63,19 +63,19 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  Nelle **formato ID nome in ingresso**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 9. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -85,7 +85,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 10. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>Per creare una regola per il rilascio di ADFS 1. *x* ID Nome attestazione utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in un Trust di Provider di attestazioni in Windows Server 2016 
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>Per creare una regola per emettere un AD FS 1. *x* ID Nome attestazione utilizzando il pass-through o filtro di un'attestazione in ingresso modello di regola in un trust del provider di attestazioni in Windows Server 2016 
   
 1.  In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
@@ -105,19 +105,19 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  Nelle **formato ID nome in ingresso**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 9. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -149,21 +149,21 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. Nelle **formato ID nome in uscita**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 10. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -193,21 +193,21 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. Nelle **formato ID nome in uscita**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 10. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -225,7 +225,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-windows-server-2012-r2"></a>Per creare una regola per il rilascio di ADFS 1. *x* ID Nome attestazione utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in Windows Server 2012 R2
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-windows-server-2012-r2"></a>Per creare una regola per emettere un AD FS 1. *x* ID Nome attestazione utilizzando il pass-through o filtro di un'attestazione in ingresso modello di regola in Windows Server 2012 R2
   
 1.  In Server Manager, fare clic su **strumenti**, quindi fare clic su **Gestione ADFS**.  
   
@@ -242,7 +242,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
     -   **Regole di autorizzazione rilascio**  
   
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)    
 
 5.  Nel **Seleziona modello di regola** nella pagina **il modello di regola attestazione**, selezionare **Pass Through or Filter an Incoming Claim** dall'elenco, quindi fare clic su **Avanti**.  
@@ -252,19 +252,19 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  Nelle **formato ID nome in ingresso**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 9. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -274,7 +274,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 10. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>Per creare una regola per il rilascio di ADFS 1. *x* attestazione ID nome utilizzando la trasformazione di un modello di regola attestazione in ingresso in Windows Server 2012 R2  
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>Per creare una regola per emettere un AD FS 1. *x* attestazione ID nome utilizzando il trasforma un modello di regola attestazione in ingresso in Windows Server 2012 R2  
   
 1.  In Server Manager, fare clic su **strumenti**, quindi fare clic su **Gestione ADFS**.  
   
@@ -291,7 +291,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
     -   **Regole di autorizzazione rilascio**  
   
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
   
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **trasformare un'attestazione in ingresso** dall'elenco, quindi fare clic su **Avanti**.  
@@ -303,21 +303,21 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. Nelle **formato ID nome in uscita**, selezionare una delle ADFS 1. *x*\-compatibile con formati dall'elenco di attestazioni:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
   
     -   **UPN**  
   
-    -   **E\-posta elettronica**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nome comune**  
   
 10. Selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -329,7 +329,7 @@ A seconda delle esigenze dell'organizzazione, usare una delle procedure seguenti
 
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

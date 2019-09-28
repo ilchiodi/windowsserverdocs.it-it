@@ -1,7 +1,7 @@
 ---
 title: Macchine virtuali Oracle Linux supportate in Hyper-V
 description: Elenca i servizi di integrazione Linux e le funzionalità incluse in ogni versione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: 3005907a085d1769716105f570f47f0114eae68d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 4b09b8e760ce716da7f5aa6abecbead52293e77b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544707"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365489"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Macchine virtuali Oracle Linux supportate in Hyper-V
 
@@ -145,7 +145,7 @@ Oracle Linux Unbreakable Enterprise Kernel (UEK) è solo a 64 bit e con il suppo
 
    1. Creare un file **/etc/udev/rules.d/100-balloon.rules**. È possibile utilizzare qualsiasi altro nome per il file desiderato.
 
-   2. Aggiungere il contenuto seguente al file:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Aggiungere il contenuto seguente al file: `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Riavviare il sistema per consentire l'aggiunta a caldo.
 

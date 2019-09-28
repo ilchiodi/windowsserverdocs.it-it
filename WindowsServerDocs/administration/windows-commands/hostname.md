@@ -1,8 +1,8 @@
 ---
 title: nomehost
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 10d0e8d5a484ecd017fb4f299935c9a3fa802b64
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39c85f869c0366236d99eba55774a7e3dab6e52f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375508"
 ---
 # <a name="hostname"></a>nomehost
 
@@ -41,4 +41,4 @@ Per visualizzare il nome del computer, digitare:
 hostname
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

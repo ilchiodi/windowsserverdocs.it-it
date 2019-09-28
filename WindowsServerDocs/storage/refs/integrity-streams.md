@@ -6,15 +6,15 @@ ms.author: jgerend
 manager: dmoss
 ms.date: 10/16/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e41d7ae577bf7e9227ff0c02689d916f1008a3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871342"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403039"
 ---
 # <a name="refs-integrity-streams"></a>Flussi di integrità ReFS
 >Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale), Windows 10
@@ -27,7 +27,7 @@ I flussi di integrità possono essere abilitati per file e directory individuali
 
 Una volta abilitati i flussi di integrità, ReFS crea e gestisce un checksum per i file specificati nei metadati dei file stessi. Questo checksum permette a ReFS di convalidare l'integrità dei dati prima di accedervi. Prima di restituire dati per cui sono abilitati i flussi di integrità, ReFS ne calcola prima di tutto il checksum:
 
-![Il calcolo del checksum per i dati dei file](media/compute-checksum.gif)
+![Calcolo del checksum per i dati dei file](media/compute-checksum.gif)
 
 Questo checksum viene quindi confrontato con il checksum contenuto nei metadati dei file. Se i checksum corrispondono, i dati vengono contrassegnati come validi e restituiti all'utente. Se i checksum non corrispondono, i dati sono danneggiati. La resilienza del volume determina il modo in cui ReFS risponde alla situazione di danno.
 
@@ -38,7 +38,7 @@ Questo checksum viene quindi confrontato con il checksum contenuto nei metadati 
 
 ReFS registra tutti i danneggiamenti nel registro eventi di sistema, in cui viene indicato anche se i problemi sono stati corretti. 
 
-![Scrittura di correzione Ripristina l'integrità dei dati](media/corrective-write.gif)
+![L'integrità dei dati per il ripristino della scrittura correttiva](media/corrective-write.gif)
 
 ## <a name="performance"></a>Prestazioni 
 
@@ -95,6 +95,6 @@ PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Cenni preliminari su reFS](refs-overview.md)
--   [Clonazione dei blocchi reFS](block-cloning.md)
--   [Panoramica di spazi diretti di archiviazione](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Panoramica di ReFS](refs-overview.md)
+-   [Clonazione blocco ReFS](block-cloning.md)
+-   [Panoramica di Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md)

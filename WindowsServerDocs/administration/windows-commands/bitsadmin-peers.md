@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin peer
-description: Argomento i comandi di Windows per **bitsadmin peer** - riporti delle **peer** commutatori.
+title: peer Bitsadmin
+description: 'Argomento sui comandi di Windows per **BITSAdmin Peers** : elenco delle opzioni dei **peer** .'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3a741b44a9a62efda15f10adc4184f6b4344b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3611afa3abde89b5eeab99a59994b7feae227a54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873422"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380888"
 ---
-# <a name="bitsadmin-peers"></a>Bitsadmin peer
+# <a name="bitsadmin-peers"></a>peer Bitsadmin
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,9 +33,9 @@ bitsadmin /Peers /list
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|[Guida in linea e Bitsadmin peer](bitsadmin-peers-and-help.md)|Visualizza l'utilizzo della riga di comando per i commutatori /Peers.|
-|[Bitsadmin peer e individuare](bitsadmin-peers-and-discover.md)|Consente di individuare i peer nuovamente.|
-|[Cancella e Bitsadmin peer](bitsadmin-peers-and-clear.md)|Cancella l'elenco di peer.|
-|[elenco e Bitsadmin peer](bitsadmin-peers-and-list.md)|elencare tutti i peer.|
+|[bitsadmin peers e help](bitsadmin-peers-and-help.md)|Visualizza l'utilizzo della riga di comando per le opzioni/Peers.|
+|[bitsadmin peers e discover](bitsadmin-peers-and-discover.md)|Consente di individuare i peer nuovamente.|
+|[bitsadmin peers e clear](bitsadmin-peers-and-clear.md)|Cancella l'elenco di peer.|
+|[bitsadmin peers e list](bitsadmin-peers-and-list.md)|elencare tutti i peer.|
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

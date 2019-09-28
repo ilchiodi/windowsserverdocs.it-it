@@ -4,28 +4,28 @@ description: Questo argomento fa parte della Guida alla distribuzione di un Serv
 manager: brianlic
 ms.topic: article
 ms.assetid: ca5c3e04-ae25-4590-97f3-0376a9c2a9a2
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0cafa4bdeb80b22d6bac4ad09bcae9436cda97c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d4b713437f031e4a381d2759bdcbf7f41bd573d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406350"
 ---
 # <a name="server-certificate-deployment-overview"></a>Panoramica della distribuzione del certificato server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento sono incluse le sezioni seguenti.  
   
--   [Componenti della distribuzione certificato server](#bkmk_components)
+-   [Componenti di distribuzione del certificato server](#bkmk_components)
   
--   [Panoramica del processo di distribuzione certificato server](#bkmk_process)
+-   [Panoramica del processo di distribuzione del certificato server](#bkmk_process)
   
-## <a name="bkmk_components"></a>Componenti della distribuzione certificato server
+## <a name="bkmk_components"></a>Componenti di distribuzione del certificato server
 Per installare Servizi certificati Active Directory (AD CS) come autorità di certificazione radice (CA) dell'organizzazione e per registrare i certificati server per i server che eseguono servizio Strumentazione gestione Windows (NPS, Network Policy Server), Routing e accesso remoto (RRAS), o dei criteri di RETE e routing e accesso REMOTO, è possibile utilizzare questa Guida.
 
 
@@ -36,7 +36,7 @@ Nella figura seguente vengono illustrati i componenti necessari per distribuire 
 ![Infrastruttura richiesta di distribuzione del certificato server](../../../media/Nps-Certs/Nps-Certs.jpg)  
   
 > [!NOTE]  
-> Nella figura precedente, sono rappresentati più server: DC1, CA1, WEB1 e numero di server di rete SDN. In questa guida vengono fornite istruzioni per la distribuzione e configurazione CA1 e WEB1, nonché per la configurazione di DC1, in questa guida si presuppone che è già stato installato nella rete. Se il dominio di Active Directory non è già installato, è possibile farlo mediante la [Guida alla rete Core](https://technet.microsoft.com/library/mt604042.aspx) per Windows Server 2016.  
+> Nell'illustrazione precedente vengono illustrati più server: DC1, CA1, WEB1 e molti server SDN. In questa guida vengono fornite istruzioni per la distribuzione e configurazione CA1 e WEB1, nonché per la configurazione di DC1, in questa guida si presuppone che è già stato installato nella rete. Se il dominio di Active Directory non è già installato, è possibile farlo mediante la [Guida alla rete Core](https://technet.microsoft.com/library/mt604042.aspx) per Windows Server 2016.  
   
 Per ulteriori informazioni su ogni elemento illustrato nella figura sopra riportata, vedere quanto segue:  
   
@@ -48,7 +48,7 @@ Per ulteriori informazioni su ogni elemento illustrato nella figura sopra riport
   
 -   [NPS1](#bkmk_nps1)  
   
-### <a name="bkmk_ca1"></a>CA1 esegue il ruolo server Servizi certificati Active Directory  
+### <a name="bkmk_ca1"></a>CA1 esecuzione del ruolo server di Servizi certificati Active Directory  
 In questo scenario, l'autorità di certificazione (CA) principale dell'organizzazione è anche una CA emittente. L'autorità di certificazione emette certificati per i computer server che dispone delle autorizzazioni di sicurezza corrette per registrare un certificato. Servizi certificati Active Directory (AD CS) viene installato su CA1.  
   
 Per reti di grandi dimensioni o in cui giustificare i problemi di sicurezza, è possibile separare i ruoli della CA radice e CA emittente e distribuire le CA subordinate sono CA emittenti.  
@@ -66,13 +66,13 @@ Utilizzare una copia del modello anziché il modello originale in modo che la co
 #### <a name="additional-ca1-configuration"></a>Configurazione aggiuntiva CA1  
 L'autorità di certificazione pubblica un elenco di revoche di certificati (CRL) che devono controllare i computer per garantire che i certificati che sono presentati nel come prova di identità sono certificati validi e non sono stati revocati. È necessario configurare l'autorità di certificazione con il percorso corretto dell'elenco CRL in modo che i computer sapere dove cercare il CRL durante il processo di autenticazione.  
   
-### <a name="bkmk_web1"></a>Web1 esegue il ruolo server servizi Web (IIS)  
+### <a name="bkmk_web1"></a>WEB1 esecuzione del ruolo server Servizi Web (IIS)  
 Nel computer che esegue il ruolo server Server Web (IIS), WEB1, è necessario creare una cartella in Esplora risorse per l'utilizzo come posizione per il CRL e AIA.  
   
 #### <a name="virtual-directory-for-the-crl-and-aia"></a>Directory virtuale per il CRL e AIA  
 Dopo aver creato una cartella in Esplora risorse, è necessario configurare la cartella come una directory virtuale in Gestione Internet Information Services (IIS), nonché configurare l'elenco di controllo di accesso per la directory virtuale per consentire ai computer di accedere ai AIA e CRL dopo la pubblicazione non esiste.  
   
-### <a name="bkmk_dc1"></a>DC1 esegue i ruoli di server DNS e Active Directory Domain Services  
+### <a name="bkmk_dc1"></a>DC1 esecuzione dei ruoli del server di servizi di dominio Active Directory e DNS  
 DC1 è il controller di dominio e il server DNS sulla rete.  
   
 #### <a name="group-policy-default-domain-policy"></a>Criterio dominio predefinito dei criteri di gruppo  
@@ -81,13 +81,13 @@ Dopo aver configurato il modello di certificato della CA, è possibile configura
 #### <a name="dns-alias-cname-resource-record"></a>DNS record di risorse alias (CNAME)  
 È necessario creare un record di risorse alias (CNAME) per il server Web in modo da altri computer possono individuare il server, nonché di AIA e CRL vengono archiviati nel server. Inoltre, un record di risorse CNAME alias offre flessibilità in modo che è possibile utilizzare il server Web per altri scopi, ad esempio l'hosting di siti Web e FTP.  
   
-### <a name="bkmk_nps1"></a>NPS1 in esecuzione il servizio ruolo Server dei criteri di rete del ruolo del server Servizi di accesso e criteri di rete  
-I criteri di rete viene installato quando si eseguono le attività nella Guida alla rete Windows Server 2016 Core, pertanto prima di eseguire le attività in questa Guida, è necessario disporre già uno o più NPSs installati in rete.  
+### <a name="bkmk_nps1"></a>NPS1 esecuzione del servizio ruolo server dei criteri di rete del ruolo server Servizi di accesso e criteri di rete  
+Il server dei criteri di rete viene installato quando si eseguono le attività nella Guida alla rete core di Windows Server 2016, pertanto prima di eseguire le attività descritte in questa guida, è necessario disporre già di uno o più NPSs installati nella rete.  
   
 #### <a name="group-policy-applied-and-certificate-enrolled-to-servers"></a>Criteri di gruppo applicati e certificati registrati nei server  
 Dopo aver configurato il modello di certificato e la registrazione automatica, è possibile aggiornare i criteri di gruppo su tutti i server di destinazione. A questo punto, il server di registrare il certificato server da CA1.  
   
-### <a name="bkmk_process"></a>Panoramica del processo di distribuzione certificato server  
+### <a name="bkmk_process"></a>Panoramica del processo di distribuzione del certificato server  
   
 > [!NOTE]  
 > Vengono forniti i dettagli di come eseguire questi passaggi nella sezione [distribuzione del certificato Server](../../../core-network-guide/cncg/server-certs/Server-Certificate-Deployment.md).  

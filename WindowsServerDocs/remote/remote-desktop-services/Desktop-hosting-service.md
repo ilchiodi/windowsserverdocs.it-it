@@ -2,7 +2,7 @@
 title: Servizio di hosting del desktop
 description: Descrive i componenti di un servizio di hosting desktop.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 025b5d8791d0b847a38798d36ffa4bfa86e0b00c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7ff88368c937890d3d5c4f650f6c4c08d404069f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871289"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387857"
 ---
 # <a name="desktop-hosting-service"></a>Servizio di hosting del desktop
 

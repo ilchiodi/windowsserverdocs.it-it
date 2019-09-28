@@ -1,8 +1,8 @@
 ---
-title: ksetup:delkdc
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: delkdc'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e2fa065ca60338b04cc8718e199805cc494c908
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b918f8c2fa0ec09c2aae77517a0ee2c9e77ce2dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814562"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375145"
 ---
-# <a name="ksetupdelkdc"></a>ksetup:delkdc
+# <a name="ksetupdelkdc"></a>che Ksetup: delkdc
 
 
 
@@ -37,7 +37,7 @@ ksetup /delkdc <RealmName> <KDCName>
 |Parametro|Descrizione|
 |---------|-----------|
 |\<RealmName >|Il nome dell'area di autenticazione è specificato come un nome DNS lettere maiuscole, ad esempio CORP. CONTOSO.COM e è elencato come area di autenticazione predefinito quando **che ksetup** viene eseguito. È l'area di autenticazione da cui si sta tentando di eliminare il KDC altri.|
-|\<KDCName>|Il nome KDC è indicato come nome di dominio completo, tra maiuscole e minuscole, ad esempio mitkdc.contoso.com.|
+|\<KDCName >|Il nome KDC è indicato come nome di dominio completo, tra maiuscole e minuscole, ad esempio mitkdc.contoso.com.|
 
 ## <a name="remarks"></a>Note
 
@@ -60,5 +60,5 @@ Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Che Ksetup](ksetup.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

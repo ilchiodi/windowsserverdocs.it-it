@@ -1,7 +1,7 @@
 ---
 title: Windows Server 2008 R2 deve essere configurato con la quantità di memoria consigliata
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 26872519-ccf0-4757-827f-8df2a7a2b9f9
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: a2737ef0001e1859e514f44fccd6d49bd3ae3a48
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5b103ed5f41b3d63320a0d9be85c7e52781041d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393178"
 ---
 # <a name="windows-server-2008-r2-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows Server 2008 R2 deve essere configurato con la quantità di memoria consigliata
 
@@ -26,31 +26,31 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
   
-*Una macchina virtuale che esegue Windows Server 2008 R2 è configurata con minore rispetto alla quantità di RAM, ovvero 2 GB consigliata.*  
+*Una macchina virtuale che esegue Windows Server 2008 R2 è configurata con una quantità di RAM inferiore a quella consigliata, ovvero 2 GB.*  
   
 ## <a name="impact"></a>Impatto  
   
-*Il sistema operativo guest e le applicazioni potrebbero non essere ottimale. Potrebbe non essere disponibile memoria sufficiente per eseguire più applicazioni contemporaneamente. Questo influisce sulle macchine virtuali seguenti:*  
+il sistema operativo guest *The e le applicazioni potrebbero non funzionare correttamente. Potrebbe non essere disponibile memoria sufficiente per eseguire più applicazioni contemporaneamente. Ciò influisca sulle macchine virtuali seguenti:*  
   
-\<elenco di nomi delle macchine virtuali >  
+@no__t 0list di nomi di macchina virtuale >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Utilizzare Hyper-V Manager per aumentare la memoria allocata alla macchina virtuale di almeno 2 GB.*  
+*Utilizzare la console di gestione di Hyper-V per aumentare la memoria allocata a questa macchina virtuale almeno 2 GB.*  
   
 ### <a name="to-increase-the-memory-using-hyper-v-manager"></a>Per aumentare la memoria tramite Gestione di Hyper-V  
   
 1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
   
-2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare. Lo stato della macchina virtuale dovrebbe essere elencato come **disattivata**. In caso contrario, fare clic sulla macchina virtuale e quindi fare clic su **Spegni**.  
+2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare. Lo stato della macchina virtuale deve essere indicato come **disattivato**. In caso contrario, fare clic con il pulsante destro del mouse sulla macchina virtuale e quindi scegliere **Arresta**.  
   
 3.  Nel riquadro **Azioni** sotto il nome della macchina virtuale fare clic su **Impostazioni**.  
   
@@ -58,9 +58,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 5.  Nel **memoria** pagina, impostare il **RAM di avvio** almeno 2 GB e quindi fare clic su **OK**.  
   
-### <a name="increase-the-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
+### <a name="increase-the-memory-using-windows-powershell"></a>Aumentare la memoria usando Windows PowerShell  
   
-1.  Aprire Windows PowerShell. (Dal desktop, fare clic su **avviare** e iniziare a digitare **Windows PowerShell**.)  
+1.  Aprire Windows PowerShell. (Dal desktop fare clic su **Start** e iniziare a digitare **Windows PowerShell**).  
   
 2.  Fare doppio clic su **Windows PowerShell** e fare clic su **Esegui come amministratore**.  
   

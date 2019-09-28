@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8bcc653cc9eb9adb6d31331463d01774d4faec1a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 98cd1dd6763886a9b9f63ab6eca1c52094424284
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189224"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407556"
 ---
 # <a name="custom-error-messages-for-ad-fs-sign-in-page"></a>Messaggi di errore personalizzati per la pagina di accesso AD ADFS  
 
@@ -69,4 +69,4 @@ Per personalizzare il messaggio di errore relying party, usare la sintassi e i c
 
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)    
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md)    

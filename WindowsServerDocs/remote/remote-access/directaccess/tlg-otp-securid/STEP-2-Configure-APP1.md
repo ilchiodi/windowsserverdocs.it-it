@@ -1,9 +1,9 @@
 ---
 title: PASSAGGIO 2 configurare APP1
-description: 'Questo argomento fa parte della Guida al Lab di Test: dimostrare DirectAccess con autenticazione OTP e SecurID RSA per Windows Server 2016'
+description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID per Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,88 +12,88 @@ ms.topic: article
 ms.assetid: 19a7a4a6-9a04-42ea-a5d0-ecb28a34dbaa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 093f8215691b21d7b7fefc3b1c51f3a41af9bea6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ea96a30caeedc188a5a41c097a5c8a90e2b5dbc7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388207"
 ---
 # <a name="step-2-configure-app1"></a>PASSAGGIO 2 configurare APP1
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Usare la procedura seguente per preparare APP1 per il supporto OTP:  
+Per preparare APP1 per il supporto OTP, attenersi alla procedura seguente:  
   
-1. Per creare e distribuire un modello di certificato usato per firmare le richieste di certificato OTP. Configurare un modello di certificato usato per firmare le richieste di certificato OTP.  
+1. Per creare e distribuire un modello di certificato usato per firmare le richieste di certificati OTP. Configurare un modello di certificato usato per firmare le richieste di certificati OTP.  
   
-2. Per creare e distribuire un modello di certificato per OTP certificati emessi dall'autorità di certificazione aziendale. Configurare un modello di certificato per OTP certificati emessi dall'autorità di certificazione aziendale.  
+2. Per creare e distribuire un modello di certificato per i certificati OTP rilasciati dalla CA aziendale. Configurare un modello di certificato per i certificati OTP rilasciati dalla CA aziendale.  
   
 > [!WARNING]  
-> La progettazione di questa Guida al lab di test include i server di infrastruttura, ad esempio un controller di dominio e un'autorità di certificazione (CA) che eseguono Windows Server 2012 R2 o Windows Server 2012. Uso di questa Guida al lab di test per configurare i server di infrastruttura che eseguono altri sistemi operativi non è stato testato e istruzioni per la configurazione di altri sistemi operativi non sono inclusi in questa Guida.  
+> La progettazione di questa guida al Lab di test include server di infrastruttura, ad esempio un controller di dominio e un'autorità di certificazione (CA) che eseguono Windows Server 2012 R2 o Windows Server 2012. L'utilizzo di questa guida al Lab di test per configurare i server di infrastruttura che eseguono altri sistemi operativi non è stato testato e le istruzioni per la configurazione di altri sistemi operativi non sono inclusi in questa guida.  
   
-## <a name="DAOTPRA"></a>Per creare e distribuire un modello di certificato usato per firmare le richieste di certificato OTP  
+## <a name="DAOTPRA"></a>Per creare e distribuire un modello di certificato usato per firmare le richieste di certificati OTP  
   
 1.  Eseguire **certtmpl. msc**, quindi premere INVIO.  
   
-2.  Nella Console di modelli di certificato, nel riquadro dei dettagli, fare doppio clic il **Computer** e scegliere **Duplica modello**.  
+2.  Nella console modelli di certificato, nel riquadro dei dettagli, fare clic con il pulsante destro del mouse sul modello di **computer** e scegliere **Duplica modello**.  
   
-3.  Nel **proprietà nuovo modello** finestra di dialogo il **compatibilità** nella scheda il **autorità di certificazione** elencare, selezionare il sistema operativo desiderato e il  **Le modifiche risultanti** fare clic su finestra di dialogo **OK**. Nel **destinatario certificato** elenco selezionare il sistema operativo desiderato, e il **modifiche risultanti** fare clic su finestra di dialogo **OK**.  
+3.  Nella finestra **di dialogo Proprietà nuovo modello** , nella scheda **compatibilità** , nell'elenco autorità di **certificazione** selezionare il sistema operativo desiderato e nella finestra di dialogo **modifiche risultanti** fare clic su **OK**. Nell'elenco **destinatario certificato** selezionare il sistema operativo desiderato e nella finestra di dialogo **modifiche risultanti** fare clic su **OK**.  
   
-4.  Nel **proprietà nuovo modello** della finestra di dialogo fare clic sui **generali** scheda.  
+4.  Nella finestra **di dialogo Proprietà nuovo modello** fare clic sulla scheda **generale** .  
   
-5.  Nel **generali** nella scheda **nome visualizzato modello**, digitare **DAOTPRA**. Impostare il **periodo di validità** su 2 giorni e impostare le **periodo di rinnovo** pari a 1 giorno. Se il **modelli di certificato** avviso è visualizzato, fare clic su **OK**.  
+5.  Nella scheda **generale** , in **nome visualizzato modello**, digitare **DAOTPRA**. Impostare **periodo di validità** su 2 giorni e impostare periodo di **rinnovo** su 1 giorno. Se viene visualizzato l'avviso **modelli di certificato** , fare clic su **OK**.  
   
 6.  Fare clic sulla scheda **Sicurezza** , quindi su **Aggiungi**.  
   
-7.  Nel **Seleziona utenti, computer, account del servizio o gruppi** finestra di dialogo, fare clic su **tipi di oggetto**. Nel **tipi di oggetti** finestra di dialogo **computer**e quindi fare clic su **OK**. Nel **immettere i nomi degli oggetti da selezionare** , digitare **EDGE1**, fare clic su **OK**e nel **Consenti** colonna, selezionare il **lettura** , **Enroll**, e **Autoenroll** caselle di controllo. Fare clic su **Authenticated Users**, selezionare la **lettura** casella di controllo sotto le **Consenti** colonna e deselezionare tutte le altre caselle di controllo. Fare clic su **i computer del dominio**e deselezionare **Enroll** sotto il **Consenti** colonna. Fare clic su **Domain Admins** e **Enterprise Admins** e fare clic su **controllo completo** sotto il **Consenti** colonna per entrambi. Fare clic su **Applica**.  
+7.  Nella finestra di dialogo **Seleziona utenti, computer, account servizio o gruppi** fare clic su **tipi di oggetto**. Nella finestra di dialogo **tipi di oggetto** selezionare **computer**e quindi fare clic su **OK**. Nella casella **immettere i nomi degli oggetti da selezionare** digitare **Edge1**, fare clic su **OK**e nella colonna **Consenti** selezionare le caselle di controllo **lettura**, **registrazione**e **registrazione automatica** . Fare clic su **utenti autenticati**, selezionare la casella di controllo **lettura** nella colonna **Consenti** e deselezionare tutte le altre caselle di controllo. Fare clic su **computer del dominio**e deselezionare **registra** nella colonna **Consenti** . Fare clic su **Domain Admins** ed **Enterprise Admins** , quindi fare clic su **controllo completo** nella colonna **Consenti** per entrambi. Fare clic su **Applica**.  
   
-8.  Scegliere il **nome soggetto** scheda e quindi fare clic su **creazione dalle informazioni Active Directory**. Nel **formato nome soggetto:** elenco select **il nome DNS**, assicurarsi che il **nome DNS** casella è selezionata e fare clic su **applica**.  
+8.  Fare clic sulla scheda **nome soggetto** , quindi fare clic su **compila da questa Active Directory informazioni**. Nel **formato nome soggetto:** elenco selezionare **nome DNS**, assicurarsi che la casella **nome DNS** sia selezionata e fare clic su **applica**.  
   
-9. Fare clic sui **estensioni** scheda, seleziona **criteri di applicazione** e quindi fare clic su **modifica**. Rimuovere tutti i criteri di applicazione esistente. Fare clic su **Add**e nella **Aggiunta criterio di applicazione** della finestra di dialogo fare clic su **New**, immettere **RA OTP DA** nel **nome:** campo e **1.3.6.1.4.1.311.81.1.1** nel **identificatore di oggetto:** campo e fare clic su **OK**. Nel **Aggiunta criterio di applicazione** finestra di dialogo, fare clic su **OK**. Nel **Modifica estensione criteri di applicazione**, fare clic su **OK**. Nel **proprietà nuovo modello** finestra di dialogo, fare clic su **OK**.  
+9. Fare clic sulla scheda **estensioni** , selezionare **criteri di applicazione** e quindi fare clic su **modifica**. Rimuovere tutti i criteri dell'applicazione esistenti. Fare clic su **Aggiungi**e nella finestra di dialogo **Aggiungi criterio di applicazione** fare clic su **nuovo**, immettere **da OTP ra** nel campo **Nome:** e **1.3.6.1.4.1.311.81.1.1** nel campo **identificatore oggetto:** e fare clic su **OK**. Nella finestra di dialogo **Aggiungi criterio di applicazione** fare clic su **OK**. In **modifica estensione criteri di applicazione**fare clic su **OK**. Nella finestra **di dialogo Proprietà nuovo modello** fare clic su **OK**.  
   
-## <a name="DAOTPLogon"></a>Per creare e distribuire un modello di certificato per OTP certificati emessi dall'autorità di certificazione aziendale  
+## <a name="DAOTPLogon"></a>Per creare e distribuire un modello di certificato per i certificati OTP rilasciati dalla CA aziendale  
   
-1.  Nella Console di modelli di certificato, nel riquadro dei dettagli, fare doppio clic il **accesso con smart card** e scegliere **Duplica modello**.  
+1.  Nella console modelli di certificato, nel riquadro dei dettagli, fare clic con il pulsante destro del mouse sul modello di **accesso smartcard** e scegliere **Duplica modello**.  
   
-2.  Nel **proprietà nuovo modello** finestra di dialogo il **compatibilità** scheda il **autorità di certificazione** elenco, fare clic su sistema operativo da usare e di **Modifiche risultanti** finestra di dialogo, fare clic su **OK**. Nel **destinatario certificato** elenco selezionare il sistema operativo da usare, e il **modifiche risultanti** fare clic su finestra di dialogo **OK**.  
+2.  Nella finestra **di dialogo Proprietà nuovo modello** , nella scheda **compatibilità** nell'elenco autorità di **certificazione** , fare clic sul sistema operativo che si desidera utilizzare e nella finestra di dialogo **modifiche risultanti** fare clic su **OK**. Nell'elenco **destinatario certificato** selezionare il sistema operativo che si desidera utilizzare e nella finestra di dialogo **modifiche risultanti** fare clic su **OK**.  
   
-3.  Nel **proprietà nuovo modello** della finestra di dialogo fare clic sui **generali** scheda.  
+3.  Nella finestra **di dialogo Proprietà nuovo modello** fare clic sulla scheda **generale** .  
   
-4.  Nel **generali** nella scheda **nome visualizzato modello**, digitare **DAOTPLogon**. Nella **periodo di validità**, nell'elenco a discesa elenco, fare clic su **ore**via il **i modelli di certificato** della finestra di dialogo fare clic su **OK**e assicurarsi che che il numero di ore è impostato su 1. Nelle **periodo di rinnovo**, digitare **0**.  
+4.  Nella scheda **generale** , in **nome visualizzato modello**, digitare **DAOTPLogon**. In **periodo di validità**, nell'elenco a discesa fare clic su **ore**, nella finestra di dialogo **modelli di certificato** , fare clic su **OK**e verificare che il numero di ore sia impostato su 1. In **periodo di rinnovo**Digitare **0**.  
   
     > [!IMPORTANT]  
-    > **Windows Server 2003 CA**. In situazioni in cui l'autorità di certificazione (CA) è in un computer che esegue Windows Server 2003, quindi il modello di certificato deve essere configurato in un computer diverso. Questa operazione è necessaria poiché l'impostazione di **periodo di validità** nelle ore non è possibile durante l'esecuzione di versioni di Windows precedenti a Windows Server 2008 e Windows Vista. Se il computer in uso per configurare il modello non ha il ruolo server Servizi certificati Active Directory o se si tratta di un computer client, è necessario installare lo snap-in modelli di certificato. Per altre informazioni, vedere [installare lo Snap-In modelli di certificato](https://technet.microsoft.com/library/cc732445.aspx).  
+    > **CA di Windows Server 2003**. Nelle situazioni in cui l'autorità di certificazione (CA) si trova in un computer che esegue Windows Server 2003, il modello di certificato deve essere configurato in un computer diverso. Questa operazione è necessaria perché non è possibile impostare il **periodo di validità** in ore quando si eseguono versioni di Windows precedenti a windows Server 2008 e Windows Vista. Se nel computer utilizzato per configurare il modello non è installato il ruolo server Servizi certificati Active Directory o se si tratta di un computer client, potrebbe essere necessario installare lo snap-in modelli di certificato. Per ulteriori informazioni, vedere [installare lo snap-in modelli di certificato](https://technet.microsoft.com/library/cc732445.aspx).  
     >   
-    > **Autorità di certificazione di Windows Server 2008 R2**. Se è già stata distribuita un'autorità di certificazione (CA) che esegue Windows Server 2008 R2, è necessario configurare il modello di certificato **Renewal Period** su 1 o 2 ore e il **periodo di validità** a superare le **Renewal Period**, ma non più di 4 ore. Se si configura un modello di certificato **periodo di validità** di maggiore di 4 ore con un'autorità di certificazione che esegue Windows Server 2008 R2, l'installazione guidata di DirectAccess non è possibile rilevare il modello di certificato e DirectAccess installazione non riesce.  
+    > **CA di Windows Server 2008 R2**. Se è già stata distribuita un'autorità di certificazione (CA) che esegue Windows Server 2008 R2, è necessario configurare il **periodo di rinnovo** del modello di certificato su 1 o 2 ore e il **periodo di validità** più lungo del periodo di **rinnovo**. ma non più di 4 ore. Se si configura un periodo di **validità** del modello di certificato di più di 4 ore con un'autorità di certificazione che esegue Windows Server 2008 R2, l'installazione guidata DirectAccess non è in grado di rilevare il modello di certificato e l'installazione di DirectAccess non riesce.  
   
-5.  Fare clic sui **sicurezza** scheda, seleziona **Authenticated Users**, nel **Consenti** colonna e selezionare il **lettura** e **registrazione**  caselle di controllo. Fare clic su **OK**. Fare clic su **Domain Admins** e **Enterprise Admins**, fare clic su **controllo completo** sotto il **Consenti** colonna per entrambi. Fare clic su **Applica**.  
+5.  Fare clic sulla scheda **sicurezza** , selezionare **utenti autenticati**, nella colonna **Consenti** e selezionare le caselle di controllo **lettura** e **registrazione** . Fare clic su **OK**. Fare clic su **Domain Admins** ed **Enterprise Admins**, quindi fare clic su **controllo completo** nella colonna **Consenti** per entrambi. Fare clic su **Applica**.  
   
-6.  Scegliere il **nome soggetto** scheda e quindi fare clic su **creazione dalle informazioni Active Directory**. Nel **formato nome soggetto:** elenco select **nome distinto completo**, verificare che il **nome entità utente (UPN)** casella è selezionata e fare clic su **applica** .  
+6.  Fare clic sulla scheda **nome soggetto** , quindi fare clic su **compila da questa Active Directory informazioni**. Nel **formato nome soggetto:** elenco selezionare **nome distinto completo**, assicurarsi che la casella **nome entità utente (UPN)** sia selezionata e fare clic su **applica**.  
   
-7.  Fare clic sui **Server** scheda, seleziona la **non archiviare certificati e richieste nel database CA** casella di controllo, deseleziona il **non includono le informazioni di revoca dei certificati emessi** casella di controllo e quindi scegliere il **proprietà nuovo modello** della finestra di dialogo fare clic su **applica**.  
+7.  Fare clic sulla scheda **Server** , selezionare la casella di controllo non **archiviare certificati e richieste nel database CA** , deselezionare la casella di controllo **non includere le informazioni di revoca nei certificati rilasciati** e quindi nelle **proprietà del nuovo modello** . fare clic su **applica**.  
   
-8.  Fare clic sui **requisiti di rilascio** scheda, seleziona la **questo numero di firme digitali autorizzate:** casella di controllo, impostare il valore su 1. Nel **tipo di criterio richiesto nella firma:** elenco select **criterio di applicazione**e nel **criteri dell'applicazione** elenco select **RA OTP DA**. Nel **proprietà nuovo modello** finestra di dialogo, fare clic su **OK**.  
+8.  Fare clic sulla scheda **requisiti di rilascio** , selezionare la casella **di controllo numero di firme autorizzate:** , impostare il valore su 1. Nel **tipo di criteri richiesto in firma:** selezionare **criteri applicazione**e nell'elenco **criteri applicazione** selezionare **da OTP ra**. Nella finestra **di dialogo Proprietà nuovo modello** fare clic su **OK**.  
   
-9. Fare clic sui **estensioni** scheda e nella **criteri di applicazione** fare clic su **modifica**. Eliminare **autenticazione Client**, mantenere **SmartCardLogon**, fare clic su **OK** due volte.  
+9. Fare clic sulla scheda **estensioni** e, in **criteri di applicazione** , fare clic su **modifica**. Eliminare **l'autenticazione client**, Keep **SmartCardLogon**e fare clic su **OK** due volte.  
   
 10. Chiudere la Console dei modelli di certificato.  
   
-11. Nel **avviare** digitare**certsrv. msc**, quindi premere INVIO.  
+11. Nella schermata **Start** Digitare**certsrv. msc**, quindi premere INVIO.  
   
-12. Nell'albero della console Autorità di certificazione, espandere **corp-APP1-CA-1**, fare clic su **modelli di certificato**, fare doppio clic su **i modelli di certificato**, scegliere **New**, fare clic su **modello di certificato da emettere**.  
+12. Nell'albero della console autorità di certificazione espandere **Corp-App1-CA-1**, fare clic su **modelli di certificato**, fare clic con il pulsante destro del mouse su **modelli di certificato**, scegliere **nuovo**e fare clic su **modello di certificato da emettere**.  
   
-13. Nell'elenco dei modelli di certificato, fare clic su **DAOTPRA** e **DAOTPLogon**, fare clic su **OK**.  
+13. Nell'elenco dei modelli di certificato fare clic su **DAOTPRA** e **DAOTPLogon**e quindi su **OK**.  
   
-14. Nel riquadro dei dettagli della console dovrebbe essere il **DAOTPRA** modello di certificato con un **scopo designato** dei **RA OTP DA** e il **DAOTPLogon** modello di certificato con un **scopo designato** dei **accesso con Smart Card**.  
+14. Nel riquadro dei dettagli della console dovrebbe essere visualizzato il modello di certificato **DAOTPRA** con lo **scopo designato** **da OTP ra** e il modello di certificato **DAOTPLogon** con **lo scopo designato** di **accesso con smart card** .  
   
 15. Riavviare i servizi.  
   
 16. Chiudere la console Autorità di certificazione.  
   
-17. Apri una finestra del prompt dei comandi con privilegi elevati. Tipo di **CertUtil.exe - SetReg DBFlags + DBFLAGS_ENABLEVOLATILEREQUESTS**, quindi premere INVIO.  
+17. Apri una finestra del prompt dei comandi con privilegi elevati. Digitare **certutil. exe-SetReg DBFlags + DBFLAGS_ENABLEVOLATILEREQUESTS**e premere INVIO.  
   
-18. Lasciare il prompt dei comandi aperta per il passaggio successivo.  
+18. Lasciare aperta la finestra del prompt dei comandi per il passaggio successivo.  
   
 
 

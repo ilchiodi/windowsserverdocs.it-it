@@ -2,23 +2,23 @@
 title: Configurare la crittografia per una rete virtuale
 description: La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata".
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: ebd086c6fa93f7ab5855debfd1f71845fb9ff309
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 40150e312f4776ec093c9230eedb646eec277f49
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870064"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405808"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Configurare la crittografia per una subnet virtuale
 
->Si applica a Windows Server
+>Si applica a: Windows Server
 
 La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata". Utilizza anche Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare pacchetti. DTLS impedisce intercettazioni, manomissioni e contraffazioni da parte di chiunque abbia accesso alla rete fisica.
 

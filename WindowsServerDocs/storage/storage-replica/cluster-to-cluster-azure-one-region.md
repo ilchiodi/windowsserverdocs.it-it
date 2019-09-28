@@ -6,19 +6,19 @@ author: arduppal
 ms.author: arduppal
 ms.date: 04/26/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 7e9418e398175a6b1caf63a36593f36d66a7c943
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 55d9c600c86b6b64efdb5c7d4437697539f887ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869793"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402947"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Replica di archiviazione da cluster a cluster nella stessa area di Azure
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 È possibile configurare il cluster per la replica di archiviazione del cluster nella stessa area di Azure. Negli esempi seguenti viene usato un cluster a due nodi, ma la replica di archiviazione da cluster a cluster non è limitata a un cluster a due nodi. L'illustrazione seguente è un cluster con spazio di archiviazione diretto a due nodi che può comunicare tra loro, si trovano nello stesso dominio e all'interno della stessa area.
 

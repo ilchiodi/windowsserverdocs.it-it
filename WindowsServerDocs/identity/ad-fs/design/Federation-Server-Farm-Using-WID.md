@@ -7,22 +7,22 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 067461b90ed5ce03d9470a450917dcbb93cf653a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b0a84940018a0e71aaa1b47c7af3aba5966fe0ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191306"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408058"
 ---
 # <a name="federation-server-farm-using-wid"></a>Server farm federativa che usa Database interno di Windows
 
-La topologia predefinita per Active Directory Federation Services \(ADFS\) è una server farm federativa, utilizzare Database interno di Windows \(WID\). In questa topologia, ADFS utilizza WID come archivio per il database di configurazione di ADFS per tutti i server federativi che sono connessi alla farm. La farm replica e mantiene i dati del servizio federativo nel database di configurazione di tutti i server della farm. ADFS in Windows Server 2012 R2 consente alle organizzazioni con un massimo di 100 trust della relying party per configurare federation server farm con database interno di Windows server fino a 30.  
+La topologia predefinita per Active Directory Federation Services \(AD FS @ no__t-1 è una Federazione server farm, usando il database interno di Windows \(WID @ no__t-3. In questa topologia AD FS utilizza WID come archivio per il database di configurazione AD FS per tutti i server federativi aggiunti a tale farm. La farm replica e mantiene i dati del servizio federativo nel database di configurazione di tutti i server della farm. ADFS in Windows Server 2012 R2 consente alle organizzazioni con un massimo di 100 trust della relying party per configurare federation server farm con database interno di Windows server fino a 30.  
   
-La creazione del primo server federativo in una farm crea anche un nuovo servizio federativo. Quando si usa database interno di Windows per il database di configurazione di ADFS, il primo server federativo che si crea la farm è detto il *server federativo primario*. Ciò significa che il computer è configurato con un'operazione di lettura\/scrivere copia del database di configurazione di AD FS.  
+La creazione del primo server federativo in una farm crea anche un nuovo servizio federativo. Quando si utilizza WID per il database di configurazione di AD FS, il primo server federativo creato nella farm viene definito *server federativo primario*. Questo significa che questo computer è configurato con una copia\/di lettura scrittura del database di configurazione ad FS.  
   
-Tutti gli altri server di federazione configurato per questa farm vengono dette *i server federativi secondari* poiché devono replicare tutte le modifiche apportate nel server federativo primario per la lettura\-solo copie del database di configurazione di ADFS che memorizzano localmente.  
+Tutti gli altri server federativi configurati per questa farm sono definiti *server federativi secondari* , poiché devono replicare tutte le modifiche apportate nel server federativo primario alle\-copie di sola lettura del ad FS database di configurazione archiviato localmente.  
   
 > [!IMPORTANT]  
 > È consigliabile utilizzare almeno due server federativi in un carico\-configurazione bilanciato.  
@@ -34,7 +34,7 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 -   Le organizzazioni con un massimo di 100 relazioni di trust configurato che è necessario fornire agli utenti interni \(connesso al computer connessi fisicamente alla rete aziendale\) con single sign-\-in \(SSO\) accesso alle applicazioni federate o servizi  
   
--   Organizzazioni che desiderano offrire agli utenti interni di accesso SSO a Microsoft Online Services o Microsoft Office 365  
+-   Organizzazioni che desiderano fornire agli utenti interni l'accesso SSO a Microsoft Online Services o Microsoft Office 365  
   
 -   Organizzazioni di piccole dimensioni che richiedono servizi scalabili ridondanti  
   
@@ -45,9 +45,9 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 -   Fornisce l'accesso SSO per gli utenti interni  
   
--   La ridondanza dei dati e del servizio federativo \(ciascun server federativo replica le modifiche in altri server federativi nella stessa farm\)  
+-   Ridondanza dei dati e \(servizio federativo ogni server federativo replica le modifiche in altri server federativi della stessa farm\)  
   
--   Database interno di Windows è incluso in Windows; Pertanto, non è necessario per l'acquisto di SQL Server  
+-   WID è incluso in Windows; non è quindi necessario acquistare SQL Server  
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quali sono le limitazioni dell'utilizzo di questa topologia?  
   
@@ -59,8 +59,8 @@ Nella tabella seguente fornisce un riepilogo di utilizzo di una farm database in
   
 || 1 \- 100 attendibilità della relying Party | Più di 100 attendibilità della relying Party |
 | --- | --- | --- |
-|1 \- 30 AD FS nodi|Database interno di Windows supportati|Non supportato utilizzando WID - SQL necessarie 
-|Nodi più di 30 AD FS|Non supportato utilizzando WID - SQL necessarie|Non supportato utilizzando WID - SQL necessarie  
+|1 \- 30 AD FS nodi|Database interno di Windows supportati|Non supportato con WID-SQL obbligatorio 
+|Nodi più di 30 AD FS|Non supportato con WID-SQL obbligatorio|Non supportato con WID-SQL obbligatorio  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Consigli di layout posizionamento e la rete di server  
 Si è pronti per iniziare a distribuire la topologia della rete, è necessario pianificare la collocazione di tutti i server federativi della rete aziendale dietro un bilanciamento del carico di rete \(Bilanciamento carico di RETE\) host che può essere configurato per un cluster di bilanciamento carico di RETE con un cluster dedicato Domain Name System \(DNS\) indirizzo IP del cluster e nome.  

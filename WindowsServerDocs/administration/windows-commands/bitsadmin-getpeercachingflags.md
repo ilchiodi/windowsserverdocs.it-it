@@ -1,8 +1,8 @@
 ---
 title: getpeercachingflags Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin getpeercachingflags** -recupera i flag che determinano se i file del processo possono essere memorizzato nella cache e forniti a colleghi e BITS può scaricare il contenuto per il processo da peer.
+description: 'Argomento dei comandi di Windows per **BITSAdmin getpeercachingflags** : recupera i flag che determinano se i file del processo possono essere memorizzati nella cache e serviti ai peer e se BITS è in grado di scaricare il contenuto per il processo da peer.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 28f248bab3e3cc3f5c7dd4f5f878f0b6d776029b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b86214b5289a59e8db2ecff065ab3b8cd17007e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381442"
 ---
 # <a name="bitsadmin-getpeercachingflags"></a>getpeercachingflags Bitsadmin
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Recupera i flag che determinano se i file del processo possono essere memorizzato nella cache e forniti a colleghi e BITS può scaricare il contenuto per il processo da peer.
+Recupera i flag che determinano se i file del processo possono essere memorizzati nella cache e serviti ai peer e se BITS è in grado di scaricare il contenuto per il processo da peer.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,7 +39,7 @@ bitsadmin /GetPeerCachingFlags <Job>
 |Job|Nome visualizzato o il GUID del processo|
 
 ## <a name="BKMK_examples"></a>Esempi
-Nell'esempio seguente recupera i flag per il processo denominato *myJob*.
+Nell'esempio seguente vengono recuperati i flag per il processo denominato *il mio lavoro*.
 
 ```
 C:\>bitsadmin /GetPeerCachingFlags myJob

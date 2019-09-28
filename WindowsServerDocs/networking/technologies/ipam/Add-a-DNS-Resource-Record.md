@@ -1,9 +1,9 @@
 ---
 title: Aggiungere un record di risorse DNS
-description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
+description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 5379373f-a3d9-4f51-b6fc-bf0f6df1d244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 36773525187229e498b9addf4b1e6532fd413701
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f8fd9974ad1670ae4106c5c38470fa51b53cf4f5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282317"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405728"
 ---
 # <a name="add-a-dns-resource-record"></a>Aggiungere un record di risorse DNS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Per aggiungere uno o più nuovi record di risorse utilizzando la console di gestione indirizzi IP client, è possibile utilizzare questo argomento.  
   
@@ -74,7 +74,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
 13. Fare clic su **OK**.  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestione dei Record risorse DNS](DNS-Resource-Record-Management.md)  
+[Gestione dei record di risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 

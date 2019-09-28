@@ -1,8 +1,8 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: Argomento i comandi di Windows per **bitsadmin replaceremoteprefix** -tutti i file nel processo il cui URL remoto inizia con *OldPrefix* sono state modificate per utilizzare *NewPrefix*.
+description: Argomento dei comandi di Windows per **BITSAdmin REPLACEREMOTEPREFIX** -tutti i file nel processo il cui URL remoto inizia con *OldPrefix* vengono modificati in modo da usare *NewPrefix*.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25c0f997ea0b9f97051baa291bdf87c84b6b1cbb
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ee896a337b571487797967d3ce0bf1f1b17e7507
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811294"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380804"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
@@ -40,7 +40,7 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 
 ## <a name="examples"></a>Esempi
 
-L'esempio seguente modifica tutti i file nel processo denominato *myDownloadJob* cui URL remoto inizia con *http://stageserver* alla *http://prodserver* .
+Nell'esempio seguente vengono modificati tutti i file nel processo denominato *myDownloadJob* il cui URL remoto inizia con *http://stageserver* *http://prodserver* .
 
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver

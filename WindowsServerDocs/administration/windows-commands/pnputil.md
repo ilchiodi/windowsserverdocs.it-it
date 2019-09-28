@@ -1,8 +1,8 @@
 ---
 title: pnputil
-description: Informazioni su come gestire l'archivio driver con l'utilità pnputil.exe.
+description: Informazioni su come gestire l'archivio driver con l'utilità pnputil. exe.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5bde78d97be8def9f8594572869c34ef213db480
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f20c60bfd9ae33497dd356c7797b9fb1d2b51d18
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372287"
 ---
 # <a name="pnputil"></a>pnputil
 
-Pnputil.exe è un'utilità della riga di comando che è possibile usare per gestire l'archivio driver. Pnputil consente di aggiungere pacchetti driver, rimuovere i pacchetti di driver ed elencare i pacchetti driver nell'archivio.
+Pnputil. exe è un'utilità della riga di comando che è possibile utilizzare per gestire l'archivio driver. È possibile utilizzare PnPUtil per aggiungere pacchetti driver, rimuovere pacchetti driver ed elencare i pacchetti driver presenti nell'archivio.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,25 +34,25 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|-a|Specifica per aggiungere il file INF identificato.|
+|-a|Specifica di aggiungere il file INF identificato.|
 |-d|Specifica di eliminare il file INF identificato.|
-|-e|Specifica per enumerare tutti i file INF di terze parti.|
-|-f|Specifica per forzare l'eliminazione del file INF identificato. Non può essere utilizzato in combinazione con il **– i** parametro.|
-|-i|Specifica di installare il file INF identificato. Non può essere utilizzato in combinazione con il **-f** parametro.|
+|-e|Specifica di enumerare tutti i file INF di terze parti.|
+|-f|Specifica di forzare l'eliminazione del file INF identificato. Non può essere usato in combinazione con il parametro **– i** .|
+|-i|Specifica di installare il file INF identificato. Non può essere usato in combinazione con il parametro **-f** .|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 
 ## <a name="examples"></a>Esempi
 
--   pnputil.exe - un a:\usbcam\USBCAM. INF aggiunge il file INF specificato da USBCAM. INF
--   -un c:\drivers pnputil.exe\*. inf aggiunge tutti i file INF in c:\drivers\
--   pnputil.exe -i - un a:\usbcam\USBCAM. INF aggiunge e installa i driver specificati.
--   pnputil.exe – e consente di enumerare tutti i driver di terze parti.
--   Oem0 -d pnputil.exe elimina l'oggetto specificato.
--   pnputil.exe -f -d oem0 forza l'eliminazione del file INF specificato.
+-   pnputil. exe-a a:\usbcam\USBCAM. INF aggiunge il file INF specificato da USBCAM. INF
+-   pnputil. exe: un drivers\*.inf c:\ aggiunge tutti i file INF in c:\Drivers\
+-   pnputil. exe-i-a a:\usbcam\USBCAM. INF aggiunge e installa il driver specificato.
+-   pnputil. exe – e enumera tutti i driver di terze parti.
+-   pnputil. exe-d Oem0. inf Elimina l'oggetto specificato.
+-   pnputil. exe-f-d Oem0. inf forza l'eliminazione del file INF specificato.
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Popd](popd.md)

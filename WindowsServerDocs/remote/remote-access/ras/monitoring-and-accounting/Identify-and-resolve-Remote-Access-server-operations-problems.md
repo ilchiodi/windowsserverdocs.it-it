@@ -1,9 +1,9 @@
 ---
 title: Identificare e risolvere i problemi di operazioni del server di accesso remoto
-description: Questo argomento fa parte della Guida di monitoraggio di accesso remoto e l'Accounting in Windows Server 2016.
+description: Questo argomento fa parte della Guida per il monitoraggio e l'accounting di accesso remoto in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b682685883a2200caf8f4286674bb3e2cbe6651b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: db10f784f383938edb29b18d7e8febf869378abc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282775"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404568"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identificare e risolvere i problemi di operazioni del server di accesso remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 **Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
   
@@ -51,7 +51,7 @@ L'Helper IP (IPHlpSvc) host IPv6 transizione tecnologie del servizio (ad esempio
   
 2.  Nell'elenco dei **servizi**, scorrere verso il basso e fare doppio clic su **Helper IP**, quindi fare clic su **arrestare**.  
   
-### <a name="BKMK_Identify"></a>Identificare il problema di operazioni e adottare misure correttive  
+### <a name="BKMK_Identify"></a>Identificare il problema delle operazioni e intraprendere un'azione correttiva  
 La disattivazione del servizio Helper IP causerà un errore grave nel server di accesso remoto. Il dashboard di monitoraggio viene visualizzato lo stato di operazioni del server e i dettagli del problema.  
   
 ##### <a name="to-identify-the-details-and-take-corrective-action"></a>Per identificare i dettagli e azioni correttive  
@@ -82,7 +82,7 @@ La disattivazione del servizio Helper IP causerà un errore grave nel server di 
   
     3.  Per riavviare il servizio, digitare **Restart-Service iphlpsvc** da un prompt di Windows PowerShell con privilegi elevato.  
   
-### <a name="BKMK_Restart"></a>Ripristinare il servizio Helper IP  
+### <a name="BKMK_Restart"></a>Ripristinare il servizio helper IP  
 Per ripristinare il servizio Helper IP sul server di accesso remoto, è possibile seguire la procedura di risoluzione precedente per avviare o riavviare il servizio, oppure è possibile utilizzare la procedura seguente per annullare la procedura utilizzata per simulare l'errore del servizio Helper IP.  
   
 ##### <a name="to-restart-the-ip-helper-service-on-the-remote-access-server"></a>Per riavviare il servizio Helper IP nel server di accesso remoto  
@@ -91,7 +91,7 @@ Per ripristinare il servizio Helper IP sul server di accesso remoto, è possibil
   
 2.  Nell'elenco dei **servizi**, scorrere verso il basso e fare doppio clic su **Helper IP**, quindi fare clic su **avviare**.  
   
-![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

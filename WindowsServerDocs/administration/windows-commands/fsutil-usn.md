@@ -1,7 +1,7 @@
 ---
 ms.assetid: faad34aa-4ba1-4129-bc1f-08088399e2fa
 title: Fsutil usn
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bef63f4938b5ce786bbbfdbf3bdd2081280ce95
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b62d031c547f140ac5008af20a9e0ee4bcecc919
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376795"
 ---
 # <a name="fsutil-usn"></a>Fsutil usn
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Gestisce il journal delle modifiche USN (number) sequenza update.
+Gestisce il Journal delle modifiche del numero di sequenza di aggiornamento (USN).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,97 +38,97 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 |Parametro|Descrizione|
 |-------------|---------------|
 |createjournal|Crea un journal delle modifiche USN.|
-|m =\<MaxSize >|Specifica la dimensione massima, espressa in byte, che consente di allocare NTFS per il journal delle modifiche.|
-|un =\<DeltaAllocazione >|Specifica la dimensione, espressa in byte, dell'allocazione di memoria che verrà aggiunto alla fine e rimosso dall'inizio nel journal delle modifiche.|
-|\<VolumePath>|Specifica la lettera di unità (seguita da due punti).|
-|deletejournal|Elimina o disattiva un journal delle modifiche USN attivo. **Attenzione:** Eliminare il journal delle modifiche interessa il servizio Replica File (FRS) e il servizio di indicizzazione, in quanto richiederebbe questi servizi per eseguire un'analisi completa (e che richiedono molto tempo) del volume. Questo influisce a sua volta negativamente sulle replica FRS SYSVOL e replica tra gli oggetti alternativi collegamento DFS mentre il volume viene viene ripetuta l'analisi.|
-|/d|Disabilita un journal delle modifiche USN active e restituisce il controllo di input/output (i/o) mentre il journal delle modifiche è stato disabilitato.|
-|/n|Disabilita un journal delle modifiche USN active e restituisce il controllo dei / o solo dopo che il journal delle modifiche è disabilitato.|
-|enablerangetracking|Consente l'intervallo di scrittura USN di rilevamento per un volume.|
-|c=\<chunk-size>|Specifica le dimensioni del blocco per tenere traccia in un volume.|
-|s=\<file-size-threshold>|Specifica la soglia delle dimensioni di file per l'intervallo di rilevamento.|
-|enumdata|Enumera e sono elencate le voci del journal delle modifiche tra due limiti specificati.|
-|\<FileRef>|Specifica la posizione ordinale all'interno dei file nel volume di cui l'enumerazione ha inizio.|
-|\<UsnInferiore >|Specifica il limite inferiore dell'intervallo di valori USN utilizzato per filtrare i record restituiti. Solo record il cui ultimo journal USN è uguale a o compreso tra il *UsnInferiore* e *HighUSN* vengono restituiti i valori del membro.|
-|\<HighUSN >|Specifica il limite superiore dell'intervallo di valori USN utilizzato per filtrare i file che vengono restituiti.|
-|queryjournal restituisce|Esegue query sui dati di USN di un volume per raccogliere informazioni sul journal delle modifiche corrente, i record e alla capacità.|
-|readdata|Legge i dati di USN di un file.|
-|\<FileName>|Specifica il percorso completo del file, incluso il nome del file e l'estensione, ad esempio: C:\documents\filename.txt|
-|readjournal|Legge i record degli USN nel journal USN.|
-|MinVer =\<numero >|Versione principale minima del USN_RECORD da restituire. Default = 2.|
-|MaxVer =\<numero >|Numero di versione principale di numero massimo di USN_RECORD da restituire. Predefinito = 4.|
-|startusn =\<numero USN >|USN iniziare la lettura nel journal USN da. Predefinito = 0.|
+|m = \<MaxSize >|Specifica la dimensione massima, in byte, allocata da NTFS per il Journal delle modifiche.|
+|a = \<AllocationDelta >|Specifica la dimensione, in byte, dell'allocazione di memoria che viene aggiunta alla fine e rimossa dall'inizio del journal delle modifiche.|
+|\<VolumePath >|Specifica la lettera di unità (seguita da due punti).|
+|deletejournal|Elimina o Disabilita un journal delle modifiche Active USN. **Attenzione:** L'eliminazione del journal delle modifiche influisca sul servizio Replica file (FRS) e sul servizio di indicizzazione, perché richiederebbe a questi servizi di eseguire un'analisi completa e dispendiosa in termini di tempo del volume. Questo, a sua volta, influisce negativamente sulla replica SYSVOL di FRS e sulla replica tra le alternative dei collegamenti DFS mentre è in corso la scansione del volume.|
+|/d|Disabilita un journal delle modifiche Active USN e restituisce il controllo di input/output (I/O) mentre è in corso la disabilitazione del journal delle modifiche.|
+|/n|Disabilita un journal delle modifiche Active USN e restituisce il controllo I/O solo dopo la disabilitazione del journal delle modifiche.|
+|enablerangetracking|Abilita il rilevamento dell'intervallo di scrittura USN per un volume.|
+|c = \<chunk-Size >|Specifica la dimensione del blocco di cui tenere traccia in un volume.|
+|s = \<file-size-threshold >|Specifica la soglia delle dimensioni del file per il rilevamento dell'intervallo.|
+|EnumData|Enumera ed elenca le voci del journal delle modifiche tra due limiti specificati.|
+|\<FileRef >|Specifica la posizione ordinale all'interno dei file nel volume da cui deve iniziare l'enumerazione.|
+|\<LowUSN >|Specifica il limite inferiore dell'intervallo di valori USN usato per filtrare i record restituiti. Vengono restituiti solo i record il cui ultimo USN del journal delle modifiche è compreso tra o uguale ai valori del membro *LowUSN* e *HighUSN* .|
+|\<HighUSN >|Specifica il limite superiore dell'intervallo di valori USN utilizzati per filtrare i file restituiti.|
+|queryjournal|Esegue una query sui dati USN di un volume per raccogliere informazioni sul Journal delle modifiche corrente, i relativi record e la relativa capacità.|
+|ReadData|Legge i dati USN per un file.|
+|\<> FileName|Specifica il percorso completo del file, inclusi il nome file e l'estensione, ad esempio: C:\documents\filename.txt|
+|aggiornamento|Legge i record USN nel journal USN.|
+|Minver = \<number >|Versione principale minima di USN_RECORD da restituire. Valore predefinito = 2.|
+|MaxVer = \<number >|Versione principale massima di USN_RECORD da restituire. Valore predefinito = 4.|
+|startusn = \<USN numero >|USN per iniziare a leggere il journal USN da. Valore predefinito = 0.|
 
 
 ## <a name="remarks"></a>Note
 
--   Sul journal delle modifiche USN
+-   Informazioni sul Journal delle modifiche USN
 
-    Il journal delle modifiche USN fornisce un registro permanente di tutte le modifiche apportate ai file nel volume. Come file, directory e altri oggetti NTFS vengono aggiunti, eliminati e modificati, NTFS immette i record il journal delle modifiche USN, uno per ogni volume del computer. In ogni record sono indicati il tipo di modifica e l'oggetto modificato. Nuovi record vengono aggiunti alla fine del flusso.
+    Il Journal delle modifiche USN fornisce un log permanente di tutte le modifiche apportate ai file nel volume. Quando vengono aggiunti, eliminati e modificati file, directory e altri oggetti NTFS, NTFS immette i record nel journal delle modifiche USN, uno per ogni volume del computer. In ogni record sono indicati il tipo di modifica e l'oggetto modificato. I nuovi record vengono aggiunti alla fine del flusso.
 
-    I programmi possono consultare il journal delle modifiche USN per determinare tutte le modifiche apportate a un set di file. Il journal delle modifiche USN è più efficace rispetto al controllo timbri data / ora o la registrazione per le notifiche file. Il journal delle modifiche USN è abilitato e usato dal servizio di indicizzazione, servizio Replica File (FRS), servizi di installazione remota (RIS) e l'archiviazione remota.
+    I programmi possono consultare il Journal delle modifiche USN per determinare tutte le modifiche apportate a un set di file. Il Journal delle modifiche USN è molto più efficiente rispetto alla verifica dei timestamp o alla registrazione per le notifiche di file. Il Journal delle modifiche USN è abilitato e utilizzato dal servizio di indicizzazione, dal servizio Replica file (FRS), dai servizi di installazione remota (RIS) e dall'archiviazione remota.
 
--   Usando **createjournal**
+-   Uso di **createjournal**
 
-    Se esiste già un journal delle modifiche in un volume, il **createjournal** parametro aggiorna il journal delle modifiche *MaxSize* e *DeltaAllocazione* parametri. In questo modo è possibile aumentare il numero di record che conserva un giornale di registrazione active senza la necessità di disabilitarlo.
+    Se in un volume è già presente un journal delle modifiche, il parametro **createjournal** aggiorna i parametri *MaxSize* e *DeltaAllocazione* del journal delle modifiche. In questo modo è possibile espandere il numero di record gestiti da un journal attivo senza che sia necessario disabilitarlo.
 
--   Usando **m**
+-   Uso di **m**
 
-    Il journal delle modifiche può raggiungere dimensioni superiori a questo valore di destinazione, ma il journal delle modifiche viene troncato in corrispondenza del checkpoint successivo NTFS su un valore inferiore rispetto a questo valore. Esamina il journal delle modifiche e lo rimuove quando la relativa dimensione supera il valore di NTFS *MaxSize* sommato al valore di *DeltaAllocazione*. In Checkpoint NTFS, il sistema operativo scrive i record per il file di log NTFS che consentono di NTFS determinare il tipo di elaborazione è necessario per recuperare da un errore.
+    Il Journal delle modifiche può aumentare di dimensioni superiori rispetto a questo valore di destinazione, ma il Journal delle modifiche viene troncato al successivo checkpoint NTFS a un valore inferiore a quello specificato. NTFS esamina il Journal delle modifiche e lo taglia quando la relativa dimensione supera il valore di *MaxSize* più il valore di *DeltaAllocazione*. Ai checkpoint NTFS, il sistema operativo scrive i record nel file di log NTFS che consentono a NTFS di determinare quale elaborazione è necessaria per il ripristino da un errore.
 
--   Usando **un**
+-   Uso **di un**
 
-    Il journal delle modifiche possono aumentare fino a più della somma dei valori di *MaxSize* e *DeltaAllocazione* prima da cui vengono eliminati.
+    Il Journal delle modifiche può aumentare fino a raggiungere la somma dei valori di *MaxSize* e *DeltaAllocazione* prima di essere eliminati.
 
--   Usando **deletejournal**
+-   Uso di **deletejournal**
 
-    Eliminazione o disabilitazione di un journal delle modifiche attive è richiedere molto tempo, perché il sistema deve accedere a tutti i record nella tabella file master (MFT) e impostare l'attributo USN ultimo su 0 (zero). Questo processo può richiedere alcuni minuti e può continuare dopo il riavvio del sistema, se è necessario un riavvio. Durante questo processo, il journal delle modifiche viene considerato non attivo, né è disabilitata. Mentre il sistema di disabilitazione del diario, non è accessibile e tutte le operazioni di registrazione restituiscono errori. È necessario utilizzare prestare particolare attenzione quando si disabilita un giornale di registrazione attivo, in quanto influisce negativamente su altre applicazioni che usano il journal.
+    L'eliminazione o la disattivazione di un journal delle modifiche attive è molto dispendiosa in termini di tempo, perché il sistema deve accedere a tutti i record nella tabella dei file master (MFT) e impostare l'ultimo attributo USN su 0 (zero). Questo processo può richiedere diversi minuti e può continuare dopo il riavvio del sistema, se è necessario un riavvio. Durante questo processo, il Journal delle modifiche non è considerato attivo, né è disabilitato. Quando il sistema sta disabilitando il Journal, non è possibile accedervi e tutte le operazioni Journal restituiscono errori. È necessario prestare particolare attenzione quando si disabilita un journal attivo, perché influisce negativamente sulle altre applicazioni che utilizzano il Journal.
 
 ## <a name="BKMK_examples"></a>Esempi
-Per creare un USN journal delle modifiche sull'unità C, digitare:
+Per creare un journal delle modifiche USN sull'unità C, digitare:
 
 ```
 fsutil usn createjournal m=1000 a=100 c:
 ```
 
-Per eliminare un oggetto attivo USN journal delle modifiche sull'unità C, digitare:
+Per eliminare un journal delle modifiche Active USN sull'unità C, digitare:
 
 ```
 fsutil usn deletejournal /d c:
 ```
 
-Per abilitare l'intervallo di rilevamento con una dimensione del blocco specificata e la soglia di dimensioni del file, digitare:
+Per abilitare il rilevamento dell'intervallo con una dimensione di blocco e una dimensione del file specificate, digitare:
 
 ```
 fsutil usn enablerangetracking c=16384 s=67108864 C:
 ```
 
-Per enumerare e visualizzare le voci di journal delle modifiche tra due limiti specificati nell'unità C, digitare:
+Per enumerare ed elencare le voci del journal delle modifiche tra due limiti specificati sull'unità C, digitare:
 
 ```
 fsutil usn enumdata 1 0 1 c:
 ```
 
-Per eseguire query sui dati di USN per un volume sull'unità C, digitare:
+Per eseguire query sui dati USN per un volume sull'unità C, digitare:
 
 ```
 fsutil usn queryjournal c:
 ```
 
-Per leggere i dati USN di un file nella cartella \Temp sull'unità C, digitare:
+Per leggere i dati USN per un file nella cartella \Temp sull'unità C, digitare:
 
 ```
 fsutil usn readdata c:\temp\sample.txt
 ```
 
-Per leggere il journal USN con un USN specifico start, digitare:
+Per leggere il journal USN con un USN iniziale specifico, digitare:
 
 ```
 fsutil usn readjournal startusn=0xF00
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
-[Chiave sintassi della riga di comando](Command-Line-Syntax-Key.md)
+[Indicazioni generali sulla sintassi della riga di comando](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

@@ -1,9 +1,9 @@
 ---
 title: Dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2016
-description: In questo argomento fornisce informazioni tecniche su virtualizzazione rete Hyper-V in Windows Server 2016
+description: In questo argomento vengono fornite informazioni tecniche su virtualizzazione rete Hyper-V in Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: virtual-network
 ms.suite: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9efe0231-94c1-4de7-be8e-becc2af84e69
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b33c96ff7150b0dc4f6f93d2fa24741c9762a799
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e692384e9416e21e00556af6ada9af8df1713a03
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405856"
 ---
 # <a name="hyper-v-network-virtualization-technical-details-in-windows-server-2016"></a>Dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2016
 
@@ -35,17 +35,17 @@ Figura 1: confronto tra virtualizzazione di server e virtualizzazione di rete
 ## <a name="hyper-v-network-virtualization-concepts"></a>Concetti di Virtualizzazione rete Hyper-V  
 In Hyper-V rete Virtualizzazione, un cliente o del tenant viene definito come il "proprietario" di un set di subnet IP che vengono distribuiti in un enterprise o datacenter. Un cliente può essere una società o organizzazione con più reparti o business unit in un Data Center privato che richiedono l'isolamento della rete o un tenant in un centro dati pubblico che è ospitato da un provider di servizi. Ogni cliente può disporre di uno o più [le reti virtuali](#VirtualNetworks) nel datacenter e ogni virtuali rete costituita da uno o più [subnet virtuale](#VirtualSubnets).  
 
-Esistono due implementazioni di virtualizzazione che saranno disponibili in Windows Server 2016: HNVv1 e HNVv2.  
+Esistono due implementazioni di HNV che saranno disponibili in Windows Server 2016: HNVv1 e HNVv2.  
 
 -   **HNVv1**  
 
     HNVv1 è compatibile con Windows Server 2012 R2 e System Center 2012 R2 Virtual Machine Manager (VMM). Configurazione per HNVv1 si basa su gestione WMI e i cmdlet di Windows PowerShell (facilitati tramite System Center VMM) per definire le impostazioni di isolamento e indirizzo cliente (CA) - rete virtuale - mapping di indirizzo fisico (PA) e routing. Nessuna funzionalità aggiuntiva è stati aggiunti a HNVv1 in Windows Server 2016 e non include nuove funzionalità sono previsti.  
 
-    • IMPOSTARE gruppo NIC e HNV V1 non sono compatibili dalla piattaforma.
+    • IMPOSTARE gruppo e HNV V1 non sono compatibili con la piattaforma.
 
-    o per usare gli utenti del gateway a disponibilità elevata NVGRE necessario a una delle due utilizzare gruppo LBFO o alcun team. Oppure
+    o per usare i gateway NVGRE di disponibilità elevata, gli utenti devono usare il team di LBFO o nessun team. Oppure
 
-    i gateway o utilizzare il Controller di rete distribuiti con SET raggruppate commutatore.
+    o usare gateway distribuiti del controller di rete con l'opzione SET gruppo.
 
 
 -   **HNVv2**  
@@ -73,11 +73,11 @@ Un vantaggio fondamentale della rete virtuale e del dominio di routing è che co
 
 Figura 2: reti clienti e subnet virtuali  
 
-**Inoltro di livello 2**  
+**Inoltri di livello 2**  
 
 Nella figura 2, le macchine virtuali in VSID 5001 possono essere i pacchetti inoltrati alle macchine virtuali che sono anche in VSID 5001 attraverso il commutatore Hyper-V. I pacchetti in ingresso provenienti da una macchina virtuale in VSID 5001 vengono inviati a un VPort specifico del commutatore Hyper-V. Regole in entrata (ad esempio incapsulamento) e i mapping (ad esempio intestazione incapsulamento) vengono applicati dal commutatore Hyper-V per tali pacchetti. I pacchetti vengono quindi inoltrati a un diverso VPort nel commutatore Hyper-V (se la macchina virtuale di destinazione è collegata allo stesso host) o a un altro commutatore Hyper-V in un host diverso (se la macchina virtuale di destinazione si trova in un host diverso).  
 
-**Livello 3 Routing**  
+**Routing di livello 3**  
 
 Analogamente, le macchine virtuali in VSID 5001 sono i pacchetti indirizzati alle macchine virtuali in VSID 5002 o VSID 5003 dal router distribuito di virtualizzazione RETE presente nel VSwitch di ciascun host Hyper-V. Passare alla distribuzione del pacchetto per il ruolo Hyper-V, virtualizzazione RETE aggiorna il VSID del pacchetto in ingresso con il VSID della macchina virtuale di destinazione. Questo si verifica solo se entrambi i VSID si trovano nello stesso RDID.  Di conseguenza, le schede di rete virtuali con RDID1 non possono inviare pacchetti alle schede di rete virtuali con RDID2 senza attraversamento di un gateway.  
 
@@ -190,9 +190,9 @@ Con la rete Controller, Contoso Corp e Fabrikam quindi creare subnet che sono su
 
 Entrambe le società vengono assegnate il seguente ID Subnet virtuale (VSID) dal Controller di rete come indicato di seguito.  L'agente in ogni host Hyper-V Host riceve gli indirizzi IP PA allocati dal Controller di rete e crea due PA host vNICs in un raggruppamento di rete non predefinita. Un'interfaccia di rete viene assegnata a ciascuno di questi vNICs host in cui l'indirizzo IP PA viene assegnato come illustrato di seguito:  
 
--   Macchine virtuali della società Contoso VSID e PAs: **VSID** is 5001, **SQL PA** is 192.168.1.10, **Web PA** is 192.168.2.20  
+-   Macchine virtuali di Contoso VSID e PAs: **Vsid** è 5001, **SQL PA** è 192.168.1.10, **PA Web** è 192.168.2.20  
 
--   Macchine virtuali della società Fabrikam VSID e PAs: **VSID** is 6001, **SQL PA** is 192.168.1.10, **Web PA** is 192.168.2.20  
+-   Macchine virtuali di Fabrikam VSID e PAs: **Vsid** è 6001, **SQL PA** è 192.168.1.10, **PA Web** è 192.168.2.20  
 
 Il Controller di rete esegue il plumbing tutti i criteri di rete (incluso il mapping di CA-PA) per l'agente Host SDN in grado di mantenere i criteri in un archivio persistente (nelle tabelle di database OVSDB).  
 
@@ -262,7 +262,7 @@ Gerarchia di oggetti per il vSwitch e VFP estensione di inoltro è il seguente:
 
             -   Tabella di flusso  
 
-            -   Raggruppa  
+            -   Group  
 
             -   Regola  
 
@@ -297,7 +297,7 @@ Per ulteriori informazioni su HNVv2 vedere i collegamenti seguenti:
 
 |       Tipo di contenuto       |                                                                                                                                              Riferimenti                                                                                                                                              |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Risorse della community**  |                                                                -   [Blog sull'architettura di Cloud privati](https://blogs.technet.com/b/privatecloud)<br />-Domande: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
-|         **RFC**          |                                                                   -   [NVGRE bozza di RFC su](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [VXLAN - RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
-| **Tecnologie correlate** | -Per dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2012 R2, vedere [Dettagli tecnici sulla virtualizzazione rete Hyper-V](https://technet.microsoft.com/library/jj134174.aspx)<br />-   [Controller di rete](../../../sdn/technologies/network-controller/Network-Controller.md) |
+| **Risorse della community**  |                                                                [Blog sull'architettura del cloud privato](https://blogs.technet.com/b/privatecloud) -   <br />-Porre domande: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
+|         **RFC**          |                                                                   -   [bozza RFC NVGRE](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [VXLAN-RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
+| **Tecnologie correlate** | -Per dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2012 R2, vedere [Dettagli tecnici sulla virtualizzazione rete Hyper-V](https://technet.microsoft.com/library/jj134174.aspx)<br />[controller di rete](../../../sdn/technologies/network-controller/Network-Controller.md) -    |
 

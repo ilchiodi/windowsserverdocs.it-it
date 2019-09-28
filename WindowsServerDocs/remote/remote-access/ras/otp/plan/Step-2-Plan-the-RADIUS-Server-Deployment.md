@@ -1,9 +1,9 @@
 ---
-title: Passaggio 2 pianificare la distribuzione di Server RADIUS
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto con autenticazione OTP in Windows Server 2016.
+title: Passaggio 2 pianificare la distribuzione del server RADIUS
+description: Questo argomento fa parte della Guida distribuire accesso remoto con l'autenticazione OTP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: 2d6ad863-02a5-49b0-9aff-d189e78b2b80
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f74a83c3962c7accd76fbf07307216742ada863d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a991b312a0938a3809acd2b94c00aa678f5b41da
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280826"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404398"
 ---
-# <a name="step-2-plan-the-radius-server-deployment"></a>Passaggio 2 pianificare la distribuzione di Server RADIUS
+# <a name="step-2-plan-the-radius-server-deployment"></a>Passaggio 2 pianificare la distribuzione del server RADIUS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Dopo aver distribuito un singolo server di accesso remoto, pianificare il server di autenticazione One Time password (OTP).  
+Dopo la distribuzione di un singolo server di accesso remoto, pianificare il server di autenticazione OTP (One-time password).  
   
 |Attività|Descrizione|  
 |----|--------|  
-|2.1 pianificare il server RADIUS|Per il server di autenticazione OTP, accesso remoto in Windows Server 2016 e Windows Server 2012 supporta qualsiasi server OTP abilitato per RADIUS che supporta il protocollo di autenticazione di password (Authentication Protocol PAP).|  
+|2,1 pianificare il server RADIUS|Per il server di autenticazione OTP, l'accesso remoto in Windows Server 2016 e Windows Server 2012 supporta qualsiasi server OTP abilitato per RADIUS che supporta il protocollo PAP (Password Authentication Protocol).|  
   
-## <a name="BKMK_1.1"></a>2.1 pianificare il server RADIUS  
+## <a name="BKMK_1.1"></a>2,1 pianificare il server RADIUS  
 Quando si pianifica un server RADIUS per l'autenticazione OTP, tenere presente quanto segue:  
   
--   Per la maggior parte dei tipi di distribuzione di OTP, è necessario configurare il server di accesso remoto come agente di RADIUS. Per altre informazioni, vedere la documentazione del fornitore OTP.  
+-   Per la maggior parte dei tipi di distribuzioni OTP, è necessario configurare il server di accesso remoto come agente RADIUS. Per ulteriori informazioni, vedere la documentazione del fornitore OTP.  
   
--   Per tutte le distribuzioni di OTP, è necessario sincronizzare gli utenti di Active Directory con il server RADIUS.  
+-   Per tutte le distribuzioni OTP, è necessario sincronizzare gli utenti Active Directory con il server RADIUS.  
   
--   Il server RADIUS non è necessario essere un membro del dominio.  
+-   Non è necessario che il server RADIUS sia un membro del dominio.  
   
 -   Quando si distribuisce il server RADIUS, si configura un segreto condiviso e il numero di porta per il traffico RADIUS. Prendere nota di questi dettagli; sono necessarie quando si configura il server di accesso remoto.  
   
-È possibile visualizzare una Guida del lab di test di esempio che configura l'autenticazione OTP con un server RSA SecurID in [Guida al Lab di Test: Dimostrazione di DirectAccess con autenticazione OTP e SecurID RSA](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid).  
+È possibile visualizzare una guida al Lab di test di esempio che configura l'autenticazione OTP con un server RSA SecurID in [Test Lab guide: Dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID @ no__t-0.  
   
   
   

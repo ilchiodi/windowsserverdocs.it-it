@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cd5ca15a9e098f60c6c82980e3148ebcf9ee9932
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6aafa37b06599f4114cf076e87415fece128fb05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407335"
 ---
 # <a name="the-role-of-the-claims-pipeline"></a>Ruolo delle pipeline delle attestazioni
 La pipeline delle attestazioni \(in\) Active Directory Federation Services ad FS rappresenta il percorso che le attestazioni devono seguire attraverso il servizio federativo prima che possano essere rilasciate. Il servizio federativo gestisce la fine intera\-a\-Termina processo di propagazione attestazioni le varie fasi della pipeline di attestazioni, che include anche l'elaborazione delle regole attestazione dal motore regole attestazione.  

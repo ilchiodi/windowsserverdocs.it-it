@@ -1,23 +1,23 @@
 ---
 title: Panoramica di File server di scalabilità orizzontale per dati applicazioni
 description: Panoramica della funzionalità File server di scalabilità orizzontale per Windows Server 201 R2 e Windows Server 2012.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 80bf85caac6f84e0d6da0c6139e39f3823b3a961
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: da7c90bdb1c4a2fbdb2e518f34abe9cbfef2fc29
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868711"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392040"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Panoramica di File server di scalabilità orizzontale per dati applicazioni
 
->Si applica a Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2012 R2, Windows Server 2012
 
 File server di scalabilità orizzontale è una funzionalità progettata per fornire condivisioni file di scalabilità orizzontale continuamente disponibili per l'archiviazione di applicazioni server basate su file. Tali condivisioni consentono di condividere la stessa cartella da più nodi dello stesso cluster. Questo scenario illustra come pianificare e distribuire il File server di scalabilità orizzontale.
 
@@ -105,7 +105,7 @@ La tabella seguente elenca le capacità in SMB 3.0, i file system di Windows com
 <td>File system</td>
 <td>NTFS</td>
 <td>Yes</td>
-<td>ND</td>
+<td>N/D</td>
 </tr>
 <tr class="odd">
 <td>File system</td>
@@ -116,7 +116,7 @@ La tabella seguente elenca le capacità in SMB 3.0, i file system di Windows com
 <tr class="even">
 <td>File system</td>
 <td>File System del Volume condiviso cluster (CSV)</td>
-<td>ND</td>
+<td>N/D</td>
 <td>Yes</td>
 </tr>
 <tr class="odd">

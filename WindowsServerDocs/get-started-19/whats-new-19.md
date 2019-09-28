@@ -1,19 +1,19 @@
 ---
 title: Novità di Windows Server 2019
 description: Panoramica delle nuove funzionalità in Windows Server 2019, tra cui Esperienza desktop, il servizio di migrazione archiviazione, informazioni dettagliate di sistema, la scheda di rete di Azure, i miglioramenti a Spazi di archiviazione diretta e altre modifiche.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 665363c17cf5cb8d8ad52872128f2f63c07ea683
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 13eed225dfc144d5e7e59be13dbed14d4de8bb01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868545"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360784"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Novità di Windows Server 2019
 

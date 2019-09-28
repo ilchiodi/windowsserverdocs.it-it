@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 07/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c2d411be7ef807198df30074ea706d7c5398617
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869356"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407379"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Ruolo del linguaggio delle regole attestazioni
 Il linguaggio delle regole attestazione Active Directory Federation Services (AD FS) funge da blocco predefinito amministrativo per il comportamento delle attestazioni in ingresso e in uscita, mentre il motore delle attestazioni funge da motore di elaborazione per la logica nel linguaggio delle regole attestazioni che definisce la regola personalizzata. Per ulteriori informazioni su come tutte le regole vengono elaborate dal motore di attestazioni, vedere [il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md).  
@@ -144,7 +144,7 @@ Le proprietà di attestazione seguenti sono disponibili per l'accesso:
 
 -   Claim.ValueType  
 
--   Nome\[\_della proprietà Claim. Properties. questa proprietà restituisce una stringa vuota se la proprietà _name non è stata trovata nella raccolta delle proprietà dell'attestazione.\] )  
+-   Claim. Properties @ no__t-0property @ no__t-1Name @ no__t-2. questa proprietà restituisce una stringa vuota se la proprietà _name non è stata trovata nella raccolta delle proprietà dell'attestazione. )  
 
 È possibile usare la funzione RegexReplace per chiamare all'interno di un'espressione. Questa funzione abbina un'espressione di input al modello specificato. Se il modello corrisponde, l'output della corrispondenza viene sostituito con il valore di sostituzione.  
 

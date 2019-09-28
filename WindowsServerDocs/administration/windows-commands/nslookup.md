@@ -2,7 +2,7 @@
 title: nslookup
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84e3e9ee920f458ca775dd7b76d892f10ba2f992
-ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
+ms.openlocfilehash: 6b47592be57d5999ac26465097490da266bd0aea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372699"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -106,7 +106,7 @@ nslookup /view <FileName>
   |`No response from server`|Nessun nome di server DNS è in esecuzione sul computer del server.|
   |`No records`|Il server dei nomi DNS non dispone di record di risorse del tipo di query corrente per il computer, anche se il nome del computer è valido. Il tipo di query viene specificato con il **set querytype** comando.|
   |`Nonexistent domain`|Il computer o nome di dominio DNS non esiste.|
-  |`Connection refused`<br /><br />-oppure-<br /><br />`Network is unreachable`|Impossibile stabilire la connessione al server dei nomi DNS o al server con un dito. Questo errore si verifica in genere con **ls** e **dito** richieste.|
+  |`Connection refused`<br /><br />-Oppure-<br /><br />`Network is unreachable`|Impossibile stabilire la connessione al server dei nomi DNS o al server con un dito. Questo errore si verifica in genere con **ls** e **dito** richieste.|
   |`Server failure`|Il server dei nomi DNS ha rilevato un'incoerenza interna nel proprio database e non può restituire una risposta valida.|
   |`Refused`|Il server dei nomi DNS rifiutata soddisfare la richiesta.|
   |`format error`|Trovare il server di nome DNS che il pacchetto di richiesta non è nel formato corretto. Può indicare un errore in **nslookup**.|

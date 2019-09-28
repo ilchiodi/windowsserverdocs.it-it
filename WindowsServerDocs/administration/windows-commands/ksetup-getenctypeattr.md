@@ -1,8 +1,8 @@
 ---
-title: ksetup:getenctypeattr
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: getenctypeattr'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 302f94616f98eb350332b08ad37a58305a0a0be1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ff55cfd204f76b42c5f1342b3cf206ee4c14f14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374988"
 ---
-# <a name="ksetupgetenctypeattr"></a>ksetup:getenctypeattr
+# <a name="ksetupgetenctypeattr"></a>che Ksetup: getenctypeattr
 
 
 
@@ -36,7 +36,7 @@ ksetup /getenctypeattr <DomainName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<DomainName>|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
+|\<DomainName >|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
 
 ## <a name="remarks"></a>Note
 
@@ -44,7 +44,7 @@ Per visualizzare il tipo di crittografia per Kerberos ticket di concessione tick
 
 Se il comando ha esito positivo o negativo, viene visualizzato un messaggio di stato al completamento riuscito o non riuscito.
 
-Per impostare il dominio che si desidera connettersi e usare, eseguire la **che ksetup /domain \<NomeDominio >** comando.
+Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<DomainName >** .
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -60,4 +60,4 @@ ksetup /getenctypeattr mit.contoso.com
 -   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

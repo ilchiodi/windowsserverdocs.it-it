@@ -2,18 +2,18 @@
 title: Creare un'eccezione screening dei file
 description: Questo articolo descrive come creare un'eccezione screening dei file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1f0e93cb2535862b9259d438de00c3b769c2282c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0fa660db6b03104b585c8ee78a4f20aafe5c88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866302"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403142"
 ---
 # <a name="create-a-file-screen-exception"></a>Creare un'eccezione screening dei file
 
@@ -40,14 +40,14 @@ Assegnare gruppi di file per determinare quali tipi di file saranno consentiti n
 4.  Per specificare i file da escludere dallo screening dei file:
 
     -   In **Gruppi di file**, selezionare ogni gruppo di file che si desidera escludere dallo screening dei file. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
-    -   Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e fare clic su **modifica**.
+    -   Se si desidera visualizzare i tipi di file inclusi ed esclusi da un gruppo di file, fare clic sull'etichetta del gruppo di file e quindi fare clic su **modifica**.
     -   Per creare un nuovo gruppo di file, fare clic su **Crea**.
 
 5.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione di screening dei file](file-screening-management.md)
--   [Definire gruppi di File per Screening](define-file-groups-for-screening.md)
+-   [Gestione screening dei file](file-screening-management.md)
+-   [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)
 
 

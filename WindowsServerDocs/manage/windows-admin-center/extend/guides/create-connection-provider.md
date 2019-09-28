@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c1f3a7f7004b573fece71cdaf2f43661c13ad496
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 9c04db3196d1e806e50af9164b3c8bcdfb19b079
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869625"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406884"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Creazione di un provider di connessione per un'estensione della soluzione
 
@@ -124,7 +124,7 @@ Proprietà stato:
   | 2 | Non autorizzato |
   | 3 | Tipi di errore |
   | 4 | Irreversibile |
-  | 5 | Sconosciuto |
+  | 5 | Sconosciuta |
 
 * <strong>Dettagli</strong> : dettagli aggiuntivi che descrivono il tipo restituito dello stato.
 

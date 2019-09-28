@@ -7,26 +7,26 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 69443c2fc1af855c7df002e0ac91d43986eff6da
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b010dcb7a150f4ebcfcc941aa9e5c016795e717
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402498"
 ---
 # <a name="site-topology-owner-role"></a>Ruolo di proprietario della topologia del sito
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-L'amministratore che gestisce la topologia del sito è noto come il proprietario della topologia del sito. Il proprietario della topologia del sito riconosce le condizioni della rete tra siti e ha l'autorità di modificare le impostazioni in servizi di dominio Active Directory (AD DS) per implementare le modifiche alla topologia del sito. Le modifiche alla topologia del sito influiscono sulle modifiche nella topologia di replica. Le responsabilità del proprietario della topologia del sito includono:  
+L'amministratore che gestisce la topologia del sito è noto come proprietario della topologia del sito. Il proprietario della topologia del sito riconosce le condizioni della rete tra siti e ha l'autorità di modificare le impostazioni in Active Directory Domain Services (AD DS) per implementare le modifiche alla topologia del sito. Le modifiche alla topologia del sito influiscono sulle modifiche nella topologia di replica. Le responsabilità del proprietario della topologia del sito includono:  
   
--   Se viene modificata la connettività di rete che controllano le modifiche alla topologia del sito.  
+-   Controllo delle modifiche alla topologia del sito in caso di modifica della connettività di rete.  
   
--   Come ottenere e gestione di informazioni sulle connessioni di rete e i router dal gruppo di rete. Il proprietario della topologia del sito debba mantenere un elenco di indirizzi di subnet, le subnet mask e la posizione in cui ognuno. Il proprietario della topologia del sito è necessario comprendere anche eventuali problemi che influiscono sulla topologia del sito per impostare in modo efficace i costi per i collegamenti di sito sulla capacità e velocità di rete.  
+-   Ottenere e gestire le informazioni sulle connessioni di rete e i router dal gruppo di rete. Il proprietario della topologia del sito deve gestire un elenco di indirizzi subnet, subnet mask e il percorso a cui appartengono. Il proprietario della topologia del sito deve anche comprendere eventuali problemi relativi alla velocità e alla capacità della rete che influiscono sulla topologia del sito per impostare efficacemente i costi per i collegamenti di  
   
--   Lo spostamento di oggetti di server di Active Directory che rappresentano i controller di dominio tra siti se cambia indirizzo IP del controller di dominio a una subnet diversa in un sito diverso o se la subnet stessa viene assegnata a un altro sito. In entrambi i casi, il proprietario della topologia del sito deve spostare manualmente l'oggetto server di Active Directory del controller di dominio per il nuovo sito.  
+-   Lo stato di Active Directory oggetti server che rappresentano i controller di dominio tra siti se l'indirizzo IP di un controller di dominio viene modificato in un'altra subnet in un sito diverso o se la subnet stessa viene assegnata a un sito diverso. In entrambi i casi, il proprietario della topologia del sito deve spostare manualmente l'oggetto server Active Directory del controller di dominio nel nuovo sito.  
   
 
 

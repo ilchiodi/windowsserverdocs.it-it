@@ -2,23 +2,23 @@
 title: Risoluzione dei problemi di Spazi di archiviazione diretta
 description: Informazioni su come risolvere i problemi relativi alla distribuzione di Spazi di archiviazione diretta.
 keywords: Spazi di archiviazione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: ''
 ms.technology: storage-spaces
 ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 30fdda5ada01510027100efce1e95f310f69c6a1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ace19b711445106956ae223f17afb6b4181d352d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365943"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Risoluzione dei problemi Spazi di archiviazione diretta
 
-> Si applica a Windows Server 2019, Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Usare le informazioni seguenti per risolvere i problemi relativi alla distribuzione di Spazi di archiviazione diretta.
 
@@ -103,8 +103,8 @@ Di seguito è riportato un esempio dell'output del cmdlet **Get-VirtualDisk** .
 |-|-|-|-|-|-|-|
 |DISK4|         Mirror|                 OK|                  Integro|       True|            10 TB|  Node-01. conto...|
 |Disk3|         Mirror|                 OK|                  Integro|       True|            10 TB|  Node-01. conto...|
-|Disk2|         Mirror|                 Detached|            Sconosciuto|       True|            10 TB|  Node-01. conto...|
-|Disk1|         Mirror|                 Detached|            Sconosciuto|       True|            10 TB|  Node-01. conto...| 
+|Disk2|         Mirror|                 Detached|            Sconosciuta|       True|            10 TB|  Node-01. conto...|
+|Disk1|         Mirror|                 Detached|            Sconosciuta|       True|            10 TB|  Node-01. conto...| 
 
 
 Inoltre, è possibile che nei nodi siano registrati gli eventi seguenti:
@@ -283,7 +283,7 @@ Per disabilitare completamente tutti i dump, inclusi i dump in tempo reale a liv
 
 Dopo aver impostato la chiave del registro di sistema, la creazione del dump Live avrà esito negativo e genererà un errore "STATUS_NOT_SUPPORTED".
 
-#### <a name="method-2"></a>Metodo 2
+#### <a name="method-2"></a>Method 2
 Per impostazione predefinita, Segnalazione errori Windows consentirà un solo LiveDump per ogni tipo di report per 7 giorni e solo 1 LiveDump per ogni computer per 5 giorni. È possibile modificare questa impostazione impostando le seguenti chiavi del registro di sistema in modo da consentire l'uso di un solo LiveDump del computer per sempre.
 ```
 reg add "HKLM\Software\Microsoft\Windows\Windows Error Reporting\FullLiveKernelReports" /v SystemThrottleThreshold /t REG_DWORD /d 0xFFFFFFFF /f
@@ -400,7 +400,7 @@ Il problema riguarda la scheda espansore SAS HPE che si trova tra i dischi e la 
 Potrebbe essere visualizzato un problema per cui un dispositivo Intel SSD DC P4600 Series sembra segnalare un NGUID simile a 16 byte per più spazi dei nomi, ad esempio 0100000001000000E4D25C000014E214 o 0100000001000000E4D25C0000EEE214 nell'esempio riportato di seguito.
 
 
-|               UniqueId               | deviceid | MediaType | BusType |               SerialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
+|               UniqueId               | DeviceID | MediaType | BusType |               SerialNumber               |      dimensioni      | canpool | FriendlyName | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
 |           5000CCA251D12E30           |    0     |    Unità disco rigido    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
 | EUI. 0100000001000000E4D25C000014E214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |

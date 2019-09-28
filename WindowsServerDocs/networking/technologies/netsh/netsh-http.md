@@ -1,50 +1,50 @@
 ---
-title: Netsh Commands for Hypertext Transfer Protocol (HTTP)
-description: Usare netsh http per eseguire query e configurare le impostazioni HTTP. sys e parametri.
-ms.prod: windows-server-threshold
+title: Comandi Netsh per Hypertext Transfer Protocol (HTTP)
+description: Utilizzare netsh http per eseguire query e configurare parametri e impostazioni HTTP. sys.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3c5f3927abf1a2394c2dd5b8ea664c7de8d5f614
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7b9032eb05128532c8bf90a0db2f685b4435e6eb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446189"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401881"
 ---
 # <a name="netsh-http-commands"></a>Comandi netsh per HTTP
 
 
-Uso **netsh http** per eseguire query e configurare le impostazioni HTTP. sys e parametri.  
+Utilizzare **netsh http** per eseguire query e configurare parametri e impostazioni http. sys.  
 
 >[!TIP]
->Se si usa Windows PowerShell in un computer che esegue Windows Server 2016 o Windows 10, digitare **netsh** e premere INVIO. Al prompt netsh, digitare **http** e premere INVIO per ottenere il prompt dei comandi di netsh http.
+>Se si usa Windows PowerShell in un computer che esegue Windows Server 2016 o Windows 10, digitare **netsh** e premere INVIO. Al prompt dei comandi netsh digitare **http** e premere INVIO per ottenere il prompt http netsh.
 >
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netsh http\>
+>&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6netsh http @ no__t-7
 
-I comandi http netsh disponibili sono:
+I comandi netsh http disponibili sono:
 
-- [add iplisten](#add-iplisten)
-- [add sslcert](#add-sslcert)
-- [add timeout](#add-timeout)
-- [aggiungere urlacl](#add-urlacl)
-- [eliminare cache](#delete-cache)
+- [Aggiungi iplisten](#add-iplisten)
+- [Aggiungi sslcert](#add-sslcert)
+- [Aggiungi timeout](#add-timeout)
+- [Aggiungi urlacl](#add-urlacl)
+- [Elimina cache](#delete-cache)
 - [Elimina iplisten](#delete-iplisten)
 - [Elimina sslcert](#delete-sslcert)
-- [eliminare i timeout](#delete-timeout)
-- [Delete urlacl](#delete-urlacl)
-- [scaricamento logbuffer](#flush-logbuffer)
-- [Mostra cachestate](#show-cachestate)
-- [show iplisten](#show-iplisten)
-- [Mostra servicestate](#show-servicestate)
-- [show sslcert](#show-sslcert)
+- [timeout eliminazione](#delete-timeout)
+- [Elimina urlacl](#delete-urlacl)
+- [Scarica logbuffer](#flush-logbuffer)
+- [Mostra capetto](#show-cachestate)
+- [Mostra iplisten](#show-iplisten)
+- [Mostra ServiceState](#show-servicestate)
+- [Mostra sslcert](#show-sslcert)
 - [Mostra timeout](#show-timeout)
 - [Mostra urlacl](#show-urlacl)
 
-## <a name="add-iplisten"></a>aggiungere iplisten
+## <a name="add-iplisten"></a>Aggiungi iplisten
 
 Aggiunge un nuovo indirizzo IP all'elenco di ascolto IP, escluso il numero di porta.
 
@@ -58,24 +58,24 @@ add iplisten [ ipaddress= ] IPAddress
 
 |               |                                                                                                                                                                                                                          |          |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipaddress** | Elenco di ascolto l'indirizzo IPv4 o IPv6 da aggiungere all'indirizzo IP. L'elenco di ascolto IP consente di definire l'ambito l'elenco di indirizzi a cui viene associato al servizio HTTP. "0.0.0.0" significa che tutti gli indirizzi IPv4 e "::" si intende qualsiasi indirizzo IPv6. | Obbligatorio |
+| **IPAddress** | Indirizzo IPv4 o IPv6 da aggiungere all'elenco di ascolto IP. L'elenco di ascolto IP viene usato per definire l'ambito dell'elenco di indirizzi a cui viene associato il servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. | Obbligatorio |
 
 ---
 
-**Esempi**
+**esempi**
 
-Quattro esempi seguenti vengono illustrate le **aggiungere iplisten** comando.
+Di seguito sono riportati quattro esempi del comando **Add iplisten** .
 
--   add iplisten ipaddress=fe80::1
--   add iplisten ipaddress=1.1.1.1
--   add iplisten ipaddress=0.0.0.0
--   add iplisten ipaddress=::
+-   aggiungere iplisten IPAddress = FE80:: 1
+-   aggiungere iplisten IPAddress = 1.1.1.1
+-   aggiungere iplisten IPAddress = 0.0.0.0
+-   aggiungere iplisten IPAddress =::
 
 ---
 
-## <a name="add-sslcert"></a>aggiungere sslcert
+## <a name="add-sslcert"></a>Aggiungi sslcert
 
-Aggiunge un nuovo certificato del server SSL binding e i corrispondenti criteri di certificato client per un indirizzo IP e porta.
+Aggiunge una nuova associazione di certificati del server SSL e i criteri dei certificati client corrispondenti per un indirizzo IP e una porta.
 
 **Sintassi**
 
@@ -88,31 +88,31 @@ add sslcert [ ipport= ] IPAddress:port [ certhash= ] CertHash [ appid= ] GUID [ 
 
 |                                              |                                                                                                                                                                                          |          |
 |----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-|                  **ipport**                  |                       Specifica l'indirizzo IP e la porta per l'associazione. Un carattere due punti (:) viene usato come delimitatore tra l'indirizzo IP e il numero di porta.                        | Obbligatorio |
-|                 **certhash**                 |                                     Specifica l'hash SHA del certificato. Questo hash è lunga 20 byte e viene specificato come stringa esadecimale.                                      | Obbligatorio |
+|                  **ipport**                  |                       Specifica l'indirizzo IP e la porta per l'associazione. Un carattere due punti (:) viene utilizzato come delimitatore tra l'indirizzo IP e il numero di porta.                        | Obbligatorio |
+|                 **certhash**                 |                                     Specifica l'hash SHA del certificato. Questo hash ha una lunghezza di 20 byte e viene specificato come stringa esadecimale.                                      | Obbligatorio |
 |                  **appid**                   |                                                                  Specifica il GUID per identificare l'applicazione proprietaria.                                                                  | Obbligatorio |
-|              **certstorename**               |                                  Specifica il nome dell'archivio del certificato. Il valore predefinito è MY. Certificato deve essere archiviato nel contesto del computer locale.                                  | Facoltativo |
-|        **verifyclientcertrevocation**        |                                                      Specifica la disattiva in/verifica delle revoche dei certificati client.                                                       | Facoltativo |
-| **verifyrevocationwithcachedclientcertonly** |                                      Specifica se l'utilizzo del solo i certificati client nella cache per la verifica delle revoche di certificati è abilitato o disabilitato.                                       | Facoltativo |
-|                **usagecheck**                |                                                      Specifica se il controllo dell'utilizzo viene abilitato o disabilitato. Impostazione predefinita è abilitato.                                                       | Facoltativo |
-|         **revocationfreshnesstime**          | Specifica l'intervallo di tempo in secondi, per verificare la presenza di elenco di revoche di certificati (CRL) un certificato aggiornato. Se questo valore è zero, il nuovo CRL viene aggiornato solo se alla scadenza di quello precedente. | Facoltativo |
-|           **urlretrievaltimeout**            |                            Specifica l'intervallo di timeout, in millisecondi, dopo il tentativo di recuperare l'elenco di revoche di certificati per l'URL remoto.                            | Facoltativo |
-|             **sslctlidentifier**             |                Specifica l'elenco di autorità emittenti di certificati che può essere considerato attendibile. Questo elenco può essere un subset di autorità emittenti di certificati considerati attendibili dal computer.                 | Facoltativo |
-|             **sslctlstorename**              |                                                Specifica il nome dell'archivio certificati in computer_locale archiviazione SslCtlIdentifier.                                                | Facoltativo |
-|              **dsmapperusage**               |                                                        Specifica se il mapper di dominio Active Directory è abilitata o disabilitata. Valore predefinito è disabled.                                                         | Facoltativo |
-|          **clientcertnegotiation**           |                                              Specifica se la negoziazione del certificato è abilitata o disabilitata. Valore predefinito è disabled.                                               | Facoltativo |
+|              **certstorename**               |                                  Specifica il nome dell'archivio per il certificato. IL valore predefinito è MY. Il certificato deve essere archiviato nel contesto del computer locale.                                  | Facoltativo |
+|        **verifyclientcertrevocation**        |                                                      Specifica la verifica della revoca dei certificati client attiva/disattiva.                                                       | Facoltativo |
+| **verifyrevocationwithcachedclientcertonly** |                                      Specifica se l'utilizzo del solo certificato client memorizzato nella cache per il controllo delle revoche è abilitato o disabilitato.                                       | Facoltativo |
+|                **usagecheck**                |                                                      Specifica se il controllo di utilizzo è abilitato o disabilitato. Il valore predefinito è Enabled.                                                       | Facoltativo |
+|         **RevocationFreshnessTime**          | Specifica l'intervallo di tempo, in secondi, per verificare la presenza di un elenco di revoche di certificati (CRL) aggiornato. Se questo valore è zero, il nuovo CRL viene aggiornato solo se quello precedente scade. | Facoltativo |
+|           **urlretrievaltimeout**            |                            Specifica l'intervallo di timeout (in millisecondi) dopo il tentativo di recuperare l'elenco di revoche di certificati per l'URL remoto.                            | Facoltativo |
+|             **sslctlidentifier**             |                Specifica l'elenco delle autorità emittenti di certificati che possono essere attendibili. Questo elenco può essere un subset delle autorità emittenti di certificati considerate attendibili dal computer.                 | Facoltativo |
+|             **sslctlstorename**              |                                                Specifica il nome dell'archivio certificati in LOCAL_MACHINE in cui è archiviato SslCtlIdentifier.                                                | Facoltativo |
+|              **dsmapperusage**               |                                                        Specifica se i Mapper DS sono abilitati o disabilitati. Il valore predefinito è Disabled.                                                         | Facoltativo |
+|          **clientcertnegotiation**           |                                              Specifica se la negoziazione del certificato è abilitata o disabilitata. Il valore predefinito è Disabled.                                               | Facoltativo |
 
 ---
 
-**Esempi**
+**esempi**
 
-Seguito è riportato un esempio del **aggiungere sslcert** comando.
+Di seguito è riportato un esempio del comando **add sslcert** .
 
-Add sslcert ipport=0.0.0.0:443 certhash 1.1.1.1:443 = = 0102030405060708090A0B0C0D0E0F1011121314 appid = {00112233-4455-6677-8899-AABBCCDDEEFF}
+add sslcert ipport = 1.1.1.1:443 certhash = 0102030405060708090A0B0C0D0E0F1011121314 appid = {00112233-4455-6677-8899-AABBCCDDEEFF}
 
 ---
 
-## <a name="add-timeout"></a>aggiungere timeout
+## <a name="add-timeout"></a>Aggiungi timeout
 
 Aggiunge un timeout globale al servizio.
 
@@ -127,22 +127,22 @@ add timeout [ timeouttype= ] IdleConnectionTimeout | HeaderWaitTimeout [ value=]
 |                 |                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------|
 | **timeouttype** |                                    Tipo di timeout per l'impostazione.                                     |
-|    **value**    | Valore di timeout (in secondi). Se il valore è in notazione esadecimale, aggiungere il prefisso 0 x. |
+|    **value**    | Valore del timeout (in secondi). Se il valore è in notazione esadecimale, aggiungere il prefisso 0x. |
 
 ---
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **aggiungere timeout** comando.
+Di seguito sono riportati due esempi del comando **Add timeout** .
 
--   add timeout timeouttype=idleconnectiontimeout value=120
--   aggiungere timeouttype timeout = valore headerwaittimeout 0x40 =
+-   Aggiungi timeout timeouttype = idleconnectiontimeout valore = 120
+-   Aggiungi timeout timeouttype = HeaderWaitTimeout valore = 0x40
 
 ---
 
-## <a name="add-urlacl"></a>aggiungere urlacl
+## <a name="add-urlacl"></a>Aggiungi urlacl
 
-Aggiunge una voce di prenotazione Uniform Resource Locator (URL). Questo comando di prenotare l'URL per gli account e utenti non amministratori. L'elenco DACL può essere specificato usando un nome di account NT con i parametri di ascolto e un delegato o utilizzando una stringa SDDL.
+Aggiunge una voce di prenotazione di Uniform Resource Locator (URL). Questo comando riserva l'URL per gli utenti e gli account non amministratori. È possibile specificare l'elenco DACL usando un nome di account NT con i parametri Listen e Delegate oppure usando una stringa SDDL.
 
 **Sintassi**
 
@@ -154,28 +154,28 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 
 |              |                                                                                                                                                  |          |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-|   **url**    |                                          Specifica il nome completo localizzatore URL (Uniform Resource).                                           | Obbligatorio |
-|   **user**   |                                                      Specifica il nome utente o gruppo di utenti                                                       | Obbligatorio |
-|  **listen**  | Specifica uno dei seguenti valori: Sì: Consentire all'utente di registrare gli URL. Rappresenta il valore predefinito. no: Negare all'utente tramite la registrazione degli URL. | Facoltativo |
-| **delegate** |  Specifica uno dei seguenti valori: Sì: Consenti all'utente di delegare gli URL non: Negare la delega dell'URL all'utente. Rappresenta il valore predefinito.  | Facoltativo |
-|   **sddl**   |                                                Specifica una stringa SDDL che descrive l'elenco DACL.                                                 | Facoltativo |
+|   **url**    |                                          Specifica il Uniform Resource Locator completo (URL).                                           | Obbligatorio |
+|   **user**   |                                                      Specifica il nome dell'utente o del gruppo di utenti                                                       | Obbligatorio |
+|  **ascoltare**  | Specifica uno dei valori seguenti: Sì: Consente all'utente di registrare gli URL. Rappresenta il valore predefinito. No: Nega all'utente la registrazione degli URL. | Facoltativo |
+| **Delegato** |  Specifica uno dei valori seguenti: Sì: Consenti all'utente di delegare gli URL No: Negare all'utente la delega degli URL. Rappresenta il valore predefinito.  | Facoltativo |
+|   **SDDL**   |                                                Specifica una stringa SDDL che descrive l'elenco DACL.                                                 | Facoltativo |
 
 ---
 
-**Esempi**
+**esempi**
 
-Quattro esempi seguenti vengono illustrate le **aggiungere urlacl** comando.
+Di seguito sono riportati quattro esempi del comando **add urlacl** .
 
-- aggiungere url urlacl =https://+:80/MyUri utente = DOMAIN\\utente
-- aggiungere url urlacl =<https://www.contoso.com:80/MyUri> utente = DOMAIN\\listen utente = Sì
-- aggiungere url urlacl =<https://www.contoso.com:80/MyUri> utente = DOMAIN\\delegato dell'utente = no
-- aggiungere url urlacl =https://+:80/MyUri sddl =...
+- add urlacl url = https://+:80/MyUri User = DOMAIN @ no__t-1user
+- Aggiungi URL urlacl = <https://www.contoso.com:80/MyUri> utente = dominio @ no__t-1user ascolto = Sì
+- add urlacl url = <https://www.contoso.com:80/MyUri> User = DOMAIN @ no__t-1user delegate = No
+- Aggiungi URL urlacl = https://+:80/MyUri SDDL =...
 
 ---
 
-## <a name="delete-cache"></a>eliminare cache
+## <a name="delete-cache"></a>Elimina cache
 
-Elimina tutte le voci, o una voce, specificata dall'URI nella cache del kernel del servizio HTTP.
+Elimina tutte le voci o una voce specificata dalla cache URI del kernel del servizio HTTP.
 
 **Sintassi**
 
@@ -187,23 +187,23 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 
 |               |                                                                                                                              |          |
 |---------------|------------------------------------------------------------------------------------------------------------------------------|----------|
-|    **url**    |                    Specifica il nome completo URL Uniform Resource Locator () che si desidera eliminare.                     | Facoltativo |
-| **recursive** | Specifica se ottengano vengono rimosse tutte le voci nella cache url. **Sì**: rimuovere tutte le voci **alcun**: non rimuovere tutte le voci | Facoltativo |
+|    **url**    |                    Specifica il Uniform Resource Locator completo (URL) che si desidera eliminare.                     | Facoltativo |
+| **ricorsiva** | Specifica se vengono rimosse tutte le voci della cache URL. **Sì**: Rimuovi tutte le voci **No**: non rimuovere tutte le voci | Facoltativo |
 
 ---
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **eliminare cache** comando.
+Di seguito sono riportati due esempi del comando **delete cache** .
 
-- Elimina cache url =<https://www.contoso.com:80/myresource/> ricorsiva = Sì
-- eliminare cache
+- Elimina URL cache = <https://www.contoso.com:80/myresource/> ricorsivo = Sì
+- Elimina cache
 
 ---
 
 ## <a name="delete-iplisten"></a>Elimina iplisten
 
-Elimina un indirizzo IP dall'elenco di ascolto IP. L'elenco di ascolto IP consente di definire l'ambito l'elenco di indirizzi a cui viene associato al servizio HTTP.
+Elimina un indirizzo IP dall'elenco di ascolto IP. L'elenco di ascolto IP viene usato per definire l'ambito dell'elenco di indirizzi a cui viene associato il servizio HTTP.
 
 **Sintassi**
 
@@ -215,26 +215,26 @@ delete iplisten [ ipaddress= ] IPAddress
 
 |               |                                                                                                                                                                                                                                                                     |          |
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipaddress** | Elenco di ascolto l'indirizzo IPv4 o IPv6 da eliminare dall'IP. L'elenco di ascolto IP consente di definire l'ambito l'elenco di indirizzi a cui viene associato al servizio HTTP. "0.0.0.0" significa che tutti gli indirizzi IPv4 e "::" si intende qualsiasi indirizzo IPv6. Questo non include il numero di porta. | Obbligatorio |
+| **IPAddress** | Indirizzo IPv4 o IPv6 da eliminare dall'elenco di ascolto IP. L'elenco di ascolto IP viene usato per definire l'ambito dell'elenco di indirizzi a cui viene associato il servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. Il numero di porta non è incluso. | Obbligatorio |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Quattro esempi seguenti vengono illustrate le **eliminare iplisten** comando.
+Di seguito sono riportati quattro esempi del comando **delete iplisten** .
 
--   delete iplisten ipaddress=fe80::1
--   delete iplisten ipaddress=1.1.1.1
--   delete iplisten ipaddress=0.0.0.0
--   delete iplisten ipaddress=::
+-   Elimina iplisten IPAddress = FE80:: 1
+-   Elimina iplisten IPAddress = 1.1.1.1
+-   Elimina iplisten IPAddress = 0.0.0.0
+-   Elimina iplisten IPAddress =::
 
 ---
 
 ## <a name="delete-sslcert"></a>Elimina sslcert
 
 
-Elimina le associazioni certificato server SSL e criteri di certificato client corrispondente per un indirizzo IP e porta.
+Elimina i binding del certificato server SSL e i criteri dei certificati client corrispondenti per un indirizzo IP e una porta.
 
 **Sintassi**
 
@@ -246,24 +246,24 @@ delete sslcert [ ipport= ] IPAddress:port
 
 |            |                                                                                                                                                                                          |          |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per il quale vengono eliminate le associazioni certificato SSL. Un carattere due punti (:) viene usato come delimitatore tra l'indirizzo IP e il numero di porta. | Obbligatorio |
+| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono eliminate le associazioni di certificati SSL. Un carattere due punti (:) viene utilizzato come delimitatore tra l'indirizzo IP e il numero di porta. | Obbligatorio |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Tre esempi seguenti vengono illustrate le **eliminare sslcert** comando.
+Di seguito sono riportati tre esempi del comando **Delete sslcert** .
 
-- delete sslcert ipport=1.1.1.1:443
-- delete sslcert ipport=0.0.0.0:443
-- Elimina sslcert ipport = [::]: 443
+- Delete sslcert ipport = 1.1.1.1:443
+- Delete sslcert ipport = 0.0.0.0:443
+- Delete sslcert ipport = [::]: 443
 
 ---
 
-## <a name="delete-timeout"></a>eliminare i timeout
+## <a name="delete-timeout"></a>timeout eliminazione
 
-Elimina un timeout globale e rende il servizio di ripristinare i valori predefiniti.
+Elimina un timeout globale e fa in modo che il servizio ripristini i valori predefiniti.
 
 **Sintassi**
 
@@ -275,21 +275,21 @@ delete timeout [ timeouttype= ] idleconnectiontimeout | headerwaittimeout
 
 |                 |                                        |          |
 |-----------------|----------------------------------------|----------|
-| **timeouttype** | Specifica il tipo di impostazione di timeout. | Obbligatorio |
+| **timeouttype** | Specifica il tipo di impostazione del timeout. | Obbligatorio |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **eliminare timeout** comando.
+Di seguito sono riportati due esempi del comando **Delete timeout** .
 
--   Elimina timeouttype timeout = idleconnectiontimeout
--   Elimina timeouttype timeout = headerwaittimeout
+-   Delete timeout timeouttype = idleconnectiontimeout
+-   Delete timeout timeouttype = HeaderWaitTimeout
 
 ---
 
-## <a name="delete-urlacl"></a>Delete urlacl
+## <a name="delete-urlacl"></a>Elimina urlacl
 
 Elimina le prenotazioni URL.
 
@@ -303,23 +303,23 @@ delete urlacl [ url= ] URL
 
 |         |                                                                                       |          |
 |---------|---------------------------------------------------------------------------------------|----------|
-| **url** | Specifica il nome completo URL Uniform Resource Locator () che si desidera eliminare. | Obbligatorio |
+| **url** | Specifica il Uniform Resource Locator completo (URL) che si desidera eliminare. | Obbligatorio |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **delete urlacl** comando.
+Di seguito sono riportati due esempi del comando **delete urlacl** .
 
-- Delete urlacl url =https://+:80/MyUri
-- Delete urlacl url =<https://www.contoso.com:80/MyUri>
+- Elimina URL urlacl = https://+:80/MyUri
+- Elimina URL urlacl = <https://www.contoso.com:80/MyUri>
 
 ---
 
-## <a name="flush-logbuffer"></a>scaricamento logbuffer
+## <a name="flush-logbuffer"></a>Scarica logbuffer
 
-Scarica il buffer interno per i file di log.
+Scarica i buffer interni per i file di log.
 
 **Sintassi**
 
@@ -329,9 +329,9 @@ flush logbuffer
 
 ---
 
-## <a name="show-cachestate"></a>Mostra cachestate
+## <a name="show-cachestate"></a>Mostra capetto
 
-Gli elenchi memorizzati nella cache le risorse URI e le relative proprietà. Questo comando Elenca tutte le risorse e le proprietà associate che vengono memorizzati nella cache nella cache delle risposte HTTP oppure visualizza una singola risorsa e le relative proprietà associate.
+Elenca le risorse URI memorizzate nella cache e le relative proprietà associate. Questo comando elenca tutte le risorse e le relative proprietà associate memorizzate nella cache di risposta HTTP o Visualizza una singola risorsa e le proprietà associate.
 
 **Sintassi**
 
@@ -343,23 +343,23 @@ show cachestate [ [url= ] URL]
 
 |         |                                                                                                                                                    |          |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **url** | Specifica l'URL completo che si desidera visualizzare. Se non specificato, visualizzare tutti gli URL. L'URL può anche essere un prefisso di URL registrati. | Facoltativo |
+| **url** | Specifica l'URL completo che si desidera visualizzare. Se non è specificato, visualizzare tutti gli URL. L'URL può anche essere un prefisso per gli URL registrati. | Facoltativo |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **mostrare cachestate** comando:
+Di seguito sono riportati due esempi del comando **Mostra capetto** :
 
-- Mostra url cachestate =<https://www.contoso.com:80/myresource>
-- Mostra cachestate
+- Mostra URL capetto = <https://www.contoso.com:80/myresource>
+- Mostra capetto
 
 ---
 
 ## <a name="show-iplisten"></a>Mostra iplisten
 
-Visualizza tutti gli indirizzi IP nell'elenco di ascolto IP. L'elenco di ascolto IP consente di definire l'ambito l'elenco di indirizzi a cui viene associato al servizio HTTP. "0.0.0.0" significa che tutti gli indirizzi IPv4 e "::" si intende qualsiasi indirizzo IPv6.
+Visualizza tutti gli indirizzi IP nell'elenco di ascolto IP. L'elenco di ascolto IP viene usato per definire l'ambito dell'elenco di indirizzi a cui viene associato il servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6.
 
 **Sintassi**
 
@@ -369,7 +369,7 @@ show iplisten
 
 ---
 
-## <a name="show-servicestate"></a>Mostra servicestate
+## <a name="show-servicestate"></a>Mostra ServiceState
 
 Consente di visualizzare uno snapshot del servizio HTTP.
 
@@ -382,23 +382,23 @@ show servicestate [ [ view= ] session | requestq ] [ [ verbose= ] yes | no ]
 
 |             |                                                                                                                      |          |
 |-------------|----------------------------------------------------------------------------------------------------------------------|----------|
-|  **Visualizza**   | Specifica se visualizzare uno snapshot dello stato del servizio HTTP in base la sessione del server o le code di richiesta. | Facoltativo |
-| **Verbose** |                Specifica se visualizzare informazioni dettagliate che illustra anche le informazioni sulle proprietà.                | Facoltativo |
+|  **Visualizza**   | Specifica se visualizzare uno snapshot dello stato del servizio HTTP in base alla sessione del server o alle code di richiesta. | Facoltativo |
+| **Dettagliato** |                Specifica se visualizzare informazioni dettagliate che mostrano anche le informazioni sulle proprietà.                | Facoltativo |
 
 ---
 
-**Esempi**
+**esempi**
 
-Di seguito sono riportati due esempi del **mostrare servicestate** comando.
+Di seguito sono riportati due esempi del comando **show servicestate** .
 
--   show servicestate view="session"
--   show servicestate view="requestq"
+-   Mostra ServiceState View = "Session"
+-   Mostra ServiceState View = "requestq"
 
 ---
 
 ## <a name="show-sslcert"></a>Mostra sslcert
 
-Consente di visualizzare le associazioni di certificati server Secure Sockets Layer (SSL) e criteri di certificato client corrispondente per un indirizzo IP e porta.
+Visualizza le associazioni di certificati del server Secure Sockets Layer (SSL) e i criteri dei certificati client corrispondenti per un indirizzo IP e una porta.
 
 **Sintassi**
 
@@ -410,18 +410,18 @@ show sslcert [ ipport= ] IPAddress:port
 
 |            |                                                                                                                                                                                                                                                |          |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui il protocollo SSL certificato visualizzato Binding. Un carattere due punti (:) viene usato come delimitatore tra l'indirizzo IP e il numero di porta. Se non si specifica ipport, vengono visualizzate tutte le associazioni. | Obbligatorio |
+| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono visualizzati i binding del certificato SSL. Un carattere due punti (:) viene utilizzato come delimitatore tra l'indirizzo IP e il numero di porta. Se non si specifica ipport, verranno visualizzate tutte le associazioni. | Obbligatorio |
 
 ---
 
 
-**Esempi**
+**esempi**
 
-Cinque esempi seguenti vengono illustrate le **mostrare sslcert** comando.
+Di seguito sono riportati cinque esempi del comando **show sslcert** .
 
--   Mostra sslcert ipport = [FE80:: 1]: 443
+-   Mostra sslcert ipport = [fe80:: 1]: 443
 -   Mostra sslcert ipport = 1.1.1.1:443
--   show sslcert ipport=0.0.0.0:443
+-   Mostra sslcert ipport = 0.0.0.0:443
 -   Mostra sslcert ipport = [::]: 443
 -   Mostra sslcert
 
@@ -441,7 +441,7 @@ show timeout
 
 ## <a name="show-urlacl"></a>Mostra urlacl
 
-Controllo di accesso discrezionale consente di visualizzare elenchi (DACL) per l'URL riservato specificato o tutti gli URL riservati.
+Visualizza gli elenchi di controllo di accesso discrezionale (DACL) per l'URL riservato specificato o per tutti gli URL riservati.
 
 **Sintassi**
 
@@ -458,12 +458,12 @@ show urlacl [ [url= ] URL]
 ---
 
 
-**Esempi**
+**esempi**
 
-Tre esempi seguenti vengono illustrate le **mostrare urlacl** comando.
+Di seguito sono riportati tre esempi del comando **show urlacl** .
 
-- Mostra url urlacl =https://+:80/MyUri
-- Mostra url urlacl =<https://www.contoso.com:80/MyUri>
+- Mostra URL urlacl = https://+:80/MyUri
+- Mostra URL urlacl = <https://www.contoso.com:80/MyUri>
 - Mostra urlacl
 
 ---

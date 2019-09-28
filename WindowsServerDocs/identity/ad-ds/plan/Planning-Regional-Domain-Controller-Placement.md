@@ -1,85 +1,85 @@
 ---
 ms.assetid: eb600904-24b8-4488-a278-c1c971dc2f2d
-title: Pianificazione della selezione del Controller di dominio regionale
+title: Pianificazione del posizionamento del controller di dominio regionale
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bec8595ab6eae8eb6cedaf9307ab97ac9c8316b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2508476f35462516f32877365cb15be919b5b6df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408731"
 ---
-# <a name="planning-regional-domain-controller-placement"></a>Pianificazione della selezione del Controller di dominio regionale
+# <a name="planning-regional-domain-controller-placement"></a>Pianificazione del posizionamento del controller di dominio regionale
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Per garantire l'efficienza dei costi, desidera collocare il controller di dominio regionale il minor numero possibile. In primo luogo, esaminare il foglio di lavoro "Geografica posizioni e collegamenti di comunicazione" (DSSTOPO_1.doc) utilizzato in [la raccolta di informazioni di rete](../../ad-ds/plan/Collecting-Network-Information.md) per determinare se un percorso è un hub.  
+Per garantire l'efficienza dei costi, pianificare la collocazione del minor numero possibile di controller di dominio regionali. Per prima cosa, vedere il foglio di controllo "posizioni geografiche e collegamenti di comunicazione" (DSSTOPO_1. doc) usato nella [raccolta di informazioni di rete](../../ad-ds/plan/Collecting-Network-Information.md) per determinare se una località è un hub.  
   
-Prevede di inserire i controller di dominio regionale per ogni dominio che viene rappresentato in ogni posizione dell'hub. Dopo aver inserito i controller di dominio regionale in tutti i percorsi di hub, valutare la necessità di posizionamento dei controller di dominio regionale in posizioni satellite. Eliminando i controller di dominio internazionali non necessari dai percorsi satellite riduce i costi di supporto necessari per gestire l'infrastruttura di un server remoto.  
+Pianificare il posizionamento dei controller di dominio regionali per ogni dominio rappresentato in ogni posizione dell'hub. Dopo aver posizionato i controller di dominio regionali in tutte le posizioni degli hub, valutare la necessità di collocare i controller di dominio regionali in posizioni satellite. Eliminando i controller di dominio regionali non necessari da percorsi satellite si riducono i costi di supporto necessari per gestire un'infrastruttura server remota.  
   
-Inoltre, garantire la sicurezza fisica dei controller di dominio nei percorsi di hub e satellite in modo che il personale non autorizzato non è possibile accedervi. Non inserire i controller di dominio scrivibili nei percorsi di hub e satellite in cui non è possibile garantire la sicurezza fisica del controller di dominio. Una persona che ha accesso fisico a un controller di dominio scrivibile può attaccare il sistema da:  
+Inoltre, garantire la sicurezza fisica dei controller di dominio nelle posizioni Hub e satellite, in modo che il personale non autorizzato non possa accedervi. Non collocare i controller di dominio scrivibili in percorsi Hub e satellite in cui non è possibile garantire la sicurezza fisica del controller di dominio. Una persona con accesso fisico a un controller di dominio scrivibile può attaccare il sistema:  
   
-- L'accesso a dischi fisici avviando un altro sistema operativo in un controller di dominio.  
-- La rimozione (e possibilmente sostituendo) dischi fisici in un controller di dominio.  
-- Recupero e la modifica di una copia di un backup dello stato sistema del controller di dominio.  
+- Per accedere ai dischi fisici, avviare un sistema operativo alternativo in un controller di dominio.  
+- Rimozione e possibilmente sostituzione di dischi fisici in un controller di dominio.  
+- Recupero e modifica di una copia di un backup dello stato del sistema del controller di dominio.  
   
-Aggiungere i controller di dominio a livello di area accessibile in scrittura solo in posizioni in cui è possibile garantire la sicurezza fisica.  
+Aggiungere controller di dominio locali scrivibili solo alle posizioni in cui è possibile garantire la sicurezza fisica.  
   
-In posizioni inadeguate sicurezza fisica, la distribuzione di un controller di dominio di sola lettura (RODC) è la soluzione consigliata. Fatta eccezione per le password degli account, un RODC contiene tutti gli oggetti Active Directory e attributi che contiene un controller di dominio scrivibile. Tuttavia, è Impossibile apportare modifiche al database che viene archiviato nel RODC. Le modifiche devono essere eseguite in un controller di dominio scrivibile e successivamente replicate nel RODC.  
+In posizioni con sicurezza fisica inadeguata, la soluzione consigliata è la distribuzione di un controller di dominio di sola lettura (RODC). Ad eccezione delle password degli account, un controller di dominio di sola lettura include tutti gli oggetti e gli attributi Active Directory contenuti in un controller di dominio scrivibile. Tuttavia, non è possibile apportare modifiche al database archiviato nel RODC. Le modifiche devono essere apportate in un controller di dominio scrivibile e quindi replicate nel controller di dominio di sola lettura.  
   
-Per autenticare gli accessi client e l'accesso ai file server locali, la maggior parte delle organizzazioni collocare i controller di dominio regionale per tutti i domini regionali sono rappresentati in una posizione specificata. Tuttavia, è necessario considerare numerose variabili quando si valuta se un percorso aziendale richiede di effettuare l'autenticazione locale dai relativi client o il client può contare su autenticazione e query su un collegamento di wide area network (WAN). Nella figura seguente viene illustrato come determinare se installare il controller di dominio in posizioni satellite.  
+Per autenticare gli accessi client e l'accesso ai file server locali, la maggior parte delle organizzazioni posiziona i controller di dominio regionali per tutti i domini regionali rappresentati in una determinata posizione. Tuttavia, è necessario prendere in considerazione molte variabili quando si valuta se un percorso aziendale richiede che i client dispongano dell'autenticazione locale oppure i client possono basarsi sull'autenticazione ed eseguire query su un collegamento di Wide Area Network (WAN). Nella figura seguente viene illustrato come determinare se collocare i controller di dominio in posizioni satellite.  
   
-![posizionamento di controller di dominio regionale piano](media/Planning-Regional-Domain-Controller-Placement/49892c8c-2c99-4aab-92ba-808dbc8048e2.gif)  
+![pianificare il posizionamento del controller di dominio regionale](media/Planning-Regional-Domain-Controller-Placement/49892c8c-2c99-4aab-92ba-808dbc8048e2.gif)  
   
-## <a name="onsite-technical-expertise-availability"></a>Disponibilità delle proprie competenze tecniche in loco
+## <a name="onsite-technical-expertise-availability"></a>Disponibilità di competenze tecniche in sede
 
-I controller di dominio devono essere gestiti in modo continuativo per vari motivi. Inserire un controller di dominio regionale solo in percorsi che includono il personale che possono amministrare il controller di dominio o essere certi che il controller di dominio può essere gestito in remoto.  
+I controller di dominio devono essere gestiti in modo continuo per diversi motivi. Posizionare un controller di dominio regionale solo nelle posizioni che includono il personale che può amministrare il controller di dominio o assicurarsi che il controller di dominio possa essere gestito in remoto.  
   
-In succursali con la sicurezza fisica in genere scarsa e personale con scarsa conoscenza di tecnologia di informazioni, la distribuzione di un RODC è spesso la soluzione consigliata. Le autorizzazioni amministrative locali per un controller di dominio possono essere delegate a qualsiasi utente di dominio senza concedergli i diritti utente per il dominio o altri controller di dominio. Ciò consente all'utente di accedere a un RODC ed eseguire interventi di manutenzione nel server, ad esempio l'aggiornamento di un driver branch locale. Tuttavia, l'utente di ramo non può accedere a qualsiasi altro controller di dominio o eseguire altre attività amministrative nel dominio. In questo modo, l'utente di branch può essere delegata la possibilità di gestire in modo efficace il RODC nella succursale senza compromettere la protezione del resto del dominio o foresta.  
+Negli ambienti di succursale con una scarsa sicurezza fisica e personale con scarse conoscenze tecnologiche, la distribuzione di un controller di dominio di sola lettura è spesso la soluzione consigliata. Le autorizzazioni amministrative locali per un controller di dominio di sola lettura possono essere delegate a qualsiasi utente di dominio senza concedere a tale utente diritti utente per il dominio o altri controller di dominio. Questo consente a un utente del ramo locale di accedere a un controller di sola lettura e di eseguire operazioni di manutenzione sul server, ad esempio l'aggiornamento di un driver. Tuttavia, l'utente del ramo non può accedere a qualsiasi altro controller di dominio o eseguire altre attività amministrative nel dominio. In questo modo, l'utente del ramo può delegare la capacità di gestire in modo efficace il controller di dominio di sola lettura nella succursale senza compromettere la sicurezza del resto del dominio o della foresta.  
   
-## <a name="wan-link-availability"></a>Disponibilità del collegamento WAN
+## <a name="wan-link-availability"></a>Disponibilità collegamento WAN
 
-Collegamenti WAN che verificano frequenti interruzioni possono causare perdite di produttività significativi per gli utenti se il percorso non include un controller di dominio in grado di autenticare gli utenti. Se la disponibilità del collegamento WAN non è al 100% e i siti remoti non possono tollerare un'interruzione del servizio, inserire un controller di dominio regionale in posizioni in cui gli utenti richiedono la possibilità di effettuare l'accesso o l'accesso al server di exchange durante il collegamento WAN è inattivo.  
+Se il percorso non include un controller di dominio in grado di autenticare gli utenti, i collegamenti WAN che presentano frequenti interruzioni possono causare una significativa perdita di produttività per gli utenti. Se la disponibilità del collegamento WAN non è pari al 100% e i siti remoti non sono in grado di tollerare un'interruzione del servizio, collocare un controller di dominio a livello di area in posizioni in cui gli utenti richiedono la possibilità di accedere o di Exchange Server quando il collegamento WAN è inattivo.  
   
-## <a name="authentication-availability"></a>Disponibilità di autenticazione
+## <a name="authentication-availability"></a>Disponibilità autenticazione
 
-Alcune organizzazioni come banche, richiedono che gli utenti autenticati in qualsiasi momento. Inserire un controller di dominio regionale in una posizione in cui la disponibilità di collegamento WAN non è al 100%, ma gli utenti richiedono l'autenticazione in qualsiasi momento.  
+Alcune organizzazioni, ad esempio le banche, richiedono l'autenticazione degli utenti in qualsiasi momento. Posizionare un controller di dominio a livello di area in un percorso in cui la disponibilità del collegamento WAN non sia pari al 100%, ma gli utenti richiedono sempre l'autenticazione.  
   
-## <a name="logon-performance-over-wan-links"></a>Prestazioni di accesso sui collegamenti WAN
+## <a name="logon-performance-over-wan-links"></a>Prestazioni di accesso su collegamenti WAN
 
-Se la disponibilità del collegamento WAN è estremamente affidabile, l'inserimento di un controller di dominio in corrispondenza della posizione dipende i requisiti di prestazioni di accesso tramite il collegamento WAN. Fattori che influenzano le prestazioni di accesso tramite la rete WAN includono velocità del collegamento e larghezza di banda disponibile, numero di utenti e i profili di utilizzo e la quantità di traffico di rete di accesso e il traffico di replica.  
+Se la disponibilità del collegamento WAN è altamente affidabile, l'inserimento di un controller di dominio nella posizione dipende dai requisiti di prestazioni di accesso sul collegamento WAN. I fattori che influenzano le prestazioni di accesso sulla rete WAN includono velocità di collegamento e larghezza di banda disponibile, numero di utenti e profili di utilizzo e la quantità di traffico di rete di accesso rispetto al traffico di replica.  
   
-### <a name="wan-link-speed-and-bandwidth-utilization"></a>Utilizzo della larghezza di banda e velocità di collegamento WAN
+### <a name="wan-link-speed-and-bandwidth-utilization"></a>Velocità di collegamento WAN e utilizzo della larghezza di banda
 
-Le attività di un singolo utente possono congest un collegamento WAN lento. Inserire un controller di dominio in una posizione se le prestazioni di accesso tramite il collegamento WAN non sono accettabile.  
+Le attività di un singolo utente possono compromettere un collegamento WAN lento. Posizionare un controller di dominio in un percorso se le prestazioni di accesso sul collegamento WAN sono inaccettabili.  
   
-La percentuale media di utilizzo della larghezza di banda indica come sovraccarica un collegamento di rete. Se un collegamento di rete presentano un utilizzo medio della larghezza di banda che è maggiore di un valore accettabile, inserire un controller di dominio in tale posizione.  
+La percentuale media di utilizzo della larghezza di banda indica il modo in cui un collegamento di rete è congestionato. Se un collegamento di rete ha un utilizzo medio della larghezza di banda superiore a un valore accettabile, inserire un controller di dominio in tale posizione.  
   
-### <a name="number-of-users-and-usage-profiles"></a>Numero di utenti e i profili di utilizzo
+### <a name="number-of-users-and-usage-profiles"></a>Numero di utenti e profili di utilizzo
 
-Il numero di utenti e i relativi profili di utilizzo in una posizione specificata può aiutare a determinare se è necessario inserire i controller di dominio regionale in quella posizione. Per evitare perdite di produttività se ha esito negativo di un collegamento WAN, inserire un controller di dominio regionale in una posizione che dispone di 100 o più utenti.  
+Il numero di utenti e i relativi profili di utilizzo in una determinata posizione possono contribuire a determinare se è necessario inserire controller di dominio regionali in tale posizione. Per evitare la perdita di produttività in caso di errore di un collegamento WAN, collocare un controller di dominio a livello di area in una posizione con 100 o più utenti.  
   
-I profili di utilizzo indicano come gli utenti di usano le risorse di rete. Non è necessaria inserire un controller di dominio in un percorso che contiene solo alcuni degli utenti non accedono spesso a risorse di rete.  
+I profili di utilizzo indicano il modo in cui gli utenti usano le risorse di rete. Non è necessario inserire un controller di dominio in un percorso che contenga solo pochi utenti che non accedono spesso a risorse di rete.  
   
-### <a name="logon-network-traffic-vs-replication-traffic"></a>Traffico di rete di accesso e il traffico di replica
+### <a name="logon-network-traffic-vs-replication-traffic"></a>Traffico di rete di accesso rispetto al traffico di replica
 
-Se un controller di dominio non è disponibile nella stessa località del client Active Directory, il client crea il traffico di accesso di rete. La quantità di traffico di rete di accesso che viene creata nella rete fisica è influenzata da diversi fattori, tra cui appartenenze; numero e dimensioni degli oggetti Criteri di gruppo (GPO); script di accesso; e funzionalità, ad esempio cartelle non in linea, reindirizzamento cartelle e profili mobili.  
+Se un controller di dominio non è disponibile nella stessa posizione del client Active Directory, il client crea il traffico di accesso sulla rete. La quantità di traffico di rete di accesso creato sulla rete fisica è influenzata da diversi fattori, tra cui l'appartenenza ai gruppi; numero e dimensioni degli oggetti Criteri di gruppo (GPO); script di accesso; funzionalità quali le cartelle offline, il reindirizzamento delle cartelle e i profili mobili.  
   
-D'altra parte, un controller di dominio che viene inserito in una posizione specificata genera traffico di replica sulla rete. La frequenza e la quantità di aggiornamenti per le partizioni ospitate nei controller di dominio per determinare la quantità di traffico di replica che viene creata nella rete. I diversi tipi di aggiornamenti che possono essere fatta in partizioni ospitate nei controller di dominio includono l'aggiunta o modifica utenti e gli attributi utente, modifica delle password e aggiunta o la modifica gruppi globali, stampanti o volumi.  
+D'altra parte, un controller di dominio posizionato in una determinata posizione genera il traffico di replica sulla rete. La frequenza e la quantità di aggiornamenti effettuati sulle partizioni ospitate nei controller di dominio influiscono sulla quantità di traffico di replica creato sulla rete. I diversi tipi di aggiornamenti che è possibile apportare alle partizioni ospitate nei controller di dominio includono l'aggiunta o la modifica di utenti e attributi utente, la modifica delle password e l'aggiunta o la modifica di gruppi, stampanti o volumi globali.  
   
-Per determinare se è necessario inserire un controller di dominio regionale in corrispondenza della posizione, confronta il costo del traffico di accesso creato da un percorso senza un controller di dominio e il costo del traffico di replica creato mediante l'inserimento di un controller di dominio in corrispondenza della posizione.  
+Per determinare se è necessario collocare un controller di dominio a livello di area in una posizione, confrontare il costo del traffico di accesso creato da una posizione senza un controller di dominio rispetto al costo del traffico di replica creato inserendo un controller di dominio nella posizione.  
   
-Si consideri ad esempio una rete dotata di succursali che sono connessi tramite collegamenti lenti alla sede centrale e in quali controller di dominio possono essere aggiunte facilmente. Se il traffico giornaliero per ricerca di accesso e directory di alcuni utenti del sito remoto comporta maggiore traffico di rete rispetto alla replica di tutti i dati aziendali al ramo, considerare l'aggiunta di un controller di dominio per il ramo.  
+Si consideri, ad esempio, una rete con succursali connesse tramite collegamenti lenti alla sede centrale e in cui è possibile aggiungere facilmente i controller di dominio. Se l'accesso giornaliero e il traffico di ricerca nella directory di alcuni utenti di siti remoti causano un maggiore traffico di rete rispetto alla replica di tutti i dati aziendali nel ramo, è consigliabile aggiungere un controller di dominio al ramo.  
   
-Se è più importante che il traffico di rete riducendo i costi di manutenzione di controller di dominio, centralizzare i controller di dominio per tale dominio e non inserire qualsiasi controller di dominio regionale in corrispondenza della posizione o è consigliabile inserire i RODC in corrispondenza della posizione.  
+Se la riduzione del costo di gestione dei controller di dominio è più importante del traffico di rete, centralizzare i controller di dominio per tale dominio e non collocare controller di dominio regionali nella posizione o provare a collocare RODC nel percorso.  
   
-Per un foglio di lavoro agevolare così a documentare la posizione dei controller di dominio a livello di area e il numero di utenti per ogni dominio che viene rappresentato in ogni posizione, vedere [processo di supporto per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_ Aids_Designing_and_Deploying_Directory_and_Security_Services.zip e Apri "dominio Controller"Selezione host (DSSTOPO_4.doc).  
+Per un foglio di lavoro che assiste l'utente nella documentazione del posizionamento dei controller di dominio regionali e del numero di utenti per ogni dominio rappresentato in ogni posizione, vedere la pagina relativa ai [supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_ Deploying_Directory_and_Security_Services. zip e aprire "posizione controller di dominio" (DSSTOPO_4. doc).  
   
-È necessario fare riferimento alle informazioni sui percorsi in cui è necessario inserire i controller di dominio a livello di area durante la distribuzione di domini regionali. Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  
+È necessario fare riferimento alle informazioni sui percorsi in cui è necessario posizionare i controller di dominio regionali quando si distribuiscono i domini regionali. Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  

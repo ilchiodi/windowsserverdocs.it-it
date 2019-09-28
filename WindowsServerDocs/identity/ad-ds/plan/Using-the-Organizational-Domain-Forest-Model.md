@@ -7,14 +7,14 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 876a15dcdd951e0323fb7ddb7be96317f5512f0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af5fd2da396ecc27db68d3be8d1c0eda82314d6f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402448"
 ---
 # <a name="using-the-organizational-domain-forest-model"></a>Utilizzando il modello di foresta di domini organizzativi
 
@@ -32,10 +32,10 @@ Il modello di foresta aziendale dominio consente la delega dell'autorità per la
 
 |Tipo di gestione dei servizi|Attività associate|  
 |------------------------------|--------------------|  
-|Gestione delle operazioni di controller di dominio|-Creazione e rimozione di controller di dominio<br />-Monitoraggio il funzionamento dei controller di dominio<br />-La gestione dei servizi in esecuzione sui controller di dominio<br />-Backup e il ripristino della directory|  
-|Configurazione delle impostazioni a livello di dominio|-Creazione di dominio e utente di dominio criteri account, ad esempio password, Kerberos e criteri di blocco account<br />-Creazione e applicazione dei criteri di gruppo a livello di dominio|  
-|Delega dell'amministrazione a livello di dati|-Creazione di unità organizzative (OU) e la delega dell'amministrazione<br />-Risoluzione dei problemi nella struttura dell'unità Organizzativa che non dispongono dei diritti di accesso sufficienti per risolvere proprietari di unità Organizzative|  
-|Gestione dei trust esterni|-Stabilire relazioni di trust con domini esterni alla foresta|  
+|Gestione delle operazioni di controller di dominio|-Creazione e rimozione di controller di dominio<br />-Monitoraggio del funzionamento dei controller di dominio<br />-Gestione dei servizi in esecuzione sui controller di dominio<br />-Backup e ripristino della directory|  
+|Configurazione delle impostazioni a livello di dominio|-Creazione di criteri di dominio e account utente di dominio, ad esempio criteri per password, Kerberos e blocco account<br />-Creazione e applicazione di Criteri di gruppo a livello di dominio|  
+|Delega dell'amministrazione a livello di dati|-Creazione di unità organizzative (OU) e delega dell'amministrazione<br />-Correzione dei problemi nella struttura dell'unità organizzativa che i proprietari delle unità organizzative non dispongono di diritti di accesso sufficienti per la correzione|  
+|Gestione dei trust esterni|-Definizione di relazioni di trust con domini esterni alla foresta|  
 
 Altri tipi di gestione dei servizi, ad esempio schema o gestione della topologia di replica, sono di responsabilità del proprietario dell'insieme di strutture.  
 
@@ -58,4 +58,4 @@ Si noti che se un'insieme di strutture proprietario delegati a livello di domini
 Tutti i proprietari del dominio è necessario tenere presente che se una di queste condizioni cambiare in futuro, potrebbero diventare necessario spostare i domini aziendali in una distribuzione più foreste.  
 
 > [!NOTE]  
-> Un altro modo per ridurre al minimo i rischi di protezione per un dominio di Active Directory di Windows Server 2008 è utilizzare la separazione dei ruoli amministratore, che richiede la distribuzione di un controller di dominio di sola lettura (RODC) nell'infrastruttura di Active Directory. Un RODC è un nuovo tipo di controller di dominio nel sistema operativo Windows Server 2008 che ospita le partizioni di sola lettura del database di Active Directory. Prima del rilascio di Windows Server 2008, qualsiasi operazione di manutenzione di server in un controller di dominio doveva essere eseguita da un amministratore di dominio. In Windows Server 2008, è possibile delegare le autorizzazioni amministrative locali per un RODC per qualsiasi utente di dominio senza concedergli i diritti amministrativi per il dominio o altri controller di dominio. Questo consente all'utente delegato per accedere a un RODC ed eseguire operazioni di manutenzione, ad esempio l'aggiornamento di un driver, sul server. Tuttavia, questo utente delegato non può accedere a qualsiasi altro controller di dominio o eseguire altre attività amministrative nel dominio. In questo modo, qualsiasi attendibile l'utente può essere delegata la possibilità di gestire in modo efficace il RODC senza compromettere la protezione del resto del dominio. Per ulteriori informazioni sui controller, vedere [Active Directory Domain Services: I controller di dominio di sola lettura](https://go.microsoft.com/fwlink/?LinkId=106616).  
+> Un altro modo per ridurre al minimo i rischi di protezione per un dominio di Active Directory di Windows Server 2008 è utilizzare la separazione dei ruoli amministratore, che richiede la distribuzione di un controller di dominio di sola lettura (RODC) nell'infrastruttura di Active Directory. Un RODC è un nuovo tipo di controller di dominio nel sistema operativo Windows Server 2008 che ospita le partizioni di sola lettura del database di Active Directory. Prima del rilascio di Windows Server 2008, qualsiasi operazione di manutenzione di server in un controller di dominio doveva essere eseguita da un amministratore di dominio. In Windows Server 2008, è possibile delegare le autorizzazioni amministrative locali per un RODC per qualsiasi utente di dominio senza concedergli i diritti amministrativi per il dominio o altri controller di dominio. Questo consente all'utente delegato per accedere a un RODC ed eseguire operazioni di manutenzione, ad esempio l'aggiornamento di un driver, sul server. Tuttavia, questo utente delegato non può accedere a qualsiasi altro controller di dominio o eseguire altre attività amministrative nel dominio. In questo modo, qualsiasi attendibile l'utente può essere delegata la possibilità di gestire in modo efficace il RODC senza compromettere la protezione del resto del dominio. Per ulteriori informazioni su RODC, vedere [AD DS: Controller di dominio di sola lettura @ no__t-0.  

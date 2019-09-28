@@ -2,18 +2,18 @@
 title: Modificare le proprietà dei modelli per lo screening dei file
 description: In questo articolo viene descritto come modificare le proprietà dei modelli per lo screening dei file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 31ca46707a32d23a5dd9606c57bcaec5d6e53a80
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e84545be86bdb8fcba09d0ff49ac98b44cd7bdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403131"
 ---
 # <a name="edit-file-screen-template-properties"></a>Modificare le proprietà dei modelli per lo screening dei file
 
@@ -28,7 +28,7 @@ Quando si apportano modifiche a un modello per lo screening dei file, si ha la p
 
 1.  In **Modelli per lo screening dei file** selezionare il modello che si desidera modificare.
 
-2.  Fare clic sul modello di schermata del file e fare clic su **Modifica proprietà modello** (o nel **azioni** riquadro, sotto **modelli di schermata del File selezionato**, selezionare  **Modificare le proprietà dei modelli**.) Verrà visualizzata la **proprietà modello di schermata** nella finestra di dialogo.
+2.  Fare clic con il pulsante destro del mouse sul modello di schermata file e scegliere **modifica proprietà modello** . in alternativa, nel riquadro **Azioni** selezionare **modifica proprietà modello**in **modelli di schermata file selezionati**. Verrà visualizzata la finestra di dialogo **Proprietà modello schermata file** .
 
 3.  Se si desidera copiare le proprietà di un altro modello come base per il modello modificato, selezionare un modello nell'elenco a discesa **Copia proprietà dal modello**. Quindi, fare clic su **Copia**.
 
@@ -46,7 +46,7 @@ Quando si apportano modifiche a un modello per lo screening dei file, si ha la p
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione di screening dei file](file-screening-management.md)
--   [Creare un modello di schermata del File](create-file-screen-template.md)
+-   [Gestione screening dei file](file-screening-management.md)
+-   [Creare un modello di screening dei file](create-file-screen-template.md)
 
 

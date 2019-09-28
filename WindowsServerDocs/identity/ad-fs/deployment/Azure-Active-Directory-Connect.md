@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 00172e9d6770910019e1935ac6fe8afc944e83aa
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: dbce0a37fee7278386cf564365661b459dd35033
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192464"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408473"
 ---
 # <a name="azure-active-directory-connect"></a>Azure Active Directory Connect
 
 
-Azure AD Connect integra le directory locali con Azure Active Directory. In questo modo è possibile fornire un'identità comune per gli utenti per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. .  
+Azure AD Connect integrerà le directory locali con Azure Active Directory. Questo consente di fornire un'identità comune per gli utenti per le applicazioni Office 365, Azure e SaaS integrate con Azure AD. .  
   
 Per altre informazioni, vedere [integrazione delle identità locali con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/).  
   

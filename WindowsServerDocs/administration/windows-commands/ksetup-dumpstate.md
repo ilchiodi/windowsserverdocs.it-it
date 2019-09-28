@@ -1,8 +1,8 @@
 ---
-title: ksetup:dumpstate
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: dumpstate'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e5e8f20188fc27cc08dfd37c5fdbd811925f476
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 625d05b2fea9ae58681648c64e309aa8b2a201ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375004"
 ---
-# <a name="ksetupdumpstate"></a>ksetup:dumpstate
+# <a name="ksetupdumpstate"></a>che Ksetup: dumpstate
 
 
 
@@ -41,9 +41,9 @@ Nessuno
 L'output di questo comando include l'area di autenticazione predefinito (il dominio che il computer è un membro di) e tutte le aree di autenticazione definiti in questo computer. Di seguito è incluso per ogni area di autenticazione:
 -   Tutte le chiave centri di distribuzione (KDC) che sono associati a questa area di autenticazione
 -   Tutti i **realm set** flag per l'area di autenticazione
--   La password KDC
+-   Password KDC
 
-Questo comando consente di visualizzare il nome di dominio specificato dal rilevamento automatico DNS o tramite il comando **che ksetup /domain**.
+Questo comando non Visualizza il nome di dominio specificato dal rilevamento DNS o dal comando **che Ksetup/Domain**.
 
 Questo comando consente di visualizzare la password del computer che viene impostata tramite il comando **che ksetup /setcomputerpassword**.
 
@@ -58,5 +58,5 @@ ksetup /dumpstate
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Che Ksetup](ksetup.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

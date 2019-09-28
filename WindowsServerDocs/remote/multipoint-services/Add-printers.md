@@ -2,7 +2,7 @@
 title: Aggiungere stampanti
 description: Aggiungere una stampante per gli utenti di MultiPoint Services.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,33 +13,33 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: cce64f8cfbfb9d3b9984a0732d76418eea9dc9bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5da3d4919eba9f36e4b28f7c2d2fb3e3de02804
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846062"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405135"
 ---
 # <a name="add-printers"></a>Aggiungere stampanti
-Usare le procedure descritte in questo argomento per rendere disponibile una stampante locale per tutti gli utenti in un sistema MultiPoint Services.  
+Utilizzare le procedure descritte in questo argomento per rendere disponibile una stampante locale a tutti gli utenti di un sistema MultiPoint Services.  
   
 > [!NOTE]  
-> Se si utilizzano account di dominio con MultiPoint Services, gli utenti possono usare qualsiasi stampante di rete da stazioni.  
+> Se si usano account di dominio con servizi MultiPoint, gli utenti possono usare qualsiasi stampante di rete dalle rispettive stazioni.  
   
-1.  Connettersi alla stampante al server Multipoint.  
+1.  Connettere la stampante al server multipoint.  
   
-2.  Configurare la stampante come una stampante condivisa:  
+2.  Configurare la stampante come stampante condivisa:  
   
-    1.  Accedere al computer MultiPoint Server come amministratore.  
+    1.  Accedere al computer Server MultiPoint come amministratore.  
   
     2.  Dalla schermata **Start** aprire il **Pannello di controllo**.  
   
-    3.  Nel Pannello di controllo, fare clic su **Hardware**, quindi fare clic su **dispositivi e stampanti**.  
+    3.  Nel pannello di controllo fare clic su **hardware**e quindi su **dispositivi e stampanti**.  
   
-    4.  Sotto **stampanti e fax**, fare doppio clic su stampante e quindi fare clic su **proprietà stampante**.  
+    4.  In **stampanti e fax**, fare clic con il pulsante destro del mouse sulla stampante, quindi scegliere **Proprietà stampante**.  
   
-    5.  Scegliere il **condivisione** scheda.  
+    5.  Fare clic sulla scheda **condivisione** .  
   
-    6.  Fare clic su **condividere la stampante**, specificare un nome di condivisione della stampante e quindi fare clic su **OK**.  
+    6.  Fare clic su **Condividi la stampante**, specificare un nome di condivisione per la stampante e quindi fare clic su **OK**.  
   
-Gli utenti connessi a qualsiasi stazione connesso al computer Multipoint Services sarà in grado di visualizzare e usare la stampante. 
+Gli utenti connessi a una stazione connessa al computer Servizi multipoint saranno in grado di visualizzare e utilizzare la stampante. 

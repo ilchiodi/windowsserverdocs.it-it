@@ -1,8 +1,8 @@
 ---
 title: bootcfg addsw
-description: Argomento i comandi di Windows per **bootcfg addsw** -consente di aggiungere opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.
+description: Argomento dei comandi di Windows per **bootcfg Addsw** -aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a056cec15bf804dafed4c4d39a80386e58c87fea
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2dd727c839babe1ae4f7743285844f35cf5bf76e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380177"
 ---
 # <a name="bootcfg-addsw"></a>bootcfg addsw
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di aggiungere opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.
+aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -34,14 +34,14 @@ bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumR
 
 |         Nome         |                                                                                                            Definizione                                                                                                            |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s <computer>     |                                                        Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.                                                        |
-| /u <Domain>\\<User>  |               Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> oppure <Domain> \\ <User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.               |
+|    /s <computer>     |                                                        Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                                        |
+| /u <Domain>\\<User>  |               Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User> o <Domain> @ no__t-2 @ no__t-3. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.               |
 |    /p <Password>     |                                                                      Specifica la password dell'account utente specificato nella **/u** parametro.                                                                       |
 |   /mm <MaximumRAM>   |                                          Specifica la quantità massima di RAM, in megabyte, che è possibile utilizzare il sistema operativo. Il valore deve essere uguale o maggiore di 32 MB.                                          |
-|         /BV          |                                    Aggiunge il **/basevideo** opzione specificata <OSEntryLineNum>, indicando al sistema operativo da usare la modalità VGA standard per il driver video installato.                                     |
-|         /SO          |                                      Aggiunge il **/sos** opzione specificata *NumRigaVoceSO*, indicando al sistema operativo per visualizzare i nomi dei driver di dispositivo durante il caricamento.                                      |
-|         /NG          |                                         Aggiunge il **/noguiboot** opzione specificata <OSEntryLineNum>, disabilitare l'indicatore di stato che precede il CTRL + ALT + CANC dei messaggi di richiesta.                                          |
-| /id <OSEntryLineNum> | Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini alla quale aggiungere opzioni di caricamento del sistema operativo. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1. |
+|         /BV          |                                    aggiunge l'opzione **/basevideo** al @no__t specificato-1, indicando al sistema operativo di utilizzare la modalità VGA standard per il driver video installato.                                     |
+|         /SO          |                                      aggiunge l'opzione **/SOS** al *NumRigaVoceSO*specificato, indirizzando il sistema operativo in modo da visualizzare i nomi dei driver di dispositivo durante il caricamento.                                      |
+|         /NG          |                                         aggiunge l'opzione **/noguiboot** all'@no__t specificato, disabilitando la barra di stato visualizzata prima del prompt di accesso CTRL + ALT + CANC.                                          |
+| /ID <OSEntryLineNum> | Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini alla quale aggiungere opzioni di caricamento del sistema operativo. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1. |
 |          /?          |                                                                                               Visualizza la guida al prompt dei comandi.                                                                                               |
 
 ## <a name="BKMK_examples"></a>Esempi

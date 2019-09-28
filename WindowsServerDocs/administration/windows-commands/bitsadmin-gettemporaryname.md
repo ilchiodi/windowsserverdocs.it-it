@@ -1,8 +1,8 @@
 ---
-title: bitsadmin gettemporaryname
-description: Argomento i comandi di Windows per **bitsadmin gettemporaryname** -restituisce il nome temporaneo del file specificato all'interno del processo.
+title: gettemporaryname Bitsadmin
+description: "Argomento dei comandi di Windows per **BITSAdmin gettemporaryname** : indica il nome di file temporaneo del file specificato all'interno del processo."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 762a2a5943202b38e94a245b74745e6631e0792d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b665fae4c0bfdd5ea04b929be49f9590430b358
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381297"
 ---
-# <a name="bitsadmin-gettemporaryname"></a>bitsadmin gettemporaryname
+# <a name="bitsadmin-gettemporaryname"></a>gettemporaryname Bitsadmin
 
 
 
@@ -37,7 +37,7 @@ bitsadmin /GetTemporaryName <Job> <file index>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Indice di file|Inizia da 0|
+|Indice file|Inizia da 0|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -48,4 +48,4 @@ C:\>bitsadmin /GetTemporaryName myJob 1
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

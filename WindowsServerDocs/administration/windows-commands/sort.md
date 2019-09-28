@@ -1,8 +1,8 @@
 ---
 title: sort
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d38beef74156d9d57b947883c542c2c7e971e00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65b091a6de4f20ce94389ed39f4fe645c72b3560
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383947"
 ---
 # <a name="sort"></a>sort
 
 
 
-Legge l'input, i dati vengono ordinati e scrive i risultati sullo schermo, in un file o a un altro dispositivo.
+Legge l'input, Ordina i dati e scrive i risultati sullo schermo, in un file o in un altro dispositivo.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,69 +38,69 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/r|Inverte l'ordine di ordinamento (vale a dire, Ordina da Z ad A e da 9 a 0).|
-|/+\<N>|Specifica il numero di posizione del carattere in cui **ordinamento** inizierà ogni confronto. *N* può essere qualsiasi numero intero valido.|
-|/m \<Kilobytes>|Specifica la quantità di memoria principale da usare per l'ordinamento nel kilobyte (KB).|
-|/l \<Locale>|Esegue l'override dell'ordinamento dei caratteri definite dalle impostazioni locali predefinite del sistema (vale a dire, la lingua e paese/area geografica selezionata durante l'installazione).|
-|/REC \<caratteri >|Specifica il numero massimo di caratteri in un record o una riga del file di input (il valore predefinito è 4.096 e il valore massimo è 65.535).|
-|[\<Drive1>:][\<Path1>]\<FileName1>|Specifica il file da ordinare. Se viene specificato alcun nome file, l'input standard viene ordinato. Specifica il file di input è più veloce di reindirizzamento stesso file di input standard.|
-|/t [\<Drive2>:][\<Path2>]|Specifica il percorso della directory per contenere il **ordinamento** comando lavoro dell'archiviazione se i dati non rientrano nella memoria principale. Per impostazione predefinita, viene usata la directory temporanea di sistema.|
-|/o [\<Drive3>:][\<Path3>]\<FileName3>|Specifica il file in cui viene archiviato l'input ordinato. Se non specificato, i dati vengono scritti nell'output standard. Specifica il file di output è più veloce di reindirizzamento dell'output standard dello stesso file.|
+|/r|Inverte l'ordinamento, ovvero ordina da Z a A e da 9 a 0.|
+|/+ @ NO__T-1N >|Specifica il numero di posizione del carattere in cui l' **ordinamento** inizierà ogni confronto. *N* può essere qualsiasi numero intero valido.|
+|/m \<Kilobytes >|Specifica la quantità di memoria principale da usare per l'ordinamento in kilobyte (KB).|
+|/l \<Locale >|Esegue l'override dell'ordinamento dei caratteri definiti dalle impostazioni locali predefinite del sistema, ovvero la lingua e il paese selezionati durante l'installazione.|
+|/REC \<Characters >|Specifica il numero massimo di caratteri in un record o una riga del file di input (il valore predefinito è 4.096 e il valore massimo è 65.535).|
+|[\<Drive1 >:] [\<Path1 >] \<FileName1 >|Specifica il file da ordinare. Se non viene specificato alcun nome file, l'input standard viene ordinato. La specifica del file di input è più veloce rispetto al reindirizzamento dello stesso file come input standard.|
+|/t [\<Drive2 >:] [\<Path2 >]|Specifica il percorso della directory in cui memorizzare l'archiviazione funzionante del comando di **ordinamento** se i dati non rientrano nella memoria principale. Per impostazione predefinita, viene usata la directory temporanea di sistema.|
+|/o [\<Drive3 >:] [\<Path3 >] \<FileName3 >|Specifica il file in cui deve essere archiviato l'input ordinato. Se non specificato, i dati vengono scritti nell'output standard. La specifica del file di output è più veloce rispetto al reindirizzamento dell'output standard allo stesso file.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   Usando il **/+** opzione della riga di comando
+-   Uso dell'opzione della riga di comando **/+**
 
-    Per impostazione predefinita, i confronti iniziano in corrispondenza del primo carattere di ogni riga. Il **/+** opzione della riga di comando consente di avviare i confronti in corrispondenza del carattere specificato da *N*. Ad esempio, `/+3` indica che ogni confronto deve iniziare in corrispondenza del terzo carattere di ogni riga. Le righe con meno *N* caratteri collate prima delle altre righe.
--   Usando il **/m** opzione della riga di comando
+    Per impostazione predefinita, i confronti iniziano in corrispondenza del primo carattere di ogni riga. L'opzione della riga di comando **/+** avvia i confronti con il carattere specificato da *N*. Ad esempio, `/+3` indica che ogni confronto deve iniziare in corrispondenza del terzo carattere di ogni riga. Le righe con meno di *N* caratteri vengono confrontate prima di altre righe.
+-   Uso dell'opzione della riga di comando **/m**
 
-    La memoria utilizzata è sempre un minimo di 160 KB. Se le dimensioni della memoria viene specificata, la quantità esatta specificata viene utilizzata per l'ordinamento (deve essere almeno 160 KB), indipendentemente dalla quantità di memoria principale è disponibile.
+    La memoria utilizzata è sempre un minimo di 160 KB. Se viene specificata la dimensione della memoria, per l'ordinamento viene utilizzata l'esatta quantità specificata (deve essere almeno 160 KB), indipendentemente dalla quantità di memoria disponibile.
 
-    La dimensione massima di memoria predefinita quando non viene specificata alcuna dimensione è in caso contrario, il 90% della memoria principale disponibile se l'input e output sono file o al 45% della memoria principale. In genere l'impostazione predefinita offre prestazioni migliori.
--   Usando il **/l** opzione della riga di comando
+    Le dimensioni massime predefinite della memoria se non si specifica alcuna dimensione sono pari al 90% della memoria principale disponibile se l'input e l'output sono file o il 45% della memoria principale in caso contrario. L'impostazione predefinita offre in genere le prestazioni migliori.
+-   Utilizzo dell'opzione della riga di comando **/l**
 
-    Attualmente, l'unica alternativa per le impostazioni locali predefinite sia le impostazioni locali "C", che è più veloce che ordinare il linguaggio naturale (ordinano i caratteri in base al relativo codice binario).
--   Utilizzo di simboli di reindirizzamento con le **ordinamento** comando
+    Attualmente, l'unica alternativa alle impostazioni locali predefinite è costituita dalle impostazioni locali "C", più veloci rispetto all'ordinamento del linguaggio naturale (Ordina i caratteri in base alle relative codifiche binarie).
+-   Utilizzo di simboli di reindirizzamento con il comando **Sort**
 
-    È possibile usare il simbolo di barra verticale (**|**) per indirizzare i dati di input per il **ordinamento** comando da un altro comando o per indirizzare l'output ordinato per un altro comando. È possibile specificare file di input e output con i simboli di reindirizzamento (**<** oppure **>**). Può risultare più veloce e più efficienti (in particolare con file di grandi dimensioni) per specificare direttamente il file di input (come definito da *FileName1* nella sintassi del comando), quindi specificare il file di output usando la **/o** parametro.
+    È possibile usare il simbolo di barra verticale ( **|** ) per indirizzare i dati di input al comando **Sort** da un altro comando o per indirizzare l'output ordinato a un altro comando. È possibile specificare i file di input e di output usando i simboli di reindirizzamento ( **<** o **>** ). Può essere più veloce ed efficiente (specialmente con file di grandi dimensioni) per specificare il file di input direttamente (come definito da *filename1* nella sintassi del comando), quindi specificare il file di output usando il parametro **/o** .
 -   Distinzione maiuscole/minuscole
 
-    Il **ordinamento** comando non fa distinzione tra lettere maiuscole e minuscole.
--   Limiti sulle dimensioni del file
+    Il comando **Sort** non distingue tra lettere maiuscole e minuscole.
+-   Limiti sulle dimensioni dei file
 
-    Il **ordinamento** comando non presenta alcun limite sulla dimensione del file.
--   Sequenza di ordinamento
+    Il comando **Sort** non prevede alcun limite per le dimensioni del file.
+-   Sequenza di fascicolazione
 
-    Il programma di ordinamento utilizzata la tabella di sequenza di confronto che corrisponde alle impostazioni di code e tabelle codici paese/area geografica. Maggiore di codice ASCII 127 caratteri vengono ordinati in base alle informazioni in file country. sys o in un file alternativo specificato dal **paese** comando nel file config.
+    Il programma di ordinamento usa la tabella COLLATE-sequenza che corrisponde al codice paese e alle impostazioni della tabella codici. I caratteri maggiori del codice ASCII 127 vengono ordinati in base alle informazioni contenute nel file Country. sys o in un file alternativo specificato dal comando **Country** nel file config. NT.
 -   Utilizzo della memoria
 
-    Se l'ordinamento rientra nelle dimensioni massime memoria massima (secondo l'impostazione predefinita o come specificato dalle **/m** parametro), l'ordinamento viene eseguito in un unico passaggio. In caso contrario, l'ordinamento viene eseguito in due passaggi distinti, ordinamento e di tipo merge e la quantità di memoria utilizzata per entrambe le sessioni sono uguali. Quando vengono eseguite due passaggi, i dati ordinati parzialmente vengono archiviati in un file temporaneo su disco. Se non vi è memoria sufficiente per eseguire l'ordinamento in due passaggi, viene generato un errore di run-time. Se il **/m** opzione della riga di comando viene utilizzato per specificare più memoria rispetto a quella effettivamente disponibile, la riduzione delle prestazioni o può verificarsi un errore di run-time.
+    Se l'ordinamento rientra nelle dimensioni massime della memoria (impostate per impostazione predefinita o come specificato dal parametro **/m** ), l'ordinamento viene eseguito in un singolo passaggio. In caso contrario, l'ordinamento viene eseguito in due passaggi di ordinamento e merge distinti e le quantità di memoria utilizzata per entrambi i passaggi sono uguali. Quando vengono eseguite due sessioni, i dati parzialmente ordinati vengono archiviati in un file temporaneo su disco. Se la memoria disponibile non è sufficiente per eseguire l'ordinamento in due passaggi, viene generato un errore di run-time. Se l'opzione della riga di comando **/m** viene utilizzata per specificare una quantità di memoria superiore a quella effettivamente disponibile, è possibile che si verifichi un calo delle prestazioni o un errore in fase di esecuzione.
 
 ## <a name="BKMK_examples"></a>Esempi
 
 **Ordinamento di un file**
 
-Per ordinare e visualizzare le righe in ordine inverso in un file denominato txt, digitare:
+Per ordinare e visualizzare in ordine inverso le righe in un file denominato expenses. txt, digitare:
 
 `sort /r expenses.txt`
 
-**Ordinare l'output da un comando**
+**Ordinamento dell'output di un comando**
 
-Per cercare un file di grandi dimensioni si per il testo "Jones" e per ordinare i risultati della ricerca, utilizzare la barra verticale (|) per indirizzare l'output di un **trovare** comando per il **ordinamento** comando, come segue:
+Per eseguire la ricerca in un file di grandi dimensioni denominato Mailer. txt per il testo "Jones" e per ordinare i risultati della ricerca, utilizzare la pipe (|) per indirizzare l'output di un comando **Find** al comando **Sort** , come indicato di seguito:
 
 `find "Jones" maillist.txt | sort`
 
 Il comando genera un elenco ordinato di righe che contengono il testo specificato.
 
-**L'ordinamento di input da tastiera**
+**Ordinamento degli input da tastiera**
 
-Per ordinare gli input da tastiera e visualizzare i risultati in ordine alfabetico sullo schermo, è possibile usare la **ordinamento** comando senza parametri, come segue:
+Per ordinare l'input da tastiera e visualizzare i risultati in ordine alfabetico sullo schermo, è possibile usare prima il comando **Sort** senza parametri, come indicato di seguito:
 
 `sort`
 
-Quindi digitare il testo che si desidera ordinati e preme INVIO alla fine di ogni riga. Al termine della digitazione di testo, premere CTRL + Z e quindi premere INVIO. Il **ordinamento** comando Visualizza il testo digitato, ordinati in ordine alfabetico.
+Digitare quindi il testo che si desidera ordinare e premere INVIO alla fine di ogni riga. Al termine della digitazione del testo, premere CTRL + Z, quindi premere INVIO. Il comando **Sort** Visualizza il testo digitato, ordinata alfabeticamente.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

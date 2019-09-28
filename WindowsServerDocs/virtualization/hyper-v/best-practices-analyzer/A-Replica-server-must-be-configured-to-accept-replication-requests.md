@@ -1,7 +1,7 @@
 ---
 title: Un server di Replica deve essere configurato per accettare le richieste di replica
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -9,12 +9,12 @@ ms.author: kathydav
 ms.topic: article
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: c5e30ddc50b176b83db081a29c6427356ab946c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54868d4db2dccc893bd2897134d9125446873384
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366718"
 ---
 # <a name="a-replica-server-must-be-configured-to-accept-replication-requests"></a>Un server di Replica deve essere configurato per accettare le richieste di replica
 
@@ -25,20 +25,20 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
   
 ## <a name="issue"></a>Problema  
-*In questo computer è designato come un server di Replica Hyper-V, ma non è configurato per accettare dati di replica in ingresso dai server primari.*  
+*Questo computer è designato come server di replica Hyper-V, ma non è configurato per accettare i dati di replica in ingresso dai server primari.*  
   
 ## <a name="impact"></a>Impatto  
-*Questo server non può accettare il traffico di replica dal server primario.*  
+*Questo server non è in grado di accettare il traffico di replica dai server primari.*  
   
 ## <a name="resolution"></a>Risoluzione  
-*Utilizzare Gestione Hyper-V per specificare quali server primari deve accettare dati di replica dal server di Replica.*  
+*Utilizzare la console di gestione di Hyper-V per specificare i server primari da cui il server di replica deve accettare i dati di replica.*  
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Creare le voci di autorizzazione utilizzando Gestione di Hyper-V  
   

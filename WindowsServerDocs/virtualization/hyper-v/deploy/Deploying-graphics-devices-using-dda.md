@@ -1,7 +1,7 @@
 ---
 title: Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 description: Informazioni su come usare DDA per distribuire dispositivi grafici in Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: hyper-v
 ms.tgt_pltfrm: na
@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 94ba561f35ea257a897f51cb3522196f7988eb71
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3b37abaf5a2341aff66ff0064ecc4f52faf47f06
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872105"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393002"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 
@@ -86,7 +86,7 @@ Il passaggio finale consiste nell'indicare a Hyper-V che una macchina virtuale d
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Argomenti successivi
+## <a name="whats-next"></a>Passaggi successivi
 Dopo che un dispositivo è stato montato correttamente in una macchina virtuale, è ora possibile avviare tale macchina virtuale e interagire con il dispositivo come si farebbe normalmente se fosse in esecuzione in un sistema bare metal.  Ciò significa che ora è possibile installare i driver del fornitore dell'hardware nella macchina virtuale e le applicazioni saranno in grado di visualizzare l'hardware presente.  È possibile verificare questo problema aprendo Gestione dispositivi nella macchina virtuale guest e osservando che l'hardware è ora visualizzato.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Rimozione di un dispositivo e relativa restituzione all'host

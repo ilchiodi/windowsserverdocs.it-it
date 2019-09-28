@@ -1,8 +1,8 @@
 ---
 title: regsvr32
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87d9291755ddb4484e85248cb01ad78b01a25965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 444af0ccf7c9bbe21c013f32b396997b7cb2e00f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371627"
 ---
 # <a name="regsvr32"></a>regsvr32
 
@@ -41,7 +41,7 @@ regsvr32 [/u] [/s] [/n] [/i[:cmdline]] <DllName>
 |/u|Annulla la registrazione di server.|
 |/s|Esecuzioni **Regsvr32** senza visualizzare i messaggi.|
 |/n|Esecuzioni **Regsvr32** senza chiamare **DllRegisterServer**. (Richiede il **/i** parametro.)|
-|/i:\<cmdline>|Passa una stringa della riga di comando facoltativa (*cmdline*) a **DllInstall**. Se si utilizza questo parametro in combinazione con il **/u** parametro, chiama **DllUninstall**.|
+|/i: \<cmdline >|Passa una stringa della riga di comando facoltativa (*cmdline*) a **DllInstall**. Se si utilizza questo parametro in combinazione con il **/u** parametro, chiama **DllUninstall**.|
 |\<DllName >|Il nome del file DLL che verrà registrato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -54,4 +54,4 @@ regsvr32 schmmgmt.dll
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

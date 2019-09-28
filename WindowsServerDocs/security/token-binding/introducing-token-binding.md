@@ -1,49 +1,49 @@
 ---
-title: Introduzione a associazione dei Token
+title: Introduzione all'associazione di token
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 4623a48c-cefd-4a27-9173-2af58ac212f2
 manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 2a0bb8c75fe3ca7f7befe0bd67eb3d363a5ad7a9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52ba35808b34eb07ecd6ac92819e9dc7a693b15b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403326"
 ---
-# <a name="introducing-token-binding"></a>Introduzione a associazione dei Token
+# <a name="introducing-token-binding"></a>Introduzione all'associazione di token
 
 >Si applica a: Windows Server 2016 e Windows 10
 
-Il Token Binding protocol consente alle applicazioni e servizi da associare a livello di crittografia token di sicurezza al livello di TLS per ridurre il furto di token e attacchi di tipo replay. Le associazioni [RFC5246] TLS di lunga durate, identificabile in modo univoco possono estendersi su più connessioni e sessioni TLS.
+Il protocollo di associazione dei token consente alle applicazioni e ai servizi di associare in modo crittografico i propri token di sicurezza al livello TLS per attenuare il furto dei token e gli attacchi di riproduzione. Le associazioni TLS [RFC5246] di lunga durata e univocamente identificabili possono estendersi su più sessioni e connessioni TLS.
 
 Supporto della versione:
 
-- Windows 10 versione 1507: disattivato per impostazione predefinita
-    - Token Binding Protocol aggiunto [[draft-ietf-tokbind-protocol-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/01/)
-    - WinInet & HTTP. Il supporto dell'associazione dei token tramite HTTP SYS [[draft-ietf-tokbind-https-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/01/)
-- Windows 10, versione 1607 e 1511 e Windows Server 2016-in per impostazione predefinita
-    - Token Binding Protocol aggiornato [[draft-ietf-tokbind-protocol-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/01/)
-    - Estensione TLS per la negoziazione di token di associazione aggiunta [[bozza-popov-tokbind-negoziazione-00]](https://tools.ietf.org/html/draft-popov-tokbind-negotiation-00)
-    - WinInet & HTTP. Il supporto dell'associazione dei token tramite HTTP aggiornato SYS [[draft-ietf-tokbind-https-02]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/02/)
-- Windows 10 versione 1507 con aggiornamento di manutenzione [KB4034668](https://support.microsoft.com/kb/KB4034668), Windows 10 versione 1511 con aggiornamento di manutenzione [KB4034660](https://support.microsoft.com/kb/KB4034660), Windows 10, versione 1607 e Windows Server 2016 con aggiornamento deiservizi[KB4034658](https://support.microsoft.com/kb/KB4034658) supporta Token Binding Protocol versione 0.10 – in per impostazione predefinita
-    - Token Binding Protocol aggiornato [[draft-ietf-tokbind-protocol-10]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/10/)
-    - Estensione TLS per la negoziazione di token di associazione aggiunta [[draft-ietf-tokbind-negoziazione-05]](https://tools.ietf.org/html/draft-ietf-tokbind-negotiation-05)
-    - WinInet & HTTP. Il supporto dell'associazione dei token tramite HTTP aggiornato SYS [[draft-ietf-tokbind-https-06]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/06/)
-- Windows 10, versione 1703 supporta Token Binding Protocol versione 0.10 – per impostazione predefinita
-    - Token Binding Protocol aggiornato [[draft-ietf-tokbind-protocol-10]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/10/)
-    - Estensione TLS per la negoziazione di token di associazione aggiunta [[draft-ietf-tokbind-negoziazione-05]](https://tools.ietf.org/html/draft-ietf-tokbind-negotiation-05)
-    - WinInet & HTTP. Il supporto dell'associazione dei token tramite HTTP aggiornato SYS [[draft-ietf-tokbind-https-06]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/06/)
-    - I dispositivi Windows con protezione basata sulla virtualizzazione abilitata manterrà le chiavi di associazione dei token in un ambiente protetto isolato dal sistema operativo in esecuzione
+- Windows 10, versione 1507-disattivato per impostazione predefinita
+    - Token binding Protocol aggiunto [[draft-ietf-tokbind-Protocol-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/01/)
+    - WinInet & HTTP. Supporto SYS dell'associazione di token su HTTP [[draft-ietf-tokbind-HTTPS-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/01/)
+- Windows 10, versioni 1511 e 1607 e Windows Server 2016-on per impostazione predefinita
+    - Aggiornamento del protocollo di binding del token [[draft-ietf-tokbind-Protocol-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/01/)
+    - Estensione TLS per la negoziazione dell'associazione di token aggiunta [[Draft-Popov-tokbind-Negotiate-00]](https://tools.ietf.org/html/draft-popov-tokbind-negotiation-00)
+    - WinInet & HTTP. Supporto SYS dell'associazione di token su HTTP aggiornato [[draft-ietf-tokbind-HTTPS-02]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/02/)
+- Windows 10, versione 1507 con aggiornamento del servizio [KB4034668](https://support.microsoft.com/kb/KB4034668), Windows 10, versione 1511 con aggiornamento di manutenzione [KB4034660](https://support.microsoft.com/kb/KB4034660), windows 10, versione 1607 e Windows Server 2016 con il protocollo di associazione del token di supporto per l'aggiornamento [KB4034658](https://support.microsoft.com/kb/KB4034658) Versione 0,10-abilitata per impostazione predefinita
+    - Aggiornamento del protocollo di binding del token [[draft-ietf-tokbind-Protocol-10]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/10/)
+    - Estensione TLS per la negoziazione dell'associazione di token aggiunta [[draft-ietf-tokbind-Negotiation-05]](https://tools.ietf.org/html/draft-ietf-tokbind-negotiation-05)
+    - WinInet & HTTP. Supporto SYS dell'associazione di token su HTTP aggiornato [[draft-ietf-tokbind-HTTPS-06]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/06/)
+- Windows 10, versione 1703 supporta token binding Protocol versione 0,10-on per impostazione predefinita
+    - Aggiornamento del protocollo di binding del token [[draft-ietf-tokbind-Protocol-10]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/10/)
+    - Estensione TLS per la negoziazione dell'associazione di token aggiunta [[draft-ietf-tokbind-Negotiation-05]](https://tools.ietf.org/html/draft-ietf-tokbind-negotiation-05)
+    - WinInet & HTTP. Supporto SYS dell'associazione di token su HTTP aggiornato [[draft-ietf-tokbind-HTTPS-06]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/06/)
+    - I dispositivi Windows con sicurezza basata sulla virtualizzazione abilitata manterranno le chiavi di associazione dei token in un ambiente protetto isolato dal sistema operativo in esecuzione
 
-Informazioni sul supporto di ASP .NET sono reperibile nel [origine riferimento di .NET Framework](https://referencesource.microsoft.com/#System.Web/ITlsTokenBindingInfo.cs,4a5e5668f5c31170). 
+Informazioni sul supporto per ASP .NET sono disponibili nell' [.NET Framework origine riferimento](https://referencesource.microsoft.com/#System.Web/ITlsTokenBindingInfo.cs,4a5e5668f5c31170). 
 
 Per informazioni su .NET Framework, vedere gli argomenti seguenti:
 
 - [Miglioramenti di rete](https://blogs.msdn.microsoft.com/dotnet/2015/11/30/net-framework-4-6-1-is-now-available/#networking)
 
-- [Classe TokenBinding .NET](https://msdn.microsoft.com/library/system.security.authentication.extendedprotection.tokenbinding.aspx)
+- [Classe di token .NET](https://msdn.microsoft.com/library/system.security.authentication.extendedprotection.tokenbinding.aspx)

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 93d78bbefce38173198f991543fb3a06d145b373
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37a3b17360112d958b59a7e9c3f64aed5e6f6a5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406990"
 ---
 # <a name="scenario-file-access-auditing"></a>Scenario: Controllo dell'accesso ai file
 
@@ -67,11 +67,11 @@ Per impostare e utilizzare i controlli di sicurezza è in genere necessario:
 ## <a name="in-this-scenario"></a>In questo scenario  
 Negli argomenti seguenti sono disponibili ulteriori informazioni su questo scenario:  
   
--   [Pianificare per File di controllo dell'accesso](Plan-for-File-Access-Auditing.md)  
+-   [Pianificare il controllo dell'accesso ai file](Plan-for-File-Access-Auditing.md)  
   
--   [Distribuire il controllo della protezione con criteri di controllo centrale &#40;passaggi dimostrativi&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
+-   [Distribuire il controllo di sicurezza con i criteri &#40;di controllo centrali procedura dimostrativa&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
+## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

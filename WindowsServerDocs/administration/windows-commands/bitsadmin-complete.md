@@ -1,8 +1,8 @@
 ---
 title: bitsadmin complete
-description: Argomento i comandi di Windows per **bitsadmin completo** -completamento del processo. I file scaricati non sono disponibili fino a quando non si usa questa opzione.
+description: 'Argomento dei comandi di Windows per **BITSAdmin completato** : completa il processo. I file scaricati non sono disponibili finché non si usa questa opzione.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 561585da370f7e69aa3b83b3ddd7579bfc658a21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5a1dc5dbbf2d5b3207b5423f338e0caf4412599
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381824"
 ---
 # <a name="bitsadmin-complete"></a>bitsadmin complete
 
-Completa il processo. I file scaricati non sono disponibili fino a quando non si usa questa opzione. Usare questa opzione dopo il processo passa allo stato trasferito. In caso contrario, solo i file che sono stati trasferiti sono disponibili.
+Completa il processo. I file scaricati non sono disponibili finché non si usa questa opzione. Usare questa opzione dopo che il processo è stato spostato sullo stato trasferito. In caso contrario, saranno disponibili solo i file che sono stati trasferiti correttamente.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,11 +38,11 @@ bitsadmin /complete <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Quando lo stato del processo viene TRASFERITO, BITS avrà trasferito tutti i file del processo. Tuttavia, i file non sono disponibili finché non si usa la **/ completo** passare. Se più processi utilizzano *myDownloadJob* per il proprio nome, è necessario sostituire *myDownloadJob* con il GUID del processo per identificare in modo univoco il processo.
+Quando lo stato del processo viene trasferito, BITS ha trasferito correttamente tutti i file nel processo. Tuttavia, i file non sono disponibili finché non si usa l'opzione **/completo** . Se più processi usano *myDownloadJob* come nome, è necessario sostituire *MYDOWNLOADJOB* con il GUID del processo per identificare in modo univoco il processo.
 ```
 C:\>bitsadmin /complete myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

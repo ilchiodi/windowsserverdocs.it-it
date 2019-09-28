@@ -1,8 +1,8 @@
 ---
 title: bootcfg query
-description: Argomento i comandi di Windows per **query bootcfg** -query e Visualizza [caricatore di avvio] e [i sistemi operativi] sezione voci da Boot. ini.
+description: 'Argomento dei comandi di Windows per **query bootcfg** : esegue una query e visualizza le voci della sezione [boot loader] e [Operating Systems] di boot. ini.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e79acc100a9ec9955f2692a3c6ee812d0310b687
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ae82357cfe178343872448c2ebd46c49a797b5a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434738"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379908"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
@@ -34,8 +34,8 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
 
 |        Nome         |                                                                                             Definizione                                                                                              |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s <computer>    |                                         Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.                                          |
-| /u <Domain>\\<User> | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>oppure <Domain> \\ <User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+|    /s <computer>    |                                         Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                          |
+| /u <Domain>\\<User> | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>or <Domain> @ no__t-2 @ no__t-3. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
 |    /p <Password>    |                                                        Specifica la password dell'account utente specificato nella **/u** parametro.                                                        |
 |         /?          |                                                                                Visualizza la guida al prompt dei comandi.                                                                                 |
 
@@ -54,7 +54,7 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
   OS Load Options: /fastdetect /debug /debugport=com1:
   ```
 - La parte di impostazioni del caricatore di avvio di **query bootcfg** output viene visualizzato ogni voce nella sezione [boot loader] del file Boot. ini.
-- La parte di voci di avvio di **query bootcfg** output visualizza i dettagli seguenti per ogni voce del sistema operativo nella sezione [operating systems] del file Boot. ini: ID della voce di avvio, nome descrittivo, percorso e le opzioni di caricamento del sistema operativo.
+- La parte delle voci di avvio dell'output della **query bootcfg** Visualizza i dettagli seguenti per ogni voce del sistema operativo nella sezione [Operating Systems] di boot. ini: ID della voce di avvio, nome descrittivo, percorso e opzioni di caricamento del sistema operativo.
   ## <a name="BKMK_examples"></a>Esempi
   Gli esempi seguenti illustrano come utilizzare il **bootcfg /query** comando:
   ```

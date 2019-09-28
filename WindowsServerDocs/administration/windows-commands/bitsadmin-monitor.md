@@ -1,8 +1,8 @@
 ---
 title: bitsadmin monitor
-description: Argomento i comandi di Windows per **monitoraggio bitsadmin** -consente di monitorare i processi nella coda di trasferimento a cui appartiene l'utente corrente.
+description: "Argomento dei comandi di Windows per **BITSAdmin monitor** : monitora i processi nella coda di trasferimento di proprietà dell'utente corrente."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c4620d5c8e46cb8bfcb6b9c83261d57781abea5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe4963349c7e17fc77500b5adfceafc48a20ac5f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381225"
 ---
 # <a name="bitsadmin-monitor"></a>bitsadmin monitor
 
@@ -36,7 +36,7 @@ bitsadmin /Monitor [/allusers] [/refresh <Seconds>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|ALLUSERS|Facoltativo: consente di monitorare i processi per tutti gli utenti.|
+|ALLUSERS|Facoltativo: monitora i processi per tutti gli utenti.|
 |Aggiorna|Facoltativo: aggiornamento dei dati a un intervallo specificato da *secondi*. L'intervallo di aggiornamento predefinito è cinque secondi.|
 
 ## <a name="remarks"></a>Note
@@ -54,4 +54,4 @@ C:\>bitsadmin /Monitor /refesh 60
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

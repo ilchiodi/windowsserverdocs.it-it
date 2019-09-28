@@ -1,8 +1,8 @@
 ---
 title: nslookup set root
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38cd5a2e9878a8e43393befc5cbd4fc47c65ec53
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08cf41ec9b6ac30699013112216a538dcf625fd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436599"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372842"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-modifica il nome del server principale usato per le query.
+Modifica il nome del server radice utilizzato per le query.
 ## <a name="syntax"></a>Sintassi
 ```
 set root=<RootServer>
@@ -33,11 +33,11 @@ set root=<RootServer>
 
 |    Parametro    |                                   Descrizione                                    |
 |-----------------|----------------------------------------------------------------------------------|
-|  <RootServer>   | Specifica il nuovo nome per il server principale. Il valore predefinito è DDN.mil. |
-| {help &#124; ?} |              Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.               |
+|  <RootServer>   | Specifica il nuovo nome per il server radice. Il valore predefinito è ns.nic.ddn.mil. |
+| {Help &#124; ?} |              Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.               |
 
 ## <a name="remarks"></a>Note
-- Il **radice del set** sottocomando interessa le **radice** sottocomando.
+- Il sottocomando **set root** influiscono sul sottocomando **radice** .
   ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [Sintassi della riga di comando chiave](command-line-syntax-key.md)
   [nslookup radice](nslookup-root.md)

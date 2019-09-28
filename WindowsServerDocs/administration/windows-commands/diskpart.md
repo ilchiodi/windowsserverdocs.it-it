@@ -1,16 +1,16 @@
 ---
 title: Comandi DiskPart
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7155dbf34f9986b3ebdd8b549b6a861cf7fcfe3a
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 0826b773927f09cc846fb1cfdf4d5dfbf75d5cca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377834"
 ---
 # <a name="diskpart-commands"></a>Comandi DiskPart
 
@@ -18,7 +18,7 @@ Si applica a: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019
 
 I comandi DiskPart consentono di gestire le unità del PC (dischi, partizioni, volumi o dischi rigidi virtuali). Prima di poter utilizzare i comandi DiskPart, è necessario innanzitutto elencare, quindi selezionare un oggetto per assegnargli lo stato attivo. Quando un oggetto ha lo stato attivo, qualsiasi comando DiskPart digitato agirà su tale oggetto.
 
-È possibile elencare gli oggetti disponibili e determinare il numero o la lettera di unità di un oggetto usando i comandi **list disk, list volume, List Partition**ed **List vdisk** . I comandi **list disk, List vdisk** ed List **volume** visualizzano tutti i dischi e i volumi del computer. Tuttavia, il comando **List Partition** Visualizza solo le partizioni sul disco con lo stato attivo. Quando si usano i comandi **List** , viene visualizzato un\*asterisco () accanto all'oggetto con lo stato attivo.
+È possibile elencare gli oggetti disponibili e determinare il numero o la lettera di unità di un oggetto usando i comandi **list disk, list volume, List Partition**ed **List vdisk** . I comandi **list disk, List vdisk** ed List **volume** visualizzano tutti i dischi e i volumi del computer. Tuttavia, il comando **List Partition** Visualizza solo le partizioni sul disco con lo stato attivo. Quando si usano i comandi **List** , viene visualizzato un asterisco (\*) accanto all'oggetto con lo stato attivo.
 
 Quando si seleziona un oggetto, lo stato attivo rimane su tale oggetto fino a quando non si seleziona un oggetto diverso. Ad esempio, se lo stato attivo è impostato su disco 0 e si seleziona volume 8 sul disco 2, lo stato attivo passa dal disco 0 al disco 2, volume 8. Alcuni comandi cambiano automaticamente lo stato attivo. Ad esempio, quando si crea una nuova partizione, lo stato attivo passa automaticamente alla nuova partizione.
 
@@ -39,7 +39,7 @@ Per avviare l'interprete dei comandi DiskPart, al prompt dei comandi digitare:
       
   - [Aggiungi](add.md)  
       
-  - [Assign](assign.md)  
+  - [Assegnare](assign.md)  
       
   - [Connetti vdisk](attach-vdisk.md)  
       
@@ -71,7 +71,7 @@ Per avviare l'interprete dei comandi DiskPart, al prompt dei comandi digitare:
       
   - [Filesystem](filesystems.md)  
       
-  - [Format](format.md)  
+  - [Formato](format.md)  
       
   - [GPT](gpt.md)  
       

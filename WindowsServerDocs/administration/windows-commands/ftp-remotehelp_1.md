@@ -1,8 +1,8 @@
 ---
 title: remotehelp_1 FTP
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd64af157f7ce05330cdafe6e4db6787fa765859
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bac6fbe4a55c3fed4caab4e30ba848ec9ea68e21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376035"
 ---
-# <a name="ftp-remotehelp1"></a>ftp: remotehelp_1
+# <a name="ftp-remotehelp_1"></a>FTP: remotehelp_1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza la Guida per i comandi remoti.   
+Visualizza la guida per i comandi remoti.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 remotehelp [<Command>]  
@@ -32,18 +32,18 @@ remotehelp [<Command>]
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|[<Command>]|Specifica il nome del comando intorno al quale si desidera visualizzare la Guida. Se *comandi* non viene specificato, **ftp** Visualizza un elenco di tutti i comandi remoti.|  
+|[<Command>]|Specifica il nome del comando su cui si desidera visualizzare la guida. Se *Command* non è specificato, **FTP** Visualizza un elenco di tutti i comandi remoti.|  
 ## <a name="remarks"></a>Note  
-È possibile eseguire comandi remoti tramite **virgoletta** oppure **letterale**.  
+È possibile eseguire comandi remoti usando **virgolette** o **valori letterali**.  
 ## <a name="BKMK_Examples"></a>Esempi  
-Visualizzare un elenco di comandi remoti.  
+Visualizza un elenco di comandi remoti.  
 ```  
 remotehelp  
 ```  
-Visualizzare la sintassi per la **vera e propria impresa** comando remoto.  
+Visualizza la sintassi del comando **feat** remote.  
 ```  
 remotehelp feat  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [ftp: quote](ftp-quote.md)  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [FTP: virgolette](ftp-quote.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
