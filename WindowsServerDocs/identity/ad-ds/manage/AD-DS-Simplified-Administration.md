@@ -7,22 +7,22 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 863e5352253d53941e64b52d1ca58d565a3aa8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369455"
 ---
 # <a name="ad-ds-simplified-administration"></a>Amministrazione semplificata di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Questo argomento illustra le funzionalità e i vantaggi della distribuzione del controller di dominio Windows Server 2012 e amministrazione e le differenze tra distribuzione di controller di dominio del sistema operativo precedente e la nuova implementazione di Windows Server 2012.  
+In questo argomento vengono illustrate le funzionalità e i vantaggi della distribuzione e dell'amministrazione dei controller di dominio di Windows Server 2012 e le differenze tra la distribuzione del controller di dominio del sistema operativo precedente e la nuova implementazione di Windows Server 2012.  
   
-Windows Server 2012 presentata la nuova generazione di Active Directory Domain Services Simplified Administration ed è stata l'innovazione più radicale realizzata dopo Windows 2000 Server. L'amministrazione semplificata di Servizi di dominio Active Directory prende le mosse dagli insegnamenti appresi in dodici anni di Active Directory per offrire un'esperienza amministrativa più supportata, flessibile e intuitiva ad architetti e amministratori. Il risultato è stata la creazione di nuove versioni delle tecnologie esistenti oltre all'estensione delle funzionalità dei componenti rilasciati in Windows Server 2008 R2.  
+In Windows Server 2012 è stata introdotta la nuova generazione di Active Directory Domain Services amministrazione semplificata ed è stata la nuova visione radicale del dominio rispetto a Windows 2000 Server. L'amministrazione semplificata di Servizi di dominio Active Directory prende le mosse dagli insegnamenti appresi in dodici anni di Active Directory per offrire un'esperienza amministrativa più supportata, flessibile e intuitiva ad architetti e amministratori. Il risultato è stata la creazione di nuove versioni delle tecnologie esistenti oltre all'estensione delle funzionalità dei componenti rilasciati in Windows Server 2008 R2.  
   
 L'Amministrazione semplificata di Servizi di dominio Active Directory è una nuova forma della distribuzione dei domini.  
   
@@ -42,7 +42,7 @@ Sono stati apportati anche diversi miglioramenti all'amministrazione e alla manu
 - Gli account del servizio gestiti del gruppo supportano più computer con le stesse entità di sicurezza  
 - Miglioramenti nel rilascio e nel monitoraggio degli identificatori relativi (RID) per una migliore gestibilità nei domini di Active Directory maturi  
 
-Active Directory Domain Services trae vantaggio da altre nuove funzionalità incluse in Windows Server 2012, ad esempio:  
+Servizi di dominio Active Directory trae vantaggio da altre nuove funzionalità incluse in Windows Server 2012, ad esempio:  
 
 - Gruppo NIC e bridging dei data center  
 - Sicurezza DNS e disponibilità più rapida della zona integrata in Active Directory dopo il bootstrap  
@@ -114,7 +114,7 @@ Per ulteriori informazioni sulla topologia del sito di Active Directory e replic
 
 In Active Directory di Windows 2000 è stato introdotto il master RID, che rilascia pool di identificatori relativi ai controller di dominio, per creare ID di sicurezza (SID) di domini trusted di sicurezza, come utenti, gruppi e computer.  Per impostazione predefinita, questo spazio RID globale è limitato a 2<sup>30</sup> (o 1.073.741.823) SID totali creati in un dominio. I SID non possono essere restituiti al pool o essere nuovamente rilasciati. Con il tempo, è possibile che un dominio di grandi dimensioni inizi a essere a corto di RID o che degli incidenti portino a un consumo non necessario di RID e a un eventuale esaurimento.  
   
-In Windows Server 2012 sono stati risolti diversi problemi di rilascio e gestione dei RID individuati dai clienti e dal supporto tecnico Microsoft con lo sviluppo di Servizi di dominio Active Directory dopo la creazione dei primi domini di Active Directory nel 1999. tra cui:  
+In Windows Server 2012 sono stati risolti diversi problemi di rilascio e gestione dei RID individuati dai clienti e dal supporto tecnico Microsoft con lo sviluppo di Servizi di dominio Active Directory dopo la creazione dei primi domini di Active Directory nel 1999. Sono inclusi:  
 
 - Vengono scritti periodicamente avvisi sull'utilizzo di RID nel registro eventi  
 - Vengono registrati eventi quando un amministratore invalida un pool di RID  
@@ -173,7 +173,7 @@ Del codice di preparazione di Active Directory in precedenza incluso in ADprep.e
 > [!IMPORTANT]  
 > Per Windows Server 2012 non è disponibile lo strumento Adprep32.exe a 32 bit. È necessario disporre di almeno un computer Windows Server 2008 x64, Windows Server 2008 R2 o Windows Server 2012, in esecuzione come controller di dominio, server membro o in un gruppo di lavoro, per preparare la foresta e il dominio. Adprep.exe non viene eseguito su Windows Server 2003 x64.  
   
-## <a name="BKMK_PrereuisiteChecking"></a>Il controllo dei prerequisiti
+## <a name="BKMK_PrereuisiteChecking"></a>Controllo dei prerequisiti
 
 Il sistema di controllo dei prerequisiti predefinito del codice gestito di Windows PowerShell ADDSDeployment funziona in modalità diverse a seconda dell'operazione. Nelle tabelle seguenti viene descritto ogni test e viene specificato quando viene usato e come e che cosa convalida. Queste tabelle possono essere utili se si verificano problemi a causa dei quali la convalida non riesce e l'errore non è sufficiente per risolvere il problema.  
   
@@ -191,7 +191,7 @@ Sono disponibili cmdlet ADDSDeployment di Windows PowerShell per tutti i cmdlet 
 
 In genere non è necessario eseguire questi cmdlet. Per impostazione predefinita, vengono già eseguiti automaticamente con i cmdlet di distribuzione.  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Test sui prerequisiti
+#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Test dei prerequisiti
 
 ||||  
 |-|-|-|  
@@ -205,7 +205,7 @@ In genere non è necessario eseguire questi cmdlet. Per impostazione predefinita
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro del gruppo Enterprise Admins e disponga del privilegio Gestione registri di controllo ed eventi sicurezza (SesScurityPrivilege) sui controller di dominio esistenti.|  
 |VerifyInitSync<br /><br />AfterReboot|LDAP|Convalida che il master schema è stato replicato almeno una volta dopo il riavvio impostando un valore fittizio per l'attributo becomeSchemaMaster di rootDSE.|  
 |VerifySFUHotFix<br /><br />Applicato|LDAP|Convalida che lo schema della foresta esistente non contiene l'estensione del problema noto SFU2 per l'attributo UID con OID 1.2.840.113556.1.4.7000.187.102.<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Convalida della foresta esistente dello schema non contiene estensioni Exchange 2000 del problema ms-Exch-Assistant-Name, ms-Exch-LabeledURI e ms-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
+|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Convalida che lo schema della foresta esistente non contiene ancora le estensioni di Exchange 2000 per il problema ms-Exch-Assistant-Name, ms-Exch-LabeledURI e ms-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
 |VerifyWin2KSchema<br /><br />Coerenza|LDAP|Convalida che lo schema della foresta esistente ha attributi e classi principali coerenti (non erroneamente modificati da terze parti).|  
 |DCPromo|DRSR su RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC su SMB (SAMR)|Convalida la sintassi della riga di comando passata al codice di innalzamento di livello e testa l'innalzamento di livello. Convalida che la foresta o il dominio non esiste già se ne sta creando uno nuovo.|  
 |VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR su SMB, RPC su SMB (LSARPC)|Convalida che la replica in uscita del controller di dominio esistente specificato come partner di replica è abilitata controllando l'attributo delle opzioni dell'oggetto Impostazioni NTDS per NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004).|  

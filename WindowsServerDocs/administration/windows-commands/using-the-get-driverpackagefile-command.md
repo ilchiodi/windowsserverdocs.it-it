@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-DriverPackageFile
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21bbe17e56177da5cd2c1bf83c712d256cc794c8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440507"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363154"
 ---
 # <a name="using-the-get-driverpackagefile-command"></a>Utilizzando il comando get-DriverPackageFile
 
@@ -36,13 +36,13 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 |         Parametro         |                              Descrizione                               |
 |---------------------------|------------------------------------------------------------------------|
-| / InfFile:\<percorso del Inf File > | Specifica il nome di file e percorso completo del file di pacchetto di driver inf. |
-|    [/Architecture:{x86    |                                  ia64                                  |
-|     [/Show: {driver      |                                 File                                  |
+| /InfFile: percorso file \<Inf > | Specifica il percorso completo e il nome file del file con estensione inf del pacchetto driver. |
+|    [/Architettura: {x86    |                                  ia64                                  |
+|     [/Show: {Drivers      |                                 File                                  |
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per visualizzare informazioni su un file di driver, digitare:
+Per visualizzare le informazioni relative a un file di driver, digitare:
 ```
 WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 ```

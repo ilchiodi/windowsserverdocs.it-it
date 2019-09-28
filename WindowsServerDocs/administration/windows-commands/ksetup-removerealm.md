@@ -1,8 +1,8 @@
 ---
-title: ksetup:removerealm
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: removerealm'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 579b0772e4642389b90aa370dad80a3eebea9d34
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 11858d8a24d4f125c83b3e4092ac48f336a9ef0b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374949"
 ---
-# <a name="ksetupremoverealm"></a>ksetup:removerealm
+# <a name="ksetupremoverealm"></a>che Ksetup: removerealm
 
 
 
@@ -40,13 +40,13 @@ ksetup /removerealm <RealmName>
 
 ## <a name="remarks"></a>Note
 
-Il nome dell'area di autenticazione viene archiviato in due posizioni nel Registro di sistema: **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001** e **\CurrentControlSet\Control\Lsa\Kerberos**.
+Il nome dell'area di autenticazione viene archiviato in due posizioni nel registro di sistema: **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001** e **\CurrentControlSet\Control\Lsa\Kerberos**.
 
 Poiché questa operazione ripristina le informazioni DNS e rimuoverlo potrebbe rendere inutilizzabile il controller di dominio, è possibile rimuovere il nome dell'area di autenticazione predefinito dal controller di dominio.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Erroneamente impostare il nome dell'area di autenticazione dall'ortografia errata ". com" nel computer locale per CORP. CONTOSO. CON
+Impostare erroneamente il nome dell'area di autenticazione ". COM" nel computer locale su CORP. CONTOSO. CON
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```
@@ -58,6 +58,6 @@ Verificare la rimozione eseguendo **che ksetup** ed esaminare l'output.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
+-   [Che Ksetup](ksetup.md)
 -   [Ksetup:setrealm](ksetup-setrealm.md)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

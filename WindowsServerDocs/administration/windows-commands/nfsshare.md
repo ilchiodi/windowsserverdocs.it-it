@@ -1,8 +1,8 @@
 ---
 title: nfsshare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc77825d63875861839ecdb22bee5a62375aaa13
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a952e247ee40f832045d39d0e2164bb2e6613c54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437047"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373206"
 ---
 # <a name="nfsshare"></a>nfsshare
 
 
 
-È possibile usare **nfsshare** al controllo condivisioni di File System NFS (Network).
+È possibile utilizzare **nfsshare** per controllare le condivisioni NFS (Network File System).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,27 +35,27 @@ nfsshare {<ShareName> | <Drive>:<Path> | * } /delete
 
 ## <a name="description"></a>Descrizione
 
-Senza argomenti, il **nfsshare** utilità della riga di comando Elenca tutte le condivisioni di File System NFS (Network) esportate dal Server per NFS. Con *ShareName* come unico argomento, **nfsshare** sono elencate le proprietà della condivisione NFS identificati da *ShareName*. Quando *ShareName* e <em>unità</em> **:** <em>Path</em> vengono forniti **nfsshare** Esporta la cartella identificato da <em>Drive</em> **:** <em>Path</em> come *nomecondivisione*. Quando la **/Elimina** opzione viene utilizzata, la cartella specificata non è più viene resa disponibile ai client NFS.
+Senza argomenti, l'utilità da riga di comando **nfsshare** elenca tutte le condivisioni NFS (Network File System) esportate da server per NFS. Con *ShareName* come unico argomento, **nfsshare** elenca le proprietà della condivisione NFS identificata da *ShareName*. Quando vengono specificati *ShareName* e <em>Drive</em> **:** <em>path</em> , **nfsshare** Esporta la cartella identificata da <em>unità</em> **:** <em>percorso</em> come *ShareName*. Quando si utilizza l'opzione **/Delete** , la cartella specificata non viene più resa disponibile ai client NFS.
 
 ## <a name="options"></a>Opzioni
 
-Il **nfsshare** comando accetta le opzioni e gli argomenti seguenti:
+Il comando **nfsshare** accetta le opzioni e gli argomenti seguenti:
 
 
 |             Nome              |                                                                                                                                                                                                                      Definizione                                                                                                                                                                                                                       |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         / o di autenticazione anon = {Sì          |                                                                                                                                                                                                                          no}                                                                                                                                                                                                                          |
-|  rw -o [=\<Host > [:<Host>]...]  |                       Fornisce accesso in lettura-scrittura alla directory condivisa dall'host o client gruppi specificati da *Host*. Separare i nomi host e gruppi con due punti ( **:** ). Se *Host* non viene specificato, tutti gli host e gruppi di client (ad eccezione di quelle specificate con il **ro** opzione) hanno accesso in lettura / scrittura. Se non si specifica la **ro** né la **rw** opzione è impostata, tutti i client hanno accesso in lettura-scrittura alla directory condivisa.                       |
-|  ro -o [=\<Host > [:<Host>]...]  | Fornisce accesso in lettura alla directory condivisa dall'host o client gruppi specificati da *Host*. Separare i nomi host e gruppi con due punti ( **:** ). Se *Host* non viene specificato, tutti i client (ad eccezione di quelle specificate con il **rw** opzione) hanno accesso in sola lettura. Se il **ro** opzione è impostata per uno o più client, ma la **rw** opzione non è impostata, solo i client specificati con il **ro** opzione hanno accesso alla directory condivisa. |
-|       -o codifica = {big5       |                                                                                                                                                                                                                        euc-jp                                                                                                                                                                                                                         |
-|       -o anongid =\<gid >       |                                                                                     Specifica che gli utenti (non mappati) anonimi accederanno nella directory di condivisione usando *gid* come l'identificatore di gruppo (GID). Il valore predefinito è -2. GID anonimo verrà utilizzato per segnalare il proprietario di un file di proprietà di un utente non mappato, anche se l'accesso anonimo è disabilitato.                                                                                      |
-|      -o anonuid =\<uid >       |                                                                                      Specifica che gli utenti (non mappati) anonimi accederanno nella directory di condivisione usando *uid* come ID utente (UID). Il valore predefinito è -2. UID anonimo verrà utilizzato per segnalare il proprietario di un file di proprietà di un utente non mappato, anche se l'accesso anonimo è disabilitato.                                                                                      |
-| radice -o [=\<Host > [:<Host>]...] |                                                                         Fornisce l'accesso radice nella directory condivisa dall'host o client gruppi specificati da *Host*. Separare i nomi host e gruppi con due punti ( **:** ). Se *Host* non viene specificato, tutti i client hanno accesso alla directory radice. Se il **radice** opzione non è impostata, nessun client ha accesso alla directory radice per la directory condivisa.                                                                         |
-|            /delete            |                                                                                                                                                       Se *ShareName* oppure <em>Drive</em> **:** <em>percorso</em> è specificato, consente di eliminare la condivisione specificata. Se \* è specificata, Elimina tutte le condivisioni NFS.                                                                                                                                                       |
+|         -o anon = {Yes          |                                                                                                                                                                                                                          non                                                                                                                                                                                                                          |
+|  -o RW [= \<Host > [: <Host>]...]  |                       Fornisce accesso in lettura/scrittura alla directory condivisa dagli host o dai gruppi di client specificati dall' *host*. Separare i nomi host e gruppo con i due punti ( **:** ). Se *host* non è specificato, tutti gli host e i gruppi di client (ad eccezione di quelli specificati con l'opzione **ro** ) avranno accesso in lettura/scrittura. Se non è impostata né l'opzione **ro** né l'opzione **RW** , tutti i client avranno accesso in lettura/scrittura alla directory condivisa.                       |
+|  -o ro [= \<Host > [: <Host>]...]  | Fornisce accesso in sola lettura alla directory condivisa dagli host o dai gruppi di client specificati dall' *host*. Separare i nomi host e gruppo con i due punti ( **:** ). Se l' *host* non è specificato, tutti i client (eccetto quelli specificati con l'opzione **RW** ) avranno accesso in sola lettura. Se l'opzione **ro** è impostata per uno o più client, ma l'opzione **RW** non è impostata, solo i client specificati con l'opzione **ro** possono accedere alla directory condivisa. |
+|       -o codifica = {Big5       |                                                                                                                                                                                                                        EUC-JP                                                                                                                                                                                                                         |
+|       -o anongid = \<gid >       |                                                                                     Specifica che gli utenti anonimi (non mappati) accederanno alla directory Share usando *GID* come identificatore del gruppo (GID). Il valore predefinito è-2. Il GID anonimo verrà usato quando si segnala il proprietario di un file di proprietà di un utente non mappato, anche se l'accesso anonimo è disabilitato.                                                                                      |
+|      -o anonuid = \<uid >       |                                                                                      Specifica che gli utenti anonimi (non mappati) accederanno alla directory Share usando *UID* come identificatore utente (UID). Il valore predefinito è-2. L'UID anonimo verrà usato quando si segnala il proprietario di un file di proprietà di un utente non mappato, anche se l'accesso anonimo è disabilitato.                                                                                      |
+| -o root [= \<Host > [: <Host>]...] |                                                                         Fornisce l'accesso radice alla directory condivisa dagli host o dai gruppi di client specificati dall' *host*. Separare i nomi host e gruppo con i due punti ( **:** ). Se l' *host* non è specificato, tutti i client hanno accesso alla radice. Se l'opzione **radice** non è impostata, nessun client dispone di accesso radice alla directory condivisa.                                                                         |
+|            /delete            |                                                                                                                                                       Se viene specificato *ShareName* o <em>Drive</em> **:** <em>path</em> , Elimina la condivisione specificata. Se si specifica \*, Elimina tutte le condivisioni NFS.                                                                                                                                                       |
 
 > [!NOTE]
-> Per visualizzare la sintassi completa del comando, al prompt dei comandi digitare:</br>> **nfsshare /?**
+> Per visualizzare la sintassi completa del comando, al prompt dei comandi digitare:</br>> **nfsshare/?**
 
 # #
 
-[Riferimento ai comandi di sistema di servizi per la rete File](services-for-network-file-system-command-reference.md) vedere anche
+Informazioni [di riferimento sui servizi per il file System di rete](services-for-network-file-system-command-reference.md) Vedere anche

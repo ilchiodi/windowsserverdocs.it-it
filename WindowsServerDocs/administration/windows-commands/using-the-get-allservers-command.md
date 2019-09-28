@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-AllServers
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbccb834f9058f2c3cca097cdf998455f2a6892e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8dd7f9917a54a80b3c570b07fe1a87bd3bcbe4d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440489"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363265"
 ---
 # <a name="using-the-get-allservers-command"></a>Utilizzando il comando get-AllServers
 
@@ -39,9 +39,9 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 
 |   Parametro   |                                                                                                                 Descrizione                                                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /Show:{Config |                                                                                                                    Immagini                                                                                                                    |
+| /Show: {config |                                                                                                                    Immagini                                                                                                                    |
 |  [/ Dettagliate]  | Quando utilizzato in combinazione con il **/Show:Images** o **/Show:All**, restituisce tutti i metadati di ogni immagine di immagine. Se il **/dettagliate** opzione non è specificata, il comportamento predefinito è per restituire il nome dell'immagine, descrizione e nome file. |
-| [/ Insieme di strutture: {Sì |                                                                                                                     No}]                                                                                                                     |
+| [/Forest: {Sì |                                                                                                                     No}]                                                                                                                     |
 
 ## <a name="BKMK_examples"></a>Esempi
 

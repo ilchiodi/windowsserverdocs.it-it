@@ -1,7 +1,7 @@
 ---
 title: Creare una macchina virtuale in Hyper-V
-description: Vengono fornite le istruzioni per la creazione di una macchina virtuale utilizzando Hyper-V Manager o Windows PowerShell
-ms.prod: windows-server-threshold
+description: Fornisce istruzioni per la creazione di una macchina virtuale con la console di gestione di Hyper-V o Windows PowerShell
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: 59297022-a898-456c-b299-d79cd5860238
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 3b850d19663115b72d809af1ae92a444f5491496
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 739691650ce3cda8066e9f7ac77626f53f22affa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364252"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Creare una macchina virtuale in Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 
 Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in modo che Windows PowerShell e le opzioni quando si crea una macchina virtuale in Hyper-V Manager.  
 
@@ -70,7 +70,7 @@ Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in
        New-VM -Name <Name> -MemoryStartupBytes <Memory> -BootDevice <BootDevice> -VHDPath <VHDPath> -Path <Path> -Generation <Generation> -Switch <SwitchName>  
        ```  
 
-       Ad esempio:  
+       Esempio:  
 
        ```  
        New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -VHDPath .\VMs\Win10.vhdx -Path .\VMData -Generation 2 -Switch ExternalSwitch  
@@ -92,7 +92,7 @@ Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in
    Start-VM -Name <Name>  
    ```  
 
-   Ad esempio:  
+   Esempio:  
 
    ```  
    Start-VM -Name Win10VM  
@@ -109,19 +109,19 @@ Nella tabella seguente sono elencate le opzioni selezionate quando si crea una m
 
 |Page|Valore predefinito per Windows 10 e Windows Server 2016|Altre opzioni|  
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|  
-|**Impostazione nome e percorso**|Nome:  Nuova macchina virtuale.<br /><br />Percorso:  **C:\ProgramData\Microsoft\Windows\Hyper-V\\** .|È inoltre possibile immettere il proprio nome e scegliere un altro percorso per la macchina virtuale.<br /><br />Si tratta in cui verranno archiviati i file di configurazione macchina virtuale.|  
+|**Impostazione nome e percorso**|Nome:  Nuova macchina virtuale.<br /><br />Percorso:  **C:\ProgramData\Microsoft\Windows\Hyper-V @ no__t-1**.|È inoltre possibile immettere il proprio nome e scegliere un altro percorso per la macchina virtuale.<br /><br />Si tratta in cui verranno archiviati i file di configurazione macchina virtuale.|  
 |**Impostazione generazione**|Prima generazione|È inoltre possibile scegliere di creare una macchina virtuale di generazione 2. Per ulteriori informazioni, vedere [è necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
 |**Assegnazione memoria**|Memoria di avvio: 1024 MB<br /><br />La memoria dinamica: **non selezionata**|È possibile impostare la memoria di avvio da 32MB a 5902MB.<br /><br />È inoltre possibile utilizzare la memoria dinamica. Per ulteriori informazioni, vedere [Panoramica della memoria dinamica di Hyper-V](https://technet.microsoft.com/library/hh831766.aspx).|  
 |**Configurazione rete**|Non è connesso|È possibile selezionare una connessione di rete per la macchina virtuale utilizzare un elenco dei commutatori virtuali esistenti. Vedere [creare un commutatore virtuale per le macchine virtuali Hyper-V](Create-a-virtual-switch-for-Hyper-V-virtual-machines.md).|  
-|**Connessione disco rigido virtuale**|Crea un disco rigido virtuale<br /><br />Nome: <*vmname*> vhdx<br /><br />**Percorso**: **C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\\**<br /><br />**Dimensioni**: 127GB|È inoltre possibile utilizzare un disco rigido virtuale esistente oppure attendere e collegare un disco rigido virtuale in un secondo momento.|  
+|**Connessione disco rigido virtuale**|Crea un disco rigido virtuale<br /><br />Nome: <*vmname*> vhdx<br /><br />**Località**: **Dischi rigidi C:\utenti\public\documents\hyper-V\Virtual Hard @ no__t-1**<br /><br />**Dimensioni**: 127 GB|È inoltre possibile utilizzare un disco rigido virtuale esistente oppure attendere e collegare un disco rigido virtuale in un secondo momento.|  
 |**Opzioni di installazione**|Installare un sistema operativo in un secondo momento|Queste opzioni modificare l'ordine di avvio della macchina virtuale in modo che è possibile installare da un file ISO, disco floppy o un servizio di installazione di rete, ad esempio servizi di distribuzione Windows (WDS).|  
-|**Riepilogo**|Visualizza le opzioni che si sono scelto, in modo che sia possibile verificare che siano corrette.<br /><br />-Nome<br />-Generazione<br />-Memoria<br />-Rete<br />: Disco rigido<br />-Sistema operativo|**Suggerimento:** È possibile copiare il riepilogo dalla pagina e incollarlo nel messaggio di posta elettronica o altrove che consentono di tenere traccia delle tue macchine virtuali.|  
+|**Riepilogo**|Visualizza le opzioni che si sono scelto, in modo che sia possibile verificare che siano corrette.<br /><br />-Nome<br />-Generazione<br />-Memoria<br />-Rete<br />: Disco rigido<br />-Sistema operativo|**Punta** È possibile copiare il riepilogo dalla pagina e incollarlo nella posta elettronica o altrove per tenere traccia delle macchine virtuali.|  
 
 ## <a name="see-also"></a>Vedere anche  
 
-- [New-VM](https://technet.microsoft.com/library/hh848537.aspx)  
+- [Nuova macchina virtuale](https://technet.microsoft.com/library/hh848537.aspx)  
 
-- [Versioni di configurazione supportate della macchina virtuale](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions)  
+- [Versioni di configurazione delle macchine virtuali supportate](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions)  
 
 -   [È consigliabile creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)  
 

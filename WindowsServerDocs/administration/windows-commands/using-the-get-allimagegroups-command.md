@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-AllImageGroups
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 917f61327a3d39ee97c5fd59072884f7844c487e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54e302dca5014d084c7277154eb491f9e33a536b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363308"
 ---
 # <a name="using-the-get-allimagegroups-command"></a>Utilizzando il comando get-AllImageGroups
 
@@ -33,7 +33,7 @@ wdsutil [Options] /Get-AllImageGroups [/Server:<Server name>] [/detailed]
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-|[/ dettagliate]|Restituisce i metadati dell'immagine da ogni immagine. Se si omette questo parametro, il comportamento predefinito è per restituire solo il nome dell'immagine, descrizione e nome file per ogni immagine.|
+|[/detailed]|Restituisce i metadati dell'immagine da ogni immagine. Se si omette questo parametro, il comportamento predefinito è per restituire solo il nome dell'immagine, descrizione e nome file per ogni immagine.|
 ## <a name="BKMK_examples"></a>Esempi
 Per visualizzare informazioni sui gruppi di immagine, digitare uno dei seguenti:
 ```

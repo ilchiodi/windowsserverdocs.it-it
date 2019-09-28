@@ -1,8 +1,8 @@
 ---
 title: dove
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ff50405dd53ee383abc8e13f67befecf73e37c1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abebe5799075653d2ace1af4eadbdd5d477d97a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362165"
 ---
 # <a name="where"></a>dove
 
@@ -38,11 +38,11 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/r \<Dir>|Indica una ricerca ricorsiva, a partire dalla directory specificata.|
+|/r \<Dir >|Indica una ricerca ricorsiva, a partire dalla directory specificata.|
 |/q|Restituisce un codice di uscita (**0** di esito positivo, **1** errore) senza visualizzare l'elenco di file corrispondenti.|
 |/f|Visualizza i risultati del **in** comando tra virgolette.|
 |/t|Visualizza le dimensioni del file e la data dell'ultima modifica e l'ora di ogni file corrispondente.|
-|[$\<ENV>:\|\<Path>:]\<Pattern>[ ...]|Specifica il criterio di ricerca per i file devono corrispondere. È necessario almeno un modello e il modello può includere caratteri jolly (**&#42;** e **?**). Per impostazione predefinita, **in** esamina la directory corrente e i percorsi specificati nella variabile di ambiente PATH. È possibile specificare un percorso diverso per la ricerca utilizzando il formato $*ENV*:*modello* (dove *ENV* è una variabile di ambiente esistente che contiene uno o più percorsi) o utilizzando il formato *percorso*:*modello* (dove *percorso* è il percorso della directory in cui cercare). Questi formati facoltativi non devono essere utilizzati con il **/r** opzione della riga di comando.|
+|[$ \<ENV >: \| @ no__t-2Path >:] \<Pattern > [...]|Specifica il criterio di ricerca per i file devono corrispondere. È necessario almeno un criterio e il modello può includere caratteri jolly ( **&#42;** e **?** ). Per impostazione predefinita, **in** esamina la directory corrente e i percorsi specificati nella variabile di ambiente PATH. È possibile specificare un percorso diverso per la ricerca utilizzando il formato $*ENV*:*modello* (dove *ENV* è una variabile di ambiente esistente che contiene uno o più percorsi) o utilizzando il formato *percorso*:*modello* (dove *percorso* è il percorso della directory in cui cercare). Questi formati facoltativi non devono essere utilizzati con il **/r** opzione della riga di comando.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -67,4 +67,4 @@ where /r \\computer1\c notepad.*
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

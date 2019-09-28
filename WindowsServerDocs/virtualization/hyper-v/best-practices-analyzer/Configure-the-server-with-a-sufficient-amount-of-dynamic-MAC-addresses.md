@@ -1,7 +1,7 @@
 ---
 title: Configurare il server con una quantità sufficiente di indirizzi MAC dinamici
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,24 +10,24 @@ ms.topic: article
 ms.assetid: a2804519-9790-4006-80b6-e990a8f505fe
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fc444225c38ef7e8605ec328cfe3f8184b2fd307
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: efd1999411187a592cd8d175eb6de25e11605623
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870732"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364945"
 ---
 # <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>Configurare il server con una quantità sufficiente di indirizzi MAC dinamici
 
 >Si applica a: Windows Server 2016
 
-*Questo argomento è dedicato alla risoluzione di un problema specifico identificato da un'analisi di Best Practices Analyzer. È consigliabile applicare le informazioni contenute in questo argomento solo ai computer in cui è stato eseguito Best di Best Practices Analyzer di Hyper-V e si verifica il problema discusso in questo argomento. Per altre informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+l'argomento *Stanziamento è progettato per risolvere un problema specifico identificato da un'analisi di Best Practices Analyzer. È consigliabile applicare le informazioni contenute in questo argomento solo ai computer in cui è stata eseguita la Best Practices Analyzer Hyper-V e si è verificato il problema trattato in questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere @ no__t-0 [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -38,11 +38,11 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-*Quando nessun indirizzo MAC dinamico è disponibile, le macchine virtuali configurate per usare un indirizzo MAC dinamico non può essere avviate.*  
+*Quando non sono disponibili indirizzi MAC dinamici, non è possibile avviare le macchine virtuali configurate per l'utilizzo di un indirizzo MAC dinamico.*  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Utilizzare Gestione commutatori virtuali per visualizzare ed estendere l'intervallo di indirizzi dinamici.*  
+*Utilizzare Virtual Switch Manager per visualizzare ed estendere l'intervallo di indirizzi dinamici.*  
   
 
 

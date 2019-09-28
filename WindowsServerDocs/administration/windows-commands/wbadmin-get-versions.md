@@ -1,8 +1,8 @@
 ---
-title: Wbadmin get versioni
-description: 'Argomento i comandi di Windows per * * *- '
+title: Wbadmin get versions
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e4ebbd0d78de0ffbff1ee8c658d6d9811b87df1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b7ba0749c8ef347e27590bde4eed7bbcf25af7e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362363"
 ---
-# <a name="wbadmin-get-versions"></a>Wbadmin get versioni
+# <a name="wbadmin-get-versions"></a>Wbadmin get versions
 
 
 
@@ -55,13 +55,13 @@ Per visualizzare un elenco di backup disponibili che vengono archiviati nel volu
 ```
 wbadmin get versions -backupTarget:h:
 ```
-Per visualizzare un elenco di backup disponibili archiviati nella cartella condivisa remota \\ \\servername\share per il computer server01, tipo:
+Per visualizzare un elenco dei backup disponibili archiviati nella cartella condivisa remota \\ @ no__t-1servername\share per il computer Server01, digitare:
 ```
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Get-WBBackupTarget](https://technet.microsoft.com/library/jj902447.aspx) cmdlet

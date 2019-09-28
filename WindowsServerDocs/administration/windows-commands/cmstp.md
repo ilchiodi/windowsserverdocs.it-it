@@ -1,8 +1,8 @@
 ---
 title: cmstp
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ee5c5189b4eab21994def221dd757b0061ef22d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fd2e8dbb08b41875335b35dd802007a0bd1fbd41
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836382"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379274"
 ---
 # <a name="cmstp"></a>cmstp
 
@@ -39,9 +39,9 @@ cmstp.exe [/nf] [/ni] [/ns] [/s] [/su] [/u]  [Drive:][path]ServiceProfileFileNam
 |-------|--------|
 |< NomeFileProfiloServizio > .exe|Specifica il nome, il pacchetto di installazione che contiene il profilo che si desidera installare.<br /><br />Obbligatorio per la sintassi 1, ma non è valido per la sintassi 2.|
 |/q: un|Specifica che il profilo deve essere installato senza chiedere conferma all'utente. Verrà comunque visualizzato il messaggio di verifica che l'installazione ha avuto esito positivo.<br /><br />Obbligatorio per la sintassi 1, ma non è valido per la sintassi 2.|
-|[Unità:] [percorso] <ServiceProfileFileName>. inf|Obbligatorio. Specifica il nome, il file di configurazione che determina come deve essere installato il profilo.<br /><br />Il [unità:] [percorso] parametro non valido per la sintassi 1.|
+|[Unità:] [percorso] @no__t 0. inf|Obbligatorio. Specifica il nome, il file di configurazione che determina come deve essere installato il profilo.<br /><br />Il parametro [unità:] [percorso] non è valido per la sintassi 1.|
 |/Nf.|Specifica che i file di supporto non devono essere installati.|
-|/Ni|Specifica che un'icona del desktop non deve essere creato. Questo parametro è valido solo per i computer che eseguono Windows 95, Windows 98, Windows NT 4.0 o Windows Millennium edition.|
+|/Ni|Specifica che un'icona del desktop non deve essere creato. Questo parametro è valido solo per i computer che eseguono Windows 95, Windows 98, Windows NT 4,0 o Windows Millennium Edition.|
 |/NS|Specifica che non deve essere creato un collegamento sul desktop. Questo parametro è valido solo per i computer che eseguono un membro della famiglia Windows Server 2003, Windows 2000 o Windows XP.|
 |/s|Specifica che il profilo del servizio deve essere installato o disinstallato automaticamente (senza chiedere conferma per la risposta dell'utente o visualizzare messaggio di verifica).|
 |/su|Specifica che il profilo del servizio deve essere installato per un singolo utente anziché per tutti gli utenti. Questo parametro è valido solo per computer Windows Server 2003, Windows 2000 o Windows XP.|
@@ -65,4 +65,4 @@ Per disinstallare il profilo del servizio fittizio, digitare:
 fiction.exe /c:"cmstp.exe fiction.inf /s /u"
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

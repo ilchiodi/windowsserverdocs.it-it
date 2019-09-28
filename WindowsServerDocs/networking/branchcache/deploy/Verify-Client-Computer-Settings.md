@@ -2,22 +2,22 @@
 title: Verificare le impostazioni di Computer Client
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 31ea58b0-d407-4f62-8ec6-6a1b19174042
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d628886186474d3f05d7961ca3d3b45b8bf12e73
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6d0adbf0db2d7888ca12ca49f50fc37baa8cbc16
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834052"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356514"
 ---
 # <a name="verify-client-computer-settings"></a>Verificare le impostazioni di Computer Client
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per verificare che il computer client è configurato correttamente per BranchCache.  
   

@@ -1,8 +1,8 @@
 ---
 title: finger
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 526363db3ecff4a9138c9cf13cbf330196e14ced
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8e16120eb19ff2f194fe2c8bdeb3af80ca459ebe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439255"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377158"
 ---
 # <a name="finger"></a>finger
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza informazioni su una o più utenti in un computer remoto specificato (in genere un computer UNIX) che è in esecuzione il servizio finger o daemon. Il computer remoto specifica il formato e l'output della visualizzazione di informazioni dell'utente. Se utilizzato senza parametri, **dito** Visualizza la Guida. 
+Visualizza le informazioni su un utente o su un computer remoto specificato (in genere un computer che esegue UNIX) che esegue il servizio Finger o daemon. Il computer remoto specifica il formato e l'output della visualizzazione di informazioni dell'utente. Se utilizzato senza parametri, **dito** Visualizza la Guida. 
 ## <a name="syntax"></a>Sintassi
 ```
 finger [-l] [<User>] [@<Host>] [...]
@@ -35,11 +35,11 @@ finger [-l] [<User>] [@<Host>] [...]
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    -l     |                                                          Visualizza le informazioni utente in formato lungo.                                                           |
 |  <User>   | Specifica l'utente sul quale si desiderano informazioni. Se si omette il *utente* parametro **dito** Visualizza informazioni su tutti gli utenti sul computer specificato. |
-|  @<Host>  |        Specifica il computer remoto che esegue il servizio con un dito in cui si sta cercando informazioni utente. È possibile specificare un indirizzo IP o il nome del computer.        |
+|  @<Host>  |        Specifica il computer remoto che esegue il servizio Finger in cui si stanno cercando le informazioni sull'utente. È possibile specificare un indirizzo IP o il nome del computer.        |
 |    /?     |                                                               Visualizza la guida al prompt dei comandi.                                                                |
 
 ## <a name="remarks"></a>Note
-Più User@Host parametri possono essere specificati.
+È possibile specificare più parametri User@Host.
 È necessario anteporre **dito** parametri con un trattino (-) anziché una barra (/).
 Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.
 Windows Server 2003 non fornisce un servizio con un dito.

@@ -1,8 +1,8 @@
 ---
 title: date
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e774f7bfabb9b574255691dd97d2cfff36f034e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d7328b2b5d3c78fdfd741918d76e26195f0af4a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877952"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378822"
 ---
 # <a name="date"></a>date
 
@@ -38,7 +38,7 @@ date [/t | <Month-Day-Year>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Mese-giorno-anno >|Imposta la data specificata, in cui *mese* è il mese (una o due cifre), *giorno* è il giorno (uno o due cifre), e *anno* è l'anno (due o quattro cifre).|
+|\<Month-giorno-anno >|Imposta la data specificata, in cui *mese* è il mese (una o due cifre), *giorno* è il giorno (uno o due cifre), e *anno* è l'anno (due o quattro cifre).|
 |/t|Visualizza la data corrente senza richiedere una nuova data.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -71,4 +71,4 @@ Per mantenere la data corrente e tornare al prompt dei comandi, premere INVIO. P
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

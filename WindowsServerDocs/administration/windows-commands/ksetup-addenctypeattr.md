@@ -1,8 +1,8 @@
 ---
-title: ksetup:addenctypeattr
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: addenctypeattr'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 711da6a81269fc838ca091765ddbcac63c3fe6e4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f207d36ff52be4b0dc222d96d62a2ac9e38f573f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886392"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375298"
 ---
-# <a name="ksetupaddenctypeattr"></a>ksetup:addenctypeattr
+# <a name="ksetupaddenctypeattr"></a>che Ksetup: addenctypeattr
 
 
 
@@ -36,18 +36,18 @@ ksetup /addenctypeattr <DomainName> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<DomainName>|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
-|Tipo di crittografia|Deve essere uno dei tipi di crittografia supportati seguenti:</br>-   DES-CBC-CRC</br>-   DES-CBC-MD5</br>-   RC4-HMAC-MD5</br>-   AES128-CTS-HMAC-SHA1-96</br>-   AES256-CTS-HMAC-SHA1-96|
+|\<DomainName >|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
+|Tipo di crittografia|Deve essere uno dei tipi di crittografia supportati seguenti:</br>-DES-CBC-CRC</br>-DES-CBC-MD5</br>-RC4-HMAC-MD5</br>-AES128-CTS-HMAC-SHA1-96</br>-AES256-CTS-HMAC-SHA1-96|
 
 ## <a name="remarks"></a>Note
 
 Per visualizzare il tipo di crittografia per Kerberos ticket di concessione ticket (TGT) e la chiave di sessione, eseguire il **klist** comando e visualizzare l'output.
 
-È possibile impostare o aggiungere più tipi di crittografia, separare i tipi di crittografia nel comando con uno spazio. Tuttavia, è possibile solo farlo per un dominio alla volta.
+È possibile impostare o aggiungere più tipi di crittografia separando i tipi di crittografia nel comando con uno spazio. Tuttavia, è possibile eseguire questa operazione solo per un dominio alla volta.
 
 Se il comando ha esito positivo o negativo, viene visualizzato un messaggio di stato.
 
-Per impostare il dominio che si desidera connettersi e usare, eseguire la **che ksetup /domain \<NomeDominio >** comando.
+Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<DomainName >** .
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -67,7 +67,7 @@ Impostare l'attributo di tipo di crittografia su AES-256-CTS-HMAC-SHA1-96 per il
 ```
 ksetup /setenctypeattr corp.contoso.com AES-256-CTS-HMAC-SHA1-96
 ```
-Verificare che l'attributo di tipo di crittografia è stata impostata nel modo previsto per il dominio:
+Verificare che l'attributo del tipo di crittografia sia impostato come previsto per il dominio:
 ```
 ksetup /getenctypeattr corp.contoso.com
 ```
@@ -79,4 +79,4 @@ ksetup /getenctypeattr corp.contoso.com
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:getenctypeattr](ksetup-getenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

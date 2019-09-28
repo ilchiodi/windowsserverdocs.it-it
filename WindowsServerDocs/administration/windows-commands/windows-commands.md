@@ -8,46 +8,28 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.prod: windows-server
+ms.openlocfilehash: 5cb26bcff99d9cf3a1ee8b3a937ad6098a913c3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407653"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362059"
 ---
 # <a name="windows-commands"></a>Comandi di Windows
 
-Tutte le versioni supportate di Windows (server e client) includono un set di comandi della console Win32 predefinito.
+Tutte le versioni supportate di Windows (server e client) dispongono di un set di comandi console Win32 incorporati.
 
-Questo set di documentazione sono descritti i comandi di Windows è possibile usare per automatizzare le attività tramite script o strumenti di scripting.
+In questo set di documentazione vengono descritti i comandi di Windows che è possibile utilizzare per automatizzare le attività tramite script o strumenti di scripting.
 
 Per trovare informazioni su un comando specifico, nel menu A-Z seguente, fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome di comando.
 
-[OGGETTO](#a) |
+[A](#a) |
 [B](#b) | 
 [C](#c) | 
-[1!D](#d) | 
-[ELETTRONICA](#e)  | 
- [F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[HO](#i)  |
- [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n)  | 
- [O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r)  | 
- [S](#s) | 
-[T](#t) | 
-[U](#u) | 
-[V](#v)  | 
- [W](#w) | 
-[X](#x) | Y | Z
+[D](#d) | 
+[E](#e) | 
+[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -65,54 +47,36 @@ Le informazioni contenute in questo argomento si applicano a:
 
 ### <a name="command-shell-overview"></a>Cenni preliminari sulla shell comandi
 
-La shell dei comandi è stato il primo shell incorporata in Windows per automatizzare le attività di routine, ad esempio gestione degli account utente o i backup notturni, con i file batch (bat). Con Windows Script Host è possibile eseguire script più complessi nella shell dei comandi. Per altre informazioni, vedere [cscript](cscript.md) oppure [wscript](wscript.md). È possibile eseguire operazioni in modo più efficiente utilizzando gli script rispetto a quanto possibile tramite l'interfaccia utente. Gli script accettano tutti i comandi che sono disponibili nella riga di comando.
+La shell dei comandi era la prima Shell incorporata in Windows per automatizzare le attività di routine, ad esempio la gestione degli account utente o i backup notturni, con file batch (. bat). Con Windows script host è possibile eseguire script più sofisticati nella shell dei comandi. Per ulteriori informazioni, vedere [cscript](cscript.md) o [WScript](wscript.md). È possibile eseguire operazioni in modo più efficiente utilizzando gli script rispetto a quanto possibile tramite l'interfaccia utente. Gli script accettano tutti i comandi disponibili nella riga di comando.
 
-Windows include due shell dei comandi: La shell dei comandi e [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Ogni shell è un programma software che fornisce la comunicazione diretta tra si e il sistema operativo o applicazione, che fornisce un ambiente per automatizzare le operazioni IT.
+Windows include due shell comandi: Shell dei comandi e [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Ogni shell è un programma software che fornisce la comunicazione diretta tra l'utente e il sistema operativo o l'applicazione, fornendo un ambiente per automatizzare le operazioni IT.
 
-PowerShell è stato progettato per estendere le funzionalità della shell dei comandi per eseguire i comandi di PowerShell denominati cmdlet. I cmdlet sono simili ai comandi di Windows, ma fornisce un linguaggio di scripting più estendibile. È possibile eseguire i comandi di Windows e i cmdlet di PowerShell in Powershell, ma la shell dei comandi solo possibile eseguire i comandi di Windows e non i cmdlet di PowerShell.
+PowerShell è stato progettato per estendere le funzionalità della shell dei comandi per eseguire comandi di PowerShell denominati cmdlet. I cmdlet sono simili ai comandi di Windows, ma forniscono un linguaggio di scripting più estendibile. È possibile eseguire i comandi di Windows e i cmdlet di PowerShell in PowerShell, ma la shell dei comandi può eseguire solo i comandi di Windows e non i cmdlet di PowerShell.
 
-Per più affidabile e aggiornato Windows automazione, è consigliabile usare PowerShell invece di automazione di Windows Script Host per Windows o i comandi di Windows. 
+Per l'automazione di Windows più affidabile e aggiornata, è consigliabile usare PowerShell anziché i comandi di Windows o Windows script host per l'automazione di Windows. 
 > [!NOTE]
 >È anche possibile scaricare e installare [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la versione open source di PowerShell. 
 
 > [!CAUTION]
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare le modifiche seguenti al Registro di sistema, è necessario eseguire il backup tutti i dati importanti nel computer.
+> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
 
 > [!NOTE]
-> Per abilitare o disabilitare il completamento di nome di file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **regedit.exe** e impostare le opzioni seguenti **valore reg_DWOrd**:
+> Per abilitare o disabilitare il completamento del nome file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **Regedit. exe** e impostare il **valore reg_DWOrd**seguente:
 > 
-> Processor\completionChar\reg_DWOrd HKEY_LOCAL_MACHINE\Software\Microsoft\Command
+> HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
 > 
-> Per impostare il **reg_DWOrd** valore, utilizzare il valore esadecimale del carattere di controllo per una particolare funzione (ad esempio, **0 9** scheda e **08 0** BACKSPACE). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
+> Per impostare il valore **reg_DWOrd** , utilizzare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 9** è Tab e **0 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 ## <a name="command-line-reference-a-z"></a>Riferimento della riga di comando A-Z
 
-Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome del comando.
+Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguente fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome del comando.
 
-[OGGETTO](#a) |
+[A](#a) |
 [B](#b) | 
 [C](#c) | 
-[1!D](#d) | 
-[ELETTRONICA](#e)  | 
- [F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[HO](#i)  |
- [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n)  | 
- [O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r)  | 
- [S](#s) | 
-[T](#t) | 
-[U](#u) | 
-[V](#v)  | 
- [W](#w) | 
-[X](#x) | Y | Z)
+[D](#d) | 
+[E](#e) | 
+[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | Y | Z
 
 ### <a name="a"></a>A
 -   [append](append.md)
@@ -155,7 +119,7 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
   -   [bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)
   -   [bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)
   -   [bitsadmin getowner](bitsadmin-getowner.md)
-  -   [priorità get Bitsadmin](bitsadmin-getpriority.md)
+  -   [Bitsadmin ottieni priorità](bitsadmin-getpriority.md)
   -   [bitsadmin getproxybypasslist](bitsadmin-getproxybypasslist.md)
   -   [bitsadmin getproxylist](bitsadmin-getproxylist.md)
   -   [bitsadmin getproxyusage](bitsadmin-getproxyusage.md)
@@ -265,7 +229,7 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 -   [eventcreate](eventcreate.md)
 -   [eventquery](eventquery.md)
 -   [eventtriggers](eventtriggers.md)
--   [evntcmd](Evntcmd.md)
+-   [Evntcmd](Evntcmd.md)
 -   [exit](exit_2.md)
 -   [expand](expand.md)
 -   [extract](extract.md)
@@ -298,7 +262,7 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
   -   [fsutil usn](fsutil-usn.md)
   -   [fsutil volume](fsutil-volume.md)
   -   [fsutil wim](fsutil-wim.md)
-- [ftp](ftp.md)
+- [FTP](ftp.md)
 - [ftype](ftype.md)
 - [fveupdate](fveupdate.md)
 
@@ -330,28 +294,28 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 ### <a name="k"></a>K
 - [klist](klist.md)
 - [ksetup](ksetup.md)
-  -   [ksetup:setrealm](ksetup-setrealm.md)
-  -   [ksetup:mapuser](ksetup-mapuser.md)
-  -   [ksetup:addkdc](ksetup-addkdc.md)
-  -   [ksetup:delkdc](ksetup-delkdc.md)
-  -   [ksetup:addkpasswd](ksetup-addkpasswd.md)
-  -   [ksetup:delkpasswd](ksetup-delkpasswd.md)
-  -   [ksetup:server](ksetup-server.md)
-  -   [ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)
-  -   [ksetup:removerealm](ksetup-removerealm.md)
-  -   [ksetup:domain](ksetup-domain.md)
-  -   [ksetup:changepassword](ksetup-changepassword.md)
-  -   [ksetup:listrealmflags](ksetup-listrealmflags.md)
-  -   [ksetup:setrealmflags](ksetup-setrealmflags.md)
-  -   [ksetup:addrealmflags](ksetup-addrealmflags.md)
-  -   [ksetup:delrealmflags](ksetup-delrealmflags.md)
-  -   [ksetup:dumpstate](ksetup-dumpstate.md)
-  -   [ksetup:addhosttorealmmap](ksetup-addhosttorealmmap.md)
-  -   [ksetup:delhosttorealmmap](ksetup-delhosttorealmmap.md)
-  -   [ksetup:setenctypeattr](ksetup-setenctypeattr.md)
-  -   [ksetup:getenctypeattr](ksetup-getenctypeattr.md)
-  -   [ksetup:addenctypeattr](ksetup-addenctypeattr.md)
-  -   [ksetup:delenctypeattr](ksetup-delenctypeattr.md) 
+  -   [che Ksetup: Unreal](ksetup-setrealm.md)
+  -   [che Ksetup: mapuser](ksetup-mapuser.md)
+  -   [che Ksetup: addkdc](ksetup-addkdc.md)
+  -   [che Ksetup: delkdc](ksetup-delkdc.md)
+  -   [che Ksetup: addkpasswd](ksetup-addkpasswd.md)
+  -   [che Ksetup: delkpasswd](ksetup-delkpasswd.md)
+  -   [che Ksetup: Server](ksetup-server.md)
+  -   [che Ksetup: setcomputerpassword](ksetup-setcomputerpassword.md)
+  -   [che Ksetup: removerealm](ksetup-removerealm.md)
+  -   [che Ksetup: dominio](ksetup-domain.md)
+  -   [che Ksetup: ChangePassword](ksetup-changepassword.md)
+  -   [che Ksetup: listrealmflags](ksetup-listrealmflags.md)
+  -   [che Ksetup: setrealmflags](ksetup-setrealmflags.md)
+  -   [che Ksetup: addrealmflags](ksetup-addrealmflags.md)
+  -   [che Ksetup: delrealmflags](ksetup-delrealmflags.md)
+  -   [che Ksetup: dumpstate](ksetup-dumpstate.md)
+  -   [che Ksetup: addhosttorealmmap](ksetup-addhosttorealmmap.md)
+  -   [che Ksetup: delhosttorealmmap](ksetup-delhosttorealmmap.md)
+  -   [che Ksetup: setenctypeattr](ksetup-setenctypeattr.md)
+  -   [che Ksetup: getenctypeattr](ksetup-getenctypeattr.md)
+  -   [che Ksetup: addenctypeattr](ksetup-addenctypeattr.md)
+  -   [che Ksetup: delenctypeattr](ksetup-delenctypeattr.md) 
 - [ktmutil](ktmutil.md)
 - [ktpass](ktpass.md)
 
@@ -361,10 +325,10 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [logman](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
-  -   [logman start &124; stop](logman-start-stop.md)
+  -   [logman start & 124; arrestare](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
   -   [logman update](logman-update.md)
-  -   [logman import &124; export](logman-import-export.md)
+  -   [logman Import & 124; esportazione](logman-import-export.md)
 - [logoff](logoff.md)
 - [lpq](lpq.md)
 - [lpr](lpr.md)
@@ -373,24 +337,24 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [macfile](macfile.md)
 - [makecab](makecab.md)
 - [manage-bde](manage-bde.md)
-  -   [manage-bde: status](manage-bde-status.md)
-  -   [manage-bde: on](manage-bde-on.md)
-  -   [manage-bde: off](manage-bde-off.md)
-  -   [manage-bde: pause](manage-bde-pause.md)
-  -   [manage-bde: resume](manage-bde-resume.md)
-  -   [manage-bde: lock](manage-bde-lock.md)
-  -   [manage-bde: unlock](manage-bde-unlock.md)
-  -   [manage-bde: autounlock](manage-bde-autounlock.md)
-  -   [manage-bde: protectors](manage-bde-protectors.md)
-  -   [manage-bde: tpm](manage-bde-tpm.md)
-  -   [manage-bde: setidentifier](manage-bde-setidentifier.md)
-  -   [manage-bde: ForceRecovery](manage-bde-forcerecovery.md)
-  -   [manage-bde: changepassword](manage-bde-changepassword.md)
-  -   [manage-bde: changepin](manage-bde-changepin.md)
-  -   [manage-bde: changekey](manage-bde-changekey.md)
-  -   [manage-bde: KeyPackage](manage-bde-keypackage.md)
-  -   [manage-bde: upgrade](manage-bde-upgrade.md)
-  -   [manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)
+  -   [Manage-bde: stato](manage-bde-status.md)
+  -   [Manage-bde: on](manage-bde-on.md)
+  -   [Manage-bde: disattivato](manage-bde-off.md)
+  -   [Manage-bde: pausa](manage-bde-pause.md)
+  -   [Manage-bde: ripresa](manage-bde-resume.md)
+  -   [Manage-bde: blocco](manage-bde-lock.md)
+  -   [Manage-bde: sblocco](manage-bde-unlock.md)
+  -   [Manage-bde: sblocco automatico](manage-bde-autounlock.md)
+  -   [Manage-bde: protezioni](manage-bde-protectors.md)
+  -   [Manage-bde: TPM](manage-bde-tpm.md)
+  -   [Manage-bde: seidentificatore](manage-bde-setidentifier.md)
+  -   [manage-BDE: ForceRecovery](manage-bde-forcerecovery.md)
+  -   [Manage-bde: ChangePassword](manage-bde-changepassword.md)
+  -   [Manage-bde: changepin aggiorna](manage-bde-changepin.md)
+  -   [Manage-bde: ChangeKey](manage-bde-changekey.md)
+  -   [manage-BDE: KeyPackage](manage-bde-keypackage.md)
+  -   [Manage-bde: aggiornamento](manage-bde-upgrade.md)
+  -   [manage-BDE: WipeFreeSpace](manage-bde-wipefreespace.md)
 - [mapadmin](mapadmin.md)
 - [Md](Md.md)
 - [mkdir](mkdir.md)
@@ -421,8 +385,8 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [nfsstat](nfsstat.md)
 - [nlbmgr](nlbmgr.md)
 - [nslookup](nslookup.md)
-  -   [comando uscita nslookup](nslookup-exit-command.md)
-  -   [comando nslookup con un dito](nslookup-finger-command.md)
+  -   [comando di uscita nslookup](nslookup-exit-command.md)
+  -   [comando nslookup Finger](nslookup-finger-command.md)
   -   [nslookup help](nslookup-help.md)
   -   [nslookup ls](nslookup-ls.md)
   -   [nslookup lserver](nslookup-lserver.md)
@@ -491,17 +455,17 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [rdpsign](rdpsign.md)
 - [recover](recover.md)
 - [reg](reg.md)
-  -   [REG aggiungere](reg-add.md)
-  -   [Confronto Reg](reg-compare.md)
-  -   [Copia Reg](reg-copy.md)
-  -   [Reg delete](reg-delete.md)
-  -   [Reg export](reg-export.md)
-  -   [reg import](reg-import.md)
-  -   [Carico Reg](reg-load.md)
-  -   [reg query](reg-query.md)
-  -   [Ripristino Reg](reg-restore.md)
-  -   [reg save](reg-save.md)
-  -   [Reg unload](reg-unload.md)
+  -   [reg Aggiungi](reg-add.md)
+  -   [confronto reg](reg-compare.md)
+  -   [Copia reg](reg-copy.md)
+  -   [reg delete](reg-delete.md)
+  -   [esportazione reg](reg-export.md)
+  -   [importazione reg](reg-import.md)
+  -   [carico reg](reg-load.md)
+  -   [query reg](reg-query.md)
+  -   [ripristino reg](reg-restore.md)
+  -   [reg Salva](reg-save.md)
+  -   [Scaricamento reg](reg-unload.md)
 - [regini](regini.md)
 - [regsvr32](regsvr32.md)
 - [relog](relog.md)
@@ -525,22 +489,22 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 ### <a name="s"></a>S
 - [schtasks](schtasks.md)
 - [scwcmd](Scwcmd.md)
-  -   [scwcmd: analyze](scwcmd-analyze.md)
-  -   [scwcmd: configure](scwcmd-configure.md)
-  -   [scwcmd: register](scwcmd-register.md) 
+  -   [scwcmd: analizza](scwcmd-analyze.md)
+  -   [scwcmd: configurare](scwcmd-configure.md)
+  -   [scwcmd: Register](scwcmd-register.md) 
   -   [scwcmd: rollback](scwcmd-rollback.md) 
-  -   [scwcmd: transform](scwcmd-transform.md) 
-  -   [scwcmd: view](scwcmd-view.md) 
+  -   [scwcmd: Transform](scwcmd-transform.md) 
+  -   [scwcmd: View](scwcmd-view.md) 
 - [secedit](secedit.md)
-  -   [secedit:analyze](secedit-analyze.md)
-  -   [secedit:configure](secedit-configure.md)
-  -   [secedit:export](secedit-export.md)
-  -   [secedit:generaterollback](secedit-generaterollback.md)
-  -   [secedit:import](secedit-import.md)
-  -   [secedit:validate](secedit-validate.md)
+  -   [secedit: analizza](secedit-analyze.md)
+  -   [secedit: configura](secedit-configure.md)
+  -   [secedit: Export](secedit-export.md)
+  -   [secedit: generaterollback](secedit-generaterollback.md)
+  -   [secedit: importazione](secedit-import.md)
+  -   [secedit: Validate](secedit-validate.md)
 - [serverceipoptin](serverceipoptin.md)
 - [Servermanagercmd](Servermanagercmd.md)
-- [serverweroptin](serverweroptin.md)
+- [serverWerOptin](serverweroptin.md)
 - [set](set_1.md)
 - [setlocal](setlocal.md)
 - [setx](setx.md)
@@ -594,21 +558,21 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)
 - [wbadmin](wbadmin.md)
-  -   [Abilita backup Wbadmin](wbadmin-enable-backup.md)
-  -   [disabilitare il backup Wbadmin](wbadmin-disable-backup.md)
-  -   [Comando Wbadmin start backup](wbadmin-start-backup.md)
-  -   [Processo di arresto Wbadmin](wbadmin-stop-job.md)
-  -   [Wbadmin get versioni](wbadmin-get-versions.md)
-  -   [Wbadmin get elementi](wbadmin-get-items.md)
-  -   [Comando Wbadmin start recovery](wbadmin-start-recovery.md)
-  -   [Comando Wbadmin ottenere lo stato](wbadmin-get-status.md)
-  -   [Wbadmin get dischi](wbadmin-get-disks.md)
-  -   [wbadmin start systemstaterecovery](wbadmin-start-systemstaterecovery.md)
-  -   [Comando Wbadmin start systemstatebackup](wbadmin-start-systemstatebackup.md)
-  -   [comando Wbadmin delete systemstatebackup](wbadmin-delete-systemstatebackup.md)
-  -   [Comando Wbadmin start sysrecovery](wbadmin-start-sysrecovery.md)
-  -   [Catalogo di ripristino Wbadmin](wbadmin-restore-catalog.md)
-  -   [Comando Wbadmin delete catalogo](wbadmin-delete-catalog.md)
+  -   [wbadmin Abilita backup](wbadmin-enable-backup.md)
+  -   [wbadmin Disabilita backup](wbadmin-disable-backup.md)
+  -   [wbadmin avviare il backup](wbadmin-start-backup.md)
+  -   [wbadmin Arresta processo](wbadmin-stop-job.md)
+  -   [Wbadmin get versions](wbadmin-get-versions.md)
+  -   [wbadmin Ottieni elementi](wbadmin-get-items.md)
+  -   [wbadmin Avvia ripristino](wbadmin-start-recovery.md)
+  -   [stato Wbadmin get](wbadmin-get-status.md)
+  -   [comando Wbadmin get Disks](wbadmin-get-disks.md)
+  -   [comando Wbadmin start systemstaterecovery](wbadmin-start-systemstaterecovery.md)
+  -   [comando Wbadmin start systemstatebackup](wbadmin-start-systemstatebackup.md)
+  -   [Wbadmin delete systemstatebackup](wbadmin-delete-systemstatebackup.md)
+  -   [comando Wbadmin start sysrecovery](wbadmin-start-sysrecovery.md)
+  -   [Wbadmin restore catalog](wbadmin-restore-catalog.md)
+  -   [wbadmin Elimina catalogo](wbadmin-delete-catalog.md)
 - [wdsutil](wdsutil.md)
 - [wecutil](wecutil.md)
 - [wevtutil](wevtutil.md)
@@ -618,7 +582,7 @@ Per informazioni su un comando di Windows specifico, nel menu A-Z seguente, fare
 - [winnt32](winnt32.md)
 - [winpop](winpop.md)
 - [winrs](winrs.md)
-- [wlbs](wlbs_1.md)
+- [WLBS](wlbs_1.md)
 - [wmic](wmic.md)
 - [wscript](wscript.md)
 

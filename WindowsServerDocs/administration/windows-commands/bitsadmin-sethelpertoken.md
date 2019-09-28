@@ -1,8 +1,8 @@
 ---
 title: sethelpertoken Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin sethelpertoken** -imposta token primario del prompt dei comandi corrente (o token di un account utente locali arbitrarie, se specificato) come token di supporto del processo di trasferimento BITS.
+description: "Argomento dei comandi di Windows per **BITSAdmin sethelpertoken** : imposta il token primario del prompt dei comandi corrente (o un token dell'account utente locale arbitrario, se specificato) come token helper del processo di trasferimento BITS."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,18 +12,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 558a1aca66a7b3ec447136ceff9237d13efe4ede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91c03366998168dad9ab4530ef36a5020b8ad6ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380575"
 ---
 # <a name="bitsadmin-sethelpertoken"></a>sethelpertoken Bitsadmin
 
-Imposta token primario del prompt dei comandi corrente (o token di un account utente locali arbitrarie, se specificato) come un processo di trasferimento BITS [token helper](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs).
+Imposta il token primario del prompt dei comandi corrente (o un token dell'account utente locale arbitrario, se specificato) come [token Helper](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)del processo di trasferimento BITS.
 
-**BITS 3.0 e versioni precedenti**: Non supportato.
+**BITS 3,0 e versioni precedenti**: Non supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,9 +35,9 @@ bitsadmin /SetHelperToken <Job> [\<username@domain\> \<password\>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Job|Nome visualizzato o il GUID del processo.|
-|\<username@domain\> \<password\>|Facoltativo&mdash;le credenziali di un utente locale account il cui token da usare.|
+|Job|Nome visualizzato o GUID del processo.|
+|\< @ no__t-1 @ no__t-2 \<password @ no__t-4|Facoltativo @ no__t-0The le credenziali di un account utente locale il cui token deve essere utilizzato.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

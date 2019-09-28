@@ -1,7 +1,7 @@
 ---
 title: Attivare o disattivare i checkpoint in Hyper-V
-description: Vengono fornite istruzioni per l'attivazione delle funzionalità di checkpoint o la disattivazione.
-ms.prod: windows-server-threshold
+description: Fornisce le istruzioni per attivare o disattivare la funzionalità di checkpoint.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: 92e1d0d0-f2c1-4ba2-8510-c8eb091cf5d6
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 082013429c4f516de86ee8ba6bb07ffcfca8b58c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 645af307b26b56fc3863a47d6bb05d224ccb5710
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364161"
 ---
 # <a name="enable-or-disable-checkpoints-in-hyper-v"></a>Attivare o disattivare i checkpoint in Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
   
 È possibile scegliere di attivare o disattivare i checkpoint per ogni macchina virtuale.  
   
@@ -34,6 +34,6 @@ ms.locfileid: "59838752"
   
 ## <a name="see-also"></a>Vedere anche  
   
-[Scegliere tra checkpoint standard o di produzione in Hyper-V](Choose-between-standard-or-production-checkpoints-in-Hyper-V.md)  
+[Scegliere tra i checkpoint standard o di produzione in Hyper-V](Choose-between-standard-or-production-checkpoints-in-Hyper-V.md)  
 
 

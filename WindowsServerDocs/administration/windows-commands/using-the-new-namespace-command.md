@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando nuovo spazio dei nomi
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50d51101afe95c99b7034fc50b3d30b799ee02ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1df6634bc7598701db050f3d240e41dbb6f06019
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363012"
 ---
 # <a name="using-the-new-namespace-command"></a>Utilizzando il comando nuovo spazio dei nomi
 
@@ -41,12 +41,12 @@ wdsutil [Options] /New-Namespace [/Server:<Server name>]
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
-|/FriendlyName:<Friendly name>|Specifica il nome descrittivo dello spazio dei nomi.|
-|[/ Descrizione:<Description>]|Imposta la descrizione dello spazio dei nomi.|
-|/ Namespace:<Namespace name>|Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />-   **Servizio ruolo Server di distribuzione**: La sintassi per questa opzione è /namespace:<Image group>/<Image name>/<Index>. Ad esempio:  **WDS:ImageGroup1/install.wim/1**<br />-   **Servizio ruolo Server di trasporto**: Questo valore deve corrispondere al nome specificato quando lo spazio dei nomi è stato creato nel server.|
+|/FriendlyName: <Friendly name>|Specifica il nome descrittivo dello spazio dei nomi.|
+|/Description<Description>]|Imposta la descrizione dello spazio dei nomi.|
+|/Namespace: <Namespace name>|Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />**servizio ruolo server di distribuzione**-   : La sintassi per questa opzione è/namespace: WDS: <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />**servizio ruolo server di trasporto**-   : Questo valore deve corrispondere al nome specificato quando lo spazio dei nomi è stato creato nel server.|
 |/ Provider di contenuti:<Name>]|Specifica il nome del provider di contenuti che fornisce contenuto per lo spazio dei nomi.|
 |[/ ConfigString:<Configuration string>]|Specifica la stringa di configurazione per il provider di contenuti.|
-|/Namespacetype: {AutoCast &#124; ScheduledCast}|Specifica le impostazioni per la trasmissione. Specificare le impostazioni utilizzando le opzioni seguenti:<br /><br />-[/ ora: <time>]-imposta il tempo di trasmissione deve iniziare con il formato seguente: YYYY/MM/DD:hh:mm. Questa opzione è valida solo per le trasmissioni multicast pianificato.<br />-[/ Client: <Number of clients>]-imposta il numero minimo di client da attendere prima che venga avviata la trasmissione. Questa opzione è valida solo per le trasmissioni multicast pianificato.|
+|/NamespaceType: {AutoCast &#124; multicast}|Specifica le impostazioni per la trasmissione. Specificare le impostazioni utilizzando le opzioni seguenti:<br /><br />-[/ora: <time>]-imposta l'ora di inizio della trasmissione usando il formato seguente: AAAA/MM/GG: HH: mm. Questa opzione è valida solo per le trasmissioni multicast pianificato.<br />-[/ Client: <Number of clients>]-imposta il numero minimo di client da attendere prima che venga avviata la trasmissione. Questa opzione è valida solo per le trasmissioni multicast pianificato.|
 ## <a name="BKMK_examples"></a>Esempi
 Per creare uno spazio dei nomi multicast automatico, digitare:
 ```

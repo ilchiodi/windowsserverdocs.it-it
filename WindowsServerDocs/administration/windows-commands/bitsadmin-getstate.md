@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getstate
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7ed7529fda264efaceb6b4b36e36e728c211f3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55be37a6b1b44b81ed9002e5e3b9eb1fd46bd0dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889622"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381228"
 ---
 # <a name="bitsadmin-getstate"></a>bitsadmin getstate
 
@@ -42,7 +42,7 @@ bitsadmin /GetState <Job>
 
 Gli stati possibili sono:
 
-|-----|-----| | IN CODA | Il processo è in attesa di esecuzione. | | LA CONNESSIONE | BITS è la connessione al server. | | TRASFERIMENTO | BITS è il trasferimento dei dati. | | SOSPESO | Il processo è stato sospeso. | | ERRORE | Si è verificato un errore irreversibile; il trasferimento non verrà ritentato. | | TRANSIENT_ERROR | Si è verificato un errore reversibile; i tentativi di trasferimento quando scade l'intervallo minimo tra tentativi. | | RICONOSCIUTO | Il processo è stato completato. | | ANNULLATO | Il processo è stato annullato. |
+|-----|-----| | In coda | Il processo è in attesa di esecuzione. | | CONNESSIONE | BITS sta contattando il server. | | TRASFERIMENTO | BITS sta trasferendo i dati. | | SOSPESO | Il processo è stato sospeso. | | ERRORE | Si è verificato un errore irreversibile. il trasferimento non verrà ripetuto. | | TRANSIENT_ERROR | Si è verificato un errore reversibile. tentativi di trasferimento quando scade il ritardo minimo tra tentativi. | | ACCETTATO | Il processo è stato completato. | | Annullato | Il processo è stato annullato. |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -53,4 +53,4 @@ C:\>bitsadmin /GetState myDownloadJob
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

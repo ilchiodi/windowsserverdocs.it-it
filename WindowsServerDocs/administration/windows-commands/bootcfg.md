@@ -1,8 +1,8 @@
 ---
 title: bootcfg
-description: Argomento i comandi di Windows per **bootcfg** - configura, esegue una query o modifica le impostazioni del file Boot. ini.
+description: 'Argomento dei comandi di Windows per **bootcfg** : consente di configurare, eseguire query o modificare le impostazioni del file Boot. ini.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79a1c0e22a3b162ba9492c80d114b2d5b943c744
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d66296327a2221093e5434f69e15e7c55df1f6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379850"
 ---
 # <a name="bootcfg"></a>bootcfg
 
@@ -32,14 +32,14 @@ bootcfg <parameter> [arguments...]
 ## <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|[bootcfg addsw](bootcfg-addsw.md)|Consente di aggiungere opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.|  
-|[Copia bootcfg](bootcfg-copy.md)|Crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opzioni della riga di comando.|  
+|[bootcfg addsw](bootcfg-addsw.md)|aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.|  
+|[bootcfg copy](bootcfg-copy.md)|Crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opzioni della riga di comando.|  
 |[bootcfg dbg1394](bootcfg-dbg1394.md)|Consente di configurare il debug 1394 porta per una voce del sistema operativo specificato.|  
-|[debug bootcfg](bootcfg-debug.md)|Aggiunge o modifica le impostazioni di debug per una voce del sistema operativo specificato.|  
-|[BOOTCFG predefinito](bootcfg-default.md)|Specifica la voce del sistema operativo per specificare che il valore predefinito.|  
-|[bootcfg delete](bootcfg-delete.md)|Elimina una voce del sistema operativo nel **[i sistemi operativi]** sezione del file Boot. ini.|  
-|[BOOTCFG ems](bootcfg-ems.md)|Consente all'utente di aggiungere o modificare le impostazioni per il reindirizzamento della console di servizi di gestione emergenze a un computer remoto.|  
+|[bootcfg debug](bootcfg-debug.md)|aggiunge o modifica le impostazioni di debug per una voce del sistema operativo specificata.|  
+|[bootcfg default](bootcfg-default.md)|Specifica la voce del sistema operativo per specificare che il valore predefinito.|  
+|[bootcfg delete](bootcfg-delete.md)|Elimina una voce del sistema operativo nella sezione **[Operating Systems]** del file Boot. ini.|  
+|[bootcfg ems](bootcfg-ems.md)|Consente all'utente di aggiungere o modificare le impostazioni per il reindirizzamento della console di servizi di gestione emergenze a un computer remoto.|  
 |[bootcfg query](bootcfg-query.md)|Esegue query e Visualizza [caricatore di avvio] e **[i sistemi operativi]** sezione voci da Boot. ini.|  
-|[bootcfg raw](bootcfg-raw.md)|Aggiunge le opzioni di caricamento del sistema operativo specificate sotto forma di stringa a una voce del sistema operativo il **[i sistemi operativi]** sezione del file Boot. ini.|  
-|[bootcfg rmsw](bootcfg-rmsw.md)|Rimuove opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.|  
+|[bootcfg raw](bootcfg-raw.md)|aggiunge le opzioni di caricamento del sistema operativo specificate come stringa a una voce del sistema operativo nella sezione **[Operating Systems]** del file Boot. ini.|  
+|[bootcfg rmsw](bootcfg-rmsw.md)|rimuove le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.|  
 |[bootcfg timeout](bootcfg-timeout.md)|modifica il valore di timeout del sistema operativo.|  

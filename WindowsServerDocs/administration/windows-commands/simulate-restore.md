@@ -1,8 +1,8 @@
 ---
-title: Simulare il ripristino
-description: 'Argomento i comandi di Windows per * * *- '
+title: Simula ripristino
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09b626939c13d4e38a983435b45d8c47ee2b93a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6652fea4e74c706fcc03b8a547fab771a7c0191
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370876"
 ---
-# <a name="simulate-restore"></a>Simulare il ripristino
+# <a name="simulate-restore"></a>Simula ripristino
 
 
 
-Testa un coinvolgimento dell'agente di scrittura nelle sessioni di ripristino nel computer senza emettere **PreRestore** oppure **PostRestore** per gli autori di eventi.
+Verifica il coinvolgimento del writer nelle sessioni di ripristino nel computer senza inviare eventi di **preripristino** o di **ripristino** a writer.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,9 +34,9 @@ simulate restore
 
 ## <a name="remarks"></a>Note
 
--   **Simulare il ripristino** viene usato per testare il ripristino con i writer può essere esito positivo o meno.
--   Prima di poter usare **simulare restore**, è necessario caricare un file di metadati DiskShadow tramite il **caricare i metadati** comando. Ciò consente di caricare il writer selezionato e i componenti per il ripristino.
+-   **Simulate Restore** viene usato per verificare se il ripristino con Writer può essere eseguito correttamente.
+-   Prima di poter usare **simulate Restore**, è necessario caricare un file di metadati DiskShadow usando il comando **Load Metadata** . Verranno caricati i writer e i componenti selezionati per il ripristino.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

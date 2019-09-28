@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setaclflag
-description: Argomento i comandi di Windows per **bitsadmin setaclflag** -imposta il controllo di accesso contrassegni propagazioni dell'elenco.
+description: Argomento dei comandi di Windows per **BITSAdmin setaclflag** -imposta i flag di propagazione dell'elenco di controllo di accesso.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89d825a4bc4512022fed98a3188537d3977fa3c3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbdb12c29af7b4db8b25846d43ee1c93b2454ff2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867402"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380762"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Imposta il controllo di accesso contrassegni propagazioni dell'elenco (ACL) per il processo. I flag indicano che si desidera mantenere il proprietario e le informazioni di ACL con il file in corso il download. Ad esempio, per mantenere il proprietario e il gruppo con il file, impostare **Flags** a `OG`.
+Imposta i flag di propagazione dell'elenco di controllo di accesso (ACL) per il processo. I flag indicano che si desidera mantenere il proprietario e le informazioni ACL con il file da scaricare. Ad esempio, per mantenere il proprietario e il gruppo con il file, impostare **flags** per `OG`.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,11 +35,11 @@ bitsadmin /SetAclFlags <Job> <Flags>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Flag|Specificare uno o più dei valori di flag seguenti:</br>-   O: Copiare informazioni sul proprietario con file.</br>-   G: Copiare le informazioni sui gruppi con file.</br>-   D: Copiare informazioni DACL con file.</br>-S: copia SACL informazioni con file.|
+|Flag|Specificare uno o più dei valori di flag seguenti:</br>O Copiare le informazioni sul proprietario con il file.</br>G Copia le informazioni sul gruppo con il file.</br>D Copiare le informazioni DACL con file.</br>-S: copia SACL informazioni con file.|
 
 ## <a name="remarks"></a>Note
 
-Il commutatore SetAclFlags viene utilizzato per mantenere informazioni dell'elenco di controllo proprietario e l'accesso quando un processo di download dei dati da una condivisione di Windows (SMB).
+L'opzione SetAclFlags viene usata per mantenere le informazioni sull'elenco di controllo di accesso e proprietario quando un processo sta scaricando i dati da una condivisione Windows (SMB).
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -50,4 +50,4 @@ C:\>bitsadmin /setaclflags myDownloadJob OG
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando remove-DriverGroupFilter
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a546ead7220273955368c582ac1e3f9b3f61c191
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 75b4a1446b5fb4db4132a39b6e5ba70cd1c4ab4b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362919"
 ---
 # <a name="using-the-remove-drivergroupfilter-command"></a>Utilizzando il comando remove-DriverGroupFilter
 
@@ -36,9 +36,9 @@ WDSUTIL /Remove-DriverGroupFilter /DriverGroup:<Group Name> [/Server:<Server nam
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/ DriverGroup:\<nome gruppo >|Specifica il nome del gruppo di driver.|
-|[/ Server:\<nome Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
-|[/ FilterType:\<TipoFiltro >]|Specifica il tipo di filtro da rimuovere dal gruppo. \<Valore di FilterType > può essere uno dei seguenti:</br>**BiosVendor**</br>**BiosVersion**</br>**ChassisType**</br>**Produttore**</br>**Uuid**</br>**OsVersion**</br>**OsEdition**</br>**OsLanguage**|
+|/DriverGroup: nome \<Group >|Specifica il nome del gruppo di driver.|
+|[/Server: nome \<Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
+|[/FilterType: \<FilterType >]|Specifica il tipo di filtro da rimuovere dal gruppo. \<FilterType > può essere uno dei seguenti:</br>**BiosVendor**</br>**BiosVersion**</br>**ChassisType**</br>**Produttore**</br>**UUID**</br>**OsVersion**</br>**OsEdition**</br>**OsLanguage**|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -52,4 +52,4 @@ WDSUTIL /Remove-DriverGroupFilter /DriverGroup:PrinterDrivers /FilterType:Manufa
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

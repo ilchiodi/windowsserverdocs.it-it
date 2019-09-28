@@ -1,8 +1,8 @@
 ---
 title: unlodctr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e1a662da10acc65b4ad2fd0d055cf9d46de603be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85a66b521f404358705962078f33af4bec1ebae5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363897"
 ---
 # <a name="unlodctr"></a>unlodctr
 
@@ -33,7 +33,7 @@ Unlodctr <DriverName>
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|\<DriverName >|Rimuove le prestazioni del contatore delle impostazioni del nome e il testo esplicativo per servizio o driver <DriverName> dal Registro di sistema Windows Server 2003.|  
+|\<DriverName >|rimuove le impostazioni del nome del contatore delle prestazioni e il testo esplicativo per il driver o il servizio <DriverName> dal registro di sistema di Windows Server 2003.|  
 |/?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  
@@ -48,5 +48,5 @@ Per rimuovere le impostazioni del Registro di sistema corrente e il testo esplic
 unlodctr SMTPSVC  
 ```  
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

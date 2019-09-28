@@ -1,8 +1,8 @@
 ---
 title: esporre
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51cc744bc2b61862ed05ca2e7d0aaa8f70d38692
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 819484364e8375c4d58e4d022681eedeaa7084ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377285"
 ---
 # <a name="expose"></a>esporre
 
@@ -39,9 +39,9 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 |Parametro|Descrizione|
 |---------|-----------|
 |IDShadow|Specifica l'ID di ombreggiatura della copia shadow che si desidera esporre.|
-|\<Unità: >|Espone la copia shadow specificata come una lettera di unità (ad esempio, p).|
-|\<Share>|Espone la copia shadow specificata in una condivisione (ad esempio, \\ \\ *MachineName*\).|
-|\<MountPoint>|Espone la copia shadow specificata in un punto di montaggio (ad esempio, C:\shadowcopy\).|
+|\<Drive: >|Espone la copia shadow specificata come lettera di unità (ad esempio, P:).|
+|\<Share >|Espone la copia shadow specificata in una condivisione, ad esempio \\ @ no__t-1*MachineName*\).|
+|\<MountPoint >|Espone la copia shadow specificata a un punto di montaggio, ad esempio C:\shadowcopy @ no__t-0.|
 
 ## <a name="remarks"></a>Note
 
@@ -49,11 +49,11 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per esporre la copia shadow permanente associata alla variabile di ambiente VSS_SHADOW_1 come unità X, digitare:
+Per esporre la copia shadow persistente associata alla variabile di ambiente VSS_SHADOW_1 come unità X, digitare:
 ```
 expose %vss_shadow_1% x:
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

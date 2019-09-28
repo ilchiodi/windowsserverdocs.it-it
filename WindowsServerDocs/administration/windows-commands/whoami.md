@@ -1,8 +1,8 @@
 ---
 title: whoami
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6844ba001c2ebd7407b77f97204069a48a1b595b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9731ba3be3983eb53ade88fceaee863800229084
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362137"
 ---
 # <a name="whoami"></a>whoami
 
@@ -46,7 +46,7 @@ whoami /all [/fo <Format>] [/nh]
 |/User|Visualizza il nome di dominio e l'utente corrente e l'ID di sicurezza (SID).|
 |/Groups|Visualizza i gruppi di utenti a cui appartiene l'utente corrente.|
 |/PRIV|Visualizza i privilegi di sicurezza dell'utente corrente.|
-|/Fo \<formato >|Specifica il formato di output. I valori validi includono:</br>**tabella** viene visualizzato l'output in una tabella. Rappresenta il valore predefinito.</br>**elenco** viene visualizzato l'output in un elenco.</br>**CSV** viene visualizzato l'output in formato con valori delimitati da virgole (CSV).|
+|/fo \<Format >|Specifica il formato di output. I valori validi includono:</br>**tabella** viene visualizzato l'output in una tabella. Rappresenta il valore predefinito.</br>**elenco** viene visualizzato l'output in un elenco.</br>**CSV** viene visualizzato l'output in formato con valori delimitati da virgole (CSV).|
 |/all|Visualizza tutte le informazioni nel token di accesso corrente, inclusi il nome dell'utente corrente, gli identificatori di protezione (SID), privilegi e gruppi a cui appartiene l'utente corrente.|
 |/NH|Specifica che l'intestazione di colonna non deve essere visualizzato nell'output. Questo è valido solo per i formati CSV e tabella.|
 |/?|Visualizza la guida al prompt dei comandi.|
@@ -68,4 +68,4 @@ whoami /all
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

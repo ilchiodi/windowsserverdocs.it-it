@@ -1,8 +1,8 @@
 ---
-title: creare volumi raid
-description: 'Argomento i comandi di Windows per * * *- '
+title: Crea RAID del volume
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca75dd9af441446081cb10743329eb8e42166c0c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5a3c13cb5b78ae3e771b461a35a7130a48e7ec01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378858"
 ---
-# <a name="create-volume-raid"></a>creare volumi raid
+# <a name="create-volume-raid"></a>Crea RAID del volume
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Crea un sistema RAID\-specificato di volume 5 usando tre o più dischi dinamici.  
+consente di creare un volume RAID @ no__t-05 utilizzando tre o più dischi dinamici specificati.  
   
 > [!IMPORTANT]  
 > Questo comando di DiskPart non è disponibile in qualsiasi edizione di Windows Vista.  
@@ -41,17 +41,17 @@ create volume raid [size=<n>] disk=<n>,<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 |           Parametro           |                                                                                                                                                                                                                                              Descrizione                                                                                                                                                                                                                                              |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           size\=<n>           | La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il più grande RAID possibili\-verrà creato un volume 5. Il disco con il più piccolo maggiore spazio libero contiguo disponibile determina le dimensioni massime per il RAID\-volume 5 e la stessa quantità di spazio allocata in base a ogni disco. La quantità effettiva di spazio su disco utilizzabile RAID\-volume 5 è minore rispetto alla quantità di spazio su disco combinata perché alcune dello spazio su disco è necessaria per la parità. |
-| disk\=<n>,<n>,<n>\[,<n>,...\] |                                                                                                                                               I dischi dinamici in cui creare il RAID\-volume 5. Sono necessari almeno tre dischi dinamici per creare un sistema RAID\-volume 5. Una quantità di spazio pari a **dimensioni\= <n>**  viene allocato su ogni disco.                                                                                                                                                |
-|          align\=<n>           |                                                                                                                   Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino.                                                                                                                   |
-|             NOERR             |                                                                                                                                                 Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                                                                                                                                  |
+|           dimensioni @ no__t-0 @ no__t-1           | La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se non viene specificata alcuna dimensione, verrà creato il volume RAID @ no__t-05 più grande possibile. Il disco con lo spazio libero contiguo disponibile più piccolo determina le dimensioni per il volume RAID @ no__t-05 e viene allocata la stessa quantità di spazio da ogni disco. La quantità effettiva di spazio su disco utilizzabile nel volume RAID @ no__t-05 è inferiore alla quantità combinata di spazio su disco, perché per parità è necessario uno spazio su disco. |
+| Disk @ no__t-0 @ no__t-1, <n>, <n> @ no__t-4, <n>,... \] |                                                                                                                                               Dischi dinamici su cui creare il volume RAID @ no__t-05. Sono necessari almeno tre dischi dinamici per creare un volume RAID @ no__t-05. In ogni disco viene allocata una quantità di spazio uguale a **size @ no__t-1 @ no__t-2** .                                                                                                                                                |
+|          align @ no__t-0 @ no__t-1           |                                                                                                                   Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino.                                                                                                                   |
+|             NOERR             |                                                                                                                                                 Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                                                                                                                                  |
   
 ## <a name="remarks"></a>Note  
   
 -   Dopo aver creato il volume, lo stato attivo passa automaticamente al nuovo volume.  
   
 ## <a name="BKMK_examples"></a>Esempi  
-Per creare un sistema RAID\-5 volume di 1000 MB di dimensioni, usando i dischi 1, 2 e 3, tipo:  
+Per creare un volume RAID @ no__t-05 di 1000 MB di dimensioni, usando i dischi 1, 2 e 3, digitare:  
   
 ```  
 create volume raid size=1000 disk=1,2,3  

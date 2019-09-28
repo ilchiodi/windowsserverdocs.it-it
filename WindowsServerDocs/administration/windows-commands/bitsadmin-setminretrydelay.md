@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setminretrydelay
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 640492cf690a934e3e3b8d0ecf8ca7a0d6a7dc2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 379dfa8bfdc48969f268fd1c9544d3bee8bbe646
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380508"
 ---
 # <a name="bitsadmin-setminretrydelay"></a>bitsadmin setminretrydelay
 
-Imposta la lunghezza minima di tempo, espresso in secondi, che BITS è in attesa dopo che si verifichi un errore temporaneo prima di tentare il trasferimento del file.
+Imposta il periodo di tempo minimo, espresso in secondi, di attesa dei bit dopo che si è verificato un errore temporaneo prima di provare a trasferire il file.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -46,4 +46,4 @@ C:\>bitsadmin /SetMinRetryDelay myDownloadJob 35
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

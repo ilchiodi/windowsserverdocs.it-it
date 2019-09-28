@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-DriverGroup
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f82969e03b3474cf39afd2ae5c3ef2f9d4f8b5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fd8e4dd22e32722bbfe0dcdcfc79168ab7e3b72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363176"
 ---
 # <a name="using-the-get-drivergroup-command"></a>Utilizzando il comando get-DriverGroup
 
@@ -33,10 +33,10 @@ wdsutil /Get-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 |Parametro|Descrizione|
 |-------|--------|
 |/DriverGroup:<Group Name>|Specifica il nome del gruppo di driver.|
-|[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN.  Se non viene specificato un nome di server, viene utilizzato il server locale.|
-|[/Show: {PackageMetaData &#124; filtri &#124; tutti i}]|Consente di visualizzare i metadati per tutti i pacchetti driver al gruppo specificato. **PackageMetaData** Visualizza informazioni su tutti i filtri per il gruppo di driver. **I filtri** consente di visualizzare i metadati per tutti i pacchetti driver e i filtri per il gruppo.|
+|[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN.  Se non si specifica un nome di server, viene utilizzato il server locale.|
+|[/Show: {PackageMetaData &#124; filters &#124; all}]|Consente di visualizzare i metadati per tutti i pacchetti driver del gruppo specificato. **PackageMetaData** Visualizza informazioni su tutti i filtri per il gruppo di driver. **Filtri** consente di visualizzare i metadati per tutti i pacchetti driver e i filtri per il gruppo.|
 ## <a name="BKMK_examples"></a>Esempi
-Per visualizzare informazioni su un file di driver, digitare:
+Per visualizzare le informazioni relative a un file di driver, digitare:
 ```
 wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Show:PackageMetaData
 ```
@@ -44,5 +44,5 @@ wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Show:PackageMetaData
 wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Server:MyWdsServer /Show:Filters
 ```
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[usando il comando get-AllDriverGroups](using-the-get-alldrivergroups-command.md)
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[tramite il comando Get-AllDriverGroups](using-the-get-alldrivergroups-command.md)

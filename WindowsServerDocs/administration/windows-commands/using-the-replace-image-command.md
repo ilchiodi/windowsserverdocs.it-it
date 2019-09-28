@@ -1,8 +1,8 @@
 ---
 title: Utilizzando l'immagine di sostituzione comando
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e396ee678e22885a50c02800d77ecea1cc5ef8ba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 52ad932cbdaca2c708add1a52677b5d7e84d9ed6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362731"
 ---
 # <a name="using-the-replace-image-command"></a>Utilizzando l'immagine di sostituzione comando
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-sostituisce un'immagine esistente con una nuova versione di tale immagine.
+sostituisce un'immagine esistente con una nuova versione dell'immagine.
 ## <a name="syntax"></a>Sintassi
-per immagini d'avvio:
+per le immagini di avvio:
 ```
 wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
    mediatype:Boot
@@ -37,7 +37,7 @@ wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
          [/Name:<Image name>]
          [/Description:<Image description>]
 ```
-per immagini di installazione:
+per le immagini di installazione:
 ```
 wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
    mediatype:Install
@@ -52,12 +52,12 @@ wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-media:<Image name>|Specifica il nome dell'immagine da sostituire.|
+supporto: <Image name>|Specifica il nome dell'immagine da sostituire.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 mediatype:{Boot &#124; Install}|Specifica il tipo di immagine da sostituire.|
-|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine da sostituire. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse architetture, specificando l'architettura si garantisce che l'immagine corretta verrà sostituito.|
-|[/Filename:<File name>]|Se l'immagine non può essere identificata dal nome, è necessario utilizzare questa opzione per specificare il nome del file.|
-|/replacementImage|Specifica le impostazioni per l'immagine di sostituzione. Configurare queste impostazioni utilizzando le opzioni seguenti:<br /><br />-mediaFile: <file path> -specifica il nome e percorso completo del nuovo file con estensione wim.<br />-[/ SourceImage: <image name>]-Specifica l'immagine da utilizzare se il file WIM contiene più immagini. Questa opzione si applica solo alle immagini di installazione.<br />-[/Name:<Image name>] imposta il nome visualizzato dell'immagine.<br />-[/ Descrizione:<Image description>]-imposta la descrizione dell'immagine.|
+|/ Architettura: {x86 &#124; ia64 &#124; x64}|Specifica l'architettura dell'immagine da sostituire. Poiché è possibile avere lo stesso nome di immagine per immagini di avvio diverse in architetture diverse, specificando l'architettura si garantisce che venga sostituita l'immagine corretta.|
+|[/Filename:<File name>]|Se l'immagine non può essere identificata in modo univoco in base al nome, è necessario utilizzare questa opzione per specificare il nome del file.|
+|/replacementImage|Specifica le impostazioni per l'immagine di sostituzione. È possibile impostare queste impostazioni usando le opzioni seguenti:<br /><br />-mediaFile: <file path>-specifica il nome e il percorso (percorso completo) del nuovo file con estensione wim.<br />-[/SourceImage: <image name>]-specifica l'immagine da utilizzare se il file con estensione wim contiene più immagini. Questa opzione si applica solo alle immagini di installazione.<br />-[/Name: <Image name>] imposta il nome visualizzato dell'immagine.<br />-[/Description: <Image description>]-imposta la descrizione dell'immagine.|
 ## <a name="BKMK_examples"></a>Esempi
 Per sostituire un'immagine di avvio, digitare uno dei seguenti:
 ```

@@ -1,8 +1,8 @@
 ---
 title: attach vdisk
-description: Argomento i comandi di Windows per **collegare vdisk** -collega (talvolta denominate punti di montaggio o superfici) un disco rigido virtuale (VHD) in modo che venga visualizzato come un'unità disco rigido locale del computer host.
+description: Windows Commands argomento for **Connetti vdisk** -collega (talvolta denominato montaggi o superfici) un disco rigido virtuale (VHD) in modo che venga visualizzato nel computer host come unità disco rigido locale.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb33d040ce0b2a7a9d06951a7e80251a0d0da614
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d29eacfc8575ec50859733612a3d58b166d9402d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435226"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382645"
 ---
 # <a name="attach-vdisk"></a>attach vdisk
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Collega (talvolta denominate punti di montaggio o superfici) un disco rigido virtuale (VHD) in modo che venga visualizzato come un'unità disco rigido locale del computer host. Se, nel momento in cui viene reso visibile, il VHD dispone già di una partizione e di un volume di file system, al volume verrà assegnata una lettera di unità.
+collega (talvolta denominato montaggi o superfici) un disco rigido virtuale (VHD) in modo che venga visualizzato nel computer host come unità disco rigido locale. Se, nel momento in cui viene reso visibile, il VHD dispone già di una partizione e di un volume di file system, al volume verrà assegnata una lettera di unità.
 > [!NOTE]
 > Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.
 
@@ -36,25 +36,25 @@ attach vdisk [readonly] { [sd=<SDDL>] | [usefilesd] } [noerr]
 
 |    Parametro     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     readonly     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Collega il disco rigido virtuale in sola lettura. Qualsiasi scrittura operazione restituisce un errore.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| sd=<SDDL string> | Imposta il filtro utente nel disco rigido virtuale. La stringa di filtro deve essere nel formato Security Descriptor Definition Language (SDDL). Per impostazione predefinita il filtro utente consente l'accesso, ad esempio su un disco fisico.<br /><br />Le stringhe SDDL possono essere complesse, ma nella sua forma più semplice, un descrittore di sicurezza che protegge l'accesso è noto come un elenco di controllo di accesso discrezionale (DACL). È nel formato: Unità d: < dacl_flags >< string_ace1 >< string_ace2 >... < string_acen ><br /><br />Flag DACL comuni sono:<br /><br />-   **Oggetto** consentire l'accesso<br />-   **1!d** negare l'accesso<br /><br />Diritti comuni sono:<br /><br />-   **GA** tutti gli accessi<br />-   **GR** accesso in lettura<br />-   **GW** accesso in scrittura<br /><br />Gli account utente comuni sono:<br /><br />-   **BA** compilato negli amministratori<br />-   **AU** agli utenti autenticati<br />-   **CO** Creator owner<br />-   **WD** -tutti gli utenti<br /><br />Esempi:<br /><br />**D:P:(A;; GR;; AU** offre accesso in lettura a tutti gli utenti autenticati<br /><br />**D:P:(A;; DISPONIBILITÀ GENERALE;; WD** fornisce tutti gli utenti accesso completo |
-|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          Specifica che il descrittore di sicurezza nel file VHD deve essere utilizzato del disco rigido virtuale. Se il **Usefilesd** parametro viene omesso, il disco rigido virtuale non avrà un descrittore di sicurezza espliciti a meno che non viene specificata con il **Sd** parametro.                                                                                                                                                                                                                                                                                                                                                                                          |
-|      NOERR       |                                                                                                                                                                                                                                                                                                                                                                                                           Usato solo negli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                                                                                                                                                                                                                                                                                                                                                                                           |
+|     readonly     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             connette il VHD come di sola lettura. Qualsiasi operazione di scrittura restituisce un errore.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| SD = <SDDL string> | Imposta il filtro utente sul disco rigido virtuale. La stringa di filtro deve essere nel formato SDDL (Security Descriptor Definition Language). Per impostazione predefinita, il filtro utente consente l'accesso come su un disco fisico.<br /><br />Le stringhe SDDL possono essere complesse, ma nella sua forma più semplice, un descrittore di sicurezza che protegge l'accesso è noto come elenco di controllo di accesso discrezionale (DACL). Il formato è il seguente: D: < dacl_flags > < string_ace1 > < string_ace2 >... < string_acen ><br /><br />I flag DACL comuni sono:<br /><br />-   **A** Consenti accesso<br />-   **D** Nega accesso<br /><br />I diritti comuni sono:<br /><br />-   **GA** tutti gli accessi<br />accesso in lettura -   **gr**<br />accesso in scrittura -   **GW**<br /><br />Gli account utente comuni sono:<br /><br />-   **BA** incorporato negli amministratori<br />utenti autenticati -   **au**<br />proprietario**co** Creator -   <br />-   **WD** -Everyone<br /><br />Esempi:<br /><br />**D:P: (A;; GR;;; AU** concede l'accesso in lettura a tutti gli utenti autenticati<br /><br />**D:P: (A;; GA;;; WD** fornisce a tutti l'accesso completo |
+|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          Specifica che il descrittore di sicurezza nel file con estensione VHD deve essere utilizzato nel disco rigido virtuale. Se il parametro **Usefilesd** non è specificato, il disco rigido virtuale non disporrà di un descrittore di sicurezza esplicito a meno che non sia specificato con il parametro **SD** .                                                                                                                                                                                                                                                                                                                                                                                          |
+|      NOERR       |                                                                                                                                                                                                                                                                                                                                                                                                           Utilizzato solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## <a name="remarks"></a>Note
 - Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.
   ## <a name="BKMK_Examples"></a>Esempi
-  Per collegare il disco rigido virtuale selezionato in sola lettura, digitare:
+  Per alleghi il disco rigido virtuale selezionato come di sola lettura, digitare:
   ```
   attach vdisk readonly
   ```
   ## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-- [compact vdisk](compact-vdisk.md)
+- [compatta vdisk](compact-vdisk.md)
 
-- [detail vdisk](detail-vdisk.md)
-- [Detach vdisk](detach-vdisk.md)
-- [expand vdisk](expand-vdisk.md)
-- [Merge vdisk](merge-vdisk.md)
-- [Selezionare vdisk](select-vdisk.md)
+- [Dettagli vdisk](detail-vdisk.md)
+- [Scollega vdisk](detach-vdisk.md)
+- [Espandi vdisk](expand-vdisk.md)
+- [Unisci vdisk](merge-vdisk.md)
+- [Seleziona vdisk](select-vdisk.md)
 - [list_1](list_1.md)

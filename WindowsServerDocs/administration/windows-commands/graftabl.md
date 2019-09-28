@@ -1,8 +1,8 @@
 ---
 title: graftabl
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 395873cf3dbeb574dd9abc69f45b410bece80c25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac7748b43eb8859a17a2c61ef9ef4444019ad51b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375634"
 ---
 # <a name="graftabl"></a>graftabl
 
@@ -39,7 +39,7 @@ graftabl /status
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<CodePage>|Specifica una tabella codici per definire l'aspetto dei caratteri estesi in modalità grafica.</br>Numeri di identificazione di pagina di codice validi sono:</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
+|\<CodePage >|Specifica una tabella codici per definire l'aspetto dei caratteri estesi in modalità grafica.</br>Numeri di identificazione di pagina di codice validi sono:</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
 |/status|Visualizza l'oggetto tabella codici che **graftabl** sta utilizzando.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -71,7 +71,7 @@ graftabl 850
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Freedisk](freedisk.md)
 

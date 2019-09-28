@@ -1,7 +1,7 @@
 ---
 title: Requisiti di sistema per Hyper-V in Windows Server
-description: Vengono elencati i requisiti hardware e firmware per Hyper-V in Windows Server
-ms.prod: windows-server-threshold
+description: Elenca i requisiti hardware e firmware per Hyper-V in Windows Server
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 97fb1b9003705ba8ad26c2b3e71eda34e88642ee
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: fabaa1933fef836bb6ce3fc01badf337b832d072
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812613"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365437"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>Requisiti di sistema per Hyper-V in Windows Server
 
->Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 
 Hyper-V presenta specifici requisiti hardware e alcune funzionalità di Hyper-V sono requisiti aggiuntivi. Utilizzare i dettagli in questo articolo per stabilire i requisiti che il sistema deve soddisfare in modo è possibile utilizzare il modo in cui di che si prevede Hyper-V. Quindi, esaminare il [catalogo di Windows Server](https://www.windowsservercatalog.com/). Tenere presente che i requisiti per Hyper-V superano i requisiti minimi generali per Windows Server 2016 poiché un ambiente di virtualizzazione richiede più risorse di elaborazione.
 
@@ -56,7 +56,7 @@ Scorrere fino alla sezione requisiti di Hyper-V per esaminare il report.
 
 ## <a name="requirements-for-specific-features"></a>Requisiti per funzionalità specifiche
 
-Ecco i requisiti per l'assegnazione di dispositivo discreti e macchine virtuali schermate. Per una descrizione di queste funzionalità, vedere [quali sono le novità in Hyper-V in Windows Server](What-s-new-in-Hyper-V-on-Windows.md).
+Ecco i requisiti per l'assegnazione di dispositivo discreti e macchine virtuali schermate. Per le descrizioni di queste funzionalità, vedere Novità di [Hyper-V in Windows Server](What-s-new-in-Hyper-V-on-Windows.md).
 
 ### <a name="discrete-device-assignment"></a>Assegnazione di dispositivi discreti
 
@@ -92,5 +92,5 @@ Queste macchine virtuali si basano sulla sicurezza basata sulla virtualizzazione
 **Macchina virtuale** requisiti sono:
 
 - Seconda generazione
-- Windows Server 2012 o versioni successive del sistema operativo guest
+- Windows Server 2012 o versione successiva come sistema operativo guest
 

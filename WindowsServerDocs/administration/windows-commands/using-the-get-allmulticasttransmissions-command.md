@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando get-AllMulticastTransmissions
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b05f8802a288d80960cf79356675cb9adce9c260
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 644684ffb356ef07120bc391e3d3da2daf768eaf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363338"
 ---
 # <a name="using-the-get-allmulticasttransmissions-command"></a>Utilizzando il comando get-AllMulticastTransmissions
 
@@ -47,7 +47,7 @@ wdsutil /Get-AllMulticastTransmissions [/Server:<Server name>] [/Show:{Boot | In
 ## <a name="BKMK_examples"></a>Esempi
 Per visualizzare informazioni su tutte le trasmissioni, digitare:
 - Windows Server 2008: `wdsutil /Get-AllMulticastTransmissions`
-- Windows Server 2008 R2: `wdsutil /Get-AllMulticastTransmissions /Show:All` Per visualizzare informazioni su tutte le trasmissioni tranne le trasmissioni disattivate, digitare:
+- Windows Server 2008 R2: `wdsutil /Get-AllMulticastTransmissions /Show:All` per visualizzare informazioni su tutte le trasmissioni eccetto le trasmissioni disattivate, digitare:
 - Windows Server 2008: `wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:Clients /ExcludedeletePending`
 - Windows Server 2008 R2: `wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:All /details:Clients /ExcludedeletePending`
   #### <a name="additional-references"></a>Riferimenti aggiuntivi

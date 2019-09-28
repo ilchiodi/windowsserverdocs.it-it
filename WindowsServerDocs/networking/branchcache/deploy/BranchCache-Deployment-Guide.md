@@ -2,22 +2,22 @@
 title: Guida alla distribuzione di BranchCache
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 3830b356-36d3-44f9-a1d7-990ff3e57403
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9bccf69f0a913159a395fabc670a63e2c159bd91
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14eb9e5b4d5a28a64d3cfa0d27b5294ba7168da9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356725"
 ---
 # <a name="branchcache-deployment-guide"></a>Guida alla distribuzione di BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa guida per informazioni su come distribuire BranchCache in Windows Server 2016.  
   
@@ -64,7 +64,7 @@ Per ulteriori informazioni, vedere [versioni del sistema operativo per BranchCac
 
 Di seguito sono i requisiti per la distribuzione di BranchCache utilizzando questa Guida.  
   
--   **Server contenuti Web e file** deve essere in esecuzione uno dei seguenti sistemi operativi per fornire funzionalità di BranchCache: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Windows 8 e versioni successive client continua a visualizzare i vantaggi di BranchCache quando si accede a contenuto nei server che eseguono Windows Server 2008 R2, tuttavia non sono in grado di rendere utilizzo della nuova chunking e hashing tecnologie in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.  
+-   Per fornire funzionalità di BranchCache, i **server di contenuti Web e file** devono eseguire uno dei sistemi operativi seguenti: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Windows 8 e versioni successive client continua a visualizzare i vantaggi di BranchCache quando si accede a contenuto nei server che eseguono Windows Server 2008 R2, tuttavia non sono in grado di rendere utilizzo della nuova chunking e hashing tecnologie in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.  
   
 -   **I computer client** deve essere in esecuzione Windows 10, Windows 8.1 o Windows 8 per rendere utilizzare il modello di distribuzione più recente suddivisione in blocchi e di hashing miglioramenti introdotti con Windows Server 2012.  
   
@@ -74,7 +74,7 @@ Di seguito sono i requisiti per la distribuzione di BranchCache utilizzando ques
 
 -   **Siti di Active Directory** vengono utilizzati per limitare l'ambito del server cache ospitata che vengono individuati automaticamente.  Per rilevare automaticamente un server cache ospitata, i computer client e server devono appartenere allo stesso sito. BranchCache è progettato per avere un impatto minimo sul client e server e non impone requisiti hardware aggiuntivi oltre a quelli necessari per eseguire i rispettivi sistemi operativi.  
 
-**Documentazione e la cronologia di BranchCache**
+**Documentazione e cronologia di BranchCache**
 
 BranchCache è stato introdotto in Windows 7&reg; e Windows Server&reg; 2008 R2 ed è stato migliorato in Windows Server 2012, Windows 8 e versioni successive.
 

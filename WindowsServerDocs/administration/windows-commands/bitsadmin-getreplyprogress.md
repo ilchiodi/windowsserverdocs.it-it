@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getreplyprogress
-description: Argomento i comandi di Windows per **bitsadmin getreplyprogress** -recupera le dimensioni e lo stato di avanzamento di risposta del server.
+description: 'Argomento dei comandi di Windows per **BITSAdmin getreplyprogress** : recupera le dimensioni e lo stato della risposta del server.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aafecfb5873392ef86e6f7cceb139091b15e3b99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c791fe98271b497e5ecf48338ab3bbb0cc50de98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381237"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
 Recupera la dimensione e lo stato di risposta del server.
 
-**BITS 1.2 e versioni precedenti**: Non supportato.
+**BITS 1,2 e versioni precedenti**: Non supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -51,4 +51,4 @@ C:\>bitsadmin /GetReplyProgress myDownloadJob
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

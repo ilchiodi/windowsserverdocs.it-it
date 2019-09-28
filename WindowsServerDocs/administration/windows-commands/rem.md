@@ -1,8 +1,8 @@
 ---
 title: rem
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85c8a69bf21a386cd36e45bbca6dacd35aef2509
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2da0b6e42858582c1485659f3bf8f59e8e2ed97e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384571"
 ---
 # <a name="rem"></a>rem
 
@@ -38,13 +38,13 @@ rem [<Comment>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Comment>|Specifica una stringa di caratteri da includere come commento.|
+|\<Comment >|Specifica una stringa di caratteri da includere come commento.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 -   Il **rem** comando consente di visualizzare i commenti sullo schermo. È necessario utilizzare il **echo in** comando nel batch o nel file CONFIG. File SYS per visualizzare i commenti sullo schermo.
--   Non è possibile utilizzare un carattere di reindirizzamento (**<** o **>**) o pipe (**|**) in un commento di file batch.
+-   Non è possibile utilizzare un carattere di reindirizzamento ( **<** o **>** ) o pipe ( **|** ) in un commento di file batch.
 -   Sebbene sia possibile utilizzare **rem** senza un commento per aggiungere spaziatura verticale in un file batch, è inoltre possibile utilizzare le righe vuote. Righe vuote vengono ignorate durante l'elaborazione di un file batch.
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -67,4 +67,4 @@ prompt $p$g
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

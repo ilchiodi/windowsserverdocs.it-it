@@ -1,8 +1,8 @@
 ---
-title: Informazioni sul quorum del cluster e del pool
+title: Informazioni sul quorum di cluster e pool
 description: Informazioni sul quorum del cluster e del pool, con esempi specifici per approfondire le complessità.
 keywords: Spazi di archiviazione diretta, quorum, server di controllo del mirroring, S2D, quorum del cluster, quorum del pool, cluster, pool
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: adagashe
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,16 +10,16 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 962a4edc1a171167a6af336d4fb32188a526f455
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8950e9d09e3bd07dc02228c295ab223ead969ea6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366006"
 ---
-# <a name="understanding-cluster-and-pool-quorum"></a>Informazioni sul quorum del cluster e del pool
+# <a name="understanding-cluster-and-pool-quorum"></a>Informazioni sul quorum di cluster e pool
 
->Si applica a Windows Server 2019, Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016
 
 [Windows Server failover clustering](../../failover-clustering/failover-clustering-overview.md) fornisce disponibilità elevata per i carichi di lavoro. Queste risorse vengono considerate a disponibilità elevata se i nodi che ospitano risorse sono attivati; Tuttavia, il cluster richiede in genere più della metà dei nodi in esecuzione, che è noto come *quorum*.
 
@@ -41,7 +41,7 @@ La tabella seguente offre una panoramica dei risultati del quorum del cluster pe
 | 2            | 50/50                               | No                                                | No                                                 |
 | 2 + server di controllo  | Yes                                 | No                                                | No                                                 |
 | 3            | Yes                                 | 50/50                                             | No                                                 |
-| 3 + server di controllo  | Yes                                 | Sì                                               | No                                                 |
+| 3 + server di controllo  | Yes                                 | Yes                                               | No                                                 |
 | 4            | Yes                                 | Yes                                               | 50/50                                              |
 | 4 + server di controllo  | Yes                                 | Yes                                               | Yes                                                |
 | 5 e versioni successive  | Yes                                 | Yes                                               | Yes                                                |

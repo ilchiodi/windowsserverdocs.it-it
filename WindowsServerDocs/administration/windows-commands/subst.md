@@ -1,8 +1,8 @@
 ---
 title: subst
-description: Informazioni su come associare un percorso con una lettera di unità.
+description: Informazioni su come associare un percorso a una lettera di unità.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 858195de89ca8661cf47c25b6cf9b519cc4efbf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3010d1e58fbd360b8311512e6664873b020c12b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383750"
 ---
 # <a name="subst"></a>subst
 
@@ -39,14 +39,14 @@ subst <Drive1>: /d
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive1>:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
-|[\<Drive2>:]\<Path>|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
+|> \<Drive1:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
+|[\<Drive2 >:] \<Path >|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
 |/d|Elimina un'unità sostituita (virtuale).|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   I comandi seguenti non funzionano e non deve essere utilizzati nelle unità specificate nel **subst** comando:
+-   I comandi seguenti non funzionano e non devono essere usati nelle unità specificate nel comando **SUBST** :
 
     **chkdsk**
 
@@ -76,4 +76,4 @@ z:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

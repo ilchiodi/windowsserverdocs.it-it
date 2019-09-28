@@ -1,8 +1,8 @@
 ---
-title: Scwcmd trasformazione
-description: 'Argomento i comandi di Windows per * * *- '
+title: Trasformazione scwcmd
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a6a6e37c2c2a362f3aa0aeadef615ff5065713f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 36ee3a99828c7fdd9d4fc0ca14cbc0e203b01ea0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384315"
 ---
 # <a name="scwcmd-transform"></a>Scwcmd: trasformare
 
@@ -29,7 +29,7 @@ Trasforma un file di criteri di sicurezza generato utilizzando la configurazione
 Per completare l'operazione di trasformazione sono necessarie le credenziali di amministratore di dominio.
 
 > [!IMPORTANT]
-> Impostazioni di protezione di Internet Information Services (IIS) non possono essere distribuite utilizzando criteri di gruppo.</br>> I criteri firewall che elencano applicazioni approvate non devono essere distribuite ai server, a meno che il servizio di Windows Firewall avviato automaticamente quando il server è l'ultimo avvio.
+> Impostazioni di protezione di Internet Information Services (IIS) non possono essere distribuite utilizzando criteri di gruppo.</br>> Criteri firewall che elencano le applicazioni approvate non devono essere distribuiti ai server a meno che il servizio Windows Firewall non venga avviato automaticamente all'ultimo avvio del server.
 
 Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 
@@ -43,8 +43,8 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/p:\<Policyfile.xml>|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
-|/g:\<GPODisplayName>|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
+|/p: @no__t -0Policyfile. XML >|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
+|/g: \<GPODisplayName >|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -60,4 +60,4 @@ scwcmd transform /p:FileServerPolicy.xml /g:FileServerSecurity
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

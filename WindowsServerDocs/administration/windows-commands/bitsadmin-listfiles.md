@@ -1,8 +1,8 @@
 ---
 title: bitsadmin listfiles
-description: Argomento i comandi di Windows per **listfiles bitsadmin** -Elenca i file del processo specificato.
+description: Argomento comandi di Windows per **BITSAdmin ListFiles** -elenca i file nel processo specificato.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f0f86a7e176c601c51dbdf403baf51f70e53dc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 43823e4f5c8443396e21405f22ba8b3c5687da44
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852972"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381059"
 ---
 # <a name="bitsadmin-listfiles"></a>bitsadmin listfiles
 
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetNotifyFlags myDownloadJob
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

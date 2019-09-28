@@ -7,13 +7,13 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 229a911039ba88847de42e542f47b344d7a032c2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 159202fcb8c6125134154094e67e862ce8eb12ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869604"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357025"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guida di stile per la progettazione e il testo dell'interfaccia utente di Windows Admin Center
 
@@ -151,13 +151,13 @@ Gli sviluppatori Microsoft devono usare un FWLink tranne quando si tratta di un 
     - Non lo stile
         - Quali sono i [rischi per consentire le eccezioni]()? 
 
-## <a name="error-messages"></a>messaggi di errore
+## <a name="error-messages"></a>Messaggi di errore
 
 Ecco alcune indicazioni adattate dalla Guida di stile di Windows:
 
 La scrittura di un buon messaggio è un equilibrio tra fornire una spiegazione sufficiente ma non essere troppo tecnica; tra essere casuali e personali ma non fastidiosi o offensivi.
 
-### <a name="general-guidelines"></a>Indicazioni generali
+### <a name="general-guidelines"></a>Linee guida generali
 
 Usare un messaggio per ogni caso di errore.
 
@@ -197,7 +197,7 @@ Di seguito sono riportate alcune informazioni dalla Guida di stile di Windows.
 
 Lo stato null si verifica quando il contenuto o i dati del cliente sono assenti da un'app o da una funzionalità, quando non vengono restituiti risultati dopo una ricerca o quando le informazioni richieste non sono presenti in un modulo, ad esempio le informazioni di fatturazione per una transazione.
 
-### <a name="guidelines"></a>Indicazioni
+### <a name="guidelines"></a>Linee guida
 
 - Se possibile, usare le situazioni di stato null come opportunità per informare gli utenti su come usare la funzionalità (ad esempio, come aggiungere musica, dove trovare immagini e così via).  
   - Se è presente un titolo nell'interfaccia utente, spiegare l'azione da intraprendere per "correggere" lo stato null (ad esempio, "aggiungere musica") 
@@ -234,7 +234,7 @@ Ecco alcuni consigli dettagliati per i messaggi di notifica:
 
 |Tipo di stringa         | Note                               |
 |------------        |-------------------------------------|
-|Started             |Ometti quando possibile: in genere puoi passare direttamente al messaggio che indica un'operazione in corso per ridurre il numero di distrazioni.|
+|Avviato             |Ometti quando possibile: in genere puoi passare direttamente al messaggio che indica un'operazione in corso per ridurre il numero di distrazioni.|
 |In progress         |Inizia con l'azione che stai eseguendo e finisci con l'ellissi per indicare che l'operazione è in corso. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente"...*|
 |Riuscito             |Inizia con l'azione e termina con l'indicazione che è stata completata. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente" completata.*|
 |Errore             |Inizia con "Non è possibile" e termina con l'operazione che non è stata eseguita. Di seguito è riportato un esempio:<br> *Non è stato possibile creare il volume "dati cliente".*|

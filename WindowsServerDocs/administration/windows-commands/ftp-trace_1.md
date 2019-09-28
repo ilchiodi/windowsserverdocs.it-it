@@ -1,8 +1,8 @@
 ---
 title: trace_1 FTP
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9db8ae49f996a6f316f0c18b51149ada38a759c7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51f1f41a854a73bba8b56aebbc0cc8e2e98d89e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375934"
 ---
-# <a name="ftp-trace1"></a>ftp: trace_1
+# <a name="ftp-trace_1"></a>FTP: trace_1
 
 
 
-Attiva/disattiva la traccia dei pacchetti.
+Consente di abilitare o disabilitare la traccia di pacchetti.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,15 +38,15 @@ nessuno
 
 ## <a name="remarks"></a>Note
 
-**Traccia** Visualizza le serie di chiamate di funzione interne FTP durante l'esecuzione di un' **ftp** comando.
+**Trace** Visualizza la serie di chiamate di funzione FTP interne quando si esegue un comando **FTP** .
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Attiva/disattiva la traccia e disattivare.
+Attivare e disattivare la traccia.
 ```
 trace
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

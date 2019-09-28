@@ -1,8 +1,8 @@
 ---
-title: getclientcertificate Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin getclientcertificate** -recupera il certificato client dal processo.
+title: GetClientCertificate Bitsadmin
+description: 'Argomento dei comandi di Windows per **BITSAdmin GetClientCertificate** : Recupera il certificato client dal processo.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 113d733d1deb9fbb1c89231495cb7af668a444d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 613feafb442f63513d34e9038647c4dbeb278630
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381724"
 ---
-# <a name="bitsadmin-getclientcertificate"></a>getclientcertificate Bitsadmin
+# <a name="bitsadmin-getclientcertificate"></a>GetClientCertificate Bitsadmin
 
 
 
@@ -40,11 +40,11 @@ bitsadmin /GetClientCertificate <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera il certificato client per il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperato il certificato client per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin / GetClientCertificate myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

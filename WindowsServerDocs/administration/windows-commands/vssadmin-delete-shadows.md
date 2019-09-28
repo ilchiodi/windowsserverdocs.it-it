@@ -1,25 +1,25 @@
 ---
-title: Shadows delete vssadmin
-description: Descrizione del comando vssadmin delete ombreggiature.
-ms.prod: windows-server-threshold
+title: Vssadmin Elimina ombre
+description: Descrizione del comando vssadmin delete Shadows.
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 83074017e4ae412cf0aec654f6ab5901ad8039e2
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9779da98ecb43245fe206390d9b70471f15d706e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63706621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362609"
 ---
-# <a name="vssadmin-delete-shadows"></a>Shadows delete vssadmin
+# <a name="vssadmin-delete-shadows"></a>Vssadmin Elimina ombre
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Elimina le copie shadow del volume specificato.
+Elimina le copie shadow di un volume specificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -31,15 +31,15 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 |Parametro|Descrizione|
 |---|---|
-|/for=\<ForVolumeSpec>|Specifica la copia shadow del volume che verrà eliminata.|
+|/for = \<ForVolumeSpec >|Specifica la copia shadow del volume che verrà eliminata.|
 |/oldest|Elimina solo la copia shadow meno recente.|
 |/all|Elimina tutte le copie shadow del volume specificato.|
-|/shadow=\<ShadowID>|Elimina la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il **shadows elenco vssadmin** comando. Quando si immette un ID della copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
-|/quiet|Specifica che il comando non visualizzerà messaggi durante l'esecuzione.|
+|/Shadow = \<ShadowID >|Elimina la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il comando **vssadmin list shadows** . Quando si immette un ID copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/quiet|Specifica che il comando non visualizzerà i messaggi durante l'esecuzione.|
 
 ## <a name="remarks"></a>Note
 
-È possibile eliminare le copie shadow solo con il tipo accessibili dal client.
+È possibile eliminare solo le copie shadow con il tipo accessibile dal client.
 
 ## <a name="examples"></a>Esempi
 
@@ -53,4 +53,4 @@ vssadmin delete shadows /for=c: /oldest
 
 * [Chiave sintassi della riga di comando](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)
-* [Shadows elenco vssadmin](vssadmin-list-shadows.md)
+* [Ombreggiatura elenco Vssadmin](vssadmin-list-shadows.md)

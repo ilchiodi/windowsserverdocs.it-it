@@ -1,8 +1,8 @@
 ---
 title: etichetta
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0c68fbbf3ea776bbf6cd49fc4fa446d5dd46542
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e66a2d9a7d28462b287084e3f8b129ffc03800bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437916"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374786"
 ---
 # <a name="label"></a>etichetta
 
@@ -40,7 +40,7 @@ label [/mp] [<Volume>] [<Label>]
 |---------|-----------|
 |/MP|Specifica che il volume deve essere trattato come un nome di volume o punto di montaggio.|
 |\<Volume >|Specifica una lettera di unità (seguita da due punti), punto di montaggio o il nome del volume. Se viene specificato un nome di volume, il **/mp** parametro non è necessario.|
-|\<Label>|Specifica l'etichetta per il volume.|
+|\<Label >|Specifica l'etichetta per il volume.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note

@@ -1,8 +1,8 @@
 ---
 title: change logon
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45c171a1b14cf69abf039d57697cad933a2dd87b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c04eaffe366dce079aed53351589c1b5026954e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434574"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379640"
 ---
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 # <a name="change-logon"></a>change logon
-Abilita o disabilita gli accessi da sessioni client Visualizza lo stato di accesso corrente.
+Abilita o Disabilita gli accessi da sessioni client o Visualizza lo stato di accesso corrente.
 Questa utilità è utile per la manutenzione del sistema.
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
+Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [novità in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
 > ```
 > change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
@@ -37,15 +37,15 @@ Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
 > |     Parametro      |                                                       Descrizione                                                        |
 > |--------------------|--------------------------------------------------------------------------------------------------------------------------|
 > |       /query       |                             Visualizza lo stato di accesso corrente, se abilitato o disabilitato.                              |
-> |      /Enable       |                              Consente gli accessi da sessioni client, ma non dalla console.                              |
-> |      /Disable      |  Disabilita gli accessi successivi da sessioni client, ma non da console. Non influisce sugli utenti attualmente connesso.   |
-> |       /drain       |                 Disabilita gli accessi da sessioni client nuovo, ma consente di riconnessione a sessioni esistenti.                 |
-> | /drainuntilrestart | Disabilita gli accessi da nuove sessioni client fino a quando il computer viene riavviato, ma consente di riconnessione a sessioni esistenti. |
+> |      /Enable       |                              Consente l'accesso da sessioni client, ma non dalla console di.                              |
+> |      /Disable      |  Disabilita gli accessi successivi dalle sessioni client, ma non dalla console. Non influisce sugli utenti attualmente connessi.   |
+> |       /drain       |                 Disabilita gli accessi dalle nuove sessioni client, ma consente la riconnessione a sessioni esistenti.                 |
+> | /drainuntilrestart | Disabilita gli accessi dalle nuove sessioni client finché il computer non viene riavviato, ma consente la riconnessione a sessioni esistenti. |
 > |         /?         |                                           Visualizza la guida al prompt dei comandi.                                           |
 > 
 > ## <a name="remarks"></a>Note
-> - Solo gli amministratori possono utilizzare il **modificare accesso** comando.
-> - Gli accessi vengono riattivati quando si riavvia il sistema. Se si è connessi al server Host sessione Desktop remoto (Host sessione rd) da una sessione client e disabilitare gli accessi e quindi disconnettersi prima di riabilitare gli accessi, non sarà in grado di riconnettersi alla sessione corrente. Per riabilitare gli accessi da sessioni client, accedere alla console.
+> - Solo gli amministratori possono usare il comando **Change logon** .
+> - Gli accessi vengono abilitati di nuovo al riavvio del sistema. Se si è connessi al server host sessione Desktop remoto (host sessione Desktop remoto) da una sessione client e si disabilitano gli accessi e quindi si disconnette prima di riabilitare gli accessi, non sarà possibile riconnettersi alla sessione. Per riabilitare gli accessi da sessioni client, accedere alla console di.
 >   ## <a name="BKMK_examples"></a>Esempi
 > - Per visualizzare lo stato di accesso corrente, digitare:
 >   ```
@@ -60,6 +60,6 @@ Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).
 >   change logon /disable
 >   ```
 >   #### <a name="additional-references"></a>Riferimenti aggiuntivi
->   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+>   [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
 >   [modificare](change.md)
->   [Remote Desktop Services &#40;servizi Terminal&#41; riferimenti ai comandi](remote-desktop-services-terminal-services-command-reference.md)
+>   [ &#40;Servizi Desktop remoto&#41; riferimento ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

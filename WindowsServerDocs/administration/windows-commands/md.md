@@ -1,8 +1,8 @@
 ---
 title: MD
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1396038410ecc5db5a124a1768038c4f8c8bea8c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 965a5c506535a2c52d6cc7b3557c6104182c12a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820842"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373692"
 ---
 # <a name="md"></a>MD
 
 
 
-Crea una directory o sottodirectory.
+Crea una directory o una sottodirectory.
 
 > [!NOTE]
-> Questo comando è analogo a come le **mkdir** comando.
+> Questo comando è lo stesso del comando **mkdir** .
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -42,25 +42,25 @@ mkdir [<Drive>:]<Path>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive>:|Specifica l'unità in cui si desidera creare la nuova directory.|
-|\<Path>|Obbligatorio. Specifica il nome e il percorso della nuova directory. La lunghezza massima di qualsiasi singolo percorso è determinata dal file system.|
+|> \<Drive:|Consente di specificare l'unità in cui si desidera creare la nuova directory.|
+|\<Path >|Obbligatorio. Specifica il nome e il percorso della nuova directory. La lunghezza massima di un singolo percorso è determinata dalla file system.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-Le estensioni dei comandi, sono abilitati per impostazione predefinita, sarà possibile usare un unico **md** comando per creare directory intermedie in un percorso specificato.
+Le estensioni dei comandi, abilitate per impostazione predefinita, consentono di usare un singolo comando **MD** per creare directory intermedie in un percorso specificato.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per creare una directory denominata Directory1 all'interno della directory corrente, digitare:
+Per creare una directory denominata directory1 nella directory corrente, digitare:
 ```
 md Directory1
 ```
-Per creare l'albero di directory Taxes\Property\Current all'interno della directory radice, con le estensioni abilitate, digitare:
+Per creare l'albero di directory Taxes\Property\Current all'interno della directory radice, con le estensioni del comando abilitate, digitare:
 ```
 md \Taxes\Property\Current
 ```
-Per creare l'albero di directory Taxes\Property\Current all'interno della directory radice dell'esempio precedente, ma con le estensioni dei comandi disabilitate, digitare la sequenza di comandi seguente:
+Per creare l'albero di directory Taxes\Property\Current all'interno della directory radice come nell'esempio precedente, ma con le estensioni del comando disabilitate, digitare la sequenza di comandi seguente:
 ```
 md \Taxes
 cd \Taxes 
@@ -71,6 +71,6 @@ md Current
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Cmd](cmd.md)

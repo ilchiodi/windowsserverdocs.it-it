@@ -1,8 +1,8 @@
 ---
 title: selezionare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4c3723dd414adca68c22011ef3f6be02eb6531d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7dc3bc8775f971968f096ba4344348e77c112cfa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384115"
 ---
 # <a name="select"></a>selezionare
 
@@ -39,10 +39,10 @@ select vdisk
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Selezionare disco](select-disk.md)|Sposta lo stato attivo su un disco.|
-|[Selezionare una partizione](select-partition.md)|Sposta lo stato attivo a una partizione.|
-|[Selezionare volume](select-volume.md)|Sposta lo stato attivo su un volume.|
-|[Selezionare vdisk](select-vdisk.md)|Sposta lo stato attivo a un disco rigido Virtuale.|
+|[Selezione disco](select-disk.md)|Sposta lo stato attivo su un disco.|
+|[Seleziona partizione](select-partition.md)|Sposta lo stato attivo a una partizione.|
+|[Seleziona volume](select-volume.md)|Sposta lo stato attivo su un volume.|
+|[Seleziona vdisk](select-vdisk.md)|Sposta lo stato attivo a un disco rigido Virtuale.|
 
 ## <a name="remarks"></a>Note
 
@@ -51,5 +51,5 @@ select vdisk
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

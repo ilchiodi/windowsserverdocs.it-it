@@ -1,8 +1,8 @@
 ---
-title: Comando Wbadmin start systemstatebackup
-description: 'Argomento i comandi di Windows per * * *- '
+title: comando Wbadmin start systemstatebackup
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0244f984d29c8a802475d2dc08f1cdfe4495f0b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362235"
 ---
-# <a name="wbadmin-start-systemstatebackup"></a>Comando Wbadmin start systemstatebackup
+# <a name="wbadmin-start-systemstatebackup"></a>comando Wbadmin start systemstatebackup
 
 
 
@@ -45,12 +45,12 @@ wbadmin start systemstatebackup
 
 |   Parametro   |                                                                                                                                                                                                                      Descrizione                                                                                                                                                                                                                      |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -backupTarget | Specifica il percorso in cui si desidera archiviare il backup. Il percorso di archiviazione richiede una lettera di unità o un volume basato su GUID del formato: \\ \\? \Volume{{{*GUID*}.</br>Un backup dello stato del sistema in una cartella di rete condivisa non è supportato in un computer che esegue Windows Server 2008. Se il server è in esecuzione Windows Server 2008 R2 o versioni successive è possibile usare il comando **- backuptarget:\\\\servername\sharedFolder\\**  per archiviare backup dello stato del sistema. |
+| -backupTarget | Specifica il percorso in cui si desidera archiviare il backup. Il percorso di archiviazione richiede una lettera di unità o un volume basato su GUID nel formato: \\ @ no__t-1? \Volume{*GUID*}.</br>Un backup dello stato del sistema in una cartella di rete condivisa non è supportato in un computer che esegue Windows Server 2008. Se nel server è in esecuzione Windows Server 2008 R2 o versione successiva, è possibile usare il comando **-backupTarget: \\ @ no__t-2servername\sharedFolder @ no__t-3** per archiviare i backup dello stato del sistema. |
 |    -quiet     |                                                                                                                                                                                                   Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Note
 
-Per informazioni sul salvataggio di un backup dello stato del sistema in un volume, che a sua volta, contengono i file dello stato di sistema, vedere l'articolo 944530 della Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
+Per informazioni sul salvataggio di un backup dello stato del sistema in un volume che, a sua volta, contiene i file di stato del sistema, vedere l'articolo 944530 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
 
 ## <a name="BKMK_examples"></a>Esempi
 

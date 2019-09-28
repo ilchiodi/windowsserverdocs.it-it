@@ -1,7 +1,7 @@
 ---
 title: Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V
 description: Fornisce consigli per l'esecuzione di FreeBSD in macchine virtuali
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 598087411b35dde2e4a1cb606fae6a4602fe588e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 1d284b38e1bdb642aa40ecbb8e82caa7712f7aad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544687"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365634"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V
 
@@ -28,13 +28,13 @@ Questo argomento contiene un elenco di consigli per l'esecuzione di FreeBSD come
 
 Il protocollo di ridondanza degli indirizzi comuni (CARP) consente a più host di condividere lo stesso indirizzo IP e l'ID host virtuale (VHID) per garantire la disponibilità elevata per uno o più servizi. Se uno o più host hanno esito negativo, gli altri host accettano in modo trasparente gli eventuali errori del servizio. Per usare CARP in FreeBSD 10,2, seguire le istruzioni nel [Manuale di FreeBSD](https://www.freebsd.org/doc/en/books/handbook/carp.html) ed eseguire le operazioni seguenti nella console di gestione di Hyper-V.
 
-* Verificare che la macchina virtuale disponga di una scheda di rete a cui è assegnato un Commuter virtuale. Selezionare la macchina virtuale e selezionare le**impostazioni delle** **azioni** > .
+* Verificare che la macchina virtuale disponga di una scheda di rete a cui è assegnato un Commuter virtuale. Selezionare la macchina virtuale e selezionare **azioni** > **Impostazioni**.
 
 ![Screenshot delle impostazioni della macchina virtuale con la scheda di rete selezionata](media/Hyper-V_Settings_NetworkAdapter.png)
 
 * Abilitare lo spoofing degli indirizzi MAC. Per eseguire questa operazione,
 
-   1. Selezionare la macchina virtuale e selezionare le**impostazioni delle** **azioni** > .
+   1. Selezionare la macchina virtuale e selezionare **azioni** > **Impostazioni**.
 
    2. Espandere **scheda di rete** e selezionare **funzionalità avanzate**.
 

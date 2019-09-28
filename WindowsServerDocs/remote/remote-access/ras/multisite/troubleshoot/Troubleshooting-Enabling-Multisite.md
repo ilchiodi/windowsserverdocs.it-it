@@ -1,9 +1,9 @@
 ---
 title: Risoluzione dei problemi di abilitazione della distribuzione multisito
-description: Questo argomento fa parte della Guida alla distribuzione di più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7fafc2e95f30a3956a1e2fdfcdf2f368a1798d28
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fc42040d68b8a22dcfc46aa30db3a2a3c3bc060a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367056"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Risoluzione dei problemi di abilitazione della distribuzione multisito
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento vengono fornite informazioni sulla risoluzione dei problemi relativi al comando `Enable-DAMultisite`. Per verificare che il messaggio di errore ricevuto sia correlato all'abilitazione della distribuzione multisito, controllare che nel registro eventi di Windows sia presente l'ID evento 10051.  
   
@@ -30,16 +30,16 @@ Gli utenti possono riscontrare problemi di connettività quando si abilita la di
   
 **Causa**  
   
-In una distribuzione multisito, i computer client Windows 10 e Windows 8 sono in grado di effettuare il roaming tra diversi punti di ingresso.  I computer client Windows 7 devono essere associati a un punto di ingresso specifico nella distribuzione multisito. Se i computer non sono nel gruppo di sicurezza corretto, possono ricevere impostazioni di Criteri di gruppo errate.  
+In una distribuzione multisito, i computer client Windows 10 e Windows 8 sono in grado di eseguire il roaming tra diversi punti di ingresso.  I computer client Windows 7 devono essere associati a uno specifico punto di ingresso nella distribuzione multisito. Se i computer non sono nel gruppo di sicurezza corretto, possono ricevere impostazioni di Criteri di gruppo errate.  
   
 **Soluzione**  
   
-DirectAccess richiede almeno un gruppo di sicurezza per tutti i computer di client di Windows 10 e Windows 8. è consigliabile usare un gruppo di sicurezza per tutti i computer Windows 10 e Windows 8 per ogni dominio. DirectAccess richiede inoltre un gruppo di sicurezza per i computer client Windows 7 per ogni punto di ingresso. Ogni computer client deve essere incluso in un solo gruppo di sicurezza. Pertanto, è necessario assicurarsi che i gruppi di sicurezza per Windows 10 e Windows 8 client contenga solo computer che eseguono Windows 10 o Windows 8 e che ogni computer client Windows 7 appartenga a un gruppo di sicurezza dedicato per il punto di ingresso pertinente e che nessun client Windows 10 o Windows 8 appartenga a gruppi di sicurezza di Windows 7.  
+DirectAccess richiede almeno un gruppo di sicurezza per tutti i computer client Windows 10 e Windows 8. si consiglia di usare un gruppo di sicurezza per tutti i computer Windows 10 e Windows 8 per dominio. DirectAccess richiede anche un gruppo di sicurezza per i computer client Windows 7 per ogni punto di ingresso. Ogni computer client deve essere incluso in un solo gruppo di sicurezza. Pertanto, è necessario assicurarsi che i gruppi di sicurezza per i client Windows 10 e Windows 8 includano solo i computer che eseguono Windows 10 o Windows 8 e che ogni computer client Windows 7 appartenga a un singolo gruppo di sicurezza dedicato per il punto di ingresso pertinente e che nessun client Windows 10 o Windows 8 appartenga ai gruppi di sicurezza di Windows 7.  
   
-Configurare i gruppi di sicurezza di Windows 8 nel **Seleziona gruppi** pagina della **configurazione di un Client DirectAccess** procedura guidata. Configurare gruppi di sicurezza di Windows 7 sul **supporto Client** pagina del **Abilita distribuzione multisito** procedura guidata, o scegliere il **supporto Client** pagina del  **Aggiungere un punto di ingresso** procedura guidata.  
+Configurare i gruppi di sicurezza di Windows 8 nella pagina **Seleziona gruppi** della **Configurazione guidata client DirectAccess** . Configurare i gruppi di sicurezza di Windows 7 nella pagina **supporto client** della procedura guidata **Abilita distribuzione multisito** oppure nella pagina **supporto client** della procedura guidata **Aggiungi punto di ingresso** .  
   
 ## <a name="kerberos-proxy-authentication"></a>Autenticazione proxy Kerberos  
-**Errore ricevuto**. Autenticazione proxy Kerberos non è supportato in una distribuzione multisito. È necessario abilitare l'uso dei certificati computer per l'autenticazione server IPsec.  
+**Errore ricevuto**. L'autenticazione proxy Kerberos non è supportata in una distribuzione multisito. È necessario abilitare l'uso dei certificati computer per l'autenticazione server IPsec.  
   
 **Causa**  
   
@@ -53,7 +53,7 @@ Per abilitare l'autenticazione del certificato del computer
   
 2.  Nella pagina **Autenticazione** della procedura guidata **Installazione del server di Accesso remoto** selezionare la casella di controllo **Usa certificati computer**, quindi l'autorità di certificazione radice o intermedia che rilascia i certificati nella distribuzione.  
   
-Per abilitare l'autenticazione del certificato computer con Windows PowerShell, usare il `Set-DAServer` cmdlet e specificare il *IPsecRootCertificate* parametro.  
+Per abilitare l'autenticazione del certificato del computer con Windows PowerShell, usare il cmdlet `Set-DAServer` e specificare il parametro *IPsecRootCertificate* .  
   
 ## <a name="ip-https-certificates"></a>Certificati IP-HTTPS  
 **Errore ricevuto**. Il server DirectAccess utilizza un certificato IP-HTTPS autofirmato. Configurare IP-HTTPS per l'utilizzo di un certificato firmato proveniente da un'autorità di certificazione nota.  
@@ -74,7 +74,7 @@ Per selezionare un certificato IP-HTTPS:
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. DirectAccess è configurato per usare un certificato autofirmato per il server dei percorsi di rete. Configurare il server dei percorsi di rete per l'utilizzo di un certificato firmato rilasciato da una CA.  
+    **Errore ricevuto**. DirectAccess è configurato per l'uso di un certificato autofirmato per il server dei percorsi di rete. Configurare il server dei percorsi di rete per l'utilizzo di un certificato firmato rilasciato da una CA.  
   
     **Causa**  
   
@@ -90,7 +90,7 @@ Per selezionare un certificato IP-HTTPS:
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Per distribuire un carico di rete con bilanciamento del cluster o una distribuzione multisito, ottenere un certificato per il server dei percorsi rete con un nome soggetto diverso dal nome interno del server di accesso remoto.  
+    **Errore ricevuto**. Per distribuire un cluster con bilanciamento del carico di rete o una distribuzione multisito, ottenere un certificato per il server dei percorsi di rete con un nome soggetto diverso dal nome interno del server di accesso remoto.  
   
     **Causa**  
   
@@ -107,18 +107,18 @@ Per selezionare un certificato IP-HTTPS:
     2.  Nella pagina **Server dei percorsi di rete** della procedura guidata **Configurazione server di infrastruttura**, sotto **Il server dei percorsi di rete viene distribuito nel server di Accesso remoto**, fare clic su **Sfoglia** per selezionare il certificato ottenuto in precedenza. Il certificato deve avere un nome soggetto diverso dal nome interno del server di Accesso remoto.  
   
 ## <a name="windows-7-client-computers"></a>Computer client Windows 7  
-**Avviso ricevuto**. Quando si abilita la distribuzione multisito, gruppi di sicurezza configurati per i client DirectAccess non devono contenere i computer Windows 7. Per supportare computer client Windows 7 in una distribuzione multisito, selezionare un gruppo di sicurezza contenente i client per ogni punto di ingresso.  
+**Avviso ricevuto**. Quando si Abilita multisito, i gruppi di sicurezza configurati per i client DirectAccess non devono contenere computer con Windows 7. Per supportare computer client Windows 7 in una distribuzione multisito, selezionare un gruppo di sicurezza contenente i client per ogni punto di ingresso.  
   
 **Causa**  
   
-Nella distribuzione DirectAccess esistente, è stato abilitato il supporto di client Windows 7.  
+Nella distribuzione di DirectAccess esistente è stato abilitato il supporto client di Windows 7.  
   
 **Soluzione**  
   
-DirectAccess richiede almeno un gruppo di sicurezza per tutti i computer client Windows 8 e un gruppo di sicurezza per i computer client Windows 7 per ogni punto di ingresso. Ogni computer client deve essere incluso in un solo gruppo di sicurezza. Pertanto, è necessario assicurarsi che il gruppo di sicurezza per i client Windows 8 contiene solo i computer che eseguono Windows 8 e che ogni computer client Windows 7 appartenga a un gruppo di sicurezza dedicato per il punto di ingresso pertinente e che nessun client di Windows 8 appartenere ai gruppi di sicurezza di Windows 7.  
+DirectAccess richiede almeno un gruppo di sicurezza per tutti i computer client Windows 8 e un gruppo di sicurezza per i computer client Windows 7 per ogni punto di ingresso. Ogni computer client deve essere incluso in un solo gruppo di sicurezza. Pertanto, è necessario assicurarsi che il gruppo di sicurezza per i client Windows 8 contenga solo computer che eseguono Windows 8 e che ogni computer client Windows 7 appartenga a un singolo gruppo di sicurezza dedicato per il punto di ingresso pertinente e che nessun client Windows 8 appartenere ai gruppi di sicurezza di Windows 7.  
   
 ## <a name="active-directory-site"></a>Il sito di Active Directory  
-**Errore ricevuto**. Il server < server_name > non è associato a un sito Active Directory.  
+**Errore ricevuto**. Il server < nome_server > non è associato a un sito Active Directory.  
   
 **Causa**  
   
@@ -128,12 +128,12 @@ DirectAccess non è in grado di determinare il sito Active Directory. Nella cons
   
 Verificare che sia questo il problema eseguendo il comando `nltest /dsgetsite` nel server di Accesso remoto. In caso affermativo, verrà restituito ERROR_NO_SITENAME. Per risolvere questo problema, verificare che nel controller del dominio sia presente una subnet contenente l'indirizzo IP del server interno e che tale subnet sia definita con un sito Active Directory.  
   
-## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni server oggetto Criteri di gruppo  
-**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < nome_oggetto >.  
+## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
+**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < GPO_name >.  
   
 **Causa**  
   
-Non è stato possibile salvare le modifiche per il server oggetto Criteri di gruppo a causa di problemi di connettività o se si verifica una violazione di condivisione per il file Registry. pol, ad esempio, un altro utente ha bloccato il file.  
+Non è stato possibile salvare le modifiche all'oggetto Criteri di gruppo del server a causa di problemi di connettività o se si è verificata una violazione di condivisione nel file Registry. pol. ad esempio, un altro utente ha bloccato il file.  
   
 **Soluzione**  
   

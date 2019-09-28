@@ -1,25 +1,25 @@
 ---
-title: Autori di elenco vssadmin
+title: Writer elenco Vssadmin
 description: Descrizione del comando vssadmin list writer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e3bd77d844ed6b613659d095d7ef07b9e5f40f61
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f62f44b3a47a0fe2d307c9d65d6cdc473f60db74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63706979"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362585"
 ---
-# <a name="vssadmin-list-writers"></a>Autori di elenco vssadmin
+# <a name="vssadmin-list-writers"></a>Writer elenco Vssadmin
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Gli elenchi sottoscritto copie shadow del volume.
+Elenca i writer della copia shadow del volume sottoscritti.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -29,7 +29,7 @@ vssadmin list writers
 
 ## <a name="parameters"></a>Parametri
 
-Senza parametri.
+Nessun parametro.
 
 ## <a name="additional-references"></a>Altri riferimenti
 
